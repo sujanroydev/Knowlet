@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Knowlet - Notes Declaration</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            padding: 30px 40px;
+            max-width: 700px;
+            text-align: left;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+            animation: slideIn 1s ease forwards;
+        }
+
+        p {
+            line-height: 1.7;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInText 1s forwards;
+        }
+
+        p:nth-of-type(1) { animation-delay: 1s; }
+        p:nth-of-type(2) { animation-delay: 1.5s; }
+        p:nth-of-type(3) { animation-delay: 2s; }
+        p:nth-of-type(4) { animation-delay: 2.5s; }
+
+        .highlight {
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+            animation: fadeInText 1s forwards;
+            animation-delay: 3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes fadeInText {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Notes Declaration</h1>
+        <p>Welcome to <span class="highlight">Knowlet</span>. All notes and study materials available here are generated using advanced AI technology – <span class="highlight">Gemini, ChatGPT and Grok</span>. We carefully align these notes with your academic syllabus, ensuring that you receive content that is relevant and directly supports your studies.</p>
+        
+        <p>The notes are crafted to be <span class="highlight">simple, clear, and easy to understand</span>. Our goal is to present complex topics in a way that helps you grasp concepts quickly without unnecessary jargon or lengthy explanations.</p>
+        
+        <p>While we focus on accuracy and relevance, it is important to remember that AI-generated content may occasionally have minor errors or outdated information. We encourage you to use these notes as a supplementary learning tool and to cross-check with textbooks, teachers, or other trusted resources when needed.</p>
+        
+        <p>Our mission is to support your learning journey by providing accessible, syllabus-based, and easy-to-digest study material. Feel free to share feedback or ask questions if you need further clarification or help understanding any topic.</p>
+        
+        <div class="footer">
+            Thank you for trusting Knowlet as your study companion.<br>
+            — The Knowlet Team
+        </div>
+    </div>
+</body>
+</html>

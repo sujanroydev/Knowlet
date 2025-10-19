@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDC 101: Unit 3 - Computer Memory</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 20px; background-color: #f4f4f9; color: #333; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.1); }
+        h1, h2, h3 { color: #0d47a1; border-bottom: 2px solid #0d47a1; padding-bottom: 5px; }
+        h1 { font-size: 2.2em; text-align: center; }
+        h2 { font-size: 1.8em; margin-top: 30px; }
+        h3 { font-size: 1.4em; color: #1565c0; border-bottom: 1px solid #1565c0; }
+        strong { color: #d9534f; }
+        blockquote { background: #e3f2fd; border-left: 5px solid #0d47a1; margin: 20px 0; padding: 15px; font-style: italic; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #0d47a1; color: white; text-align: center; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .toc { background: #f8f9fa; border: 1px solid #dee2e6; padding: 15px; border-radius: 5px; margin-bottom: 30px; }
+        .toc h2 { border: none; margin-top: 0; }
+        .toc ul { list-style-type: none; padding: 0; }
+        .toc li a { text-decoration: none; color: #007bff; }
+        .toc li a:hover { text-decoration: underline; }
+        .exam-tip { background: #fff3cd; border: 1px solid #ffeeba; border-left-width: 5px; padding: 15px; margin: 15px 0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 3: Computer Memory</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#hierarchy">3.1 The Memory Hierarchy</a></li>
+            <li><a href="#primary">3.2 Primary Memory</a></li>
+            <li><a href="#secondary">3.2 Secondary and Auxiliary Memory</a></li>
+        </ul>
+    </div>
+
+    <h2 id="hierarchy">3.1 The Memory Hierarchy</h2>
+    <p>Computer memory is organized in a hierarchy based on speed, cost, and capacity. The goal is to provide a large, fast memory system at an affordable cost.</p>
+    <blockquote>
+        <strong>Rule:</strong> The higher up the hierarchy, the <strong>faster</strong>, <strong>smaller</strong>, and <strong>more expensive</strong> (per bit) the memory is.
+    </blockquote>
+    <ul>
+        <li><strong>Level 1: Registers</strong> (Inside the CPU)</li>
+        [span_23](start_span)<li><strong>Level 2: Cache Memory</strong>[span_23](end_span)</li>
+        [span_24](start_span)<li><strong>Level 3: Primary Memory (RAM)</strong>[span_24](end_span)</li>
+        [span_25](start_span)<li><strong>Level 4: Secondary Memory (Storage)</strong>[span_25](end_span)</li>
+    </ul>
+
+    <h3>Cache Memory</h3>
+    <p>A very fast, small amount of memory placed between the CPU and RAM. [span_26](start_span)It stores frequently accessed data and instructions, so the CPU doesn't have to wait for the slower RAM[span_26](end_span).</p>
+
+    <h2 id="primary">3.2 Primary Memory</h2>
+    <p>Also known as <strong>Main Memory</strong>, this is the computer's "working memory." [span_27](start_span)It is directly accessible by the CPU and holds the OS, programs, and data currently in use[span_27](end_span).</p>
+    
+    <h3>RAM (Random Access Memory)</h3>
+    [span_28](start_span)<p>This is the main form of primary memory[span_28](end_span).</p>
+    <ul>
+        <li><strong>Volatile:</strong> Loses all its data when the power is turned off.</li>
+        <li><strong>Read/Write:</strong> Data can be both read from and written to it.</li>
+    </ul>
+
+    <h3>ROM (Read-Only Memory)</h3>
+    <p>A type of memory where data is pre-recorded. [span_29](start_span)It cannot be easily removed and is usually only read[span_29](end_span).</p>
+    <ul>
+        <li><strong>Non-Volatile:</strong> Retains its data even when the power is off.</li>
+        <li><strong>Use Case:</strong> Stores the computer's <strong>BIOS</strong> or <strong>Firmware</strong> (the basic instructions needed to start the computer).</li>
+    </ul>
+
+    <h2 id="secondary">3.2 Secondary and Auxiliary Memory</h2>
+    [span_30](start_span)<p>Also known as <strong>Storage</strong>, this is non-volatile memory used for long-term storage of programs and data[span_30](end_span). It is much slower than primary memory but has a much larger capacity.</p>
+    [span_31](start_span)<p><strong>Auxiliary Memory</strong> is a term often used for secondary storage, especially removable storage[span_31](end_span).</p>
+
+    <h3>Hard Disks</h3>
+    <p><strong>Hard Disk Drives (HDDs)</strong> are the most common form of secondary storage. [span_32](start_span)They are magnetic devices that use spinning platters to store data[span_32](end_span).</p>
+
+    <h3>Optical Disks</h3>
+    [span_33](start_span)<p>Use lasers to read and write data[span_33](end_span). Examples include:
+    <ul>
+        <li><strong>CD</strong> (Compact Disc)</li>
+        <li><strong>DVD</strong> (Digital Versatile Disc)</li>
+        <li><strong>Blu-ray Disc</strong></li>
+    </ul>
+    </p>
+    <div class="exam-tip">
+        <strong>Primary vs. Secondary Memory</strong>
+        <ul>
+            <li><strong>Primary (RAM):</strong> Volatile, Faster, Smaller, Directly accessible by CPU.</li>
+            <li><strong>Secondary (HDD):</strong> Non-volatile, Slower, Larger, Not directly accessible by CPU (data must be loaded into RAM first).</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

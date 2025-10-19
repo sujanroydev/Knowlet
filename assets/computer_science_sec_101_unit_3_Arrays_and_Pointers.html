@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEC 101: Unit 3 - Arrays and Pointers</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 20px; background-color: #f0f8ff; color: #333; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.1); }
+        h1, h2, h3 { color: #00796B; border-bottom: 2px solid #00796B; padding-bottom: 5px; }
+        h1 { font-size: 2.2em; text-align: center; }
+        h2 { font-size: 1.8em; margin-top: 30px; }
+        h3 { font-size: 1.4em; color: #004D40; border-bottom: 1px solid #004D40; }
+        strong { color: #d9534f; }
+        code { background: #e0f7fa; border: 1px solid #b2ebf2; padding: 2px 6px; border-radius: 4px; font-family: 'Courier New', Courier, monospace; }
+        blockquote { background: #e0f7fa; border-left: 5px solid #00796B; margin: 20px 0; padding: 15px; font-style: italic; }
+        .toc { background: #f8f9fa; border: 1px solid #dee2e6; padding: 15px; border-radius: 5px; margin-bottom: 30px; }
+        .toc h2 { border: none; margin-top: 0; }
+        .toc ul { list-style-type: none; padding: 0; }
+        .toc li a { text-decoration: none; color: #007bff; }
+        .toc li a:hover { text-decoration: underline; }
+        .exam-tip { background: #fff3cd; border: 1px solid #ffeeba; border-left-width: 5px; padding: 15px; margin: 15px 0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 3: Arrays and Pointers</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            [span_33](start_span)<li><a href="#arrays">3.1 Arrays: Definition, Processing, and Strings</a>[span_33](end_span)</li>
+            [span_34](start_span)<li><a href="#pointers-basic">3.2 POINTERS: Basic Concepts</a>[span_34](end_span)</li>
+            [span_35](start_span)<li><a href="#pointers-arrays">3.3 Pointers and One-Dimensional Arrays</a>[span_35](end_span)</li>
+            [span_36](start_span)<li><a href="#pointers-adv">3.4 Advanced Pointer Topics</a>[span_36](end_span)</li>
+            [span_37](start_span)<li><a href="#pointers-func">3.5 Command Line Arguments and Pointers to Functions</a>[span_37](end_span)</li>
+        </ul>
+    </div>
+
+    [span_38](start_span)<h2 id="arrays">3.1 Arrays: Definition, Processing, and Strings[span_38](end_span)</h2>
+    
+    <h3>Definition and Processing</h3>
+    <p>An array is a collection of fixed-size items of the <strong>same data type</strong>, stored in contiguous memory locations.</p>
+    <pre><code>int marks[5]; // Declares an array to hold 5 integers
+marks[0] = 100; // Arrays are 0-indexed
+marks[1] = 90;
+
+// Processing with a loop
+for (int i = 0; i < 5; i++) {
+    printf("%d\n", marks[i]);
+}</code></pre>
+
+    [span_39](start_span)<h3>Passing Arrays to Functions[span_39](end_span)</h3>
+    <p>When an array is passed to a function, what is actually passed is the <strong>address of its first element</strong> (a pointer). This means the function can modify the original array (Pass-by-Reference behavior).</p>
+    <pre><code>void modifyArray(int arr[], int size) {
+    arr[0] = 99; // This changes the original array
+}</code></pre>
+
+    [span_40](start_span)<h3>Multidimensional Arrays[span_40](end_span)</h3>
+    <p>Arrays of arrays, used to represent matrices or tables.</p>
+    <pre><code>int matrix[2][3] = { {1, 2, 3}, {4, 5, 6} };
+printf("%d", matrix[1][2]); // Prints 6</code></pre>
+
+    [span_41](start_span)<h3>Arrays and Strings[span_41](end_span)</h3>
+    <p>In C, a string is simply an array of <code>char</code>, ending with a special <strong>null terminator</strong> (<code>'\0'</code>).</p>
+    <pre><code>char greeting[] = "Hello"; // Equivalent to {'H', 'e', 'l', 'l', 'o', '\0'}</code></pre>
+
+    [span_42](start_span)<h2 id="pointers-basic">3.2 POINTERS: Basic Concepts[span_42](end_span)</h2>
+    <p>A pointer is a variable that stores the <strong>memory address</strong> of another variable.</p>
+    
+    [span_43](start_span)<h3>Pointer Declaration and Operators[span_43](end_span)</h3>
+    <ul>
+        <li><code>&</code> (Address-of operator): Gets the memory address of a variable.</li>
+        <li><code>*</code> (Dereference/Indirection operator): Gets the value at a memory address.</li>
+    </ul>
+    <pre><code>int var = 10;
+int *ptr;     // Declares a pointer to an integer
+ptr = &var;   // 'ptr' now holds the address of 'var'
+
+printf("Value of var: %d\n", var);    // Prints 10
+printf("Value of var: %d\n", *ptr);  // Prints 10 (dereferencing ptr)
+printf("Address of var: %p\n", &var);   // Prints address
+printf("Address in ptr: %p\n", ptr);   // Prints the same address</code></pre>
+
+    [span_44](start_span)<h3>Pointers and Function Arguments[span_44](end_span)</h3>
+    <p>By passing pointers, we can achieve <strong>Pass-by-Reference</strong>, allowing a function to modify the original variables.</p>
+    <pre><code>void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+int x = 5, y = 10;
+swap(&x, &y); // Pass the addresses
+// Now x = 10 and y = 5</code></pre>
+
+    [span_45](start_span)<h2 id="pointers-arrays">3.3 Pointers and One-Dimensional Arrays[span_45](end_span)</h2>
+    <p>The name of an array is a constant pointer to its first element.</p>
+    <blockquote><code>arr</code> is equivalent to <code>&arr[0]</code></blockquote>
+    [span_46](start_span)<p>We can use <strong>address arithmetic</strong> to access elements.[span_46](end_span)</p>
+    <ul>
+        <li><code>arr[i]</code> is identical to <code>*(arr + i)</code></li>
+        <li><code>&arr[i]</code> is identical to <code>(arr + i)</code></li>
+    </ul>
+    <p><strong>Note:</strong> <code>ptr++</code> (where <code>ptr</code> is an <code>int*</code>) increments the address by <code>sizeof(int)</code> (usually 4 bytes), not 1 byte.</p>
+
+    [span_47](start_span)<h2 id="pointers-adv">3.4 Advanced Pointer Topics[span_47](end_span)</h2>
+    
+    [span_48](start_span)<h3>Character Pointers and Functions[span_48](end_span)</h3>
+    <p>A string literal (<code>"Hello"</code>) can be assigned to a <code>char*</code>. Many string library functions (like <code>strcpy</code>, <code>strlen</code>) use character pointers.</p>
+    <pre><code>char *name = "John Doe"; // 'name' points to the 'J'
+printf("%c", *(name + 1)); // Prints 'o'</code></pre>
+    
+    [span_49](start_span)<h3>Pointer Arrays / Arrays of Pointers[span_49](end_span)</h3>
+    <p>An array where each element is a pointer. Useful for storing an array of strings.</p>
+    <pre><code>char *names[] = {"Alice", "Bob", "Charlie"};
+printf("%s\n", names[1]); // Prints "Bob"</code></pre>
+
+    [span_50](start_span)<h3>Pointers to Pointers (Double Pointers)[span_50](end_span)</h3>
+    <p>A pointer that stores the address of another pointer. Used in dynamic 2D arrays or to modify a pointer within a function.</p>
+    <pre><code>int x = 10;
+int *p = &x;
+int **pp = &p;
+printf("%d\n", **pp); // Prints 10</code></pre>
+
+    [span_51](start_span)<h3>Pointers and Multidimensional Arrays[span_51](end_span)</h3>
+    <p>This is a complex topic. For <code>int matrix[2][3]</code>, <code>matrix</code> is a pointer to its first element, which is an <em>array of 3 integers</em>. Its type is <code>int (*)[3]</code>.</p>
+
+    [span_52](start_span)<h2 id="pointers-func">3.5 Command Line Arguments and Pointers to Functions[span_52](end_span)</h2>
+    
+    [span_53](start_span)<h3>Command Line Arguments[span_53](end_span)</h3>
+    <p>Allows your program to receive arguments when it is executed from the command line.</p>
+    <pre><code>// Signature of main
+int main(int argc, char *argv[]) {
+    // argc: (Argument Count) Number of arguments (program name is 1st)
+    // argv: (Argument Vector) Array of strings (char*)
+    
+    printf("Program name: %s\n", argv[0]);
+    if (argc > 1) {
+        printf("First argument: %s\n", argv[1]);
+    }
+    return 0;
+}
+// Run: ./my_program test
+// Output:
+// Program name: ./my_program
+// First argument: test</code></pre>
+
+    [span_54](start_span)<h3>Pointers to Functions[span_54](end_span)</h3>
+    <p>A pointer that stores the address of a function. This allows functions to be passed as arguments to other functions.</p>
+    <pre><code>int add(int a, int b) { return a + b; }
+int subtract(int a, int b) { return a - b; }
+
+int main() {
+    // 1. Declare a function pointer
+    int (*operation)(int, int);
+
+    // 2. Assign a function to it
+    operation = add;
+    printf("%d\n", operation(5, 3)); // Prints 8
+
+    operation = subtract;
+    printf("%d\n", operation(5, 3)); // Prints 2
+    return 0;
+}</code></pre>
+    
+    [span_55](start_span)<h3>Passing Functions to Other Functions[span_55](end_span)</h3>
+    <p>This is the primary use of function pointers, e.g., in a generic sorting function that takes a custom comparison function as an argument.</p>
+</div>
+
+</body>
+</html>

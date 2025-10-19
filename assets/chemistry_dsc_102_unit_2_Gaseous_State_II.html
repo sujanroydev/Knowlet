@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSC 102 - Unit 2: Gaseous State II</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #27ae60;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        h2 {
+            color: #27ae60;
+            margin-top: 30px;
+            border-bottom: 1px solid #e9f7ef;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 25px;
+        }
+        h4 {
+            color: #7f8c8d;
+            margin-top: 20px;
+        }
+        #toc {
+            background-color: #ecf0f1;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+        }
+        #toc h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        #toc ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+        #toc li {
+            margin-bottom: 8px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #27ae60;
+            font-weight: 500;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+        blockquote {
+            background-color: #fef9e7;
+            border-left: 5px solid #f1c40f;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #333;
+        }
+        .exam-tip {
+            background-color: #e8f6f3;
+            border: 1px solid #1abc9c;
+            border-left-width: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .common-mistake {
+            background-color: #fdedec;
+            border: 1px solid #e74c3c;
+            border-left-width: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #dfe6e9;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f6f7;
+            color: #34495e;
+        }
+        tr:nth-child(even) {
+            background-color: #fcfcfc;
+        }
+        code {
+            background-color: #ecf0f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: "Courier New", Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 2: Gaseous State II (Real Gases)</h1>
+
+        <div id="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#topic1">Behaviour of Real Gases</a></li>
+                <li><a href="#topic2">Van der Waals Equation of State</a></li>
+                <li><a href="#topic3">Isotherms and Critical State</a></li>
+                <li><a href="#topic4">Law of Corresponding States and Liquefaction</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Behaviour of Real Gases</h2>
+        
+        [span_11](start_span)<h3>Deviations from Ideal Gas Behaviour[span_11](end_span)</h3>
+        <p>An ideal gas obeys the equation $PV = nRT$ at all conditions. Real gases only obey this law at <strong>low pressure</strong> and <strong>high temperature</strong>. At high pressure or low temperature, they show significant deviations.</p>
+        
+        [span_12](start_span)<h3>Compressibility Factor (Z)[span_12](end_span)</h3>
+        <p>The extent of deviation is expressed by the <strong>compressibility factor, Z</strong>.</p>
+        <blockquote>
+            <strong>Formula:</strong> $Z = \frac{PV_{real}}{nRT}$
+        </blockquote>
+        <ul>
+            <li>For an <strong>Ideal Gas</strong>, $Z = 1$ always.</li>
+            <li>For a <strong>Real Gas</strong>, $Z \neq 1$.</li>
+        </ul>
+        
+        [span_13](start_span)<h4>Variation of Z with Pressure[span_13](end_span)</h4>
+        <ul>
+            <li><strong>At very low pressures:</strong> All gases approach $Z = 1$ (behave ideally).</li>
+            <li><strong>At moderate pressures (Negative Deviation):</strong> For most gases (like $N_2, CO_2$), $Z < 1$. This means the gas is <strong>more compressible</strong> than ideal.
+                <br><em>Reason:</em> <strong>Intermolecular forces of attraction</strong> are dominant, "pulling" the molecules together and reducing the volume.</li>
+            <li><strong>At high pressures (Positive Deviation):</strong> For all gases, $Z > 1$. This means the gas is <strong>less compressible</strong> than ideal.
+                <br><em>Reason:</em> <strong>Molecular volume (repulsive forces)</strong> is dominant. The molecules themselves occupy space, so the "free volume" is less than the container volume.</li>
+            <li><strong>Gases like $H_2$ and $He$:</strong> These small molecules have very weak attractive forces, so they show $Z > 1$ (positive deviation) at almost all pressures (except at very low T).</li>
+        </ul>
+        
+        [span_14](start_span)<h3>Causes of Deviation from Ideal Behaviour[span_14](end_span)</h3>
+        <p>Deviations arise because two postulates of the Kinetic Theory of Gases are incorrect for real gases:</p>
+        <ol>
+            <li><strong>Faulty Postulate 1:</strong> "The volume of gas molecules is negligible."
+                <br><strong>Correction:</strong> This is false at high pressure, where molecules are crowded and their own volume becomes significant. (Leads to $Z > 1$).</li>
+            <li><strong>Faulty Postulate 2:</strong> "There are no intermolecular forces of attraction."
+                <br><strong>Correction:</strong> This is false at low temperature, where molecules move slowly and attractive forces become significant. (Leads to $Z < 1$).</li>
+        </ol>
+
+        <h2 id="topic2">Van der Waals Equation of State</h2>
+        [span_15](start_span)<p>Van der Waals modified the ideal gas equation ($P_{ideal}V_{ideal} = nRT$) by introducing two correction terms, 'a' and 'b', to account for the faulty postulates.[span_15](end_span)</p>
+        
+        [span_16](start_span)<h3>Derivation of the Equation[span_16](end_span)</h3>
+        <ol>
+            <li><strong>Volume Correction:</strong>
+                <ul>
+                    <li>The molecules themselves occupy a finite volume, so the "free space" available for movement is not $V$, but $(V - nb)$.</li>
+                    <li>$V_{ideal} = V_{container} - nb$</li>
+                    <li>$b$ is the "excluded volume" per mole, related to the actual molecular size.</li>
+                </ul>
+            </li>
+            <li><strong>Pressure Correction:</strong>
+                <ul>
+                    <li>Molecules at the wall experience an inward pull from molecules behind them, reducing the force of their impact.</li>
+                    <li>This "pressure deficit" is proportional to the number of attracting molecules and the number of attracted molecules, both of which are proportional to density ($n/V$).</li>
+                    <li>Pressure correction term $\propto (n/V) \times (n/V) = an^2/V^2$.</li>
+                    <li>$P_{ideal} = P_{observed} + \frac{an^2}{V^2}$</li>
+                    <li>$a$ is a constant that measures the strength of intermolecular attraction.</li>
+                </ul>
+            </li>
+        </ol>
+        <p>Substituting these corrections into $P_{ideal}V_{ideal} = nRT$ gives:</p>
+        <blockquote>
+            <strong>Van der Waals Equation:</strong> $\left( P + \frac{an^2}{V^2} \right) (V - nb) = nRT$
+            <br>For 1 mole: $\left( P + \frac{a}{V_m^2} \right) (V_m - b) = RT$
+        </blockquote>
+        
+        [span_17](start_span)<h3>Application in Explaining Real Gas Behaviour[span_17](end_span)</h3>
+        <ul>
+            <li><strong>At Low Pressure:</strong> $V$ is large, so $b$ is negligible compared to $V$. The term $a/V^2$ is small but significant.
+                <br>$\left( P + \frac{a}{V_m^2} \right) V_m \approx RT \implies PV_m + \frac{a}{V_m} \approx RT$
+                <br>$PV_m \approx RT - \frac{a}{V_m}$
+                <br>$Z = \frac{PV_m}{RT} \approx 1 - \frac{a}{RTV_m}$. This correctly predicts $Z < 1$ (negative deviation) due to attractions.</li>
+            <li><strong>At High Pressure:</strong> $P$ is large, so $a/V_m^2$ is negligible compared to $P$. The term $b$ is significant.
+                <br>$P(V_m - b) \approx RT \implies PV_m - Pb \approx RT$
+                <br>$PV_m \approx RT + Pb$
+                <br>$Z = \frac{PV_m}{RT} \approx 1 + \frac{Pb}{RT}$. This correctly predicts $Z > 1$ (positive deviation) due to molecular volume.</li>
+        </ul>
+
+        <h2 id="topic3">Isotherms and Critical State</h2>
+        
+        [span_18](start_span)<h3>PV Isotherm of Carbon Dioxide[span_18](end_span)</h3>
+        <p>Andrew's experiments on $CO_2$ showed P-V relationships at constant temperature (isotherms).</p>
+        <ul>
+            <li><strong>Above $T_c$ (e.g., 50°C):</strong> The curve looks like an ideal gas (Boyle's Law).</li>
+            <li><strong>Below $T_c$ (e.g., 21°C):</strong>
+                <ul>
+                    <li>At high volume (gas phase), pressure increases as V decreases.</li>
+                    <li>At a certain pressure (vapour pressure), the gas begins to liquefy (horizontal line). Here, $P$ is constant as $V$ decreases (liquid and gas coexist).</li>
+                    <li>Once all gas is liquid, the curve becomes very steep (liquids are incompressible).</li>
+                </ul>
+            </li>
+            <li><strong>At $T_c$ (31.1°C for $CO_2$):</strong> The horizontal liquefaction part reduces to a single point, the <strong>critical point</strong>.</li>
+        </ul>
+        
+        [span_19](start_span)<h3>Critical State[span_19](end_span)</h3>
+        <p>The critical point is a unique state for every substance, defined by three <strong>critical constants</strong>:</p>
+        <ol>
+            <li><strong>Critical Temperature ($T_c$):</strong> The temperature above which a gas <strong>cannot be liquefied</strong>, no matter how much pressure is applied.</li>
+            <li><strong>Critical Pressure ($P_c$):</strong> The minimum pressure required to cause liquefaction <em>at</em> the critical temperature.</li>
+            <li><strong>Critical Volume ($V_c$):</strong> The volume occupied by one mole of the substance at $T_c$ and $P_c$.</li>
+        </ol>
+        
+        [span_20](start_span)<h3>Relation between Critical Constants and van der Waals Constants[span_20](end_span)</h3>
+        <p>The van der Waals equation can be used to derive mathematical relationships for the critical constants. (Derivation not required by syllabus, but results are important).</p>
+        <blockquote>
+            <strong>Formulas:</strong>
+            <ul>
+                <li>$V_c = 3b$</li>
+                <li>$P_c = \frac{a}{27b^2}$</li>
+                <li>$T_c = \frac{8a}{27Rb}$</li>
+            </ul>
+        </blockquote>
+        <p>These can be used to calculate the vdW constants 'a' and 'b' from experimentally measured critical constants.</p>
+
+        <h2 id="topic4">Law of Corresponding States and Liquefaction</h2>
+        
+        [span_21](start_span)<h3>Law of Corresponding States[span_21](end_span)</h3>
+        <p>This law states that if two or more gases are at the same <strong>reduced temperature</strong> and <strong>reduced pressure</strong>, they will have the same <strong>reduced volume</strong>.</p>
+        <p><strong>Reduced Variables</strong> are dimensionless quantities found by dividing the actual variable by its critical constant:</p>
+        <ul>
+            <li>Reduced Pressure: $P_r = P / P_c$</li>
+            <li>Reduced Volume: $V_r = V_m / V_c$</li>
+            <li>Reduced Temperature: $T_r = T / T_c$</li>
+        </ul>
+        <p>When the vdW equation is rewritten in these terms, it becomes:</p>
+        <blockquote>
+            <strong>Reduced Equation of State:</strong> $\left( P_r + \frac{3}{V_r^2} \right) (3V_r - 1) = 8T_r$
+        </blockquote>
+        <div class="exam-tip">
+            <strong>Significance:</strong> This new equation contains <strong>no 'a' or 'b' constants</strong>. It is a universal equation that applies to all real gases. It implies that all gases behave identically when in their "corresponding states".
+        </div>
+
+        [span_22](start_span)<h3>Liquefaction of Gas[span_22](end_span)</h3>
+        <p>To liquefy a gas, it must be cooled <strong>below its critical temperature ($T_c$)</strong> and then compressed. Methods of cooling include:</p>
+        <ol>
+            <li><strong>Joule-Thomson Effect:</strong> The cooling of a real gas (except $H_2, He$ at room temp) when it expands from a region of high pressure to low pressure through a porous plug or valve. This is the principle of the <strong>Linde process</strong>.</li>
+            <li><strong>Adiabatic Expansion:</strong> Cooling a gas by making it do external work (e.g., pushing a piston). This is the principle of the <strong>Claude process</strong>.</li>
+        </ol>
+        
+        [span_23](start_span)<h3>Inversion Temperature ($T_i$)[span_23](end_span)</h3>
+        <blockquote>
+            <strong>Definition:</strong> Every gas has an inversion temperature.
+            <ul>
+                <li>If $T_{gas} < T_i$, the gas <strong>cools</strong> upon Joule-Thomson expansion (e.g., $N_2, O_2$ at room temp).</li>
+                <li>If $T_{gas} > T_i$, the gas <strong>heats up</strong> upon Joule-Thomson expansion (e.g., $H_2, He$ at room temp).</li>
+            </ul>
+        </blockquote>
+        <p>This is why $H_2$ and $He$ must be pre-cooled below their $T_i$ (which are very low) before they can be liquefied by the Joule-Thomson effect.</p>
+        <blockquote>
+            <strong>Formula:</strong> $T_i = \frac{2a}{Rb}$ (This is $\frac{27}{4}$ times $T_c$)
+        </blockquote>
+    </div>
+</body>
+</html>

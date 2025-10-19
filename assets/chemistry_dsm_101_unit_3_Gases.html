@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSM 101 - Unit 3: Gases</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #27ae60;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        h2 {
+            color: #27ae60;
+            margin-top: 30px;
+            border-bottom: 1px solid #e9f7ef;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 25px;
+        }
+        h4 {
+            color: #7f8c8d;
+            margin-top: 20px;
+        }
+        #toc {
+            background-color: #ecf0f1;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+        }
+        #toc h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        #toc ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+        #toc li {
+            margin-bottom: 8px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #27ae60;
+            font-weight: 500;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+        blockquote {
+            background-color: #fef9e7;
+            border-left: 5px solid #f1c40f;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #333;
+        }
+        .exam-tip {
+            background-color: #e8f6f3;
+            border: 1px solid #1abc9c;
+            border-left-width: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .common-mistake {
+            background-color: #fdedec;
+            border: 1px solid #e74c3c;
+            border-left-width: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #dfe6e9;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f6f7;
+            color: #34495e;
+        }
+        tr:nth-child(even) {
+            background-color: #fcfcfc;
+        }
+        code {
+            background-color: #ecf0f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: "Courier New", Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 3: Gases</h1>
+
+        <div id="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#topic1">Kinetic Theory of Gases (KTG)</a></li>
+                <li><a href="#topic2">Real Gases and Deviation from Ideal Behaviour</a></li>
+                <li><a href="#topic3">Molecular Velocities and Collision Properties</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Kinetic Theory of Gases (KTG)</h2>
+
+        [span_22](start_span)<h3>Postulates of Kinetic Theory of Gases[span_22](end_span)</h3>
+        <p>This theory explains the macroscopic properties of ideal gases based on the motion of their molecules. The key postulates are:</p>
+        <ol>
+            <li>Gases consist of many tiny particles (molecules) in continuous, random motion.</li>
+            <li>The actual volume of the gas molecules is <strong>negligible</strong> compared to the total volume of the container.</li>
+            <li>There are <strong>no intermolecular forces</strong> (attraction or repulsion) between molecules.</li>
+            <li>Collisions between molecules and with the container walls are perfectly <strong>elastic</strong> (no net loss of kinetic energy).</li>
+            <li>The pressure of the gas is due to the collisions of molecules with the walls.</li>
+            <li>The average kinetic energy of the gas molecules is directly proportional to the absolute temperature (Kelvin).</li>
+        </ol>
+
+        [span_23](start_span)<h3>Derivation of the Kinetic Gas Equation[span_23](end_span)</h3>
+        <p>This equation relates the pressure ($P$) to the microscopic properties of the molecules.</p>
+        <ol>
+            <li>Consider a cubic container of side $l$ with $N$ molecules, each of mass $m$.</li>
+            <li>A single molecule has velocity $c_1$ with components $u_1, v_1, w_1$.</li>
+            <li><strong>Momentum change</strong> when hitting the x-wall = $(mu_1) - (-mu_1) = 2mu_1$.</li>
+            <li><strong>Time between collisions</strong> on the same wall = $\Delta t = \frac{2l}{u_1}$.</li>
+            <li><strong>Force</strong> from one molecule = $\frac{\text{Momentum change}}{\text{Time}} = \frac{2mu_1}{2l/u_1} = \frac{mu_1^2}{l}$.</li>
+            <li><strong>Pressure</strong> from one molecule = $\frac{\text{Force}}{\text{Area}} = \frac{mu_1^2/l}{l^2} = \frac{mu_1^2}{l^3} = \frac{mu_1^2}{V}$.</li>
+            <li>Total pressure $P$ from all $N$ molecules is $P = \frac{m}{V}(u_1^2 + u_2^2 + ... + u_N^2) = \frac{mN\overline{u^2}}{V}$.</li>
+            <li>Since motion is random, $\overline{u^2} = \overline{v^2} = \overline{w^2} = \frac{1}{3}\overline{c^2}$ (where $\overline{c^2}$ is the mean square velocity).</li>
+            <li>Substituting gives: $P = \frac{mN}{V} \left( \frac{1}{3}\overline{c^2} \right)$.</li>
+        </ol>
+        <blockquote>
+            <strong>Kinetic Gas Equation:</strong> $PV = \frac{1}{3}mN\overline{c^2}$
+            <br>This can also be written as $PV = \frac{2}{3}KE$, where KE is the total kinetic energy.
+        </blockquote>
+
+        [span_24](start_span)<h2 id="topic2">Real Gases and Deviation from Ideal Behaviour[span_24](end_span)</h2>
+        <p>Real gases only behave ideally at <strong>low pressure</strong> and <strong>high temperature</strong>. They deviate under other conditions.</p>
+
+        [span_25](start_span)<h3>Compressibility Factor (Z)[span_25](end_span)</h3>
+        <p>The deviation is quantified by the <strong>compressibility factor, Z</strong>.</p>
+        <blockquote>
+            <strong>Formula:</strong> $Z = \frac{PV_{real}}{nRT}$
+        </blockquote>
+        <ul>
+            <li>For an <strong>Ideal Gas</strong>, $Z = 1$.</li>
+            <li><strong>Negative Deviation ($Z < 1$):</strong> Occurs at moderate pressures. Gas is <strong>more compressible</strong> than ideal. <strong>Attractive forces</strong> are dominant.</li>
+            <li><strong>Positive Deviation ($Z > 1$):</strong> Occurs at high pressures. Gas is <strong>less compressible</strong> than ideal. <strong>Repulsive forces (molecular volume)</strong> are dominant.</li>
+        </ul>
+        [span_26](start_span)<h3>Causes of Deviation[span_26](end_span)</h3>
+        <p>Deviations arise because two postulates of the KTG are incorrect for real gases:</p>
+        <ol>
+            <li><strong>Faulty Postulate 1 (Volume):</strong> "The volume of molecules is negligible."
+                <br><strong>Correction:</strong> At high pressure, molecular volume is significant. This leads to positive deviation ($Z > 1$).</li>
+            <li><strong>Faulty Postulate 2 (Forces):</strong> "There are no intermolecular forces."
+                <br><strong>Correction:</strong> At low temperature/moderate pressure, attractive forces are significant. This leads to negative deviation ($Z < 1$).</li>
+        </ol>
+
+        [span_27](start_span)<h3>Vander Waals Equation of State for Real Gases[span_27](end_span)</h3>
+        <p>Van der Waals modified the ideal gas equation ($PV = nRT$) by introducing two correction terms, 'a' and 'b'.</p>
+        <ul>
+            <li><strong>Volume Correction:</strong> The "free space" is not $V$, but $(V - nb)$. The term $b$ is the "excluded volume" per mole.</li>
+            <li><strong>Pressure Correction:</strong> The observed pressure $P$ is lower than the ideal pressure due to attractions. The correction term $an^2/V^2$ is added. The term $a$ measures the strength of intermolecular attraction.</li>
+        </ul>
+        <blockquote>
+            <strong>Van der Waals Equation (n moles):</strong> $\left( P + \frac{an^2}{V^2} \right) (V - nb) = nRT$
+            <br><strong>(For 1 mole):</strong> $\left( P + \frac{a}{V_m^2} \right) (V_m - b) = RT$
+        </blockquote>
+
+        <h2 id="topic3">Molecular Velocities and Collision Properties</h2>
+        
+        [span_28](start_span)<h3>Most probable, average and root mean square velocities (no derivation)[span_28](end_span)</h3>
+        <p>Molecules in a gas have a range of speeds (Maxwell-Boltzmann distribution). We use three statistical measures:</p>
+        <table>
+            <tr>
+                <th>Velocity Type</th>
+                <th>Formula (M = Molar Mass)</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><strong>Most Probable ($v_{mp}$)</strong></td>
+                <td>$v_{mp} = \sqrt{\frac{2RT}{M}}$</td>
+                <td>The speed possessed by the maximum number of molecules.</td>
+            </tr>
+            <tr>
+                <td><strong>Average ($v_{avg}$)</strong></td>
+                <td>$v_{avg} = \sqrt{\frac{8RT}{\pi M}}$</td>
+                <td>The arithmetic mean of the speeds of all molecules.</td>
+            </tr>
+            <tr>
+                <td><strong>Root Mean Square ($v_{rms}$)</strong></td>
+                <td>$v_{rms} = \sqrt{\frac{3RT}{M}}$</td>
+                <td>The square root of the mean of the squares of the speeds. (Used in KTG).</td>
+            </tr>
+        </table>
+        <div class="exam-tip">
+            <strong>Key Relationship:</strong> $v_{rms} > v_{avg} > v_{mp}$
+        </div>
+
+        [span_29](start_span)<h3>Collision number and mean free path of molecules[span_29](end_span)</h3>
+        <ul>
+            <li><strong>Collision Diameter ($\sigma$):</strong> The distance of closest approach between the centers of two colliding molecules.</li>
+            <li><strong>Collision Number / Frequency ($Z_1$):</strong> The average number of collisions experienced by a <strong>single</strong> molecule per unit time.</li>
+            <li><strong>Mean Free Path ($\lambda$):</strong> The average distance a molecule travels between successive collisions.
+                <blockquote><strong>Formula:</strong> $\lambda = \frac{1}{\sqrt{2}\pi\sigma^2 n^*}$
+                <br>Where $n^*$ is the number density ($N/V$).
+                </blockquote>
+            </li>
+        </ul>
+        <p><strong>Relationship:</strong> $\lambda$ is inversely proportional to pressure (or density). Higher pressure means more molecules, more collisions, and a shorter mean free path.</p>
+    </div>
+</body>
+</html>

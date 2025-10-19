@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSC 102 - Unit 5: Solutions</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #c0392b;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        h2 {
+            color: #c0392b;
+            margin-top: 30px;
+            border-bottom: 1px solid #fae5d3;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 25px;
+        }
+        h4 {
+            color: #7f8c8d;
+            margin-top: 20px;
+        }
+        #toc {
+            background-color: #ecf0f1;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+        }
+        #toc h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        #toc ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+        #toc li {
+            margin-bottom: 8px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #c0392b;
+            font-weight: 500;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+        blockquote {
+            background-color: #fef9e7;
+            border-left: 5px solid #f1c40f;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #333;
+        }
+        .exam-tip {
+            background-color: #e8f6f3;
+            border: 1px solid #1abc9c;
+            border-left-width: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .common-mistake {
+            background-color: #fdedec;
+            border: 1px solid #e74c3c;
+            border-left-width: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #dfe6e9;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f6f7;
+            color: #34495e;
+        }
+        tr:nth-child(even) {
+            background-color: #fcfcfc;
+        }
+        code {
+            background-color: #ecf0f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: "Courier New", Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 5: Solutions</h1>
+
+        <div id="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#topic1">Ideal and Non-ideal Solutions</a></li>
+                <li><a href="#topic2">Vapour Pressure Curves and Distillation</a></li>
+                <li><a href="#topic3">Partial and Complete Immiscibility</a></li>
+                <li><a href="#topic4">Nernst Distribution Law</a></li>
+            </ul>
+        </div>
+
+        [span_45](start_span)<h2 id="topic1">Ideal and Non-ideal Solutions[span_45](end_span)</h2>
+        
+        <h3>Ideal Solutions and Raoult's Law</h3>
+        <blockquote>
+            <strong>Raoult's Law:</strong> For a solution of volatile liquids, the partial vapour pressure ($P_A$) of each component in the solution is equal to the vapour pressure of the pure component ($P_A^\circ$) multiplied by its mole fraction ($X_A$) in the <strong>liquid phase</strong>.
+            <br>
+            <strong>Formula:</strong> $P_A = X_A P_A^\circ$
+        </blockquote>
+        <p>The total pressure ($P_T$) above the solution is the sum of the partial pressures (Dalton's Law):
+        <br>$P_T = P_A + P_B = X_A P_A^\circ + X_B P_B^\circ$</p>
+        
+        <blockquote>
+            <strong>Ideal Solution:</strong> A solution that <strong>obeys Raoult's Law</strong> at all concentrations and temperatures.
+        </blockquote>
+        <p><strong>Thermodynamic Conditions for an Ideal Solution:</strong></p>
+        <ol>
+            <li><strong>$\Delta H_{mix} = 0$</strong>: No heat is absorbed or evolved when mixing.</li>
+            <li><strong>$\Delta V_{mix} = 0$</strong>: The total volume of the solution is the sum of the volumes of the components.</li>
+            <li><strong>Forces:</strong> The intermolecular forces between A-B molecules are identical to the A-A and B-B forces.</li>
+        </ol>
+        <p><strong>Example:</strong> Benzene and Toluene.</p>
+
+        <h3>Non-ideal Solutions and Deviations from Raoult's Law</h3>
+        <p>Solutions that do not obey Raoult's Law. $\Delta H_{mix} \neq 0$ and $\Delta V_{mix} \neq 0$.</p>
+        
+        <h4>1. Positive Deviation from Raoult's Law</h4>
+        <ul>
+            <li><strong>Observation:</strong> The observed vapour pressure is <strong>higher</strong> than predicted by Raoult's Law ($P_A > X_A P_A^\circ$).</li>
+            <li><strong>Cause:</strong> A-B intermolecular forces are <strong>weaker</strong> than the original A-A and B-B forces. Molecules find it easier to escape.</li>
+            <li><strong>Thermodynamics:</strong> $\Delta H_{mix} > 0$ (Endothermic mixing), $\Delta V_{mix} > 0$ (Volume expands).</li>
+            <li><strong>Example:</strong> Ethanol + Water (breaks H-bonds), Acetone + $CS_2$.</li>
+        </ul>
+        
+        <h4>2. Negative Deviation from Raoult's Law</h4>
+        <ul>
+            <li><strong>Observation:</strong> The observed vapour pressure is <strong>lower</strong> than predicted by Raoult's Law ($P_A < X_A P_A^\circ$).</li>
+            <li><strong>Cause:</strong> A-B intermolecular forces are <strong>stronger</strong> than the original A-A and B-B forces. Molecules are held more tightly.</li>
+            <li><strong>Thermodynamics:</strong> $\Delta H_{mix} < 0$ (Exothermic mixing), $\Delta V_{mix} < 0$ (Volume contracts).</li>
+            <li><strong>Example:</strong> Acetone + Chloroform (forms H-bonds), $HNO_3$ + Water.</li>
+        </ul>
+
+        [span_46](start_span)<h2 id="topic2">Vapour Pressure Curves and Distillation[span_46](end_span)</h2>
+
+        <h3>Vapour Pressure-Composition and Temperature-Composition Curves</h3>
+        <p>These phase diagrams plot the composition of a binary liquid mixture against its vapour pressure or boiling temperature.</p>
+        
+        <h4>1. Vapour Pressure-Composition Curve</h4>
+        <ul>
+            <li>Plots $P$ vs. $X$ (mole fraction).</li>
+            <li>Contains two lines:
+                <ul>
+                    <li><strong>Liquid Line:</strong> Shows the total pressure of the liquid solution.</li>
+                    <li><strong>Vapour Line:</strong> Shows the composition of the vapour in equilibrium with the liquid.</li>
+                </ul>
+            </li>
+            <li>The region <em>between</em> the lines is the 2-phase (Liquid + Vapour) region.</li>
+            <li><strong>Key:</strong> The vapour is always richer in the <strong>more volatile</strong> component (the one with the higher $P^\circ$).</li>
+        </ul>
+
+        <h4>2. Temperature-Composition (Boiling Point) Curve</h4>
+        <ul>
+            <li>Plots $T$ (Boiling Point) vs. $X$. This graph is an "inversion" of the V-P curve.</li>
+            <li>The liquid line is now <em>below</em> the vapour line.</li>
+            <li>The vapour is always richer in the <strong>more volatile</strong> component (the one with the lower $T_b$).</li>
+        </ul>
+        
+        <h3>Distillation of Solutions</h3>
+        <ul>
+            <li><strong>Simple Distillation:</strong> The process of boiling a liquid and condensing the vapour.</li>
+            <li><strong>Fractional Distillation:</strong> Used to separate ideal solutions. The boiling-condensation cycle is repeated many times in a fractionating column. At each "plate" or cycle, the vapour becomes progressively more enriched in the more volatile component, leading to separation.</li>
+        </ul>
+        
+        <h3>Azeotropes</h3>
+        <blockquote>
+            <strong>Definition:</strong> A binary liquid mixture (non-ideal) that has a specific composition at which it boils at a <strong>constant temperature</strong>, and the vapour produced has the <strong>same composition</strong> as the liquid.
+        </blockquote>
+        <p>Azeotropes (or "constant-boiling mixtures") <strong>cannot be separated by fractional distillation</strong>.</p>
+        
+        <ol>
+            <li><strong>Minimum-Boiling Azeotrope:</strong>
+                <ul>
+                    <li>Formed by solutions showing <strong>large positive deviation</strong>.</li>
+                    <li>The boiling point of the azeotrope is <strong>lower</strong> than either pure component.</li>
+                    <li><strong>Example:</strong> 95.6% Ethanol + 4.4% Water (boils at 78.1°C).</li>
+                </ul>
+            </li>
+            <li><strong>Maximum-Boiling Azeotrope:</strong>
+                <ul>
+                    <li>Formed by solutions showing <strong>large negative deviation</strong>.</li>
+                    <li>The boiling point of the azeotrope is <strong>higher</strong> than either pure component.</li>
+                    <li><strong>Example:</strong> 68% Nitric Acid + 32% Water (boils at 120.5°C).</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h2 id="topic3">Partial and Complete Immiscibility</h2>
+
+        [span_47](start_span)<h3>Partial Miscibility of Liquids[span_47](end_span)</h3>
+        <p>This describes two liquids that only dissolve in each other to a limited extent (e.g., phenol and water). They form two conjugate solutions (e.g., a layer of "phenol-in-water" and a layer of "water-in-phenol").</p>
+        
+        [span_48](start_span)<h4>Critical Solution Temperature (CST)[span_48](end_span)</h4>
+        <blockquote>
+            <strong>Definition:</strong> The specific temperature at which two partially miscible liquids become <strong>fully miscible</strong> (soluble in all proportions).
+        </blockquote>
+        <ul>
+            <li><strong>Upper CST ($T_c$):</strong> The liquids are miscible <em>above</em> this temperature. (e.g., Phenol-Water system, $T_c = 65.8^\circ C$). Below $T_c$, they separate into two layers.</li>
+            <li><strong>Lower CST:</strong> The liquids are miscible <em>below</em> this temperature. (e.g., Triethylamine-Water system).</li>
+            <li>Some systems have both (e.g., Nicotine-Water).</li>
+        </ul>
+        [span_49](start_span)<h4>Effect of Impurity on Partial Miscibility[span_49](end_span)</h4>
+        <p><strong>Rule:</strong> An impurity will (raise/lower) the CST depending on its solubility.</p>
+        <ul>
+            <li>If the impurity is soluble in <strong>only one</strong> of the two liquids (e.g., $NaCl$ in water), it <strong>raises the Upper CST</strong> (or lowers the Lower CST), making the liquids <em>less</em> miscible.</li>
+            <li>If the impurity is soluble in <strong>both</strong> liquids (e.g., soap), it <strong>lowers the Upper CST</strong> (or raises the Lower CST), making the liquids <em>more</em> miscible.</li>
+        </ul>
+
+        [span_50](start_span)<h3>Immiscibility of Liquids and Steam Distillation[span_50](end_span)</h3>
+        <p>Immiscible liquids (e.g., $CCl_4$ and water) do not mix at all.</p>
+        
+        <h4>Principle of Steam Distillation</h4>
+        <p>This technique is used to purify organic compounds that are:</p>
+        <ol>
+            <li>Immiscible with water.</li>
+            <li>Have a high boiling point (and may decompose if heated to it).</li>
+            <li>Have an appreciable vapour pressure near 100°C.</li>
+        </ol>
+        <p><strong>Principle:</strong> An immiscible mixture boils when the <strong>sum of the partial vapour pressures</strong> equals the atmospheric pressure.</p>
+        <blockquote>
+            <strong>Formula:</strong> $P_{atm} = P_A^\circ + P_{Water}^\circ$
+        </blockquote>
+        <p><strong>Key Consequence:</strong> Since the vapour pressure of water ($P_{Water}^\circ$) contributes to the total, $P_{atm}$ is reached at a temperature <strong>below 100°C</strong> (the boiling point of water). This allows the high-boiling organic compound to co-distill with steam at a low, safe temperature, preventing its decomposition.</p>
+        
+        [span_51](start_span)<h2 id="topic4">Nernst Distribution Law[span_51](end_span)</h2>
+        
+        <h3>The Law (or Partition Law)</h3>
+        <blockquote>
+            <strong>Definition:</strong> At a constant temperature, when a solute <strong>distributes itself</strong> between two <strong>immiscible solvents</strong> (Solvent 1 and Solvent 2) at equilibrium, the ratio of the solute's concentrations in the two solvents is a constant.
+        </blockquote>
+        <p>This assumes the solute has the same molecular form in both solvents.</p>
+        <blockquote>
+            <strong>Formula:</strong> $K_D = \frac{C_1}{C_2}$
+            <br>Where:
+            <ul>
+                <li>$K_D$ = <strong>Distribution Coefficient</strong> or <strong>Partition Coefficient</strong>.</li>
+                <li>$C_1$ = Equilibrium concentration of solute in Solvent 1.</li>
+                <li>$C_2$ = Equilibrium concentration of solute in Solvent 2.</li>
+            </ul>
+        </blockquote>
+        
+        <div class="common-mistake">
+            <strong>Modification for Association/Dissociation:</strong>
+            <ul>
+                <li>If the solute <strong>associates</strong> (e.g., dimerizes) in Solvent 2 (e.g., benzoic acid in benzene), the law becomes $K_D = \frac{C_1}{\sqrt{C_2}}$.</li>
+                <li>If the solute <strong>dissociates</strong> in Solvent 2 (e.g., $HCl$ in water), the law becomes $K_D = \frac{C_1}{C_2(1-\alpha)}$, where $\alpha$ is the degree of dissociation.</li>
+            </ul>
+        </div>
+        
+        <h3>Applications of Distribution Law</h3>
+        <p>The main application is <strong>Solvent Extraction</strong>.</p>
+        <ul>
+            <li><strong>Solvent Extraction:</strong> A technique to separate a solute from one solvent by shaking it with another, immiscible solvent in which it is <em>more</em> soluble.</li>
+            <li><strong>Example:</strong> Extracting iodine ($I_2$) from an aqueous solution (where it's slightly soluble) into $CCl_4$ (where it's very soluble, $K_D \approx 85$).</li>
+            <li><strong>Principle of Efficiency:</strong> Extraction is <strong>more efficient</strong> if a given volume of extracting solvent is used in <strong>several small portions</strong> (e.g., 4 portions of 25 mL) rather than all at once in a single portion (e.g., 1 portion of 100 mL).</li>
+        </ul>
+    </div>
+</body>
+</html>

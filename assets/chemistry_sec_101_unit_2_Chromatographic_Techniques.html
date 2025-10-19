@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEC 101 - Unit 2: Chromatographic Techniques</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+            border-bottom: 1px solid #ebf5fb;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 25px;
+        }
+        h4 {
+            color: #7f8c8d;
+            margin-top: 20px;
+        }
+        #toc {
+            background-color: #ecf0f1;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+        }
+        #toc h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        #toc ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+        #toc li {
+            margin-bottom: 8px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: 500;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+        blockquote {
+            background-color: #fef9e7;
+            border-left: 5px solid #f1c40f;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #333;
+        }
+        .exam-tip {
+            background-color: #e8f6f3;
+            border: 1px solid #1abc9c;
+            border-left-width: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .common-mistake {
+            background-color: #fdedec;
+            border: 1px solid #e74c3c;
+            border-left-width: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #dfe6e9;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f6f7;
+            color: #34495e;
+        }
+        tr:nth-child(even) {
+            background-color: #fcfcfc;
+        }
+        code {
+            background-color: #ecf0f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: "Courier New", Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 2: Chromatographic Techniques</h1>
+
+        <div id="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                [span_24](start_span)<li><a href="#topic1">Chromatography: Principles and Classification[span_24](end_span)</a></li>
+                [span_25](start_span)<li><a href="#topic2">Mechanisms and Development[span_25](end_span)</a></li>
+                [span_26](start_span)<li><a href="#topic3">Rf Value[span_26](end_span)</a></li>
+                [span_27](start_span)<li><a href="#topic4">Important Chromatographic Methods[span_27](end_span)</a></li>
+            </ul>
+        </div>
+
+        [span_28](start_span)<h2 id="topic1">Chromatography: Principles and Classification[span_28](end_span)</h2>
+        
+        [span_29](start_span)<h3>What is Chromatography?[span_29](end_span)</h3>
+        [span_30](start_span)<p>Chromatography is a powerful laboratory technique for the <strong>separation, identification, and purification</strong> of the components of a mixture.[span_30](end_span) The name comes from Greek (<em>chroma</em> "color" and <em>graphein</em> "to write") as it was first used to separate plant pigments.</p>
+        
+        [span_31](start_span)<h3>Principle[span_31](end_span)</h3>
+        <p>The basic principle involves distributing a mixture between two phases:</p>
+        <ol>
+            <li><strong>Stationary Phase:</strong> A solid or a liquid supported on a solid, which stays fixed in place (e.g., the paper, the silica on a TLC plate, the packing in a column).</li>
+            <li><strong>Mobile Phase:</strong> A liquid or a gas that moves over or through the stationary phase, carrying the components of the mixture with it (e.g., the solvent).</li>
+        </ol>
+        [span_32](start_span)<p><strong>Separation occurs because the components of the mixture have different affinities for the two phases.</strong>[span_32](end_span) A component that interacts *strongly* with the stationary phase will move *slowly*. A component that interacts *weakly* with the stationary phase (and is more soluble in the mobile phase) will move *quickly*.</p>
+
+        [span_33](start_span)<h3>Classification[span_33](end_span)</h3>
+        <p>Chromatography can be classified in several ways:</p>
+        <ul>
+            [span_34](start_span)<li><strong>Based on Mechanism:</strong> Adsorption vs. Partition (see below).[span_34](end_span)</li>
+            <li><strong>Based on Phases:</strong>
+                <ul>
+                    <li><strong>Liquid-Solid:</strong> (e.g., Column, TLC)</li>
+                    <li><strong>Liquid-Liquid:</strong> (e.g., Paper, HPLC)</li>
+                    <li><strong>Gas-Solid / Gas-Liquid:</strong> (e.g., Gas Chromatography)</li>
+                </ul>
+            </li>
+            <li><strong>Based on Technique (Bed Shape):</strong>
+                <ul>
+                    [span_35](start_span)<li><strong>Planar Chromatography:</strong> Stationary phase is on a flat plate (e.g., Paper, TLC).[span_35](end_span)</li>
+                    [span_36](start_span)<li><strong>Column Chromatography:</strong> Stationary phase is packed in a tube or column.[span_36](end_span)</li>
+                </ul>
+            </li>
+        </ul>
+
+        [span_37](start_span)<h3>Efficiency of the Technique[span_37](end_span)</h3>
+        <p>The efficiency of a chromatographic separation (especially in column chromatography) is described by <strong>Plate Theory</strong>. The column is imagined as being divided into thousands of tiny, discrete sections called <strong>theoretical plates</strong>. An "equilibrium" is established at each plate.</p>
+        <ul>
+            <li><strong>More plates (N)</strong> = Higher efficiency = Better separation (sharper peaks).</li>
+            <li><strong>HETP (Height Equivalent to a Theoretical Plate):</strong> $HETP = L/N$, where L is the column length. A *smaller* HETP means a more efficient column.</li>
+        </ul>
+
+        [span_38](start_span)<h2 id="topic2">Mechanisms of Separation and Development of Chromatograms[span_38](end_span)</h2>
+        
+        [span_39](start_span)<h3>Mechanism of Separation[span_39](end_span)</h3>
+        <ol>
+            [span_40](start_span)<li><strong>Adsorption:[span_40](end_span)</strong>
+                <ul>
+                    <li><strong>Phases:</strong> Solid stationary phase (e.g., silica gel, alumina) and a liquid mobile phase.</li>
+                    <li><strong>Principle:</strong> Separation is based on the <strong>differential adsorption</strong> (sticking) of components to the surface of the solid. Polar components will adsorb more strongly to a polar stationary phase (like silica) and move slowly. Non-polar components are less adsorbed and move quickly with the mobile phase.</li>
+                    [span_41](start_span)<li><strong>Used in:</strong> Column Chromatography, Thin-Layer Chromatography (TLC).[span_41](end_span)</li>
+                </ul>
+            </li>
+            [span_42](start_span)<li><strong>Partition:[span_42](end_span)</strong>
+                <ul>
+                    <li><strong>Phases:</strong> Liquid stationary phase (e.g., water) coated or bonded onto a solid support, and a liquid mobile phase.</li>
+                    <li><strong>Principle:</strong> Separation is based on the <strong>differential partitioning (solubility)</strong> of components between the two immiscible liquids, just like in solvent extraction. The solute partitions itself according to its partition coefficient ($K_D$).</li>
+                    [span_43](start_span)<li><strong>Used in:</strong> Paper Chromatography (water trapped in paper fibers is the stationary phase), HPLC.[span_43](end_span)</li>
+                </ul>
+            </li>
+        </ol>
+
+        [span_44](start_span)<h3>Development of Chromatograms[span_44](end_span)</h3>
+        <p>Development is the process of using the mobile phase to move the components of the mixture, resulting in their separation. A developed chromatogram shows the separated components.</p>
+        <ul>
+            [span_45](start_span)<li><strong>Frontal Analysis:[span_45](end_span)</strong> The mixture *is* the mobile phase, and it is fed continuously into the column. The stationary phase becomes saturated with the *least* adsorbed component first, which then "breaks through" the column. This method is rarely used for analysis, more for purification.</li>
+            [span_46](start_span)<li><strong>Elution Development:[span_46](end_span)</strong> This is the <strong>most common method</strong>.
+                <ol>
+                    <li>A small, single "plug" of the mixture is applied to the top of the stationary phase.</li>
+                    <li>A pure solvent (the "eluent") is then passed through the stationary phase.</li>
+                    <li>The components separate into distinct bands (or spots) that move at different rates.</li>
+                    <li>The bands are "eluted" (washed out) one by one and collected.</li>
+                </ol>
+            </li>
+            [span_47](start_span)<li><strong>Displacement Development:[span_47](end_span)</strong>
+                <ol>
+                    <li>The mixture is applied, then a "displacer" solution is added.</li>
+                    <li>The displacer has a *higher* affinity for the stationary phase than any component in the mixture.</li>
+                    <li>The displacer "pushes" the components down the column, forcing them to separate into sharp, adjacent bands, with the least adsorbed component at the front.</li>
+                </ol>
+            </li>
+        </ul>
+
+        [span_48](start_span)<h2 id="topic3">Rf Value[span_48](end_span)</h2>
+        <p>The <strong>Rf (Retardation factor or Ratio-of-fronts)</strong> value is used in planar chromatography (Paper and TLC) to identify components.</p>
+        <blockquote>
+            <strong>Definition:</strong> The ratio of the distance traveled by the <strong>solute (spot)</strong> to the distance traveled by the <strong>solvent front</strong>, both measured from the origin (the starting line).
+            <br><br>
+            <strong>Formula:</strong> $R_f = \frac{\text{Distance traveled by the solute}}{\text{Distance traveled by the solvent front}}$
+        </blockquote>
+        <ul>
+            <li>The $R_f$ value is always <strong>less than 1</strong>.</li>
+            <li>It is a <strong>characteristic constant</strong> for a specific compound, on a specific stationary phase, with a specific mobile phase, at a constant temperature.</li>
+            <li>A high $R_f$ value means the component is less polar/weakly adsorbed and travels quickly.</li>
+            <li>A low $R_f$ value means the component is more polar/strongly adsorbed and travels slowly.</li>
+        </ul>
+        [span_49](start_span)<h2 id="topic4">Important Chromatographic Methods[span_49](end_span)</h2>
+        
+        [span_50](start_span)<h3>Paper Chromatography[span_50](end_span)</h3>
+        <ul>
+            <li><strong>Type:</strong> Planar, Partition chromatography.</li>
+            <li><strong>Stationary Phase:</strong> Water molecules trapped in the cellulose fibers of the chromatography paper.</li>
+            <li><strong>Mobile Phase:</strong> A liquid solvent (e.g., Butanol/Acetic Acid/Water).</li>
+            <li><strong>Technique:</strong> A spot of the mixture is applied near the bottom of the paper. The paper is hung in a sealed chamber with the bottom edge dipped in the solvent (but below the spot). The solvent moves up by capillary action (<strong>ascending development</strong>).</li>
+            <li><strong>Use:</strong> Good for separating highly polar, water-soluble compounds like amino acids or sugars.</li>
+        </ul>
+
+        [span_51](start_span)<h3>Thin-Layer Chromatography (TLC)[span_51](end_span)</h3>
+        <ul>
+            <li><strong>Type:</strong> Planar, Adsorption chromatography.</li>
+            <li><strong>Stationary Phase:</strong> A thin layer (e.g., 0.25 mm) of an adsorbent (like <strong>silica gel</strong> or alumina) coated on a glass, plastic, or aluminum plate.</li>
+            <li><strong>Mobile Phase:</strong> A shallow pool of liquid solvent in a sealed jar.</li>
+            <li><strong>Technique:</strong> Similar to paper chromatography. A spot is applied, and the plate is "developed" by placing it in the jar.</li>
+            <li><strong>Advantages over Paper:</strong> <strong>Faster</strong>, <strong>better separation (sharper spots)</strong>, and can use corrosive reagents (like $H_2SO_4$ charring) for visualization.</li>
+            <li><strong>Use:</strong> The workhorse of the organic chemistry lab for monitoring reaction progress, checking purity, and identifying compounds.</li>
+        </ul>
+
+        [span_52](start_span)<h3>Column Chromatography[span_52](end_span)</h3>
+        <ul>
+            <li><strong>Type:</strong> Column, Adsorption chromatography.</li>
+            <li><strong>Stationary Phase:</strong> A large amount of adsorbent (silica gel or alumina) packed into a vertical glass column.</li>
+            <li><strong>Mobile Phase:</strong> A liquid solvent (eluent) that is passed through the column from top to bottom, usually using gravity.</li>
+            <li><strong>Technique:</strong> The mixture is loaded carefully onto the top of the column. Solvent is continuously added. The components separate into bands that move down the column at different rates. The separated bands (or "fractions") are collected one by one as they exit the bottom of the column.</li>
+            <li><strong>Use:</strong> A powerful <strong>preparative</strong> technique for purifying gram-scale quantities of compounds.</li>
+        </ul>
+
+        [span_53](start_span)<h3>High-Performance Liquid Chromatography (HPLC)[span_53](end_span)</h3>
+        <ul>
+            <li><strong>Type:</strong> A highly advanced form of column chromatography.</li>
+            <li><strong>Principle:</strong> The same as column chromatography (can be adsorption or partition), but with significant improvements.</li>
+            <li><strong>Key Features:</strong>
+                <ol>
+                    <li><strong>Stationary Phase:</strong> Uses <strong>very small, uniform particles</strong>, which provides a massive surface area and many theoretical plates (high efficiency).</li>
+                    <li><strong>Mobile Phase:</strong> Because the packing is so fine, the solvent cannot flow by gravity. It must be forced through under <strong>very high pressure</strong> (hence "High-Performance") using a sophisticated pump.</li>
+                    <li><strong>Detection:</strong> A sensitive detector (e.g., UV-Vis) at the end of the column automatically detects components as they elute, producing a chromatogram (a graph of signal vs. time).</li>
+                </ol>
+            </li>
+            <li><strong>Use:</strong> The gold standard for analytical separation in pharmaceutical, environmental, and biological chemistry.</li>
+        </ul>
+    </div>
+</body>
+</html>

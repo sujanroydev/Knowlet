@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSC 101 - Unit 3: Chemical Bonding I</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #e67e22;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        h2 {
+            color: #d35400;
+            margin-top: 30px;
+            border-bottom: 1px solid #fbeee6;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 25px;
+        }
+        h4 {
+            color: #7f8c8d;
+            margin-top: 20px;
+        }
+        #toc {
+            background-color: #ecf0f1;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+        }
+        #toc h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        #toc ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+        #toc li {
+            margin-bottom: 8px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #d35400;
+            font-weight: 500;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+        blockquote {
+            background-color: #fef9e7;
+            border-left: 5px solid #f1c40f;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #333;
+        }
+        .exam-tip {
+            background-color: #e8f6f3;
+            border: 1px solid #1abc9c;
+            border-left-width: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .common-mistake {
+            background-color: #fdedec;
+            border: 1px solid #e74c3c;
+            border-left-width: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #dfe6e9;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f6f7;
+            color: #34495e;
+        }
+        tr:nth-child(even) {
+            background-color: #fcfcfc;
+        }
+        code {
+            background-color: #ecf0f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: "Courier New", Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 3: Chemical Bonding-I</h1>
+
+        <div id="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#topic1">Covalent Bond (VBT) & Hybridization</a></li>
+                <li><a href="#topic2">Resonance & Molecular Orbital Theory (MOT)</a></li>
+                <li><a href="#topic3">VSEPR Theory</a></li>
+                <li><a href="#topic4">Bond Polarity & Fajan's Rules</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Covalent Bond (VBT) & Hybridization</h2>
+
+        <h3>Covalent Bond: Lewis Structure</h3>
+        <p>A Lewis structure is a 2D representation of a molecule showing how valence electrons are distributed as <strong>shared pairs (bonds)</strong> and <strong>lone pairs</strong>. The goal is usually to satisfy the <strong>octet rule</strong> (8 electrons) for each atom (or duet rule for H).</p>
+        <p><strong>Formal Charge (FC):</strong> A "bookkeeping" charge to determine the most plausible Lewis structure.</p>
+        <blockquote>
+            <strong>Formula:</strong> $FC = (\text{Valence e}^-) - (\text{Non-bonding e}^-) - \frac{1}{2}(\text{Bonding e}^-)$
+        </blockquote>
+        <p>The best structure has FCs closest to zero and any negative FC on the most electronegative atom.</p>
+
+        <h3>Valence Bond Theory (VBT)</h3>
+        <p>VBT describes a covalent bond as the <strong>overlap of half-filled atomic orbitals</strong>. The electrons in the overlapping orbitals must have opposite spins.</p>
+        <ul>
+            <li><strong>Heitler-London Approach (for H₂):</strong> As two H atoms approach, new forces arise:
+                <ul>
+                    <li><strong>Attractive:</strong> (Nucleus A - Electron B) and (Nucleus B - Electron A)</li>
+                    <li><strong>Repulsive:</strong> (Nucleus A - Nucleus B) and (Electron A - Electron B)</li>
+                </ul>
+                A bond forms at an optimal distance (bond length) where the attractive forces are maximized and the system's potential energy is at a <strong>minimum</strong>.
+            </li>
+            <li><strong>$\sigma$ (Sigma) Bond:</strong> Formed by <strong>head-on</strong> (axial) overlap of orbitals (e.g., s-s, s-p, p-p). Electron density is on the internuclear axis.</li>
+            <li><strong>$\pi$ (Pi) Bond:</strong> Formed by <strong>sideways</strong> (parallel) overlap of p-orbitals. Electron density is above and below the internuclear axis. A $\pi$-bond only forms *after* a $\sigma$-bond.</li>
+        </ul>
+        <p><strong>Multiple Bonding:</strong> A double bond is (1 $\sigma$ + 1 $\pi$). A triple bond is (1 $\sigma$ + 2 $\pi$).</p>
+
+        <h3>Hybridization</h3>
+        <p>Hybridization (proposed by Pauling) is the concept of <strong>mixing atomic orbitals</strong> of slightly different energies to form a new set of <strong>degenerate (equal energy) hybrid orbitals</strong>. These new orbitals are better suited for bonding and explain observed molecular geometries.</p>
+        
+        <h4>Energetics of Hybridization</h4>
+        <p>Hybridization is an "energy-neutral" process in theory. Energy is "spent" to promote electrons (e.g., 2s $\rightarrow$ 2p in Carbon), but this energy is more than "repaid" by the formation of more, stronger, and more stable bonds (e.g., 4 C-H bonds in $CH_4$ vs. the 2 expected for $C$ $2p^2$).</p>
+
+        <h4>Equivalent and Non-equivalent Hybrid Orbitals</h4>
+        <ul>
+            <li><strong>Equivalent:</strong> All hybrid orbitals are identical.
+                <ul>
+                    <li><strong>sp:</strong> 2 orbitals, 180° (Linear)</li>
+                    <li><strong>sp²:</strong> 3 orbitals, 120° (Trigonal Planar)</li>
+                    <li><strong>sp³:</strong> 4 orbitals, 109.5° (Tetrahedral)</li>
+                </ul>
+            </li>
+            <li><strong>Non-equivalent:</strong> Arises in $sp^3d$ and $sp^3d^2$ hybridization.
+                <ul>
+                    <li><strong>sp³d (Trigonal Bipyramidal):</strong> The 3 <strong>equatorial</strong> orbitals (120°) are different from the 2 <strong>axial</strong> orbitals (90° to the plane). Axial bonds are longer and weaker.</li>
+                    <li><strong>sp³d² (Octahedral):</strong> All 6 orbitals are equivalent.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2 id="topic2">Resonance & Molecular Orbital Theory (MOT)</h2>
+
+        <h3>Resonance</h3>
+        <p>Resonance is used when a <strong>single Lewis structure cannot adequately describe</strong> the bonding in a molecule. The actual structure is an average or "hybrid" of two or more <strong>resonance structures</strong> (or canonical forms), which differ only in the placement of $\pi$-electrons and lone pairs.</p>
+        <p><strong>Example: Ozone ($O_3$)</strong>. We can draw two valid Lewis structures. The real $O_3$ molecule is a hybrid of these, with both O-O bonds being identical (length of 1.5) and a charge of -0.5 on each outer oxygen.</p>
+        <h4>Resonance Energy</h4>
+        <blockquote>
+            <strong>Definition:</strong> The difference in energy between the actual resonance hybrid and the most stable of its contributing resonance structures.
+        </blockquote>
+        <p>Resonance leads to <strong>delocalization</strong> of electrons, which <strong>stabilizes</strong> the molecule. The larger the resonance energy, the more stable the molecule.</p>
+
+        <h3>Molecular Orbital Theory (MOT)</h3>
+        <p>MOT is a more advanced model where all atomic orbitals (AOs) from all atoms combine to form an equal number of <strong>molecular orbitals (MOs)</strong> that are delocalized over the *entire* molecule.</p>
+        <ul>
+            <li><strong>LCAO:</strong> Linear Combination of Atomic Orbitals.
+                <ul>
+                    <li><strong>Bonding MO (BMO):</strong> Formed by constructive interference ($\psi_A + \psi_B$). Lower in energy than the AOs. Stabilizing.</li>
+                    <li><strong>Antibonding MO (ABMO):</strong> Formed by destructive interference ($\psi_A - \psi_B$). Higher in energy. Destabilizing. Has a node between nuclei.</li>
+                </ul>
+            </li>
+            <li><strong>Bond Order (BO):</strong>
+                <blockquote><strong>Formula:</strong> $BO = \frac{1}{2} \times (\text{No. of Bonding e}^- - \text{No. of Antibonding e}^-)$</blockquote>
+                <ul>
+                    <li>BO = 1 (Single bond), 2 (Double bond), 3 (Triple bond)</li>
+                    <li>BO > 0: Molecule is stable.</li>
+                    <li>BO = 0: Molecule does not exist.</li>
+                </ul>
+            </li>
+            <li><strong>Magnetic Property:</strong> If all electrons are paired $\rightarrow$ <strong>Diamagnetic</strong>. If one or more unpaired electrons exist $\rightarrow$ <strong>Paramagnetic</strong>.</li>
+        </ul>
+
+        <h4>MO Diagrams of Diatomic Molecules</h4>
+        
+        <h4>s-p Mixing</h4>
+        <p>For homonuclear diatomics <strong>$B_2, C_2, \text{and } N_2$</strong> (and their ions), the $2s$ and $2p_z$ orbitals are close enough in energy to interact (mix). This mixing <strong>raises</strong> the energy of the $\sigma_{2p_z}$ MO above that of the $\pi_{2p_{x,y}}$ MOs.</p>
+        <p>For <strong>$O_2, F_2, \text{and } Ne_2$</strong>, the $2s-2p$ energy gap is too large for mixing, so the "normal" order is followed.</p>
+
+        <table>
+            <caption>MO Filling Order</caption>
+            <tr>
+                <th>For $B_2, C_2, N_2$ (s-p mixing)</th>
+                <th>For $O_2, F_2$ (no s-p mixing)</th>
+            </tr>
+            <tr>
+                <td>$\sigma_{1s} < \sigma^*_{1s} < \sigma_{2s} < \sigma^*_{2s} < $ <strong>$\pi_{2p_{x,y}} < \sigma_{2p_z}$</strong> $ < \pi^*_{2p_{x,y}} < \sigma^*_{2p_z}$</td>
+                <td>$\sigma_{1s} < \sigma^*_{1s} < \sigma_{2s} < \sigma^*_{2s} < $ <strong>$\sigma_{2p_z} < \pi_{2p_{x,y}}$</strong> $ < \pi^*_{2p_{x,y}} < \sigma^*_{2p_z}$</td>
+            </tr>
+        </table>
+        <div class="exam-tip">
+            <strong>Key results from MOT:</strong>
+            <ul>
+                <li><strong>$N_2$:</strong> BO=3, Diamagnetic.</li>
+                <li><strong>$O_2$:</strong> BO=2, <strong>Paramagnetic</strong> (2 unpaired e- in $\pi^*$ orbitals). VBT fails to explain this.</li>
+                <li><strong>$B_2$:</strong> BO=1, Paramagnetic (2 unpaired e- in $\pi$ orbitals).</li>
+                <li><strong>$F_2$:</strong> BO=1, Diamagnetic.</li>
+                <li><strong>$NO$:</strong> (Heteronuclear) BO=2.5, Paramagnetic.</li>
+                <li><strong>$CO$:</strong> (Heteronuclear) BO=3, Diamagnetic.</li>
+            </ul>
+        </div>
+
+        <h4>MOs for Simple Polyatomic Molecules</h4>
+        <ul>
+            <li><strong>HCl:</strong> H(1s) orbital overlaps with Cl($3p_z$) orbital. The Cl($3p_x, 3p_y$) orbitals are non-bonding.</li>
+            <li><strong>BeF₂:</strong> (Linear) The Be(2s) and Be($2p_z$) orbitals combine with F($p_z$) orbitals to form $\sigma$ and $\sigma^*$ MOs.</li>
+            <li><strong>CO₂:</strong> (Linear) Involves combinations of C(2s, 2p) and O(2s, 2p) to form a set of $\sigma$ and $\pi$ MOs delocalized over all three atoms.</li>
+        </ul>
+        <h2 id="topic3">Valence Shell Electron Pair Repulsion (VSEPR) Theory</h2>
+        <p>VSEPR is a model used to predict the 3D <strong>geometry</strong> of molecules based on the idea that electron pairs in the valence shell of a central atom repel each other and will arrange themselves to be as far apart as possible, minimizing repulsion.</p>
+        
+        <h4>Postulates of VSEPR</h4>
+        <ol>
+            <li>The shape of a molecule depends on the number of valence shell electron pairs (Bonding Pairs, BP, and Lone Pairs, LP) around the central atom.</li>
+            <li>Electron pairs (LP and BP) repel each other.</li>
+            <li>The order of repulsion strength is:
+                <blockquote><strong>$LP-LP > LP-BP > BP-BP$</strong></blockquote>
+                <em>Reason:</em> A lone pair is only held by one nucleus, so it is "fatter" and "wider" than a bonding pair, which is held by two nuclei.</li>
+            <li>Multiple bonds (double/triple) are treated as a single "superpair" for determining geometry, but they exert more repulsion than a single bond.</li>
+        </ol>
+
+        <h4>Shapes of Simple Molecules (AXE method)</h4>
+        <p>$A$ = Central Atom, $X$ = Bonded Atom (BP), $E$ = Lone Pair (LP)</p>
+        <table>
+            <caption>VSEPR Geometries</caption>
+            <tr>
+                <th>Total Pairs ($X+E$)</th>
+                <th>Type</th>
+                <th>BP ($X$)</th>
+                <th>LP ($E$)</th>
+                <th>Electron Geometry</th>
+                <th>Molecular Shape</th>
+                <th>Angle(s)</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>$AX_2$</td>
+                <td>2</td>
+                <td>0</td>
+                <td>Linear</td>
+                <td>Linear</td>
+                <td>180°</td>
+                <td>$BeF_2, CO_2$</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>$AX_3$</td>
+                <td>3</td>
+                <td>0</td>
+                <td>Trigonal Planar</td>
+                <td>Trigonal Planar</td>
+                <td>120°</td>
+                <td>$BF_3$</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>$AX_2E$</td>
+                <td>2</td>
+                <td>1</td>
+                <td>Trigonal Planar</td>
+                <td><strong>Bent (V-shape)</strong></td>
+                <td>< 120°</td>
+                <td>$SO_2, O_3$</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>$AX_4$</td>
+                <td>4</td>
+                <td>0</td>
+                <td>Tetrahedral</td>
+                <td>Tetrahedral</td>
+                <td>109.5°</td>
+                <td>$CH_4, NH_4^+$</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>$AX_3E$</td>
+                <td>3</td>
+                <td>1</td>
+                <td>Tetrahedral</td>
+                <td><strong>Trigonal Pyramidal</strong></td>
+                <td>< 109.5° (e.g., 107°)</td>
+                <td>$NH_3, PCl_3$</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>$AX_2E_2$</td>
+                <td>2</td>
+                <td>2</td>
+                <td>Tetrahedral</td>
+                <td><strong>Bent (V-shape)</strong></td>
+                <td>< 109.5° (e.g., 104.5°)</td>
+                <td>$H_2O, SCl_2$</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>$AX_5$</td>
+                <td>5</td>
+                <td>0</td>
+                <td>Trigonal Bipyramidal</td>
+                <td>Trigonal Bipyramidal</td>
+                <td>90°, 120°</td>
+                <td>$PCl_5$</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>$AX_4E$</td>
+                <td>4</td>
+                <td>1</td>
+                <td>Trigonal Bipyramidal</td>
+                <td><strong>See-Saw</strong></td>
+                <td>< 90°, < 120°</td>
+                <td>$SF_4$</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>$AX_3E_2$</td>
+                <td>3</td>
+                <td>2</td>
+                <td>Trigonal Bipyramidal</td>
+                <td><strong>T-shape</strong></td>
+                <td>< 90°</td>
+                <td>$ClF_3$</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>$AX_2E_3$</td>
+                <td>2</td>
+                <td>3</td>
+                <td>Trigonal Bipyramidal</td>
+                <td><strong>Linear</strong></td>
+                <td>180°</td>
+                <td>$XeF_2$</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>$AX_6$</td>
+                <td>6</td>
+                <td>0</td>
+                <td>Octahedral</td>
+                <td>Octahedral</td>
+                <td>90°</td>
+                <td>$SF_6$</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>$AX_5E$</td>
+                <td>5</td>
+                <td>1</td>
+                <td>Octahedral</td>
+                <td><strong>Square Pyramidal</strong></td>
+                <td>< 90°</td>
+                <td>$BrF_5$</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>$AX_4E_2$</td>
+                <td>4</td>
+                <td>2</td>
+                <td>Octahedral</td>
+                <td><strong>Square Planar</strong></td>
+                <td>90°</td>
+                <td>$XeF_4$</td>
+            </tr>
+        </table>
+        <div class="common-mistake">
+            <strong>Key Point for 5 Pairs:</strong> Lone pairs <strong>always</strong> go into the <strong>equatorial</strong> positions first, to minimize 90° LP-BP repulsions.
+            <br>
+            <strong>Key Point for 6 Pairs:</strong> The first lone pair can go anywhere. The second lone pair ($E_2$) goes <strong>trans</strong> (180°) to the first one to minimize LP-LP repulsion.
+        </div>
+        
+        <h2 id="topic4">Bond Polarity & Fajan's Rules</h2>
+
+        <h3>Ionic Character in Covalent Compounds</h3>
+        <p>When two different atoms form a covalent bond (e.g., H-Cl), the shared electrons are not shared equally. The more electronegative atom (Cl) pulls the electrons closer, creating a <strong>polar covalent bond</strong>.</p>
+        <ul>
+            <li>This creates a partial negative charge ($\delta^-$) on the Cl and a partial positive charge ($\delta^+$) on the H.</li>
+            <li><strong>Bond Moment:</strong> The dipole moment of a single bond.</li>
+            <li><strong>Dipole Moment ($\mu$):</strong> The vector sum of all bond moments in a molecule. It is a measure of the overall polarity of the molecule.
+                <blockquote><strong>Formula:</strong> $\mu = q \times d$
+                    <br>Where: $q$ = magnitude of charge, $d$ = distance of separation. Unit = Debye (D).
+                </blockquote>
+            </li>
+        </ul>
+        <p><strong>Symmetrical molecules</strong> (like $CO_2, CCl_4, BF_3$) can have polar bonds, but their bond moments cancel out, resulting in a <strong>zero dipole moment</strong> ($\mu = 0$). They are <strong>non-polar</strong>.</p>
+        <p><strong>Asymmetrical molecules</strong> (like $H_2O, NH_3$) have bond moments that do not cancel, resulting in a 

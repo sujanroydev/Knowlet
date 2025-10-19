@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEC 101: Unit 2 - Functions & Program Structure</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 20px; background-color: #f0f8ff; color: #333; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.1); }
+        h1, h2, h3 { color: #00796B; border-bottom: 2px solid #00796B; padding-bottom: 5px; }
+        h1 { font-size: 2.2em; text-align: center; }
+        h2 { font-size: 1.8em; margin-top: 30px; }
+        h3 { font-size: 1.4em; color: #004D40; border-bottom: 1px solid #004D40; }
+        strong { color: #d9534f; }
+        code { background: #e0f7fa; border: 1px solid #b2ebf2; padding: 2px 6px; border-radius: 4px; font-family: 'Courier New', Courier, monospace; }
+        blockquote { background: #e0f7fa; border-left: 5px solid #00796B; margin: 20px 0; padding: 15px; font-style: italic; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #00796B; color: white; text-align: center; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .toc { background: #f8f9fa; border: 1px solid #dee2e6; padding: 15px; border-radius: 5px; margin-bottom: 30px; }
+        .toc h2 { border: none; margin-top: 0; }
+        .toc ul { list-style-type: none; padding: 0; }
+        .toc li a { text-decoration: none; color: #007bff; }
+        .toc li a:hover { text-decoration: underline; }
+        .exam-tip { background: #fff3cd; border: 1px solid #ffeeba; border-left-width: 5px; padding: 15px; margin: 15px 0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 2: Functions and Program Structure</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            [span_18](start_span)<li><a href="#functions">2.1 Functions and Program Structure</a>[span_18](end_span)</li>
+            [span_19](start_span)<li><a href="#prototypes">2.2 Function Prototypes and Return Types</a>[span_19](end_span)</li>
+            [span_20](start_span)<li><a href="#storage-classes">2.3 Storage Classes and Scope Rules</a>[span_20](end_span)</li>
+            [span_21](start_span)<li><a href="#recursion">2.4 Recursion in C</a>[span_21](end_span)</li>
+            [span_22](start_span)<li><a href="#preprocessor">2.5 The C Preprocessor</a>[span_22](end_span)</li>
+        </ul>
+    </div>
+
+    [span_23](start_span)<h2 id="functions">2.1 Functions and Program Structure[span_23](end_span)</h2>
+    <p>A function is a self-contained block of code that performs a specific task. Using functions makes code modular, reusable, and easier to debug.</p>
+
+    <h3>Defining and Accessing Functions</h3>
+    <pre><code>// Function Definition
+float calculateAverage(int a, int b) {
+    float avg = (a + b) / 2.0;
+    return avg;
+}
+
+int main() {
+    int x = 10, y = 5;
+    // Function Access (Call)
+    float result = calculateAverage(x, y); 
+    printf("Average: %.2f\n", result);
+    return 0;
+}</code></pre>
+    
+    [span_24](start_span)<h3>Passing Arguments to a Function[span_24](end_span)</h3>
+    <p>In C, arguments are passed by <strong>Pass-by-Value</strong> by default. This means the function receives a <strong>copy</strong> of the argument's value, and the original variable in the calling function is not changed. (We will see how to change this with pointers in Unit 3).</p>
+
+    [span_25](start_span)<h2 id="prototypes">2.2 Function Prototypes and Return Types[span_25](end_span)</h2>
+    
+    [span_26](start_span)<h3>Function Prototypes[span_26](end_span)</h3>
+    <p>A function prototype is a declaration of a function that tells the compiler about its name, return type, and parameters. It is crucial if you define the function <em>after</em> <code>main()</code>.</p>
+    <pre><code>#include &lt;stdio.h&gt;
+
+// Function Prototype
+float calculateAverage(int a, int b);
+
+int main() {
+    float result = calculateAverage(10, 5); // Compiler already knows what this is
+    printf("Result: %.2f\n", result);
+    return 0;
+}
+
+// Function Definition
+float calculateAverage(int a, int b) {
+    return (a + b) / 2.0;
+}</code></pre>
+    
+    [span_27](start_span)<h3>Functions Returning Non-Integers[span_27](end_span)</h3>
+    <p>Functions can return any data type, such as <code>float</code>, <code>double</code>, <code>char</code>, or even pointers (Unit 3) and structures (Unit 4). The <code>calculateAverage</code> function above is an example of a function returning a <code>float</code>.</p>
+
+    [span_28](start_span)<h2 id="storage-classes">2.3 Storage Classes and Scope Rules[span_28](end_span)</h2>
+    <p>Storage classes determine a variable's scope, lifetime, and storage location.</p>
+    
+    <table>
+        <tr><th>Storage Class</th><th>Keyword</th><th>Storage</th><th>Default Value</th><th>Scope</th><th>Lifetime</th></tr>
+        <tr>
+            <td><strong>Automatic</strong></td>
+            <td><code>auto</code> (rarely used)</td>
+            <td>Stack</td>
+            <td>Garbage</td>
+            <td>Block (local)</td>
+            <td>Within the block</td>
+        </tr>
+        <tr>
+            <td><strong>External</strong></td>
+            <td><code>extern</code></td>
+            <td>Data Segment</td>
+            <td>Zero</td>
+            <td>File (global)</td>
+            <td>Entire program</td>
+        </tr>
+        <tr>
+            <td><strong>Static</strong></td>
+            <td><code>static</code></td>
+            <td>Data Segment</td>
+            <td>Zero</td>
+            <td>Block or File</td>
+            <td>Entire program</td>
+        </tr>
+        <tr>
+            <td><strong>Register</strong></td>
+            <td><code>register</code></td>
+            <td>CPU Register (hint)</td>
+            <td>Garbage</td>
+            <td>Block (local)</td>
+            <td>Within the block</td>
+        </tr>
+    </table>
+    
+    [span_29](start_span)<h3>Scope Rules[span_29](end_span)</h3>
+    <ul>
+        <li><strong>Block Structure (Local Scope):</strong> A variable declared inside a block <code>{ ... }</code> is only accessible within that block.</li>
+        <li><strong>File Scope (Global Scope):</strong> A variable declared outside all functions is global and accessible to all functions in that file.</li>
+    </ul>
+
+    [span_30](start_span)<h3>Header Files[span_30](end_span)</h3>
+    <p>Files (e.g., <code>stdio.h</code>, <code>math.h</code>) containing function prototypes and definitions that can be included in our program using <code>#include</code>.</p>
+
+    [span_31](start_span)<h2 id="recursion">2.4 Recursion in C[span_31](end_span)</h2>
+    <p>Recursion is a process where a function calls itself. A recursive function must have two parts:</p>
+    <ol>
+        <li><strong>Base Case:</strong> A condition that stops the recursion.</li>
+        <li><strong>Recursive Step:</strong> The part of the function that calls itself, moving closer to the base case.</li>
+    </ol>
+    
+    <h4>Problem Solving: Factorial</h4>
+    <pre><code>long factorial(int n) {
+    // 1. Base Case
+    if (n == 0 || n == 1) {
+        return 1;
+    }
+    // 2. Recursive Step
+    else {
+        return n * factorial(n - 1);
+    }
+}</code></pre>
+    <div class="exam-tip"><strong>Risk:</strong> If you forget the base case or never reach it, you will get a <strong>stack overflow</strong> error.</div>
+
+    [span_32](start_span)<h2 id="preprocessor">2.5 The C Preprocessor[span_32](end_span)</h2>
+    <p>The preprocessor is a program that processes your source code <em>before</em> it is passed to the compiler. Its directives start with <code>#</code>.</p>
+    <ul>
+        <li><strong><code>#include</code>:</strong> Pastes the content of a header file into your code.</li>
+        <li><strong><code>#define</code>:</strong> Creates a macro, which is a fragment of code that is given a name.
+            <ul>
+                <li><strong>As a constant:</strong> <code>#define PI 3.14159</code></li>
+                <li><strong>As a function-like macro:</strong> <code>#define SQUARE(x) (x * x)</code></li>
+            </ul>
+        </li>
+    </ul>
+    <div class="exam-tip">Always wrap macro arguments in parentheses to avoid operator precedence errors: <code>#define SQUARE(x) ((x) * (x))</code>.</div>
+</div>
+
+</body>
+</html>

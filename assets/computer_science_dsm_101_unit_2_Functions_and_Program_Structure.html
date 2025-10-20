@@ -34,15 +34,15 @@
     <div class="toc">
         <h2>Table of Contents</h2>
         <ul>
-            [span_14](start_span)<li><a href="#functions">2.1 Functions and Program Structure</a>[span_14](end_span)</li>
-            [span_15](start_span)<li><a href="#prototypes">2.2 Function Prototypes and Return Types</a>[span_15](end_span)</li>
-            [span_16](start_span)<li><a href="#storage-classes">2.3 Storage Classes and Scope Rules</a>[span_16](end_span)</li>
-            [span_17](start_span)<li><a href="#recursion">2.4 Recursion in C</a>[span_17](end_span)</li>
-            [span_18](start_span)<li><a href="#preprocessor">2.5 The C Preprocessor</a>[span_18](end_span)</li>
+            <span id="span_14"><li><a href="#functions">2.1 Functions and Program Structure</a></span></li>
+            <span id="span_15"><li><a href="#prototypes">2.2 Function Prototypes and Return Types</a></span></li>
+            <span id="span_16"><li><a href="#storage-classes">2.3 Storage Classes and Scope Rules</a></span></li>
+            <span id="span_17"><li><a href="#recursion">2.4 Recursion in C</a></span></li>
+            <span id="span_18"><li><a href="#preprocessor">2.5 The C Preprocessor</a></span></li>
         </ul>
     </div>
 
-    [span_19](start_span)<h2 id="functions">2.1 Functions and Program Structure[span_19](end_span)</h2>
+    <span id="span_19"><h2 id="functions">2.1 Functions and Program Structure</span></h2>
     <p>A function is a self-contained block of code that performs a specific task. Using functions makes code modular, reusable, and easier to debug.</p>
 
     <h3>Defining and Accessing Functions</h3>
@@ -63,7 +63,7 @@ int main() {
     <h3>Passing Arguments to a Function</h3>
     <p>In C, arguments are passed by <strong>Pass-by-Value</strong> by default. This means the function receives a <strong>copy</strong> of the argument's value, and the original variable in the calling function is not changed. (We will see how to change this with pointers in Unit 3).</p>
 
-    [span_20](start_span)<h2 id="prototypes">2.2 Function Prototypes and Return Types[span_20](end_span)</h2>
+    <span id="span_20"><h2 id="prototypes">2.2 Function Prototypes and Return Types</span></h2>
     
     <h3>Function Prototypes</h3>
     <p>A function prototype is a declaration of a function that tells the compiler about its name, return type, and parameters. It is crucial if you define the function <em>after</em> <code>main()</code>.</p>
@@ -83,10 +83,10 @@ float calculateAverage(int a, int b) {
     return (a + b) / 2.0;
 }</code></pre>
     
-    [span_21](start_span)<h3>Functions Returning Non-Integers[span_21](end_span)</h3>
+    <span id="span_21"><h3>Functions Returning Non-Integers</span></h3>
     <p>Functions can return any data type, such as <code>float</code>, <code>double</code>, <code>char</code>, or even pointers (Unit 3) and structures (Unit 4). The <code>calculateAverage</code> function above is an example of a function returning a <code>float</code>.</p>
 
-    [span_22](start_span)<h2 id="storage-classes">2.3 Storage Classes and Scope Rules[span_22](end_span)</h2>
+    <span id="span_22"><h2 id="storage-classes">2.3 Storage Classes and Scope Rules</span></h2>
     <p>Storage classes determine a variable's scope, lifetime, and storage location.</p>
     
     <table>
@@ -127,14 +127,14 @@ float calculateAverage(int a, int b) {
     
     <h3>Scope Rules</h3>
     <ul>
-        [span_23](start_span)<li><strong>Block Structure (Local Scope):</strong> A variable declared inside a block <code>{ ... }</code> is only accessible within that block.[span_23](end_span)</li>
+        <span id="span_23"><li><strong>Block Structure (Local Scope):</strong> A variable declared inside a block <code>{ ... }</code> is only accessible within that block.</span></li>
         <li><strong>File Scope (Global Scope):</strong> A variable declared outside all functions is global and accessible to all functions in that file.</li>
     </ul>
 
-    [span_24](start_span)<h3>Header Files[span_24](end_span)</h3>
+    <span id="span_24"><h3>Header Files</span></h3>
     <p>Files (e.g., <code>stdio.h</code>, <code>math.h</code>) containing function prototypes and definitions that can be included in our program using <code>#include</code>.</p>
 
-    [span_25](start_span)<h2 id="recursion">2.4 Recursion in C[span_25](end_span)</h2>
+    <span id="span_25"><h2 id="recursion">2.4 Recursion in C</span></h2>
     <p>Recursion is a process where a function calls itself. A recursive function must have two parts:</p>
     <ol>
         <li><strong>Base Case:</strong> A condition that stops the recursion.</li>
@@ -154,7 +154,7 @@ float calculateAverage(int a, int b) {
 }</code></pre>
     <div class="exam-tip"><strong>Risk:</strong> If you forget the base case or never reach it, you will get a <strong>stack overflow</strong> error.</div>
 
-    [span_26](start_span)<h2 id="preprocessor">2.5 The C Preprocessor[span_26](end_span)</h2>
+    <span id="span_26"><h2 id="preprocessor">2.5 The C Preprocessor</span></h2>
     <p>The preprocessor is a program that processes your source code <em>before</em> it is passed to the compiler. Its directives start with <code>#</code>.</p>
     <ul>
         <li><strong><code>#include</code>:</strong> Pastes the content of a header file into your code.</li>

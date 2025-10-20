@@ -30,15 +30,15 @@
     <div class="toc">
         <h2>Table of Contents</h2>
         <ul>
-            [span_27](start_span)<li><a href="#arrays">3.1 Arrays: Definition, Processing, and Strings</a>[span_27](end_span)</li>
-            [span_28](start_span)<li><a href="#pointers-basic">3.2 POINTERS: Basic Concepts</a>[span_28](end_span)</li>
-            [span_29](start_span)<li><a href="#pointers-arrays">3.3 Pointers and One-Dimensional Arrays</a>[span_29](end_span)</li>
-            [span_30](start_span)<li><a href="#pointers-adv">3.4 Advanced Pointer Topics</a>[span_30](end_span)</li>
-            [span_31](start_span)<li><a href="#pointers-func">3.5 Command Line Arguments and Pointers to Functions</a>[span_31](end_span)</li>
+            <span id="span_27"><li><a href="#arrays">3.1 Arrays: Definition, Processing, and Strings</a></span></li>
+            <span id="span_28"><li><a href="#pointers-basic">3.2 POINTERS: Basic Concepts</a></span></li>
+            <span id="span_29"><li><a href="#pointers-arrays">3.3 Pointers and One-Dimensional Arrays</a></span></li>
+            <span id="span_30"><li><a href="#pointers-adv">3.4 Advanced Pointer Topics</a></span></li>
+            <span id="span_31"><li><a href="#pointers-func">3.5 Command Line Arguments and Pointers to Functions</a></span></li>
         </ul>
     </div>
 
-    [span_32](start_span)<h2 id="arrays">3.1 Arrays: Definition, Processing, and Strings[span_32](end_span)</h2>
+    <span id="span_32"><h2 id="arrays">3.1 Arrays: Definition, Processing, and Strings</span></h2>
     
     <h3>Definition and Processing</h3>
     <p>An array is a collection of fixed-size items of the <strong>same data type</strong>, stored in contiguous memory locations.</p>
@@ -66,7 +66,7 @@ printf("%d", matrix[1][2]); // Prints 6</code></pre>
     <p>In C, a string is simply an array of <code>char</code>, ending with a special <strong>null terminator</strong> (<code>'\0'</code>).</p>
     <pre><code>char greeting[] = "Hello"; // Equivalent to {'H', 'e', 'l', 'l', 'o', '\0'}</code></pre>
 
-    [span_33](start_span)<h2 id="pointers-basic">3.2 POINTERS: Basic Concepts[span_33](end_span)</h2>
+    <span id="span_33"><h2 id="pointers-basic">3.2 POINTERS: Basic Concepts</span></h2>
     <p>A pointer is a variable that stores the <strong>memory address</strong> of another variable.</p>
     
     <h3>Pointer Declaration and Operators</h3>
@@ -94,7 +94,7 @@ int x = 5, y = 10;
 swap(&x, &y); // Pass the addresses
 // Now x = 10 and y = 5</code></pre>
 
-    [span_34](start_span)<h2 id="pointers-arrays">3.3 Pointers and One-Dimensional Arrays[span_34](end_span)</h2>
+    <span id="span_34"><h2 id="pointers-arrays">3.3 Pointers and One-Dimensional Arrays</span></h2>
     <p>The name of an array is a constant pointer to its first element.</p>
     <blockquote><code>arr</code> is equivalent to <code>&arr[0]</code></blockquote>
     <p>We can use <strong>address arithmetic</strong> to access elements.</p>
@@ -104,7 +104,7 @@ swap(&x, &y); // Pass the addresses
     </ul>
     <p><strong>Note:</strong> <code>ptr++</code> (where <code>ptr</code> is an <code>int*</code>) increments the address by <code>sizeof(int)</code> (usually 4 bytes), not 1 byte.</p>
 
-    [span_35](start_span)<h2 id="pointers-adv">3.4 Advanced Pointer Topics[span_35](end_span)</h2>
+    <span id="span_35"><h2 id="pointers-adv">3.4 Advanced Pointer Topics</span></h2>
     
     <h3>Character Pointers and Functions</h3>
     <p>A string literal (<code>"Hello"</code>) can be assigned to a <code>char*</code>. Many string library functions (like <code>strcpy</code>, <code>strlen</code>) use character pointers.</p>
@@ -123,10 +123,10 @@ int *p = &x;
 int **pp = &p;
 printf("%d\n", **pp); // Prints 10</code></pre>
 
-    [span_36](start_span)<h3>Pointers and Multidimensional Arrays[span_36](end_span)</h3>
+    <span id="span_36"><h3>Pointers and Multidimensional Arrays</span></h3>
     <p>This is a complex topic. For <code>int matrix[2][3]</code>, <code>matrix</code> is a pointer to its first element, which is an <em>array of 3 integers</em>. Its type is <code>int (*)[3]</code>.</p>
 
-    [span_37](start_span)<h2 id="pointers-func">3.5 Command Line Arguments and Pointers to Functions[span_37](end_span)</h2>
+    <span id="span_37"><h2 id="pointers-func">3.5 Command Line Arguments and Pointers to Functions</span></h2>
     
     <h3>Command Line Arguments</h3>
     <p>Allows your program to receive arguments when it is executed from the command line.</p>

@@ -41,35 +41,35 @@
         </ul>
     </div>
 
-    [span_17](start_span)<h2 id="ordering-relations">3.1 Partial Ordering vs. Equivalence Relations[span_17](end_span)</h2>
+    <span id="span_17"><h2 id="ordering-relations">3.1 Partial Ordering vs. Equivalence Relations</span></h2>
     <p>This unit builds on the relations from Unit 2.</p>
     
     <h3>Equivalence Relations</h3>
-    <p>A relation $R$ on set $A$ is an equivalence relation if it is:</p>
+    <p>A relation R on set A is an equivalence relation if it is:</p>
     <ol>
-        <li><strong>Reflexive:</strong> $(a, a) \in R$ for all $a \in A$.</li>
-        <li><strong>Symmetric:</strong> If $(a, b) \in R$, then $(b, a) \in R$.</li>
-        <li><strong>Transitive:</strong> If $(a, b) \in R$ and $(b, c) \in R$, then $(a, c) \in R$.</li>
+        <li><strong>Reflexive:</strong> (a, a) ∈ R for all a ∈ A.</li>
+        <li><strong>Symmetric:</strong> If (a, b) ∈ R, then (b, a) ∈ R.</li>
+        <li><strong>Transitive:</strong> If (a, b) ∈ R and (b, c) ∈ R, then (a, c) ∈ R.</li>
     </ol>
-    <p>An equivalence relation <strong>partitions</strong> a set $A$ into disjoint <strong>equivalence classes</strong>. The class of $a$, denoted $[a]$, is the set of all elements related to $a$.</p>
-    <p><strong>Example:</strong> "Congruence modulo 3" on $\mathbb{Z}$. $[0] = \{..., -3, 0, 3, 6, ...\}$, $[1] = \{..., -2, 1, 4, 7, ...\}$, $[2] = \{..., -1, 2, 5, 8, ...\}$.</p>
+    <p>An equivalence relation <strong>partitions</strong> a set A into disjoint <strong>equivalence classes</strong>. The class of a, denoted [a], is the set of all elements related to a.</p>
+    <p><strong>Example:</strong> "Congruence modulo 3" on ℤ. [0] = \{..., -3, 0, 3, 6, ...\}, [1] = \{..., -2, 1, 4, 7, ...\}, [2] = \{..., -1, 2, 5, 8, ...\}.</p>
 
     <h3>Partial Ordering Relations (Posets)</h3>
-    <p>A relation $R$ on set $A$ is a partial order if it is:</p>
+    <p>A relation R on set A is a partial order if it is:</p>
     <ol>
-        <li><strong>Reflexive:</strong> $(a, a) \in R$ for all $a \in A$.</li>
-        <li><strong>Anti-symmetric:</strong> If $(a, b) \in R$ and $(b, a) \in R$, then $a = b$.</li>
-        <li><strong>Transitive:</strong> If $(a, b) \in R$ and $(b, c) \in R$, then $(a, c) \in R$.</li>
+        <li><strong>Reflexive:</strong> (a, a) ∈ R for all a ∈ A.</li>
+        <li><strong>Anti-symmetric:</strong> If (a, b) ∈ R and (b, a) ∈ R, then a = b.</li>
+        <li><strong>Transitive:</strong> If (a, b) ∈ R and (b, c) ∈ R, then (a, c) ∈ R.</li>
     </ol>
-    <p><strong>Example:</strong> The "divides" relation on the set $\{1, 2, 3, 6\}$.</p>
+    <p><strong>Example:</strong> The "divides" relation on the set \{1, 2, 3, 6\}.</p>
 
-    [span_18](start_span)<h2 id="lattices">3.2 Lattices[span_18](end_span)</h2>
-    <p>In a poset $(S, \le)$, for any two elements $a, b \in S$:</p>
+    <span id="span_18"><h2 id="lattices">3.2 Lattices</span></h2>
+    <p>In a poset (S, ≤), for any two elements a, b ∈ S:</p>
     <ul>
-        <li><strong>Upper Bound:</strong> $u$ is an upper bound of $\{a, b\}$ if $a \le u$ and $b \le u$.</li>
-        <li><strong>Least Upper Bound (LUB):</strong> The smallest of all upper bounds. Denoted <strong>$a \lor b$ (join)</strong>.</li>
-        <li><strong>Lower Bound:</strong> $l$ is a lower bound of $\{a, b\}$ if $l \le a$ and $l \le b$.</li>
-        <li><strong>Greatest Lower Bound (GLB):</strong> The largest of all lower bounds. Denoted <strong>$a \land b$ (meet)</strong>.</li>
+        <li><strong>Upper Bound:</strong> u is an upper bound of \{a, b\} if a ≤ u and b ≤ u.</li>
+        <li><strong>Least Upper Bound (LUB):</strong> The smallest of all upper bounds. Denoted <strong>a \lor b (join)</strong>.</li>
+        <li><strong>Lower Bound:</strong> l is a lower bound of \{a, b\} if l ≤ a and l ≤ b.</li>
+        <li><strong>Greatest Lower Bound (GLB):</strong> The largest of all lower bounds. Denoted <strong>a \land b (meet)</strong>.</li>
     </ul>
     <blockquote>
         A <strong>lattice</strong> is a poset in which <strong>every pair</strong> of elements has a unique LUB (join) and a unique GLB (meet).
@@ -78,40 +78,40 @@
         To check if a Hasse diagram represents a lattice, pick any two elements and verify they have a unique GLB (common ancestor) and a unique LUB (common descendant).
     </div>
 
-    [span_19](start_span)<h2 id="lattice-types">3.3 Bounded, Distributive, and Complemented Lattices[span_19](end_span)</h2>
+    <span id="span_19"><h2 id="lattice-types">3.3 Bounded, Distributive, and Complemented Lattices</span></h2>
     <ul>
         <li><strong>Bounded Lattices:</strong> A lattice that has a <strong>greatest element (I or 1)</strong> (the LUB of all elements) and a <strong>least element (0)</strong> (the GLB of all elements).
             <ul>
-                <li>$a \lor 1 = 1$, $a \land 1 = a$</li>
-                <li>$a \lor 0 = a$, $a \land 0 = 0$</li>
+                <li>a \lor 1 = 1, a \land 1 = a</li>
+                <li>a \lor 0 = a, a \land 0 = 0</li>
             </ul>
         </li>
-        <li><strong>Distributive Lattices:</strong> A lattice that satisfies the distributive laws for all $a, b, c$:
+        <li><strong>Distributive Lattices:</strong> A lattice that satisfies the distributive laws for all a, b, c:
             <ul>
-                <li>$a \land (b \lor c) = (a \land b) \lor (a \land c)$</li>
-                <li>$a \lor (b \land c) = (a \lor b) \land (a \lor c)$</li>
+                <li>a \land (b \lor c) = (a \land b) \lor (a \land c)</li>
+                <li>a \lor (b \land c) = (a \lor b) \land (a \lor c)</li>
             </ul>
         </li>
-        <li><strong>Complements:</strong> In a bounded lattice, $a$ and $b$ are complements if $a \lor b = 1$ and $a \land b = 0$. An element can have zero, one, or multiple complements.</li>
+        <li><strong>Complements:</strong> In a bounded lattice, a and b are complements if a \lor b = 1 and a \land b = 0. An element can have zero, one, or multiple complements.</li>
         <li><strong>Complemented Lattices:</strong> A bounded lattice where <strong>every</strong> element has at least one complement.</li>
     </ul>
 
-    [span_20](start_span)<h2 id="boolean-algebra">3.4 Introduction to Boolean Algebra[span_20](end_span)</h2>
+    <span id="span_20"><h2 id="boolean-algebra">3.4 Introduction to Boolean Algebra</span></h2>
     <blockquote>
         A <strong>Boolean Algebra</strong> is a <strong>complemented, distributive lattice</strong>.
     </blockquote>
-    <p>This is the mathematical foundation for the digital logic circuits (from DSC 101). A Boolean algebra $(B, +, \cdot, ', 0, 1)$ consists of a set $B$, two binary operators (+ for join/OR, $\cdot$ for meet/AND), a unary operator (' for complement/NOT), and the bounds 0 and 1, satisfying specific axioms (identity, complement, commutative, distributive).</p>
-    <p><strong>Example:</strong> The set $B = \{0, 1\}$ with the standard logic gates (OR, AND, NOT) is the simplest Boolean algebra. The power set $P(A)$ with operators $(\cup, \cap, ')$ also forms a Boolean algebra.</p>
+    <p>This is the mathematical foundation for the digital logic circuits (from DSC 101). A Boolean algebra (B, +, ·, ', 0, 1) consists of a set B, two binary operators (+ for join/OR, · for meet/AND), a unary operator (' for complement/NOT), and the bounds 0 and 1, satisfying specific axioms (identity, complement, commutative, distributive).</p>
+    <p><strong>Example:</strong> The set B = \{0, 1\} with the standard logic gates (OR, AND, NOT) is the simplest Boolean algebra. The power set P(A) with operators (∪, ∩, ') also forms a Boolean algebra.</p>
 
-    [span_21](start_span)<h2 id="boolean-functions">3.5 Boolean Functions: Representation and Minimization[span_21](end_span)</h2>
+    <span id="span_21"><h2 id="boolean-functions">3.5 Boolean Functions: Representation and Minimization</span></h2>
     <h3>Boolean Functions</h3>
-    <p>A Boolean function $f: B^n \to B$ maps $n$ inputs from a Boolean set $B$ (e.g., $\{0, 1\}$) to a single output.</p>
+    <p>A Boolean function f: B<sup>n</sup> \to B maps n inputs from a Boolean set B (e.g., \{0, 1\}) to a single output.</p>
     
     <h3>Representation</h3>
     <p>Any Boolean function can be represented in <strong>Sum-of-Products (SOP)</strong> form (like DNF from Unit 1) or <strong>Product-of-Sums (POS)</strong> form (like CNF from Unit 1).</p>
     <ul>
-        <li><strong>SOP:</strong> A sum (OR) of product (AND) terms. Example: $f(x,y,z) = x'y'z + xyz'$</li>
-        <li><strong>POS:</strong> A product (AND) of sum (OR) terms. Example: $f(x,y,z) = (x+y)(x'+z)$</li>
+        <li><strong>SOP:</strong> A sum (OR) of product (AND) terms. Example: f(x,y,z) = x'y'z + xyz'</li>
+        <li><strong>POS:</strong> A product (AND) of sum (OR) terms. Example: f(x,y,z) = (x+y)(x'+z)</li>
     </ul>
 
     <h3>Minimization of Boolean Functions</h3>

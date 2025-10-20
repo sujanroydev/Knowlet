@@ -34,15 +34,15 @@
     <div class="toc">
         <h2>Table of Contents</h2>
         <ul>
-            [span_38](start_span)<li><a href="#struct-basics">4.1 Structures: Basics and Processing</a>[span_38](end_span)</li>
-            [span_39](start_span)<li><a href="#struct-adv">4.2 Structures with Pointers and Functions</a>[span_39](end_span)</li>
-            [span_40](start_span)<li><a href="#struct-arrays">4.3 Arrays of Structures and Self-Reference</a>[span_40](end_span)</li>
-            [span_41](start_span)<li><a href="#unions">4.4 UNIONS</a>[span_41](end_span)</li>
-            [span_42](start_span)<li><a href="#problem-solving">4.5 Problem Solving with Structures and Unions</a>[span_42](end_span)</li>
+            <span id="span_38"><li><a href="#struct-basics">4.1 Structures: Basics and Processing</a></span></li>
+            <span id="span_39"><li><a href="#struct-adv">4.2 Structures with Pointers and Functions</a></span></li>
+            <span id="span_40"><li><a href="#struct-arrays">4.3 Arrays of Structures and Self-Reference</a></span></li>
+            <span id="span_41"><li><a href="#unions">4.4 UNIONS</a></span></li>
+            <span id="span_42"><li><a href="#problem-solving">4.5 Problem Solving with Structures and Unions</a></span></li>
         </ul>
     </div>
 
-    [span_43](start_span)<h2 id="struct-basics">4.1 Structures: Basics and Processing[span_43](end_span)</h2>
+    <span id="span_43"><h2 id="struct-basics">4.1 Structures: Basics and Processing</span></h2>
     <p>A <strong>structure</strong> is a user-defined data type that groups together related variables of <strong>different data types</strong>.</p>
     
     <h3>Basics of Structures</h3>
@@ -80,7 +80,7 @@ int main() {
     s1.rollNumber = 101;
 }</code></pre>
 
-    [span_44](start_span)<h2 id="struct-adv">4.2 Structures with Pointers and Functions[span_44](end_span)</h2>
+    <span id="span_44"><h2 id="struct-adv">4.2 Structures with Pointers and Functions</span></h2>
     
     <h3>Structures and Pointers</h3>
     <p>You can have a pointer to a structure. To access members from a structure pointer, you use the <strong>arrow operator (<code>-></code>)</strong>.</p>
@@ -105,7 +105,7 @@ int main() {
     printStudent(&s1); // Pass the address
 }</code></pre>
 
-    [span_45](start_span)<h2 id="struct-arrays">4.3 Arrays of Structures and Self-Reference[span_45](end_span)</h2>
+    <span id="span_45"><h2 id="struct-arrays">4.3 Arrays of Structures and Self-Reference</span></h2>
     
     <h3>Arrays of Structures</h3>
     <p>You can create an array where each element is a structure. This is perfect for storing records.</p>
@@ -125,7 +125,7 @@ typedef struct Node {
     struct Node *next; // Pointer to the next node in the list
 } Node;</code></pre>
 
-    [span_46](start_span)<h2 id_unions>4.4 UNIONS[span_46](end_span)</h2>
+    <span id="span_46"><h2 id_unions>4.4 UNIONS</span></h2>
     <p>A <strong>union</strong> is a user-defined type where all members share the <strong>same memory location</strong>. Only one member can be active and contain a value at any given time.</p>
     <pre><code>typedef union {
     int i;
@@ -145,7 +145,7 @@ int main() {
     printf("i: %d\n", d.i);   // Prints garbage/corrupted value
 }</code></pre>
 
-    [span_47](start_span)<h2 id="problem-solving">4.5 Problem Solving with Structures and Unions[span_47](end_span)</h2>
+    <span id="span_47"><h2 id="problem-solving">4.5 Problem Solving with Structures and Unions</span></h2>
     <blockquote>
         <strong>Structure vs. Union: Key Difference</strong>
         <ul>

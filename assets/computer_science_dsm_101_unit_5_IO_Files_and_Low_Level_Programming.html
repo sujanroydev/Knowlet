@@ -34,14 +34,14 @@
     <div class="toc">
         <h2>Table of Contents</h2>
         <ul>
-            [span_48](start_span)<li><a href="#stdio">5.1 Standard Input and Output</a>[span_48](end_span)</li>
-            [span_49](start_span)<li><a href="#files">5.2 Data Files</a>[span_49](end_span)</li>
-            [span_50](start_span)<li><a href="#low-level">5.3 Low-Level Programming</a>[span_50](end_span)</li>
-            [span_51](start_span)<li><a href="#advanced">5.4 Advanced Topics (Macros, Library)</a>[span_51](end_span)</li>
+            <span id="span_48"><li><a href="#stdio">5.1 Standard Input and Output</a></span></li>
+            <span id="span_49"><li><a href="#files">5.2 Data Files</a></span></li>
+            <span id="span_50"><li><a href="#low-level">5.3 Low-Level Programming</a></span></li>
+            <span id="span_51"><li><a href="#advanced">5.4 Advanced Topics (Macros, Library)</a></span></li>
         </ul>
     </div>
 
-    [span_52](start_span)<h2 id="stdio">5.1 Standard Input and Output[span_52](end_span)</h2>
+    <span id="span_52"><h2 id="stdio">5.1 Standard Input and Output</span></h2>
     <p>Refers to I/O from the default console (keyboard for input, screen for output).</p>
     
     <h3>Formatted Output (<code>printf</code>)</h3>
@@ -55,10 +55,10 @@
     <p>Reads formatted input. Its return value is the number of items successfully read.</p>
     <div class="exam-tip"><code>scanf</code> can be tricky. It often leaves the newline character (<code>\n</code>) in the input buffer, which can cause problems for subsequent <code>scanf</code> or <code>gets</code> calls.</div>
     
-    [span_53](start_span)<h3>Variable Length Arguments[span_53](end_span)</h3>
+    <span id="span_53"><h3>Variable Length Arguments</span></h3>
     <p>This is the mechanism that allows <code>printf</code> and <code>scanf</code> to take a variable number of arguments. It is an advanced feature implemented using the <code>&lt;stdarg.h&gt;</code> header.</p>
 
-    [span_54](start_span)<h2 id="files">5.2 Data Files[span_54](end_span)</h2>
+    <span id="span_54"><h2 id="files">5.2 Data Files</span></h2>
     <p>File I/O allows your program to read from and write to files on disk, making data persistent.</p>
     
     <h3>Opening and Closing a File</h3>
@@ -93,13 +93,13 @@ fclose(fp); // Always close the file</code></pre>
         <li><strong><code>fread(ptr, size, count, fp)</code>:</strong> Reads <code>count</code> items of <code>size</code> from <code>fp</code> into <code>ptr</code>.</li>
     </ul>
 
-    [span_55](start_span)<h3>Miscellaneous Functions[span_55](end_span)</h3>
+    <span id="span_55"><h3>Miscellaneous Functions</span></h3>
     <ul>
         <li><strong><code>feof(fp)</code>:</strong> Returns true if the end-of-file has been reached.</li>
         <li><strong><code>fseek(fp, offset, whence)</code>:</strong> Moves the file pointer to a specific location (for random file access).</li>
     </ul>
 
-    [span_56](start_span)<h2 id="low-level">5.3 Low-Level Programming[span_56](end_span)</h2>
+    <span id="span_56"><h2 id="low-level">5.3 Low-Level Programming</span></h2>
     
     <h3>Register Variables</h3>
     <p><code>register int x;</code></p>
@@ -133,10 +133,10 @@ if (today == 3) { // true
     printf("It's Wednesday!\n");
 }</code></pre>
 
-    [span_57](start_span)<h2 id="advanced">5.4 Advanced Topics (Macros, Library)[span_57](end_span)</h2>
+    <span id="span_57"><h2 id="advanced">5.4 Advanced Topics (Macros, Library)</span></h2>
     
     <h3>Command Line Arguments/Parameters</h3>
-    [span_58](start_span)<p>This topic is also listed in Unit 3[span_58](end_span). It refers to <code>main(int argc, char *argv[])</code>, allowing the program to accept parameters from the command line.</p>
+    <span id="span_58"><p>This topic is also listed in Unit 3</span>. It refers to <code>main(int argc, char *argv[])</code>, allowing the program to accept parameters from the command line.</p>
     
     <h3>Library Functions</h3>
     <p>The C Standard Library provides a rich set of functions, e.g.:</p>
@@ -147,7 +147,7 @@ if (today == 3) { // true
     </ul>
 
     <h3>Macros (The C Preprocessor)</h3>
-    [span_59](start_span)<p>This topic is also listed in Unit 2[span_59](end_span). <code>#define</code> is used to create constants and function-like macros. The preprocessor also supports <strong>conditional compilation</strong>:</p>
+    <span id="span_59"><p>This topic is also listed in Unit 2</span>. <code>#define</code> is used to create constants and function-like macros. The preprocessor also supports <strong>conditional compilation</strong>:</p>
     <pre><code>#define DEBUG
 ...
 #ifdef DEBUG

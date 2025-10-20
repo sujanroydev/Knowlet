@@ -46,103 +46,103 @@
         </ul>
     </div>
 
-    [span_7](start_span)<h2 id="basic-concepts">2.1 Basic Concept of Set Theory[span_7](end_span)</h2>
+    <span id="span_7"><h2 id="basic-concepts">2.1 Basic Concept of Set Theory</span></h2>
     <blockquote>
         A <strong>set</strong> is a well-defined, unordered collection of distinct objects, called <strong>elements</strong> or <strong>members</strong>.
     </blockquote>
     <ul>
-        <li><strong>Roster Notation:</strong> $A = \{1, 2, 3, 4\}$</li>
-        <li><strong>Set-Builder Notation:</strong> $B = \{x \mid x \text{ is an even integer}\}$</li>
-        <li><strong>Empty Set:</strong> $\emptyset$ or \{\} (A set with no elements).</li>
+        <li><strong>Roster Notation:</strong> A = \{1, 2, 3, 4\}</li>
+        <li><strong>Set-Builder Notation:</strong> B = \{x \mid x is an even integer\}</li>
+        <li><strong>Empty Set:</strong> ∅ or \{\} (A set with no elements).</li>
         <li><strong>Universal Set (U):</strong> The set containing all possible elements under consideration.</li>
-        <li><strong>Subset:</strong> $A \subseteq B$ ("A is a subset of B") if every element of A is also in B.</li>
-        <li><strong>Proper Subset:</strong> $A \subset B$ ("A is a proper subset of B") if $A \subseteq B$ and $A \ne B$.</li>
-        <li><strong>Power Set:</strong> $P(A)$ is the set of all subsets of A. If $|A| = n$, then $|P(A)| = 2^n$.</li>
+        <li><strong>Subset:</strong> A ⊂eq B ("A is a subset of B") if every element of A is also in B.</li>
+        <li><strong>Proper Subset:</strong> A ⊂ B ("A is a proper subset of B") if A ⊂eq B and A \ne B.</li>
+        <li><strong>Power Set:</strong> P(A) is the set of all subsets of A. If |A| = n, then |P(A)| = 2<sup>n</sup>.</li>
     </ul>
 
-    [span_8](start_span)<h2 id="operations">2.2 Operations with Sets[span_8](end_span)</h2>
+    <span id="span_8"><h2 id="operations">2.2 Operations with Sets</span></h2>
     <ul>
-        <li><strong>Union:</strong> $A \cup B = \{x \mid x \in A \text{ or } x \in B\}$</li>
-        <li><strong>Intersection:</strong> $A \cap B = \{x \mid x \in A \text{ and } x \in B\}$</li>
-        <li><strong>Difference:</strong> $A - B = \{x \mid x \in A \text{ and } x \notin B\}$</li>
-        <li><strong>Complement:</strong> $A' = \{x \mid x \in U \text{ and } x \notin A\}$ (This is $U - A$)</li>
-        <li><strong>Principle of Inclusion-Exclusion (for two sets):</strong> $|A \cup B| = |A| + |B| - |A \cap B|$</li>
+        <li><strong>Union:</strong> A ∪ B = \{x \mid x ∈ A or x ∈ B\}</li>
+        <li><strong>Intersection:</strong> A ∩ B = \{x \mid x ∈ A and x ∈ B\}</li>
+        <li><strong>Difference:</strong> A - B = \{x \mid x ∈ A and x ∉ B\}</li>
+        <li><strong>Complement:</strong> A' = \{x \mid x ∈ U and x ∉ A\} (This is U - A)</li>
+        <li><strong>Principle of Inclusion-Exclusion (for two sets):</strong> |A ∪ B| = |A| + |B| - |A ∩ B|</li>
     </ul>
 
-    [span_9](start_span)<h2 id="functions">2.3 Functions[span_9](end_span)</h2>
+    <span id="span_9"><h2 id="functions">2.3 Functions</span></h2>
     <blockquote>
-        A <strong>function</strong> $f$ from a set $A$ (domain) to a set $B$ (codomain), written $f: A \to B$, is an assignment of <strong>exactly one</strong> element of $B$ to each element of $A$.
+        A <strong>function</strong> f from a set A (domain) to a set B (codomain), written f: A \to B, is an assignment of <strong>exactly one</strong> element of B to each element of A.
     </blockquote>
     <ul>
-        <li><strong>Range:</strong> The set of all actual output values $\{f(a) \mid a \in A\}$. The range is a subset of the codomain.</li>
-        <li><strong>Injective (One-to-One):</strong> $f(a) = f(b)$ implies $a = b$. Different inputs map to different outputs.</li>
-        <li><strong>Surjective (Onto):</strong> For every $y \in B$, there exists an $x \in A$ such that $f(x) = y$. The range equals the codomain.</li>
+        <li><strong>Range:</strong> The set of all actual output values \{f(a) \mid a ∈ A\}. The range is a subset of the codomain.</li>
+        <li><strong>Injective (One-to-One):</strong> f(a) = f(b) implies a = b. Different inputs map to different outputs.</li>
+        <li><strong>Surjective (Onto):</strong> For every y ∈ B, there exists an x ∈ A such that f(x) = y. The range equals the codomain.</li>
         <li><strong>Bijective (One-to-One and Onto):</strong> The function is both injective and surjective.</li>
     </ul>
 
-    [span_10](start_span)<h2 id="relations">2.4 Relations[span_10](end_span)</h2>
-    <p>A binary relation $R$ from $A$ to $B$ is a subset of the <strong>Cartesian Product</strong> $A \times B = \{(a, b) \mid a \in A, b \in B\}$. If $A=B$, we say $R$ is a relation on $A$.</p>
-    <p><strong>Example:</strong> If $A = \{1, 2, 3\}$, $R = \{(a, b) \mid a < b\}$ would be $R = \{(1, 2), (1, 3), (2, 3)\}$.</p>
+    <span id="span_10"><h2 id="relations">2.4 Relations</span></h2>
+    <p>A binary relation R from A to B is a subset of the <strong>Cartesian Product</strong> A × B = \{(a, b) \mid a ∈ A, b ∈ B\}. If A=B, we say R is a relation on A.</p>
+    <p><strong>Example:</strong> If A = \{1, 2, 3\}, R = \{(a, b) \mid a < b\} would be R = \{(1, 2), (1, 3), (2, 3)\}.</p>
 
-    [span_11](start_span)<h2 id="properties">2.5 Properties of Relations[span_11](end_span)</h2>
-    <p>Let $R$ be a relation on a set $A$.</p>
+    <span id="span_11"><h2 id="properties">2.5 Properties of Relations</span></h2>
+    <p>Let R be a relation on a set A.</p>
     <ul>
-        <li><strong>Reflexive:</strong> $(a, a) \in R$ for every $a \in A$.</li>
-        <li><strong>Irreflexive:</strong> $(a, a) \notin R$ for every $a \in A$.</li>
-        <li><strong>Symmetric:</strong> If $(a, b) \in R$, then $(b, a) \in R$.</li>
-        <li><strong>Anti-symmetric:</strong> If $(a, b) \in R$ and $(b, a) \in R$, then $a = b$.</li>
-        <li><strong>Transitive:</strong> If $(a, b) \in R$ and $(b, c) \in R$, then $(a, c) \in R$.</li>
+        <li><strong>Reflexive:</strong> (a, a) ∈ R for every a ∈ A.</li>
+        <li><strong>Irreflexive:</strong> (a, a) ∉ R for every a ∈ A.</li>
+        <li><strong>Symmetric:</strong> If (a, b) ∈ R, then (b, a) ∈ R.</li>
+        <li><strong>Anti-symmetric:</strong> If (a, b) ∈ R and (b, a) ∈ R, then a = b.</li>
+        <li><strong>Transitive:</strong> If (a, b) ∈ R and (b, c) ∈ R, then (a, c) ∈ R.</li>
     </ul>
     <div class="exam-tip">
         <strong>Equivalence Relation:</strong> A relation that is <strong>Reflexive, Symmetric, and Transitive</strong>.
         <strong>Partial Order:</strong> A relation that is <strong>Reflexive, Anti-symmetric, and Transitive</strong>.
     </div>
 
-    [span_12](start_span)<h2 id="representing">2.6 Representing Relations[span_12](end_span)</h2>
+    <span id="span_12"><h2 id="representing">2.6 Representing Relations</span></h2>
     <ul>
-        <li><strong>Zero-One Matrix ($M_R$):</strong> Let $A=\{a_1, ..., a_m\}$ and $B=\{b_1, ..., b_n\}$. The $m \times n$ matrix $M_R$ is defined by:
-            $M_R[i, j] = 1$ if $(a_i, b_j) \in R$, and $0$ otherwise.
+        <li><strong>Zero-One Matrix (M<sub>R</sub>):</strong> Let A=\{a<sub>1</sub>, ..., a<sub>m</sub>\} and B=\{b<sub>1</sub>, ..., b<sub>n</sub>\}. The m × n matrix M<sub>R</sub> is defined by:
+            M<sub>R</sub>[i, j] = 1 if (a<sub>i</sub>, b<sub>j</sub>) ∈ R, and 0 otherwise.
             <ul>
                 <li><strong>Reflexive:</strong> Main diagonal is all 1s.</li>
-                <li><strong>Symmetric:</strong> $M_R = M_R^T$ (Matrix is symmetric).</li>
-                <li><strong>Anti-symmetric:</strong> If $M_R[i, j] = 1$ and $i \ne j$, then $M_R[j, i] = 0$.</li>
+                <li><strong>Symmetric:</strong> M<sub>R</sub> = M<sub>R</sub><sup>T</sup> (Matrix is symmetric).</li>
+                <li><strong>Anti-symmetric:</strong> If M<sub>R</sub>[i, j] = 1 and i \ne j, then M<sub>R</sub>[j, i] = 0.</li>
             </ul>
         </li>
-        <li><strong>Directed Graph (Digraph):</strong> Draw a dot (vertex) for each element in $A$. Draw a directed arrow from $a$ to $b$ if $(a, b) \in R$. A loop from $a$ to $a$ represents $(a, a) \in R$.</li>
+        <li><strong>Directed Graph (Digraph):</strong> Draw a dot (vertex) for each element in A. Draw a directed arrow from a to b if (a, b) ∈ R. A loop from a to a represents (a, a) ∈ R.</li>
     </ul>
 
-    [span_13](start_span)<h2 id="composition">2.7 Composition of Relations[span_13](end_span)</h2>
-    <p>Let $R$ be a relation from $A$ to $B$, and $S$ be a relation from $B$ to $C$. The <strong>composition</strong> $S \circ R$ is a relation from $A$ to $C$ defined as:</p>
+    <span id="span_13"><h2 id="composition">2.7 Composition of Relations</span></h2>
+    <p>Let R be a relation from A to B, and S be a relation from B to C. The <strong>composition</strong> S ° R is a relation from A to C defined as:</p>
     <blockquote>
-        $S \circ R = \{(a, c) \mid \text{there exists some } b \in B \text{ such that } (a, b) \in R \text{ and } (b, c) \in S\}$
+        S ° R = \{(a, c) \mid there exists some b ∈ B such that (a, b) ∈ R and (b, c) ∈ S\}
     </blockquote>
-    <p>If using matrices, $M_{S \circ R} = M_R \cdot M_S$ (using Boolean matrix multiplication, where $1+1=1$).</p>
-    <p>Powers of a relation: $R^2 = R \circ R$, $R^3 = R^2 \circ R$, etc.</p>
+    <p>If using matrices, M<sub>S ° R</sub> = M<sub>R</sub> · M<sub>S</sub> (using Boolean matrix multiplication, where 1+1=1).</p>
+    <p>Powers of a relation: R<sup>2</sup> = R ° R, R<sup>3</sup> = R<sup>2</sup> ° R, etc.</p>
 
-    [span_14](start_span)<h2 id="closures">2.8 Closures of Relations[span_14](end_span)</h2>
-    <p>The closure of a relation $R$ with respect to a property $P$ is the smallest relation $R^*$ that contains $R$ and has property $P$.</p>
+    <span id="span_14"><h2 id="closures">2.8 Closures of Relations</span></h2>
+    <p>The closure of a relation R with respect to a property P is the smallest relation R<sup>*</sup> that contains R and has property P.</p>
     <ul>
-        <li><strong>Reflexive Closure:</strong> $R \cup \Delta$, where $\Delta = \{(a, a) \mid a \in A\}$ is the diagonal relation.</li>
-        <li><strong>Symmetric Closure:</strong> $R \cup R^{-1}$, where $R^{-1} = \{(b, a) \mid (a, b) \in R\}$ is the inverse relation.</li>
-        <li><strong>Transitive Closure ($R^*$):</strong> $R^* = R \cup R^2 \cup R^3 \cup ... \cup R^n$ (where $n$ is the number of elements in the set). It can be found efficiently using <strong>Warshall's Algorithm</strong>.</li>
+        <li><strong>Reflexive Closure:</strong> R ∪ Δ, where Δ = \{(a, a) \mid a ∈ A\} is the diagonal relation.</li>
+        <li><strong>Symmetric Closure:</strong> R ∪ R<sup>-1</sup>, where R<sup>-1</sup> = \{(b, a) \mid (a, b) ∈ R\} is the inverse relation.</li>
+        <li><strong>Transitive Closure (R<sup>*</sup>):</strong> R<sup>*</sup> = R ∪ R<sup>2</sup> ∪ R<sup>3</sup> ∪ ... ∪ R<sup>n</sup> (where n is the number of elements in the set). It can be found efficiently using <strong>Warshall's Algorithm</strong>.</li>
     </ul>
 
-    [span_15](start_span)<h2 id="ordered-sets">2.9 Ordered Sets[span_15](end_span)</h2>
-    <p>A set $S$ with a partial ordering relation $R$ (must be reflexive, anti-symmetric, transitive) is called a <strong>partially ordered set</strong> or <strong>poset</strong>, denoted $(S, R)$.</p>
+    <span id="span_15"><h2 id="ordered-sets">2.9 Ordered Sets</span></h2>
+    <p>A set S with a partial ordering relation R (must be reflexive, anti-symmetric, transitive) is called a <strong>partially ordered set</strong> or <strong>poset</strong>, denoted (S, R).</p>
     <ul>
-        <li><strong>Total Order (Linear Order):</strong> A partial order where every pair of elements is comparable (i.e., for any $a, b \in S$, either $(a, b) \in R$ or $(b, a) \in R$).</li>
-        <li><strong>Example:</strong> $(\mathbb{Z}, \le)$ is a total order. The "subset" relation $(\subseteq)$ on a power set $P(A)$ is a partial order, but not a total order (e.g., $\{a\}$ and $\{b\}$ are incomparable).</li>
+        <li><strong>Total Order (Linear Order):</strong> A partial order where every pair of elements is comparable (i.e., for any a, b ∈ S, either (a, b) ∈ R or (b, a) ∈ R).</li>
+        <li><strong>Example:</strong> (ℤ, ≤) is a total order. The "subset" relation (⊂eq) on a power set P(A) is a partial order, but not a total order (e.g., \{a\} and \{b\} are incomparable).</li>
     </ul>
 
-    [span_16](start_span)<h2 id="hasse">2.10 Hasse Diagrams of Partially Ordered Sets[span_16](end_span)</h2>
+    <span id="span_16"><h2 id="hasse">2.10 Hasse Diagrams of Partially Ordered Sets</span></h2>
     <p>A Hasse diagram is a simplified way to draw a finite poset.</p>
     <ol>
         <li>Start with the digraph of the partial order.</li>
         <li>Remove all loops (reflexivity is assumed).</li>
-        <li>Remove all edges that are implied by transitivity (e.g., if $a \to b$ and $b \to c$, remove the direct edge $a \to c$).</li>
+        <li>Remove all edges that are implied by transitivity (e.g., if a \to b and b \to c, remove the direct edge a \to c).</li>
         <li>Arrange all vertices so that all arrows point upwards, then remove the arrowheads (direction is implied to be up).</li>
     </ol>
-    <p>In a Hasse diagram, $a$ is "below" $b$ and connected by a line if $a$ is related to $b$ and there is no $c$ such that $a$ is related to $c$ and $c$ is related to $b$ (i.e., $b$ *covers* $a$).</p>
+    <p>In a Hasse diagram, a is "below" b and connected by a line if a is related to b and there is no c such that a is related to c and c is related to b (i.e., b *covers* a).</p>
 </div>
 
 </body>

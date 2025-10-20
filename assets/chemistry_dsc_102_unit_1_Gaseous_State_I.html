@@ -133,7 +133,7 @@
 
         <h2 id="topic1">Kinetic Theory of Gases (KTG)</h2>
 
-        [span_0](start_span)<h3>Postulates of Kinetic Theory of Gases[span_0](end_span)</h3>
+        <span id="span_0"><h3>Postulates of Kinetic Theory of Gases</span></h3>
         <p>This theory explains the macroscopic properties of gases (like pressure, temperature) by considering the motion of their microscopic components (molecules). The key postulates for an <em>ideal gas</em> are:</p>
         <ol>
             <li><strong>Molecular Nature:</strong> Gases consist of a large number of tiny particles (molecules) that are in continuous, random, and rapid motion.</li>
@@ -144,110 +144,110 @@
             <li><strong>Kinetic Energy and Temperature:</strong> The average kinetic energy of the gas molecules is directly proportional to the absolute temperature (in Kelvin).</li>
         </ol>
 
-        [span_1](start_span)<h3>Derivation of the Kinetic Gas Equation[span_1](end_span)</h3>
-        <p>This equation relates the macroscopic pressure ($P$) to the microscopic properties of the molecules ($m$, $N$, $\overline{c^2}$).</p>
+        <span id="span_1"><h3>Derivation of the Kinetic Gas Equation</span></h3>
+        <p>This equation relates the macroscopic pressure (P) to the microscopic properties of the molecules (m, N, <span style="text-decoration:overline;">c</span><sup>2</sup>).</p>
         <p><strong>Step-by-step derivation:</strong></p>
         <ol>
-            <li>Consider a cubic container of side length $l$ containing $N$ molecules, each of mass $m$.</li>
-            <li>Consider one molecule moving with velocity $c_1$ and components $u_1, v_1, w_1$ in the x, y, and z directions.</li>
-            <li>When the molecule collides with the wall perpendicular to the x-axis, its x-velocity becomes $-u_1$.
-                <br>Change in momentum = (Final) - (Initial) = $(-mu_1) - (mu_1) = -2mu_1$.
-                <br>Momentum transferred to the wall = $+2mu_1$.</li>
-            <li>The time between two successive collisions on the <em>same</em> wall is $\Delta t = \frac{2l}{u_1}$.</li>
-            <li><strong>Force</strong> exerted by this one molecule on the wall is $\frac{\text{Change in Momentum}}{\text{Time}}$:
-                <br>$F_1 = \frac{2mu_1}{2l/u_1} = \frac{mu_1^2}{l}$.</li>
-            <li><strong>Pressure</strong> from this one molecule is $\frac{\text{Force}}{\text{Area}}$:
-                <br>$P_1 = \frac{F_1}{l^2} = \frac{mu_1^2/l}{l^2} = \frac{mu_1^2}{l^3} = \frac{mu_1^2}{V}$ (since $l^3 = V$, volume of cube).</li>
-            <li>The total pressure $P$ from all $N$ molecules in the x-direction is the sum:
-                <br>$P_x = \frac{m}{V}(u_1^2 + u_2^2 + ... + u_N^2)$.</li>
-            <li>We define the <strong>mean square velocity</strong> in the x-direction as $\overline{u^2} = \frac{u_1^2 + u_2^2 + ... + u_N^2}{N}$.
-                <br>So, $P_x = \frac{mN\overline{u^2}}{V}$.</li>
-            <li>The total mean square velocity $\overline{c^2}$ is given by $\overline{c^2} = \overline{u^2} + \overline{v^2} + \overline{w^2}$.</li>
-            <li>Because motion is random, the average velocity in all three directions is equal: $\overline{u^2} = \overline{v^2} = \overline{w^2}$.
-                <br>Therefore, $\overline{u^2} = \frac{1}{3}\overline{c^2}$.</li>
-            <li>Substituting this into the pressure equation (and knowing $P_x = P_y = P_z = P$):
-                <br>$P = \frac{mN}{V} \left( \frac{1}{3}\overline{c^2} \right)$.</li>
+            <li>Consider a cubic container of side length l containing N molecules, each of mass m.</li>
+            <li>Consider one molecule moving with velocity c<sub>1</sub> and components u<sub>1</sub>, v<sub>1</sub>, w<sub>1</sub> in the x, y, and z directions.</li>
+            <li>When the molecule collides with the wall perpendicular to the x-axis, its x-velocity becomes -u<sub>1</sub>.
+                <br>Change in momentum = (Final) - (Initial) = (-mu<sub>1</sub>) - (mu<sub>1</sub>) = -2mu<sub>1</sub>.
+                <br>Momentum transferred to the wall = +2mu<sub>1</sub>.</li>
+            <li>The time between two successive collisions on the <em>same</em> wall is Δ t = (2l) / (u<sub>1</sub>).</li>
+            <li><strong>Force</strong> exerted by this one molecule on the wall is (Change in Momentum) / (Time):
+                <br>F<sub>1</sub> = (2mu<sub>1</sub>) / (2l/u<sub>1</sub>) = (mu<sub>1</sub><sup>2</sup>) / (l).</li>
+            <li><strong>Pressure</strong> from this one molecule is (Force) / (Area):
+                <br>P<sub>1</sub> = (F<sub>1</sub>) / (l<sup>2</sup>) = (mu<sub>1</sub><sup>2</sup>/l) / (l<sup>2</sup>) = (mu<sub>1</sub><sup>2</sup>) / (l<sup>3</sup>) = (mu<sub>1</sub><sup>2</sup>) / (V) (since l<sup>3</sup> = V, volume of cube).</li>
+            <li>The total pressure P from all N molecules in the x-direction is the sum:
+                <br>P<sub>x</sub> = (m) / (V)(u<sub>1</sub><sup>2</sup> + u<sub>2</sub><sup>2</sup> + ... + u<sub>N</sub><sup>2</sup>).</li>
+            <li>We define the <strong>mean square velocity</strong> in the x-direction as <span style="text-decoration:overline;">u</span><sup>2</sup> = (u<sub>1</sub><sup>2</sup> + u<sub>2</sub><sup>2</sup> + ... + u<sub>N</sub><sup>2</sup>) / (N).
+                <br>So, P<sub>x</sub> = (mN<span style="text-decoration:overline;">u</span><sup>2</sup>) / (V).</li>
+            <li>The total mean square velocity <span style="text-decoration:overline;">c</span><sup>2</sup> is given by <span style="text-decoration:overline;">c</span><sup>2</sup> = <span style="text-decoration:overline;">u</span><sup>2</sup> + <span style="text-decoration:overline;">v</span><sup>2</sup> + <span style="text-decoration:overline;">w</span><sup>2</sup>.</li>
+            <li>Because motion is random, the average velocity in all three directions is equal: <span style="text-decoration:overline;">u</span><sup>2</sup> = <span style="text-decoration:overline;">v</span><sup>2</sup> = <span style="text-decoration:overline;">w</span><sup>2</sup>.
+                <br>Therefore, <span style="text-decoration:overline;">u</span><sup>2</sup> = (1) / (3)<span style="text-decoration:overline;">c</span><sup>2</sup>.</li>
+            <li>Substituting this into the pressure equation (and knowing P<sub>x</sub> = P<sub>y</sub> = P<sub>z</sub> = P):
+                <br>P = (mN) / (V) ( (1) / (3)<span style="text-decoration:overline;">c</span><sup>2</sup> ).</li>
         </ol>
         <blockquote>
-            <strong>Kinetic Gas Equation:</strong> $PV = \frac{1}{3}mN\overline{c^2}$
-            <br>Where: $P$ = Pressure, $V$ = Volume, $m$ = mass of one molecule, $N$ = total number of molecules, $\overline{c^2}$ = mean square velocity.
-            <br>($c$ is often used for root-mean-square velocity, so $\overline{c^2}$ is $c^2$ or $v_{rms}^2$).
+            <strong>Kinetic Gas Equation:</strong> PV = (1) / (3)mN<span style="text-decoration:overline;">c</span><sup>2</sup>
+            <br>Where: P = Pressure, V = Volume, m = mass of one molecule, N = total number of molecules, <span style="text-decoration:overline;">c</span><sup>2</sup> = mean square velocity.
+            <br>(c is often used for root-mean-square velocity, so <span style="text-decoration:overline;">c</span><sup>2</sup> is c<sup>2</sup> or v<sub>rms</sub><sup>2</sup>).
         </blockquote>
-        <p>This can also be written in terms of total Kinetic Energy ($KE = \frac{1}{2}mN\overline{c^2}$):
-        <br>$PV = \frac{2}{3} \left( \frac{1}{2}mN\overline{c^2} \right) \implies$ <strong>$PV = \frac{2}{3}KE_{total}$</strong>.</p>
+        <p>This can also be written in terms of total Kinetic Energy (KE = (1) / (2)mN<span style="text-decoration:overline;">c</span><sup>2</sup>):
+        <br>PV = (2) / (3) ( (1) / (2)mN<span style="text-decoration:overline;">c</span><sup>2</sup> ) ⇒ <strong>PV = (2) / (3)KE<sub>total</sub></strong>.</p>
 
         <h2 id="topic2">Collision Properties and Viscosity</h2>
 
-        [span_2](start_span)<h3>Collision Properties[span_2](end_span)</h3>
+        <span id="span_2"><h3>Collision Properties</span></h3>
         <ul>
-            <li><strong>Collision Diameter ($\sigma$):</strong> The distance of closest approach between the centers of two colliding molecules. It's the effective diameter for collisions.</li>
-            <li><strong>Collision Frequency ($Z_1$):</strong> The average number of collisions experienced by a <strong>single</strong> molecule per unit time (per second).</li>
-            <li><strong>Mean Free Path ($\lambda$):</strong> The average distance a molecule travels between two successive collisions.
-                <blockquote><strong>Formula:</strong> $\lambda = \frac{1}{\sqrt{2}\pi\sigma^2 n^*}$
-                <br>Where $n^*$ is the number density ($N/V$).
+            <li><strong>Collision Diameter (σ):</strong> The distance of closest approach between the centers of two colliding molecules. It's the effective diameter for collisions.</li>
+            <li><strong>Collision Frequency (Z<sub>1</sub>):</strong> The average number of collisions experienced by a <strong>single</strong> molecule per unit time (per second).</li>
+            <li><strong>Mean Free Path (λ):</strong> The average distance a molecule travels between two successive collisions.
+                <blockquote><strong>Formula:</strong> λ = (1) / (√(2)πσ<sup>2</sup> n<sup>*</sup>)
+                <br>Where n<sup>*</sup> is the number density (N/V).
                 </blockquote>
             </li>
         </ul>
 
-        [span_3](start_span)<h3>Viscosity of Gases[span_3](end_span)</h3>
+        <span id="span_3"><h3>Viscosity of Gases</span></h3>
         <blockquote>
             <strong>Definition:</strong> The internal resistance to flow in a fluid. For gases, it arises from the transfer of momentum between adjacent layers of gas flowing at different speeds.
         </blockquote>
         
-        [span_4](start_span)<h4>Relation between Mean Free Path and Coefficient of Viscosity ($\eta$)[span_4](end_span)</h4>
-        <p>The coefficient of viscosity ($\eta$) is given by the formula:</p>
+        <span id="span_4"><h4>Relation between Mean Free Path and Coefficient of Viscosity (η)</span></h4>
+        <p>The coefficient of viscosity (η) is given by the formula:</p>
         <blockquote>
-            <strong>Formula:</strong> $\eta = \frac{1}{3}\rho\overline{v}\lambda$
-            <br>Where: $\rho$ = density of the gas ($mn^*$), $\overline{v}$ = average molecular speed, $\lambda$ = mean free path.
+            <strong>Formula:</strong> η = (1) / (3)ρ<span style="text-decoration:overline;">v</span>λ
+            <br>Where: ρ = density of the gas (mn<sup>*</sup>), <span style="text-decoration:overline;">v</span> = average molecular speed, λ = mean free path.
         </blockquote>
-        <p>By substituting the formula for $\lambda$, we can get a relation for $\eta$ in terms of molecular parameters:
-        <br>$\eta = \frac{1}{3}(mn^*) \overline{v} \left( \frac{1}{\sqrt{2}\pi\sigma^2 n^*} \right) = \frac{m\overline{v}}{3\sqrt{2}\pi\sigma^2}$</p>
+        <p>By substituting the formula for λ, we can get a relation for η in terms of molecular parameters:
+        <br>η = (1) / (3)(mn<sup>*</sup>) <span style="text-decoration:overline;">v</span> ( (1) / (√(2)πσ<sup>2</sup> n<sup>*</sup>) ) = (m<span style="text-decoration:overline;">v</span>) / (3√(2)πσ<sup>2</sup>)</p>
 
-        [span_5](start_span)<h4>Temperature and Pressure Dependence of Viscosity[span_5](end_span)</h4>
+        <span id="span_5"><h4>Temperature and Pressure Dependence of Viscosity</span></h4>
         <ul>
             <li><strong>Temperature Dependence:</strong>
                 <ul>
-                    <li>We know that average speed $\overline{v}$ is proportional to $\sqrt{T}$.</li>
-                    <li>From the formula $\eta = \frac{m\overline{v}}{3\sqrt{2}\pi\sigma^2}$, we see that $\eta$ is directly proportional to $\overline{v}$.</li>
-                    <li><strong>Conclusion:</strong> $\eta \propto \sqrt{T}$. The viscosity of a gas <strong>increases</strong> with an increase in temperature.</li>
+                    <li>We know that average speed <span style="text-decoration:overline;">v</span> is proportional to √(T).</li>
+                    <li>From the formula η = (m<span style="text-decoration:overline;">v</span>) / (3√(2)πσ<sup>2</sup>), we see that η is directly proportional to <span style="text-decoration:overline;">v</span>.</li>
+                    <li><strong>Conclusion:</strong> η \propto √(T). The viscosity of a gas <strong>increases</strong> with an increase in temperature.</li>
                     <li><strong>Reason:</strong> Hotter molecules move faster and transfer more momentum between layers, increasing the internal "friction".</li>
                 </ul>
             </li>
             <li><strong>Pressure Dependence:</strong>
                 <ul>
-                    <li>The formula $\eta = \frac{1}{3}\rho\overline{v}\lambda$ contains density ($\rho$) and mean free path ($\lambda$).</li>
-                    <li>As pressure increases (at constant T), density ($\rho$) <strong>increases</strong>.</li>
-                    <li>As pressure increases, $n^*$ increases, so the mean free path ($\lambda$) <strong>decreases</strong>.</li>
-                    <li>These two effects (increase in $\rho$, decrease in $\lambda$) <strong>cancel each other out</strong>.</li>
+                    <li>The formula η = (1) / (3)ρ<span style="text-decoration:overline;">v</span>λ contains density (ρ) and mean free path (λ).</li>
+                    <li>As pressure increases (at constant T), density (ρ) <strong>increases</strong>.</li>
+                    <li>As pressure increases, n<sup>*</sup> increases, so the mean free path (λ) <strong>decreases</strong>.</li>
+                    <li>These two effects (increase in ρ, decrease in λ) <strong>cancel each other out</strong>.</li>
                     <li><strong>Conclusion:</strong> The viscosity of a gas is largely <strong>independent of pressure</strong> (at moderate pressures).</li>
                 </ul>
             </li>
         </ul>
 
         <h2 id="topic3">Maxwell Distribution of Velocities</h2>
-        <p>The molecules in a gas do not all travel at the same speed. [span_6](start_span)The Maxwell-Boltzmann distribution describes the probability distribution of molecular speeds in a gas at a given temperature.[span_6](end_span)</p>
-        [span_7](start_span)<h3>Evaluating Molecular Velocities[span_7](end_span)</h3>
+        <p>The molecules in a gas do not all travel at the same speed. <span id="span_6">The Maxwell-Boltzmann distribution describes the probability distribution of molecular speeds in a gas at a given temperature.</span></p>
+        <span id="span_7"><h3>Evaluating Molecular Velocities</span></h3>
         <p>From the distribution curve, we can evaluate three important types of molecular speeds:</p>
         <ol>
-            <li><strong>Most Probable Velocity ($c_{mp}$ or $v_{mp}$):</strong> The speed possessed by the maximum fraction of molecules. This is the peak of the curve.
-                <blockquote><strong>Formula:</strong> $c_{mp} = \sqrt{\frac{2kT}{m}} = \sqrt{\frac{2RT}{M}}$</blockquote>
+            <li><strong>Most Probable Velocity (c<sub>mp</sub> or v<sub>mp</sub>):</strong> The speed possessed by the maximum fraction of molecules. This is the peak of the curve.
+                <blockquote><strong>Formula:</strong> c<sub>mp</sub> = √((2kT) / (m)) = √((2RT) / (M))</blockquote>
             </li>
-            <li><strong>Average Velocity ($c_{avg}$ or $\overline{v}$):</strong> The arithmetic mean of the speeds of all molecules.
-                <blockquote><strong>Formula:</strong> $c_{avg} = \sqrt{\frac{8kT}{\pi m}} = \sqrt{\frac{8RT}{\pi M}}$</blockquote>
+            <li><strong>Average Velocity (c<sub>avg</sub> or <span style="text-decoration:overline;">v</span>):</strong> The arithmetic mean of the speeds of all molecules.
+                <blockquote><strong>Formula:</strong> c<sub>avg</sub> = √((8kT) / (π m)) = √((8RT) / (π M))</blockquote>
             </li>
-            <li><strong>Root Mean Square (RMS) Velocity ($c_{rms}$ or $c$):</strong> The square root of the mean of the squares of the speeds of all molecules. (This is the one from the KTG derivation).
-                <blockquote><strong>Formula:</strong> $c_{rms} = \sqrt{\frac{3kT}{m}} = \sqrt{\frac{3RT}{M}}$</blockquote>
+            <li><strong>Root Mean Square (RMS) Velocity (c<sub>rms</sub> or c):</strong> The square root of the mean of the squares of the speeds of all molecules. (This is the one from the KTG derivation).
+                <blockquote><strong>Formula:</strong> c<sub>rms</sub> = √((3kT) / (m)) = √((3RT) / (M))</blockquote>
             </li>
         </ol>
-        <p><strong>Key Relationship:</strong> $c_{rms} > c_{avg} > c_{mp}$ (Ratio $\approx$ 1.224 : 1.128 : 1)</p>
+        <p><strong>Key Relationship:</strong> c<sub>rms</sub> > c<sub>avg</sub> > c<sub>mp</sub> (Ratio ≈ 1.224 : 1.128 : 1)</p>
         
-        [span_8](start_span)<h3>Average Kinetic Energy[span_8](end_span)</h3>
-        <p>Using the KTG equation ($PV = \frac{1}{3}mN c_{rms}^2$) and the Ideal Gas Law ($PV = nRT = (N/N_A)RT$), we can find the average kinetic energy.</p>
-        <p>$\frac{1}{3}mN c_{rms}^2 = \frac{N}{N_A}RT$
-        <br>$\frac{1}{3}m c_{rms}^2 = \frac{RT}{N_A} = kT$ (where $k = R/N_A$ is the Boltzmann constant)
-        <br>$\frac{1}{2}m c_{rms}^2 = \frac{3}{2}kT$</p>
+        <span id="span_8"><h3>Average Kinetic Energy</span></h3>
+        <p>Using the KTG equation (PV = (1) / (3)mN c<sub>rms</sub><sup>2</sup>) and the Ideal Gas Law (PV = nRT = (N/N<sub>A</sub>)RT), we can find the average kinetic energy.</p>
+        <p>(1) / (3)mN c<sub>rms</sub><sup>2</sup> = (N) / (N<sub>A</sub>)RT
+        <br>(1) / (3)m c<sub>rms</sub><sup>2</sup> = (RT) / (N<sub>A</sub>) = kT (where k = R/N<sub>A</sub> is the Boltzmann constant)
+        <br>(1) / (2)m c<sub>rms</sub><sup>2</sup> = (3) / (2)kT</p>
         <blockquote>
-            <strong>Average Kinetic Energy (per molecule):</strong> $\overline{KE} = \frac{3}{2}kT$
+            <strong>Average Kinetic Energy (per molecule):</strong> <span style="text-decoration:overline;">KE</span> = (3) / (2)kT
         </blockquote>
         <div class="exam-tip">
             <strong>Crucial Point:</strong> The average kinetic energy of a gas depends <strong>only on the absolute temperature</strong>, not on the mass or nature of the gas.
@@ -255,10 +255,10 @@
 
         <h2 id="topic4">Law of Equipartition of Energy</h2>
         <blockquote>
-            <strong>The Law:</strong> For a system in thermal equilibrium, the total energy is divided equally among all its <strong>degrees of freedom</strong>. [span_9](start_span)Each quadratic degree of freedom (like $\frac{1}{2}mv_x^2$ or $\frac{1}{2}I\omega_y^2$) has an average energy of <strong>$\frac{1}{2}kT$ per molecule</strong>.[span_9](end_span)
+            <strong>The Law:</strong> For a system in thermal equilibrium, the total energy is divided equally among all its <strong>degrees of freedom</strong>. <span id="span_9">Each quadratic degree of freedom (like (1) / (2)mv<sub>x</sub><sup>2</sup> or (1) / (2)Iω<sub>y</sub><sup>2</sup>) has an average energy of <strong>(1) / (2)kT per molecule</strong>.</span>
         </blockquote>
 
-        [span_10](start_span)<h3>Degrees of Freedom (DOF)[span_10](end_span)</h3>
+        <span id="span_10"><h3>Degrees of Freedom (DOF)</span></h3>
         <p>The number of independent ways a molecule can store energy.</p>
         <table>
             <caption>Degrees of Freedom and Energy Contribution (at moderate temperatures)</caption>
@@ -272,39 +272,39 @@
             </tr>
             <tr>
                 <td><strong>Monatomic</strong><br>(e.g., He, Ar)</td>
-                <td>3 ($v_x, v_y, v_z$)</td>
+                <td>3 (v<sub>x</sub>, v<sub>y</sub>, v<sub>z</sub>)</td>
                 <td>0</td>
                 <td>0</td>
                 <td><strong>3</strong></td>
-                <td>$3 \times \left(\frac{1}{2}kT\right) = \mathbf{\frac{3}{2}kT}$</td>
+                <td>3 × ((1) / (2)kT) = \mathbf{(3) / (2)kT}</td>
             </tr>
             <tr>
-                <td><strong>Diatomic</strong><br>(e.g., $N_2, O_2, HCl$)</td>
-                <td>3 ($v_x, v_y, v_z$)</td>
-                <td>2 (rotation $\perp$ to bond)</td>
+                <td><strong>Diatomic</strong><br>(e.g., N<sub>2</sub>, O<sub>2</sub>, HCl)</td>
+                <td>3 (v<sub>x</sub>, v<sub>y</sub>, v<sub>z</sub>)</td>
+                <td>2 (rotation ⊥ to bond)</td>
                 <td>0 (Frozen out)</td>
                 <td><strong>5</strong></td>
-                <td>$5 \times \left(\frac{1}{2}kT\right) = \mathbf{\frac{5}{2}kT}$</td>
+                <td>5 × ((1) / (2)kT) = \mathbf{(5) / (2)kT}</td>
             </tr>
             <tr>
-                <td><strong>Polyatomic (Linear)</strong><br>(e.g., $CO_2, C_2H_2$)</td>
-                <td>3 ($v_x, v_y, v_z$)</td>
-                <td>2 (rotation $\perp$ to bond)</td>
+                <td><strong>Polyatomic (Linear)</strong><br>(e.g., CO<sub>2</sub>, C<sub>2</sub>H<sub>2</sub>)</td>
+                <td>3 (v<sub>x</sub>, v<sub>y</sub>, v<sub>z</sub>)</td>
+                <td>2 (rotation ⊥ to bond)</td>
                 <td>0 (Frozen out)</td>
                 <td><strong>5</strong></td>
-                <td>$5 \times \left(\frac{1}{2}kT\right) = \mathbf{\frac{5}{2}kT}$</td>
+                <td>5 × ((1) / (2)kT) = \mathbf{(5) / (2)kT}</td>
             </tr>
             <tr>
-                <td><strong>Polyatomic (Non-linear)</strong><br>(e.g., $H_2O, CH_4$)</td>
-                <td>3 ($v_x, v_y, v_z$)</td>
+                <td><strong>Polyatomic (Non-linear)</strong><br>(e.g., H<sub>2</sub>O, CH<sub>4</sub>)</td>
+                <td>3 (v<sub>x</sub>, v<sub>y</sub>, v<sub>z</sub>)</td>
                 <td>3 (rotation about x, y, z)</td>
                 <td>0 (Frozen out)</td>
                 <td><strong>6</strong></td>
-                <td>$6 \times \left(\frac{1}{2}kT\right) = \mathbf{3kT}$</td>
+                <td>6 × ((1) / (2)kT) = \mathbf{3kT}</td>
             </tr>
         </table>
         <div class="common-mistake">
-            <strong>Note on Vibrations:</strong> Vibrational degrees of freedom exist, but they are "frozen out" (do not contribute) at normal temperatures. They only become active at very high temperatures. Each vibrational mode, when active, contributes $kT$ ($\frac{1}{2}kT$ for kinetic and $\frac{1}{2}kT$ for potential energy).
+            <strong>Note on Vibrations:</strong> Vibrational degrees of freedom exist, but they are "frozen out" (do not contribute) at normal temperatures. They only become active at very high temperatures. Each vibrational mode, when active, contributes kT ((1) / (2)kT for kinetic and (1) / (2)kT for potential energy).
         </div>
     </div>
 </body>

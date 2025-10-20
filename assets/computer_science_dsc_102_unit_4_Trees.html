@@ -39,26 +39,26 @@
         </ul>
     </div>
 
-    [span_22](start_span)<h2 id="basic-concepts">4.1 Basic Concepts of Tree[span_22](end_span)</h2>
-    <p>A <strong>graph</strong> $G = (V, E)$ consists of a set of vertices $V$ and a set of edges $E$.</p>
+    <span id="span_22"><h2 id="basic-concepts">4.1 Basic Concepts of Tree</span></h2>
+    <p>A <strong>graph</strong> G = (V, E) consists of a set of vertices V and a set of edges E.</p>
     <blockquote>
         A <strong>tree</strong> is a <strong>connected, undirected graph with no cycles</strong>. A graph with no cycles is called <strong>acyclic</strong>.
     </blockquote>
     <ul>
         <li>A <strong>forest</strong> is an undirected graph with no cycles (i.e., a collection of disjoint trees).</li>
-        <li><strong>Spanning Tree:</strong> A subgraph of a connected graph $G$ that is a tree and includes all the vertices of $G$.</li>
+        <li><strong>Spanning Tree:</strong> A subgraph of a connected graph G that is a tree and includes all the vertices of G.</li>
     </ul>
-    [span_23](start_span)<h2 id="properties">4.2 Properties of Trees[span_23](end_span)</h2>
-    <p>Let $T$ be a graph with $n$ vertices. The following are equivalent properties of a tree:</p>
+    <span id="span_23"><h2 id="properties">4.2 Properties of Trees</span></h2>
+    <p>Let T be a graph with n vertices. The following are equivalent properties of a tree:</p>
     <ul>
-        <li>$T$ is connected and has no cycles.</li>
-        <li>$T$ has no cycles and has exactly $n-1$ edges.</li>
-        <li>$T$ is connected and has exactly $n-1$ edges.</li>
-        <li>There is exactly one unique path between any two vertices in $T$.</li>
-        <li>$T$ is minimally connected (removing any edge disconnects it).</li>
+        <li>T is connected and has no cycles.</li>
+        <li>T has no cycles and has exactly n-1 edges.</li>
+        <li>T is connected and has exactly n-1 edges.</li>
+        <li>There is exactly one unique path between any two vertices in T.</li>
+        <li>T is minimally connected (removing any edge disconnects it).</li>
     </ul>
 
-    [span_24](start_span)<h2 id="pendant">4.3 Pendant Vertices in a Tree[span_24](end_span)</h2>
+    <span id="span_24"><h2 id="pendant">4.3 Pendant Vertices in a Tree</span></h2>
     <blockquote>
         A <strong>pendant vertex</strong> (or <strong>leaf</strong>) is a vertex with a degree of <strong>1</strong>.
     </blockquote>
@@ -67,15 +67,15 @@
         <li><strong>Theorem:</strong> Every tree with two or more vertices has at least two pendant vertices.</li>
     </ul>
 
-    [span_25](start_span)<h2 id="centre">4.4 Centre of a Tree[span_25](end_span)</h2>
-    <p>The <strong>eccentricity</strong> $e(v)$ of a vertex $v$ is the length of the longest path from $v$ to any other vertex in the tree.</p>
-    <p>The <strong>radius</strong> $r(T)$ of a tree is the minimum eccentricity of all vertices.</p>
-    <p>The <strong>diameter</strong> $d(T)$ of a tree is the maximum eccentricity of all vertices (the longest path in the tree).</p>
+    <span id="span_25"><h2 id="centre">4.4 Centre of a Tree</span></h2>
+    <p>The <strong>eccentricity</strong> e(v) of a vertex v is the length of the longest path from v to any other vertex in the tree.</p>
+    <p>The <strong>radius</strong> r(T) of a tree is the minimum eccentricity of all vertices.</p>
+    <p>The <strong>diameter</strong> d(T) of a tree is the maximum eccentricity of all vertices (the longest path in the tree).</p>
     <blockquote>
-        The <strong>centre</strong> of a tree $T$ is the set of all vertices with the minimum eccentricity (i.e., all vertices $v$ where $e(v) = r(T)$).
+        The <strong>centre</strong> of a tree T is the set of all vertices with the minimum eccentricity (i.e., all vertices v where e(v) = r(T)).
     </blockquote>
     <p><strong>Finding the Centre:</strong> Repeatedly remove all pendant vertices from the tree simultaneously. The vertex or two vertices remaining at the end form the centre. A tree has either one central vertex or two central vertices (which must be adjacent).</p>
-    [span_26](start_span)<h2 id="rooted-binary">4.5 Rooted Binary Trees[span_26](end_span)</h2>
+    <span id="span_26"><h2 id="rooted-binary">4.5 Rooted Binary Trees</span></h2>
     <p>A <strong>rooted tree</strong> is a tree in which one vertex has been designated as the <strong>root</strong>. This imposes a parent-child hierarchy.</p>
     <ul>
         <li><strong>Parent:</strong> The vertex directly above a given vertex.</li>
@@ -89,7 +89,7 @@
         A <strong>binary tree</strong> is a rooted tree where each internal vertex has at most <strong>two</strong> children, designated as a <strong>left child</strong> and a <strong>right child</strong>. An empty tree is also a binary tree.
     </blockquote>
 
-    [span_27](start_span)<h2 id="complete-extended">4.6 Complete and Extended Binary Trees[span_27](end_span)</h2>
+    <span id="span_27"><h2 id="complete-extended">4.6 Complete and Extended Binary Trees</span></h2>
     <h3>Extended Binary Tree (or Full Binary Tree)</h3>
     <p>A binary tree where every vertex has either <strong>0 or 2 children</strong>. The leaves are the 0-child vertices, and the internal nodes are the 2-child vertices.</p>
     

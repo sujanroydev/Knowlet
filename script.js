@@ -1,20 +1,3 @@
-// Your Firebase config
-const firebaseConfig = {
-  apiKey: "AIzaSyBAhZlnop_SVd1lAixtAGnVTwVoimvIe0Y",
-  authDomain: "knowlet-bc607.firebaseapp.com",
-  databaseURL: "https://knowlet-bc607-default-rtdb.firebaseio.com",
-  projectId: "knowlet-bc607",
-  storageBucket: "knowlet-bc607.firebasestorage.app",
-  messagingSenderId: "198002137798",
-  appId: "1:198002137798:web:448c2c618bff007fe195c7"
-};
-
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-                      
-// Get Realtime Database reference
-const db = firebase.database();
-
 const semestersDiv = document.getElementById("semesters");
 const popup = document.getElementById("popup");
 const popupTitle = document.getElementById("popup-title");

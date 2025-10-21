@@ -1,56 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<style>
-.popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(10, 10, 15, 0.95);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-#popup-title {
-  font-size: 2rem;
-}
-
-.popup-body {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
-  max-width: 1000px;
-  margin: auto;
-}
-.popup-content {
-  text-align: center;
-  background: #141a24;
-  border-radius: 16px;
-  padding: 30px;
-  width: 90%;
-  height: 85%;
-  overflow-y: auto;
-  position: relative;
-  box-shadow: 0 0 20px rgba(0,0,0,0.6);
-}
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subjects – Knowlet</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="https://raw.githubusercontent.com/SKR0411/Knowlet/main/assets/knowlet_icon_round.png" type="image/x-icon">
 </head>
 <body>
-  <div id="popup" class="popup">
-    <div id="popup-content" class="popup-content">
-      <h2 id="popup-title">Subjects</h2>
-      <div id="popup-body" class="popup-body">
-      	<div class="card"><a href="Mathematics.html" >Mathematics</a></div>
-      	<div class="card"><a href="semester_2.html" >Semester 2</a></div>
-      	<div class="card"><a href="semester_3.html" >Semester 3</a></div>
-      	<div class="card"><a href="semester_4.html" >Semester 4</a></div>
-      	<div class="card"><a href="semester_5.html" >Semester 5</a></div>
+  <!-- Header -->
+  <header class="header">
+    <h1>Available Subjects</h1>
+    <p>Select a subject to view notes and study materials</p>
+  </header>
+
+  <!-- Subjects Grid -->
+  <main class="main">
+    <section class="subjects-section">
+      <h2>Subjects</h2>
+      <div class="subjects-grid">
+        <div class="subject-card"><a href="subjects/mathematics_semester_1.html">Mathematics</a></div>
+        <div class="subject-card"><a href="subjects/computer_science_semester_1.html">Computer Science</a></div>
+        <div class="subject-card"><a href="subjects/statistics_semester_1.html">Statistics</a></div>
+        <div class="subject-card"><a href="subjects/zoology_semester_1.html">Zoology</a></div>
+        <div class="subject-card"><a href="subjects/physics_semester_1.html">Physics</a></div>
+        <div class="subject-card"><a href="subjects/Mathematics_semester_1.html">Botany</a></div>
+        <div class="subject-card"><a href="subjects/political_science_semester_1.html">Political Science</a></div>
+        <div class="subject-card"><a href="subjects/economics_semester_1.html">Economics</a></div>
+        <div class="subject-card"><a href="subjects/history_semester_1.html">history</a></div>
+        <div class="subject-card"><a href="subjects/chemistry_semester_1.html">chemistry</a></div>
+        
       </div>
-    </div>
-  </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 Knowlet | All rights reserved</p>
+  </footer>
 </body>
 </html>

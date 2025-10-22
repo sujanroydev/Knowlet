@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSC 102 - Unit III: Crystal Lattices and Symmetry Notations</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #212529;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 25px;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1, h2, h3 {
+            color: #005a9c; /* A deep blue */
+            margin-top: 24px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 6px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #003366; /* Darker blue for main title */
+            text-align: center;
+            border-bottom: 3px solid #005a9c;
+        }
+        h2 {
+            font-size: 2em;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #007bff; /* A lighter, bright blue */
+            border-bottom: 1px solid #f1f3f5;
+        }
+        p {
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        strong {
+            color: #d9534f; /* A contrasting red for emphasis */
+            font-weight: 600;
+        }
+        em {
+            font-style: italic;
+            color: #0275d8;
+        }
+        blockquote {
+            background-color: #e6f7ff; /* Light blue background */
+            border-left: 5px solid #007bff;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            border-radius: 5px;
+        }
+        .exam-tip {
+            background-color: #fff9e6; /* Light yellow */
+            border-left: 5px solid #ffc107; /* Amber */
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #d9534f;
+            display: block;
+            margin-bottom: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #005a9c;
+            color: #ffffff;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa; /* Alternating row color */
+        }
+        #toc {
+            background-color: #f1f3f5;
+            border: 1px solid #ced4da;
+            padding: 15px 25px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        #toc h2 {
+            border-bottom: none;
+            margin-top: 0;
+            color: #343a40;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc ul li a {
+            text-decoration: none;
+            color: #005a9c;
+            font-weight: 500;
+        }
+        #toc ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>UNIT III: Crystal Lattices and Symmetry Notations</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Crystal Parameters and Indices</a></li>
+                <li><a href="#topic2">Concepts of Lattice, Point Group, and Space Group</a>
+                    <ul>
+                        <li><a href="#sub_lattice">Lattice and Space Lattice</a></li>
+                        <li><a href="#sub_point_group">Point Group</a></li>
+                        <li><a href="#sub_space_group">Space Group</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic3">Bravais Lattice Types</a></li>
+                <li><a href="#topic4">Hermann-Mauguin (H-M) Symmetry Symbols</a></li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <section id="topic1">
+            <h2>Crystal Parameters and Indices</h2>
+            <p>This is the system used to numerically describe the orientation of any crystal face relative to the crystallographic axes (a, b, c).</p>
+            
+            <h3>Parameters (Weiss Parameters)</h3>
+            <p>The <strong>parameters</strong> of a face describe where it *intercepts* the crystallographic axes. The intercepts are expressed as multiples of the unit lengths (a, b, c) defined for that crystal.</p>
+            <p><strong>Example:</strong>
+                <ul>
+                    <li>The "unit face" intercepts the axes at 1a, 1b, and 1c. Its parameters are <strong>1:1:1</strong>.</li>
+                    <li>A face intercepts the 'a' axis at 2 units, the 'b' axis at 3 units, and the 'c' axis at 1 unit. Its parameters are <strong>2:3:1</strong>.</li>
+                    <li>A face is parallel to the 'c' axis (never intersects it). Its parameters are <strong>1:1:∞</strong>.</li>
+                </ul>
+            </p>
+            <p>Weiss parameters are clumsy to use, especially with infinity (∞). This led to the development of Miller Indices.</p>
+
+            <h3>Indices (Miller Indices)</h3>
+            <p><strong>Miller Indices</strong> are a set of integers (h, k, l) derived from the Weiss parameters. They are the standard way of naming crystal faces and planes.</p>
+            
+            <p><strong>How to Calculate Miller Indices (hkl):</strong></p>
+            <ol>
+                <li><strong>Step 1: Find the Parameters.</strong> Determine the intercepts of the face on the crystallographic axes (a, b, c).
+                    <ul><li><em>Example:</em> <strong>2a, 3b, 1c</strong></li></ul>
+                </li>
+                <li><strong>Step 2: Take the Reciprocals.</strong> Invert the numerical part of the parameters.
+                    <ul><li><em>Example:</em> <strong>1/2, 1/3, 1/1</strong></li></ul>
+                </li>
+                <li><strong>Step 3: Clear Fractions.</strong> Find the least common multiple (LCM) of the denominators and multiply all reciprocals by it to get whole numbers.
+                    <ul><li><em>Example:</em> LCM of 2 and 3 is 6.</li>
+                    <li>(1/2) * 6 = <strong>3</strong></li>
+                    <li>(1/3) * 6 = <strong>2</strong></li>
+                    <li>(1/1) * 6 = <strong>6</strong></li>
+                    </ul>
+                </li>
+                <li><strong>Step 4: Write the Indices.</strong> Write the three whole numbers in parentheses, with no commas.
+                    <ul><li><em>Example:</em> <strong>(326)</strong></li></ul>
+                </li>
+            </ol>
+
+            <div class="exam-tip">
+                <strong>Common Pitfalls with Miller Indices:</strong>
+                <ul>
+                    <li><strong>Parallel Face:</strong> If a face is parallel to an axis (e.g., intercept at ∞), the reciprocal is 1/∞ = <strong>0</strong>. A face (110) is parallel to the 'c' axis.</li>
+                    <li><strong>Negative Intercept:</strong> If a face intercepts a negative axis (e.g., -a), the index is written with a bar over it. <em>Example:</em> Intercepts -1a, 1b, 1c → Indices <strong>(ī11)</strong>.</li>
+                    <li><strong>Miller-Bravais Indices (hkil):</strong> Used for the <strong>Hexagonal</strong> system. It uses 4 axes (a₁, a₂, a₃, c). The rule is that <strong>h + k + i = 0</strong>. <em>Example:</em> A prism face is (10ī0).</li>
+                </ul>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="topic2">
+            <h2>Concepts of Lattice, Point Group, and Space Group</h2>
+            
+            <h3 id="sub_lattice">Lattice and Space Lattice</h3>
+            <p>A <strong>Lattice</strong> is an abstract concept: an infinite, ordered array of points in space. Each point (a "lattice point") must have an identical environment to every other point.</p>
+            <p>A <strong>Space Lattice</strong> is a 3-dimensional lattice. It is the "scaffolding" upon which a crystal is built. To build a crystal, you place an identical atom or group of atoms (called the <strong>motif</strong> or <strong>basis</strong>) at <em>each and every</em> lattice point.</p>
+            <blockquote>
+                <strong>Lattice + Motif = Crystal Structure</strong>
+            </blockquote>
+            <p>The smallest repeating block of the lattice that can be used to build the entire structure by simple translation is called the <strong>Unit Cell</strong>.
+                <ul>
+                    <li><strong>Primitive (P) Unit Cell:</strong> Contains lattice points only at its corners. (Total = 1 lattice point per cell).</li>
+                    <li><strong>Non-Primitive Unit Cell:</strong> Contains additional lattice points at the body-center (I), face-centers (F), or base-centers (C).</li>
+                </ul>
+            </p>
+
+            <h3 id="sub_point_group">Point Group (Crystal Class)</h3>
+            <p>A <strong>Point Group</strong> describes the <strong>external symmetry</strong> of a crystal. It is the set of all symmetry operations (mirrors, rotation axes, center of inversion) that pass through a single, fixed point (the center of the crystal) and would leave the crystal's shape unchanged.</p>
+            <ul>
+                <li>It is called a "point" group because <strong>no translation</strong> (shifting) is involved.</li>
+                <li>It describes the symmetry of the finite object (the crystal itself).</li>
+                <li>There are exactly <strong>32 possible Point Groups</strong>, also known as the 32 Crystal Classes.</li>
+            </ul>
+
+            <h3 id="sub_space_group">Space Group</h3>
+            <p>A <strong>Space Group</strong> describes the <strong>total internal symmetry</strong> of the crystal structure, including the atomic arrangement.</p>
+            <ul>
+                <li>It includes all the "point" symmetry elements (mirrors, rotations).</li>
+                <li>It *also* includes <strong>translational symmetry elements</strong>, which combine rotation or reflection with a translation (shift):
+                    <ul>
+                        <li><strong>Glide Plane (a, b, c, n, d):</strong> A reflection across a mirror plane, followed by a translation parallel to that plane.</li>
+                        <li><strong>Screw Axis (2₁, 3₁, 4₁, etc.):</strong> A rotation around an axis, followed by a translation parallel to that axis.</li>
+                    </ul>
+                </li>
+                <li>Space groups describe the symmetry of the *infinite* internal lattice.</li>
+                <li>There are exactly <strong>230 possible Space Groups</strong>.</li>
+            </ul>
+            <div class="exam-tip">
+                <strong>Key Distinction:</strong>
+                <ul>
+                    <li><strong>Point Group (32):</strong> External shape, no translation, (e.g., m, 4, i).</li>
+                    <li><strong>Space Group (230):</strong> Internal structure, includes translation, (e.g., m, 4, i, <strong>plus</strong> glide planes and screw axes).</li>
+                </ul>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="topic3">
+            <h2>Bravais Lattice Types</h2>
+            <p>In 1850, Auguste Bravais proved that there are only <strong>14 unique ways</strong> to arrange points in 3D space to form a lattice (a space lattice). These 14 "Bravais Lattices" are grouped within the 7 crystal systems.</p>
+            <p>The lattice types are designated by letters:</p>
+            <ul>
+                <li><strong>P</strong> = Primitive (points at corners only)</li>
+                <li><strong>I</strong> = Body-centered (<strong>I</strong>nnenzentriert) (points at corners + 1 in the center)</li>
+                <li><strong>F</strong> = Face-centered (points at corners + 1 in the center of each of the 6 faces)</li>
+                <li><strong>C</strong> = Base-centered (or side-centered) (points at corners + 1 in the center of two opposite faces)</li>
+                <li><strong>R</strong> = Rhombohedral (a primitive cell for the Trigonal system with rhombohedral axes)</li>
+            </ul>
+
+            <table>
+                <caption>The 14 Bravais Lattices</caption>
+                <tr>
+                    <th>Crystal System</th>
+                    <th>Bravais Lattice Types</th>
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <td><strong>Cubic</strong></td>
+                    <td>Primitive (P), Body-centered (I), Face-centered (F)</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td><strong>Tetragonal</strong></td>
+                    <td>Primitive (P), Body-centered (I)</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td><strong>Orthorhombic</strong></td>
+                    <td>Primitive (P), Body-centered (I), Face-centered (F), Base-centered (C)</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td><strong>Hexagonal</strong></td>
+                    <td>Primitive (P)</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td><strong>Trigonal</strong></td>
+                    <td>Rhombohedral (R) (or Primitive)</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td><strong>Monoclinic</strong></td>
+                    <td>Primitive (P), Base-centered (C)</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td><strong>Triclinic</strong></td>
+                    <td>Primitive (P)</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td><strong>TOTAL</strong></td>
+                    <td></td>
+                    <td><strong>14</strong></td>
+                </tr>
+            </table>
+            </section>
+
+        <hr>
+
+        <section id="topic4">
+            <h2>Hermann-Mauguin (H-M) Symmetry Symbols</h2>
+            <p>The <strong>Hermann-Mauguin (H-M) notation</strong>, also called the International notation, is the standard system used to write the symbols for the 32 Point Groups and 230 Space Groups. It is much more descriptive than older notations.</p>
+            
+            <h3>H-M Symbols for Symmetry Elements</h3>
+            <table>
+                <caption>H-M Point Group Symbols</caption>
+                <tr>
+                    <th>Element</th>
+                    <th>Symbol</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Rotation Axes</td>
+                    <td><strong>1, 2, 3, 4, 6</strong></td>
+                    <td>Indicates 1, 2, 3, 4, or 6-fold rotation.</td>
+                </tr>
+                <tr>
+                    <td>Roto-inversion Axes</td>
+                    <td><strong>ī, m, 3̄, 4̄, 6̄</strong></td>
+                    <td>Rotation + Inversion.
+                        <br><em>Note:</em> <strong>ī</strong> = center of symmetry (i)
+                        <br><em>Note:</em> <strong>2̄</strong> (bar-2) is equivalent to a <strong>m</strong>irror plane.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mirror Plane</td>
+                    <td><strong>m</strong></td>
+                    <td>A mirror plane perpendicular to an axis.</td>
+                </tr>
+                <tr>
+                    <td>Perpendicularity</td>
+                    <td><strong>/</strong></td>
+                    <td>Used to show a mirror plane <em>perpendicular</em> to an axis. (e.g., <strong>4/m</strong> = "four-over-em")</td>
+                </tr>
+            </table>
+
+            <h3>How to Read Point Group Symbols</h3>
+            <p>The H-M symbol for a point group describes the <strong>main symmetry elements along the principal crystallographic directions</strong>.</p>
+            <ul>
+                <li><strong>Cubic (Normal Class): 4/m 3̄ 2/m</strong>
+                    <ul>
+                        <li><strong>4/m</strong>: Along the main axes (a, b, c), there is a 4-fold axis with a mirror (m) perpendicular to it.</li>
+                        <li><strong>3̄</strong>: Along the body diagonals, there is a 3-fold roto-inversion axis.</li>
+                        <li><strong>2/m</strong>: Along the face diagonals, there is a 2-fold axis with a mirror (m) perpendicular to it.</li>
+                    </ul>
+                </li>
+                <li><strong>Tetragonal (Normal Class): 4/m 2/m 2/m</strong>
+                    <ul>
+                        <li><strong>4/m</strong>: Along the principal 'c' axis (A₄).</li>
+                        <li><strong>2/m</strong>: Along the 'a' and 'b' axes.</li>
+                        <li><strong>2/m</strong>: Along the diagonal directions between 'a' and 'b'.</li>
+                    </ul>
+                </li>
+                <li><strong>Monoclinic (Normal Class): 2/m</strong>
+                    <ul>
+                        <li>Indicates a single 2-fold axis with a mirror plane perpendicular to it. All other directions have no symmetry.</li>
+                    </ul>
+                </li>
+            </ul>
+            <p><strong>Space Group symbols</strong> add on the translational elements. For example, the space group for Quartz is <strong>P 3₁ 2 1</strong>. This means:
+                <ul>
+                    <li><strong>P</strong>: It has a Primitive Bravais lattice.</li>
+                    <li><strong>3₁</strong>: Along the principal axis, there is a 3-fold <em>screw axis</em>.</li>
+                    <li><strong>2</strong>: Along the next direction, there is a 2-fold rotation axis.</li>
+                    <li><strong>1</strong>: Along the third direction, there is only 1-fold rotation (i.e., no symmetry).</li>
+                </ul>
+            </p>
+        </section>
+
+    </div>
+</body>
+</html>

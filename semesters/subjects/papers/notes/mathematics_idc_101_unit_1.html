@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAT-IDC-101: Unit 1</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f7fef7;
+            color: #2c3e50;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #d4e9d4;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1, h2, h3 {
+            color: #006442;
+            margin-bottom: 0.5em;
+        }
+        h1 {
+            font-size: 2.5em;
+            border-bottom: 3px solid #006442;
+            padding-bottom: 10px;
+        }
+        h2 {
+            font-size: 2em;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+            margin-top: 1.5em;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #28a745;
+            margin-top: 1em;
+        }
+        p {
+            margin-bottom: 1em;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 1em;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        #toc {
+            background: #e6f7e9;
+            border: 1px solid #c3e6cb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 2em;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #155724;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 8px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #006442;
+            font-weight: 500;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+        blockquote {
+            border-left: 5px solid #28a745;
+            padding: 15px;
+            background: #f8f9fa;
+            font-style: italic;
+            margin: 1.5em 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: block;
+            margin: 1em 0;
+            overflow-x: auto;
+        }
+        .exam-tip {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 1.5em 0;
+        }
+        .exam-tip strong {
+            color: #d46b08;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5em 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 1: Number System and Commercial Arithmetic</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Number System</a></li>
+                <li><a href="#topic2">Basic Operations</a></li>
+                <li><a href="#topic3">Commercial Arithmetic</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Number System</h2>
+        <p>This unit covers the foundational concepts of different types of numbers and their properties.</p>
+
+        <h3>Place Value and Face Value</h3>
+        <ul>
+            <li><strong>Face Value:</strong> The inherent value of a digit, regardless of its position in a number.
+                <ul>
+                    <li><strong>Example:</strong> In the number <strong>739</strong>, the face value of the digit '3' is simply <strong>3</strong>.</li>
+                </ul>
+            </li>
+            <li><strong>Place Value:</strong> The value of a digit based on its position (ones, tens, hundreds, etc.) in the number.
+                <ul>
+                    <li><strong>Example:</strong> In the number <strong>739</strong>, the place value of the digit '3' is <strong>3 × 10 = 30</strong>.</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h3>Types of Numbers</h3>
+        <ol>
+            <li><strong>Natural Numbers (N):</strong> The set of counting numbers.
+                <span class="formula">N = {1, 2, 3, 4, ...}</span>
+            </li>
+            <li><strong>Integers (Z):</strong> The set of all whole numbers and their negative counterparts.
+                <span class="formula">Z = {..., -3, -2, -1, 0, 1, 2, 3, ...}</span>
+            </li>
+            <li><strong>Rational Numbers (Q):</strong> Any number that can be expressed as a fraction <strong>p/q</strong>, where 'p' and 'q' are integers and 'q' is not zero.
+                <ul>
+                    <li>Includes all integers (e.g., 5 = 5/1).</li>
+                    <li>Includes terminating decimals (e.g., 0.5 = 1/2).</li>
+                    <li>Includes repeating decimals (e.g., 0.333... = 1/3).</li>
+                </ul>
+            </li>
+            <li><strong>Real Numbers (R):</strong> The set of all numbers on the number line. This includes all rational numbers and <strong>irrational numbers</strong> (numbers that cannot be expressed as a simple fraction, e.g., √2, π).</li>
+        </ol>
+        <h2 id="topic2">Basic Operations</h2>
+        
+        <h3>HCF (Highest Common Factor)</h3>
+        <p>Also known as the Greatest Common Divisor (GCD). It is the largest positive integer that divides two or more numbers without leaving a remainder.</p>
+        <p><strong>Example:</strong> Find the HCF of 12 and 18.</p>
+        <ol>
+            <li>Prime factors of 12: 2 × 2 × 3</li>
+            <li>Prime factors of 18: 2 × 3 × 3</li>
+            <li>Common factors: 2, 3</li>
+            <li>HCF = Product of common factors = 2 × 3 = <strong>6</strong></li>
+        </ol>
+        
+        <h3>LCM (Lowest Common Multiple)</h3>
+        <p>It is the smallest positive integer that is a multiple of two or more numbers.</p>
+        <p><strong>Example:</strong> Find the LCM of 12 and 18.</p>
+        <ol>
+            <li>Prime factors of 12: 2² × 3¹</li>
+            <li>Prime factors of 18: 2¹ × 3²</li>
+            <li>Take the highest power of each prime factor present in <em>either</em> number: 2² and 3²</li>
+            <li>LCM = 2² × 3² = 4 × 9 = <strong>36</strong></li>
+        </ol>
+        <div class="exam-tip">
+            <strong>Important Formula:</strong> For any two positive integers 'a' and 'b':
+            <span class="formula">HCF(a, b) × LCM(a, b) = a × b</span>
+        </div>
+
+        <h2 id="topic3">Commercial Arithmetic</h2>
+        
+        <h3>Ratio and Proportion</h3>
+        <ul>
+            <li><strong>Ratio:</strong> A comparison of two quantities, written as `a:b` or `a/b`.</li>
+            <li><strong>Proportion:</strong> An equality of two ratios. If `a:b` is proportional to `c:d`, we write `a:b = c:d` or `a/b = c/d`.
+                <ul>
+                    <li>This implies the "product of extremes equals product of means": <strong>ad = bc</strong>.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Percentage</h3>
+        <p>The word "percent" means "per hundred". It's a way to express a number as a fraction of 100.</p>
+        <blockquote>
+            <strong>Formula:</strong> Percentage = (Part / Whole) × 100%
+        </blockquote>
+        <p><strong>Example:</strong> If you score 30 out of 40 on a test, your percentage is (30 / 40) × 100% = 0.75 × 100% = <strong>75%</strong>.</p>
+        
+        <h3>Profit and Loss</h3>
+        <ul>
+            <li><strong>Cost Price (CP):</strong> The price at which an item is purchased.</li>
+            <li><strong>Selling Price (SP):</strong> The price at which an item is sold.</li>
+            <li><strong>Profit:</strong> If SP > CP, then Profit = SP - CP.</li>
+            <li><strong>Loss:</strong> If CP > SP, then Loss = CP - SP.</li>
+        </ul>
+        <blockquote>
+            <strong>Formulas:</strong>
+            <br>
+            Profit % = (Profit / CP) × 100
+            <br>
+            Loss % = (Loss / CP) × 100
+        </blockquote>
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> Profit and Loss percentages are <strong>always</strong> calculated based on the <strong>Cost Price (CP)</strong>, unless stated otherwise.
+        </div>
+        
+        <h3>Simple Interest (SI)</h3>
+        <p>Interest calculated only on the original principal amount.</p>
+        <ul>
+            <li><strong>P</strong> = Principal (the initial amount of money)</li>
+            <li><strong>R</strong> = Rate of interest (per year)</li>
+            <li><strong>T</strong> = Time (in years)</li>
+        </ul>
+        <blockquote>
+            <strong>Formulas:</strong>
+            <br>
+            Simple Interest (SI) = (P × R × T) / 100
+            <br>
+            Total Amount (A) = Principal + Simple Interest = P + SI
+        </blockquote>
+        
+        <h3>Compound Interest (CI)</h3>
+        <p>Interest calculated on the initial principal and also on the accumulated interest from previous periods ("interest on interest").</p>
+        <blockquote>
+            <strong>Formula (compounded annually):</strong>
+            <br>
+            Amount (A) = P × (1 + R/100)ᵀ
+            <br>
+            Compound Interest (CI) = A - P = P × [ (1 + R/100)ᵀ - 1 ]
+        </blockquote>
+        <p><strong>Example:</strong> Find the CI on $1000 for 2 years at 10% p.a. compounded annually.</p>
+        <ol>
+            <li>A = 1000 × (1 + 10/100)²</li>
+            <li>A = 1000 × (1.1)²</li>
+            <li>A = 1000 × 1.21 = $1210</li>
+            <li>CI = A - P = $1210 - $1000 = <strong>$210</strong></li>
+        </ol>
+    </div>
+</body>
+</html>

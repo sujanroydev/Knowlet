@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAT-IDC-101: Unit 3</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f7fef7;
+            color: #2c3e50;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #d4e9d4;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1, h2, h3 {
+            color: #006442;
+            margin-bottom: 0.5em;
+        }
+        h1 {
+            font-size: 2.5em;
+            border-bottom: 3px solid #006442;
+            padding-bottom: 10px;
+        }
+        h2 {
+            font-size: 2em;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+            margin-top: 1.5em;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #28a745;
+            margin-top: 1em;
+        }
+        p {
+            margin-bottom: 1em;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 1em;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        #toc {
+            background: #e6f7e9;
+            border: 1px solid #c3e6cb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 2em;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #155724;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 8px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #006442;
+            font-weight: 500;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+        blockquote {
+            border-left: 5px solid #28a745;
+            padding: 15px;
+            background: #f8f9fa;
+            font-style: italic;
+            margin: 1.5em 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: block;
+            margin: 1em 0;
+            overflow-x: auto;
+        }
+        .exam-tip {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 1.5em 0;
+        }
+        .exam-tip strong {
+            color: #d46b08;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 3: Equations</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Simultaneous Linear Equations in Two Variables</a></li>
+                <li><a href="#topic2">Quadratic Equations</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Simultaneous Linear Equations in Two Variables</h2>
+        <p>A system of simultaneous linear equations is a set of two or more linear equations with the same variables. We look for a pair (x, y) that satisfies all equations at the same time.</p>
+        <p>The standard form is:</p>
+        <span class="formula">
+            a₁x + b₁y = c₁
+            <br>
+            a₂x + b₂y = c₂
+        </span>
+        
+        <h3>Methods for Solving</h3>
+        <ol>
+            <li>
+                <strong>Substitution Method:</strong>
+                <ol>
+                    <li>Solve one equation for one variable (e.g., solve for y in terms of x).</li>
+                    <li>Substitute this expression into the <em>other</em> equation.</li>
+                    <li>This creates a new equation with only one variable (x). Solve it.</li>
+                    <li>Substitute the x-value back into your expression from step 1 to find y.</li>
+                </ol>
+            </li>
+            <li>
+                <strong>Elimination Method:</strong>
+                <ol>
+                    <li>Multiply one or both equations by constants so that the coefficients of one variable (e.g., y) are opposites (like -3y and +3y).</li>
+                    <li>Add the two new equations together. This will eliminate one variable.</li>
+                    <li>Solve the resulting equation for the remaining variable.</li>
+                    <li>Substitute this value back into one of the original equations to find the other variable.</li>
+                </ol>
+            </li>
+        </ol>
+
+        <h3>Nature of Solutions (Graphical Interpretation)</h3>
+        <p>The nature of the solution depends on the relationship between the coefficients.</p>
+        <ul>
+            <li><strong>Unique Solution:</strong> If <strong>a₁/a₂ ≠ b₁/b₂</strong>
+                <p>The lines intersect at exactly one point. This is the most common case.</p>
+            </li>
+            <li><strong>No Solution:</strong> If <strong>a₁/a₂ = b₁/b₂ ≠ c₁/c₂</strong>
+                <p>The lines are parallel and never intersect.</p>
+            </li>
+            <li><strong>Infinitely Many Solutions:</strong> If <strong>a₁/a₂ = b₁/b₂ = c₁/c₂</strong>
+                <p>The lines are coincident (they are the same line).</p>
+            </li>
+        </ul>
+
+        <h2 id="topic2">Quadratic Equations</h2>
+        <p>A quadratic equation is a polynomial equation of the second degree. The standard form is:</p>
+        <blockquote>
+            <span class="formula">ax² + bx + c = 0</span>
+            (where a, b, and c are constants, and a ≠ 0)
+        </blockquote>
+        
+        <h3>Methods of Solution</h3>
+        <ol>
+            <li>
+                <strong>Factoring:</strong> If the quadratic expression can be factored, set each factor to zero.
+                <ul>
+                    <li><strong>Example:</strong> x² - 5x + 6 = 0
+                        <br>(x - 2)(x - 3) = 0
+                        <br>So, x = 2 or x = 3.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <strong>Quadratic Formula:</strong> This formula solves <em>any</em> quadratic equation.
+                <blockquote>
+                    <span class="formula">x = [ -b ± √(b² - 4ac) ] / (2a)</span>
+                </blockquote>
+            </li>
+        </ol>
+        
+        <h3>Nature of Roots (Using the Discriminant)</h3>
+        <p>The <strong>Discriminant (D)</strong> is the part under the square root in the quadratic formula:</p>
+        <blockquote>
+            <span class="formula">D = b² - 4ac</span>
+        </blockquote>
+        <p>The value of D tells us about the type of roots without having to solve the equation:</p>
+        <ul>
+            <li>If <strong>D > 0</strong>: The equation has <strong>two distinct real roots</strong>.</li>
+            <li>If <strong>D = 0</strong>: The equation has <strong>one real root</strong> (or two equal real roots).</li>
+            <li>If <strong>D < 0</strong>: The equation has <strong>no real roots</strong> (it has two complex conjugate roots).</li>
+        </ul>
+        
+        <h3>Sum and Product of Roots</h3>
+        <p>For a quadratic equation `ax² + bx + c = 0`, if the roots are <strong>α (alpha)</strong> and <strong>β (beta)</strong>, we have a direct relationship:</p>
+        <blockquote>
+            <strong>Sum of Roots:</strong> α + β = -b / a
+            <br>
+            <strong>Product of Roots:</strong> αβ = c / a
+        </blockquote>
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> This is very useful for forming a new quadratic equation if you are given its roots. The equation can be written as:
+            <span class="formula">x² - (Sum of roots)x + (Product of roots) = 0</span>
+        </div>
+    </div>
+</body>
+</html>

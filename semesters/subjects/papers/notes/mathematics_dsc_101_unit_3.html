@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAT:DSC-101: Unit 3</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f5faff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1, h2, h3 {
+            color: #005a9c;
+            margin-bottom: 0.5em;
+        }
+        h1 {
+            font-size: 2.5em;
+            border-bottom: 3px solid #005a9c;
+            padding-bottom: 10px;
+        }
+        h2 {
+            font-size: 2em;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+            margin-top: 1.5em;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #007bff;
+            margin-top: 1em;
+        }
+        p {
+            margin-bottom: 1em;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 1em;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        #toc {
+            background: #e6f7ff;
+            border: 1px solid #b3e0ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 2em;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #005a9c;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 8px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: 500;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+        blockquote {
+            border-left: 5px solid #007bff;
+            padding: 15px;
+            background: #f8f9fa;
+            font-style: italic;
+            margin: 1.5em 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: block;
+            margin: 1em 0;
+            overflow-x: auto;
+        }
+        .exam-tip {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 1.5em 0;
+        }
+        .exam-tip strong {
+            color: #d46b08;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5em 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 3: Relations and Logic</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Relations and Their Properties</a></li>
+                <li><a href="#topic2">Equivalence Relations</a></li>
+                <li><a href="#topic3">Equivalence Classes and Partitions</a></li>
+                <li><a href="#topic4">Introduction to Logic and Propositions</a></li>
+                <li><a href="#topic5">Logical Connectives and Truth Tables</a></li>
+                <li><a href="#topic6">Conditional Statements</a></li>
+                <li><a href="#topic7">Quantifiers and Counterexamples</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Relations and Their Properties</h2>
+        <p>A <strong>relation R</strong> from a set A to a set B is a subset of the Cartesian product A × B. A relation on a set A is a subset of A × A. We write `aRb` to mean (a, b) is in R.</p>
+        
+        <h3>Properties of Relations (on a set A)</h3>
+        <ol>
+            <li>
+                <strong>Reflexive:</strong> A relation R is reflexive if `aRa` for every element `a` in A.
+                <br><em>(Every element is related to itself).</em>
+                <br><strong>Example:</strong> "≤" on the set of integers. `a ≤ a` is always true.
+            </li>
+            <li>
+                <strong>Symmetric:</strong> A relation R is symmetric if for all `a, b` in A, `aRb` implies `bRa`.
+                <br><em>(If a is related to b, then b must be related to a).</em>
+                <br><strong>Example:</strong> "is equal to" (=). If `a = b`, then `b = a`.
+                <br><strong>Non-example:</strong> "≤". `3 ≤ 5` is true, but `5 ≤ 3` is false.
+            </li>
+            <li>
+                <strong>Transitive:</strong> A relation R is transitive if for all `a, b, c` in A, `aRb` and `bRc` implies `aRc`.
+                <br><em>(If a is related to b, and b is related to c, then a is related to c).</em>
+                <br><strong>Example:</strong> "<" (less than). If `a < b` and `b < c`, then `a < c`.
+            </li>
+        </ol>
+
+        <h2 id="topic2">Equivalence Relations</h2>
+        <blockquote>
+            A relation R on a set A is an <strong>equivalence relation</strong> if it is <strong>reflexive</strong>, <strong>symmetric</strong>, and <strong>transitive</strong>.
+        </blockquote>
+        <p>Equivalence relations are important because they "group" similar elements together.</p>
+        
+        <p><strong>Classic Example:</strong> Congruence modulo m.
+        <br>Let R be the relation on the set of integers Z defined by `aRb` if `a ≡ b (mod 3)` (i.e., `a - b` is divisible by 3).</p>
+        <ul>
+            <li><strong>Reflexive:</strong> `aRa`? Is `a - a = 0` divisible by 3? Yes.</li>
+            <li><strong>Symmetric:</strong> If `aRb`, then `a - b = 3k`. Does `bRa`? Is `b - a` divisible by 3?
+                <br>Yes, because `b - a = -(a - b) = -3k = 3(-k)`.
+            </li>
+            <li><strong>Transitive:</strong> If `aRb` and `bRc`, then `a - b = 3k` and `b - c = 3j`. Does `aRc`?
+                <br>Add the equations: `(a - b) + (b - c) = 3k + 3j`
+                <br>`a - c = 3(k + j)`. Yes, `a - c` is divisible by 3.
+            </li>
+        </ul>
+        <p>Since R is reflexive, symmetric, and transitive, it is an equivalence relation.</p>
+
+        <h2 id="topic3">Equivalence Classes and Partitions</h2>
+        
+        <h3>Equivalence Class</h3>
+        <p>Let R be an equivalence relation on a set A. For any element `a` in A, the <strong>equivalence class</strong> of `a`, denoted `[a]`, is the set of all elements in A that are related to `a`.</p>
+        <blockquote>
+            <span class="formula">[a] = { x ∈ A | xRa }</span>
+        </blockquote>
+        
+        <p><strong>Example (Congruence mod 3):</strong></p>
+        <ul>
+            <li>`[0]` = { ..., -6, -3, 0, 3, 6, ... } (all numbers with remainder 0)</li>
+            <li>`[1]` = { ..., -5, -2, 1, 4, 7, ... } (all numbers with remainder 1)</li>
+            <li>`[2]` = { ..., -4, -1, 2, 5, 8, ... } (all numbers with remainder 2)</li>
+            <li>`[3]` = { ..., 0, 3, 6, ... } which is the same set as `[0]`.</li>
+        </ul>
+        
+        <h3>Partition</h3>
+        <p>A <strong>partition</strong> of a set A is a collection of non-empty, disjoint subsets of A whose union is the entire set A.</p>
+        <p><strong>Theorem:</strong> An equivalence relation on a set A <strong>partitions</strong> the set A into its equivalence classes.</p>
+        <p>In the example above, the equivalence classes `[0]`, `[1]`, and `[2]` form a partition of the integers Z.</p>
+
+        <h2 id="topic4">Introduction to Logic and Propositions</h2>
+        <blockquote>
+            A <strong>proposition</strong> (or statement) is a declarative sentence that is either <strong>True</strong> or <strong>False</strong>, but not both.
+        </blockquote>
+        <ul>
+            <li><strong>Examples:</strong> "It is raining." (T or F), "2 + 2 = 4" (T), "2 + 2 = 5" (F).</li>
+            <li><strong>Non-examples:</strong> "What time is it?" (Question), "Close the door." (Command), "x + 1 = 2" (Predicate, depends on x).</li>
+        </ul>
+
+        <h2 id="topic5">Logical Connectives and Truth Tables</h2>
+        <p>We combine simple propositions (p, q) into compound propositions using connectives.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Connective</th>
+                    <th>Name</th>
+                    <th>Symbol</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Negation</td>
+                    <td>"not"</td>
+                    <td>¬p</td>
+                    <td>The opposite of p.</td>
+                </tr>
+                <tr>
+                    <td>Conjunction</td>
+                    <td>"and"</td>
+                    <td>p ∧ q</td>
+                    <td>True only when <strong>both</strong> p and q are true.</td>
+                </tr>
+                <tr>
+                    <td>Disjunction</td>
+                    <td>"or"</td>
+                    <td>p ∨ q</td>
+                    <td>True if <strong>at least one</strong> of p or q is true (inclusive or).</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Truth Table</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>p</th>
+                    <th>q</th>
+                    <th>¬p</th>
+                    <th>p ∧ q</th>
+                    <th>p ∨ q</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>T</td>
+                    <td>T</td>
+                    <td>F</td>
+                    <td>T</td>
+                    <td>T</td>
+                </tr>
+                <tr>
+                    <td>T</td>
+                    <td>F</td>
+                    <td>F</td>
+                    <td>F</td>
+                    <td>T</td>
+                </tr>
+                <tr>
+                    <td>F</td>
+                    <td>T</td>
+                    <td>T</td>
+                    <td>F</td>
+                    <td>T</td>
+                </tr>
+                <tr>
+                    <td>F</td>
+                    <td>F</td>
+                    <td>T</td>
+                    <td>F</td>
+                    <td>F</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="topic6">Conditional Statements</h2>
+        
+        <h3>Implication (p → q)</h3>
+        <p>This is the "if p, then q" statement. `p` is the hypothesis, `q` is the conclusion.</p>
+        <p>It is only <strong>False</strong> when `p` is True and `q` is False.</p>
+
+        <h3>Biconditional (p ↔ q)</h3>
+        <p>This is the "p if and only if q" (iff) statement. It is True only when `p` and `q` have the same truth value (both T or both F).</p>
+        <p>`p ↔ q` is logically equivalent to `(p → q) ∧ (q → p)`.</p>
+
+        <h3>Converse, Inverse, and Contrapositive</h3>
+        <p>Given the implication `p → q` ("If you are a student, then you are busy"):</p>
+        <ul>
+            <li><strong>Converse (q → p):</strong> "If you are busy, then you are a student." (Not logically equivalent)</li>
+            <li><strong>Inverse (¬p → ¬q):</strong> "If you are not a student, then you are not busy." (Not logically equivalent)</li>
+            <li><strong>Contrapositive (¬q → ¬p):</strong> "If you are not busy, then you are not a student." (<strong>Logically equivalent</strong> to the original statement)</li>
+        </ul>
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> An implication and its contrapositive are always logically equivalent. `p → q ≡ ¬q → ¬p`.
+        </div>
+        
+        <h2 id="topic7">Quantifiers and Counterexamples</h2>
+        
+        <h3>Quantifiers</h3>
+        <ul>
+            <li><strong>Universal Quantifier (∀):</strong> Symbol for "for all", "for every".
+                <br><strong>Example:</strong> `∀x ∈ Z, x² ≥ 0` ("For all integers x, x squared is greater than or equal to 0.")
+            </li>
+            <li><strong>Existential Quantifier (∃):</strong> Symbol for "there exists", "for some".
+                <br><strong>Example:</strong> `∃x ∈ Z, x² = 4` ("There exists an integer x such that x squared is 4.")
+            </li>
+        </ul>
+        
+        <h3>Counterexamples</h3>
+        <p>To prove a universally quantified statement (∀x, P(x)) is <strong>false</strong>, you only need to find <strong>one single counterexample</strong>.</p>
+        <p><strong>Statement:</strong> "All prime numbers are odd." (∀p ∈ Primes, p is odd).</p>
+        <p><strong>Counterexample:</strong> The number 2 is a prime number, but it is not odd. Therefore, the statement is false.</p>
+    </div>
+</body>
+</html>

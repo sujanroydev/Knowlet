@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEC 101 - Unit II: Maps and Toposheets</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #212529;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 25px;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1, h2, h3 {
+            color: #005a9c; /* A deep blue */
+            margin-top: 24px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 6px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #003366; /* Darker blue for main title */
+            text-align: center;
+            border-bottom: 3px solid #005a9c;
+        }
+        h2 {
+            font-size: 2em;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #007bff; /* A lighter, bright blue */
+            border-bottom: 1px solid #f1f3f5;
+        }
+        p {
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        strong {
+            color: #d9534f; /* A contrasting red for emphasis */
+            font-weight: 600;
+        }
+        em {
+            font-style: italic;
+            color: #0275d8;
+        }
+        blockquote {
+            background-color: #e6f7ff; /* Light blue background */
+            border-left: 5px solid #007bff;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            border-radius: 5px;
+        }
+        .exam-tip {
+            background-color: #fff9e6; /* Light yellow */
+            border-left: 5px solid #ffc107; /* Amber */
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #d9534f;
+            display: block;
+            margin-bottom: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #005a9c;
+            color: #ffffff;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa; /* Alternating row color */
+        }
+        #toc {
+            background-color: #f1f3f5;
+            border: 1px solid #ced4da;
+            padding: 15px 25px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        #toc h2 {
+            border-bottom: none;
+            margin-top: 0;
+            color: #343a40;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc ul li a {
+            text-decoration: none;
+            color: #005a9c;
+            font-weight: 500;
+        }
+        #toc ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>UNIT II: Introduction to Maps and Toposheets</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Introduction to Map</a></li>
+                <li><a href="#topic2">Type of Maps</a></li>
+                <li><a href="#topic3">Scale and their Types</a></li>
+                <li><a href="#topic4">Toposheets and its Study</a></li>
+                <li><a href="#topic5">Reading Toposheets of Survey of India</a></li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <section id="topic1">
+            <h2>Introduction to Map</h2>
+            <blockquote>
+                <strong>Map:</strong> A map is a symbolic, two-dimensional (2D) graphical representation of a part of the Earth's surface, viewed from above.
+            </blockquote>
+            <p>Maps are tools that show the spatial relationships between different features, such as mountains, rivers, roads, and cities. To be useful, a map must have three key components:</p>
+            <ol>
+                <li><strong>Scale:</strong> Defines the relationship between map distance and ground distance.</li>
+                <li><strong>Legend (or Key):</strong> Explains what the symbols on the map mean.</li>
+                <li><strong>North Arrow (or Direction):</strong> Orients the map to the cardinal directions.</li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section id="topic2">
+            <h2>Type of Maps</h2>
+            <p>Maps can be classified based on their purpose or the information they present.</p>
+            <ul>
+                <li><strong>Topographic Maps:</strong> These maps show the <strong>shape (topography)</strong> of the Earth's surface using <strong>contour lines</strong>. They also show natural features (rivers, lakes) and man-made features (roads, buildings).</li>
+                <li><strong>Geological Maps:</strong> These maps show the distribution of different rock types, geological faults, and folds that are exposed at the surface. They are a primary tool for geologists.</li>
+                <li><strong>Thematic Maps:</strong> These maps focus on a single, specific "theme" or topic. Examples include:
+                    <ul>
+                        <li>Rainfall maps</li>
+                        <li>Population density maps</li>
+                        <li>Soil type maps</li>
+                        <li>Land use maps</li>
+                    </ul>
+                </li>
+                <li><strong>Political Maps:</strong> Show human-defined boundaries, such as countries, states, and cities.</li>
+                <li><strong>Physical Maps:</strong> Show the major physical features of a region, like mountains, deserts, and plains.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="topic3">
+            <h2>Scale and their Types</h2>
+            <p><strong>Scale</strong> is the ratio between a distance measured on the map and the corresponding distance on the ground. There are three main ways to express scale:</p>
+
+            <h3>1. Representative Fraction (R.F.) or Ratio Scale</h3>
+            <p>This is a unitless ratio, written as <strong>1:50,000</strong> or <strong>1/50,000</strong>.</p>
+            <ul>
+                <li>It means <strong>1 unit</strong> (of anything) on the map equals <strong>50,000</strong> of the <em>same unit</em> on the ground.</li>
+                <li>Example: 1 cm on the map = 50,000 cm (or 500 m, or 0.5 km) on the ground.</li>
+            </ul>
+
+            <h3>2. Statement Scale or Verbal Scale</h3>
+            <p>This is a simple statement of the relationship, such as:</p>
+            <ul>
+                <li><strong>"1 cm to 1 km"</strong></li>
+                <li><strong>"One inch to one mile"</strong></li>
+            </ul>
+            <p>This is easy to understand but can cause confusion with different unit systems. <em>(Note: "1 cm to 1 km" is an R.F. of 1:100,000)</em>.</p>
+
+            <h3>3. Graphical Scale or Bar Scale</h3>
+            <p>This is a printed line or bar on the map that is divided into segments representing ground distances (e.g., 0, 1, 2, 3 kilometers).</p>
+            <ul>
+                <li><strong>Key Advantage:</strong> This scale remains accurate even if the map is enlarged or reduced (e.g., by photocopying), as the bar scale shrinks or grows along with the map.</li>
+            </ul>
+            <div class="exam-tip">
+                <strong>Common Pitfall: Large Scale vs. Small Scale</strong>
+                <ul>
+                    <li><strong>Large Scale Map:</strong> Shows a <strong>small area</strong> in <strong>large detail</strong>. The R.F. is a "larger" fraction (e.g., <strong>1:1,000</strong>). (A map of a building).</li>
+                    <li><strong>Small Scale Map:</strong> Shows a <strong>large area</strong> in <strong>small detail</strong>. The R.F. is a "smaller" fraction (e.g., <strong>1:1,000,000</strong>). (A map of a whole country).</li>
+                </ul>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="topic4">
+            <h2>Toposheets and its Study</h2>
+            <p><strong>Toposheets</strong> (or Topographic Sheets) are the individual maps that make up a topographic map series, produced by a national agency like the <strong>Survey of India (SoI)</strong>.</p>
+            <p>The "study" of toposheets involves understanding their key components to interpret the landscape.</p>
+            
+            <h3>Key Components of a Toposheet:</h3>
+            <ul>
+                <li><strong>Contour Lines:</strong> These are the most important feature. They are imaginary lines that connect all points of <strong>equal elevation</strong> above sea level.
+                    <ul>
+                        <li><strong>Contour Interval (C.I.):</strong> The fixed vertical distance between any two adjacent contour lines (e.g., 20 meters). This is constant for the whole map.</li>
+                        <li><strong>Index Contours:</strong> Every 5th contour line is typically drawn thicker and is labeled with its elevation.</li>
+                    </ul>
+                </li>
+                <li><strong>Grid System:</strong> A network of horizontal and vertical lines (Lat/Long or a military grid like UTM) used for precise location (Grid References).</li>
+                <li><strong>Symbols and Colors:</strong>
+                    <ul>
+                        <li><strong>Blue:</strong> Water features (rivers, lakes, swamps).</li>
+                        <li><strong>Green:</strong> Vegetation (forests, woodlands).</li>
+                        <li><strong>Brown:</strong> Contour lines and topographic features.</li>
+                        <li><strong>Black:</strong> Man-made (cultural) features (buildings, roads, railways, names).</li>
+                        <li><strong>Red:</strong> Major roads and political boundaries.</li>
+                    </ul>
+                </li>
+                <li><strong>Marginal Information:</strong> The "legend" in the margins of the map, which includes the scale, toposheet number, contour interval, north arrow, and key to all symbols.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="topic5">
+            <h2>Reading Toposheets of Survey of India</h2>
+            <p>Reading a toposheet means interpreting the symbols and contour lines to visualize the 3D landscape and identify features.</p>
+            
+            <h3>Interpreting Topography from Contours</h3>
+            <table style="width: 100%;">
+                <caption>Interpreting Contour Patterns</caption>
+                <tr>
+                    <th>Feature</th>
+                    <th>Contour Pattern Description</th>
+                </tr>
+                <tr>
+                    <td><strong>Steep Slope</strong></td>
+                    <td>Contour lines are <strong>very close together</strong>.</td>
+                </tr>
+                <tr>
+                    <td><strong>Gentle Slope</strong></td>
+                    <td>Contour lines are <strong>far apart</strong>.</td>
+                </tr>
+                <tr>
+                    <td><strong>Hill or Mountain</strong></td>
+                    <td>A set of <strong>closed, concentric contours</strong>, with the elevation increasing towards the center.</td>
+                </tr>
+                <tr>
+                    <td><strong>Valley</strong></td>
+                    <td>V-shaped contours. The <strong>"V" points uphill</strong>, towards the higher elevation. A river will flow out of the 'V'.</td>
+                </tr>
+                <tr>
+                    <td><strong>Ridge</strong></td>
+                    <td>V-shaped or U-shaped contours. The <strong>"V" or "U" points downhill</strong>.</td>
+                </tr>
+                <tr>
+                    <td><strong>Depression</strong></td>
+                    <td>A set of <strong>closed, concentric contours</strong> with <strong>hachures</strong> (small ticks) pointing inwards.</td>
+                </tr>
+                <tr>
+                    <td><strong>Cliff</strong></td>
+                    <td>Multiple contour lines merge together into a single, heavy line.</td>
+                </tr>
+            </table>
+
+            <h3>Other Information from SoI Toposheets:</h3>
+            <ul>
+                <li><strong>Toposheet Numbering:</strong> SoI uses a grid system (e.g., 45 D/7, 53 G/12). This number identifies the specific map sheet and its scale.</li>
+                <li><strong>Grid Reference:</strong> A system for locating any point on the map. You give the "Easting" (vertical line number) first, then the "Northing" (horizontal line number). "Read right, then up."</li>
+                <li><strong>Cultural Features:</strong> You can identify towns, villages (by symbol), types of roads (metal-led, un-metalled), railway lines, temples, dams, etc.</li>
+                <li><strong>Drainage Patterns:</strong> By looking at the network of blue river lines, you can identify drainage patterns (e.g., dendritic, radial, trellis), which gives clues about the underlying geology.</li>
+            </ul>
+        </section>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAT:DSC-101: Unit 4</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f5faff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1, h2, h3 {
+            color: #005a9c;
+            margin-bottom: 0.5em;
+        }
+        h1 {
+            font-size: 2.5em;
+            border-bottom: 3px solid #005a9c;
+            padding-bottom: 10px;
+        }
+        h2 {
+            font-size: 2em;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+            margin-top: 1.5em;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #007bff;
+            margin-top: 1em;
+        }
+        p {
+            margin-bottom: 1em;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 1em;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        #toc {
+            background: #e6f7ff;
+            border: 1px solid #b3e0ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 2em;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #005a9c;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 8px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: 500;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+        blockquote {
+            border-left: 5px solid #007bff;
+            padding: 15px;
+            background: #f8f9fa;
+            font-style: italic;
+            margin: 1.5em 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: block;
+            margin: 1em 0;
+            overflow-x: auto;
+        }
+        .exam-tip {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 1.5em 0;
+        }
+        .exam-tip strong {
+            color: #d46b08;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 4: Theory of Equations and Inequalities</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Relation between Roots and Coefficients</a></li>
+                <li><a href="#topic2">Transformation of Equations</a></li>
+                <li><a href="#topic3">Descartes' Rule of Signs</a></li>
+                <li><a href="#topic4">Bisection Method</a></li>
+                <li><a href="#topic5">Binomial Equations</a></li>
+                <li><a href="#topic6">Inequalities</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Relation between Roots and Coefficients</h2>
+        <p>For a polynomial equation, the roots (α, β, γ, ...) are directly related to the coefficients (a, b, c, ...).</p>
+        
+        <h3>Quadratic Equation: ax² + bx + c = 0 (Roots: α, β)</h3>
+        <ul>
+            <li><strong>Sum of roots:</strong> α + β = -b/a</li>
+            <li><strong>Product of roots:</strong> αβ = c/a</li>
+        </ul>
+
+        <h3>Cubic Equation: ax³ + bx² + cx + d = 0 (Roots: α, β, γ)</h3>
+        <ul>
+            <li><strong>Sum of roots (one at a time):</strong> α + β + γ = -b/a</li>
+            <li><strong>Sum of roots (two at a time):</strong> αβ + βγ + αγ = c/a</li>
+            <li><strong>Product of roots:</strong> αβγ = -d/a</li>
+        </ul>
+        
+        <h3>Biquadratic Equation: ax⁴ + bx³ + cx² + dx + e = 0 (Roots: α, β, γ, δ)</h3>
+        <ul>
+            <li><strong>Sum (one at a time):</strong> Σα = α + β + γ + δ = -b/a</li>
+            <li><strong>Sum (two at a time):</strong> Σαβ = αβ + αγ + ... = c/a</li>
+            <li><strong>Sum (three at a time):</strong> Σαβγ = αβγ + αβδ + ... = -d/a</li>
+            <li><strong>Product:</strong> αβγδ = e/a</li>
+        </ul>
+        <div class="exam-tip">
+            <strong>Pattern:</strong> The signs alternate (-, +, -, +, ...). The denominator is always 'a'. The numerator goes b, c, d, e...
+        </div>
+
+        <h2 id="topic2">Transformation of Equations</h2>
+        <p>This involves finding a new equation whose roots are related to the roots of a given equation, without first solving for the roots.</p>
+        
+        <p>Let the original equation be `f(x) = 0` with roots `α, β, ...`. We want a new equation in `y` with roots `g(α), g(β), ...`.</p>
+        
+        <p><strong>Method:</strong></p>
+        <ol>
+            <li>Set `y = g(x)`, where `x` is a root of the old equation.</li>
+            <li>Solve this relation for `x`. You will get `x = h(y)`.</li>
+            <li>Substitute this expression for `x` back into the original equation: `f(h(y)) = 0`.</li>
+            <li>Simplify the resulting equation in `y`. This is the new equation.</li>
+        </ol>
+        
+        <h3>Examples of Transformations</h3>
+        <ul>
+            <li><strong>Roots with opposite sign (y = -α):</strong>
+                <br>Set `y = -x`, so `x = -y`. Substitute `f(-y) = 0`.
+            </li>
+            <li><strong>Roots multiplied by k (y = kα):</strong>
+                <br>Set `y = kx`, so `x = y/k`. Substitute `f(y/k) = 0`.
+            </li>
+            <li><strong>Roots are reciprocals (y = 1/α):</strong>
+                <br>Set `y = 1/x`, so `x = 1/y`. Substitute `f(1/y) = 0`.
+            </li>
+        </ul>
+
+        <h2 id="topic3">Descartes' Rule of Signs</h2>
+        <p>This rule gives an upper bound on the number of positive and negative real roots of a polynomial `f(x)` with real coefficients.</p>
+        
+        <blockquote>
+            <ol>
+                <li><strong>Positive Real Roots:</strong> The number of positive real roots of `f(x)` is either equal to the number of <strong>sign changes</strong> in the sequence of its coefficients, or is less than this number by an <strong>even integer</strong> (0, 2, 4, ...).</li>
+                <li><strong>Negative Real Roots:</strong> The number of negative real roots of `f(x)` is either equal to the number of <strong>sign changes</strong> in the coefficients of `f(-x)`, or is less than this number by an <strong>even integer</strong>.</li>
+            </ol>
+        </blockquote>
+        
+        <p><strong>Example:</strong> `f(x) = x³ + x² - 17x + 15`</p>
+        <ol>
+            <li><strong>Coefficients of f(x):</strong> `+1, +1, -17, +15`
+                <br>Sign changes: `+` to `+` (no), `+` to `-` (yes, 1), `-` to `+` (yes, 2).
+                <br><strong>Total sign changes = 2</strong>.
+                <br>Number of positive roots is either 2 or (2-2) = 0.
+            </li>
+            <li><strong>Find f(-x):</strong> `f(-x) = (-x)³ + (-x)² - 17(-x) + 15 = -x³ + x² + 17x + 15`
+                <br>Coefficients of f(-x): `-1, +1, +17, +15`
+                <br>Sign changes: `-` to `+` (yes, 1), `+` to `+` (no), `+` to `+` (no).
+                <br><strong>Total sign changes = 1</strong>.
+                <br>Number of negative roots is exactly 1.
+            </li>
+        </ol>
+        <p><strong>Conclusion:</strong> The equation has 1 negative root, and either 2 positive roots or 0 positive roots. (Since it's a cubic, the total roots must be 3. The possibilities are: 1 neg, 2 pos, 0 complex OR 1 neg, 0 pos, 2 complex).</p>
+
+        <h2 id="topic4">Bisection Method</h2>
+        <p>The Bisection Method is a simple numerical technique to find a real root of an equation `f(x) = 0`.</p>
+        
+        <h3>Pre-condition</h3>
+        <p>You must have a continuous function `f(x)` and an interval `[a, b]` such that `f(a)` and `f(b)` have <strong>opposite signs</strong>. This guarantees (by the Intermediate Value Theorem) that at least one root lies between `a` and `b`.</p>
+        
+        <h3>Algorithm</h3>
+        <ol>
+            <li>Find the midpoint of the interval: `c = (a + b) / 2`.</li>
+            <li>Evaluate `f(c)`.</li>
+            <li>
+                <ul>
+                    <li>If `f(c) = 0`, then `c` is the root. (You're done!)</li>
+                    <li>If `f(a)` and `f(c)` have opposite signs, the root is in `[a, c]`. Set `b = c` and go to step 1.</li>
+                    <li>If `f(c)` and `f(b)` have opposite signs, the root is in `[c, b]`. Set `a = c` and go to step 1.</li>
+                </ul>
+            </li>
+            <li>Repeat until the interval `[a, b]` is sufficiently small (i.e., the desired accuracy is reached).</li>
+        </ol>
+        <h2 id="topic5">Binomial Equations</h2>
+        <p>A binomial equation is an equation of the form <strong>xⁿ - A = 0</strong> or <strong>xⁿ = A</strong>.</p>
+        <p>To solve this, we use the polar form of complex numbers and De Moivre's Theorem. This is the same method used to find the n-th roots of unity, but for a general complex number A.</p>
+        
+        <h3>Method</h3>
+        <ol>
+            <li>Write A in its general polar form: `A = r(cos(θ + 2kπ) + i sin(θ + 2kπ))`.</li>
+            <li>Take the n-th root of both sides: `x = A¹/n`.</li>
+            <li>`x = [r(cos(θ + 2kπ) + i sin(θ + 2kπ))]¹/n`</li>
+            <li>Apply De Moivre's Theorem:
+                <span class="formula">x = r¹/n [ cos((θ + 2kπ)/n) + i sin((θ + 2kπ)/n) ]</span>
+            </li>
+            <li>Find the `n` distinct roots by using `k = 0, 1, 2, ..., n-1`.</li>
+        </ol>
+
+        <h2 id="topic6">Inequalities</h2>
+        
+        <h3>Arithmetic Mean - Geometric Mean (AM-GM)</h3>
+        <p>For any set of `n` non-negative real numbers `a₁, a₂, ..., aₙ`:</p>
+        <blockquote>
+            <strong>AM-GM Inequality:</strong>
+            <span class="formula">(a₁ + a₂ + ... + aₙ) / n ≥ (a₁a₂...aₙ)¹/n</span>
+            <br>
+            (The Arithmetic Mean is always greater than or equal to the Geometric Mean).
+        </blockquote>
+        <p>Equality holds if and only if all the numbers are equal (`a₁ = a₂ = ... = aₙ`).</p>
+        
+        <h3>Cauchy-Schwarz Inequality</h3>
+        <p>For any two sequences of real numbers `(a₁, ..., aₙ)` and `(b₁, ..., bₙ)`:</p>
+        <blockquote>
+            <span class="formula">(a₁b₁ + a₂b₂ + ... + aₙbₙ)² ≤ (a₁² + a₂² + ... + aₙ²)(b₁² + b₂² + ... + bₙ²)</span>
+            <br>
+            Or, in summation notation: <strong>(Σ aᵢbᵢ)² ≤ (Σ aᵢ²)(Σ bᵢ²)</strong>
+        </blockquote>
+        <p>Equality holds if the two sequences are proportional (i.e., `aᵢ = k * bᵢ` for all i).</p>
+        
+        <h3>Chebyshev's Inequality (not explicitly on syllabus, but related)</h3>
+        <p>This relates to the ordering of sequences. If `a₁ ≤ a₂ ≤ ... ≤ aₙ` and `b₁ ≤ b₂ ≤ ... ≤ bₙ` (both sequences are similarly ordered), then:</p>
+        <span class="formula">n(Σ aᵢbᵢ) ≥ (Σ aᵢ)(Σ bᵢ)</span>
+        <p>If one is increasing and one is decreasing (oppositely ordered), the inequality sign flips.</p>
+    </div>
+</body>
+</html>

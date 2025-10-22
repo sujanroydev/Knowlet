@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAT-SEC-101: Unit 3</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1, h2, h3 {
+            color: #34495e; /* SEC color */
+            margin-bottom: 0.5em;
+        }
+        h1 {
+            font-size: 2.5em;
+            border-bottom: 3px solid #34495e;
+            padding-bottom: 10px;
+        }
+        h2 {
+            font-size: 2em;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+            margin-top: 1.5em;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #16a085;
+            margin-top: 1em;
+        }
+        p {
+            margin-bottom: 1em;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 1em;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        #toc {
+            background: #ecf0f1;
+            border: 1px solid #bdc3c7;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 2em;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #2c3e50;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 8px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: 500;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+        blockquote {
+            border-left: 5px solid #16a085;
+            padding: 15px;
+            background: #f8f9fa;
+            font-style: italic;
+            margin: 1.5em 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: block;
+            margin: 1em 0;
+            overflow-x: auto;
+        }
+        .exam-tip {
+            background: #fef9e7;
+            border: 1px solid #f1c40f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 1.5em 0;
+        }
+        .exam-tip strong {
+            color: #d35400;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 3: Principles of Integer Properties</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Well-Ordering Property</a></li>
+                <li><a href="#topic2">Division Algorithm</a></li>
+                <li><a href="#topic3">Divisibility of Integers</a></li>
+                <li><a href="#topic4">Euclidean Algorithm and GCD</a></li>
+                <li><a href="#topic5">Prime Numbers</a></li>
+                <li><a href="#topic6">Fundamental Theorem of Arithmetic</a></li>
+                <li><a href="#topic7">Congruence Relation and Properties</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Well-Ordering Property of Positive Integers</h2>
+        <blockquote>
+            <strong>The Well-Ordering Property states:</strong>
+            <br>
+            Every <strong>non-empty</strong> set of <strong>positive integers</strong> contains a <strong>least</strong> (smallest) element.
+        </blockquote>
+        <p>This property seems obvious, but it's a fundamental axiom of the integers. It's what allows mathematical induction to work.</p>
+        <p><strong>Example:</strong> The set S = {5, 12, 3, 29} is non-empty and contains positive integers. It has a least element, 3.</p>
+        <p><strong>Non-Example:</strong> This property does <em>not</em> hold for the set of positive rational numbers. The set S = {1/2, 1/3, 1/4, ...} has no least element (it approaches 0, but 0 is not in the set).</p>
+        
+        <h2 id="topic2">Division Algorithm</h2>
+        <blockquote>
+            <strong>The Division Algorithm states:</strong>
+            <br>
+            For any two integers <strong>a</strong> (the dividend) and <strong>b</strong> (the divisor), with <strong>b > 0</strong>, there exist <strong>unique</strong> integers <strong>q</strong> (the quotient) and <strong>r</strong> (the remainder) such that:
+            <br>
+            <span class="formula">a = bq + r</span>
+            <br>
+            and <strong>0 ≤ r < b</strong>
+        </blockquote>
+        <p>This is just the formal statement of elementary school long division.</p>
+        <ul>
+            <li><strong>Example:</strong> If a = 29 and b = 5, then:
+                <br><span class="formula">29 = 5(5) + 4</span>
+                <br>Here, q = 5 and r = 4. The condition `0 ≤ 4 < 5` is satisfied.
+            </li>
+            <li><strong>Example (with negative 'a'):</strong> If a = -29 and b = 5, then:
+                <br><span class="formula">-29 = 5(-6) + 1</span>
+                <br>Here, q = -6 and r = 1. The condition `0 ≤ 1 < 5` is satisfied.
+            </li>
+        </ul>
+        <div class="exam-tip">
+            <strong>Common Mistake:</strong> When `a` is negative, like `a = -29, b = 5`, saying `q = -5, r = -4` is <strong>wrong</strong>, because the remainder `r` <em>must</em> be non-negative (0 ≤ r < b).
+        </div>
+
+        <h2 id="topic3">Divisibility of Integers</h2>
+        <blockquote>
+            An integer <strong>b</strong> is said to <strong>divide</strong> an integer <strong>a</strong> if there exists some integer <strong>k</strong> such that <span class="formula">a = bk</span>.
+        </blockquote>
+        <p>We write this as <span class="formula">b | a</span> (read as "b divides a").</p>
+        <p>This is the same as saying that `a` is a multiple of `b`, or that the remainder `r` from the division algorithm is 0.</p>
+        <p><strong>Examples:</strong></p>
+        <ul>
+            <li><span class="formula">4 | 20</span> because `20 = 4(5)`.</li>
+            <li><span class="formula">7 | -21</span> because `-21 = 7(-3)`.</li>
+            <li><span class="formula">5 | 0</span> because `0 = 5(0)`.</li>
+            <li><span class="formula">3 <span style="font-weight:bold; color:red;">∤</span> 10</span> (3 does not divide 10) because there is no integer `k` such that `10 = 3k`.</li>
+        </ul>
+
+        <h2 id="topic4">Euclidean Algorithm and GCD</h2>
+        
+        <h3>Greatest Common Divisor (GCD)</h3>
+        <p>The <strong>Greatest Common Divisor (GCD)</strong> of two integers `a` and `b` (not both zero) is the <strong>largest</strong> positive integer that divides both `a` and `b`. It is denoted <span class="formula">gcd(a, b)</span>.</p>
+        <p><strong>Example:</strong> The divisors of 12 are {1, 2, 3, 4, 6, 12}. The divisors of 18 are {1, 2, 3, 6, 9, 18}. The *common* divisors are {1, 2, 3, 6}. The *greatest* of these is 6. So, <span class="formula">gcd(12, 18) = 6</span>.</p>
+        
+        <h3>Euclidean Algorithm</h3>
+        <p>This is a fast and efficient algorithm to find the GCD of two integers by repeatedly applying the Division Algorithm.</p>
+        <p><strong>Method:</strong> To find `gcd(a, b)` (assume `a > b > 0`):</p>
+        <ol>
+            <li>Divide `a` by `b` to get remainder `r₁`: <span class="formula">a = bq₁ + r₁</span></li>
+            <li>Divide `b` by `r₁` to get remainder `r₂`: <span class="formula">b = r₁q₂ + r₂</span></li>
+            <li>Divide `r₁` by `r₂` to get remainder `r₃`: <span class="formula">r₁ = r₂q₃ + r₃</span></li>
+            <li>...continue this process until the remainder is 0.</li>
+            <li>The <strong>last non-zero remainder</strong> is the GCD.</li>
+        </ol>
+        
+        <p><strong>Example:</strong> Find `gcd(1071, 462)`</p>
+<pre class="formula">
+1071 = 462(2) + 147
+ 462 = 147(3) +  21
+ 147 =  21(7) +   0
+</pre>
+        <p>The last non-zero remainder is <strong>21</strong>. Therefore, <span class="formula">gcd(1071, 462) = 21</span>.</p>
+        
+        <h2 id="topic5">Prime Number</h2>
+        <blockquote>
+            A positive integer <strong>p > 1</strong> is called a <strong>prime number</strong> if its only positive divisors are <strong>1 and p</strong>.
+        </blockquote>
+        <p>A positive integer greater than 1 that is not prime is called <strong>composite</strong>.</p>
+        <ul>
+            <li><strong>Prime examples:</strong> 2, 3, 5, 7, 11, 13, 17, ... (Note: 2 is the only even prime)</li>
+            <li><strong>Composite examples:</strong> 4, 6, 8, 9, 10, 12, ...</li>
+            <li>The number 1 is neither prime nor composite; it is a "unit".</li>
+        </ul>
+        
+        <h2 id="topic6">Fundamental Theorem of Arithmetic</h2>
+        <blockquote>
+            <strong>The Fundamental Theorem of Arithmetic states:</strong>
+            <br>
+            Every integer <strong>n > 1</strong> can be expressed as a product of primes. This factorization is <strong>unique</strong>, apart from the order of the factors.
+        </blockquote>
+        <p>This theorem is the "holy grail" of number theory. It means every number has a unique "fingerprint" of prime factors.</p>
+        <p><strong>Example:</strong> `720`</p>
+        <p><span class="formula">720 = 72 × 10 = (8 × 9) × (2 × 5) = (2³ × 3²) × (2 × 5) = 2⁴ × 3² × 5¹</span></p>
+        <p>No matter how you start factoring (e.g., 720 = 12 x 60), you will always end up with four 2s, two 3s, and one 5.</p>
+        
+        <h2 id="topic7">Congruence Relation and Properties</h2>
+        
+        <h3>Congruence Relation</h3>
+        <blockquote>
+            Let <strong>m</strong> be a positive integer (called the <strong>modulus</strong>). Two integers <strong>a</strong> and <strong>b</strong> are said to be <strong>congruent modulo m</strong> if <strong>m divides their difference (a - b)</strong>.
+            <br>
+            We write this as: <span class="formula">a ≡ b (mod m)</span>
+        </blockquote>
+        <p>An equivalent (and often more useful) way to think about it is:
+        <br><strong>"a ≡ b (mod m)"</strong> means <strong>"a and b have the same remainder when divided by m."</strong></p>
+        
+        <p><strong>Examples:</strong></p>
+        <ul>
+            <li><span class="formula">17 ≡ 2 (mod 5)</span>
+                <br>Reason 1: `(17 - 2) = 15`, and `5 | 15`.
+                <br>Reason 2: 17 ÷ 5 gives remainder 2. And 2 ÷ 5 gives remainder 2.
+            </li>
+            <li><span class="formula">14 ≡ 0 (mod 7)</span> (This is the same as saying `7 | 14`)</li>
+            <li><span class="formula">10 ≡ -1 (mod 11)</span> (because `(10 - (-1)) = 11`, which is divisible by 11)</li>
+        </ul>
+        
+        <h3>Properties of Congruences</h3>
+        <p>Congruence acts very much like equality. If <span class="formula">a ≡ b (mod m)</span> and <span class="formula">c ≡ d (mod m)</span>, then:</p>
+        <ul>
+            <li><strong>Addition:</strong> <span class="formula">a + c ≡ b + d (mod m)</span></li>
+            <li><strong>Subtraction:</strong> <span class="formula">a - c ≡ b - d (mod m)</span></li>
+            <li><strong>Multiplication:</strong> <span class="formula">a · c ≡ b · d (mod m)</span></li>
+            <li><strong>Power:</strong> <span class="formula">aᵏ ≡ bᵏ (mod m)</span> for any positive integer k.</li>
+        </ul>
+        <div class="exam-tip">
+            <strong>Real-world Application:</strong> This is the basis of "clock arithmetic" (e.g., 5 hours after 10:00 is 3:00, because `10 + 5 = 15 ≡ 3 (mod 12)`). It is also fundamental to modern cryptography, such as the RSA algorithm.
+        </div>
+    </div>
+</body>
+</html>

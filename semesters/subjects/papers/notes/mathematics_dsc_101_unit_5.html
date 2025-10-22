@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAT:DSC-101: Unit 5</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f5faff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1, h2, h3 {
+            color: #005a9c;
+            margin-bottom: 0.5em;
+        }
+        h1 {
+            font-size: 2.5em;
+            border-bottom: 3px solid #005a9c;
+            padding-bottom: 10px;
+        }
+        h2 {
+            font-size: 2em;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+            margin-top: 1.5em;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #007bff;
+            margin-top: 1em;
+        }
+        p {
+            margin-bottom: 1em;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 1em;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        #toc {
+            background: #e6f7ff;
+            border: 1px solid #b3e0ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 2em;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #005a9c;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 8px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: 500;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+        blockquote {
+            border-left: 5px solid #007bff;
+            padding: 15px;
+            background: #f8f9fa;
+            font-style: italic;
+            margin: 1.5em 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: block;
+            margin: 1em 0;
+            overflow-x: auto;
+        }
+        .exam-tip {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 1.5em 0;
+        }
+        .exam-tip strong {
+            color: #d46b08;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5em 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 5: Linear Algebra</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Elementary Transformation of Matrices</a></li>
+                <li><a href="#topic2">Echelon and Canonical Forms</a></li>
+                <li><a href="#topic3">Rank of a Matrix</a></li>
+                <li><a href="#topic4">Consistency of Linear Equations</a></li>
+                <li><a href="#topic5">Row Reduced Echelon Form (RREF)</a></li>
+                <li><a href="#topic6">Finding the Inverse of a Matrix (RREF Method)</a></li>
+                <li><a href="#topic7">Solving Linear Equations (Gaussian Elimination)</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Elementary Transformation of Matrices</h2>
+        <p>These are operations on the rows (or columns) of a matrix that do not change its fundamental properties, like its rank or the solution set of the linear system it represents.</p>
+        
+        <h3>The Three Elementary Row Operations (EROs)</h3>
+        <ol>
+            <li><strong>Swap:</strong> Interchange any two rows. (Rᵢ ↔ Rⱼ)</li>
+            <li><strong>Scale:</strong> Multiply a row by a non-zero scalar. (kRᵢ → Rᵢ)</li>
+            <li><strong>Add:</strong> Add a multiple of one row to another row. (Rᵢ + kRⱼ → Rᵢ)</li>
+        </ol>
+        <p>An <strong>elementary matrix</strong> is a matrix obtained by performing a single ERO on an identity matrix.</p>
+
+        <h2 id="topic2">Echelon and Canonical Forms</h2>
+        
+        <h3>Row Echelon Form (REF)</h3>
+        <p>A matrix is in row echelon form if it satisfies:</p>
+        <ol>
+            <li>All non-zero rows (rows with at least one non-zero element) are above any all-zero rows.</li>
+            <li>The first non-zero entry in a row (called the <strong>pivot</strong> or <strong>leading entry</strong>) is to the right of the pivot in the row above it.</li>
+            <li>All entries in a column <em>below</em> a pivot are zero.</li>
+        </ol>
+        
+        <h3>Canonical Form (Row Reduced Echelon Form - RREF)</h3>
+        <p>A matrix is in canonical form (RREF) if it is in REF and <em>also</em> satisfies:</p>
+        <ol>
+            <li>Every pivot is 1.</li>
+            <li>The pivot is the <em>only</em> non-zero entry in its column (i.e., all entries <em>above</em> the pivot are also zero).</li>
+        </ol>
+        <p>Every matrix is row-equivalent to one and only one RREF.</p>
+        
+        <h2 id="topic3">Rank of a Matrix</h2>
+        <blockquote>
+            The <strong>rank</strong> of a matrix A, denoted `rank(A)`, is the number of <strong>non-zero rows</strong> in its row echelon form.
+        </blockquote>
+        <p>The rank represents the number of linearly independent rows (or columns) in the matrix. It is a measure of the "non-degeneracy" of the system.</p>
+        
+        <h2 id="topic4">Consistency of Linear Equations (Rouché-Capelli Theorem)</h2>
+        <p>We analyze the system of linear equations <strong>Ax = b</strong>, where A is the coefficient matrix, x is the variable vector, and b is the constant vector.</p>
+        <p>We form the <strong>augmented matrix</strong> `[A | b]`.</p>
+        
+        <blockquote>
+            <strong>Test for Consistency:</strong>
+            <ol>
+                <li>
+                    If <strong>`rank(A) < rank([A | b])`</strong>:
+                    <br>The system is <strong>inconsistent</strong> (NO solution). This happens when the echelon form has a row like `[0 0 0 | k]` where k is non-zero.
+                </li>
+                <li>
+                    If <strong>`rank(A) = rank([A | b])`</strong>:
+                    <br>The system is <strong>consistent</strong> (at least one solution).
+                </li>
+            </ol>
+        </blockquote>
+        
+        <h3>Types of Consistent Solutions</h3>
+        <p>If the system is consistent, let `n` be the number of variables (columns of A).</p>
+        <ul>
+            <li>If `rank(A) = n`: The system has a <strong>unique solution</strong>.</li>
+            <li>If `rank(A) < n`: The system has <strong>infinitely many solutions</strong>. The number of free variables (parameters) is `n - rank(A)`.</li>
+        </ul>
+
+        <h2 id="topic5">Row Reduced Echelon Form (RREF)</h2>
+        <p>As defined in Unit-V, this is the "canonical form". It is a unique form for every matrix, obtained by applying EROs.</p>
+        
+        <h3>Example:</h3>
+        <p><strong>Matrix A:</strong>
+        <span class="formula">
+        [ 1  2  3 ]
+        <br>
+        [ 4  5  6 ]
+        </span>
+        <strong>RREF:</strong>
+        <span class="formula">
+        [ 1  0 -1 ]
+        <br>
+        [ 0  1  2 ]
+        </span></p>
+        
+        <h2 id="topic6">Finding the Inverse of a Matrix (RREF Method)</h2>
+        <p>To find the inverse `A⁻¹` of a square matrix A, we use the RREF method.</p>
+        
+        <h3>Algorithm</h3>
+        <ol>
+            <li>Create an augmented matrix `[A | I]`, where `I` is the identity matrix of the same size.</li>
+            <li>Perform elementary row operations on this entire augmented matrix.</li>
+            <li>Your goal is to transform the left side (A) into the identity matrix (I).</li>
+            <li>If you succeed, the right side will have transformed into the inverse, `A⁻¹`.
+                <span class="formula">[A | I]   ---EROs--->   [I | A⁻¹]</span>
+            </li>
+            <li>If you cannot get `I` on the left side (i.e., you get a row of all zeros), then the matrix A is singular (not invertible) and `A⁻¹` does not exist.</li>
+        </ol>
+
+        <h2 id="topic7">Solving Linear Equations (Gaussian Elimination)</h2>
+        <p>This is a systematic method for solving a system `Ax = b`.</p>
+        
+        <h3>Method</h3>
+        <ol>
+            <li>Write the <strong>augmented matrix</strong> `[A | b]`.</li>
+            <li>Use Elementary Row Operations to reduce this matrix to <strong>Row Echelon Form (REF)</strong>.
+                </li>
+            <li>This new REF matrix represents a simpler, equivalent system of equations.</li>
+            <li>Solve this new system using <strong>back substitution</strong>.
+                <ul>
+                    <li>Solve the last non-zero equation for its variable.</li>
+                    <li>Substitute this value into the equation above it, and solve for the next variable.</li>
+                    <li>Continue "substituting backwards" up to the first equation.</li>
+                </ul>
+            </li>
+        </ol>
+        
+        <div class="exam-tip">
+            <strong>Gaussian Elimination vs. Gauss-Jordan:</strong>
+            <ul>
+                <li><strong>Gaussian Elimination:</strong> Reduces to <strong>REF</strong>, then uses back-substitution. (Less work).</li>
+                <li><strong>Gauss-Jordan Elimination:</strong> Reduces all the way to <strong>RREF</strong>. The solution can then be read directly without back-substitution. This is the same method used to find the inverse.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

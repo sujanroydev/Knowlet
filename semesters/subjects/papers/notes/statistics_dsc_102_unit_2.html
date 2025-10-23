@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSC-102: Unit 2 - Maxima and Minima</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #16a085;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #16a085;
+            border-bottom: 2px solid #D1F2EB;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #117a65;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #16a085;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        blockquote {
+            background: #D1F2EB;
+            border-left: 5px solid #16a085;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #555;
+        }
+        .exam-tip, .note {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            border-left-width: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #d9534f;
+        }
+        .note strong {
+            color: #0275d8;
+        }
+        .formula {
+            background: #e8f8f5;
+            border: 1px solid #a9dfbf;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        #toc {
+            background: #D1F2EB;
+            border: 1px solid #16a085;
+            padding: 15px 25px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #2c3e50;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc ul li a {
+            text-decoration: none;
+            color: #117a65;
+        }
+        #toc ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DSC-102: Unit 2 - Maxima and Minima</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#one-var">1. Maxima and Minima of Functions of One Variable</a></li>
+                <li><a href="#two-var">2. Maxima and Minima of Functions of Two Variables</a></li>
+                <li><a href="#lagrange">3. Constrained Optimization (Lagrange's Multipliers)</a></li>
+                <li><a href="#tracing">4. Tracing of Curves</a></li>
+                <li><a href="#asymptotes">5. Asymptotes</a></li>
+                <li><a href="#inflexion">6. Flexes, Concavity, Convexity, and Points of Inflexion</a></li>
+                <li><a href="#singular">7. Singular Points</a></li>
+            </ul>
+        </div>
+
+        <section id="one-var">
+            <h2>1. Maxima and Minima of Functions of One Variable</h2>
+            <p>These are the "peaks" (local maxima) and "valleys" (local minima) of a function y = f(x).</p>
+            
+            <h3>Step-by-Step Procedure:</h3>
+            <ol>
+                <li><strong>Find Critical Points:</strong> Find f'(x) and set it to zero: <strong>f'(x) = 0</strong>. Solve for x. These solutions are the critical points (or stationary points).</li>
+                <li><strong>Apply Second Derivative Test:</strong> Find the second derivative, f''(x).
+                    <ul>
+                        <li>If <strong>f''(c) < 0</strong>: The function is concave down. 'c' is a <strong>Local Maximum</strong>.</li>
+                        <li>If <strong>f''(c) > 0</strong>: The function is concave up. 'c' is a <strong>Local Minimum</strong>.</li>
+                        <li>If <strong>f''(c) = 0</strong>: The test fails. You must use the First Derivative Test (check the sign of f'(x) *around* 'c'. If it changes from + to -, it's a max. If from - to +, it's a min).</li>
+                    </ul>
+                </li>
+            </ol>
+            </section>
+
+        <hr>
+
+        <section id="two-var">
+            <h2>2. Maxima and Minima of Functions of Two Variables</h2>
+            <p>For a function z = f(x, y), we are looking for "hills" (maxima), "bowls" (minima), or "passes" (saddle points).</p>
+            
+            <h3>Step-by-Step Procedure:</h3>
+            <ol>
+                <li><strong>Find Critical Points:</strong>
+                    <br>Find the first-order partial derivatives and set them *both* to zero.
+                    <div class="formula">
+                        ∂f/∂x = 0
+                        <br>
+                        ∂f/∂y = 0
+                    </div>
+                    Solve this system of equations to find the critical points (a, b).
+                </li>
+                <li><strong>Calculate Second-Order Derivatives:</strong>
+                    <br>At each critical point (a, b), calculate the following:
+                    <div class="formula">
+                        r = ∂²f/∂x²
+                        <br>
+                        s = ∂²f/∂x∂y  (the mixed partial)
+                        <br>
+                        t = ∂²f/∂y²
+                    </div>
+                </li>
+                <li><strong>Apply the Test (Discriminant):</strong>
+                    <br>Calculate the Discriminant <strong>D = rt - s²</strong>.
+                    <ul>
+                        <li>If <strong>D > 0</strong> and <strong>r < 0</strong>: The point (a, b) is a <strong>Local Maximum</strong>.</li>
+                        <li>If <strong>D > 0</strong> and <strong>r > 0</strong>: The point (a, b) is a <strong>Local Minimum</strong>.</li>
+                        <li>If <strong>D < 0</strong>: The point (a, b) is a <strong>Saddle Point</strong> (neither max nor min).</li>
+                        <li>If <strong>D = 0</strong>: The test is inconclusive. Further investigation is needed.</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="exam-tip">
+                <strong>Mnemonic:</strong> Think of <strong>r = ∂²f/∂x²</strong> as the "Second Derivative Test" from 1D. If D > 0, it means the concavity is the same in all directions, so 'r' tells you if it's "concave down" (r < 0, max) or "concave up" (r > 0, min). If D < 0, the concavity changes (like a Pringles chip), so it's a saddle.
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="lagrange">
+            <h2>3. Constrained Optimization (Lagrange's Multipliers)</h2>
+            <p>This method is used to find the maximum or minimum of a function <strong>f(x, y)</strong> subject to a <strong>constraint g(x, y) = k</strong>.</p>
+            <p><em>Example:</em> Find the maximum area of a rectangle (function f) given a fixed perimeter (constraint g).</p>
+            
+            <h3>Step-by-Step Procedure:</h3>
+            <ol>
+                <li><strong>Identify functions:</strong>
+                    <ul>
+                        <li><strong>Objective Function:</strong> f(x, y) (the one to be maximized/minimized).</li>
+                        <li><strong>Constraint Function:</strong> g(x, y) = k.</li>
+                    </ul>
+                </li>
+                <li><strong>Form the Lagrangian Function (L):</strong>
+                    <br>This new function introduces a new variable, <strong>λ (lambda)</strong>, the Lagrange multiplier.
+                    <div class="formula">
+                        L(x, y, λ) = f(x, y) - λ · (g(x, y) - k)
+                    </div>
+                </li>
+                <li><strong>Find Partial Derivatives:</strong>
+                    <br>Find the partial derivatives of L with respect to *all* its variables (x, y, and λ) and set them all to zero.
+                    <div class="formula">
+                        ∂L/∂x = 0   =>   ∂f/∂x - λ(∂g/∂x) = 0
+                        <br>
+                        ∂L/∂y = 0   =>   ∂f/∂y - λ(∂g/∂y) = 0
+                        <br>
+                        ∂L/∂λ = 0   =>   -(g(x, y) - k) = 0   =>   g(x, y) = k
+                    </div>
+                </li>
+                <li><strong>Solve the System:</strong>
+                    <br>You now have a system of three equations and three unknowns (x, y, λ). Solve them to find the candidate points (x, y).
+                </li>
+                <li><strong>Test the Points:</strong>
+                    <br>Evaluate f(x, y) at each candidate point. The largest value is the constrained maximum, and the smallest is the constrained minimum.
+                </li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section id="tracing">
+            <h2>4. Tracing of Curves</h2>
+            <p>A systematic process to sketch the graph of a function.</p>
+            
+            <h3>1. Cartesian Form (y = f(x) or f(x, y) = 0)</h3>
+            <ol>
+                <li><strong>Symmetry:</strong>
+                    <ul>
+                        <li><strong>About Y-axis:</strong> If f(-x, y) = f(x, y) (all powers of x are even).</li>
+                        <li><strong>About X-axis:</strong> If f(x, -y) = f(x, y) (all powers of y are even).</li>
+                        <li><strong>About Origin:</strong> If f(-x, -y) = f(x, y).</li>
+                    </ul>
+                </li>
+                <li><strong>Origin:</strong> Check if (0, 0) satisfies the equation. If yes, find the tangent(s) at the origin by equating the lowest degree term to zero.</li>
+                <li><strong>Intercepts:</strong> Find x-intercepts (set y=0) and y-intercepts (set x=0).</li>
+                <li><strong>Asymptotes:</strong> Find any horizontal, vertical, or oblique asymptotes (see next section).</li>
+                <li><strong>Critical Points:</strong> Find dy/dx, set to 0 for local max/min.</li>
+                <li><strong>Points of Inflexion:</strong> Find d²y/dx², set to 0 (see section 6).</li>
+                <li><strong>Region:</strong> Check for values of x or y that make the function undefined (e.g., negative inside a square root, or division by zero).</li>
+            </ol>
+
+            <h3>2. Polar Form (r = f(θ))</h3>
+            <ol>
+                <li><strong>Symmetry:</strong>
+                    <ul>
+                        <li><strong>About Initial Line (x-axis):</strong> If f(-θ) = f(θ).</li>
+                        <li><strong>About Pole (origin):</strong> If f(θ+π) = f(θ) or r is replaced by -r.</li>
+                        <li><strong>About Line θ=π/2 (y-axis):</strong> If f(π - θ) = f(θ).</li>
+                    </ul>
+                </li>
+                <li><strong>Pole:</strong> Check if r=0 for any value of θ. This gives tangents at the pole.</li>
+                <li><strong>Table of Values:</strong> Check key values of θ (0, π/6, π/4, π/3, π/2, etc.) and find r.</li>
+                <li><strong>Asymptotes:</strong> More complex, but can exist.</li>
+            </ol>
+            
+            <h3>3. Parametric Form (x = f(t), y = g(t))</h3>
+            <ol>
+                <li><strong>Symmetry:</strong> Check for t and -t.</li>
+                <li><strong>Intercepts:</strong> Find t for x=0 (y-intercept) and t for y=0 (x-intercept).</li>
+                <li><strong>Asymptotes:</strong> Check t-values where x→∞ or y→∞.</li>
+                <li><strong>Tangent:</strong> Find dy/dx = (dy/dt) / (dx/dt). Find where it's 0 (horizontal) or ∞ (vertical).</li>
+                <li><strong>Region:</strong> Find the range of x and y based on the domain of t.</li>
+            </ol>
+            </section>
+
+        <hr>
+
+        <section id="asymptotes">
+            <h2>5. Asymptotes</h2>
+            <p>An asymptote is a line that a curve approaches as it heads towards infinity.</p>
+            
+            <h3>1. Vertical Asymptotes</h3>
+            <p>Occur where the function value goes to ±∞. Typically, this is where the denominator of a rational function is zero.</p>
+            <p><strong>Rule:</strong> If lim (x→a) f(x) = ±∞, then <strong>x = a</strong> is a vertical asymptote.</p>
+
+            <h3>2. Horizontal Asymptotes</h3>
+            <p>Occur if the function approaches a finite value 'L' as x goes to ±∞.</p>
+            <p><strong>Rule:</strong> If lim (x→∞) f(x) = L or lim (x→-∞) f(x) = L, then <strong>y = L</strong> is a horizontal asymptote.</p>
+
+            <h3>3. Oblique (Slant) Asymptotes</h3>
+            <p>Occur when the degree of the numerator is exactly one more than the degree of the denominator. The asymptote is a line <strong>y = mx + c</strong>.</p>
+            <p><strong>How to find:</strong>
+                <ol>
+                    <li>Find <strong>m</strong> = lim (x→∞) [ f(x) / x ]</li>
+                    <li>Find <strong>c</strong> = lim (x→∞) [ f(x) - mx ]</li>
+                </ol>
+                If 'm' and 'c' are finite numbers, then y = mx + c is the oblique asymptote.
+            </p>
+        </section>
+
+        <hr>
+
+        <section id="inflexion">
+            <h2>6. Flexes, Concavity, Convexity, and Points of Inflexion</h2>
+            
+            <h3>Concavity and Convexity</h3>
+            <p>This describes the "curvature" of the function.</p>
+            <ul>
+                <li><strong>Concave Up (or Convex):</strong> The graph is "holding water" (like a U-shape).
+                    <ul><li><strong>Condition:</strong> <strong>f''(x) > 0</strong></li></ul>
+                </li>
+                <li><strong>Concave Down (or Concave):</strong> The graph is "spilling water" (like an ∩-shape).
+                    <ul><li><strong>Condition:</strong> <strong>f''(x) < 0</strong></li></ul>
+                </li>
+            </ul>
+            <div class="note">
+                <strong>Note:</strong> The term "Flex" is another word for a point of inflexion.
+            </div>
+
+            <h3>Points of Inflexion</h3>
+            <blockquote>
+                A <strong>point of inflexion</strong> is a point on a curve where the <strong>concavity changes</strong> (from up to down, or from down to up).
+            </blockquote>
+            <p><strong>How to find:</strong></e_
+            <ol>
+                <li>Find the second derivative, f''(x).</li>
+                <li>Find the "candidate" points by solving <strong>f''(x) = 0</strong> or finding where f''(x) is undefined.</li>
+                <li>Check that the <strong>sign of f''(x) changes</strong> around the candidate point. If it does, it is a point of inflexion.</li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section id="singular">
+            <h2>7. Singular Points</h2>
+            <p>A singular point is a point on a curve f(x, y) = 0 where the curve behaves unusually. These occur where *both* partial derivatives are zero simultaneously:</p>
+            <div class="formula">
+                ∂f/∂x = 0   AND   ∂f/∂y = 0
+            </div>
+            <p>To classify a singular point, we use the Discriminant D = s² - rt (note this is the reverse of the D for maxima/minima, D = rt - s²).</p>
+            <p>Let r = ∂²f/∂x², s = ∂²f/∂x∂y, t = ∂²f/∂y² at the point.</p>
+            <ul>
+                <li>If <strong>s² - rt < 0</strong>: It is an <strong>Isolated Point</strong> (the point satisfies the equation, but no other nearby points do).</li>
+                <li>If <strong>s² - rt > 0</strong>: It is a <strong>Node</strong> (a self-intersection, where two real, distinct tangents exist).</li>
+                <li>If <strong>s² - rt = 0</strong>: It is (usually) a <strong>Cusp</strong> (a sharp point where two tangents are coincident).</li>
+            </ul>
+            </section>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSC-102: Unit 4 - Differential Equations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #2980b9;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #2980b9;
+            border-bottom: 2px solid #EBF5FB;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #2471a3;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #2980b9;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        blockquote {
+            background: #EBF5FB;
+            border-left: 5px solid #2980b9;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #555;
+        }
+        .exam-tip, .note {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            border-left-width: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #d9534f;
+        }
+        .note strong {
+            color: #0275d8;
+        }
+        .formula {
+            background: #eaf2f8;
+            border: 1px solid #d4e6f1;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        #toc {
+            background: #EBF5FB;
+            border: 1px solid #2980b9;
+            padding: 15px 25px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #2c3e50;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc ul li a {
+            text-decoration: none;
+            color: #2471a3;
+        }
+        #toc ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DSC-102: Unit 4 - Differential Equations</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#intro">1. Introduction to Differential Equations</a></li>
+                <li><a href="#first-order">2. Equations of First Order and First Degree</a></li>
+                <li><a href="#exact">3. Exact Differential Equations</a></li>
+                <li><a href="#if">4. Integrating Factors</a></li>
+                <li><a href="#change-var">5. Change of Variables</a></li>
+                <li><a href="#higher-order">6. Higher Order Linear Differential Equations</a></li>
+            </ul>
+        </div>
+
+        <section id="intro">
+            <h2>1. Introduction to Differential Equations</h2>
+            <p>A <strong>Differential Equation (DE)</strong> is an equation that relates a function with its derivatives.</p>
+            <ul>
+                <li><strong>Order:</strong> The order of the highest derivative in the equation.
+                    <ul><li>(d²y/dx²) + y = 0  is <strong>Order 2</strong>.</li></ul>
+                </li>
+                <li><strong>Degree:</strong> The power to which the highest order derivative is raised (after clearing fractions/radicals).
+                    <ul><li>(d²y/dx²)³ + (dy/dx) = 0 is <strong>Degree 3</strong>.</li></ul>
+                </li>
+            </ul>
+            <p>This unit focuses on <strong>First Order, First Degree</strong> equations, which have the general form <strong>dy/dx = f(x, y)</strong> or <strong>M(x, y)dx + N(x, y)dy = 0</strong>.</p>
+        </section>
+
+        <hr>
+
+        <section id="first-order">
+            <h2>2. Equations of First Order and First Degree</h2>
+            <p>Standard types and their solution methods:</p>
+            
+            <h3>a) Variables Separable</h3>
+            <p>The equation can be algebraically rearranged into the form <strong>f(y) dy = g(x) dx</strong>.</p>
+            <p><strong>Solution:</strong> Integrate both sides: ∫ f(y) dy = ∫ g(x) dx + C</p>
+
+            <h3>b) Homogeneous Equations</h3>
+            <p>The equation can be written in the form <strong>dy/dx = F(y/x)</strong>.</p>
+            <p><strong>Solution:</strong>
+                1. Substitute <strong>y = vx</strong>.
+                2. This implies <strong>dy/dx = v + x(dv/dx)</strong>.
+                3. The equation becomes v + x(dv/dx) = F(v).
+                4. This is now separable: x(dv/dx) = F(v) - v   =>   dv / (F(v) - v) = dx / x.
+                5. Integrate and then substitute <strong>v = y/x</strong> back.
+            </p>
+
+            <h3>c) Linear Differential Equations</h3>
+            <p>The equation has the standard form: <strong>dy/dx + P(x) · y = Q(x)</strong>.</p>
+            <p><strong>Solution:</strong>
+                1. Find the <strong>Integrating Factor (IF)</strong>:
+                    <div class="formula">IF = e<sup>∫ P(x) dx</sup></div>
+                2. The solution is given by the formula:
+                    <div class="formula">y · (IF) = ∫ [ Q(x) · (IF) ] dx + C</div>
+            </p>
+            
+            <h3>d) Bernoulli's Equation (Reducible to Linear)</h3>
+            <p>This equation has the form: <strong>dy/dx + P(x) · y = Q(x) · y<sup>n</sup></strong>.</p>
+            <p><strong>Solution:</strong>
+                1. Divide the entire equation by y<sup>n</sup>:  y<sup>-n</sup>(dy/dx) + P(x)y<sup>(1-n)</sup> = Q(x).
+                2. Make the substitution: <strong>z = y<sup>(1-n)</sup></strong>.
+                3. Then <strong>dz/dx = (1-n)y<sup>-n</sup>(dy/dx)</strong>.
+                4. Substitute these into the DE. It will become a linear DE in 'z' and 'x', which you can solve using the IF method.
+                5. Substitute <strong>z = y<sup>(1-n)</sup></strong> back at the end.
+            </p>
+        </section>
+
+        <hr>
+
+        <section id="exact">
+            <h2>3. Exact Differential Equations</h2>
+            <p>An equation of the form <strong>M(x, y)dx + N(x, y)dy = 0</strong> is "exact" if it is the total differential of some function u(x, y).</p>
+            <p>i.e., M = ∂u/∂x and N = ∂u/∂y.</p>
+            
+            <blockquote>
+                <strong>Condition for Exactness:</strong>
+                <br>
+                The equation is exact if and only if:
+                <div class="formula">
+                    ∂M/∂y = ∂N/∂x
+                </div>
+            </blockquote>
+            
+            <h3>Solution Method for Exact DEs:</h3>
+            <p>If the equation is exact, the general solution is:</p>
+            <div class="formula">
+                ∫ M dx  (treating y as constant)
+                <br>
+                + ∫ (terms in N that do NOT contain x) dy
+                <br>
+                = C
+            </div>
+            <div class="exam-tip">
+                <strong>Exam Tip:</strong> Always check for exactness first! It's often the simplest solution method if the condition ∂M/∂y = ∂N/∂x holds.
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="if">
+            <h2>4. Integrating Factors</h2>
+            <p>If a DE of the form Mdx + Ndy = 0 is <strong>not</strong> exact (i.e., ∂M/∂y ≠ ∂N/∂x), we can sometimes find an <strong>Integrating Factor (IF)</strong>. This is a function we multiply the entire equation by to *make* it exact.</p>
+            
+            <h3>Rules for Finding an IF:</h3>
+            
+            <p><strong>Rule 1:</strong> If [ (∂M/∂y) - (∂N/∂x) ] / N = f(x) (a function of x alone)</p>
+            <div class="formula">IF = e<sup>∫ f(x) dx</sup></div>
+            
+            <p><strong>Rule 2:</strong> If [ (∂N/∂x) - (∂M/∂y) ] / M = g(y) (a function of y alone)</p>
+            <div class="formula">IF = e<sup>∫ g(y) dy</sup></div>
+            
+            <p><strong>Rule 3:</strong> If the equation is homogeneous and (Mx + Ny) ≠ 0</p>
+            <div class="formula">IF = 1 / (Mx + Ny)</div>
+            
+            <p><strong>Rule 4:</strong> If the equation is of the form y·f(xy)dx + x·g(xy)dy = 0 and (Mx - Ny) ≠ 0</p>
+            <div class="formula">IF = 1 / (Mx - Ny)</div>
+            
+            <div class="note">
+                <strong>Note:</strong> The IF for a linear equation (dy/dx + P(x)y = Q(x)) is a special case of Rule 1.
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="change-var">
+            <h2>5. Change of Variables</h2>
+            <p>This is a general technique where a substitution is used to transform a complicated DE into a simpler, standard form (like separable or linear).</p>
+            <p><strong>General Strategy:</strong>
+                1. Look for a repeated group in the equation, e.g., (x + y).
+                2. Substitute this group: <strong>z = x + y</strong>.
+                3. Find the derivative: <strong>dz/dx = 1 + dy/dx</strong>  =>  <strong>dy/dx = (dz/dx) - 1</strong>.
+                4. Substitute 'z' and 'dy/dx' into the original equation.
+                5. The new equation in 'z' and 'x' should be simpler (e.g., variables separable).
+                6. Solve for 'z', then substitute back <strong>z = x + y</strong>.
+            </p>
+            <p>This method is highly flexible and depends on spotting the right substitution.</p>
+        </section>
+
+        <hr>
+
+        <section id="higher-order">
+            <h2>6. Higher Order Linear Differential Equations</h2>
+            <p>This is an introduction to the equations that will be solved in Unit 5. A linear DE of order 'n' has the general form:</p>
+            <div class="formula">
+                a<sub>n</sub>(x) · (d<sup>n</sup>y/dx<sup>n</sup>) + a<sub>n-1</sub>(x) · (d<sup>n-1</sup>y/dx<sup>n-1</sup>) + ... + a<sub>1</sub>(x) · (dy/dx) + a<sub>0</sub>(x) · y = R(x)
+            </div>
+            <ul>
+                <li>If <strong>R(x) = 0</strong>, the equation is <strong>Homogeneous</strong>.</li>
+                <li>If <strong>R(x) ≠ 0</strong>, the equation is <strong>Non-homogeneous</strong>.</li>
+                <li>If all coefficients a<sub>i</sub>(x) are constants (e.g., a<sub>n</sub>, a<sub>n-1</sub>, ...), it is a linear DE with <strong>constant coefficients</strong>.</li>
+            </ul>
+            <p>Unit 5 will focus on solving these equations, particularly when the coefficients are constants.</p>
+        </section>
+
+    </div>
+</body>
+</html>

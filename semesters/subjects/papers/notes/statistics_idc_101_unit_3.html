@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDC-101: Unit 3 - Measures of Dispersion, Skewness & Kurtosis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #e74c3c;
+            border-bottom: 2px solid #fADBD8;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #c0392b;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #e74c3c;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        blockquote {
+            background: #fADBD8;
+            border-left: 5px solid #e74c3c;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #555;
+        }
+        .exam-tip, .note {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            border-left-width: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #d9534f;
+        }
+        .note strong {
+            color: #0275d8;
+        }
+        .formula {
+            background: #fef5e7;
+            border: 1px solid #fdebd0;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        #toc {
+            background: #fADBD8;
+            border: 1px solid #e74c3c;
+            padding: 15px 25px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #2c3e50;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc ul li a {
+            text-decoration: none;
+            color: #c0392b;
+        }
+        #toc ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>IDC-101: Unit 3 - Measures of Dispersion, Skewness & Kurtosis</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#dispersion">1. Concept of Dispersion & Ideal Measure</a></li>
+                <li><a href="#abs-measures">2. Absolute Measures of Dispersion</a></li>
+                <li><a href="#rel-measures">3. Relative Measures of Dispersion</a></li>
+                <li><a href="#moments">4. Moments (Raw and Central)</a></li>
+                <li><a href="#skew-kurt">5. Measures of Skewness and Kurtosis</a></li>
+            </ul>
+        </div>
+
+        <section id="dispersion">
+            <h2>1. Concept of Dispersion & Ideal Measure</h2>
+            
+            <h3>Concept of Dispersion</h3>
+            <p>Measures of central tendency (like the mean) tell us the "center" of the data, but they don't tell us about its <strong>spread</strong> or <strong>variability</strong>.</p>
+            <p><em>Example:</em>
+            <br>
+            Set A: {49, 50, 51}  => Mean = 50
+            <br>
+            Set B: {1, 50, 99}  => Mean = 50
+            <br>
+            Both sets have the same mean, but Set B is much more "dispersed" (spread out) than Set A.
+            </p>
+            <blockquote>
+                <strong>Dispersion:</strong> The measure of the variation of the items, or the degree to which data points are scattered around the central value.
+            </blockquote>
+            
+            <h3>Criteria for an Ideal Measure of Dispersion</h3>
+            <p>Similar to an ideal average:</p>
+            <ul>
+                <li>Rigidly Defined</li>
+                <li>Easy to Understand and Calculate</li>
+                <li>Based on All Observations</li>
+                <li>Suitable for Further Algebraic Treatment</li>
+                <li>Not Unduly Affected by Extreme Values</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="abs-measures">
+            <h2>2. Absolute Measures of Dispersion</h2>
+            <p>These measures are expressed in the <strong>same units</strong> as the original data (e.g., cm, kg, $).</p>
+
+            <h3>1. Range</h3>
+            <p>The simplest measure. The difference between the largest and smallest observation.</p>
+            <div class="formula">Range = Largest Value (L) - Smallest Value (S)</div>
+            <ul>
+                <li><strong>Pros:</strong> Easy to calculate.</li>
+                <li><strong>Cons:</strong> Based on only two values, highly affected by outliers.</li>
+            </ul>
+
+            <h3>2. Quartile Deviation (QD)</h3>
+            <p>Also known as the Semi-Interquartile Range. It measures the spread of the middle 50% of the data.</p>
+            <div class="formula">
+                QD = (Q3 - Q1) / 2
+                <br>
+                (where Q1 = 1st Quartile, Q3 = 3rd Quartile)
+            </div>
+            <ul>
+                <li><strong>Pros:</strong> Not affected by outliers.</li>
+                <li><strong>Cons:</strong> Ignores 50% of the data (the extremes).</li>
+            </ul>
+
+            <h3>3. Mean Deviation (MD)</h3>
+            <p>The arithmetic mean of the absolute deviations of the observations from a measure of central tendency (usually the median or mean).</p>
+            <div class="formula">
+                MD (from mean) = (Σ |x - x̄|) / n
+                <br>
+                MD (from median) = (Σ |x - Median|) / n
+            </div>
+            <ul>
+                <li><strong>Pros:</strong> Uses all data points.</li>
+                <li><strong>Cons:</strong> Ignores negative signs, which is mathematically problematic.</li>
+            </ul>
+
+            <h3>4. Variance and Standard Deviation (SD)</h3>
+            <p>The most important and widely used measures of dispersion. The Standard Deviation is the "gold standard" of dispersion measures.</p>
+            <blockquote>
+                <strong>Variance (s²):</strong> The average of the <em>squared</em> deviations from the mean.
+            </blockquote>
+            <div class="formula">
+                <strong>Sample Variance:</strong> s² = (Σ (x - x̄)²) / (n - 1)
+                <br>
+                <strong>Population Variance:</strong> σ² = (Σ (x - μ)²) / N
+            </div>
+            <blockquote>
+                <strong>Standard Deviation (s or σ):</strong> The positive square root of the variance.
+            </blockquote>
+            <div class="formula">
+                SD (s) = sqrt(Variance)
+            </div>
+            <ul>
+                <li><strong>Pros:</strong> Uses all data, mathematically sound (by squaring, it fixes the sign problem of MD), basis for many other statistical methods.</li>
+                <li><strong>Cons:</strong> Affected by outliers (due to squaring).</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="rel-measures">
+            <h2>3. Relative Measures of Dispersion</h2>
+            <p>Absolute measures (like SD) cannot be used to compare the variability of two different datasets if they have different units (e.g., heights in cm vs. weights in kg) or very different means.</p>
+            <p>We use <strong>relative measures</strong>, which are unit-free ratios or percentages.</p>
+            
+            <h3>1. Coefficient of Dispersion (General)</h3>
+            <p>This is a general term for any relative measure of dispersion. Each absolute measure has a corresponding relative measure.</p>
+            <ul>
+                <li><strong>Coefficient of Range</strong> = (L - S) / (L + S)</li>
+                <li><strong>Coefficient of Quartile Deviation</strong> = (Q3 - Q1) / (Q3 + Q1)</li>
+                <li><strong>Coefficient of Mean Deviation</strong> = MD / (Mean or Median)</li>
+            </ul>
+            
+            <h3>2. Coefficient of Variation (CV)</h3>
+            <p>This is the most important and widely used relative measure. It corresponds to the Standard Deviation.</p>
+            <blockquote>
+                <strong>Coefficient of Variation (CV):</strong> The ratio of the standard deviation to the mean, expressed as a percentage.
+            </blockquote>
+            <div class="formula">
+                CV = (Standard Deviation / Mean) * 100
+                <br>
+                CV = (s / x̄) * 100
+            </div>
+            <ul>
+                <li>A <strong>lower CV</strong> means the data is <strong>more consistent</strong>, more stable, or less variable.</li>
+                <li>A <strong>higher CV</strong> means the data is <strong>less consistent</strong>, less stable, or more variable.</li>
+            </ul>
+            <div class="exam-tip">
+                <strong>Exam Tip:</strong> A common question is: "Team A has a mean score of 80 with SD=5. Team B has a mean score of 50 with SD=4. Which team is more consistent?"
+                <br>
+                - CV(A) = (5 / 80) * 100 = 6.25%
+                <br>
+                - CV(B) = (4 / 50) * 100 = 8%
+                <br>
+                - <strong>Answer:</strong> Team A is more consistent because its CV is lower.
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="moments">
+            <h2>4. Moments (Raw and Central)</h2>
+            <p>Moments are a set of statistical parameters used to describe the characteristics (shape, center, spread) of a distribution.</p>
+            
+            <h3>1. Raw Moments (μ'<sub>r</sub>) - Moments about Origin (Zero)</h3>
+            <p>The r-th raw moment is the arithmetic mean of the r-th power of the observations.</p>
+            <div class="formula">
+                μ'<sub>r</sub> = (Σ x<sup>r</sup>) / n   (Ungrouped)
+                <br>
+                μ'<sub>r</sub> = (Σ f * x<sup>r</sup>) / N   (Grouped)
+            </div>
+            <ul>
+                <li>The <strong>first raw moment (r=1)</strong> is the <strong>Arithmetic Mean</strong>: μ'<sub>1</sub> = x̄</li>
+            </ul>
+
+            <h3>2. Central Moments (μ<sub>r</sub>) - Moments about the Mean</h3>
+            <p>The r-th central moment is the arithmetic mean of the r-th power of the deviations from the mean.</p>
+            <div class="formula">
+                μ<sub>r</sub> = (Σ (x - x̄)<sup>r</sup>) / n   (Ungrouped)
+                <br>
+                μ<sub>r</sub> = (Σ f * (x - x̄)<sup>r</sup>) / N   (Grouped)
+            </div>
+            <ul>
+                <li>The <strong>first central moment (r=1)</strong> is always <strong>zero</strong>: μ<sub>1</sub> = 0</li>
+                <li>The <strong>second central moment (r=2)</strong> is the <strong>Variance</strong>: μ<sub>2</sub> = σ²</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="skew-kurt">
+            <h2>5. Measures of Skewness and Kurtosis</h2>
+            <p>These measures describe the <strong>shape</strong> of the distribution.</p>
+            
+            <h3>Skewness (Asymmetry)</h3>
+            <p>Measures the <strong>asymmetry</strong> or lack of symmetry of a distribution.</p>
+            <ul>
+                <li><strong>Symmetrical Distribution:</strong> The "bell" shape is identical on both sides.
+                    <ul><li><strong>Mean = Median = Mode</strong></li><li>Skewness = 0</li></ul>
+                </li>
+                <li><strong>Positively Skewed (Skewed to the Right):</strong> The "tail" is longer on the right.
+                    <ul><li><strong>Mean > Median > Mode</strong></li><li>Skewness > 0</li></ul>
+                </li>
+                <li><strong>Negatively Skewed (Skewed to the Left):</strong> The "tail" is longer on the left.
+                    <ul><li><strong>Mean < Median < Mode</strong></li><li>Skewness < 0</li></ul>
+                </li>
+            </ul>
+            <h4>Moment-based Coefficient (β<sub>1</sub>):</h4>
+            <div class="formula">
+                β<sub>1</sub> = (μ<sub>3</sub>)² / (μ<sub>2</sub>)³
+            </div>
+            <p>(If β<sub>1</sub> = 0, symmetrical. If β<sub>1</sub> > 0, skewed.)</p>
+            
+            <h3>Kurtosis (Peakedness)</h3>
+            <p>Measures the <strong>peakedness</strong> or flatness of a distribution compared to the standard Normal distribution.</p>
+            <ul>
+                <li><strong>Leptokurtic:</strong> More peaked, sharper peak, and heavier/fatter tails.</li>
+                <li><strong>Mesokurtic:</strong> The "normal" bell shape (like the Normal Distribution).</li>
+                <li><strong>Platykurtic:</strong> Flatter, more rounded peak, and lighter/thinner tails.</li>
+            </ul>
+            <h4>Moment-based Coefficient (β<sub>2</sub>):</h4>
+            <div class="formula">
+                β<sub>2</sub> = μ<sub>4</sub> / (μ<sub>2</sub>)²
+            </div>
+            <ul>
+                <li>If <strong>β<sub>2</sub> = 3</strong>, it is <strong>Mesokurtic</strong> (Normal).</li>
+                <li>If <strong>β<sub>2</sub> > 3</strong>, it is <strong>Leptokurtic</strong> (Leap/Peaked).</li>
+                <li>If <strong>β<sub>2</sub> < 3</strong>, it is <strong>Platykurtic</strong> (Flat/Plateau).</li>
+            </ul>
+        </section>
+
+    </div>
+</body>
+</html>

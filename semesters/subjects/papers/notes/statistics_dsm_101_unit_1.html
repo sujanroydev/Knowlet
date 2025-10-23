@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSM-101: Unit 1 - Introduction and Data Presentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #3498db;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        blockquote {
+            background: #ecf0f1;
+            border-left: 5px solid #3498db;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #555;
+        }
+        .exam-tip, .note {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            border-left-width: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #d9534f;
+        }
+        .note strong {
+            color: #0275d8;
+        }
+        .formula {
+            background: #e9f5ff;
+            border: 1px solid #b3d9ff;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        #toc {
+            background: #ecf0f1;
+            border: 1px solid #bdc3c7;
+            padding: 15px 25px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #2c3e50;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc ul li a {
+            text-decoration: none;
+            color: #2980b9;
+        }
+        #toc ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DSM-101: Unit 1 - Introduction and Data Presentation</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#intro">1. Introduction, Scope, and Limitations of Statistics</a></li>
+                <li><a href="#pop-sample">2. Concepts of Statistical Population and Sample</a></li>
+                <li><a href="#data-collection">3. Primary and Secondary Data</a></li>
+                <li><a href="#data-types">4. Types of Data (Qualitative, Quantitative, etc.)</a></li>
+                <li><a href="#scales">5. Scales of Measurement</a></li>
+                <li><a href="#presentation">6. Presentation of Data by Tables and Diagrams</a></li>
+                <li><a href="#freq-dist">7. Frequency Distribution, Histogram, and Frequency Polygon</a></li>
+                <li><a href="#ogives">8. Cumulative Frequency Curves (Ogives)</a></li>
+            </ul>
+        </div>
+
+        <section id="intro">
+            <h2>1. Introduction, Scope, and Limitations of Statistics</h2>
+            
+            <h3>Introduction to Statistics</h3>
+            <p>Statistics is the science of <strong>collecting, organizing, presenting, analyzing, and interpreting</strong> data to assist in making more effective decisions.</p>
+            
+            <h3>Scope of Statistics</h3>
+            <p>Statistics is applied in nearly every field:</p>
+            <ul>
+                <li><strong>Business and Economics:</strong> Market research, quality control, financial analysis, forecasting.</li>
+                <li><strong>Government:</strong> Policy making, census, public health.</li>
+                <li><strong>Science:</strong> Medical studies, engineering, biology (biostatistics).</li>
+                <li><strong>Social Sciences:</strong> Analyzing survey data, studying behavioral trends.</li>
+            </ul>
+
+            <h3>Limitations of Statistics</h3>
+            <ul>
+                <li><strong>Deals with aggregates:</strong> Statistics provides insights about a group, not a single individual.</li>
+                <li><strong>Deals with quantitative data:</strong> It cannot directly measure qualitative attributes like "honesty" or "beauty" (though they can be quantified).</li>
+                <li><strong>Prone to misuse:</strong> Statistical results can be manipulated to present a biased view.</li>
+                <li><strong>Statistical laws are not exact:</strong> They are true "on average" or in the long run.</li>
+            </ul>
+            <div class="exam-tip">
+                <strong>Exam Tip:</strong> Be prepared to define statistics and list its five main functions (collection to interpretation). The limitations are a very common short-answer question.
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="pop-sample">
+            <h2>2. Concepts of Statistical Population and Sample</h2>
+            
+            <h3>Population</h3>
+            <blockquote>
+                <strong>Population (or Universe):</strong> The complete set of all individuals, items, or objects of interest in a study.
+            </blockquote>
+            <ul>
+                <li><strong>Finite Population:</strong> A population with a countable number of units (e.g., students in a college).</li>
+                <li><strong>Infinite Population:</strong> A population with an uncountable or theoretically infinite number of units (e.g., all possible outcomes of rolling a die).</li>
+            </ul>
+
+            <h3>Sample</h3>
+            <blockquote>
+                <strong>Sample:</strong> A subset or a part of the population selected to represent the characteristics of the whole population.
+            </blockquote>
+            <p>We study samples because it is often too costly, time-consuming, or impossible to study the entire population.</p>
+
+            <h3>Parameter vs. Statistic</h3>
+            <ul>
+                <li><strong>Parameter:</strong> A numerical value summarizing a characteristic of the <strong>population</strong> (e.g., population mean μ, population standard deviation σ).</li>
+                <li><strong>Statistic:</strong> A numerical value summarizing a characteristic of the <strong>sample</strong> (e.g., sample mean x̄, sample standard deviation s). We use statistics to estimate parameters.</li>
+            </ul>
+            <div class="note">
+                <strong>Mnemonic:</strong> <strong>P</strong>arameter for <strong>P</strong>opulation. <strong>S</strong>tatistic for <strong>S</strong>ample.
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="data-collection">
+            <h2>3. Primary and Secondary Data</h2>
+            
+            <h3>1. Primary Data</h3>
+            <p>Data collected <strong>for the first time</strong> by the researcher, specifically for the purpose of the study. It is original, raw data.</p>
+            <ul>
+                <li><strong>Methods:</strong> Surveys, personal interviews, experiments, direct observation.</li>
+                <li><strong>Pros:</strong> Specific to the research needs, more reliable.</li>
+                <li><strong>Cons:</strong> Expensive, time-consuming to collect.</li>
+            </ul>
+
+            <h3>2. Secondary Data</h3>
+            <p>Data that has <strong>already been collected</strong> by someone else for some other purpose, but is used by the researcher for their current study.</p>
+            <ul>
+                <li><strong>Sources:</strong> Government publications (e.g., census), company records, journals, websites, books.</li>
+                <li><strong>Pros:</strong> Cheaper and faster to obtain.</li>
+                <li><strong>Cons:</strong> May not be perfectly suitable, data may be outdated or inaccurate.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="data-types">
+            <h2>4. Types of Data (Qualitative, Quantitative, etc.)</h2>
+            
+            <h3>1. Qualitative (or Categorical) Data</h3>
+            <p>Represents characteristics or attributes. It is non-numerical.</p>
+            <ul>
+                <li><em>Example:</em> Gender (Male, Female), Eye Color (Blue, Brown), Blood Type (A, B, O).</li>
+            </ul>
+
+            <h3>2. Quantitative (or Numerical) Data</h3>
+            <p>Represents a measurable quantity. It is numerical.</p>
+            
+            <h4>a) Discrete Data</h4>
+            <p>Data that can only take specific, distinct values (usually integers). It is "counted."</p>
+            <ul>
+                <li><em>Example:</em> Number of children in a family (0, 1, 2, ...).</li>
+                <li><em>Example:</em> Number of cars sold by a dealer.</li>
+            </ul>
+
+            <h4>b) Continuous Data</h4>
+            <p>Data that can take any value within a given range. It is "measured."</p>
+            <ul>
+                <li><em>Example:</em> Height (170.1 cm, 170.11 cm, ...).</li>
+                <li><em>Example:</em> Temperature, time.</li>
+            </ul>
+
+            <h3>3. Time Series Data</h3>
+            <p>Data collected on the <strong>same subject</strong> or variable over successive periods of time.</p>
+            <ul>
+                <li><em>Example:</em> Monthly sales of a company from 2020 to 2025.</li>
+                <li><em>Example:</em> Daily stock price of Google for one year.</li>
+            </ul>
+            
+            <h3>4. Ordinal Data</h3>
+            <p>This is a specific type of data that has a natural order or ranking, but the differences between the ranks are not meaningful. It bridges qualitative and quantitative.</p>
+            <ul>
+                <li><em>Example:</em> Customer satisfaction (Poor, Fair, Good, Excellent).</li>
+                <li><em>Example:</em> Educational level (High School, Bachelor's, Master's).</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="scales">
+            <h2>5. Scales of Measurement</h2>
+            <p>These scales describe the properties of the data. They are hierarchical.</p>
+            
+            <h3>1. Nominal Scale</h3>
+            <p>Data consists of categories or names only. There is no order.</p>
+            <ul>
+                <li><strong>Properties:</strong> Identity (e.g., 'Male' is different from 'Female').</li>
+                <li><strong>Examples:</strong> Gender, Jersey Numbers, Zip Codes.</li>
+            </ul>
+
+            <h3>2. Ordinal Scale</h3>
+            <p>Data can be categorized and these categories have a natural order or rank. The differences between ranks are not uniform.</p>
+            <ul>
+                <li><strong>Properties:</strong> Identity + Order.</li>
+                <li><strong>Examples:</strong> Ranks in a competition (1st, 2nd, 3rd), education level, satisfaction ratings. (This is the "Ordinal Data" from the previous section).</li>
+            </ul>
+
+            <h3>3. Interval Scale</h3>
+            <p>Data is numerical, ordered, and the differences between values are meaningful. However, there is <strong>no true zero point</strong> (zero is arbitrary).</p>
+            <ul>
+                <li><strong>Properties:</strong> Identity + Order + Meaningful Differences.</li>
+                <li><strong>Examples:</strong> Temperature in Celsius/Fahrenheit (0°C doesn't mean "no heat"), IQ scores, calendar years.</li>
+            </ul>
+
+            <h3>4. Ratio Scale</h3>
+            <p>The highest level. It has all the properties of the interval scale, plus a <strong>true zero point</strong>, which means "absence" of the quantity.</p>
+            <ul>
+                <li><strong>Properties:</strong> Identity + Order + Meaningful Differences + True Zero.</li>
+                <li><strong>Examples:</strong> Height, weight, age, income, distance. (0 kg means "no weight").</li>
+            </ul>
+            <div class="exam-tip">
+                <strong>Exam Tip:</strong> A classic question is "Differentiate between Interval and Ratio scales." The key answer is the <strong>true zero point</strong>.
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="presentation">
+            <h2>6. Presentation of Data by Tables and Diagrams</h2>
+            
+            <h3>Tabulation (Tables)</h3>
+            <p>The systematic arrangement of data into rows and columns with a title and headings. A good table is clear, concise, and self-explanatory.</p>
+            
+            <h4>Main Parts of a Table:</h4>
+            <ol>
+                <li><strong>Table Number & Title:</strong> What the table is about.</li>
+                <li><strong>Headnote:</strong> Unit of measurement (e.g., "in '000s").</li>
+                <li><strong>Stubs:</strong> Row headings.</li>
+                <li><strong>Captions:</strong> Column headings.</li>
+                <li><strong>Body:</strong> The numerical data.</li>
+                <li><strong>Footnote & Source Note:</strong> Clarifications and source of data.</li>
+            </ol>
+
+            <h3>Diagrams</h3>
+            <p>Visual representations of data. Used for qualitative or categorical data.</p>
+            <ul>
+                <li><strong>Bar Diagram (or Bar Chart):</strong> Uses rectangular bars (of equal width) to represent frequencies. The height of the bar is proportional to the frequency. There are gaps between bars.
+                    </li>
+                <li><strong>Pie Diagram (or Pie Chart):</strong> A circle divided into sectors, where the angle of each sector is proportional to the frequency of that category.
+                    <ul><li><strong>Angle = (Frequency / Total Frequency) * 360°</strong></li></ul>
+                    </li>
+            </ul>
+        </section>
+        
+        <hr>
+
+        <section id="freq-dist">
+            <h2>7. Frequency Distribution, Histogram, and Frequency Polygon</h2>
+            
+            <h3>Frequency Distribution</h3>
+            <p>A table that organizes data into classes (or groups) and shows the number of observations (frequency) that fall into each class. Used for quantitative data.</p>
+            
+            <h3>Histogram</h3>
+            <p>A graphical representation of a <strong>continuous frequency distribution</strong>. It consists of adjacent rectangles.</p>
+            <ul>
+                <li>The <strong>X-axis</strong> represents the class boundaries (to ensure no gaps).</li>
+                <li>The <strong>Y-axis</strong> represents the frequency.</li>
+                <li>The <strong>area</strong> of each rectangle is proportional to the frequency.</li>
+                <li><strong>There are no gaps between the bars.</strong></li>
+            </ul>
+            <div class="exam-tip">
+                <strong>Histogram vs. Bar Chart:</strong> A Bar Chart is for categorical data (has gaps), while a Histogram is for continuous/grouped data (no gaps).
+            </div>
+
+            <h3>Frequency Polygon</h3>
+            <p>A line graph representing a frequency distribution.</p>
+            <ul>
+                <li>It is drawn by plotting the <strong>class marks (midpoints)</strong> on the X-axis against the <strong>frequencies</strong> on the Y-axis.</li>
+                <li>The points are then joined by straight lines.</li>
+                <li>The polygon is "closed" by joining the first and last points to hypothetical class marks at either end with zero frequency.</li>
+            </ul>
+            </section>
+
+        <hr>
+
+        <section id="ogives">
+            <h2>8. Cumulative Frequency Curves (Ogives)</h2>
+            <p>An ogive (or cumulative frequency curve) is a graph of a cumulative frequency distribution. It is very useful for finding partition values like the median and quartiles graphically.</p>
+            
+            <h3>1. Less Than Ogive</h3>
+            <ul>
+                <li><strong>Plotting:</strong> We plot <strong>Upper Class Boundaries</strong> on the X-axis against their corresponding <strong>"Less Than" Cumulative Frequencies</strong> on the Y-axis.</li>
+                <li><strong>Shape:</strong> The curve rises from left to right, starting from 0 and ending at the total frequency (N).</li>
+            </ul>
+
+            <h3>2. More Than Ogive</h3>
+            <ul>
+                <li><strong>Plotting:</strong> We plot <strong>Lower Class Boundaries</strong> on the X-axis against their corresponding <strong>"More Than" Cumulative Frequencies</strong> on the Y-axis.</li>
+                <li><strong>Shape:</strong> The curve falls from left to right, starting from the total frequency (N) and ending at 0.</li>
+            </ul>
+
+            <div class="note">
+                <strong>Finding the Median:</strong> The <strong>Median</strong> is the X-coordinate of the intersection point of the "Less Than" and "More Than" ogives.
+                <br>
+                Alternatively, on a "Less Than" ogive, find the N/2 value on the Y-axis, draw a horizontal line to the curve, and then a vertical line down to the X-axis. This X-value is the Median.
+            </div>
+            </section>
+
+    </div>
+</body>
+</html>

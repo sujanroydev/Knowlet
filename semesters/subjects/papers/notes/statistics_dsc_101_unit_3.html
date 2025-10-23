@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSC-101: Unit 3 - Theory of Attributes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #27ae60;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #27ae60;
+            border-bottom: 2px solid #D5F5E3;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #229954;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #27ae60;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        blockquote {
+            background: #D5F5E3;
+            border-left: 5px solid #27ae60;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #555;
+        }
+        .exam-tip, .note {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            border-left-width: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #d9534f;
+        }
+        .note strong {
+            color: #0275d8;
+        }
+        .formula {
+            background: #e9f7ef;
+            border: 1px solid #a9dfbf;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        #toc {
+            background: #D5F5E3;
+            border: 1px solid #27ae60;
+            padding: 15px 25px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #2c3e50;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc ul li a {
+            text-decoration: none;
+            color: #229954;
+        }
+        #toc ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DSC-101: Unit 3 - Theory of Attributes & Curve Fitting</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#attributes">1. Theory of Attributes: Introduction</a></li>
+                <li><a href="#consistency">2. Consistency of Attributes</a></li>
+                <li><a href="#independence">3. Independence of Attributes</a></li>
+                <li><a href="#association">4. Association of Attributes</a></li>
+                <li><a href="#least-squares">5. Principle of Least Squares</a></li>
+                <li><a href="#fitting">6. Fitting of Polynomials and Exponential Curves</a></li>
+            </ul>
+        </div>
+
+        <section id="attributes">
+            <h2>1. Theory of Attributes: Introduction</h2>
+            <p>The "Theory of Attributes" deals with <strong>qualitative data</strong> (see Unit 1), which cannot be measured numerically but can be classified based on the presence or absence of a characteristic (an "attribute").</p>
+            <ul>
+                <li><em>Examples:</em> Literacy, gender (Male/Female), blindness, employment (Employed/Unemployed).</li>
+            </ul>
+            
+            <h3>Notation</h3>
+            <ul>
+                <li><strong>Positive Attributes (Presence):</strong> Represented by capital letters.
+                    <ul><li>A = Literacy, B = Employment</li></ul>
+                </li>
+                <li><strong>Negative Attributes (Absence):</strong> Represented by Greek letters (or lowercase).
+                    <ul>
+                        <li>α (alpha) = Illiteracy (Not-A)</li>
+                        <li>β (beta) = Unemployment (Not-B)</li>
+                    </ul>
+                </li>
+                <li><strong>Combinations (Classes):</strong>
+                    <ul>
+                        <li>(A) = Number of people who are Literate.</li>
+                        <li>(β) = Number of people who are Unemployed.</li>
+                        <li>(AB) = Number of people who are both Literate AND Employed.</li>
+                        <li>(Aβ) = Number of people who are Literate AND Unemployed.</li>
+                    </ul>
+                </li>
+                <li><strong>N:</strong> The total number of observations (the "universe").</li>
+            </ul>
+
+            <h3>Classes and Class Frequencies</h3>
+            <ul>
+                <li><strong>Order 0:</strong> N (the total)</li>
+                <li><strong>Order 1:</strong> (A), (B), (α), (β)</li>
+                <li><strong>Order 2:</strong> (AB), (Aβ), (αB), (αβ)</li>
+            </ul>
+            <p>These frequencies are related. For example:</p>
+            <div class="formula">
+                N = (A) + (α)
+                <br>
+                N = (B) + (β)
+                <br>
+                (A) = (AB) + (Aβ)
+                <br>
+                (B) = (AB) + (αB)
+                <br>
+                N = (AB) + (Aβ) + (αB) + (αβ)
+            </div>
+            
+            <h3>Contingency Table (2x2)</h3>
+            <p>This is the easiest way to organize the frequencies for two attributes.</p>
+            <table>
+                <caption>2x2 Contingency Table</caption>
+                <thead>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>B (Employed)</th>
+                        <th>β (Unemployed)</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>A (Literate)</strong></td>
+                        <td>(AB)</td>
+                        <td>(Aβ)</td>
+                        <td><strong>(A)</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>α (Illiterate)</strong></td>
+                        <td>(αB)</td>
+                        <td>(αβ)</td>
+                        <td><strong>(α)</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total</strong></td>
+                        <td><strong>(B)</strong></td>
+                        <td><strong>(β)</strong></td>
+                        <td><strong>N</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <section id="consistency">
+            <h2>2. Consistency of Attributes</h2>
+            <blockquote>
+                <strong>Consistency:</strong> A set of data (class frequencies) is said to be consistent if no class frequency is negative.
+            </blockquote>
+            <p>Since a frequency represents a count of items, it cannot be less than zero. If any calculation results in a negative frequency (e.g., (AB) < 0), the data is <strong>inconsistent</strong> and likely contains errors in collection or transcription.</p>
+            
+            <h3>Condition for Consistency:</h3>
+            <p>All frequencies of the highest order must be non-negative. For two attributes, this means:</p>
+            <ul>
+                <li>(AB) ≥ 0</li>
+                <li>(Aβ) ≥ 0</li>
+                <li>(αB) ≥ 0</li>
+                <li>(αβ) ≥ 0</li>
+            </ul>
+            <div class="exam-tip">
+                <strong>Exam Tip:</strong> You'll be given N, (A), (B), and (AB). To check consistency, you must calculate the other 3 frequencies and see if any are negative.
+                <br>
+                - (Aβ) = (A) - (AB)
+                <br>
+                - (αB) = (B) - (AB)
+                <br>
+                - (αβ) = N - (A) - (B) + (AB)  <em>or</em>  (αβ) = (α) - (αB)
+                <br>
+                If any of these 3 are negative, the data is inconsistent.
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="independence">
+            <h2>3. Independence of Attributes</h2>
+            <blockquote>
+                <strong>Independence:</strong> Two attributes A and B are independent if there is no relationship between them. The presence or absence of A has no effect on the presence or absence of B.
+            </blockquote>
+            <p>If they are independent, the proportion of 'A's among 'B's should be the same as the proportion of 'A's in the whole population.</p>
+            <p>Proportion of A's among B's = (AB) / (B)</p>
+            <p>Proportion of A's in total = (A) / N</p>
+            
+            <h3>Condition for Independence:</h3>
+            <p>A and B are independent if: <strong>(AB) = (A) * (B) / N</strong></p>
+            <p>The observed frequency (AB) is compared to the expected frequency (A)*(B)/N.</p>
+        </section>
+
+        <hr>
+
+        <section id="association">
+            <h2>4. Association of Attributes</h2>
+            <p>If attributes are not independent, they are <strong>associated</strong>.</p>
+            <ul>
+                <li><strong>Positive Association:</strong> A and B are positively associated if they tend to appear together.
+                    <ul>
+                        <li><strong>Condition:</strong> Observed (AB) > Expected ( (A)*(B)/N )</li>
+                        <li><em>Example:</em> Literacy and Employment.</li>
+                    </ul>
+                </li>
+                <li><strong>Negative Association (or Disassociation):</strong> A and B are negatively associated if the presence of one discourages the presence of the other.
+                    <ul>
+                        <li><strong>Condition:</strong> Observed (AB) < Expected ( (A)*(B)/N )</li>
+                        <li><em>Example:</em> Vaccination and Sickness.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Coefficients of Association</h3>
+            <p>These are numerical measures of the *strength* and *direction* of the association.</p>
+            
+            <h4>1. Yule's Coefficient of Association (Q)</h4>
+            <p>This is the most common measure. It ranges from -1 to +1.</p>
+            <div class="formula">
+                Q = [ (AB)(αβ) - (Aβ)(αB) ] / [ (AB)(αβ) + (Aβ)(αB) ]
+            </div>
+            <ul>
+                <li>If <strong>Q = +1</strong>: Perfect Positive Association.</li>
+                <li>If <strong>Q = -1</strong>: Perfect Negative Association.</li>
+                <li>If <strong>Q = 0</strong>: A and B are Independent.</li>
+                <li>The closer to |1|, the stronger the association.</li>
+            </ul>
+
+            <h4>2. Yule's Coefficient of Colligation (Y)</h4>
+            <p>Another measure, also ranging from -1 to +1. It is related to Q.</p>
+            <div class="formula">
+                Y = [ sqrt((AB)(αβ)) - sqrt((Aβ)(αB)) ] / [ sqrt((AB)(αβ)) + sqrt((Aβ)(αB)) ]
+            </div>
+
+            <h4>Relationship between Q and Y:</h4>
+            <div class="formula">
+                Q = (2 * Y) / (1 + Y²)
+                <br>
+                Y = (1 - sqrt(1 - Q²)) / Q
+            </div>
+            <div class="note">
+                <strong>Note:</strong> The value of Y is always smaller than the value of Q (unless Q=0 or Q=±1). This means Q tends to overestimate the level of association compared to Y.
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="least-squares">
+            <h2>5. Principle of Least Squares</h2>
+            <p>The "Principle of Least Squares" is a fundamental method used in regression and curve fitting. It helps us find the "best-fit" line or curve for a set of data points (x, y).</p>
+            
+            <blockquote>
+                <strong>Principle:</strong> The best-fit curve is the one that <strong>minimizes the sum of the squares of the vertical errors (residuals)</strong> between the observed data points (y) and the values predicted by the curve (ŷ).
+            </blockquote>
+            
+            <ul>
+                <li><strong>Data point:</strong> (x<sub>i</sub>, y<sub>i</sub>)</li>
+                <li><strong>Fitted curve:</strong> ŷ = f(x)</li>
+                <li><strong>Error (Residual):</strong> e<sub>i</sub> = y<sub>i</sub> - ŷ<sub>i</sub></li>
+                <li><strong>Goal:</strong> Minimize the Sum of Squared Errors (SSE).</li>
+            </ul>
+            <div class="formula">
+                Minimize: SSE = Σ (e<sub>i</sub>)² = Σ (y<sub>i</sub> - ŷ<sub>i</sub>)²
+            </div>
+            <p>We use calculus (partial derivatives) to find the parameters (e.g., 'a' and 'b' in a line) that make this sum as small as possible. This process generates a set of "Normal Equations."</p>
+            </section>
+
+        <hr>
+
+        <section id="fitting">
+            <h2>6. Fitting of Polynomials and Exponential Curves</h2>
+            <p>Using the Principle of Least Squares, we can derive the <strong>Normal Equations</strong> needed to fit specific curves to data.</p>
+            
+            <h3>1. Fitting a Straight Line (Linear Regression)</h3>
+            <p><strong>Equation:</strong> y = a + bx</p>
+            <p>Here, 'a' is the y-intercept and 'b' is the slope. We need to find the values of 'a' and 'b' that minimize Σ(y - (a + bx))².</p>
+            
+            <blockquote>
+                <strong>Normal Equations for a Straight Line:</strong>
+                <ol>
+                    <li>Σy = n*a + b*(Σx)</li>
+                    <li>Σxy = a*(Σx) + b*(Σx²)</li>
+                </ol>
+            </blockquote>
+            <p><strong>How to solve:</strong>
+                1. From your data, calculate: n, Σx, Σy, Σxy, Σx²
+                2. Plug these 5 values into the two normal equations.
+                3. You now have two simultaneous linear equations with two unknowns (a, b). Solve for 'a' and 'b'.
+            </p>
+
+            <h3>2. Fitting a Polynomial (Parabola / Quadratic)</h3>
+            <p><strong>Equation:</strong> y = a + bx + cx²</p>
+            <p>We need to find 'a', 'b', and 'c'.</p>
+            
+            <blockquote>
+                <strong>Normal Equations for a Parabola:</strong>
+                <ol>
+                    <li>Σy = n*a + b*(Σx) + c*(Σx²)</li>
+                    <li>Σxy = a*(Σx) + b*(Σx²) + c*(Σx³)</li>
+                    <li>Σx²y = a*(Σx²) + b*(Σx³) + c*(Σx⁴)</li>
+                </ol>
+            </blockquote>
+            <p><strong>How to solve:</strong>
+                1. Calculate n, Σx, Σy, Σx², Σxy, Σx³, Σx²y, Σx⁴.
+                2. Plug these values in to get three simultaneous equations.
+                3. Solve for 'a', 'b', and 'c'.
+            </p>
+
+            <h3>3. Fitting an Exponential Curve</h3>
+            <p><strong>Equation:</strong> y = a * b<sup>x</sup></p>
+            <p>This is not a linear equation, so we can't use the normal equations directly. We must <strong>transform it into a linear form</strong> by taking the logarithm of both sides.</p>
+            
+            <blockquote>
+                log(y) = log(a * b<sup>x</sup>)
+                <br>
+                log(y) = log(a) + log(b<sup>x</sup>)
+                <br>
+                <strong>log(y) = log(a) + x * log(b)</strong>
+            </blockquote>
+            
+            <p>Now, let <strong>Y = log(y)</strong>, <strong>A = log(a)</strong>, and <strong>B = log(b)</strong>.</p>
+            <p>The equation becomes: <strong>Y = A + Bx</strong></p>
+            <p>This is just a straight line! We can use the normal equations for a straight line, but replacing 'y' with 'Y' (i.e., log(y)) and 'a' with 'A' and 'b' with 'B'.</p>
+            
+            <blockquote>
+                <strong>Normal Equations for Exponential Curve:</strong>
+                <ol>
+                    <li>Σ(log y) = n*A + B*(Σx)</li>
+                    <li>Σ(x * log y) = A*(Σx) + B*(Σx²)</li>
+                </ol>
+            </blockquote>
+            <p><strong>How to solve:</strong>
+                1. Create new columns in your data for Y = log(y) and x*log(y).
+                2. Calculate: n, Σx, Σx², Σ(log y), Σ(x * log y).
+                3. Solve the two normal equations for A and B.
+                4. Convert A and B back to 'a' and 'b':
+                   <ul>
+                       <li><strong>a = antilog(A)</strong>  (or a = 10<sup>A</sup> if using log base 10)</li>
+                       <li><strong>b = antilog(B)</strong>  (or b = 10<sup>B</sup> if using log base 10)</li>
+                   </ul>
+                5. The final fitted curve is y = a * b<sup>x</sup>.
+            </p>
+            
+            <div class="exam-tip">
+                <strong>Exam Tip:</strong> Curve fitting problems are very common. The key is to correctly calculate all the "sum" (Σ) values from the given data table. Be very careful with your calculations.
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>

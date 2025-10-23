@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSC-101: Unit 5 - Probability</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #f39c12;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #f39c12;
+            border-bottom: 2px solid #FEF9E7;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #d35400;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f39c12;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        blockquote {
+            background: #FEF9E7;
+            border-left: 5px solid #f39c12;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #555;
+        }
+        .exam-tip, .note {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            border-left-width: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #d9534f;
+        }
+        .note strong {
+            color: #0275d8;
+        }
+        .formula {
+            background: #fef9e7;
+            border: 1px solid #fae5b4;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        #toc {
+            background: #FEF9E7;
+            border: 1px solid #f39c12;
+            padding: 15px 25px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #2c3e50;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc ul li a {
+            text-decoration: none;
+            color: #d35400;
+        }
+        #toc ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DSC-101: Unit 5 - Probability</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#intro">1. Introduction: Basic Concepts</a></li>
+                <li><a href="#events">2. Algebra of Events and Types of Events</a></li>
+                <li><a href="#classical">3. Classical (Statistical) Definition of Probability</a></li>
+                <li><a href="#axiomatic">4. Axiomatic Definition of Probability</a></li>
+                <li><a href="#theorems">5. Laws of Addition and Multiplication</a></li>
+                <li><a href="#conditional">6. Conditional Probability</a></li>
+                <li><a href="#independence">7. Independent Events</a></li>
+                <li><a href="#total-prob">8. Theorem of Total Probability</a></li>
+                <li><a href="#bayes">9. Bayes' Theorem and Its Applications</a></li>
+            </ul>
+        </div>
+
+        <section id="intro">
+            <h2>1. Introduction: Basic Concepts</h2>
+            <p>Probability is the measure of the likelihood that an event will occur. It is quantified as a number between 0 and 1 (where 0 indicates impossibility and 1 indicates certainty).</p>
+            
+            <h3>Random Experiment</h3>
+            <p>An experiment or process for which the outcome cannot be predicted with certainty, but all possible outcomes are known.</p>
+            <ul>
+                <li><em>Example:</em> Tossing a coin, rolling a die, drawing a card from a deck.</li>
+            </ul>
+
+            <h3>Sample Point</h3>
+            <p>A single possible outcome of a random experiment.</p>
+            <ul>
+                <li><em>Example:</em> When rolling a die, "4" is a sample point.</li>
+                <li><em>Example:</em> When tossing a coin, "Heads" is a sample point.</li>
+            </ul>
+
+            <h3>Sample Space (S)</h3>
+            <p>The set of <strong>all possible outcomes</strong> (sample points) of a random experiment.</p>
+            <ul>
+                <li><em>Example (Rolling a die):</em> S = {1, 2, 3, 4, 5, 6}</li>
+                <li><em>Example (Tossing two coins):</em> S = {HH, HT, TH, TT}</li>
+            </ul>
+            
+            <h3>Event (E)</h3>
+            <p>A subset of the sample space. It is a collection of one or more sample points.</p>
+            <ul>
+                <li><em>Example (Rolling a die):</em>
+                    <ul>
+                        <li>Event A (Getting an even number): A = {2, 4, 6}</li>
+                        <li>Event B (Getting a number > 4): B = {5, 6}</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="events">
+            <h2>2. Algebra of Events and Types of Events</h2>
+            <p>Events can be combined using set operations.</p>
+            
+            <h3>Algebra of Events (Set Operations)</h3>
+            <ul>
+                <li><strong>A or B (A ∪ B):</strong> The event that *at least one* of A or B occurs.
+                    <ul><li>A = {2, 4, 6}, B = {5, 6}  =>  A ∪ B = {2, 4, 5, 6}</li></ul>
+                </li>
+                <li><strong>A and B (A ∩ B):</strong> The event that *both* A and B occur simultaneously.
+                    <ul><li>A = {2, 4, 6}, B = {5, 6}  =>  A ∩ B = {6}</li></ul>
+                </li>
+                <li><strong>Not A (A' or A<sup>c</sup>):</strong> The complement of A. The event that A does *not* occur.
+                    <ul><li>S = {1, 2, 3, 4, 5, 6}, A = {2, 4, 6}  =>  A' = {1, 3, 5}</li></ul>
+                </li>
+            </ul>
+            <h3>Types of Events</h3>
+            
+            <h4>1. Mutually Exclusive (or Disjoint) Events</h4>
+            <p>Two events that <strong>cannot occur at the same time</strong>. They have no sample points in common.</p>
+            <ul>
+                <li><strong>Condition:</strong> A ∩ B = ∅ (the empty set)</li>
+                <li><em>Example:</em> When rolling a die, the events "Getting a 1" and "Getting a 6" are mutually exclusive. You can't get both on a single roll.</li>
+            </ul>
+
+            <h4>2. Exhaustive Events</h4>
+            <p>A set of events that covers the <strong>entire sample space</strong>. When the experiment is performed, at least one of these events must occur.</p>
+            <ul>
+                <li><strong>Condition:</strong> A<sub>1</sub> ∪ A<sub>2</sub> ∪ ... ∪ A<sub>k</sub> = S</li>
+                <li><em>Example:</em> When rolling a die, the events E1="Even" {2,4,6} and E2="Odd" {1,3,5} are exhaustive, because their union is {1,2,3,4,5,6} = S.</li>
+            </ul>
+            
+            <h4>3. Equally Likely Events</h4>
+            <p>Outcomes that have the <strong>same chance of occurring</strong>.</p>
+            <ul>
+                <li><em>Example:</em> In a fair coin toss, "Heads" and "Tails" are equally likely.</li>
+                <li><em>Example:</em> In a fair die roll, {1}, {2}, {3}, {4}, {5}, {6} are all equally likely.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="classical">
+            <h2>3. Classical (Statistical) Definition of Probability</h2>
+            <p>This is the first and most intuitive definition of probability.</p>
+            
+            <blockquote>
+                If a random experiment has 'n' mutually exclusive, exhaustive, and equally likely outcomes, and 'm' of these outcomes are favorable to an event A, then the probability of event A is:
+            </blockquote>
+            <div class="formula">
+                P(A) = m / n
+                <br>
+                P(A) = (Number of outcomes favorable to A) / (Total number of possible outcomes)
+            </div>
+            
+            <h3>Example:</h3>
+            <p><strong>Experiment:</strong> Drawing one card from a standard 52-card deck.</p>
+            <p><strong>Event A:</strong> Drawing a King.</p>
+            <ul>
+                <li>Total outcomes (n) = 52 (all cards are equally likely)</li>
+                <li>Favorable outcomes (m) = 4 (there are 4 Kings)</li>
+                <li><strong>P(A) = 4 / 52 = 1 / 13</strong></li>
+            </ul>
+
+            <h3>Limitations of Classical Definition:</h3>
+            <ul>
+                <li>It only works if outcomes are <strong>equally likely</strong>. (e.g., cannot be used for a biased coin).</li>
+                <li>It only works if the sample space is <strong>finite</strong> (n must be a finite number).</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="axiomatic">
+            <h2>4. Axiomatic Definition of Probability</h2>
+            <p>This is the modern, mathematical definition of probability (developed by Kolmogorov). It does not say *how* to calculate probability, but states the *rules* (axioms) that any probability measure P must follow.</p>
+            
+            <p>Given a sample space S, a probability P(A) is a number assigned to every event A that satisfies these three axioms:</p>
+            <blockquote>
+                <strong>Axiom 1 (Non-negativity):</strong> For any event A, <strong>P(A) ≥ 0</strong>.
+                <br>(Probability can never be negative).
+                <br><br>
+                <strong>Axiom 2 (Certainty):</strong> The probability of the entire sample space is 1.
+                <br><strong>P(S) = 1</strong>.
+                <br>(Something *must* happen).
+                <br><br>
+                <strong>Axiom 3 (Additivity):</strong> If A and B are two <strong>mutually exclusive</strong> events (A ∩ B = ∅), then the probability of their union is the sum of their individual probabilities.
+                <br><strong>P(A ∪ B) = P(A) + P(B)</strong>
+            </blockquote>
+            
+            <p>From these 3 simple axioms, all other probability rules can be derived, such as:</p>
+            <ul>
+                <li>P(∅) = 0 (Probability of an impossible event is 0)</li>
+                <li>P(A') = 1 - P(A) (Probability of the complement)</li>
+                <li>0 ≤ P(A) ≤ 1 (Probability is always between 0 and 1)</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="theorems">
+            <h2>5. Laws of Addition and Multiplication</h2>
+            
+            <h3>1. Addition Law of Probability</h3>
+            <p>This rule is used to find the probability of (A <strong>or</strong> B).</p>
+            
+            <h4>General Rule (for *any* two events):</h4>
+            <div class="formula">
+                P(A ∪ B) = P(A) + P(B) - P(A ∩ B)
+            </div>
+            <p><em>(We subtract P(A ∩ B) because it was counted twice - once in P(A) and once in P(B)).</em></p>
+
+            <h4>Special Rule (for *Mutually Exclusive* events):</h4>
+            <p>If A and B are mutually exclusive, then P(A ∩ B) = 0. The formula simplifies to:</p>
+            <div class="formula">
+                P(A ∪ B) = P(A) + P(B)   <em>(This is just Axiom 3)</em>
+            </div>
+
+            <h3>2. Multiplication Law of Probability</h3>
+            <p>This rule is used to find the probability of (A <strong>and</strong> B). It is derived from the definition of conditional probability.</p>
+            <div class="formula">
+                P(A ∩ B) = P(A) * P(B | A)
+                <br>
+                <em>(The probability of A, times the probability of B *given that* A has already happened)</em>
+                <br><br>
+                <em>or equivalently:</em>
+                <br>
+                P(A ∩ B) = P(B) * P(A | B)
+            </div>
+            <p>A special case for *Independent* events is covered below.</p>
+        </section>
+        
+        <hr>
+
+        <section id="conditional">
+            <h2>6. Conditional Probability</h2>
+            <blockquote>
+                <strong>Conditional Probability, P(A | B):</strong> The probability of event A occurring, <strong>given that</strong> event B has already occurred.
+            </blockquote>
+            <p>It "updates" the probability of A based on new information (that B happened). We are restricting our sample space from S down to just B.</p>
+            
+            <h3>Formula:</h3>
+            <div class="formula">
+                P(A | B) = P(A ∩ B) / P(B)       (provided P(B) > 0)
+            </div>
+
+            <h3>Example:</h3>
+            <p><strong>Experiment:</strong> Roll a fair die (S = {1, 2, 3, 4, 5, 6}).</p>
+            <p><strong>Event A:</strong> Getting a "4". P(A) = 1/6.</p>
+            <p><strong>Event B:</strong> Getting an "even number". B = {2, 4, 6}. P(B) = 3/6.</p>
+            <p><strong>Question:</strong> What is the probability of getting a 4, *given that* we know the result was an even number? We want to find P(A | B).</p>
+            <ul>
+                <li><strong>A ∩ B</strong> (Getting a 4 AND an even number) = {4}. So, P(A ∩ B) = 1/6.</li>
+                <li><strong>P(A | B)</strong> = P(A ∩ B) / P(B) = (1/6) / (3/6) = 1/3.</li>
+            </ul>
+            <p>This makes sense: if we know the outcome is even {2, 4, 6}, the chance of it being the "4" is 1 out of 3.</p>
+        </section>
+
+        <hr>
+
+        <section id="independence">
+            <h2>7. Independent Events</h2>
+            <blockquote>
+                <strong>Independent Events:</strong> Two events A and B are independent if the occurrence of one event does <strong>not</strong> affect the probability of the other event occurring.
+            </blockquote>
+            
+            <h3>Formal Definition:</h3>
+            <p>A and B are independent if and only if:</p>
+            <div class="formula">
+                P(A ∩ B) = P(A) * P(B)
+            </div>
+            
+            <p>This also means:</p>
+            <ul>
+                <li>P(A | B) = P(A)   <em>(Knowing B happened doesn't change the probability of A)</em></li>
+                <li>P(B | A) = P(B)   <em>(Knowing A happened doesn't change the probability of B)</em></li>
+            </ul>
+
+            <div class="exam-tip">
+                <strong>Common Mistake:</strong> Do NOT confuse "Mutually Exclusive" with "Independent".
+                <br>
+                - <strong>Mutually Exclusive:</strong> If A happens, B *cannot* happen. P(A ∩ B) = 0. They are strongly *dependent*.
+                <br>
+                - <strong>Independent:</strong> If A happens, it tells you *nothing* about B. P(A ∩ B) = P(A)P(B).
+            </div>
+
+            <h3>Example:</h3>
+            <p><strong>Experiment:</strong> Toss a fair coin twice.</p>
+            <p><strong>Event A:</strong> Get Heads on the 1st toss. P(A) = 1/2.</p>
+            <p><strong>Event B:</strong> Get Heads on the 2nd toss. P(B) = 1/2.</p>
+            <p><strong>Event (A ∩ B):</strong> Get Heads on both. S = {HH, HT, TH, TT}. P(A ∩ B) = 1/4.</p>
+            <p>Are they independent? Let's check:
+            <br>
+            Does P(A ∩ B) = P(A) * P(B)?
+            <br>
+            1/4 = (1/2) * (1/2)
+            <br>
+            1/4 = 1/4. Yes. The events are independent.
+            </p>
+        </section>
+
+        <hr>
+        
+        <section id="total-prob">
+            <h2>8. Theorem of Total Probability</h2>
+            <p>This theorem is used to find the probability of an event (B) by considering all the possible ways it can happen. It relies on partitioning the sample space.</p>
+            <p>Let's say the sample space S is partitioned into 'k' mutually exclusive and exhaustive events (A<sub>1</sub>, A<sub>2</sub>, ..., A<sub>k</sub>). This means one (and only one) of the A<sub>i</sub> events must occur.</p>
+            <p>Now, to find the total probability of an event B, we sum up the probabilities of B happening *within each partition*:</p>
+            <div class="formula">
+                P(B) = P(B ∩ A<sub>1</sub>) + P(B ∩ A<sub>2</sub>) + ... + P(B ∩ A<sub>k</sub>)
+                <br><br>
+                <em>Using the multiplication rule, this becomes:</em>
+                <br>
+                P(B) = P(B | A<sub>1</sub>)P(A<sub>1</sub>) + P(B | A<sub>2</sub>)P(A<sub>2</sub>) + ... + P(B | A<sub>k</sub>)P(A<sub>k</sub>)
+                <br>
+                P(B) = Σ [ P(B | A<sub>i</sub>) * P(A<sub>i</sub>) ]
+            </div>
+            
+            <h3>Example:</h3>
+            <p>Two urns, A1 and A2.</p>
+            <ul>
+                <li>Urn A1 has 2 White, 3 Black balls.</li>
+                <li>Urn A2 has 4 White, 1 Black ball.</li>
+            </ul>
+            <p>We choose an urn at random (P(A1) = 0.5, P(A2) = 0.5) and then draw one ball (Event B = "Ball is White"). What is P(B)?</p>
+            <ul>
+                <li>P(B | A1) = Probability of White, given Urn A1 = 2/5</li>
+                <li>P(B | A2) = Probability of White, given Urn A2 = 4/5</li>
+            </ul>
+            <p>Using the theorem:</p>
+            <p>P(B) = P(B | A1)P(A1) + P(B | A2)P(A2)</p>
+            <p>P(B) = (2/5)(0.5) + (4/5)(0.5) = (1/5) + (2/5) = 3/5</p>
+            <p>The total probability of getting a white ball is 3/5.</p>
+        </section>
+
+        <hr>
+
+        <section id="bayes">
+            <h2>9. Bayes' Theorem and Its Applications</h2>
+            <p>Bayes' Theorem is one of the most important concepts in probability. It allows us to <strong>"reverse" the conditional probability</strong>. </p>
+            <p>If we know P(B | A), Bayes' Theorem helps us find P(A | B).</p>
+            
+            <ul>
+                <li><strong>Prior Probability, P(A):</strong> Our initial belief about the probability of A *before* we get new evidence.</li>
+                <li><strong>New Evidence, B:</strong> We observe that event B has happened.</li>
+                <li><strong>Posterior Probability, P(A | B):</strong> Our *updated* belief about the probability of A, *given* that B has happened.</li>
+            </ul>
+
+            <h3>The Theorem</h3>
+            <p>Let A<sub>1</sub>, A<sub>2</sub>, ..., A<sub>k</sub> be a partition of the sample space. Let B be any event. We want to find the probability of a specific partition, A<sub>i</sub>, given that B has occurred.</p>
+            
+            <div class="formula">
+                P(A<sub>i</sub> | B) = [ P(B | A<sub>i</sub>) * P(A<sub>i</sub>) ] / P(B)
+            </div>
+            
+            <p>We can expand the denominator P(B) using the Theorem of Total Probability:</p>
+            
+            <blockquote>
+                <strong>Bayes' Theorem (Full Form):</strong>
+                <br>
+                P(A<sub>i</sub> | B) = [ P(B | A<sub>i</sub>)P(A<sub>i</sub>) ] / [ Σ P(B | A<sub>j</sub>)P(A<sub>j</sub>) ]
+            </blockquote>
+            
+            <h3>Application / Example (Classic Disease Test):</h3>
+            <p>A disease (D) affects 1% of the population. P(D) = 0.01.
+            <br>
+            The other 99% are healthy (H). P(H) = 0.99.</p>
+            
+            <p>There is a test (T).
+            <br>
+            - If you have the disease, the test is <strong>positive 95%</strong> of the time. (P(T+ | D) = 0.95)
+            <br>
+            - If you are healthy, the test is <strong>positive 2%</strong> of the time (a "false positive"). (P(T+ | H) = 0.02)
+            </p>
+            
+            <p><strong>Question:</strong> You test positive (T+). What is the probability you *actually have the disease*?
+            <br>We want to find <strong>P(D | T+)</strong>.</p>
+            
+            <p><strong>Step 1: Identify the pieces.</strong>
+            <br>
+            - A<sub>1</sub> = D (Disease), A<sub>2</sub> = H (Healthy)
+            <br>
+            - B = T+ (Test is positive)
+            <br>
+            - P(D) = 0.01 (Prior)
+            <br>
+            - P(H) = 0.99 (Prior)
+            <br>
+            - P(T+ | D) = 0.95 (Likelihood)
+            <br>
+            - P(T+ | H) = 0.02 (Likelihood)
+            </p>
+
+            <p><strong>Step 2: Calculate the numerator: P(T+ | D) * P(D)</strong>
+            <br>
+            (0.95) * (0.01) = 0.0095
+            </p>
+
+            <p><strong>Step 3: Calculate the total denominator, P(T+), using Total Probability.</strong>
+            <br>
+            P(T+) = P(T+ | D)P(D) + P(T+ | H)P(H)
+            <br>
+            P(T+) = (0.95)(0.01) + (0.02)(0.99)
+            <br>
+            P(T+) = 0.0095 + 0.0198
+            <br>
+            P(T+) = 0.0293
+            </p>
+            
+            <p><strong>Step 4: Divide Numerator by Denominator.</strong>
+            <br>
+            P(D | T+) = 0.0095 / 0.0293 ≈ 0.324
+            </p>
+
+            <div class="exam-tip">
+                <strong>Result Interpretation:</strong> Even though you tested positive, there is only a <strong>32.4% chance</strong> you actually have the disease. This surprising result is because the false positive rate (2%) applied to the large healthy population (99%) creates more total positive tests than the true positive rate (95%) applied to the small sick population (1%).
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>

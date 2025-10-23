@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDC-101: Unit 2 - Measures of Central Tendency</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #16a085;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #16a085;
+            border-bottom: 2px solid #D1F2EB;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #117a65;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #16a085;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        blockquote {
+            background: #D1F2EB;
+            border-left: 5px solid #16a085;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #555;
+        }
+        .exam-tip, .note {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            border-left-width: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #d9534f;
+        }
+        .note strong {
+            color: #0275d8;
+        }
+        .formula {
+            background: #e8f8f5;
+            border: 1px solid #a9dfbf;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        #toc {
+            background: #D1F2EB;
+            border: 1px solid #16a085;
+            padding: 15px 25px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #2c3e50;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc ul li a {
+            text-decoration: none;
+            color: #117a65;
+        }
+        #toc ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>IDC-101: Unit 2 - Measures of Central Tendency</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#criteria">1. Criteria for an Ideal Measure of Central Tendency</a></li>
+                <li><a href="#am">2. Arithmetic Mean (AM)</a></li>
+                <li><a href="#median">3. Median</a></li>
+                <li><a href="#mode">4. Mode (Ungrouped, Grouped, and Graphical)</a></li>
+                <li><a href="#gm">5. Geometric Mean (GM)</a></li>
+                <li><a href="#hm">6. Harmonic Mean (HM)</a></li>
+                <li><a href="#merits">7. Merits and Demerits</a></li>
+            </ul>
+        </div>
+
+        <section id="criteria">
+            <h2>1. Criteria for an Ideal Measure of Central Tendency</h2>
+            <p>An "ideal" average should have the following properties:</p>
+            <ul>
+                <li><strong>Rigidly Defined:</strong> It should have a clear, unambiguous formula.</li>
+                <li><strong>Easy to Understand and Calculate:</strong> It should be simple for a common person to grasp.</li>
+                <li><strong>Based on All Observations:</strong> It should use every data point in the set.</li>
+                <li><strong>Suitable for Further Algebraic Treatment:</strong> We should be able to use it in more advanced formulas (e.g., combining means).</li>
+                <li><strong>Not Unduly Affected by Extreme Values:</strong> A single very large or very small number shouldn't completely change the result.</li>
+                <li><strong>Sampling Stability:</strong> If we take multiple samples, the average for each sample should be roughly the same.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="am">
+            <h2>2. Arithmetic Mean (AM)</h2>
+            <p>The "average" as most people know it. It is the sum of all observations divided by the number of observations.</p>
+            <div class="formula">
+                <strong>Ungrouped Data:</strong> x̄ = (x1 + x2 + ... + xn) / n = (Σx) / n
+                <br><br>
+                <strong>Grouped Data:</strong> x̄ = (Σf * x) / (Σf) = (Σf * x) / N
+                <br>
+                (where x = midpoint of class, f = frequency, N = total frequency)
+            </div>
+            <ul>
+                <li><strong>Merits:</strong> Rigidly defined, easy to calculate, uses all data, good for algebra.</li>
+                <li><strong>Demerits:</strong> <strong>Highly affected by extreme values (outliers)</strong>. Cannot be calculated for open-ended classes.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="median">
+            <h2>3. Median</h2>
+            <p>The middle value of a dataset that has been arranged in order (ascending or descending). It divides the data into two equal halves.</p>
+            <div class="formula">
+                <strong>Ungrouped Data:</strong>
+                <br>
+                1. Order the data.
+                <br>
+                2. Find the position: (n+1)/2.
+                <br>
+                - If n=7, position is (7+1)/2 = 4th item.
+                <br>
+                - If n=8, position is (8+1)/2 = 4.5th item (average of 4th and 5th items).
+                <br><br>
+                <strong>Grouped Data:</strong>
+                <br>
+                1. Find the Median Class (the class where the (N/2)-th item falls).
+                <br>
+                2. Apply formula: <strong>Median = L + [ ( (N/2) - cf ) / f ] * h</strong>
+                <br>
+                (L = lower boundary of median class, N = total frequency, cf = cumulative frequency *before* median class, f = frequency of median class, h = class width)
+            </div>
+            <ul>
+                <li><strong>Merits:</strong> <strong>Not affected by outliers</strong>, can be found for open-ended classes, can be found graphically (from ogives).</li>
+                <li><strong>Demerits:</strong> Not based on all observations, not good for algebraic treatment.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="mode">
+            <h2>4. Mode (Ungrouped, Grouped, and Graphical)</h2>
+            <p>The value that appears most frequently in a dataset.</p>
+
+            <h3>1. Mode for Ungrouped Data</h3>
+            <p>Simply find the value that repeats the most.</p>
+            <ul>
+                <li><em>Example:</em> Data: {2, 5, <strong>6, 6, 6</strong>, 7, 8, 9}. <strong>Mode = 6</strong>.</li>
+                <li><em>Example:</em> Data: {1, 1, 2, 3, 3}. <strong>Bimodal: 1 and 3</strong>.</li>
+                <li><em>Example:</em> Data: {1, 2, 3, 4, 5}. <strong>No Mode</strong>.</li>
+            </ul>
+            
+            <h3>2. Mode for Grouped Data (Formula)</h3>
+            <ol>
+                <li>Find the <strong>Modal Class</strong> (the class with the highest frequency).</li>
+                <li>Apply the formula:
+                    <div class="formula">
+                        Mode = L + [ (f1 - f0) / (2*f1 - f0 - f2) ] * h
+                    </div>
+                    Where:
+                    <ul>
+                        <li><strong>L</strong> = lower boundary of modal class</li>
+                        <li><strong>f1</strong> = frequency of the modal class</li>
+                        <li><strong>f0</strong> = frequency of the class *before* the modal class</li>
+                        <li><strong>f2</strong> = frequency of the class *after* the modal class</li>
+                        <li><strong>h</strong> = class width</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <h3>3. Mode by Graphical Method</h3>
+            <p>The mode can be estimated graphically from a <strong>Histogram</strong>.</p>
+            <ol>
+                <li>Draw a histogram of the data.</li>
+                <li>Identify the tallest bar (the modal class).</li>
+                <li>Draw two lines:
+                    <ul>
+                        <li>From the top-right corner of the modal bar to the top-right corner of the *previous* bar.</li>
+                        <li>From the top-left corner of the modal bar to the top-left corner of the *next* bar.</li>
+                    </ul>
+                </li>
+                <li>Draw a vertical line from the intersection of these two lines down to the X-axis.</li>
+                <li>The value on the X-axis is the estimated Mode.</li>
+            </ol>
+            <ul>
+                <li><strong>Merits:</strong> <strong>Not affected by outliers</strong>, easy to understand, the only average for nominal data.</li>
+                <li><strong>Demerits:</strong> May not exist or be unique, ill-defined, not based on all observations.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="gm">
+            <h2>5. Geometric Mean (GM)</h2>
+            <p>The n-th root of the product of n (non-negative) observations. It is best used for averaging ratios, percentages, or growth rates.</p>
+            <div class="formula">
+                <strong>Ungrouped Data:</strong> GM = (x1 * x2 * ... * xn)^(1/n)
+            </div>
+            <div class="note">
+                <strong>Calculation Tip:</strong> The GM is difficult to calculate directly. Use logarithms:
+                <br>
+                log(GM) = (1/n) * [log(x1) + log(x2) + ... + log(xn)] = (Σ log(x)) / n
+                <br>
+                <strong>GM = Antilog [ (Σ log(x)) / n ]</strong>
+            </div>
+            <ul>
+                <li><strong>Merits:</strong> Based on all observations, less affected by outliers than AM, good for rates of change.</li>
+                <li><strong>Demerits:</strong> Difficult to calculate, cannot be used if any value is zero or negative.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="hm">
+            <h2>6. Harmonic Mean (HM)</h2>
+            <p>The reciprocal of the arithmetic mean of the reciprocals of the observations. It is best used for averaging rates and speeds.</p>
+            <div class="formula">
+                <strong>Ungrouped Data:</strong> HM = n / ( (1/x1) + (1/x2) + ... + (1/xn) ) = n / (Σ (1/x))
+            </div>
+            <ul>
+                <li><strong>Merits:</strong> Based on all observations, gives more weight to smaller values.</li>
+                <li><strong>Demerits:</strong> Difficult to calculate, cannot be used if any value is zero.</li>
+            </ul>
+        </section>
+
+        <hr>
+        
+        <section id="merits">
+            <h2>7. Merits and Demerits (Summary)</h2>
+            <div class="exam-tip">
+                <strong>Exam Tip:</strong> "Which is the 'best' average?" The <strong>Arithmetic Mean</strong> is generally the best as it satisfies most properties of an ideal average. However, if there are <strong>outliers</strong>, the <strong>Median</strong> is better. If dealing with <strong>rates/speeds</strong>, the <strong>Harmonic Mean</strong> is better. If dealing with <strong>growth rates</strong>, the <strong>Geometric Mean</strong> is better.
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Measure</th>
+                        <th>Based on all data?</th>
+                        <th>Affected by Outliers?</th>
+                        <th>Best for...</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Mean (AM)</strong></td>
+                        <td>Yes</td>
+                        <td><strong>Yes, very much</strong></td>
+                        <td>General purpose, algebra</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Median</strong></td>
+                        <td>No (only position)</td>
+                        <td><strong>No</strong></td>
+                        <td>Data with outliers, open-ended classes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mode</strong></td>
+                        <td>No</td>
+                        <td><strong>No</strong></td>
+                        <td>Categorical (Nominal) data, finding most popular item</td>
+                    </tr>
+                    <tr>
+                        <td><strong>GM</strong></td>
+                        <td>Yes</td>
+                        <td>Yes, but less than AM</td>
+                        <td>Growth rates, ratios</td>
+                    </tr>
+                    <tr>
+                        <td><strong>HM</strong></td>
+                        <td>Yes</td>
+<td>Yes, but less than AM</td>
+                        <td>Speeds, rates</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </div>
+</body>
+</html>

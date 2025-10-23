@@ -120,6 +120,12 @@ section {
   font-size: 1.1rem;
 }
 
+#resources h2 {
+  text-align: center;
+  color: #1e3a8a;
+  font-size: 1.6rem;
+}
+
 /* ------------------------------
    About Section
 ------------------------------ */

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSC-101: Microbiology - Unit 1</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            text-align: center;
+            color: #0d47a1;
+            border-bottom: 3px solid #1e88e5;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1e88e5;
+            border-bottom: 2px solid #b3e5fc;
+            padding-top: 15px;
+        }
+        h3 {
+            color: #0277bd;
+            padding-top: 10px;
+        }
+        strong {
+            color: #c62828;
+        }
+        blockquote {
+            background-color: #e3f2fd;
+            border-left: 5px solid #1e88e5;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #b3e5fc;
+            color: #01579b;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        nav {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 25px;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav li {
+            margin-bottom: 5px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #0277bd;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #fff9c4;
+            border: 1px solid #fbc02d;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .placeholder {
+            width: 100%;
+            background-color: #eee;
+            border: 2px dashed #ccc;
+            padding: 30px;
+            text-align: center;
+            color: #777;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BOT: DSC-101: Microbiology<br>Unit 1: General Microbiology</h1>
+
+        <nav>
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#topic1">Brief history of microbiology</a></li>
+                <li><a href="#topic2">Discovery of viruses and different groups of microorganisms</a></li>
+                <li><a href="#topic3">Status of microorganisms in the living world</a></li>
+                <li><a href="#topic4">Methods of sterilization (physical and chemical)</a></li>
+                <li><a href="#topic5">Microbial nutrition and growth</a></li>
+                <li><a href="#topic6">Microbial culture media</a></li>
+                <li><a href="#topic7">Stains and staining techniques</a></li>
+                <li><a href="#topic8">Antibiotics and their mode of actions</a></li>
+                <li><a href="#topic9">Vaccines</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="topic1">Brief history of microbiology</h2>
+        <p>Microbiology is the study of microscopic organisms. Its history is marked by key individuals who established it as a science.</p>
+        <ul>
+            <li><strong>Antonie van Leeuwenhoek (1632-1723):</strong> A Dutch cloth merchant who built high-magnification single-lens microscopes. He was the first to observe and describe single-celled organisms, which he called <strong>"animalcules"</strong> (now known as bacteria and protozoa). He is often called the "Father of Microbiology."</li>
+            <li><strong>Louis Pasteur (1822-1895):</strong> A French chemist and microbiologist, considered a "Father of Medical Microbiology."
+                <ul>
+                    <li>Disproved <strong>spontaneous generation</strong> with his swan-neck flask experiments.</li>
+                    <li>Developed <strong>fermentation</strong> (showing it was caused by microbes) and <strong>pasteurization</strong> (heating to kill pathogens).</li>
+                    <li>Developed vaccines for anthrax and rabies.</li>
+                    <li>Championed the <strong>Germ Theory of Disease</strong>.</li>
+                </ul>
+            </li>
+            <li><strong>Robert Koch (1843-1910):</strong> A German physician who provided definitive proof for the Germ Theory of Disease.
+                <ul>
+                    <li>Identified the specific causative agents of tuberculosis, cholera, and anthrax.</li>
+                    <li>Developed <strong>Koch's Postulates</strong>, a set of criteria to establish a causal link between a microbe and a disease.</li>
+                    <li>Pioneered <strong>pure culture techniques</strong> using agar as a solidifying agent (suggested by Angelina Hesse).</li>
+                </ul>
+            </li>
+            <li><strong>Edward Jenner (1749-1823):</strong> An English physician who created the first vaccine. He used material from cowpox lesions to protect people from smallpox.</li>
+            <li><strong>Alexander Fleming (1881-1955):</strong> A Scottish biologist who discovered the first antibiotic, <strong>penicillin</strong>, from the mold <em>Penicillium notatum</em> in 1928.</li>
+        </ul>
+
+        <h2 id="topic2">Discovery of viruses and different groups of microorganisms</h2>
+        <h3>Discovery of Viruses</h3>
+        <p>Viruses were discovered as agents smaller than bacteria that could pass through filters. <strong>Dmitri Ivanovsky (1892)</strong> and <strong>Martinus Beijerinck (1898)</strong> studied Tobacco Mosaic Disease. Beijerinck coined the term "virus" (Latin for poison) after concluding the infectious agent was a "contagious living fluid" (<em>contagium vivum fluidum</em>).</p>
+        
+        <h3>Groups of Microorganisms (Prokaryotes to Eukaryotes)</h3>
+        <p>Microorganisms span all three domains of life: Bacteria, Archaea, and Eukarya.</p>
+        <ul>
+            <li><strong>Prokaryotes:</strong> Organisms lacking a true, membrane-bound nucleus and organelles.
+                <ul>
+                    <li><strong>Bacteria:</strong> Unicellular, most have a cell wall of <strong>peptidoglycan</strong>. Includes common microbes like <em>E. coli</em> and <em>Staphylococcus</em>.</li>
+                    <li><strong>Archaea:</strong> Unicellular, cell walls lack peptidoglycan. Many are <strong>extremophiles</strong> (living in extreme heat, salt, or pH).</li>
+                </ul>
+            </li>
+            <li><strong>Eukaryotes:</strong> Organisms with a membrane-bound nucleus and organelles.
+                <ul>
+                    <li><strong>Fungi:</strong> (e.g., Yeasts, Molds). Heterotrophic, with cell walls of <strong>chitin</strong>.</li>
+                    <li><strong>Protozoa:</strong> (e.g., <em>Amoeba</em>, <em>Paramecium</em>). Unicellular, "animal-like" eukaryotes. Usually motile.</li>
+                    <li><strong>Algae (Microalgae):</strong> (e.g., <em>Chlamydomonas</em>, Diatoms). Photosynthetic, "plant-like" eukaryotes. Cell walls often of <strong>cellulose</strong>.</li>
+                </ul>
+            </li>
+            <li><strong>Acellular Agents:</strong> Not truly "living" as they are not cells.
+                <ul>
+                    <li><strong>Viruses:</strong> Obligate intracellular parasites composed of genetic material (DNA or RNA) surrounded by a protein coat (capsid).</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2 id="topic3">Status of microorganisms in the living world</h2>
+        <p>Microorganisms' position in the living world is best understood through classification systems.</p>
+        <ul>
+            <li><strong>Whittaker's Five-Kingdom System (1969):</strong> Placed all prokaryotes (Bacteria, Archaea) in the kingdom <strong>Monera</strong>. Eukaryotic microbes were placed in <strong>Protista</strong> (algae, protozoa) and <strong>Fungi</strong>.</li>
+            <li><strong>Woese's Three-Domain System (1990):</strong> This is the modern standard. Based on ribosomal RNA (rRNA) sequencing, it divides all life into three domains:
+                <ol>
+                    <li><strong>Bacteria:</strong> "True" bacteria.</li>
+                    <li><strong>Archaea:</strong> Prokaryotes with distinct biochemistry, often extremophiles.</li>
+                    <li><strong>Eukarya:</strong> All eukaryotes (Protista, Fungi, Plantae, Animalia).</li>
+                </ol>
+                <p>This system highlights that Archaea are as different from Bacteria as they are from Eukaryotes. Microorganisms are the most abundant and diverse life forms, forming the base of many food webs and driving all biogeochemical cycles.</p>
+            </li>
+        </ul>
+
+        <h2 id="topic4">Methods of sterilization (physical and chemical)</h2>
+        <blockquote>
+            <strong>Sterilization:</strong> The complete removal or destruction of all viable microorganisms, including endospores and viruses.
+        </blockquote>
+        
+        <h3>Physical Methods</h3>
+        <ol>
+            <li><strong>Heat:</strong> Most common and effective method.
+                <ul>
+                    <li><strong>Moist Heat (Autoclave):</strong> Uses steam under pressure (<strong>121°C, 15 psi, 15-20 minutes</strong>). Kills all organisms, including spores. Used for culture media, glassware, and surgical instruments.</li>
+                    <li><strong>Dry Heat (Hot Air Oven):</strong> Requires higher temperatures and longer times (<strong>160-170°C for 2-3 hours</strong>). Used for glassware, metal instruments, and powders that are damaged by moisture.</li>
+                    <li><strong>Pasteurization:</strong> Mild heating to kill pathogens and reduce spoilage microbes in liquids (e.g., milk). <strong>It is not sterilization.</strong> (e.g., HTST: 72°C for 15 seconds).</li>
+                </ul>
+            </li>
+            <li><strong>Filtration:</strong> Physical removal of microbes by passing a liquid or gas through a filter with pores too small for microbes to pass (e.g., HEPA filters for air, membrane filters for heat-sensitive liquids like antibiotics).</li>
+            <li><strong>Radiation:</strong>
+                <ul>
+                    <li><strong>Non-ionizing (UV Radiation):</strong> Damages DNA (forms thymine dimers). Used for surface sterilization (e.g., lab benches, hospital rooms). Poor penetration.</li>
+                    <li><strong>Ionizing (X-rays, Gamma rays):</strong> Creates highly reactive free radicals that damage DNA and proteins. High penetration. Used to sterilize pre-packaged medical supplies (e.g., syringes, gloves).</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>Chemical Methods</h3>
+        <p>These are often called <strong>disinfectants</strong> (on inanimate objects) or <strong>antiseptics</strong> (on living tissue).</p>
+        <ul>
+            <li><strong>Alcohols (e.g., 70% Ethanol, Isopropanol):</strong> Denature proteins and dissolve lipids. Used as skin antiseptics.</li>
+            <li><strong>Halogens (e.g., Chlorine, Iodine):</strong> Oxidizing agents. Chlorine (bleach) is a common disinfectant. Iodine (tincture, iodophors) is an antiseptic.</li>
+            <li><strong>Aldehydes (e.g., Formaldehyde, Glutaraldehyde):</strong> Highly effective. Cross-link and inactivate proteins and nucleic acids. Can be used for chemical sterilization (chemosterilants).</li>
+            <li><strong>Gases (e.g., Ethylene Oxide):</strong> Used to sterilize heat-sensitive materials (e.g., plastics, electronics). Highly penetrating but toxic and explosive.</li>
+        </ul>
+
+        <h2 id="topic5">Microbial nutrition and growth</h2>
+        <h3>Microbial Nutrition</h3>
+        <p>Microbes require nutrients for energy and to build cellular components.</p>
+        <ul>
+            <li><strong>Macronutrients:</strong> Required in large amounts (e.g., <strong>C, H, O, N, P, S</strong>).</li>
+            <li><strong>Micronutrients:</strong> Required in small amounts (e.g., Fe, Cu, Zn) - often act as cofactors for enzymes.</li>
+        </ul>
+        <p>Based on Carbon and Energy sources:</p>
+        <ul>
+            <li><strong>Autotrophs:</strong> Use inorganic CO<sub>2</sub> as their carbon source.
+                <ul>
+                    <li><strong>Photoautotrophs:</strong> Energy from light (e.g., algae, cyanobacteria).</li>
+                    <li><strong>Chemoautotrophs:</strong> Energy from inorganic chemicals (e.g., nitrifying bacteria).</li>
+                </ul>
+            </li>
+            <li><strong>Heterotrophs:</strong> Use organic compounds as their carbon source.
+                <ul>
+                    <li><strong>Photoheterotrophs:</strong> Energy from light, carbon from organic compounds.</li>
+                    <li><strong>Chemoheterotrophs:</strong> Energy and carbon from organic compounds (e.g., most bacteria, fungi, protozoa).</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Microbial Growth (Growth Curve)</h3>
+        <p>Growth typically refers to an increase in the number of cells (population growth), not the size of an individual cell. In a closed batch culture, bacterial growth follows a predictable pattern:</p>
+        <div class="placeholder" id="diagram1">
+            <strong>[Diagram: Bacterial Growth Curve]</strong>
+            <p>(X-axis: Time, Y-axis: Log of Cell Number)</p>
+        </div>
+        <ol>
+            <li><strong>Lag Phase:</strong> No increase in cell number. Cells are "gearing up" - synthesizing enzymes and adjusting to the new medium.</li>
+            <li><strong>Log (Exponential) Phase:</strong> Cells divide at a constant, maximum rate. Population doubles at a regular interval (<strong>generation time</strong>). Cells are most active and most sensitive to antibiotics.</li>
+            <li><strong>Stationary Phase:</strong> Growth rate equals death rate. Nutrients become limited, and toxic waste products accumulate. Cell number stabilizes.</li>
+            <li><strong>Death (Decline) Phase:</strong> Death rate exceeds growth rate. Population declines as conditions become increasingly unfavorable.</li>
+        </ol>
+
+        <h3>Factors Affecting Growth</h3>
+        <ul>
+            <li><strong>Temperature:</strong>
+                <ul>
+                    <li><strong>Psychrophiles:</strong> Cold-loving (0-20°C).</li>
+                    <li><strong>Mesophiles:</strong> Moderate-loving (20-45°C). Most human pathogens are mesophiles.</li>
+                    <li><strong>Thermophiles:</strong> Heat-loving (45-80°C).</li>
+                </ul>
+            </li>
+            <li><strong>pH:</strong>
+                <ul>
+                    <li><strong>Acidophiles:</strong> Grow at low pH.</li>
+                    <li><strong>Neutrophiles:</strong> Grow at neutral pH (6.5-7.5).</li>
+                    <li><strong>Alkaliphiles:</strong> Grow at high pH.</li>
+                </ul>
+            </li>
+            <li><strong>Oxygen:</strong>
+                <ul>
+                    <li><strong>Obligate Aerobes:</strong> Require O<sub>2</sub>.</li>
+                    <li><strong>Obligate Anaerobes:</strong> Killed by O<sub>2</sub>.</li>
+                    <li><strong>Facultative Anaerobes:</strong> Prefer O<sub>2</sub> but can grow without it (e.g., <em>E. coli</em>).</li>
+                </ul>
+            </li>
+        </ul>
+        <h3>Control of Growth</h3>
+        <p>This involves using methods (like sterilization, disinfection, antibiotics) to prevent or stop microbial growth, especially of pathogens or spoilage microbes.</p>
+
+        <h2 id="topic6">Microbial culture media</h2>
+        <p>A culture medium (plural: media) is a nutrient preparation used to grow microbes in the lab. It can be <strong>liquid (broth)</strong> or <strong>solid (agar)</strong>.</p>
+        <h3>Types of Media</h3>
+        <ul>
+            <li><strong>Basic / General Purpose Media (e.g., Nutrient Agar/Broth):</strong> Supports the growth of a wide variety of non-fastidious microbes.</li>
+            <li><strong>Enriched Media (e.g., Blood Agar):</strong> Basic media supplemented with special nutrients (like blood or serum) to support the growth of <strong>fastidious</strong> (picky) microbes.</li>
+            <li><strong>Selective Media (e.g., MacConkey Agar):</strong> Contains inhibitors (like bile salts, dyes) that <strong>prevent the growth of certain microbes</strong> while allowing others to grow. (MacConkey selects for Gram-negative bacteria).</li>
+            <li><strong>Differential Media (e.g., MacConkey Agar, EMB Agar):</strong> Contains indicators (like a dye and a sugar) that allow you to <strong>distinguish between different types of microbes</strong> based on their appearance. (MacConkey differentiates lactose-fermenters (pink) from non-fermenters (colorless)).</li>
+        </ul>
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> Many media are both selective and differential. <strong>MacConkey Agar</strong> is the classic example: It <strong>selects</strong> for Gram-negative bacteria (inhibits Gram-positive) and <strong>differentiates</strong> lactose fermenters (pink colonies) from non-fermenters.
+        </div>
+
+        <h2 id="topic7">Stains and staining techniques</h2>
+        <p>Staining increases the contrast between the microbe and its background, making it visible. A <strong>stain</strong> is a dye, typically a salt with a colored ion (chromophore).</p>
+        <ul>
+            <li><strong>Basic Dyes:</strong> Positively charged chromophore (e.g., Crystal Violet, Safranin). Stains the negatively charged bacterial cell.</li>
+            <li><strong>Acidic Dyes:</strong> Negatively charged chromophore (e.g., Nigrosin). Repelled by the cell; stains the background (Negative Staining).</li>
+        </ul>
+
+        <h3>Staining Techniques</h3>
+        <ul>
+            <li><strong>Simple Staining:</strong> Uses a single basic dye. Reveals cell morphology (shape) and arrangement (clusters, chains).</li>
+            <li><strong>Differential Staining:</strong> Uses multiple reagents to distinguish between different groups of bacteria.
+                <ul>
+                    <li><strong>Gram Stain:</strong> The most important stain. Classifies bacteria into <strong>Gram-Positive</strong> (purple) or <strong>Gram-Negative</strong> (pink) based on cell wall structure.</li>
+                    <li><strong>Acid-Fast Stain:</strong> Used to identify <em>Mycobacterium</em> (causes TB, leprosy), which have a waxy (mycolic acid) cell wall. Acid-fast cells stain red; non-acid-fast cells stain blue.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>The Gram Stain Procedure (Key Steps)</h3>
+        <div class="placeholder">
+            <strong>[Flowchart: Gram Staining Procedure]</strong>
+        </div>
+        <ol>
+            <li><strong>Primary Stain (Crystal Violet):</strong> All cells stain purple.</li>
+            <li><strong>Mordant (Iodine):</strong> Forms a C-V-I complex. All cells remain purple.</li>
+            <li><strong>Decolorizer (Alcohol/Acetone):</strong> <strong>This is the differential step.</strong>
+                <ul>
+                    <li><strong>Gram-Po

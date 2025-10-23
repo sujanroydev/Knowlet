@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSC 101 - Unit 3: Production and Cost</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #0056b3; /* Dark Blue */
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #b3003b; /* Dark Red */
+            margin-top: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #006400; /* Dark Green */
+            margin-top: 20px;
+        }
+        p {
+            text-align: justify;
+        }
+        ul, ol {
+            margin-left: 20px;
+            padding-left: 10px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #0056b3;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f8ff; /* Light blue stripes */
+        }
+        blockquote {
+            background-color: #fff8e1; /* Light yellow */
+            border-left: 5px solid #ffc107; /* Amber */
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        .formula {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1em;
+            font-weight: bold;
+            background: #eee;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+            display: block;
+            margin: 10px 0;
+        }
+        .exam-tip {
+            background-color: #e6f7ff; /* Light cyan */
+            border: 1px solid #b3e0ff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .exam-tip strong {
+            color: #0056b3;
+        }
+        #toc {
+            background-color: #f4f4f4;
+            border: 1px solid #ccc;
+            padding: 15px 25px;
+            border-radius: 5px;
+            margin-bottom: 25px;
+        }
+        #toc h2 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: none;
+            text-align: center;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 5px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 3: Production and Cost</h1>
+        
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Production Functions</a></li>
+                <li><a href="#topic2">Short Run and Long Run</a></li>
+                <li><a href="#topic3">Law of Variable Proportions</a></li>
+                <li><a href="#topic4">Returns to Scale</a></li>
+                <li><a href="#topic5">Iso-quant and Iso-cost Lines</a></li>
+                <li><a href="#topic6">Producers Equilibrium</a></li>
+                <li><a href="#topic7">Cost of Production - Types</a></li>
+                <li><a href="#topic8">Short Run Cost Curves</a></li>
+                <li><a href="#topic9">Long Run Cost Curves</a></li>
+            </ul>
+        </div>
+        
+        <hr>
+
+        <h2 id="topic1">Production Functions</h2>
+        <p>A <strong>production function</strong> is a mathematical equation that shows the technical relationship between physical <strong>inputs</strong> (like labor and capital) and the maximum physical <strong>output</strong> that can be produced from them, given the current state of technology.</p>
+        <span class="formula">
+            Q = f(L, K)
+        </span>
+        <p>Where:
+            <ul>
+                <li><strong>Q</strong> = Maximum quantity of output</li>
+                <li><strong>L</strong> = Units of Labor</li>
+                <li><strong>K</strong> = Units of Capital</li>
+                <li><strong>f</strong> = denotes the functional relationship (technology)</li>
+            </ul>
+        </p>
+
+        <hr>
+
+        <h2 id="topic2">Short Run and Long Run</h2>
+        <p>In economics, the "run" is not a specific length of time, but a conceptual period based on the flexibility of inputs.</p>
+        
+        <h3>Short Run</h3>
+        <ul>
+            <li><strong>Definition:</strong> The <strong>short run</strong> is a period of time in which <strong>at least one factor of production is fixed</strong>.</li>
+            <li>Typically, <strong>Capital (K)</strong> (like the factory, machines) is considered <strong>fixed</strong>.</li>
+            <li>Production can only be increased by adding more <strong>variable factors</strong>, like <strong>Labor (L)</strong>.</li>
+            <li>The law that applies here is the <strong>Law of Variable Proportions</strong>.</li>
+        </ul>
+
+        <h3>Long Run</h3>
+        <ul>
+            <li><strong>Definition:</strong> The <strong>long run</strong> is a period of time in which <strong>all factors of production are variable</strong>.</li>
+            <li>The firm can change its factory size, build new plants, and adopt new technology. There are no fixed inputs.</li>
+            <li>The law that applies here is the <strong>Returns to Scale</strong>.</li>
+        </ul>
+
+        <hr>
+
+        <h2 id="topic3">Law of Variable Proportions (Short Run)</h2>
+        <p>This law is also known as the "Law of Diminishing Marginal Returns."</p>
+        <blockquote>
+            The <strong>Law of Variable Proportions</strong> states that in the short run, as we increase the quantity of a <strong>variable input (Labor)</strong> while keeping other <strong>fixed inputs (Capital)</strong> constant, the <strong>Marginal Product (MP)</strong> of the variable input will eventually decline.
+        </blockquote>
+        
+        <h3>Key Concepts:</h3>
+        <ul>
+            <li><strong>Total Product (TP):</strong> Total quantity of output produced.</li>
+            <li><strong>Average Product (AP):</strong> Total Product per unit of variable input. <span class="formula">AP = TP / L</span></li>
+            <li><strong>Marginal Product (MP):</strong> The additional output produced by using one more unit of the variable input. <span class="formula">MP = ΔTP / ΔL</span></li>
+        </ul>
+        
+        <h3>The Three Stages of Production</h3>
+        <p>This law is illustrated by three stages of production, as shown in the diagram below.</p>
+        <p style="text-align:center; font-style:italic;">[]</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Stage</th>
+                    <th>Description</th>
+                    <th>Total Product (TP)</th>
+                    <th>Marginal Product (MP)</th>
+                    <th>Why?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Stage 1: Increasing Returns</strong></td>
+                    <td>From origin to where AP is maximum.</td>
+                    <td>Increases at an <em>increasing rate</em>, then at a <em>decreasing rate</em>.</td>
+                    <td>Increases, reaches max, then starts to fall. (MP > AP).</td>
+                    <td>Better use of fixed factor, specialization of labor.</td>
+                </tr>
+                <tr>
+                    <td><strong>Stage 2: Diminishing Returns</strong></td>
+                    <td>From where AP is max to where MP is zero.</td>
+                    <td>Increases at a <em>diminishing rate</em>, reaches its maximum.</td>
+                    <td>Continues to fall, becomes zero. (MP < AP).</td>
+                    <td>Overcrowding of variable factors on the fixed factor.</td>
+                </tr>
+                <tr>
+                    <td><strong>Stage 3: Negative Returns</strong></td>
+                    <td>After MP becomes zero.</td>
+                    <td><strong>Starts to fall.</strong></td>
+                    <td><strong>Becomes negative.</strong></td>
+                    <td>Too much variable factor; they get in each other's way.</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> A rational producer will <strong>always operate in Stage 2</strong> (Diminishing Returns). They will not stop in Stage 1 (as they can still increase output efficiently) and will never operate in Stage 3 (as total output is falling).
+        </div>
+
+        <hr>
+
+        <h2 id="topic4">Returns to Scale (Long Run)</h2>
+        <p>This law explains the behavior of output when <strong>all inputs are changed by the same proportion</strong> (i.e., the "scale" of the firm changes) in the long run.</p>
+        
+        <ul>
+            <li><strong>1. Increasing Returns to Scale (IRS):</strong>
+                <ul>
+                    <li><strong>Definition:</strong> When a proportional increase in all inputs leads to a <strong>more than proportional</strong> increase in output.</li>
+                    <li><strong>Example:</strong> 10% increase in L and K → <strong>15% increase in Q</strong>.</li>
+                    <li><strong>Reason:</strong> Specialization, division of labor, use of large-scale machinery (economies of scale).</li>
+                </ul>
+            </li>
+            <li><strong>2. Constant Returns to Scale (CRS):</strong>
+                <ul>
+                    <li><strong>Definition:</strong> When a proportional increase in all inputs leads to an <strong>exactly proportional</strong> increase in output.</li>
+                    <li><strong>Example:</strong> 10% increase in L and K → <strong>10% increase in Q</strong>.</li>
+                    <li><strong>Reason:</strong> Economies of scale have been exhausted, but diseconomies have not yet started.</li>
+                </ul>
+            </li>
+            <li><strong>3. Decreasing Returns to Scale (DRS):</strong>
+                <ul>
+                    <li><strong>Definition:</strong> When a proportional increase in all inputs leads to a <strong>less than proportional</strong> increase in output.</li>
+                    <li><strong>Example:</strong> 10% increase in L and K → <strong>5% increase in Q</strong>.</li>
+                    <li><strong>Reason:</strong> Managerial difficulties, coordination problems, bureaucracy (diseconomies of scale).</li>
+                </ul>
+            </li>
+        </ul>
+
+        <hr>
+
+        <h2 id="topic5">Iso-quant and Iso-cost Lines</h2>
+        
+        <h3>Iso-quant (IQ)</h3>
+        <ul>
+            <li><strong>Definition:</strong> An Iso-quant (from "iso" meaning equal and "quant" meaning quantity) is a curve that shows all the possible combinations of two inputs (e.g., Labor and Capital) that produce the <strong>same level of output</strong>.</li>
+            <li>It is also called an "equal-product curve" or "production indifference curve."</li>
+            <li>An <strong>Iso-quant map</strong> shows a set of iso-quants, where higher curves represent higher levels of output (e.g., IQ2 > IQ1).</li>
+        </ul>
+        <p style="text-align:center; font-style:italic;">[]</p>
+        
+        <h4>Properties of Iso-quants:</h4>
+        <ol>
+            <li>They are <strong>downward sloping</strong> from left to right.</li>
+            <li>They are <strong>convex to the origin</strong> (due to diminishing Marginal Rate of Technical Substitution - MRTS).</li>
+            <li>Two iso-quants <strong>never intersect</strong> each other.</li>
+            <li>A <strong>higher iso-quant</strong> represents a <strong>higher level of output</strong>.</li>
+        </ol>
+        <p><strong>MRTS:</strong> The slope of the iso-quant is the <strong>Marginal Rate of Technical Substitution (MRTS)</strong>. It shows the rate at which one input (K) can be substituted for another (L) while keeping output constant.</p>
+        <span class="formula">MRTS_LK = (Change in K) / (Change in L) = MP_L / MP_K</span>
+
+        <h3>Iso-cost Line</h3>
+        <ul>
+            <li><strong>Definition:</strong> An Iso-cost line shows all the combinations of two inputs (Labor and Capital) that a firm can purchase with a <strong>given budget (Total Cost)</strong> and given input prices (Wage and Rent).</li>
+            <li>It is the producer's "budget line."</li>
+            <li><strong>Equation:</strong> (P_L × L) + (P_K × K) = TC
+                <br>Where P_L = Wage (w) and P_K = Price of Capital (r).
+                <br>So, <strong>(w × L) + (r × K) = TC</strong>
+            </li>
+            <li>The <strong>slope</strong> of the iso-cost line is the ratio of the input prices: <strong>- (w / r)</strong>.</li>
+        </ul>
+        <p style="text-align:center; font-style:italic;">[]</p>
+
+        <hr>
+
+        <h2 id="topic6">Producers Equilibrium</h2>
+        <p><strong>Producer's Equilibrium</strong> (or the "least-cost combination") is the point where a firm produces the <strong>maximum possible output</strong> for a given cost OR produces a given level of output at the <strong>minimum possible cost</strong>.</p>
+        <p>This equilibrium occurs at the point of <strong>tangency</strong> between an <strong>iso-quant</strong> and an <strong>iso-cost line</strong>.</p>
+        
+        <p style="text-align:center; font-style:italic;">[]</p>
+        
+        <p>At the point of tangency (E), two conditions are met:</p>
+        <ol>
+            <li>The slope of the Iso-quant = The slope of the Iso-cost line.
+                <blockquote><strong>MRTS_LK = w / r</strong></blockquote>
+            </li>
+            <li>This can also be rewritten as:
+                <blockquote><strong>MP_L / MP_K = w / r</strong>
+                <br>or<br>
+                <strong>MP_L / w = MP_K / r</strong></blockquote>
+                This means the marginal product per dollar spent on labor is equal to the marginal product per dollar spent on capital.
+            </li>
+        </ol>
+
+        <hr>
+
+        <h2 id="topic7">Cost of Production - Types</h2>
+        <p>Cost refers to the expenditure incurred by a firm on the factors of production.</p>
+        <ul>
+            <li><strong>Explicit Costs (Accounting Costs):</strong> Direct, out-of-pocket payments made to outsiders for resources.
+                <br><em>Examples:</em> Wages paid to employees, rent for a building, cost of raw materials.</li>
+            <li><strong>Implicit Costs (Opportunity Costs):</strong> The value of self-owned or self-employed resources that are not paid for directly. It's the income the owner could have earned in the next-best alternative.
+                <br><em>Examples:</em> The salary an entrepreneur could have earned working elsewhere, the rent from their own building if they leased it out.</li>
+            <li><strong>Economic Cost vs. Accounting Cost:</strong>
+                <ul>
+                    <li><strong>Accounting Cost</strong> = Explicit Costs only.</li>
+                    <li><strong>Economic Cost</strong> = Explicit Costs + Implicit Costs.</li>
+                </ul>
+            </li>
+            <li><strong>Fixed Costs (FC) (Short Run):</strong> Costs that do <strong>not</strong> change with the level of output. They must be paid even if output is zero.
+                <br><em>Examples:</em> Rent, insurance, interest on loans, salaries of permanent staff.</li>
+            <li><strong>Variable Costs (VC) (Short Run):</strong> Costs that <strong>do</strong> change directly with the level of output. They are zero when output is zero.
+                <br><em>Examples:</em> Raw materials, wages of temporary workers, electricity.</li>
+        </ul>
+
+        <hr>
+
+        <h2 id="topic8">Short Run Cost Curves</h2>
+        <p>In the short run, we analyze costs based on Fixed and Variable inputs.</p>
+        
+        <h3>Total Costs:</h3>
+        <ul>
+            <li><strong>Total Fixed Cost (TFC):</strong> A horizontal line, as it's constant regardless of output (Q).</li>
+            <li><strong>Total Variable Cost (TVC):</strong> Starts from the origin and rises. It is inverse-S shaped due to the Law of Variable Proportions (first increases at a decreasing rate, then an increasing rate).</li>
+            <li><strong>Total Cost (TC):</strong> <span class="formula">TC = TFC + TVC</span>. It has the same shape as TVC, but starts from the TFC level (not the origin).</li>
+        </ul>
+        
+        <h3>Average and Marginal Costs (Per-Unit Costs):</h3>
+        <ul>
+            <li><strong>Average Fixed Cost (AFC):</strong> <span class="formula">AFC = TFC / Q</span>. It continuously falls as output increases (a shape called a "rectangular hyperbola").</li>
+            <li><strong>Average Variable Cost (AVC):</strong> <span class="formula">AVC = TVC / Q</span>. It is <strong>U-shaped</strong> due to the Law of Variable Proportions.</li>
+            <li><strong>Average Total Cost (ATC):</strong> <span class="formula">ATC = TC / Q</span> or <span class="formula">ATC = AFC + AVC</span>. It is also <strong>U-shaped</strong>.</li>
+            <li><strong>Marginal Cost (MC):</strong> The additional cost of producing one more unit of output.
+                <span class="formula">MC = ΔTC / ΔQ</span> (or ΔTVC / ΔQ).
+                It is also <strong>U-shaped</strong> and is the "driver" of the other average curves.
+            </li>
+        </ul>
+        
+        <p style="text-align:center; font-style:italic;">[]</p>
+
+        <h3>Key Relationships (Exam Focus):</h3>
+        <ul>
+            <li>The MC curve cuts both the AVC and ATC curves at their <strong>minimum points</strong>.</li>
+            <li>When MC < AC (or AVC), AC (or AVC) is <strong>falling</strong>.</li>
+            <li>When MC > AC (or AVC), AC (or AVC) is <strong>rising</strong>.</li>
+            <li>When MC = AC (or AVC), AC (or AVC) is at its <strong>minimum</strong>.</li>
+            <li>The vertical distance between ATC and AVC is the AFC (which gets smaller as Q increases).</li>
+        </ul>
+
+        <hr>
+
+        <h2 id="topic9">Long Run Cost Curves</h2>
+        
+        <p>In the long run, all inputs are variable (no fixed costs). The firm can choose the "scale" or factory size (represented by different Short Run Average Cost curves - SRACs).</p>
+        
+        <h3>Long Run Average Cost (LRAC) Curve</h3>
+        <ul>
+            <li><strong>Definition:</strong> The LRAC curve shows the minimum possible average cost for producing any given level of output when the firm is free to adjust its scale.</li>
+            <li><strong>Derivation:</strong> It is derived as an "<strong>envelope curve</strong>" that is tangent to all the possible SRAC curves. It is *not* the sum of the minimum points of the SRACs.</li>
+            <li>The LRAC is also <strong>U-shaped</strong>, but for different reasons than the SRAC.</li>
+        </ul>
+        
+        <p style="text-align:center; font-style:italic;">[]</p>
+
+        <h3>Why is the LRAC U-shaped?</h3>
+        <ul>
+            <li><strong>Falling Portion (Economies of Scale):</strong> The LRAC falls initially due to <stro

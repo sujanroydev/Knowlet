@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSC-101: Microbiology - Unit 5</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            text-align: center;
+            color: #e65100;
+            border-bottom: 3px solid #ff9800;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #f57c00;
+            border-bottom: 2px solid #ffe0b2;
+            padding-top: 15px;
+        }
+        h3 {
+            color: #bf360c;
+            padding-top: 10px;
+        }
+        strong {
+            color: #c62828;
+        }
+        blockquote {
+            background-color: #fff3e0;
+            border-left: 5px solid #ff9800;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #ffe0b2;
+            color: #bf360c;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        nav {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 25px;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav li {
+            margin-bottom: 5px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #0277bd;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #fff9c4;
+            border: 1px solid #fbc02d;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .placeholder {
+            width: 100%;
+            background-color: #eee;
+            border: 2px dashed #ccc;
+            padding: 30px;
+            text-align: center;
+            color: #777;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BOT: DSC-101: Microbiology<br>Unit 5: Water, Environmental and Medical Microbiology</h1>
+
+        <nav>
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#topic1">Water micro-flora</a></li>
+                <li><a href="#topic2">Role of microbes in sewage and domestic waste water treatment</a></li>
+                <li><a href="#topic3">Microbiology of water samples & Microorganisms as indicator of water quality</a></li>
+                <li><a href="#topic4">Tests for coliforms</a></li>
+                <li><a href="#topic5">Bioremediation of contaminated soil</a></li>
+                <li><a href="#topic6">Enumeration and control of microorganisms in air</a></li>
+                <li><a href="#topic7">Biogas production</a></li>
+                <li><a href="#topic8">Microbes in biodegradation of xenobiotics</a></li>
+                <li><a href="#topic9">Important diseases</a></li>
+                <li><a href="#topic10">Probiotics</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="topic1">Water micro-flora</h2>
+        <p>Natural water bodies (lakes, rivers) are not sterile. They contain a diverse community of "native" microorganisms (micro-flora) that are part of the aquatic ecosystem.</p>
+        <p>This includes:</p>
+        <ul>
+            <li><strong>Bacteria:</strong> (e.g., <em>Pseudomonas</em>, <em>Cytophaga</em>, <em>Caulobacter</em>). Many are decomposers.</li>
+            <li><strong>Algae (Phytoplankton):</strong> (e.g., Diatoms, <em>Chlamydomonas</em>). They are the primary producers, forming the base of the aquatic food web via photosynthesis.</li>
+            <li><strong>Protozoa (Zooplankton):</strong> Graze on bacteria and algae.</li>
+            <li><strong>Fungi:</strong> Primarily decomposers of organic detritus.</li>
+        </ul>
+        <p>The types and number of microbes depend on factors like nutrient availability, sunlight, temperature, and pollution levels.</p>
+
+        <h2 id="topic2">Role of microbes in sewage and domestic waste water treatment</h2>
+        <p>Sewage is wastewater from homes and industries. It is rich in organic matter (human waste, food scraps) and contains pathogens. Sewage treatment uses microbes to break down this organic matter before the water is returned to the environment.</p>
+        <p>The goal is to reduce the <strong>BOD (Biochemical Oxygen Demand)</strong> - the amount of oxygen microbes need to decompose the organic matter. High BOD means high pollution.</p>
+        <div class="placeholder">
+            <strong>[Flowchart: Sewage Treatment Plant (Primary, Secondary, Tertiary)]</strong>
+        </div>
+        
+        <h3>Steps in Sewage Treatment</h3>
+        <ol>
+            <li><strong>Primary Treatment (Physical):</strong>
+                <ul>
+                    <li>Wastewater passes through <strong>screens</strong> (to remove large debris) and then into a <strong>sedimentation tank</strong>.</li>
+                    <li>Heavy solids (<strong>primary sludge</strong>) settle to the bottom, and lighter materials (scum) float.</li>
+                    <li>This step only removes physical solids. The water is still high in dissolved organic matter (high BOD).</li>
+                </ul>
+            </li>
+            <li><strong>Secondary Treatment (Biological):</strong>
+                <ul>
+                    <li>This is the <strong>core microbial step</strong>. The "primary effluent" (liquid from step 1) is sent to an aerobic (oxygen-rich) environment.</li>
+                    <li><strong>Method 1: Activated Sludge:**</strong> The water is vigorously aerated in a large tank. This encourages the growth of aerobic microbes (bacteria, fungi, protozoa), which form "flocs" (the activated sludge). These microbes rapidly consume the dissolved organic matter, drastically reducing the BOD.</li>
+                    <li><strong>Method 2: Trickling Filter:**</strong> The water is sprayed over a bed of rocks or plastic covered in a <strong>biofilm</strong> of microbes, which digest the organic matter as the water trickles past.</li>
+                    <li>Afterward, the water goes to another sedimentation tank to settle out the microbial flocs (<strong>secondary sludge</strong>).</li>
+                </ul>
+            </li>
+            <li><strong>Tertiary Treatment (Chemical/Physical):</strong>
+                <ul>
+                    <li>An advanced step (not always used) to remove specific pollutants like nitrates and phosphates (which cause algal blooms).</li>
+                    <li><strong>Disinfection:</strong> The final effluent is treated (e.g., with <strong>chlorine</strong> or <strong>UV light</strong>) to kill any remaining pathogens before being discharged into a river or lake.</li>
+                </ul>
+            </li>
+        </ol>
+        <p>The <strong>sludge</strong> (primary and secondary) is often sent to an <strong>anaerobic digester</strong>, where microbes produce biogas (methane).</p>
+
+        <h2 id="topic3">Microbiology of water samples & Microorganisms as indicator of water quality</h2>
+        <p>To test if water is safe to drink, we don't test for every single possible pathogen (which is slow and difficult). Instead, we look for <strong>indicator organisms</strong>.</p>
+        <blockquote>
+            <strong>Indicator Organism:</strong> A microbe whose presence suggests that the water has been contaminated with fecal matter and *may* therefore contain more dangerous pathogens (like <em>Salmonella</em>, <em>Vibrio cholerae</em>).
+        </blockquote>
+        <p>The ideal indicator organisms are:</p>
+        <ul>
+            <li>Always present in feces and absent in clean water.</li>
+            <li>Present in higher numbers than the pathogens.</li>
+            <li>Easy and quick to test for.</li>
+        </ul>
+        <p>The universal indicator group for water quality is <strong>Coliforms</strong>.</p>
+        <ul>
+            <li><strong>Coliforms:</strong> A group of bacteria defined as being Gram-negative, non-spore-forming rods that can <strong>ferment lactose to produce acid and gas</strong> at 35-37°C.</li>
+            <li><strong>Fecal Coliforms (e.g., <em>E. coli</em>):</strong> A subset of coliforms that are specifically from the intestines of warm-blooded animals. Their presence is a direct indicator of fecal contamination.</li>
+        </ul>
+
+        <h2 id="topic4">Tests for coliforms</h2>
+        <p>A standard three-step method is used to test for coliforms in a water sample:</p>
+        
+        <h3>1. Presumptive Test (MPN - Most Probable Number)</h3>
+        <ul>
+            <li><strong>Goal:</strong> To "presume" coliforms are present and estimate their numbers.</li>
+            <li><strong>Method:</strong> The water sample is added to tubes of <strong>lactose fermentation broth</strong> containing a <strong>Durham tube</strong> (a small, inverted tube).</li>
+            <li><strong>Positive Result:</strong> The broth turns yellow (acid production) AND a gas bubble is trapped in the Durham tube (gas production).</li>
+            <li><strong>Outcome:</strong> This result is used to calculate the <strong>Most Probable Number (MPN)</strong> of coliforms per 100 mL of water.</li>
+        </ul>
+        
+        <h3>2. Confirmed Test</h3>
+        <ul>
+            <li><strong>Goal:</strong> To "confirm" that the microbes from the positive presumptive test are actually coliforms.</li>
+            <li><strong>Method:</strong> A sample from a positive MPN tube is streaked onto a selective and differential agar plate, like <strong>EMB (Eosin Methylene Blue) Agar</strong>.</li>
+            <li><strong>Positive Result:</strong>
+                <ul>
+                    <li>EMB agar selects for Gram-negative bacteria.</li>
+                    <li>It differentiates lactose fermenters.</li>
+                    <li>General coliforms produce dark purple/black colonies.</li>
+                    <li><em><strong>E. coli</strong></em> (a fecal coliform) produces a characteristic <strong>green metallic sheen</strong>.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>3. Completed Test</h3>
+        <ul>
+            <li><strong>Goal:</strong> To "complete" the test by confirming the colony from the confirmed test is truly a coliform.</li>
+            <li><strong>Method:</strong> A colony from the EMB plate (e.g., one with a green sheen) is picked and inoculated into another lactose broth tube and onto a nutrient agar slant.</li>
+            <li><strong>Positive Result:</strong> The lactose broth must show acid and gas, and a Gram stain from the slant must show Gram-negative rods.</li>
+        </ul>
+
+        <h2 id="topic5">Bioremediation of contaminated soil</h2>
+        <blockquote>
+            <strong>Bioremediation:</strong> The use of microorganisms to degrade or detoxify pollutants (contaminants) in the environment (soil or water).
+        </blockquote>
+        <p>This process leverages the diverse metabolic capabilities of microbes (especially bacteria and fungi) to "eat" pollutants, converting them into less harmful substances like CO<sub>2</sub> and water.</p>
+        <p><strong>Example:</strong> After an oil spill, soil can be contaminated with hydrocarbons. Some bacteria (e.g., <em>Pseudomonas</em>) can use crude oil as their energy and carbon source. Bioremediation might involve:</p>
+        <ul>
+            <li><strong>Bioaugmentation:</strong> Adding specialized, oil-degrading microbes to the soil.</li>
+            <li><strong>Biostimulation:</strong> Adding nutrients (like nitrogen and phosphorus) to the soil to "stimulate" the growth of the native oil-degrading microbes.</li>
+        </ul>
+
+        <h2 id="topic6">Enumeration and control of microorganisms in air</h2>
+        <h3>Enumeration (Counting)</h3>
+        <p>Air is not a medium for microbial growth, but it is a vector for transmission. We enumerate microbes in the air to monitor quality (e.g., in hospitals, food prep areas).</p>
+        <ul>
+            <li><strong>Settle Plates (Passive):</strong> An open petri dish with nutrient agar is left exposed to the air for a set time. Microbes "settle" onto it. The plate is incubated, and colonies are counted. (Measures "microbial fallout").</li>
+            <li><strong>Air Samplers (Active):</strong> A device that actively sucks in a known volume of air (e.g., 100 liters) and impacts it onto the surface of an agar plate. This is more quantitative and gives results as <strong>CFU (Colony-Forming Units) per cubic meter of air</strong>.</li>
+        </ul>
+
+        <h3>Control</h3>
+        <ul>
+            <li><strong>HEPA Filters (High-Efficiency Particulate Air):</strong> These filters physically remove microbes from the air. Used in "clean rooms," biological safety cabinets, and hospitals.</li>
+            <li><strong>UV Radiation:</strong> UV (germicidal) lamps are used to sterilize the air in hospital rooms or lab areas (when people are not present).</li>
+            <li><strong>Ventilation:</strong> Diluting indoor air with fresh outdoor air reduces the concentration of airborne microbes.</li>
+        </ul>
+
+        <h2 id="topic7">Biogas production</h2>
+        <p>Biogas is a mixture of gases (primarily <strong>methane, CH<sub>4</sub></strong>, and carbon dioxide, CO<sub>2</sub>) produced by the <strong>anaerobic digestion</strong> (breakdown without oxygen) of organic matter (like manure, sewage sludge, or food waste).</p>
+        <p>This process is carried out by a complex community of microbes, with the final step performed by <strong>Methanogens</strong> (a type of Archaea).</p>
+        <p>The methanogens take the simple organic acids produced by other bacteria and convert them into methane gas. Biogas can be captured and burned as a renewable energy source for cooking or electricity.</p>
+
+        <h2 id="topic8">Microbes in biodegradation of xenobiotics</h2>
+        <blockquote>
+            <strong>Xenobiotics:</strong> Man-made chemical compounds that are "foreign" to biological systems (e.g., pesticides like DDT, plastics, industrial solvents).
+        </blockquote>
+        <p>Many xenobiotics are <strong>recalcitrant</strong> (resistant to degradation) and persist in the environment, causing pollution. However, microorganisms (especially soil bacteria like <em>Pseudomonas</em>) can evolve new metabolic pathways (via mutation and plasmid transfer) to use these chemicals as a food source.</p>
+        <p>This is a key principle behind bioremediation. Scientists can isolate and culture these microbes to clean up specific chemical spills.</p>
+
+        <h2 id="topic9">Important diseases</h2>
+        <p>This section covers key human diseases caused by bacteria.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Disease</th>
+                    <th>Causative Agent (Organism)</th>
+                    <th>Key Characteristics & Preventive Measures</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Tuberculosis (TB)</strong></td>
+                    <td><em><strong>Mycobacterium tuberculosis</strong></em></td>
+                    <td>
+                        <ul>
+                            <li>An <strong>Acid-Fast</strong> bacterium (due to waxy mycolic acid cell wall).</li>
+                            <li>Primarily infects the lungs, transmitted by airborne droplets (coughing, sneezing).</li>
+                            <li>Forms tubercles (lesions) in the lungs.</li>
+                            <li><strong>Prevention:</strong> BCG vaccine, pasteurization of milk (for *M. bovis*), antibiotics (long course).</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Syphilis</strong></td>
+                    <td><em><strong>Treponema pallidum</strong></em></td>
+                    <td>
+                        <ul>
+                            <li>A <strong>spirochete</strong> (thin, spiral-shaped) bacterium.</li>
+                            <li>A sexually transmitted disease (STD).</li>
+                            <li>Occurs in stages: primary (chancre), secondary (rash), and tertiary (severe organ damage).</li>
+                            <li><strong>Prevention:</strong> Safe sex practices, easily treated with penicillin in early stages.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Leprosy (Hansen's Disease)</strong></td>
+                    <td><em><strong>Mycobacterium leprae</strong></em></td>
+                    <td>
+                        <ul>
+                            <li>An <strong>Acid-Fast</strong> bacterium, related to the TB agent.</li>
+                            <li>Very slow-growing (long incubation period).</li>
+                            <li>Primarily affects the skin, peripheral nerves, and upper respiratory tract.</li>
+                            <li><strong>Prevention:</strong> Not highly contagious; prolonged contact is needed. Treatable with multi-drug therapy.</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="topic10">Probiotics</h2>
+        <blockquote>
+            <strong>Probiotics:</strong> Live microorganisms that, when administered in adequate amounts, confer a health benefit on the host. (WHO definition)
+        </blockquote>
+        <p>These are "good" or "friendly" bacteria that help maintain a healthy gut microbiome.</p>
+        <ul>
+            <li><strong>Common Examples:</strong> <em><strong>Lactobacillus</strong></em> and <em><strong>Bifidobacterium</strong></em> species.</li>
+            <li><strong>Sources:</strong> Fermented foods like yogurt, kefir, and sauerkraut, as well as dietary supplements.</li>
+            <li><strong>Benefits:</strong>
+                <ul>
+                    <li>Improve digestion and nutrient absorption.</li>
+                    <li>Prevent the growth of pathogens (competitive exclusion).</li>
+                    <li>Modulate and support the immune system.</li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+</body>
+</html>

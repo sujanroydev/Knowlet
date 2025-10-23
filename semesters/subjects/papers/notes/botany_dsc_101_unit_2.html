@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSC-101: Microbiology - Unit 2</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            text-align: center;
+            color: #2e7d32;
+            border-bottom: 3px solid #66bb6a;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #388e3c;
+            border-bottom: 2px solid #c8e6c9;
+            padding-top: 15px;
+        }
+        h3 {
+            color: #1b5e20;
+            padding-top: 10px;
+        }
+        strong {
+            color: #c62828;
+        }
+        blockquote {
+            background-color: #e8f5e9;
+            border-left: 5px solid #66bb6a;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #c8e6c9;
+            color: #1b5e20;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        nav {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 25px;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav li {
+            margin-bottom: 5px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #0277bd;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #fff9c4;
+            border: 1px solid #fbc02d;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .placeholder {
+            width: 100%;
+            background-color: #eee;
+            border: 2px dashed #ccc;
+            padding: 30px;
+            text-align: center;
+            color: #777;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BOT: DSC-101: Microbiology<br>Unit 2: Virology and Bacteriology</h1>
+
+        <nav>
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#topic1">Viruses: Stature, Classification (Baltimore)</a></li>
+                <li><a href="#topic2">General Structure and Replication</a></li>
+                <li><a href="#topic3">Plant Viruses - TMV</a></li>
+                <li><a href="#topic4">Bacteriophage (T-phage Lytic and Lysogenic cycle)</a></li>
+                <li><a href="#topic5">Methods of Isolation of Plant Viruses</a></li>
+                <li><a href="#topic6">Economic Importance of Viruses</a></li>
+                <li><a href="#topic7">Bacteria: General Characteristics and Classification</a></li>
+                <li><a href="#topic8">Bacterial Cell Structure</a></li>
+                <li><a href="#topic9">Genetic Recombination (Conjugation, Transformation, Transduction)</a></li>
+                <li><a href="#topic10">Economic Importance of Bacteria</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="topic1">Viruses: Stature, Classification (Baltimore)</h2>
+        <h3>Virus Stature</h3>
+        <blockquote>
+            <strong>Viruses:</strong> Acellular, non-living entities that are <strong>obligate intracellular parasites</strong>. They lack their own metabolic machinery and must hijack a host cell to replicate.
+        </blockquote>
+        <p>They consist of a nucleic acid core (DNA or RNA) enclosed in a protein coat (capsid). They are "infectious particles" rather than organisms.</p>
+        
+        <h3>Classification (Baltimore)</h3>
+        <p>The Baltimore Classification system (proposed by David Baltimore) is a fundamental concept. It classifies viruses into <strong>seven groups</strong> based on their type of genome and how they produce messenger RNA (mRNA) for protein synthesis.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Group</th>
+                    <th>Genome Type</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Group I</strong></td>
+                    <td>dsDNA (double-stranded DNA)</td>
+                    <td>Herpesvirus, Poxvirus, T-phages</td>
+                </tr>
+                <tr>
+                    <td><strong>Group II</strong></td>
+                    <td>ssDNA (single-stranded DNA)</td>
+                    <td>Parvovirus</td>
+                </tr>
+                <tr>
+                    <td><strong>Group III</strong></td>
+                    <td>dsRNA (double-stranded RNA)</td>
+                    <td>Reovirus</td>
+                </tr>
+                <tr>
+                    <td><strong>Group IV</strong></td>
+                    <td>(+)ssRNA (Positive-sense ssRNA)</td>
+                    <td>Picornavirus, Flavivirus, <strong>TMV</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Group V</strong></td>
+                    <td>(-)ssRNA (Negative-sense ssRNA)</td>
+                    <td>Influenza virus, Rabies virus</td>
+                </tr>
+                <tr>
+                    <td><strong>Group VI</strong></td>
+                    <td>ssRNA-RT (ssRNA with Reverse Transcriptase)</td>
+                    <td>Retroviruses (e.g., HIV)</td>
+                </tr>
+                <tr>
+                    <td><strong>Group VII</strong></td>
+                    <td>dsDNA-RT (dsDNA with Reverse Transcriptase)</td>
+                    <td>Hepadnavirus (Hepatitis B)</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="exam-tip">
+            <strong>Key Concept:</strong> (+)ssRNA (Group IV) can be directly translated by the host ribosome, acting just like mRNA. (-)ssRNA (Group V) must first be transcribed into (+)ssRNA by a viral enzyme (RNA-dependent RNA polymerase) before translation.
+        </div>
+
+        <h2 id="topic2">General Structure and Replication</h2>
+        <h3>General Structure</h3>
+        <ul>
+            <li><strong>Genome:</strong> The genetic material, either DNA or RNA, single or double-stranded.</li>
+            <li><strong>Capsid:</strong> A protein coat surrounding the genome. It's made of subunits called <strong>capsomeres</strong>. The capsid protects the genome and helps it attach to the host cell.</li>
+            <li><strong>Envelope (Optional):</strong> A lipid membrane derived from the host cell that surrounds the capsid in some viruses (e.g., Influenza, HIV). Viruses without it are "naked" viruses.</li>
+        </ul>
+        <div class="placeholder">
+            <strong>[Diagram: Structure of a Naked (e.g., T-phage) and an Enveloped (e.g., Influenza) Virus]</strong>
+        </div>
+
+        <h3>General Replication Cycle (Lytic)</h3>
+        <ol>
+            <li><strong>Attachment:</strong> The virus binds to specific receptors on the host cell surface.</li>
+            <li><strong>Penetration/Entry:</strong> The virus or its genome enters the host cell (e.g., by injection, endocytosis, or membrane fusion).</li>
+            <li><strong>Uncoating:</strong> The capsid is removed, releasing the viral genome.</li>
+            <li><strong>Synthesis (Replication & Protein Production):</strong> The host cell's machinery is hijacked to:
+                <ul>
+                    <li>Replicate the viral genome.</li>
+                    <li>Transcribe viral genes into mRNA.</li>
+                    <li>Translate the mRNA into viral proteins (capsid proteins, enzymes).</li>
+                </ul>
+            </li>
+            <li><strong>Assembly (Maturation):</strong> New viral genomes are packaged into newly made capsids to form new virus particles (virions).</li>
+            <li><strong>Release:</strong> The new virions exit the host cell, often by <strong>lysis</strong> (bursting) the cell or by <strong>budding</strong> (for enveloped viruses).</li>
+        </ol>
+
+        <h2 id="topic3">Plant Viruses - TMV</h2>
+        <h3>Tobacco Mosaic Virus (TMV)</h3>
+        <p>TMV is a classic example of a plant virus and was the first virus to be discovered and crystallized.</p>
+        <ul>
+            <li><strong>Structure:</strong> It is a rod-shaped, naked virus. Its capsid is a <strong>helix</strong> made of thousands of identical capsomere proteins.</li>
+            <li><strong>Genome:</strong> It has a <strong>(+)ssRNA</strong> genome (Baltimore Group IV).</li>
+            <li><strong>Disease:</strong> It causes Tobacco Mosaic Disease, characterized by "mosaic" patterns (light/dark green patches) and mottling on the leaves of tobacco, tomato, and other plants.</li>
+            <li><strong>Transmission:</strong> It is extremely stable and transmitted mechanically (e.g., on contaminated tools, hands, or by infected plant sap). It is not typically spread by insects.</li>
+        </ul>
+
+        <h2 id="topic4">Bacteriophage (T-phage Lytic and Lysogenic cycle)</h2>
+        <blockquote>
+            <strong>Bacteriophage (or Phage):</strong> A virus that infects and replicates within bacteria.
+        </blockquote>
+        <p><strong>T-phages</strong> (e.g., T4 phage) are "T-even" phages that infect <em>E. coli</em>. They have a complex structure: an icosahedral "head" (containing dsDNA) and a "tail" assembly (sheath, base plate, tail fibers).</p>
+        
+        <p>Phages can have two main life cycles:</p>
+        <div class="placeholder">
+            <strong>[Diagram: Lytic vs. Lysogenic Cycles]</strong>
+        </div>
+        
+        <h3>1. Lytic Cycle (Virulent)</h3>
+        <p>This is a "slash and burn" cycle that ends in the death of the host cell.</p>
+        <ol>
+            <li><strong>Attachment:</strong> Tail fibers attach to specific receptors on the <em>E. coli</em> cell wall.</li>
+            <li><strong>Penetration:</strong> The tail sheath contracts, injecting the phage's dsDNA into the bacterium. The capsid stays outside.</li>
+            <li><strong>Synthesis:</strong> The phage DNA takes over. It directs synthesis of phage DNA and phage proteins. Host DNA is degraded.</li>
+            <li><strong>Assembly:</strong> New phage heads, tails, and fibers are assembled, and DNA is packaged into the heads.</li>
+            <li><strong>Release:</strong> The phage produces an enzyme (lysozyme) that degrades the bacterial cell wall, causing the cell to <strong>lyse (burst)</strong> and release hundreds of new phages.</li>
+        </ol>
+
+        <h3>2. Lysogenic Cycle (Temperate)</h3>
+        <p>This is a "stealth" cycle where the phage co-exists with the host.</p>
+        <ol>
+            <li><strong>Attachment & Penetration:</strong> Same as the lytic cycle.</li>
+            <li><strong>Integration:</strong> Instead of taking over, the phage DNA <strong>integrates</strong> into the bacterial chromosome. The integrated phage DNA is now called a <strong>prophage</strong>.</li>
+            <li><strong>Replication:</strong> The prophage is dormant. It is copied and passed on to daughter cells every time the bacterium divides. The bacterium is now <strong>lysogenic</strong> (carrying the prophage).</li>
+            <li><strong>Induction:</strong> The prophage can later be "induced" (e.g., by stress like UV light) to exit the bacterial chromosome and enter the lytic cycle, leading to synthesis, assembly, and lysis.</li>
+        </ol>
+
+        <h2 id="topic5">Methods of Isolation of Plant Viruses</h2>
+        <p>Viruses cannot be grown on artificial media. They must be cultured in living host cells.</p>
+        <ul>
+            <li><strong>Mechanical Inoculation:</strong> The most common method. An extract from an infected plant (sap) is prepared and simply rubbed onto the leaves of a healthy indicator plant, often with a mild abrasive (like carborundum) to create tiny wounds for the virus to enter.</li>
+            <li><strong>Grafting:</strong> An infected piece of plant (scion) is grafted onto a healthy plant (stock).</li>
+            <li><strong>Vector Transmission:</strong> Using the natural insect vector (e.g., aphids) to feed on an infected plant and then transfer to a healthy one.</li>
+        </ul>
+        <p>After inoculation, the viruses are "isolated" by observing symptoms or by purifying the virus particles from the plant tissue using centrifugation and chemical precipitation.</p>
+
+        <h2 id="topic6">Economic Importance of Viruses</h2>
+        <p>Viruses have significant negative and positive economic impacts.</p>
+        <h3>Negative Importance</h3>
+        <ul>
+            <li><strong>Human Disease:</strong> Cause countless diseases (e.g., influenza, HIV/AIDS, COVID-19), leading to healthcare costs and loss of productivity.</li>
+            <li><strong>Plant Disease:</strong> Major crop losses (e.g., TMV, Citrus tristeza virus).</li>
+            <li><strong>Animal Disease:</strong> Impact livestock (e.g., Foot-and-mouth disease, Avian influenza).</li>
+        </ul>
+        <h3>Positive Importance</h3>
+        <ul>
+            <li><strong>Genetic Engineering:</strong> Viruses (especially bacteriophages and retroviruses) are used as <strong>vectors</strong> to carry desired genes into cells for gene therapy and biotechnology.</li>
+            <li><strong>Phage Therapy:</strong> Using bacteriophages to treat bacterial infections, especially those resistant to antibiotics.</li>
+            <li><strong>Biological Control:</strong> Using viruses (e.comg., baculoviruses) as highly specific biopesticides to control insect pests.</li>
+        </ul>
+
+        <h2 id="topic7">Bacteria: General Characteristics and Classification</h2>
+        <h3>General Characteristics</h3>
+        <ul>
+            <li><strong>Prokaryotic:</strong> No nucleus or membrane-bound organelles.</li>
+            <li><strong>Unicellular:</strong> Most are single-celled.</li>
+            <li><strong>Genetic Material:</strong> A single, circular chromosome located in the <strong>nucleoid</strong> region. May also have <strong>plasmids</strong> (small, extrachromosomal DNA rings).</li>
+            <li><strong>Cell Wall:</strong> Most have a cell wall containing <strong>peptidoglycan</strong> (murein).</li>
+            <li><strong>Ribosomes:</strong> Have 70S ribosomes (different from eukaryotic 80S).</li>
+            <li><strong>Reproduction:</strong> Asexual, primarily by <strong>binary fission</strong>.</li>
+        </ul>
+
+        <h3>Classification (Major Groups)</h3>
+        <p>Classification can be based on morphology (shape), Gram stain, or (most accurately) molecular data (rRNA sequencing).</p>
+        <ul>
+            <li><strong>Based on Shape:</strong>
+                <ul>
+                    <li><strong>Coccus (pl. cocci):</strong> Spherical (e.g., <em>Staphylococcus</em> - clusters, <em>Streptococcus</em> - chains).</li>
+                    <li><strong>Bacillus (pl. bacilli):</strong> Rod-shaped (e.g., <em>E. coli</em>, <em>Bacillus</em>).</li>
+                    <li><strong>Spirillum (pl. spirilla):</strong> Spiral-shaped (e.g., <em>Treponema</em>).</li>
+                </ul>
+            </li>
+            <li><strong>Based on Gram Stain:</strong>
+                <ul>
+                    <li><strong>Gram-Positive:</strong> Thick peptidoglycan wall (e.g., <em>Bacillus</em>, <em>Streptomyces</em>).</li>
+                    <li><strong>Gram-Negative:</strong> Thin peptidoglycan wall + outer lipid membrane (e.g., <em>E. coli</em>, <em>Rhizobium</em>).</li>
+                </ul>
+            </li>
+            <li><strong>Major Phyla (Molecular):</strong>
+                <ul>
+                    <li><strong>Proteobacteria:</strong> Large, diverse group of Gram-negatives (includes <em>E. coli</em>, <em>Rhizobium</em>).</li>
+                    <li><strong>Firmicutes:</strong> Gram-positives with low G+C content (includes <em>Bacillus</em>, <em>Lactobacillus</em>).</li>
+                    <li><strong>Actinobacteria:</strong> Gram-positives with high G+C content (includes <em>Streptomyces</em>).</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h2 id="topic8">Bacterial Cell Structure</h2>
+        <div class="placeholder">
+            <strong>[Diagram: Labeled Bacterial Cell Structure]</strong>
+        </div>
+        <ul>
+            <li><strong>Cell Wall:</strong> Provides shape and protection from osmotic lysis. Composed of <strong>peptidoglycan</strong>.
+                <ul>
+                    <li><strong>Gram-Positive:</strong> Thick peptidoglycan layer, teichoic acids.</li>
+                    <li><strong>Gram-Negative:</strong> Thin peptidoglycan layer plus an <strong>outer membrane</strong> containing lipopolysaccharide (LPS), which acts as an endotoxin.</li>
+                </ul>
+            </li>
+            <li><strong>Flagella (sing. flagellum):</strong> Long, whip-like appendages used for motility (locomotion).
+                <ul>
+                    <li><strong>Arrangement:</strong> Monotrichous (single), Lophotrichous (tuft at one end), Amphitrichous (at both ends), Peritrichous (all over).</li>
+                </ul>
+            </li>
+            <li><strong>Pili (sing. pilus):</strong> Short, hair-like appendages. The <strong>sex pilus</strong> is used for DNA transfer during conjugation. Fimbriae are used for attachment.</li>
+            <li><strong>Capsule/Slime Layer (Glycocalyx):</strong> A sticky outer layer, usually polysaccharide. Used for attachment and evading the host immune system.</li>
+            <li><strong>Nucleoid:</strong> The region containing the single, circular bacterial chromosome.</li>
+            <li><strong>Plasmids:</strong> Small, circular, extrachromosomal DNA molecules that carry non-essential genes (e.g., antibiotic resistance).</li>
+        </ul>
+
+        <h2 id="topic9">Genetic Recombination</h2>
+        <p>Bacteria do not reproduce sexually, but they can exchange genetic material. This is called <strong>Horizontal Gene Transfer (HGT)</strong>.</p>
+        
+        <h3>1. Conjugation (Bacterial "Sex")</h3>
+        <p>Direct, cell-to-cell transfer of DNA (usually a plasmid) via a <strong>sex pilus</strong>.</p>
+        <ul>
+            <li><strong>F+ to F- Transfer:</strong> An <strong>F+ cell</strong> (donor) has the F (fertility) plasmid. It forms a pilus, attaches to an <strong>F- cell</strong> (recipient), and transfers a copy of the F plasmid. The F- cell becomes F+.</li>
+            <li><strong>Hfr (High Frequency of Recombination):</strong> If the F plasmid integrates into the bacterial chromosome, the cell is called Hfr. When an Hfr cell conjugates, it tries to transfer its entire chromosome (with the F plasmid inside) to an F- cell.</li>
+        </ul>
+
+        <h3>2. Transformation</h3>
+        <p>The uptake and incorporation of <strong>"naked" DNA</strong> (fragments from dead, lysed cells) from the environment. This was famously demonstrated in <strong>Griffith's experiment</strong> with <em>Streptococcus pneumoniae</em>.</p>
+        
+        <h3>3. Transduction</h3>
+        <p>The transfer of bacterial DNA from one cell to another via a <strong>bacteriophage (virus)</strong>.</p>
+        <ul>
+            <

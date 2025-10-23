@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentals of Ecology (DSM 101) - Unit 2 Notes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 25px 40px;
+        }
+        h1 {
+            color: #1a5276;
+            border-bottom: 3px solid #1a5276;
+            padding-bottom: 10px;
+            font-size: 2.5em;
+            text-align: center;
+        }
+        h2 {
+            color: #21618c;
+            border-bottom: 2px solid #aed6f1;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            font-size: 2em;
+        }
+        h3 {
+            color: #2e86c1;
+            margin-top: 25px;
+            font-size: 1.5em;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        strong {
+            color: #c0392b; /* A distinct color for emphasis */
+        }
+        em {
+            color: #16a085;
+            font-style: italic;
+        }
+        blockquote {
+            background-color: #eaf2f8;
+            border-left: 5px solid #2e86c1;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            font-size: 1.1em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #2980b9;
+            color: white;
+            font-size: 1.1em;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #eaf2f8;
+        }
+        nav.toc {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 30px;
+        }
+        nav.toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #333;
+            font-size: 1.5em;
+            text-align: center;
+        }
+        nav.toc ul {
+            list-style-type: none;
+            padding-left: 0;
+            columns: 2;
+            -webkit-columns: 2;
+            -moz-columns: 2;
+        }
+        nav.toc ul li {
+            margin-bottom: 5px;
+        }
+        nav.toc ul li a {
+            text-decoration: none;
+            color: #2980b9;
+        }
+        nav.toc ul li a:hover {
+            text-decoration: underline;
+            color: #c0392b;
+        }
+        .exam-tip {
+            background-color: #fef9e7;
+            border: 1px solid #f1c40f;
+            border-left-width: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #d35400;
+        }
+        .diagram-placeholder {
+            width: 100%;
+            background-color: #fafafa;
+            border: 2px dashed #ccc;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+            font-style: italic;
+            color: #777;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 2: Population Ecology</h1>
+
+        <nav class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#pop-meta">1. Population and Meta-population</a></li>
+                <li><a href="#r-k-selection">2. Life History Strategies (r- and K-selection)</a></li>
+                <li><a href="#characteristics">3. Characteristics of a Population</a></li>
+                <li><a href="#life-tables">4. Life Tables and Survivorship Curves</a></li>
+                <li><a href="#growth">5. Population Growth Models</a></li>
+                <li><a href="#regulation">6. Population Regulation (Limits to Growth)</a></li>
+            </ul>
+        </nav>
+
+        <hr>
+
+        <section id="pop-meta">
+            <h2>1. Population and Meta-population</h2>
+            
+            <h3>Concept of Population</h3>
+            <p>A <strong>population</strong> is a group of individuals of the <strong>same species</strong> that live in the same geographical area at the same time and are capable of interbreeding.</p>
+
+            <h3>Concept of Meta-population</h3>
+            <p>A <strong>meta-population</strong> is a "population of populations." It's a group of spatially separated populations of the same species that are connected by occasional dispersal (migration of individuals) between them.</p>
+            <ul>
+                <li>The individual populations are called <strong>sub-populations</strong>.</li>
+                <li>These sub-populations may go extinct, but the empty habitat patch can be <strong>re-colonized</strong> by individuals from other sub-populations.</li>
+                <li>This dynamic of extinction and re-colonization allows the meta-population to persist.</li>
+            </ul>
+            <div class="diagram-placeholder">
+                <strong>Diagram:</strong> A map showing several "habitat patches" (circles). Some are filled (occupied), some are empty. Arrows between patches indicate "dispersal." One filled patch is shown fading to show "local extinction."
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="r-k-selection">
+            <h2>2. Life History Strategies (r- and K-selection)</h2>
+            <p>This theory describes two main strategies organisms use to maximize reproductive success. These strategies exist on a continuum.</p>
+
+            <h3>r-Selected Species</h3>
+            <p>These species are adapted for <strong>rapid population growth</strong> in unstable environments. Their strategy is to produce many offspring quickly. They are associated with the <strong>'r'</strong> (intrinsic rate of increase).</p>
+
+            <h3>K-Selected Species</h3>
+            <p>These species are adapted for survival in <strong>stable environments</strong> near the <strong>carrying capacity (K)</strong>. Their strategy is to produce fewer, "higher quality" offspring and invest heavily in them.</p>
+
+            <div class="exam-tip">
+                <strong>Classic Exam Question:</strong> Compare and contrast r-selected and K-selected species.
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Characteristic</th>
+                            <th>r-Selected Species</th>
+                            <th>K-Selected Species</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Environment</strong></td>
+                            <td>Unstable, unpredictable</td>
+                            <td>Stable, predictable</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Survivorship Curve</strong></td>
+                            <td><strong>Type III</strong> (high early mortality)</td>
+                            <td><strong>Type I</strong> (high late mortality)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Offspring</strong></td>
+                            <td>Many, small-sized</td>
+                            <td>Few, large-sized</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Parental Care</strong></td>
+                            <td>Little or none</td>
+                            <td>Extensive</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lifespan</strong></td>
+                            <td>Short</td>
+                            <td>Long</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Examples</strong></td>
+                            <td>Insects, bacteria, weeds, oysters</td>
+                            <td>Elephants, whales, humans, large trees</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="characteristics">
+            <h2>3. Characteristics of a Population</h2>
+            <p>Populations have unique group attributes that individuals do not.</p>
+            
+            <h3>Population Density</h3>
+            <p>The number of individuals per unit area or volume (D = N / S).</p>
+            <ul>
+                <li><strong>Crude Density:</strong> Number per total unit of space.</li>
+                <li><strong>Ecological Density:</strong> Number per unit of <em>habitat space</em>.</li>
+            </ul>
+
+            <h3>Natality (Birth Rate)</h3>
+            <p>The rate at which new individuals are produced.
+            <ul>
+                <li><strong>Crude Birth Rate:</strong> Births per 1000 individuals per year.</li>
+                <li><strong>Specific Birth Rate:</strong> Births per female of a specific age.</li>
+            </ul>
+
+            <h3>Mortality (Death Rate)</h3>
+            <p>The rate at which individuals die.</p>
+            
+            <h3>Age Structure</h3>
+            <p>The distribution of individuals among different age classes (pre-reproductive, reproductive, post-reproductive). This is visualized using an <strong>age pyramid</strong>.</p>
+            <div class="diagram-placeholder">
+                <strong>Diagram:</strong> Three age pyramids.
+                <br>1. <strong>Expanding (Rapid Growth):</strong> Wide base, narrow top.
+                <br>2. <strong>Stable (Zero Growth):</strong> Rectangular shape.
+                <br>3. <strong>Declining (Negative Growth):</strong> Narrow base, wider top.
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="life-tables">
+            <h2>4. Life Tables and Survivorship Curves</h2>
+
+            <h3>Life Tables</h3>
+            <p>A life table is an age-specific summary of the mortality and survival patterns of a population. It follows a <strong>cohort</strong> (a group of individuals born at the same time) from birth until all are dead.</p>
+            <p>Key columns in a life table:</p>
+            <ul>
+                <li><strong>x</strong> = Age interval</li>
+                <li><strong>nx</strong> = Number of individuals surviving to age x</li>
+                <li><strong>lx</strong> = Proportion of individuals surviving to age x (nx / n0)</li>
+                <li><strong>dx</strong> = Number of individuals dying during age interval x (nx - nx+1)</li>
+                <li><strong>qx</strong> = Mortality rate per interval (dx / nx)</li>
+            </ul>
+
+            <h3>Survivorship Curves</h3>
+            <p>A survivorship curve is a graph plotting the data from a life table (logarithm of the number of survivors, <em>lx</em>, vs. age). It shows the pattern of mortality.</p>
+            <div class="diagram-placeholder">
+                <strong>Diagram:</strong> A graph with "Age" (x-axis) and "Log Number of Survivors" (y-axis).
+                <br>1. <strong>Type I (Convex):</strong> Line starts high, stays high, then drops sharply at old age.
+                <br>2. <strong>Type II (Diagonal):</strong> Line is a straight, constant downward slope.
+                <br>3. <strong>Type III (Concave):</strong> Line drops sharply at a young age, then flattens out.
+            </div>
+            <ul>
+                <li><strong>Type I (Late Loss):</strong> High survival in early/middle life, high mortality in old age. (e.g., Humans, elephants - K-selected).</li>
+                <li><strong>Type II (Constant Loss):</strong> Constant mortality rate at all ages. (e.g., Many birds, rodents).</li>
+                <li><strong>Type III (Early Loss):</strong> High mortality for the young, but high survival for those that make it past a certain age. (e.g., Oysters, insects, plants - r-selected).</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="growth">
+            <h2>5. Population Growth Models</h2>
+            
+            <h3>Geometric Growth</h3>
+            <p>Describes growth in populations with <strong>discrete, non-overlapping breeding seasons</strong> (e.g., annual plants). The population grows in steps.</p>
+            <blockquote>
+                <strong>Formula: N(t) = N(0) * λᵗ</strong>
+                <br>Where <strong>N(t)</strong> = size at time t, <strong>N(0)</strong> = initial size, <strong>λ</strong> = geometric rate of increase, <strong>t</strong> = number of generations.
+            </blockquote>
+
+            <h3>Exponential Growth (J-shaped curve)</h3>
+            <p>Describes growth in populations with <strong>continuous reproduction</strong> in an <strong>unlimited environment</strong>. There are no limiting factors.</p>
+            <blockquote>
+                <strong>Formula: dN/dt = rN</strong>
+                <br>Where <strong>dN/dt</strong> = rate of change in size, <strong>r</strong> = intrinsic rate of natural increase, <strong>N</strong> = population size.
+            </blockquote>
+            <p>This model results in a <strong>J-shaped curve</strong>. It cannot be
+            sustained indefinitely.</p>
+
+            <h3>Logistic Growth (S-shaped curve)</h3>
+            <p>A more realistic model that incorporates <strong>limiting factors</strong> and the concept of <strong>carrying capacity (K)</strong>.</p>
+            <p><strong>Carrying Capacity (K):</strong> The maximum population size an environment can sustainably support.</p>
+            <blockquote>
+                <strong>Formula: dN/dt = rN * ( (K - N) / K )</strong>
+                <br>Where <strong>(K - N) / K</strong> is "environmental resistance."
+            </blockquote>
+            <ul>
+                <li>When N is small, (K-N)/K is ≈ 1, and growth is exponential.</li>
+                <li>When N approaches K, (K-N)/K approaches 0, and growth stops.</li>
+            </ul>
+            <p>This model results in a <strong>sigmoid or S-shaped curve</strong>.</p>
+
+            <div class="diagram-placeholder">
+                <strong>Diagram:</strong> A graph with "Time" (x-axis) and "Population Size (N)" (y-axis). Show the J-shaped exponential curve and the S-shaped logistic curve that levels off at "K (Carrying Capacity)".
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="regulation">
+            <h2>6. Population Regulation (Limits to Population Growth)</h2>
+            <p>These are the factors that cause the logistic (S-shaped) curve.</p>
+            
+            <h3>Density-Dependent Factors</h3>
+            <p>Factors whose effect <strong>varies with population density</strong>. They become more intense as density increases. These are <em>biotic</em> factors that "regulate" a population around K.</p>
+            <ul>
+                <li><strong>Competition (Intraspecific):</strong> For limited resources (food, water, mates).</li>
+                <li><strong>Predation:</strong> Predators may focus on abundant prey.</li>
+                <li><strong>Disease and Parasitism:</strong> Spread more easily in dense populations.</li>
+            </ul>
+
+            <h3>Density-Independent Factors</h3>
+            <p>Factors that affect a population <strong>regardless of its density</strong>. They are typically <em>abiotic</em> and do not regulate, but can cause sudden crashes.</p>
+            <ul>
+                <li><strong>Climate and Weather:</strong> Droughts, floods, extreme temperatures.</li>
+                <li><strong>Natural Disasters:</strong> Fires, volcanic eruptions.</li>
+            </ul>
+        </section>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHYDSM101 - Unit 1: Vectors and Differential Equations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dcdcdc;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            border-bottom-width: 3px;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #2980b9;
+            border-bottom: 1px dotted #3498db;
+        }
+        p, li {
+            font-size: 1.1em;
+            text-align: justify;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        blockquote {
+            font-family: 'Georgia', serif;
+            font-size: 1.2em;
+            font-style: italic;
+            background-color: #ecf8ff;
+            border-left: 5px solid #3498db;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        .exam-tip {
+            background-color: #fffbe6;
+            border: 1px solid #ffecb3;
+            border-left-width: 5px;
+            border-left-color: #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #c79100;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        #toc {
+            background: #eaf5ff;
+            border: 1px solid #bde0ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            border-bottom: none;
+            margin-top: 0;
+            text-align: center;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #toc li {
+            margin: 5px 0;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: bold;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+        .del-op {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #d35400;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PHYDSM101 - Unit 1: Vectors and Differential Equations</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Vector Algebra</a></li>
+                <li><a href="#topic2">Vector Calculus: Grad, Div, Curl</a></li>
+                <li><a href="#topic3">Vector Integration</a></li>
+                <li><a href="#topic4">1st Order Homogeneous Differential Equations</a></li>
+                <li><a href="#topic5">2nd Order Homogeneous Differential Equations</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Vector Algebra</h2>
+        
+        <h3>Dot and Cross product and their properties</h3>
+        <p><strong>Scalar (Dot) Product:</strong> A product of two vectors that results in a scalar.</p>
+        <blockquote>
+            <strong>A · B = |A| |B| cos(θ)</strong>
+        </blockquote>
+        <ul>
+            <li><strong>Properties:</strong>
+                <ul>
+                    <li>Commutative: <strong>A · B = B · A</strong></li>
+                    <li>Distributive: A · (B + C) = A · B + A · C</li>
+                    <li>If A ⊥ B (perpendicular), then θ = 90°, and <strong>A · B = 0</strong>.</li>
+                    <li>If A || B (parallel), then θ = 0°, and <strong>A · B = |A||B|</strong>.</li>
+                    <li>In components: A · B = A<sub>x</sub>B<sub>x</sub> + A<sub>y</sub>B<sub>y</sub> + A<sub>z</sub>B<sub>z</sub></li>
+                </ul>
+            </li>
+            <li><strong>Application:</strong> Work done, W = <strong>F · d</strong>.</li>
+        </ul>
+        
+        <p><strong>Vector (Cross) Product:</strong> A product of two vectors that results in a new vector.</p>
+        <blockquote>
+            <strong>A × B = |A| |B| sin(θ) n̂</strong>
+        </blockquote>
+        <p>Where n̂ is a unit vector perpendicular to the plane of A and B, given by the Right-Hand Rule.</p>
+        <ul>
+            <li><strong>Properties:</strong>
+                <ul>
+                    <li>Anti-commutative: <strong>A × B = - (B × A)</strong></li>
+                    <li>Distributive: A × (B + C) = (A × B) + (A × C)</li>
+                    <li>If A || B (parallel), then θ = 0°, and <strong>A × B = 0</strong> (the null vector).</li>
+                    <li>In determinant form:
+                        <pre class="formula">
+        |  î   ĵ   k̂  |
+A × B = | A<sub>x</sub>  A<sub>y</sub>  A<sub>z</sub> |
+        | B<sub>x</sub>  B<sub>y</sub>  B<sub>z</sub> |
+                        </pre>
+                    </li>
+                </ul>
+            </li>
+            <li><strong>Application:</strong> Torque, <strong>τ = r × F</strong>. Angular Momentum, <strong>L = r × p</strong>.</li>
+        </ul>
+
+        <h3>Scalar and Vector triple products</h3>
+        <p><strong>Scalar Triple Product (Box Product):</strong></p>
+        <blockquote>
+            <strong>A · (B × C)</strong>
+        </blockquote>
+        <ul>
+            <li><strong>Result:</strong> A scalar.</li>
+            <li><strong>Significance:</strong> The magnitude |A · (B × C)| gives the <strong>volume of the parallelepiped</strong> formed by the three vectors.</li>
+            <li><strong>Property:</strong> If the three vectors are coplanar, the volume is zero, so <strong>A · (B × C) = 0</strong>.</li>
+            <li><strong>Calculation:</strong>
+                <pre class="formula">
+        | A<sub>x</sub>  A<sub>y</sub>  A<sub>z</sub> |
+A · (B × C) = | B<sub>x</sub>  B<sub>y</sub>  B<sub>z</sub> |
+        | C<sub>x</sub>  C<sub>y</sub>  C<sub>z</sub> |
+                </pre>
+            </li>
+        </ul>
+        
+        <p><strong>Vector Triple Product:</strong></p>
+        <blockquote>
+            <strong>A × (B × C)</strong>
+        </blockquote>
+        <ul>
+            <li><strong>Result:</strong> A vector.</li>
+            <li><strong>Significance:</strong> The resulting vector lies in the plane formed by B and C.</li>
+            <li><strong>Expansion (BAC-CAB Rule):</strong> This is a crucial identity.
+                <blockquote>
+                    <strong>A × (B × C) = B(A · C) - C(A · B)</strong>
+                </blockquote>
+            </li>
+            <li><strong>Property:</strong> Not associative: A × (B × C) ≠ (A × B) × C.</li>
+        </ul>
+        
+        <div class="exam-tip">
+            <strong>Common Mistake:</strong> Confusing the two triple products. Remember `A · (B × C)` gives a scalar (volume) and can be calculated with a 3x3 determinant. `A × (B × C)` gives a vector and is solved with the BAC-CAB rule.
+        </div>
+        
+        <hr>
+
+        <h2 id="topic2">Vector Calculus: Grad, Div, Curl</h2>
+        <p>This section introduces the vector differential operator <strong>del (<span class="del-op">∇</span>)</strong>.</p>
+        <blockquote>
+            In Cartesian coordinates: <span class="del-op"><strong>∇</strong></span> = <strong>î (∂/∂x) + ĵ (∂/∂y) + k̂ (∂/∂z)</strong>
+        </blockquote>
+
+        <h3>Gradient (grad) and its significance</h3>
+        <p>The gradient acts on a <strong>scalar field (f)</strong> and produces a <strong>vector field</strong>.</p>
+        <blockquote>
+            <strong>grad(f) = ∇f = (∂f/∂x)î + (∂f/∂y)ĵ + (∂f/∂z)k̂</strong>
+        </blockquote>
+        <p><strong>Physical Significance:</strong></p>
+        <ul>
+            <li>The vector <strong>∇f</strong> points in the direction of the <strong>steepest increase</strong> of the scalar field f.</li>
+            <li>The magnitude <strong>|∇f|</strong> is the value of this maximum rate of change.</li>
+            <li><strong>∇f</strong> is always <strong>perpendicular (normal)</strong> to the level surfaces of f (surfaces where f = constant).</li>
+            <li><strong>Application:</strong> Relates a potential field (scalar) to its force field (vector).
+                <br>Electric Field: <strong>E = -∇V</strong>
+                <br>Conservative Force: <strong>F = -∇U</strong>
+            </li>
+        </ul>
+
+        <h3>Divergence (div) and its significance</h3>
+        <p>The divergence acts on a <strong>vector field (V)</strong> and produces a <strong>scalar field</strong>.</p>
+        <blockquote>
+            <strong>div(V) = ∇ · V = (∂V<sub>x</sub>/∂x) + (∂V<sub>y</sub>/∂y) + (∂V<sub>z</sub>/∂z)</strong>
+        </blockquote>
+        <p><strong>Physical Significance:</strong></p>
+        <ul>
+            <li>Divergence measures the "outflow" or "source strength" of a vector field at a point.</li>
+            <li><strong>∇ · V > 0:</strong> The point is a <strong>source</strong> (field lines diverge). (e.g., a positive charge).</li>
+            <li><strong>∇ · V < 0:</strong> The point is a <strong>sink</strong> (field lines converge). (e.g., a negative charge).</li>
+            <li><strong>∇ · V = 0:</strong> The field is <strong>solenoidal</strong> (no sources or sinks). (e.g., a magnetic field, <strong>∇ · B = 0</strong>).</li>
+        </ul>
+        
+        <h3>Curl and its significance</h3>
+        <p>The curl acts on a <strong>vector field (V)</strong> and produces another <strong>vector field</strong>.</p>
+        <blockquote>
+            <pre class="formula">
+        |  î     ĵ     k̂   |
+curl(V) = ∇ × V = | ∂/∂x  ∂/∂y  ∂/∂z |
+        |  V<sub>x</sub>    V<sub>y</sub>    V<sub>z</sub>  |
+            </pre>
+        </blockquote>
+        <p><strong>Physical Significance:</strong></p>
+        <ul>
+            <li>Curl measures the microscopic "circulation" or "vorticity" of a vector field at a point.</li>
+            <li>Imagine a tiny paddlewheel in the field. If it spins, the field has a curl.</li>
+            <li><strong>∇ × V ≠ 0:</strong> The field is <strong>rotational</strong>. (e.g., water in a whirlpool, magnetic field around a wire).</li>
+            <li><strong>∇ × V = 0:</strong> The field is <strong>irrotational</strong>.
+                <br><strong>Key Property:</strong> All conservative fields are irrotational (<strong>∇ × F = 0</strong>).
+            </li>
+        </ul>
+
+        <hr>
+
+        <h2 id="topic3">Vector Integration</h2>
+        <p>The syllabus specifies "statement only," so we will define the integrals and their primary meaning.</p>
+
+        <h3>Line Integral</h3>
+        <blockquote>
+            <strong>I = ∫<sub>C</sub> V · dr</strong>
+        </blockquote>
+        <p>This represents the integral of the component of a vector field <strong>V</strong> that is tangent to a path <strong>C</strong>.
+        <br><strong>Application:</strong> Calculating the <strong>Work done</strong> by a force field <strong>F</strong> along a path: <strong>W = ∫ F · dr</strong>.</p>
+        
+        <h3>Surface Integral</h3>
+        <blockquote>
+            <strong>Φ = ∫∫<sub>S</sub> V · dS</strong>
+        </blockquote>
+        <p>This represents the integral of the component of a vector field <strong>V</strong> that is normal to a surface <strong>S</strong>.
+        <br><strong>Application:</strong> Calculating the <strong>Flux</strong> of a field (e.g., electric flux, magnetic flux) through a surface.</p>
+        
+        <h3>Volume Integral</h3>
+        <blockquote>
+            <strong>Q = ∫∫∫<sub>V</sub> f dV</strong>
+        </blockquote>
+        <p>This represents the integral of a scalar field <strong>f</strong> (like density) over a 3D volume <strong>V</strong>.
+        <br><strong>Application:</strong> Calculating the <strong>total quantity</strong> (e.g., total mass, total charge) inside a volume.</p>
+        
+        <hr>
+
+        <h2 id="topic4">1st Order Homogeneous Differential Equations</h2>
+        <p>This refers to linear homogeneous equations of the form:</p>
+        <blockquote>
+            <strong>dy/dx + P(x)y = 0</strong>
+        </blockquote>
+        <p>This type of equation is fundamental in physics, describing processes like radioactive decay or the discharge of a capacitor.</p>
+        
+        <h3>Solution Method (Separation of Variables)</h3>
+        <ol>
+            <li>Rearrange the equation:
+                <br>dy/dx = -P(x)y
+            </li>
+            <li>Separate the variables (bring all 'y' terms to one side, 'x' terms to the other):
+                <br><strong>dy / y = -P(x) dx</strong>
+            </li>
+            <li>Integrate both sides:
+                <br>∫ (1/y) dy = -∫ P(x) dx + C'
+                <br>ln(y) = -∫ P(x) dx + C'
+            </li>
+            <li>Solve for y by taking the exponential of both sides:
+                <br>y = e<sup>(-∫P(x)dx + C')</sup> = e<sup>-∫P(x)dx</sup> * e<sup>C'</sup>
+            </li>
+            <li>Let the constant `e^C'` be `C`. The general solution is:
+                <blockquote>
+                    <strong>y(x) = C e<sup>-∫P(x)dx</sup></strong>
+                </blockquote>
+            </li>
+        </ol>
+        
+        <div class="exam-tip">
+            <strong>Example (Radioactive Decay):</strong>
+            <br>The rate of decay (dN/dt) is proportional to the number of atoms (N).
+            <br>dN/dt = -λN  (where λ is the decay constant)
+            <br>This is a 1st order homogeneous ODE.
+            <br>dN/N = -λ dt
+            <br>∫ dN/N = ∫ -λ dt
+            <br>ln(N) = -λt + C'
+            <br>N(t) = e<sup>-λt + C'</sup> = (e<sup>C'</sup>) e<sup>-λt</sup>
+            <br>Let N₀ be the number at t=0.  N₀ = (e<sup>C'</sup>)e⁰ → e<sup>C'</sup> = N₀.
+            <br>Solution: <strong>N(t) = N₀ e<sup>-λt</sup></strong>
+        </div>
+
+        <hr>
+        
+        <h2 id="topic5">2nd Order Homogeneous Differential Equations with Constant Coefficients</h2>
+        <p>This is one of the most important equations in physics, as it describes all types of oscillations (Simple Harmonic Motion, Damped Oscillations).</p>
+        <p>The general form is:</p>
+        <blockquote>
+            <strong>a (d²y/dx²) + b (dy/dx) + c y = 0</strong>
+        </blockquote>
+        <p>where `a`, `b`, and `c` are constants.</p>
+
+        <h3>Solution Method (Auxiliary Equation)</h3>
+        <ol>
+            <li>Assume a trial solution of the form <strong>y = e<sup>mx</sup></strong>.</li>
+            <li>Substitute this into the ODE:
+                <br>y' = me<sup>mx</sup>
+                <br>y'' = m²e<sup>mx</sup>
+                <br>a(m²e<sup>mx</sup>) + b(me<sup>mx</sup>) + c(e<sup>mx</sup>) = 0
+            </li>
+            <li>Factor out e<sup>mx</sup> (which is never zero):
+                <br>e<sup>mx</sup> (am² + bm + c) = 0
+            </li>
+            <li>This leaves the <strong>Auxiliary (or Characteristic) Equation</strong>:
+                <blockquote>
+                    <strong>am² + bm + c = 0</strong>
+                </blockquote>
+            </li>
+            <li>Solve this quadratic equation for its roots, m₁ and m₂. The form of the general solution `y(x)` depends on the nature of these roots.</li>
+        </ol>
+
+        <h3>Three Cases for the Solution</h3>
+        
+        <table class="cases-table">
+            <thead>
+                <tr>
+                    <th>Case (based on discriminant b²-4ac)</th>
+                    <th>Roots (m₁, m₂)</th>
+                    <th>General Solution y(x)</th>
+                    <th>Physical Example (in time)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Case 1: Real and Distinct</strong><br>(b²-4ac > 0)</td>
+                    <td>m₁ and m₂ are real, m₁ ≠ m₂</td>
+                    <td class="formula">y = C₁e<sup>m₁x</sup> + C₂e<sup>m₂x</sup></td>
+                    <td><strong>Overdamped</strong> motion</td>
+                </tr>
+                <tr>
+                    <td><strong>Case 2: Real and Equal</strong><br>(b²-4ac = 0)</td>
+                    <td>m₁ = m₂ = m (real)</td>
+                    <td class="formula">y = (C₁ + C₂x)e<sup>mx</sup></td>
+                    <td><strong>Critically Damped</strong> motion</td>
+                </tr>
+                <tr>
+                    <td><strong>Case 3: Complex Conjugate</strong><br>(b²-4ac < 0)</td>
+                    <td>m = α ± iβ</td>
+                    <td class="formula">y = e<sup>αx</sup> (C₁cos(βx) + C₂sin(βx))</td>
+                    <td><strong>Underdamped</strong> (Oscillatory) motion</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="exam-tip">
+            <strong>Example (Simple Harmonic Motion):</strong>
+            <br>d²x/dt² + (k/m)x = 0  or  <strong>x'' + ω₀²x = 0</strong>
+            <br>Here, `a=1`, `b=0`, `c=ω₀²`.
+            <br>Auxiliary Equation: m² + ω₀² = 0
+            <br>Roots: m² = -ω₀²  →  m = ±√(-ω₀²) = ± iω₀.
+            <br>This is Case 3, with α = 0 and β = ω₀.
+            <br>Solution: x(t) = e<sup>0t</sup> (C₁cos(ω₀t) + C₂sin(ω₀t))
+            <br><strong>x(t) = C₁cos(ω₀t) + C₂sin(ω₀t)</strong>, which is the standard SHM solution.
+        </div>
+
+    </div>
+</body>
+</html>

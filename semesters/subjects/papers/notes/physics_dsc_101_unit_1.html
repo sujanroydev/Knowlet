@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHYDSC101T - Unit 1: Vector Algebra and Matrices</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dcdcdc;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            border-bottom-width: 3px;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #2980b9;
+            border-bottom: 1px dotted #3498db;
+        }
+        p, li {
+            font-size: 1.1em;
+            text-align: justify;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        blockquote {
+            font-family: 'Georgia', serif;
+            font-size: 1.2em;
+            font-style: italic;
+            background-color: #ecf8ff;
+            border-left: 5px solid #3498db;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        .exam-tip {
+            background-color: #fffbe6;
+            border: 1px solid #ffecb3;
+            border-left-width: 5px;
+            border-left-color: #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #c79100;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        #toc {
+            background: #eaf5ff;
+            border: 1px solid #bde0ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            border-bottom: none;
+            margin-top: 0;
+            text-align: center;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #toc li {
+            margin: 5px 0;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: bold;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PHYDSC101T - Unit 1: Vector Algebra and Matrices</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Vector Products</a></li>
+                <li><a href="#topic2">Scalar and Vector Triple Products</a></li>
+                <li><a href="#topic3">Properties and Applications of Vectors</a></li>
+                <li><a href="#topic4">Scalar and Vector Fields</a></li>
+                <li><a href="#topic5">Matrices: Types and Properties</a></li>
+                <li><a href="#topic6">Matrix Operations: Inverse and Transpose</a></li>
+                <li><a href="#topic7">Solution of Simultaneous Linear Equations</a></li>
+                <li><a href="#topic8">Eigenvalues and Eigenvectors of a Matrix</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Vector Products</h2>
+        
+        <h3>Scalar (Dot) Product</h3>
+        <p>The scalar product of two vectors <strong>A</strong> and <strong>B</strong> is a scalar quantity defined as:</p>
+        <blockquote>
+            <strong>A · B = |A| |B| cos(θ)</strong>
+        </blockquote>
+        <p>where |A| and |B| are the magnitudes of the vectors and θ is the angle between them.</p>
+        <ul>
+            <li><strong>In component form:</strong> If A = A<sub>x</sub>î + A<sub>y</sub>ĵ + A<sub>z</sub>k̂ and B = B<sub>x</sub>î + B<sub>y</sub>ĵ + B<sub>z</sub>k̂, then:
+                <p class="formula">A · B = A<sub>x</sub>B<sub>x</sub> + A<sub>y</sub>B<sub>y</sub> + A<sub>z</sub>B<sub>z</sub></p>
+            </li>
+            <li><strong>Properties:</strong>
+                <ul>
+                    <li>It is <strong>commutative</strong>: A · B = B · A</li>
+                    <li>It is <strong>distributive</strong>: A · (B + C) = A · B + A · C</li>
+                    <li>If A and B are perpendicular (θ = 90°), <strong>A · B = 0</strong>.</li>
+                    <li>If A and B are parallel (θ = 0°), <strong>A · B = |A||B|</strong>.</li>
+                    <li>For unit vectors: î·î = ĵ·ĵ = k̂·k̂ = 1;  î·ĵ = ĵ·k̂ = k̂·î = 0</li>
+                </ul>
+            </li>
+            <li><strong>Physical Application:</strong> Work done (W) by a force (F) over a displacement (d) is <strong>W = F · d</strong>.</li>
+        </ul>
+
+        <h3>Vector (Cross) Product</h3>
+        <p>The vector product of two vectors <strong>A</strong> and <strong>B</strong> is a vector quantity <strong>C</strong> defined as:</p>
+        <blockquote>
+            <strong>A × B = |A| |B| sin(θ) n̂</strong>
+        </blockquote>
+        <p>where n̂ is a unit vector perpendicular to the plane containing A and B, given by the <strong>Right-Hand Rule</strong>.</p>
+        <ul>
+            <li><strong>In component (determinant) form:</strong>
+                <pre class="formula">
+        |  î   ĵ   k̂  |
+A × B = | A<sub>x</sub>  A<sub>y</sub>  A<sub>z</sub> |
+        | B<sub>x</sub>  B<sub>y</sub>  B<sub>z</sub> |
+        
+= (A<sub>y</sub>B<sub>z</sub> - A<sub>z</sub>B<sub>y</sub>)î - (A<sub>x</sub>B<sub>z</sub> - A<sub>z</sub>B<sub>x</sub>)ĵ + (A<sub>x</sub>B<sub>y</sub> - A<sub>y</sub>B<sub>x</sub>)k̂
+                </pre>
+            </li>
+            <li><strong>Properties:</strong>
+                <ul>
+                    <li>It is <strong>anti-commutative</strong>: A × B = - (B × A)</li>
+                    <li>It is <strong>distributive</strong>: A × (B + C) = (A × B) + (A × C)</li>
+                    <li>If A and B are parallel (θ = 0° or 180°), <strong>A × B = 0</strong> (the null vector).</li>
+                    <li>For unit vectors: î×î = ĵ×ĵ = k̂×k̂ = 0;  î×ĵ = k̂, ĵ×k̂ = î, k̂×î = ĵ</li>
+                </ul>
+            </li>
+            <li><strong>Physical Interpretation:</strong> The magnitude |A × B| is equal to the <strong>area of the parallelogram</strong> formed by vectors A and B.</li>
+            <li><strong>Physical Application:</strong> Torque (τ) is <strong>τ = r × F</strong>, where r is the position vector and F is the force. Angular momentum (L) is <strong>L = r × p</strong>.</li>
+        </ul>
+
+        <hr>
+
+        <h2 id="topic2">Scalar and Vector Triple Products</h2>
+
+        <h3>Scalar Triple Product (Box Product)</h3>
+        <p>It is defined as the dot product of one vector with the cross product of the other two: <strong>A · (B × C)</strong>.</p>
+        <ul>
+            <li><strong>Geometrical Interpretation:</strong> The magnitude |A · (B × C)| represents the <strong>volume of the parallelepiped</strong> formed by the three vectors A, B, and C.</li>
+            <li><strong>Calculation (Determinant):</strong>
+                <pre class="formula">
+        | A<sub>x</sub>  A<sub>y</sub>  A<sub>z</sub> |
+A · (B × C) = | B<sub>x</sub>  B<sub>y</sub>  B<sub>z</sub> |
+        | C<sub>x</sub>  C<sub>y</sub>  C<sub>z</sub> |
+                </pre>
+            </li>
+            <li><strong>Properties:</strong>
+                <ul>
+                    <li>The product is <strong>cyclically invariant</strong>: A · (B × C) = B · (C × A) = C · (A × B)</li>
+                    <li>The dot and cross can be interchanged: A · (B × C) = (A × B) · C</li>
+                    <li>If the three vectors are <strong>coplanar</strong> (lie in the same plane), their scalar triple product is <strong>zero</strong> (as the volume is zero).</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Vector Triple Product</h3>
+        <p>It is defined as the cross product of one vector with the cross product of the other two: <strong>A × (B × C)</strong>.</p>
+        <ul>
+            <li><strong>Expansion (BAC-CAB Rule):</strong> This is a crucial identity to remember.
+                <blockquote>
+                    <strong>A × (B × C) = B(A · C) - C(A · B)</strong>
+                </blockquote>
+            </li>
+            <li><strong>Mnemonic:</strong> Remember the rule as "BAC-CAB".</li>
+            <li><strong>Properties:</strong>
+                <ul>
+                    <li>The resultant vector lies in the plane formed by B and C.</li>
+                    <li>It is <strong>not associative</strong>: A × (B × C) ≠ (A × B) × C</li>
+                    <li>(A × B) × C = -C × (A × B) = -[A(C · B) - B(C · A)] = B(A · C) - A(B · C)</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <div class="exam-tip">
+            <strong>Common Mistake:</strong> Confusing the scalar and vector triple products. Remember:
+            <ul>
+                <li><strong>Scalar Triple Product:</strong> `A · (B × C)` → Results in a <strong>Scalar</strong> (a number, representing volume).</li>
+                <li><strong>Vector Triple Product:</strong> `A × (B × C)` → Results in a <strong>Vector</strong> (using the BAC-CAB rule).</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2 id="topic3">Properties and Applications of Vectors</h2>
+        <p>This is a summary of the applications discussed above.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Concept</th>
+                    <th>Formula</th>
+                    <th>Physical Application</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Scalar Product</td>
+                    <td>W = F · d</td>
+                    <td>Calculating <strong>Work Done</strong> by a force.</td>
+                </tr>
+                <tr>
+                    <td>Scalar Product</td>
+                    <td>P = F · v</td>
+                    <td>Calculating instantaneous <strong>Power</strong>.</td>
+                </tr>
+                <tr>
+                    <td>Scalar Product</td>
+                    <td>Φ<sub>B</sub> = B · A</td>
+                    <td>Calculating <strong>Magnetic Flux</strong> through an area A.</td>
+                </tr>
+                <tr>
+                    <td>Vector Product</td>
+                    <td>τ = r × F</td>
+                    <td>Calculating <strong>Torque</strong>.</td>
+                </tr>
+                <tr>
+                    <td>Vector Product</td>
+                    <td>L = r × p</td>
+                    <td>Calculating <strong>Angular Momentum</strong>.</td>
+                </tr>
+                <tr>
+                    <td>Vector Product</td>
+                    <td>F<sub>m</sub> = q(v × B)</td>
+                    S<td>Calculating <strong>Lorentz Force</strong> on a charge in a B-field.</td>
+                </tr>
+                <tr>
+                    <td>Scalar Triple Product</td>
+                    <td>V = |A · (B × C)|</td>
+                    <td>Finding the <strong>Volume</strong> of a parallelepiped.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2 id="topic4">Scalar and Vector Fields</h2>
+        <p>A <strong>field</strong> is a physical quantity that has a value for each point in space and time.</p>
+        <ul>
+            <li><strong>Scalar Field:</strong> A field that associates a <strong>scalar value</strong> with every point in space.
+                <ul>
+                    <li><strong>Examples:</strong> Temperature in a room (T(x,y,z)), pressure in a fluid (P(x,y,z)), electric potential (V(x,y,z)).</li>
+                    <li>These are represented by level surfaces or contour lines.</li>
+                </ul>
+            </li>
+            <li><strong>Vector Field:</strong> A field that associates a <strong>vector value</strong> (magnitude and direction) with every point in space.
+                <ul>
+                    <li><strong>Examples:</strong> Gravitational field (g(x,y,z)), electric field (E(x,y,z)), velocity field of a flowing river (v(x,y,z)).</li>
+                    <li>These are represented by drawing arrows at various points.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <hr>
+
+        <h2 id="topic5">Matrices: Types and Properties</h2>
+        
+        <h3>Different Types of Matrices</h3>
+        <ul>
+            <li><strong>Square Matrix:</strong> Number of rows = Number of columns.</li>
+            <li><strong>Diagonal Matrix:</strong> A square matrix where all non-diagonal elements are zero.</li>
+            <li><strong>Identity Matrix (I):</strong> A diagonal matrix with all diagonal elements equal to 1.</li>
+            <li><strong>Null Matrix (0):</strong> A matrix where all elements are zero.</li>
+        </ul>
+
+        <h3>Symmetric and Antisymmetric Matrices</h3>
+        <ul>
+            <li><strong>Transpose (Aᵀ):</strong> A matrix formed by interchanging rows and columns of A. (A<sub>ij</sub>ᵀ = A<sub>ji</sub>)</li>
+            <li><strong>Symmetric Matrix:</strong> A square matrix A is symmetric if <strong>A = Aᵀ</strong>. (i.e., A<sub>ij</sub> = A<sub>ji</sub>)</li>
+            <li><strong>Antisymmetric (Skew-Symmetric) Matrix:</strong> A square matrix A is antisymmetric if <strong>A = -Aᵀ</strong>. (i.e., A<sub>ij</sub> = -A<sub>ji</sub>)</li>
+            <li><strong>Property:</strong> For an antisymmetric matrix, all diagonal elements must be zero (since A<sub>ii</sub> = -A<sub>ii</sub> implies 2A<sub>ii</sub> = 0).</li>
+        </ul>
+
+        <h3>Hermitian and Anti-Hermitian Matrices</h3>
+        <p>These are the complex-number equivalents of symmetric and antisymmetric matrices.</p>
+        <ul>
+            <li><strong>Conjugate Transpose (A†) (Adjoint):</strong> First, take the complex conjugate of all elements, then take the transpose. <strong>A† = (A*)ᵀ</strong></li>
+            <li><strong>Hermitian Matrix:</strong> A square matrix A is Hermitian if <strong>A = A†</strong>. (i.e., A<sub>ij</sub> = A<sub>ji</sub>*)</li>
+            <li><strong>Property:</strong> The diagonal elements of a Hermitian matrix must be <strong>real</strong> (since A<sub>ii</sub> = A<sub>ii</sub>*).
+            <li><strong>Anti-Hermitian (Skew-Hermitian) Matrix:</strong> A square matrix A is anti-Hermitian if <strong>A = -A†</strong>. (i.e., A<sub>ij</sub> = -A<sub>ji</sub>*)</li>
+            <li><strong>Property:</strong> The diagonal elements of an anti-Hermitian matrix must be <strong>purely imaginary or zero</strong> (since A<sub>ii</sub> = -A<sub>ii</sub>*).</li>
+        </ul>
+        <div class="exam-tip">
+            <strong>Key Property:</strong> Any square matrix A can be written as the sum of a symmetric (S) and an antisymmetric (K) matrix: <strong>A = S + K</strong>
+            <br>
+            where <strong>S = (1/2)(A + Aᵀ)</strong> and <strong>K = (1/2)(A - Aᵀ)</strong>.
+            <br>
+            Similarly, any square matrix A can be written as the sum of a Hermitian (H) and an anti-Hermitian (S) matrix: <strong>A = H + S</strong>
+            <br>
+            where <strong>H = (1/2)(A + A†)</strong> and <strong>S = (1/2)(A - A†)</strong>.
+        </div>
+
+        <hr>
+
+        <h2 id="topic6">Matrix Operations: Inverse and Transpose</h2>
+        
+        <h3>Transpose of a Matrix (Aᵀ)</h3>
+        <p>As defined earlier, (Aᵀ)<sub>ij</sub> = A<sub>ji</sub>.</p>
+        <ul>
+            <li><strong>Properties:</strong>
+                <ul>
+                    <li>(Aᵀ)ᵀ = A</li>
+                    <li>(A + B)ᵀ = Aᵀ + Bᵀ</li>
+                    <li>(kA)ᵀ = kAᵀ (where k is a scalar)</li>
+                    <li><strong>(AB)ᵀ = BᵀAᵀ</strong> (Reversal law)</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Inverse of a Matrix (A⁻¹)</h3>
+        <p>The inverse of a square matrix A is a matrix A⁻¹ such that <strong>A A⁻¹ = A⁻¹ A = I</strong> (the identity matrix).</p>
+        <ul>
+            <li>A matrix has an inverse <em>if and only if</em> its determinant is non-zero (<strong>det(A) ≠ 0</strong>). Such a matrix is called <strong>non-singular</strong>.</li>
+            <li><strong>Formula for Inverse:</strong>
+                <blockquote>
+                    <strong>A⁻¹ = (1 / det(A)) * adj(A)</strong>
+                </blockquote>
+            </li>
+            <li><strong>Determinant (det(A)):</strong> A scalar value calculated from the elements of a square matrix.</li>
+            <li><strong>Adjugate (adj(A)):</strong> The transpose of the cofactor matrix.
+                <ol>
+                    <li><strong>Minor (M<sub>ij</sub>):</strong> Determinant of the submatrix left after removing row i and column j.</li>
+                    <li><strong>Cofactor (C<sub>ij</sub>):</strong> (-1)<sup>i+j</sup> * M<sub>ij</sub></li>
+                    <li><strong>Cofactor Matrix (C):</strong> The matrix formed by all cofactors.</li>
+                    <li><strong>Adjugate (adj(A)):</strong> Cᵀ (Transpose of the cofactor matrix).</li>
+                </ol>
+            </li>
+            <li><strong>Properties:</strong>
+                <ul>
+                    <li>(A⁻¹)⁻¹ = A</li>
+                    <li>(AB)⁻¹ = B⁻¹A⁻¹ (Reversal law)</li>
+                    <li>(Aᵀ)⁻¹ = (A⁻¹)ᵀ</li>
+                </ul>
+            </li>
+        </ul>
+
+        <hr>
+
+        <h2 id="topic7">Solution of Simultaneous Linear Equations</h2>
+        <p>A system of linear equations can be written in matrix form as <strong>AX = B</strong>.</p>
+        <pre class="formula">
+    [ a₁₁ a₁₂ ... a₁n ] [ x₁ ]   [ b₁ ]
+    [ a₂₁ a₂₂ ... a₂n ] [ x₂ ] = [ b₂ ]
+    [ ... ... ... ... ] [ .. ]   [ .. ]
+    [ aₘ₁ aₘ₂ ... aₘn ] [ xn ]   [ bₘ ]
+        </pre>
+
+        <h3>Homogeneous Equations (AX = 0)</h3>
+        <p>This is when B is a null vector (all b<sub>i</sub> = 0).</p>
+        <ul>
+            <li><strong>Trivial Solution:</strong> X = 0 (i.e., x₁=0, x₂=0, ...) is <em>always</em> a solution.</li>
+            <li><strong>Non-Trivial Solution:</strong> For a non-trivial solution (X ≠ 0) to exist, the determinant of the coefficient matrix must be zero: <strong>det(A) = 0</strong>.</li>
+            <li>This is crucial for finding eigenvectors.</li>
+        </ul>
+
+        <h3>Non-Homogeneous Equations (AX = B)</h3>
+        <p>This is when B is not a null vector.</p>
+        <p><strong>Methods of Solution:</strong></p>
+        <ol>
+            <li><strong>Matrix Inverse Method:</strong>
+                <ul>
+                    <li>If A is square and non-singular (det(A) ≠ 0), a unique solution exists.</li>
+                    <li>Multiply by A⁻¹: A⁻¹(AX) = A⁻¹B  →  (A⁻¹A)X = A⁻¹B  →  IX = A⁻¹B</li>
+                    <li><strong>Solution: X = A⁻¹B</strong></li>
+                </ul>
+            </li>
+            <li><strong>Gauss-Jordan Elimination (Row Reduction):</strong>
+                <ul>
+                    <li>Form the <strong>augmented matrix</strong> [A | B].</li>
+                    <li>Use elementary row operations (swapping rows, multiplying a row by a scalar, adding a multiple of one row to another) to transform A into the identity matrix I.</li>
+                    <li>The augmented matrix will become [I | X], and the right-hand column will be the solution vector X.</li>
+                </ul>
+            </li>
+            <li><strong>Cramer's Rule:</strong>
+                <ul>
+                    <li>Used when det(A) ≠ 0.</li>
+                    <li>The solution for each variable x<sub>i</sub> is given by:
+                        <strong>x<sub>i</sub> = det(A<sub>i</sub>) / det(A)</strong>
+                    </li>
+                    <li>where A<sub>i</sub> is the matrix A with its i-th column replaced by the vector B.</li>
+                </ul>
+            </li>
+        </ol><hr>
+
+        <h2 id="topic8">Eigenvalues and Eigenvectors of a Matrix</h2>
+        
+        <h3>Definition</h3>
+        <p>For a given square matrix A, a non-zero vector X is an <strong>eigenvector</strong> of A if it satisfies the following equation for some scalar λ:</p>
+        <blockquote>
+            <strong>AX = λX</strong>
+        </blockquote>
+        <p>The scalar λ is called the <strong>eigenvalue</strong> corresponding to the eigenvector X. This means that when matrix A "acts" on its eigenvector X, it only scales it by a factor λ, without changing its direction.</p>
+
+        <h3>How to Find Eigenvalues and Eigenvectors</h3>
+        <ol><li><strong>Step 1: Find the Eigenvalues (λ)</strong>
+                <ul>
+                    <li>Rearrange the equation: AX - λX = 0  →  AX - λIX = 0</li>
+                    <li><strong>(A - λI)X = 0</strong></li>
+                    <li>This is a homogeneous system of linear equations. For a non-trivial solution (X ≠ 0) to exist, the determinant of the coefficient matrix must be zero.</li>
+                    <li><strong>The Characteristic Equation: det(A - λI) = 0</strong></li>
+                    <li>Solving this equation (which will be a polynomial in λ) gives the eigenvalues λ₁, λ₂, ...</li>
+                </ul>
+            </li>
+            <li><strong>Step 2: Find the Eigenvectors (X)</strong>
+                <ul>
+                    <li>For <em>each</em> eigenvalue λ<sub>i</sub> found in Step 1, substitute it back into the equation:
+                        <strong>(A - λ<sub>i</sub>I)X = 0</strong>
+                    </li>
+                    <li>Solve this homogeneous system for the vector X = [x₁, x₂, ...]. This will typically involve using Gaussian elimination.</li>
+                    <li>The solution will have at least one free variable, leading to an infinite number of solutions (all scalar multiples of the base eigenvector). We usually state one normalized eigenvector.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <div class="exam-tip">
+            <strong>Properties of Eigenvalues:</strong>
+            <ul>
+                <li>The <strong>sum</strong> of all eigenvalues is equal to the <strong>trace</strong> of the matrix (sum of diagonal elements): Σλ<sub>i</sub> = Tr(A)</li>
+                <li>The <strong>product</strong> of all eigenvalues is equal to the <strong>determinant</strong> of the matrix: Πλ<sub>i</sub> = det(A)</li>
+                <li>The eigenvalues of a <strong>Hermitian</strong> (or real symmetric) matrix are always <strong>real</strong>. This is fundamental in quantum mechanics, where eigenvalues represent measurable quantities.</li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+</html>

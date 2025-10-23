@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHYDSC102T - Unit 1: Fundamentals of Dynamics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dcdcdc;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #27ae60;
+            padding-bottom: 5px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            border-bottom-width: 3px;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #219d53;
+            border-bottom: 1px dotted #27ae60;
+        }
+        p, li {
+            font-size: 1.1em;
+            text-align: justify;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        blockquote {
+            font-family: 'Georgia', serif;
+            font-size: 1.2em;
+            font-style: italic;
+            background-color: #f0fff4;
+            border-left: 5px solid #27ae60;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        .exam-tip {
+            background-color: #fffbe6;
+            border: 1px solid #ffecb3;
+            border-left-width: 5px;
+            border-left-color: #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #c79100;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #27ae60;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        #toc {
+            background: #e6f7ee;
+            border: 1px solid #b3dfc9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            border-bottom: none;
+            margin-top: 0;
+            text-align: center;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #toc li {
+            margin: 5px 0;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #219d53;
+            font-weight: bold;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PHYDSC102T - Unit 1: Fundamentals of Dynamics</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Newton’s Laws of Motion</a></li>
+                <li><a href="#topic2">Inertial and Non-Inertial Frames</a></li>
+                <li><a href="#topic3">Dynamics of a Single Particle</a></li>
+                <li><a href="#topic4">Conservation of Momentum & Variable-Mass System (Rocket)</a></li>
+                <li><a href="#topic5">Projectile Motion</a></li>
+                <li><a href="#topic6">Dynamics of a System of Particles (Centre of Mass)</a></li>
+                <li><a href="#topic7">Work and Energy</a></li>
+                <li><a href="#topic8">Conservative Forces and Potential Energy</a></li>
+                <li><a href="#topic9">Collisions</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Newton’s Laws of Motion</h2>
+        
+        <h3>Newton's First Law (Law of Inertia)</h3>
+        <p>"An object at rest stays at rest and an object in motion stays in motion with the same speed and in the same direction unless acted upon by an external, unbalanced force."</p>
+        <ul>
+            <li>This law defines <strong>inertia</strong> (the resistance of an object to changes in its state of motion) and introduces the concept of a <strong>force</strong> as the agent of change.</li>
+            <li>It also implicitly defines an <strong>Inertial Frame of Reference</strong> as a frame where this law holds true.</li>
+        </ul>
+
+        <h3>Newton's Second Law (Law of Acceleration)</h3>
+        <p>"The rate of change of momentum of an object is directly proportional to the unbalanced external force applied to it, and the change takes place in the direction of the force."</p>
+        <blockquote>
+            <strong>F<sub>net</sub> = dp/dt</strong>
+        </blockquote>
+        <p>Where <strong>p = mv</strong> is the linear momentum.</p>
+        <ul>
+            <li>If the mass 'm' of the object is constant, the law simplifies to its most common form:
+                <p class="formula">dp/dt = d(mv)/dt = m(dv/dt) = ma</p>
+                <blockquote>
+                    <strong>F<sub>net</sub> = ma</strong>
+                </blockquote>
+                (Net Force = mass × acceleration)
+            </li>
+            <li>This law is the cornerstone of classical dynamics, providing the equation of motion.</li>
+        </ul>
+
+        <h3>Newton's Third Law (Law of Action-Reaction)</h3>
+        <p>"For every action, there is an equal and opposite reaction."</p>
+        <ul>
+            <li>This means that forces always occur in <strong>pairs</strong>. If object A exerts a force on object B (F<sub>AB</sub>), then object B simultaneously exerts an equal and opposite force on object A (F<sub>BA</sub>).</li>
+            <blockquote>
+                <strong>F<sub>AB</sub> = -F<sub>BA</sub></strong>
+            </blockquote>
+            <li><strong>Key Points:</strong>
+                <ul>
+                    <li>The action and reaction forces act on <strong>different objects</strong>. They never cancel each other out.</li>
+                    <li>This law is a direct consequence of the conservation of momentum.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <hr>
+
+        <h2 id="topic2">Inertial and Non-Inertial Frames</h2>
+        
+        <h3>Inertial Frame of Reference</h3>
+        <ul>
+            <li>A frame of reference in which <strong>Newton's First Law is valid</strong>.</li>
+            <li>It is a frame that is either <strong>at rest</strong> or moving with a <strong>constant velocity</strong>.</li>
+            <li>Any frame moving at a constant velocity relative to an inertial frame is also an inertial frame.</li>
+            <li>Example: A lab room on Earth (approximately), a spaceship drifting in deep space.</li>
+        </ul>
+
+        <h3>Non-Inertial Frame of Reference</h3>
+        <ul>
+            <li>A frame of reference in which Newton's First Law is <strong>not valid</strong>.</li>
+            <li>It is a frame that is <strong>accelerating</strong> (e.g., speeding up, slowing down, or rotating).</li>
+            <li>In these frames, objects appear to accelerate without any real force acting on them.</li>
+            <li>Example: A car turning a corner, an elevator accelerating upwards, a rotating merry-go-round.</li>
+            <li>To make Newton's Second Law (F=ma) work in a non-inertial frame, we must introduce <strong>fictitious forces</strong> (or pseudo-forces), which are covered in Unit 4.</li>
+        </ul>
+
+        <hr>
+
+        <h2 id="topic3">Dynamics of a Single Particle</h2>
+        <p>This is the direct application of Newton's Second Law, <strong>F<sub>net</sub> = dp/dt</strong> or <strong>F<sub>net</sub> = ma</strong>.</p>
+        <p>The goal is to solve the <strong>equation of motion</strong>. This means if you know the forces acting on a particle (F), you can find its acceleration (a). By integrating the acceleration, you can find its velocity (v) and position (x) as functions of time.</p>
+        <ul>
+            <li>a(t) = F(t) / m</li>
+            <li>v(t) = ∫ a(t) dt + v₀  (v₀ is the initial velocity)</li>
+            <li>x(t) = ∫ v(t) dt + x₀  (x₀ is the initial position)</li>
+        </ul>
+        <p>This is the fundamental problem of classical mechanics: predicting the future motion of a particle given its initial conditions and the forces acting on it.</p>
+
+        <hr>
+
+        <h2 id="topic4">Conservation of Momentum & Variable-Mass System (Rocket)</h2>
+
+        <h3>Principle of Conservation of Momentum</h3>
+        <p>From Newton's Second Law, <strong>F<sub>net</sub> = dp/dt</strong>.</p>
+        <p>If the <strong>net external force</strong> acting on a system is zero (F<sub>net</sub> = 0), then:</p>
+        <p class="formula">dp/dt = 0</p>
+        <p>This implies that <strong>p = constant</strong>.</p>
+        <blockquote>
+            <strong>Conservation of Linear Momentum:</strong> In an isolated system (one with no net external force), the total linear momentum of the system remains constant.
+        </blockquote>
+        <p>For a system of two particles: m₁u₁ + m₂u₂ = m₁v₁ + m₂v₂</p>
+
+        <h3>Momentum of Variable-Mass System: Motion of a Rocket</h3>
+        <p>A rocket is a prime example of a variable-mass system. Its mass decreases as it expels fuel (gas) at a high velocity. We apply conservation of momentum to the *system* (rocket + fuel).</p>
+        
+        <p>Let's analyze the motion in a frame with no gravity (e.g., deep space):</p>
+        <ul>
+            <li>At time 't', the rocket has mass 'M' and velocity 'v'. System momentum is P(t) = Mv.</li>
+            <li>At time 't+dt', the rocket's mass is 'M-dM' and its velocity is 'v+dv'. It has ejected a small mass 'dM' of fuel, which moves at velocity 'v<sub>gas</sub>' relative to the ground.</li>
+            <li>The velocity of the gas relative to the rocket is v<sub>rel</sub> = v<sub>gas</sub> - (v+dv). Usually, the gas is ejected backward, so v<sub>rel</sub> is negative. Let 'u' be the exhaust *speed*, so v<sub>rel</sub> = -u.
+                <br>This means v<sub>gas</sub> = (v+dv) - u ≈ v - u.
+            </li>
+            <li>System momentum at 't+dt' is P(t+dt) = (M-dM)(v+dv) + (dM)(v-u).</li>
+            <li>Change in momentum: dP = P(t+dt) - P(t)
+                <br>dP = (Mv + Mdv - v dM - dM dv) + (v dM - u dM) - (Mv)
+                <br>Ignoring the tiny `dM dv` term: dP = M dv - u dM
+            </li>
+            <li>Since there are no external forces, dP = 0 (in this simple case).
+                <br>M dv = u dM
+            </li>
+            <li>If an external force (like gravity, F<sub>ext</sub>) is present, then F<sub>ext</sub> = dP/dt.
+                <br>F<sub>ext</sub> = (M dv - u dM) / dt = M(dv/dt) - u(dM/dt)
+            </li>
+            <li>Rearranging gives the <strong>Rocket Equation</strong>:
+                <blockquote>
+                    <strong>M(dv/dt) = F<sub>ext</sub> + u(dM/dt)</strong>
+                </blockquote>
+                The term `u(dM/dt)` is called the <strong>thrust</strong>. It's an effective force pushing the rocket forward, equal to the exhaust speed times the mass flow rate. Note: `dM/dt` is positive (rate of mass flow), but the rocket's mass is `M(t)`, and `dM/dt` is often written as `-dM(t)/dt`. Be careful with signs. A common form is `M(dv/dt) = F_ext + v_rel(dM/dt)`, where `v_rel` is the exhaust velocity (negative) and `dM/dt` is the rate of change of rocket mass (also negative), making the thrust positive.
+            </li>
+        </ul>
+
+        <hr>
+
+        <h2 id="topic5">Projectile Motion in Uniform Gravitational Field</h2>
+        <p>This is the 2D motion of an object (projectile) launched with an initial velocity `v₀` at an angle `θ` to the horizontal, moving only under the influence of gravity (g). We ignore air resistance.</p>
+        
+        <ul>
+            <li><strong>Initial Conditions:</strong>
+                <ul>
+                    <li>v₀x = v₀ cos(θ)  (horizontal velocity, *constant* since a<sub>x</sub>=0)</li>
+                    <li>v₀y = v₀ sin(θ)  (initial vertical velocity)</li>
+                </ul>
+            </li>
+            <li><strong>Equations of Motion:</strong>
+                <ul>
+                    <li><strong>Horizontal (x):</strong> a<sub>x</sub> = 0  →  v<sub>x</sub>(t) = v₀ cos(θ)  →  <strong>x(t) = (v₀ cos(θ)) t</strong></li>
+                    <li><strong>Vertical (y):</strong> a<sub>y</sub> = -g  →  v<sub>y</sub>(t) = v₀ sin(θ) - gt  →  <strong>y(t) = (v₀ sin(θ)) t - (1/2)gt²</strong></li>
+                </ul>
+            </li>
+            <li><strong>Trajectory Equation:</strong> Eliminate 't' from the x and y equations.
+                <br>t = x / (v₀ cos(θ))
+                <br>y = (v₀ sin(θ)) [x / (v₀ cos(θ))] - (1/2)g [x / (v₀ cos(θ))]²
+                <blockquote>
+                    <strong>y = (tanθ) x - [ g / (2v₀²cos²θ) ] x²</strong>
+                </blockquote>
+                This is the equation of a <strong>parabola</strong>.
+            </li>
+            <li><strong>Key Parameters:</strong>
+                <ul>
+                    <li><strong>Time of Flight (T):</strong> Total time in air. Set y(T) = 0.
+                        <br>0 = (v₀ sin(θ)) T - (1/2)gT²  →  <strong>T = (2v₀ sinθ) / g</strong>
+                    </li>
+                    <li><strong>Maximum Height (H):</strong> Height when v<sub>y</sub> = 0.
+                        <br>0 = v₀ sin(θ) - gt<sub>H</sub>  →  t<sub>H</sub> = (v₀ sinθ) / g = T/2
+                        <br>H = y(t<sub>H</sub>) = (v₀ sinθ)(v₀ sinθ / g) - (1/2)g(v₀ sinθ / g)²  →  <strong>H = (v₀²sin²θ) / (2g)</strong>
+                    </li>
+                    <li><strong>Range (R):</strong> Horizontal distance at T. R = x(T).
+                        <br>R = (v₀ cosθ) (2v₀ sinθ / g) = (v₀² / g) (2sinθcosθ)  →  <strong>R = (v₀²sin(2θ)) / g</strong>
+                        <br>Max range is at θ = 45° (since sin(2θ) is max at 90°).
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <hr>
+
+        <h2 id="topic6">Dynamics of a System of Particles (Centre of Mass)</h2>
+        
+        <h3>Centre of Mass (CM)</h3>
+        <p>The Centre of Mass is a specific point that represents the "average" position of all the mass in a system. It moves as if all the system's mass were concentrated at that point and all external forces were applied there.</p>
+        <ul>
+            <li><strong>Position Vector (R<sub>CM</sub>):</strong>
+                <blockquote>
+                    <strong>R<sub>CM</sub> = (m₁r₁ + m₂r₂ + ... ) / (m₁ + m₂ + ...) = (Σ mᵢrᵢ) / M</strong>
+                </blockquote>
+                where M = Σ mᵢ is the total mass.
+            </li>
+            <li><strong>Velocity (V<sub>CM</sub>):</strong> Differentiate R<sub>CM</sub>.
+                <br><strong>V<sub>CM</sub> = dR<sub>CM</sub>/dt = (Σ mᵢvᵢ) / M = P<sub>total</sub> / M</strong>
+                <br>This shows the total momentum of the system is <strong>P<sub>total</sub> = M V<sub>CM</sub></strong>.
+            </li>
+            <li><strong>Acceleration (A<sub>CM</sub>):</strong> Differentiate V<sub>CM</sub>.
+                <br><strong>A<sub>CM</sub> = dV<sub>CM</sub>/dt = (Σ mᵢaᵢ) / M = (Σ Fᵢ) / M</strong>
+            </li>
+        </ul>
+
+        <h3>Motion of the CM</h3>
+        <p>The total force `Σ Fᵢ` includes both external forces (F<sub>ext</sub>) and internal forces (F<sub>int</sub>). By Newton's Third Law, all internal forces cancel in pairs (Σ F<sub>int</sub> = 0).</p>
+        <p>Therefore, Σ Fᵢ = Σ F<sub>ext</sub>.</p>
+        <p>This gives the most important equation for a system:</p>
+        <blockquote>
+            <strong>Σ F<sub>ext</sub> = M A<sub>CM</sub></strong>   or   <strong>Σ F<sub>ext</sub> = dP<sub>total</sub>/dt</strong>
+        </blockquote>
+        <p>This proves that the <strong>Centre of Mass of a system moves *only* under the influence of net external forces</strong>, as if it were a single particle of mass M. Internal forces (like explosions, collisions within the system) cannot change the motion of the CM.</p>
+        <div class="exam-tip">
+            <strong>Example:</strong> A bomb is thrown in a parabolic arc. Halfway, it explodes. The fragments fly in all directions. The Centre of Mass of the *fragment system* will <strong>continue to follow the original parabolic path</strong>, as the explosion force was internal.
+        </div>
+        
+        <hr>
+
+        <h2 id="topic7">Work and Energy</h2>
+
+        <h3>Work (W)</h3>
+        <p>Work is done by a force F on an object when it causes a displacement dr. Work is a scalar quantity.</p>
+        <ul>
+            <li><strong>For a constant force:</strong> W = F · d = Fd cos(θ)</li>
+            <li><strong>For a variable force (general definition):</strong> Work is the line integral of the force over the path from A to B.
+                <blockquote>
+                    <strong>W<sub>AB</sub> = ∫<sub>A</sub><sup>B</sup> F · dr</strong>
+                </blockquote>
+            </li>
+        </ul>
+        
+        <h3>Kinetic Energy (K)</h3>
+        <p>Kinetic Energy is the energy an object possesses due to its motion.</p>
+        <blockquote>
+            <strong>K = (1/2) mv²</strong>
+        </blockquote>
+
+        <h3>Work – Energy Theorem</h3>
+        <p>This theorem provides a direct link between the net work done on an object and the change in its kinetic energy.</p>
+        <p><strong>Derivation:</strong></p>
+        <ol>
+            <li>Start with Work: W<sub>net</sub> = ∫ F<sub>net</sub> · dr</li>
+            <li>Use Newton's Second Law: F<sub>net</sub> = m(dv/dt)</li>
+            <li>Use the chain rule: dr = v dt  →  F<sub>net</sub> = m(dv/dt)</li>
+            <li>W<sub>net</sub> = ∫ m(dv/dt) · (v dt) = ∫ m v · (dv/dt) dt = ∫<sub>v₁</sub><sup>v₂</sup> m v · dv</li>
+            <li>Note that `d(v²) = d(v · v) = (dv · v) + (v · dv) = 2(v · dv)`.</li>
+            <li>So, `v · dv = (1/2)d(v²)`.</li>
+            <li>W<sub>net</sub> = ∫<sub>v₁</sub><sup>v₂</sup> m (1/2)d(v²) = (1/2)m ∫<sub>v₁</sub><sup>v₂</sup> d(v²) = (1/2)m [v²] from v₁ to v₂</li>
+            <li>W<sub>net</sub> = (1/2)mv₂² - (1/2)mv₁²</li>
+        </ol>
+        <blockquote>
+            <strong>W<sub>net</sub> = K₂ - K₁ = ΔK</strong>
+        </blockquote>
+        <p><strong>In words:</strong> The <strong>net work</strong> done on an object equals the change in its <strong>kinetic energy</strong>.</p>
+
+        <hr>
+
+        <h2 id="topic8">Conservative Forces and Potential Energy</h2>
+
+        <h3>Conservative Forces</h3>
+        <p>A force is <strong>conservative</strong> if the work it does on an object moving between two points is <strong>independent of the path taken</strong>.</p>
+        <ul>
+            <li><strong>Equivalent Condition 1:</strong> The work done by a conservative force around any <strong>closed loop</strong> is <strong>zero</strong>.
+                <br>∮ F<sub>cons</sub> · dr = 0
+            </li>
+            <li><strong>Equivalent Condition 2:</strong> A force is conservative if it can be expressed as the <strong>negative gradient</strong> of a scalar potential energy function U.
+                <br><strong>F<sub>cons</sub> = -∇U</strong>
+            </li>
+            <li><strong>Equivalent Condition 3 (Math):</strong> A force is conservative if its <strong>curl is zero</strong>.
+                <br><strong>∇ × F<sub>cons</sub> = 0</strong>
+            </li>
+            <li><strong>Examples:</strong> Gravity, Elastic spring force.</li>
+        </ul>
+
+        <h3>Non-Conservative Forces</h3>
+        <p>A force is <strong>non-conservative</strong> if the work it does <strong>depends on the path taken</strong>.</p>
+        <ul>
+            <li>These forces typically dissipate energy from the system, often as heat.</li>
+            <li><strong>Example:</strong> Friction, air resistance, viscous drag.</li>
+            <li>Work done by friction is *always* negative and depends on the total path length.</li>
+        </ul>
+
+        <h3>Potential Energy (U)</h3>
+        <p>Potential Energy is stored energy an object has due to its position or configuration. It is <strong>defined only for conservative forces</strong>.</p>
+        <p>The change in potential energy `ΔU` is defined as the <strong>negative of the work done by the conservative force</strong>.</p>
+        <blockquote>
+            <strong>ΔU = U<sub>B</sub> - U<sub>A</sub> = -W<sub>AB</sub> = -∫<sub>A</sub><sup>B</sup> F<sub>cons</sub> · dr</strong>
+        </blockquote>
+        <p>This "stores" the work done. When the object moves back from B to A, the force does positive work `W_BA` and the potential energy is released (ΔU is negative).</p>
+        
+        <h3>Elastic Potential Energy (of a Spring)</h3>
+        <p>The force from an ideal spring is given by <strong>Hooke's Law</strong>: F<sub>s</sub> = -kx (where x is the displacement from equilibrium). This is a conservative force.</p>
+        <p>ΔU = -∫<sub>0</sub><sup>x</sup> F<sub>s</sub> · dr = -∫<sub>0</sub><sup>x</sup> (-kx) dx = k ∫<sub>0</sub><sup>x</sup> x dx = (1/2)kx²</p>
+        <blockquote>
+            <strong>U<sub>spring</sub> = (1/2) kx²</strong>
+        </blockquote>
+
+        <h3>Gravitational Potential Energy</h3>
+        <p>The gravitational force (near Earth) is F<sub>g</sub> = -mgĵ. This is conservative.</p>
+        <p>ΔU = -∫<sub>0</sub><sup>h</sup> F<sub>g</sub> · dr = -∫<sub>0</sub><sup>h</sup> (-mgĵ) · (dyĵ) = mg ∫<sub>0</sub><sup>h</sup> dy = mgh</p>
+        <blockquote>
+            <strong>U<sub>gravity</sub> = mgh</strong>
+        </blockquote>
+        
+        <h3>Conservation of Mechanical Energy</h3>
+        <p>The total <strong>mechanical energy</strong> of a system is E = K + U.</p>
+        <p>The Work-Energy Theorem (W<sub>net</sub> = ΔK) can be split:
+            <br>W<sub>net</sub> = W<sub>conservative</sub> + W<sub>non-conservative</sub> = ΔK
+        </p>
+        <p>By definition, W<sub>conservative</sub> = -ΔU.</p>
+        <p>So, -ΔU + W<sub>non-conservative</sub> = ΔK
+            <br>W<sub>non-conservative</sub> = ΔK + ΔU = (K₂ - K₁) + (U₂ - U₁)
+            <br>W<sub>non-conservative</sub> = (K₂ + U₂) - (K₁ + U₁) = E₂ - E₁
+        </p><blockquote>
+            <strong>W<sub>non-conservative</sub> = ΔE</strong>
+        </blockquote>
+        <p>If there are <strong>no non-conservative forces</strong> (W<sub>non-conservative</sub> = 0), then <strong>ΔE = 0</strong>.</p>
+        <p><strong>Principle of Conservation of Mechanical Energy:</strong> In a system where only conservative forces do work, the total mechanical energy (K + U) is constant.</p>
+
+        <hr>
+
+        <h2 id="topic9">Collisions</h2>
+        <p>A collision is a brief, intense interaction between particles. During the collision, the internal forces are *much* larger than any external forces, so we can always assume <strong>momentum is conserved</strong> (P<sub>initial</sub> = P<sub>final</sub>).</p>
+        
+        <h3>Elastic vs. Inelastic Collisions</h3>
+        <ul>
+            <li><strong>Elastic Collision:</strong> Kinetic energy is <strong>also conserved</strong> (K<sub>initial</sub> = K<sub>final</sub>). Particles "bounce off" perfectly.</li>
+            <li><strong>Inelastic Collision:</strong> Kinetic energy is <strong>not conserved</strong> (K<sub>initial</sub> > K<sub>final</sub>). Energy is lost to heat, sound, or deformation.
+                <ul>
+                    <li><strong>Perfectly Inelastic:</strong> The particles stick together after the collision (v₁f = v₂f = V<sub>final</sub>). This is the case of *maximum* kinetic energy loss.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Collisions in One Dimension (1D)</h3>
+        <p>Two masses m₁ and m₂ with initial velocities u₁ and u₂ collide head-on.</p>
+        <ol>
+            <li><strong>Momentum Conservation:</strong> m₁u₁ + m₂u₂ = m₁v₁ + m₂v₂</li>
+            <li><strong>Elastic Collision (Energy):</strong> (1/2)m₁u₁² + (1/2)m₂u₂² = (1/2)m₁v₁² + (1/2)m₂v₂²</li>
+        </ol>
+        <p>Solving these two equations for v₁ and v₂ gives:</p>
+        <blockquote>
+            <strong>v₁ = [(m₁-m₂)/(m₁+m₂)]u₁ + [2m₂/(m₁+m₂)]u₂</strong>
+            <br>
+            <strong>v₂ = [2m₁/(m₁+m₂)]u₁ + [(m₂-m₁)/(m₁+m₂)]u₂</strong>
+        </blockquote>
+
+        <h3>Collisions in Two Dimensions (2D)</h3>
+        <p>Momentum is a vector, so we must conserve its components separately.</p>
+        <ol>
+            <li><strong>X-Momentum:</strong> m₁u₁x + m₂u₂x = m₁v₁x + m₂v₂x</li>
+            <li><strong>Y-Momentum:</strong> m₁u₁y + m₂u₂y = m₁v₁y + m₂v₂y</li>
+            <li><strong>Elastic Collision (Energy):</strong> (1/2)m₁u₁² + (1/2)m₂u₂² = (1/2)m₁v₁² + (1/2)m₂v₂²</li>
+        </ol>
+        <p>This gives 3 equations. This is more complex and usually requires more information (e.g., the final angle of one particle) to solve.</p>
+
+        <h3>Collisions in Centre of Mass (CM) and Laboratory (Lab) Frames</h3>
+        <ul>
+            <li><strong>Lab Frame:</strong> The frame where the observer is at rest (e.g., the ground). This is where we usually do experiments.</li>
+            <li><strong>Centre of Mass (CM) Frame:</strong> The frame of reference that moves along with the Centre of Mass (V<sub>frame</sub> = V<sub>CM</sub>).</li>
+        </ul><p><strong>Why use the CM frame?</strong></p>
+        <p>By definition, the velocity of the CM in the CM frame is zero. Since P<sub>total</sub> = M V<sub>CM</sub>, the <strong>total momentum of the system in the CM frame is always zero</strong>.</p>
+        <p>P<sub>initial (CM)</sub> = 0  and  P<sub>final (CM)</sub> = 0</p>
+        <p>This *dramatically* simplifies collision problems. For a two-particle elastic collision in the CM frame, the particles approach each other, collide, and then recede from each other with the <strong>same speeds</strong> they had before the collision, just in different directions.</p>
+        
+        <div class="exam-tip">
+            <strong>Procedure:</strong>
+            <ol>
+                <li>Given initial velocities in <strong>Lab frame</strong>.</li>
+                <li>Transform to <strong>CM frame</strong> (v' = v - V<sub>CM</sub>).</li>
+                <li>Solve the *very simple* collision in the CM frame (total momentum is zero).</li>
+                <li>Transform the final velocities back to the <strong>Lab frame</strong> (v = v' + V<sub>CM</sub>).</li>
+            </ol>
+        </div>
+
+    </div>
+</body>

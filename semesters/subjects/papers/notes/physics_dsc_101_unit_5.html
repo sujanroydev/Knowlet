@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHYDSC101T - Unit 5: Beta, Gamma Functions & Numerical Techniques</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dcdcdc;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #f39c12;
+            padding-bottom: 5px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            border-bottom-width: 3px;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #d35400;
+            border-bottom: 1px dotted #f39c12;
+        }
+        p, li {
+            font-size: 1.1em;
+            text-align: justify;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        blockquote {
+            font-family: 'Georgia', serif;
+            font-size: 1.2em;
+            font-style: italic;
+            background-color: #fffaf0;
+            border-left: 5px solid #f39c12;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        .exam-tip {
+            background-color: #fffbe6;
+            border: 1px solid #ffecb3;
+            border-left-width: 5px;
+            border-left-color: #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #c79100;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f39c12;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        #toc {
+            background: #fff8e1;
+            border: 1px solid #ffecb3;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            border-bottom: none;
+            margin-top: 0;
+            text-align: center;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #toc li {
+            margin: 5px 0;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #d35400;
+            font-weight: bold;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PHYDSC101T - Unit 5: Beta & Gamma Functions and Numerical Techniques</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Beta and Gamma Functions: Definitions</a></li>
+                <li><a href="#topic2">Properties and Relation between Beta and Gamma</a></li>
+                <li><a href="#topic3">Expression of Integrals in terms of Gamma Functions</a></li>
+                <li><a href="#topic4">Numerical Integration</a></li>
+                <li><a href="#topic5">Solution of Equations (Root Finding)</a></li>
+                <li><a href="#topic6">Interpolation</a></li>
+            </ul>
+        </div>
+        
+        <h2 id="topic1">Beta and Gamma Functions: Definitions</h2>
+        
+        <h3>Gamma Function (Γ(n))</h3>
+        <p>The Gamma function is an extension of the factorial function to complex and real numbers. It is defined by a definite integral:</p>
+        <blockquote>
+            <strong>Γ(n) = ∫<sub>0</sub><sup>∞</sup> e<sup>-x</sup> x<sup>n-1</sup> dx</strong>   (for n > 0)
+        </blockquote>
+
+        <h3>Beta Function (B(m, n))</h3>
+        <p>The Beta function is a related function defined by a different integral:</p>
+        <blockquote>
+            <strong>B(m, n) = ∫<sub>0</sub><sup>1</sup> x<sup>m-1</sup> (1-x)<sup>n-1</sup> dx</strong>   (for m > 0, n > 0)
+        </blockquote>
+
+        <hr>
+
+        <h2 id="topic2">Properties and Relation between Beta and Gamma</h2>
+        
+        <h3>Properties of Gamma Function</h3>
+        <ul>
+            <li><strong>Recurrence Relation:</strong> This is the most important property.
+                <blockquote>
+                    <strong>Γ(n+1) = n Γ(n)</strong>
+                </blockquote>
+            </li>
+            <li><strong>Relation to Factorial:</strong> If 'n' is a positive integer:
+                <blockquote>
+                    <strong>Γ(n+1) = n!</strong>
+                </blockquote>
+                (e.g., Γ(4) = 3! = 6; Γ(1) = 0! = 1)
+            </li>
+            <li><strong>Important Values:</strong>
+                <ul>
+                    <li>Γ(1) = 1</li>
+                    <li><strong>Γ(1/2) = √π</strong> (This is extremely useful to memorize)</li>
+                    <li>Using the recurrence relation, we can find other half-integer values:
+                        <br>Γ(3/2) = (1/2) Γ(1/2) = (1/2)√π
+                        <br>Γ(5/2) = (3/2) Γ(3/2) = (3/2)(1/2)√π = (3/4)√π
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Properties of Beta Function</h3>
+        <ul>
+            <li><strong>Symmetry:</strong>
+                <blockquote>
+                    <strong>B(m, n) = B(n, m)</strong>
+                </blockquote>
+            </li>
+            <li><strong>Trigonometric Form:</strong> By substituting x = sin²(θ):
+                <blockquote>
+                    <strong>B(m, n) = 2 ∫<sub>0</sub><sup>π/2</sup> (sinθ)<sup>2m-1</sup> (cosθ)<sup>2n-1</sup> dθ</strong>
+                </blockquote>
+            </li>
+        </ul>
+
+        <h3>Relation Between Beta and Gamma Functions</h3>
+        <p>This is the key identity that connects the two functions and allows for the easy evaluation of many integrals.</p>
+        <blockquote>
+            <strong>B(m, n) = [ Γ(m) Γ(n) ] / Γ(m+n)</strong>
+        </blockquote>
+        
+        <hr>
+
+        <h2 id="topic3">Expression of Integrals in terms of Gamma Functions</h2>
+        <p>We can use the relation `B(m, n) = [ Γ(m) Γ(n) ] / Γ(m+n)` and the trigonometric form of the Beta function to solve a very common class of definite integrals.</p>
+        <p>We know:</p>
+        <p class="formula">∫<sub>0</sub><sup>π/2</sup> (sinθ)<sup>p</sup> (cosθ)<sup>q</sup> dθ = (1/2) * B( (p+1)/2, (q+1)/2 )</p>
+        <p>...by comparing `p = 2m-1` and `q = 2n-1`.</p>
+        <p>Combining these, we get the <strong>W_all_is Integral Formula</strong>:</p>
+        <blockquote>
+            <strong>∫<sub>0</sub><sup>π/2</sup> (sinθ)<sup>p</sup> (cosθ)<sup>q</sup> dθ = [ Γ((p+1)/2) * Γ((q+1)/2) ] / [ 2 * Γ((p+q+2)/2) ]</strong>
+        </blockquote>
+        
+        <div class="exam-tip">
+            <strong>Example Problem:</strong> Evaluate I = ∫<sub>0</sub><sup>∞</sup> e<sup>-x²</sup> dx (Gaussian Integral)
+            <ol>
+                <li>Let t = x², so x = t<sup>1/2</sup>. Then dx = (1/2)t<sup>-1/2</sup> dt.</li>
+                <li>As x → 0, t → 0. As x → ∞, t → ∞.</li>
+                <li>Substitute: I = ∫<sub>0</sub><sup>∞</sup> e<sup>-t</sup> (1/2)t<sup>-1/2</sup> dt = (1/2) ∫<sub>0</sub><sup>∞</sup> e<sup>-t</sup> t<sup>(1/2) - 1</sup> dt</li>
+                <li>This is in the form of the Gamma function: (1/2) * Γ(1/2).</li>
+                <li>Since Γ(1/2) = √π, the integral is <strong>√π / 2</strong>.</li>
+            </ol>
+        </div>
+
+        <hr>
+
+        <h2 id="topic4">Numerical Integration</h2>
+        <p>These techniques are used to find the approximate value of a definite integral `I = ∫[a, b] f(x) dx` when `f(x)` is too difficult or impossible to integrate analytically. The method is to divide the interval `[a, b]` into `n` equal subintervals of width `h`.</p>
+        <p class="formula">h = (b - a) / n</p>
+        <p>Let `y₀ = f(x₀)`, `y₁ = f(x₁)`, ..., `yₙ = f(xₙ)`, where `x₀ = a` and `xₙ = b`.</p>
+        
+        <h3>Trapezoidal Rule</h3>
+        <p>This method approximates the area under the curve in each subinterval as a trapezoid.</p>
+        <blockquote>
+            <strong>I ≈ (h/2) [ (y₀ + yₙ) + 2(y₁ + y₂ + ... + y<sub>n-1</sub>) ]</strong>
+        </blockquote>
+        <p><strong>In words:</strong> (h/2) * [ (first + last ordinates) + 2 * (sum of all other ordinates) ]</p>
+        
+        <h3>Simpson's 1/3 Rule</h3>
+        <p>This method is more accurate. It approximates the function over <em>two</em> intervals at a time using a parabola. It requires `n` to be an <strong>even number</strong>.</p>
+        <blockquote>
+            <strong>I ≈ (h/3) [ (y₀ + yₙ) + 4(y₁ + y₃ + y₅ + ...) + 2(y₂ + y₄ + y₆ + ...) ]</strong>
+        </blockquote>
+        <p><strong>In words:</strong> (h/3) * [ (first + last) + 4*(sum of odd ordinates) + 2*(sum of even ordinates) ]</p>
+        
+        <h3>Simpson's 3/8 Rule</h3>
+        <p>This method approximates the function over <em>three</em> intervals at a time using a cubic. It requires `n` to be a <strong>multiple of 3</strong>.</p>
+        <blockquote>
+            <strong>I ≈ (3h/8) [ (y₀ + yₙ) + 3(y₁ + y₂ + y₄ + y₅ + ...) + 2(y₃ + y₆ + y₉ + ...) ]</strong>
+        </blockquote>
+        <p><strong>In words:</strong> (3h/8) * [ (first + last) + 3*(sum of non-multiple-of-3 ordinates) + 2*(sum of multiple-of-3 ordinates) ]</p>
+        
+        <div class="exam-tip">
+            <strong>Key Point:</strong> Simpson's 1/3 rule is generally more accurate and more commonly used than the Trapezoidal rule. The 3/8 rule is for specific cases where `n` is a multiple of 3.
+        </div>
+
+        <hr>
+
+        <h2 id="topic5">Solution of Equations (Root Finding)</h2>
+        <p>(Note: The syllabus has a typo "Solution of linear equations...". Bisection and Newton-Raphson are for <strong>non-linear</strong> equations of the form `f(x) = 0`.)</p>
+        
+        <h3>Bisection Method</h3>
+        <p>This is a "bracketing" method that is slow but guaranteed to work.</p>
+        <ol>
+            <li><strong>Requirement:</strong> Find two points, `a` and `b`, such that `f(a)` and `f(b)` have <strong>opposite signs</strong>. This guarantees a root exists between them.</li>
+            <li><strong>Step 1:</strong> Calculate the midpoint `c = (a + b) / 2`.</li>
+            <li><strong>Step 2:</strong> Evaluate `f(c)`.</li>
+            <li><strong>Step 3 (Update):</strong>
+                <ul>
+                    <li>If `f(a)` and `f(c)` have opposite signs, the root is in `[a, c]`. Set `b = c`.</li>
+                    <li>If `f(b)` and `f(c)` have opposite signs, the root is in `[c, b]`. Set `a = c`.</li>
+                </ul>
+            </li>
+            <li><strong>Step 4 (Repeat):</strong> Go back to Step 1 with the new, smaller interval. Repeat until the interval `[a, b]` is sufficiently small.</li>
+        </ol>
+
+        <h3>Newton-Raphson Method</h3>
+        <p>This is an "open" method that is much faster but can sometimes fail to converge. It uses the tangent line to approximate the root.</p>
+        <ol>
+            <li><strong>Requirement:</strong> You need the function `f(x)` and its derivative `f'(x)`.</li>
+            <li><strong>Step 1:</strong> Start with an initial "guess" `x₀` that is close to the root.</li>
+            <li><strong>Step 2 (Iterate):</strong> Generate the next, better guess `x₁` using the formula:
+                <blockquote>
+                    <strong>x<sub>n+1</sub> = x<sub>n</sub> - f(x<sub>n</sub>) / f'(x<sub>n</sub>)</strong>
+                </blockquote>
+            </li>
+            <li><strong>Step 3 (Repeat):</strong> Use `x₁` to find `x₂`, `x₂` to find `x₃`, and so on.</li>
+            <li><strong>Step 4 (Stop):</strong> Stop when the difference between `x_{n+1}` and `xₙ` is very small.</li>
+        </ol>
+        <div class="exam-tip">
+            <strong>Comparison:</strong>
+            <ul>
+                <li><strong>Bisection:</strong> Slow, reliable, guaranteed convergence (linear).</li>
+                <li><strong>Newton-Raphson:</strong> Very fast (quadratic convergence), but can diverge if the initial guess is bad or if `f'(x)` is close to zero near the root.</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2 id="topic6">Interpolation</h2>
+        <p>Interpolation is the process of estimating the value of a function `y` at a point `x` that lies <em>between</em> known data points `(x₀, y₀), (x₁, y₁), ...`.</p>
+        <p>These formulas are for <strong>equally spaced data</strong>, where `h = x₁ - x₀ = x₂ - x₁`.</p>
+
+        <h3>Newton-Gregory Forward Difference Formula</h3>
+        <p>This formula is used to interpolate values of `y` <strong>near the beginning</strong> of the dataset (near `x₀`).</p>
+        <p>It uses a <strong>forward difference table</strong>.
+            <br>First difference: Δy₀ = y₁ - y₀
+            <br>Second difference: Δ²y₀ = Δy₁ - Δy₀
+            <br>...and so on.
+        </p>
+        <p>The formula is:</p>
+        <blockquote>
+            <strong>y(x) = y₀ + p Δy₀ + [p(p-1)/2!] Δ²y₀ + [p(p-1)(p-2)/3!] Δ³y₀ + ...</strong>
+        </blockquote>
+        <p>where <strong>p = (x - x₀) / h</strong>. (`x` is the point you are interpolating at).</p>
+        
+        <h3>Newton-Gregory Backward Difference Formula</h3>
+        <p>This formula is used to interpolate values of `y` <strong>near the end</strong> of the dataset (near `xₙ`).</p>
+        <p>It uses a <strong>backward difference table</strong>.
+            <br>First difference: ∇yₙ = yₙ - y<sub>n-1</sub>
+            <br>Second difference: ∇²yₙ = ∇yₙ - ∇y<sub>n-1</sub>
+            <br>...and so on.
+        </p>
+        <p>The formula is:</p>
+        <blockquote>
+            <strong>y(x) = yₙ + p ∇yₙ + [p(p+1)/2!] ∇²yₙ + [p(p+1)(p+2)/3!] ∇³yₙ + ...</strong>
+        </blockquote>
+        <p>where <strong>p = (x - xₙ) / h</strong>. (Note the different definition of `p`!)</p>
+        
+    </div>
+</body>
+</html>

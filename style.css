@@ -175,28 +175,6 @@ section {
 }
 
 /* ------------------------------
-   Contact Section
------------------------------- */
-#contact {
-  background: #f9fafb;
-  text-align: center;
-}
-
-#contact h2 {
-  color: #1e3a8a;
-}
-
-#contact a {
-  color: #2563eb;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-#contact a:hover {
-  text-decoration: underline;
-}
-
-/* ------------------------------
    Footer
 ------------------------------ */
 .footer {

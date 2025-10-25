@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Notes - Knowlet</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background: #f9fafc;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .search-container {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      gap: 10px;
+    }
+    input {
+      flex: 1;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    .results {
+      max-width: 600px;
+      margin: 2rem auto 0;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 1rem;
+    }
+    .note-item {
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+    }
+    .note-item:last-child {
+      border: none;
+    }
+    a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔍 Search Notes</h1>
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Type subject, unit, or topic...">
+  </div>
+  
+  <div class="results" id="results"></div>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const resultsContainer = document.getElementById("results");
+    let notes = [];
+
+    // Load notes.json
+    fetch("notes.json")
+      .then(response => response.json())
+      .then(data => {
+        notes = data;
+      });
+
+  searchInput.addEventListener("input", () => {
+    const query = searchInput.value.toLowerCase().trim();
+    resultsContainer.innerHTML = "";
+    if (query === "") return;
+  
+    const queryWords = query.split(/\s+/); // split by space
+  
+    const filtered = notes.filter(note => {
+      const text = (note.title + " " + note.subject).toLowerCase();
+      return queryWords.every(word => text.includes(word));
+    });
+  
+    if (filtered.length === 0) {
+      resultsContainer.innerHTML = "<p>No results found.</p>";
+      return;
+    }
+  
+    filtered.forEach(note => {
+      const item = document.createElement("div");
+      item.className = "note-item";
+      item.innerHTML = `
+        <a href="${note.path}" target="_blank">${note.title}</a><br>
+        <small>${note.subject}</small>
+      `;
+      resultsContainer.appendChild(item);
+    });
+  });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+.unit-nav {
+  margin: 2em 0;
+  text-align: center;
+}
+.unit-nav a {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #f1f1f1;
+  color: #333;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.unit-nav a:hover {
+  background: #ddd;
+}

@@ -55,8 +55,6 @@
   <div class="search-container" onclick="window.location.href='search.html'" style="cursor:pointer;">
     <input type="text" id="searchInput" placeholder="Search units, subjects or papers..." readonly>
   </div>
-  
-  <div id="searchResults" class="search-results"></div>
 
   <!-- Semester Grid -->
   <section id="resources">
@@ -72,6 +70,17 @@
       	<div class="card"><a href="semesters/semester_7.html" >Semester 7</a></div>
       	<div class="card"><a href="semesters/semester_8.html" >Semester 8</a></div>
       </div>
+    </div>
+  </section>
+  
+  <section id="scroll">
+    <div class="container history-scroll-container">
+        <h2>Recently Visited</h2>
+        <div id="history-scrolling-output" class="history-scroll-list">
+            <div id="scroll-content" class="scroll-content">
+                <div class="empty-message-scroll">Loading history...</div>
+            </div>
+        </div>
     </div>
   </section>
   

@@ -8,158 +8,82 @@ const popupImage = document.getElementById("popup-image");
 const imgTitle = document.getElementById("img-title");
 let notes = {d: "dff"};
 let loader = document.getElementById("loader");
-
-
-// Load products/notes
-function LoadNotes() {
-  db.ref("notes").once("value")
-    .then(snapshot => {
-    	loader.style.display = "none";
-      const data = snapshot.val();
-      notes = data;
-      //console.log(data); // All your notes data
-      
-      // --- Load semesters ---
-      data.semesters.forEach((sem, si) => {
-        const div = document.createElement("div");
-        div.className = "card";
-        div.textContent = sem.name;
-        div.onclick = () => {
-          showPopup(sem.name, sem.subjects.map((sub, sj) => ({
-            name: sub.name,
-            onClick: () => {
-              showPopup(sub.name, Object.keys(sub.papers).map(paperType => ({
-                name: paperType,
-                onClick: () => {
-                  showPopup(paperType, sub.papers[paperType].map(unit => ({
-                    name: unit.unit
-                  })));
-                  
-                  const unit = sub.papers[paperType];
-                  popupBody.innerHTML = ``;
-                  unit.forEach(unit => {
-                    const noteCard = document.createElement("div");
-                    noteCard.className = "note-card";
-                    noteCard.innerHTML = `
-                      <h3>${unit.unit}</h3>
-                      <button class="btn" onClick="viewImg('${unit.unit}', '${unit.file}')">View</button>
-                      <a href="${unit.file}" download class="btn btn-download">Download</a>
-                    `;
-                    popupBody.appendChild(noteCard);
-                  })
-                  
-                }
-              })));
-            }
-          })));
-        };
-        semestersDiv.appendChild(div);
-      });
-    })
-    .catch(error => {
-      loader.style.display = "none";
-      content.innerHTML = "<p style='color:red;'>❌ Failed to load Notes</p>";
-      console.error("Error loading notes:", error);
-    });
-}
-  
-LoadNotes();
-
-// --- Stack to keep history ---
-let popupStack = [];
-
-function renderPopup(title, content) {
-  popupTitle.textContent = title;
-  popupBody.innerHTML = "";
-
-  content.forEach(item => {
-    const div = document.createElement("div");
-    div.className = "card";
-    div.textContent = item.name || item;
-    div.onclick = item.onClick;
-    
-    popupBody.appendChild(div);
-  });
-
-  popup.classList.remove("hidden");
-}
-
-function goBack() {
-  popupStack.pop(); // remove current
-  if (popupStack.length === 0) {
-    popup.classList.add("hidden");
-    // reset history state so back button works properly
-    history.replaceState({ popupOpen: false }, null, location.href);
-  } else {
-    const prev = popupStack[popupStack.length - 1];
-    renderPopup(prev.title, prev.content);
-  }
-}
-
-window.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    if (imgPopup.style.display === "flex") {
-      imgPopup.style.display = "none";
-      history.replaceState({ popupOpen: false }, null, location.href);
-    } else if (!popup.classList.contains("hidden")) {
-      goBack();
-    }
-  }
-});
-
-window.addEventListener("popstate", (event) => {
-  if (event.state && event.state.popupOpen) {
-    if (imgPopup.style.display === "flex") {
-      imgPopup.style.display = "none";
-      history.replaceState({ popupOpen: false }, null, location.href);
-    } else if (!popup.classList.contains("hidden")) {
-      goBack();
-    }
-  } else {
-    // no popup state → ensure everything is closed
-    popup.classList.add("hidden");
-    imgPopup.style.display = "none";
-    popupStack = [];
-  }
-});
-
-window.onclick = (e) => {
-  if (e.target === popup) {
-    popupStack = [];
-    popup.classList.add("hidden");
-    history.replaceState({ popupOpen: false }, null, location.href);
-  }
-};
-
-// Push state when opening popup or image popup
-function pushState() {
-  history.pushState({ popupOpen: true }, null, location.href);
-}
-
-// Push state when popup is opened
-function showPopup(title, content) {
-  // Save current popup state to stack
-  popupStack.push({ title, content });
-  renderPopup(title, content);
-  pushState();
-}
-
-// Push state when image popup is opened
-function viewImg(unit, file) {
-  imgPopup.style.display = "flex";
-  popupImage.src = file;
-  popupImage.alt = unit;
-  imgTitle.textContent = unit;
-  pushState();
-}
-
-// On initial load, push a state to prevent exiting immediately
-window.addEventListener("load", () => {
-  history.replaceState({ popupOpen: false }, null, location.href);
-});
-
 const searchInput = document.getElementById("searchInput");
 const searchResults = document.getElementById("searchResults");
+// JavaScript to read localStorage, populate the list, and calculate the animation width
+(function () {
+    const HISTORY_KEY = 'unit_page_history';
+    const scrollContent = document.getElementById('scroll-content');
+
+    // NEW: Function to generate a random Hex color
+    function getRandomColor() {
+        // Generates a random integer between 0 and 16777215 (FFFFFF in decimal)
+        // Converts to a hex string and pads with leading zeros if necessary
+        return '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+    }
+    
+    // Helper function to format the timestamp
+    function formatTime(timestamp) {
+        if (!timestamp) return '';
+        const date = new Date(timestamp);
+        return date.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' });
+    }
+
+    function renderScrollingHistory() {
+        const history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+        scrollContent.innerHTML = ''; // Clear loading message
+
+        if (history.length === 0) {
+            scrollContent.innerHTML = '<div class="empty-message-scroll">Your history is empty. Visit some unit pages to track them here!</div>';
+            return;
+        }
+
+        history.forEach((item, index) => {
+            const historyItem = document.createElement('div');
+            historyItem.className = 'history-scroll-item';
+            
+            // Get a random color
+            const randomColor = getRandomColor();
+
+            // Apply the random color for styling
+            historyItem.style.backgroundColor = `rgba(255, 255, 255, 0.95)`; // Slightly off-white background
+            historyItem.style.borderLeftColor = randomColor; // Vibrant color on the left border
+            historyItem.style.boxShadow = `0 2px 5px ${randomColor}33`; // Subtle shadow matching the border color
+
+            // Apply a staggered delay for the fade-in animation
+            historyItem.style.animationDelay = `${index * 0.08}s`; 
+
+            historyItem.innerHTML = `
+                <a href="${item.url}" title="${item.title}" style="color: ${randomColor};">${item.title}</a>
+                <span class="timestamp">${formatTime(item.timestamp)}</span>
+            `;
+            scrollContent.appendChild(historyItem);
+        });
+
+        // --- LOGIC FOR AUTO-SCROLLING (Remains the same) ---
+
+        const itemWidth = 215; 
+        const totalContentWidth = history.length * itemWidth;
+        scrollContent.style.width = `${totalContentWidth}px`;
+        
+        const style = document.createElement('style');
+        const marqueeFrames = `
+            @keyframes marquee {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-${totalContentWidth}px); }
+            }
+        `;
+        
+        const duration = history.length * 3; 
+        scrollContent.style.animationDuration = `${duration}s`;
+        
+        style.textContent = marqueeFrames;
+        document.head.appendChild(style);
+    }
+
+    renderScrollingHistory();
+})();
+
 
 function searchNotes(query) {
   const results = [];

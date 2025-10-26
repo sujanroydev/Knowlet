@@ -39,14 +39,14 @@
   if (currentNum > 1) {
     const prevUrl = `${base}${currentNum - 1}${extension}`;
     console.log(prevUrl);
-    nav.appendChild(createLink(prevUrl, "« Previous Unit"));
+    nav.appendChild(createLink(prevUrl, `« Unit ${currentNum - 1}`));
   }
 
   // Next link (if not Unit 5)
   if (currentNum < 5) {
     const nextUrl = `${base}${currentNum + 1}${extension}`;
     console.log(nextUrl);
-    nav.appendChild(createLink(nextUrl, "Next Unit »"));
+    nav.appendChild(createLink(nextUrl, `Unit ${currentNum + 1} »`));
   }
 
   // Add to bottom of page

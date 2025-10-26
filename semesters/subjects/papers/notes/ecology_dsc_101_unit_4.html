@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecology (DSC 101) - Unit 4 Notes</title>
+    <title>DSC-101 Unit 4: Ecosystem Ecology</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
-            background-color: #f4f7f6;
+            background-color: #f9f9f9;
             color: #333;
             margin: 0;
             padding: 20px;
@@ -20,128 +20,79 @@
             border: 1px solid #ddd;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            padding: 25px 40px;
+            padding: 20px 40px;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #27ae60;
+            padding-bottom: 5px;
+            margin-top: 25px;
         }
         h1 {
-            color: #1a5276;
-            border-bottom: 3px solid #1a5276;
-            padding-bottom: 10px;
-            font-size: 2.5em;
+            font-size: 2.2em;
             text-align: center;
+            border-bottom-width: 4px;
         }
         h2 {
-            color: #21618c;
-            border-bottom: 2px solid #aed6f1;
-            padding-bottom: 5px;
-            margin-top: 30px;
-            font-size: 2em;
+            font-size: 1.8em;
         }
         h3 {
-            color: #2e86c1;
-            margin-top: 25px;
-            font-size: 1.5em;
+            font-size: 1.4em;
+            border-bottom-style: dashed;
+            border-bottom-width: 1px;
+            color: #2ecc71;
         }
         p {
             margin-bottom: 15px;
-            text-align: justify;
         }
         ul, ol {
-            margin-left: 30px;
+            margin-left: 20px;
             margin-bottom: 15px;
         }
         li {
-            margin-bottom: 8px;
+            margin-bottom: 5px;
         }
         strong {
-            color: #c0392b; /* A distinct color for emphasis */
+            color: #c0392b; /* Emphasized text color */
         }
         em {
-            color: #16a085;
             font-style: italic;
+            color: #555;
         }
         blockquote {
-            background-color: #eaf2f8;
-            border-left: 5px solid #2e86c1;
+            background-color: #ecf0f1;
+            border-left: 5px solid #27ae60;
+            padding: 15px;
             margin: 20px 0;
-            padding: 15px 20px;
             font-style: italic;
-            font-size: 1.1em;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-        th {
-            background-color: #2980b9;
-            color: white;
-            font-size: 1.1em;
-        }
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        tr:hover {
-            background-color: #eaf2f8;
-        }
-        nav.toc {
-            background-color: #f9f9f9;
+        .toc {
+            background-color: #fdfdfd;
             border: 1px solid #eee;
             border-radius: 5px;
             padding: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
-        nav.toc h2 {
-            margin-top: 0;
-            border-bottom: none;
-            color: #333;
-            font-size: 1.5em;
-            text-align: center;
-        }
-        nav.toc ul {
+        .toc ul {
             list-style-type: none;
             padding-left: 0;
-            columns: 2;
-            -webkit-columns: 2;
-            -moz-columns: 2;
         }
-        nav.toc ul li {
-            margin-bottom: 5px;
-        }
-        nav.toc ul li a {
+        .toc li a {
             text-decoration: none;
-            color: #2980b9;
+            color: #27ae60;
         }
-        nav.toc ul li a:hover {
+        .toc li a:hover {
             text-decoration: underline;
-            color: #c0392b;
         }
         .exam-tip {
             background-color: #fef9e7;
             border: 1px solid #f1c40f;
-            border-left-width: 5px;
-            padding: 15px;
-            margin: 15px 0;
             border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
         }
         .exam-tip strong {
             color: #d35400;
-        }
-        .diagram-placeholder {
-            width: 100%;
-            background-color: #fafafa;
-            border: 2px dashed #ccc;
-            padding: 20px;
-            text-align: center;
-            margin: 20px 0;
-            font-style: italic;
-            color: #777;
-            border-radius: 5px;
         }
     </style>
 </head>
@@ -149,208 +100,220 @@
     <div class="container">
         <h1>Unit 4: Ecosystem Ecology</h1>
 
-        <nav class="toc">
+        <div class="toc">
             <h2>Table of Contents</h2>
             <ul>
-                <li><a href="#structure">1. Ecosystem Structure and Function</a></li>
-                <li><a href="#types">2. Types of Ecosystems</a></li>
-                <li><a href="#energy-flow">3. Energy Flow: Food Chains & Food Webs</a></li>
-                <li><a href="#pyramids">4. Ecological Pyramids</a></li>
-                <li><a href="#efficiencies">5. Ecological Efficiencies</a></li>
-            </ul>
-        </nav>
-
-        <hr>
-
-        <section id="structure">
-            <h2>1. Ecosystem Structure and Function</h2>
-            <p>An <strong>ecosystem</strong> is a biological community (biotic components) interacting with its physical environment (abiotic components). Ecosystem ecology studies the two main processes that govern ecosystems: <strong>energy flow</strong> and <strong>nutrient cycling</strong> (covered in Unit 5).</p>
-            
-            <h3>Ecosystem Structure</h3>
-            <p>This refers to the "parts list" of the ecosystem.</p>
-            
-            <h4>Abiotic Components (Non-living)</h4>
-            <ul>
-                <li><strong>Climatic:</strong> Temperature, light, water, humidity, wind.</li>
-                <li><strong>Edaphic:</strong> Soil, pH, minerals, topography.</li>
-                <li><strong>Inorganic Substances:</strong> Water, Carbon Dioxide, Nitrogen, Phosphorus, etc.</li>
-                <li><strong>Organic Substances:</strong> Proteins, carbohydrates, lipids, humus (dead organic matter).</li>
-            </ul>
-
-            <h4>Biotic Components (Living)</h4>
-            <p>These are categorized by their <em>trophic level</em> (feeding level).</p>
-            <ol>
-                <li><strong>Producers (Autotrophs):</strong>
+                <li><a href="#topic1">Ecosystem: Components</a></li>
+                <li><a href="#topic2">Ecosystem: Types</a>
                     <ul>
-                        <li>"Self-feeders." They create their own food from inorganic substances.</li>
-                        <li>Most are <strong>photoautotrophs</strong> (like plants and algae) that use sunlight for photosynthesis.</li>
-                        <li>Some are <strong>chemoautotrophs</strong> (like deep-sea bacteria) that use chemical energy.</li>
+                        <li><a href="#sub2_1">Terrestrial Ecosystems</a></li>
+                        <li><a href="#sub2_2">Lentic and Lotic Ecosystems</a></li>
+                        <li><a href="#sub2_3">Estuarine and Marine Ecosystems</a></li>
                     </ul>
                 </li>
-                <li><strong>Consumers (Heterotrophs):</strong>
+                <li><a href="#topic3">Ecosystem Structure and Function</a>
                     <ul>
-                        <li>"Other-feeders." They get energy by eating other organisms.</li>
-                        <li><strong>Primary Consumers (Herbivores):</strong> Eat producers (e.g., rabbit eats grass).</li>
-                        <li><strong>Secondary Consumers (Carnivores):</strong> Eat primary consumers (e.g., fox eats rabbit).</li>
-                        <li><strong>Tertiary Consumers (Carnivores):</strong> Eat secondary consumers (e.g., eagle eats fox).</li>
-                        <li><strong>Omnivores:</strong> Eat both producers and consumers (e.g., bears, humans).</li>
+                        <li><a href="#sub3_1">Abiotic and Biotic Components (Recap)</a></li>
+                        <li><a href="#sub3_2">Food Chain and Food Web</a></li>
+                        <li><a href="#sub3_3">Ecological Pyramids</a></li>
+                        <li><a href="#sub3_4">Energy Flow</a></li>
                     </ul>
                 </li>
-                <li><strong>Decomposers (Saprotrophs):</strong>
-                    <ul>
-                        <li>They obtain energy by breaking down dead organic matter (<em>detritus</em>) from all trophic levels.</li>
-                        <li>They are essential for recycling nutrients back into the ecosystem for producers to use.</li>
-                        <li><strong>Examples:</strong> Bacteria and fungi.</li>
-                    </ul>
-                </li>
-            </ol>
-            <div class="diagram-placeholder">
-                <strong>Diagram:</strong> A box diagram showing the relationships between ecosystem components. "Sunlight" arrow points to "Producers." "Producers" arrow points to "Primary Consumers." "Primary Consumers" arrow points to "Secondary Consumers." Arrows from all three point to "Decomposers." "Decomposers" arrow points back to "Inorganic Nutrient Pool," which has an arrow to "Producers."
-            </div>
-
-            <h3>Ecosystem Function</h3>
-            <p>This refers to the "processes" of the ecosystem. The main functions are:</p>
-            <ul>
-                <li><strong>Energy Flow:</strong> The one-way passage of energy through the ecosystem (sun -> producers -> consumers -> decomposers -> lost as heat).</li>
-                <li><strong>Nutrient Cycling:</strong> The cyclical movement of chemical elements (C, N, P) between the biotic and abiotic components.</li>
-                <li><strong>Productivity:</strong> The rate at which biomass is created (e.g., primary productivity by plants).</li>
+                <li><a href="#topic4">Decomposition</a></li>
             </ul>
-        </section>
+        </div>
+        
+        <p><strong>Ecosystem Ecology</strong> studies the flow of energy and the cycling of materials through the biotic and abiotic components of an ecosystem. It focuses on function (what it does) rather than just structure (what is there).</p>
 
-        <hr>
+        <h2 id="topic1">Ecosystem: Components</h2>
+        <p>An ecosystem is composed of two main types of components:</p>
+        <ol>
+            <li><strong>Abiotic Components (Non-living):</strong>
+                <ul>
+                    <li><strong>Climatic Factors:</strong> Sunlight (energy), temperature, water (precipitation), humidity, wind.</li>
+                    <li><strong>Edaphic Factors (Soil):</strong> Soil type, pH, mineral composition, soil moisture.</li>
+                    <li><strong>Inorganic Substances:</strong> Carbon, nitrogen, phosphorus, water, CO2.</li>
+                </ul>
+            </li>
+            <li><strong>Biotic Components (Living):</strong>
+                <ul>
+                    <li><strong>Producers (Autotrophs):</strong> "Self-feeders." They create their own food from abiotic substances, usually via photosynthesis (using sunlight).
+                        <ul>
+                            <li><strong>Example:</strong> Plants, algae, cyanobacteria.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Consumers (Heterotrophs):</strong> "Other-feeders." They obtain energy by feeding on other organisms.
+                        <ul>
+                            <li><strong>Primary Consumers (Herbivores):</strong> Eat producers (e.g., rabbits, cows, grasshoppers).</li>
+                            <li><strong>Secondary Consumers (Carnivores):</strong> Eat primary consumers (e.g., foxes, snakes).</li>
+                            <li><strong>Tertiary Consumers (Carnivores):</strong> Eat secondary consumers (e.g., eagles, lions).</li>
+                            <li><strong>Omnivores:</strong> Eat both producers and consumers (e.g., bears, humans, raccoons).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Decomposers (Saprotrophs):</strong> They break down dead organic matter (dead plants, animals, waste products) and return essential nutrients to the soil, making them available for producers again.
+                        <ul>
+                            <li><strong>Example:</strong> Bacteria and fungi.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+        <h2 id="topic2">Ecosystem: Types</h2>
+        
+        <h3 id="sub2_1">Terrestrial Ecosystems</h3>
+        <p>Ecosystems found on land (e.g., forests, grasslands, deserts).
+        <ul>
+            <li><strong>Abiotic:</strong> Sunlight availability (can be limited by canopy), temperature (variable), water (often a limiting factor), soil type, wind.</li>
+            <li><strong>Biotic:</strong>
+                <ul>
+                    <li><strong>Producers:</strong> Plants (trees, shrubs, grasses).</li>
+                    <li><strong>Consumers:</strong> Insects, birds, mammals, reptiles.</li>
+                    <li><strong>Decomposers:</strong> Fungi and bacteria are dominant (Detritus food chain is very important).</li>
+                </ul>
+            </li>
+        </ul>
 
-        <section id="types">
-            <h2>2. Types of Ecosystems</h2>
-            
-            <h3>Terrestrial (Land) Ecosystems</h3>
+        <h3 id="sub2_2">Lentic and Lotic Ecosystems</h3>
+        <p>These are the two main types of <strong>freshwater ecosystems</strong>.</p>
+        <ul>
+            <li><strong>Lentic (Standing Water):</strong>
+                <ul>
+                    <li><strong>Examples:</strong> Lakes, ponds, marshes.</li>
+                    <li><strong>Abiotic:</strong> Characterized by <strong>thermal stratification</strong> (layers: epilimnion, hypolimnion). Light decreases with depth (zones: littoral, limnetic, profundal, benthic).</li>
+                    <li><strong>Biotic:</strong> Producers are algae (phytoplankton) and rooted plants (macrophytes) in the littoral (shallow) zone. Consumers include zooplankton, fish, amphibians.</li>
+                </ul>
+            </li>
+            <li><strong>Lotic (Running Water):</strong>
+                <ul>
+                    <li><strong>Examples:</strong> Rivers, streams, creeks.</li>
+                    <li><strong>Abiotic:</strong> Characterized by <strong>unidirectional current</strong>. Water is generally well-mixed and oxygenated. The substrate (rocky vs. silty) is critical.</li>
+                    <li><strong>Biotic:</strong> Producers are often attached algae (periphyton) on rocks. Many organisms have adaptations to avoid being washed away (e.g., flattened bodies, suction cups). Fish are often strong swimmers (e.g., trout).</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3 id="sub2_3">Estuarine and Marine Ecosystems</h3>
+        <ul>
+            <li><strong>Estuarine Ecosystems (Estuaries):</strong>
+                <ul>
+                    <li><strong>Definition:</strong> An ecotone where a freshwater river meets the saltwater ocean.</li>
+                    <li><strong>Abiotic:</strong> Characterized by <strong>fluctuating salinity</strong> (salt content) due to tides. Water is often murky (turbid) and nutrient-rich (from river runoff).
+                    <li><strong>Biotic:</strong> Very high productivity ("nutrient trap"). Dominated by <strong>euryhaline</strong> organisms (those that can tolerate a wide range of salinity). Examples: Mangrove swamps, salt marshes. They are critical "nurseries" for many marine fish and shellfish.</li>
+                </ul>
+            </li>
+            <li><strong>Marine Ecosystems (Oceans):</strong>
+                <ul>
+                    <li><strong>Definition:</strong> Saltwater ecosystems, covering >70% of Earth.</li>
+                    <li><strong>Abiotic:</strong> High salinity, vast, deep. Zoned by light (photic, aphotic) and location (intertidal, neritic, oceanic, benthic).
+                    <li><strong>Biotic:</strong> Producers are almost exclusively phytoplankton (algae) in the photic (sunlit) zone. Supports a huge diversity from zooplankton to large whales. Deep-sea (aphotic) ecosystems rely on "marine snow" (falling detritus) or chemosynthesis (at hydrothermal vents).</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2 id="topic3">Ecosystem Structure and Function</h2>
+        
+        <h3 id="sub3_1">Abiotic and Biotic Components (Recap)</h3>
+        <p>Ecosystem <strong>structure</strong> refers to its components: both the abiotic (non-living) factors and the biotic (living) factors, including their distribution and organization (e.g., stratification, species diversity).</p>
+        <p>Ecosystem <strong>function</strong> refers to the processes that occur within it, primarily <strong>energy flow</strong> and <strong>nutrient cycling</strong>.</p>
+        
+        <blockquote>
+            <strong>Trophic Level (Functional Level):</strong> A trophic level is the position an organism occupies in a food chain. It represents a step in the transfer of energy.
             <ul>
-                <li><strong>Forest:</strong> Dominated by trees. Can be tropical, temperate, or boreal (taiga). Characterized by a layered vertical structure (canopy, understory, forest floor) that creates many different niches.</li>
-                <li><strong>Grassland:</strong> Dominated by grasses and non-woody plants. Occur in areas with moderate rainfall, not enough to support a forest. Includes savannas (tropical) and prairies/steppes (temperate).</li>
+                <li><strong>Trophic Level 1 (T1):</strong> Producers (Plants, algae).</li>
+                <li><strong>Trophic Level 2 (T2):</strong> Primary Consumers (Herbivores).</li>
+                <li><strong>Trophic Level 3 (T3):</strong> Secondary Consumers (Carnivores).</li>
+                <li><strong>Trophic Level 4 (T4):</strong> Tertiary Consumers (Carnivores).</li>
             </ul>
+        </blockquote>
 
-            <h3>Aquatic (Water) Ecosystems</h3>
-            <h4>Freshwater Ecosystems</h4>
-            <ul>
-                <li><strong>Lotic (Flowing Water):</strong> Rivers and streams. Characterized by moving water (current). Organisms are adapted to not be washed away. Energy often comes from <em>allochthonous</em> sources (outside material, like leaves falling in).</li>
-                <li><strong>Lentic (Standing Water):</strong> Lakes and ponds. Characterized by still water. Often have zones:
-                    <ul>
-                        <li><strong>Littoral zone:</strong> Shallow, near-shore, light penetrates, rooted plants grow.</li>
-                        <li><strong>Limnetic zone:</strong> Open, surface water, light penetrates, dominated by plankton.</li>
-                        <li><strong>Profundal zone:</strong> Deep, open water, no light, no photosynthesis.</li>
-                        <li><strong>Benthic zone:</strong> The bottom substrate, dominated by decomposers.</li>
-                    </ul>
-                </li>
-                <li><strong>Wetlands:</strong> Areas where the soil is saturated with water for at least part of the year. Includes marshes, swamps, and bogs. Extremely high productivity and biodiversity; act as "nature's kidneys" by filtering water.</li>
-            </ul>
-            <h4>Marine (Saltwater) Ecosystems</h4>
-            <ul>
-                <li><strong>Estuarine:</strong> An <strong>estuary</strong> is where a freshwater river meets the saltwater ocean. This creates a unique "brackish" water environment with high productivity. They are critical nursery grounds for many fish and shellfish.</li>
-                <li><strong>Marine:</strong> The open ocean. Covers >70% of Earth. Zoned similarly to lakes (photic/aphotic zones) but on a much larger scale. Includes highly diverse ecosystems like <em>coral reefs</em> and nutrient-rich <em>upwelling zones</em>.</li>
-            </ul>
-        </section>
+        <h3 id="sub3_2">Food Chain and Food Web</h3>
+        <ul>
+            <li><strong>Food Chain:</strong> A simple, linear pathway of energy transfer.
+                <ul>
+                    <li><strong>Example:</strong> Grass &rarr; Grasshopper &rarr; Frog &rarr; Snake &rarr; Eagle</li>
+                </ul>
+            </li>
+            <li><strong>Food Web:</strong> A more realistic and complex network of <strong>interconnected food chains</strong>. It shows that most organisms eat, and are eaten by, multiple other species. A complex food web leads to a more stable ecosystem.</li>
+        </ul>
+        <p><strong>Types of Food Chains:</strong></p>
+        <ol>
+            <li><strong>Grazing Food Chain (GFC):</strong> Starts with producers (plants) and goes to herbivores and then carnivores. This is the dominant food chain in many aquatic ecosystems.
+                <ul>
+                    <li>(e.g., Phytoplankton &rarr; Zooplankton &rarr; Small Fish &rarr; Large Fish)</li>
+                </ul>
+            </li>
+            <li><strong>Detritus Food Chain (DFC):</strong> Starts with dead organic matter (detritus) which is consumed by decomposers (bacteria, fungi) and detritivores (worms, millipedes), which are then eaten by small carnivores. This is the dominant food chain in many terrestrial (forest) ecosystems.</li>
+        </ol>
 
-        <hr>
+        <h3 id="sub3_3">Ecological Pyramids</h3>
+        <p>Graphical representations of the trophic structure of an ecosystem, with producers at the base and successive trophic levels forming the top.</p>
+        <ol>
+            <li><strong>Pyramid of Numbers:</strong>
+                <ul>
+                    <li>Shows the <strong>number of individual organisms</strong> at each trophic level.</li>
+                    <li><strong>Upright:</strong> Usually upright, as many small producers support fewer herbivores, which support even fewer carnivores (e.g., Grassland).</li>
+                    <li><strong>Inverted:</strong> Can be inverted. Example: A single large tree (1 producer) supports thousands of insects (many primary consumers).</li>
+                </ul>
+            </li>
+            <li><strong>Pyramid of Biomass:</strong>
+                <ul>
+                    <li>Shows the <strong>total dry weight (biomass)</strong> of all organisms at each trophic level.</li>
+                    <li><strong>Upright:</strong> Usually upright for terrestrial ecosystems (e.g., forest).</li>
+                    <li><strong>Inverted:</strong> Often inverted for aquatic ecosystems (e.g., a pond). The producers (phytoplankton) have a very small biomass at any given time because they reproduce and are eaten extremely quickly by the zooplankton, which have a larger standing biomass.</li>
+                </ul>
+            </li>
+            <li><strong>Pyramid of Energy:</strong>
+                <ul>
+                    <li>Shows the <strong>amount of energy</strong> (or energy flow) at each trophic level over a period of time.</li>
+                    <li><strong>Always Upright:</strong> Due to the 10% rule and the 2nd Law of Thermodynamics, energy is <em>always</em> lost at each transfer. It can <strong>never</strong> be inverted.</li>
+                </ul>
+            </li>
+        </ol>
 
-        <section id="energy-flow">
-            <h2>3. Energy Flow: Food Chains & Food Webs</h2>
-            <p>Energy flow in an ecosystem is <strong>unidirectional (one-way)</strong>. It starts with the sun, is captured by producers, and is transferred to consumers. At each transfer, a significant amount of energy (around 90%) is lost as metabolic heat.</p>
+        <h3 id="sub3_4">Energy Flow</h3>
+        <p>The flow of energy in an ecosystem is <strong>unidirectional (one-way)</strong> and follows the laws of thermodynamics.</p>
+        <ul>
+            <li><strong>1st Law of Thermodynamics:</strong> Energy cannot be created or destroyed, only transformed. (e.g., solar energy is transformed into chemical energy by plants).</li>
+            <li><strong>2nd Law of Thermodynamics:</strong> During any energy transfer, some energy is lost as heat, and entropy (disorder) increases.</li>
+        </ul>
+        <p><strong>The 10% Rule (Lindeman's Rule of Trophic Efficiency):</strong></p>
+        <blockquote>
+            On average, only about <strong>10%</strong> of the energy from one trophic level is incorporated into the biomass of the next trophic level.
+        </blockquote>
+        <p><strong>Where does the other 90% go?</strong></p>
+        <ul>
+            <li>Lost as heat during metabolic processes (respiration).</li>
+            <li>Not consumed (e.g., bones, fur, wood).</li>
+            <li>Not assimilated (passed through as waste/feces).</li>
+        </ul>
+        <p><strong>Example:</strong> 10,000 J of sunlight &rarr; 1,000 J in plants (T1) &rarr; 100 J in grasshoppers (T2) &rarr; 10 J in frogs (T3) &rarr; 1 J in a snake (T4).
+        <br>This massive loss of energy at each step is why food chains are typically short (rarely more than 4-5 levels) and why there is less biomass at higher trophic levels.</p>
 
-            <h3>Food Chain</h3>
-            <p>A food chain is a simple, linear pathway showing the flow of energy from one organism to another.</p>
-            <blockquote>
-                <strong>Example:</strong>
-                <br>Grass (Producer) → Rabbit (Primary Consumer) → Fox (Secondary Consumer) → Eagle (Tertiary Consumer)
-            </blockquote>
-            
-            <h3>Food Web</h3>
-            <p>A food web is a more realistic and complex model that shows the <strong>interconnected network of multiple food chains</strong> within a community. It recognizes that most organisms eat, and are eaten by, more than one species.</p>
-            <div class="diagram-placeholder">
-                <strong>Diagram:</strong> A web diagram. "Plants" at the bottom. Arrows point to "Rabbit," "Mouse," and "Grasshopper" (Primary Consumers). "Rabbit" arrow points to "Fox." "Mouse" arrows point to "Fox" and "Owl." "Grasshopper" arrow points to "Frog." "Frog" arrow points to "Owl."
-            </div>
-            <p>Food webs are more stable than simple food chains. If one food source (e.g., rabbits) is removed, the fox can survive by eating more mice, demonstrating the resilience of a complex web.</p>
-        </section>
-
-        <hr>
-
-        <section id="pyramids">
-            <h2>4. Ecological Pyramids</h2>
-            <p>Ecological pyramids are graphical representations of the trophic structure of an ecosystem. They show the relative amounts of energy, biomass, or numbers at each successive trophic level. The base is always the producers (Trophic Level 1).</p>
-            
-            <div class="diagram-placeholder">
-                <strong>Diagram:</strong> Side-by-side drawings of three pyramids.
-                <br>1. <strong>Pyramid of Energy:</strong> Always upright.
-                <br>2. <strong>Pyramid of Biomass:</strong> Upright (forest) and Inverted (phytoplankton).
-                <br>3. <strong>Pyramid of Numbers:</strong> Upright (grassland) and Spindle-shaped (tree).
-            </div>
-
-            <h3>Pyramid of Energy</h3>
-            <ul>
-                <li>Shows the amount of <strong>energy</strong> (e.g., in Joules or Kcal) available at each trophic level.</li>
-                <li>It is <strong>ALWAYS UPRIGHT</strong>.</li>
-                <li>This is because energy is always lost (as heat) at each transfer, following the 2nd Law of Thermodynamics. Only about 10% of the energy from one level is incorporated into the next. (This is the <strong>10% Law</strong>).</li>
-            </ul>
-
-            <h3>Pyramid of Biomass</h3>
-            <ul>
-                <li>Shows the total <strong>biomass</strong> (dry weight of all organisms) at each trophic level.</li>
-                <li><strong>Usually Upright:</strong> In most terrestrial ecosystems (like a forest), the total biomass of producers (trees) is vastly larger than the biomass of herbivores (insects, deer).</li>
-                <li><strong>Can be Inverted:</strong> In some aquatic ecosystems (like the open ocean), the pyramid of biomass is inverted. The producers are <strong>phytoplankton</strong>, which have a tiny total biomass but reproduce extremely rapidly. They are consumed so quickly by <strong>zooplankton</strong> (primary consumers) that the zooplankton's biomass at any given moment is actually greater.</li>
-            </ul>
-
-            <h3>Pyramid of Numbers</h3>
-            <ul>
-                <li>Shows the <strong>number of individual organisms</strong> at each trophic level.</li>
-                <li><strong>Usually Upright:</strong> In a grassland, there are millions of individual grass plants, thousands of grasshoppers, hundreds of frogs, and a few snakes.</li>
-                <li><strong>Can be Inverted or Spindle-Shaped:</strong>
-                    <ul>
-                        <li><strong>Inverted:</strong> A single large tree (1 producer) can support thousands of insects (primary consumers).</li>
-                        <li><strong>Spindle-Shaped:</strong> A single tree (1 producer) supports thousands of insects (primary consumers), which are then eaten by a few birds (secondary consumers).</li>
-                    </ul>
-                </li>
-            </ul>
-            <div class="exam-tip">
-                <strong>Crucial Exam Point:</strong> The <strong>Pyramid of Energy is the only pyramid that is *always* upright.</strong> Pyramids of numbers and biomass can be inverted. You must be able to explain *why* (e.g., a single tree producer for numbers, or phytoplankton producers for biomass).
-            </div>
-        </section>
-
-        <hr>
-
-        <section id="efficiencies">
-            <h2>5. Ecological Efficiencies</h2>
-            <p>Ecological efficiency describes the efficiency with which energy is transferred from one trophic level to the next. It is generally very low.</p>
-            
-            <blockquote>
-                <strong>Trophic Level Transfer Efficiency = (Production at trophic level 'n') / (Production at trophic level 'n-1')</strong>
-            </blockquote>
-            
-            <p>This efficiency is low because energy is lost in several ways:</p>
-            <ol>
-                <li><strong>Not Consumed:</strong> Not all biomass from one level is eaten by the next.</li>
-                <li><strong>Not Assimilated:</strong> Not all biomass eaten is digested and absorbed (energy is lost in feces/waste).</li>
-                <li><strong>Lost to Respiration:</strong> A large portion of the assimilated energy is "burned" (used) in cellular respiration to power the organism's life, and is lost as metabolic heat.</li>
-            </ol>
-            
-            <h3>Lindeman's 10% Law</h3>
-            <p>This is a general rule of thumb stating that, on average, only about <strong>10%</strong> of the energy from one trophic level is stored as biomass in the next trophic level. The actual efficiency can vary from 5% to 20%.</p>
-            
-            <p><strong>Example:</strong></p>
-            <ul>
-                <li>Producers (Plants): 1,000,000 J of energy</li>
-                <li>Primary Consumers (Rabbits): 10% of 1,000,000 J = 100,000 J of energy</li>
-                <li>Secondary Consumers (Foxes): 10% of 100,000 J = 10,000 J of energy</li>
-                <li>Tertiary Consumers (Eagles): 10% of 10,000 J = 1,000 J of energy</li>
-            </ul>
-            
-            <div class="exam-tip">
-                <strong>Implications of the 10% Law:</strong>
-                <ol>
-                    <li><strong>It limits the length of food chains:</strong> By the 4th or 5th trophic level, there is simply not enough energy left to support another population.</li>
-                    <li><strong>It explains why large predators are rare:</strong> There is less energy available to support them at the top of the pyramid.</li>
-                    <li><strong>It explains why a vegetarian diet is more energy-efficient:</strong> Eating plants (as a primary consumer) captures 10 times more of the sun's original energy than eating a cow (as a secondary consumer) that ate the plants.</li>
-                </ol>
-            </div>
-        </section>
-
+        <div class="exam-tip">
+            <strong>Exam Question Alert:</strong> "Why is the pyramid of energy always upright?"
+            <br><strong>Answer:</strong> Because energy transfer between trophic levels is inefficient (avg. 10%). A significant portion (90%) is lost as heat during respiration and metabolic activities at each step, in accordance with the Second Law of Thermodynamics. Therefore, the energy available at each successive level must always be less than the level below it.
+        </div>
+        
+        <h2 id="topic4">Decomposition</h2>
+        <blockquote>
+            <strong>Definition:</strong> Decomposition is the physical and chemical breakdown of dead organic matter (detritus) into simpler inorganic substances (like CO2, water, and minerals).
+        </blockquote>
+        <p>This process is critical for <strong>nutrient cycling</strong>. It is carried out by decomposers (bacteria, fungi) and detritivores (earthworms, millipedes).</p>
+        <p><strong>The process involves several steps:</strong></p>
+        <ol>
+            <li><strong>Fragmentation:</strong> Detritivores (e.g., earthworms) break down detritus into smaller pieces. This increases the surface area for microbial (bacterial and fungal) action.</li>
+            <li><strong>Leaching:</strong> Water-soluble inorganic nutrients dissolve in water and seep into the soil, where they may be lost from the system or absorbed by plants.</li>
+            <li><strong>Catabolism:</strong> The "chemical" breakdown. Bacteria and fungi secrete digestive enzymes onto the detritus, breaking down complex organic molecules (like cellulose, lignin) into simpler ones.</li>
+            <li><strong>Humification:</strong> The formation of <strong>humus</strong>, a dark, amorphous, stable, and nutrient-rich organic substance. Humus decomposes very slowly and acts as a reservoir of nutrients in the soil.</li>
+            <li><strong>Mineralization:</strong> The final step, where humus and other organic matter are fully degraded, releasing inorganic nutrients (like Ca<sup>2+</sup>, Mg<sup>2+</sup>, NH<sub>4</sub><sup>+</sup>) into the soil, where they can be absorbed by plant roots.</li>
+        </ol>
+        <p><strong>Factors affecting decomposition:</strong></p>
+        <ul>
+            <li><strong>Oxygen:</strong> Decomposition is fastest in aerobic (oxygen-rich) conditions.</li>
+            <li><strong>Temperature:</strong> Faster at warm temperatures (optimal for microbial activity).</li>
+            <li><strong>Moisture:</strong> Requires moisture, but waterlogging (which creates anaerobic conditions) slows it down.</li>
+            <li><strong>Detritus Quality:</strong> Decomposes faster if rich in nitrogen and sugars; slower if rich in lignin (wood) or chitin.</li>
+        </ul>
     </div>
 </body>
 </html>

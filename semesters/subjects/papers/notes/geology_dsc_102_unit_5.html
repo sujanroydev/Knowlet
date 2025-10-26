@@ -3,85 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DSC 102 - Unit V: Mineralogy Concepts and Classification</title>
+    <title>GEL-DSC-102 - Unit 5: Mineralogy Concepts</title>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
-            background-color: #f8f9fa;
-            color: #212529;
+            background-color: #f4f7f6;
+            color: #333;
             margin: 0;
-            padding: 20px;
+            padding: 0;
         }
         .container {
             max-width: 900px;
             margin: 20px auto;
             padding: 25px;
             background-color: #ffffff;
-            border: 1px solid #dee2e6;
-            border-radius: 8px;
+            border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e0e0e0;
         }
         h1, h2, h3 {
-            color: #005a9c; /* A deep blue */
-            margin-top: 24px;
-            margin-bottom: 16px;
-            border-bottom: 2px solid #e9ecef;
-            padding-bottom: 6px;
+            font-family: "Georgia", serif;
+            color: #2c3e50;
         }
         h1 {
-            font-size: 2.5em;
-            color: #003366; /* Darker blue for main title */
             text-align: center;
-            border-bottom: 3px solid #005a9c;
+            color: #1a5276;
+            border-bottom: 3px solid #1a5276;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
         }
         h2 {
-            font-size: 2em;
+            color: #2980b9;
+            border-bottom: 2px solid #aed6f1;
+            padding-bottom: 8px;
+            margin-top: 35px;
         }
         h3 {
-            font-size: 1.5em;
-            color: #007bff; /* A lighter, bright blue */
-            border-bottom: 1px solid #f1f3f5;
+            color: #3498db;
+            margin-top: 25px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
         }
-        p {
-            margin-bottom: 16px;
-            text-align: justify;
-        }
-        ul, ol {
-            margin-left: 20px;
-            margin-bottom: 16px;
-        }
-        li {
-            margin-bottom: 8px;
-        }
-        strong {
-            color: #d9534f; /* A contrasting red for emphasis */
-            font-weight: 600;
-        }
-        em {
-            font-style: italic;
-            color: #0275d8;
-        }
-        blockquote {
-            background-color: #e6f7ff; /* Light blue background */
-            border-left: 5px solid #007bff;
-            padding: 15px;
-            margin: 20px 0;
-            font-style: italic;
-            border-radius: 5px;
-        }
-        .exam-tip {
-            background-color: #fff9e6; /* Light yellow */
-            border-left: 5px solid #ffc107; /* Amber */
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 5px;
-        }
-        .exam-tip strong {
-            color: #d9534f;
-            display: block;
-            margin-bottom: 5px;
-        }
+        p { margin-bottom: 15px; text-align: justify; }
+        ul, ol { padding-left: 30px; margin-bottom: 15px; }
+        li { margin-bottom: 8px; }
         table {
             width: 100%;
             border-collapse: collapse;
@@ -89,310 +55,628 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         th, td {
-            border: 1px solid #dee2e6;
-            padding: 12px;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
             text-align: left;
         }
         th {
-            background-color: #005a9c;
+            background-color: #2980b9;
             color: #ffffff;
-            font-weight: 600;
+            font-weight: bold;
         }
-        tr:nth-child(even) {
-            background-color: #f8f9fa; /* Alternating row color */
+        tr:nth-child(even) { background-color: #f2f8fc; }
+        tr:hover { background-color: #eaf4fb; }
+        blockquote {
+            background-color: #ecf0f1;
+            border-left: 5px solid #3498db;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            font-size: 1.1em;
+            color: #2c3e50;
         }
-        #toc {
-            background-color: #f1f3f5;
-            border: 1px solid #ced4da;
-            padding: 15px 25px;
-            margin-bottom: 30px;
+        .toc {
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
             border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
         }
-        #toc h2 {
-            border-bottom: none;
-            margin-top: 0;
-            color: #343a40;
+        .toc h2 { margin-top: 0; border-bottom: none; color: #333; }
+        .toc ul { list-style-type: none; padding-left: 0; }
+        .toc li { margin-bottom: 10px; }
+        .toc a { text-decoration: none; color: #2980b9; font-weight: bold; }
+        .toc a:hover { text-decoration: underline; }
+        .exam-tip, .common-mistake {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left-width: 5px;
+            border-left-style: solid;
         }
-        #toc ul {
-            list-style-type: none;
-            padding-left: 0;
+        .exam-tip {
+            background-color: #e8f8f5;
+            border-color: #1abc9c;
+            color: #138d75;
         }
-        #toc ul li a {
-            text-decoration: none;
-            color: #005a9c;
-            font-weight: 500;
+        .common-mistake {
+            background-color: #fdedec;
+            border-color: #e74c3c;
+            color: #c0392b;
         }
-        #toc ul li a:hover {
-            text-decoration: underline;
-        }
+        .exam-tip::before { content: "💡 Exam Tip: "; font-weight: bold; }
+        .common-mistake::before { content: "❌ Common Mistake: "; font-weight: bold; }
+        span[id^="spap_"] { font-weight: bold; color: #1a5276; }
+        strong.key-term { color: #c0392b; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>UNIT V: Mineralogy Concepts and Classification</h1>
 
-        <div id="toc">
+        <h1>UNIT V: Concept of Mineral & Mineralogy</h1>
+
+        <div class="toc">
             <h2>Table of Contents</h2>
             <ul>
-                <li><a href="#topic1">Concept of a Mineral</a></li>
-                <li><a href="#topic2">Classification of Minerals (Rock-forming vs. Ore-forming)</a></li>
-                <li><a href="#topic3">Chemical Classification of Minerals</a>
+                <li><a href="#topic1">1. Concept of Mineral</a></li>
+                <li><a href="#topic2">2. Classification: Rock-Forming vs. Ore-Forming Minerals</a></li>
+                <li><a href="#topic3">3. Chemical Classification of Minerals</a></li>
+                <li><a href="#topic4">4. Physical Properties of Minerals and Their Significance</a></li>
+                <li><a href="#topic5">5. Mohs' Scale of Hardness</a></li>
+                <li><a href="#topic6">6. Silicate Minerals</a>
                     <ul>
-                        <li><a href="#sub_chem_sulphides">Sulphides</a></li>
-                        <li><a href="#sub_chem_oxides">Oxides / Hydroxides</a></li>
-                        <li><a href="#sub_chem_halides">Halides</a></li>
-                        <li><a href="#sub_chem_carbonates">Carbonates</a></li>
-                        <li><a href="#sub_chem_sulphates">Sulphates</a></li>
-                        <li><a href="#sub_chem_phosphates">Phosphates</a></li>
+                        <li><a href="#topic6-1">6.1 Definition</a></li>
+                        <li><a href="#topic6-2">6.2 Classification Based on Silicate Structure</a></li>
                     </ul>
                 </li>
-                <li><a href="#topic4">Silicate Minerals</a>
+                <li><a href="#topic7">7. Isomorphism</a></li>
+                <li><a href="#topic8">8. Polymorphism</a></li>
+                <li><a href="#topic9">9. Pseudomorphism</a></li>
+                <li><a href="#topic10">10. Solid Solution</a></li>
+                <li><a href="#topic11">11. Exsolution</a></li>
+            </ul>
+        </div>
+        
+        <hr>
+
+        <h2 id="topic1">1. Concept of Mineral</h2>
+        <p>The term "mineral" is precise. To be classified as a mineral, a substance must meet five specific criteria.</p>
+        
+        <blockquote>
+            <strong>Definition of a Mineral:</strong> A mineral is a...
+            <ol>
+                <li><span id="spap_1">Naturally Occurring:</span> It must be formed by natural geological processes, not man-made (e.g., synthetic diamond is not a mineral).</li>
+                <li><span id="spap_2">Inorganic:</span> It must not be formed from living organisms or their remains (e.g., coal, which comes from plants, is not a mineral).</li>
+                <li><span id="spap_3">Solid:</span> It must be a solid substance at standard Earth surface temperatures (e.g., liquid water is not a mineral, but ice is).</li>
+                <li><span id="spap_4">Definite Chemical Composition:</span> Its chemical makeup is fixed or varies within a specific, limited range (e.g., Quartz is always SiO₂, Halite is always NaCl).</li>
+                <li><span id="spap_5">Ordered Internal Structure:</span> The atoms within it are arranged in a repeating, orderly, three-dimensional pattern. This is what makes it <strong class="key-term">crystalline</strong>.</li>
+            </ol>
+        </blockquote>
+
+        <p>Substances that have a chemical composition but lack an ordered internal structure (like volcanic glass) are called <strong class="key-term">mineraloids</strong>.</p>
+        
+        <div class="common-mistake">
+            Confusing minerals and rocks. A <strong class="key-term">rock</strong> is an aggregate (a mixture) of one or more minerals or mineraloids. For example, the rock Granite is composed of the minerals Quartz, Feldspar, and Mica. A mineral is a single, pure "ingredient."
+        </div>
+
+        <div class="exam-tip">
+            This five-part definition is a classic exam question. Be prepared to list and explain all five criteria.
+        </div>
+        
+        <hr>
+
+        <h2 id="topic2">2. Classification: Rock-Forming vs. Ore-Forming Minerals</h2>
+        <p>Minerals can be broadly grouped based on their abundance and economic value.</p>
+        
+        <h3>Rock-Forming Minerals</h3>
+        <p>These are the minerals that make up the vast majority (over 90%) of the Earth's crust. They are the common "building blocks" of most rocks.</p>
+        <ul>
+            <li><strong>Primary Examples:</strong> The <span id="spap_6">Silicates</span> are the most dominant group.
+                <ul>
+                    <li><strong>Quartz</strong> (SiO₂)</li>
+                    <li><strong>Feldspar Group</strong> (e.g., Orthoclase, Plagioclase)</li>
+                    <li><strong>Mica Group</strong> (e.g., Muscovite, Biotite)</li>
+                    <li><strong>Amphibole Group</strong> (e.g., Hornblende)</li>
+                    <li><strong>Pyroxene Group</strong> (e.g., Augite)</li>
+                    <li><strong>Olivine</strong></li>
+                </ul>
+            </li>
+            <li><strong>Other Common Groups:</strong> Carbonates (like Calcite) and Oxides are also important rock-formers in specific environments.</li>
+        </ul>
+        
+        <h3>Ore-Forming Minerals</h3>
+        <p>These are minerals from which a metal or other valuable element can be extracted <strong class="key-term">profitably</strong>. The key distinction is <span id="spap_7">economic viability</span>.</p>
+        <ul>
+            <li>The element of interest is present in high concentration.</li>
+            <li>The mineral can be processed relatively easily to extract the element.</li>
+            <li>A deposit of this mineral is called an <strong class="key-term">ore deposit</strong>.</li>
+        </ul>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ore Mineral</th>
+                    <th>Chemical Formula</th>
+                    <th>Element Extracted</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Hematite</td>
+                    <td>Fe₂O₃</td>
+                    <td>Iron (Fe)</td>
+                </tr>
+                <tr>
+                    <td>Galena</td>
+                    <td>PbS</td>
+                    <td>Lead (Pb)</td>
+                </tr>
+                <tr>
+                    <td>Bauxite</td>
+                    <td>(An aggregate, primarily Al oxides)</td>
+                    <td>Aluminum (Al)</td>
+                </tr>
+                <tr>
+                    <td>Chalcopyrite</td>
+                    <td>CuFeS₂</td>
+                    <td>Copper (Cu)</td>
+                </tr>
+                <tr>
+                    <td>Sphalerite</td>
+                    <td>ZnS</td>
+                    <td>Zinc (Zn)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="exam-tip">
+            Remember that "ore" is an economic term, not a purely geological one. A mineral like Hematite is *always* Hematite, but it's only considered an "ore mineral" when it's found in a high enough concentration to be mined for profit.
+        </div>
+
+        <hr>
+
+        <h2 id="topic3">3. Chemical Classification of Minerals</h2>
+        <p>Minerals are classified into groups based on their dominant <strong class="key-term">anion</strong> (negatively charged ion) or <strong class="key-term">anionic group</strong> (a complex ion like (CO₃)²⁻). This is the most widely used chemical classification system.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Mineral Class</th>
+                    <th>Dominant Anion / Group</th>
+                    <th>Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Native Elements</strong></td>
+                    <td>Single elements (e.g., C, S, Au)</td>
+                    <td>Gold (Au), Silver (Ag), Copper (Cu), Sulfur (S), Graphite (C), Diamond (C)</td>
+                </tr>
+                <tr>
+                    <td><strong>Sulfides</strong></td>
+                    <td>Sulfide ion (S²⁻)</td>
+                    <td>Galena (PbS), Pyrite (FeS₂), Sphalerite (ZnS)</td>
+                </tr>
+                <tr>
+                    <td><strong>Oxides</strong></td>
+                    <td>Oxygen ion (O²⁻)</td>
+                    <td>Hematite (Fe₂O₃), Magnetite (Fe₃O₄), Corundum (Al₂O₃)</td>
+                </tr>
+                <tr>
+                    <td><strong>Hydroxides</strong></td>
+                    <td>Hydroxyl ion (OH⁻)</td>
+                    <td>Goethite (FeO(OH)), Bauxite (Al-hydroxides)</td>
+                </tr>
+                <tr>
+                    <td><strong>Halides</strong></td>
+                    <td>Halogen ions (Cl⁻, F⁻, Br⁻)</td>
+                    <td>Halite (NaCl), Fluorite (CaF₂)</td>
+                </tr>
+                <tr>
+                    <td><strong>Carbonates</strong></td>
+                    <td>Carbonate group (CO₃)²⁻</td>
+                    <td>Calcite (CaCO₃), Dolomite (CaMg(CO₃)₂), Malachite (Cu₂(CO₃)(OH)₂)</td>
+                </tr>
+                <tr>
+                    <td><strong>Sulfates</strong></td>
+                    <td>Sulfate group (SO₄)²⁻</td>
+                    <td>Gypsum (CaSO₄·2H₂O), Barite (BaSO₄)</td>
+                </tr>
+                <tr>
+                    <td><strong>Phosphates</strong></td>
+                    <td>Phosphate group (PO₄)³⁻</td>
+                    <td>Apatite (Ca₅(PO₄)₃(F,Cl,OH))</td>
+                </tr>
+                <tr>
+                    <td><strong>Silicates</strong></td>
+                    <td>Silicate group (SiO₄)⁴⁻</td>
+                    <td>Quartz, Feldspar, Mica, Olivine (The largest and most important class)</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="exam-tip">
+            You should be able to name the major classes, their defining anionic group, and at least one example for each. Pay special attention to the Silicates, as they are the most abundant.
+        </div>
+
+        <hr>
+
+        <h2 id="topic4">4. Physical Properties of Minerals and Their Significance</h2>
+        <p>Physical properties are the primary tools used to identify minerals in the field (hand-specimen identification). These properties are a direct expression of the mineral's <span id="spap_8">chemical composition and internal crystalline structure</span>.</p>
+        
+        <h3>Color</h3>
+        <p>The first thing you notice, but often the <strong class="key-term">least reliable</strong> property.
+            <ul>
+                <li><strong class="key-term">Idiochromatic:</strong> Minerals that have a consistent, characteristic color (e.g., Malachite is always green, Azurite is always blue).
+                <li><strong class="key-term">Allochromatic:</strong> Minerals that come in many colors due to tiny impurities (e.g., Quartz can be clear, white, pink, purple, or black).
+            </ul>
+        </p>
+
+        <h3>Streak</h3>
+        <p>The <span id="spap_9">color of a mineral's powder</span> when scraped against an unglazed porcelain plate (a "streak plate").
+            <ul>
+                <li><strong>Significance:</strong> Far more reliable than color. A mineral's color may vary, but its streak is almost always consistent.
+                <li><strong>Example:</strong> Hematite can be black, gray, or red, but it *always* leaves a cherry-red streak. Pyrite ("Fool's Gold") is gold-colored, but its streak is greenish-black.
+            </ul>
+        </p>
+
+        <h3>Luster</h3>
+        <p>The <span id="spap_10">way a mineral's surface reflects light</span>. This is independent of color.
+            <ul>
+                <li><strong>Metallic:</strong> Looks like polished metal (e.g., Galena, Pyrite).
+                <li><strong>Non-metallic:</strong>
                     <ul>
-                        <li><a href="#sub_sil_def">Definition and Silica Tetrahedron</a></li>
-                        <li><a href="#sub_sil_class">Classification Based on Silicate Structure</a></li>
+                        <li><strong class="key-term">Vitreous:</strong> Glassy (e.g., Quartz)
+                        <li><strong class="key-term">Pearly:</strong> Iridescent, like a pearl (e.g., Talc, some Micas)
+                        <li><strong class="key-term">Resinous:</strong> Looks like resin or tree sap (e.g., Sphalerite)
+                        <li><strong class="key-term">Silky:</strong> Has a fibrous sheen (e.g., Gypsum-satin spar)
+                        <li><strong class="key-term">Waxy / Greasy:</strong> Looks like it's coated in oil (e.g., Serpentine)
+                        <li><strong class="key-term">Dull / Earthy:</strong> No shine at all (e.g., Kaolinite clay)
                     </ul>
                 </li>
-                <li><a href="#topic5">Related Mineralogical Concepts</a>
+            </ul>
+        </p>
+
+        <h3>Hardness</h3>
+        <p>A mineral's <span id="spap_11">resistance to being scratched</span>. This is measured using Mohs' Scale (see next section).</p>
+
+        <h3>Crystal Form / Habit</h3>
+        <p>The <span id="spap_12">characteristic external shape</span> a mineral takes if it grows unimpeded. This is the outward expression of its internal atomic arrangement.
+            <ul>
+                <li><strong>Examples:</strong> Cubic (Pyrite, Halite), Prismatic (Quartz, Tourmaline), Tabular (Mica, Barite), Acicular (needle-like), Botryoidal (grape-like clusters), Fibrous (Asbestos).
+            </ul>
+        </p>
+        
+        <h3>Cleavage</h3>
+        <p>The tendency of a mineral to <span id="spap_13">break along flat, parallel planes of weakness</span> in its crystal structure.
+            <ul>
+                <li><strong>Description:</strong> Described by the number of directions and their angles.
+                <li><strong>Quality:</strong> Perfect (Mica), Good (Feldspar), Poor (Beryl).
+                <li><strong>Examples:</strong>
                     <ul>
-                        <li><a href="#sub_iso">Isomorphism</a></li>
-                        <li><a href="#sub_poly">Polymorphism</a></li>
-                        <li><a href="#sub_pseudo">Pseudomorphism</a></li>
-                        <li><a href="#sub_solid">Solid Solution</a></li>
-                        <li><a href="#sub_exsolution">Exsolution</a></li>
+                        <li><strong>1 direction (Basal):</strong> Mica (Muscovite, Biotite) splits into thin, flat sheets.
+                        <li><strong>2 directions at ~90°:</strong> Feldspar.
+                        <li><strong>3 directions at 90° (Cubic):</strong> Halite, Galena.
+                        <li><strong>3 directions not at 90° (Rhombohedral):</strong> Calcite.
                     </ul>
-                </li>
+            </ul>
+            </p>
+
+        <h3>Fracture</h3>
+        <p>How a mineral breaks when it does <span id="spap_14">not</span> break along cleavage planes.
+            <ul>
+                <li><strong>Conchoidal:</strong> Smooth, curved surfaces like broken glass (e.g., Quartz, Obsidian).
+                <li><strong>Uneven:</strong> Rough, irregular surface.
+                <li><strong>Fibrous / Splintery:</strong> Breaks into splinters.
+            </ul>
+        </p>
+
+        <h3>Specific Gravity (SG)</h3>
+        <p>The <span id="spap_15">ratio of a mineral's density to the density of water</span> (i.e., how "heavy" it feels for its size).
+            <ul>
+                <li><strong>Example:</strong> Galena (SG ≈ 7.5) feels much heavier than Quartz (SG ≈ 2.65) of the same size. This is a key identifier for metallic ores.
+            </ul>
+        </p>
+        
+        <h3>Other Properties</h3>
+        <ul>
+            <li><strong>Magnetism:</strong> Attracted to a magnet (e.g., <strong class="key-term">Magnetite</strong>).
+            <li><strong>Reaction to Acid:</strong> Fizzes (effervesces) with dilute HCl (e.g., <strong class="key-term">Calcite</strong>).
+            <li><strong>Taste:</strong> Salty taste (e.g., <strong class="key-term">Halite</strong> - *Caution: never taste unknown minerals*).
+            <li><strong>Feel:</strong> Greasy or soapy feel (e.g., <strong class="key-term">Talc</strong>).
+        </ul>
+
+        <hr>
+
+        <h2 id="topic5">5. Mohs' Scale of Hardness</h2>
+        <p>Developed by Friedrich Mohs, this is a <strong class="key-term">relative scale</strong> of hardness from 1 (softest) to 10 (hardest). It's not a linear scale; the difference in hardness between 9 (Corundum) and 10 (Diamond) is greater than the difference between 1 and 9.</p>
+        
+        <p>The test is simple: a harder mineral will scratch a softer one.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Hardness (H)</th>
+                    <th>Mineral</th>
+                    <th>Common Field Test</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Talc</td>
+                    <td rowspan="2">Can be scratched easily by a fingernail (H ≈ 2.5)</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Gypsum</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Calcite</td>
+                    <td rowspan="2">A copper penny (H ≈ 3.5) will scratch it.</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Fluorite</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Apatite</td>
+                    <td rowspan="2">A steel knife or glass plate (H ≈ 5.5) will scratch it.</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Orthoclase (Feldspar)</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Quartz</td>
+                    <td rowspan="3">Will scratch glass and steel. (H ≈ 7+)</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Topaz</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Corundum</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Diamond</td>
+                    <td>Scratches all other substances.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            <strong>Mnemonic for Mohs' Scale:</strong><br>
+            "<strong>T</strong>all <strong>G</strong>eologists <strong>C</strong>an <strong>F</strong>ind <strong>A</strong>ll <strong>O</strong>ld <strong>Q</strong>uartz <strong>T</strong>ombs, <strong>C</strong>aves, <strong>D</strong>iamonds."
+            <br>
+            (Talc, Gypsum, Calcite, Fluorite, Apatite, Orthoclase, Quartz, Topaz, Corundum, Diamond)
+        </blockquote>
+        
+        <div class="common-mistake">
+            The syllabus in the image spells it "Mho's scale". The correct spelling is <span id="spap_16"><strong>Mohs'</strong></span>, named after Friedrich Mohs. Be sure to use the correct spelling in your exams.
+        </div>
+
+        <hr>
+
+        <h2 id="topic6">6. Silicate Minerals</h2>
+        
+        <h3 id="topic6-1">6.1 Definition</h3>
+        <p>Silicate minerals are the <strong class="key-term">most important and abundant</strong> group of minerals, making up ~95% of the Earth's crust. </p>
+        
+        <p>Their fundamental building block is the <span id="spap_17"><strong>Silicon-Oxygen Tetrahedron</strong></span> (also called the silica tetrahedron). This structure consists of one small central Silicon atom (Si⁴⁺) bonded to four larger Oxygen atoms (O²⁻), forming a pyramid shape.
+        </p>
+
+        <blockquote>
+            <strong>Formula:</strong> (SiO₄)⁴⁻
+            <br>
+            This basic unit has a net charge of -4, which must be balanced by bonding with positive ions (cations) like Mg²⁺, Fe²⁺, K⁺, etc., or by sharing oxygen atoms with other tetrahedra.
+        </blockquote>
+        
+        <h3 id="topic6-2">6.2 Classification Based on Silicate Structure</h3>
+        <p>The classification of silicates is based on how these tetrahedra are linked together, a process called <strong class="key-term">polymerization</strong>. This linkage involves sharing one or more oxygen atoms between adjacent tetrahedra.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Structure (Polymerization)</th>
+                    <th>Si:O Ratio</th>
+                    <th>Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Nesosilicates</strong><br>(Isolated Tetrahedra)</td>
+                    <td>Independent (SiO₄)⁴⁻ tetrahedra are bonded only by cations. No shared oxygens.</td>
+                    <td>1:4</td>
+                    <td><strong>Olivine</strong>, <strong>Garnet</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Sorosilicates</strong><br>(Double Tetrahedra)</td>
+                    <td>Two tetrahedra share one oxygen atom. Forms (Si₂O₇)⁶⁻ group.</td>
+                    <td>2:7</td>
+                    <td><strong>Epidote</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Cyclosilicates</strong><br>(Ring Structures)</td>
+                    <td>Tetrahedra share two oxygens each, forming closed rings (e.g., (Si₆O₁₈)¹²⁻).</td>
+                    <td>1:3</td>
+                    <td><strong>Beryl</strong>, <strong>Tourmaline</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Inosilicates</strong><br>(Chain Structures)</td>
+                    <td>
+                        <strong>Single Chains:</strong> Share two oxygens. (SiO₃)²⁻<br>
+                        <strong>Double Chains:</strong> Share 2 and 3 oxygens alternately. (Si₄O₁₁)⁶⁻
+                    </td>
+                    <td>
+                        1:3<br>
+                        4:11
+                    </td>
+                    <td>
+                        <strong>Pyroxene Group</strong> (e.g., Augite)<br>
+                        <strong>Amphibole Group</strong> (e.g., Hornblende)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Phyllosilicates</strong><br>(Sheet Structures)</td>
+                    <td>Tetrahedra share three oxygen atoms, forming continuous 2D sheets. (Si₂O₅)²⁻</td>
+                    <td>2:5</td>
+                    <td><strong>Mica Group</strong> (Muscovite, Biotite), <strong>Clay Minerals</strong> (Kaolinite)</td>
+                </tr>
+                <tr>
+                    <td><strong>Tectosilicates</strong><br>(Framework Structures)</td>
+                    <td>All four oxygen atoms are shared, forming a continuous 3D framework.</td>
+                    <td>1:2</td>
+                    <td><strong>Quartz</strong> (SiO₂), <strong>Feldspar Group</strong> (Orthoclase, Plagioclase)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="exam-tip">
+            This classification is a major topic. You *must* know the 6 classes, their structural arrangement (e.g., "sheets"), the Si:O ratio, and at least one key mineral example for each. The difference between single-chain (Pyroxene) and double-chain (Amphibole) is a common question.
+        </div>
+        
+        <hr>
+
+        <h2 id="topic7">7. Isomorphism</h2>
+        <p>
+            <strong>Iso</strong> = "same", <strong>Morph</strong> = "form"
+        </p>
+        <p>Isomorphism describes a relationship where two or more different minerals have <span id="spap_18"><strong>different chemical compositions</strong> but the <strong>same crystal structure</strong></span>.</p>
+        
+        <ul>
+            <li><strong>How it works:</strong> This happens when atoms or ions of similar size and charge can freely substitute for one another in the crystal lattice without changing the overall structure.</li>
+            <li><strong>Result:</strong> This often creates an <strong class="key-term">isomorphous series</strong> or <strong class="key-term">solid solution</strong> (see Topic 10).</li>
+            <li><strong>Classic Example:</strong> The <span id="spap_19"><strong>Olivine Group</strong></span>: (Mg,Fe)₂SiO₄.
+                <ul>
+                    <li><strong>Forsterite</strong> (Mg₂SiO₄) and <strong>Fayalite</strong> (Fe₂SiO₄) are the two end-members.</li>
+                    <li>The Mg²⁺ and Fe²⁺ ions are very similar in size and have the same charge, so they can substitute for each other in any proportion.
+                    <li>All minerals in this series (from pure Mg to pure Fe) have the same orthorhombic crystal structure.
+                </ul>
+            </li>
+        </ul>
+
+        <hr>
+
+        <h2 id="topic8">8. Polymorphism</h2>
+        <p>
+            <strong>Poly</strong> = "many", <strong>Morph</strong> = "form"
+        </p>
+        <p>Polymorphism is when a <span id="spap_20"><strong>single chemical substance</strong> (same composition) can exist in <strong>two or more different crystal structures</strong></span>. These different structures are called <strong class="key-term">polymorphs</strong>.</p>
+        
+        <ul>
+            <li><strong>How it works:</strong> The specific crystal structure that forms depends on the <span id="spap_21"><strong>pressure (P) and temperature (T)</strong></span> conditions during crystallization. Each polymorph is stable in a specific P-T range.
+            <li><strong>Classic Example 1: Carbon (C)</strong>
+                <ul>
+                    <li><strong class="key-term">Graphite:</strong> Hexagonal structure, very soft. Stable at low pressure.
+                    <li><strong class="key-term">Diamond:</strong> Cubic structure, very hard. Stable at very high pressure.
+                </ul>
+            </li>
+            <li><strong>Classic Example 2: Al₂SiO₅</strong> (Important in metamorphic rocks)
+                <ul>
+                    <li><strong class="key-term">Kyanite:</strong> Triclinic, stable at high pressure.
+                    <li><strong class="key-term">Andalusite:</strong> Orthorhombic, stable at low pressure.
+                    <li><strong class="key-term">Sillimanite:</strong> Orthorhombic, stable at high temperature.
+                </ul>
+            </li>
+            </ul>
+        
+        <div class="exam-tip">
+            Don't confuse Isomorphism and Polymorphism.
+            <ul>
+                <li><strong>Isomorphism:</strong> Same Structure, Different Chemistry.
+                <li><strong>Polymorphism:</strong> Same Chemistry, Different Structure.
             </ul>
         </div>
 
         <hr>
 
-        <section id="topic1">
-            <h2>Concept of a Mineral</h2>
-            <p>This definition is critical and often a major exam question. A substance must meet all five criteria to be considered a true mineral.</p>
-            <blockquote>
-                <strong>Definition of a Mineral:</strong> A mineral is a <strong>(1) naturally occurring</strong>, <strong>(2) inorganic</strong>, <strong>(3) solid</strong>, with a <strong>(4) definite (but not fixed) chemical composition</strong> and a <strong>(5) ordered internal (crystalline) structure</strong>.
-            </blockquote>
-            <p><strong>Breakdown of the Definition:</strong></p>
-            <ol>
-                <li><strong>Naturally Occurring:</strong> Must be formed by natural, geological processes. Man-made equivalents (e.g., synthetic diamonds, synthetic Bismuth) are not "minerals."</li>
-                <li><strong>Inorganic:</strong> Not formed by living organisms (e.g., not part of a shell, bone, or plant tissue).
-                    <ul><li><em>Exception:</em> Shells made of calcite are not minerals, but *after* they are buried, compressed, and recrystallized into limestone, the calcite *is* a mineral.</li></ul>
-                </li>
-                <li><strong>Solid:</strong> Must be a solid at standard Earth surface temperatures. Water (ice) is a mineral, but liquid water is not. Mercury is not a mineral.</li>
-                <li><strong>Definite (but not fixed) Chemical Composition:</strong> The chemical formula is specific, but can allow for some variation (substitution).
-                    <ul>
-                        <li><em>Definite:</em> Olivine is (Mg, Fe)₂SiO₄. It *must* have Mg and/or Fe, Silicon, and Oxygen in that ratio.</li>
-                        <li><em>Not Fixed:</em> The ratio of Mg to Fe can vary. This is called <strong>solid solution</strong>.</li>
-                    </ul>
-                </li>
-                <li><strong>Ordered Internal (Crystalline) Structure:</strong> The atoms are arranged in a repeating, 3D lattice. This is what *makes* it a crystal.
-                    <ul><li>Substances that lack this internal order (like volcanic glass or Opal) are called <strong>mineraloids</strong>.</li></ul>
-                </li>
-            </ol>
-        </section>
-
-        <hr>
-
-        <section id="topic2">
-            <h2>Classification of Minerals (Rock-forming vs. Ore-forming)</h2>
-            <p>This is a broad, practical classification based on a mineral's abundance and economic use.</p>
-
-            <h3>Rock-forming Minerals</h3>
-            <p>These are the most common minerals that make up the vast majority (over 90%) of the Earth's crust. They are the "building blocks" of most rocks.</p>
-            <ul>
-                <li><strong>Primary Examples:</strong>
-                    <ul>
-                        <li><strong>Silicates:</strong> The most dominant group. Includes <strong>Quartz</strong>, <strong>Feldspar</strong> (Plagioclase and K-Feldspar), <strong>Mica</strong> (Muscovite, Biotite), <strong>Amphibole</strong> (e.g., Hornblende), <strong>Pyroxene</strong> (e.g., Augite), and <strong>Olivine</strong>.</li>
-                        <li><strong>Carbonates:</strong> <strong>Calcite</strong> and <strong>Dolomite</strong> (which form limestone and dolostone).</li>
-                    </ul>
-                </li>
-            </ul>
-
-            <h3>Ore-forming Minerals</h3>
-            <p>These are minerals that contain a valuable metal or element that can be extracted for a profit. They are often less common than rock-forming minerals but are concentrated by geological processes into "ore deposits."</p>
-            <ul>
-                <li><strong>Examples:</strong>
-                    <ul>
-                        <li><strong>Iron (Fe):</strong> Hematite (Fe₂O₃), Magnetite (Fe₃O₄)</li>
-                        <li><strong>Copper (Cu):</strong> Chalcopyrite (CuFeS₂)</li>
-                        <li><strong>Lead (Pb):</strong> Galena (PbS)</li>
-                        <li><strong>Zinc (Zn):</strong> Sphalerite (ZnS)</li>
-                        <li><strong>Aluminum (Al):</strong> Bauxite (a rock composed of several aluminum hydroxide minerals)</li>
-                    </ul>
-                </li>
-            </ul>
-        </section>
-
-        <hr>
-
-        <section id="topic3">
-            <h2>Chemical Classification of Minerals</h2>
-            <p>This is the standard scientific classification system for minerals. It is based on the dominant <strong>anion</strong> (negatively charged ion) or <strong>anionic group</strong> (a complex ion like (SO₄)²⁻) in the mineral's chemical formula. Minerals in the same class share similar chemical and physical properties.</p>
-            
-            <h3 id="sub_chem_sulphides">Sulphides (Anion: S²⁻)</h3>
-            <p>Compounds of a metal (or semi-metal) with sulfur. Many are important ore minerals.</p>
-            <ul>
-                <li><strong>Pyrite:</strong> FeS₂ (Fool's Gold)</li>
-                <li><strong>Galena:</strong> PbS (Ore of lead)</li>
-                <li><strong>Sphalerite:</strong> ZnS (Ore of zinc)</li>
-                <li><strong>Chalcopyrite:</strong> CuFeS₂ (Ore of copper)</li>
-            </ul>
-
-            <h3 id="sub_chem_oxides">Oxides / Hydroxides (Anion: O²⁻ / (OH)⁻)</h3>
-            <p>Compounds of a metal with oxygen (oxides) or the hydroxyl group (hydroxides). Also includes many important ores.</p>
-            <ul>
-                <li><strong>Oxides:</strong>
-                    <ul>
-                        <li><strong>Hematite:</strong> Fe₂O₃ (Ore of iron, red streak)</li>
-                        <li><strong>Magnetite:</strong> Fe₃O₄ (Ore of iron, magnetic)</li>
-                        <li><strong>Corundum:</strong> Al₂O₃ (Gem varieties: Ruby and Sapphire)</li>
-                        <li><strong>Rutile:</strong> TiO₂ (Ore of titanium)</li>
-                    </ul>
-                </li>
-                <li><strong>Hydroxides:</strong>
-                    <ul>
-                        <li><strong>Goethite:</strong> FeO(OH) (A common rust, yellowish-brown streak)</li>
-                        <li><strong>Bauxite:</strong> (A mixture, but rich in Al-hydroxides like Gibbsite)</li>
-                    </ul>
-                </li>
-            </ul>
-
-            <h3 id="sub_chem_halides">Halides (Anion: Cl⁻, F⁻, Br⁻)</h3>
-            <p>Compounds with a halogen element. They are often soft and water-soluble.</p>
-            <ul>
-                <li><strong>Halite:</strong> NaCl (Rock salt)</li>
-                <li><strong>Fluorite:</strong> CaF₂</li>
-                <li><strong>Sylvite:</strong> KCl</li>
-            </ul>
-
-            <h3 id="sub_chem_carbonates">Carbonates (Anionic Group: (CO₃)²⁻)</h3>
-            <p>Minerals built with the carbonate (CO₃)²⁻ group. Their key diagnostic feature is that they <strong>fizz (effervesce) in dilute acid (HCl)</strong>.</p>
-            <ul>
-                <li><strong>Calcite:</strong> CaCO₃ (The primary mineral in limestone and marble)</li>
-                <li><strong>Dolomite:</strong> CaMg(CO₃)₂ (Primary mineral in dolostone; fizzes weakly)</li>
-                <li><strong>Aragonite:</strong> CaCO₃ (A polymorph of calcite)</li>
-            </ul>
-
-            <h3 id="sub_chem_sulphates">Sulphates (Anionic Group: (SO₄)²⁻)</h3>
-            <p>Minerals built with the sulphate (SO₄)²⁻ group. They are often soft and found in evaporite deposits.</p>
-            <ul>
-                <li><strong>Gypsum:</strong> CaSO₄·2H₂O (Used to make drywall/plaster)</li>
-                <li><strong>Anhydrite:</strong> CaSO₄ (Gypsum without the water)</li>
-                <li><strong>Barite:</strong> BaSO₄ (Used in drilling mud due to high density)</li>
-            </ul>
-
-            <h3 id="sub_chem_phosphates">Phosphates (Anionic Group: (PO₄)³⁻)</h3>
-            <p>Minerals built with the phosphate (PO₄)³⁻ group. The most important mineral is Apatite.</p>
-            <ul>
-                <li><strong>Apatite:</strong> Ca₅(PO₄)₃(F,Cl,OH) (The mineral that makes up our bones and teeth; a source of phosphorus for fertilizer)</li>
-            </ul>
-        </section>
-
-        <hr>
-
-        <section id="topic4">
-            <h2>Silicate Minerals</h2>
-            
-            <h3 id="sub_sil_def">Definition and Silica Tetrahedron</h3>
-            <p>The <strong>silicate minerals</strong> are the largest, most abundant, and most important class of minerals, forming ~90% of the Earth's crust. </p>
-            <p>The fundamental building block of all silicate minerals is the <strong>Silica Tetrahedron</strong>.
+        <h2 id="topic9">9. Pseudomorphism</h2>
+        <p>
+            <strong>Pseudo</strong> = "false", <strong>Morph</strong> = "form"
+        </p>
+        <p>A pseudomorph is a mineral that has the <span id="spap_22"><strong>outward crystal form (shape) of one mineral</strong>, but is actually composed of a <strong>different mineral</strong></span> that has replaced it. It's a "false form."</p>
+        
+        <ul>
+            <li><strong>How it works:</strong> This occurs through chemical alteration where the original mineral is dissolved and removed, and a new mineral is simultaneously deposited in its place, perfectly preserving the original's shape.</li>
+            <li><strong>Types of Replacement:</strong>
                 <ul>
-                    <li>It consists of one small, central <strong>Silicon atom (Si⁴⁺)</strong> bonded to four larger <strong>Oxygen atoms (O²⁻)</strong>.</li>
-                    <li>This forms a strong, stable, pyramid-like shape.</li>
-                    <li>The overall charge of this group is: (+4) + 4*(-2) = <strong>-4</strong>.</li>
-                    <li>Formula: <strong>(SiO₄)⁴⁻</strong></li>
+                    <li><strong>Alteration:</strong> Only partial replacement (e.g., Anhydrite (CaSO₄) altering to Gypsum (CaSO₄·2H₂O) by adding water).
+                    <li><strong>Substitution:</strong> Atom-by-atom replacement (e.g., fossilized wood, where silica replaces the wood fibers).
                 </ul>
-            </p>
-            <p>This (SiO₄)⁴⁻ unit has a large negative charge, so it must bond with positive ions (cations) like Mg²⁺, Fe²⁺, K⁺, Ca²⁺, etc. OR, it can bond with *other* silica tetrahedra by <strong>sharing oxygen atoms</strong>.</p>
+            </li>
+            <li><strong>Example:</strong> <span id="spap_23"><strong>Goethite (FeO(OH)) after Pyrite (FeS₂)</strong></span>. You might find a perfect cube, which is Pyrite's crystal form, but the mineral itself is dull, brown Goethite, not shiny, brassy Pyrite. The Pyrite has chemically altered, but its "ghost" shape remains.</li>
+        </ul>
+        
+        <div class="common-mistake">
+            This is not just one mineral coating another. It's a complete replacement of the internal substance while retaining the original external shape.
+        </div>
+        
+        <hr>
 
-            <h3 id="sub_sil_class">Classification Based on Silicate Structure</h3>
-            <p>The method of sharing oxygens (polymerization) is the basis for the classification of silicates. This is a very important exam topic.</p>
-            
-            <table>
-                <caption>Classification of Silicate Structures</caption>
-                <tr>
-                    <th>Class (Name)</th>
-                    <th>Structure (How Tetrahedra Link)</th>
-                    <th>Si:O Ratio</th>
-                    <th>Example Mineral(s)</th>
-                </tr>
-                <tr>
-                    <td><strong>Nesosilicates</strong> (Ortho-)</td>
-                    <td>Independent, isolated tetrahedra. (No shared O)</td>
-                    <td><strong>1:4</strong></td>
-                    <td><strong>Olivine</strong>, <strong>Garnet</strong>, Kyanite, Staurolite</td>
-                </tr>
-                <tr>
-                    <td><strong>Sorosilicates</strong> (Di-)</td>
-                    <td>Two tetrahedra sharing one oxygen. (Double units)</td>
-                    <td>2:7</td>
-                    <td><strong>Epidote</strong>, Hemimorphite</td>
-                </tr>
-                <tr>
-                    <td><strong>Cyclosilicates</strong> (Ring)</td>
-                    <td>Tetrahedra share two oxygens each to form 3, 4, or 6-membered rings.</td>
-                    <td><strong>1:3</strong></td>
-                    <td><strong>Beryl</strong> (Emerald), <strong>Tourmaline</strong></td>
-                </tr>
-                <tr>
-                    <td><strong>Inosilicates</strong> (Single Chain)</td>
-                    <td>Tetrahedra share two oxygens each to form a continuous single chain.</td>
-                    <td><strong>1:3</strong></td>
-                    <td><strong>Pyroxene Group</strong> (e.g., Augite, Diopside)</td>
-                </tr>
-                <tr>
-                    <td><strong>Inosilicates</strong> (Double Chain)</td>
-                    <td>Two single chains linked together by sharing oxygens.</td>
-                    <td><strong>4:11</strong></td>
-                    <td><strong>Amphibole Group</strong> (e.g., Hornblende)</td>
-                </tr>
-                <tr>
-                    <td><strong>Phyllosilicates</strong> (Sheet)</td>
-                    <td>Tetrahedra share three oxygens each to form continuous sheets.</td>
-                    <td><strong>2:5</strong></td>
-                    <td><strong>Mica Group</strong> (Muscovite, Biotite), <strong>Clay Minerals</strong> (Kaolinite), Talc</td>
-                </tr>
-                <tr>
-                    <td><strong>Tectosilicates</strong> (Framework)</td>
-                    <td>Tetrahedra share all four oxygens each to form a 3D framework.</td>
-                    <td><strong>1:2</strong></td>
-                    <td><strong>Quartz</strong> (SiO₂), <strong>Feldspar Group</strong> (Plagioclase, Orthoclase)</td>
-                </tr>
-            </table>
-            </section>
+        <h2 id="topic10">10. Solid Solution</h2>
+        <p>A solid solution refers to a <span id="spap_24"><strong>range of chemical compositions</strong></span> in a mineral, resulting from the <strong class="key-term">substitutional</strong> replacement of one type of ion for another in the crystal lattice.</p>
+        
+        <p>Instead of a fixed formula (like Quartz, SiO₂), minerals in a solid solution series have a variable formula written with parentheses.</p>
+        
+        <ul>
+            <li><strong>Conditions for Substitution:</strong>
+                <ol>
+                    <li>The substituting ions must have similar <strong class="key-term">ionic radii</strong> (size).
+                    <li>The substituting ions must have the same or similar <strong class="key-term">ionic charge</strong>. If charges are different, another substitution must happen elsewhere to maintain charge neutrality.
+                </ol>
+            </li>
+            <li><strong>Types:</strong>
+                <ul>
+                    <li><strong class="key-term">Complete Solid Solution (Isomorphous Series):</strong> Substitution can occur in any proportion (from 0% to 100%). Example: The Olivine series (Mg²⁺, Fe²⁺)₂SiO₄.
+                    <li><strong class="key-term">Partial (Limited) Solid Solution:</strong> Substitution is only possible up to a certain percentage.
+                </ul>
+            </li>
+            <li><strong>Classic Example:</strong> The <span id="spap_25"><strong>Plagioclase Feldspar Series</strong></span>. This is a complex substitution.
+                <ul>
+                    <li><strong>Albite (Na-rich):</strong> NaAlSi₃O₈
+                    <li><strong>Anorthite (Ca-rich):</strong> CaAl₂Si₂O₈
+                </ul>
+                <p>Here, a coupled substitution of (Na⁺ + Si⁴⁺) is replaced by (Ca²⁺ + Al³⁺). The size is similar, and the total charge (+5) is balanced in both cases.</p>
+            </li>
+        </ul>
 
         <hr>
 
-        <section id="topic5">
-            <h2>Related Mineralogical Concepts</h2>
-            
-            <h3 id="sub_iso">Isomorphism ("Same Form")</h3>
-            <p>This describes a series of minerals that have the <strong>same crystal structure</strong> but <strong>different chemical compositions</strong>. This occurs when ions of similar size and charge can substitute for each other.</p>
-            <ul>
-                <li><strong>Example:</strong> The <strong>Olivine Series</strong>.
-                    <ul>
-                        <li>Forsterite (<strong>Mg</strong>₂SiO₄) and Fayalite (<strong>Fe</strong>₂SiO₄) have the same orthorhombic structure.</li>
-                        <li>The Mg²⁺ and Fe²⁺ ions are very similar in size and can substitute freely.</li>
-                        <li>This creates a <strong>solid solution series</strong>, (Mg,Fe)₂SiO₄.</li>
-                    </ul>
-                </li>
+        <h2 id="topic11">11. Exsolution</h2>
+        <p>Exsolution is the <span id="spap_26"><strong>"un-mixing"</strong> of a solid solution</span> that was stable at high temperatures, but becomes unstable as it <strong class="key-term">cools down</strong>. The single mineral separates into two or more distinct mineral phases.</p>
+        
+        <ul>
+            <li><strong>How it works:</strong>
+                <ol>
+                    <li>At high temperature, the crystal lattice is expanded and can accommodate differently-sized ions (forming a solid solution).
+                    <li>As the mineral cools, the lattice contracts. The "misfit" ions, which are now too large or too small, are "kicked out" or segregated.
+                    <li>These segregated ions form their own tiny, distinct layers or lenses within the host mineral. These are called <strong class="key-term">lamellae</strong>.
+                </ol>
+            </li>
+            <li><strong>Example:</strong> <span id="spap_27"><strong>Perthite (an Alkali Feldspar)</strong></span>
+                <ul>
+                    <li>At high-T, K-Feldspar (Orthoclase) and Na-Feldspar (Albite) can form a complete solid solution.
+                    <li>As this solution cools, it unmixes.
+                    <li>The result (Perthite) is a host crystal of K-Feldspar (Orthoclase) with intergrown lamellae (streaks) of Na-Feldspar (Albite).
+                    <li>This un-mixing is what often gives minerals like Moonstone (a variety of feldspar) its beautiful "schiller" or adularescence (play of light).
+                </ul>
+            </li>
             </ul>
-
-            <h3 id="sub_poly">Polymorphism ("Many Forms")</h3>
-            <p>This describes a single chemical compound that can exist as <strong>two or more different minerals</strong> with <strong>different crystal structures</strong>. The structure that forms depends on the conditions of temperature (T) and pressure (P) during crystallization.</p>
+        
+        <div class="exam-tip">
+            Think of solid solution and exsolution as opposites.
             <ul>
-                <li><strong>Example 1: Carbon (C)</strong>
-                    <ul>
-                        <li><strong>Graphite:</strong> Soft, grey, sheet structure (Phyllosilicate-like). Forms at low P, T.</li>
-                        <li><strong>Diamond:</strong> Hardest mineral, framework structure. Forms at very high P.</li>
-                    </ul>
-                </li>
-                <li><strong>Example 2: Calcium Carbonate (CaCO₃)</strong>
-                    <ul>
-                        <li><strong>Calcite:</strong> Trigonal system, stable at most surface P, T.</li>
-                        <li><strong>Aragonite:</strong> Orthorhombic system, stable at higher P.</li>
-                    </ul>
-                </li>
+                <li><strong>Solid Solution:</strong> "Mixing" of ions into one crystal, usually stable at high-T.
+                <li><strong>Exsolution:</strong> "Un-mixing" of ions into two phases upon cooling.
             </ul>
-
-            <h3 id="sub_pseudo
+        </div>
+        
+    </div>
+</body>
+</html>

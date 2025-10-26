@@ -3,52 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DSC-102: Phycology & Mycology - Unit 4</title>
+    <title>BOT: DSC-102 - Unit 4: Major divisions of Fungi</title>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: Arial, sans-serif;
             line-height: 1.6;
-            margin: 20px;
-            background-color: #fef9f7;
+            background-color: #fcf8f3;
             color: #333;
+            margin: 0;
+            padding: 20px;
         }
         .container {
             max-width: 900px;
-            margin: 0 auto;
-            background-color: #ffffff;
+            margin: auto;
+            background: #ffffff;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         h1 {
-            text-align: center;
-            color: #b71c1c;
-            border-bottom: 3px solid #ef9a9a;
+            color: #2c3e50;
+            border-bottom: 3px solid #e67e22;
             padding-bottom: 10px;
+            text-align: center;
         }
         h2 {
-            color: #c62828;
-            border-bottom: 2px solid #ffcdd2;
-            padding-top: 15px;
+            color: #e67e22;
+            border-bottom: 2px solid #fef5e7;
+            padding-bottom: 8px;
+            margin-top: 30px;
         }
         h3 {
-            color: #b71c1c;
-            padding-top: 10px;
+            color: #d35400;
+            margin-top: 20px;
         }
-        strong {
-            color: #0d47a1;
-        }
-        blockquote {
-            background-color: #ffebee;
-            border-left: 5px solid #ef9a9a;
-            padding: 15px;
-            margin: 15px 0;
+        h4 {
+            color: #f39c12;
+            margin-top: 15px;
             font-style: italic;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
+            margin: 20px 0;
         }
         th, td {
             border: 1px solid #ddd;
@@ -56,236 +63,416 @@
             text-align: left;
         }
         th {
-            background-color: #ffcdd2;
-            color: #b71c1c;
+            background-color: #e67e22;
+            color: #fff;
         }
         tr:nth-child(even) {
-            background-color: #f2f2f2;
+            background-color: #f9f9f9;
         }
-        nav {
-            background-color: #f1f1f1;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 25px;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        nav li {
-            margin-bottom: 5px;
-        }
-        nav a {
-            text-decoration: none;
-            color: #0277bd;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
+        blockquote {
+            background: #fef5e7;
+            border-left: 5px solid #e67e22;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
         }
         .exam-tip {
-            background-color: #fff9c4;
-            border: 1px solid #fbc02d;
+            background-color: #fffbe6;
+            border: 1px solid #ffe58f;
+            border-left-width: 5px;
             padding: 15px;
+            margin: 15px 0;
             border-radius: 5px;
-            margin-top: 15px;
         }
-        .placeholder {
+        .exam-tip strong {
+            color: #d4a000;
+        }
+        .diagram-placeholder {
             width: 100%;
-            background-color: #eee;
+            padding: 40px 20px;
+            background: #eee;
             border: 2px dashed #ccc;
-            padding: 30px;
             text-align: center;
             color: #777;
             margin: 20px 0;
             border-radius: 5px;
+            font-style: italic;
+        }
+        #toc {
+            background: #fdfdfd;
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #2c3e50;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc ul li {
+            margin-bottom: 8px;
+        }
+        #toc ul li a {
+            text-decoration: none;
+            color: #d35400;
+        }
+        #toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .note {
+            font-size: 0.9em;
+            background-color: #f9f9f9;
+            border-left: 4px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>BOT: DSC-102: Phycology and Mycology<br>Unit 4: Major divisions of fungi</h1>
+        <h1>BOT: DSC-102: Phycology and Mycology<br>Unit 4: Major divisions of Fungi</h1>
 
-        <nav>
-            <h3>Table of Contents</h3>
+        <div class="note">
+            <strong>Note on Syllabus Structure:</strong> The syllabus for this unit is poorly organized, mixing groups and examples. These notes have been logically rearranged by fungal division to cover all required topics and genera in a clear, sequential order.
+        </div>
+
+        <div id="toc">
+            <h2>Unit Contents (Logically Reorganized)</h2>
             <ul>
-                <li><a href="#topic1">Mastigomycotina</a>
+                <li><a href="#myxo">1. Myxomycota (Slime Molds)</a></li>
+                <li><a href="#oomy">2. Oomycota (Water Molds)</a>
                     <ul>
-                        <li><a href="#subtopic1-1">Phytophthora</a></li>
-                        <li><a href="#subtopic1-2">Albugo</a></li>
+                        <li><a href="#oomy-gen">General Characteristics, Ecology, Thallus, Reproduction</a></li>
+                        <li><a href="#phytophthora">Life cycle of *Phytophthora*</a></li>
+                        <li><a href="#albugo">Life cycle of *Albugo*</a></li>
                     </ul>
                 </li>
-                <li><a href="#topic2">Zygomycotina</a>
+                <li><a href="#zygo">3. Zygomycota (Conjugation Fungi)</a></li>
+                <li><a href="#asco">4. Ascomycota (Sac Fungi)</a>
                     <ul>
-                        <li><a href="#subtopic2-1">Mucor</a></li>
+                        <li><a href="#asco-gen">General Characteristics, Ecology, Thallus, Reproduction</a></li>
+                        <li><a href="#saccharomyces">Life cycle of *Saccharomyces* (Yeast)</a></li>
+                        <li><a href="#aspergillus">Life cycle of *Aspergillus*</a></li>
                     </ul>
                 </li>
-                <li><a href="#topic3">Ascomycotina</a>
+                <li><a href="#basidio">5. Basidiomycota (Club Fungi)</a>
                     <ul>
-                        <li><a href="#subtopic3-1">Saccharomyces (Yeast)</a></li>
-                        <li><a href="#subtopic3-2">Aspergillus</a></li>
-                    </ul>
-                </li>
-                <li><a href="#topic4">Basidiomycotina</a>
-                    <ul>
-                        <li><a href="#subtopic4-1">Puccinia (Rust)</a></li>
-                        <li><a href="#subtopic4-2">Ustilago (Smut)</a></li>
-                        <li><a href="#subtopic4-3">Agaricus (Mushroom)</a></li>
+                        <li><a href="#basidio-gen">General Characteristics & Classification (Fruiting Bodies)</a></li>
+                        <li><a href="#hetero-para">Heterokaryosis and Parasexuality</a></li>
+                        <li><a href="#telio">Teliomycetes: *Puccinia* and *Ustilago*</a></li>
+                        <li><a href="#agaricales">Agaricales: *Agaricus*</a></li>
                     </ul>
                 </li>
             </ul>
-        </nav>
+        </div>
 
+        <h2 id="myxo">1. Myxomycota (Slime Molds)</h2>
+        <p><em>(Covered as per the syllabus listing)</em></p>
+        <ul>
+            <li><strong>General Characteristics:</strong> These are "fungus-like" protists, not true fungi. They are classified under the Kingdom Protista.</li>
+            <li><strong>Thallus Organization:</strong> The vegetative stage is <strong>not</strong> a mycelium. It is a <strong>plasmodium</strong>: a multinucleate, "naked" (no cell wall) mass of protoplasm that moves by amoeboid movement.</li>
+            <li><strong>Nutrition:</strong> <strong>Phagotrophic</strong> (ingests bacteria, spores) not absorptive.</li>
+            <li><strong>Ecology & Significance:</strong> Found in cool, moist, shady places (e.g., decaying logs). They are important decomposers of bacteria and micro-organisms.</li>
+            <li><strong>Reproduction:</strong>
+                <ul>
+                    <li>Under stress, the plasmodium transforms into stalked <strong>fruiting bodies (sporangia)</strong>.</li>
+                    <li>Inside the sporangia, <strong>meiosis</strong> occurs, forming haploid <strong>spores</strong> (which *do* have a cell wall).</li>
+                    <li>Spores germinate into haploid amoeboid cells or flagellated swarm cells, which fuse to form a new diploid zygote, which grows into a plasmodium.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2 id="oomy">2. Oomycota (Water Molds)</h2>
+        <p><em>(Note: Oomycetes are also protists, not true fungi. They are in the Kingdom Stramenopila, related to brown algae. They are included here for historical reasons.)</em></h2
+        
+        <h3 id="oomy-gen">General Characteristics, Ecology, Thallus, Reproduction</h3>
+        <ul>
+            <li><strong>General Characteristics:</strong> "Water molds" and "downy mildews."</li>
+            <li><strong>Cell Wall:</strong> Composed of <strong>cellulose</strong> and glucans (<strong>NOT chitin</strong>).</li>
+            <li><strong>Thallus:</strong> <strong>Aseptate (coenocytic)</strong> mycelium.</li>
+            <li><strong>Ecology & Significance:</strong> Major plant pathogens (e.g., *Phytophthora* causes potato late blight, *Albugo* causes white rust).</li>
+            <li><strong>Reproduction:</strong>
+                <ul>
+                    <li><strong>Asexual:</strong> By <strong>zoospores</strong> produced in a sporangium. The zoospores are <strong>biflagellate and heterokont</strong> (one tinsel, one whiplash), just like brown algae.</li>
+                    <li><strong>Sexual:</strong> <strong>Oogamous</strong>. Involves a female <strong>oogonium</strong> (with eggs) and a male <strong>antheridium</strong>. Fertilization produces a thick-walled, diploid resting spore called an <strong>oospore</strong>.</li>
+                </ul>
+            </li>
+        </ul>
         <div class="exam-tip">
-            <strong>Study Tip:</strong> This unit focuses on "type studies." For each genus, you must know its:
-            <ol>
-                <li><strong>Classification:</strong> (e.g., Ascomycotina)</li>
-                <li><strong>Thallus Structure:</strong> (e.g., Septate hyphae)</li>
-                <li><strong>Asexual Reproduction:</strong> (e.g., Conidia)</li>
-                <li><strong>Sexual Reproduction:</strong> (e.g., Ascospores in an ascus)</li>
-                <li><strong>Economic Importance/Disease:</strong> (e.g., Causes "Late Blight")</li>
-            </ol>
+            <strong>Exam Tip:</strong> Oomycota have a <strong>Diplontic life cycle</strong>. The vegetative mycelium is <strong>diploid (2n)</strong>. Meiosis occurs *during gamete formation* (inside the oogonium and antheridium), not in the zygote. This is very different from true fungi.
         </div>
 
-        <h2 id="topic1">Mastigomycotina (Lower Fungi)</h2>
-        <p>This group is characterized by having <strong>motile zoospores</strong> and (often) <strong>coenocytic (aseptate) hyphae</strong>. They are often aquatic or parasitic on plants.</p>
-        
-        <h3 id="subtopic1-1">Phytophthora</h3>
+        <h3 id="phytophthora">Life cycle and classification of *Phytophthora*</h3>
         <ul>
-            <li><strong>Classification:</strong> Mastigomycotina (Oomycetes).</li>
-            <li><strong>Ecology & Significance:</strong> Parasitic. <em>Phytophthora infestans</em> causes the devastating <strong>"Late Blight of Potato"</strong> disease, responsible for the Irish Potato Famine.</li>
-            <li><strong>Thallus:</strong> Coenocytic (aseptate), branched, hyaline hyphae that grow between host cells (intercellular). They produce knob-like <strong>haustoria</strong> to absorb nutrients from host cells.</li>
-            <li><strong>Reproduction:</strong>
-                <ul>
-                    <li><strong>Asexual:</strong> Branched sporangiophores emerge from the leaf stomata. They bear lemon-shaped <strong>sporangia</strong>. In cool, moist conditions, the sporangia contents divide to form several biflagellate <strong>zoospores</strong>, which swim and infect new leaves.</li>
-                    <li><strong>Sexual:</strong> <strong>Oogamous</strong>. A globular <strong>oogonium</strong> (female) and a club-shaped <strong>antheridium</strong> (male) form. Fertilization results in a thick-walled diploid <strong>oospore</strong>, which is a resting spore that overwinters in the soil.</li>
-                </ul>
-            </li>
-        </ul>
-
-        <h3 id="subtopic1-2">Albugo</h3>
-        <ul>
-            <li><strong>Classification:</strong> Mastigomycotina (Oomycetes).</li>
-            <li><strong>Ecology & Significance:</strong> An obligate parasite. <em>Albugo candida</em> causes <strong>"White Rust of Crucifers"</strong> (e.g., on mustard, radish). It creates white, shiny "pustules" on the leaves.</li>
-            <li><strong>Thallus:</strong> Coenocytic, intercellular hyphae with knob-like haustoria.</li>
-            <li><strong>Reproduction:</strong>
-                <ul>
-                    <li><strong>Asexual:</strong> Sporangiophores form *under* the host epidermis. They produce chains of <strong>sporangia (conidia)</strong>. The pressure builds up, rupturing the epidermis to form the white pustule. Sporangia are dispersed by wind and germinate to form zoospores.</li>
-                    <li><strong>Sexual:</strong> <strong>Oogamous</strong>. Occurs in the host tissue, similar to <em>Phytophthora</em>, producing a thick-walled <strong>oospore</strong> that overwinters.</li>
-                </ul>
-            </li>
-        </ul>
-
-        <h2 id="topic2">Zygomycotina (Conjugation Fungi)</h2>
-        <p>This group is characterized by <strong>coenocytic hyphae</strong> and sexual reproduction by forming a <strong>zygospore</strong>.</p>
-        
-        <h3 id="subtopic2-1">Mucor</h3>
-        <ul>
-            <li><strong>Classification:</strong> Zygomycotina.</li>
-            <li><strong>Ecology & Significance:</strong> A common saprophyte ("pin mold") found on dung, bread, and decaying organic matter.</li>
-            <li><strong>Thallus:</strong> A white, cottony mass of branched, coenocytic hyphae. (Note: Lacks the rhizoids and stolons seen in the related genus <em>Rhizopus</em>).</li>
-            <li><strong>Reproduction:</strong>
-                <ul>
-                    <li><strong>Asexual:</strong> By <strong>sporangiospores</strong>. Unbranched sporangiophores rise up and terminate in a globular <strong>sporangium</strong>. Inside, numerous non-motile sporangiospores are formed around a central sterile dome called the <strong>columella</strong>. The sporangium wall breaks, releasing the spores.</li>
-                    <li><strong>Sexual:</strong> By <strong>conjugation</strong> (gametangial copulation). Two hyphae of opposite mating strains (+ and -) grow towards each other. They form <strong>progametangia</strong>, which develop into <strong>gametangia</strong>. The walls dissolve, and the multinucleate protoplasts fuse (plasmogamy followed by karyogamy) to form a thick-walled, warty, black <strong>zygospore (2n)</strong>. The zygospore rests, then undergoes meiosis to germinate and produce a new sporangium.</li>
-                </ul>
-            </li>
-        </ul>
-        <div class="placeholder">
-            <strong>[Diagram: Sexual Reproduction in Mucor (Zygospore formation)]</strong>
-        </div>
-
-        <h2 id="topic3">Ascomycotina (Sac Fungi)</h2>
-        <p>This group is characterized by <strong>septate hyphae</strong> and sexual reproduction via <strong>ascospores</strong> formed inside an <strong>ascus</strong>.</p>
-        
-        <h3 id="subtopic3-1">Saccharomyces (Yeast)</h3>
-        <ul>
-            <li><strong>Classification:</strong> Ascomycotina.</li>
-            <li><strong>Ecology & Significance:</strong> Found on sugary substances (e.g., fruits). <em>S. cerevisiae</em> is <strong>"Baker's Yeast"</strong> or <strong>"Brewer's Yeast"</strong>, essential for bread making and ethanol fermentation.</li>
-            <li><strong>Thallus:</strong> A simple, unicellular, non-mycelial fungus. Cells are small, oval, or spherical.</li>
-            <li><strong>Reproduction:</strong>
-                <ul>
-                    <li><strong>Asexual:</strong> Primarily by <strong>budding</strong>. A small outgrowth (bud) forms on the parent cell, enlarges, and pinches off.</li>
-                    <li><strong>Sexual:</strong> Under stress, two haploid (n) yeast cells of opposite mating types fuse to form a diploid (2n) zygote. This diploid cell can then function as an <strong>ascus</strong>. It undergoes meiosis (and one mitosis) to form <strong>4 or 8 haploid ascospores</strong> inside the original cell wall. These are released and return to the budding haploid state.</li>
-                </ul>
-            </li>
-        </ul>
-
-        <h3 id="subtopic3-2">Aspergillus</h3>
-        <ul>
-            <li><strong>Classification:</strong> Ascomycotina (sometimes placed in Deuteromycotina as its asexual "anamorph" state is most common).</li>
-            <li><strong>Ecology & Significance:</strong> A common saprophytic mold ("black mold") on bread, jam, etc. Some species cause disease (aspergillosis). <em>A. oryzae</em> is used to make soy sauce. <em>A. niger</em> produces citric acid.</li>
-            <li><strong>Thallus:</strong> Branched, septate hyphae.</li>
-            <li><strong>Reproduction:</strong>
-                <ul>
-                    <li><strong>Asexual (Main method):</strong> By <strong>conidia</strong>. A long, non-septate <strong>conidiophore</strong> rises from a "foot cell." The tip swells into a <strong>vesicle</strong>. Small, bottle-shaped cells (<strong>phialides</strong> or sterigmata) form on the vesicle. The phialides produce long, basipetal chains of small, pigmented conidia. This entire structure is the "Aspergillus head."</li>
-                    <li><strong>Sexual (Teleomorph state, *Eurotium*):</strong> Two hyphae coil around each other (antheridium and ascogonium). This leads to the formation of a <strong>Cleistothecium</strong> – a simple, spherical, closed fruiting body (ascocarp). Inside, many small, globular <strong>asci</strong> are scattered, each containing 8 ascospores.</li>
-                </ul>
-            </li>
-        </ul>
-
-        <h2 id="topic4">Basidiomycotina (Club Fungi)</h2>
-        <p>This group is characterized by <strong>septate hyphae</strong> (with specialized "dolipore" septa and clamp connections) and sexual reproduction via <strong>basidiospores</strong> formed externally on a <strong>basidium</strong>.</p>
-        
-        <h3 id="subtopic4-1">Puccinia (Rust)</h3>
-        <ul>
-            <li><strong>Classification:</strong> Basidiomycotina.</li>
-            <li><strong>Ecology & Significance:</strong> An obligate parasite. <em>Puccinia graminis-tritici</em> causes <strong>"Black Stem Rust of Wheat,"</strong> one of the most destructive plant diseases.</li>
-            <li><strong>Key Features:</strong>
-                <ul>
-                    <li><strong>Heteroecious:</strong> It requires <strong>two different hosts</strong> to complete its life cycle: Wheat (primary host) and Barberry (alternate host).</li>
-                    <li><strong>Polymorphic:</strong> It produces 5 different types of spores.</li>
-                </ul>
-            </li>
-            <li><strong>Life Cycle (5 Spore Stages):</strong>
+            <li><strong>Organism:</strong> *Phytophthora infestans* (causes <strong>late blight of potato</strong>).</li>
+            <li><strong>Classification:</strong> Kingdom Stramenopila, Division Oomycota.</li>
+            <li><strong>Life cycle:</strong>
                 <ol>
-                    <li><strong>On Wheat (Summer):</strong> <strong>Uredospores (n+n)</strong>. Reddish-brown spores that form in "uredosori." They are the "repeating stage," re-infecting wheat all summer.</li>
-                    <li><strong>On Wheat (Late Summer/Fall):</strong> <strong>Teliospores (n+n → 2n)</strong>. Black, thick-walled, two-celled spores that form in "teliosori." Karyogamy (fusion of n+n nuclei) occurs, making them diploid (2n). They overwinter.</li>
-                    <li><strong>On Soil (Spring):</strong> The teliospore germinates, undergoes <strong>meiosis</strong>, and forms a <strong>basidium</strong> (promycelium). The basidium produces 4 haploid <strong>basidiospores (n)</strong>.</li>
-                    <li><strong>On Barberry (Spring):</strong> Basidiospores infect the Barberry leaf. They form <strong>Pycnia (Spermogonia)</strong> (Stage 0), which produce pycniospores (spermatia) and receptive hyphae. Plasmogamy (mating) occurs here, re-establishing the n+n dikaryotic state.</li>
-                    <li><strong>On Barberry (Late Spring):</strong> The dikaryotic (n+n) mycelium forms <strong>Aecia</strong> (Stage I) on the lower leaf surface, which produce <strong>Aeciospores (n+n)</strong> in chains.</li>
+                    <li><strong>Asexual:</strong>
+                        <ul>
+                            <li>The <strong>diploid (2n)</strong> mycelium grows in the host plant.</li>
+                            <li>It sends out sporangiophores through the stomata.</li>
+                            <li>Lemon-shaped <strong>sporangia (2n)</strong> form at the tips.</li>
+                            <li>In cool, moist conditions, the sporangium acts as a zoosporangium: its contents divide to form <strong>biflagellate zoospores (2n)</strong>.</li>
+                            <li>In warm, dry conditions, the sporangium germinates directly like a spore.</li>
+                            <li>Zoospores swim, encyst, and infect a new leaf, starting a new infection.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Sexual:</strong>
+                        <ul>
+                            <li>Requires two different mating types (heterothallic).</li>
+                            <li>A spherical <strong>oogonium (n, after meiosis)</strong> and a club-shaped <strong>antheridium (n, after meiosis)</strong> form.</li>
+                            <li>Fertilization occurs, forming a diploid <strong>oospore (2n)</strong>.</li>
+                            <li>The oospore is a thick-walled resting spore that survives in the soil. It germinates (mitotically) to produce a sporangium, repeating the cycle.</li>
+                        </ul>
+                    </li>
                 </ol>
-                <p>The aeciospores are released, infect the Wheat plant, and the cycle repeats. Control involves eradicating the alternate host (Barberry).</p>
             </li>
         </ul>
-        <div class="placeholder">
-            <strong>[Diagram: Life Cycle of Puccinia showing all 5 spore stages and two hosts]</strong>
-        </div>
+        <div class="diagram-placeholder"></div>
 
-        <h3 id="subtopic4-2">Ustilago (Smut)</h3>
+        <h3 id="albugo">Life cycle and classification of *Albugo*</h3>
         <ul>
-            <li><strong>Classification:</strong> Basidiomycotina.</li>
-            <li><strong>Ecology & Significance:</strong> A parasite. <em>Ustilago tritici</em> causes <strong>"Loose Smut of Wheat."</strong></li>
-            <li><strong>Symptoms:</strong> The fungus grows systematically within the plant. At flowering, it destroys the entire grain head, replacing the seeds with a mass of black, powdery <strong>smut spores (teliospores)</strong>.</li>
-            <li><strong>Life Cycle (Autoecious - one host):</strong>
+            <li><strong>Organism:</strong> *Albugo candida* (causes <strong>white rust of crucifers</strong>, e.g., mustard, radish).</li>
+            <li><strong>Classification:</strong> Kingdom Stramenopila, Division Oomycota.</li>
+            <li><strong>Life cycle:</strong> Very similar to *Phytophthora*.
                 <ol>
-                    <li>The wind-blown teliospores (n+n → 2n) land on a healthy flower's stigma.</li>
-                    <li>They germinate, undergo <strong>meiosis</strong>, and form a basidium.</li>
-                    <li>The haploid (n) basidiospores fuse (mate) on the stigma to form a dikaryotic (n+n) hypha.</li>
-                    <li>This hypha infects the ovary and embryo of the new seed. The infection is <strong>embryo-borne</strong>.</li>
-                    <li>The seed *looks* healthy but carries the dormant mycelium. When this seed is planted, the fungus grows with the plant, finally showing symptoms at flowering.</li>
+                    <li><strong>Asexual:</strong>
+                        <ul>
+                            <li>The <strong>diploid (2n)</strong> mycelium grows in the host.</li>
+                            <li>It forms <strong>sporangiophores</strong> *under* the epidermis, causing a white, blister-like "pustule."</li>
+                            <li><strong>Sporangia (2n)</strong> are formed in chains (this is a key difference from *Phytophthora*).</li>
+                            <li>The epidermis ruptures, releasing the sporangia.</li>
+                            <li>Sporangia are dispersed by wind and produce <strong>zoospores (2n)</strong>, which infect new hosts.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Sexual:</strong>
+                        <ul>
+                            <li>Occurs within the host tissue.</li>
+                            <li>An <strong>oogonium (n)</strong> and <strong>antheridium (n)</strong> form.</li>
+                            <li>Fertilization produces a diploid <strong>oospore (2n)</strong>.</li>
+                            <li>The oospore is a resting stage. It germinates by <strong>meiosis</strong> (this is an exception to the diplontic rule, some Oomycetes do this) to produce haploid zoospores, which then fuse, or it germinates to produce diploid zoospores. <em>(Note: Textbooks vary, but the main point is the formation of the oogonium and antheridium).</em> Let's stick to the common diplontic model: oospore germinates mitotically to produce diploid zoospores.</li>
+                        </ul>
+                    </li>
                 </ol>
             </li>
         </ul>
 
-        <h3 id="subtopic4-3">Agaricus (Mushroom)</h3>
+        <h2 id="zygo">3. Zygomycota (Conjugation Fungi)</h2>
+        <p><em>(Covered as per the syllabus listing)</em></p>
         <ul>
-            <li><strong>Classification:</strong> Basidiomycotina.</li>
-            <li><strong>Ecology & Significance:</strong> A common saprophyte (the "field mushroom") growing in soil rich in humus, lawns, and manure. Many species are edible, some are poisonous.</li>
-            <li><strong>Thallus:</strong> The "plant" is a vast, underground network of septate mycelium. The visible mushroom is only the <strong>fruiting body (basidiocarp)</strong>.</li>
-            <li><strong>Basidiocarp (Fruiting Body) Characteristics:</strong>
+            <li><strong>General Characteristics:</strong> "Lower" true fungi.</li>
+            <li><strong>Thallus:</strong> <strong>Aseptate (coenocytic) mycelium</strong> (like Oomycota).</li>
+            <li><strong>Cell Wall:</strong> Composed of <strong>chitin</strong>.</li>
+            <li><strong>Ecology & Significance:</strong> Mostly <strong>saprophytes</strong> (e.g., *Rhizopus* - bread mold, *Mucor*). Some are parasites.</li>
+            <li><strong>Reproduction:</strong>
                 <ul>
-                    <li><strong>Stipe:</strong> The stalk.</li>
-                    <li><strong>Pileus:</strong> The cap.</li>
-                    <li><strong>Annulus:</strong> A ring on the stipe (remnant of a "partial veil" that covered the gills).</li>
-                    <li><strong>Gills (Lamellae):</strong> Radiating plates on the underside of the cap.</li>
-                    <li>The gills are lined with millions of club-shaped <strong>basidia</strong>.</li>
-                    <li>Each basidium undergoes meiosis and produces 4 <strong>basidiospores</strong> externally on small stalks (sterigmata).</li>
+                    <li><strong>Asexual:</strong> By <strong>sporangiospores</strong> (non-motile aplanospores) formed inside a <strong>sporangium</strong>.</li>
+                    <li><strong>Sexual:</strong> By <strong>gametangial conjugation</strong>.
+                        <ol>
+                            <li>Two compatible hyphae (+ and - strains) grow towards each other.</li>
+                            <li>The tips (called progametangia) swell and are cut off by septa, forming <strong>gametangia</strong>.</li>
+                            <li>The wall between them dissolves (plasmogamy).</li>
+                            <li>The many haploid nuclei from both sides fuse (karyogamy) to form many diploid nuclei.</li>
+                            <li>The entire structure develops into a thick-walled, black, warty resting spore called a <strong>zygospore (2n)</strong>.</li>
+                            <li>After dormancy, the zygospore undergoes <strong>meiosis</strong> and germinates to produce a sporangium, which releases haploid (n) spores.</li>
+                        </ol>
+                    </li>
+                </ul>
+            </li>
+            <li><strong>Life cycle:</strong> <strong>Haplontic</strong> (the mycelium is haploid, the zygospore is the only diploid stage).</li>
+        </ul>
+
+        <h2 id="asco">4. Ascomycota (Sac Fungi)</h2>
+
+        <h3 id="asco-gen">General Characteristics, Ecology, Thallus, Reproduction</h3>
+        <ul>
+            <li><strong>General Characteristics:</strong> "Higher" true fungi. This is the largest, most diverse group (yeasts, cup fungi, morels, truffles, *Penicillium*).</li>
+            <li><strong>Thallus:</strong> Unicellular (yeasts) or, more commonly, a <strong>septate mycelium</strong> (with simple pores).</li>
+            <li><strong>Cell Wall:</strong> Composed of <strong>chitin</strong>.</li>
+            <li><strong>Ecology & Significance:</strong> Saprophytes, parasites, and symbionts (lichens). Huge economic importance (baking, brewing, antibiotics, plant diseases).</li>
+            <li><strong>Reproduction:</strong>
+                <ul>
+                    <li><strong>Asexual:</strong> By <strong>conidia</strong> (externally produced spores) on conidiophores.</li>
+                    <li><strong>Sexual:</strong> The defining feature is the <strong>ascus</strong> (plural: asci).
+                        <ol>
+                            <li>Plasmogamy occurs (e.g., between an antheridium and ascogonium) but karyogamy is delayed.</li>
+                            <li>This creates <strong>dikaryotic (n+n) hyphae</strong> (ascogenous hyphae).</li>
+                            <li>The tips of these hyphae form the asci. Inside the ascus, <strong>karyogamy</strong> (fusion of n+n nuclei) finally occurs, forming a <strong>diploid (2n) zygote nucleus</strong>.</li>
+                            <li>This nucleus *immediately* undergoes <strong>meiosis</strong> (to make 4 haploid nuclei) followed by <strong>mitosis</strong> (to make 8).</li>
+                            <li>The result is <strong>8 haploid ascospores</strong> (meiospores) inside the ascus.</li>
+                            <li>In many species, the asci are grouped into a fruiting body called an <strong>ascocarp</strong> (e.g., a cup-shaped apothecium).</li>
+                        </ol>
+                    </li>
                 </ul>
             </li>
         </ul>
 
+        <h3 id="saccharomyces">Life cycle and classification of *Saccharomyces* (Yeast)</h3>
+        <ul>
+            <li><strong>Organism:</strong> *Saccharomyces cerevisiae* (Baker's or Brewer's Yeast).</li>
+            <li><strong>Classification:</strong> Division Ascomycota, Class Hemiascomycetes (no ascocarp).</li>
+            <li><strong>Thallus:</strong> Unicellular, ovoid. No mycelium.</li>
+            <li><strong>Life cycle (Haplodiplontic):</strong> Yeast can exist stably as both haploid (n) and diploid (2n) cells.
+                <ol>
+                    <li><strong>Asexual (Haploid or Diploid):</strong>
+                        <ul>
+                            <li>Both (n) and (2n) cells reproduce by <strong>budding</strong>.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Sexual:</strong>
+                        <ul>
+                            <li>Under stress, two haploid cells of opposite mating types (<strong>a</strong> and <strong>α</strong>) fuse (plasmogamy + karyogamy).</li>
+                            <li>This forms a stable <strong>diploid (2n) zygote cell</strong>.</li>
+                            <li>This diploid cell can bud asexually, forming a diploid population.</li>
+                            <li>Under starvation, the diploid cell undergoes <strong>meiosis</strong> to form <strong>4 haploid ascospores</strong> *inside* the original cell wall (which now acts as an <strong>ascus</strong>).</li>
+                            <li>These ascospores are released and germinate as new haploid cells.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </li>
+        </ul>
+        <div class="diagram-placeholder"></div>
+
+        <h3 id="aspergillus">Life cycle and classification of *Aspergillus*</h3>
+        <ul>
+            <li><strong>Organism:</strong> *Aspergillus* (a common "blue-green mold"). Some species are used in industry (e.g., *A. oryzae* for soy sauce), others are pathogens (e.g., *A. fumigatus*).</li>
+            <li><strong>Classification:</strong> Division Ascomycota, Class Plectomycetes. (Sexual stage is *Eurotium*).</li>
+            <li><strong>Life cycle:</strong>
+                <ol>
+                    <li><strong>Asexual (Anamorph):</strong> This is the most common form.
+                        <ul>
+                            <li>A septate mycelium (n) grows.</li>
+                            <li>It produces a long <strong>conidiophore</strong> that ends in a swollen vesicle.</li>
+                            <li>Bottled-shaped cells (<strong>phialides</strong>) form on the vesicle, which produce long chains of <strong>conidia (n)</strong>.</li>
+                            <li>The entire structure looks like a "holy water sprinkler."</li>
+                            <li>Conidia are dispersed by air and germinate into new haploid mycelia.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Sexual (Teleomorph):</strong>
+                        <ul>
+                            <li>Plasmogamy occurs between an <strong>antheridium</strong> and an <strong>ascogonium</strong> (female).</li>
+                            <li>Dikaryotic (n+n) hyphae grow from the ascogonium.</li>
+                            <li>These form asci. Karyogamy (2n) and Meiosis (n) occur, producing <strong>8 haploid ascospores</strong>.</li>
+                            <li>The asci are *not* arranged in an orderly layer. They are scattered within a completely enclosed, spherical ascocarp called a <strong>cleistothecium</strong>.</li>
+                            <li>The cleistothecium breaks down to release the ascospores.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </li>
+        </ul>
+
+        <h2 id="basidio">5. Basidiomycota (Club Fungi)</h2>
+
+        <h3 id="basidio-gen">General Characteristics & Classification (Fruiting Bodies)</h3>
+        <ul>
+            <li><strong>General Characteristics:</strong> "Higher" fungi (mushrooms, puffballs, rusts, smuts).</li>
+            <li><strong>Thallus:</strong> <strong>Septate mycelium</strong>. The septa are complex <strong>dolipore septa</strong>. The mycelium exists in two states:
+                <ul>
+                    <li><strong>Primary Mycelium:</strong> Haploid (n), from a basidiospore.</li>
+                    <li><strong>Secondary Mycelium:</strong> <strong>Dikaryotic (n+n)</strong>, formed by plasmogamy. This is the dominant, long-lived, vegetative part of the fungus. Often shows <strong>clamp connections</strong> during cell division.</li>
+                </ul>
+            </li>
+            <li><strong>Reproduction:</strong>
+                <ul>
+                    <li><strong>Asexual:</strong> Less common than in Ascomycota. Can be by conidia or fragmentation.</li>
+                    <li><strong>Sexual:</strong> The defining feature is the <strong>basidium</strong> (plural: basidia).
+                        <ol>
+                            <li>The dikaryotic (n+n) mycelium forms a fruiting body called a <strong>basidiocarp</strong> (e.g., a mushroom).</li>
+                            <li>On the gills, terminal cells of the dikaryotic hyphae form <strong>basidia</strong>.</li>
+                            <li>Inside the basidium, <strong>karyogamy</strong> occurs (n+n -> 2n).</li>
+                            <li>The diploid nucleus *immediately* undergoes <strong>meiosis</strong> to form 4 haploid (n) nuclei.</li>
+                            <li>These 4 nuclei migrate to the outside of the basidium, into four small "horns" (sterigmata), and become <strong>4 exogenous (external) basidiospores (n)</strong>.</li>
+                        </ol>
+                    </li>
+                </ul>
+            </li>
+            <li><strong>Classification (by Fruiting Bodies):</strong>
+                <ul>
+                    <li><strong>Teliomycetes:</strong> No basidiocarp. Form thick-walled resting spores (teliospores) where karyogamy occurs. (e.g., *Puccinia*, *Ustilago*).</li>
+                    <li><strong>Hymenomycetes:</strong> Basidiocarp present, with an exposed hymenium (spore-bearing layer) at maturity. (e.g., *Agaricus* - mushrooms).</li>
+                    <li><strong>Gasteromycetes:</strong> Basidiocarp present, but the hymenium is enclosed until the spores are mature. (e.g., Puffballs).</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3 id="hetero-para">Heterokaryosis and Parasexuality</h3>
+        <ul>
+            <li><strong>Heterokaryosis:</strong>
+                <ul>
+                    <li>The condition where a single mycelial cell contains genetically different nuclei (e.g., 'A' and 'B').</li>
+                    <li>This is the foundation of the <strong>dikaryon (n+n)</strong> state, which is a stable, long-term heterokaryon.</li>
+                    <li>It allows the fungus to have the genetic advantages of diploidy (masking bad mutations) while remaining functionally haploid.</li>
+                </ul>
+            </li>
+            <li><strong>Parasexuality:</strong>
+                <ul>
+                    <li>A mechanism for genetic recombination *without* the standard sexual cycle (plasmogamy, karyogamy, meiosis).</li>
+                    <li>It occurs in some fungi (especially Deuteromycota) that lack a sexual stage.</li>
+                    <li><strong>Process:</strong>
+                        1.  <strong>Heterokaryosis:</strong> Two different hyphae fuse (plasmogamy).
+                        2.  <strong>Karyogamy (Rare):</strong> Two different nuclei (A+B) in the heterokaryon *accidentally* fuse to form a <strong>diploid (2n) nucleus</strong>.
+                        3.  <strong>Mitotic Recombination:</strong> During *mitosis* (not meiosis) of this diploid nucleus, crossing-over can occur, shuffling the genes.
+                        4.  <strong>Haploidization:</strong> The diploid nucleus gradually (and randomly) loses chromosomes one by one until it returns to a stable haploid (n) state.
+                    </li>
+                    <li><strong>Significance:</strong> It provides a way for asexual fungi to create new gene combinations and adapt.</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h3 id="telio">Teliomycetes: *Puccinia* and *Ustilago*</h3>
+        <p>These are parasitic fungi that do not form a basidiocarp.</p>
+        
+        <h4>*Puccinia* (Black Stem Rust of Wheat)</h4>
+        <ul>
+            <li><strong>Life cycle:</strong> <strong>Heteroecious</strong> (requires two different hosts to complete its life cycle: Wheat and Barberry) and <strong>Macrocyclic</strong> (produces all 5 spore types).</li>
+            <li><strong>Spores on Wheat (Primary Host):</strong>
+                1.  <strong>Urediniospores (n+n):</strong> The "repeating stage." Red-orange spores that re-infect wheat, causing the "red rust" stage.
+                2.  <strong>Teliospores (n+n -> 2n):</strong> Formed later in the season. Thick-walled, black resting spores ("black rust"). Karyogamy (n+n -> 2n) occurs here.
+            </li>
+            <li><strong>Spores on Barberry (Alternate Host):</strong>
+                3.  <strong>Basidiospores (n):</strong> Teliospore germinates, undergoes meiosis, and forms a basidium with 4 haploid basidiospores. These infect the *barberry* leaf.
+                4.  <strong>Pycniospores/Spermatia (n):</strong> Form in "pycnia" on the barberry leaf. They are gametes. They cross-fertilize to form a dikaryon.
+                5.  <strong>Aeciospores (n+n):</strong> Form in "aecia" on the *underside* of the barberry leaf. These dikaryotic spores are released and *infect the wheat*, starting the cycle over.
+            </li>
+        </ul>
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> Eradicating the alternate host (barberry) is a key method for controlling wheat rust.
+        </div>
+
+        <h4>*Ustilago* (Symptoms)</h4>
+        <ul>
+            <li><strong>Organism:</strong> *Ustilago* (causes <strong>smut diseases</strong>, e.g., loose smut of wheat, corn smut).</li>
+            <li><strong>Symptoms:</strong> The fungus infects the grain (e.g., corn kernel, wheat head) and replaces it with a black, powdery mass of <strong>teliospores (n+n -> 2n)</strong>.</li>
+            <li><strong>Life cycle:</strong> <strong>Autoecious</strong> (completes its life cycle on one host). It is much simpler than *Puccinia*.
+                1.  Teliospores (2n) are released from the "smut."
+                2.  They undergo meiosis to form haploid (n) basidiospores.
+                3.  Haploid basidiospores fuse (plasmogamy) to form a <strong>dikaryotic (n+n) mycelium</strong>, which is the only stage that can infect the host plant.
+            </li>
+        </ul>
+
+        <h3 id="agaricales">Agaricales: *Agaricus*</h3>
+        <ul>
+            <li><strong>Organism:</strong> *Agaricus* (the common field mushroom, *A. campestris*).</li>
+            <li><strong>Classification:</strong> Division Basidiomycota, Order Agaricales.</li>
+            <li><strong>General Characteristics:</strong> This order includes the gilled mushrooms.</li>
+            <li><strong>Life cycle:</strong>
+                1.  A haploid (n) <strong>basidiospore</strong> germinates to form a haploid <strong>primary mycelium</strong>.
+                2.  Two compatible primary mycelia fuse (plasmogamy) to form the <strong>secondary mycelium</strong>, which is <strong>dikaryotic (n+n)</strong> and long-lived in the soil.
+                3.  When conditions are right, this secondary mycelium forms a complex fruiting body: the <strong>basidiocarp</strong> (the mushroom).
+                4.  The mushroom consists of a stipe (stalk) and a pileus (cap).
+                5.  Under the cap are <strong>gills</strong>, which are lined with a spore-bearing layer called the <strong>hymenium</strong>.
+                6.  The hymenium is packed with <strong>basidia</strong>.
+                7.  Inside each basidium, <strong>karyogamy (2n)</strong> followed by <strong>meiosis (n)</strong> occurs.
+                8.  <strong>Four haploid basidiospores (n)</strong> are produced externally on each basidium, are forcefully discharged, and are dispersed by the wind.
+            </li>
+        </ul>
+        <div class="diagram-placeholder"></div>
     </div>
 </body>
 </html>

@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecology (DSC 101) - Unit 3 Notes</title>
+    <title>DSC-101 Unit 3: Ecology of Communities</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
-            background-color: #f4f7f6;
+            background-color: #f9f9f9;
             color: #333;
             margin: 0;
             padding: 20px;
@@ -20,128 +20,96 @@
             border: 1px solid #ddd;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            padding: 25px 40px;
+            padding: 20px 40px;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #9b59b6;
+            padding-bottom: 5px;
+            margin-top: 25px;
         }
         h1 {
-            color: #1a5276;
-            border-bottom: 3px solid #1a5276;
-            padding-bottom: 10px;
-            font-size: 2.5em;
+            font-size: 2.2em;
             text-align: center;
+            border-bottom-width: 4px;
         }
         h2 {
-            color: #21618c;
-            border-bottom: 2px solid #aed6f1;
-            padding-bottom: 5px;
-            margin-top: 30px;
-            font-size: 2em;
+            font-size: 1.8em;
         }
         h3 {
-            color: #2e86c1;
-            margin-top: 25px;
-            font-size: 1.5em;
+            font-size: 1.4em;
+            border-bottom-style: dashed;
+            border-bottom-width: 1px;
+            color: #8e44ad;
         }
         p {
             margin-bottom: 15px;
-            text-align: justify;
         }
         ul, ol {
-            margin-left: 30px;
+            margin-left: 20px;
             margin-bottom: 15px;
         }
         li {
-            margin-bottom: 8px;
+            margin-bottom: 5px;
         }
         strong {
-            color: #c0392b; /* A distinct color for emphasis */
+            color: #c0392b; /* Emphasized text color */
         }
         em {
-            color: #16a085;
             font-style: italic;
+            color: #555;
         }
         blockquote {
-            background-color: #eaf2f8;
-            border-left: 5px solid #2e86c1;
+            background-color: #ecf0f1;
+            border-left: 5px solid #9b59b6;
+            padding: 15px;
             margin: 20px 0;
-            padding: 15px 20px;
             font-style: italic;
-            font-size: 1.1em;
+        }
+        .toc {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc li a {
+            text-decoration: none;
+            color: #8e44ad;
+        }
+        .toc li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #fef9e7;
+            border: 1px solid #f1c40f;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d35400;
         }
         table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         th, td {
             border: 1px solid #ddd;
-            padding: 12px;
+            padding: 10px;
             text-align: left;
         }
         th {
-            background-color: #2980b9;
-            color: white;
-            font-size: 1.1em;
+            background-color: #f2f2f2;
+            color: #8e44ad;
         }
         tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        tr:hover {
-            background-color: #eaf2f8;
-        }
-        nav.toc {
             background-color: #f9f9f9;
-            border: 1px solid #eee;
-            border-radius: 5px;
-            padding: 15px;
-            margin-bottom: 30px;
-        }
-        nav.toc h2 {
-            margin-top: 0;
-            border-bottom: none;
-            color: #333;
-            font-size: 1.5em;
-            text-align: center;
-        }
-        nav.toc ul {
-            list-style-type: none;
-            padding-left: 0;
-            columns: 2;
-            -webkit-columns: 2;
-            -moz-columns: 2;
-        }
-        nav.toc ul li {
-            margin-bottom: 5px;
-        }
-        nav.toc ul li a {
-            text-decoration: none;
-            color: #2980b9;
-        }
-        nav.toc ul li a:hover {
-            text-decoration: underline;
-            color: #c0392b;
-        }
-        .exam-tip {
-            background-color: #fef9e7;
-            border: 1px solid #f1c40f;
-            border-left-width: 5px;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 5px;
-        }
-        .exam-tip strong {
-            color: #d35400;
-        }
-        .diagram-placeholder {
-            width: 100%;
-            background-color: #fafafa;
-            border: 2px dashed #ccc;
-            padding: 20px;
-            text-align: center;
-            margin: 20px 0;
-            font-style: italic;
-            color: #777;
-            border-radius: 5px;
         }
     </style>
 </head>
@@ -149,224 +117,225 @@
     <div class="container">
         <h1>Unit 3: Ecology of Communities</h1>
 
-        <nav class="toc">
+        <div class="toc">
             <h2>Table of Contents</h2>
             <ul>
-                <li><a href="#structure">1. Community Structure and Organization</a></li>
-                <li><a href="#diversity">2. Species Diversity</a></li>
-                <li><a href="#ecotone">3. Ecotone and Edge Effect</a></li>
-                <li><a href="#keystone">4. Keystone Species</a></li>
-                <li><a href="#interactions">5. Species Interactions (Positive & Negative)</a></li>
-                <li><a href="#succession">6. Ecological Succession and Climax</a></li>
-            </ul>
-        </nav>
-
-        <hr>
-
-        <section id="structure">
-            <h2>1. Community Structure and Organization</h2>
-            <p>A <strong>community</strong> is an assemblage of different populations (multiple species) living and interacting in the same area. Community ecology studies the factors that influence the structure, organization, and diversity of species within a community.</p>
-            <p>Key attributes of a community include:</p>
-            <ul>
-                <li><strong>Species Composition:</strong> The list of all species present in the community.</li>
-                <li><strong>Species Diversity:</strong> The variety and abundance of different species (covered in section 2).</li>
-                <li><strong>Dominant Species:</strong> One or a few species that are the most abundant or have the highest biomass and exert a strong influence on the community. (e.g., oak trees in an oak forest).</li>
-                <li><strong>Physiognomy:</strong> The overall physical structure and appearance of the community (e.g., a forest's layered canopy vs. a grassland's flat structure).</li>
-                <li><strong>Trophic Structure:</strong> The feeding relationships between organisms (food chains and food webs).</li>
-            </ul>
-        </section>
-
-        <hr>
-
-        <section id="diversity">
-            <h2>2. Species Diversity</h2>
-            <p>Species diversity is a measure of the variety of species in a community. It has two components:</p>
-            <ol>
-                <li><strong>Species Richness:</strong> The total <strong>number</strong> of different species in the community.
-                    <ul><li><strong>Example:</strong> Community A has 5 species, and Community B has 10 species. Community B has higher species richness.</li></ul>
+                <li><a href="#topic1">Community Concept</a></li>
+                <li><a href="#topic2">Keystone Species</a></li>
+                <li><a href="#topic3">Ecotone and Edge Effect</a></li>
+                <li><a href="#topic4">Species Interactions (Positive and Negative)</a></li>
+                <li><a href="#topic5">Community Structure</a>
+                    <ul>
+                        <li><a href="#sub5_1">Species Diversity</a></li>
+                        <li><a href="#sub5_2">Stratification</a></li>
+                    </ul>
                 </li>
-                <li><strong>Species Evenness (or Relative Abundance):</strong> The <strong>proportion</strong> of individuals that belong to each species. High evenness means that all species are represented by a similar number of individuals.
-                    <ul><li><strong>Example:</strong> A community with 100 individuals spread across 10 species (10 individuals each) is highly even. A community with 100 individuals where 91 are one species and the other 9 species have 1 individual each has very low evenness.</li></ul>
+                <li><a href="#topic6">Ecological Succession</a>
+                    <ul>
+                        <li><a href="#sub6_1">Definition and Types</a></li>
+                        <li><a href="#sub6_2">Climax Community</a></li>
+                    </ul>
                 </li>
-            </ol>
-            <div class="diagram-placeholder">
-                <strong>Diagram:</strong> Two boxes representing two communities (A and B), both with 20 individuals of 4 shapes (species).
-                <br><strong>Community A (High Evenness):</strong> 5 circles, 5 squares, 5 triangles, 5 stars. (Richness = 4)
-                <br><strong>Community B (Low Evenness):</strong> 17 circles, 1 square, 1 triangle, 1 star. (Richness = 4)
-                <br><strong>Conclusion:</strong> Both have the same richness, but Community A has much higher diversity because of its high evenness.
-            </div>
-            <p>A community is considered <strong>more diverse</strong> if it has high richness AND high evenness. Ecologists often use indices like the <strong>Shannon-Wiener Index</strong> to calculate diversity, which incorporates both richness and evenness.</p>
-        </section>
-
-        <hr>
-
-        <section id="ecotone">
-            <h2>3. Ecotone and Edge Effect</h2>
-            
-            <h3>Ecotone</h3>
-            <p>An <strong>ecotone</strong> is a transition area or boundary between two different adjacent ecosystems (communities). Examples include:</p>
-            <ul>
-                <li>The area between a forest and a grassland.</li>
-                <li>The marshland between a river (aquatic) and its bank (terrestrial).</li>
-                <li>The area where a field meets a woodland.</li>
             </ul>
-            <p>Ecotones can be narrow and sharp (like a field edge) or wide and gradual (like the transition from grassland to savanna to woodland).</p>
+        </div>
 
-            <h3>Edge Effect</h3>
-            <p>The Additional species that are adapted to the unique conditions of the ecotone itself.<strong>edge effect</strong> is the tendency for ecotones to have a <strong>higher density and diversity of species</strong> than either of the two adjacent ecosystems.</p>
-            <p>This increased diversity is because the ecotone contains:</p>
-            <ol>
-                <li>Species from Ecosystem A.</li>
-                <li>Species from Ecosystem B.</li>
-                <li>Unique "edge species" that are adapted specifically to the conditions of the ecotone (e.g., more sunlight, different wind patterns).</li>
-            </ol>
-            <div class="diagram-placeholder">
-                <strong>Diagram:</strong> Two large overlapping circles, one labeled "Forest" and one "Grassland." The overlapping region is labeled "Ecotone (Edge Effect)". List sample species: "Forest Species (e.g., Owl)", "Grassland Species (e.g., Gopher)", and "Edge Species (e.g., Deer, Robin)" in the ecotone.
-            </div>
-            <div class="exam-tip">
-                <strong>Real-world Application:</strong> The edge effect is a key concept in wildlife management. Creating "edges" (e.g., by clearing patches in a dense forest) can increase biodiversity for game animals like deer. However, too much fragmentation (creating too many edges) can harm "interior" species that require large, unbroken habitats.
-            </div>
-        </section>
+        <h2 id="topic1">Community Concept</h2>
+        <blockquote>
+            <strong>Community (Definition):</strong> A community (or biocenosis) is an assemblage of all the <strong>different populations of species</strong> (plants, animals, fungi, microbes) living and interacting in a particular geographic area at a particular time.
+        </blockquote>
+        <p>Community ecology studies the interactions between these species and how they influence the community's structure and organization.</p>
 
-        <hr>
-
-        <section id="keystone">
-            <h2>4. Keystone Species</h2>
-            <blockquote>
-                A <strong>keystone species</strong> is a species that has a disproportionately large effect on its community relative to its abundance.
-            </blockquote>
-            <p>If a keystone species is removed, the entire community structure can change dramatically, often leading to a collapse in biodiversity. They are "key" to holding the arch of the ecosystem together.</p>
-            <p>Examples:</p>
-            <ul>
-                <li><strong>Sea Otter (Predator):</strong> Sea otters eat sea urchins. Sea urchins eat kelp. When otters are present, they keep the urchin population in check, allowing large "kelp forests" to thrive, which provide habitat for many other species. If otters are removed, urchin populations explode, they graze the kelp to non-existence, and the entire ecosystem collapses.</li>
-                <li><strong>Beaver (Ecosystem Engineer):</strong> Beavers build dams, transforming streams into ponds and wetlands. This creates a brand new habitat for fish, insects, amphibians, and waterfowl.</li>
-                <li><strong>African Elephant (Ecosystem Engineer):</strong> Elephants push over trees and browse heavily, preventing savanna from turning into woodland, which maintains the grassland for grazers like zebra and wildebeest.</li>
-                <li><strong>Fig Trees (Resource Provider):</strong> In tropical forests, fig trees produce fruit year-round. This fruit is a critical food source for many birds and mammals during seasons when other food is scarce.</li>
-            </ul>
-            <div class="exam-tip">
-                <strong>Exam Tip:</strong> Do not confuse <strong>keystone species</strong> with <strong>dominant species</strong>.
+        <h2 id="topic2">Keystone Species</h2>
+        <blockquote>
+            <strong>Definition:</strong> A keystone species is a species that has a <strong>disproportionately large effect on its environment</strong> relative to its abundance.
+        </blockquote>
+        <p>They are "engineers" of their community. Their removal can lead to a "trophic cascade" and the collapse or dramatic restructuring of the entire community. The term was coined by <strong>Robert Paine</strong> in 1969.</p>
+        <p><strong>Classic Example: The Sea Otter (<em>Enhydra lutris</em>)</strong></p>
+        <ol>
+            <li><strong>Keystone Species:</strong> Sea Otter.</li>
+            <li><strong>Prey:</strong> Sea Urchin.</li>
+            <li><strong>Primary Producer:</strong> Kelp (a large seaweed).</li>
+            <li><strong>Interaction:</strong> Sea otters eat sea urchins. Sea urchins eat kelp.</li>
+            <li><strong>Effect:</strong>
                 <ul>
-                    <li><strong>Dominant Species:</strong> High impact because it has high abundance (e.g., the oak trees in an oak forest).</li>
-                    <li><strong>Keystone Species:</strong> High impact despite having low abundance (e.g., the few wolves in a national park).</li>
+                    <li><strong>With Otters:</strong> Otters keep the urchin population in check. This allows large, healthy "kelp forests" to grow, which in turn provide a critical habitat for hundreds of other species (fish, crabs, etc.).</li>
+                    <li><strong>Without Otters:</strong> Urchin populations explode. They graze down all the kelp, creating "urchin barrens" (empty seabeds). The entire kelp forest ecosystem collapses.</li>
                 </ul>
-            </div>
-        </section>
-        
-        <hr>
+            </li>
+        </ol>
+        <p><strong>Other Examples:</strong></p>
+        <ul>
+            <li><strong>Beaver:</strong> A "ecosystem engineer" that builds dams, creating wetlands that are used by many other species.</li>
+            <li><strong>Wolf (in Yellowstone):</strong> Reintroduction of wolves controlled elk populations, which allowed willows and aspens to regrow, which in turn stabilized riverbanks and brought back beavers and songbirds.</li>
+        </ul>
 
-        <section id="interactions">
-            <h2>5. Species Interactions (Positive & Negative)</h2>
-            <p>Species interactions are the backbone of community structure. They can be classified by their effect (positive, negative, or neutral) on the species involved.</p>
-            
-            <div class="exam-tip">
-                <strong>Mnemonic:</strong> This table is essential to memorize. Use (+, -, 0) to represent the effect on each species.
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Interaction</th>
-                            <th>Species 1</th>
-                            <th>Species 2</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Competition</strong></td>
-                            <td><strong>-</strong> (Negative)</td>
-                            <td><strong>-</strong> (Negative)</td>
-                            <td>Both species are harmed by the struggle for a limited resource.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Predation</strong></td>
-                            <td><strong>+</strong> (Positive)</td>
-                            <td><strong>-</strong> (Negative)</td>
-                            <td>One species (predator) kills and eats another (prey).</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Herbivory</strong></td>
-                            <td><strong>+</strong> (Positive)</td>
-                            <td><strong>-</strong> (Negative)</td>
-                            <td>One species (herbivore) eats parts of a plant or alga.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Parasitism</strong></td>
-                            <td><strong>+</strong> (Positive)</td>
-                            <td><strong>-</strong> (Negative)</td>
-                            <td>One species (parasite) lives on or in another (host), harming it.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Mutualism</strong></td>
-                            <td><strong>+</strong> (Positive)</td>
-                            <td><strong>+</strong> (Positive)</td>
-                            <td>Both species benefit from the interaction.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Commensalism</strong></td>
-                            <td><strong>+</strong> (Positive)</td>
-                            <td><strong>0</strong> (Neutral)</td>
-                            <td>One species benefits, and the other is unaffected.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Amensalism</strong></td>
-                            <td><strong>-</strong> (Negative)</td>
-                            <td><strong>0</strong> (Neutral)</td>
-                            <td>One species is harmed, and the other is unaffected. (e.g., an elephant stepping on an ant).</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h2 id="topic3">Ecotone and Edge Effect</h2>
+        <p>These concepts were introduced in Unit 1 but are central to community ecology.</p>
+        <ul>
+            <li><strong>Ecotone:</strong> The transition zone where two or more different communities meet and integrate (e.g., the boundary between a forest and a grassland).</li>
+            <li><strong>Edge Effect:</strong> The tendency for ecotones to have a <strong>greater variety and density of organisms</strong> than either of the adjoining communities.</li>
+        </ul>
+        <p><strong>Why does the Edge Effect happen?</strong></p>
+        <ul>
+            <li>The edge provides habitats and resources from <em>both</em> adjacent communities.</li>
+            <li>The unique microclimate and structure of the edge itself may create habitats for "edge specialists" that don't exist in either core community.</li>
+        </ul>
+        <p><strong>Example:</strong> The edge of a forest may have light-loving grassland plants, shade-tolerant forest plants, and edge-specialist shrubs. This variety of plants supports a high variety of insects, birds, and mammals.</p>
+        <p><strong>Note:</strong> While edges often increase diversity, "hard" or artificial edges (like a clear-cut forest next to a highway) can be harmful, increasing exposure to wind, predators, and invasive species.</p>
 
-            <h3>Detailed Examples:</h3>
-            <ul>
-                <li><strong>Competition (-/-):</strong> Lions and hyenas competing for the same zebra carcasses. Two plant species competing for the same patch of sunlight.</li>
-                <li><strong>Predation (+/-):</strong> A lynx (predator) eating a snowshoe hare (prey).</li>
-                <li><strong>Parasitism (+/-):</strong> A tapeworm (parasite) living in the gut of a human (host).</li>
-                <li><strong>Mutualism (+/+):</strong>
-                    <ul>
-                        <li><strong>Pollination:</strong> Bees get nectar (food) from flowers, and flowers get their pollen transferred (reproduction).</li>
-                        <li><strong>Lichens:</strong> A mutualism between a fungus (provides structure and water) and an alga (provides food via photosynthesis).</li>
-                    </ul>
-                </li>
-                <li><strong>Commensalism (+/0):</strong>
-                    <ul>
-                        <li><strong>Cattle Egrets and Livestock:</strong> The egrets (birds) eat insects that are kicked up by grazing cattle. The birds benefit (easy food), and the cattle are unaffected.</li>
-                        <li><strong>Epiphytes:</strong> Plants like orchids that grow on the branches of large trees to get more sunlight. The orchid benefits, and the tree is (usually) unharmed.</li>
-                    </ul>
-                </li>
-            </ul>
-        </section>
+        <h2 id="topic4">Species Interactions (Positive and Negative)</h2>
+        <p>Interactions between species (interspecific) are the "glue" that holds a community together. They can be categorized by their effect (+ for benefit, - for harm, 0 for no effect) on the two species involved.</p>
 
-        <hr>
+        <table>
+            <thead>
+                <tr>
+                    <th>Interaction</th>
+                    <th>Species 1</th>
+                    <th>Species 2</th>
+                    <th>Description & Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="4" style="background-color:#fceded; text-align:center;"><strong>Negative Interactions</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Competition</strong></td>
+                    <td><strong>-</strong></td>
+                    <td><strong>-</strong></td>
+                    <td>Both species are harmed as they compete for the same limited resource (e.g., lions and hyenas competing for zebra).</td>
+                </tr>
+                <tr>
+                    <td><strong>Predation</strong></td>
+                    <td><strong>+</strong></td>
+                    <td><strong>-</strong></td>
+                    <td>One species (predator) kills and consumes the other (prey) (e.g., fox eating a rabbit).</td>
+                </tr>
+                <tr>
+                    <td><strong>Parasitism</strong></td>
+                    <td><strong>+</strong></td>
+                    <td><strong>-</strong></td>
+                    <td>One species (parasite) lives on or in another (host), deriving nourishment at the host's expense. The host is usually weakened, not killed (e.g., a tick on a deer).</td>
+                </tr>
+                <tr>
+                    <td><strong>Herbivory</strong></td>
+                    <td><strong>+</strong></td>
+                    <td><strong>-</strong></td>
+                    <td>A "predation" on plants. One species (herbivore) consumes parts of a plant (e.g., a deer eating leaves).</td>
+                </tr>
+                <tr>
+                    <td><strong>Amensalism</strong></td>
+                    <td><strong>-</strong></td>
+                    <td><strong>0</strong></td>
+                    <td>One species is harmed, and the other is unaffected. (e.g., <strong>allelopathy</strong>, where a Black Walnut plant releases chemicals that inhibit the growth of nearby plants).</td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="background-color:#ebf5fb; text-align:center;"><strong>Positive and Neutral Interactions</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Mutualism</strong></td>
+                    <td><strong>+</strong></td>
+                    <td><strong>+</strong></td>
+                    <td>Both species benefit from the interaction.
+                        <ul>
+                            <li><strong>Obligate:</strong> Species cannot survive without each other (e.g., lichens = fungus + alga).</li>
+                            <li><strong>Facultative:</strong> Species benefit but can survive alone (e.g., bees pollinating flowers).</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Commensalism</strong></td>
+                    <td><strong>+</strong></td>
+                    <td><strong>0</strong></td>
+                    <td>One species benefits, and the other is completely unaffected (e.g., barnacles on a whale; the barnacle gets a home and free transport, the whale is unharmed).</td>
+                </tr>
+                <tr>
+                    <td><strong>Neutralism</strong></td>
+                    <td><strong>0</strong></td>
+                    <td><strong>0</strong></td>
+                    <td>Two species interact, but neither is affected. This is very rare or impossible to prove in nature, as all species are linked in the web.</td>
+                </tr>
+            </tbody>
+        </table>
 
-        <section id="succession">
-            <h2>6. Ecological Succession and Climax</h2>
-            <blockquote>
-                <strong>Ecological Succession:</strong> The predictable and orderly process of change in a community's species structure and composition over time, following a disturbance or the creation of a new habitat.
-            </blockquote>
+        <h2 id="topic5">Community Structure</h2>
+        <p>Community structure refers to the physical and biological organization of a community. Key components include species diversity and stratification.</p>
 
-            <h3>Types of Succession</h3>
-            <h4>Primary Succession</h4>
-            <p>This occurs in an environment that is <strong>lifeless</strong>, where no soil exists and no community has ever existed before. It is a very slow process.</p>
-            <ul>
-                <li><strong>Starting Point:</strong> Bare rock (after a volcanic eruption), sand dunes, glacial till.</li>
-                <li><strong>Pioneer Species:</strong> The first organisms to colonize, such as <strong>lichens and mosses</strong>. They are extremely hardy and can break down rock to start the process of soil formation.</li>
-                <li><strong>Process:</strong> Lichens/mosses die -> they decompose, adding organic matter -> soil begins to form -> small plants (grasses, herbs) can take root -> more organic matter allows shrubs -> finally, trees can grow.</li>
-            </ul>
-            <div class="diagram-placeholder">
-                <strong>Diagram:</strong> A flowchart: Bare Rock -> Lichens/Mosses -> Grasses/Herbs -> Shrubs -> Young Forest (Pines) -> Mature Forest (Oak/Hickory). Label "Pioneer Species" and "Climax Community."
-            </div>
+        <h3 id="sub5_1">Species Diversity</h3>
+        <p>Species diversity is a measurement of the variety of species in a community. It has two components:</p>
+        <ol>
+            <li><strong>Species Richness:</strong> The <strong>total number</strong> of different species in the community.
+                <ul>
+                    <li><em>Community A (10 oaks, 10 maples) and Community B (100 oaks, 1 maple) have the <strong>same richness</strong> (2 species).</em></li>
+                </ul>
+            </li>
+            <li><strong>Species Evenness (or Relative Abundance):</strong> The <strong>proportion</strong> of individuals that belong to each species. A community is "even" if all species are present in similar numbers.
+                <ul>
+                    <li><em>Community A is <strong>very even</strong>. Community B is <strong>very uneven</strong> (dominated by oaks).</em></li>
+                </ul>
+            </li>
+        </ol>
+        <p><strong>High species diversity</strong> (both high richness and high evenness) is generally a sign of a healthy, stable, and resilient ecosystem (like a tropical rainforest). Low diversity is common in harsh environments (like the arctic tundra) or polluted sites.</p>
+        <h3 id="sub5_2">Stratification</h3>
+        <blockquote>
+            <strong>Definition:</strong> Stratification is the <strong>vertical layering</strong> of a community, especially in forests and aquatic ecosystems.
+        </blockquote>
+        <p>Different layers provide different microhabitats (e.g., different levels of light, temperature, and humidity), which allows more species to coexist by partitioning (dividing) resources.</p>
+        <p><strong>Example: Stratification in a Temperate Forest</strong></p>
+        <ul>
+            <li><strong>Canopy Layer:</strong> The uppermost layer of tall, mature trees (e.g., oaks, maples). Receives full sunlight. Home to eagles, squirrels.</li>
+            <li><strong>Understory Layer:</strong> Shorter trees and young trees (e.g., dogwood, saplings). Receives filtered sunlight. Home to many songbirds.</li>
+            <li><strong>Shrub Layer:</strong> Woody shrubs (e.g., berries, rhododendrons). Low light. Home to rabbits, deer.</li>
+            <li><strong>Herb/Ground Layer:</strong> Non-woody plants, ferns, and mosses on the forest floor. Very low light. Home to insects, mice, salamanders.</li>
+            <li><strong>Forest Floor (Litter/Soil):</strong> Decomposing organic matter (leaves, logs). Home to fungi, bacteria, worms, and millipedes.</li>
+        </ul>
+        <p><strong>Aquatic Stratification (in a Lake):</strong></p>
+        <ul>
+            <li><strong>Epilimnion:</strong> Top layer, warm, well-lit (photosynthesis).</li>
+            <li><strong>Metalimnion (Thermocline):</strong> Middle layer, rapid temperature drop.</li>
+            <li><strong>Hypolimnion:</strong> Bottom layer, cold, dark, low oxygen.</li>
+        </ul>
 
-            <h4>Secondary Succession</h4>
-            <p>This occurs in an area where a previous community existed but was <strong>disturbed or destroyed</strong>, and the <strong>soil remains intact</strong>. This process is much faster than primary succession.</p>
-            <ul>
-                <li><strong>Starting Point:</strong> A forest after a fire, an abandoned farm field, a logged-over area.</li>
-                <li><strong>Pioneer Species:</strong> Often annual plants or "weeds" that grow quickly from seeds already in the soil (the "seed bank").</li>
-                <li><strong>Process:</strong> Annual weeds -> grasses and perennial herbs -> shrubs -> fast-growing "pioneer" trees (like pines) -> slower-growing "hardwood" trees (like oak).</li>
-            </ul>
+        <h2 id="topic6">Ecological Succession</h2>
 
-            <h3>Seral Stages and Climax Community</h3>
-            <ul>
-                <li><strong>Seral Stage (or Sere):</strong> Each intermediate community stage in the process of succession. (e.g., the "grass stage" or the "shrub stage").</li>
-                <li><strong>Climax Community:</strong> The final, stable, and mature community that is self-perpetuating and in equilibrium with the prevailing environment. It is the "end point" of succession.
-                    <ul>
-                        <li>Its species composition is stable and do
+        <h3 id="sub6_1">Definition and Types</h3>
+        <blockquote>
+            <strong>Definition:</strong> Ecological succession is the predictable and orderly process of <strong>change in a community's structure</strong> over time, following a disturbance or the creation of a new habitat.
+        </blockquote>
+        <p>One set of species colonizes an area, changes the environment, and is then replaced by another set of species better suited to the new conditions.</p>
+        <p>There are two main types:</p>
+        <ol>
+            <li><strong>Primary Succession:</strong>
+                <ul>
+                    <li><strong>Starts on:</strong> A brand new, lifeless substrate where no soil exists.</li>
+                    <li><strong>Examples:</strong> A bare rock exposed by a landslide, a new volcanic island (lava flow), or land exposed by a retreating glacier.</li>
+                    <li><strong>Process:</strong> Very slow. Starts with <strong>pioneer species</strong> (like lichens and mosses) that can break down rock to create the very first layer of soil. Over centuries, small herbs, then shrubs, and finally trees can establish.</li>
+                </ul>
+            </li>
+            <li><strong>Secondary Succession:</strong>
+                <ul>
+                    <li><strong>Starts on:</strong> An area where a previous community was disturbed or destroyed, but the <strong>soil remains intact</strong>.</li>
+                    <li><strong>Examples:</strong> An abandoned farm field, a clear-cut forest, or an area after a forest fire.</li>
+                    <li><strong>Process:</strong> Much faster than primary succession. Pioneer species are usually fast-growing "weeds" and grasses from the existing seed bank in the soil. These are followed by shrubs, then fast-growing "pioneer trees" (like pine), and finally shade-tolerant "hardwood trees" (like oak and hickory).</li>
+                </ul>
+            </li>
+        </ol>
+        <h3 id="sub6_2">Climax Community</h3>
+        <blockquote>
+            <strong>Definition:</strong> A climax community is the <strong>stable, mature, and self-sustaining</strong> community that is the final stage of ecological succession.
+        </blockquote>
+        <p>This community is in equilibrium with its environment (especially the climate) and will remain relatively unchanged unless a major disturbance occurs. This traditional view was proposed by <strong>Frederic Clements</strong>.</p>
+        <p><strong>Characteristics of a Climax Community:</strong></p>
+        <ul>
+            <li>High species diversity.</li>
+            <li>Complex food webs.</li>
+            <li>High biomass.</li>
+            <li>Nutrient cycling is efficient and "closed" (nutrients are recycled within the system rather than lost).</li>
+            <li>Resistant to small disturbances.</li>
+        </ul>
+        <div class="exam-tip">
+            <strong>Modern View:</strong> The "climax community" concept is now seen as idealistic. Modern ecologists view communities as being in a state of constant change (a "dynamic equilibrium" or "patchwork mosaic") due to small, frequent disturbances (like tree falls, small fires) that prevent a single, uniform climax state from ever being reached.
+        </div>
+    </div>
+</body>
+</html>

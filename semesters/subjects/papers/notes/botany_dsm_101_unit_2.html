@@ -3,52 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DSM-101: Biodiversity - Unit 2</title>
+    <title>BOT: BSM-101 - Unit 2: Algae</title>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: Arial, sans-serif;
             line-height: 1.6;
-            margin: 20px;
-            background-color: #f7f9f9;
+            background-color: #f4f9f4;
             color: #333;
+            margin: 0;
+            padding: 20px;
         }
         .container {
             max-width: 900px;
-            margin: 0 auto;
-            background-color: #ffffff;
+            margin: auto;
+            background: #ffffff;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         h1 {
-            text-align: center;
-            color: #004d40;
-            border-bottom: 3px solid #4db6ac;
+            color: #2c3e50;
+            border-bottom: 3px solid #16a085;
             padding-bottom: 10px;
+            text-align: center;
         }
         h2 {
-            color: #00695c;
-            border-bottom: 2px solid #b2dfdb;
-            padding-top: 15px;
+            color: #16a085;
+            border-bottom: 2px solid #e8f6f3;
+            padding-bottom: 8px;
+            margin-top: 30px;
         }
         h3 {
-            color: #004d40;
-            padding-top: 10px;
+            color: #117a65;
+            margin-top: 20px;
         }
-        strong {
-            color: #c62828;
+        p {
+            margin-bottom: 15px;
         }
-        blockquote {
-            background-color: #e0f2f1;
-            border-left: 5px solid #4db6ac;
-            padding: 15px;
-            margin: 15px 0;
-            font-style: italic;
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
+            margin: 20px 0;
         }
         th, td {
             border: 1px solid #ddd;
@@ -56,267 +58,344 @@
             text-align: left;
         }
         th {
-            background-color: #b2dfdb;
-            color: #004d40;
+            background-color: #16a085;
+            color: #fff;
         }
         tr:nth-child(even) {
-            background-color: #f2f2f2;
+            background-color: #f9f9f9;
         }
-        nav {
-            background-color: #f1f1f1;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 25px;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        nav li {
-            margin-bottom: 5px;
-        }
-        nav a {
-            text-decoration: none;
-            color: #0277bd;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
+        blockquote {
+            background: #e8f6f3;
+            border-left: 5px solid #16a085;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
         }
         .exam-tip {
-            background-color: #fff9c4;
-            border: 1px solid #fbc02d;
+            background-color: #fffbe6;
+            border: 1px solid #ffe58f;
+            border-left-width: 5px;
             padding: 15px;
+            margin: 15px 0;
             border-radius: 5px;
-            margin-top: 15px;
         }
-        .placeholder {
+        .exam-tip strong {
+            color: #d4a000;
+        }
+        .diagram-placeholder {
             width: 100%;
-            background-color: #eee;
+            padding: 40px 20px;
+            background: #eee;
             border: 2px dashed #ccc;
-            padding: 30px;
             text-align: center;
             color: #777;
             margin: 20px 0;
             border-radius: 5px;
+            font-style: italic;
+        }
+        #toc {
+            background: #fdfdfd;
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #2c3e50;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc ul li {
+            margin-bottom: 8px;
+        }
+        #toc ul li a {
+            text-decoration: none;
+            color: #117a65;
+        }
+        #toc ul li a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>BOT: DSM-101: Biodiversity<br>Unit 2: Algae</h1>
+        <h1>BOT: BSM-101: BIODIVERSITY (Microbes, Cryptogams & gymnosperms)<br>Unit 2: Algae</h1>
 
-        <nav>
-            <h3>Table of Contents</h3>
+        <div id="toc">
+            <h2>Unit Contents</h2>
             <ul>
-                <li><a href="#topic1">General Characteristics, Classification, Ecology and Economic Importance</a></li>
-                <li><a href="#topic2">Structure, morphology and life cycle of:</a>
+                <li><a href="#general">1. General characteristics</a></li>
+                <li><a href="#classification">2. Classification</a></li>
+                <li><a href="#ecology">3. Ecology and occurrence</a></li>
+                <li><a href="#economic">4. Economic importance</a></li>
+                <li><a href="#thallus">5. Range of thallus organization</a></li>
+                <li><a href="#repro">6. Reproduction in Chlorophyta, Phaeophyta and Rhodophyta</a></li>
+                <li><a href="#phycologists">7. Significant contributions of Phycologists</a>
                     <ul>
-                        <li><a href="#subtopic2-1">Nostoc</a></li>
-                        <li><a href="#subtopic2-2">Volvox</a></li>
-                        <li><a href="#subtopic2-3">Oedogonium</a></li>
-                        <li><a href="#subtopic2-4">Vaucheria</a></li>
-                        <li><a href="#subtopic2-5">Ectocarpus</a></li>
-                        <li><a href="#subtopic2-6">Polysiphonia</a></li>
+                        <li><a href="#fritsch">F.E. Fritsch</a></li>
+                        <li><a href="#smith">G. M. Smith</a></li>
+                        <li><a href="#iyengar">M.O.P. Iyenger</a></li>
                     </ul>
                 </li>
             </ul>
-        </nav>
+        </div>
 
-        <h2 id="topic1">General Characteristics, Classification, Ecology and Economic Importance</h2>
-
-        <h3>General Characteristics</h3>
+        <h2 id="general">1. General characteristics</h2>
         <blockquote>
-            <strong>Phycology (or Algology):</strong> The branch of botany that deals with the study of algae.
+            <strong>Definition:</strong> Algae are a large, diverse group of <strong>eukaryotic</strong> (mostly) or <strong>prokaryotic</strong> (Cyanobacteria), <strong>photosynthetic</strong> (autotrophic) organisms. They are thallophytes, meaning their body (thallus) is simple and not differentiated into true roots, stems, or leaves. The study of algae is <strong>Phycology</strong>.
         </blockquote>
-        <p>Algae are a large, diverse group of simple, autotrophic organisms. They are thallophytes, meaning their body (a <strong>thallus</strong>) is not differentiated into true roots, stems, or leaves.</p>
         <ul>
-            <li><strong>Habitat:</strong> Primarily aquatic (both freshwater and marine), but also found in moist terrestrial habitats (soil, rocks).</li>
-            <li><strong>Nutrition:</strong> Overwhelmingly <strong>photosynthetic</strong> (autotrophic). They contain chlorophyll-a and other pigments.</li>
-            <li><strong>Cell Type:</strong> Can be <strong>prokaryotic</strong> (Cyanobacteria/Blue-Green Algae) or <strong>eukaryotic</strong> (all other groups).</li>
-            <li><strong>Thallus Organization:</strong> Shows great diversity: unicellular, colonial, filamentous, siphonaceous (coenocytic), and parenchymatous (multicellular, tissue-like).</li>
-            <li><strong>Reproduction:</strong> Reproduce by vegetative, asexual (spores), and sexual means.
-                <ul>
-                    <li><strong>Sexual Reproduction:</strong> Can be isogamous, anisogamous, or oogamous.</li>
-                    <li><strong>Reproductive Organs:</strong> Unicellular. If multicellular, they lack a sterile jacket of cells (a key difference from bryophytes).</li>
-                    <li><strong>Embryo:</strong> No embryo is formed after fertilization.</li>
-                </ul>
-            </li>
+            <li><strong>Habitat:</strong> Primarily aquatic (freshwater and marine), but also found in diverse habitats (soil, snow, tree bark).</li>
+            <li><strong>Nutrition:</strong> Photosynthetic. They are the <strong>primary producers</strong> in aquatic ecosystems.</li>
+            <li><strong>Pigments:</strong> All contain <strong>Chlorophyll-a</strong>, plus a variety of accessory pigments (Chl-b, c, d, carotenoids, phycobilins) which are used for classification.</li>
+            <li><strong>Cell Wall:</strong> Usually present, composed of <strong>cellulose</strong>, algin, carrageenan, or silica.</li>
+            <li><strong>Reserve Food:</strong> Stored as polysaccharides (e.g., starch, laminarin, floridean starch) or oils.</li>
+            <li><strong>Reproductive Organs:</strong> Typically unicellular. When multicellular, they lack a protective jacket of sterile cells (unlike in Bryophytes).</li>
         </ul>
 
-        <h3>Classification (Overview)</h3>
-        <p>Algae are classified into major groups (divisions) based on key criteria:</p>
+        <h2 id="classification">2. Classification</h2>
+        <p>Algae are classified into major divisions based on a combination of key features:</p>
         <ol>
-            <li><strong>Pigment composition</strong> (e.g., Chl-a/b, Chl-a/c, Phycobilins).</li>
-            <li><strong>Nature of reserve food</strong> (e.g., Starch, Laminarin, Floridean starch).</li>
-            <li><strong>Flagella type and number</strong> (e.g., whiplash, tinsel; 2 or many).</li>
-            <li><strong>Cell wall composition</strong> (e.g., Cellulose, Algin, Agar).</li>
+            <li><strong>Photosynthetic Pigments:</strong> The type of chlorophylls and accessory pigments.</li>
+            <li><strong>Reserve Food:</strong> The chemical nature of the stored food.</li>
+            <li><strong>Flagella:</strong> The number, type (whiplash, tinsel), and insertion (apical, lateral) of flagella.</li>
+            <li><strong>Cell Wall Composition:</strong> The main chemical components.</li>
         </ol>
-        <p>Major divisions include: <strong>Cyanophyta</strong> (prokaryotic), <strong>Chlorophyta</strong> (Green algae), <strong>Phaeophyta</strong> (Brown algae), <strong>Rhodophyta</strong> (Red algae), Xanthophyta (Yellow-green algae), etc.</p>
 
-        <h3>Ecology</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Division</th>
+                    <th>Common Name</th>
+                    <th>Key Pigments</th>
+                    <th>Reserve Food</th>
+                    <th>Flagella</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Cyanophyta</strong></td>
+                    <td>Blue-Green Algae</td>
+                    <td>Chl-a, <strong>Phycocyanin</strong>, Phycoerythrin</td>
+                    <td>Cyanophycean starch</td>
+                    <td><strong>0 (Absent)</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Chlorophyta</strong></td>
+                    <td>Green Algae</td>
+                    <td>Chl-a, <strong>Chl-b</strong> (like plants)</td>
+                    <td><strong>True Starch</strong> (like plants)</td>
+                    <td>2 or 4, apical, equal, whiplash</td>
+                </tr>
+                <tr>
+                    <td><strong>Phaeophyta</strong></td>
+                    <td>Brown Algae</td>
+                    <td>Chl-a, Chl-c, <strong>Fucoxanthin</strong> (dominant)</td>
+                    <td><strong>Laminarin</strong>, Mannitol</td>
+                    <td>2, lateral, unequal, 1 tinsel + 1 whiplash</td>
+                </tr>
+                <tr>
+                    <td><strong>Rhodophyta</strong></td>
+                    <td>Red Algae</td>
+                    <td>Chl-a, Chl-d, <strong>Phycoerythrin</strong> (dominant)</td>
+                    <td><strong>Floridean starch</strong></td>
+                    <td><strong>0 (Absent)</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Bacillariophyta</strong></td>
+                    <td>Diatoms</td>
+                    <td>Chl-a, Chl-c, Fucoxanthin</td>
+                    <td>Chrysolaminarin, Oil</td>
+                    <td>1 (in male gametes only), tinsel</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="ecology">3. Ecology and occurrence</h2>
+        <p>Algae are found almost everywhere on Earth with light and moisture.</p>
         <ul>
-            <li><strong>Plankton:</strong> Microscopic algae floating in water.
+            <li><strong>Aquatic Algae:</strong>
                 <ul>
-                    <li><strong>Phytoplankton:</strong> Form the base of all aquatic food webs and are the "primary producers" of the aquatic world.</li>
+                    <li><strong>Plankton (Phytoplankton):</strong> Microscopic algae that float in the upper layers of freshwater (limnoplankton) and marine water (haloplankton). E.g., Diatoms, *Chlamydomonas*.</li>
+                    <li><strong>Benthic:</strong> Algae attached to the bottom surface (rocks, mud). E.g., Seaweeds (*Laminaria*), *Chara*.</li>
                 </ul>
             </li>
-            <li><strong>Benthos:</strong> Algae attached to the bottom of water bodies (e.g., seaweeds).</li>
-            <li><strong>Terrestrial Algae:</strong> Grow on moist soil, rocks, tree bark.</li>
-            <li><strong>Symbiotic Algae:</strong>
+            <li><strong>Terrestrial Algae (Edaphic):</strong>
                 <ul>
-                    <li><strong>Lichens:</strong> Symbiosis with fungi.</li>
-                    <li><strong>Zoochlorellae:</strong> Algae living inside animals (e.g., <em>Hydra</em>).</li>
+                    <li>Algae growing on or in soil. They help in soil binding and fertility. E.g., *Nostoc*, *Vaucheria*.</li>
                 </ul>
             </li>
-            <li><strong>Algal Blooms:</strong> Rapid, massive growth of algae (often Cyanobacteria) in nutrient-rich water (eutrophication). These can be toxic and deplete oxygen, killing fish.</li>
-        </ul>
-
-        <h3>Economic Importance</h3>
-        <h5>Positive Importance (Beneficial)</h5>
-        <ul>
-            <li><strong>Oxygen Production:</strong> Phytoplankton produce 50-70% of the Earth's oxygen.</li>
-            <li><strong>Food Source:</strong> Eaten directly (e.g., <em>Porphyra</em> - "Nori" for sushi; <em>Spirulina</em>, <em>Chlorella</em> as protein supplements).</li>
-            <li><strong>Industrial Gums (Phycocolloids):</strong>
+            <li><strong>Algae of Unusual Habitats:</strong>
                 <ul>
-                    <li><strong>Agar-Agar:</strong> From red algae (e.g., <em>Gelidium</em>). Used as a solidifying agent in culture media, jellies, and cosmetics.</li>
-                    <li><strong>Alginates:</strong> From brown algae (e.g., <em>Laminaria</em>). Used as thickeners in ice cream, paints, and toothpaste.</li>
-                    <li><strong>Carrageenan:</strong> From red algae ("Irish moss"). Used as a stabilizer in milk products.</li>
+                    <li><strong>Cryophytes:</strong> Grow on snow and ice. E.g., *Chlamydomonas nivalis* (causes "red snow").</li>
+                    <li><strong>Thermophytes:</strong> Grow in hot springs. E.g., *Oscillatoria* (a Cyanobacterium).</li>
+                    <li><strong>Epiphytes:</strong> Grow on other plants. E.g., *Oedogonium*.</li>
+                    <li><strong>Epizoophytes:</strong> Grow on animals. E.g., Algae on a turtle's shell.</li>
+                    <li><strong>Symbionts:</strong>
+                        <ul>
+                            <li><strong>Lichens:</strong> Alga + Fungus.</li>
+                            <li><strong>Inside animals:</strong> *Zoochlorella* inside *Hydra*.</li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
-            <li><strong>Diatomaceous Earth:</strong> Fossilized silica shells of diatoms. Used in filters, as a mild abrasive, and in dynamite.</li>
-            <li><strong>Biofertilizers:</strong> Nitrogen-fixing Blue-Green Algae (e.g., <em>Nostoc</em>, <em>Anabaena</em>) enrich rice paddy fields.</li>
-            <li><strong>Sewage Treatment:</strong> Algae in oxidation ponds help oxygenate the water and break down sewage.</li>
-        </ul>
-        <h5>Negative Importance (Harmful)</h5>
-        <ul>
-            <li><strong>Algal Blooms:</strong> Cause eutrophication, oxygen depletion, and "dead zones."</li>
-            <li><strong>Toxins:</strong> Some blooms ("red tides" by dinoflagellates, "toxic blooms" by Cyanobacteria) produce toxins lethal to fish and humans.</li>
-            <li><strong>Water Fouling:</strong> Clog water filters and give undesirable taste/odor to drinking water.</li>
         </ul>
 
-        <h2 id="topic2">Structure, morphology and life cycle of:</h2>
+        <h2 id="economic">4. Economic importance</h2>
+        
+        <h4>Positive Importance (Beneficial)</h4>
+        <ul>
+            <li><strong>Primary Producers:</strong> Algae are the "grass of the sea." They form the base of all aquatic food chains and produce <strong>50-70% of the Earth's oxygen</strong> via photosynthesis.</li>
+            <li><strong>Human Food:</strong>
+                <ul>
+                    <li><strong>Seaweeds:</strong> Rich in vitamins and minerals. E.g., *Porphyra* (Nori), *Laminaria* (Kombu), *Chondrus*.</li>
+                    <li><strong>Single-Cell Protein (SCP):</strong> *Chlorella* and *Spirulina* are cultivated as health supplements, rich in protein.</li>
+                </ul>
+            </li>
+            <li><strong>Industrial Products (Phycocolloids):</strong>
+                <ul>
+                    <li><strong>Agar:</strong> From red algae (*Gelidium*, *Gracilaria*). Used as a gelling agent for microbiological media, and in food.</li>
+                    <li><strong>Carrageenan:</strong> From red algae (*Chondrus*). Used as a thickener in ice cream, toothpaste, and cosmetics.</li>
+                    <li><strong>Alginates:</strong> From brown algae (*Laminaria*). Used as a thickener, stabilizer, and emulsifier in foods (ice cream) and paints.</li>
+                </ul>
+            </li>
+            <li><strong>Diatomaceous Earth:</strong> Fossilized cell walls (frustules) of diatoms. A gritty powder used in filters (for pools, sugar), as a mild abrasive (toothpaste), and as a natural insecticide.</li>
+            <li><strong>Agriculture:</strong>
+                <ul>
+                    <li><strong>Biofertilizers:</strong> Nitrogen-fixing blue-green algae (e.g., *Nostoc*, *Anabaena*) are used in rice paddies.</li>
+                    <li><strong>Fodder:</strong> Seaweeds are used as animal feed.</li>
+                </ul>
+            </li>
+            <li><strong>Research:</strong> *Chlamydomonas* and *Chlorella* are used as model organisms in genetic and photosynthetic research.</li>
+            <li><strong>Biofuels:</strong> Algae are being researched for producing biodiesel, as many species store large amounts of oil.</li>
+        </ul>
+
+        <h4>Negative Importance (Harmful)</h4>
+        <ul>
+            <li><strong>Algal Blooms:</strong> Eutrophication (nutrient pollution from sewage/fertilizer) causes a rapid, dense growth of algae.</li>
+            <li><strong>Harmful Effects:</strong>
+                <ul>
+                    <li>When the algae die, their decomposition by bacteria consumes all the dissolved oxygen, creating <strong>"dead zones"</strong> that kill fish.</li>
+                    <li>Some blooms (e.g., dinoflagellates, cyanobacteria) produce <strong>toxins</strong> that are harmful to fish, wildlife, and humans ("Red Tides").</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2 id="thallus">5. Range of thallus organization</h2>
+        <p>Algal bodies show a great diversity in form, from single cells to complex structures.</p>
+        <ol>
+            <li><strong>Unicellular:</strong> The entire organism is a single cell.
+                <ul>
+                    <li><strong>Motile:</strong> Have flagella (e.g., *Chlamydomonas*).</li>
+                    <li><strong>Non-motile (Coccoid):</strong> Spherical, no flagella (e.g., *Chlorella*).</li>
+                </ul>
+            </li>
+            <li><strong>Colonial:</strong> A collection of individual cells.
+                <ul>
+                    <li><strong>Coenobium:</strong> A colony with a fixed number of cells and a definite shape (e.g., *Volvox*).</li>
+                    <li><strong>Aggregate:</strong> Irregular clumps of cells in a gelatinous matrix (e.g., *Tetraspora*).</li>
+                </ul>
+            </li>
+            <li><strong>Filamentous:</strong> Cells are arranged in a chain.
+                <ul>
+                    <li><strong>Unbranched:</strong> A single, simple thread (e.g., *Spirogyra*, *Oedogonium*).</li>
+                    <li><strong>Branched:</strong> The filament shows branching (e.g., *Cladophora*).</li>
+                    <li><strong>Heterotrichous:</strong> A complex form with both a prostrate (creeping) and an erect (upright) system (e.g., *Coleochaete*).</li>
+                </ul>
+            </li>
+            <li><strong>Siphonaceous (Coenocytic):</strong>
+                <ul>
+                    <li>The thallus is a single, large, multinucleate cell (a coenocyte) without cross-walls. E.g., *Vaucheria*.</li>
+                </ul>
+            </li>
+            <li><strong>Parenchymatous:</strong>
+                <ul>
+                    <li>A complex, tissue-like thallus formed by cell division in multiple planes. E.g., *Ulva* (sea lettuce), *Laminaria*.</li>
+                </ul>
+            </li>
+        </ol>
+        <div class="diagram-placeholder"></div>
+
+        <h2 id="repro">6. Reproduction in Chlorophyta, Phaeophyta and Rhodophyta</h2>
+        <p>This covers the types of sexual reproduction, which is a key evolutionary feature.</p>
+        
+        <h3>Chlorophyta (Green Algae)</h3>
+        <p>Green algae show the <strong>entire range of sexual reproduction</strong>, representing an evolutionary progression.</p>
+        <ul>
+            <li><strong>Isogamy:</strong> Fusion of two gametes that are morphologically identical (same size and shape) but physiologically different (+ and - strains).
+                <ul>
+                    <li><strong>Example:</strong> *Spirogyra* (by conjugation), *Chlamydomonas* (simpler species).</li>
+                </ul>
+            </li>
+            <li><strong>Anisogamy:</strong> Fusion of two gametes that are motile but differ in size. The female gamete (macrogamete) is larger than the male gamete (microgamete).
+                <ul>
+                    <li><strong>Example:</strong> Some species of *Chlamydomonas*.</li>
+                </ul>
+            </li>
+            <li><strong>Oogamy:</strong> The most advanced form. Fusion of a <strong>large, non-motile female gamete (egg)</strong> with a <strong>small, motile male gamete (sperm/antherozoid)</strong>.
+                <ul>
+                    <li><strong>Example:</strong> *Oedogonium*, *Volvox*, *Coleochaete*.</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h3>Phaeophyta (Brown Algae)</h3>
+        <p>Brown algae also show a progression, but most are oogamous.</p>
+        <ul>
+            <li><strong>Isogamy:</strong> Seen in simpler forms (e.g., *Ectocarpus*).</li>
+            <li><strong>Anisogamy:</strong> Seen in some intermediate forms.</li>
+            <li><strong>Oogamy:</strong> The dominant and most common method. Found in all the advanced, large seaweeds.
+                <ul>
+                    <li><strong>Example:</strong> *Laminaria*, *Fucus*, *Sargassum*.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Rhodophyta (Red Algae)</h3>
+        <p>Red algae have a unique and highly specialized form of oogamy. <strong>Flagella are completely absent</strong> in all stages.</p>
+        <ul>
+            <li><strong>Advanced Oogamy:</strong>
+                <ul>
+                    <li>The male gamete is a <strong>non-motile spermatium</strong>. It is passively carried by water currents.</li>
+                    <li>The female organ is a <strong>carpogonium</strong>, which has a long, sticky, receptive neck called a <strong>trichogyne</strong> to catch the spermatium.</li>
+                    <li>Fertilization leads to a complex post-fertilization development, often resulting in a <strong>triphasic life cycle</strong> (Gametophyte -> Carposporophyte -> Tetrasporophyte).</li>
+                    <li><strong>Example:</strong> *Polysiphonia*.</li>
+                </ul>
+            </li>
+        </ul>
         <div class="exam-tip">
-            <strong>Exam Tip:</strong> For each life cycle, be prepared to draw the vegetative structure, reproductive organs (asexual and sexual), and the complete life cycle diagram, correctly labeling all haploid (n) and diploid (2n) stages.
-        </div>
-        
-        <h3 id="subtopic2-1">Nostoc (Class: Cyanophyta)</h3>
-        <ul>
-            <li><strong>Morphology:</strong> A colonial, prokaryotic alga. Forms gelatinous balls (colonies) visible to the naked eye, on moist soil or in water. Inside the mucilage are numerous unbranched filaments (<strong>trichomes</strong>).</li>
-            <li><strong>Structure:</strong> The trichome is like a string of beads. It has two cell types:
-                <ol>
-                    <li><strong>Vegetative Cells:</strong> Smaller, spherical, photosynthetic.</li>
-                    <li><strong>Heterocysts:</strong> Large, thick-walled, pale-yellow, empty-looking cells. They are the site of <strong>nitrogen fixation</strong>.</li>
-                </ol>
-            </li>
-            <li><strong>Reproduction:</strong>
-                <ul>
-                    <li><strong>Vegetative (Hormogonia):</strong> The trichome breaks into small, motile pieces called <strong>hormogonia</strong>, which crawl out of the mucilage and form new colonies.</li>
-                    <li><strong>Asexual (Akinetes):</strong> Vegetative cells enlarge, fill with food, and develop a thick wall to become <strong>akinetes</strong> (resting spores). They survive harsh conditions and germinate later.</li>
-                    <li><strong>Sexual Reproduction:</strong> <strong>Completely absent</strong> in Cyanophyta.</li>
-                </ul>
-            </li>
-        </ul>
-        <div class="placeholder">
-            <strong>[Diagram: Nostoc filament showing vegetative cells, heterocyst, and akinete]</strong>
+            <strong>Exam Tip:</strong> A common question is to trace the evolution of sexual reproduction in algae. The answer is the progression from <strong>Isogamy → Anisogamy → Oogamy</strong>, which is best seen in the Chlorophyta.
         </div>
 
-        <h3 id="subtopic2-2">Volvox (Class: Chlorophyta)</h3>
+        <h2 id="phycologists">7. Significant contributions of Phycologists</h2>
+        
+        <h3 id="fritsch">F.E. Fritsch (Felix Eugen Fritsch)</h3>
         <ul>
-            <li><strong>Morphology:</strong> A freshwater, colonial, eukaryotic alga. Forms a large, motile, spherical colony called a <strong>coenobium</strong> (a colony with a fixed number of cells).</li>
-            <li><strong>Structure:</strong> The coenobium is a hollow sphere of 500-60,000 cells. Each cell is <em>Chlamydomonas</em>-like, with two flagella pointing outwards, a chloroplast, and an eyespot. Cells are interconnected by cytoplasmic strands. Shows <strong>division of labor</strong>: most cells are vegetative (motility), but a few larger cells in the posterior are for reproduction.</li>
-            <li><strong>Reproduction:</strong>
-                <ul>
-                    <li><strong>Asexual:</strong> Reproductive cells (<strong>gonidia</strong>) divide, invaginate, and form a <strong>daughter colony</strong> inside the parent. The daughter colony is released when the parent colony ruptures.</li>
-                    <li><strong>Sexual:</strong> Advanced <strong>oogamy</strong>.
-                        <ul>
-                            <li>Some reproductive cells become non-motile <strong>eggs</strong>.</li>
-                            <li>Others divide to form a packet of motile <strong>antherozoids</strong> (sperm).</li>
-                            <li>Sperm swim to the egg, fertilization occurs, forming a <strong>diploid (2n) zygote</strong>.</li>
-                            <li>The zygote develops a thick, spiny wall (<strong>zygospore</strong>) and is released. It undergoes <strong>meiosis</strong> to form a new haploid (n) colony.</li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li><strong>Life Cycle:</strong> Haplontic (the colony is haploid).</li>
+            <li>A British phycologist, often called the <strong>"Father of Modern Phycology."</strong></li>
+            <li>His most famous work is the two-volume book, <strong>"The Structure and Reproduction of the Algae" (1935, 1945)</strong>.</li>
+            <li>This book became the "bible" for phycologists, compiling all known information about algae at the time.</li>
+            <li>He proposed a comprehensive <strong>classification system for algae</strong> (Fritsch classification) based on morphology, pigments, and reproduction, dividing algae into 11 classes. This system was the standard for decades.</li>
         </ul>
 
-        <h3 id="subtopic2-3">Oedogonium (Class: Chlorophyta)</h3>
+        <h3 id="smith">G. M. Smith (Gilbert Morgan Smith)</h3>
         <ul>
-            <li><strong>Morphology:</strong> A freshwater, unbranched, filamentous alga, attached to surfaces by a <strong>holdfast</strong> (basal cell).</li>
-            <li><strong>Structure:</strong> Cells are cylindrical, uninucleate, and have a large, <strong>reticulate (net-like) chloroplast</strong> with many pyrenoids. Cell division is unique, leaving "rings" at the top of the cell called <strong>cap cells</strong>.</li>
-            <li><strong>Reproduction:</strong>
-                <ul>
-                    <li><strong>Asexual:</strong> By <strong>zoospores</strong>. A single, large, multinucleate, multiflagellate zoospore (with a "crown" of flagella) is formed in a zoosporangium, swims, settles, and grows into a new filament.</li>
-                    <li><strong>Sexual:</strong> Advanced <strong>oogamy</strong>.
-                        <ul>
-                            <li><strong>Oogonium (female):</strong> A large, swollen cell with a single non-motile <strong>egg (n)</strong>.</li>
-                            <li><strong>Antheridium (male):</strong> Short, flat cells that divide to produce two small, multiflagellate <strong>sperm (n)</strong>.</li>
-                            <li><strong>Fertilization:</strong> Sperm enters the oogonium and fuses with the egg, forming a <strong>diploid (2n) zygote (oospore)</strong>.</li>
-                            <li><strong>Meiosis:</strong> The oospore rests, then undergoes meiosis to produce 4 haploid (n) zoospores, each growing into a new filament.</li>
-                            <li>(Note: Can be <strong>Macrandrous</strong> - normal male filaments; or <strong>Nannandrous</strong> - tiny "dwarf male" filaments).</li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li><strong>Life Cycle:</strong> Haplontic (the filament is haploid).</li>
+            <li>An American phycologist.</li>
+            <li>He published <strong>"The Fresh-water Algae of the United States" (1933, 1950)</strong>, a standard reference for identifying American freshwater algae.</li>
+            <li>He also published "Cryptogamic Botany" (Vol. 1 on Algae and Fungi), which was a widely used textbook.</li>
+            <li>He is well-known for his research on the morphology and reproduction of the green algae, especially the colonial forms (Volvocales).</li>
         </ul>
-        
-        <h3 id="subtopic2-4">Vaucheria (Class: Xanthophyta)</h3>
-        <ul>
-            <li><strong>Morphology:</strong> Terrestrial (on moist soil, "water felt") or freshwater. A branched, filamentous alga.</li>
-            <li><strong>Structure:</strong> The thallus is a <strong>siphonaceous</strong> (or <strong>coenocytic</strong>) filament. It is one long, continuous tube with no cross-walls (septa) in the vegetative state. It is multinucleate, and contains numerous small, discoid chloroplasts (lacking pyrenoids).</li>
-            <li><strong>Reproduction:</strong>
-                <ul>
-                    <li><strong>Asexual:</strong> By a large, multiflagellate <strong>synzoospore</strong>, formed in a sporangium at the filament tip.</li>
-                    <li><strong>Sexual:</strong> Advanced <strong>oogamy</strong>.
-                        <ul>
-                            <li><strong>Oogonium (female):</strong> A large, globular structure containing one large, non-motile <strong>egg (n)</strong>.</li>
-                            <li><strong>Antheridium (male):</strong> A curved, tube-like structure producing many small, biflagellate <strong>sperm (n)</strong>.</li>
-                            <li><strong>Fertilization:</strong> Sperm enter the oogonium, one fuses with the egg, forming a <strong>diploid (2n) zygote (oospore)</strong>.</li>
-                            <li><strong>Meiosis:</strong> The zygote rests, then undergoes meiosis *before* germination to form a new haploid (n) filament.</li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li><strong>Life Cycle:</strong> Haplontic (the filament is haploid).</li>
-        </ul>
-        
-        <h3 id="subtopic2-5">Ectocarpus (Class: Phaeophyta)</h3>
-        <ul>
-            <li><strong>Morphology:</strong> A marine (brown alga), branched, filamentous alga. The thallus is <strong>heterotrichous</strong> (with both a prostrate/creeping system and an erect/branched system).</li>
-            <li><strong>Structure:</strong> Cells are uninucleate with band-shaped or discoid chloroplasts. Pigment is Chl-a/c and <strong>Fucoxanthin</strong>.</li>
-            <li><strong>Life Cycle:</strong> This is the classic example of an <strong>isomorphic alternation of generations</strong>. There are two morphologically identical plants, one haploid and one diploid.
-                <ol>
-                    <li><strong>Sporophyte (2n):</strong> The diploid plant. It bears two types of sporangia:
-                        <ul>
-                            <li><strong>Unilocular Sporangia:</strong> Single-celled. <strong>Meiosis occurs inside</strong> to produce haploid (n) zoospores.</li>
-                            <li><strong>Plurilocular Sporangia:</strong> Multicellular. Produce diploid (2n) zoospores by mitosis (for asexual reproduction, creating more 2n sporophytes).</li>
-                        </ul>
-                    </li>
-                    <li><strong>Gametophyte (n):</strong> The haploid (n) zoospores from the unilocular sporangium germinate and grow into a haploid (n) plant (the gametophyte), which looks identical to the sporophyte.
-                        <ul>
-                            <li>The gametophyte produces <strong>plurilocular gametangia</strong>, which release haploid (n) gametes.</li>
-                            <li>Gametes (isogamous) fuse to form a <strong>diploid (2n) zygote</strong>.</li>
-                            <li>The zygote germinates (without meiosis) and grows into the diploid (2n) sporophyte, completing the cycle.</li>
-                        </ul>
-                    </li>
-                </ol>
-            </li>
-        </ul>
-        <div class="placeholder">
-            <strong>[Diagram: Life Cycle of Ectocarpus, showing 2n Sporophyte and n Gametophyte]</strong>
-        </div>
 
-        <h3 id="subtopic2-6">Polysiphonia (Class: Rhodophyta)</h3>
+        <h3 id="iyengar">M.O.P. Iyenger (Mandayam Osuri Parthasarathy Iyengar)</h3>
         <ul>
-            <li><strong>Morphology:</strong> A marine (red alga), highly branched, filamentous alga.</li>
-            <li><strong>Structure:</strong> The thallus is <strong>"polysiphonous"</strong> – it consists of a central filament (central siphon) surrounded by a ring of 4-20 <strong>pericentral siphons (filaments)</strong>. Cells are connected by <strong>pit connections</strong>. Pigment is Chl-a and <strong>Phycoerythrin</strong>.</li>
-            <li><strong>Reproduction:</strong> <strong>No motile cells</strong> (flagella) are formed at any stage.</li>
-            <li><strong>Life Cycle:</strong> Extremely complex, <strong>triphasic</strong> (has three distinct "generations"). The gametophyte (n) and tetrasporophyte (2n) are isomorphic.
-                <ol>
-                    <li><strong>Gametophyte (n):</strong> These are separate male and female plants.
-                        <ul>
-                            <li><strong>Male Plant (n):</strong> Produces non-motile <strong>spermatia (n)</strong> in spermatangia.</li>
-               
+            <li>An Indian phycologist, revered as the <strong>"Father of Indian Phycology"</strong> or "Father of Algology in India."</li>
+            <li>He established a major center for algological research at the University of Madras.</li>
+            <li>He discovered and described many new genera and species of algae from India, particularly from the Chlorophyta.</li>
+            <li>He did pioneering work on the morphology, cytology, and life-cycles of many green algae, including *Coleochaete* and *Oedogonium*. He also established the order Conjugales (for *Spirogyra*, etc.).</li>
+        </ul>
+    </div>
+</body>
+</html>

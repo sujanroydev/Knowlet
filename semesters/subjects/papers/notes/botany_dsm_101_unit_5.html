@@ -3,52 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DSM-101: Biodiversity - Unit 5</title>
+    <title>BOT: BSM-101 - Unit 5: Pteridophytes and Gymnosperms</title>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: Arial, sans-serif;
             line-height: 1.6;
-            margin: 20px;
-            background-color: #f7f3f9;
+            background-color: #f4f6f7;
             color: #333;
+            margin: 0;
+            padding: 20px;
         }
         .container {
             max-width: 900px;
-            margin: 0 auto;
-            background-color: #ffffff;
+            margin: auto;
+            background: #ffffff;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         h1 {
-            text-align: center;
-            color: #4527a0;
-            border-bottom: 3px solid #7e57c2;
+            color: #2c3e50;
+            border-bottom: 3px solid #5d6d7e;
             padding-bottom: 10px;
+            text-align: center;
         }
         h2 {
-            color: #512da8;
-            border-bottom: 2px solid #d1c4e9;
-            padding-top: 15px;
+            color: #5d6d7e;
+            border-bottom: 2px solid #eaeded;
+            padding-bottom: 8px;
+            margin-top: 30px;
         }
         h3 {
-            color: #311b92;
-            padding-top: 10px;
+            color: #4a5562;
+            margin-top: 20px;
         }
-        strong {
-            color: #c62828;
+        p {
+            margin-bottom: 15px;
         }
-        blockquote {
-            background-color: #ede7f6;
-            border-left: 5px solid #7e57c2;
-            padding: 15px;
-            margin: 15px 0;
-            font-style: italic;
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
+            margin: 20px 0;
         }
         th, td {
             border: 1px solid #ddd;
@@ -56,278 +58,383 @@
             text-align: left;
         }
         th {
-            background-color: #d1c4e9;
-            color: #311b92;
+            background-color: #5d6d7e;
+            color: #fff;
         }
         tr:nth-child(even) {
-            background-color: #f2f2f2;
+            background-color: #f9f9f9;
         }
-        nav {
-            background-color: #f1f1f1;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 25px;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        nav li {
-            margin-bottom: 5px;
-        }
-        nav a {
-            text-decoration: none;
-            color: #0277bd;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
+        blockquote {
+            background: #eaeded;
+            border-left: 5px solid #5d6d7e;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
         }
         .exam-tip {
-            background-color: #fff9c4;
-            border: 1px solid #fbc02d;
+            background-color: #fffbe6;
+            border: 1px solid #ffe58f;
+            border-left-width: 5px;
             padding: 15px;
+            margin: 15px 0;
             border-radius: 5px;
-            margin-top: 15px;
         }
-        .placeholder {
+        .exam-tip strong {
+            color: #d4a000;
+        }
+        .diagram-placeholder {
             width: 100%;
-            background-color: #eee;
+            padding: 40px 20px;
+            background: #eee;
             border: 2px dashed #ccc;
-            padding: 30px;
             text-align: center;
             color: #777;
             margin: 20px 0;
             border-radius: 5px;
+            font-style: italic;
+        }
+        #toc {
+            background: #fdfdfd;
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #2c3e50;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc ul li {
+            margin-bottom: 8px;
+        }
+        #toc ul li a {
+            text-decoration: none;
+            color: #4a5562;
+        }
+        #toc ul li a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>BOT: DSM-101: Biodiversity<br>Unit 5: Pteridophytes & Gymnosperms</h1>
+        <h1>BOT: BSM-101: BIODIVERSITY (Microbes, Cryptogams & gymnosperms)<br>Unit 5: Pteridophytes and Gymnosperms</h1>
 
-        <nav>
-            <h3>Table of Contents</h3>
+        <div id="toc">
+            <h2>Unit Contents</h2>
             <ul>
-                <li><a href="#topic1">Pteridophytes</a>
-                    <ul>
-                        <li><a href="#subtopic1-1">General characteristics, Classification (upto orders) and economic importance</a></li>
-                        <li><a href="#subtopic1-2">Heterospory and seed habit</a></li>
-                        <li><a href="#subtopic1-3">Early land plants - Rhynia</a></li>
-                        <li><a href="#subtopic1-4">Morphology, anatomy and reproduction of Lycopodium and Selaginella</a></li>
-                    </ul>
-                </li>
-                <li><a href="#topic2">Gymnosperms</a>
-                    <ul>
-                        <li><a href="#subtopic2-1">General characteristics, Classification (upto orders) and economic importance</a></li>
-                        <li><a href="#subtopic2-2">Morphology, anatomy and reproduction of Cycas, Pinus, Ginkgo and Gnetum</a></li>
-                    </ul>
-                </li>
+                <li><a href="#pteri-general">1. Pteridophytes: General characteristics</a></li>
+                <li><a href="#pteri-class">2. Pteridophytes: Classification (upto orders)</a></li>
+                <li><a href="#pteri-econ">3. Pteridophytes: Economic importance</a></li>
+                <li><a href="#heterospory">4. Pteridophytes: Heterospory and seed habit</a></li>
+                <li><a href="#stele">5. Pteridophytes: Stelar evolution</a></li>
+                <li><a href="#rhynia">6. Pteridophytes: Fossil (*Rhynia*)</a></li>
+                <li><a href="#lycopodium">7. Pteridophytes: *Lycopodium* (Morphology and reproduction)</a></li>
+                <li><a href="#selaginella">8. Pteridophytes: *Selaginella* (Morphology and reproduction)</a></li>
+                <li><a href="#gymno-general">9. Gymnosperms: General characteristics</a></li>
+                <li><a href="#gymno-affinities">10. Gymnosperms: Affinities with pteridophytes and angiosperms</a></li>
+                <li><a href="#cycas">11. Gymnosperms: *Cycas* (Morphology, anatomy, reproduction)</a></li>
+                <li><a href="#pinus">12. Gymnosperms: *Pinus* (Morphology, anatomy, reproduction)</a></li>
+                <li><a href="#gingko">13. Gymnosperms: *Gingko* (Morphology, anatomy, reproduction)</a></li>
+                <li><a href="#gnetum">14. Gymnosperms: *Gnetum* (Morphology, anatomy, reproduction)</a></li>
             </ul>
-        </nav>
+        </div>
 
-        <h2 id="topic1">Pteridophytes</h2>
-        <p>Pteridophytes (e.g., ferns, clubmosses, horsetails) are the first <strong>vascular land plants</strong> (tracheophytes). They are "Archegoniates" (like Bryophytes) but are more advanced.</p>
-        
-        <h3 id="subtopic1-1">General characteristics, Classification (upto orders) and economic importance</h3>
-        
-        <h4>General Characteristics</h4>
+        <h2 id="pteri-general">1. Pteridophytes: General characteristics</h2>
+        <blockquote>
+            <strong>Definition:</strong> Pteridophytes (ferns and fern allies) are the first <strong>vascular land plants</strong> (tracheophytes). They are "vascular cryptogams" (they have vascular tissue but no flowers or seeds).
+        </blockquote>
         <ul>
-            <li><strong>Dominant Phase:</strong> The <strong>sporophyte (2n)</strong> is the dominant, independent, photosynthetic, and long-lived phase. This is a major advancement over Bryophytes.</li>
-            <li><strong>Dependent Phase:</strong> The <strong>gametophyte (n)</strong> (called a <strong>prothallus</strong>) is simple, small, free-living, and short-lived.</li>
-            <li><strong>Vascular Tissue:</strong> They are the first plants to possess <strong>true vascular tissues (xylem and phloem)</strong>. This allows for efficient transport of water and food, and for greater height.</li>
-            <li><strong>True Roots/Stems/Leaves:</strong> The sporophyte body is differentiated into king <strong>true roots, stems (often a rhizome), and leaves (fronds)</strong>.</li>
+            <li><strong>Dominant Generation:</strong> The main plant body is the <strong>diploid (2n) sporophyte</strong>. It is independent, photosynthetic, and differentiated into <strong>true roots, stems, and leaves</strong>.</li>
+            <li><strong>Gametophyte:</strong> The <strong>haploid (n) gametophyte</strong> (called a <strong>prothallus</strong>) is small, reduced, and usually free-living and photosynthetic.</li>
+            <li><strong>Vascular Tissue:</strong> They are the first plants to possess <strong>xylem</strong> (for water conduction) and <strong>phloem</strong> (for sugar conduction).</li>
             <li><strong>Reproduction:</strong>
                 <ul>
-                    <li><strong>Asexual:</strong> By <strong>spores (n)</strong>, which are produced by <strong>meiosis</strong> in <strong>sporangia</strong>. Sporangia are often clustered on leaves (<strong>sporophylls</strong>).</li>
-                    <li><strong>Sexual:</strong> The haploid prothallus (n) bears the sex organs (antheridia and archegonia). They still require water for fertilization, as the sperm are flagellated.</li>
+                    <li><strong>Asexual:</strong> The sporophyte produces <strong>haploid (n) spores</strong> (by meiosis) in <strong>sporangia</strong>. Sporangia are often clustered on leaves called <strong>sporophylls</strong> (which may form a <strong>cone/strobilus</strong>).</li>
+                    <li><strong>Sexual:</strong> The gametophyte bears the archegonia and antheridia. Like bryophytes, they are still <strong>dependent on water</strong> for the motile sperm to swim to the egg.</li>
                 </ul>
             </li>
-            <li><strong>Alternation of Generations:</strong> They show a true <strong>heteromorphic alternation of generations</strong>, with both phases being independent (at maturity).</li>
+            <li><strong>Life Cycle:</strong> A distinct <strong>heteromorphic alternation of generations</strong> (the sporophyte and gametophyte look very different).</li>
         </ul>
 
-        <h4>Classification (upto orders)</h4>
-        <p>Pteridophytes are classified into four main divisions:</p>
+        <h2 id="pteri-class">2. Pteridophytes: Classification (upto orders)</h2>
+        <p>The Division Pteridophyta is classified into four major classes:</p>
         <ol>
-            <li><strong>Division Psilophyta:</strong> (e.g., <em>Rhynia</em>, <i>Psilotum</i>). Most primitive. No true roots, leaves are scale-like.
+            <li><strong>Class 1: Psilopsida</strong>
                 <ul>
-                    <li>Order: Psilophytales</li>
+                    <li>Most primitive. Simple, rootless sporophyte, dichotomously branched. E.g., *Psilotum*.</li>
+                    <li><strong>Orders:</strong> Psilotales.</li>
                 </ul>
             </li>
-            <li><strong>Division Lycophyta:</strong> (Club mosses). Have small leaves (microphylls).
+            <li><strong>Class 2: Lycopsida (Club Mosses)</strong>
                 <ul>
-                    <li>Order: Lycopodiales (e.g., <em>Lycopodium</em>), Selaginellales (e.g., <em>Selaginella</em>)</li>
+                    <li>Sporophyte has roots, stem, and small leaves (microphylls). E.g., *Lycopodium*, *Selaginella*.</li>
+                    <li><strong>Orders:</strong> Lycopodiales, Selaginellales.</li>
                 </ul>
             </li>
-            <li><strong>Division Sphenophyta:</strong> (Horsetails). Stems are jointed, with whorls of scale-like leaves.
+            <li><strong>Class 3: Sphenopsida (Horsetails)</strong>
                 <ul>
-                    <li>Order: Equisetales (e.g., <em>Equisetum</em>)</li>
+                    <li>Stem is jointed with nodes and internodes. Leaves are in whorls. E.g., *Equisetum*.</li>
+                    <li><strong>Orders:</strong> Equisetales.</li>
                 </ul>
             </li>
-            <li><strong>Division Pterophyta:</strong> (True Ferns). Have large, complex leaves (megaphylls or fronds).
+            <li><strong>Class 4: Pteropsida (True Ferns)</strong>
                 <ul>
-                    <li>Order: Filicales (e.g., <em>Dryopteris</em>, <em>Pteris</em>)</li>
+                    <li>Largest group. Sporophyte has large, divided leaves (megaphylls) called <strong>fronds</strong>. E.g., *Dryopteris*, *Pteris*.</li>
+                    <li><strong>Orders:</strong> Filicales, Marsileales.</li>
                 </ul>
             </li>
         </ol>
 
-        <h4>Economic Importance</h4>
+        <h2 id="pteri-econ">3. Pteridophytes: Economic importance</h2>
         <ul>
-            <li><strong>Ornamentals:</strong> Many ferns (e.g., Boston fern) are grown as ornamental plants.</li>
-            <li><strong>Soil Binders:</strong> Their rhizomes help in soil conservation.</li>
-            <li><strong>Fossil Fuels:</strong> The great pteridophyte forests of the Carboniferous period formed today's <strong>coal deposits</strong>.</li>
-            <li><strong>Biofertilizer:</strong> The aquatic fern <em>Azolla</em> hosts a nitrogen-fixing cyanobacterium (*Anabaena*) and is used as a biofertilizer in rice paddies.</li>
+            <li><strong>Ornamentals:</strong> Many ferns are grown in gardens and as houseplants for their beautiful, feathery foliage (e.g., Boston fern).</li>
+            <li><strong>Soil Binding:</strong> Ferns and fern allies help stabilize soil and prevent erosion.</li>
+            <li><strong>Biofertilizer:</strong> The aquatic fern <em><strong>Azolla</strong></em> has a symbiotic relationship with the nitrogen-fixing cyanobacterium *Anabaena*. It is grown in rice paddies as a green manure.</li>
+            <li><strong>Fossil Fuels:</strong> The great "coal forests" of the Carboniferous period were dominated by giant pteridophytes (like *Lepidodendron*). Their remains formed the coal deposits we use today.</li>
+            <li><strong>Scouring:</strong> *Equisetum* (horsetail) stems are rich in silica and were historically used for cleaning and polishing (scouring) pots and pans.</li>
         </ul>
 
-        <h3 id="subtopic1-2">Heterospory and seed habit</h3>
+        <h2 id="heterospory">4. Pteridophytes: Heterospory and seed habit</h2>
         
-        <h4>Homospory vs. Heterospory</h4>
+        <h3>Heterospory</h3>
         <ul>
-            <li><strong>Homospory:</strong> The production of only <strong>one type of spore</strong>. These spores are all the same size. They germinate to form a <strong>monoecious</strong> (bisexual) prothallus that bears both antheridia and archegonia. (e.g., <em>Lycopodium</em>, most ferns).</li>
-            <li><strong>Heterospory:</strong> The production of <strong>two different types of spores</strong> in two different types of sporangia. This is a crucial evolutionary advancement. (e.g., <em>Selaginella</em>, *Marsilea*).
+            <li><strong>Homospory:</strong> The "primitive" condition. The plant produces only <strong>one type of spore</strong>. This spore germinates into a gametophyte that is (usually) <strong>monoecious</strong> (bisexual), bearing both antheridia and archegonia.
                 <ul>
-                    <li><strong>Microspores:</strong> Small, numerous spores produced in <strong>microsporangia</strong>. They germinate to form a small, reduced <strong>male gametophyte (n)</strong>.</li>
-                    <li><strong>Megaspores:</strong> Large, few spores produced in <strong>megasporangia</strong>. They contain stored food and germinate to form a <strong>female gametophyte (n)</strong>.</li>
+                    <li><strong>Example:</strong> *Lycopodium*, *Rhynia*, most ferns.</li>
+                </ul>
+            </li>
+            <li><strong>Heterospory:</strong> The "advanced" condition. The plant produces <strong>two different types of spores</strong> in two different sporangia.
+                <ul>
+                    <li><strong>Microspores:</strong> Small, male spores. Germinate to form a <strong>male gametophyte</strong> (which only bears antheridia).</li>
+                    <li><strong>Megaspores:</strong> Large, female spores (with stored food). Germinate to form a <strong>female gametophyte</strong> (which only bears archegonia).</li>
+                    <li><strong>Example:</strong> *Selaginella*, *Marsilea*.</li>
                 </ul>
             </li>
         </ul>
 
-        <h4>Seed Habit</h4>
-        <p>A "seed" is a fertilized, protected, and nourished ovule. <em>Selaginella</em> is not a seed plant, but it shows several key pre-requisites for the evolution of the seed, known as the <strong>"seed habit"</strong>:</p>
+        <h3>Seed Habit</h3>
+        <p>Heterospory is the most important evolutionary prerequisite for the formation of a <strong>seed</strong>. A seed is a fertilized, protected, and nourished embryo. The "seed habit" evolved from heterospory by three key steps (all of which are seen in *Selaginella*):</p>
         <ol>
-            <li><strong>Heterospory:</strong> The production of two spore types (micro- and megaspores) is the first step.</li>
-            <li><strong>Retention of Megaspore:</strong> The single, functional megaspore is <strong>not dispersed</strong>. It is retained *within* the megasporangium (which is like a "nucellus").</li>
-            <li><strong>Endosporic Gametophyte:</strong> The female gametophyte develops *inside* the megaspore wall (endosporic development), while it is still in the sporangium.</li>
-            <li><strong>Fertilization in situ:</strong> Fertilization (sperm swimming to the egg) occurs *while* the female gametophyte is still attached to the parent sporophyte.</li>
-            <li><strong>Embryo Development:</strong> The new embryo (2n sporophyte) develops *inside* the female gametophyte, still attached to the old parent, receiving protection and nutrition.</li>
+            <li><strong>1. Production of two types of spores (Heterospory).</strong></li>
+            <li><strong>2. Retention of the megaspore:</strong> The large megaspore is <strong>not released</strong> from the megasporangium (which is now called an ovule).</li>
+            <li><strong>3. Endosporic Development:</strong> The female gametophyte develops <strong>entirely inside</strong> the megaspore wall, *while it is still on the parent sporophyte*.</li>
         </ol>
-        <p><strong>What's missing for a true seed?</strong> A protective seed coat (integument) around the megasporangium, and a period of dormancy.</p>
+        <p><strong>Fertilization:</strong> The sperm swims to the female gametophyte (still on the parent plant). The zygote develops into an embryo, which is now protected by the gametophyte tissue, all inside the old megasporangium. This entire structure is, essentially, a primitive seed.</p>
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> *Selaginella* is the classic example of a plant showing the "origin of seed habit."
+        </div>
 
-        <h3 id="subtopic1-3">Early land plants - Rhynia</h3>
-        <ul>
-            <li><strong>Status:</strong> A <strong>fossil</strong> pteridophyte from the Devonian period. One of the oldest and simplest known vascular plants.</li>
-            <li><strong>Sporophyte (2n):</strong>
+        <h2 id="stele">5. Pteridophytes: Stelar evolution</h2>
+        <blockquote>
+            <strong>Definition:</strong> The <strong>stele</strong> is the central core of the stem and root, containing the vascular tissues (xylem and phloem).
+        </blockquote>
+        <p>A major evolutionary trend in pteridophytes is the increasing complexity of the stele.</p>
+        <ol>
+            <li><strong>Protostele:</strong> The most primitive type. A solid core of xylem surrounded by phloem. No central pith.
                 <ul>
-                    <li><strong>Body:</strong> Simple, <strong>dichotomously branched</strong>, cylindrical, leafless stem.</li>
-                    <li><strong>Roots:</strong> No true roots; had rhizoids for anchorage.</li>
-                    <li><strong>Vascular Tissue:</strong> Had a simple, solid core of xylem (a <strong>protostele</strong>).</li>
-                    <li><strong>Reproduction:</strong> Bore simple, oval <strong>sporangia</strong> at the tips of the branches. It was <strong>homosporous</strong>.</li>
+                    <li><strong>Haplostele:</strong> Simple, circular core of xylem (e.g., *Rhynia*, *Selaginella*).</li>
+                    <li><strong>Actinostele:</strong> Xylem core is star-shaped (e.g., *Lycopodium*).</li>
+                    <li><strong>Plectostele:</strong> Xylem is broken into parallel plates (e.g., *Lycopodium*).</li>
                 </ul>
             </li>
-            <li><strong>Significance:</strong> It provides a "snapshot" of what the earliest vascular land plants looked like.</li>
+            <li><strong>Siphonostele:</strong> A more advanced type. A ring of vascular tissue surrounding a central core of non-vascular parenchyma (the <strong>pith</strong>).
+                <ul>
+                    <li><strong>Solenostele:</strong> A simple ring. When a leaf departs, it leaves a "leaf gap."</li>
+                </ul>
+            </li>
+            <li><strong>Dictyostele:</strong>
+                <ul>
+                    <li>A complex siphonostele with many, overlapping leaf gaps.</li>
+                    <li>This breaks the vascular ring into a network of smaller vascular strands. This is characteristic of most fern rhizomes.</li>
+                </ul>
+            </li>
+        </ol>
+        <div class="diagram-placeholder"></div>
+
+        <h2 id="rhynia">6. Pteridophytes: A general account of fossil pteridophytes - *Rhynia*</h2>
+        <ul>
+            <li><strong>What it is:</strong> *Rhynia* is a fossil pteridophyte from the Devonian period (around 400 million years ago). It is one of the oldest and simplest vascular plants known.</li>
+            <li><strong>Classification:</strong> Psilopsida.</li>
+            <li><strong>Morphology (Sporophyte):</strong>
+                <ul>
+                    <li>Extremely simple body.</li>
+                    <li><strong>No roots:</strong> Had rhizoids for anchorage.</li>
+                    <li><strong>No leaves.</strong></li>
+                    <li><strong>Stem:</strong> The entire plant was just a slender, green, photosynthetic, <strong>dichotomously branched</strong> stem (rhizome and aerial branches).</li>
+                    <li><strong>Stele:</strong> A simple <strong>haplostele</strong> (primitive protostele).</li>
+                    <li><strong>Reproduction:</strong> Bore simple, oval-shaped <strong>sporangia</strong> at the tips of the aerial branches. It was <strong>homosporous</strong>.</li>
+                </ul>
+            </li>
+            <li><strong>Significance:</strong> It shows us what the earliest vascular land plants looked like, representing a crucial step up from non-vascular bryophytes.</li>
+        </ul>
+        <div class="diagram-placeholder"></div>
+
+        <h2 id="lycopodium">7. Pteridophytes: *Lycopodium* (Morphology and reproduction)</h2>
+        <p><strong>(Class: Lycopsida, "Club Moss")</strong></p>
+        <h4>Morphology (Sporophyte):</h4>
+        <ul>
+            <li>Differentiated into true <strong>roots, stem, and leaves</strong>.</li>
+            <li><strong>Stem:</strong> Can be erect or creeping, and is dichotomously branched.</li>
+            <li><strong>Leaves:</strong> Small, simple, scale-like leaves (<strong>microphylls</strong>) that densely cover the stem.</li>
+            <li><strong>Stele:</strong> A <strong>protostele</strong> (often an actinostele or plectostele).</li>
+        </ul>
+        <h4>Reproduction:</h4>
+        <ul>
+            <li><strong>Strobilus (Cone):</strong> The sporangia are borne on the upper surface of specialized leaves called <strong>sporophylls</strong>, which are tightly clustered at the stem tips to form a <strong>cone</strong> or <strong>strobilus</strong>.</li>
+            <li><strong>Spores:</strong> *Lycopodium* is <strong>homosporous</strong> (produces only one type of spore).</li>
+            <li><strong>Gametophyte (Prothallus):</strong> The spore germinates into a small, subterranean (underground) gametophyte that is non-photosynthetic and depends on a symbiotic fungus (mycorrhiza) for food. It bears both antheridia and archegonia.</li>
         </ul>
 
-        <h3 id="subtopic1-4">Morphology, anatomy and reproduction of Lycopodium and Selaginella</h3>
-        
-        <h4>Lycopodium (Club Moss)</h4>
+        <h2 id="selaginella">8. Pteridophytes: *Selaginella* (Morphology and reproduction)</h2>
+        <p><strong>(Class: Lycopsida, "Spike Moss")</strong></p>
+        <h4>Morphology (Sporophyte):</h4>
         <ul>
-            <li><strong>Status:</strong> <strong>Homosporous</strong> pteridophyte.</li>
-            <li><strong>Morphology:</strong> The sporophyte (2n) has a stem (creeping or erect) densely covered with small, simple leaves called <strong>microphylls</strong>. Has true roots.</li>
-            <li><strong>Anatomy:</strong> The stem has a simple <strong>protostele</strong> (a solid core of xylem, often star-shaped).</li>
-            <li><strong>Reproduction:</strong>
+            <li>Similar to *Lycopodium*, but more delicate.</li>
+            <li><strong>Leaves:</strong> Typically has two different sizes of leaves (<strong>heterophyllous</strong>) arranged in four rows.</li>
+            <li><strong>Rhizophore:</strong> A unique, leafless, pro-like structure that grows down from the stem and gives rise to roots.</li>
+            <li><strong>Stele:</strong> A <strong>protostele</strong> (haplostele).</li>
+        </ul>
+        <h4>Reproduction:</h4>
+        <ul>
+            <li><strong>Strobilus (Cone):</strong> Bears two types of sporangia on its sporophylls.
                 <ul>
-                    <li>Sporangia are borne on the upper surface of specialized leaves (<strong>sporophylls</strong>).</li>
-                    <li>In many species, the sporophylls are aggregated at the branch tips to form a cone-like <strong>strobilus</strong>.</li>
-                    <li>All spores are of one type (homospores).</li>
-                    <li>Spores (n) germinate (often after years, with a fungus) to form a simple, free-living, bisexual <strong>prothallus (n)</strong>.</li>
-                    <li>Fertilization requires water, zygote (2n) grows into the new sporophyte.</li>
+                    <li><strong>Microsporangia:</strong> Contain numerous, small <strong>microspores (n)</strong>.</li>
+                    <li><strong>Megasporangia:</strong> Contain (usually) <strong>four large megaspores (n)</strong>.</li>
                 </ul>
             </li>
+            <li><strong>Significance:</strong> *Selaginella* is <strong>heterosporous</strong>.</li>
+            <li><strong>Gametophytes:</strong>
+                <ul>
+                    <li><strong>Male Gametophyte:</strong> Develops <strong>endosporically</strong> (inside the microspore wall). It is just a few cells and produces motile sperm.</li>
+                    <li><strong>Female Gametophyte:</strong> Develops <strong>endosporically</strong> (inside the megaspore wall). It breaks open the wall to expose the archegonia.</li>
+                </ul>
+            </li>
+            <li><strong>Seed Habit:</strong> As mentioned before, the retention of the megaspore and endosporic development in *Selaginella* is a clear forerunner of the seed habit.</li>
         </ul>
 
-        <h4>Selaginella (Spike Moss)</h4>
+        <h2 id="gymno-general">9. Gymnosperms: General characteristics</h2>
+        <blockquote>
+            <strong>Definition:</strong> Gymnosperms ("naked seeds") are vascular, seed-producing plants (spermatophytes) where the <strong>ovules are not enclosed</strong> within an ovary. The seeds are "naked," often borne on the surface of scales (e.g., in a cone).
+        </blockquote>
         <ul>
-            <li><strong>Status:</strong> <strong>Heterosporous</strong> pteridophyte (shows the seed habit).</li>
-            <li><strong>Morphology:</strong> The sporophyte (2n) is a branching stem, typically prostrate, with four rows of leaves (two large, two small). A unique, leafless, root-bearing organ called a <strong>rhizophore</strong> grows down from the stem. A small, scale-like appendage called a <strong>ligule</strong> is present on each leaf (a defining feature).</li>
-            <li><strong>Anatomy:</strong> Stem anatomy is variable, often a protostele.</li>
-            <li><strong>Reproduction:</strong>
-                <ul>
-                    <li>Reproduction is by a terminal <strong>strobilus</strong> (cone).</li>
-                    <li>The strobilus contains two types of sporophylls:
-                        <ul>
-                            <li><strong>Microsporophylls:</strong> Bear <strong>microsporangia</strong> containing many small <strong>microspores (n)</strong>.</li>
-                            <li><strong>Megasporophylls:</strong> Bear <strong>megasporangia</strong> containing (usually) <strong>four large megaspores (n)</strong>.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Gametophyte Development:</strong>
-                        <ul>
-                            <li><strong>Male Gametophyte (n):</strong> Develops *inside* the microspore (endosporic). It is extremely reduced, consisting of just an antheridium that produces biflagellate sperm.</li>
-                            <li><strong>Female Gametophyte (n):</strong> Develops *inside* the megaspore (endosporic). It bursts the megaspore wall, exposing a few archegonia.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Fertilization:</strong> Occurs after the spores are shed (or sometimes on the plant). Sperm swim to the archegonium, forming a zygote (2n) that develops into the new sporophyte.</li>
-                </ul>
-            </li>
-        </ul>
-
-        <h2 id="topic2">Gymnosperms</h2>
-        <p>Gymnosperms (e.g., conifers, cycads) are "Archegoniates" that are more advanced than Pteridophytes. Their name means <strong>"naked seed"</strong> because their ovules (which become seeds) are not enclosed within an ovary (fruit).</p>
-        
-        <h3 id="subtopic2-1">General characteristics, Classification (upto orders) and economic importance</h3>
-
-        <h4>General Characteristics</h4>
-        <ul>
-            <li><strong>Dominant Phase:</strong> The <strong>sporophyte (2n)</strong> is dominant, independent, and highly complex (e.g., shrubs or large trees).</li>
-            <li><strong>Vascular Tissue:</strong> Highly developed. Xylem consists mainly of <strong>tracheids</strong> (vessels are absent, except in Gnetum). Phloem lacks companion cells.</li>
-            <li><strong>Gametophyte Phase:</strong> The <strong>gametophyte (n)</strong> is extremely <strong>reduced</strong> and completely <strong>dependent</strong> on the sporophyte.
-                <ul>
-                    <li><strong>Male Gametophyte:</strong> Reduced to a <strong>pollen grain</strong>.</li>
-                    <li><strong>Female Gametophyte:</strong> Reduced to a small structure (endosperm) inside the ovule.</li>
-                </ul>
-            </li>
+            <li><strong>Dominant Generation:</strong> The <strong>diploid (2n) sporophyte</strong> is dominant (e.g., the pine tree). It is differentiated into root, stem, and leaves.</li>
+            <li><strong>Gametophyte:</strong> The <strong>haploid (n) gametophyte</strong> is extremely reduced, non-photosynthetic, and <strong>parasitic (dependent)</strong> on the sporophyte.</li>
             <li><strong>Reproduction:</strong>
                 <ul>
                     <li>They are <strong>heterosporous</strong> (microspores and megaspores).</li>
-                    <li><strong>Pollination:</strong> The transfer of pollen grains (male gametophyte) to the ovule. This is typically by <strong>wind (anemophily)</strong>. <strong>Water is not required for fertilization.</strong></li>
-                    <li><strong>Ovule:</strong> The megasporangium (nucellus) is enclosed by a protective layer called an <strong>integument</strong>. This entire structure is the ovule.</li>
-                    <li><strong>Seed:</strong> After fertilization, the ovule develops into a <strong>seed</strong> (a dormant embryo, stored food, and a seed coat).</li>
+                    <li><strong>Microspore:</strong> Develops into the <strong>pollen grain</strong> (the highly reduced male gametophyte).</li>
+                    <li><strong>Megaspore:</strong> Develops into the <strong>female gametophyte</strong> (the endosperm), which is retained inside the megasporangium (<strong>ovule</strong>).</li>
                 </ul>
             </li>
+            <li><strong>Pollination:</strong> The transfer of pollen to the ovule. It is typically by <strong>wind (anemophily)</strong>.</li>
+            <li><strong>Fertilization:</strong> <strong>Water is not required</strong>. The pollen grain grows a <strong>pollen tube</strong> to deliver the non-motile (in most) male gametes to the egg.</li>
+            <li><strong>Seed:</strong> The fertilized ovule develops into a <strong>seed</strong>, which contains the embryo, a food supply (endosperm), and a protective seed coat.</li>
         </ul>
+
+        <h2 id="gymno-affinities">10. Gymnosperms: Affinities</h2>
         
-        <h4>Classification (upto orders)</h4>
-        <p>Gymnosperms are classified into four main divisions:</p>
-        <ol>
-            <li><strong>Division Cycadophyta:</strong> (Cycads). Palm-like, stout stems, large compound leaves.
-                <ul>
-                    <li>Order: Cycadales (e.g., <em>Cycas</em>)</li>
-                </ul>
-            </li>
-            <li><strong>Division Ginkgophyta:</strong> Only one living species. Fan-shaped leaves.
-                <ul>
-                    <li>Order: Ginkgoales (e.g., <em>Ginkgo</em>)</li>
-                </ul>
-            </li>
-            <li><strong>Division Coniferophyta:</strong> (Conifers). Needle-like or scale-like leaves. Cone-bearing.
-                <ul>
-                    <li>Order: Coniferales (e.g., <em>Pinus</em>)</li>
-                </ul>
-            </li>
-            <li><strong>Division Gnetophyta:</strong> Advanced group with some angiosperm-like features (e.g., vessels in xylem).
-                <ul>
-                    <li>Order: Gnetales (e.g., <em>Gnetum</em>), Ephedrales</li>
-                </ul>
-            </li>
-        </ol>
-
-        <h4>Economic Importance</h4>
+        <h4>Affinities with Pteridophytes (Similarities)</h4>
         <ul>
-            <li><strong>Timber:</strong> Conifers (e.g., Pine, Fir, Deodar) are the most important source of <strong>softwood</strong> timber for construction, furniture, and paper pulp.</li>
-            <li><strong>Resins:</strong> Conifer resin is harvested to produce <strong>turpentine</strong> and <strong>rosin</strong> (used in paints, varnishes).</li>
-            <li><strong>Food:</strong> Seeds of some species are edible (e.g., "pine nuts," sago from <em>Cycas</em>).</li>
-            <li><strong>Medicine:</strong> <em>Ephedra</em> produces the drug ephedrine. <em>Taxus</em> (Yew) produces Taxol, an anti-cancer drug.</li>
-            <li><strong>Ornamentals:</strong> Many conifers and cycads are used in landscaping.</li>
+            <li>Both have a dominant, independent sporophyte.</li>
+            <li>Both show a clear alternation of generations.</li>
+            <li>Both possess vascular tissue (xylem and phloem).</li>
+            <li>Both have archegonia (in most gymnosperms).</li>
+            <li>Some pteridophytes (*Selaginella*) show heterospory and the origin of the seed habit.</li>
         </ul>
 
-        <h3 id="subtopic2-2">Morphology, anatomy and reproduction of Cycas, Pinus, Ginkgo and Gnetum</h3>
-
-        <h4>Cycas (Division: Cycadophyta)</h4>
+        <h4>Affinities with Angiosperms (Similarities)</h4>
         <ul>
-            <li><strong>Morphology:</strong> A "living fossil." Has a stout, unbranched, columnar stem (like a palm tree) with a crown of large, <strong>pinnately compound leaves</strong>.</li>
-            <li><strong>Anatomy:</strong> Stem has a large pith and cortex with many mucilage canals. Vascular bundles are in a ring. Leaves are <strong>xerophytic</strong> (thick cuticle, sunken stomata). Has unique <strong>coralloid roots</strong> (symbiotic with N<sub>2</sub>-fixing Cyanobacteria).</li>
-            <li><strong>Reproduction:</strong>
+            <li>Both have a dominant sporophyte, and a highly reduced gametophyte.</li>
+            <li>Both possess vascular tissue (though gymnosperm xylem lacks vessels and phloem lacks companion cells, *except* in *Gnetum*).</li>
+            <li>Both produce seeds.</li>
+            <li>Both use a pollen tube for fertilization (siphonogamy), making them independent of water for reproduction.</li>
+        </ul>
+
+        <div class="exam-tip">
+            <strong>Key Difference:</strong>
+            <ul>
+                <li><strong>Gymnosperm vs. Pteridophyte:</strong> Gymnosperms have seeds and a pollen tube; Pteridophytes do not.</li>
+                <li><strong>Gymnosperm vs. Angiosperm:</strong> Gymnosperms have <strong>naked ovules/seeds</strong> (no ovary, no fruit). Angiosperms have <strong>enclosed ovules/seeds</strong> (inside an ovary, which becomes a fruit).</li>
+            </ul>
+        </div>
+
+        <h2 id="cycas">11. Gymnosperms: *Cycas*</h2>
+        <ul>
+            <li><strong>Group:</strong> Cycadopsida.</li>
+            <li><strong>Morphology:</strong> Palm-like, unbranched, columnar stem with a crown of large, <strong>pinnately compound leaves</strong>.</li>
+            <li><strong>Anatomy:</strong> Stem has a large pith and cortex with many mucilage canals. Leaflets (pinnae) have a single, unbranched midrib.</li>
+            <li><strong>Reproduction (Dioecious):</strong>
                 <ul>
-                    <li><strong>Dioecious</strong> (separate male and female plants).</li>
-                    <li><strong>Male Plant:</strong> Produces a large, compact <strong>male cone</strong> (strobilus) with <strong>microsporophylls</strong> that bear <strong>microsporangia</strong> (pollen sacs).</li>
-                    <li><strong>Female Plant:</strong> Does <strong>not</strong> produce a true cone. It produces a loose cluster of <strong>megasporophylls</strong> (leaf-like str
+                    <li><strong>Male Plant:</strong> Produces a <strong>large, compact male cone</strong> (strobilus) in the center.</li>
+                    <li><strong>Female Plant:</strong> Does <strong>not</strong> produce a true cone. It produces a loose cluster of <strong>megasporophylls</strong> (leaf-like structures) that bear large, red, <strong>naked ovules</strong> along their margins.</li>
+                    <li><strong>Fertilization:</strong> Has primitive features. Pollen tube is present, but it acts as a haustorium (absorbs nutrients). It bursts to release <strong>large, motile, multiflagellate sperm</strong> (a pteridophyte-like feature).</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2 id="pinus">12. Gymnosperms: *Pinus*</h2>
+        <ul>
+            <li><strong>Group:</strong> Coniferopsida.</li>
+            <li><strong>Morphology:</strong> A large, branched tree. Has two types of shoots:
+                <ul>
+                    <li><strong>Long shoots:</strong> Have unlimited growth.</li>
+                    <li><strong>Dwarf shoots:</strong> Have limited growth. They bear the <strong>needles (leaves)</strong> in clusters (e.g., 2, 3, or 5 needles).</li>
+                </ul>
+            </li>
+            <li><strong>Anatomy:</strong> Stem shows secondary growth (wood). Wood is <strong>pycnoxylic</strong> (dense, compact). Needle leaves are xerophytic (adapted to drought).</li>
+            <li><strong>Reproduction (Monoecious):</strong>
+                <ul>
+                    <li><strong>Male Cones:</strong> Small, clustered at the base of new shoots. Produce vast amounts of winged pollen.</li>
+                    <li><strong>Female Cones:</strong> Large, woody cones. Composed of <strong>ovuliferous scales</strong> (which bear two naked ovules) and bract scales.</li>
+                    <li><strong>Fertilization:</strong> Wind pollination. A <strong>pollen tube</strong> grows and delivers <strong>two non-motile male gametes</strong> to the archegonium.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2 id="gingko">13. Gymnosperms: *Gingko*</h2>
+        <ul>
+            <li><strong>Group:</strong> Ginkgopsida.</li>
+            <li><strong>"Living Fossil":</strong> *Ginkgo biloba* is the only surviving species in its entire order.</li>
+            <li><strong>Morphology:</strong> A large, deciduous (loses leaves in winter) tree.
+                <ul>
+                    <li><strong>Leaves:</strong> Unique, <strong>fan-shaped leaves</strong> with <strong>dichotomous venation</strong> (a primitive trait).</li>
+                </ul>
+            </li>
+            <li><strong>Reproduction (Dioecious):</strong>
+                <ul>
+                    <li><strong>Male Plant:</strong> Produces small, catkin-like pollen cones.</li>
+                    <li><strong>Female Plant:</strong> Produces <strong>paired ovules</strong> on a long stalk.</li>
+                    <li><strong>Fertilization:</strong> Similar to *Cycas*. A pollen tube grows, but it releases <strong>motile, flagellated sperm</strong>.</li>
+                    <li><strong>Seed:</strong> The fertilized ovule develops into a seed with a fleshy, foul-smelling outer coat (it is *not* a fruit).</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2 id="gnetum">14. Gymnosperms: *Gnetum*</h2>
+        <ul>
+            <li><strong>Group:</strong> Gnetopsida.</li>
+            <li><strong>Significance:</strong> This group (*Gnetum*, *Ephedra*, *Welwitschia*) is considered the most advanced gymnosperm, showing many <strong>angiosperm-like features</strong>.</li>
+            <li><strong>Morphology:</strong> Mostly woody climbers (vines) with large, broad, oval leaves that look like those of a dicot (with reticulate venation).</li>
+            <li><strong>Anatomy (Angiosperm-like features):</strong>
+                <ul>
+                    <li>Possession of <strong>vessels</strong> in its xylem (like angiosperms).</li>
+                    <li>Lack of typical phloem companion cells (but has some "albuminous cells").</li>
+                </ul>
+            </li>
+            <li><strong>Reproduction (Angiosperm-like features):</strong>
+                <ul>
+                    <li>Cones are complex and "flower-like."</li>
+                    <li><strong>Archegonia are absent</strong> (in some species).</li>
+                    <li>A type of <strong>double fertilization</strong> has been reported, though it's different from the angiosperm version (it doesn't form triploid endosperm).</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

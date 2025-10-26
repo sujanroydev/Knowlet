@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DSC 102 (Unit 1) - History of Earth</title>
+    <title>DSC-102 Unit 1: History of Earth</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
-            background-color: #f4f7f6;
+            background-color: #fdfcf9;
             color: #333;
             margin: 0;
             padding: 20px;
@@ -20,128 +20,96 @@
             border: 1px solid #ddd;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            padding: 25px 40px;
+            padding: 20px 40px;
+        }
+        h1, h2, h3 {
+            color: #5D4037; /* Brown */
+            border-bottom: 2px solid #A1887F; /* Lighter Brown */
+            padding-bottom: 5px;
+            margin-top: 25px;
         }
         h1 {
-            color: #2c3e50;
-            border-bottom: 3px solid #2c3e50;
-            padding-bottom: 10px;
-            font-size: 2.5em;
+            font-size: 2.2em;
             text-align: center;
+            border-bottom-width: 4px;
         }
         h2 {
-            color: #34495e;
-            border-bottom: 2px solid #bdc3c7;
-            padding-bottom: 5px;
-            margin-top: 30px;
-            font-size: 2em;
+            font-size: 1.8em;
         }
         h3 {
-            color: #7f8c8d;
-            margin-top: 25px;
-            font-size: 1.5em;
+            font-size: 1.4em;
+            border-bottom-style: dashed;
+            border-bottom-width: 1px;
+            color: #2E7D32; /* Green */
         }
         p {
             margin-bottom: 15px;
-            text-align: justify;
         }
         ul, ol {
-            margin-left: 30px;
+            margin-left: 20px;
             margin-bottom: 15px;
         }
         li {
-            margin-bottom: 8px;
+            margin-bottom: 5px;
         }
         strong {
-            color: #c0392b; /* A distinct color for emphasis */
+            color: #B71C1C; /* Dark Red */
         }
         em {
-            color: #16a085;
             font-style: italic;
+            color: #555;
         }
         blockquote {
-            background-color: #ecf0f1;
-            border-left: 5px solid #3498db;
+            background-color: #F5F5F5;
+            border-left: 5px solid #A1887F; /* Lighter Brown */
+            padding: 15px;
             margin: 20px 0;
-            padding: 15px 20px;
             font-style: italic;
-            font-size: 1.1em;
+        }
+        .toc {
+            background-color: #F9F9F9;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc li a {
+            text-decoration: none;
+            color: #6D4C41; /* Brown */
+        }
+        .toc li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #FFFDE7;
+            border: 1px solid #FBC02D;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #E65100;
         }
         table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         th, td {
             border: 1px solid #ddd;
-            padding: 12px;
+            padding: 10px;
             text-align: left;
         }
         th {
-            background-color: #34495e;
-            color: white;
-            font-size: 1.1em;
+            background-color: #EFEBE9;
+            color: #5D4037;
         }
         tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        tr:hover {
-            background-color: #ecf0f1;
-        }
-        nav.toc {
-            background-color: #fdfdfd;
-            border: 1px solid #eee;
-            border-radius: 5px;
-            padding: 15px;
-            margin-bottom: 30px;
-        }
-        nav.toc h2 {
-            margin-top: 0;
-            border-bottom: none;
-            color: #333;
-            font-size: 1.5em;
-            text-align: center;
-        }
-        nav.toc ul {
-            list-style-type: none;
-            padding-left: 0;
-            columns: 2;
-            -webkit-columns: 2;
-            -moz-columns: 2;
-        }
-        nav.toc ul li {
-            margin-bottom: 5px;
-        }
-        nav.toc ul li a {
-            text-decoration: none;
-            color: #2980b9;
-        }
-        nav.toc ul li a:hover {
-            text-decoration: underline;
-            color: #c0392b;
-        }
-        .exam-tip {
-            background-color: #fef9e7;
-            border: 1px solid #f1c40f;
-            border-left-width: 5px;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 5px;
-        }
-        .exam-tip strong {
-            color: #d35400;
-        }
-        .diagram-placeholder {
-            width: 100%;
-            background-color: #fafafa;
-            border: 2px dashed #ccc;
-            padding: 20px;
-            text-align: center;
-            margin: 20px 0;
-            font-style: italic;
-            color: #777;
-            border-radius: 5px;
+            background-color: #FAFAFA;
         }
     </style>
 </head>
@@ -149,262 +117,195 @@
     <div class="container">
         <h1>Unit 1: History of Earth</h1>
 
-        <nav class="toc">
+        <div class="toc">
             <h2>Table of Contents</h2>
             <ul>
-                <li><a href="#formation-earth">1. Formation of the Earth</a></li>
-                <li><a href="#composition">2. Composition of Core, Mantle, and Crust</a></li>
-                <li><a href="#atmo-hydro">3. Formation of Atmosphere and Hydrosphere</a></li>
-                <li><a href="#origin-life">4. Origin and Evolution of Life Forms</a></li>
-                <li><a href="#gts">5. Geologic Time Scale</a></li>
-                <li><a href="#dating">6. Radiometric Dating Methods</a></li>
-                <li><a href="#age-earth">7. Age of the Earth</a></li>
-            </ul>
-        </nav>
-
-        <hr>
-
-        <section id="formation-earth">
-            <h2>1. Formation of the Earth</h2>
-            <p>The Earth formed approximately <strong>4.6 billion years ago</strong> from the same cloud of gas and dust (a solar nebula) that formed the Sun and the rest of our solar system. This process is explained by the <strong>Nebular Hypothesis</strong>.</p>
-            <ol>
-                <li><strong>Accretion:</strong> The solar nebula collapsed under its own gravity. Dust, rock, and gas clumped together to form planetesimals.</li>
-                <li><strong>Collision:</strong> These planetesimals collided and stuck together, growing larger over millions of years to form a molten "proto-Earth."</li>
-                <li><strong>Differentiation:</strong> While the Earth was molten, heavier elements sank to the center, and lighter elements rose to the surface. This separation by density created the Earth's layered structure (core, mantle, crust).</li>
-            </ol>
-            <div class="diagram-placeholder">
-                <strong>Diagram:</strong> A flowchart showing a spinning gas cloud (nebula) -> flattening into a disk with a proto-sun -> accretion of planetesimals -> formation of planets in orbits.
-            </div>
-        </section>
-
-        <hr>
-
-        <section id="composition">
-            <h2>2. Composition of Core, Mantle, and Crust</h2>
-            <p>The process of differentiation resulted in three main chemical layers:</p>
-            
-            <h3>The Crust</h3>
-            <p>The outermost, thinnest, and least dense layer. It is the rigid "skin" of the Earth. There are two types:</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Property</th>
-                        <th>Continental Crust</th>
-                        <th>Oceanic Crust</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Thickness</strong></td>
-                        <td>Thick (30-70 km)</td>
-                        <td>Thin (5-10 km)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Density</strong></td>
-                        <td>Less dense (approx. 2.7 g/cm³)</td>
-                        <td>More dense (approx. 3.0 g/cm³)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Composition</strong></td>
-                        <td>Granitic (rich in Silicon & Aluminum - "SiAl")</td>
-                        <td>Basaltic (rich in Silicon & Magnesium - "SiMa")</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Age</strong></td>
-                        <td>Very old (up to 4 billion years)</td>
-                        <td>Relatively young (< 200 million years)</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3>The Mantle</h3>
-            <p>The thickest layer (about 2,900 km) located beneath the crust. It makes up about 84% of Earth's volume. It is composed of hot, dense, silicate rocks (rich in iron and magnesium, like <em>peridotite</em>). While it's a "solid," it flows very slowly over geologic time, like thick asphalt. This slow movement is called <strong>mantle convection</strong> and is what drives plate tectonics.</p>
-
-            <h3>The Core</h3>
-            <p>The innermost, densest layer, composed primarily of <strong>iron and nickel</strong>.</p>
-            <ul>
-                <li><strong>Outer Core:</strong> A <strong>liquid</strong> layer. The flow of this liquid metal generates the Earth's magnetic field.</li>
-                <li><strong>Inner Core:</strong> A <strong>solid</strong> sphere, despite being hotter than the outer core. It is solid because of the immense pressure at the center of the Earth.</li>
-            </ul>
-            <div class="diagram-placeholder">
-                <strong>Diagram:</strong> A cross-section of the Earth showing the Crust, Mantle, Outer Core, and Inner Core, with labels for their state (solid/liquid) and composition.
-            </div>
-        </section>
-
-        <hr>
-
-        <section id="atmo-hydro">
-            <h2>3. Formation of Atmosphere and Hydrosphere</h2>
-            
-            <h3>Atmosphere</h3>
-            <p>The Earth's atmosphere formed in stages:</p>
-            <ol>
-                <li><strong>Primary Atmosphere:</strong> The first atmosphere, composed of light gases like hydrogen and helium from the solar nebula. It was stripped away by solar winds.</li>
-                <li><strong>Secondary Atmosphere:</strong> Formed by <strong>volcanic outgassing</strong> as the Earth cooled. Volcanoes released gases like water vapor (H₂O), carbon dioxide (CO₂), methane (CH₄), and nitrogen (N₂). There was almost no oxygen.</li>
-                <li><strong>Tertiary Atmosphere (Modern):</strong> The formation of oceans removed CO₂ from the air. Then, about 2.7 billion years ago, <strong>cyanobacteria</strong> began performing photosynthesis, releasing vast amounts of <strong>oxygen (O₂)</strong>. This "Great Oxidation Event" fundamentally changed the planet, allowing for the evolution of aerobic life.</li>
-            </ol>
-            
-            <h3>Hydrosphere</h3>
-            <p>The hydrosphere (all of Earth's water) also came from two main sources:</p>
-            <ol>
-                <li><strong>Outgassing:</strong> The vast amount of water vapor (H₂O) released from volcanoes during the Earth's early molten state.</li>
-                <li><strong>Comets and Asteroids:</strong> Water-rich comets and asteroids from the outer solar system bombarded the early Earth, delivering significant amounts of water.</li>
-            </ol>
-            <p>As the Earth cooled, this water vapor condensed, formed clouds, and led to millions of years of rainfall, which filled the low-lying basins to become the first oceans.</p>
-        </section>
-
-        <hr>
-
-        <section id="origin-life">
-            <h2>4. Origin and Evolution of Life Forms</h2>
-            <p>Life is thought to have begun in the early oceans ("primordial soup") around 3.5 to 4 billion years ago. The exact process is unknown, but it involved the formation of simple organic molecules that eventually combined to form self-replicating cells.</p>
-            <p>Key Milestones:</p>
-            <ul>
-                <li><strong>~3.5 Ga (Billion years ago):</strong> First life (<strong>prokaryotes</strong>), simple single-celled organisms like bacteria. Evidence is found in <strong>stromatolites</strong> (layered mats of fossilized cyanobacteria).</li>
-                <li><strong>~2.7 Ga:</strong> Photosynthesis begins (cyanobacteria), starts releasing oxygen (O₂).</li>
-                <li><strong>~2.4 Ga: Great Oxidation Event.</strong> Oxygen builds up in the atmosphere. This was toxic to most existing (anaerobic) life, causing a mass extinction, but it paved the way for complex, oxygen-breathing life.</li>
-                <li><strong>~1.8 Ga:</strong> First complex cells (<strong>eukaryotes</strong>) appear. These cells have a nucleus and organelles.</li>
-                <li><strong>~600 Ma (Million years ago):</strong> First simple multicellular animals (e.g., sponges).</li>
-                <li><strong>~541 Ma: The Cambrian Explosion.</strong> A relatively rapid "explosion" of biological diversity, where most major animal body plans (phyla) appeared in the fossil record.</li>
-            </ul>
-        </section>
-
-        <hr>
-
-        <section id="gts">
-            <h2>5. Geologic Time Scale (GTS)</h2>
-            <p>The Geologic Time Scale is a "calendar" of Earth's history. It divides all 4.6 billion years into a hierarchical system of time blocks based on major geological or biological events (like mass extinctions).</p>
-            <blockquote>
-                <strong>Hierarchy:</strong> Eon > Era > Period > Epoch
-            </blockquote>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th>Eon</th>
-                        <th>Era</th>
-                        <th>Period</th>
-                        <th>Time Range (Approx.)</th>
-                        <th>Major Events</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td rowspan-11"><strong>Phanerozoic</strong><br>("Visible Life")</td>
-                        <td rowspan="3"><strong>Cenozoic</strong><br>("New Life")</td>
-                        <td>Quaternary</td>
-                        <td>2.6 Ma - Present</td>
-                        <td>Ice Ages, evolution of humans.</td>
-                    </tr>
-                    <tr>
-                        <td>Neogene</td>
-                        <td>23 - 2.6 Ma</td>
-                        <td>Mammals and birds diversify.</td>
-                    </tr>
-                    <tr>
-                        <td>Paleogene</td>
-                        <td>66 - 23 Ma</td>
-                        <td>Rise of mammals after dinosaur extinction.</td>
-                    </tr>
-                    <tr>
-                        <td rowspan-3"><strong>Mesozoic</strong><br>("Middle Life")</td>
-                        <td>Cretaceous</td>
-                        <td>145 - 66 Ma</td>
-                        <td>Age of Dinosaurs. Ends with K-T extinction.</td>
-                    </tr>
-                    <tr>
-                        <td>Jurassic</td>
-                        <td>201 - 145 Ma</td>
-                        <td>First birds. Dinosaurs dominate.</td>
-                    </tr>
-                    <tr>
-                        <td>Triassic</td>
-                        <td>252 - 201 Ma</td>
-                        <td>First dinosaurs and mammals.</td>
-                    </tr>
-                    <tr>
-                        <td rowspan="5"><strong>Paleozoic</strong><br>("Old Life")</td>
-                        <td>Permian</td>
-                        <td>299 - 252 Ma</td>
-                        <td>Ends with "The Great Dying" (largest mass extinction).</td>
-                    </tr>
-                    <tr>
-                        <td>Carboniferous</td>
-                        <td>359 - 299 Ma</td>
-                        <td>Vast coal swamps. First reptiles.</td>
-                    </tr>
-                    <tr>
-                        <td>Devonian</td>
-                        <td>419 - 359 Ma</td>
-                        <td>Age of Fishes. First amphibians.</td>
-                    </tr>
-                    <tr>
-                        <td>Silurian</td>
-                        <td>444 - 419 Ma</td>
-                        <td>First land plants.</td>
-                    </tr>
-                    <tr>
-                        <td>Ordovician / Cambrian</td>
-                        <td>541 - 444 Ma</td>
-                        <td>Cambrian Explosion. First fish.</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><strong>Precambrian</strong> (Proterozoic, Archean, Hadean Eons)</td>
-                        <td>4.6 Ga - 541 Ma</td>
-                        <td>~90% of Earth's history. Formation of Earth, first life, first oxygen.</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="exam-tip">
-                <strong>Exam Tip:</strong> Remember the order of the Phanerozoic Eras: <strong>P</strong>aleozoic, <strong>M</strong>esozoic, <strong>C</strong>enozoic. A common mnemonic for the periods is: "<strong>C</strong>amels <strong>O</strong>ften <strong>S</strong>it <strong>D</strong>own <strong>C</strong>arefully, <strong>P</strong>erhaps <strong>T</strong>heir <strong>J</strong>oints <strong>C</strong>reak? <strong>P</strong>aleo, <strong>N</strong>eo, <strong>Q</strong>uaternary."
-            </div>
-        </section>
-
-        <hr>
-
-        <section id="dating">
-            <h2>6. Radiometric Dating Methods</h2>
-            <p>This is the technique used to determine the absolute age of rocks and fossils in years. It is the "clock" that adds numbers to the Geologic Time Scale.</p>
-            <p><strong>Principle:</strong> It relies on the radioactive decay of certain isotopes. A radioactive "parent" isotope decays at a fixed, predictable rate into a stable "daughter" isotope.</p>
-            <blockquote>
-                <strong>Half-Life:</strong> The time it takes for <strong>half</strong> of the parent isotopes in a sample to decay into daughter isotopes.
-            </blockquote>
-            <p>By measuring the ratio of parent-to-daughter isotopes in a mineral, scientists can calculate how many half-lives have passed since the mineral formed, thus giving its age.</p>
-            
-            <h3>Common Dating Methods:</h3>
-            <ul>
-                <li><strong>Carbon-14 (C-14):</strong>
+                <li><a href="#topic1">Formation of the Earth</a></li>
+                <li><a href="#topic2">Formation and Composition of Earth's Layers</a>
                     <ul>
-                        <li><strong>Half-life:</strong> ~5,730 years.</li>
-                        <li><strong>Used for:</strong> Dating *organic* material (wood, bones, cloth) that was once living.</li>
-                        <li><strong>Range:</strong> Only useful for recent materials (< 50,000 years). It cannot be used to date rocks or dinosaurs.</li>
+                        <li><a href="#sub2_1">Core</a></li>
+                        <li><a href="#sub2_2">Mantle</a></li>
+                        <li><a href="#sub2_3">Crust</a></li>
+                        <li><a href="#sub2_4">Atmosphere</a></li>
+                        <li><a href="#sub2_5">Hydrosphere</a></li>
                     </ul>
                 </li>
-                <li><strong>Potassium-Argon (K-Ar):</strong>
+                <li><a href="#topic3">Introduction to Geological Time Scale</a>
                     <ul>
-                        <li><strong>Half-life:</strong> ~1.25 billion years.</li>
-                        <li><strong>Used for:</strong> Dating <em>volcanic rocks</em> (igneous). When lava cools, it traps potassium, but all argon gas escapes. Any argon found in the rock must have come from the decay of potassium *after* it cooled.</li>
+                        <li><a href="#sub3_1">Hierarchy of Geologic Time</a></li>
+                        <li><a href="#sub3_2">Major Divisions and Events</a></li>
                     </ul>
                 </li>
-                <li><strong>Uranium-Lead (U-Pb):</strong>
+                <li><a href="#topic4">Holocene and the Emergence of Humans</a>
                     <ul>
-                        <li><strong>Half-life:</strong> (U-238 to Pb-206) ~4.5 billion years.</li>
-                        <li><strong>Used for:</strong> Dating extremely old rocks and the Earth itself. It is highly accurate and often used on zircon crystals, which are very durable.</li>
+                        <li><a href="#sub4_1">The Holocene Epoch</a></li>
+                        <li><a href="#sub4_2">Emergence of Humans</a></li>
                     </ul>
                 </li>
             </ul>
-        </section>
+        </div>
 
-        <hr>
+        <h2 id="topic1">Formation of the Earth</h2>
+        <p>The Earth, along with the rest of our solar system, formed approximately <strong>4.6 billion years ago</strong>. The most widely accepted theory is the <strong>Nebular Hypothesis</strong>.</p>
+        <ol>
+            <li><strong>Solar Nebula:</strong> A vast, spinning cloud of gas and dust (mostly hydrogen, helium, and heavier elements from older supernovas) existed in space.</li>
+            <li><strong>Gravitational Collapse:</strong> Gravity caused this cloud to contract and spin faster, flattening it into a protoplanetary disk. The vast majority of the mass collapsed to the center, igniting to form our Sun.</li>
+            <li><strong>Accretion:</strong> In the spinning disk, dust particles began to stick together (accretion). These clumps grew into larger bodies called <em>planetesimals</em>.</li>
+            <li><strong>Proto-Earth:</strong> Through continued collisions and gravitational attraction, planetesimals clumped together to form a "proto-Earth." This process generated immense heat, causing the entire planet to be in a molten (liquid) state.</li>
+            <li><strong>Differentiation:</strong> While molten, heavier elements (like <strong>iron and nickel</strong>) sank to the center due to gravity, forming the <strong>Core</strong>. Lighter elements (like <strong>silicon and oxygen</strong>) floated to the surface, forming the <strong>Mantle</strong> and <strong>Crust</strong>. This separation process is called <em>planetary differentiation</em>.</li>
+        </ol>
+        <h2 id="topic2">Formation and Composition of Earth's Layers</h2>
+        <p>As a result of differentiation, the Earth is a layered planet. These layers are defined by their chemical composition and physical properties.</p>
 
-        <section id="age-earth">
-            <h2>7. Age of the Earth</h2>
-            <blockquote>
-                The accepted age of the Earth is approximately <strong>4.54 billion years old</strong> (plus or minus 50 million years).
-            </blockquote>
-            <h3>How do we know?</h3>
-            <p>This age was not determined from Earth rocks. The Earth's original crust has been destroyed and recycled by plate tectonics (weathering, erosion, subduction). No "birth rocks" from 4.5 Ga remain.</p>
-            <p>The age was determined by using <strong>Uranium-Lead (U-Pb) radiometric dating</strong> on other objects in our solar system that formed at the same time as the Earth but have *not* been recycled:</p>
-            <ol>
-                <li><strong>Meteorites:</strong> These are fragments of "leftover" material from the formation of the solar system. The oldest known meteorites, such as the <strong>Canyon Diablo meteorite</strong>, consistently date to ~4.54 billion years.</li>
-                <li><strong>Moon Ro
+        <h3 id="sub2_1">Core</h3>
+        <ul>
+            <li><strong>Location:</strong> The center of the Earth.</li>
+            <li><strong>Outer Core:</strong>
+                <ul>
+                    <li><strong>State:</strong> Liquid</li>
+                    <li><strong>Composition:</strong> Primarily liquid iron (Fe) and nickel (Ni).</li>
+                    <li><strong>Function:</strong> The convection (flow) of this liquid metal generates the Earth's <strong>magnetic field</strong>, which protects us from harmful solar wind.</li>
+                </ul>
+            </li>
+            <li><strong>Inner Core:</strong>
+                <ul>
+                    <li><strong>State:</strong> Solid (despite being hotter than the outer core, it is solid due to immense pressure).</li>
+                    <li><strong>Composition:</strong> Primarily solid iron (Fe) and nickel (Ni).</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3 id="sub2_2">Mantle</h3>
+        <ul>
+            <li><strong>Location:</strong> The thick layer (about 2900 km) between the core and the crust.</li>
+            <li><strong>Composition:</strong> Makes up ~84% of Earth's volume. Composed of hot, dense, iron- and magnesium-rich silicate rocks (e.g., olivine, pyroxene).</li>
+            <li><strong>Sub-layers:</strong>
+                <ul>
+                    <li><strong>Lithosphere (Rigid):</strong> The crust AND the uppermost rigid part of the mantle. This is what makes up the "tectonic plates."</li>
+                    <li><strong>Asthenosphere (Plastic):</strong> A semi-molten, "plastic-like" layer just below the lithosphere. It flows very slowly, allowing the rigid tectonic plates above it to move.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3 id="sub2_3">Crust</h3>
+        <ul>
+            <li><strong>Location:</strong> The outermost, thin, rocky "skin" of the Earth.</li>
+            <li><strong>Continental Crust:</strong>
+                <ul>
+                    <li><strong>Thickness:</strong> Thicker (30-70 km).</li>
+                    <li><strong>Composition:</strong> Less dense, "granitic" (rich in silicon and aluminum).</li>
+                    <li><strong>Example:</strong> The landmasses we live on.</li>
+                </ul>
+            </li>
+            <li><strong>Oceanic Crust:</strong>
+                <ul>
+                    <li><strong>Thickness:</strong> Thinner (5-10 km).</li>
+                    <li><strong>Composition:</strong> Denser, "basaltic" (rich in silicon, iron, and magnesium).</li>
+                    <li><strong>Example:</strong> The crust beneath the oceans.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="exam-tip">
+            <strong>Key Distinction:</strong> Continental crust is <strong>less dense</strong> than oceanic crust. This is why, when they collide, the denser oceanic crust subducts (sinks) beneath the continental crust.
+        </div>
+
+        <h3 id="sub2_4">Atmosphere</h3>
+        <p>The atmosphere formed in stages:</p>
+        <ol>
+            <li><strong>Primordial Atmosphere:</strong> Composed of Hydrogen (H) and Helium (He) from the solar nebula. This was quickly lost to space.</li>
+            <li><strong>Secondary Atmosphere:</strong> Formed by <strong>volcanic outgassing</strong>. Volcanoes released gases like water vapor (H<sub>2</sub>O), carbon dioxide (CO<sub>2</sub>), methane (CH<sub>4</sub>), and nitrogen (N<sub>2</sub>). There was virtually no oxygen.</li>
+            <li><strong>Living Atmosphere (Present):</strong>
+                <ul>
+                    <li>Cyanobacteria (blue-green algae) evolved and began photosynthesis, consuming CO<sub>2</sub> and releasing <strong>Oxygen (O<sub>2</sub>)</strong>.</li>
+                    <li>This "Great Oxidation Event" (starting ~2.4 billion years ago) filled the atmosphere with oxygen, paving the way for complex, air-breathing life.</li>
+                    <li><strong>Present Composition:</strong> ~78% Nitrogen (N<sub>2</sub>), 21% Oxygen (O<sub>2</sub>), 0.9% Argon (Ar), and trace gases.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3 id="sub2_5">Hydrosphere</h3>
+        <blockquote>
+            <strong>Definition:</strong> The hydrosphere includes all the water on Earth, in all its forms (liquid, solid, gas). This includes oceans, lakes, rivers, glaciers, groundwater, and water vapor.
+        </blockquote>
+        <p><strong>Formation:</strong></p>
+        <ul>
+            <li><strong>Volcanic Outgassing:</strong> The primary source. The huge amounts of water vapor (H<sub>2</sub>O) released by volcanoes during the secondary atmosphere stage condensed as the Earth cooled, forming clouds and falling as rain for millions of years to fill the ocean basins.</li>
+            <li><strong>Comets and Asteroids:</strong> A significant portion of Earth's water may also have been delivered by "icy" comets and asteroids that impacted the early Earth.</li>
+        </ul>
+
+        <h2 id="topic3">Introduction to Geological Time Scale</h2>
+        <p>The Geological Time Scale (GTS) is a "calendar" that organizes Earth's 4.6-billion-year history into hierarchical divisions based on major geological and biological events (like mass extinctions).</p>
+
+        <h3 id="sub3_1">Hierarchy of Geologic Time</h3>
+        <p>The hierarchy, from largest to smallest, is:</p>
+        <blockquote>
+            <strong>Eon &gt; Era &gt; Period &gt; Epoch</strong>
+        </blockquote>
+        <h3 id="sub3_2">Major Divisions and Events</h3>
+        <p>Earth's history is split into two major Eons:</p>
+        <ol>
+            <li><strong>Precambrian Eon:</strong> (Covers ~88% of Earth's history, from 4.6 billion to 541 million years ago). This includes the Hadean, Archean, and Proterozoic Eons.
+                <ul>
+                    <li><strong>Key Events:</strong> Formation of Earth, formation of oceans, first single-celled life (Archean), Great Oxidation Event (Proterozoic), first multi-celled organisms.</li>
+                </ul>
+            </li>
+            <li><strong>Phanerozoic Eon:</strong> ("Visible Life," from 541 million years ago to present). This is the Eon we are most familiar with. It is divided into three Eras:</li>
+        </ol>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Era</th>
+                    <th>Nickname</th>
+                    <th>Timeframe (Approx.)</th>
+                    <th>Major Changes & Life Forms</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Paleozoic</strong></td>
+                    <td>"Old Life"</td>
+                    <td>541 - 252 Mya</td>
+                    <td>"Cambrian Explosion" (rapid diversification of life). Dominated by marine invertebrates (trilobites), first fish, first land plants, amphibians, and insects. Ended with the <strong>Permian-Triassic Extinction</strong> ("The Great Dying").</td>
+                </tr>
+                <tr>
+                    <td><strong>Mesozoic</strong></td>
+                    <td>"Middle Life" (Age of Reptiles)</td>
+                    <td>252 - 66 Mya</td>
+                    <td>Dominated by <strong>dinosaurs</strong>. Appearance of first mammals, first birds, and flowering plants. Ended with the <strong>Cretaceous-Paleogene Extinction</strong> (asteroid impact) that killed the dinosaurs.</td>
+                </tr>
+                <tr>
+                    <td><strong>Cenozoic</strong></td>
+                    <td>"New Life" (Age of Mammals)</td>
+                    <td>66 Mya - Present</td>
+                    <td>With dinosaurs gone, <strong>mammals</strong> diversified and became the dominant large land animals. Appearance of grasses, primates, and eventually, humans.</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="exam-tip">
+            <strong>Mnemonic for Eras:</strong> A simple way to remember the Eras of the Phanerozoic Eon is <strong>"Please Pay My Children"</strong> (<strong>P</strong>aleozoic, <strong>M</strong>esozoic, <strong>C</strong>enozoic).
+        </div>
+
+        <h2 id="topic4">Holocene and the Emergence of Humans</h2>
+
+        <h3 id="sub4_1">The Holocene Epoch</h3>
+        <blockquote>
+            <strong>Definition:</strong> The Holocene is the <em>current</em> geological epoch. It began approximately <strong>11,700 years ago</strong>, at the end of the last major ice age (the Pleistocene).
+        </blockquote>
+        <ul>
+            <li><strong>Major Change:</strong> The Holocene is characterized by a relatively <strong>stable and warm climate</strong>, which allowed for the development of human civilization.</li>
+            <li><strong>Geological Process:</strong> Melting of continental ice sheets led to a significant rise in sea levels, shaping the coastlines we see today.</li>
+        </ul>
+
+        <h3 id="sub4_2">Emergence of Humans</h3>
+        <p>Human evolution is part of the Cenozoic Era, mostly within the Neogene and Quaternary Periods.</p>
+        <ul>
+            <li>The genus <em>Homo</em> (our genus) first appeared in the <strong>Pleistocene Epoch</strong> (the "Ice Age").</li>
+            <li>Anatomically modern humans, <em>Homo sapiens</em>, evolved in Africa around 300,000 years ago.</li>
+            <li>The <strong>Holocene Epoch</strong> coincides with the entirety of recorded human history, the invention of agriculture, and the rise of cities and modern civilization.</li>
+        </ul>
+        <p><strong>Real-World Application (The "Anthropocene"):</strong> Many scientists propose that the Holocene has ended and we have entered a new, unofficial epoch called the <strong>Anthropocene</strong>. This is defined by the period where human activities (e.g., industrialization, CO2 emissions, plastic pollution, nuclear testing) have become the dominant influence on Earth's climate and environment.</p>
+    </div>
+</body>
+</html>

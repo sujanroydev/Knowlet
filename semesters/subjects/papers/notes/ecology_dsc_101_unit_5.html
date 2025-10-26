@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecology (DSC 101) - Unit 5 Notes</title>
+    <title>DSC-101 Unit 5: Biogeochemical Cycles and Nutrient Cycling</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
-            background-color: #f4f7f6;
+            background-color: #f9f9f9;
             color: #333;
             margin: 0;
             padding: 20px;
@@ -20,338 +20,299 @@
             border: 1px solid #ddd;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            padding: 25px 40px;
+            padding: 20px 40px;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #f39c12;
+            padding-bottom: 5px;
+            margin-top: 25px;
         }
         h1 {
-            color: #1a5276;
-            border-bottom: 3px solid #1a5276;
-            padding-bottom: 10px;
-            font-size: 2.5em;
+            font-size: 2.2em;
             text-align: center;
+            border-bottom-width: 4px;
         }
         h2 {
-            color: #21618c;
-            border-bottom: 2px solid #aed6f1;
-            padding-bottom: 5px;
-            margin-top: 30px;
-            font-size: 2em;
+            font-size: 1.8em;
         }
         h3 {
-            color: #2e86c1;
-            margin-top: 25px;
-            font-size: 1.5em;
+            font-size: 1.4em;
+            border-bottom-style: dashed;
+            border-bottom-width: 1px;
+            color: #e67e22;
         }
         p {
             margin-bottom: 15px;
-            text-align: justify;
         }
         ul, ol {
-            margin-left: 30px;
+            margin-left: 20px;
             margin-bottom: 15px;
         }
         li {
-            margin-bottom: 8px;
+            margin-bottom: 5px;
         }
         strong {
-            color: #c0392b; /* A distinct color for emphasis */
+            color: #c0392b; /* Emphasized text color */
         }
         em {
-            color: #16a085;
             font-style: italic;
+            color: #555;
         }
         blockquote {
-            background-color: #eaf2f8;
-            border-left: 5px solid #2e86c1;
+            background-color: #ecf0f1;
+            border-left: 5px solid #f39c12;
+            padding: 15px;
             margin: 20px 0;
-            padding: 15px 20px;
             font-style: italic;
-            font-size: 1.1em;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-        th {
-            background-color: #2980b9;
-            color: white;
-            font-size: 1.1em;
-        }
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        tr:hover {
-            background-color: #eaf2f8;
-        }
-        nav.toc {
-            background-color: #f9f9f9;
+        .toc {
+            background-color: #fdfdfd;
             border: 1px solid #eee;
             border-radius: 5px;
             padding: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
-        nav.toc h2 {
-            margin-top: 0;
-            border-bottom: none;
-            color: #333;
-            font-size: 1.5em;
-            text-align: center;
-        }
-        nav.toc ul {
+        .toc ul {
             list-style-type: none;
             padding-left: 0;
-            columns: 2;
-            -webkit-columns: 2;
-            -moz-columns: 2;
         }
-        nav.toc ul li {
-            margin-bottom: 5px;
-        }
-        nav.toc ul li a {
+        .toc li a {
             text-decoration: none;
-            color: #2980b9;
+            color: #e67e22;
         }
-        nav.toc ul li a:hover {
+        .toc li a:hover {
             text-decoration: underline;
-            color: #c0392b;
         }
         .exam-tip {
             background-color: #fef9e7;
             border: 1px solid #f1c40f;
-            border-left-width: 5px;
-            padding: 15px;
-            margin: 15px 0;
             border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
         }
         .exam-tip strong {
             color: #d35400;
         }
-        .diagram-placeholder {
-            width: 100%;
-            background-color: #fafafa;
-            border: 2px dashed #ccc;
-            padding: 20px;
-            text-align: center;
-            margin: 20px 0;
-            font-style: italic;
-            color: #777;
-            border-radius: 5px;
+        .cycle-step {
+            font-weight: bold;
+            color: #d35400;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Unit 5: Biogeochemical Cycles & Nutrient Cycling</h1>
+        <h1>Unit 5: Biogeochemical Cycles and Nutrient Cycling</h1>
 
-        <nav class="toc">
+        <div class="toc">
             <h2>Table of Contents</h2>
             <ul>
-                <li><a href="#intro">1. Introduction to Biogeochemical Cycles</a></li>
-                <li><a href="#hydro">2. The Hydrological (Water) Cycle</a></li>
-                <li><a href="#carbon">3. The Carbon Cycle (Gaseous)</a></li>
-                <li><a href="#nitrogen">4. The Nitrogen Cycle (Gaseous)</a></li>
-                <li><a href="#phosphorus">5. The Phosphorus Cycle (Sedimentary)</a></li>
-                <li><a href="#sulphur">6. The Sulphur Cycle (Gaseous)</a></li>
-                <li><a href="#nutrient-cycling">7. Nutrient Cycling in Ecosystems</a></li>
-            </ul>
-        </nav>
-
-        <hr>
-
-        <section id="intro">
-            <h2>1. Introduction to Biogeochemical Cycles</h2>
-            <p>Unlike energy, which flows <strong>one-way</strong> through an ecosystem and is lost as heat, matter (chemical elements) is <strong>cycled</strong>. Nutrients are finite and must be recycled for life to continue.</p>
-            <blockquote>
-                <strong>Biogeochemical Cycle:</strong> The pathway by which a chemical element (like Carbon, Nitrogen, Phosphorus) moves through the <strong>bio-</strong> (living), <strong>geo-</strong> (earth, rocks, soil), and <strong>chemo-</strong> (chemical) components of an ecosystem.
-            </blockquote>
-            <p>Each cycle has two main parts:</p>
-            <ul>
-                <li><strong>Reservoir Pool:</strong> The large, slow-moving, often abiotic part of the cycle where the nutrient is stored. (e.g., the atmosphere for Carbon, rocks for Phosphorus).</li>
-                <li><strong>Cycling Pool:</strong> The smaller, more active, biotic part of the cycle where the nutrient moves quickly between organisms and their immediate environment.</li>
-            </ul>
-
-            <h3>Types of Cycles:</h3>
-            <ol>
-                <li><strong>Gaseous Cycles:</strong> The main reservoir is the atmosphere or ocean. These cycles are global.
-                    <ul><li><strong>Examples:</strong> Carbon, Nitrogen, Sulphur, Water.</li></ul>
-                </li>
-                <li><strong>Sedimentary Cycles:</strong> The main reservoir is the Earth's crust (rocks and soil). These cycles are slower and more localized.
-                    <ul><li><strong>Example:</strong> Phosphorus.</li></ul>
-                </li>
-            </ol>
-        </section>
-
-        <hr>
-
-        <section id="hydro">
-            <h2>2. The Hydrological (Water) Cycle</h2>
-            <p>This is the continuous movement of water (H₂O) on, above, and below the surface of the Earth. It is a physical process, not a chemical one, driven by solar energy.</p>
-            <p>Key Processes:</p>
-            <ul>
-                <li><strong>Evaporation:</strong> Solar energy heats liquid water, turning it into water vapor (gas) and rising into the atmosphere.</li>
-                <li><strong>Condensation:</strong> Water vapor in the air cools and changes back into liquid water, forming clouds.</li>
-                <li><strong>Precipitation:</strong> Water is released from clouds as rain, snow, sleet, or hail.</li>
-                <li><strong>Collection/Runoff:</strong> Water that falls on land flows over the surface (<strong>surface runoff</strong>) into rivers, lakes, and oceans, or soaks into the ground.</li>
-                <li><strong>Infiltration/Percolation:</strong> Water soaks into the soil and moves downward to become <strong>groundwater</strong>.</li>
-                <li><strong>Transpiration:</strong> The release of water vapor from plants into the atmosphere (a form of biological evaporation).</li>
-            </ul>
-            <div class="diagram-placeholder">
-                <strong>Diagram:</strong> A landscape showing the ocean, mountains, and land.
-                <br>1. "Evaporation" arrow from ocean to clouds.
-                <br>2. "Transpiration" arrow from trees to clouds.
-                <br>3. "Condensation" shown as clouds forming.
-                <br>4. "Precipitation" arrow from clouds to mountains/land.
-                <br>5. "Surface Runoff" arrow from land back to the ocean.
-                <br>6. "Infiltration" arrow pointing into the ground, forming "Groundwater."
-            </div>
-        </section>
-
-        <hr>
-
-        <section id="carbon">
-            <h2>3. The Carbon Cycle (Gaseous)</h2>
-            <p>Carbon is the basis of all organic molecules. The main reservoir of carbon is <strong>carbon dioxide (CO₂) in the atmosphere</strong> and dissolved in the oceans.</p>
-            <p>Key Processes:</p>
-            <ol>
-                <li><strong>Photosynthesis:</strong> Plants, algae, and cyanobacteria pull CO₂ from the atmosphere and use it to make organic compounds (sugar/biomass). This is the key process that "fixes" carbon.</li>
-                <li><strong>Respiration:</strong> All living organisms (plants, animals, decomposers) break down organic compounds for energy, releasing CO₂ back into the atmosphere.</li>
-                <li><strong>Decomposition:</strong> Decomposers (bacteria, fungi) break down dead organic matter, releasing CO₂ through respiration.</li>
-                <li><strong>Consumption:</strong> Carbon is transferred from producers to consumers when they are eaten.</li>
-                <li><strong>Combustion:</strong> The burning of fossil fuels (coal, oil, natural gas) and wood releases vast amounts of stored carbon into the atmosphere as CO₂. This is the main driver of modern climate change.</li>
-                <li><strong>Sedimentation:</strong> Over millions of years, dead organic matter that fails to decompose can be buried and converted into <strong>fossil fuels</strong>, locking carbon away. Shells and skeletons (calcium carbonate) can form limestone.</li>
-            </ol>
-            <div class="diagram-placeholder">
-                <strong>Diagram:</strong> A central box for "CO₂ in Atmosphere."
-                <br>1. "Photosynthesis" arrow from Atmosphere to "Plants."
-                <br>2. "Respiration" arrows from "Plants," "Animals," and "Decomposers" back to Atmosphere.
-                <br>3. "Consumption" arrow from "Plants" to "Animals."
-                <br>4. "Decomposition" arrow from "Plants" and "Animals" to "Decomposers."
-                <br>5. "Combustion" arrow from "Fossil Fuels" to Atmosphere (highlight this).
-            </div>
-        </section>
-
-        <hr>
-        
-        <section id="nitrogen">
-            <h2>4. The Nitrogen Cycle (Gaseous)</h2>
-            <p>Nitrogen is essential for making proteins and nucleic acids (DNA, RNA). The main reservoir is <strong>N₂ gas in the atmosphere</strong> (which makes up ~78% of the air). However, most organisms cannot use N₂ gas directly.</p>
-            <p><strong>Problem:</strong> N₂ gas is "unavailable" because of its strong triple bond. It must be "fixed" into a usable form, like ammonia (NH₃) or nitrate (NO₃⁻).</p>
-            <p>Key Processes (driven by bacteria):</p>
-            <ol>
-                <li><strong>Nitrogen Fixation:</strong> The conversion of N₂ gas into ammonia (NH₃).
+                <li><a href="#topic1">Biogeochemical Cycles</a>
                     <ul>
-                        <li><strong>Biological:</strong> Done by specific bacteria (e.g., <em>Rhizobium</em> in the root nodules of legumes like beans and peas; <em>Azotobacter</em> in the soil).</li>
-                        <li><strong>Atmospheric:</strong> Lightning has enough energy to split N₂ gas, forming nitrogen oxides.</li>
-                        <li><strong>Industrial:</strong> The Haber-Bosch process manufactures fertilizer.</li>
+                        <li><a href="#sub1_1">Introduction</a></li>
+                        <li><a href="#sub1_2">Carbon Cycle</a></li>
+                        <li><a href="#sub1_3">Nitrogen Cycle</a></li>
+                        <li><a href="#sub1_4">Phosphorus Cycle</a></li>
+                        <li><a href="#sub1_5">Sulphur Cycle</a></li>
+                        <li><a href="#sub1_6">Hydrological (Water) Cycle</a></li>
                     </ul>
                 </li>
-                <li><strong>Nitrification:</strong> A two-step process, done by nitrifying bacteria, converting ammonia into nitrates, which plants can easily absorb.
+                <li><a href="#topic2">Nutrient Cycling</a>
                     <ul>
-                        <li><strong>Step 1:</strong> <em>Nitrosomonas</em> bacteria convert Ammonia (NH₃) → Nitrite (NO₂⁻).</li>
-                        <li><strong>Step 2:</strong> <em>Nitrobacter</em> bacteria convert Nitrite (NO₂⁻) → Nitrate (NO₃⁻).</li>
+                        <li><a href="#sub2_1">Nutrient Uptake</a></li>
+                        <li><a href="#sub2_2">Nutrient Immobilization</a></li>
+                        <li><a href="#sub2_3">Nutrient Mineralization</a></li>
+                        <li><a href="#sub2_4">Nutrient Supply to Roots</a></li>
                     </ul>
                 </li>
-                <li><strong>Assimilation:</strong> Plants absorb usable nitrogen (nitrates or ammonia) from the soil and incorporate it into their own proteins and DNA. Animals get nitrogen by eating plants.</li>
-                <li><strong>Ammonification:</strong> Decomposers (bacteria, fungi) break down dead organic matter (waste, dead organisms) and convert the organic nitrogen back into ammonia (NH₃).</li>
-                <li><strong>Denitrification:</strong> The conversion of nitrates (NO₃⁻) back into N₂ gas, which returns to the atmosphere. This is done by denitrifying bacteria (e.g., <em>Pseudomonas</em>) in anaerobic (low-oxygen) conditions, like waterlogged soil.</li>
-            </ol>
-            
-            <div class="diagram-placeholder">
-                <strong>Diagram:</strong> A cycle showing "N₂ in Atmosphere" at the top.
-                <br>1. "Nitrogen Fixation" (by <em>Rhizobium</em>, lightning) arrow to "Ammonia (NH₃)."
-                <br>2. "Nitrification" (by <em>Nitrosomonas</em>/<em>Nitrobacter</em>) arrow from "Ammonia" to "Nitrates (NO₃⁻)."
-                <br>3. "Assimilation" arrow from "Nitrates" to "Plants" and then to "Animals."
-                <br>4. "Ammonification" arrow from "Plants/Animals (Detritus)" to "Ammonia."
-                <br>5. "Denitrification" (by <em>Pseudomonas</em>) arrow from "Nitrates" back to "N₂ in Atmosphere."
-            </div>
+            </ul>
+        </div>
 
-            <div class="exam-tip">
-                <strong>Guaranteed Exam Question:</strong> You <strong>must</strong> know the names of the bacteria involved in the nitrogen cycle:
+        <h2 id="topic1">Biogeochemical Cycles</h2>
+
+        <h3 id="sub1_1">Introduction</h3>
+        <blockquote>
+            <strong>Definition:</strong> A biogeochemical cycle is the pathway by which a chemical substance (element or molecule) moves through the <strong>biotic</strong> (living; <em>bio-</em>) and <strong>abiotic</strong> (non-living; <em>geo-</em>) compartments of Earth.
+        </blockquote>
+        <p>In contrast to the <strong>one-way flow of energy</strong>, nutrients and matter are <strong>cycled</strong> and conserved within the biosphere.</p>
+        <p><strong>Types of Cycles:</strong></p>
+        <ol>
+            <li><strong>Gaseous Cycles:</strong>
                 <ul>
-                    <li><strong>Nitrogen Fixation:</strong> <em>Rhizobium</em>, <em>Azotobacter</em></li>
-                    <li><strong>Nitrification:</strong> <em>Nitrosomonas</em> and <em>Nitrobacter</em></li>
-                    <li><strong>Denitrification:</strong> <em>Pseudomonas</em></li>
+                    <li>The main reservoir is the <strong>atmosphere</strong> or <strong>hydrosphere</strong>.</li>
+                    <li>Cycles are relatively fast.</li>
+                    <li>Examples: Carbon, Nitrogen, Water (Hydrological).</li>
                 </ul>
-            </div>
-        </section>
+            </li>
+            <li><strong>Sedimentary Cycles:</strong>
+                <ul>
+                    <li>The main reservoir is the <strong>Earth's crust</strong> (soil and rocks).</li>
+                    <li>Cycles are very slow, often relying on geological processes like weathering.</li>
+                    <li>Examples: Phosphorus, Sulphur.</li>
+                </ul>
+            </li>
+        </ol>
 
-        <hr>
+        <h3 id="sub1_2">Carbon Cycle</h3>
+        <p>Carbon is the backbone of all organic molecules.</p>
+        <ul>
+            <li><strong>Reservoirs:</strong>
+                <ol>
+                    <li><strong>Atmosphere:</strong> As CO<sub>2</sub> (Carbon Dioxide).</li>
+                    <li><strong>Ocean:</strong> As dissolved CO<sub>2</sub> and bicarbonates (HCO<sub>3</sub><sup>-</sup>). This is the largest <em>active</em> reservoir.</li>
+                    <li><strong>Lithosphere (Land):</strong> In organic matter (living and dead), soil, and sedimentary rocks (limestone - CaCO<sub>3</sub>).</li>
+                    <li><strong>Fossil Fuels:</strong> Coal, oil, and natural gas (carbon stored from ancient dead organisms).</li>
+                </ol>
+            </li>
+            <li><strong>Key Processes (Fluxes):</strong>
+                <ul>
+                    <li><span class="cycle-step">Photosynthesis:</span> Plants and algae pull CO<sub>2</sub> from the atmosphere/water and convert it into organic carbon (glucose).
+                        <br><strong>(CO<sub>2</sub> &rarr; Organic C)</strong></li>
+                    <li><span class="cycle-step">Respiration:</span> Organisms (plants, animals, decomposers) break down organic carbon to get energy, releasing CO<sub>2</sub> back into the atmosphere.
+                        <br><strong>(Organic C &rarr; CO<sub>2</sub>)</strong></li>
+                    <li><span class="cycle-step">Decomposition:</span> Decomposers (bacteria, fungi) respire as they break down dead organic matter, releasing CO<sub>2</sub>.</li>
+                    <li><span class="cycle-step">Combustion:</span> Burning of fossil fuels and biomass (wood) by humans rapidly releases vast amounts of stored carbon into the atmosphere as CO<sub>2</sub>, causing global warming and climate change.</li>
+                    <li><span class="cycle-step">Ocean-Atmosphere Exchange:</span> CO<sub>2</sub> dissolves into and is released from the oceans.</li>
+                </ul>
+            </li>
+        </ul>
 
-        <section id="phosphorus">
-            <h2>5. The Phosphorus Cycle (Sedimentary)</h2>
-            <p>Phosphorus is essential for DNA, RNA, ATP (the energy molecule), and cell membranes.
-            <p><strong>Main Reservoir:</strong> The main reservoir is in <strong>phosphate rock (sedimentary rock)</strong> on land and in the ocean floor. There is no significant gaseous component (it does *not* go into the atmosphere).</p>
-            <p>Key Processes:</p>
-            <ol>
-                <li><strong>Weathering:</strong> Rain and erosion slowly break down phosphate rocks, releasing phosphate ions (PO₄³⁻) into the soil and water. This is a very slow process.</li>
-                <li><strong>Assimilation (Uptake):</strong> Plants absorb dissolved phosphate from the soil. Animals get phosphorus by eating plants.</li>
-                <li><strong>Decomposition (Mineralization):</strong> Decomposers break down dead organic matter, returning phosphate to the soil.</li>
-                <li><strong>Sedimentation:</strong> Phosphate that washes into the oceans can settle to the bottom and, over millions of years, form new sedimentary rock. This "locks away" the phosphorus for a very long time.</li>
-                <li><strong>Geological Uplift:</strong> The process of mountain-building that brings the deep ocean sediments and rocks back to the surface, making the phosphate available for weathering again (this takes eons).</li>
-            </E>
-            <div class="diagram-placeholder">
-                <strong>Diagram:</strong> A diagram *without* an atmospheric component.
-                <br>1. "Phosphate Rock" (Reservoir).
-                <br>2. "Weathering" arrow from rock to "Dissolved Phosphate in Soil."
-                <br>3. "Assimilation" arrow from soil to "Plants" and then "Animals."
-                <br>4. "Decomposition" arrow from "Plants/Animals (Detritus)" back to "Dissolved Phosphate in Soil."
-                <br>5. "Runoff" arrow from soil to "Ocean."
-                <br>6. "Sedimentation" arrow in the ocean to "New Sedimentary Rock."
-                <br>7. "Geological Uplift" arrow from deep rock back to "Phosphate Rock" on land.
-            </div>
-            <p><strong>Note:</strong> Because this cycle is so slow and depends on weathering, phosphorus is often a <strong>limiting nutrient</strong> for plant growth, both on land and in freshwater. This is why fertilizers (N-P-K) are rich in phosphorus.</p>
-        </section>
-        
-        <hr>
+        <h3 id="sub1_3">Nitrogen Cycle</h3>
+        <p>Nitrogen is essential for proteins and nucleic acids (DNA, RNA). The atmosphere is ~78% N<sub>2</sub> gas, but this form is <strong>unusable</strong> by most organisms.</p>
+        <blockquote>
+            The nitrogen cycle is almost entirely driven by <strong>microorganisms (bacteria)</strong>.
+        </blockquote>
+        <p><strong>Key Processes (Fluxes):</strong></p>
+        <ol>
+            <li><span class="cycle-step">Nitrogen Fixation:</span> The conversion of N<sub>2</sub> gas into a usable form, ammonia (NH<sub>3</sub>) or ammonium (NH<sub>4</sub><sup>+</sup>).
+                <ul>
+                    <li><strong>Biological:</strong> By nitrogen-fixing bacteria (e.g., <em>Rhizobium</em> in legume root nodules, <em>Azotobacter</em> in soil, cyanobacteria in water).</li>
+                    <li><strong>Atmospheric:</strong> Lightning has enough energy to split N<sub>2</sub>.</li>
+                    <li><strong>Industrial:</strong> Haber-Bosch process for making fertilizers.</li>
+                </ul>
+                <strong>(N<sub>2</sub> &rarr; NH<sub>3</sub> / NH<sub>4</sub><sup>+</sup>)</strong>
+            </li>
+            <li><span class="cycle-step">Nitrification:</span> A two-step process by nitrifying bacteria.
+                <ol>
+                    <li><em>Nitrosomonas</em> bacteria convert ammonium to <strong>nitrite</strong> (NO<sub>2</sub><sup>-</sup>).</li>
+                    <li><em>Nitrobacter</em> bacteria convert nitrite to <strong>nitrate</strong> (NO<sub>3</sub><sup>-</sup>).</li>
+                </ol>
+                <strong>(NH<sub>4</sub><sup>+</sup> &rarr; NO<sub>2</sub><sup>-</sup> &rarr; NO<sub>3</sub><sup>-</sup>)</strong>
+                <br><em>Plants can readily absorb both NH<sub>4</sub><sup>+</sup> and NO<sub>3</sub><sup>-</sup> (preferred).</em>
+            </li>
+            <li><span class="cycle-step">Assimilation:</span> Plants absorb nitrate or ammonium from the soil and incorporate it into their tissues (proteins, DNA). Animals get nitrogen by eating plants.</li>
+            <li><span class="cycle-step">Ammonification (Mineralization):</span> Decomposers (bacteria, fungi) break down dead organic matter and waste products (urea, feces), converting organic nitrogen back into ammonium (NH<sub>4</sub><sup>+</sup>).
+                <br><strong>(Organic N &rarr; NH<sub>4</sub><sup>+</sup>)</strong></li>
+            <li><span class="cycle-step">Denitrification:</span> Denitrifying bacteria (e.g., <em>Pseudomonas</em>) convert nitrate back into N<sub>2</sub> gas, which returns to the atmosphere. This occurs in <strong>anaerobic</strong> (low-oxygen) conditions, such as waterlogged soils.
+                <br><strong>(NO<sub>3</sub><sup>-</sup> &rarr; N<sub>2</sub>)</strong></li>
+        </ol>
 
-        <section id="sulphur">
-            <h2>6. The Sulphur Cycle (Gaseous)</h2>
-            <p>Sulphur is important for some amino acids (proteins). This cycle is complex, having both gaseous and sedimentary components.</p>
-            <p><strong>Reservoirs:</strong> Rocks, soils, and the atmosphere (as Sulphur Dioxide, SO₂).</p>
-            <p>Key Processes:</p>
-            <ol>
-                <li><strong>Weathering/Decomposition:</strong> Sulphur in rocks (like pyrite) is weathered, and decomposition of organic matter releases sulphur, often as hydrogen sulfide (H₂S - rotten egg smell).</li>
-                <li><strong>Assimilation:</strong> Plants absorb sulphate ions (SO₄²⁻) from the soil and incorporate them into proteins.</li>
-                <li><strong>Volcanic Activity:</strong> Volcanoes are a major natural source of atmospheric Sulphur Dioxide (SO₂).</li>
-                <li><strong>Atmospheric Conversion:</strong> In the atmosphere, SO₂ and H₂S react with oxygen and water to form sulphuric acid (H₂SO₄).</li>
-                <li><strong>Precipitation:</strong> The sulphuric acid falls to Earth as <strong>acid rain</strong>, which can harm forests and lakes.</li>
-                <li><strong>Human Impact (Combustion):</strong> The burning of <strong>fossil fuels</strong> (especially coal) releases massive amounts of SO₂ into the atmosphere, and is the primary cause of industrial acid rain.</li>
-            </ol>
-            <div class="diagram-placeholder">
-                <strong>Diagram:</strong> A diagram showing "Sulphur in Rocks/Fossil Fuels" and "SO₂ in Atmosphere."
-                <br>1. "Combustion" and "Volcanoes" adding SO₂ to the atmosphere.
-                <br>2. "SO₂" reacting with water to form "Acid Rain (H₂SO₄)."
-                <br>3. "Precipitation" brings acid rain to "Soil/Water."
-                <br>4. "Assimilation" by plants from soil.
-                <br>5. "Decomposition" of organic matter.
-            </div>
-        </section>
+        <h3 id="sub1_4">Phosphorus Cycle</h3>
+        <p>Phosphorus is essential for ATP (energy), DNA, RNA, and cell membranes. This is a <strong>sedimentary cycle</strong> with no major atmospheric (gas) phase.</p>
+        <ul>
+            <li><strong>Reservoir:</strong> The largest reservoir is <strong>phosphate rock</strong> (lithosphere).</li>
+            <li><strong>Key Processes (Fluxes):</strong>
+                <ul>
+                    <li><span class="cycle-step">Weathering:</span> Rain and erosion slowly break down phosphate rocks, releasing phosphate (PO<sub>4</sub><sup>3-</sup>) into the soil and water. This is a very <strong>slow</strong> process, making phosphorus a common limiting nutrient.</li>
+                    <li><span class="cycle-step">Assimilation:</span> Plants absorb dissolved phosphate from the soil. Animals get it by eating plants.</li>
+                    <li><span class="cycle-step">Decomposition (Mineralization):</span> Decomposers break down dead organic matter, returning phosphate to the soil.</li>
+                    <li><span class="cycle-step">Sedimentation:</span> Phosphates in water can settle to the bottom of lakes and oceans, forming new sedimentary rock over geological time. This removes it from the cycle for a long time.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="exam-tip">
+            <strong>Human Impact:</strong> Humans mine phosphate rock to create fertilizers. Runoff of excess fertilizer from farms leads to <strong>eutrophication</strong>: an overgrowth of algae (algal bloom) in lakes and ponds, which then die and decompose, consuming all the oxygen and killing fish.
+        </div>
 
-        <hr>
+        <h3 id="sub1_5">Sulphur Cycle</h3>
+        <p>Sulphur is essential for some amino acids (e.g., cysteine, methionine) and proteins.</p>
+        <ul>
+            <li><strong>Reservoirs:</strong> Rocks (gypsum - CaSO<sub>4</sub>), fossil fuels, and the atmosphere (as SO<sub>2</sub> - sulfur dioxide).</li>
+            <li><strong>Key Processes (Fluxes):</strong>
+                <ul>
+                    <li><span class="cycle-step">Weathering:</span> Rocks release sulfates (SO<sub>4</sub><sup>2-</sup>), which are absorbed by plants.</li>
+                    <li><span class="cycle-step">Decomposition:</span> Decomposers release hydrogen sulfide (H<sub>2</sub>S - rotten egg smell) under anaerobic conditions.</li>
+                    <li><span class="cycle-step">Volcanic Eruption:</span> Volcanoes release SO<sub>2</sub> into the atmosphere.</li>
+                    <li><span class="cycle-step">Combustion:</span> Burning high-sulfur coal and oil releases large amounts of SO<sub>2</sub>.</li>
+                    <li><span class="cycle-step">Atmospheric Processes:</span> SO<sub>2</sub> in the atmosphere reacts with water (H<sub>2</sub>O) to form sulfuric acid (H<sub>2</sub>SO<sub>4</sub>), which falls as <strong>acid rain</strong>.</li>
+                </ul>
+            </li>
+        </ul>
 
-        <section id="nutrient-cycling">
-            <h2>7. Nutrient Cycling in Ecosystems</h2>
-            <p>This topic describes the processes that control the movement and storage of nutrients *within* an ecosystem.</p>
-            
-            <h3>Input of Nutrients in Ecosystem</h3>
-            <p>Nutrients must first enter the ecosystem. This happens through:</p>
+        <h3 id="sub1_6">Hydrological (Water) Cycle</h3>
+        <p>The cycle of water (H<sub>2</sub>O) through the biosphere, powered by solar energy.</p>
+        <ul>
+            <li><span class="cycle-step">Evaporation:</span> Solar energy heats liquid water in oceans, lakes, and rivers, turning it into water vapor (gas).</li>
+            <li><span class="cycle-step">Transpiration:</span> The release of water vapor from plants through their leaves. (Often combined with evaporation as <strong>Evapotranspiration</strong>).</li>
+            <li><span class="cycle-step">Condensation:</span> As warm, moist air rises, it cools, and the water vapor condenses into tiny droplets, forming clouds.</li>
+            <li><span class="cycle-step">Precipitation:</span> When the water droplets in clouds become too heavy, they fall as rain, snow, sleet, or hail.</li>
+            <li><span class="cycle-step">Collection:</span> Water that falls on land either:
+                <ul>
+                    <li><strong>Surface Runoff:</strong> Flows over the land into streams, rivers, and eventually the ocean.</li>
+                    <li><strong>Infiltration/Percolation:</strong> Seeps into the ground to become <strong>groundwater</strong>.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2 id="topic2">Nutrient Cycling</h2>
+        <p>This refers to the movement and exchange of nutrients (like N and P) <em>within</em> an ecosystem, primarily between the soil, plants, and decomposers. (This is a smaller-scale loop within the larger biogeochemical cycles).</p>
+        <h3 id="sub2_1">Nutrient Uptake</h3>
+        <p>Also known as <strong>Assimilation</strong>. This is the process where plants absorb inorganic nutrients from the soil through their roots.
+        <ul>
+            <li>Nutrients must be in a dissolved, <strong>inorganic</strong> form (e.g., nitrate NO<sub>3</sub><sup>-</sup>, ammonium NH<sub>4</sub><sup>+</sup>, phosphate PO<sub>4</sub><sup>3-</sup>).</li>
+            <li>The plant then incorporates these into its own <strong>organic</strong> molecules (e.g., proteins, DNA).</li>
+        </ul>
+
+        <h3 id="sub2_2">Nutrient Immobilization</h3>
+        <blockquote>
+            <strong>Definition:</strong> The process where inorganic nutrients are taken up by organisms (plants or microbes) and converted into <strong>organic</strong> forms (their biomass).
+        </blockquote>
+        <p>When a nutrient is "immobilized," it is <strong>locked up</strong> in living or dead organic matter and is <em>temporarily unavailable</em> for other organisms to use.
+        <ul>
+            <li><strong>Example:</strong> A nitrogen atom in a protein molecule inside a plant leaf is immobilized. A decomposer microbe using nitrate for its own growth also immobilizes it.</li>
+        </ul>
+
+        <h3 id="sub2_3">Nutrient Mineralization</h3>
+        <blockquote>
+            <strong>Definition:</strong> The process (a part of decomposition) where decomposers (bacteria, fungi) break down <strong>organic</strong> matter and release nutrients back into the soil in an <strong>inorganic</strong>, plant-available form.
+        </blockquote>
+        <p>This is the <em>opposite</em> of immobilization.
+        <ul>
+            <li><strong>Example:</strong> A decomposer breaks down a dead leaf, releasing the nitrogen from its proteins as ammonium (NH<sub>4</sub><sup>+</sup>). This process is also called <strong>ammonification</strong>.</li>
+        </ul>
+        <div class="exam-tip">
+            <strong>Immobilization vs. Mineralization:</strong>
             <ul>
-                <li><strong>Atmospheric Input:</strong>
-                    <ul>
-                        <li><strong>Wet deposition:</strong> Nutrients dissolved in rain and snow (e.g., nitrogen and sulphur from acid rain).</li>
-                        <li><strong>Dry deposition:</strong> Nutrients that fall as dust or airborne particles.</li>
-                        <li><strong>Gaseous fixation:</strong> e.g., Nitrogen fixation by bacteria.</li>
-                    </ul>
-                </li>
-                <li><strong>Weathering:</strong> The breakdown of parent rock (the "geological" part) releases nutrients like phosphorus and calcium into the soil.</li>
-                <li><strong>Biological Input:</strong> Migrating animals may bring in nutrients (e.g., salmon migrating upstream, dying, and decomposing).</li>
+                <li><strong>Immobilization:</strong> Inorganic &rarr; Organic (Locks up nutrients)</li>
+                <li><strong>Mineralization:</strong> Organic &rarr; Inorganic (Releases nutrients)</li>
             </ul>
+            The balance between these two processes determines the nutrient availability in an ecosystem.
+        </div>
 
-            <h3>Biotic Accumulation</h3>
-            <p>This is the process of nutrients being take
+        <h3 id="sub2_4">Nutrient Supply to Roots</h3>
+        <p>Plants can't "go and get" nutrients. Nutrients must get to the plant's roots. This happens in three main ways:</p>
+        <ol>
+            <li><strong>Mass Flow (or Bulk Flow):</strong>
+                <ul>
+                    <li>This is the most important mechanism for many nutrients (like <strong>nitrate</strong>).</li>
+                    <li>As plants absorb water through their roots (transpiration), a "flow" of water is created in the soil, which carries dissolved nutrients along with it to the root surface.</li>
+                </ul>
+            </li>
+            <li><strong>Diffusion:</strong>
+                <ul>
+                    <li>This is important for nutrients like <strong>phosphate</strong> and <strong>potassium</strong>.</li>
+                    <li>Nutrients move from an area of high concentration (in the soil) to an area of low concentration (at the root surface, where the plant has absorbed them).</li>
+                    <li>This is a very slow process and only works over short distances.</li>
+                </ul>
+            </li>
+            <li><strong>Root Interception:</strong>
+                <ul>
+                    <li>As a root grows through the soil, it physically "bumps into" and comes into direct contact with soil particles (like clay) that have nutrients adsorbed to their surface.</li>
+                    <li>This is generally a minor pathway compared to mass flow and diffusion.</li>
+                </ul>
+            </li>
+        </ol>
+        <p><strong>Mycorrhizae:</strong> Many plants have a mutualistic relationship with <strong>mycorrhizal fungi</strong>. The fungi's thin hyphae extend far into the soil, acting as an extension of the plant's root system. They are extremely efficient at absorbing nutrients (especially phosphorus) and water and delivering them to the plant in exchange for sugars.</p>
+    </div>
+</body>
+</html>

@@ -3,52 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DSM-101: Biodiversity - Unit 3</title>
+    <title>BOT: BSM-101 - Unit 3: Fungi & Lichens</title>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: Arial, sans-serif;
             line-height: 1.6;
-            margin: 20px;
-            background-color: #fef9f7;
+            background-color: #f8f6f9;
             color: #333;
+            margin: 0;
+            padding: 20px;
         }
         .container {
             max-width: 900px;
-            margin: 0 auto;
-            background-color: #ffffff;
+            margin: auto;
+            background: #ffffff;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         h1 {
-            text-align: center;
-            color: #b71c1c;
-            border-bottom: 3px solid #ef9a9a;
+            color: #2c3e50;
+            border-bottom: 3px solid #8e44ad;
             padding-bottom: 10px;
+            text-align: center;
         }
         h2 {
-            color: #c62828;
-            border-bottom: 2px solid #ffcdd2;
-            padding-top: 15px;
+            color: #8e44ad;
+            border-bottom: 2px solid #f4ecf7;
+            padding-bottom: 8px;
+            margin-top: 30px;
         }
         h3 {
-            color: #b71c1c;
-            padding-top: 10px;
+            color: #7d3c98;
+            margin-top: 20px;
         }
-        strong {
-            color: #0d47a1;
+        p {
+            margin-bottom: 15px;
         }
-        blockquote {
-            background-color: #ffebee;
-            border-left: 5px solid #ef9a9a;
-            padding: 15px;
-            margin: 15px 0;
-            font-style: italic;
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
+            margin: 20px 0;
         }
         th, td {
             border: 1px solid #ddd;
@@ -56,278 +58,393 @@
             text-align: left;
         }
         th {
-            background-color: #ffcdd2;
-            color: #b71c1c;
+            background-color: #8e44ad;
+            color: #fff;
         }
         tr:nth-child(even) {
-            background-color: #f2f2f2;
+            background-color: #f9f9f9;
         }
-        nav {
-            background-color: #f1f1f1;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 25px;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        nav li {
-            margin-bottom: 5px;
-        }
-        nav a {
-            text-decoration: none;
-            color: #0277bd;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
+        blockquote {
+            background: #f4ecf7;
+            border-left: 5px solid #8e44ad;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
         }
         .exam-tip {
-            background-color: #fff9c4;
-            border: 1px solid #fbc02d;
+            background-color: #fffbe6;
+            border: 1px solid #ffe58f;
+            border-left-width: 5px;
             padding: 15px;
+            margin: 15px 0;
             border-radius: 5px;
-            margin-top: 15px;
         }
-        .placeholder {
+        .exam-tip strong {
+            color: #d4a000;
+        }
+        .diagram-placeholder {
             width: 100%;
-            background-color: #eee;
+            padding: 40px 20px;
+            background: #eee;
             border: 2px dashed #ccc;
-            padding: 30px;
             text-align: center;
             color: #777;
             margin: 20px 0;
             border-radius: 5px;
+            font-style: italic;
+        }
+        #toc {
+            background: #fdfdfd;
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #2c3e50;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc ul li {
+            margin-bottom: 8px;
+        }
+        #toc ul li a {
+            text-decoration: none;
+            color: #7d3c98;
+        }
+        #toc ul li a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>BOT: DSM-101: Biodiversity<br>Unit 3: Fungi & Lichens</h1>
+        <h1>BOT: BSM-101: BIODIVERSITY (Microbes, Cryptogams & gymnosperms)<br>Unit 3: Fungi & Lichens</h1>
 
-        <nav>
-            <h3>Table of Contents</h3>
+        <div id="toc">
+            <h2>Unit Contents</h2>
             <ul>
-                <li><a href="#topic1">Fungi: General characteristics, Classification and Economic importance</a></li>
-                <li><a href="#topic2">Structure, morphology and life cycle of:</a>
+                <li><a href="#fungi-general">1. Fungi: General characteristics</a></li>
+                <li><a href="#fungi-class">2. Fungi: Classification</a></li>
+                <li><a href="#fungi-econ">3. Fungi: Economic importance</a></li>
+                <li><a href="#fungi-repro">4. Fungi: Reproduction</a>
                     <ul>
-                        <li><a href="#subtopic2-1">Rhizopus</a></li>
-                        <li><a href="#subtopic2-2">Penicillium</a></li>
-                        <li><a href="#subtopic2-3">Puccinia</a></li>
+                        <li><a href="#rhizopus">Morphology and life cycle of *Rhizopus*</a></li>
+                        <li><a href="#penicillium">Morphology and life cycle of *Penicillium*</a></li>
+                        <li><a href="#puccinia">Morphology and life cycle of *Puccinia*</a></li>
                     </ul>
                 </li>
-                <li><a href="#topic3">Lichens: General account and significance</a></li>
-                <li><a href="#topic4">Mycorrhiza</a></li>
+                <li><a href="#lichens">5. Lichens</a>
+                    <ul>
+                        <li><a href="#lichens-gen">General account</a></li>
+                        <li><a href="#lichens-econ">Economic importance</a></li>
+                    </ul>
+                </li>
+                <li><a href="#mycorrhiza">6. Mycorrhiza</a>
+                    <ul>
+                        <li><a href="#myco-gen">General account and significance</a></li>
+                    </ul>
+                </li>
             </ul>
-        </nav>
-
-        <h2 id="topic1">Fungi: General characteristics, Classification and Economic importance</h2>
-
-        <h3>General Characteristics</h3>
-        <blockquote>
-            <strong>Mycology:</strong> The branch of biology that deals with the study of fungi.
-        </blockquote>
-        <p>Fungi are a kingdom of eukaryotic, achlorophyllous, heterotrophic organisms.</p>
-        <ul>
-            <li><strong>Thallus:</strong> Their body is a thallus. It can be <strong>unicellular</strong> (e.g., Yeasts) or <strong>filamentous</strong> (e.g., Molds).</li>
-            <li><strong>Mycelium:</strong> The filamentous body is a network of thread-like structures called <strong>hyphae</strong>. The entire network is a mycelium.</li>
-            <li><strong>Hyphae Type:</strong>
-                <ul>
-                    <li><strong>Aseptate (Coenocytic):</strong> No cross-walls; multinucleate. Found in "lower fungi" (e.g., *Rhizopus*).</li>
-                    <li><strong>Septate:</strong> Cross-walls (septa) divide the hyphae into cells. Found in "higher fungi" (e.g., *Penicillium*, *Puccinia*).</li>
-                </ul>
-            </li>
-            <li><strong>Cell Wall:</strong> Composed primarily of <strong>Chitin</strong> (not cellulose).</li>
-            <li><strong>Nutrition:</strong> <strong>Heterotrophic</strong> and <strong>absorptive</strong>. They secrete digestive enzymes and absorb the nutrients.
-                <ul>
-                    <li><strong>Saprophytes:</strong> Decomposers of dead organic matter.</li>
-                    <li><strong>Parasites:</strong> Get nutrients from living hosts (e.g., *Puccinia*).</li>
-                    <li><strong>Symbionts:</strong> Mutualistic relationship (e.g., Lichens, Mycorrhiza).</li>
-                </ul>
-            </li>
-            <li><strong>Reserve Food:</strong> <strong>Glycogen</strong> and <strong>Oil</strong> (not starch).</li>
-            <li><strong>Reproduction:</strong> By vegetative, asexual (spores like conidia, sporangiospores), and sexual (spores like ascospores, basidiospores, zygospores) means.</li>
-        </ul>
-
-        <h3>Classification (Overview)</h3>
-        <p>Fungi are broadly classified into major groups (e.g., in Ainsworth's system) based on their sexual reproductive structures and hyphal morphology.</p>
-        <ul>
-            <li><strong>Mastigomycotina:</strong> "Lower fungi," often aquatic, produce motile <strong>zoospores</strong>.</li>
-            <li><strong>Zygomycotina:</strong> Form a diploid <strong>zygospore</strong> as the sexual spore. Hyphae are coenocytic (e.g., *Rhizopus*).</li>
-            <li><strong>Ascomycotina (Sac Fungi):</strong> Form sexual spores (<strong>ascospores</strong>) internally in a sac-like <strong>ascus</strong>. Hyphae are septate (e.g., *Penicillium*, Yeast).</li>
-            <li><strong>Basidiomycotina (Club Fungi):</strong> Form sexual spores (<strong>basidiospores</strong>) externally on a club-shaped <strong>basidium</strong>. Hyphae are septate (e.g., *Puccinia*, Mushrooms).</li>
-            <li><strong>Deuteromycotina (Fungi Imperfecti):</strong> An artificial group for fungi where the sexual (teleomorph) stage is not known. They reproduce only asexually (e.g., *Alternaria*).</li>
-        </ul>
-
-        <h3>Economic Importance</h3>
-        <h5>Positive Importance (Beneficial)</h5>
-        <ul>
-            <li><strong>Decomposers:</strong> Fungi are the planet's primary decomposers, recycling nutrients from dead wood (lignin) and other materials.</li>
-            <li><strong>Food Industry:</strong>
-                <ul>
-                    <li><strong>Yeast (<em>Saccharomyces</em>):</strong> Essential for baking (bread) and brewing (beer, wine) via <strong>fermentation</strong>.</li>
-                    <li><strong>Mushrooms (<em>Agaricus</em>):</strong> Cultivated as a food source.</li>
-                    <li><strong>Cheese:</strong> <em>Penicillium</em> species are used to ripen blue cheese and camembert.</li>
-                </ul>
-            </li>
-            <li><strong>Medicine (Pharmaceuticals):</strong>
-                <ul>
-                    <li><strong>Antibiotics:</strong> <strong>Penicillin</strong>, the first antibiotic, is from <em>Penicillium notatum</em>.</li>
-                    <li><strong>Immunosuppressants:</strong> Cyclosporin (from <em>Tolypocladium</em>) is vital for organ transplants.</li>
-                    <li><strong>Statins:</strong> Cholesterol-lowering drugs (e.g., Lovastatin) are derived from fungi.</li>
-                </ul>
-            </li>
-            <li><strong>Agriculture:</strong> Mycorrhizal fungi act as biofertilizers, enhancing nutrient (especially phosphorus) uptake in plants.</li>
-        </ul>
-        <h5>Negative Importance (Harmful)</h5>
-        <ul>
-            <li><strong>Plant Diseases:</strong> Fungi are the most significant plant pathogens, causing huge crop losses (e.g., *Puccinia* - rusts, *Ustilago* - smuts, Late blight of potato).</li>
-            <li><strong>Human Diseases (Mycoses):</strong> Cause infections like Athlete's Foot, Ringworm, and serious systemic infections (e.g., Aspergillosis) in immunocompromised individuals.</li>
-            <li><strong>Food Spoilage:</strong> Molds (like *Rhizopus*, *Aspergillus*) spoil bread, fruits, and other foods.</li>
-            <li><strong>Mycotoxins:</strong> Fungi like <em>Aspergillus flavus</em> produce <strong>Aflatoxins</strong> on crops (e.g., peanuts), which are highly carcinogenic.</li>
-        </ul>
-
-        <h2 id="topic2">Structure, morphology and life cycle of:</h2>
-
-        <h3 id="subtopic2-1">Rhizopus (Class: Zygomycotina)</h3>
-        <ul>
-            <li><strong>Morphology:</strong> Commonly known as "bread mold." A saprophyte that grows as a cottony white (later black) mass on bread, fruits, etc.</li>
-            <li><strong>Structure:</strong> The mycelium is <strong>coenocytic (aseptate)</strong> and highly branched. It consists of three types of hyphae:
-                <ol>
-                    <li><strong>Stolons:</strong> Creeping horizontal hyphae that spread over the substrate.</li>
-                    <li><strong>Rhizoids:</strong> Root-like, anchoring hyphae that penetrate the substrate and absorb nutrients.</li>
-                    <li><strong>Sporangiophores:</strong> Erect, unbranched hyphae that rise in clusters from the nodes (where rhizoids form).</li>
-                </ol>
-            </li>
-            <li><strong>Reproduction:</strong>
-                <ul>
-                    <li><strong>Asexual:</strong> By <strong>sporangiospores</strong>. The sporangiophores swell at the tip to form a large, black, globular <strong>sporangium</strong>. Inside, numerous non-motile, haploid (n) spores are formed around a central dome called the <strong>columella</strong>. The sporangium wall breaks, releasing spores.</li>
-                    <li><strong>Sexual:</strong> By <strong>gametangial copulation (conjugation)</strong>.
-                        <ul>
-                            <li>Occurs between two hyphae of opposite mating strains (<strong>+</strong> and <strong>-</strong>).</li>
-                            <li>The hyphae produce swellings (progametangia) that form <strong>gametangia</strong>.</li>
-                            <li>The gametangia fuse (plasmogamy), and their nuclei fuse (karyogamy) to form a <strong>diploid (2n) zygote</strong>.</li>
-                            <li>The zygote develops a thick, black, warty wall and becomes a dormant <strong>zygospore</strong>.</li>
-                            <li>Upon germination, the zygospore undergoes <strong>meiosis</strong> to produce a germ-sporangium, which releases haploid (n) spores.</li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li><strong>Life Cycle:</strong> Haplontic (the mycelium is haploid).</li>
-        </ul>
-        <div class="placeholder">
-            <strong>[Diagram: Asexual reproduction (sporangium) and Sexual reproduction (zygospore) in Rhizopus]</strong>
         </div>
 
-        <h3 id="subtopic2-2">Penicillium (Class: Ascomycotina)</h3>
-        <ul>
-            <li><strong>Morphology:</strong> A common saprophytic mold ("blue/green mold") on citrus fruits, jams, and cheese. Source of the antibiotic penicillin.</li>
-            <li><strong>Structure:</strong> The mycelium is a mat of branched, <strong>septate</strong> hyphae. Cells are uninucleate.</li>
-            <li><strong>Reproduction:</strong>
-                <ul>
-                    <li><strong>Asexual (Main method):</strong> By <strong>conidia</strong>.
-                        <ul>
-                            <li>Erect, septate <strong>conidiophores</strong> rise from the mycelium.</li>
-                            <li>The conidiophore branches at the tip in a brush-like fashion (the <strong>penicillus</strong>).</li>
-                            <li>The branches (rami, metulae) bear bottle-shaped cells called <strong>phialides</strong>.</li>
-                            <li>Phialides produce long, basipetal chains of small, spherical, green-pigmented, haploid (n) conidia.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Sexual:</strong> (Rare, found in the teleomorph state, e.g., <em>Talaromyces</em>).
-                        <ul>
-                            <li>Two hyphae (ascogonium and antheridium) fuse.</li>
-                            <li>This leads to the development of a <strong>Cleistothecium</strong> – a small, spherical, closed fruiting body (ascocarp).</li>
-                            <li>Inside the cleistothecium, many small, globular <strong>asci</strong> (sacs) are formed.</li>
-                            <li><strong>Meiosis</strong> (and one mitosis) occurs in each ascus to produce <strong>8 haploid (n) ascospores</strong>.</li>
-                            <li>The ascospores are released when the cleistothecium decays.</li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-
-        <h3 id="subtopic2-3">Puccinia (Class: Basidiomycotina)</h3>
-        <ul>
-            <li><strong>Morphology:</strong> An obligate parasitic fungus that causes <strong>"rust"</strong> diseases on plants. <em>Puccinia graminis-tritici</em> causes <strong>"Black Stem Rust of Wheat."</strong></li>
-            <li><strong>Key Features:</strong>
-                <ul>
-                    <li><strong>Heteroecious:</strong> It requires <strong>two different hosts</strong> to complete its life cycle (Wheat and Barberry).</li>
-                    <li><strong>Polymorphic (or Pleomorphic):</strong> It produces <strong>five</strong> different types of spores in its life cycle.</li>
-                    <li>The mycelium is <strong>dikaryotic (n+n)</strong> for most of its life on wheat.</li>
-                </ul>
-            </li>
-            <li><strong>Life Cycle and 5 Spore Stages:</strong>
-                <ol>
-                    <li><strong>Stage 0: Pycnia (on Barberry leaf - upper):</strong>
-                        <ul>
-                            <li>Haploid (n) <strong>basidiospores</strong> (from stage 4) infect the Barberry leaf.</li>
-                            <li>They form flask-shaped <strong>pycnia</strong>, which produce haploid <strong>pycniospores (spermatia)</strong> and <strong>receptive hyphae</strong>.</li>
-                            <li>Plasmogamy (fusion of a pycniospore with a receptive hypha of the opposite strain) occurs, establishing the <strong>dikaryotic (n+n)</strong> state.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Stage I: Aecia (on Barberry leaf - lower):</strong>
-                        <ul>
-                            <li>The (n+n) mycelium grows to the lower leaf surface and forms cup-shaped <strong>aecia</strong>.</li>
-                            <li>Aecia produce long chains of dikaryotic (n+n) <strong>aeciospores</strong>.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Stage II: Uredia (on Wheat host):</strong>
-                        <ul>
-                            <li>Aeciospores (n+n) are wind-blown, infect the <strong>Wheat</strong> host.</li>
-                            <li>They form reddish-brown pustules (<strong>uredosori</strong>) containing dikaryotic (n+n) <strong>uredospores</strong>.</li>
-                            <li>This is the "repeating stage" that re-infects wheat all summer.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Stage III: Telia (on Wheat host):</strong>
-                        <ul>
-                            <li>Late in the season, the same sori produce black, two-celled, thick-walled, dikaryotic (n+n) <strong>teliospores</strong> (in <strong>teliosori</strong>).</li>
-                            <li><strong>Karyogamy (n+n → 2n)</strong> occurs in each cell, making them diploid (2n). These spores overwinter.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Stage IV: Basidia (on germinating teliospore):</strong>
-                        <ul>
-                            <li>In spring, the diploid (2n) teliospore germinates. Each cell undergoes <strong>meiosis</strong> to form a 4-celled <strong>basidium (promycelium)</strong>.</li>
-                            <li>Each cell of the basidium produces one haploid (n) <strong>basidiospore</strong>.</li>
-                            <li>These basidiospores infect the Barberry leaf, completing the cycle.</li>
-                        </ul>
-                    </li>
-                </ol>
-            </li>
-        </ul>
-
-        <h2 id="topic3">Lichens: General account and significance</h2>
-        
-        <h3>General Account</h3>
+        <h2 id="fungi-general">1. Fungi: General characteristics</h2>
         <blockquote>
-            <strong>Lichen:</strong> A composite, dual organism resulting from a <strong>symbiotic (mutualistic) association</strong> between a fungus (the <strong>mycobiont</strong>) and an alga or cyanobacterium (the <strong>phycobiont</strong>).
+            <strong>Definition:</strong> Fungi are a kingdom of <strong>eukaryotic</strong>, <strong>achylophyllous</strong> (lacking chlorophyll), and <strong>heterotrophic</strong> (saprophytic, parasitic, or symbiotic) organisms. Their bodies are typically filamentous (hyphae), and their cell walls are made of <strong>chitin</strong>. The study of fungi is called <strong>Mycology</strong>.
+        </blockquote>
+        <ul>
+            <li><strong>Nutrition:</strong> Heterotrophic. They secrete digestive enzymes (exoenzymes) onto their food and then <strong>absorb</strong> the dissolved nutrients.</li>
+            <li><strong>Thallus:</strong> The body is a <strong>mycelium</strong>, which is a network of thread-like filaments called <strong>hyphae</strong>.
+                <ul>
+                    <li><strong>Aseptate (Coenocytic):</strong> Hyphae of "lower fungi" (like *Rhizopus*) that lack cross-walls (septa) and are multinucleate.</li>
+                    <li><strong>Septate:</strong> Hyphae of "higher fungi" (like *Penicillium*, *Puccinia*) that have cross-walls (septa).</li>
+                </ul>
+            </li>
+            <li><strong>Cell Wall:</strong> Composed primarily of <strong>chitin</strong> and glucans.</li>
+            <li><strong>Reserve Food:</strong> Food is stored as <strong>glycogen</strong> and oil (not starch).</li>
+            <li><strong>Habitat:</strong> Fungi are ubiquitous, but most are terrestrial and prefer dark, moist environments with organic matter.</li>
+        </ul>
+
+        <h2 id="fungi-class">2. Fungi: Classification</h2>
+        <p>A simplified outline of the major groups (based on reproductive structures):</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Group</th>
+                    <th>Common Name</th>
+                    <th>Mycelium</th>
+                    <th>Asexual Spores</th>
+                    <th>Sexual Spores</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Oomycota</strong>*</td>
+                    <td>Water Molds</td>
+                    <td>Aseptate (Coenocytic)</td>
+                    <td>Zoospores (motile)</td>
+                    <td>Oospores</td>
+                    <td>*Phytophthora*</td>
+                </tr>
+                <tr>
+                    <td><strong>Zygomycota</strong></td>
+                    <td>Conjugation Fungi</td>
+                    <td>Aseptate (Coenocytic)</td>
+                    <td>Sporangiospores</td>
+                    <td><strong>Zygospores</strong></td>
+                    <td>*Rhizopus*, *Mucor*</td>
+                </tr>
+                <tr>
+                    <td><strong>Ascomycota</strong></td>
+                    <td>Sac Fungi</td>
+                    <td><strong>Septate</strong></td>
+                    <td><strong>Conidia</strong></td>
+                    <td><strong>Ascospores</strong> (in an ascus)</td>
+                    <td>*Penicillium*, *Saccharomyces*</td>
+                </tr>
+                <tr>
+                    <td><strong>Basidiomycota</strong></td>
+                    <td>Club Fungi</td>
+                    <td><strong>Septate</strong> (with dikaryon)</td>
+                    <td>Conidia (less common)</td>
+                    <td><strong>Basidiospores</strong> (on a basidium)</td>
+                    <td>*Puccinia*, *Agaricus*</td>
+                </tr>
+                <tr>
+                    <td><strong>Deuteromycota</strong></td>
+                    <td>Fungi Imperfecti</td>
+                    <td>Septate</td>
+                    <td>Conidia</td>
+                    <td><strong>Sexual stage unknown</strong></td>
+                    <td>(Artificial group, e.g., *Alternaria*)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><em>*Note: Oomycota are now classified as protists (Stramenopiles), not true fungi, because their cell wall is cellulose and they have a diplontic life cycle. They are studied in mycology for historical reasons.</em></p>
+
+        <h2 id="fungi-econ">3. Fungi: Economic importance</h2>
+        
+        <h4>Positive Importance (Beneficial)</h4>
+        <ul>
+            <li><strong>Decomposers:</strong> As primary saprophytes, they are essential for recycling nutrients (C, N, P) from dead organic matter.</li>
+            <li><strong>Food Industry:</strong>
+                <ul>
+                    <li><strong>Yeast (<em>Saccharomyces</em>):</strong> Used in <strong>baking</strong> (leavening bread with CO2) and <strong>brewing</strong> (fermenting sugar to ethanol).</li>
+                    <li><strong>Mushrooms:</strong> Many are edible (e.g., *Agaricus* - button mushroom, *Pleurotus* - oyster mushroom).</li>
+                    <li><strong>Cheese Production:</strong> *Penicillium* species are used to ripen and flavor blue cheese (e.g., *P. roqueforti*).</li>
+                    <li><strong>Fermented Foods:</strong> *Aspergillus* is used to make soy sauce and tempeh.</li>
+                </ul>
+            </li>
+            <li><strong>Medicine:</strong>
+                <ul>
+                    <li><strong>Antibiotics:</strong> *Penicillium* produces <strong>penicillin</strong>.</li>
+                    <li><strong>Other Drugs:</strong> *Claviceps* produces ergot alkaloids (for migraines); statins (cholesterol-lowering) are derived from fungi.</li>
+                </ul>
+            </li>
+            <li><strong>Symbiosis:</strong> Fungi form <strong>lichens</strong> and <strong>mycorrhiza</strong>, which are ecologically critical.</li>
+        </ul>
+
+        <h4>Negative Importance (Harmful)</h4>
+        <ul>
+            <li><strong>Plant Diseases:</strong> Fungi are the <strong>number one cause of plant disease</strong>, leading to massive crop losses.
+                <ul>
+                    <li><strong>Rusts:</strong> *Puccinia* (black stem rust of wheat).</li>
+                    <li><strong>Smuts:</strong> *Ustilago* (loose smut of wheat).</li>
+                    <li><strong>Blights:</strong> *Phytophthora* (late blight of potato).</li>
+                </ul>
+            </li>
+            <li><strong>Human & Animal Diseases (Mycoses):</strong>
+                <ul>
+                    <li><strong>Cutaneous:</strong> Ringworm, Athlete's foot (caused by dermatophytes).</li>
+                    <li><strong>Opportunistic:</strong> *Candida* (thrush), *Aspergillus* (aspergillosis) in immunocompromised patients.</li>
+                </ul>
+            </li>
+            <li><strong>Food Spoilage:</strong> Molds like *Rhizopus* (bread mold) and *Aspergillus* spoil stored food.</li>
+            <li><strong>Toxin Production:</strong> Some fungi produce deadly <strong>mycotoxins</strong>. E.g., *Aspergillus flavus* produces <strong>aflatoxins</strong> on peanuts, which are carcinogenic.</li>
+        </ul>
+
+        <h2 id="fungi-repro">4. Fungi: Reproduction</h2>
+        <p>Fungi reproduce by vegetative, asexual, and sexual methods.</p>
+
+        <h3 id="rhizopus">Morphology and life cycle of *Rhizopus*</h3>
+        <ul>
+            <li><strong>Organism:</strong> *Rhizopus stolonifer* (black bread mold).</li>
+            <li><strong>Group:</strong> Zygomycota.</li>
+            <li><strong>Morphology:</strong>
+                <ul>
+                    <li>The mycelium is <strong>aseptate (coenocytic)</strong> and haploid (n).</li>
+                    <li>It consists of three types of hyphae:
+                        <ol>
+                            <li><strong>Stolons:</strong> Horizontal hyphae that spread over the substrate.</li>
+                            <li><strong>Rhizoids:</strong> Root-like hyphae that anchor the fungus and absorb nutrients.</li>
+                            <li><strong>Sporangiophores:</strong> Erect hyphae that bear the sporangia.</li>
+                        </ol>
+                    </li>
+                </ul>
+            </li>
+            <div class="diagram-placeholder"></div>
+            <li><strong>Life Cycle (Haplontic):</strong>
+                <ul>
+                    <li><strong>Asexual:</strong> Sporangiophores grow upwards and develop a black, spherical <strong>sporangium</strong> at the tip. Inside, numerous haploid <strong>sporangiospores (n)</strong> are produced. The sporangium bursts, releasing the spores, which germinate into new mycelia.</li>
+                    <li><strong>Sexual:</strong>
+                        1.  Occurs when two <strong>compatible mating strains</strong> (+ and -) grow near each other.
+                        2.  The hyphae produce swellings (progametangia) that fuse.
+                        3.  The tips are cut off by septa to form <strong>gametangia</strong>.
+                        4.  The wall between them dissolves (plasmogamy), and the many haploid nuclei from both sides fuse (karyogamy) to form a multinucleate diploid (2n) structure.
+                        5.  This develops into a thick-walled, black, warty resting spore called a <strong>zygospore (2n)</strong>.
+                        6.  After a dormant period, the zygospore undergoes <strong>meiosis</strong> and germinates to produce a sporangiophore with a sporangium, which releases new haploid (n) spores.
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h3 id="penicillium">Morphology and life cycle of *Penicillium*</h3>
+        <ul>
+            <li><strong>Organism:</strong> *Penicillium* (blue-green mold). Source of penicillin.</li>
+            <li><strong>Group:</strong> Ascomycota.</li>
+            <li><strong>Morphology:</strong>
+                <ul>
+                    <li>The mycelium is <strong>septate</strong>, highly branched, and haploid (n).</li>
+                </ul>
+            </li>
+            <div class="diagram-placeholder"></div>
+            <li><strong>Life Cycle:</strong>
+                <ul>
+                    <li><strong>Asexual (Anamorph):</strong> This is the dominant form.
+                        1.  Erect, septate hyphae called <strong>conidiophores</strong> grow from the mycelium.
+                        2.  The conidiophore is branched at the tip, forming a "brush-like" structure.
+                        3.  The final branches are bottle-shaped cells called <strong>phialides</strong>.
+                        4.  Phialides produce long chains of small, spherical, haploid (n) axsexual spores called <strong>conidia</strong>.
+                        5.  The conidia (which are blue-green) give the mold its color and are dispersed by air.
+                    </li>
+                    <li><strong>Sexual (Teleomorph):</strong> (Rare, not seen in all species)
+                        1.  Plasmogamy occurs between an antheridium and an ascogonium.
+                        2.  This leads to the formation of dikaryotic (n+n) hyphae, which form asci.
+                        3.  Inside each <strong>ascus</strong>, karyogamy (2n) and meiosis (n) occur, producing <strong>8 haploid ascospores (n)</strong>.
+                        4.  The asci are enclosed in a completely spherical, closed ascocarp called a <strong>cleistothecium</strong>.
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3 id="puccinia">Morphology and life cycle of *Puccinia*</h3>
+        <ul>
+            <li><strong>Organism:</strong> *Puccinia graminis* (causes <strong>black stem rust of wheat</strong>).</li>
+            <li><strong>Group:</strong> Basidiomycota.</li>
+            <li><strong>Morphology:</strong>
+                <ul>
+                    <li>An <strong>obligate parasite</strong> (cannot be grown on lab media).</li>
+                    <li>The mycelium is <strong>dikaryotic (n+n)</strong> and septate, growing between the host cells.</li>
+                </ul>
+            </li>
+            <li><strong>Life Cycle:</strong> Extremely complex. It is <strong>heteroecious</strong> (requires two different hosts) and <strong>macrocyclic</strong> (produces 5 different spore types).
+                <ul>
+                    <li><strong>Host 1: Wheat (Primary Host)</strong>
+                        1.  <strong>Urediniospore Stage (n+n):</strong> Dikaryotic aeciospores from the barberry infect wheat. They produce red-brown, rust-colored pustules (uredia) containing <strong>urediniospores (n+n)</strong>. This is the "repeating stage" that re-infects wheat all summer.
+                        2.  <strong>Teliospore Stage (n+n → 2n):</strong> Late in the season, the fungus produces black pustules (telia) containing thick-walled, two-celled <strong>teliospores (n+n)</strong>. These are the resting spores. <strong>Karyogamy</strong> (n+n → 2n) occurs within each cell, and the spores overwinter.
+                    </li>
+                    <li><strong>Host 2: Barberry (Alternate Host)</strong>
+                        3.  <strong>Basidiospore Stage (n):</strong> In spring, the diploid (2n) teliospore germinates, undergoes <strong>meiosis</strong>, and forms a basidium, which produces <strong>4 haploid basidiospores (n)</strong>. These spores are wind-blown and can *only* infect the barberry leaf.
+                        4.  <strong>Pycniospore/Spermatial Stage (n):</strong> The basidiospores form flask-shaped pycnia on the upper leaf surface. These produce <strong>pycniospores (spermatia) (n)</strong> (male gametes) and receptive hyphae (female). Cross-fertilization (plasmogamy) occurs between different mating types.
+                        5.  <strong>Aeciospore Stage (n+n):</strong> The resulting dikaryotic (n+n) mycelium grows to the lower leaf surface and forms cup-shaped aecia, which produce chains of <strong>aeciospores (n+n)</strong>. These spores are released and infect the wheat, completing the cycle.
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> *Puccinia* is a classic example of a heteroecious rust. A key control method is to eradicate the alternate host (barberry) to break the life cycle.
+        </div>
+
+        <h2 id="lichens">5. Lichens</h2>
+        
+        <h3 id="lichens-gen">General account</h3>
+        <blockquote>
+            <strong>Definition:</strong> A lichen is a stable, self-supporting, <strong>mutualistic (symbiotic)</strong> association between a fungus (the <strong>mycobiont</strong>) and a photosynthetic partner (the <strong>phycobiont</strong>, which is either a green alga or a cyanobacterium).
         </blockquote>
         <ul>
             <li><strong>The Symbiosis:</strong>
                 <ul>
-                    <li>The <strong>fungus</strong> (usually an Ascomycete) provides the structure, absorbs water/minerals, and protects the alga from desiccation and UV light.</li>
-                    <li>The <strong>alga</strong> (e.g., <em>Trebouxia</em> - green alga, or <em>Nostoc</em> - cyanobacterium) performs photosynthesis, providing food (sugars) for both partners.</li>
+                    <li><strong>The Fungus (Mycobiont):</strong> Provides the body, structure, protection from UV light and drought, and absorbs water and minerals.</li>
+                    <li><strong>The Alga (Phycobiont):</strong> Performs photosynthesis and provides the fungus with sugars (food).</li>
                 </ul>
             </li>
             <li><strong>Thallus Forms:</strong>
                 <ol>
-                    <li><strong>Crustose:</strong> A thin, flat crust, strongly attached to the substrate (e.g., on rocks).</li>
-                    <li><strong>Foliose:</strong> A flat, broad, leaf-like thallus, loosely attached (e.g., <i>Parmelia</i>).</li>
-                    <li><strong>Fruticose:</strong> A shrubby, branched, cylindrical thallus (e.g., <i>Usnea</i> - "Old man's beard").</li>
+                    <li><strong>Crustose:</strong> A flat, crust-like thallus, tightly embedded in the substrate (rock/bark).</li>
+                    <li><strong>Foliose:</strong> A leaf-like, lobed thallus, loosely attached by rhizines (e.g., *Parmelia*).</li>
+                    <li><strong>Fruticose:</strong> A shrub-like, branched, and erect or hanging thallus (e.g., *Usnea*).</li>
                 </ol>
             </li>
-            <li><strong>Reproduction:</strong> Primarily by <strong>vegetative</strong> means that disperse *both* partners together:
+            <li><strong>Reproduction:</strong>
                 <ul>
-                    <li><strong>Soredia:</strong> Powdery, microscopic clusters of algal cells wrapped in fungal hyphae. Dispersed by wind.</li>
-                    <li><strong>Isidia:</strong> Small, finger-like outgrowths from the thallus that break off.</li>
+                    <li><strong>Asexual (Vegetative):</strong> This is the main method, as it disperses *both* partners together.
+                        <ul>
+                            <li><strong>Soredia:</strong> Powdery "packages" of algal cells wrapped in fungal hyphae.</li>
+                            <li><strong>Isidia:</strong> Small, coral-like outgrowths that break off.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Sexual:</strong> This is reproduction of the *fungus only*. The fungus produces ascospores, which must find a new algal partner by chance to form a new lichen.</li>
                 </ul>
             </li>
         </ul>
 
-        <h3>Significance (Economic and Ecological)</h3>
+        <h3 id="lichens-econ">Economic importance</h3>
         <ul>
-            <li><strong>Pioneer Species:</strong> Lichens are the first organisms to colonize bare rock. They secrete acids that break down the rock, beginning the process of <strong>soil formation</strong>.</li>
-            <li><strong>Air Pollution Indicators:</strong> Most lichens are highly sensitive to <strong>sulfur dioxide (SO<sub>2</sub>)</strong> and other air pollutants. Their absence in urban areas indicates poor air quality.</li>
-            <li><strong>Food Source:</strong> "Reindeer moss" (<i>Cladonia</i>) is a staple food for reindeer in the tundra.</li>
-            <li><strong>Dyes:</strong> Litmus, the common pH indicator, is ex
+            <li><strong>Ecological Pioneers:</strong> Lichens are the first organisms to colonize bare rock. They secrete acids that break down the rock, beginning the process of <strong>soil formation</strong>.</li>
+            <li><strong>Bioindicators:</strong> Lichens are extremely sensitive to <strong>air pollution</strong>, especially sulfur dioxide (SO2). Their absence in an area is a strong indicator of poor air quality.</li>
+            <li><strong>Dyes:</strong> Historically used to produce dyes. <strong>Litmus</strong>, the classic pH indicator, is extracted from *Roccella*.</li>
+            <li><strong>Fodder:</strong> "Reindeer moss" (*Cladonia*) is a major food source for reindeer and caribou in arctic regions.</li>
+            <li><strong>Medicine:</strong> *Usnea* produces usnic acid, which has antibiotic properties.</li>
+        </ul>
+
+        <h2 id="mycorrhiza">6. Mycorrhiza</h2>
+
+        <h3 id="myco-gen">General account and significance</h3>
+        <blockquote>
+            <strong>Definition:</strong> Mycorrhiza ("fungus-root") is a <strong>mutualistic (symbiotic)</strong> association between a fungus and the roots of a higher plant.
+        </blockquote>
+        <ul>
+            <li><strong>The Symbiosis:</strong>
+                <ul>
+                    <li><strong>The Fungus gets:</strong> Sugars (carbon) from the plant's photosynthesis.</li>
+                    <li><strong>The Plant gets:</strong> A vastly increased absorptive surface area. The fungal hyphae are much finer than root hairs and can explore a larger volume of soil. This gives the plant enhanced uptake of:
+                        <ul>
+                            <li><strong>Water</strong> (increasing drought resistance).</li>
+                            <li><strong>Minerals</strong>, especially <strong>Phosphorus (P)</strong>, which is often immobile in soil.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><strong>Types of Mycorrhiza:</strong>
+                <ol>
+                    <li><strong>Ectomycorrhiza (ECM):</strong>
+                        <ul>
+                            <li>The fungus forms a dense <strong>sheath (mantle)</strong> *around* the outside of the root.</li>
+                            <li>Hyphae grow *between* the root cells to form a <strong>"Hartig net"</strong> for nutrient exchange.</li>
+                            <li>They <strong>do not penetrate</strong> the cells.</li>
+                            <li>Common in trees like pines, oaks, and birches.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Endomycorrhiza (AM):</strong>
+                        <ul>
+                            <li>The fungus does *not* form an outer sheath.</li>
+                            <li>Hyphae grow *into* the root cortex and <strong>penetrate the cell walls</strong> (but not the plasma membrane).</li>
+                            <li>Inside the cell, they form highly branched, tree-like structures called <strong>arbuscules</strong>, which are the site of nutrient exchange.</li>
+                            <li>This type, also called <strong>Vesicular-Arbuscular Mycorrhiza (VAM)</strong>, is the most common, found in >80% of all land plants, including most crops.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </li>
+        </ul>
+        <div class="diagram-placeholder"></div>
+        
+        <h4>Significance:</h4>
+        <p>Mycorrhiza are fundamental to plant life. Most plants on Earth depend on this symbiosis for survival. In agriculture and forestry, inoculating soil with mycorrhizal fungi can significantly improve plant growth, reduce the need for phosphate fertilizers, and increase plant hardiness.</p>
+    </div>
+</body>
+</html>

@@ -3,52 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DSC-101: Microbiology - Unit 1</title>
+    <title>BOT: DSC-101 - Unit 1: General Microbiology</title>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: Arial, sans-serif;
             line-height: 1.6;
-            margin: 20px;
-            background-color: #f9f9f9;
+            background-color: #f4f7f6;
             color: #333;
+            margin: 0;
+            padding: 20px;
         }
         .container {
             max-width: 900px;
-            margin: 0 auto;
-            background-color: #ffffff;
+            margin: auto;
+            background: #ffffff;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         h1 {
-            text-align: center;
-            color: #0d47a1;
-            border-bottom: 3px solid #1e88e5;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
             padding-bottom: 10px;
+            text-align: center;
         }
         h2 {
-            color: #1e88e5;
-            border-bottom: 2px solid #b3e5fc;
-            padding-top: 15px;
+            color: #3498db;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 8px;
+            margin-top: 30px;
         }
         h3 {
-            color: #0277bd;
-            padding-top: 10px;
+            color: #2980b9;
+            margin-top: 20px;
         }
-        strong {
-            color: #c62828;
+        p {
+            margin-bottom: 15px;
         }
-        blockquote {
-            background-color: #e3f2fd;
-            border-left: 5px solid #1e88e5;
-            padding: 15px;
-            margin: 15px 0;
-            font-style: italic;
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
+            margin: 20px 0;
         }
         th, td {
             border: 1px solid #ddd;
@@ -56,50 +58,66 @@
             text-align: left;
         }
         th {
-            background-color: #b3e5fc;
-            color: #01579b;
+            background-color: #3498db;
+            color: #fff;
         }
         tr:nth-child(even) {
-            background-color: #f2f2f2;
+            background-color: #f9f9f9;
         }
-        nav {
-            background-color: #f1f1f1;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 25px;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        nav li {
-            margin-bottom: 5px;
-        }
-        nav a {
-            text-decoration: none;
-            color: #0277bd;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
+        blockquote {
+            background: #ecf0f1;
+            border-left: 5px solid #3498db;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
         }
         .exam-tip {
-            background-color: #fff9c4;
-            border: 1px solid #fbc02d;
+            background-color: #fffbe6;
+            border: 1px solid #ffe58f;
+            border-left-width: 5px;
             padding: 15px;
+            margin: 15px 0;
             border-radius: 5px;
-            margin-top: 15px;
         }
-        .placeholder {
+        .exam-tip strong {
+            color: #d4a000;
+        }
+        .diagram-placeholder {
             width: 100%;
-            background-color: #eee;
+            padding: 40px 20px;
+            background: #eee;
             border: 2px dashed #ccc;
-            padding: 30px;
             text-align: center;
             color: #777;
             margin: 20px 0;
             border-radius: 5px;
+            font-style: italic;
+        }
+        #toc {
+            background: #fdfdfd;
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #2c3e50;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc ul li {
+            margin-bottom: 8px;
+        }
+        #toc ul li a {
+            text-decoration: none;
+            color: #2980b9;
+        }
+        #toc ul li a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -107,218 +125,280 @@
     <div class="container">
         <h1>BOT: DSC-101: Microbiology<br>Unit 1: General Microbiology</h1>
 
-        <nav>
-            <h3>Table of Contents</h3>
+        <div id="toc">
+            <h2>Unit Contents</h2>
             <ul>
-                <li><a href="#topic1">Brief history of microbiology</a></li>
-                <li><a href="#topic2">Discovery of viruses and different groups of microorganisms</a></li>
-                <li><a href="#topic3">Status of microorganisms in the living world</a></li>
-                <li><a href="#topic4">Methods of sterilization (physical and chemical)</a></li>
-                <li><a href="#topic5">Microbial nutrition and growth</a></li>
-                <li><a href="#topic6">Microbial culture media</a></li>
-                <li><a href="#topic7">Stains and staining techniques</a></li>
-                <li><a href="#topic8">Antibiotics and their mode of actions</a></li>
-                <li><a href="#topic9">Vaccines</a></li>
+                <li><a href="#history">1. History of Microbiology</a>
+                    <ul>
+                        <li><a href="#discovery-microbes">Discovery of Microorganisms</a></li>
+                        <li><a href="#discovery-viruses">Discovery of Viruses</a></li>
+                    </ul>
+                </li>
+                <li><a href="#status">2. Status of Microorganisms in the Living World</a>
+                    <ul>
+                        <li><a href="#haeckel">Haeckel's System</a></li>
+                        <li><a href="#whittaker">Whittaker's Five Kingdom System</a></li>
+                        <li><a href="#woese">Carl Woese's Three Domain System</a></li>
+                    </ul>
+                </li>
+                <li><a href="#aseptic">3. Aseptic Techniques</a>
+                    <ul>
+                        <li><a href="#sterilization">Sterilization</a></li>
+                        <li><a href="#physical-methods">Physical Methods of Sterilization</a></li>
+                        <li><a href="#chemical-methods">Chemical Methods of Sterilization</a></li>
+                    </ul>
+                </li>
+                <li><a href="#media">4. Culture Media</a>
+                    <ul>
+                        <li><a href="#media-types">Types of Culture Media</a></li>
+                        <li><a href="#media-prep">Preparation of Media</a></li>
+                    </ul>
+                </li>
+                <li><a href="#isolation">5. Isolation of Pure Cultures</a></li>
+                <li><a href="#vaccines">6. Vaccines</a></li>
             </ul>
-        </nav>
-
-        <h2 id="topic1">Brief history of microbiology</h2>
-        <p>Microbiology is the study of microscopic organisms. Its history is marked by key individuals who established it as a science.</p>
-        <ul>
-            <li><strong>Antonie van Leeuwenhoek (1632-1723):</strong> A Dutch cloth merchant who built high-magnification single-lens microscopes. He was the first to observe and describe single-celled organisms, which he called <strong>"animalcules"</strong> (now known as bacteria and protozoa). He is often called the "Father of Microbiology."</li>
-            <li><strong>Louis Pasteur (1822-1895):</strong> A French chemist and microbiologist, considered a "Father of Medical Microbiology."
-                <ul>
-                    <li>Disproved <strong>spontaneous generation</strong> with his swan-neck flask experiments.</li>
-                    <li>Developed <strong>fermentation</strong> (showing it was caused by microbes) and <strong>pasteurization</strong> (heating to kill pathogens).</li>
-                    <li>Developed vaccines for anthrax and rabies.</li>
-                    <li>Championed the <strong>Germ Theory of Disease</strong>.</li>
-                </ul>
-            </li>
-            <li><strong>Robert Koch (1843-1910):</strong> A German physician who provided definitive proof for the Germ Theory of Disease.
-                <ul>
-                    <li>Identified the specific causative agents of tuberculosis, cholera, and anthrax.</li>
-                    <li>Developed <strong>Koch's Postulates</strong>, a set of criteria to establish a causal link between a microbe and a disease.</li>
-                    <li>Pioneered <strong>pure culture techniques</strong> using agar as a solidifying agent (suggested by Angelina Hesse).</li>
-                </ul>
-            </li>
-            <li><strong>Edward Jenner (1749-1823):</strong> An English physician who created the first vaccine. He used material from cowpox lesions to protect people from smallpox.</li>
-            <li><strong>Alexander Fleming (1881-1955):</strong> A Scottish biologist who discovered the first antibiotic, <strong>penicillin</strong>, from the mold <em>Penicillium notatum</em> in 1928.</li>
-        </ul>
-
-        <h2 id="topic2">Discovery of viruses and different groups of microorganisms</h2>
-        <h3>Discovery of Viruses</h3>
-        <p>Viruses were discovered as agents smaller than bacteria that could pass through filters. <strong>Dmitri Ivanovsky (1892)</strong> and <strong>Martinus Beijerinck (1898)</strong> studied Tobacco Mosaic Disease. Beijerinck coined the term "virus" (Latin for poison) after concluding the infectious agent was a "contagious living fluid" (<em>contagium vivum fluidum</em>).</p>
-        
-        <h3>Groups of Microorganisms (Prokaryotes to Eukaryotes)</h3>
-        <p>Microorganisms span all three domains of life: Bacteria, Archaea, and Eukarya.</p>
-        <ul>
-            <li><strong>Prokaryotes:</strong> Organisms lacking a true, membrane-bound nucleus and organelles.
-                <ul>
-                    <li><strong>Bacteria:</strong> Unicellular, most have a cell wall of <strong>peptidoglycan</strong>. Includes common microbes like <em>E. coli</em> and <em>Staphylococcus</em>.</li>
-                    <li><strong>Archaea:</strong> Unicellular, cell walls lack peptidoglycan. Many are <strong>extremophiles</strong> (living in extreme heat, salt, or pH).</li>
-                </ul>
-            </li>
-            <li><strong>Eukaryotes:</strong> Organisms with a membrane-bound nucleus and organelles.
-                <ul>
-                    <li><strong>Fungi:</strong> (e.g., Yeasts, Molds). Heterotrophic, with cell walls of <strong>chitin</strong>.</li>
-                    <li><strong>Protozoa:</strong> (e.g., <em>Amoeba</em>, <em>Paramecium</em>). Unicellular, "animal-like" eukaryotes. Usually motile.</li>
-                    <li><strong>Algae (Microalgae):</strong> (e.g., <em>Chlamydomonas</em>, Diatoms). Photosynthetic, "plant-like" eukaryotes. Cell walls often of <strong>cellulose</strong>.</li>
-                </ul>
-            </li>
-            <li><strong>Acellular Agents:</strong> Not truly "living" as they are not cells.
-                <ul>
-                    <li><strong>Viruses:</strong> Obligate intracellular parasites composed of genetic material (DNA or RNA) surrounded by a protein coat (capsid).</li>
-                </ul>
-            </li>
-        </ul>
-
-        <h2 id="topic3">Status of microorganisms in the living world</h2>
-        <p>Microorganisms' position in the living world is best understood through classification systems.</p>
-        <ul>
-            <li><strong>Whittaker's Five-Kingdom System (1969):</strong> Placed all prokaryotes (Bacteria, Archaea) in the kingdom <strong>Monera</strong>. Eukaryotic microbes were placed in <strong>Protista</strong> (algae, protozoa) and <strong>Fungi</strong>.</li>
-            <li><strong>Woese's Three-Domain System (1990):</strong> This is the modern standard. Based on ribosomal RNA (rRNA) sequencing, it divides all life into three domains:
-                <ol>
-                    <li><strong>Bacteria:</strong> "True" bacteria.</li>
-                    <li><strong>Archaea:</strong> Prokaryotes with distinct biochemistry, often extremophiles.</li>
-                    <li><strong>Eukarya:</strong> All eukaryotes (Protista, Fungi, Plantae, Animalia).</li>
-                </ol>
-                <p>This system highlights that Archaea are as different from Bacteria as they are from Eukaryotes. Microorganisms are the most abundant and diverse life forms, forming the base of many food webs and driving all biogeochemical cycles.</p>
-            </li>
-        </ul>
-
-        <h2 id="topic4">Methods of sterilization (physical and chemical)</h2>
-        <blockquote>
-            <strong>Sterilization:</strong> The complete removal or destruction of all viable microorganisms, including endospores and viruses.
-        </blockquote>
-        
-        <h3>Physical Methods</h3>
-        <ol>
-            <li><strong>Heat:</strong> Most common and effective method.
-                <ul>
-                    <li><strong>Moist Heat (Autoclave):</strong> Uses steam under pressure (<strong>121°C, 15 psi, 15-20 minutes</strong>). Kills all organisms, including spores. Used for culture media, glassware, and surgical instruments.</li>
-                    <li><strong>Dry Heat (Hot Air Oven):</strong> Requires higher temperatures and longer times (<strong>160-170°C for 2-3 hours</strong>). Used for glassware, metal instruments, and powders that are damaged by moisture.</li>
-                    <li><strong>Pasteurization:</strong> Mild heating to kill pathogens and reduce spoilage microbes in liquids (e.g., milk). <strong>It is not sterilization.</strong> (e.g., HTST: 72°C for 15 seconds).</li>
-                </ul>
-            </li>
-            <li><strong>Filtration:</strong> Physical removal of microbes by passing a liquid or gas through a filter with pores too small for microbes to pass (e.g., HEPA filters for air, membrane filters for heat-sensitive liquids like antibiotics).</li>
-            <li><strong>Radiation:</strong>
-                <ul>
-                    <li><strong>Non-ionizing (UV Radiation):</strong> Damages DNA (forms thymine dimers). Used for surface sterilization (e.g., lab benches, hospital rooms). Poor penetration.</li>
-                    <li><strong>Ionizing (X-rays, Gamma rays):</strong> Creates highly reactive free radicals that damage DNA and proteins. High penetration. Used to sterilize pre-packaged medical supplies (e.g., syringes, gloves).</li>
-                </ul>
-            </li>
-        </ol>
-
-        <h3>Chemical Methods</h3>
-        <p>These are often called <strong>disinfectants</strong> (on inanimate objects) or <strong>antiseptics</strong> (on living tissue).</p>
-        <ul>
-            <li><strong>Alcohols (e.g., 70% Ethanol, Isopropanol):</strong> Denature proteins and dissolve lipids. Used as skin antiseptics.</li>
-            <li><strong>Halogens (e.g., Chlorine, Iodine):</strong> Oxidizing agents. Chlorine (bleach) is a common disinfectant. Iodine (tincture, iodophors) is an antiseptic.</li>
-            <li><strong>Aldehydes (e.g., Formaldehyde, Glutaraldehyde):</strong> Highly effective. Cross-link and inactivate proteins and nucleic acids. Can be used for chemical sterilization (chemosterilants).</li>
-            <li><strong>Gases (e.g., Ethylene Oxide):</strong> Used to sterilize heat-sensitive materials (e.g., plastics, electronics). Highly penetrating but toxic and explosive.</li>
-        </ul>
-
-        <h2 id="topic5">Microbial nutrition and growth</h2>
-        <h3>Microbial Nutrition</h3>
-        <p>Microbes require nutrients for energy and to build cellular components.</p>
-        <ul>
-            <li><strong>Macronutrients:</strong> Required in large amounts (e.g., <strong>C, H, O, N, P, S</strong>).</li>
-            <li><strong>Micronutrients:</strong> Required in small amounts (e.g., Fe, Cu, Zn) - often act as cofactors for enzymes.</li>
-        </ul>
-        <p>Based on Carbon and Energy sources:</p>
-        <ul>
-            <li><strong>Autotrophs:</strong> Use inorganic CO<sub>2</sub> as their carbon source.
-                <ul>
-                    <li><strong>Photoautotrophs:</strong> Energy from light (e.g., algae, cyanobacteria).</li>
-                    <li><strong>Chemoautotrophs:</strong> Energy from inorganic chemicals (e.g., nitrifying bacteria).</li>
-                </ul>
-            </li>
-            <li><strong>Heterotrophs:</strong> Use organic compounds as their carbon source.
-                <ul>
-                    <li><strong>Photoheterotrophs:</strong> Energy from light, carbon from organic compounds.</li>
-                    <li><strong>Chemoheterotrophs:</strong> Energy and carbon from organic compounds (e.g., most bacteria, fungi, protozoa).</li>
-                </ul>
-            </li>
-        </ul>
-
-        <h3>Microbial Growth (Growth Curve)</h3>
-        <p>Growth typically refers to an increase in the number of cells (population growth), not the size of an individual cell. In a closed batch culture, bacterial growth follows a predictable pattern:</p>
-        <div class="placeholder" id="diagram1">
-            <strong>[Diagram: Bacterial Growth Curve]</strong>
-            <p>(X-axis: Time, Y-axis: Log of Cell Number)</p>
         </div>
+
+        <h2 id="history">1. History of Microbiology</h2>
+        
+        <h3 id="discovery-microbes">Discovery of Microorganisms (Prokaryotes to Eukaryotes)</h3>
+        <p>Microbiology officially began with the invention of the microscope. While the term "microbe" is broad, its discovery was staggered.</p>
+        <ul>
+            <li><strong>Antonie van Leeuwenhoek (1670s):</strong> A Dutch cloth merchant, he built high-quality single-lens microscopes. He was the first to observe and meticulously describe single-celled organisms, which he called <strong>"animalcules"</strong> (now known as bacteria and protozoa), from rainwater, dental plaque, and other sources.</li>
+            <li><strong>Louis Pasteur (1860s):</strong> Often called the "Father of Microbiology," he disproved the theory of <strong>spontaneous generation</strong> with his famous swan-neck flask experiment. He demonstrated that microbes are present in the air and are responsible for fermentation and spoilage. His work led to the development of pasteurization and vaccines.</li>
+            <li><strong>Robert Koch (1870s-80s):</strong> A German physician, he provided the first direct proof of the <strong>Germ Theory of Disease</strong>. He developed techniques to grow microbes in pure culture on solid media (using agar, an idea from Angelina Hesse). He established <strong>Koch's Postulates</strong>, a set of criteria to link a specific microbe to a specific disease.</li>
+        </ul>
+        
+        <h3 id="discovery-viruses">Discovery of Viruses</h3>
+        <p>Viruses were discovered as entities smaller than bacteria that could cause disease.</p>
+        <ul>
+            <li><strong>Dmitri Ivanovsky (1892):</strong> A Russian botanist, he studied Tobacco Mosaic Disease (TMD). He found that the sap from an infected plant could transmit the disease even after it was passed through a filter fine enough to trap all bacteria. He called it a "filterable agent."</li>
+            <li><strong>Martinus Beijerinck (1898):</strong> He independently replicated Ivanovsky's work and gave this filterable agent a name. He called it <em><strong>contagium vivum fluidum</strong></em> (contagious living fluid) and coined the term <strong>"virus."</strong></li>
+            <li><strong>Wendell Stanley (1935):</strong> He crystallized the Tobacco Mosaic Virus (TMV), showing it was part particle and part chemical, blurring the line between living and non-living.</li>
+        </ul>
+
+        <h2 id="status">2. Status of Microorganisms in the Living World</h2>
+        <p>The classification of life, especially microscopic life, has evolved significantly.</p>
+
+        <h3 id="haeckel">Haeckel's System (1866)</h3>
+        <p>Ernst Haeckel proposed a three-kingdom system:</p>
         <ol>
-            <li><strong>Lag Phase:</strong> No increase in cell number. Cells are "gearing up" - synthesizing enzymes and adjusting to the new medium.</li>
-            <li><strong>Log (Exponential) Phase:</strong> Cells divide at a constant, maximum rate. Population doubles at a regular interval (<strong>generation time</strong>). Cells are most active and most sensitive to antibiotics.</li>
-            <li><strong>Stationary Phase:</strong> Growth rate equals death rate. Nutrients become limited, and toxic waste products accumulate. Cell number stabilizes.</li>
-            <li><strong>Death (Decline) Phase:</strong> Death rate exceeds growth rate. Population declines as conditions become increasingly unfavorable.</li>
+            <li><strong>Plantae:</strong> Multicellular plants.</li>
+            <li><strong>Animalia:</strong> Multicellular animals.</li>
+            <li><strong>Protista:</strong> A "catch-all" kingdom for all "simpler" life forms, including bacteria, algae, fungi, and protozoa. This was the first system to formally recognize microorganisms.</li>
         </ol>
 
-        <h3>Factors Affecting Growth</h3>
-        <ul>
-            <li><strong>Temperature:</strong>
-                <ul>
-                    <li><strong>Psychrophiles:</strong> Cold-loving (0-20°C).</li>
-                    <li><strong>Mesophiles:</strong> Moderate-loving (20-45°C). Most human pathogens are mesophiles.</li>
-                    <li><strong>Thermophiles:</strong> Heat-loving (45-80°C).</li>
-                </ul>
-            </li>
-            <li><strong>pH:</strong>
-                <ul>
-                    <li><strong>Acidophiles:</strong> Grow at low pH.</li>
-                    <li><strong>Neutrophiles:</strong> Grow at neutral pH (6.5-7.5).</li>
-                    <li><strong>Alkaliphiles:</strong> Grow at high pH.</li>
-                </ul>
-            </li>
-            <li><strong>Oxygen:</strong>
-                <ul>
-                    <li><strong>Obligate Aerobes:</strong> Require O<sub>2</sub>.</li>
-                    <li><strong>Obligate Anaerobes:</strong> Killed by O<sub>2</sub>.</li>
-                    <li><strong>Facultative Anaerobes:</strong> Prefer O<sub>2</sub> but can grow without it (e.g., <em>E. coli</em>).</li>
-                </ul>
-            </li>
-        </ul>
-        <h3>Control of Growth</h3>
-        <p>This involves using methods (like sterilization, disinfection, antibiotics) to prevent or stop microbial growth, especially of pathogens or spoilage microbes.</p>
+        <h3 id="whittaker">Whittaker's Five Kingdom System (1969)</h3>
+        <p>Robert Whittaker's system became the standard for decades. It classified organisms based on cell structure (prokaryotic/eukaryotic), cellular organization (unicellular/multicellular), and mode of nutrition.</p>
+        <ol>
+            <li><strong>Monera:</strong> All prokaryotes (bacteria, cyanobacteria). Unicellular.</li>
+            <li><strong>Protista:</strong> Unicellular eukaryotes (protozoa, simple algae).</li>
+            <li><strong>Fungi:</strong> Eukaryotic, multicellular (mostly), saprotrophic (absorptive nutrition).</li>
+            <li><strong>Plantae:</strong> Eukaryotic, multicellular, autotrophic (photosynthetic).</li>
+            <li><strong>Animalia:</strong> Eukaryotic, multicellular, heterotrophic (ingestive nutrition).</li>
+        </ol>
+        <p>In this system, microorganisms are found in Monera, Protista, and Fungi.</p>
 
-        <h2 id="topic6">Microbial culture media</h2>
-        <p>A culture medium (plural: media) is a nutrient preparation used to grow microbes in the lab. It can be <strong>liquid (broth)</strong> or <strong>solid (agar)</strong>.</p>
-        <h3>Types of Media</h3>
-        <ul>
-            <li><strong>Basic / General Purpose Media (e.g., Nutrient Agar/Broth):</strong> Supports the growth of a wide variety of non-fastidious microbes.</li>
-            <li><strong>Enriched Media (e.g., Blood Agar):</strong> Basic media supplemented with special nutrients (like blood or serum) to support the growth of <strong>fastidious</strong> (picky) microbes.</li>
-            <li><strong>Selective Media (e.g., MacConkey Agar):</strong> Contains inhibitors (like bile salts, dyes) that <strong>prevent the growth of certain microbes</strong> while allowing others to grow. (MacConkey selects for Gram-negative bacteria).</li>
-            <li><strong>Differential Media (e.g., MacConkey Agar, EMB Agar):</strong> Contains indicators (like a dye and a sugar) that allow you to <strong>distinguish between different types of microbes</strong> based on their appearance. (MacConkey differentiates lactose-fermenters (pink) from non-fermenters (colorless)).</li>
-        </ul>
+        <h3 id="woese">Carl Woese's Three Domain System (1977)</h3>
+        <p>Carl Woese revolutionized classification by using <strong>16S ribosomal RNA (rRNA) sequencing</strong>. This molecular approach revealed a fundamental split in the prokaryotes.</p>
+        <div class="diagram-placeholder"></div>
+        <ol>
+            <li><strong>Domain Bacteria:</strong> "True" bacteria. Prokaryotic.</li>
+            <li><strong>Domain Archaea:</strong> Prokaryotes that are genetically and biochemically distinct from bacteria (e.g., extremophiles). They are more closely related to Eukarya than to Bacteria.</li>
+            <li><strong>Domain Eukarya:</strong> All eukaryotes (Protista, Fungi, Plantae, Animalia are now kingdoms *within* this domain).</li>
+        </ol>
         <div class="exam-tip">
-            <strong>Exam Tip:</strong> Many media are both selective and differential. <strong>MacConkey Agar</strong> is the classic example: It <strong>selects</strong> for Gram-negative bacteria (inhibits Gram-positive) and <strong>differentiates</strong> lactose fermenters (pink colonies) from non-fermenters.
+            <strong>Exam Tip:</strong> Be able to compare the systems. Whittaker's system is based on *morphology and nutrition*, while Woese's system is based on *genetics (rRNA)*. Woese's system is the current standard.
         </div>
 
-        <h2 id="topic7">Stains and staining techniques</h2>
-        <p>Staining increases the contrast between the microbe and its background, making it visible. A <strong>stain</strong> is a dye, typically a salt with a colored ion (chromophore).</p>
+        <h2 id="aseptic">3. Aseptic Techniques</h2>
+        <p>Aseptic techniques refer to all methods used to prevent contamination of cultures, sterile equipment, or the experimenter with unwanted microorganisms.</p>
+        
+        <h3 id="sterilization">Sterilization</h3>
+        <blockquote>
+            <strong>Definition: Sterilization</strong> is the complete removal or destruction of *all* forms of microbial life, including vegetative cells, spores, and viruses. This is an absolute term; something is either sterile or it is not.
+        </blockquote>
+
+        <h3 id="physical-methods">Physical Methods of Sterilization</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Sub-Type</th>
+                    <th>Mechanism</th>
+                    <th>Common Use</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Heat</strong></td>
+                    <td><strong>Dry Heat (Hot Air Oven)</strong></td>
+                    <td>Oxidation of cellular components. Requires higher temps and longer times.</td>
+                    <td>Glassware (pipettes, flasks), metal instruments, oily substances. (e.g., 160°C for 2 hours).</td>
+                </tr>
+                <tr>
+                    <td><strong>Heat</strong></td>
+                    <td><strong>Moist Heat (Autoclave)</strong></td>
+                    <td>Denaturation of proteins and enzymes. Uses pressurized steam (121°C, 15 psi, 15-20 min).</td>
+                    <td><strong>The most effective method.</strong> Used for culture media, surgical instruments, linens.</td>
+                </tr>
+                <tr>
+                    <td><strong>Heat</strong></td>
+                    <td><strong>Pasteurization</strong></td>
+                    <td>Reduces microbial load (does *not* sterilize). Kills most pathogens.</td>
+                    <td>Milk, fruit juices. (e.g., HTST: 72°C for 15 seconds).</td>
+                </tr>
+                <tr>
+                    <td><strong>Filtration</strong></td>
+                    <td><strong>Membrane Filters</strong></td>
+                    <td>Physical removal of microbes by passing liquid/gas through a filter with small pores (e.g., 0.22 µm).</td>
+                    <td>Heat-sensitive liquids (e.g., antibiotics, vitamins, serum).</td>
+                </tr>
+                <tr>
+                    <td><strong>Filtration</strong></td>
+                    <td><strong>HEPA Filters</strong></td>
+                    <td>High-Efficiency Particulate Air filters. Removes microbes from the air.</td>
+                    <td>Laminar flow hoods, operating rooms.</td>
+                </tr>
+                <tr>
+                    <td><strong>Radiation</strong></td>
+                    <td><strong>UV Radiation (Non-ionizing)</strong></td>
+                    <td>Damages DNA (forms thymine dimers). Poor penetration.</td>
+                    <td>Surface sterilization (labs, laminar hoods), water purification.</td>
+                </tr>
+                <tr>
+                    <td><strong>Radiation</strong></td>
+                    <td><strong>Ionizing (X-rays, Gamma rays)</strong></td>
+                    <td>Creates highly reactive free radicals that damage DNA. High penetration.</td>
+                    <td>"Cold sterilization" of pre-packaged disposables (syringes, petri dishes), medical supplies, spices.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 id="chemical-methods">Chemical Methods of Sterilization</h3>
+        <p>These agents are used to disinfect or sterilize. <strong>Disinfectants</strong> are used on inanimate objects, while <strong>antiseptics</strong> are used on living tissue.</p>
         <ul>
-            <li><strong>Basic Dyes:</strong> Positively charged chromophore (e.g., Crystal Violet, Safranin). Stains the negatively charged bacterial cell.</li>
-            <li><strong>Acidic Dyes:</strong> Negatively charged chromophore (e.g., Nigrosin). Repelled by the cell; stains the background (Negative Staining).</li>
+            <li><strong>Alcohols (Ethanol, Isopropanol):</strong> Denature proteins, dissolve lipids. Good for skin antiseptics and disinfecting surfaces. (Typically 70% concentration).</li>
+            <li><strong>Halogens (Iodine, Chlorine):</strong> Oxidizing agents. Iodine (Betadine) is an antiseptic. Chlorine (bleach) is a disinfectant for water and surfaces.</li>
+            <li><strong>Phenols (e.g., Lysol):</strong> Disrupt cell membranes, denature proteins. Stable and effective disinfectants.</li>
+            <li><strong>Gases (Ethylene Oxide):</strong> Highly penetrating gas used for heat-sensitive materials like plastic petri dishes and catheters. It's an alkylating agent.</li>
         </ul>
 
-        <h3>Staining Techniques</h3>
-        <ul>
-            <li><strong>Simple Staining:</strong> Uses a single basic dye. Reveals cell morphology (shape) and arrangement (clusters, chains).</li>
-            <li><strong>Differential Staining:</strong> Uses multiple reagents to distinguish between different groups of bacteria.
+        <h2 id="media">4. Culture Media</h2>
+        <blockquote>
+            <strong>Definition: Culture Medium</strong> (plural: media) is a nutrient-rich substance (liquid or solid) prepared in the lab to support the growth and multiplication of microorganisms.
+        </blockquote>
+
+        <h3 id="media-types">Types of Culture Media</h3>
+        <p>Media can be classified based on their consistency, composition, or purpose.</p>
+        <ol>
+            <li><strong>Based on Consistency:</strong>
                 <ul>
-                    <li><strong>Gram Stain:</strong> The most important stain. Classifies bacteria into <strong>Gram-Positive</strong> (purple) or <strong>Gram-Negative</strong> (pink) based on cell wall structure.</li>
-                    <li><strong>Acid-Fast Stain:</strong> Used to identify <em>Mycobacterium</em> (causes TB, leprosy), which have a waxy (mycolic acid) cell wall. Acid-fast cells stain red; non-acid-fast cells stain blue.</li>
+                    <li><strong>Liquid (Broth) Media:</strong> No gelling agent. Used to grow large quantities of microbes.</li>
+                    <li><strong>Solid Media:</strong> Contains a gelling agent (usually 1.5-2.0% <strong>agar</strong>). Used for isolation, enumeration, and observing colony morphology.</li>
+                    <li><strong>Semi-solid Media:</strong> Contains a low concentration of agar (e.g., 0.5%). Used to study motility.</li>
                 </ul>
             </li>
+            <li><strong>Based on Composition:</strong>
+                <ul>
+                    <li><strong>Defined (Synthetic) Media:</strong> The exact chemical composition is known (e.g., Czapek's medium).</li>
+                    <li><strong>Complex (Undefined) Media:</strong> The exact composition is unknown. Contains complex ingredients like peptone, yeast extract, or beef extract (e.g., Nutrient Broth).</li>
+                </ul>
+            </li>
+            <li><strong>Based on Purpose:</strong>
+                <ul>
+                    <li><strong>Basal Media:</strong> Simple media that supports the growth of non-fastidious microbes (e.g., Nutrient Agar).</li>
+                    <li><strong>Enriched Media:</strong> Basal media supplemented with extra nutrients like blood or serum (e.g., Blood Agar) for growing fastidious (picky) microbes.</li>
+                    <li><strong>Selective Media:</strong> Contains substances (e.g., antibiotics, dyes) that inhibit the growth of unwanted microbes and *select* for the desired ones (e.g., MacConkey Agar selects for Gram-negative bacteria).</li>
+                    <li><strong>Differential Media:</strong> Contains indicators that allow for the differentiation of two types of microbes based on a biochemical property (e.g., MacConkey Agar differentiates lactose fermenters (pink) from non-fermenters (colorless)).</li>
+                </ul>
+            </li>
+        </ol>
+        
+        <h3 id="media-prep">Preparation of Media (for Bacteria, Fungi, Actinomycetes)</h3>
+        <p>The general steps are:</p>
+        <ol>
+            <li><strong>Weighing:</strong> Accurately weigh the powdered components as per the formula.</li>
+            <li><strong>Dissolving:</strong> Dissolve the components in the required volume of distilled water, usually with gentle heating. If it's an agar medium, it must be boiled to fully dissolve the agar.</li>
+            <li><strong>pH Adjustment:</strong> Check the pH with a pH meter and adjust it to the required level (usually 6.8-7.2 for bacteria, 5.0-6.0 for fungi) using dilute HCl or NaOH.</li>
+            <li><strong>Dispensing:</strong> Pour the medium into final containers (flasks, test tubes).</li>
+            <li><strong>Sterilization:</strong> Sterilize the medium in an <strong>autoclave</strong> (121°C, 15 psi, 15-20 min).</li>
+        </ol>
+        <p><strong>Specific Media Examples:</strong></p>
+        <ul>
+            <li><strong>For Bacteria:</strong> <strong>Nutrient Agar (NA) / Nutrient Broth (NB)</strong>. A complex, basal medium.</li>
+            <li><strong>For Fungi:</strong> <strong>Potato Dextrose Agar (PDA)</strong> or <strong>Sabouraud Dextrose Agar (SDA)</strong>. These media have a high sugar content and a low pH, which inhibits bacterial growth.</li>
+            <li><strong>For Actinomycetes:</strong> <strong>Actinomycete Isolation Agar (AIA)</strong> or <strong>Starch Casein Agar (SCA)</strong>. These may contain antibiotics like cycloheximide to inhibit fungi.</li>
         </ul>
 
-        <h3>The Gram Stain Procedure (Key Steps)</h3>
-        <div class="placeholder">
-            <strong>[Flowchart: Gram Staining Procedure]</strong>
-        </div>
+        <h2 id="isolation">5. Isolation of Pure Cultures</h2>
+        <p>A <strong>pure culture</strong> contains only one species or strain of microorganism. Isolation is crucial for studying a specific microbe.</p>
+        <p><strong>Streak Plate Method:</strong></p>
+        <p>This is the most common technique used to obtain isolated colonies.</p>
         <ol>
-            <li><strong>Primary Stain (Crystal Violet):</strong> All cells stain purple.</li>
-            <li><strong>Mordant (Iodine):</strong> Forms a C-V-I complex. All cells remain purple.</li>
-            <li><strong>Decolorizer (Alcohol/Acetone):</strong> <strong>This is the differential step.</strong>
-                <ul>
-                    <li><strong>Gram-Po
+            <li>Take a sterile inoculating loop and pick up a sample (inoculum) from a mixed culture.</li>
+            <li>Streak the inoculum back and forth in one quadrant of an agar plate.</li>
+            <li>Sterilize the loop in a flame.</li>
+            <li>Turn the plate 90 degrees. Drag the loop from the first quadrant into the second, spreading the bacteria.</li>
+            <li>Sterilize the loop again.</li>
+            <li>Turn the plate 90 degrees. Drag the loop from the second quadrant into the third.</li>
+            <li>Sterilize the loop again and repeat for a fourth quadrant.</li>
+            <li>Incubate the plate. The process mechanically dilutes the bacteria, so that in the final quadrants, individual cells are deposited. Each cell will grow into a visible, isolated <strong>colony</strong>, which is a pure culture.</li>
+        </ol>
+        <div class="diagram-placeholder"></div>
+        <p><strong>Other Methods:</strong></p>
+        <ul>
+            <li><strong>Spread Plate:</strong> A small volume of a *diluted* liquid sample is pipetted onto the surface of an agar plate and spread evenly with a sterile "hockey stick" (glass spreader).</li>
+            <li><strong>Pour Plate:</strong> A diluted sample is mixed *with* molten (warm) agar and then poured into a sterile petri dish. Colonies grow both on the surface and embedded within the agar.</li>
+        </ul>
+
+        <h2 id="vaccines">6. Vaccines</h2>
+        <blockquote>
+            <strong>Definition: A vaccine</strong> is a biological preparation that provides active acquired immunity to a particular infectious disease. It "trains" the immune system to recognize and fight a pathogen.
+        </blockquote>
+        <p><strong>Principle:</strong> A vaccine introduces a safe form of the pathogen (or a part of it), called an <strong>antigen</strong>, into the body. The immune system mounts a response, creating <strong>memory cells</strong> (T-cells and B-cells). If the body later encounters the *actual* pathogen, these memory cells launch a rapid and strong attack, preventing or (more commonly) reducing the severity of the disease.</p>
+        <p><strong>Types of Vaccines:</strong></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Vaccine Type</th>
+                    <th>Description</th>
+                    <th>Advantages</th>
+                    <th>Disadvantages</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Live-Attenuated</strong></td>
+                    <td>Contains a "weakened" (attenuated) version of the living microbe that cannot cause disease in healthy people.</td>
+                    <td>Strong, long-lasting immunity (both cellular and humoral).</td>
+                    <td>Can be risky for immunocompromised people. Requires refrigeration.</td>
+                    <td>MMR (Measles, Mumps, Rubella), BCG (Tuberculosis).</td>
+                </tr>
+                <tr>
+                    <td><strong>Inactivated (Killed)</strong></td>
+                    <td>Contains microbes that have been killed with heat or chemicals.</td>
+                    <td>Very safe, no risk of reversion to virulence. Stable.</td>
+                    <td>Weaker response than live vaccines; may require boosters.</td>
+                    <td>Polio (Salk vaccine), Hepatitis A.</td>
+                </tr>
+                <tr>
+                    <td><strong>Toxoid</strong></td>
+                    <td>Contains an inactivated *toxin* (a toxoid) produced by the microbe, not the microbe itself.</td>
+                    <td>Trains the immune system to neutralize the toxin.</td>
+                    <td>Only protects against the effects of the toxin.</td>
+                    <td>Tetanus, Diphtheria.</td>
+                </tr>
+                <tr>
+                    <td><strong>Subunit / Recombinant</strong></td>
+                    <td>Contains only a small, specific piece (antigen) of the pathogen, like a protein. Often made using recombinant DNA technology.</td>
+                    <td>Extremely safe, as it contains no live components.</td>
+                    <td>Can be complex to manufacture; often requires adjuvants (boosters).</td>
+                    <td>Hepatitis B, HPV.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

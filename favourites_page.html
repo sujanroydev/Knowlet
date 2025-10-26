@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Favourites List</title>
+  <link rel="stylesheet" href="nav.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #004085;
+            border-bottom: 2px solid #004085;
+            padding-bottom: 10px;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-top: 30px;
+            color: #d9534f;
+            padding-bottom: 5px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #e9ecef;
+            margin-bottom: 8px;
+            padding: 12px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        li:hover {
+            background-color: #dee2e6;
+        }
+        a {
+            text-decoration: none;
+            color: #0056b3;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .empty-message {
+            padding: 20px;
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            border-radius: 5px;
+            text-align: center;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>★ Your Favourites List</h1>
+    <h2>Quick Access to Your Key Units</h2>
+
+    <ul id="favourites-list">
+        <li class="empty-message">Loading favourites...</li>
+    </ul>
+</div>
+  
+  <nav class="bottom-nav">
+    <a href="index.html" class="nav-item">
+      <span class="icon">🏠</span>
+      <span class="text">Home</span>
+    </a>
+    <a href="favourites_page.html" class="nav-item">
+      <span class="icon">🌟</span>
+      <span class="text">Favourite</span>
+    </a>
+    <a href="history_page.html" class="nav-item">
+      <span class="icon">📜</span>
+      <span class="text">History</span>
+    </a>
+  </nav>
+<script>
+(function () {
+    const FAVOURITES_KEY = 'unit_page_favourites';
+    const favouritesList = document.getElementById('favourites-list');
+
+    function renderFavourites() {
+        const favs = JSON.parse(localStorage.getItem(FAVOURITES_KEY) || '[]');
+        favouritesList.innerHTML = ''; // Clear loading message
+
+        if (favs.length === 0) {
+            favouritesList.innerHTML = '<li class="empty-message">You have no pages marked as favourite yet. Go to a unit page and click "Add to Favourites"!</li>';
+            return;
+        }
+
+        favs.forEach(item => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `
+                <a href="${item.url}" title="Go to ${item.title}">${item.title}</a>
+            `;
+            favouritesList.appendChild(listItem);
+        });
+    }
+
+    renderFavourites();
+})();
+</script>
+
+</body>
+</html>

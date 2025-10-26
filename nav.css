@@ -1,0 +1,53 @@
+/* Style for the fixed bottom navigation bar */
+.bottom-nav {
+    position: fixed; /* Fix the position relative to the viewport */
+    bottom: 0; /* Place it at the bottom of the screen */
+    left: 0; /* Align to the left edge */
+    width: 100%; /* Make it full width */
+    height: 60px; /* Set a fixed height */
+    background-color: #ffffff; /* Use a white background (or your preferred color) */
+    display: flex; /* Enable flexbox for even spacing */
+    justify-content: space-around; /* Distribute items evenly */
+    align-items: center; /* Center items vertically */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow on top */
+    z-index: 1000; /* Ensure it stays on top of other content */
+    padding-bottom: constant(safe-area-inset-bottom); /* For iOS safe areas */
+    padding-bottom: env(safe-area-inset-bottom); /* For iOS safe areas */
+}
+
+/* Style for individual navigation items */
+.nav-item {
+    display: flex;
+    flex-direction: column; /* Stack icon and text vertically */
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* Remove underline from links */
+    color: #333; /* Default text color */
+    font-size: 12px;
+    font-weight: 500;
+    flex-grow: 1; /* Allow items to grow and fill the space */
+    height: 100%;
+    transition: color 0.3s;
+}
+
+/* Style for the icon */
+.nav-item .icon {
+    font-size: 20px;
+    line-height: 1;
+    margin-bottom: 2px;
+}
+
+/* Style for the text */
+.nav-item .text {
+    /* Optional: Style for the text label */
+}
+
+/* Optional: Active state or hover effect */
+.nav-item:hover {
+    color: #007bff; /* Change color on hover (use your theme's primary color) */
+}
+
+/* Add padding to the body so content doesn't get hidden behind the fixed bar */
+body {
+    padding-bottom: 60px; /* Must be equal to the bottom-nav height */
+}

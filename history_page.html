@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recently Visited Pages History</title>
+  <link rel="stylesheet" href="nav.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #004085;
+            border-bottom: 2px solid #004085;
+            padding-bottom: 10px;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-top: 30px;
+            color: #007bff;
+            padding-bottom: 5px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #e9ecef;
+            margin-bottom: 8px;
+            padding: 12px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        li:hover {
+            background-color: #dee2e6;
+        }
+        a {
+            text-decoration: none;
+            color: #0056b3;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .timestamp {
+            font-size: 0.8em;
+            color: #6c757d;
+        }
+        .empty-message {
+            padding: 20px;
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            border-radius: 5px;
+            text-align: center;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>📖 Recently Visited Pages</h1>
+    <h2>Your Unit History (Last 15 Pages)</h2>
+
+    <ul id="history-list">
+        <li class="empty-message">Loading history...</li>
+    </ul>
+</div>  
+  <nav class="bottom-nav">
+    <a href="index.html" class="nav-item">
+      <span class="icon">🏠</span>
+      <span class="text">Home</span>
+    </a>
+    <a href="favourites_page.html" class="nav-item">
+      <span class="icon">🌟</span>
+      <span class="text">Favourite</span>
+    </a>
+    <a href="history_page.html" class="nav-item">
+      <span class="icon">📜</span>
+      <span class="text">History</span>
+    </a>
+  </nav>
+
+<script>
+(function () {
+    const HISTORY_KEY = 'unit_page_history';
+    const historyList = document.getElementById('history-list');
+
+    // Helper function to format the timestamp
+    function formatTime(timestamp) {
+        if (!timestamp) return '';
+        const date = new Date(timestamp);
+        return date.toLocaleString();
+    }
+
+    function renderHistory() {
+        const history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+        historyList.innerHTML = ''; // Clear loading message
+
+        if (history.length === 0) {
+            historyList.innerHTML = '<li class="empty-message">Your visit history is empty. Start exploring the unit pages!</li>';
+            return;
+        }
+
+        history.forEach(item => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `
+                <a href="${item.url}" title="Go to ${item.title}">${item.title}</a>
+                <span class="timestamp">Visited: ${formatTime(item.timestamp)}</span>
+            `;
+            historyList.appendChild(listItem);
+        });
+    }
+
+    renderHistory();
+})();
+</script>
+
+</body>
+</html>

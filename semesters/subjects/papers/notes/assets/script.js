@@ -148,11 +148,11 @@
         if (index > -1) {
             // Found: remove it
             favs.splice(index, 1);
-            alert(`Removed "${pageTitle}" from favourites!`);
+            //alert(`Removed "${pageTitle}" from favourites!`);
         } else {
             // Not found: add it
             favs.push(entry);
-            alert(`Added "${pageTitle}" to favourites!`);
+            //alert(`Added "${pageTitle}" to favourites!`);
         }
 
         // Save and re-render

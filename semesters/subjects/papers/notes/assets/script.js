@@ -177,3 +177,48 @@
 })();
 
 // --- End of History and Favourites Feature ---
+
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.createElement('button');
+  btn.id = 'keep-screen-on-btn';
+  btn.innerHTML = '<span class="icon">☀️</span> <span class="label">Keep Screen On</span>';
+  document.body.appendChild(btn);
+
+  let wakeLock = null;
+
+  async function toggleWakeLock() {
+    if (!('wakeLock' in navigator)) {
+      alert('Wake Lock API not supported in this browser.');
+      return;
+    }
+
+    if (!wakeLock) {
+      try {
+        wakeLock = await navigator.wakeLock.request('screen');
+        btn.querySelector('.icon').textContent = '🌙';
+        btn.querySelector('.label').textContent = 'Allow Screen Sleep';
+        btn.classList.add('active');
+        console.log('Screen will stay awake');
+
+        wakeLock.addEventListener('release', () => {
+          btn.querySelector('.icon').textContent = '☀️';
+          btn.querySelector('.label').textContent = 'Keep Screen On';
+          btn.classList.remove('active');
+          wakeLock = null;
+          console.log('Wake lock released');
+        });
+      } catch (err) {
+        console.error(`${err.name}: ${err.message}`);
+      }
+    } else {
+      await wakeLock.release();
+      wakeLock = null;
+      btn.querySelector('.icon').textContent = '☀️';
+      btn.querySelector('.label').textContent = 'Keep Screen On';
+      btn.classList.remove('active');
+      console.log('Wake lock manually released');
+    }
+  }
+
+  btn.addEventListener('click', toggleWakeLock);
+});

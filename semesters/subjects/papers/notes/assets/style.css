@@ -1,83 +1,108 @@
-.unit-nav {
-  margin: 2em 0;
-  text-align: center;
-}
-.unit-nav a {
-  display: inline-block;
-  padding: 8px 16px;
-  background: #f1f1f1;
-  color: #333;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: background 0.2s;
-}
+/* ===========================
+   Knowlet Unit Top Bar (Pinned + Fixed)
+   =========================== */
 
-.unit-nav a:hover {
-  background: #ddd;
-}
-
-@keyframes fadeSlideIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes pulseGlow {
-  0% {
-    box-shadow: 0 0 8px rgba(0, 180, 90, 0.5);
-  }
-  50% {
-    box-shadow: 0 0 18px rgba(0, 180, 90, 0.8);
-  }
-  100% {
-    box-shadow: 0 0 8px rgba(0, 180, 90, 0.5);
-  }
-}
-
-#keep-screen-on-btn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  padding: 10px 18px 10px 14px;
-  background-color: #0078ff;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 15px;
-  font-family: 'Segoe UI', Roboto, sans-serif;
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
-  z-index: 9999;
-  animation: fadeSlideIn 0.6s ease-out;
+.unit-top-bar {
+  position: relative;        /* Always fixed to viewport */
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  z-index: 9999;
+  font-family: system-ui, sans-serif;
+  backdrop-filter: blur(6px); /* smooth blur for better look */
+  opacity: 1;                /* fully visible */
+  transform: translateY(0);  /* no animation offset */
 }
 
-#keep-screen-on-btn:hover {
-  background-color: #0063cc;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+/* --- Base style for all buttons and links --- */
+.unit-top-bar button,
+.unit-top-bar a {
+  all: unset;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: #f5f5f5;
+  color: #333;
+  cursor: pointer;
+  font-size: 20px;
+  transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
 }
 
-#keep-screen-on-btn:active {
-  transform: scale(0.96);
+.unit-top-bar button:hover,
+.unit-top-bar a:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
-/* Icon inside button */
-#keep-screen-on-btn span.icon {
-  font-size: 18px;
-  line-height: 1;
+.unit-top-bar button:active,
+.unit-top-bar a:active {
+  transform: scale(0.95);
 }
 
-/* When active (Keep Screen On is ON) */
+/* --- Disabled navigation (frozen state) --- */
+.unit-top-bar a.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+  background: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+/* --- Icons --- */
+#back-btn::before { content: "←"; }
+.unit-prev::before { content: "«"; }
+.unit-next::before { content: "»"; }
+#fav-btn::before { content: "☆"; }
+#fav-btn.favourited::before { content: "★"; }
+#keep-screen-on-btn::before { content: "☀️"; }
+#keep-screen-on-btn.active::before { content: "🌙"; }
+
+/* --- Colors --- */
+#back-btn { background: #b0bec5; color: #fff; }
+.unit-prev { background: #42a5f5; color: #fff; }
+.unit-next { background: #66bb6a; color: #fff; }
+#fav-btn { background: #f0ad4e; color: #fff; }
+#fav-btn.favourited { background: #d9534f; color: #fff; }
+#keep-screen-on-btn { background: #0078ff; color: #fff; }
 #keep-screen-on-btn.active {
-  background-color: #00b359;
+  background: #00b359;
   animation: pulseGlow 2s infinite ease-in-out;
+}
+
+/* --- Glow animation --- */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 6px rgba(0, 180, 90, 0.5); }
+  50% { box-shadow: 0 0 14px rgba(0, 180, 90, 0.8); }
+}
+
+/* --- Responsive (mobile-friendly) --- */
+@media (max-width: 600px) {
+  .unit-top-bar {
+    justify-content: center;
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .unit-top-bar button,
+  .unit-top-bar a {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+}
+
+/* --- Page content offset --- */
+.container {
+  margin-top: 70px; /* prevents content from hiding behind toolbar */
 }

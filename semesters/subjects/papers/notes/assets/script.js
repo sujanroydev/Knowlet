@@ -1,6 +1,6 @@
 // --- Knowlet Unit Navigation + Top Bar (Icon Only + Auto Hide) ---
 (function () {
-  const currentUrl = window.location.href;
+  const currentUrl = window.location.href.split('?')[0]; // Remove query parameters for cleaner history
   const match = currentUrl.match(/(.*_unit_)(\d+)(\.html)?$/);
   const container = document.querySelector(".container");
 
@@ -96,6 +96,48 @@
   favBtn.onclick = toggleFavourite;
   renderFavouriteState();
   topBar.appendChild(favBtn);
+  
+  const pageTitle = document.title;
+  
+  // =================================================================
+  // 1. Page History Tracker
+  // =================================================================
+  
+  const HISTORY_KEY = 'unit_page_history';
+  
+  /**
+   * Updates the history in localStorage, limiting the list size.
+   */
+   
+  function updateHistory() {
+      // Load existing history or initialize a new array
+      let history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+      
+      // The new entry to add
+      const newEntry = { url: currentUrl, title: pageTitle, timestamp: new Date().toISOString() };
+      
+      // Filter out the current page if it's already in the history
+      history = history.filter(item => item.url !== newEntry.url); // <-- CORRECTED LINE
+      
+      // Add the current page to the top of the list
+      history.unshift(newEntry);
+          
+      
+      // Limit the history to, say, the last 15 pages
+      const maxHistorySize = 15;
+      if (history.length > maxHistorySize) {
+          history.length = maxHistorySize;
+      }
+      
+      // Save the updated history back to localStorage
+      localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+      
+      console.log(`History updated. Current history size: ${history.length}`);
+  }
+          
+  // Run the history update function immediately upon page load
+  updateHistory();
+
 
   // --- 4. Keep Screen On Button ---
   const screenBtn = document.createElement("button");

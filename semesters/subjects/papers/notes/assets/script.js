@@ -14,14 +14,10 @@
   backBtn.title = "Go Back";
   backBtn.onclick = () => {
     const currentUrl = window.location.href;
-  
-    // Match pattern like: /notes/chemistry_dsc_101_unit_2.html
     const backUrl = currentUrl.replace(
       /\/notes\/([a-z0-9_]+)_unit_\d+(\.html)?$/i,
       "/$1.html"
     );
-    //console.log(currentUrl);
-    //console.log(backUrl);
     window.location.href = backUrl;
   };
   topBar.appendChild(backBtn);

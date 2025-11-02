@@ -1,7 +1,7 @@
 // --- Knowlet Unit Navigation + Top Bar (Icon Only + Auto Hide) ---
 (function () {
   const currentUrl = window.location.href.split('?')[0]; // Remove query parameters for cleaner history
-  const match = currentUrl.match(/(.*_unit_)(\d+)(\.html)?$/);
+  const match = currentUrl.match(/(.*_unit_)(\d+)()?$/);
   const container = document.querySelector(".container");
 
   // Create top bar container
@@ -15,8 +15,8 @@
   backBtn.onclick = () => {
     const currentUrl = window.location.href;
     const backUrl = currentUrl.replace(
-      /\/notes\/([a-z0-9_]+)_unit_\d+(\.html)?$/i,
-      "/$1.html"
+      /\/notes\/([a-z0-9_]+)_unit_\d+()?$/i,
+      "/$1"
     );
     window.location.href = backUrl;
   };

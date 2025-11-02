@@ -6,8 +6,8 @@ backBtn.title = "Go Back";
 
 backBtn.onclick = () => {
   const currentUrl = window.location.href;
-  // Match pattern like: /papers/phy_dsc_151.html
-  const match = currentUrl.match(/\/papers\/([a-z_]+)_([a-z]+)_(\d+)\.html/i);
+  // Match pattern like: /papers/phy_dsc_151
+  const match = currentUrl.match(/\/papers\/([a-z_]+)_([a-z]+)_(\d+)/i);
   
   if (match) {
     const subject = match[1]; // e.g., 'phy'
@@ -24,8 +24,8 @@ backBtn.onclick = () => {
     else if (code > 450 && code < 500) semester = 8;
 
     const backUrl = currentUrl.replace(
-      /\/papers\/[a-z_0-9]+\.html/i,
-      `/semester_${semester}_${subject}.html`
+      /\/papers\/[a-z_0-9]+/i,
+      `/semester_${semester}_${subject}`
     );
     //console.log(backUrl);
     window.location.href = backUrl;

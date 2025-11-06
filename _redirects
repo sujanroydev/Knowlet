@@ -1,0 +1,4 @@
+/semesters/semester_:sem        /notes/semester_:sem               301
+/semesters/subjects/:subject     /notes/semester_1/:subject         301
+/semesters/subjects/papers/:subject_:paper     /notes/semester_1/:subject/:paper     301
+/semesters/subjects/papers/notes/:subject_:paper_unit_:unit     /notes/semester_1/:subject/:paper/unit_:unit     301

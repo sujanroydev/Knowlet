@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="101, 1st, dsm, knowlet, mathematics, notes, semester, unit">
+
+    <meta name="description" content="Comprehensive notes for Mathematics DSM 101 Unit 3 | 1st Semester Notes - Knowlet. Includes key concepts, definitions, and summaries for college students.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics DSM 101 Unit 3 | 1st Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1, h2, h3 {
+            color: #d9534f; /* A different color for DSM */
+            margin-bottom: 0.5em;
+        }
+        h1 {
+            font-size: 2.5em;
+            border-bottom: 3px solid #d9534f;
+            padding-bottom: 10px;
+        }
+        h2 {
+            font-size: 2em;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+            margin-top: 1.5em;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #f0ad4e;
+            margin-top: 1em;
+        }
+        p {
+            margin-bottom: 1em;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 1em;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        #toc {
+            background: #fcf8e3;
+            border: 1px solid #faebcc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 2em;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #8a6d3b;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 8px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #d9534f;
+            font-weight: 500;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+        blockquote {
+            border-left: 5px solid #f0ad4e;
+            padding: 15px;
+            background: #f8f9fa;
+            font-style: italic;
+            margin: 1.5em 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: block;
+            margin: 1em 0;
+            overflow-x: auto;
+        }
+        .exam-tip {
+            background: #fdf7e7;
+            border: 1px solid #f0ad4e;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 1.5em 0;
+        }
+        .exam-tip strong {
+            color: #d9534f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 3: Partial Derivatives and Geometry of Curves</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Partial Differentiation</a></li>
+                <li><a href="#topic2">Homogeneous Functions</a></li>
+                <li><a href="#topic3">Euler's Theorem on Homogeneous Functions</a></li>
+                <li><a href="#topic4">Tangents and Normals (Cartesian)</a></li>
+                <li><a href="#topic5">Subtangents and Subnormals (Cartesian)</a></li>
+                <li><a href="#topic6">Tangents and Normals (Polar)</a></li>
+                <li><a href="#topic7">Subtangents and Subnormals (Polar)</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Partial Differentiation</h2>
+        <p>A partial derivative of a function of several variables (e.g., f(x, y)) is its derivative with respect to <em>one</em> of those variables, while holding all other variables <strong>constant</strong>.</p>
+        
+        <h3>Notation</h3>
+        <p>Let z = f(x, y).</p>
+        <ul>
+            <li><strong>Partial derivative of f with respect to x:</strong>
+                <span class="formula">∂f/∂x  or  fₓ</span>
+                <p>To calculate, treat 'y' as if it were a constant (like '5') and differentiate f with respect to 'x' normally.</p>
+            </li>
+            <li><strong>Partial derivative of f with respect to y:</strong>
+                <span class="formula">∂f/∂y  or  fᵧ</span>
+                <p>To calculate, treat 'x' as if it were a constant and differentiate f with respect to 'y' normally.</p>
+            </li>
+        </ul>
+
+        <p><strong>Example:</strong> Let f(x, y) = 2x³y + sin(y) - x⁴</p>
+        <ul>
+            <li><span class="formula">∂f/∂x = (2y) * (3x²) + 0 - 4x³ = 6x²y - 4x³</span>
+                (We treated 2y as a constant multiplier and sin(y) as a constant)
+            </li>
+            <li><span class="formula">∂f/∂y = (2x³) * (1) + cos(y) - 0 = 2x³ + cos(y)</span>
+                (We treated 2x³ as a constant multiplier and x⁴ as a constant)
+            </li>
+        </ul>
+
+        <h3>Higher-Order Partial Derivatives</h3>
+        <p>We can differentiate again to find second-order partial derivatives:</p>
+        <ul>
+            <li><span class="formula">∂²f/∂x² = ∂/∂x (∂f/∂x) = fₓₓ</span></li>
+            <li><span class="formula">∂²f/∂y² = ∂/∂y (∂f/∂y) = fᵧᵧ</span></li>
+            <li><span class="formula">∂²f/∂x∂y = ∂/∂x (∂f/∂y) = fᵧₓ</span> (Differentiate w.r.t. y first, then x)</li>
+            <li><span class="formula">∂²f/∂y∂x = ∂/∂y (∂f/∂x) = fₓᵧ</span> (Differentiate w.r.t. x first, then y)</li>
+        </ul>
+        
+        <h3>Clairaut's Theorem (Equality of Mixed Partials)</h3>
+        <p>For most "well-behaved" functions (if the mixed partials are continuous), the order of differentiation does not matter.</p>
+        <blockquote>
+            <span class="formula">∂²f/∂y∂x = ∂²f/∂x∂y  (or fₓᵧ = fᵧₓ)</span>
+        </blockquote>
+        
+        <h2 id="topic2">Homogeneous Functions</h2>
+        <p>A function f(x, y) is a <strong>homogeneous function of degree n</strong> if, for any constant t, it satisfies the following property:</p>
+        <blockquote>
+            <span class="formula">f(tx, ty) = tⁿ * f(x, y)</span>
+        </blockquote>
+        
+        <h3>Alternative Form</h3>
+        <p>A function f(x, y) is homogeneous of degree n if it can be written in the form:</p>
+        <span class="formula">f(x, y) = xⁿ * g(y/x)</span>  OR  <span class="formula">f(x, y) = yⁿ * h(x/y)</span>
+        
+        <p><strong>Example:</strong> f(x, y) = (x³ + y³) / (x - y)</p>
+        <ul>
+            <li><strong>Method 1 (t-test):</strong>
+                <br>f(tx, ty) = ((tx)³ + (ty)³) / (tx - ty) = (t³x³ + t³y³) / (tx - ty)
+                <br>= [t³(x³ + y³)] / [t(x - y)] = t² * [(x³ + y³) / (x - y)]
+                <br>= t² * f(x, y)
+                <br>This is a <strong>homogeneous function of degree 2</strong>.
+            </li>
+            <li><strong>Method 2 (factoring):</strong>
+                <br>f(x, y) = [x³(1 + (y/x)³)] / [x(1 - y/x)]
+                <br>= x² * [ (1 + (y/x)³) / (1 - y/x) ]
+                <br>This is in the form x² * g(y/x). Therefore, it is homogeneous of degree 2.
+            </li>
+        </ul>
+
+        <h2 id="topic3">Euler's Theorem on Homogeneous Functions</h2>
+        <p>This theorem provides a powerful relationship between a homogeneous function (of two variables) and its partial derivatives.</p>
+        
+        <h3>Statement</h3>
+        <blockquote>
+            If f(x, y) is a homogeneous function of degree <strong>n</strong>, then:
+            <span class="formula">x * (∂f/∂x) + y * (∂f/∂y) = n * f</span>
+        </blockquote>
+        
+        <h3>Problems Related to Euler's Theorem</h3>
+        <p>Problems often ask you to "verify" the theorem, or use it to find the value of <span class="formula">x * (∂f/∂x) + y * (∂f/∂y)</span> without full differentiation.</p>
+        
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> If a problem gives you a complex homogeneous function `f` and asks to find <span class="formula">x * fₓ + y * fᵧ</span>, do NOT differentiate.
+            <ol>
+                <li>Show the function is homogeneous using the t-test or by factoring.</li>
+                <li>Identify the degree 'n'.</li>
+                <li>State that by Euler's Theorem, the answer is simply <strong>n * f</strong>.</li>
+            </ol>
+        </div>
+        
+        <p><strong>Example (Deduction):</strong> If u = tan⁻¹((x³ + y³) / (x - y)), find <span class="formula">x(∂u/∂x) + y(∂u/∂y)</span>.</p>
+        <ol>
+            <li>'u' itself is <strong>not</strong> homogeneous.</li>
+            <li>Let f(x, y) = tan(u) = (x³ + y³) / (x - y).</li>
+            <li>We already showed f(x, y) is homogeneous of degree <strong>n = 2</strong>.</li>
+            <li>By Euler's Theorem for 'f':
+                <span class="formula">x * (∂f/∂x) + y * (∂f/∂y) = n * f = 2 * f</span>
+                <span class="formula">x * (∂f/∂x) + y * (∂f/∂y) = 2 * tan(u)</span>
+            </li>
+            <li>Now, find the partial derivatives of f in terms of u:
+                <br>∂f/∂x = d/dx(tan u) = sec²(u) * (∂u/∂x)
+                <br>∂f/∂y = d/dy(tan u) = sec²(u) * (∂u/∂y)
+            </li>
+            <li>Substitute these into Euler's Theorem:
+                <span class="formula">x * [sec²(u) * (∂u/∂x)] + y * [sec²(u) * (∂u/∂y)] = 2 * tan(u)</span>
+            </li>
+            <li>Factor out sec²(u):
+                <span class="formula">sec²(u) * [ x(∂u/∂x) + y(∂u/∂y) ] = 2 * tan(u)</span>
+            </li>
+            <li>Solve for the expression we want:
+                <span class="formula">x(∂u/∂x) + y(∂u/∂y) = [ 2 * tan(u) ] / sec²(u)</span>
+                <span class="formula">= 2 * (sin u / cos u) * (cos² u)</span>
+                <span class="formula">= 2 * sin(u) * cos(u)</span>
+                <span class="formula">= sin(2u)</span>
+            </li>
+        </ol>
+
+        <h2 id="topic4">Tangents and Normals (Cartesian)</h2>
+        <p>For a curve given by <strong>y = f(x)</strong>, the derivative <strong>dy/dx</strong> at a point <strong>(x₁, y₁)</strong> represents the slope of the tangent line at that point.</p>
+        <p>Let <span class="formula">m = (dy/dx) at (x₁, y₁)</span></p>
+        
+        <h3>Equation of the Tangent Line</h3>
+        <p>Using the point-slope form <span class="formula">Y - y₁ = m(X - x₁)</span>:</p>
+        <blockquote>
+            <span class="formula">Y - y₁ = (dy/dx) * (X - x₁)</span>
+        </blockquote>
+        <p>(We use capital Y and X for the equation of the line, to distinguish from the point (x₁, y₁) on the curve).</p>
+
+        <h3>Equation of the Normal Line</h3>
+        <p>The normal line is perpendicular to the tangent line. Its slope is the negative reciprocal of the tangent's slope.</p>
+        <p>Slope of normal = <span class="formula">-1 / m = -1 / (dy/dx)</span></p>
+        <blockquote>
+            <span class="formula">Y - y₁ = (-1/m) * (X - x₁)</span>
+            <br>
+            <span class="formula">(X - x₁) + m * (Y - y₁) = 0</span>
+        </blockquote>
+        
+        <h2 id="topic5">Subtangents and Subnormals (Cartesian)</h2>
+        <p>These are lengths on the x-axis related to the tangent and normal lines.</p>
+        <p>Let P(x, y) be a point on the curve. Let the tangent at P meet the x-axis at T. Let the normal at P meet the x-axis at N. Let M be the foot of the perpendicular from P to the x-axis (so M = (x, 0)).</p>
+        <ul>
+            <li><strong>Length of Subtangent (TM):</strong> This is the projection of the tangent segment PT onto the x-axis.
+                <blockquote>
+                    <span class="formula">Length of Subtangent = | y / m | = | y / (dy/dx) |</span>
+                </blockquote>
+            </li>
+            <li><strong>Length of Subnormal (MN):</strong> This is the projection of the normal segment PN onto the x-axis.
+                <blockquote>
+                    <span class="formula">Length of Subnormal = | y * m | = | y * (dy/dx) |</span>
+                </blockquote>
+            </li>
+        </ul>
+
+        <h2 id="topic6">Tangents and Normals (Polar)</h2>
+        <p>For a curve given in polar coordinates as <strong>r = f(θ)</strong>.</p>
+        <p>Let <strong>φ</strong> (phi) be the angle between the radius vector (from origin to P(r, θ)) and the tangent line at P.</p>
+        
+        <h3>Angle φ (phi)</h3>
+        <blockquote>
+            The formula relating r, θ, and φ is:
+            <span class="formula">tan(φ) = r / (dr/dθ) = r * (dθ/dr)</span>
+        </blockquote>
+
+        <h3>Equation of Tangent and Normal (in polar coordinates)</h3>
+        <p>This is less common, but the equation of the tangent line at a point (r₁, θ₁) is given by:</p>
+        <span class="formula">r₁ / r = cos(θ - θ₁) - tan(φ₁) * sin(θ - θ₁)</span>
+        <p>Where φ₁ is the value of φ at (r₁, θ₁).</p>
+        <p>The slope of the tangent line in Cartesian coordinates (m = dy/dx) can be found using:</p>
+        <span class="formula">x = r cos(θ)</span>, <span class="formula">y = r sin(θ)</span>
+        <span class="formula">dy/dx = ( (dr/dθ)sin(θ) + r*cos(θ) ) / ( (dr/dθ)cos(θ) - r*sin(θ) )</span>
+        <p>You can then use this 'm' in the Cartesian tangent/normal equations.</p>
+        
+        <h2 id="topic7">Subtangents and Subnormals (Polar)</h2>
+        <p>These are lengths defined differently than their Cartesian counterparts.</p>
+        <p>Draw the tangent and normal lines at a point P(r, θ). Draw a line through the origin (pole) O <strong>perpendicular</strong> to the radius vector OP. This new line intersects the tangent at T and the normal at N.</p>
+        <ul>
+            <li><strong>Polar Subtangent (OT):</strong> The length of the segment from the pole (O) to the intersection (T) of the perpendicular line and the tangent line.
+                <blockquote>
+                    <span class="formula">Length of Polar Subtangent = | r² * (dθ/dr) | = | r * tan(φ) |</span>
+                </blockquote>
+            </li>
+            <li><strong>Polar Subnormal (ON):</strong> The length of the segment from the pole (O) to the intersection (N) of the perpendicular line and the normal line.
+                <blockquote>
+                    <span class="formula">Length of Polar Subnormal = | dr/dθ | = | r * cot(φ) |</span>
+                </blockquote>
+            </li>
+        </ul>
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> Memorize these four formulas for subtangents and subnormals (two Cartesian, two polar). They are very common in short-answer questions.
+            <br>
+            <strong>Mnemonic:</strong>
+            <ul>
+                <li>Cartesian Sub<strong>T</strong>angent: y / m (T for "Top", y is on top)</li>
+                <li>Cartesian Sub<strong>N</strong>ormal: y * m (N for "N-multiply")</li>
+                <li>Polar Sub<strong>T</strong>angent: r * tan(φ) (T for "tan")</li>
+                <li>Polar Sub<strong>N</strong>ormal: r * cot(φ) (N for "Normal", but use cot(φ) = dr/dθ * (1/r) => |dr/dθ|)</li>
+            </ul>
+        </div>
+    </div>
+  <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

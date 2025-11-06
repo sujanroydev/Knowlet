@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="101, 1st, dsm, knowlet, notes, physics, semester, unit">
+
+    <meta name="description" content="Comprehensive notes for Physics DSM 101 Unit 5 | 1st Semester Notes - Knowlet. Includes key concepts, definitions, and summaries for college students.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSM 101 Unit 5 | 1st Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dcdcdc;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #f39c12;
+            padding-bottom: 5px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            border-bottom-width: 3px;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #d35400;
+            border-bottom: 1px dotted #f39c12;
+        }
+        p, li {
+            font-size: 1.1em;
+            text-align: justify;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        blockquote {
+            font-family: 'Georgia', serif;
+            font-size: 1.2em;
+            font-style: italic;
+            background-color: #fffaf0;
+            border-left: 5px solid #f39c12;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        .exam-tip {
+            background-color: #fffbe6;
+            border: 1px solid #ffecb3;
+            border-left-width: 5px;
+            border-left-color: #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #c79100;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f39c12;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        #toc {
+            background: #fff8e1;
+            border: 1px solid #ffecb3;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            border-bottom: none;
+            margin-top: 0;
+            text-align: center;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #toc li {
+            margin: 5px 0;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #d35400;
+            font-weight: bold;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 5: Fluids and Special Theory of Relativity</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Fluids: Surface Tension and Excess Pressure</a></li>
+                <li><a href="#topic2">Fluids: Viscosity and Poiseuille's Formula</a></li>
+                <li><a href="#topic3">Special Theory of Relativity: Postulates</a></li>
+                <li><a href="#topic4">Lorentz Transformation</a></li>
+                <li><a href="#topic5">Length Contraction</a></li>
+                <li><a href="#topic6">Time Dilation</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Fluids: Surface Tension and Excess Pressure</h2>
+        
+        <h3>Surface Tension (T)</h3>
+        <p>Surface tension is a property of a liquid that allows it to resist an external force. It is the tendency of liquid surfaces to shrink into the minimum possible surface area.</p>
+        <ul>
+            <li><strong>Cause:</strong> Cohesive forces (intermolecular forces) between liquid molecules. Molecules at the surface are pulled inwards by molecules below them, but not by any molecules above them. This creates a net inward force, causing the surface to act like a stretched elastic membrane.</li>
+            <li><strong>Definition 1 (Force):</strong> The force per unit length (F/L) acting along the surface.</li>
+            <li><strong>Definition 2 (Energy):</strong> The surface energy per unit area (E/A).</li>
+            <li><strong>Units:</strong> N/m or J/m².</li>
+        </ul>
+
+        <h3>Excess of Pressure</h3>
+        <p>Because of surface tension, the pressure *inside* a curved liquid surface (like a drop or bubble) is greater than the pressure outside. This is called <strong>excess pressure (ΔP)</strong>.</p>
+        
+        <h4>1. Spherical Liquid Drop</h4>
+        <p>A liquid drop has one surface (liquid-air).</p>
+        <p>The outward force from the excess pressure (ΔP × Area) must balance the inward "squeeze" from surface tension (T × Circumference).</p>
+        <p>A formal derivation (balancing work done) gives:</p>
+        <blockquote>
+            <strong>ΔP = P<sub>in</sub> - P<sub>out</sub> = 2T / R</strong>
+        </blockquote>
+        <p>Where `T` is surface tension and `R` is the radius of the drop.</p>
+
+        <h4>2. Spherical Liquid Bubble</h4>
+        <p>A bubble (like a soap bubble in air) has <strong>two</strong> surfaces (an inner liquid-air surface and an outer liquid-air surface) that both contribute.</p>
+        <p>This effectively doubles the surface tension effect.</p>
+        <blockquote>
+            <strong>ΔP = P<sub>in</sub> - P<sub>out</sub> = 4T / R</strong>
+        </blockquote>
+        
+        <h4>3. Cylindrical Liquid Drop</h4>
+        <p>For a cylindrical drop of liquid (like a long, thin stream), the curvature is only in one dimension (when viewed from the side).</p>
+        <blockquote>
+            <strong>ΔP = P<sub>in</sub> - P<sub>out</sub> = T / R</strong>
+        </blockquote>
+        <p>A cylindrical *bubble* (like a long, hollow film) would have two surfaces, giving `ΔP = 2T/R`.</p>
+        
+        <hr>
+
+        <h2 id="topic2">Fluids: Viscosity and Poiseuille's Formula</h2>
+        
+        <h3>Viscosity (η)</h3>
+        <p><strong>Viscosity</strong> is the measure of a fluid's resistance to flow. It is essentially "internal friction" within the fluid.</p>
+        <ul>
+            <li><strong>High Viscosity:</strong> Fluid flows slowly (e.g., honey, molasses).</li>
+            <li><strong>Low Viscosity:</strong> Fluid flows easily (e.g., water, air).</li>
+        </ul>
+        <p>When a fluid flows, different layers move at different speeds (this is called "shear"). The viscous force `F` between two layers is given by Newton's law of viscosity:</p>
+        <p class="formula">F = -η A (dv/dy)</p>
+        <p>Where `η` (eta) is the <strong>coefficient of viscosity</strong>, `A` is the area of the layer, and `dv/dy` is the velocity gradient (how fast the velocity changes with distance).</p>
+
+        <h3>Variations of Viscosity of a liquid with Temperature</h3>
+        <p>This is a key difference between liquids and gases.</p>
+        <ul>
+            <li><strong>For Liquids:</strong> Viscosity is primarily due to <strong>cohesive intermolecular forces</strong>. When temperature <strong>increases</strong>, molecules gain kinetic energy and can overcome these forces more easily. Therefore, viscosity <strong>DECREASES</strong>. (e.g., hot honey flows faster than cold honey).</li>
+            <li><strong>For Gases:</strong> Viscosity is due to <strong>collisions and momentum transfer</strong> between molecules. When temperature <strong>increases</strong>, molecules move faster, collide more often, and transfer more momentum. Therefore, viscosity <strong>INCREASES</strong>.</li>
+        </ul>
+        
+        <h3>Poiseuille's Formula</h3>
+        <p>This formula describes the <strong>volume flow rate (Q)</strong> of a viscous, incompressible fluid flowing in a <strong>laminar</strong> (smooth, non-turbulent) way through a cylindrical tube of length `L` and radius `R`.</p>
+        <p>The flow is driven by a pressure difference `ΔP = P₁ - P₂` between the ends of the tube.</p>
+        
+        <p>The formula is:</p>
+        <blockquote>
+            <strong>Q = V / t = (π ΔP R⁴) / (8 η L)</strong>
+        </blockquote>
+        
+        <div class="exam-tip">
+            <strong>Key Implications of Poiseuille's Law:</strong>
+            <ul>
+                <li>Flow `Q` is proportional to `ΔP` (double the pressure, double the flow).</li>
+                <li>Flow `Q` is inversely proportional to `η` and `L` (double the viscosity or length, half the flow).</li>
+                <li><strong>Crucial Point:</strong> Flow `Q` is proportional to <strong>R⁴</strong> (the fourth power of the radius).
+                    <br><strong>Real-world Application:</strong> This is vital in blood flow. If an artery's radius is halved (e.g., by plaque), the pressure difference `ΔP` needed to maintain the same blood flow `Q` must increase by a factor of 2⁴ = <strong>16</strong>. This puts a massive strain on the heart.
+                </li>
+            </ul>
+        </div>
+        
+        <hr>
+        
+        <h2 id="topic3">Special Theory of Relativity: Postulates</h2>
+        <p>In 1905, Albert Einstein proposed the Special Theory of Relativity to resolve conflicts between classical mechanics (Newton/Galileo) and electromagnetism (Maxwell). It is based on two fundamental postulates.</p>
+        
+        <h3>Postulate 1: The Principle of Relativity</h3>
+        <blockquote>
+            <strong>"The laws of physics are the same (invariant) in all inertial frames of reference."</strong>
+        </blockquote>
+        <p>This extends the (classical) Galilean principle of relativity (which only applied to mechanics) to *all* laws of physics, including electromagnetism. It means there is no "absolute rest frame" or "ether". Any inertial frame is as good as any other.</p>
+        
+        <h3>Postulate 2: The Constancy of the Speed of Light</h3>
+        <blockquote>
+            <strong>"The speed of light in a vacuum (c) has the same value (c ≈ 3 × 10⁸ m/s) for all inertial observers, regardless of the motion of the source or the observer."</strong>
+        </blockquote>
+        <p>This is a radical break from classical intuition.
+        <br>
+        <strong>Classical example:</strong> If you are on a train moving at 50 km/h and throw a ball forward at 20 km/h, someone on the ground sees the ball moving at 50 + 20 = 70 km/h.
+        <br>
+        <strong>Relativistic example:</strong> If you are on a spaceship moving at 0.9c and turn on a headlight, you measure the light speed as `c`. An observer on Earth does *not* see the light moving at `0.9c + c = 1.9c`. They *also* measure the speed of that *same* light beam as `c`.</p>
+        
+        <p><strong>Consequence:</strong> To make these two postulates co-exist, the "common sense" ideas of absolute space and, most importantly, <strong>absolute time</strong> must be abandoned. Time and space are relative and interwoven.</p>
+
+        <hr>
+        
+        <h2 id="topic4">Lorentz Transformation</h2>
+        <p>These are the new equations that replace the classical Galilean transformations. They are derived from the two postulates and are the mathematical core of special relativity.</p>
+        <p>Consider two inertial frames: a "stationary" frame S (x, y, z, t) and a frame S' (x', y', z', t') moving with a constant velocity `v` along the +x axis relative to S.</p>
+        
+        <p>The <strong>Lorentz Transformations</strong> are:</p>
+        <blockquote>
+            <strong>x' = γ (x - vt)</strong>
+            <br>
+            <strong>y' = y</strong>
+            <br>
+            <strong>z' = z</strong>
+            <br>
+            <strong>t' = γ (t - vx/c²)</strong>
+        </blockquote>
+        
+        <p>Where <strong>γ (gamma)</strong> is the <strong>Lorentz factor</strong>:</p>
+        <blockquote>
+            <strong>γ = 1 / √(1 - v²/c²)</strong>
+        </blockquote>
+        
+        <div class="exam-tip">
+            <strong>Properties of γ:</strong>
+            <ul>
+                <li>If v = 0, then γ = 1.</li>
+                <li>If v > 0, then γ > 1.</li>
+                <li>If v << c (normal speeds), then v²/c² ≈ 0 and <strong>γ ≈ 1</strong>.
+                    <br>In this case, `t' ≈ 1*(t - 0) = t` and `x' ≈ 1*(x - vt)`. The Lorentz transformations <strong>reduce to the Galilean transformations</strong>. This is the "correspondence principle".
+                </li>
+                <li>If v → c, then γ → ∞. This shows that `v=c` is a "speed limit" for any object with mass.</li>
+            </ul>
+        </div>
+        <p>The "mixing" of space and time is clear in the equation for `t'`. It shows that time measured in one frame (`t'`) depends on both the time (`t`) and the *position* (`x`) in the other frame. This leads to the "Relativity of Simultaneity" - two events at different locations that are simultaneous in S (Δt=0) will *not* be simultaneous in S' (Δt' ≠ 0).</p>
+
+        <hr>
+        
+        <h2 id="topic5">Length Contraction</h2>
+        <p>A direct consequence of the Lorentz transformations. It states that <strong>a moving object is measured to be shorter in its direction of motion</strong>.</p>
+        
+        <p>Let <strong>L₀</strong> be the <strong>"proper length"</strong> of an object (its length as measured in its *own* rest frame, e.g., by an astronaut holding a meter stick).</p>
+        <p>Let <strong>L</strong> be the length of that *same* object as measured by an observer who sees it moving at speed `v`.</p>
+        <p>The relationship, derived from the Lorentz transformations, is:</p>
+        <blockquote>
+            <strong>L = L₀ / γ = L₀ √(1 - v²/c²)</strong>
+        </blockquote>
+        <p>Since γ ≥ 1, the measured length <strong>L is always less than or equal to L₀</strong>.</p>
+        <ul>
+            <li>This contraction only happens <strong>parallel</strong> to the direction of motion. Perpendicular lengths are unaffected (y' = y, z' = z).</li>
+            <li><strong>Example:</strong> A 100-meter-long spaceship (L₀=100m) flies past Earth at 0.9c. Observers on Earth will measure its length to be L = 100 / γ. At 0.9c, γ ≈ 2.29. So, Earth observers measure the ship to be only L ≈ 100 / 2.29 ≈ 43.7 meters long.</li>
+        </ul>
+
+        <hr>
+
+        <h2 id="topic6">Time Dilation</h2>
+        <p>The other major consequence. It states that <strong>a moving clock is measured to run slower</strong> than a stationary clock.</p>
+        
+        <p>Let <strong>Δt₀</strong> be the <strong>"proper time"</strong> interval (the time between two events that happen at the *same location* in a single frame, e.g., one tick of a clock at rest).</p>
+        <p>Let <strong>Δt</strong> be the time interval between those *same* two events as measured by an observer who sees the clock moving at speed `v`.</p>
+        <p>The relationship, derived from the Lorentz transformations, is:</p>
+        <blockquote>
+            <strong>Δt = γ Δt₀ = Δt₀ / √(1 - v²/c²)</strong>
+        </blockquote>
+        <p>Since γ ≥ 1, the measured time interval <strong>Δt is always greater than or equal to Δt₀</strong>.</p>
+        <p><strong>In words:</strong> The stationary observer sees the moving clock taking *more* time (Δt) to complete one tick than the proper time (Δt₀). Therefore, the moving clock appears to run slow.</p>
+        
+        <div class="exam-tip">
+            <strong>Experimental Proof: Muon Decay</strong>
+            <ul>
+                <li>Muons are particles created in the upper atmosphere that travel towards Earth at ~0.99c.</li>
+                <li>They have a very short "proper lifetime" (proper time): <strong>Δt₀ ≈ 2.2 μs</strong> (2.2 microseconds).</li>
+                <li><strong>Classically:</strong> They should only be able to travel `d = v * Δt₀ ≈ (0.99c) * (2.2e-6 s) ≈ 660 meters` before decaying. They should *not* be able to reach the Earth's surface.</li>
+                <li><strong>Relativistically (from our frame):</strong> We see the muon's clock moving, so we see its lifetime as "dilated":
+                    <br>At v = 0.99c, γ ≈ 7.1.
+                    <br>Δt = γ * Δt₀ ≈ 7.1 * 2.2 μs ≈ <strong>15.6 μs</strong>.
+                </li>
+                <li>In this dilated time, the muon can travel `d = v * Δt ≈ (0.99c) * (15.6e-6 s) ≈ 4600 meters`.</li>
+                <li>This allows many muons to reach the Earth's surface, where we detect them. This is a direct experimental confirmation of time dilation.</li>
+            </ul>
+        </div>
+
+    </div>
+  <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

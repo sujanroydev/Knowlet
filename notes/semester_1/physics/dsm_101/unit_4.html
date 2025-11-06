@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="101, 1st, dsm, knowlet, notes, physics, semester, unit">
+
+    <meta name="description" content="Comprehensive notes for Physics DSM 101 Unit 4 | 1st Semester Notes - Knowlet. Includes key concepts, definitions, and summaries for college students.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSM 101 Unit 4 | 1st Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dcdcdc;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #27ae60;
+            padding-bottom: 5px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            border-bottom-width: 3px;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #219d53;
+            border-bottom: 1px dotted #27ae60;
+        }
+        p, li {
+            font-size: 1.1em;
+            text-align: justify;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        blockquote {
+            font-family: 'Georgia', serif;
+            font-size: 1.2em;
+            font-style: italic;
+            background-color: #f0fff4;
+            border-left: 5px solid #27ae60;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        .exam-tip {
+            background-color: #fffbe6;
+            border: 1px solid #ffecb3;
+            border-left-width: 5px;
+            border-left-color: #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #c79100;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #27ae60;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        #toc {
+            background: #e6f7ee;
+            border: 1px solid #b3dfc9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            border-bottom: none;
+            margin-top: 0;
+            text-align: center;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #toc li {
+            margin: 5px 0;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #219d53;
+            font-weight: bold;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 4: Elasticity</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Elasticity Fundamentals</a></li>
+                <li><a href="#topic2">Stress-strain diagram</a></li>
+                <li><a href="#topic3">Elastic moduli and Poisson’s Ratio</a></li>
+                <li><a href="#topic4">Relation between elastic constants</a></li>
+                <li><a href="#topic5">Twisting couple on a cylinder</a></li>
+                <li><a href="#topic6">Bending of beams</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Elasticity Fundamentals</h2>
+        <p><strong>Elasticity</strong> is the property of a solid material to regain its original shape and size after the external deforming forces are removed.</p>
+        
+        <h3>Stress and Strain</h3>
+        <ul>
+            <li><strong>Stress:</strong> The internal restoring force developed per unit area of a deformed body. It is what the material "feels" inside.
+                <br><em>Stress = F<sub>restoring</sub> / A</em>. (Units: N/m² or Pascals, Pa)
+            </li>
+            <li><strong>Strain:</strong> The fractional deformation of the body. It is a measure of "how much" the body has changed shape.
+                <br><em>Strain = Change in dimension / Original dimension</em>. (Unitless)
+            </li>
+        </ul>
+        
+        <h3>Hooke’s Law</h3>
+        <p>Hooke's Law states that for small deformations, stress is directly proportional to strain.</p>
+        <blockquote>
+            <strong>Stress ∝ Strain</strong>
+            <br>
+            <strong>Stress = E × Strain</strong>
+        </blockquote>
+        <p>The constant of proportionality `E` is called the <strong>Modulus of Elasticity</strong>. It is a measure of the material's "stiffness." A high modulus means a stiff material (like steel), and a low modulus means a flexible material (like rubber).</p>
+
+        <hr>
+        
+        <h2 id="topic2">Stress-strain diagram</h2>
+        <p>The stress-strain diagram is a graph that shows the relationship between stress and strain for a material as it is stretched.</p>
+        
+        <h3>Key points on the curve:</h3>
+        <ol>
+            <li><strong>Proportional Limit (A):</strong> The point up to which stress is perfectly proportional to strain (Hooke's Law is obeyed).</li>
+            <li><strong>Elastic Limit (B):</strong> The maximum stress the material can withstand and still return to its original shape when the load is removed. For most materials, A and B are very close.</li>
+            <li><strong>Yield Point (C):</strong> The point at which the material begins to deform permanently (plastically) without any significant increase in stress.</li>
+            <li><strong>Ultimate Tensile Strength (D):</strong> The maximum stress the material can withstand before it starts to "neck" (thin) and weaken.</li>
+            <li><strong>Fracture Point (E):</strong> The point at which the material breaks.</li>
+        </ol>
+        
+        <ul>
+            <li><strong>Ductile Materials</strong> (e.g., copper, steel) show a long plastic deformation region before fracturing.</li>
+            <li><strong>Brittle Materials</strong> (e.g., glass, cast iron) show very little or no plastic deformation and fracture suddenly, often near the elastic limit.</li>
+        </ul>
+
+        <hr>
+
+        <h2 id="topic3">Elastic moduli and Poisson’s Ratio</h2>
+        <p>The Modulus of Elasticity (`E` from Hooke's Law) takes different forms depending on the *type* of stress and strain.</p>
+        
+        <h3>1. Young’s Modulus (Y)</h3>
+        <p>This describes resistance to a change in <strong>length</strong> (tensile or compressive stress).</p>
+        <ul>
+            <li><strong>Longitudinal Stress:</strong> F / A (Force per unit area, perpendicular to the face)</li>
+            <li><strong>Longitudinal Strain:</strong> ΔL / L (Change in length / Original length)</li>
+        </ul>
+        <blockquote>
+            <strong>Y = (F/A) / (ΔL/L)</strong>
+        </blockquote>
+
+        <h3>2. Bulk Modulus (K)</h3>
+        <p>This describes resistance to a change in <strong>volume</strong> (uniform pressure).</p>
+        <ul>
+            <li><strong>Volume Stress (Pressure):</strong> P = F / A</li>
+            <li><strong>Volume Strain:</strong> -ΔV / V (Change in volume / Original volume)
+                <br><em>(The negative sign is because an increase in Pressure `P` causes a *decrease* in Volume `ΔV`.)</em>
+            </li>
+        </ul>
+        <blockquote>
+            <strong>K = P / (-ΔV/V)</strong>
+        </blockquote>
+        
+        <h3>3. Shear Modulus (η) or Modulus of Rigidity</h3>
+        <p>This describes resistance to a change in <strong>shape</strong> (twisting or shearing stress).</p>
+        <ul>
+            <li><strong>Shearing Stress:</strong> F<sub>tangential</sub> / A (Force parallel to the face)</li>
+            <li><strong>Shearing Strain (θ):</strong> The angle (in radians) by which the shape is distorted.</li>
+        </ul>
+        <blockquote>
+            <strong>η = (F<sub>tangential</sub> / A) / θ</strong>
+        </blockquote>
+        
+        <h3>Poisson’s Ratio (σ)</h3>
+        <p>When you stretch a material in one direction (longitudinal strain), it tends to get thinner in the other two directions (lateral strain).</p>
+        <ul>
+            <li><strong>Longitudinal Strain:</strong> α = ΔL / L</li>
+            <li><strong>Lateral Strain:</strong> β = ΔD / D</li>
+        </ul>
+        <p>Poisson's Ratio `σ` is the ratio of the magnitude of the lateral strain to the longitudinal strain.</p>
+        <blockquote>
+            <strong>σ = - (Lateral Strain / Longitudinal Strain) = -β / α</strong>
+        </blockquote>
+        <ul>
+            <li>The negative sign makes `σ` a positive number, since `α` and `β` always have opposite signs.</li>
+            <li><strong>Theoretical Limits:</strong> -1 < σ < 0.5</li>
+            <li><strong>Practical Limits (for most metals):</strong> 0 < σ < 0.5 (e.g., Steel ≈ 0.3, Rubber ≈ 0.49)</li>
+            <li>A value of σ = 0.5 implies the material is <strong>incompressible</strong> (its volume does not change when stretched).</li>
+        </ul>
+
+        <hr>
+
+        <h2 id="topic4">Relation between elastic constants</h2>
+        <p>For a homogeneous, isotropic material, the four elastic constants (Y, K, η, σ) are not independent. If you know any two, you can find the other two. The derivations are complex, but the resulting formulas are essential.</p>
+        
+        <blockquote>
+            <strong>Relation 1 (Y, η, σ):</strong> Y = 2η (1 + σ)
+        </blockquote>
+        
+        <blockquote>
+            <strong>Relation 2 (Y, K, σ):</strong> Y = 3K (1 - 2σ)
+        </blockquote>
+        
+        <div class="exam-tip">
+            <strong>Key Derivable Relations (for exams):</strong>
+            <p>You can combine these two equations to eliminate `σ` or `Y`.</p>
+            <p><strong>1. Relation between Y, K, and η (eliminating σ):</strong></p>
+            <p>From (1), σ = (Y/2η) - 1.  From (2), σ = (1/2)(1 - Y/3K).</p>
+            <p>Equating these gives the most common combined form:</p>
+            <blockquote>
+                <strong>Y = 9Kη / (3K + η)</strong>   or   <strong>(9/Y) = (3/η) + (1/K)</strong>
+            </blockquote>
+            
+            <p><strong>2. Relation between σ, K, and η (eliminating Y):</strong></p>
+            <p>Set (1) = (2):  2η (1 + σ) = 3K (1 - 2σ)</p>
+            <blockquote>
+                <strong>σ = (3K - 2η) / (6K + 2η)</strong>
+            </blockquote>
+        </div>
+
+        <hr>
+        
+        <h2 id="topic5">Twisting couple on a cylinder</h2>
+        <p>This is an application of the Shear Modulus (η). When a cylinder (or wire) of length L and radius R is fixed at one end and a torque (twisting couple) `C` is applied to the other end, the cylinder twists by an angle `θ` (in radians).</p>
+        
+        <p>The applied torque `C` is balanced by the internal restoring torque from the material's elasticity. The restoring torque is found by integrating the shear forces over the cross-section.</p>
+        <p>The final result for the <strong>twisting couple (torque) `C`</strong> required to produce an angle of twist `θ` is:</p>
+        <blockquote>
+            <strong>C = ( π η R⁴ / 2L ) θ</strong>
+        </blockquote>
+        
+        <ul>
+            <li>The term <strong>(π η R⁴ / 2L)</strong> is the "torsional constant" or <strong>torsional rigidity</strong> of the cylinder, often called `k`.</li>
+            <li>So, `C = kθ`, which is the rotational version of Hooke's Law (F = kx).</li>
+            <li><strong>Note:</strong> The R⁴ dependence is extremely important. Doubling the radius of a shaft makes it 16 times harder to twist.</li>
+        </ul>
+
+        <hr>
+        
+        <h2 id="topic6">Bending of beams</h2>
+        <p>When a beam is bent, the "outer" surface is stretched (tension) and the "inner" surface is compressed. In between, there is a "neutral axis" that is neither stretched nor compressed.</p>
+        
+        <h3>Bending Moment</h3>
+        <p>The <strong>Bending Moment (M)</strong> is the total internal torque at any cross-section of the beam, created by the pairs of tensional and compressional forces (stresses) inside the beam.</p>
+        <p>This bending moment is related to the radius of curvature `R` that the beam is bent into, and the properties of the beam:</p>
+        <blockquote>
+            <strong>M = (Y / R) × I<sub>g</sub></strong>
+        </blockquote>
+        <ul>
+            <li><strong>Y</strong> is Young's Modulus of the material.</li>
+            <li><strong>R</strong> is the radius of curvature of the neutral axis.</li>
+            <li><strong>I<sub>g</sub></strong> is the <strong>Geometric Moment of Inertia</strong> (or "second moment of area") of the beam's cross-section. It describes how the area is shaped.
+                <ul>
+                    <li>For a rectangular cross-section (width b, height d): I<sub>g</sub> = bd³/12</li>
+                    <li>For a circular cross-section (radius r): I<sub>g</sub> = πr⁴/4</li>
+                </ul>
+            </li>
+        </ul>
+        <p>The term <strong>Y × I<sub>g</sub></strong> is called the <strong>flexural rigidity</strong> of the beam.</p>
+
+        <h3>Cantilever</h3>
+        <p>A <strong>cantilever</strong> is a beam that is fixed (clamped) at one end and free at the other.
+        <br>
+        If a load (weight `W`) is applied to the free end of a cantilever of length `L`, the beam will bend, and the free end will be depressed by a distance `δ`.</p>
+        
+        <p>By solving the differential equation for the beam's shape, we find the <strong>depression (sag) `δ` at the loaded end</strong>:</p>
+        <blockquote>
+            <strong>δ = W L³ / (3 Y I<sub>g</sub>)</strong>
+        </blockquote>
+        
+        <div class="exam-tip">
+            <strong>Key Takeaways:</strong>
+            <ul>
+                <li>Depression `δ` is proportional to `L³`. Doubling the length of a cantilever makes it bend 8 times as much!</li>
+                <li>Depression `δ` is inversely proportional to `Y` (stiffer material = less bending).</li>
+                <li>Depression `δ` is inversely proportional to `I_g` (shape). An I-beam is used because it has a very large `I_g` (most of the material is far from the neutral axis) for a small amount of mass.</li>
+            </ul>
+        </div>
+        
+    </div>
+  <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

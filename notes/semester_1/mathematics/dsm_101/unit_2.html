@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="101, 1st, dsm, knowlet, mathematics, notes, semester, unit">
+
+    <meta name="description" content="Comprehensive notes for Mathematics DSM 101 Unit 2 | 1st Semester Notes - Knowlet. Includes key concepts, definitions, and summaries for college students.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics DSM 101 Unit 2 | 1st Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1, h2, h3 {
+            color: #d9534f; /* A different color for DSM */
+            margin-bottom: 0.5em;
+        }
+        h1 {
+            font-size: 2.5em;
+            border-bottom: 3px solid #d9534f;
+            padding-bottom: 10px;
+        }
+        h2 {
+            font-size: 2em;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+            margin-top: 1.5em;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #f0ad4e;
+            margin-top: 1em;
+        }
+        p {
+            margin-bottom: 1em;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 1em;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        #toc {
+            background: #fcf8e3;
+            border: 1px solid #faebcc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 2em;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #8a6d3b;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 8px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #d9534f;
+            font-weight: 500;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+        blockquote {
+            border-left: 5px solid #f0ad4e;
+            padding: 15px;
+            background: #f8f9fa;
+            font-style: italic;
+            margin: 1.5em 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: block;
+            margin: 1em 0;
+            overflow-x: auto;
+        }
+        .exam-tip {
+            background: #fdf7e7;
+            border: 1px solid #f0ad4e;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 1.5em 0;
+        }
+        .exam-tip strong {
+            color: #d9534f;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5em 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 2: Mean Value Theorems, Expansions, and Indeterminate Forms</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Rolle's Theorem</a></li>
+                <li><a href="#topic2">Lagrange's Mean Value Theorem (MVT)</a></li>
+                <li><a href="#topic3">Cauchy's Mean Value Theorem (Generalized MVT)</a></li>
+                <li><a href="#topic4">Taylor's and Maclaurin's Theorems (Statement and Applications)</a></li>
+                <li><a href="#topic5">Taylor's and Maclaurin's Series</a></li>
+                <li><a href="#topic6">Expansion of Standard Functions</a></li>
+                <li><a href="#topic7">Maxima and Minima for Functions of One Variable</a></li>
+                <li><a href="#topic8">Indeterminate Forms</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Rolle's Theorem</h2>
+        <p>Rolle's Theorem is a foundational result that gives conditions under which a differentiable function must have a horizontal tangent line.</p>
+        
+        <h3>Statement</h3>
+        <blockquote>
+            Let f(x) be a function that satisfies three conditions:
+            <ol>
+                <li>f(x) is <strong>continuous</strong> on the closed interval [a, b].</li>
+                <li>f(x) is <strong>differentiable</strong> on the open interval (a, b).</li>
+                <li><strong>f(a) = f(b)</strong> (the function has the same value at the endpoints).</li>
+            </ol>
+            Then, there exists at least one number <strong>c</strong> in the open interval (a, b) such that <strong>f'(c) = 0</strong>.
+        </blockquote>
+
+        <h3>Geometrical Interpretation</h3>
+        <p>If a continuous and smooth curve starts and ends at the same height (f(a) = f(b)), there must be at least one point 'c' between 'a' and 'b' where the tangent line is horizontal (slope = 0).</p>
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> To "verify" Rolle's Theorem for a function f(x) on [a, b], you must:
+            <ol>
+                <li>Check continuity on [a, b]. (Polynomials are always continuous).</li>
+                <li>Check differentiability on (a, b). (Find f'(x) and see if it's defined).</li>
+                <li>Check if f(a) = f(b).</li>
+                <li>If all three hold, solve the equation f'(x) = 0 to find 'c'.</li>
+                <li>Show that this 'c' value lies <strong>strictly between</strong> 'a' and 'b' (i.e., a < c < b).</li>
+            </ol>
+        </div>
+
+        <h2 id="topic2">Lagrange's Mean Value Theorem (MVT)</h2>
+        <p>This is a generalization of Rolle's Theorem. It states that the slope of the secant line between two points is equal to the slope of the tangent line at some intermediate point.</p>
+        
+        <h3>Statement</h3>
+        <blockquote>
+            Let f(x) be a function that satisfies two conditions:
+            <ol>
+                <li>f(x) is <strong>continuous</strong> on the closed interval [a, b].</li>
+                <li>f(x) is <strong>differentiable</strong> on the open interval (a, b).</li>
+            </ol>
+            Then, there exists at least one number <strong>c</strong> in the open interval (a, b) such that:
+            <span class="formula">f'(c) = [f(b) - f(a)] / [b - a]</span>
+        </blockquote>
+        
+        <h3>Geometrical Interpretation</h3>
+        <p>The term <span class="formula">[f(b) - f(a)] / [b - a]</span> is the slope of the <strong>secant line</strong> connecting the endpoints (a, f(a)) and (b, f(b)). The term <strong>f'(c)</strong> is the slope of the <strong>tangent line</strong> at x = c.</p>
+        <p>The theorem guarantees that there is at least one point 'c' where the tangent line is <strong>parallel</strong> to the secant line connecting the endpoints.</p>
+        <h2 id="topic3">Cauchy's Mean Value Theorem (Generalized MVT)</h2>
+        <p>This theorem involves two functions and is used to prove L'Hospital's Rule.</p>
+        
+        <h3>Statement</h3>
+        <blockquote>
+            Let f(x) and g(x) be two functions that satisfy:
+            <ol>
+                <li>f(x) and g(x) are <strong>continuous</strong> on the closed interval [a, b].</li>
+                <li>f(x) and g(x) are <strong>differentiable</strong> on the open interval (a, b).</li>
+                <li><strong>g'(x) ≠ 0</strong> for all x in (a, b).</li>
+            </ol>
+            Then, there exists at least one number <strong>c</strong> in the open interval (a, b) such that:
+            <span class="formula">[f(b) - f(a)] / [g(b) - g(a)] = f'(c) / g'(c)</span>
+        </blockquote>
+        <p><strong>Note:</strong> If we let g(x) = x, then g'(x) = 1, and this theorem reduces to Lagrange's MVT.</p>
+
+        <h2 id="topic4">Taylor's and Maclaurin's Theorems (Statement and Applications)</h2>
+        <p>These theorems, stated without proof, provide a way to approximate a function f(x) near a point 'a' using a polynomial. The formula includes a "remainder" term (Rₙ) that quantifies the error of the approximation.</p>
+        
+        <h3>Taylor's Theorem (with Lagrange's Form of Remainder)</h3>
+        <blockquote>
+            If a function f(x) is such that its first (n-1) derivatives are continuous on [a, a+h] and its n-th derivative fⁿ(x) exists on (a, a+h), then there exists at least one number θ (where 0 < θ < 1) such that:
+            <span class="formula">f(a+h) = f(a) + h*f'(a) + (h²/2!)*f''(a) + ... + (hⁿ⁻¹/(n-1)!)*fⁿ⁻¹(a) + Rₙ</span>
+            
+            Where Rₙ (the remainder) is given by:
+            <span class="formula">Rₙ = (hⁿ/n!) * fⁿ(a + θh)</span>
+        </blockquote>
+        
+        <h3>Maclaurin's Theorem</h3>
+        <p>This is just a special case of Taylor's Theorem where <strong>a = 0</strong> and <strong>h = x</strong>.</p>
+        <blockquote>
+            <span class="formula">f(x) = f(0) + x*f'(0) + (x²/2!)*f''(0) + ... + (xⁿ⁻¹/(n-1)!)*fⁿ⁻¹(0) + Rₙ</span>
+            <br>
+            Where Rₙ (the remainder) is given by:
+            <span class="formula">Rₙ = (xⁿ/n!) * fⁿ(θx)</span>, for 0 < θ < 1.
+        </blockquote>
+
+        <h2 id="topic5">Taylor's and Maclaurin's Series</h2>
+        <p>If the remainder term Rₙ from Taylor's or Maclaurin's Theorem approaches 0 as n approaches infinity (<span class="formula">lim (n → ∞) Rₙ = 0</span>), then the function can be represented exactly by an infinite power series.</p>
+        
+        <h3>Taylor's Series (about x = a)</h3>
+        <blockquote>
+            The Taylor series expansion of f(x) about the point x = a is:
+            <span class="formula">f(x) = Σ [fⁿ(a) / n!] * (x-a)ⁿ  (from n=0 to ∞)</span>
+            <span class="formula">f(x) = f(a) + f'(a)(x-a) + f''(a)(x-a)²/2! + f'''(a)(x-a)³/3! + ...</span>
+        </blockquote>
+
+        <h3>Maclaurin's Series (about x = 0)</h3>
+        <p>This is the most common form. It is the Taylor series with <strong>a = 0</strong>.</p>
+        <blockquote>
+            The Maclaurin series expansion of f(x) is:
+            <span class="formula">f(x) = Σ [fⁿ(0) / n!] * xⁿ  (from n=0 to ∞)</span>
+            <span class="formula">f(x) = f(0) + f'(0)x + f''(0)x²/2! + f'''(0)x³/3! + ...</span>
+        </blockquote>
+        
+        <h2 id="topic6">Expansion of Standard Functions</h2>
+        <p>You <strong>must</strong> memorize the following standard Maclaurin series expansions.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Function</th>
+                    <th>Maclaurin's Series Expansion</th>
+                    <th>Interval of Convergence</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>eˣ</strong></td>
+                    <td>1 + x + x²/2! + x³/3! + x⁴/4! + ...</td>
+                    <td>For all x</td>
+                </tr>
+                <tr>
+                    <td><strong>sin x</strong></td>
+                    <td>x - x³/3! + x⁵/5! - x⁷/7! + ...</td>
+                    <td>For all x</td>
+                </tr>
+                <tr>
+                    <td><strong>cos x</strong></td>
+                    <td>1 - x²/2! + x⁴/4! - x⁶/6! + ...</td>
+                    <td>For all x</td>
+                </tr>
+                <tr>
+                    <td><strong>log(1 + x)</strong></td>
+                    <td>x - x²/2 + x³/3 - x⁴/4 + ...</td>
+                    <td>-1 < x ≤ 1</td>
+                </tr>
+                <tr>
+                    <td><strong>(1 + x)ᵐ</strong></td>
+                    <td>1 + mx + [m(m-1)/2!]x² + [m(m-1)(m-2)/3!]x³ + ...</td>
+                    <td>|x| < 1</td>
+                </tr>
+                <tr>
+                    <td><strong>aˣ</strong></td>
+                    <td>e<sup>x*log(a)</sup> = 1 + x(log a) + [x²(log a)²]/2! + ...</td>
+                    <td>For all x</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="exam-tip">
+            <strong>Application:</strong> These series are often used to evaluate limits without using L'Hospital's Rule.
+            <br>
+            <strong>Example:</strong> Evaluate lim (x → 0) (eˣ - 1 - x) / x²
+            <ol>
+                <li>Use the series for eˣ: <span class="formula">eˣ = 1 + x + x²/2! + x³/3! + ...</span></li>
+                <li>Substitute: <span class="formula">lim (x → 0) [ (1 + x + x²/2! + ...) - 1 - x ] / x²</span></li>
+                <li>Simplify: <span class="formula">lim (x → 0) [ x²/2! + x³/3! + ... ] / x²</span></li>
+                <li>Factor and cancel: <span class="formula">lim (x → 0) [ x²(1/2! + x/3! + ...) ] / x²</span></li>
+                <li>Evaluate: <span class="formula">lim (x → 0) [ 1/2! + x/3! + ... ] = 1/2! = 1/2</span></li>
+            </ol>
+        </div>
+        
+        <h2 id="topic7">Maxima and Minima for Functions of One Variable</h2>
+        <p>This involves using derivatives to find the "highest" (maximum) and "lowest" (minimum) points on a function's graph.</p>
+        
+        <h3>Necessary and Sufficient Conditions</h3>
+        <p><strong>Critical Points:</strong> Points 'c' where f'(c) = 0 or f'(c) is undefined. These are candidates for maxima or minima.</p>
+
+        <h3>First Derivative Test (Necessary Condition)</h3>
+        <p>This test finds local maxima and minima by checking the sign of f'(x) <em>around</em> a critical point c.</p>
+        <ul>
+            <li>If f'(x) changes from <strong>positive (+) to negative (-)</strong> at c, then f(x) has a <strong>local maximum</strong> at c.</li>
+            <li>If f'(x) changes from <strong>negative (-) to positive (+)</strong> at c, then f(x) has a <strong>local minimum</strong> at c.</li>
+            <li>If f'(x) does not change sign, c is a point of inflection.</li>
+        </ul>
+        
+        <h3>Second Derivative Test (Sufficient Condition)</h3>
+        <p>This is often a faster way to classify critical points, but it only works if f''(x) is easy to find and f''(c) ≠ 0.</p>
+        <p>Let 'c' be a critical point where <strong>f'(c) = 0</strong>.</p>
+        <ol>
+            <li>Find the second derivative, f''(x).</li>
+            <li>Evaluate f''(c):
+                <ul>
+                    <li>If <strong>f''(c) < 0</strong> (concave down), f(x) has a <strong>local maximum</strong> at x = c.</li>
+                    <li>If <strong>f''(c) > 0</strong> (concave up), f(x) has a <strong>local minimum</strong> at x = c.</li>
+                    <li>If <strong>f''(c) = 0</strong>, the test is <strong>inconclusive</strong>. You must use the First Derivative Test (or higher-order derivatives).</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h2 id="topic8">Indeterminate Forms</h2>
+        <p>When evaluating a limit, we sometimes get an undefined expression. These are called indeterminate forms. <strong>L'Hospital's Rule</strong> is the primary tool to solve them.</p>
+
+        <h3>L'Hospital's Rule (for 0/0 and ∞/∞)</h3>
+        <blockquote>
+            If <span class="formula">lim (x → a) f(x) / g(x)</span> results in the form <strong>0/0</strong> or <strong>∞/∞</strong>,
+            <br>
+            Then:
+            <span class="formula">lim (x → a) [f(x) / g(x)] = lim (x → a) [f'(x) / g'(x)]</span>
+            ...provided the limit on the right side exists (or is ±∞).
+        </blockquote>
+        <div class="exam-tip">
+            <strong>Common Mistake:</strong> Do NOT use the quotient rule. You differentiate the numerator and denominator <em>separately</em>.
+        </div>
+        
+        <h3>Other Indeterminate Forms (and how to convert them)</h3>
+        <ul>
+            <li>
+                <strong>Form 0 · ∞:</strong>
+                <p><strong>Problem:</strong> <span class="formula">lim (x → a) f(x) * g(x)</span> (where f→0, g→∞)
+                <br><strong>Solution:</strong> Rewrite as <span class="formula">f(x) / (1/g(x))</span> (now 0/0) or <span class="formula">g(x) / (1/f(x))</span> (now ∞/∞).
+                <br><strong>Example:</strong> <span class="formula">lim (x → 0⁺) x * log(x)</span>
+                <br>Rewrite as <span class="formula">lim (x → 0⁺) log(x) / (1/x)</span>. This is now -∞/∞. Apply L'Hospital's Rule.
+                <br><span class="formula">= lim (x → 0⁺) [ (1/x) / (-1/x²) ] = lim (x → 0⁺) -x = 0</span>.
+                </p>
+            </li>
+            <li>
+                <strong>Form ∞ - ∞:</strong>
+                <p><strong>Problem:</strong> <span class="formula">lim (x → a) [f(x) - g(x)]</span>
+                <br><strong>Solution:</strong> Use algebra to combine the terms into a single fraction (e.g., find a common denominator, or rationalize). This will usually turn it into 0/0 or ∞/∞.
+                <br><strong>Example:</strong> <span class="formula">lim (x → 0⁺) [ (1/x) - (1/sin x) ]</span>
+                <br>Combine: <span class="formula">lim (x → 0⁺) [ (sin x - x) / (x * sin x) ]</span>. This is now 0/0. Apply L'Hospital's Rule (possibly multiple times).
+                </p>
+            </li>
+            <li>
+                <strong>Exponential Forms (0⁰, 1<sup>∞</sup>, ∞⁰):</strong>
+                <p><strong>Problem:</strong> <span class="formula">lim (x → a) [f(x)]ᵍ(ˣ)</span>
+                <br><strong>Solution:</strong>
+                <ol>
+                    <li>Let <strong>L</strong> be the limit: <span class="formula">L = lim (x → a) [f(x)]ᵍ(ˣ)</span></li>
+                    <li>Take the natural logarithm (ln) of both sides:
+                        <span class="formula">ln L = ln [ lim (x → a) [f(x)]ᵍ(ˣ) ]</span>
+                        <span class="formula">ln L = lim (x → a) [ ln( [f(x)]ᵍ(ˣ) ) ]</span>
+                        <span class="formula">ln L = lim (x → a) [ g(x) * ln(f(x)) ]</span>
+                    </li>
+                    <li>This new limit is now a <strong>0 · ∞</strong> form. Convert it to 0/0 or ∞/∞ as shown above and solve it. Let the result be K.</li>
+                    <li><strong>Final Answer:</strong> You have found <span class="formula">ln L = K</span>. The original limit is <span class="formula">L = eᴷ</span>.</li>
+                </ol>
+                </p>
+            </li>
+        </ul>
+    </div>
+  <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

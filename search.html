@@ -3,106 +3,193 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Search Notes - Knowlet</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Knowlet - Search Notes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: "Poppins", sans-serif;
+      background: #f5f7fa;
       margin: 0;
-      padding: 2rem;
-      background: #f9fafc;
-      color: #333;
+      padding: 2rem 1rem;
+      color: #2c3e50;
     }
+
     h1 {
       text-align: center;
+      font-weight: 600;
       margin-bottom: 1.5rem;
+      color: #1a73e8;
     }
+
     .search-container {
-      max-width: 600px;
-      margin: auto;
+      max-width: 650px;
+      margin: 0 auto;
       display: flex;
-      gap: 10px;
+      align-items: center;
+      background: #fff;
+      border-radius: 50px;
+      padding: 10px 20px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
     }
+
+    .search-container:focus-within {
+      box-shadow: 0 3px 14px rgba(26, 115, 232, 0.3);
+    }
+
     input {
       flex: 1;
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-    }
-    .results {
-      max-width: 600px;
-      margin: 2rem auto 0;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      padding: 1rem;
-    }
-    .note-item {
-      border-bottom: 1px solid #eee;
-      padding: 10px 0;
-    }
-    .note-item:last-child {
       border: none;
+      outline: none;
+      font-size: 16px;
+      padding: 12px 10px;
+      background: transparent;
     }
-    a {
-      color: #007bff;
+
+    .results {
+      max-width: 650px;
+      margin: 2rem auto 0;
+      background: transparent;
+    }
+
+    .note-item {
+      background: #fff;
+      margin-bottom: 12px;
+      padding: 15px 18px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .note-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .note-item a {
+      font-weight: 600;
+      font-size: 17px;
+      color: #1a73e8;
       text-decoration: none;
-      font-weight: 500;
     }
-    a:hover {
+
+    .note-item a:hover {
       text-decoration: underline;
+    }
+
+    .note-item small {
+      display: block;
+      margin-top: 6px;
+      color: #5f6368;
+      font-size: 14px;
+    }
+
+    #resultCount {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 15px;
+      color: #555;
+    }
+
+    p {
+      text-align: center;
+      color: #888;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1.5rem 1rem;
+      }
+      input {
+        font-size: 15px;
+      }
+      .note-item {
+        padding: 12px 15px;
+      }
     }
   </style>
 </head>
 <body>
 
   <h1>🔍 Search Notes</h1>
+
   <div class="search-container">
     <input type="text" id="searchInput" placeholder="Type subject, unit, or topic...">
   </div>
-  
+
+  <div id="resultCount"></div>
   <div class="results" id="results"></div>
 
   <script>
     const searchInput = document.getElementById("searchInput");
     const resultsContainer = document.getElementById("results");
+    const resultCount = document.getElementById("resultCount");
     let notes = [];
 
     // Load notes.json
     fetch("notes.json")
-      .then(response => response.json())
+      .then(res => res.json())
       .then(data => {
         notes = data;
-      });
+      })
+      .catch(err => console.error("Failed to load notes.json:", err));
 
-  searchInput.addEventListener("input", () => {
-    const query = searchInput.value.toLowerCase().trim();
-    resultsContainer.innerHTML = "";
-    if (query === "") return;
-  
-    const queryWords = query.split(/\s+/); // split by space
-  
-    const filtered = notes.filter(note => {
-      const text = (note.title + " " + note.subject).toLowerCase();
-      return queryWords.every(word => text.includes(word));
-    });
-  
-    if (filtered.length === 0) {
-      resultsContainer.innerHTML = "<p>No results found.</p>";
-      return;
+    // Simple fuzzy match
+    function fuzzyMatch(text, queryWords) {
+      let pos = 0;
+      for (const word of queryWords) {
+        pos = text.indexOf(word, pos);
+        if (pos === -1) return false;
+        pos += word.length;
+      }
+      return true;
     }
-  
-    filtered.forEach(note => {
-      const item = document.createElement("div");
-      item.className = "note-item";
-      item.innerHTML = `
-        <a href="${note.path}" target="_blank">${note.title}</a><br>
-        <small>${note.subject}</small>
-      `;
-      resultsContainer.appendChild(item);
+
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.toLowerCase().trim();
+      resultsContainer.innerHTML = "";
+      resultCount.textContent = "";
+
+      if (!query) return;
+
+      const queryWords = query.split(/\s+/);
+
+      const scored = notes
+        .map(note => {
+          const text = (`${note.title} ${note.h1}`).toLowerCase();
+          let score = 0;
+          for (const word of queryWords) {
+            if (text.startsWith(word)) score += 5;
+            else if (note.title.toLowerCase().startsWith(word)) score += 4;
+            else if (text.includes(word)) score += 1;
+          }
+          return { note, score };
+        })
+        .filter(item => item.score > 0 && fuzzyMatch((item.note.title + " " + item.note.h1).toLowerCase(), queryWords))
+        .sort((a, b) => b.score - a.score);
+
+      resultCount.textContent = `${scored.length} result${scored.length === 1 ? "" : "s"} found`;
+
+      if (scored.length === 0) {
+        resultsContainer.innerHTML = "<p>No results found.</p>";
+        return;
+      }
+
+      scored.forEach(({ note }) => {
+        const item = document.createElement("div");
+        item.className = "note-item";
+        item.innerHTML = `
+          <a href="${note.path}" target="_blank">${note.title}</a>
+          <small>${note.h1}</small>
+        `;
+        resultsContainer.appendChild(item);
+      });
     });
-  });
   </script>
 
 </body>

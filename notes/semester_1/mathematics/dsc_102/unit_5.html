@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="102, 1st, dsc, knowlet, mathematics, notes, semester, unit">
+
+    <meta name="description" content="Comprehensive notes for Mathematics DSC 102 Unit 5 | 1st Semester Notes - Knowlet. Includes key concepts, definitions, and summaries for college students.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics DSC 102 Unit 5 | 1st Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1, h2, h3 {
+            color: #005a9c;
+            margin-bottom: 0.5em;
+        }
+        h1 {
+            font-size: 2.5em;
+            border-bottom: 3px solid #005a9c;
+            padding-bottom: 10px;
+        }
+        h2 {
+            font-size: 2em;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+            margin-top: 1.5em;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #007bff;
+            margin-top: 1em;
+        }
+        p {
+            margin-bottom: 1em;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 1em;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        #toc {
+            background: #e6f7ff;
+            border: 1px solid #b3e0ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 2em;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #005a9c;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 8px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: 500;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+        blockquote {
+            border-left: 5px solid #007bff;
+            padding: 15px;
+            background: #f8f9fa;
+            font-style: italic;
+            margin: 1.5em 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: block;
+            margin: 1em 0;
+            overflow-x: auto;
+        }
+        .exam-tip {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 1.5em 0;
+        }
+        .exam-tip strong {
+            color: #d46b08;
+        }
+        .step-list {
+            list-style-type: decimal;
+            font-weight: bold;
+        }
+        .step-list li {
+            margin-bottom: 10px;
+        }
+        .step-list p {
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 5: Partial Derivatives and Curve Tracing</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Partial Derivatives</a></li>
+                <li><a href="#topic2">Homogeneous Functions</a></li>
+                <li><a href="#topic3">Euler's Theorem on Homogeneous Functions</a></li>
+                <li><a href="#topic4">Asymptotes</a></li>
+                <li><a href="#topic5">Concavity and Points of Inflection</a></li>
+                <li><a href="#topic6">Tracing Graphs of Simple Algebraic and Rational Functions</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Partial Derivatives</h2>
+        <p>This is the first step into multivariable calculus. A partial derivative of a function of several variables (e.g., f(x, y)) is its derivative with respect to <em>one</em> of those variables, while holding all other variables <strong>constant</strong>.</p>
+        
+        <h3>Notation</h3>
+        <p>Let z = f(x, y).</p>
+        <ul>
+            <li><strong>Partial derivative of f with respect to x:</strong>
+                <span class="formula">∂f/∂x  or  fₓ(x, y)</span>
+                <p>To calculate, treat 'y' as if it were a constant (like '5') and differentiate f with respect to 'x' normally.</p>
+            </li>
+            <li><strong>Partial derivative of f with respect to y:</strong>
+                <span class="formula">∂f/∂y  or  fᵧ(x, y)</span>
+                <p>To calculate, treat 'x' as if it were a constant and differentiate f with respect to 'y' normally.</p>
+            </li>
+        </ul>
+
+        <p><strong>Example:</strong> Let f(x, y) = x³ + x²y⁵ - 2y⁴</p>
+        <ul>
+            <li><span class="formula">∂f/∂x = 3x² + (2x)y⁵ - 0 = 3x² + 2xy⁵</span>
+                (We treated y⁵ as a constant multiplier and 2y⁴ as a constant)
+            </li>
+            <li><span class="formula">∂f/∂y = 0 + x²(5y⁴) - 8y³ = 5x²y⁴ - 8y³</span>
+                (We treated x³ as a constant and x² as a constant multiplier)
+            </li>
+        </ul>
+
+        <h3>Higher-Order Partial Derivatives</h3>
+        <p>We can differentiate again to find second-order partial derivatives:</p>
+        <ul>
+            <li><span class="formula">∂²f/∂x² = ∂/∂x (∂f/∂x) = fₓₓ</span> (Differentiate w.r.t. x twice)</li>
+            <li><span class="formula">∂²f/∂y² = ∂/∂y (∂f/∂y) = fᵧᵧ</span> (Differentiate w.r.t. y twice)</li>
+            <li><span class="formula">∂²f/∂x∂y = ∂/∂x (∂f/∂y) = fᵧₓ</span> (Differentiate w.r.t. y first, then x)</li>
+            <li><span class="formula">∂²f/∂y∂x = ∂/∂y (∂f/∂x) = fₓᵧ</span> (Differentiate w.r.t. x first, then y)</li>
+        </ul>
+        
+        <h3>Clairaut's Theorem (Equality of Mixed Partials)</h3>
+        <p>For most "well-behaved" functions (if f, fₓ, fᵧ, fₓᵧ, and fᵧₓ are all continuous), the order of differentiation does not matter.</p>
+        <blockquote>
+            <span class="formula">∂²f/∂y∂x = ∂²f/∂x∂y  (or fₓᵧ = fᵧₓ)</span>
+        </blockquote>
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> You may be asked to "verify" Clairaut's Theorem for a given function. This means you must calculate both fₓᵧ and fᵧₓ separately and show that they are equal.
+        </div>
+
+        <h2 id="topic2">Homogeneous Functions</h2>
+        <p>A function f(x, y) is a <strong>homogeneous function of degree n</strong> if, for any constant t, it satisfies the following property:</p>
+        <blockquote>
+            <span class="formula">f(tx, ty) = tⁿ * f(x, y)</span>
+        </blockquote>
+        
+        <h3>Quick Test:</h3>
+        <p>If every term in a polynomial function has the same total degree, the function is homogeneous. The total degree of a term like <span class="formula">xᵃyᵇ</span> is <span class="formula">a + b</span>.</p>
+        
+        <p><strong>Example:</strong> f(x, y) = 3x⁵ + 2x²y³ - y⁵</p>
+        <ul>
+            <li>Term 1 (3x⁵): degree 5</li>
+            <li>Term 2 (2x²y³): degree 2 + 3 = 5</li>
+            <li>Term 3 (-y⁵): degree 5</li>
+        </ul>
+        <p>Since all terms have degree 5, this is a <strong>homogeneous function of degree 5</strong>.</p>
+        
+        <p><strong>Example (Rational Function):</strong> f(x, y) = (x³ + y³) / (x - y)</p>
+        <p>f(tx, ty) = ((tx)³ + (ty)³) / (tx - ty) = (t³x³ + t³y³) / (tx - ty)
+        <br>
+        = [t³(x³ + y³)] / [t(x - y)] = t² * [(x³ + y³) / (x - y)]
+        <br>
+        = t² * f(x, y)
+        <br>
+        This is a <strong>homogeneous function of degree 2</strong>.</p>
+
+        <h2 id="topic3">Euler's Theorem on Homogeneous Functions</h2>
+        <p>This theorem provides a beautiful relationship between a homogeneous function and its partial derivatives.</p>
+        
+        <h3>Statement</h3>
+        <blockquote>
+            If f(x, y) is a homogeneous function of degree <strong>n</strong>, then:
+            <span class="formula">x * (∂f/∂x) + y * (∂f/∂y) = n * f</span>
+        </blockquote>
+        
+        <p><strong>Example:</strong> Verify Euler's Theorem for f(x, y) = 3x⁵ + 2x²y³ - y⁵ (n = 5)</p>
+        <ol>
+            <li>Find partial derivatives:
+                <ul>
+                    <li>∂f/∂x = 15x⁴ + 4xy³</li>
+                    <li>∂f/∂y = 6x²y² - 5y⁴</li>
+                </ul>
+            </li>
+            <li>Calculate <span class="formula">x(∂f/∂x) + y(∂f/∂y)</span>:
+                <span class="formula">x(15x⁴ + 4xy³) + y(6x²y² - 5y⁴)</span>
+                <span class="formula">= (15x⁵ + 4x²y³) + (6x²y³ - 5y⁵)</span>
+                <span class="formula">= 15x⁵ + 10x²y³ - 5y⁵</span>
+            </li>
+            <li>This doesn't look right. Let's re-check the example from before.
+                <br>
+                f(x, y) = 3x⁵ + 2x²y³ - y⁵
+                <br>
+                ∂f/∂x = 15x⁴ + (2*2)x¹y³ = 15x⁴ + 4xy³
+                <br>
+                ∂f/∂y = 2x²(3y²) - 5y⁴ = 6x²y² - 5y⁴
+                <br>
+                x(∂f/∂x) + y(∂f/∂y) = x(15x⁴ + 4xy³) + y(6x²y² - 5y⁴)
+                <br>
+                = 15x⁵ + 4x²y³ + 6x²y³ - 5y⁵ = 15x⁵ + 10x²y³ - 5y⁵
+                <br>
+                Hmm, my partial derivatives are correct. Let me re-check the function.
+                f(x, y) = 3x⁵ + 2x²y³ - y⁵. All terms are degree 5. n=5.
+                <br>
+                n * f = 5 * (3x⁵ + 2x²y³ - y⁵) = 15x⁵ + 10x²y³ - 5y⁵
+                <br>
+                Ah, they match! My mental math was just shaky.
+                <br>
+                <strong>Result:</strong> <span class="formula">x(∂f/∂x) + y(∂f/∂y) = 15x⁵ + 10x²y³ - 5y⁵</span>
+                <br>
+                <strong>And:</strong> <span class="formula">n * f = 5 * f = 5(3x⁵ + 2x²y³ - y⁵) = 15x⁵ + 10x²y³ - 5y⁵</span>
+                <br>
+                They are equal. The theorem is verified.
+            </li>
+        </ol>
+        
+        <h3>Euler's Theorem for Second-Order Derivatives</h3>
+        <blockquote>
+            If f(x, y) is a homogeneous function of degree <strong>n</strong>, then:
+            <span class="formula">x²(∂²f/∂x²) + 2xy(∂²f/∂x∂y) + y²(∂²f/∂y²) = n(n-1) * f</span>
+        </blockquote>
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> Euler's Theorem is a powerful shortcut. If a problem gives you a complex homogeneous function and asks to prove <span class="formula">x(∂f/∂x) + y(∂f/∂y) = n*f</span>, you do NOT need to calculate the derivatives. You just need to:
+            <ol>
+                <li>Show the function is homogeneous (using the f(tx, ty) method).</li>
+                <li>Identify the degree 'n'.</li>
+                <li>State that by Euler's Theorem, the equality must hold.</li>
+            </ol>
+        </div>
+        
+        <h2 id="topic4">Asymptotes</h2>
+        <p>An <strong>asymptote</strong> is a line that a curve approaches (gets infinitely close to) as the x or y coordinates approach infinity.</p>
+        
+        <h3>1. Vertical Asymptotes</h3>
+        <p>These occur where the function "blows up" to ±∞. For a rational function <span class="formula">f(x) = P(x) / Q(x)</span>, vertical asymptotes are found at the x-values 'a' that make the <strong>denominator zero</strong> (and the numerator non-zero).</p>
+        <p><strong>Example:</strong> y = 1 / (x - 2).
+        The denominator is zero at x = 2. So, <strong>x = 2</strong> is a vertical asymptote.</p>
+        
+        <h3>2. Horizontal Asymptotes</h3>
+        <p>These describe the behavior of f(x) as <strong>x → ∞</strong> and <strong>x → -∞</strong>.
+        <span class="formula">y = L</span> is a horizontal asymptote if <span class="formula">lim (x → ∞) f(x) = L</span> or <span class="formula">lim (x → -∞) f(x) = L</span>.</p>
+        <p>For a rational function <span class="formula">f(x) = (axⁿ + ...) / (bxᵐ + ...)</span>:</p>
+        <ul>
+            <li>If <strong>n < m</strong> (degree of top < degree of bottom), HA is <strong>y = 0</strong>.</li>
+            <li>If <strong>n = m</strong> (degrees are equal), HA is <strong>y = a / b</strong> (ratio of leading coefficients).</li>
+            <li>If <strong>n > m</strong> (degree of top > degree of bottom), there is <strong>no horizontal asymptote</strong>.</li>
+        </ul>
+        
+        <h3>3. Oblique (Slant) Asymptotes</h3>
+        <p>These occur in rational functions when the degree of the numerator is <strong>exactly one more</strong> than the degree of the denominator.</p>
+        <p>The equation of the slant asymptote (y = mx + c) is the <strong>quotient</strong> obtained by performing <strong>polynomial long division</strong>.</p>
+        
+        <p><strong>Example:</strong> f(x) = (x² + 1) / (x - 1)</p>
+        <ol>
+            <li>Degree of top (2) is one more than degree of bottom (1).</li>
+            <li>Perform long division: (x² + 1) ÷ (x - 1) gives a quotient of (x + 1) and a remainder of 2.</li>
+            <li>So, <span class="formula">f(x) = (x + 1) + 2/(x - 1)</span></li>
+            <li>As x → ∞, the 2/(x-1) term goes to 0. The function approaches y = x + 1.</li>
+            <li>The oblique asymptote is <strong>y = x + 1</strong>.</li>
+        </ol>
+
+        <h2 id="topic5">Concavity and Points of Inflection</h2>
+        <p>This topic uses the second derivative, f''(x), to describe the "bend" of a curve.</p>
+        
+        <h3>Concavity</h3>
+        <ul>
+            <li><strong>Concave Up (CU):</strong> The graph is shaped like a cup (or a smile). The tangent lines are <em>below</em> the curve.
+                <br>This occurs where <strong>f''(x) > 0</strong>.
+            </li>
+            <li><strong>Concave Down (CD):</strong> The graph is shaped like a frown. The tangent lines are <em>above</em> the curve.
+                <br>This occurs where <strong>f''(x) < 0</strong>.
+            </li>
+        </ul>
+        <h3>Points of Inflection (or Inflexion)</h3>
+        <blockquote>
+            A <strong>point of inflection</strong> is a point on the curve where the <strong>concavity changes</strong> (from CU to CD, or from CD to CU).
+        </blockquote>
+        
+        <h3>How to Find Points of Inflection:</h3>
+        <ol>
+            <li>Find the second derivative, f''(x).</li>
+            <li>Find "potential" inflection points by solving <strong>f''(x) = 0</strong> or finding where f''(x) is undefined.</li>
+            <li>Test the intervals on either side of these potential points.</li>
+            <li>If the <strong>sign of f''(x) changes</strong> (from + to - or - to +) at a point, then it is a point of inflection.</li>
+        </ol>
+        
+        <p><strong>Example:</strong> f(x) = x³</p>
+        <ol>
+            <li>f'(x) = 3x²</li>
+            <li>f''(x) = 6x</li>
+            <li>Set f''(x) = 0 => 6x = 0 => x = 0. This is a potential inflection point.</li>
+            <li>Test intervals:
+                <ul>
+                    <li>For x < 0 (e.g., x = -1), f''(-1) = -6 (Negative, Concave Down)</li>
+                    <li>For x > 0 (e.g., x = 1), f''(1) = 6 (Positive, Concave Up)</li>
+                </ul>
+            </li>
+            <li>Since concavity changes at x = 0, the point (0, f(0)) = <strong>(0, 0)</strong> is a point of inflection.</li>
+        </ol>
+        <div class="exam-tip">
+            <strong>Common Mistake:</strong> Assuming that f''(c) = 0 <em>automatically</em> means there is an inflection point. This is not true.
+            <br>
+            <strong>Counterexample:</strong> f(x) = x⁴.
+            <br>
+            f'(x) = 4x³, f''(x) = 12x².
+            <br>
+            f''(x) = 0 at x = 0.
+            <br>
+            But for x < 0, f''(x) is positive (CU). For x > 0, f''(x) is also positive (CU).
+            <br>
+            Since the concavity does <em>not</em> change, x = 0 is <strong>not</strong> an inflection point (it's a local minimum).
+        </div>
+
+        <h2 id="topic6">Tracing Graphs of Simple Algebraic and Rational Functions</h2>
+        <p>This is a capstone topic that combines all the concepts from the course. To trace a graph of y = f(x), you should follow a systematic procedure.</p>
+        
+        <h3>Checklist for Curve Tracing:</h3>
+        <ol class="step-list">
+            <li>
+                <strong>Domain and Range</strong>
+                <p>Find the set of all possible x-values (domain) and y-values (range). Look for:
+                <br>- Division by zero (for rational functions).
+                <br>- Square roots of negative numbers.
+                </p>
+            </li>
+            <li>
+                <strong>Intercepts</strong>
+                <p>
+                <strong>Y-intercept:</strong> Set <strong>x = 0</strong> and solve for y. (Point is (0, y)).
+                <br>
+                <strong>X-intercept(s):</strong> Set <strong>y = 0</strong> and solve for x. (Points are (x, 0)).
+                </p>
+            </li>
+            <li>
+                <strong>Symmetry</strong>
+                <p>
+                <strong>Y-axis Symmetry (Even Function):</strong> Is <strong>f(-x) = f(x)</strong>? (e.g., y = x², y = cos x)
+                <br>
+                <strong>Origin Symmetry (Odd Function):</strong> Is <strong>f(-x) = -f(x)</strong>? (e.g., y = x³, y = sin x)
+                <br>
+                If f(x,y)=0 is the equation, check if replacing x with -x (y-axis) or y with -y (x-axis) or both (origin) leaves the equation unchanged.
+                </p>
+            </li>
+            <li>
+                <strong>Asymptotes</strong>
+                <p>Find all Vertical, Horizontal, and Oblique asymptotes as described in the section above.</p>
+            </li>
+            <li>
+                <strong>First Derivative (f') - Increasing/Decreasing and Local Extrema</strong>
+                <p>
+                Find f'(x).
+                <br>
+                Find critical points by solving f'(x) = 0 or where f'(x) is undefined.
+                <br>
+                Create a sign chart for f'(x) to find intervals of <strong>increasing (f' > 0)</strong> and <strong>decreasing (f' < 0)</strong>.
+                <br>
+                Use the First Derivative Test to classify critical points as <strong>local maxima</strong> or <strong>local minima</strong>.
+                </p>
+            </li>
+            <li>
+                <strong>Second Derivative (f'') - Concavity and Inflection Points</strong>
+                <p>
+                Find f''(x).
+                <br>
+                Find potential inflection points by solving f''(x) = 0 or where f''(x) is undefined.
+                <br>
+                Create a sign chart for f''(x) to find intervals of <strong>concave up (f'' > 0)</strong> and <strong>concave down (f'' < 0)</strong>.
+                <br>
+                Identify <strong>points of inflection</strong> (where concavity changes).
+                </p>
+            </li>
+            <li>
+                <strong>Plot and Sketch</strong>
+                <p>
+                Draw the axes and mark the asymptotes (as dashed lines).
+                <br>
+                Plot all key points: intercepts, local max/mins, and inflection points.
+                <br>
+                Connect the dots, making sure your curve follows the information from your sign charts (increasing/decreasing and concavity) and approaches the asymptotes correctly.
+                </p>
+            </li>
+        </ol>
+        </div>
+  <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

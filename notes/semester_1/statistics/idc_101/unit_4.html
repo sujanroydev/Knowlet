@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="101, 1st, idc, knowlet, notes, semester, statistics, unit">
+
+    <meta name="description" content="Comprehensive notes for Statistics IDC 101 Unit 4 | 1st Semester Notes - Knowlet. Includes key concepts, definitions, and summaries for college students.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics IDC 101 Unit 4 | 1st Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #8e44ad;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #8e44ad;
+            border-bottom: 2px solid #E8DAEF;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #7d3c98;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #8e44ad;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        blockquote {
+            background: #E8DAEF;
+            border-left: 5px solid #8e44ad;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #555;
+        }
+        .exam-tip, .note {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            border-left-width: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #d9534f;
+        }
+        .note strong {
+            color: #0275d8;
+        }
+        .formula {
+            background: #f4ecf7;
+            border: 1px solid #d7bde2;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        #toc {
+            background: #E8DAEF;
+            border: 1px solid #8e44ad;
+            padding: 15px 25px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #2c3e50;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc ul li a {
+            text-decoration: none;
+            color: #7d3c98;
+        }
+        #toc ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 4: Correlation and Regression</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#bivariate">1. Bivariate Data and Scatter Diagram</a></li>
+                <li><a href="#corr-reg">2. Correlation and Regression (Introduction)</a></li>
+                <li><a href="#pearson">3. Karl Pearson's Coefficient of Correlation (r)</a></li>
+                <li><a href="#spearman">4. Spearman's Rank Correlation Coefficient</a></li>
+                <li><a href="#regression-lines">5. Regression Lines and Coefficients</a></li>
+                <li><a href="#angle">6. Angle Between Two Regression Lines</a></li>
+                <li><a href="#least-squares">7. Principle of Least Squares and Fitting a Straight Line</a></li>
+            </ul>
+        </div>
+
+        <section id="bivariate">
+            <h2>1. Bivariate Data and Scatter Diagram</h2>
+            
+            <h3>Bivariate Data</h3>
+            <p>Data that involves <strong>two different variables</strong>, where we are interested in the relationship between them. Each observation consists of a pair of values (x, y).</p>
+            <ul>
+                <li><em>Example:</em> Height (x) and Weight (y) of students.</li>
+                <li><em>Example:</em> Advertising Expenditure (x) and Sales (y) of a product.</li>
+            </ul>
+
+            <h3>Scatter Diagram (or Scatter Plot)</h3>
+            <p>The simplest way to visualize bivariate data. It's a graph where each (x, y) pair is plotted as a single point on a 2D plane.</p>
+            <p>The pattern of the points helps us identify the <strong>type</strong> (linear, non-linear) and <strong>strength</strong> of the relationship.</p>
+            <ul>
+                <li><strong>Positive Correlation:</strong> Points drift upwards from left to right. (As x increases, y increases).</li>
+                <li><strong>Negative Correlation:</strong> Points drift downwards from left to right. (As x increases, y decreases).</li>
+                <li><strong>No Correlation:</strong> Points are randomly scattered with no clear pattern.</li>
+                <li><strong>Strength:</strong> Tightly packed points mean strong correlation; loosely scattered points mean weak correlation.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="corr-reg">
+            <h2>2. Correlation and Regression (Introduction)</h2>
+            
+            <h3>Correlation</h3>
+            <p><strong>Correlation</strong> measures the <strong>strength and direction</strong> of a *linear* relationship between two quantitative variables. It tells us *if* there is a relationship and *how strong* it is. It results in a single number, the correlation coefficient (r).</p>
+            
+            <h3>Regression</h3>
+            <p><strong>Regression</strong> goes one step further. If a correlation exists, regression describes that relationship with a <strong>mathematical equation (a line)</strong>. This equation can then be used for <strong>prediction</strong>.</p>
+            
+            <div class="note">
+                <strong>Correlation vs. Causation:</strong> A strong correlation does <strong>NOT</strong> imply that one variable *causes* the other. It only means they move together. (e.g., ice cream sales and drowning incidents are correlated, but both are caused by a third variable: hot weather).
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="pearson">
+            <h2>3. Karl Pearson's Coefficient of Correlation (r)</h2>
+            <p>Also known as the "product-moment correlation coefficient." It is a numerical measure of the <strong>strength and direction of the <em>linear</em> relationship</strong>.</p>
+            
+            <h3>Properties of 'r':</h3>
+            <ul>
+                <li><strong>Range:</strong> 'r' always lies between -1 and +1.
+                    <ul>
+                        <li><strong>r = +1:</strong> Perfect positive linear correlation.</li>
+                        <li><strong>r = -1:</strong> Perfect negative linear correlation.</li>
+                        <li><strong>r = 0:</strong> No <em>linear</em> correlation.</li>
+                    </ul>
+                </li>
+                <li><strong>Symmetrical:</strong> r<sub>xy</sub> = r<sub>yx</sub>.</li>
+                <li><strong>Independent of Change of Origin and Scale:</strong> If you add, subtract, multiply, or divide x or y by constants, 'r' does not change.</li>
+            </ul>
+
+            <h3>Formula for 'r':</h3>
+            <div class="formula">
+                r = [ n(Σxy) - (Σx)(Σy) ] / sqrt[ [n(Σx²) - (Σx)²] * [n(Σy²) - (Σy)²] ]
+            </div>
+            <div class="exam-tip">
+                <strong>Exam Tip:</strong> To use this formula, create a table with 5 columns: x, y, x², y², xy. Then, find the sum (Σ) of each column and plug the values into the formula along with 'n' (the number of pairs).
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="spearman">
+            <h2>4. Spearman's Rank Correlation Coefficient (R)</h2>
+            <p>This coefficient measures the strength of association between two variables when the data is <strong>ordinal (ranked)</strong>.</p>
+            
+            <h3>Procedure:</h3>
+            <ol>
+                <li>Assign ranks (R<sub>x</sub>) to the x-values (from 1 to n).</li>
+                <li>Assign ranks (R<sub>y</sub>) to the y-values (from 1 to n).</li>
+                <li>Calculate the difference in ranks for each pair: <strong>d = R<sub>x</sub> - R<sub>y</sub></strong>.</li>
+                <li>Calculate <strong>Σd²</strong>.</li>
+            </ol>
+            
+            <h3>Formula (when ranks are not tied):</h3>
+            <div class="formula">
+                R = 1 - [ ( 6 * Σd² ) / ( n * (n² - 1) ) ]
+            </div>
+
+            <h3>Formula (when ranks are tied):</h3>
+            <p>If two or more items have the same value, assign them the <strong>average rank</strong>. A correction factor (CF) must be used.</p>
+            <div class="formula">
+                CF = Σ [ m * (m² - 1) / 12 ] 
+                <br>
+                (where 'm' is the number of times an item is repeated, summed for all ties in both x and y)
+                <br><br>
+                <strong>Corrected R = 1 - [ ( 6 * (Σd² + CF) ) / ( n * (n² - 1) ) ]</strong>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="regression-lines">
+            <h2>5. Regression Lines and Coefficients</h2>
+            <p>A "line of regression" is the <strong>line of best fit</strong> for the data. There are two lines:</p>
+
+            <h3>1. Regression Line of Y on X</h3>
+            <p>Used to <strong>predict Y given X</strong>.
+            <br>
+            <strong>Equation:</strong> (Y - ȳ) = b<sub>yx</sub> * (X - x̄)
+            </p>
+            <p><strong>b<sub>yx</sub></strong> is the regression coefficient of Y on X (the slope).</p>
+            <div class="formula">
+                b<sub>yx</sub> = r * (σ<sub>y</sub> / σ<sub>x</sub>) = [ n(Σxy) - (Σx)(Σy) ] / [ n(Σx²) - (Σx)² ]
+            </div>
+
+            <h3>2. Regression Line of X on Y</h3>
+            <p>Used to <strong>predict X given Y</strong>.
+            <br>
+            <strong>Equation:</strong> (X - x̄) = b<sub>xy</sub> * (Y - ȳ)
+            </p>
+            <p><strong>b<sub>xy</sub></strong> is the regression coefficient of X on Y.</p>
+            <div class="formula">
+                b<sub>xy</sub> = r * (σ<sub>x</sub> / σ<sub>y</sub>) = [ n(Σxy) - (Σx)(Σy) ] / [ n(Σy²) - (Σy)² ]
+            </div>
+
+            <h3>Properties of Regression Coefficients:</h3>
+            <ul>
+                <li>The correlation coefficient 'r' is the geometric mean of the two regression coefficients: <strong>r² = b<sub>yx</sub> * b<sub>xy</sub></strong>.</li>
+                <li>'r', b<sub>yx</sub>, and b<sub>xy</sub> all have the <strong>same sign</strong>.</li>
+                <li>If one coefficient is > 1, the other must be < 1.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="angle">
+            <h2>6. Angle Between Two Regression Lines</h2>
+            <p>The two regression lines intersect at (x̄, ȳ). The angle (θ) between them gives an idea of the correlation strength.</p>
+            <div class="formula">
+                tan(θ) = [ (1 - r²) / (r) ] * [ (σ<sub>x</sub> * σ<sub>y</sub>) / (σ<sub>x</sub>² + σ<sub>y</sub>²) ]
+            </div>
+            
+            <h3>Key Insights:</h3>
+            <ul>
+                <li>If <strong>r = 0</strong>: tan(θ) = ∞, so <strong>θ = 90°</strong>. The lines are perpendicular (uncorrelated).</li>
+                <li>If <strong>r = +1 or -1</strong>: tan(θ) = 0, so <strong>θ = 0°</strong>. The two lines are <strong>coincident</strong> (the same line).</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="least-squares">
+            <h2>7. Principle of Least Squares and Fitting a Straight Line</h2>
+            
+            <h3>Principle of Least Squares</h3>
+            <p>This is the method used to find the "best-fit" line (the regression line). It finds the line that <strong>minimizes the sum of the squares of the vertical errors (residuals)</strong> between the observed data points (y) and the values predicted by the line (ŷ).</p>
+            <h3>Fitting a Straight Line (y = a + bx)</h3>
+            <p>To find the parameters 'a' (intercept) and 'b' (slope) for the line of best fit, we use the Principle of Least Squares. This generates two "Normal Equations" which we can solve simultaneously.</p>
+            
+            <blockquote>
+                <strong>Normal Equations for a Straight Line:</strong>
+                <ol>
+                    <li>Σy = n*a + b*(Σx)</li>
+                    <li>Σxy = a*(Σx) + b*(Σx²)</li>
+                </ol>
+            </blockquote>
+            <p><strong>How to solve:</strong>
+                1. From your data, calculate: n, Σx, Σy, Σxy, Σx²
+                2. Plug these 5 values into the two normal equations.
+                3. You now have two simultaneous linear equations with two unknowns (a, b). Solve for 'a' and 'b'.
+            </p>
+            <div class="note">
+                <strong>Note:</strong> The value 'b' found here is identical to the regression coefficient <strong>b<sub>yx</sub></strong>.
+            </div>
+        </section>
+
+    </div>
+  <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

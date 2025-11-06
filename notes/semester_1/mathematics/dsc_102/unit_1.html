@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="102, 1st, dsc, knowlet, mathematics, notes, semester, unit">
+
+    <meta name="description" content="Comprehensive notes for Mathematics DSC 102 Unit 1 | 1st Semester Notes - Knowlet. Includes key concepts, definitions, and summaries for college students.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics DSC 102 Unit 1 | 1st Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1, h2, h3 {
+            color: #005a9c;
+            margin-bottom: 0.5em;
+        }
+        h1 {
+            font-size: 2.5em;
+            border-bottom: 3px solid #005a9c;
+            padding-bottom: 10px;
+        }
+        h2 {
+            font-size: 2em;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+            margin-top: 1.5em;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #007bff;
+            margin-top: 1em;
+        }
+        p {
+            margin-bottom: 1em;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 1em;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        #toc {
+            background: #e6f7ff;
+            border: 1px solid #b3e0ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 2em;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #005a9c;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 8px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: 500;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+        blockquote {
+            border-left: 5px solid #007bff;
+            padding: 15px;
+            background: #f8f9fa;
+            font-style: italic;
+            margin: 1.5em 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: block;
+            margin: 1em 0;
+            overflow-x: auto;
+        }
+        .exam-tip {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 1.5em 0;
+        }
+        .exam-tip strong {
+            color: #d46b08;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5em 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 1: Limits, Continuity, and Differentiability</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Limit of a Function</a></li>
+                <li><a href="#topic2">Fundamental Theorems on Limits</a></li>
+                <li><a href="#topic3">Some Important Limits</a></li>
+                <li><a href="#topic4">Cauchy's Criterion for Existence of Limits</a></li>
+                <li><a href="#topic5">Continuity</a></li>
+                <li><a href="#topic6">Properties of Continuous Functions</a></li>
+                <li><a href="#topic7">Differentiability of a Function</a></li>
+                <li><a href="#topic8">Relationship between Continuity and Differentiability</a></li>
+                <li><a href="#topic9">Chain Rule for Differentiation</a></li>
+                <li><a href="#topic10">Derivatives of Special Functions</a></li>
+                <li><a href="#topic11">Logarithmic Differentiation</a></li>
+                <li><a href="#topic12">Derivatives of Implicit and Parametric Functions</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Limit of a Function</h2>
+        <p>The concept of a limit is the foundation of calculus. It describes the value that a function <strong>f(x)</strong> "approaches" as the input <strong>x</strong> "approaches" some value <strong>a</strong>.</p>
+        
+        <h3>Formal (Epsilon-Delta) Definition</h3>
+        <blockquote>
+            We say that the limit of f(x) as x approaches 'a' is L, written as:
+            <span class="formula">lim (x → a) f(x) = L</span>
+            if for every number ε > 0 (epsilon), there exists a corresponding number δ > 0 (delta) such that if 0 < |x - a| < δ, then |f(x) - L| < ε.
+        </blockquote>
+        <p><strong>In simple terms:</strong> You can make f(x) as close as you want (within ε) to L, just by making x close enough (within δ) to 'a', without x actually being 'a'.</p>
+
+        <h3>Left-Hand Limit (LHL) and Right-Hand Limit (RHL)</h3>
+        <ul>
+            <li><strong>Left-Hand Limit (LHL):</strong> The value f(x) approaches as x approaches 'a' from the left side (values less than 'a').
+                <span class="formula">lim (x → a⁻) f(x)</span>
+            </li>
+            <li><strong>Right-Hand Limit (RHL):</strong> The value f(x) approaches as x approaches 'a' from the right side (values greater than 'a').
+                <span class="formula">lim (x → a⁺) f(x)</span>
+            </li>
+        </ul>
+        <blockquote>
+            <strong>Existence of a Limit:</strong> A limit exists if and only if the Left-Hand Limit equals the Right-Hand Limit.
+            <span class="formula">lim (x → a) f(x) = L  if and only if  LHL = RHL = L</span>
+        </blockquote>
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> For piecewise functions, always check the LHL and RHL at the points where the function definition changes. This is a very common exam question.
+        </div>
+
+        <h2 id="topic2">Fundamental Theorems on Limits (Algebra of Limits)</h2>
+        <p>If <span class="formula">lim (x → a) f(x) = L</span> and <span class="formula">lim (x → a) g(x) = M</span>, then:</p>
+        <ol>
+            <li><strong>Sum Rule:</strong> <span class="formula">lim (x → a) [f(x) + g(x)] = L + M</span></li>
+            <li><strong>Difference Rule:</strong> <span class="formula">lim (x → a) [f(x) - g(x)] = L - M</span></li>
+            <li><strong>Product Rule:</strong> <span class="formula">lim (x → a) [f(x) * g(x)] = L * M</span></li>
+            <li><strong>Constant Multiple Rule:</strong> <span class="formula">lim (x → a) [k * f(x)] = k * L</span> (where k is a constant)</li>
+            <li><strong>Quotient Rule:</strong> <span class="formula">lim (x → a) [f(x) / g(x)] = L / M</span>, provided <strong>M ≠ 0</strong>.</li>
+            <li><strong>Power Rule:</strong> <span class="formula">lim (x → a) [f(x)]ⁿ = Lⁿ</span> (where n is a real number)</li>
+        </ol>
+        <p>These rules allow us to break down complex limits into simpler ones.</p>
+
+        <h2 id="topic3">Some Important Limits</h2>
+        <p>These are standard results that you should memorize. They are used to solve more complex problems.</p>
+        <ul>
+            <li><span class="formula">lim (x → 0) (sin x) / x = 1</span> (x is in radians)</li>
+            <li><span class="formula">lim (x → 0) (1 - cos x) / x = 0</span></li>
+            <li><span class="formula">lim (x → 0) (tan x) / x = 1</span></li>
+            <li><span class="formula">lim (x → 0) (eˣ - 1) / x = 1</span></li>
+            <li><span class="formula">lim (x → 0) (log(1 + x)) / x = 1</span></li>
+            <li><span class="formula">lim (x → 0) (1 + x)¹/ˣ = e</span></li>
+            <li><span class="formula">lim (x → ∞) (1 + 1/x)ˣ = e</span></li>
+            <li><span class="formula">lim (x → a) (xⁿ - aⁿ) / (x - a) = n * aⁿ⁻¹</span></li>
+        </ul>
+
+        <h2 id="topic4">Cauchy's Criterion for Existence of Limits</h2>
+        <p>This is a more theoretical test that doesn't require knowing the value of the limit L.</p>
+        <blockquote>
+            The limit <span class="formula">lim (x → a) f(x)</span> exists if and only if for every ε > 0, there exists a δ > 0 such that for any two points x₁ and x₂ in the deleted neighborhood of 'a' (i.e., 0 < |x₁ - a| < δ and 0 < |x₂ - a| < δ), we have:
+            <span class="formula">|f(x₁) - f(x₂)| < ε</span>
+        </blockquote>
+        <p><strong>In simple terms:</strong> As x gets closer to 'a', the values of f(x) get closer to each other.</p>
+
+        <h2 id="topic5">Continuity</h2>
+        <h3>Continuity of a Function at a Point</h3>
+        <p>A function f(x) is said to be <strong>continuous</strong> at a point <strong>x = a</strong> if it satisfies all three of the following conditions:</p>
+        <ol>
+            <li><strong>f(a) is defined</strong> (the point exists on the graph).</li>
+            <li><strong>lim (x → a) f(x) exists</strong> (the LHL equals the RHL).</li>
+            <li><strong>lim (x → a) f(x) = f(a)</strong> (the limit value is the same as the function's value).</li>
+        </ol>
+        <p>If any of these conditions fail, the function is <strong>discontinuous</strong> at x = a.</p>
+        
+        <h3>Continuity on an Interval</h3>
+        <ul>
+            <li>A function is continuous on an <strong>open interval (a, b)</strong> if it is continuous at every point in the interval.</li>
+            <li>A function is continuous on a <strong>closed interval [a, b]</strong> if it is continuous on (a, b) AND it is "right-continuous" at 'a' and "left-continuous" at 'b'.
+                <ul>
+                    <li>Right-continuous at 'a': <span class="formula">lim (x → a⁺) f(x) = f(a)</span></li>
+                    <li>Left-continuous at 'b': <span class="formula">lim (x → b⁻) f(x) = f(b)</span></li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Classification of Discontinuities</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Type of Discontinuity</th>
+                    <th>Condition</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Removable Discontinuity</strong></td>
+                    <td><span class="formula">lim (x → a) f(x)</span> exists, but is <strong>not equal</strong> to f(a) (or f(a) is undefined).</td>
+                    <td>f(x) = (x² - 1) / (x - 1) at x = 1</td>
+                </tr>
+                <tr>
+                    <td><strong>Jump Discontinuity (First Kind)</strong></td>
+                    <td>LHL and RHL both exist (are finite), but are <strong>not equal</strong>.</td>
+                    <td>f(x) = |x| / x at x = 0</td>
+                </tr>
+                <tr>
+                    <td><strong>Infinite Discontinuity (Second Kind)</strong></td>
+                    <td>At least one of the LHL or RHL is infinite (or does not exist).</td>
+                    <td>f(x) = 1 / x at x = 0</td>
+                </tr>
+                <tr>
+                    <td><strong>Oscillating Discontinuity (Second Kind)</strong></td>
+                    <td>The function oscillates infinitely as x approaches 'a'.</td>
+                    <td>f(x) = sin(1/x) at x = 0</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 id="topic6">Properties of Continuous Functions</h2>
+        <p>If f(x) and g(x) are continuous at x = a, then:</p>
+        <ul>
+            <li>f(x) + g(x)</li>
+            <li>f(x) - g(x)</li>
+            <li>f(x) * g(x)</li>
+            <li>k * f(x) (where k is a constant)</li>
+            <li>f(x) / g(x) (provided g(a) ≠ 0)</li>
+        </ul>
+        <p>...are also continuous at x = a.</p>
+        <p><strong>Composition:</strong> If g(x) is continuous at x = a, and f(x) is continuous at g(a), then the composite function (f o g)(x) = f(g(x)) is continuous at x = a.</p>
+
+        <h2 id="topic7">Differentiability of a Function</h2>
+        <h3>Differentiability at a Point</h3>
+        <p>A function f(x) is <strong>differentiable</strong> at a point <strong>x = a</strong> if the following limit exists:</p>
+        <blockquote>
+            <span class="formula">f'(a) = lim (h → 0) [f(a + h) - f(a)] / h</span>
+        </blockquote>
+        <p>This limit, f'(a), is called the <strong>derivative</strong> of f(x) at x = a.</p>
+        <ul>
+            <li><strong>Left-Hand Derivative (LHD):</strong> <span class="formula">f'_(a) = lim (h → 0⁻) [f(a + h) - f(a)] / h</span></li>
+            <li><strong>Right-Hand Derivative (RHD):</strong> <span class="formula">f'+(a) = lim (h → 0⁺) [f(a + h) - f(a)] / h</span></li>
+        </ul>
+        <p>A function is differentiable at 'a' if and only if LHD = RHD (and both are finite).</p>
+
+        <h3>Geometrical Interpretation of a Derivative</h3>
+        <p>The derivative f'(a) represents the <strong>slope of the tangent line</strong> to the curve y = f(x) at the point (a, f(a)).</p>
+        <p>If a function is not differentiable at a point, it means there is no unique tangent line. This can happen at:</p>
+        <ul>
+            <li><strong>Corners:</strong> e.g., y = |x| at x = 0 (LHD = -1, RHD = 1)</li>
+            <li><strong>Cusps:</strong> e.g., y = x^(2/3) at x = 0</li>
+            <li><strong>Vertical Tangents:</strong> e.g., y = x^(1/3) at x = 0 (the limit is infinite)</li>
+            <li><strong>Discontinuities:</strong> (See next section)</li>
+        </ul>
+        <h2 id="topic8">Relationship between Continuity and Differentiability</h2>
+        <blockquote>
+            <strong>Theorem: Differentiability implies Continuity.</strong>
+            If a function f(x) is differentiable at x = a, then it must be continuous at x = a.
+        </blockquote>
+        <blockquote>
+            <strong>Converse is NOT true: Continuity does NOT imply Differentiability.</strong>
+            A function can be continuous at a point but not differentiable there.
+        </blockquote>
+        <div class="exam-tip">
+            <strong>Classic Example:</strong> The function <strong>f(x) = |x|</strong> is continuous at x = 0, but it is <strong>not</strong> differentiable at x = 0 (it has a sharp corner). This is a perfect counterexample to use in exams.
+        </div>
+
+        <h2 id="topic9">Chain Rule for Differentiation</h2>
+        <p>The Chain Rule is used to find the derivative of a composite function.</p>
+        <blockquote>
+            If y = f(u) and u = g(x), then the derivative of y with respect to x is:
+            <span class="formula">dy/dx = dy/du * du/dx</span>
+        </blockquote>
+        <p><strong>Example:</strong> Find the derivative of y = (x² + 1)³.</p>
+        <ol>
+            <li>Let u = x² + 1. Then y = u³.</li>
+            <li>Find the derivatives:
+                <ul>
+                    <li>dy/du = 3u²</li>
+                    <li>du/dx = 2x</li>
+                </ul>
+            </li>
+            <li>Apply the Chain Rule:
+                <span class="formula">dy/dx = (3u²) * (2x)</span>
+            </li>
+            <li>Substitute u back in:
+                <span class="formula">dy/dx = 3(x² + 1)² * (2x) = 6x(x² + 1)²</span>
+            </li>
+        </ol>
+
+        <h2 id="topic10">Derivatives of Special Functions</h2>
+        <h3>Inverse Circular Functions (Inverse Trig Functions)</h3>
+        <ul>
+            <li>d/dx (sin⁻¹ x) = 1 / √(1 - x²)</li>
+            <li>d/dx (cos⁻¹ x) = -1 / √(1 - x²)</li>
+            <li>d/dx (tan⁻¹ x) = 1 / (1 + x²)</li>
+            <li>d/dx (cot⁻¹ x) = -1 / (1 + x²)</li>
+            <li>d/dx (sec⁻¹ x) = 1 / (|x|√(x² - 1))</li>
+            <li>d/dx (csc⁻¹ x) = -1 / (|x|√(x² - 1))</li>
+        </ul>
+        <h3>Hyperbolic Functions</h3>
+        <ul>
+            <li>Definitions:
+                <ul>
+                    <li>sinh x = (eˣ - e⁻ˣ) / 2</li>
+                    <li>cosh x = (eˣ + e⁻ˣ) / 2</li>
+                    <li>tanh x = (sinh x) / (cosh x)</li>
+                </ul>
+            </li>
+            <li>Derivatives:
+                <ul>
+                    <li>d/dx (sinh x) = cosh x</li>
+                    <li>d/dx (cosh x) = sinh x</li>
+                    <li>d/dx (tanh x) = sech² x</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2 id="topic11">Logarithmic Differentiation</h2>
+        <p>This technique is used to differentiate functions that are:</p>
+        <ol>
+            <li>A function raised to the power of another function (e.g., y = xˣ).</li>
+            <li>A complex product/quotient of functions (e.g., y = [f(x)g(x)] / h(x)).</li>
+        </ol>
+        
+        <h3>Steps for y = f(x)ᵍ(ˣ)</h3>
+        <ol>
+            <li>Take the natural logarithm (ln) of both sides: <span class="formula">ln y = g(x) * ln(f(x))</span></li>
+            <li>Differentiate both sides with respect to x (using implicit differentiation for ln y and the product rule on the right):
+                <span class="formula">(1/y) * (dy/dx) = g'(x) * ln(f(x)) + g(x) * [f'(x) / f(x)]</span>
+            </li>
+            <li>Solve for dy/dx by multiplying by y:
+                <span class="formula">dy/dx = y * [ g'(x) * ln(f(x)) + g(x) * f'(x) / f(x) ]</span>
+            </li>
+            <li>Substitute the original expression for y back in:
+                <span class="formula">dy/dx = f(x)ᵍ(ˣ) * [ g'(x) * ln(f(x)) + g(x) * f'(x) / f(x) ]</span>
+            </li>
+        </ol>
+        <div class="exam-tip">
+            <strong>Common Mistake:</strong> Do NOT differentiate xˣ as x * xˣ⁻¹. This is wrong! The power rule only works for a constant exponent. You <strong>must</strong> use logarithmic differentiation.
+        </div>
+
+        <h2 id="topic12">Derivatives of Implicit and Parametric Functions</h2>
+        <h3>Implicit Differentiation</h3>
+        <p>Used when y is not explicitly defined as a function of x (e.g., x² + y² = 25).</p>
+        <ol>
+            <li>Differentiate both sides of the equation with respect to x.</li>
+            <li>When differentiating a term with 'y', use the Chain Rule: <span class="formula">d/dx (y²) = 2y * (dy/dx)</span></li>
+            <li>After differentiating, algebraically solve the resulting equation for dy/dx.</li>
+        </ol>
+        <p><strong>Example:</strong> x² + y² = 25</p>
+        <ol>
+            <li>Differentiate w.r.t x: <span class="formula">2x + 2y * (dy/dx) = 0</span></li>
+            <li>Solve for dy/dx:
+                <span class="formula">2y * (dy/dx) = -2x</span>
+                <span class="formula">dy/dx = -2x / 2y = -x / y</span>
+            </li>
+        </ol>
+
+        <h3>Parametric Equations</h3>
+        <p>Used when x and y are both defined as functions of a third variable, the parameter (e.g., t).</p>
+        <p>If <span class="formula">x = f(t)</span> and <span class="formula">y = g(t)</span>, then:</p>
+        <blockquote>
+            <span class="formula">dy/dx = (dy/dt) / (dx/dt)</span>
+        </blockquote>
+        <p><strong>Example:</strong> x = cos(t), y = sin(t) (This is a circle)</p>
+        <ol>
+            <li>Find derivatives w.r.t t:
+                <ul>
+                    <li>dx/dt = -sin(t)</li>
+                    <li>dy/dt = cos(t)</li>
+                </ul>
+            </li>
+            <li>Apply the rule:
+                <span class="formula">dy/dx = (cos t) / (-sin t) = -cot(t)</span>
+            </li>
+        </ol>
+
+    </div>
+  <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

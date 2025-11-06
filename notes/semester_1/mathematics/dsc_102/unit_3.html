@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="102, 1st, dsc, knowlet, mathematics, notes, semester, unit">
+
+    <meta name="description" content="Comprehensive notes for Mathematics DSC 102 Unit 3 | 1st Semester Notes - Knowlet. Includes key concepts, definitions, and summaries for college students.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics DSC 102 Unit 3 | 1st Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1, h2, h3 {
+            color: #005a9c;
+            margin-bottom: 0.5em;
+        }
+        h1 {
+            font-size: 2.5em;
+            border-bottom: 3px solid #005a9c;
+            padding-bottom: 10px;
+        }
+        h2 {
+            font-size: 2em;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+            margin-top: 1.5em;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #007bff;
+            margin-top: 1em;
+        }
+        p {
+            margin-bottom: 1em;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 1em;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        #toc {
+            background: #e6f7ff;
+            border: 1px solid #b3e0ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 2em;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #005a9c;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 8px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: 500;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+        blockquote {
+            border-left: 5px solid #007bff;
+            padding: 15px;
+            background: #f8f9fa;
+            font-style: italic;
+            margin: 1.5em 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: block;
+            margin: 1em 0;
+            overflow-x: auto;
+        }
+        .exam-tip {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 1.5em 0;
+        }
+        .exam-tip strong {
+            color: #d46b08;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5em 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 3: Mean Value Theorems and Expansions</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Rolle's Theorem</a></li>
+                <li><a href="#topic2">Lagrange's Mean Value Theorem (MVT)</a></li>
+                <li><a href="#topic3">Cauchy's Mean Value Theorem (Generalized MVT)</a></li>
+                <li><a href="#topic4">Generalized MVT (Taylor's Series in Finite Form)</a></li>
+                <li><a href="#topic5">Expansion of Functions in Infinite Power Series</a></li>
+                <li><a href="#topic6">Increasing and Decreasing Functions</a></li>
+                <li><a href="#topic7">Maxima and Minima for Functions of Single Variables</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Rolle's Theorem</h2>
+        <p>Rolle's Theorem is a special case of the Mean Value Theorem. It gives conditions under which a differentiable function must have a horizontal tangent line.</p>
+        
+        <h3>Statement</h3>
+        <blockquote>
+            Let f(x) be a function that satisfies three conditions:
+            <ol>
+                <li>f(x) is <strong>continuous</strong> on the closed interval [a, b].</li>
+                <li>f(x) is <strong>differentiable</strong> on the open interval (a, b).</li>
+                <li><strong>f(a) = f(b)</strong> (the function has the same value at the endpoints).</li>
+            </ol>
+            Then, there exists at least one number <strong>c</strong> in the open interval (a, b) such that <strong>f'(c) = 0</strong>.
+        </blockquote>
+
+        <h3>Geometrical Interpretation</h3>
+        <p>If a continuous and smooth curve starts and ends at the same height (f(a) = f(b)), there must be at least one point 'c' between 'a' and 'b' where the tangent line is horizontal (slope = 0).</p>
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> To "verify" Rolle's Theorem for a function f(x) on [a, b], you must:
+            <ol>
+                <li>Check continuity on [a, b]. (Polynomials, sin, cos, eˣ are always continuous).</li>
+                <li>Check differentiability on (a, b). (Find f'(x) and see if it's defined).</li>
+                <li>Check if f(a) = f(b).</li>
+                <li>If all three hold, solve the equation f'(x) = 0 to find 'c'.</li>
+                <li>Show that this 'c' value lies <strong>strictly between</strong> 'a' and 'b' (i.e., a < c < b).</li>
+            </ol>
+        </div>
+
+        <h2 id="topic2">Lagrange's Mean Value Theorem (MVT)</h2>
+        <p>This is a more general version of Rolle's Theorem. It states that the slope of the secant line between two points is equal to the slope of the tangent line at some intermediate point.</p>
+        
+        <h3>Statement</h3>
+        <blockquote>
+            Let f(x) be a function that satisfies two conditions:
+            <ol>
+                <li>f(x) is <strong>continuous</strong> on the closed interval [a, b].</li>
+                <li>f(x) is <strong>differentiable</strong> on the open interval (a, b).</li>
+            </ol>
+            Then, there exists at least one number <strong>c</strong> in the open interval (a, b) such that:
+            <span class="formula">f'(c) = [f(b) - f(a)] / [b - a]</span>
+        </blockquote>
+        
+        <h3>Geometrical Interpretation</h3>
+        <p>The term <span class="formula">[f(b) - f(a)] / [b - a]</span> is the slope of the <strong>secant line</strong> connecting the endpoints (a, f(a)) and (b, f(b)). The term <strong>f'(c)</strong> is the slope of the <strong>tangent line</strong> at x = c.</p>
+        <p>The theorem guarantees that there is at least one point 'c' where the tangent line is <strong>parallel</strong> to the secant line connecting the endpoints.</p>
+        <h2 id="topic3">Cauchy's Mean Value Theorem (Generalized MVT)</h2>
+        <p>This theorem involves two functions and is used to prove L'Hospital's Rule.</p>
+        
+        <h3>Statement</h3>
+        <blockquote>
+            Let f(x) and g(x) be two functions that satisfy:
+            <ol>
+                <li>f(x) and g(x) are <strong>continuous</strong> on the closed interval [a, b].</li>
+                <li>f(x) and g(x) are <strong>differentiable</strong> on the open interval (a, b).</li>
+                <li><strong>g'(x) ≠ 0</strong> for all x in (a, b).</li>
+            </ol>
+            Then, there exists at least one number <strong>c</strong> in the open interval (a, b) such that:
+            <span class="formula">[f(b) - f(a)] / [g(b) - g(a)] = f'(c) / g'(c)</span>
+        </blockquote>
+        <p><strong>Note:</strong> If we let g(x) = x, then g'(x) = 1, g(b) = b, and g(a) = a. The formula becomes <span class="formula">[f(b) - f(a)] / [b - a] = f'(c) / 1</span>, which is exactly Lagrange's MVT. Thus, Lagrange's MVT is a special case of Cauchy's MVT.</p>
+
+        <h2 id="topic4">Generalized MVT (Taylor's Series in Finite Form)</h2>
+        <p>This is a more powerful generalization, also known as <strong>Taylor's Theorem with Remainder</strong>. It allows us to approximate a function f(x) near a point 'a' using a polynomial, and it gives a formula for the error (remainder) in that approximation.</p>
+        
+        <h3>Taylor's Theorem with Lagrange's Form of Remainder</h3>
+        <blockquote>
+            If a function f(x) and its first n derivatives (f', f'', ..., fⁿ) are continuous on [a, b] and fⁿ(x) is differentiable on (a, b), then for any x in [a, b]:
+            <span class="formula">f(x) = f(a) + f'(a)(x-a)/1! + f''(a)(x-a)²/2! + ... + fⁿ⁻¹(a)(x-a)ⁿ⁻¹/(n-1)! + Rₙ</span>
+            
+            Where Rₙ is the <strong>Lagrange Form of the Remainder</strong>, given by:
+            <span class="formula">Rₙ = fⁿ(c)(x-a)ⁿ / n!</span>
+            for some number <strong>c</strong> between 'a' and 'x'.
+        </blockquote>
+        
+        <h3>Taylor's Theorem with Cauchy's Form of Remainder</h3>
+        <blockquote>
+            Under the same conditions, the <strong>Cauchy Form of the Remainder</strong> is:
+            <span class="formula">Rₙ = fⁿ(c)(x-c)ⁿ⁻¹(x-a) / (n-1)!</span>
+            for some number <strong>c</strong> between 'a' and 'x'.
+        </blockquote>
+        <p>Lagrange's MVT is just Taylor's Theorem for n = 1.</p>
+
+        <h2 id="topic5">Expansion of Functions in Infinite Power Series</h2>
+        <p>If the remainder term Rₙ from Taylor's Theorem approaches 0 as n approaches infinity (<span class="formula">lim (n → ∞) Rₙ = 0</span>), then the function can be represented exactly by an infinite power series.</p>
+        
+        <h3>Taylor's Series (about x = a)</h3>
+        <blockquote>
+            The Taylor series expansion of f(x) about the point x = a is:
+            <span class="formula">f(x) = Σ [fⁿ(a) / n!] * (x-a)ⁿ  (from n=0 to ∞)</span>
+            <span class="formula">f(x) = f(a) + f'(a)(x-a) + f''(a)(x-a)²/2! + f'''(a)(x-a)³/3! + ...</span>
+        </blockquote>
+
+        <h3>Maclaurin's Series (about x = 0)</h3>
+        <p>This is just a special case of the Taylor series where <strong>a = 0</strong>.</p>
+        <blockquote>
+            The Maclaurin series expansion of f(x) is:
+            <span class="formula">f(x) = Σ [fⁿ(0) / n!] * xⁿ  (from n=0 to ∞)</span>
+            <span class="formula">f(x) = f(0) + f'(0)x + f''(0)x²/2! + f'''(0)x³/3! + ...</span>
+        </blockquote>
+        
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> You MUST memorize the standard Maclaurin series for:
+            <ul>
+                <li><strong>eˣ</strong> = 1 + x + x²/2! + x³/3! + ... (for all x)</li>
+                <li><strong>sin x</strong> = x - x³/3! + x⁵/5! - x⁷/7! + ... (for all x)</li>
+                <li><strong>cos x</strong> = 1 - x²/2! + x⁴/4! - x⁶/6! + ... (for all x)</li>
+                <li><strong>ln(1 + x)</strong> = x - x²/2 + x³/3 - x⁴/4 + ... (for -1 < x ≤ 1)</li>
+                <li><strong>(1 + x)ᵐ</strong> = 1 + mx + m(m-1)x²/2! + ... (Binomial series, for |x| < 1)</li>
+            </ul>
+            These are often used to evaluate limits without L'Hospital's Rule.
+        </div>
+        
+        <p><strong>Example:</strong> Evaluate <span class="formula">lim (x → 0) (eˣ - 1 - x) / x²</span></p>
+        <ol>
+            <li>Use the Maclaurin series for eˣ:
+                <span class="formula">eˣ = 1 + x + x²/2! + x³/3! + ...</span>
+            </li>
+            <li>Substitute into the limit:
+                <span class="formula">lim (x → 0) [ (1 + x + x²/2! + x³/3! + ...) - 1 - x ] / x²</span>
+            </li>
+            <li>Simplify the numerator:
+                <span class="formula">lim (x → 0) [ (x²/2! + x³/3! + ...) ] / x²</span>
+            </li>
+            <li>Factor out x² from the numerator and cancel:
+                <span class="formula">lim (x → 0) [ x²(1/2! + x/3! + ...) ] / x²</span>
+                <span class="formula">lim (x → 0) [ 1/2! + x/3! + x²/4! + ... ]</span>
+            </li>
+            <li>Now, substitute x = 0:
+                <span class="formula">1/2! + 0 + 0 + ... = 1/2</span>
+            </li>
+        </ol>
+
+        <h2 id="topic6">Increasing and Decreasing Functions</h2>
+        <p>This is a re-statement of the topic from Unit 2, now formally provable using the Mean Value Theorem.</p>
+        <p>Let f(x) be differentiable on (a, b).</p>
+        <ul>
+            <li>If <strong>f'(x) > 0</strong> for all x in (a, b), then f(x) is <strong>strictly increasing</strong> on (a, b).</li>
+            <li>If <strong>f'(x) < 0</strong> for all x in (a, b), then f(x) is <strong>strictly decreasing</strong> on (a, b).</li>
+        </ul>
+        <p><strong>Critical Points:</strong> Points 'c' where f'(c) = 0 or f'(c) is undefined. These are the only points where the function can change from increasing to decreasing (or vice versa).</p>
+        
+        <h3>First Derivative Test</h3>
+        <p>This test finds local maxima and minima by checking the sign of f'(x) <em>around</em> a critical point c.</p>
+        <ul>
+            <li>If f'(x) changes from <strong>positive (+) to negative (-)</strong> at c, then f(x) has a <strong>local maximum</strong> at c.</li>
+            <li>If f'(x) changes from <strong>negative (-) to positive (+)</strong> at c, then f(x) has a <strong>local minimum</strong> at c.</li>
+            <li>If f'(x) does not change sign at c, then c is a point of inflection (e.g., f(x) = x³ at c = 0).</li>
+        </ul>
+
+        <h2 id="topic7">Maxima and Minima for Functions of Single Variables</h2>
+        <p>This topic involves finding the "highest" (maximum) and "lowest" (minimum) points on a function's graph.</p>
+        
+        <h3>Second Derivative Test</h3>
+        <p>This is often a faster way to classify critical points, but it only works if f''(x) is easy to find and f''(c) ≠ 0.</p>
+        <p>Let 'c' be a critical point where <strong>f'(c) = 0</strong>.</p>
+        <ol>
+            <li>Find the second derivative, f''(x).</li>
+            <li>Evaluate f''(c):
+                <ul>
+                    <li>If <strong>f''(c) < 0</strong> (concave down), f(x) has a <strong>local maximum</strong> at x = c.</li>
+                    <li>If <strong>f''(c) > 0</strong> (concave up), f(x) has a <strong>local minimum</strong> at x = c.</li>
+                    <li>If <strong>f''(c) = 0</strong>, the test is <strong>inconclusive</strong>. You must go back and use the First Derivative Test.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>Absolute (Global) Maxima and Minima on a Closed Interval [a, b]</h3>
+        <p>To find the absolute highest and lowest values of a continuous function f(x) on [a, b]:</p>
+        <ol>
+            <li>Find all critical points of f(x) that are <strong>inside</strong> the interval (a, b).</li>
+            <li>Make a list of "candidate" points:
+                <ul>
+                    <li>The critical points from step 1.</li>
+                    <li>The endpoints of the interval, <strong>a</strong> and <strong>b</strong>.</li>
+                </ul>
+            </li>
+            <li>Evaluate the function f(x) at every point in your candidate list.</li>
+            <li>The largest value is the <strong>absolute maximum</strong>.</li>
+            <li>The smallest value is the <strong>absolute minimum</strong>.</li>
+        </ol>
+        <div class="exam-tip">
+            <strong>Common Mistake:</strong> Forgetting to check the endpoints! The absolute max or min on a closed interval can often occur at the endpoints (e.g., f(x) = x on [1, 2]).
+        </div>
+
+    </div>
+  <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="101, 1st, knowlet, notes, sec, semester, statistics, unit">
+
+    <meta name="description" content="Comprehensive notes for Statistics SEC 101 Unit 1 | 1st Semester Notes - Knowlet. Includes key concepts, definitions, and summaries for college students.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics SEC 101 Unit 1 | 1st Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #16a085;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #16a085;
+            border-bottom: 2px solid #D1F2EB;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #117a65;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code, .formula {
+            background: #e8f8f5;
+            border: 1px solid #a9dfbf;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+        }
+        .formula {
+            display: block;
+            padding: 15px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        .path {
+            font-weight: bold;
+            color: #d35400;
+        }
+        blockquote {
+            background: #D1F2EB;
+            border-left: 5px solid #16a085;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #555;
+        }
+        .exam-tip, .note {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            border-left-width: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #d9534f;
+        }
+        .note strong {
+            color: #0275d8;
+        }
+        #toc {
+            background: #ecf0f1;
+            border: 1px solid #bdc3c7;
+            padding: 15px 25px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #2c3e50;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc ul li a {
+            text-decoration: none;
+            color: #2980b9;
+        }
+        #toc ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 1: Introduction to Excel for Data Analysis</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#intro">1. Introduction to Microsoft Excel and its Features</a></li>
+                <li><a href="#entry">2. Basic Data Entry and Editing Techniques</a></li>
+                <li><a href="#import-export">3. Importing and Exporting Data</a></li>
+                <li><a href="#sort-filter">4. Sorting and Filtering Data</a></li>
+                <li><a href="#duplicates">5. Removing Duplicates</a></li>
+                <li><a href="#validation">6. Data Validation</a></li>
+                <li><a href="#missing">7. Handling Missing Observations</a></li>
+            </ul>
+        </div>
+
+        <section id="intro">
+            <h2>1. Introduction to Microsoft Excel and its Features</h2>
+            
+            <h3>What is Excel?</h3>
+            <p>Microsoft Excel is a <strong>spreadsheet program</strong> used to record, organize, analyze, and visualize quantitative data. It is a fundamental tool for data analysis.</p>
+
+            <h3>Key Features and Components:</h3>
+            <ul>
+                <li><strong>Workbook:</strong> The entire Excel file (e.g., <code>analysis.xlsx</code>).</li>
+                <li><strong>Worksheet (Sheet):</strong> A single "tab" within a workbook. A workbook can contain multiple worksheets.</li>
+                <li><strong>Cell:</strong> The intersection of a row and a column, where data is entered (e.g., <code>A1</code>, <code>B2</code>).</li>
+                <li><strong>Ribbon:</strong> The toolbar at the top (containing tabs like 'Home', 'Insert', 'Data', 'Formulas').</li>
+                <li><strong>Formula Bar:</strong> The <code>fx</code> bar where you can see and edit the contents or formula of the active cell.</li>
+                <li><strong>Formulas and Functions:</strong> Excel's core strength. Formulas (e.g., <code>=A1+B1</code>) and built-in functions (e.g., <code>=SUM(A1:A5)</code>) perform calculations.</li>
+                <li><strong>Charts:</strong> Tools to visualize data (covered in Unit 2).</li>
+                <li><strong>Data Tools:</strong> Features for managing data like sorting, filtering, and pivot tables.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="entry">
+            <h2>2. Basic Data Entry and Editing Techniques</h2>
+            
+            <h3>Data Entry</h3>
+            <ul>
+                <li><strong>Entering Data:</strong> Click a cell and type. Press <strong>Enter</strong> to move down or <strong>Tab</strong> to move right.</li>
+                <li><strong>Data Types:</strong> Excel recognizes text (e.g., 'Male'), numbers (e.g., 10.5), dates (e.g., '22/10/2025'), and logical values (TRUE/FALSE).</li>
+                <li><strong>Fill Handle:</strong> The small square at the bottom-right of a selected cell. Drag it to copy data or extend a series (e.g., 'Jan', 'Feb', 'Mar'...).</li>
+            </ul>
+            
+            <h3>Editing Techniques</h3>
+            <ul>
+                <li><strong>Edit a Cell:</strong> Press <strong>F2</strong>, or double-click the cell, or edit directly in the formula bar.</li>
+                <li><strong>Clear Contents:</strong> Select cell(s) and press the <strong>Delete</strong> key.</li>
+                <li><strong>Formatting:</strong> Use the <strong>Home</strong> tab to change font, color, alignment, and (most importantly) <strong>number formats</strong> (e.g., Currency, Percentage, Date).</li>
+                <li><strong>Find and Replace:</strong> Use <strong>Ctrl+F</strong> (Find) or <strong>Ctrl+H</strong> (Replace) to quickly find or change data.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="import-export">
+            <h2>3. Importing and Exporting Data</h2>
+            
+            <h3>Importing Data</h3>
+            <p>Often, your data is in an external file, like a <code>.csv</code> (Comma Separated Values) or text file.</p>
+            <ol>
+                <li>Go to the <span class="path">Data</span> tab.</li>
+                <li>In the <strong>Get & Transform Data</strong> group, select <strong>From Text/CSV</strong>.</li>
+                <li>Browse for your file and click <strong>Import</strong>.</li>
+                <li>A preview window appears. Check the <strong>Delimiter</strong> (e.g., Comma, Tab) to ensure Excel is splitting the columns correctly.</li>
+                <li>Click <strong>Load</strong>.</li>
+            </ol>
+            
+            <h3>Exporting Data</h3>
+            <p>You can save your Excel sheet in other formats.</p>
+            <ol>
+                <li>Go to <span class="path">File > Save As</span>.</li>
+                <li>Choose a location.</li>
+                <li>In the <strong>"Save as type"</strong> dropdown menu, select the format you need (e.g., <strong>CSV (Comma delimited)</strong>, <strong>PDF</strong>).</li>
+                <li>Click <strong>Save</strong>.</li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section id="sort-filter">
+            <h2>4. Sorting and Filtering Data</h2>
+            
+            <h3>Sorting</h3>
+            <p>Arranging your data in a specific order (e.g., A-Z, Smallest to Largest).</p>
+            <ol>
+                <li>Select your entire data range (including headers).</li>
+                <li>Go to the <span class="path">Data</span> tab > <strong>Sort & Filter</strong> group.</li>
+                <li>Click the <strong>Sort</strong> button for multi-level sorting (e.g., sort by 'State', then by 'City').</li>
+                <li>Check <strong>"My data has headers"</strong>.</li>
+                <li>Choose the column to sort by, the sort criteria (Values, Color, etc.), and the order (A-Z).</li>
+            </ol>
+            <div class="exam-tip">
+                <strong>Common Pitfall:</strong> Always select *all* your data before sorting a single column, or you will scramble your records!
+            </div>
+
+            <h3>Filtering</h3>
+            <p>Hiding rows that do not meet your criteria, allowing you to focus on a subset of data.</p>
+            <ol>
+                <li>Select your data range (or just the header row).</li>
+                <li>Go to the <span class="path">Data</span> tab > <strong>Sort & Filter</strong> group.</li>
+                <li>Click the <strong>Filter</strong> button. Dropdown arrows will appear on your headers.</li>
+                <li>Click the arrow on a header to see filter options. You can uncheck values you don't want to see, or use <strong>Number Filters</strong> (e.g., "Greater Than", "Top 10").</li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section id="duplicates">
+            <h2>5. Removing Duplicates</h2>
+            <p>This tool permanently deletes rows that are identical based on the columns you select.</p>
+            <ol>
+                <li>Select the data range.</li>
+                <li>Go to the <span class="path">Data</span> tab > <strong>Data Tools</strong> group.</li>
+                <li>Click <strong>Remove Duplicates</strong>.</li>
+                <li>A dialog box appears. Check the columns you want Excel to use to identify a duplicate row. (e.g., if you only check 'Email', it will remove any row with the same email, even if the names are different).</li>
+                <li>Click <strong>OK</strong>. Excel will report how many duplicates were found and removed.</li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section id="validation">
+            <h2>6. Data Validation</h2>
+            <p>A tool to restrict what can be entered into a cell, ensuring data integrity and preventing errors.</p>
+            <ol>
+                <li>Select the cell(s) where you want to apply the rule.</li>
+                <li>Go to the <span class="path">Data</span> tab > <strong>Data Tools</strong> group.</li>
+                <li>Click <strong>Data Validation</strong>.</li>
+                <li>In the <strong>Settings</strong> tab:
+                    <ul>
+                        <li><strong>Allow:</strong> Choose the data type (e.g., <strong>Whole number</strong>, <strong>List</strong>, <strong>Date</strong>).</li>
+                        <li><strong>Data:</strong> Set the criteria (e.g., "between", "greater than").</li>
+                        <li><em>Example:</em> To allow only 'Male' or 'Female' in a cell, choose <strong>Allow: List</strong> and in <strong>Source:</strong> type <code>Male,Female</code>.</li>
+                    </ul>
+                </li>
+                <li>(Optional) In the <strong>Input Message</strong> tab, you can write a prompt for the user.</li>
+                <li>(Optional) In the <strong>Error Alert</strong> tab, you can write a custom error message if invalid data is entered.</li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section id="missing">
+            <h2>7. Handling Missing Observations</h2>
+            <p>Real-world data is often incomplete ("missing"). We cannot simply run calculations on cells that are blank or contain errors (like #N/A).</p>
+            
+            <h3>Methods for Handling Missing Data:</h3>
+            <ol>
+                <li><strong>Find Blank Cells:</strong>
+                    <ul>
+                        <li>Select your data column.</li>
+                        <li>Go to <span class="path">Home > Find & Select > Go To Special...</span></li>
+                        <li>Select <strong>Blanks</strong> and click OK. All blank cells will be highlighted. You can then color them or enter a value.</li>
+                    </ul>
+                </li>
+                <li><strong>Deletion:</strong>
+                    <ul>
+                        <li><strong>Listwise Deletion:</strong> Delete the entire row. This is easy but can remove a lot of good data.</li>
+                    </ul>
+                </li>
+                <li><strong>Imputation (Replacing the value):</strong>
+                    <ul>
+                        <li><strong>Mean/Median Imputation:</strong> Replace the missing value with the mean or median of the entire column. This is a common statistical technique.
+                            <ol>
+                                <li>Calculate the mean of the column (e.g., <code>=AVERAGE(A2:A100)</code>).</li>
+                                <li>Use the "Go To Special... Blanks" method above.</li>
+                                <li>Type the mean value (e.g., 50.5) and press <strong>Ctrl+Enter</strong> to fill all highlighted blank cells at once.</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>Using Functions that Ignore Blanks:</strong>
+                    <ul>
+                        <li>Functions like <code>AVERAGE</code>, <code>SUM</code>, <code>MEDIAN</code>, <code>STDEV.S</code>, etc., <strong>automatically ignore blank cells</strong>.</li>
+                        <li>If your "missing" data is text (e.g., "NA"), these functions will fail. Use <code>AVERAGEA</code> (which treats text as 0) or filter/replace "NA" first.</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+
+    </div>
+  <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

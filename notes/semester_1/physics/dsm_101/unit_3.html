@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="101, 1st, dsm, knowlet, notes, physics, semester, unit">
+
+    <meta name="description" content="Comprehensive notes for Physics DSM 101 Unit 3 | 1st Semester Notes - Knowlet. Includes key concepts, definitions, and summaries for college students.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSM 101 Unit 3 | 1st Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dcdcdc;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #8e44ad;
+            padding-bottom: 5px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            border-bottom-width: 3px;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #8e44ad;
+            border-bottom: 1px dotted #8e44ad;
+        }
+        p, li {
+            font-size: 1.1em;
+            text-align: justify;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        blockquote {
+            font-family: 'Georgia', serif;
+            font-size: 1.2em;
+            font-style: italic;
+            background-color: #fdf6ff;
+            border-left: 5px solid #8e44ad;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        .exam-tip {
+            background-color: #fffbe6;
+            border: 1px solid #ffecb3;
+            border-left-width: 5px;
+            border-left-color: #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #c79100;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #8e44ad;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        #toc {
+            background: #f7ebff;
+            border: 1px solid #e8d0f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            border-bottom: none;
+            margin-top: 0;
+            text-align: center;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #toc li {
+            margin: 5px 0;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #8e44ad;
+            font-weight: bold;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 3: Gravitation</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Newton's Law of Gravitation</a></li>
+                <li><a href="#topic2">Motion in a Central Force Field</a></li>
+                <li><a href="#topic3">Kepler’s Laws</a></li>
+                <li><a href="#topic4">Motion of Satellite</a></li>
+                <li><a href="#topic5">Weightlessness</a></li>
+                <li><a href="#topic6">Global Positioning System (GPS)</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Newton's Law of Gravitation</h2>
+        <p>Newton's Law of Universal Gravitation states that every particle in the Universe attracts every other particle with a force that is directly proportional to the product of their masses and inversely proportional to the square of the distance between their centers.</p>
+        
+        <p>The magnitude of the force <strong>F<sub>g</sub></strong> is:</p>
+        <blockquote>
+            <strong>F<sub>g</sub> = G (m₁m₂) / r²</strong>
+        </blockquote>
+        
+        <ul>
+            <li><strong>G</strong> is the Universal Gravitational Constant (G ≈ 6.674 × 10⁻¹¹ N·m²/kg²).</li>
+            <li><strong>m₁</strong> and <strong>m₂</strong> are the two masses.</li>
+            <li><strong>r</strong> is the distance between their centers.</li>
+        </ul>
+        <p>In vector form, the force on m₂ due to m₁ is:</p>
+        <p class="formula"><strong>F</strong><sub>21</sub> = -G (m₁m₂) / r²  <strong>r̂</strong><sub>12</sub></p>
+        <p>Where <strong>r̂</strong><sub>12</sub> is the unit vector pointing from m₁ to m₂. The negative sign is crucial, as it indicates the force is <strong>attractive</strong> (it pulls m₂ *back* towards m₁).</p>
+        
+        <hr>
+        
+        <h2 id="topic2">Motion in a Central Force Field</h2>
+        
+        <h3>Definition of a Central Force</h3>
+        <p>A <strong>central force</strong> is a force on a particle that is always directed <strong>along the line</strong> connecting the particle and a fixed center point (the origin).</p>
+        <p>Its magnitude depends <strong>only on the distance</strong> `r` from the center, not on the angle.</p>
+        <blockquote>
+            <strong>F(r) = f(r) r̂</strong>
+        </blockquote>
+        <p>Gravity (f(r) = -GMm/r²) and the electrostatic force (f(r) = kq₁q₂/r²) are the two most important examples.</p>
+        
+        <h3>Key Properties of Central Force Motion</h3>
+        <ol>
+            <li><strong>The force is conservative.</strong> A force `F(r) = f(r)r̂` is always conservative, which means a potential energy function `U(r)` exists (where F = -∇U) and total mechanical energy (E = K + U) is conserved.</li>
+            <li><strong>Torque is always Zero.</strong> The torque `τ` about the center point is defined as `τ = r × F`.
+                <br>Since <strong>F</strong> is parallel to <strong>r</strong> (or anti-parallel, like gravity), their cross product is zero.
+                <br><strong>τ = r × (f(r)r̂) = 0</strong>
+            </li>
+            <li><strong>Angular Momentum (L) is Conserved.</strong>
+                <br>From Unit 2, we know `τ = dL/dt`.
+                <br>Since `τ = 0` for a central force, we must have `dL/dt = 0`, which means:
+                <blockquote>
+                    <strong>L = constant</strong>
+                </blockquote>
+                This is the *most important characteristic* of central force motion.
+            </li>
+            <li><strong>The motion is confined to a plane.</strong>
+                <br>The angular momentum vector <strong>L = r × p</strong> is constant. This means <strong>L</strong> always points in the same fixed direction.
+                <br>By the definition of the cross product, both the position vector <strong>r</strong> and the momentum vector <strong>p</strong> must always be perpendicular to <strong>L</strong>.
+                <br>Therefore, the entire motion (the path of the particle) must lie in a single, fixed plane that is perpendicular to the constant angular momentum vector <strong>L</strong>.
+            </li>
+        </ol>
+
+        <hr>
+
+        <h2 id="topic3">Kepler’s Laws</h2>
+        <p>Kepler's laws are three empirical laws that describe the motion of planets around the Sun. They are all direct consequences of the Sun exerting an inverse-square (1/r²) central force (gravity) on the planets.</p>
+        
+        <h3>Kepler's First Law (Law of Orbits)</h3>
+        <p><strong>Law:</strong> "All planets move in <strong>elliptical orbits</strong> with the Sun at one of the two <strong>foci</strong>."</p>
+        <p><strong>Reason:</strong> This is the specific mathematical solution to the equation of motion for an attractive 1/r² force, for a bound system (one with negative total energy).</p>
+        <h3>Kepler's Second Law (Law of Areas)</h3>
+        <p><strong>Law:</strong> "A line segment joining a planet and the Sun sweeps out <strong>equal areas in equal intervals of time</strong>."</p>
+        <p><strong>Derivation (Areal Velocity is Constant):</strong></p>
+        <ol>
+            <li>This law is a direct consequence of the <strong>conservation of angular momentum (L)</strong>, which is true for *any* central force.</li>
+            <li>The small area `dA` swept out by the position vector `r` in a time `dt` is the area of a small triangle: `dA = (1/2) |r × dr|`.</li>
+            <li>Since `dr = v dt`, we have `dA = (1/2) |r × v| dt`.</li>
+            <li>We know `L = r × p = m(r × v)`. So, `|r × v| = L/m` (where L = |L|).</li>
+            <li>Substitute this in: `dA = (1/2) (L/m) dt`.</li>
+            <li>Rearranging gives the <strong>areal velocity</strong>:
+                <blockquote>
+                    <strong>dA/dt = L / (2m)</strong>
+                </blockquote>
+            </li>
+            <li>Since the gravitational force is central, `L` is constant. The planet's mass `m` is also constant.</li>
+            <li>Therefore, <strong>dA/dt = constant</strong>. This is Kepler's Second Law.</li>
+            <li><strong>Implication:</strong> A planet must move *faster* when it is closer to the Sun (perihelion) and *slower* when it is farther away (aphelion).</li>
+        </ol>
+
+        <h3>Kepler's Third Law (Law of Periods)</h3>
+        <p><strong>Law:</strong> "The <strong>square of the orbital period</strong> (T) of a planet is directly proportional to the <strong>cube of the semi-major axis</strong> (a) of its orbit."</p>
+        <blockquote>
+            <strong>T² ∝ a³</strong>
+        </blockquote>
+        <p><strong>Derivation (for a simple circular orbit of radius r):</strong></p>
+        <ol>
+            <li>For a circular orbit, the gravitational force provides the exact centripetal force required to keep the planet (mass m) in orbit around the Sun (mass M).</li>
+            <li>F<sub>gravity</sub> = F<sub>centripetal</sub></li>
+            <li>G(Mm) / r² = m v² / r</li>
+            <li>Simplify: G M / r = v²</li>
+            <li>The orbital speed `v` is the circumference (2πr) divided by the period (T): `v = 2πr / T`.</li>
+            <li>Substitute `v`: G M / r = (2πr / T)² = 4π²r² / T²</li>
+            <li>Rearrange to solve for T²:
+                <br>T² G M = 4π²r³
+                <blockquote>
+                    <strong>T² = [ 4π² / (GM) ] r³</strong>
+                </blockquote>
+            </li>
+            <li>Since `(4π² / GM)` is a constant for all planets in the solar system, we have <strong>T² ∝ r³</strong>. (For a full ellipse, `r` is replaced by the semi-major axis `a`).</li>
+        </ol>
+
+        <hr>
+
+        <h2 id="topic4">Motion of Satellite</h2>
+        <p>The motion of an artificial satellite around a planet (like Earth) follows the same laws as a planet around the Sun.</p>
+        
+        <h3>Orbital Velocity</h3>
+        <p>This is the speed `v_orb` required to maintain a stable circular orbit at a radius `r` (measured from the planet's center).</p>
+        <p>From the derivation of Kepler's 3rd Law (step 4): G M / r = v²</p>
+        <blockquote>
+            <strong>v<sub>orb</sub> = √(GM / r)</strong>
+        </blockquote>
+        <p>Where `M` is the mass of the planet (e.g., Earth).</p>
+        
+        <h3>Escape Velocity</h3>
+        <p>This is the minimum speed `v_esc` an object needs at a given distance `R` (e.g., the planet's surface) to escape the planet's gravitational pull completely (i.e., to reach `r = ∞` with zero kinetic energy).</p>
+        <p>We use the <strong>conservation of energy</strong> (E = K + U):</p>
+        <p>E<sub>initial</sub> (at surface) = E<sub>final</sub> (at infinity)</p>
+        <p>(K<sub>i</sub> + U<sub>i</sub>) = (K<sub>f</sub> + U<sub>f</sub>)</p>
+        <p>(1/2)mv<sub>esc</sub>² + (-GMm/R) = 0 + 0</p>
+        <p>(1/2)mv<sub>esc</sub>² = GMm/R</p>
+        <p>v<sub>esc</sub>² = 2GM/R</p>
+        <blockquote>
+            <strong>v<sub>esc</sub> = √(2GM / R)</strong>
+        </blockquote>
+        
+        <div class="exam-tip">
+            <strong>Key Relationship:</strong>
+            <br>
+            Compare the escape velocity from the surface (R) with the orbital velocity *at* the surface (r=R):
+            <ul>
+                <li>v<sub>orb</sub> = √(GM / R)</li>
+                <li>v<sub>esc</sub> = √(2GM / R)</li>
+            </ul>
+            Therefore: <strong>v<sub>esc</sub> = √2 × v<sub>orb</sub></strong>
+            <br>
+            Escape velocity (≈ 11.2 km/s for Earth) is about 41.4% faster than the low-Earth-orbit velocity (≈ 7.9 km/s).
+        </div>
+        
+        <hr>
+        
+        <h2 id="topic5">Weightlessness</h2>
+        <p>Weightlessness is the sensation (or state) of having no <strong>apparent weight</strong>. It is <strong>NOT</strong> the absence of gravity.</p>
+        <ul>
+            <li>Your sensation of "weight" is not the force of gravity (F<sub>g</sub>), but the <strong>normal force</strong> (F<sub>N</sub>) exerted on you by the floor, a chair, or a scale.</li>
+            <li>Weightlessness occurs when this normal force becomes <strong>zero</strong>.</li>
+            <li><strong>Example 1: Freefall.</strong> If you stand on a scale in an elevator and the cable is cut, both you and the scale accelerate downwards at `g`. Since you are falling *with* the scale, you don't press on it. The scale reads F<sub>N</sub> = 0. You are in freefall and feel "weightless".</li>
+            <li><strong>Example 2: Orbit.</strong> An astronaut in a satellite is in a constant state of freefall *around* the Earth. The satellite (and everything in it) is accelerating towards the Earth at `g_orbit = v²/r`. Since the astronaut and the satellite "fall" together, the astronaut does not press against the walls. There is no normal force, and they experience weightlessness.</li>
+        </ul>
+        
+        <hr>
+        
+        <h2 id="topic6">Basic idea of global positioning system (GPS)</h2>
+        <p>The Global Positioning System (GPS) is a utility that provides users with positioning, navigation, and timing (PNT) services. It is a satellite-based navigation system.</p>
+        <ul>
+            <li><strong>Components:</strong>
+                <ol>
+                    <li><strong>Space Segment:</strong> A constellation of ~30 satellites in Medium Earth Orbit (MEO), at an altitude of ~20,200 km. They orbit the Earth about twice per day.</li>
+                    <li><strong>Control Segment:</strong> Ground stations that monitor the satellites, track their orbits, and synchronize their clocks.</li>
+                    <li><strong>User Segment:</strong> Your GPS receiver (e.g., in your phone or car).</li>
+                </ol>
+            </li>
+            <li><strong>Principle: Trilateration</strong>
+                <p>The entire system works by measuring time.</p>
+                <ol>
+                    <li>Each satellite contains an extremely precise atomic clock. It continuously broadcasts a signal that contains its <strong>exact location</strong> and the <strong>exact time</strong> the signal was sent.</li>
+                    <li>Your GPS receiver receives this signal and notes the time it arrived, according to its *own* (less precise) clock.</li>
+                    <li>By subtracting the send time from the receive time, it finds the time delay: <strong>Δt</strong>.</li>
+                    <li>It calculates its distance from that satellite using the speed of light: <strong>d = c × Δt</strong>.</li>
+                    <li>Receiving this distance from <strong>one</strong> satellite tells you you are somewhere on the surface of a giant "sphere" of radius `d` centered on that satellite.</li>
+                    <li>A signal from a <strong>second</strong> satellite creates a second sphere. Your location is now narrowed down to the circle where the two spheres intersect.</li>
+                    <li>A signal from a <strong>third</strong> satellite creates a third sphere. This narrows your location to just two points. One is usually impossible (e.g., moving at high speed in space), so your 2D location (latitude, longitude) is found.</li>
+                </ol>
+            </li>
+            <li><strong>The 4th Satellite:</strong> Your receiver's clock is cheap and inaccurate. This introduces a large error (`Δt` is wrong). A signal from a <strong>fourth</strong> satellite is used to solve for this fourth unknown variable (the clock error), allowing for a precise 3D position (latitude, longitude, altitude) and correcting your clock.</li>
+            <li><strong>Role of Relativity:</strong> The system would fail in minutes without corrections from Einstein's Relativity.
+                <ul>
+                    <li><strong>Special Relativity:</strong> The satellite clocks move fast (high `v`) relative to us, so they run *slow* (Time Dilation).</li>
+                    <li><strong>General Relativity:</strong> The satellite clocks are in weaker gravity than us (higher `r`), so they run *fast* (Gravitational Time Dilation).</li>
+                </ul>
+                The control segment must constantly adjust for these effects.
+            </li>
+        </ul>
+        
+    </div>
+  <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

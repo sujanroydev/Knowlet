@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="101, 1st, computer, knowlet, notes, science, sec, semester, unit">
+
+    <meta name="description" content="Comprehensive notes for Computer Science SEC 101 Unit 1 | 1st Semester Notes - Knowlet. Includes key concepts, definitions, and summaries for college students.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Science SEC 101 Unit 1 | 1st Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 20px; background-color: #f0f8ff; color: #333; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.1); }
+        h1, h2, h3, h4 { color: #00796B; border-bottom: 2px solid #00796B; padding-bottom: 5px; }
+        h1 { font-size: 2.2em; text-align: center; }
+        h2 { font-size: 1.8em; margin-top: 30px; }
+        h3 { font-size: 1.4em; color: #004D40; border-bottom: 1px solid #004D40; }
+        h4 { font-size: 1.2em; color: #009688; border: none; }
+        strong { color: #d9534f; }
+        code { background: #e0f7fa; border: 1px solid #b2ebf2; padding: 2px 6px; border-radius: 4px; font-family: 'Courier New', Courier, monospace; }
+        blockquote { background: #e0f7fa; border-left: 5px solid #00796B; margin: 20px 0; padding: 15px; font-style: italic; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #00796B; color: white; text-align: center; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .toc { background: #f8f9fa; border: 1px solid #dee2e6; padding: 15px; border-radius: 5px; margin-bottom: 30px; }
+        .toc h2 { border: none; margin-top: 0; }
+        .toc ul { list-style-type: none; padding: 0; }
+        .toc li a { text-decoration: none; color: #007bff; }
+        .toc li a:hover { text-decoration: underline; }
+        .exam-tip { background: #fff3cd; border: 1px solid #ffeeba; border-left-width: 5px; padding: 15px; margin: 15px 0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 1: Fundamentals of Computer Programming with C</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <span id="span_0"><li><a href="#intro">1.1 Fundamentals: Data Types, Expressions, Operations</a></span></li>
+            <span id="span_1"><li><a href="#io">1.2 Input and Output (I/O)</a></span></li>
+            <span id="span_2"><li><a href="#simple-programs">1.3 Writing Simple C Programs</a></span></li>
+            <span id="span_3"><li><a href="#control-structures">1.4 Control Structures</a></span></li>
+            <span id="span_4"><li><a href="#problem-solving">1.5 Solving Elementary Programming Problems</a></span></li>
+        </ul>
+    </div>
+
+    <span id="span_5"><h2 id="intro">1.1 Fundamentals: Data Types, Expressions, Operations</span></h2>
+    
+    <h3>Data Types</h3>
+    <p>Data types define the type and size of data a variable can store.</p>
+    <table>
+        <tr><th>Type</th><th>Description</th><th>Example</th></tr>
+        <tr><td><code>int</code></td><td>Integer (whole number)</td><td><code>int age = 21;</code></td></tr>
+        <tr><td><code>float</code></td><td>Single-precision floating point (decimal number)</td><td><code>float price = 19.99;</code></td></tr>
+        <tr><td><code>double</code></td><td>Double-precision floating point (more precise)</td><td><code>double pi = 3.14159265;</code></td></tr>
+        <tr><td><code>char</code></td><td>Single character</td><td><code>char grade = 'A';</code></td></tr>
+    </table>
+    
+    <h3>Expressions</h3>
+    <p>An expression is a combination of variables, constants, and operators that evaluates to a single value. Example: <code>(a + b) / 2</code>.</p>
+    
+    <h3>Operations (Operators)</h3>
+    <ul>
+        <li><strong>Arithmetic:</strong> <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code> (modulus/remainder)</li>
+        <li><strong>Relational:</strong> <code>==</code> (equal to), <code>!=</code> (not equal to), <code><</code>, <code>></code>, <code><=</code>, <code>>=</code></li>
+        <li><strong>Logical:</strong> <code>&&</code> (AND), <code>||</code> (OR), <code>!</code> (NOT)</li>
+        <li><strong>Assignment:</strong> <code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code></li>
+    </ul>
+
+    <span id="span_6"><h2 id="io">1.2 Input and Output (I/O)</span></h2>
+    <p>Handled using standard library functions from <code>&lt;stdio.h&gt;</code>.</p>
+    
+    <h3>Output: <code>printf()</code></h3>
+    <p>Used to print formatted output to the console.</p>
+    <blockquote>
+        <code>printf("Hello, %s! You are %d years old.\n", "Alex", 25);</code>
+        <br><strong>Output:</strong> Hello, Alex! You are 25 years old.
+    </blockquote>
+    <ul>
+        <li><code>%d</code> for integers</li>
+        <li><code>%f</code> for floats/doubles</li>
+        <li><code>%c</code> for characters</li>
+        <li><code>%s</code> for strings</li>
+        <li><code>\n</code> for a new line</li>
+    </ul>
+
+    <h3>Input: <code>scanf()</code></h3>
+    <p>Used to read formatted input from the console.</p>
+    <div class="exam-tip">
+        <strong>Critical:</strong> <code>scanf()</code> requires the <strong>address</strong> of the variable, using the <code>&</code> (address-of) operator.
+    </div>
+    <pre><code>int age;
+printf("Enter your age: ");
+scanf("%d", &age);</code></pre>
+
+    <span id="span_7"><h2 id="simple-programs">1.3 Writing Simple C Programs</span></h2>
+    <p>A basic C program structure:</p>
+    <pre><code>// 1. Preprocessor Directive
+#include &lt;stdio.h&gt;
+
+// 2. Main function (entry point of the program)
+int main() {
+    // 3. Variable declaration
+    int num1 = 10;
+    int num2 = 20;
+    int sum;
+
+    // 4. Logic
+    sum = num1 + num2;
+
+    // 5. Output
+    printf("The sum of %d and %d is %d\n", num1, num2, sum);
+
+    // 6. Return statement
+    return 0;
+}</code></pre>
+
+    <span id="span_8"><h2 id="control-structures">1.4 Control Structures</span></h2>
+    <p>These control the flow of program execution.</p>
+    
+    <h3>Decision Making</h3>
+    <ul>
+        <li><strong><code>if-else</code>:</strong> Used for conditional branching.
+            <pre><code>if (score >= 50) {
+    printf("Pass\n");
+} else {
+    printf("Fail\n");
+}</code></pre>
+        </li>
+        <li><strong><code>switch</code>:</strong> Used to select one of many code blocks to be executed.
+            <span id="span_9"><div class="exam-tip"><strong>Common Mistake:</strong> Forgetting the <code>break;</code> statement in a <code>switch</code> case, which causes "fall-through."</span></div>
+            <pre><code>switch (grade) {
+    case 'A':
+        printf("Excellent\n");
+        break;
+    case 'B':
+        printf("Good\n");
+        break;
+    default:
+        printf("Try harder\n");
+}</code></pre>
+        </li>
+    </ul>
+
+    <h3>Loops (Iteration)</h3>
+    <ul>
+        <span id="span_10"><li><strong><code>while</code> loop (Entry-controlled):</strong> Executes as long as the condition is true.</span>
+            <pre><code>int i = 1;
+while (i <= 5) {
+    printf("%d ", i);
+    i++;
+}</code></pre>
+        </li>
+        <span id="span_11"><li><strong><code>do-while</code> loop (Exit-controlled):</strong> Always executes at least once.</span>
+            <pre><code>int i = 1;
+do {
+    printf("%d ", i);
+    i++;
+} while (i <= 5);</code></pre>
+        </li>
+        <span id="span_12"><li><strong><code>for</code> loop:</strong> The most common loop for a known number of iterations.</span>
+            <pre><code>for (int i = 1; i <= 5; i++) {
+    printf("%d ", i);
+}</code></pre>
+        </li>
+        <li><strong>Nested Loops:</strong> A loop inside another loop. <span id="span_13">Used for 2D patterns, matrices, etc.</span></li>
+    </ul>
+    
+    <h3>Jump Statements</h3>
+    <ul>
+        <span id="span_14"><li><strong><code>break</code>:</strong> Immediately exits the innermost loop or <code>switch</code> statement.</span></li>
+        <span id="span_15"><li><strong><code>continue</code>:</strong> Skips the rest of the current iteration and moves to the next iteration of the loop.</span></li>
+        <span id="span_16"><li><strong><code>goto</code>:</strong> Jumps to a labeled statement.</span>
+            <div class="exam-tip">Using <code>goto</code> is highly discouraged as it makes code unreadable and hard to debug (spaghetti code).</div>
+        </li>
+    </ul>
+
+    <span id="span_17"><h2 id="problem-solving">1.5 Solving Elementary Programming Problems</span></h2>
+    <p>Using the above structures to solve problems from mathematics and statistics.</p>
+    <h4>Example: Find the factorial of a number (Mathematics)</h4>
+    <pre><code>int n = 5;
+long factorial = 1;
+for (int i = 1; i <= n; i++) {
+    factorial = factorial * i;
+}
+printf("Factorial of %d = %ld\n", n, factorial);</code></pre>
+    
+    <h4>Example: Calculate the average of 5 numbers (Statistics)</h4>
+    <pre><code>int count = 5;
+float sum = 0;
+float num;
+printf("Enter %d numbers:\n", count);
+for (int i = 0; i < count; i++) {
+    scanf("%f", &num);
+    sum += num;
+}
+printf("Average = %.2f\n", sum / count);</code></pre>
+</div>
+
+  <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

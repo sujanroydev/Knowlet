@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="101, 1st, dsm, knowlet, notes, physics, semester, unit">
+
+    <meta name="description" content="Comprehensive notes for Physics DSM 101 Unit 2 | 1st Semester Notes - Knowlet. Includes key concepts, definitions, and summaries for college students.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSM 101 Unit 2 | 1st Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dcdcdc;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 5px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            border-bottom-width: 3px;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #c0392b;
+            border-bottom: 1px dotted #e74c3c;
+        }
+        p, li {
+            font-size: 1.1em;
+            text-align: justify;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        blockquote {
+            font-family: 'Georgia', serif;
+            font-size: 1.2em;
+            font-style: italic;
+            background-color: #fff6f5;
+            border-left: 5px solid #e74c3c;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        .exam-tip {
+            background-color: #fffbe6;
+            border: 1px solid #ffecb3;
+            border-left-width: 5px;
+            border-left-color: #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #c79100;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #e74c3c;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        #toc {
+            background: #ffeae6;
+            border: 1px solid #ffcbbd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            border-bottom: none;
+            margin-top: 0;
+            text-align: center;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #toc li {
+            margin: 5px 0;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #c0392b;
+            font-weight: bold;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 2: Momentum, Energy and Rotational Motion</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Momentum and Energy</a></li>
+                <li><a href="#topic2">Rotational Motion</a></li>
+                <li><a href="#topic3">Moment of Inertia</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Momentum and Energy</h2>
+
+        <h3>Conservation of momentum</h3>
+        <p><strong>Linear Momentum (p)</strong> of a particle is the product of its mass and velocity: <strong>p = mv</strong>.</p>
+        <p><strong>Newton's Second Law</strong> states that the net external force on a system is equal to the rate of change of its total linear momentum:</p>
+        <p class="formula">F<sub>net</sub> = dP<sub>total</sub> / dt</p>
+        <p>The <strong>Principle of Conservation of Momentum</strong> follows directly from this:</p>
+        <blockquote>
+            If the net external force on a system is zero (F<sub>net</sub> = 0), then dP<sub>total</sub> / dt = 0, which means <strong>P<sub>total</sub> = constant</strong>.
+        </blockquote>
+        <p><strong>In words:</strong> In the absence of a net external force, the total linear momentum of a system remains constant.</p>
+        <ul>
+            <li>This principle is fundamental in all of physics.</li>
+            <li><strong>Application:</strong> Collisions (elastic and inelastic) and explosions. In a collision, the internal forces are huge, but the net *external* force on the two-particle system is usually negligible.
+                <br><em>Initial Momentum = Final Momentum</em>
+                <br><em>m₁u₁ + m₂u₂ = m₁v₁ + m₂v₂</em>
+            </li>
+        </ul>
+
+        <h3>Conservation of energy</h3>
+        <p><strong>Energy</strong> is the capacity to do work. The total mechanical energy (E) of a system is the sum of its Kinetic Energy (K) and Potential Energy (U).</p>
+        <p class="formula">E = K + U</p>
+        <ul>
+            <li><strong>Kinetic Energy (K):</strong> Energy of motion. <strong>K = (1/2)mv²</strong></li>
+            <li><strong>Potential Energy (U):</strong> Stored energy due to position or configuration. It is only defined for <strong>conservative forces</strong>.
+                <ul>
+                    <li>Gravitational P.E.: U = mgh</li>
+                    <li>Elastic (Spring) P.E.: U = (1/2)kx²</li>
+                </ul>
+            </li>
+        </ul>
+        <p>A force is <strong>conservative</strong> if the work it does is path-independent (e.g., gravity). A force is <strong>non-conservative</strong> if the work it does depends on the path (e.g., friction).</p>
+        <p>The <strong>Principle of Conservation of Mechanical Energy</strong> states:</p>
+        <blockquote>
+            If only conservative forces are doing work within a system, the total mechanical energy (K + U) of the system remains constant.
+        </blockquote>
+        <p>K<sub>initial</sub> + U<sub>initial</sub> = K<sub>final</sub> + U<sub>final</sub></p>
+        <p>If non-conservative forces (like friction) are present, they do work (W<sub>nc</sub>) that dissipates energy: <strong>W<sub>nc</sub> = ΔE = E<sub>final</sub> - E<sub>initial</sub></strong>.</p>
+        
+        <h3>Work Energy theorem</h3>
+        <p>This theorem provides a direct link between the <strong>net work</strong> done on an object and its <strong>kinetic energy</strong>.</p>
+        <p>The net work (W<sub>net</sub>) done by the *net force* (F<sub>net</sub>) on a particle as it moves from point 1 to point 2 is:</p>
+        <p>W<sub>net</sub> = ∫ F<sub>net</sub> · dr</p>
+        <p>By derivation (using F=ma, a=dv/dt, dr=v dt):</p>
+        <p>W<sub>net</sub> = (1/2)mv₂² - (1/2)mv₁²</p>
+        <blockquote>
+            <strong>W<sub>net</sub> = K<sub>final</sub> - K<sub>initial</sub> = ΔK</strong>
+        </blockquote>
+        <p><strong>In words:</strong> The net work done on an object equals the change in its kinetic energy. This is true for *all* forces, conservative and non-conservative.</p>
+        
+        <hr>
+
+        <h2 id="topic2">Rotational Motion</h2>
+
+        <h3>Angular velocity (ω) and Angular momentum (L)</h3>
+        <p><strong>Angular Velocity (ω):</strong> The rate of change of angular position (θ). <strong>ω = dθ/dt</strong>. It is a vector pointing along the axis of rotation (by the right-hand rule).</p>
+        <p><strong>Angular Momentum (L):</strong> The rotational analog of linear momentum. For a single particle, it is defined as:</p>
+        <blockquote>
+            <strong>L = r × p</strong>
+        </blockquote>
+        <p>Where <strong>r</strong> is the position vector from the origin and <strong>p</strong> is the linear momentum.</p>
+        <p>For a <strong>rigid body</strong> (a system of particles) rotating with angular velocity ω about a fixed axis, the total angular momentum simplifies to:</p>
+        <blockquote>
+            <strong>L = Iω</strong>
+        </blockquote>
+        <p>Where <strong>I</strong> is the Moment of Inertia of the body about that axis. This is the direct rotational analog of <strong>p = mv</strong>.</p>
+
+        <h3>Torque (τ)</h3>
+        <p><strong>Torque (τ)</strong> is the rotational analog of force. It is the "turning effect" of a force.</p>
+        <blockquote>
+            <strong>τ = r × F</strong>
+        </blockquote>
+        <p>Where <strong>r</strong> is the position vector from the axis of rotation to the point where the force <strong>F</strong> is applied.</p>
+        
+        <h3>Torque as the rate of change of Angular Momentum</h3>
+        <p>We can derive the rotational version of Newton's Second Law by differentiating <strong>L = r × p</strong> with respect to time:</p>
+        <p>dL/dt = d/dt (r × p)</p>
+        <p>Using the product rule: dL/dt = (dr/dt × p) + (r × dp/dt)</p>
+        <ul>
+            <li>The first term is (v × p) = (v × mv) = m(v × v). The cross product of a vector with itself is <strong>zero</strong>.</li>
+            <li>The second term uses F<sub>net</sub> = dp/dt. So, (r × dp/dt) = (r × F<sub>net</sub>).</li>
+        </ul>
+        <p>By definition, (r × F<sub>net</sub>) is the net torque <strong>τ<sub>net</sub></strong>. Therefore:</p>
+        <blockquote>
+            <strong>τ<sub>net</sub> = dL/dt</strong>
+        </blockquote>
+        <p>This is the fundamental law of rotational dynamics. If the Moment of Inertia `I` is constant, this simplifies to:</p>
+        <p>τ<sub>net</sub> = d(Iω)/dt = I (dω/dt) = <strong>Iα</strong> (where α is angular acceleration). This is the analog of F=ma.</p>
+
+        <h3>Conservation of angular momentum</h3>
+        <p>From the law <strong>τ<sub>net</sub> = dL/dt</strong>, we get the conservation principle:</p>
+        <blockquote>
+            If the net external torque on a system is zero (τ<sub>net</sub> = 0), then dL/dt = 0, which means <strong>L = constant</strong>.
+        </blockquote>
+        <p><strong>In words:</strong> In the absence of a net external torque, the total angular momentum of a system remains constant.</p>
+        <p>L<sub>initial</sub> = L<sub>final</sub>  or  <strong>I<sub>initial</sub> ω<sub>initial</sub> = I<sub>final</sub> ω<sub>final</sub></strong></p>
+        <div class="exam-tip">
+            <strong>Key Applications:</strong>
+            <ul>
+                <li><strong>Ice Skater:</strong> When a skater pulls her arms in, her mass is closer to the axis of rotation. This <strong>decreases</strong> her moment of inertia (I). To keep L = Iω constant, her angular velocity (ω) must <strong>increase</strong>, and she spins faster.</li>
+                <li><strong>Kepler's Second Law:</strong> A planet orbiting the Sun feels a central gravitational force. This force creates no torque (τ = r × F = 0). Therefore, the planet's angular momentum (L) is conserved. This conservation leads to the "equal areas in equal times" law.</li>
+            </ul>
+        </div>
+        
+        <hr>
+
+        <h2 id="topic3">Moment of Inertia</h2>
+        <p>The <strong>Moment of Inertia (I)</strong> is the rotational equivalent of mass. It measures an object's <strong>resistance to angular acceleration</strong>.</p>
+        <ul>
+            <li>A large `I` means it is hard to start or stop the object's rotation.</li>
+            <li>It depends on the <strong>mass</strong> of the object and, more importantly, the <strong>distribution of that mass</strong> relative to the axis of rotation.</li>
+        </ul>
+        <p><strong>Definition:</strong></p>
+        <ul>
+            <li>For a system of discrete particles: <strong>I = Σ mᵢrᵢ²</strong>
+                <br>(where rᵢ is the perpendicular distance of mass mᵢ from the axis)
+            </li>
+            <li>For a continuous body: <strong>I = ∫ r² dm</strong></li>
+        </ul>
+        
+        <h3>Radius of Gyration (K)</h3>
+        <p>The radius of gyration is a conceptual distance. It is the distance from the axis of rotation where all the object's mass (M) could be concentrated into a single point, such that this point-mass has the <em>same</em> moment of inertia as the actual object.</p>
+        <blockquote>
+            <strong>I = MK²</strong>   or   <strong>K = √(I / M)</strong>
+        </blockquote>
+        <p>Two objects with the same mass M can have very different K values (e.g., a solid sphere vs. a hollow shell).</p>
+        
+        <h3>Calculation of Moment of Inertia</h3>
+        <p>Calculating MOI often involves integration. For this syllabus, knowing the standard results is key. We also use two important theorems.</p>
+        
+        <h4>Theorem 1: Perpendicular Axis Theorem</h4>
+        <ul>
+            <li><strong>Applies to:</strong> 2D (planar) objects only.</li>
+            <li><strong>Statement:</strong> The MOI about an axis perpendicular to the plane (z-axis) is the sum of the MOIs about any two perpendicular axes lying *in* the plane.
+            <br><strong>I<sub>z</sub> = I<sub>x</sub> + I<sub>y</sub></strong></li>
+        </ul>
+
+        <h4>Theorem 2: Parallel Axis Theorem</h4>
+        <ul>
+            <li><strong>Applies to:</strong> Any 3D object.</li>
+            <li><strong>Statement:</strong> The MOI (`I`) about *any* axis is the MOI about a *parallel* axis through the center of mass (`I_cm`), plus the total mass (M) times the squared distance (d²) between the axes.
+            <br><strong>I = I<sub>cm</sub> + Md²</strong></li>
+        </ul>
+        
+        <h4>Standard Formulas for MOI</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Object</th>
+                    <th>Axis of Rotation</th>
+                    <th>Moment of Inertia (I)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Rectangular Bar (or Rod)</strong><br>(Mass M, Length L)</td>
+                    <td>Through center (CM), perpendicular to length</td>
+                    <td class="formula"><strong>I = (1/12) ML²</strong></td>
+                </tr>
+                <tr>
+                    <td>Rectangular Bar (or Rod)<br>(Mass M, Length L)</td>
+                    <td>Through one end, perpendicular to length</td>
+                    <td class="formula">I = I_cm + M(L/2)² = <strong>(1/3) ML²</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Solid Cylinder</strong><br>(Mass M, Radius R)</td>
+                    <td>Along the central axis of the cylinder</td>
+                    <td class="formula"><strong>I = (1/2) MR²</strong></td>
+                </tr>
+                <tr>
+                    <td>Solid Cylinder<br>(Mass M, Radius R, Length L)</td>
+                    <td>Through CM, perpendicular to central axis</td>
+                    <td class="formula">I = (1/4)MR² + (1/12)ML²</td>
+                </tr>
+                <tr>
+                    <td><strong>Cylindrical Shell (or Hoop)</strong><br>(Mass M, Radius R)</td>
+                    <td>Along the central axis</td>
+                    <td class="formula"><strong>I = MR²</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Solid Sphere</strong><br>(Mass M, Radius R)</td>
+                    <td>Through center (any diameter)</td>
+                    <td class="formula">I = (2/5) MR²</td>
+                </tr>
+                <tr>
+                    <td><strong>Spherical Shell (Hollow)</strong><br>(Mass M, Radius R)</td>
+                    <td>Through center (any diameter)</td>
+                    <td class="formula"><strong>I = (2/3) MR²</strong></td>
+                </tr>
+            </tbody>
+        </table>
+        <p><em>(The syllabus specifically lists "Rectangular bar, cylinder and shell". The bolded items are the most common interpretations required.)</em></p>
+        
+    </div>
+  <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

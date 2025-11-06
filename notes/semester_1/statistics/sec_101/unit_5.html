@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="101, 1st, knowlet, notes, sec, semester, statistics, unit">
+
+    <meta name="description" content="Comprehensive notes for Statistics SEC 101 Unit 5 | 1st Semester Notes - Knowlet. Includes key concepts, definitions, and summaries for college students.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics SEC 101 Unit 5 | 1st Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #f39c12;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #f39c12;
+            border-bottom: 2px solid #FEF9E7;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #d35400;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code, .formula {
+            background: #eaf2f8;
+            border: 1px solid #d4e6f1;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+        }
+        .formula {
+            display: block;
+            padding: 15px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        .path {
+            font-weight: bold;
+            color: #d35400;
+        }
+        blockquote {
+            background: #FEF9E7;
+            border-left: 5px solid #f39c12;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #555;
+        }
+        .exam-tip, .note {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            border-left-width: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #d9534f;
+        }
+        .note strong {
+            color: #0275d8;
+        }
+        #toc {
+            background: #ecf0f1;
+            border: 1px solid #bdc3c7;
+            padding: 15px 25px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #2c3e50;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc ul li a {
+            text-decoration: none;
+            color: #2980b9;
+        }
+        #toc ul li a:hover {
+            text-decoration: underline;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f39c12;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 5: Bivariate Analysis, Pivot Tables & Vlookup</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#bivariate">1. Introduction to Bivariate Analysis</a></li>
+                <li><a href="#correlation">2. Correlation Coefficient in Excel</a></li>
+                <li><a href="#regression">3. Simple Linear Regression in Excel</a></li>
+                <li><a href="#regression-output">4. Interpretation of Regression Output</a></li>
+                <li><a href="#pivot-tables">5. Introduction to Pivot Tables</a></li>
+                <li><a href="#vlookup">6. Using Vlookup to Join Datasets</a></li>
+            </ul>
+        </div>
+
+        <section id="bivariate">
+            <h2>1. Introduction to Bivariate Analysis</h2>
+            <blockquote>
+                <strong>Bivariate Analysis:</strong> The analysis of two variables (bi-variate) to determine the empirical relationship between them.
+            </blockquote>
+            <p>It helps us answer questions like:</p>
+            <ul>
+                <li>Is there a relationship between Advertising (X) and Sales (Y)?</li>
+                <li>How strong is the relationship?</li>
+                <li>What is the direction of the relationship (positive or negative)?</li>
+            </ul>
+            <p>The main tools for this are <strong>Correlation</strong> (to measure strength) and <strong>Regression</strong> (to model the relationship).</p>
+        </section>
+
+        <hr>
+
+        <section id="correlation">
+            <h2>2. Correlation Coefficient in Excel (Karl Pearson's)</h2>
+            <p>The Pearson correlation coefficient (r) measures the <strong>strength and direction of a *linear* relationship</strong> between two quantitative variables. It ranges from -1 to +1.</p>
+            
+            <h3>How to Calculate in Excel:</h3>
+            <p>Assume X-data (e.g., 'Study Hours') is in <code>A2:A51</code> and Y-data (e.g., 'Exam Score') is in <code>B2:B51</code>.</p>
+            
+            <h4>Method 1: CORREL Function</h4>
+            <div class="formula">=CORREL(A2:A51, B2:B51)</div>
+            
+            <h4>Method 2: Data Analysis ToolPak</h4>
+            <ol>
+                <li>Go to <span class="path">Data > Data Analysis</span>.</li>
+                <li>Select <strong>Correlation</strong> and click OK.</li>
+                <li><strong>Input Range:</strong> Select *both* columns at once (<code>A1:B51</code>, including headers).</li>
+                <li>Check <strong>Labels in first row</strong>.</li>
+                <li>Select an <strong>Output Range</strong> and click OK.</li>
+            </ol>
+            <p>This will produce a <strong>correlation matrix</strong>, which is useful if you have many variables.</p>
+            
+            <h3>Interpretation:</h3>
+            <ul>
+                <li><strong>r ≈ +1:</strong> Strong positive linear relationship.</li>
+                <li><strong>r ≈ -1:</strong> Strong negative linear relationship.</li>
+                <li><strong>r ≈ 0:</strong> Very weak or no *linear* relationship.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="regression">
+            <h2>3. Simple Linear Regression in Excel</h2>
+            <p>This finds the best-fitting straight line (<strong>y = a + bx</strong>) to describe the relationship. This is the most powerful tool in the Data Analysis ToolPak.</p>
+            
+            <h3>How to Perform Regression Analysis:</h3>
+            <ol>
+                <li>Go to <span class="path">Data > Data Analysis</span>.</li>
+                <li>Select <strong>Regression</strong> and click OK.</li>
+                <li><strong>Input Y Range:</strong> Select your <strong>dependent</strong> variable (e.g., 'Sales' in <code>B1:B51</code>).</li>
+                <li><strong>Input X Range:</strong> Select your <strong>independent</strong> variable (e.g., 'Advertising' in <code>A1:A51</code>).</li>
+                <li>Check <strong>Labels</strong> if you included the headers.</li>
+                <li>Select an <strong>Output Range</strong>.</li>
+                <li>(Optional but recommended) Check <strong>Residuals</strong> and <strong>Residual Plots</strong> to check assumptions (see Unit 4).</li>
+                <li>Click <strong>OK</strong>.</li>
+            </ol>
+            <p>Excel will produce a detailed "Summary Output" table.</p>
+        </section>
+
+        <hr>
+
+        <section id="regression-output">
+            <h2>4. Interpretation of Regression Output</h2>
+            <p>The "Summary Output" table from the Regression tool is the most important part of the analysis.</p>
+            
+            <h3>Part 1: Regression Statistics</h3>
+            <table>
+                <tr>
+                    <td><strong>R Square</strong></td>
+                    <td>This is your <strong>R²</strong> value (see Unit 4). Interpretation: "85% of the variation in Sales is explained by Advertising."</td>
+                </tr>
+                <tr>
+                    <td><strong>Adjusted R Square</strong></td>
+                    <td>A modified R² used in *multiple* regression (with many X variables). For simple regression, just use R Square.</td>
+                </tr>
+            </table>
+
+            <h3>Part 2: ANOVA Table</h3>
+            <p>This table tests the overall significance of the model.</p>
+            <table>
+                <tr>
+                    <td><strong>Significance F</strong></td>
+                    <td>This is the p-value for the whole model. If <strong>Significance F < 0.05</strong>, it means your model is <strong>statistically significant</strong> (i.e., it's not useless).</td>
+                </tr>
+            </table>
+
+            <h3>Part 3: Coefficients Table (The Most Important Part)</h3>
+            <p>This table gives you the equation of your line.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Coefficients</th>
+                        <th>P-value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Intercept</strong></td>
+                        <td>1000</td>
+                        <td>0.002</td>
+                    </tr>
+                    <tr>
+                        <td><strong>X Variable (e.g., 'Advertising')</strong></td>
+                        <td>50</td>
+                        <td>0.0001</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Interpretation of Coefficients Table:</h3>
+            <ul>
+                <li><strong>Coefficients:</strong> These give you the equation.
+                    <ul>
+                        <li>The <strong>Intercept</strong> value (1000) is your 'a'.</li>
+                        <li>The <strong>X Variable</strong> value (50) is your slope 'b'.</li>
+                        <li><strong>Equation:</strong> <code>Sales = 1000 + 50 * Advertising</code></li>
+                    </ul>
+                </li>
+                <li><strong>P-value:</strong> This tells you if a specific coefficient is statistically significant.
+                    <ul>
+                        <li><strong>Rule:</strong> If <strong>P-value < 0.05</strong>, the variable is <strong>significant</strong>.</li>
+                        <li><em>Intercept P-value (0.002):</em> This is < 0.05, so the intercept is significant.</li>
+                        <li><em>Advertising P-value (0.0001):</em> This is < 0.05, so 'Advertising' is a <strong>significant predictor</strong> of 'Sales'. If this value was large (e.g., 0.30), it would mean Advertising has no statistically significant effect on Sales.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="pivot-tables">
+            <h2>5. Introduction to Pivot Tables</h2>
+            <blockquote>
+                <strong>Pivot Table:</strong> An interactive tool to quickly summarize, "pivot," and analyze large amounts of data. It lets you slice and dice data without using complex formulas.
+            </blockquote>
+            
+            <h3>Applications in Data Analysis:</h3>
+            <ul>
+                <li>Summarizing sales by region, salesperson, and product.</li>
+                <li>Counting frequencies of categorical variables.</li>
+                <li>Finding the average (or sum, max, min) for different groups.</li>
+            </ul>
+
+            <h3>How to Create a Pivot Table:</h3>
+            <ol>
+                <li>Select your entire data range (including headers).</li>
+                <li>Go to the <span class="path">Insert</span> tab and click <strong>PivotTable</strong>.</li>
+                <li>Confirm your data range and choose "New Worksheet". Click OK.</li>
+                <li>A "PivotTable Fields" pane appears on the right.</li>
+                <li><strong>Drag and drop</strong> your fields into the four areas:
+                    <ul>
+                        <li><strong>ROWS:</strong> What you want to group by (e.g., drag 'Region' here).</li>
+                        <li><strong>COLUMNS:</strong> A second way to group (e.g., drag 'Product Category' here).</li>
+                        <li><strong>VALUES:</strong> The number you want to aggregate (e.g., drag 'Sales' here). It will default to <code>Sum of Sales</code>. You can click it to change to <code>Average</code>, <code>Count</code>, etc.</li>
+                        <li><strong>FILTERS:</strong> A top-level filter for the whole report (e.g., drag 'Year' here).</li>
+                    </ul>
+                </li>
+            </ol>
+            <p>The table automatically updates as you drag and drop fields, allowing for rapid, interactive analysis.</p>
+        </section>
+
+        <hr>
+
+        <section id="vlookup">
+            <h2>6. Using Vlookup to Join Datasets</h2>
+            <blockquote>
+                <strong>VLOOKUP (Vertical Lookup):</strong> An Excel function that searches for a value in the <strong>first column</strong> of a table and returns a corresponding value from a different column in the same row.
+            </blockquote>
+            <p>It is the "join" of Excel, used to combine data from two different tables that share a common key.</p>
+            
+            <p><strong>Scenario:</strong>
+            <br>
+            - <strong>Table 1 (on Sheet1):</strong> <code>StudentID</code> (A), <code>SaleAmount</code> (B)
+            <br>
+            - <strong>Table 2 (on Sheet2):</strong> <code>StudentID</code> (A), <code>StudentName</code> (B), <code>Region</code> (C)
+            <br>
+            <strong>Goal:</strong> Add the 'StudentName' and 'Region' to Table 1.</p>
+            
+            <h3>Formula Syntax:</h3>
+            <div class="formula">
+                =VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])
+            </div>
+            <ul>
+                <li><strong>lookup_value:</strong> The value you are looking for (e.g., cell <code>A2</code> in Sheet1, which contains the StudentID).</li>
+                <li><strong>table_array:</strong> The *entire* second table you are searching in (e.g., <code>Sheet2!$A:$C</code>). <strong>Important:</strong> Use dollar signs ($) to "lock" the range so it doesn't move when you copy the formula down.</li>
+                <li><strong>col_index_num:</strong> The column number in Table 2 that has the data you want to *return*. (In our example, <code>StudentName</code> is column <strong>2</strong> and <code>Region</code> is column <strong>3</strong>).</li>
+                <li><strong>[range_lookup]:</strong> Always use <strong>FALSE</strong> or <strong>0</strong>. This forces Excel to find an <strong>exact match</strong>.</li>
+            </ul>
+
+            <h3>Example:</h3>
+            <p>In cell <code>C2</code> of Sheet1 (to get the name):</p>
+            <div class="formula">
+                =VLOOKUP(A2, Sheet2!$A:$C, 2, FALSE)
+            </div>
+            <p>In cell <code>D2</code> of Sheet1 (to get the region):</p>
+            <div class="formula">
+                =VLOOKUP(A2, Sheet2!$A:$C, 3, FALSE)
+            </div>
+            <p>You can then drag these formulas down for all rows.</p>
+        </section>
+
+    </div>
+  <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

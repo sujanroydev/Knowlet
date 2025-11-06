@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="102, 1st, dsc, knowlet, mathematics, notes, semester, unit">
+
+    <meta name="description" content="Comprehensive notes for Mathematics DSC 102 Unit 2 | 1st Semester Notes - Knowlet. Includes key concepts, definitions, and summaries for college students.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics DSC 102 Unit 2 | 1st Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1, h2, h3 {
+            color: #005a9c;
+            margin-bottom: 0.5em;
+        }
+        h1 {
+            font-size: 2.5em;
+            border-bottom: 3px solid #005a9c;
+            padding-bottom: 10px;
+        }
+        h2 {
+            font-size: 2em;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+            margin-top: 1.5em;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #007bff;
+            margin-top: 1em;
+        }
+        p {
+            margin-bottom: 1em;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 1em;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        #toc {
+            background: #e6f7ff;
+            border: 1px solid #b3e0ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 2em;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #005a9c;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 8px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: 500;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+        blockquote {
+            border-left: 5px solid #007bff;
+            padding: 15px;
+            background: #f8f9fa;
+            font-style: italic;
+            margin: 1.5em 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: block;
+            margin: 1em 0;
+            overflow-x: auto;
+        }
+        .exam-tip {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 1.5em 0;
+        }
+        .exam-tip strong {
+            color: #d46b08;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5em 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 2: Successive Differentiation and Indeterminate Forms</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Significance of Derivative and its Sign</a></li>
+                <li><a href="#topic2">Derivative as a Rate Measurer</a></li>
+                <li><a href="#topic3">Successive Differentiation (n-th Derivatives)</a></li>
+                <li><a href="#topic4">n-th Derivatives of Special Functions</a></li>
+                <li><a href="#topic5">n-th Derivatives of Rational Algebraic Functions</a></li>
+                <li><a href="#topic6">Leibnitz's Theorem</a></li>
+                <li><a href="#topic7">Indeterminate Forms</a></li>
+                <li><a href="#topic8">L'Hospital's Theorem</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Significance of Derivative and its Sign</h2>
+        <p>The first derivative, <strong>f'(x)</strong>, tells us critical information about the behavior of the original function <strong>f(x)</strong>.</p>
+        
+        <h3>Geometrical Interpretation</h3>
+        <p>As seen in Unit 1, <strong>f'(a)</strong> is the <strong>slope of the tangent line</strong> to the curve y = f(x) at the point x = a.</p>
+        
+        <h3>Sign of the First Derivative</h3>
+        <p>The sign of f'(x) determines if the function f(x) is increasing or decreasing on an interval.</p>
+        <ul>
+            <li>If <strong>f'(x) > 0</strong> on an interval (a, b), then f(x) is <strong>strictly increasing</strong> on (a, b).</li>
+            <li>If <strong>f'(x) < 0</strong> on an interval (a, b), then f(x) is <strong>strictly decreasing</strong> on (a, b).</li>
+            <li>If <strong>f'(x) = 0</strong> on an interval (a, b), then f(x) is <strong>constant</strong> on (a, b).</li>
+        </ul>
+        <p>Points where f'(x) = 0 or f'(x) is undefined are called <strong>critical points</strong>. These are potential locations for local maxima or minima.</p>
+        <h2 id="topic2">Derivative as a Rate Measurer</h2>
+        <p>The derivative <strong>dy/dx</strong> represents the <strong>instantaneous rate of change</strong> of y with respect to x.</p>
+        
+        <h3>Related Problems (Related Rates)</h3>
+        <p>This is a common application. If two or more quantities are related by an equation and are all changing over time (t), we can find the relationship between their rates of change by differentiating the equation with respect to time.</p>
+        
+        <h4>Problem-Solving Strategy:</h4>
+        <ol>
+            <li>Identify all given quantities and the quantities to be found. (e.g., given dV/dt, find dr/dt)</li>
+            <li>Write an equation that relates the variables (e.g., V = (4/3)πr³ for a sphere).</li>
+            <li>Differentiate both sides of the equation <strong>with respect to time (t)</strong>, using the Chain Rule.
+                <span class="formula">d/dt (V) = d/dt ((4/3)πr³)  =>  dV/dt = 4πr² * (dr/dt)</span>
+            </li>
+            <li>Substitute the known values (for variables and their rates) and solve for the unknown rate.</li>
+        </ol>
+        
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> A classic "related rates" problem involves a ladder sliding down a wall, a balloon being inflated, or water filling a conical tank. Practice these types. Always draw a diagram!
+        </div>
+
+        <h2 id="topic3">Successive Differentiation (n-th Derivatives)</h2>
+        <p>Successive differentiation means differentiating a function repeatedly.</p>
+        <ul>
+            <li><strong>First Derivative:</strong> y' or f'(x) or dy/dx</li>
+            <li><strong>Second Derivative:</strong> y'' or f''(x) or d²y/dx²</li>
+            <li><strong>Third Derivative:</strong> y''' or f'''(x) or d³y/dx³</li>
+            <li><strong>n-th Derivative:</strong> yⁿ or fⁿ(x) or dⁿy/dxⁿ</li>
+        </ul>
+        <p>The second derivative, f''(x), has its own significance:</p>
+        <ul>
+            <li>If <strong>f''(x) > 0</strong> on an interval, the graph is <strong>concave up</strong> (like a cup).</li>
+            <li>If <strong>f''(x) < 0</strong> on an interval, the graph is <strong>concave down</strong> (like a frown).</li>
+        </ul>
+
+        <h2 id="topic4">n-th Derivatives of Special Functions</h2>
+        <p>Finding a general formula for the n-th derivative is a key skill. This is usually done by calculating the first few derivatives (f', f'', f''') and looking for a pattern.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Function, y = f(x)</th>
+                    <th>n-th Derivative, yⁿ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>eᵃˣ</td>
+                    <td>aⁿ * eᵃˣ</td>
+                </tr>
+                <tr>
+                    <td>aˣ</td>
+                    <td>(ln a)ⁿ * aˣ</td>
+                </tr>
+                <tr>
+                    <td>xᵐ</td>
+                    <td>[m(m-1)...(m-n+1)] * xᵐ⁻ⁿ = [m! / (m-n)!] * xᵐ⁻ⁿ</td>
+                </tr>
+                <tr>
+                    <td>(ax + b)ᵐ</td>
+                    <td>aⁿ * [m! / (m-n)!] * (ax + b)ᵐ⁻ⁿ</td>
+                </tr>
+                <tr>
+                    <td>1 / (ax + b)</td>
+                    <td>(-1)ⁿ * n! * aⁿ * (ax + b)⁻(ⁿ⁺¹)</td>
+                </tr>
+                <tr>
+                    <td>ln(ax + b)</td>
+                    <td>(-1)ⁿ⁻¹ * (n-1)! * aⁿ * (ax + b)⁻ⁿ</td>
+                </tr>
+                <tr>
+                    <td>sin(ax + b)</td>
+                    <td>aⁿ * sin(ax + b + nπ/2)</td>
+                </tr>
+                <tr>
+                    <td>cos(ax + b)</td>
+                    <td>aⁿ * cos(ax + b + nπ/2)</td>
+                </tr>
+                <tr>
+                    <td>eᵃˣ * sin(bx + c)</td>
+                    <td>rⁿ * eᵃˣ * sin(bx + c + nθ), where a = r*cos(θ), b = r*sin(θ)</td>
+                </tr>
+                <tr>
+                    <td>eᵃˣ * cos(bx + c)</td>
+                    <td>rⁿ * eᵃˣ * cos(bx + c + nθ), where a = r*cos(θ), b = r*sin(θ)</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> You <strong>must</strong> memorize the n-th derivatives for sin, cos, eᵃˣ, and (ax+b)ᵐ. The sin/cos formulas involving `nπ/2` are particularly important and frequently tested.
+        </div>
+
+        <h2 id="topic5">n-th Derivatives of Rational Algebraic Functions</h2>
+        <p>To find the n-th derivative of a rational function (a polynomial divided by another polynomial), the key is to first decompose it using <strong>partial fractions</strong>.</p>
+        
+        <h3>Steps:</h3>
+        <ol>
+            <li>Check if the fraction is proper (degree of numerator < degree of denominator). If not, perform long division first.</li>
+            <li>Factor the denominator completely.</li>
+            <li>Decompose the rational function into a sum of simpler fractions (e.g., A/(x-a) or (Bx+C)/(x²+b)).</li>
+            <li>Find the n-th derivative of each simple fraction separately, using the standard formulas (like the one for 1/(ax+b)).</li>
+            <li>Add the results.</li>
+        </ol>
+        
+        <p><strong>Example:</strong> Find the n-th derivative of y = 1 / (x² - a²).</p>
+        <ol>
+            <li><strong>Partial Fractions:</strong>
+                <span class="formula">1 / (x² - a²) = 1 / [(x-a)(x+a)] = A/(x-a) + B/(x+a)</span>
+                <p>Solving this gives A = 1/(2a) and B = -1/(2a).</p>
+                <span class="formula">y = [1/(2a)] * [1/(x-a)] - [1/(2a)] * [1/(x+a)]</span>
+            </li>
+            <li><strong>Differentiate:</strong>
+                <p>We use the formula: dⁿ/dxⁿ [1/(ax+b)] = (-1)ⁿ * n! * aⁿ * (ax+b)⁻(ⁿ⁺¹)</p>
+                <span class="formula">yⁿ = [1/(2a)] * [(-1)ⁿ n! (1)ⁿ (x-a)⁻(ⁿ⁺¹)] - [1/(2a)] * [(-1)ⁿ n! (1)ⁿ (x+a)⁻(ⁿ⁺¹)]</span>
+            </li>
+            <li><strong>Simplify:</strong>
+                <span class="formula">yⁿ = [(-1)ⁿ n! / (2a)] * [ 1/(x-a)ⁿ⁺¹ - 1/(x+a)ⁿ⁺¹ ]</span>
+            </li>
+        </ol>
+
+        <h2 id="topic6">Leibnitz's Theorem</h2>
+        <p>This theorem provides a formula for the <strong>n-th derivative of a product of two functions</strong>.</p>
+        
+        <blockquote>
+            If y = u * v, where u and v are functions of x, then the n-th derivative of y is:
+            <span class="formula">
+                (uv)ⁿ = ⁿC₀ uⁿv + ⁿC₁ uⁿ⁻¹v¹ + ⁿC₂ uⁿ⁻²v² + ... + ⁿCᵣ uⁿ⁻ʳvʳ + ... + ⁿCₙ uvⁿ
+            </span>
+            Where:
+            <ul>
+                <li>uⁿ is the n-th derivative of u.</li>
+                <li>vʳ is the r-th derivative of v.</li>
+                <li>ⁿCᵣ = n! / [r! * (n-r)!] is the binomial coefficient.</li>
+            </ul>
+        </blockquote>
+        
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> This theorem is most useful when one of the functions (say, v) is a polynomial (like x², x³). After a few derivatives, the derivatives of v will become zero, making the series finite and easy to calculate.
+            <p><strong>Common Problem:</strong> Find the n-th derivative of y = x² * eᵃˣ.
+            Here, let u = eᵃˣ (its n-th derivative is known) and v = x² (its derivatives become zero).</p>
+            <p>v = x², v¹ = 2x, v² = 2, v³ = 0 (and all higher derivatives are 0).<br>
+            u = eᵃˣ, uⁿ = aⁿeᵃˣ, uⁿ⁻¹ = aⁿ⁻¹eᵃˣ, uⁿ⁻² = aⁿ⁻²eᵃˣ</p>
+            <p>yⁿ = (ⁿC₀ uⁿv) + (ⁿC₁ uⁿ⁻¹v¹) + (ⁿC₂ uⁿ⁻²v²) + (rest are zero)
+            <br>
+            yⁿ = (1 * aⁿeᵃˣ * x²) + (n * aⁿ⁻¹eᵃˣ * 2x) + ([n(n-1)/2] * aⁿ⁻²eᵃˣ * 2)
+            <br>
+            yⁿ = aⁿ⁻²eᵃˣ * [a²x² + 2nax + n(n-1)]</p>
+        </div>
+
+        <h2 id="topic7">Indeterminate Forms</h2>
+        <p>When evaluating a limit, we sometimes get an undefined expression. These are called indeterminate forms. L'Hospital's Rule is a tool to solve limits that result in these forms.</p>
+        <p>The main indeterminate forms are:</p>
+        <ul>
+            <li><strong>0 / 0</strong></li>
+            <li><strong>∞ / ∞</strong></li>
+        </ul>
+        <p>Other forms can be converted into these two:</p>
+        <ul>
+            <li><strong>0 * ∞</strong> (Convert to 0/0 or ∞/∞. e.g., f*g = f / (1/g))</li>
+            <li><strong>∞ - ∞</strong> (Combine terms, e.g., by finding a common denominator)</li>
+            <li><strong>1<sup>∞</sup></strong></li>
+            <li><strong>0⁰</strong></li>
+            <li><strong>∞⁰</strong></li>
+        </ul>
+        <p>For the exponential forms (1<sup>∞</sup>, 0⁰, ∞⁰), let the limit be L. Take the natural logarithm (ln L) on both sides. This will turn the limit into a 0 * ∞ form, which can then be converted to 0/0 or ∞/∞.</p>
+
+        <h2 id="topic8">L'Hospital's Theorem (or Rule)</h2>
+        <p>L'Hospital's Rule is a method for evaluating limits that result in the indeterminate forms <strong>0/0</strong> or <strong>∞/∞</strong>.</p>
+        
+        <blockquote>
+            Suppose <span class="formula">lim (x → a) f(x) = 0</span> and <span class="formula">lim (x → a) g(x) = 0</span>.
+            <br>
+            <strong>OR</strong>
+            <br>
+            Suppose <span class="formula">lim (x → a) f(x) = ±∞</span> and <span class="formula">lim (x → a) g(x) = ±∞</span>.
+            <br><br>
+            Then:
+            <span class="formula">lim (x → a) [f(x) / g(x)] = lim (x → a) [f'(x) / g'(x)]</span>
+            ...provided the limit on the right side exists (or is ±∞).
+        </blockquote>
+        
+        <h3>Important Notes:</h3>
+        <ul>
+            <li>The rule applies for x → a, x → a⁺, x → a⁻, x → ∞, or x → -∞.</li>
+            <li><strong>Common Mistake:</strong> Do NOT use the quotient rule. You differentiate the numerator and denominator <em>separately</em>.</li>
+            <li>If after applying the rule once, you still get 0/0 or ∞/∞, you can apply the rule again (and again) until the limit can be evaluated.</li>
+            <li><strong>Check the condition!</strong> The rule ONLY works for 0/0 or ∞/∞. If you apply it to a limit that is, for example, 1/2, you will get the wrong answer.</li>
+        </ul>
+
+        <h3>Example (Exponential Form 1<sup>∞</sup>)</h3>
+        <p>Evaluate <span class="formula">L = lim (x → 0) (1 + x)¹/ˣ</span></p>
+        <ol>
+            <li>This is of the form 1<sup>∞</sup>.</li>
+            <li>Take the natural log:
+                <span class="formula">ln L = ln [ lim (x → 0) (1 + x)¹/ˣ ]</span>
+                <span class="formula">ln L = lim (x → 0) [ ln( (1 + x)¹/ˣ ) ]</span>
+                <span class="formula">ln L = lim (x → 0) [ (1/x) * ln(1 + x) ]</span>
+                <span class="formula">ln L = lim (x → 0) [ ln(1 + x) / x ]</span>
+            </li>
+            <li>Now, this is a <strong>0/0</strong> form. Apply L'Hospital's Rule:
+                <span class="formula">ln L = lim (x → 0) [ d/dx(ln(1+x)) / d/dx(x) ]</span>
+                <span class="formula">ln L = lim (x → 0) [ (1 / (1+x)) / 1 ]</span>
+                <span class="formula">ln L = lim (x → 0) 1 / (1 + x) = 1 / (1 + 0) = 1</span>
+            </li>
+            <li>We found ln L, not L.
+                <span class="formula">ln L = 1  =>  L = e¹ = e</span>
+            </li>
+        </ol>
+
+    </div>
+  <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

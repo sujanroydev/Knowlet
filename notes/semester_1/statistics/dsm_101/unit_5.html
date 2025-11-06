@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="101, 1st, dsm, knowlet, notes, semester, statistics, unit">
+
+    <meta name="description" content="Comprehensive notes for Statistics DSM 101 Unit 5 | 1st Semester Notes - Knowlet. Includes key concepts, definitions, and summaries for college students.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics DSM 101 Unit 5 | 1st Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #f39c12;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #f39c12;
+            border-bottom: 2px solid #FEF9E7;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #d35400;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f39c12;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        blockquote {
+            background: #FEF9E7;
+            border-left: 5px solid #f39c12;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #555;
+        }
+        .exam-tip, .note {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            border-left-width: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #d9534f;
+        }
+        .note strong {
+            color: #0275d8;
+        }
+        .formula {
+            background: #fef9e7;
+            border: 1px solid #fae5b4;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        #toc {
+            background: #FEF9E7;
+            border: 1px solid #f39c12;
+            padding: 15px 25px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #2c3e50;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc ul li a {
+            text-decoration: none;
+            color: #d35400;
+        }
+        #toc ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 5: Theory of Probability</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#intro">1. Basic Concepts</a></li>
+                <li><a href="#events">2. Algebra of Events</a></li>
+                <li><a href="#approaches">3. Approaches to Probability</a></li>
+                <li><a href="#theorems">4. Theorems of Probability (Addition & Multiplication)</a></li>
+                <li><a href="#conditional">5. Conditional Probability</a></li>
+                <li><a href="#independence">6. Independent Events</a></li>
+                <li><a href="#bayes">7. Bayes' Theorem and Its Applications</a></li>
+            </ul>
+        </div>
+
+        <section id="intro">
+            <h2>1. Basic Concepts</h2>
+            
+            <h3>Random Experiment</h3>
+            <p>An experiment or process for which the outcome cannot be predicted with certainty, but all possible outcomes are known.</p>
+            <ul>
+                <li><em>Example:</em> Tossing a coin, rolling a die.</li>
+            </ul>
+
+            <h3>Sample Point</h3>
+            <p>A single possible outcome of a random experiment.</p>
+            <ul>
+                <li><em>Example:</em> When rolling a die, "4" is a sample point.</li>
+            </ul>
+
+            <h3>Sample Space (S)</h3>
+            <p>The set of <strong>all possible outcomes</strong> (sample points) of a random experiment.</p>
+            <ul>
+                <li><em>Example (Rolling a die):</em> S = {1, 2, 3, 4, 5, 6}</li>
+                <li><em>Example (Tossing two coins):</em> S = {HH, HT, TH, TT}</li>
+            </ul>
+            
+            <h3>Event (E)</h3>
+            <p>A subset of the sample space. It is a collection of one or more sample points.</p>
+            <ul>
+                <li><em>Example (Rolling a die):</em> Event A (Getting an even number): A = {2, 4, 6}</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="events">
+            <h2>2. Algebra of Events</h2>
+            <p>Events can be combined using set operations.</p>
+            <ul>
+                <li><strong>A or B (A ∪ B):</strong> The event that *at least one* of A or B occurs.</li>
+                <li><strong>A and B (A ∩ B):</strong> The event that *both* A and B occur simultaneously.</li>
+                <li><strong>Not A (A' or A<sup>c</sup>):</strong> The complement of A. The event that A does *not* occur.</li>
+                <li><strong>Mutually Exclusive Events:</strong> Two events that <strong>cannot occur at the same time</strong>. (A ∩ B = ∅, the empty set).</li>
+                <li><strong>Exhaustive Events:</strong> A set of events that covers the <strong>entire sample space</strong>. (A<sub>1</sub> ∪ A<sub>2</sub> ∪ ... = S).</li>
+            </ul>
+            </section>
+
+        <hr>
+
+        <section id="approaches">
+            <h2>3. Approaches to Probability</h2>
+            <p>How we define and calculate probability.</p>
+            
+            <h3>1. Classical (or 'a priori') Definition</h3>
+            <p>This definition assumes all outcomes are <strong>equally likely</strong>.</p>
+            <blockquote>
+                If a random experiment has 'n' mutually exclusive, exhaustive, and equally likely outcomes, and 'm' of these outcomes are favorable to an event A:
+            </blockquote>
+            <div class="formula">
+                P(A) = m / n = (Number of favorable outcomes) / (Total number of possible outcomes)
+            </div>
+            <ul>
+                <li><em>Example:</em> P(Rolling a 3 on a die) = 1 / 6.</li>
+                <li><em>Limitation:</em> Fails if outcomes are not equally likely (e.g., a biased coin).</li>
+            </ul>
+            
+            <h3>2. Statistical (or Empirical / 'a posteriori') Definition</h3>
+            <p>This definition is based on <strong>relative frequency</strong> from actual experiments.</p>
+            <blockquote>
+                If an experiment is repeated 'n' times and event A occurs 'f' times, the probability of A is the limit of this relative frequency as 'n' becomes infinitely large.
+            </blockquote>
+            <div class="formula">
+                P(A) = lim (n→∞) [ f / n ]
+            </div>
+            <ul>
+                <li><em>Example:</em> If we toss a coin 10,000 times and get 5,030 heads, we estimate P(Heads) ≈ 0.503.</li>
+            </ul>
+
+            <h3>3. Axiomatic Definition</h3>
+            <p>This is the modern, mathematical definition. It states the *rules* (axioms) that probability must follow, without saying how to calculate it.</p>
+            <blockquote>
+                <strong>Axiom 1 (Non-negativity):</strong> For any event A, <strong>P(A) ≥ 0</strong>.
+                <br><br>
+                <strong>Axiom 2 (Certainty):</strong> The probability of the entire sample space is 1. <strong>P(S) = 1</strong>.
+                <br><br>
+                <strong>Axiom 3 (Additivity):</strong> If A and B are <strong>mutually exclusive</strong> events, then <strong>P(A ∪ B) = P(A) + P(B)</strong>.
+            </blockquote>
+        </section>
+
+        <hr>
+
+        <section id="theorems">
+            <h2>4. Theorems of Probability (Addition & Multiplication)</h2>
+            
+            <h3>1. Addition Law of Probability</h3>
+            <p>Used to find the probability of (A <strong>or</strong> B).</p>
+            
+            <h4>General Rule (for *any* two events):</h4>
+            <div class="formula">
+                P(A ∪ B) = P(A) + P(B) - P(A ∩ B)
+            </div>
+            <p><em>(We subtract P(A ∩ B) because it was counted twice).</em></p>
+
+            <h4>Special Rule (for *Mutually Exclusive* events):</h4>
+            <p>Since P(A ∩ B) = 0, the formula simplifies to:</p>
+            <div class="formula">
+                P(A ∪ B) = P(A) + P(B)
+            </div>
+
+            <h3>2. Multiplication Law of Probability</h3>
+            <p>Used to find the probability of (A <strong>and</strong> B). It is derived from the definition of conditional probability.</p>
+            <div class="formula">
+                P(A ∩ B) = P(A) * P(B | A)
+                <br>
+                <em>(Probability of A, times the probability of B *given that* A has already happened)</em>
+            </div>
+        </section>
+        
+        <hr>
+
+        <section id="conditional">
+            <h2>5. Conditional Probability</h2>
+            <blockquote>
+                <strong>Conditional Probability, P(A | B):</strong> The probability of event A occurring, <strong>given that</strong> event B has already occurred.
+            </blockquote>
+            <p>It "updates" the probability of A based on new information. We are restricting our sample space from S down to just B.</p>
+            
+            <h3>Formula:</h3>
+            <div class="formula">
+                P(A | B) = P(A ∩ B) / P(B)       (provided P(B) > 0)
+            </div>
+
+            <h3>Example:</h3>
+            <p>Roll a die. S = {1, 2, 3, 4, 5, 6}.
+            <br>
+            Event A = "Get a 4". P(A) = 1/6.
+            <br>
+            Event B = "Get an even number" = {2, 4, 6}. P(B) = 3/6.
+            <br>
+            Event (A ∩ B) = "Get a 4 AND an even number" = {4}. P(A ∩ B) = 1/6.
+            <br><br>
+            <strong>P(A | B)</strong> = P(A ∩ B) / P(B) = (1/6) / (3/6) = 1/3.
+            </p>
+        </section>
+
+        <hr>
+
+        <section id="independence">
+            <h2>6. Independent Events</h2>
+            <blockquote>
+                <strong>Independent Events:</strong> Two events A and B are independent if the occurrence of one event does <strong>not</strong> affect the probability of the other event occurring.
+            </blockquote>
+            
+            <h3>Formal Definition:</h3>
+            <p>A and B are independent if and only if:</p>
+            <div class="formula">
+                P(A ∩ B) = P(A) * P(B)
+            </div>
+            
+            <p>This also means:</p>
+            <ul>
+                <li>P(A | B) = P(A)</li>
+                <li>P(B | A) = P(B)</li>
+            </ul>
+
+            <div class="exam-tip">
+                <strong>Common Mistake:</strong> Do NOT confuse "Mutually Exclusive" with "Independent".
+                <br>
+                - <strong>Mutually Exclusive:</strong> If A happens, B *cannot* happen. P(A ∩ B) = 0. They are strongly *dependent*.
+                <br>
+                - <strong>Independent:</strong> If A happens, it tells you *nothing* about B. P(A ∩ B) = P(A)P(B).
+            </div>
+        </section>
+
+        <hr>
+        
+        <section id="bayes">
+            <h2>7. Bayes' Theorem and Its Applications</h2>
+            <p>Bayes' Theorem allows us to <strong>"reverse" the conditional probability</strong>. If we know P(B | A), Bayes' Theorem helps us find P(A | B).</p>
+            <p>It is used to update our belief about a "cause" (A) given a new "effect" (B).</p>
+            
+            <ul>
+                <li><strong>P(A):</strong> Prior Probability (our initial belief about A)</li>
+                <li><strong>P(B | A):</strong> Likelihood (the chance of seeing effect B if cause A is true)</li>
+                <li><strong>P(A | B):</strong> Posterior Probability (our updated belief about A after seeing B)</li>
+            </ul>
+
+            <h3>The Theorem</h3>
+            <p>For two events A and B:</p>
+            <div class="formula">
+                P(A | B) = [ P(B | A) * P(A) ] / P(B)
+            </div>
+            
+            <p>More generally, if the sample space is partitioned by events A<sub>1</sub>, A<sub>2</sub>, ..., A<sub>k</sub>:</p>
+            
+            <blockquote>
+                <strong>Bayes' Theorem (Full Form):</strong>
+                <br>
+                P(A<sub>i</sub> | B) = [ P(B | A<sub>i</sub>)P(A<sub>i</sub>) ] / [ Σ P(B | A<sub>j</sub>)P(A<sub>j</sub>) ]
+            </blockquote>
+            
+            <p>The denominator is just P(B), calculated using the <strong>Law of Total Probability</strong>.</p>
+            
+            <h3>Application (Example):</h3>
+            <p>A factory has two machines, A1 and A2.
+            <br>- A1 produces 60% of items (P(A1) = 0.6).
+            <br>- A2 produces 40% of items (P(A2) = 0.4).
+            <br>- 2% of items from A1 are defective (P(D | A1) = 0.02).
+            <br>- 1% of items from A2 are defective (P(D | A2) = 0.01).
+            </p>
+            <p><strong>Question:</strong> An item is selected at random and found to be defective (D). What is the probability it came from machine A1?</p>
+            <p>We want to find <strong>P(A1 | D)</strong>.</p>
+            
+            <p><strong>Step 1: Numerator: P(D | A1) * P(A1)</strong>
+            <br>
+            (0.02) * (0.6) = 0.012
+            </p>
+
+            <p><strong>Step 2: Denominator (Total Probability of D):</strong>
+            <br>
+            P(D) = P(D | A1)P(A1) + P(D | A2)P(A2)
+            <br>
+            P(D) = (0.02)(0.6) + (0.01)(0.4)
+            <br>
+            P(D) = 0.012 + 0.004 = 0.016
+            </p>
+
+            <p><strong>Step 3: Divide.</strong>
+            <br>
+            P(A1 | D) = 0.012 / 0.016 = 12 / 16 = 0.75
+            </p>
+            <p><strong>Result:</strong> There is a 75% chance the defective item came from machine A1.</p>
+        </section>
+
+    </div>
+  <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

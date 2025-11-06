@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="102, 1st, dsc, knowlet, notes, semester, statistics, unit">
+
+    <meta name="description" content="Comprehensive notes for Statistics DSC 102 Unit 5 | 1st Semester Notes - Knowlet. Includes key concepts, definitions, and summaries for college students.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics DSC 102 Unit 5 | 1st Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #e67e22;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #e67e22;
+            border-bottom: 2px solid #FEF5E7;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #d35400;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #e67e22;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        blockquote {
+            background: #FEF5E7;
+            border-left: 5px solid #e67e22;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #555;
+        }
+        .exam-tip, .note {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            border-left-width: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #d9534f;
+        }
+        .note strong {
+            color: #0275d8;
+        }
+        .formula {
+            background: #fdf2e9;
+            border: 1px solid #fae5d3;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        #toc {
+            background: #FEF5E7;
+            border: 1px solid #e67e22;
+            padding: 15px 25px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #2c3e50;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc ul li a {
+            text-decoration: none;
+            color: #d35400;
+        }
+        #toc ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 5: Higher Order DEs & PDEs</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#intro">1. Introduction: General Solution</a></li>
+                <li><a href="#homogeneous">2. Homogeneous Linear DEs with Constant Coefficients</a></li>
+                <li><a href="#non-homogeneous">3. Non-Homogeneous Linear DEs: The Particular Integral (PI)</a></li>
+                <li><a href="#pi-forms">4. Different Forms of Particular Integrals</a></li>
+                <li><a href="#pde-formation">5. Formation of Partial Differential Equations (PDEs)</a></li>
+                <li><a href="#pde-solution">6. Solution of Partial Differential Equations (Lagrange's Method)</a></li>
+            </ul>
+        </div>
+
+        <section id="intro">
+            <h2>1. Introduction: General Solution</h2>
+            <p>This unit focuses on linear DEs of order 'n' with <strong>constant coefficients</strong>:</p>
+            <div class="formula">
+                a<sub>n</sub>(d<sup>n</sup>y/dx<sup>n</sup>) + ... + a<sub>1</sub>(dy/dx) + a<sub>0</sub>y = R(x)
+            </div>
+            
+            <h3>General Solution of a Non-Homogeneous DE</h3>
+            <p>The complete solution (General Solution) is the sum of two parts:</p>
+            <blockquote>
+                <strong>y = y<sub>c</sub> + y<sub>p</sub></strong>
+            </blockquote>
+            <ul>
+                <li><strong>y<sub>c</sub> (Complementary Function):</strong>
+                    <br>The general solution of the corresponding <em>homogeneous</em> equation (i.e., setting R(x) = 0). It will contain 'n' arbitrary constants.
+                </li>
+                <li><strong>y<sub>p</sub> (Particular Integral):</strong>
+                    <br>A *specific* solution (with no arbitrary constants) of the full <em>non-homogeneous</em> equation.
+                </li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="homogeneous">
+            <h2>2. Homogeneous Linear DEs with Constant Coefficients (Finding y<sub>c</sub>)</h2>
+            <p>To find the Complementary Function (y<sub>c</sub>), we solve the homogeneous equation:</p>
+            <div class="formula">
+                (a<sub>n</sub>D<sup>n</sup> + ... + a<sub>1</sub>D + a<sub>0</sub>)y = 0
+            </div>
+            <p>Where <strong>D</strong> is the differential operator (D = d/dx, D² = d²/dx², etc.)</p>
+            
+            <h3>Step-by-Step Procedure:</h3>
+            <ol>
+                <li>
+                    <strong>Form the Auxiliary Equation (AE):</strong>
+                    <br>Replace 'D' with a variable 'm' and set the polynomial to zero.
+                    <div class="formula">
+                        a<sub>n</sub>m<sup>n</sup> + ... + a<sub>1</sub>m + a<sub>0</sub> = 0
+                    </div>
+                </li>
+                <li>
+                    <strong>Find the roots (m<sub>1</sub>, m<sub>2</sub>, ..., m<sub>n</sub>)</strong> of the AE.
+                </li>
+                <li>
+                    <strong>Write y<sub>c</sub> based on the roots:</strong>
+                </li>
+            </ol>
+
+            <table_>
+                <thead>
+                    <tr>
+                        <th>Case</th>
+                        <th>Roots (m)</th>
+                        <th>Complementary Function (y<sub>c</sub>)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Real, Distinct Roots</strong></td>
+                        <td>m<sub>1</sub>, m<sub>2</sub>, ... (all different)</td>
+                        <td>C<sub>1</sub>e<sup>m<sub>1</sub>x</sup> + C<sub>2</sub>e<sup>m<sub>2</sub>x</sup> + ...</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Real, Repeated Roots</strong></td>
+                        <td>m repeated 'k' times</td>
+                        <td>(C<sub>1</sub> + C<sub>2</sub>x + C<sub>3</sub>x² + ... + C<sub>k</sub>x<sup>k-1</sup>)e<sup>mx</sup></td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Complex, Distinct Roots</strong></td>
+                        <td>a ± ib (a pair)</td>
+                        <td>e<sup>ax</sup> (C<sub>1</sub>cos(bx) + C<sub>2</sub>sin(bx))</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Complex, Repeated Roots</strong></td>
+                        <td>a ± ib (repeated 'k' times)</td>
+                        <td>e<sup>ax</sup> [(C<sub>1</sub>+C<sub>2</sub>x)cos(bx) + (C<sub>3</sub>+C<sub>4</sub>x)sin(bx)] (for k=2)</td>
+                    </tr>
+                </tbody>
+            </table_>
+        </section>
+
+        <hr>
+
+        <section id="non-homogeneous">
+            <h2>3. Non-Homogeneous Linear DEs: The Particular Integral (PI)</h2>
+            <p>To find the Particular Integral (y<sub>p</sub>), we "solve" for y from the equation f(D)y = R(x).</p>
+            <div class="formula">
+                y<sub>p</sub> = [ 1 / f(D) ] · R(x)
+            </div>
+            <p>Here, <strong>1/f(D)</strong> is an "inverse operator". The method depends on the form of R(x).</p>
+        </section>
+
+        <hr>
+
+        <section id="pi-forms">
+            <h2>4. Different Forms of Particular Integrals</h2>
+            <p>This is a set of "short-cut" rules for finding y<sub>p</sub>.</p>
+
+            <h3>Form 1: R(x) = e<sup>ax</sup></h3>
+            <div class="formula">
+                y<sub>p</sub> = [ 1 / f(D) ] · e<sup>ax</sup> = [ 1 / f(a) ] · e<sup>ax</sup>
+            </div>
+            <p><strong>Rule:</strong> Replace every 'D' with 'a'.</p>
+            <p><strong>Case of Failure:</strong> If f(a) = 0, this means (D-a) is a factor of f(D).
+            <br>
+            <strong>Rule:</strong> If f(D) = (D-a)<sup>k</sup>g(D), where g(a)≠0, then:
+            <div class="formula">
+                y<sub>p</sub> = [ x<sup>k</sup> / k! ] · [ 1 / g(a) ] · e<sup>ax</sup>
+            </div>
+            </p>
+
+            <h3>Form 2: R(x) = sin(ax) or cos(ax)</h3>
+            <div class="formula">
+                y<sub>p</sub> = [ 1 / f(D²) ] · sin(ax) = [ 1 / f(-a²) ] · sin(ax)
+            </div>
+            <p><strong>Rule:</strong> Replace every 'D²' with '(-a²)'. (Do *not* replace D with -a).</p>
+            <p><strong>Case of Failure:</strong> If f(-a²) = 0.
+            <br>
+            <strong>Rule:</strong> The method is similar to the "Case of Failure" for e<sup>ax</sup>, but more complex. A common trick is to use y<sub>p</sub> = x · [solution] (for a single failure).</p>
+
+            <h3>Form 3: R(x) = x<sup>m</sup> (a polynomial)</h3>
+            <p><strong>Rule:</strong>
+                1. Rewrite [ 1 / f(D) ] using algebraic manipulation (e.g., long division or binomial theorem) to get a series in *ascending* powers of D.
+                <br>(e.g., 1 / (1-D) = 1 + D + D² + ... )
+                2. Apply this operator series to x<sup>m</sup>. Since D³(x²) = 0, the series will terminate.
+            </p>
+
+            <h3>Form 4: R(x) = e<sup>ax</sup> · V(x) (where V is any function, e.g., sin(x) or x²)</h3>
+            <div class="formula">
+                y<sub>p</sub> = [ 1 / f(D) ] · (e<sup>ax</sup> V) = e<sup>ax</sup> · [ 1 / f(D + a) ] · V
+            </div>
+            <p><strong>Rule (Shift Theorem):</strong>
+                1. "Shift" the e<sup>ax</sup> to the front.
+                2. Replace every 'D' in the operator with '(D + a)'.
+                3. Apply the new operator [ 1 / f(D+a) ] to V(x) using one of the other rules.
+            </p>
+            
+            <h3>Form 5: R(x) = x · V(x) (where V is sin(x), cos(x), etc.)</h3>
+            <div class="formula">
+                y<sub>p</sub> = [ 1 / f(D) ] · (x V) = [ x - (f'(D) / f(D)) ] · [ 1 / f(D) ] · V
+            </div>
+            <p><strong>Rule:</strong> This is a general rule.
+                1. First find the PI for V alone: W = [ 1 / f(D) ] · V.
+                2. Then the full PI is: y<sub>p</sub> = x·W - [ f'(D) / (f(D))² ] · V
+            </p>
+        </section>
+        
+        <hr>
+
+        <section id="pde-formation">
+            <h2>5. Formation of Partial Differential Equations (PDEs)</h2>
+            <p>A PDE is an equation involving partial derivatives. We form them by eliminating arbitrary elements (constants or functions).</p>
+            <p><strong>Standard Notation:</strong>
+            <br>z = f(x, y)
+            <br><strong>p = ∂z/∂x</strong>
+            <br><strong>q = ∂z/∂y</strong>
+            </p>
+            
+            <h3>1. By Elimination of Arbitrary Constants</h3>
+            <p>If an equation has arbitrary constants, you must differentiate partially w.r.t. x and y to get enough equations to eliminate the constants.</p>
+            <p><em>Example:</em> Form a PDE from <strong>z = ax + by + ab</strong>
+                <ol>
+                    <li>∂z/∂x = a  =>  <strong>p = a</strong></li>
+                    <li>∂z/∂y = b  =>  <strong>q = b</strong></li>
+                    <li>Substitute 'a' and 'b' back into the original equation.</li>
+                </ol>
+                <strong>Resulting PDE: z = px + qy + pq</strong>
+            </p>
+
+            <h3>2. By Elimination of Arbitrary Functions</h3>
+            <p>If an equation has an arbitrary function (e.g., f(...)), you must eliminate the *function itself*.</p>
+            <p><em>Example:</em> Form a PDE from <strong>z = f(x + y)</strong>
+                <ol>
+                    <li>Let u = x + y. So z = f(u).</li>
+                    <li>Find p and q using the chain rule:</li>
+                    <li><strong>p = ∂z/∂x</strong> = (df/du) · (∂u/∂x) = f'(u) · 1 = <strong>f'(u)</strong></li>
+                    <li><strong>q = ∂z/∂y</strong> = (df/du) · (∂u/∂y) = f'(u) · 1 = <strong>f'(u)</strong></li>
+                    <li>We have p = f'(u) and q = f'(u). This means p and q are equal.</li>
+                </ol>
+                <strong>Resulting PDE: p = q</strong> (or ∂z/∂x = ∂z/∂y)
+            </p>
+        </section>
+
+        <hr>
+
+        <section id="pde-solution">
+            <h2>6. Solution of Partial Differential Equations (Lagrange's Method)</h2>
+            <p>This section covers solving first-order, linear PDEs, which are in <strong>Lagrange's Form</strong>:</p>
+            <div class="formula">
+                P(x, y, z) · p + Q(x, y, z) · q = R(x, y, z)
+            </div>
+            
+            <h3>Lagrange's Method of Solution:</h3>
+            <ol>
+                <li>
+                    <strong>Form the "Subsidiary Equations" (or "Auxiliary Equations"):</strong>
+                    <br>This is a set of symmetric ordinary differential equations.
+                    <div class="formula">
+                        dx / P = dy / Q = dz / R
+                    </div>
+                </li>
+                <li>
+                    <strong>Find two independent solutions:</strong>
+                    <br>Take any two ratios (e.g., dx/P = dy/Q) and solve them. This gives a first solution:
+                    <br><strong>u(x, y, z) = c<sub>1</sub></strong>
+                    <br>
+                    <br>Then, take another pair (or use multipliers) to find a *second*, *independent* solution:
+                    <br><strong>v(x, y, z) = c<sub>2</sub></strong>
+                </li>
+                <li>
+                    <strong>Write the General Solution:</strong>
+                    <br>The general solution can be written in two equivalent forms, where F (or Φ) is an arbitrary function.
+                    <div class="formula">
+                        F(u, v) = 0
+                        <br><em>or</em>
+                        <br>
+                        u = F(v)
+                    </div>
+                </li>
+            </ol>
+            <div class="exam-tip">
+                <strong>Finding Solutions (Step 2):</strong>
+                <ul>
+                    <li><strong>Grouping:</strong> If a ratio involves only two variables (e.g., dx/x = dy/y), you can solve it directly (ln(x) = ln(y) + c  => x/y = c<sub>1</sub>).</li>
+                    <li><strong>Multipliers:</strong> Sometimes you need to choose multipliers (l, m, n) such that lP + mQ + nR = 0. If so, then l·dx + m·dy + n·dz = 0 is also a valid solution.</li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+  <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

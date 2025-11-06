@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="101, 1st, dsc, knowlet, notes, physics, semester, unit">
+
+    <meta name="description" content="Comprehensive notes for Physics DSC 101 Unit 3 | 1st Semester Notes - Knowlet. Includes key concepts, definitions, and summaries for college students.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSC 101 Unit 3 | 1st Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dcdcdc;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #27ae60;
+            padding-bottom: 5px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            border-bottom-width: 3px;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #219d53;
+            border-bottom: 1px dotted #27ae60;
+        }
+        p, li {
+            font-size: 1.1em;
+            text-align: justify;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        blockquote {
+            font-family: 'Georgia', serif;
+            font-size: 1.2em;
+            font-style: italic;
+            background-color: #f0fff4;
+            border-left: 5px solid #27ae60;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        .exam-tip {
+            background-color: #fffbe6;
+            border: 1px solid #ffecb3;
+            border-left-width: 5px;
+            border-left-color: #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #c79100;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #27ae60;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        #toc {
+            background: #e6f7ee;
+            border: 1px solid #b3dfc9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            border-bottom: none;
+            margin-top: 0;
+            text-align: center;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #toc li {
+            margin: 5px 0;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #219d53;
+            font-weight: bold;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+        .del-op {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #d35400;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 3: Vector Calculus</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Vector Differentiation</a></li>
+                <li><a href="#topic2">Directional Derivatives and Normal Derivatives</a></li>
+                <li><a href="#topic3">Gradient of a Scalar Field (∇f)</a></li>
+                <li><a href="#topic4">Divergence of a Vector Field (∇ · V)</a></li>
+                <li><a href="#topic5">Curl of a Vector Field (∇ × V)</a></li>
+                <li><a href="#topic6">Vector Identities</a></li>
+                <li><a href="#topic7">Vector Integration: Line, Surface, and Volume Integrals</a></li>
+                <li><a href="#topic8">Gauss's Divergence Theorem</a></li>
+                <li><a href="#topic9">Stokes' Theorem</a></li>
+            </ul>
+        </div>
+        
+        <p>Vector Calculus is built around the <strong>vector differential operator</strong>, <strong>del (<span class="del-op">∇</span>)</strong>.</p>
+        <blockquote>
+            In Cartesian coordinates: <span class="del-op"><strong>∇</strong></span> = <strong>î (∂/∂x) + ĵ (∂/∂y) + k̂ (∂/∂z)</strong>
+        </blockquote>
+        <p>This operator is not a vector itself, but it acts on scalar or vector fields to produce new fields.</p>
+
+        <h2 id="topic1">Vector Differentiation</h2>
+        <p>This refers to differentiating a vector function of a single scalar variable, like time (t).</p>
+        <p>If <strong>r(t) = x(t)î + y(t)ĵ + z(t)k̂</strong> is the position vector of a particle:</p>
+        <ul>
+            <li><strong>Velocity (v):</strong> v(t) = dr/dt = (dx/dt)î + (dy/dt)ĵ + (dz/dt)k̂</li>
+            <li><strong>Acceleration (a):</strong> a(t) = dv/dt = d²r/dt² = (d²x/dt²)î + (d²y/dt²)ĵ + (d²z/dt²)k̂</li>
+        </ul>
+        <p><strong>Differentiation Rules:</strong> (f is a scalar, A and B are vectors)</p>
+        <ul>
+            <li>d/dt (A + B) = dA/dt + dB/dt</li>
+            <li>d/dt (f A) = (df/dt)A + f(dA/dt)  (Product rule)</li>
+            <li>d/dt (A · B) = (dA/dt) · B + A · (dB/dt) (Product rule for dot product)</li>
+            <li>d/dt (A × B) = (dA/dt) × B + A × (dB/dt) (Product rule for cross product - <strong>order matters!</strong>)</li>
+        </ul>
+
+        <hr>
+
+        <h2 id="topic2">Directional Derivatives and Normal Derivatives</h2>
+        
+        <h3>Directional Derivative</h3>
+        <p>The directional derivative measures the rate of change of a <strong>scalar field f(x,y,z)</strong> at a specific point P, in a specific direction.</p>
+        <p>Let the direction be given by a <strong>unit vector û</strong>.</p>
+        <p>The directional derivative of f in the direction û is:</p>
+        <blockquote>
+            <strong>D<sub>û</sub>f = (∇f) · û</strong>
+        </blockquote>
+        <p>It is the dot product of the gradient of f (see below) and the unit vector of the direction.</p>
+        <ul>
+            <li><strong>Step 1:</strong> Find the gradient, ∇f.</li>
+            <li><strong>Step 2:</strong> Find the unit vector û. (If given a vector V, û = V / |V|).</li>
+            <li><strong>Step 3:</strong> Calculate the dot product ∇f · û.</li>
+            <li><strong>Step 4:</strong> Evaluate the result at the given point P.</li>
+        </ul>
+
+        <h3>Normal Derivative</h3>
+        <p>The "normal derivative" is simply the directional derivative in the direction <strong>normal (perpendicular)</strong> to a surface. As we will see, the gradient (∇f) is *already* normal to the level surfaces of f. Therefore, the normal derivative is often used to mean the <strong>maximum rate of change</strong>, which is just the magnitude of the gradient, <strong>|∇f|</strong>.</p>
+
+        <hr>
+
+        <h2 id="topic3">Gradient of a Scalar Field (∇f)</h2>
+        <p>The gradient acts on a <strong>scalar field (f)</strong> and produces a <strong>vector field</strong>.</p>
+        <blockquote>
+            <strong>grad(f) = ∇f = (∂f/∂x)î + (∂f/∂y)ĵ + (∂f/∂z)k̂</strong>
+        </blockquote>
+        
+        <h3>Geometrical Interpretation of Gradient</h3>
+        <p>The gradient ∇f at a point P has a very important physical meaning:</p>
+        <ol>
+            <li><strong>Direction:</strong> ∇f points in the direction of the <strong>steepest ascent</strong> (maximum rate of change) of the scalar field f.
+                </li>
+            <li><strong>Magnitude:</strong> |∇f| is the value of this maximum rate of change.</li>
+            <li><strong>Normality:</strong> ∇f is always <strong>normal (perpendicular)</strong> to the level surface (or contour line) f(x,y,z) = constant that passes through the point P.</li>
+        </ol>
+
+        <div class="exam-tip">
+            <strong>Physical Applications of Gradient:</strong>
+            <ul>
+                <li><strong>Force from Potential:</strong> A conservative force <strong>F</strong> is the negative gradient of its scalar potential energy <strong>U</strong>.
+                    <p class="formula">F = -∇U</p>
+                </li>
+                <li><strong>Electric Field from Potential:</strong> The electric field <strong>E</strong> is the negative gradient of the electric potential <strong>V</strong>.
+                    <p class="formula">E = -∇V</p>
+                </li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2 id="topic4">Divergence of a Vector Field (∇ · V)</h2>
+        <p>The divergence acts on a <strong>vector field (V)</strong> and produces a <strong>scalar field</strong>. It is the dot product of ∇ and V.</p>
+        <p>If V = V<sub>x</sub>î + V<sub>y</sub>ĵ + V<sub>z</sub>k̂:</p>
+        <blockquote>
+            <strong>div(V) = ∇ · V = (∂V<sub>x</sub>/∂x) + (∂V<sub>y</sub>/∂y) + (∂V<sub>z</sub>/∂z)</strong>
+        </blockquote>
+
+        <h3>Physical Interpretation of Divergence</h3>
+        <p>Divergence measures the "outflow" or "source strength" of a vector field from an infinitesimal volume around a point.</p>
+        <ul>
+            <li><strong>∇ · V > 0:</strong> The point is a <strong>source</strong>. More field lines "diverge" from this point than enter it. (e.g., a positive charge for an E-field).</li>
+            <li><strong>∇ · V < 0:</strong> The point is a <strong>sink</strong>. More field lines enter this point than leave. (e.g., a negative charge).</li>
+            <li><strong>∇ · V = 0:</strong> The field is <strong>solenoidal</strong> (or "divergence-free"). There are no sources or sinks. The same amount of "flow" enters any volume as leaves it.</li>
+        </ul>
+        <div class="exam-tip">
+            <strong>Key Application (Maxwell's Equations):</strong>
+            <ul>
+                <li>Gauss's Law: ∇ · E = ρ / ε₀  (Charge density ρ is the source of E).</li>
+                <li>Gauss's Law for Magnetism: <strong>∇ · B = 0</strong> (There are no magnetic monopoles, so B-fields are always solenoidal).</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2 id="topic5">Curl of a Vector Field (∇ × V)</h2>
+        <p>The curl acts on a <strong>vector field (V)</strong> and produces another <strong>vector field</strong>. It is the cross product of ∇ and V.</p>
+        <p>It is calculated using a determinant:</p>
+        <blockquote>
+            <pre class="formula">
+        |  î     ĵ     k̂   |
+curl(V) = ∇ × V = | ∂/∂x  ∂/∂y  ∂/∂z |
+        |  V<sub>x</sub>    V<sub>y</sub>    V<sub>z</sub>  |
+        
+= (∂V<sub>z</sub>/∂y - ∂V<sub>y</sub>/∂z)î - (∂V<sub>z</sub>/∂x - ∂V<sub>x</sub>/∂z)ĵ + (∂V<sub>y</sub>/∂x - ∂V<sub>x</sub>/∂y)k̂
+            </pre>
+        </blockquote>
+
+        <h3>Physical Interpretation of Curl</h3>
+        <p>Curl measures the microscopic "circulation" or "vorticity" of a vector field at a point. Imagine placing a tiny paddlewheel in the field.</p>
+        <ul>
+            <li><strong>∇ × V ≠ 0:</strong> The field is <strong>rotational</strong>. The paddlewheel would spin. The vector ∇ × V points along the axis of this rotation (by the right-hand rule). (e.g., water in a whirlpool, a magnetic field around a current-carrying wire).</li>
+            <li><strong>∇ × V = 0:</strong> The field is <strong>irrotational</strong> (or "curl-free"). The paddlewheel would not spin.</li>
+        </ul>
+        
+        <div class="exam-tip">
+            <strong>Irrotational Fields are Conservative:</strong>
+            <br>
+            A vector field <strong>V</strong> is <strong>conservative</strong> if its line integral depends only on the endpoints, not the path.
+            <br>
+            <strong>Key Theorem:</strong> A field V is conservative <em>if and only if</em> <strong>∇ × V = 0</strong>.
+            <br>
+            If a field is conservative, it can *always* be written as the gradient of some scalar potential: <strong>V = ∇f</strong> (or F = -∇U, E = -∇V).
+        </div>
+
+        <hr>
+
+        <h2 id="topic6">Vector Identities</h2>
+        <p>These are "second-order" derivatives that are fundamental in physics.</p>
+        <ol>
+            <li><strong>Curl of Gradient is Zero: ∇ × (∇f) = 0</strong>
+                <br>This is always true. The gradient of a scalar field (∇f) is <em>always</em> an irrotational (conservative) vector field.
+            </li>
+            <li><strong>Divergence of Curl is Zero: ∇ · (∇ × V) = 0</strong>
+                <br>This is also always true. The curl of a vector field (∇ × V) is <em>always</em> a solenoidal (divergence-free) vector field. (This is why ∇ · B = 0, because B can be written as the curl of the vector potential A, B = ∇ × A).
+            </li>
+            <li><strong>Divergence of Gradient (Laplacian): ∇ · (∇f) = ∇²f</strong>
+                <br>This is called the <strong>Laplacian</strong> of the scalar field f.
+                <p class="formula">∇²f = (∂²f/∂x²) + (∂²f/∂y²) + (∂²f/∂z²)</p>
+                <br>It appears in many key physics equations (Wave equation, Schrödinger's equation, Poisson's equation ∇²V = -ρ/ε₀).
+            </li>
+        </ol>
+
+        <hr>
+
+        <h2 id="topic7">Vector Integration: Line, Surface, and Volume Integrals</h2>
+        
+        <h3>Line Integrals</h3>
+        <p>A line integral sums up contributions along a path (a curve) C. A common form is:</p>
+        <blockquote>
+            <strong>W = ∫<sub>C</sub> V · dr</strong>
+        </blockquote>
+        <ul>
+            <li><strong>dr</strong> = dx î + dy ĵ + dz k̂ (an infinitesimal displacement vector along the path).</li>
+            <li><strong>Physical Meaning:</strong> This calculates the <strong>work done</strong> by the vector field V (e.g., a force field F) on a particle moving along the path C.</li>
+            <li><strong>If C is a closed path (∮):</strong> The line integral ∮ V · dr is called the <strong>Circulation</strong> of V around C.</li>
+        </ul>
+
+        <h3>Surface Integrals</h3>
+        <p>A surface integral sums up contributions over a 2D surface S. A common form is:</p>
+        <blockquote>
+            <strong>Flux = ∫∫<sub>S</sub> V · dS</strong>
+        </blockquote>
+        <ul>
+            <li><strong>dS</strong> = n̂ dA (an infinitesimal area element dA with a direction n̂ normal to the surface).</li>
+            <li><strong>Physical Meaning:</strong> This calculates the <strong>flux</strong> of the vector field V (e.g., an E-field or fluid velocity) flowing through the surface S.</li>
+        </ul>
+
+        <h3>Volume Integrals</h3>
+        <p>A volume integral sums up contributions over a 3D volume V.</p>
+        <blockquote>
+            <strong>Total Q = ∫∫∫<sub>V</sub> f dV</strong>
+        </blockquote>
+        <ul>
+            <li><strong>dV</strong> = dx dy dz (an infinitesimal volume element).</li>
+            <li><strong>Physical Meaning:</strong> This is used to find total quantities. If f is a scalar field like charge density (ρ), the integral gives the <strong>total charge Q</strong> inside the volume V.</li>
+        </ul>
+
+        <hr>
+
+        <h2 id="topic8">Gauss's Divergence Theorem</h2>
+        <p>The Divergence Theorem is a powerful tool that connects a <strong>volume integral</strong> to a <strong>closed surface integral</strong>. It relates the "sources" inside a volume to the "flux" coming out of its boundary.</p>
+        <p>Let V be a 3D volume, and let S be the <strong>closed surface</strong> that bounds V.</p>
+        <blockquote>
+            <strong>∫∫∫<sub>V</sub> (∇ · V) dV = ∮∮<sub>S</sub> V · dS</strong>
+        </blockquote>
+        <p><strong>In words:</strong></p>
+        <p>"The volume integral of the <strong>divergence</strong> of a vector field V within a volume is equal to the net <strong>flux</strong> of V through the closed surface that encloses that volume."</p>
+        
+        <div class="exam-tip">
+            <strong>Key Application (Deriving Gauss's Law):</strong>
+            <br>
+            We know `Q_enclosed = ∫∫∫ ρ dV`. From Maxwell's equation, `ρ = ε₀(∇ · E)`.
+            <br>
+            So, `Q_enclosed = ∫∫∫ ε₀(∇ · E) dV = ε₀ ∫∫∫ (∇ · E) dV`.
+            <br>
+            By the Divergence Theorem, `∫∫∫ (∇ · E) dV = ∮∮ E · dS`.
+            <br>
+            Therefore, `Q_enclosed = ε₀ (∮∮ E · dS)`, which gives the familiar integral form: <strong>∮∮ E · dS = Q<sub>enclosed</sub> / ε₀</strong>.
+        </div>
+        
+        <hr>
+
+        <h2 id="topic9">Stokes' Theorem</h2>
+        <p>Stokes' Theorem is another powerful tool that connects a <strong>surface integral</strong> to a <strong>closed line integral</strong>. It relates the "circulation" over a surface to the "flow" around its boundary.</p>
+        <p>Let S be an <strong>open surface</strong>, and let C be the <strong>closed curve (loop)</strong> that forms the boundary of S.</p>
+        <blockquote>
+            <strong>∫∫<sub>S</sub> (∇ × V) · dS = ∮<sub>C</sub> V · dr</strong>
+        </blockquote>
+        <p><strong>In words:</strong></p>
+        <p>"The surface integral of the <strong>curl</strong> of a vector field V over a surface is equal to the <strong>line integral (circulation)</strong> of V around the closed boundary of that surface."</p>
+        
+        <div class="exam-tip">
+            <strong>Key Application (Deriving Ampere's Law):</strong>
+            <br>
+            From Maxwell's equation, `∇ × B = μ₀J` (in steady state).
+            <br>
+            Integrate over a surface S: `∫∫ (∇ × B) · dS = ∫∫ (μ₀J) · dS`.
+            <br>
+            The right side is `μ₀` times the current I<sub>enclosed</sub> passing through the surface.
+            <br>
+            By Stokes' Theorem, the left side is `∮ B · dr`.
+            <br>
+            Therefore: <strong>∮ B · dr = μ₀ I<sub>enclosed</sub></strong>.
+        </div>
+        
+    </div>
+  <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

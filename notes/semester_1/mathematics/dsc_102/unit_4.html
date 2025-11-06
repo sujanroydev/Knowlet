@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="102, 1st, dsc, knowlet, mathematics, notes, semester, unit">
+
+    <meta name="description" content="Comprehensive notes for Mathematics DSC 102 Unit 4 | 1st Semester Notes - Knowlet. Includes key concepts, definitions, and summaries for college students.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics DSC 102 Unit 4 | 1st Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1, h2, h3 {
+            color: #005a9c;
+            margin-bottom: 0.5em;
+        }
+        h1 {
+            font-size: 2.5em;
+            border-bottom: 3px solid #005a9c;
+            padding-bottom: 10px;
+        }
+        h2 {
+            font-size: 2em;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+            margin-top: 1.5em;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #007bff;
+            margin-top: 1em;
+        }
+        p {
+            margin-bottom: 1em;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 1em;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        #toc {
+            background: #e6f7ff;
+            border: 1px solid #b3e0ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 2em;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #005a9c;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 8px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: 500;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+        blockquote {
+            border-left: 5px solid #007bff;
+            padding: 15px;
+            background: #f8f9fa;
+            font-style: italic;
+            margin: 1.5em 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: block;
+            margin: 1em 0;
+            overflow-x: auto;
+        }
+        .exam-tip {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 1.5em 0;
+        }
+        .exam-tip strong {
+            color: #d46b08;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 4: Geometry of Curves</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Tangents and Normals (Cartesian Form)</a></li>
+                <li><a href="#topic2">Tangent at the Origin</a></li>
+                <li><a href="#topic3">Angle of Intersection of Curves</a></li>
+                <li><a href="#topic4">Derivative of Arc-Length (Cartesian Form)</a></li>
+                <li><a href="#topic5">Polar Coordinates: Angle between Radius Vector and Tangent</a></li>
+                <li><a href="#topic6">Derivative of Arc-Length (Polar Form)</a></li>
+                <li><a href="#topic7">Polar Subtangent and Subnormal</a></li>
+                <li><a href="#topic8">Radius of Curvature (Cartesian and Polar)</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Tangents and Normals (Cartesian Form)</h2>
+        <p>For a curve given by <strong>y = f(x)</strong>, the derivative <strong>dy/dx</strong> at a point <strong>(x₀, y₀)</strong> represents the slope of the tangent line at that point.</p>
+        <p>Let <span class="formula">m = (dy/dx) at (x₀, y₀)</span></p>
+        
+        <h3>Equation of the Tangent Line</h3>
+        <p>Using the point-slope form <span class="formula">y - y₁ = m(x - x₁)</span>:</p>
+        <blockquote>
+            <span class="formula">y - y₀ = m * (x - x₀)</span>
+            <br>
+            <span class="formula">y - y₀ = (dy/dx) at (x₀,y₀) * (x - x₀)</span>
+        </blockquote>
+
+        <h3>Equation of the Normal Line</h3>
+        <p>The normal line is perpendicular to the tangent line at the point of tangency. Its slope is the negative reciprocal of the tangent's slope.</p>
+        <p>Slope of normal = <span class="formula">-1 / m = -1 / (dy/dx)</span></p>
+        <blockquote>
+            <span class="formula">y - y₀ = (-1/m) * (x - x₀)</span>
+            <br>
+            <span class="formula">(y - y₀) * m = -(x - x₀)</span>
+            <span class="formula">(x - x₀) + m * (y - y₀) = 0</span>
+        </blockquote>
+        
+        <h3>Special Cases:</h3>
+        <ul>
+            <li>If <strong>dy/dx = 0</strong> (horizontal tangent), the normal line is vertical (x = x₀).</li>
+            <li>If <strong>dy/dx is undefined</strong> (vertical tangent, dx/dy = 0), the tangent line is vertical (x = x₀) and the normal line is horizontal (y = y₀).</li>
+        </ul>
+        <h2 id="topic2">Tangent at the Origin</h2>
+        <p>If a curve <strong>passes through the origin (0, 0)</strong>, we can find the equation of the tangent line(s) at the origin by a simple method.</p>
+        
+        <h3>Method:</h3>
+        <ol>
+            <li>Ensure the curve's equation f(x, y) = 0 passes through (0, 0).</li>
+            <li>Find the <strong>lowest degree terms</strong> in the equation.</li>
+            <li>Set these lowest degree terms equal to zero. This gives the equation of the tangent(s) at the origin.</li>
+        </ol>
+        
+        <h3>Examples:</h3>
+        <ul>
+            <li><strong>Curve:</strong> y = x² + 2x
+                <p>Rewrite as y - 2x - x² = 0.
+                Lowest degree terms are (y - 2x) (degree 1).
+                Set to zero: <strong>y - 2x = 0</strong>, or <strong>y = 2x</strong>. This is the single tangent at the origin.</p>
+            </li>
+            <li><strong>Curve:</strong> y² = x³ + x²
+                <p>Rewrite as y² - x² - x³ = 0.
+                Lowest degree terms are (y² - x²) (degree 2).
+                Set to zero: <strong>y² - x² = 0</strong>, which means (y - x)(y + x) = 0.
+                This gives two tangents at the origin: <strong>y = x</strong> and <strong>y = -x</strong>.
+                (The origin is a "node" or crossing-point for this curve).</p>
+            </li>
+            <li><strong>Curve:</strong> y² = x³
+                <p>Rewrite as y² - x³ = 0.
+                Lowest degree term is y² (degree 2).
+                Set to zero: <strong>y² = 0</strong>, or <strong>y = 0</strong> (the x-axis).
+                (This indicates a "cusp" at the origin).</p>
+            </li>
+        </ul>
+
+        <h2 id="topic3">Angle of Intersection of Curves</h2>
+        <p>The angle of intersection between two curves, f(x) and g(x), at a point (x₀, y₀) is defined as the acute angle between their tangent lines at that point.</p>
+        
+        <h3>Steps:</h3>
+        <ol>
+            <li>Find the point(s) of intersection (x₀, y₀) by solving the two equations simultaneously.</li>
+            <li>Find the slope of the first curve at (x₀, y₀): <span class="formula">m₁ = f'(x₀)</span></li>
+            <li>Find the slope of the second curve at (x₀, y₀): <span class="formula">m₂ = g'(x₀)</span></li>
+            <li>If <strong>θ</strong> is the angle between the tangents, use the formula:
+                <blockquote>
+                    <span class="formula">tan(θ) = | (m₁ - m₂) / (1 + m₁m₂) |</span>
+                </blockquote>
+            </li>
+            <li>Solve for θ: <span class="formula">θ = tan⁻¹( | (m₁ - m₂) / (1 + m₁m₂) | )</span></li>
+        </ol>
+        
+        <h3>Special Cases:</h3>
+        <ul>
+            <li>If <strong>m₁ = m₂</strong>, then tan(θ) = 0, so θ = 0. The curves <strong>touch tangentially</strong>.</li>
+            <li>If <strong>m₁m₂ = -1</strong>, then the denominator is zero, so tan(θ) is undefined. This means θ = 90° (or π/2). The curves are <strong>orthogonal</strong> (intersect at a right angle).</li>
+        </ul>
+
+        <h2 id="topic4">Derivative of Arc-Length (Cartesian Form)</h2>
+        <p>Let <strong>s</strong> be the arc length of a curve y = f(x), measured from some fixed point.</p>
+        <p>We can consider a small segment of the arc, <strong>ds</strong>, as the hypotenuse of a right triangle with sides <strong>dx</strong> and <strong>dy</strong>.</p>
+        <p>By the Pythagorean theorem:</p>
+        <span class="formula">(ds)² = (dx)² + (dy)²</span>
+        
+        <p>Dividing by (dx)²:</p>
+        <span class="formula">(ds/dx)² = 1 + (dy/dx)²</span>
+        <blockquote>
+            <strong>Derivative of arc length w.r.t x:</strong>
+            <span class="formula">ds/dx = √(1 + (dy/dx)²)</span>
+        </blockquote>
+        
+        <p>Dividing by (dy)²:</p>
+        <span class="formula">(ds/dy)² = (dx/dy)² + 1</span>
+        <blockquote>
+            <strong>Derivative of arc length w.r.t y:</strong>
+            <span class="formula">ds/dy = √(1 + (dx/dy)²)</span>
+        </blockquote>
+
+        <h2 id="topic5">Polar Coordinates: Angle between Radius Vector and Tangent</h2>
+        <p>For a curve given in polar coordinates as <strong>r = f(θ)</strong>:</p>
+        <ul>
+            <li>The <strong>radius vector</strong> is the line segment from the origin (pole) to the point P(r, θ) on the curve.</li>
+            <li>The <strong>tangent line</strong> is the tangent to the curve at P(r, θ).</li>
+            <li>Let <strong>φ</strong> (phi) be the angle between the radius vector and the tangent line.</li>
+        </ul>
+        <blockquote>
+            The formula relating r, θ, and φ is:
+            <span class="formula">tan(φ) = r / (dr/dθ)</span>
+            <br>
+            <span class="formula">tan(φ) = r * (dθ/dr)</span>
+        </blockquote>
+        
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> This formula is extremely important for polar curves. A common mistake is flipping the fraction. Remember it as <span class="formula">tan(φ) = r / (derivative of r w.r.t θ)</span>.
+            <p><strong>Logarithmic trick:</strong> Sometimes it's easier to take the log first.
+            <br>
+            If ln(r) = ln(f(θ)), then differentiating w.r.t θ gives:
+            <br>
+            <span class="formula">(1/r) * (dr/dθ) = f'(θ) / f(θ)</span>
+            <br>
+            This can be rearranged to <span class="formula">1 / tan(φ) = cot(φ) = (1/r) * (dr/dθ)</span>.
+            </p>
+        </div>
+
+        <h2 id="topic6">Derivative of Arc-Length (Polar Form)</h2>
+        <p>For a polar curve <strong>r = f(θ)</strong>, we can find a similar relation for the arc length <strong>s</strong>.</p>
+        <p>The relationship is <span class="formula">(ds)² = (dr)² + (r dθ)²</span>.</p>
+        
+        <p>Dividing by (dθ)²:</p>
+        <span class="formula">(ds/dθ)² = (dr/dθ)² + r²</span>
+        <blockquote>
+            <strong>Derivative of arc length w.r.t θ:</strong>
+            <span class="formula">ds/dθ = √(r² + (dr/dθ)²)</span>
+        </blockquote>
+        
+        <p>Dividing by (dr)²:</p>
+        <span class="formula">(ds/dr)² = 1 + r²(dθ/dr)²</span>
+        <blockquote>
+            <strong>Derivative of arc length w.r.t r:</strong>
+            <span class="formula">ds/dr = √(1 + r²(dθ/dr)²)</span>
+        </blockquote>
+
+        <h2 id="topic7">Polar Subtangent and Subnormal</h2>
+        <p>Similar to the Cartesian versions, these are lengths related to the tangent and normal lines, but defined relative to the radius vector.</p>
+        <p>Draw the tangent and normal lines at a point P(r, θ) on the curve. Draw a line through the origin (pole) O perpendicular to the radius vector OP. This new line intersects the tangent at T and the normal at N.</p>
+        <ul>
+            <li><strong>Polar Subtangent (OT):</strong> The length of the segment from the pole (O) to the intersection (T) of the perpendicular line and the tangent line.
+                <blockquote>
+                    <span class="formula">Length of Polar Subtangent = | r² * (dθ/dr) | = | r * tan(φ) |</span>
+                </blockquote>
+            </li>
+            <li><strong>Polar Subnormal (ON):</strong> The length of the segment from the pole (O) to the intersection (N) of the perpendicular line and the normal line.
+                <blockquote>
+                    <span class="formula">Length of Polar Subnormal = | dr/dθ | = | r * cot(φ) |</span>
+                </blockquote>
+            </li>
+        </ul>
+
+        <h2 id="topic8">Radius of Curvature (Cartesian and Polar)</h2>
+        <p>Curvature (κ) measures how sharply a curve bends. The <strong>radius of curvature (ρ)</strong> is the reciprocal of the curvature (ρ = 1/κ). It is the radius of the "best-fit" circle (called the osculating circle) that is tangent to the curve at a given point.</p>
+        
+        <h3>Cartesian Form for y = f(x)</h3>
+        <blockquote>
+            <span class="formula">ρ = [ 1 + (dy/dx)² ]³ᐟ² / | d²y/dx² |</span>
+            <br>
+            <span class="formula">ρ = [ 1 + (y')² ]³ᐟ² / | y'' |</span>
+        </blockquote>
+        <div class="exam-tip">
+            <strong>Common Mistake:</strong> Forgetting the <strong>absolute value</strong> in the denominator. The radius ρ is a length, so it must be non-negative.
+        </div>
+        
+        <h3>Parametric Form for x = f(t), y = g(t)</h3>
+        <p>Let x' = dx/dt, y' = dy/dt, x'' = d²x/dt², y'' = d²y/dt².</p>
+        <blockquote>
+            <span class="formula">ρ = [ (x')² + (y')² ]³ᐟ² / | x'y'' - y'x'' |</span>
+        </blockquote>
+
+        <h3>Polar Form for r = f(θ)</h3>
+        <p>Let r' = dr/dθ and r'' = d²r/dθ².</p>
+        <blockquote>
+            <span class="formula">ρ = [ r² + (r')² ]³ᐟ² / | r² + 2(r')² - r * r'' |</span>
+        </blockquote>
+        <p>This formula is complex and used less often, but you should be familiar with it. The Cartesian formula is the most important one to memorize.</p>
+
+    </div>
+  <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

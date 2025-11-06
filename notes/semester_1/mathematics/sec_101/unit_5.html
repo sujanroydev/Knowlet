@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="101, 1st, knowlet, mathematics, notes, sec, semester, unit">
+
+    <meta name="description" content="Comprehensive notes for Mathematics SEC 101 Unit 5 | 1st Semester Notes - Knowlet. Includes key concepts, definitions, and summaries for college students.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics SEC 101 Unit 5 | 1st Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1, h2, h3 {
+            color: #34495e; /* SEC color */
+            margin-bottom: 0.5em;
+        }
+        h1 {
+            font-size: 2.5em;
+            border-bottom: 3px solid #34495e;
+            padding-bottom: 10px;
+        }
+        h2 {
+            font-size: 2em;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+            margin-top: 1.5em;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #16a085;
+            margin-top: 1em;
+        }
+        p {
+            margin-bottom: 1em;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 1em;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        #toc {
+            background: #ecf0f1;
+            border: 1px solid #bdc3c7;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 2em;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #2c3e50;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 8px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: 500;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+        blockquote {
+            border-left: 5px solid #16a085;
+            padding: 15px;
+            background: #f8f9fa;
+            font-style: italic;
+            margin: 1.5em 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: block;
+            margin: 1em 0;
+            overflow-x: auto;
+        }
+        .exam-tip {
+            background: #fef9e7;
+            border: 1px solid #f1c40f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 1.5em 0;
+        }
+        .exam-tip strong {
+            color: #d35400;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 5: Introduction to Differential Equations</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Introduction and Definitions</a></li>
+                <li><a href="#topic2">Order and Degree of a DE</a></li>
+                <li><a href="#topic3">General and Particular Solutions</a></li>
+                <li><a href="#topic4">Formation of a Differential Equation</a></li>
+                <li><a href="#topic5">Solving DEs: Variable Separable</a></li>
+                <li><a href="#topic6">Solving DEs: Homogeneous Equation</a></li>
+                <li><a href="#topic7">Solving DEs: Linear Differential Equation</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Introduction and Definitions</h2>
+        <blockquote>
+            A <strong>differential equation (DE)</strong> is an equation that involves an unknown function and one or more of its derivatives.
+        </blockquote>
+        <p>Differential equations are used to model real-world phenomena where a quantity's rate of change depends on the quantity itself (e.g., population growth, radioactive decay, circuits).</p>
+        
+        <ul>
+            <li><strong>Ordinary Differential Equation (ODE):</strong> Contains derivatives with respect to <strong>only one</strong> independent variable. (e.g., `dy/dx`, `d²y/dt²`). This unit focuses *only* on ODEs.</li>
+            <li><strong>Partial Differential Equation (PDE):</strong> Contains partial derivatives with respect to <strong>two or more</strong> independent variables. (e.g., `∂u/∂t`, `∂²u/∂x²`).</li>
+        </ul>
+        
+        <h2 id="topic2">Order and Degree of a DE</h2>
+        
+        <h3>Order</h3>
+        <blockquote>
+            The <strong>order</strong> of a differential equation is the order of the <strong>highest-order derivative</strong> present in the equation.
+        </blockquote>
+        
+        <h3>Degree</h3>
+        <blockquote>
+            The <strong>degree</strong> of a differential equation is the <strong>power (exponent)</strong> of the <strong>highest-order derivative</strong>, *after* the equation has been cleared of any fractions or radicals in its derivatives.
+        </blockquote>
+
+        <p><strong>Examples:</strong></p>
+        <ol>
+            <li><span class="formula">(d²y/dx²)³ + 5(dy/dx)⁷ + y = 0</span>
+                <ul>
+                    <li>Highest derivative is `d²y/dx²`, so <strong>Order = 2</strong>.</li>
+                    <li>The power of this highest derivative is 3, so <strong>Degree = 3</strong>.</li>
+                </ul>
+            </li>
+            <li><span class="formula">d³y/dx³ + 2x = √(1 + dy/dx)</span>
+                <ul>
+                    <li>Highest derivative is `d³y/dx³`, so <strong>Order = 3</strong>.</li>
+                    <li>The power of this derivative is 1, so <strong>Degree = 1</strong>. (The radical on `dy/dx` is irrelevant as it's a lower-order term).</li>
+                </ul>
+            </li>
+            <li><span class="formula">y'' = (1 + (y')²)³ᐟ²</span>
+                <ul>
+                    <li>First, clear the radical/fractional power: Square both sides.</li>
+                    <li><span class="formula">(y'')² = (1 + (y')²)³</span></li>
+                    <li>Highest derivative is `y''`, so <strong>Order = 2</strong>.</li>
+                    <li>The power of `y''` is 2, so <strong>Degree = 2</strong>.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h2 id="topic3">General and Particular Solutions</h2>
+        
+        <h3>General Solution</h3>
+        <p>A <strong>general solution</strong> to a DE is a solution that contains one or more <strong>arbitrary constants</strong> (like `C`, `A`, `B`). The number of arbitrary constants is equal to the order of the DE.</p>
+        <p><strong>Example:</strong> For `dy/dx = 2x`, the general solution is `y = x² + C`.</p>
+        
+        <h3>Particular Solution</h3>
+        <p>A <strong>particular solution</strong> is a solution obtained from the general solution by assigning specific values to the arbitrary constants. This is usually done using "initial conditions" or "boundary conditions."</p>
+        <p><strong>Example:</strong> For `y = x² + C`, if we are given the initial condition `y(0) = 5`, we can find `C`:</p>
+        <p>`5 = (0)² + C` ⇒ `C = 5`.
+        <br>The particular solution is `y = x² + 5`.</p>
+        
+        <h2 id="topic4">Formation of a Differential Equation</h2>
+        <p>This is the reverse process: given a general solution (a family of curves), find the DE they satisfy by <strong>eliminating the arbitrary constants</strong>.</p>
+        
+        <p><strong>Method:</strong></p>
+        <ol>
+            <li>Count the number of arbitrary constants (say, `n`). The order of your final DE will be `n`.</li>
+            <li>Differentiate the given equation `n` times.</li>
+            <li>You now have `n+1` equations (the original plus the `n` derivatives).</li>
+            <li>Use algebra (substitution, elimination) to eliminate all `n` constants from these equations.</li>
+        </ol>
+        
+        <p><strong>Example:</strong> Form the DE for the family of curves `y = A cos(x) + B sin(x)` (n=2 constants: A, B)</p>
+        <ol>
+            <li><strong>Original:</strong> `y = A cos(x) + B sin(x)` --- (1)</li>
+            <li><strong>Differentiate 1:</strong> `y' = -A sin(x) + B cos(x)` --- (2)</li>
+            <li><strong>Differentiate 2:</strong> `y'' = -A cos(x) - B sin(x)` --- (3)</li>
+            <li>
+                <strong>Eliminate:</strong> Notice that equation (3) is the negative of equation (1).
+                <br>`y'' = -(A cos(x) + B sin(x))`
+                <br>Substitute (1): `y'' = -y`
+            </li>
+        </ol>
+        <p>The resulting DE is <span class="formula">y'' + y = 0</span> or <span class="formula">d²y/dx² + y = 0</span>.</p>
+
+        <h2 id="topic5">Solving DEs: Variable Separable</h2>
+        <p>This is the simplest method for solving first-order, first-degree DEs.</p>
+        <blockquote>
+            A DE is <strong>variable separable</strong> if it can be algebraically rearranged into the form:
+            <br>
+            <span class="formula">f(y) dy = g(x) dx</span>
+            <br>
+            (All `y` terms on one side, all `x` terms on the other).
+        </blockquote>
+        <p><strong>Solution:</strong> Integrate both sides and add a constant of integration `C`.</p>
+        <p><span class="formula">∫ f(y) dy = ∫ g(x) dx + C</span></p>
+        
+        <p><strong>Example:</strong> Solve `dy/dx = xy²`</p>
+        <ol>
+            <li>Separate variables: `dy / y² = x dx`</li>
+            <li>Integrate both sides: `∫ y⁻² dy = ∫ x dx + C`</li>
+            <li>`-y⁻¹ = (x²/2) + C`</li>
+            <li><span class="formula">-1/y = x²/2 + C</span> (This is the general solution).</li>
+        </ol>
+
+        <h2 id="topic6">Solving DEs: Homogeneous Equation</h2>
+        <blockquote>
+            A first-order DE <span class="formula">dy/dx = F(x, y)</span> is <strong>homogeneous</strong> if `F(x, y)` is a homogeneous function of degree 0.
+            <br>
+            This means `F(tx, ty) = F(x, y)`, or more simply, it can be written as a function of `y/x`.
+            <br>
+            Example: `dy/dx = (x² + y²) / (xy)`
+        </blockquote>
+        <p><strong>Solution Method:</strong></p>
+        <ol>
+            <li>Use the substitution: <span class="formula">y = vx</span></li>
+            <li>Differentiate with respect to `x` (using product rule): <span class="formula">dy/dx = v(1) + x(dv/dx)</span></li>
+            <li>Substitute both `y = vx` and `dy/dx = v + x(dv/dx)` into the original DE.</li>
+            <li>The `x` variables will cancel, leaving a new DE involving only `v` and `x`.</li>
+            <li>This new DE will <strong>always be variable separable</strong>. Solve it for `v`.</li>
+            <li>Substitute <span class="formula">v = y/x</span> back in to get the final solution.</li>
+        </ol>
+        
+        <h2 id="topic7">Solving DEs: Linear Differential Equation</h2>
+        <p>This is one of the most important types of DEs.</p>
+        <blockquote>
+            A first-order DE is <strong>linear</strong> if it can be written in the standard form:
+            <br>
+            <span class="formula">dy/dx + P(x)y = Q(x)</span>
+            <br>
+            where P(x) and Q(x) are functions of `x` only (or constants).
+        </blockquote>
+        
+        <p><strong>Solution Method (3 Steps):</strong></p>
+        <ol>
+            <li>
+                <strong>Step 1:</strong> Identify `P(x)` and `Q(x)` from the standard form.
+                <br>(Make sure the coefficient of `dy/dx` is 1).
+            </li>
+            <li>
+                <strong>Step 2:</strong> Find the <strong>Integrating Factor (I.F.)</strong>.
+                <br>
+                <span class="formula">I.F. = e^(∫ P(x) dx)</span>
+            </li>
+            <li>
+                <strong>Step 3:</strong> The general solution is given by the formula:
+                <br>
+                <span class="formula">y · (I.F.) = ∫ [ Q(x) · (I.F.) ] dx + C</span>
+            </li>
+        </ol>
+        
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> Memorize this 3-step process.
+            <br>
+            <strong>Example:</strong> Solve `dy/dx + (1/x)y = x²`
+            <ol>
+                <li>Standard form is matched. `P(x) = 1/x`, `Q(x) = x²`.</li>
+                <li>I.F. = e^(∫ (1/x) dx) = e^(ln x) = x. (So, I.F. = x).</li>
+                <li>Solution: `y · (x) = ∫ [ x² · (x) ] dx + C`
+                    <br>`xy = ∫ x³ dx + C`
+                    <br>`xy = (x⁴ / 4) + C`
+                    <br><span class="formula">y = x³/4 + C/x</span> (This is the general solution).
+                </li>
+            </ol>
+        </div>
+    </div>
+  <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

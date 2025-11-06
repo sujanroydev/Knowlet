@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="101, 1st, idc, knowlet, notes, semester, statistics, unit">
+
+    <meta name="description" content="Comprehensive notes for Statistics IDC 101 Unit 5 | 1st Semester Notes - Knowlet. Includes key concepts, definitions, and summaries for college students.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics IDC 101 Unit 5 | 1st Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #f39c12;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #f39c12;
+            border-bottom: 2px solid #FEF9E7;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #d35400;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f39c12;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        blockquote {
+            background: #FEF9E7;
+            border-left: 5px solid #f39c12;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #555;
+        }
+        .exam-tip, .note {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            border-left-width: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #d9534f;
+        }
+        .note strong {
+            color: #0275d8;
+        }
+        .formula {
+            background: #fef9e7;
+            border: 1px solid #fae5b4;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        #toc {
+            background: #FEF9E7;
+            border: 1px solid #f39c12;
+            padding: 15px 25px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #2c3e50;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc ul li a {
+            text-decoration: none;
+            color: #d35400;
+        }
+        #toc ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 5: Elements of Probability</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#intro">1. Basic Concepts (Experiment, Sample Space, Event)</a></li>
+                <li><a href="#events">2. Algebra of Events</a></li>
+                <li><a href="#definitions">3. Definitions of Probability (Classical & Statistical)</a></li>
+                <li><a href="#addition">4. Addition Theorem of Probability</a></li>
+                <li><a href="#multiplication">5. Multiplication Theorem of Probability (Conditional Probability)</a></li>
+            </ul>
+        </div>
+
+        <section id="intro">
+            <h2>1. Basic Concepts (Experiment, Sample Space, Event)</h2>
+            <p>Probability is the measure of the likelihood that an event will occur. It is quantified as a number between 0 and 1.</p>
+            
+            <h3>Random Experiment</h3>
+            <p>An experiment or process for which the outcome cannot be predicted with certainty, but all possible outcomes are known.</p>
+            <ul>
+                <li><em>Example:</em> Tossing a coin, rolling a die, drawing a card from a deck.</li>
+            </ul>
+
+            <h3>Sample Space (S)</h3>
+            <p>The set of <strong>all possible outcomes</strong> of a random experiment.</p>
+            <ul>
+                <li><em>Example (Rolling a die):</em> S = {1, 2, 3, 4, 5, 6}</li>
+                <li><em>Example (Tossing two coins):</em> S = {HH, HT, TH, TT}</li>
+            </ul>
+            
+            <h3>Event (E)</h3>
+            <p>A subset of the sample space. It is a collection of one or more outcomes.</p>
+            <ul>
+                <li><em>Example (Rolling a die):</em>
+                    <ul>
+                        <li>Event A (Getting an even number): A = {2, 4, 6}</li>
+                        <li>Event B (Getting a number > 4): B = {5, 6}</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="events">
+            <h2>2. Algebra of Events</h2>
+            <p>Events can be combined using set operations.</p>
+            <ul>
+                <li><strong>Event 'A or B' (A ∪ B):</strong> The event that *at least one* of A or B occurs.
+                    <ul><li>A = {2, 4, 6}, B = {5, 6}  =>  A ∪ B = {2, 4, 5, 6}</li></ul>
+                </li>
+                <li><strong>Event 'A and B' (A ∩ B):</strong> The event that *both* A and B occur simultaneously.
+                    <ul><li>A = {2, 4, 6}, B = {5, 6}  =>  A ∩ B = {6}</li></ul>
+                </li>
+                <li><strong>Event 'Not A' (A' or A<sup>c</sup>):</strong> The complement of A. The event that A does *not* occur.
+                    <ul><li>S = {1, 2, 3, 4, 5, 6}, A = {2, 4, 6}  =>  A' = {1, 3, 5}</li></ul>
+                </li>
+                <li><strong>Mutually Exclusive Events:</strong> Two events that <strong>cannot occur at the same time</strong>. They have no outcomes in common.
+                     <ul><li><strong>(A ∩ B) = ∅</strong> (the empty set).</li></ul>
+                </li>
+                <li><strong>Exhaustive Events:</strong> A set of events that covers the <strong>entire sample space</strong>.
+                    <ul><li>A<sub>1</sub> ∪ A<sub>2</sub> ∪ ... = S</li></ul>
+                </li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="definitions">
+            <h2>3. Definitions of Probability (Classical & Statistical)</h2>
+            
+            <h3>1. Classical (or 'a priori') Definition</h3>
+            <p>This definition assumes all outcomes in the sample space are <strong>equally likely</strong>.</p>
+            <blockquote>
+                If a random experiment has 'n' mutually exclusive, exhaustive, and equally likely outcomes, and 'm' of these outcomes are favorable to an event A:
+            </blockquote>
+            <div class="formula">
+                P(A) = m / n = (Number of favorable outcomes) / (Total number of possible outcomes)
+            </div>
+            <ul>
+                <li><em>Example:</em> P(Drawing a King from a 52-card deck) = 4 / 52 = 1 / 13.</li>
+                <li><em>Limitation:</em> Fails if outcomes are not equally likely (e.g., a biased coin) or if the sample space is infinite.</li>
+            </ul>
+            
+            <h3>2. Statistical (or Empirical / Relative Frequency) Definition</h3>
+            <p>This definition is based on <strong>relative frequency</strong> from performing an experiment many times.</p>
+            <blockquote>
+                If an experiment is repeated 'n' times (where 'n' is very large) and event A occurs 'f' times, the probability of A is the relative frequency.
+            </blockquote>
+            <div class="formula">
+                P(A) = lim (n→∞) [ f / n ]
+            </div>
+            <ul>
+                <li><em>Example:</em> If we toss a coin 10,000 times and get 5,030 heads, we estimate P(Heads) ≈ 0.503.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="addition">
+            <h2>4. Addition Theorem of Probability</h2>
+            <p>This theorem (or law) is used to find the probability of (A <strong>or</strong> B) occurring.</p>
+            
+            <h3>Statement (for *any* two events A and B):</h3>
+            <p>The probability that at least one of the events A or B occurs is given by:</p>
+            <div class="formula">
+                P(A ∪ B) = P(A) + P(B) - P(A ∩ B)
+            </div>
+            <p><em>(We subtract P(A ∩ B) because it was counted twice - once in P(A) and once in P(B)).</em></p>
+
+            <h3>Statement (for *Mutually Exclusive* events):</h3>
+            <p>If A and B are mutually exclusive, they cannot happen together, so P(A ∩ B) = 0. The formula simplifies to:</p>
+            <div class="formula">
+                P(A ∪ B) = P(A) + P(B)
+            </div>
+            
+            <div class="exam-tip">
+                <strong>Exam Tip:</strong> This is one of the most important formulas.
+                <br>
+                <em>Example:</em> P(King) = 4/52, P(Heart) = 13/52, P(King and Heart) = 1/52.
+                <br>
+                P(King or Heart) = P(King) + P(Heart) - P(King and Heart)
+                <br>
+                = (4/52) + (13/52) - (1/52) = 16/52.
+            </div>
+        </section>
+        
+        <hr>
+
+        <section id="multiplication">
+            <h2>5. Multiplication Theorem of Probability (Conditional Probability)</h2>
+            <p>This theorem is used to find the probability of (A <strong>and</strong> B) occurring.</p>
+
+            <h3>Conditional Probability</h3>
+            <p>First, we must define <strong>Conditional Probability</strong>, P(A | B). This is read as "the probability of A, <em>given that</em> B has already occurred."</p>
+            <div class="formula">
+                P(A | B) = P(A ∩ B) / P(B)
+            </div>
+            
+            <h3>Statement (Multiplication Theorem):</h3>
+            <p>By rearranging the conditional probability formula, we get the multiplication theorem:</p>
+            <div class="formula">
+                P(A ∩ B) = P(B) * P(A | B)
+            </div>
+            <p><em>(It can also be written as: P(A ∩ B) = P(A) * P(B | A))</em></p>
+            <p><strong>In words:</strong> The probability of A and B both happening is the probability of B happening, *multiplied by* the probability of A happening *given that B has already happened*.</pre>
+
+            <h3>Statement (for *Independent* events):</h3>
+            <p>Two events are <strong>independent</strong> if the occurrence of one does not affect the probability of the other.
+            <br>
+            In this case, P(A | B) = P(A).
+            </p>
+            <p>The multiplication theorem simplifies to:</p>
+            <div class="formula">
+                P(A ∩ B) = P(A) * P(B)
+            </div>
+
+            <div class="exam-tip">
+                <strong>Exam Tip:</strong>
+                <br>
+                - Use <strong>Addition Rule</strong> for "OR" (∪).
+                <br>
+                - Use <strong>Multiplication Rule</strong> for "AND" (∩).
+                <br>
+                - If events are <strong>Mutually Exclusive</strong>, P(A ∩ B) = 0.
+                <br>
+                - If events are <strong>Independent</strong>, P(A ∩ B) = P(A) * P(B).
+            </div>
+        </section>
+
+    </div>
+  <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

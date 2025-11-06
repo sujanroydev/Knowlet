@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="101, 1st, knowlet, notes, sec, semester, statistics, unit">
+
+    <meta name="description" content="Comprehensive notes for Statistics SEC 101 Unit 2 | 1st Semester Notes - Knowlet. Includes key concepts, definitions, and summaries for college students.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics SEC 101 Unit 2 | 1st Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #e74c3c;
+            border-bottom: 2px solid #fADBD8;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #c0392b;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code, .formula {
+            background: #eaf2f8;
+            border: 1px solid #d4e6f1;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+        }
+        .formula {
+            display: block;
+            padding: 15px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        .path {
+            font-weight: bold;
+            color: #d35400;
+        }
+        blockquote {
+            background: #fADBD8;
+            border-left: 5px solid #e74c3c;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #555;
+        }
+        .exam-tip, .note {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            border-left-width: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #d9534f;
+        }
+        .note strong {
+            color: #0275d8;
+        }
+        #toc {
+            background: #ecf0f1;
+            border: 1px solid #bdc3c7;
+            padding: 15px 25px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #2c3e50;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc ul li a {
+            text-decoration: none;
+            color: #2980b9;
+        }
+        #toc ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 2: Charts and Graphs in Excel</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#creating-charts">1. Creating Charts and Graphs in Excel</a></li>
+                <li><a href="#bar-charts">2. Bar Charts</a></li>
+                <li><a href="#line-graphs">3. Line Graphs</a></li>
+                <li><a href="#pie-charts">4. Pie Charts</a></li>
+                <li><a href="#scatter-plots">5. Scatter Plots</a></li>
+                <li><a href="#customizing">6. Customizing Charts and Adding Visual Elements</a></li>
+                <li><a href="#axes">7. Formatting and Labeling Axes</a></li>
+                <li><a href="#trendlines">8. Adding Trendlines</a></li>
+            </ul>
+        </div>
+
+        <section id="creating-charts">
+            <h2>1. Creating Charts and Graphs in Excel</h2>
+            <p>Charts are visual representations of your data. Using the right chart type is essential for communicating your findings clearly.</p>
+            
+            <h3>General Steps to Create Any Chart:</h3>
+            <ol>
+                <li><strong>Select Data:</strong> Select the cells containing the data you want to plot. Include the headers (labels) for your data.</li>
+                <li><strong>Insert Chart:</strong> Go to the <span class="path">Insert</span> tab on the Ribbon. In the <strong>Charts</strong> group, you will see icons for all the major chart types.</li>
+                <li><strong>Choose Chart Type:</strong> Click the icon for the chart you want (e.g., <strong>Column or Bar Chart</strong>, <strong>Line Chart</strong>).</li>
+                <li><strong>Refine:</strong> Once the chart appears, you can use the <strong>Chart Design</strong> and <strong>Format</strong> tabs (which appear when the chart is selected) to customize it.</li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section id="bar-charts">
+            <h2>2. Bar Charts</h2>
+            <p>Also known as Column Charts (if vertical). They are used to compare frequencies or values across different <strong>categories</strong>.</p>
+            <ul>
+                <li><strong>Best For:</strong> Categorical data (e.g., 'Sales by Region', 'Number of Students by Major').</li>
+                <li><strong>How to:</strong>
+                    <ol>
+                        <li>Select your categories (e.g., 'Region') and values (e.g., 'Sales').</li>
+                        <li>Go to <span class="path">Insert > Charts > Insert Column or Bar Chart</span>.</li>
+                        <li>Choose a <strong>2-D Column</strong> (vertical) or <strong>2-D Bar</strong> (horizontal) chart.</li>
+                    </ol>
+                </li>
+                <li><strong>Key Feature:</strong> There are <strong>gaps</strong> between the bars to show that the categories are distinct.</li>
+            </ul>
+            </section>
+
+        <hr>
+
+        <section id="line-graphs">
+            <h2>3. Line Graphs</h2>
+            <p>Line graphs are used to show <strong>trends over time</strong> or another continuous sequence.</p>
+            <ul>
+                <li><strong>Best For:</strong> Time-series data (e.g., 'Stock Price over 30 Days', 'Monthly Rainfall', 'Website Visits per Day').</li>
+                <li><strong>How to:</strong>
+                    <ol>
+                        <li>Select your time data (e.g., 'Date') and value data (e.g., 'Stock Price').</li>
+                        <li>Go to <span class="path">Insert > Charts > Insert Line or Area Chart</span>.</li>
+                        <li>Choose a <strong>2-D Line with Markers</strong> for clarity.</li>
+                    </ol>
+                </li>
+                <li><strong>Key Feature:</strong> The line connects the data points, showing the progression and rate of change.</li>
+            </ul>
+            </section>
+
+        <hr>
+
+        <section id="pie-charts">
+            <h2>4. Pie Charts</h2>
+            <p>Pie charts are used to show the <strong>proportions of categories as part of a whole</strong> (100%).</p>
+            <ul>
+                <li><strong>Best For:</strong> Showing "market share" or percentage breakdown (e.g., 'Budget Allocation by Department', 'Survey Responses').</li>
+                <li><strong>How to:</strong>
+                    <ol>
+                        <li>Select your categories and values.</li>
+                        <li>Go to <span class="path">Insert > Charts > Insert Pie or Doughnut Chart</span>.</li>
+                        <li>Choose a <strong>2-D Pie</strong>.</li>
+                    </ol>
+                </li>
+                <li><strong>Key Feature:</strong> All "slices" add up to 100%.</li>
+                <li class="exam-tip"><strong>Exam Tip:</strong> Pie charts are bad for comparing more than 5-6 categories, as it becomes hard to read. A bar chart is often a better choice.</li>
+            </ul>
+            </section>
+
+        <hr>
+
+        <section id="scatter-plots">
+            <h2>5. Scatter Plots</h2>
+            <p>Scatter plots are used to visualize the <strong>relationship between two quantitative variables</strong>. This is the standard chart for correlation and regression analysis.</p>
+            <ul>
+                <li><strong>Best For:</strong> Bivariate data (e.g., 'Height vs. Weight', 'Advertising Spend vs. Sales', 'Study Hours vs. Exam Score').</li>
+                <li><strong>How to:</strong>
+                    <ol>
+                        <li>Select your two columns of quantitative data (your 'x' and 'y' variables).</li>
+                        <li>Go to <span class="path">Insert > Charts > Insert Scatter (X, Y) or Bubble Chart</span>.</li>
+                        <li>Choose the first <strong>Scatter</strong> option.</li>
+                    </ol>
+                </li>
+                <li><strong>Key Feature:</strong> It shows patterns. If points trend upwards, it's a positive correlation. If downwards, it's negative.</li>
+            </ul>
+            </section>
+
+        <hr>
+
+        <section id="customizing">
+            <h2>6. Customizing Charts and Adding Visual Elements</h2>
+            <p>A basic chart is rarely ready for a final report. It must be customized.</p>
+            <p>When your chart is selected, click the <strong>"+" icon (Chart Elements)</strong> on the top-right to add/remove:</p>
+            <ul>
+                <li><strong>Chart Title:</strong> Always add a clear, descriptive title.</li>
+                <li><strong>Axis Titles:</strong> Essential. Label your X-axis and Y-axis, including units (e.g., "Sales (in $ '000s)").</li>
+                <li><strong>Data Labels:</strong> Adds the exact value to each bar, point, or slice. Can make the chart look cluttered.</li>
+                <li><strong>Legend:</strong> Necessary if you are plotting multiple data series (e.g., 'Sales 2024' and 'Sales 2025' on the same line graph).</li>
+                <li><strong>Gridlines:</strong> Can help in reading values, but can also be removed for a cleaner look.</li>
+            </ul>
+            
+            <h3>Other Formatting:</h3>
+            <ul>
+                <li><strong>Changing Colors:</strong> Use the <strong>Chart Design</strong> tab or right-click a data series (e.g., the bars) and select <strong>Fill</strong>.</li>
+                <li><strong>Changing Font:</strong> Select the text (like the title or axis label) and use the <strong>Home</strong> tab.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="axes">
+            <h2>7. Formatting and Labeling Axes</h2>
+            <p>This is one of the most important parts of chart customization.</p>
+            <ol>
+                <li><strong>Add Axis Titles:</strong> Click <strong>Chart Elements ("+") > Axis Titles</strong>. Click the new text boxes on the chart to type your labels.</li>
+                <li><strong>Format the Axis Scale:</strong>
+                    <ul>
+                        <li>Right-click the axis you want to change (e.g., the numbers on the Y-axis).</li>
+                        <li>Select <strong>Format Axis...</strong></li>
+                        <li>A <strong>Format Axis</strong> pane will open. Under <strong>Axis Options</strong>, you can set:
+                            <ul>
+                                <li><strong>Bounds (Min/Max):</strong> Change the start and end values of the axis (e.g., start at 0 instead of -10).</li>
+                                <li><strong>Units (Major/Minor):</strong> Change the spacing of the gridlines and labels.</li>
+                                <li><strong>Number:</strong> Change the number format (e.g., to Currency, Percentage, or add/remove decimal places).</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section id="trendlines">
+            <h2>8. Adding Trendlines</h2>
+            <p>A trendline (or line of best fit) is a line superimposed on a chart to show the general pattern or direction of the data. It is most often used on <strong>Scatter Plots</strong> and <strong>Line Graphs</strong>.</p>
+            <ol>
+                <li>Create your chart (e.g., a Scatter Plot).</li>
+                <li>Select the chart.</li>
+                <li>Click the <strong>Chart Elements ("+")</strong> icon.</li>
+                <li>Check <strong>Trendline</strong>.</li>
+                <li>For more options, click the small arrow next to Trendline and select <strong>More Options...</strong></li>
+                <li>In the <strong>Format Trendline</strong> pane, you can select the type of fit:
+                    <ul>
+                        <li><strong>Linear:</strong> A straight line (for linear regression).</li>
+                        <li><strong>Polynomial:</strong> A curved line (for polynomial regression).</li>
+                        <li><strong>Exponential:</strong> For exponential growth.</li>
+                    </ul>
+                </li>
+                <li>(Most Important) Check the boxes for <strong>"Display Equation on chart"</strong> and <strong>"Display R-squared value on chart"</strong>. This is the core of regression analysis (covered in Units 4 & 5).</li>
+            </ol>
+            </section>
+
+    </div>
+  <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

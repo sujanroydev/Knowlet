@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="101, 1st, idc, knowlet, notes, semester, statistics, unit">
+
+    <meta name="description" content="Comprehensive notes for Statistics IDC 101 Unit 1 | 1st Semester Notes - Knowlet. Includes key concepts, definitions, and summaries for college students.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics IDC 101 Unit 1 | 1st Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #3498db;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        blockquote {
+            background: #ecf0f1;
+            border-left: 5px solid #3498db;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #555;
+        }
+        .exam-tip, .note {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            border-left-width: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #d9534f;
+        }
+        .note strong {
+            color: #0275d8;
+        }
+        .formula {
+            background: #e9f5ff;
+            border: 1px solid #b3d9ff;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        #toc {
+            background: #ecf0f1;
+            border: 1px solid #bdc3c7;
+            padding: 15px 25px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #2c3e50;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc ul li a {
+            text-decoration: none;
+            color: #2980b9;
+        }
+        #toc ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 1: Data Representation</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#pop-sample">1. Concepts of Statistical Population and Sample</a></li>
+                <li><a href="#data-collection">2. Primary and Secondary Data</a></li>
+                <li><a href="#data-types">3. Qualitative and Quantitative Data</a></li>
+                <li><a href="#scales">4. Scales of Measurement</a></li>
+                <li><a href="#presentation">5. Presentation of Data by Tables and Diagrams</a></li>
+                <li><a href="#freq-dist">6. Frequency Distributions</a></li>
+                <li><a href="#graphical">7. Graphical Representation (Histogram, Frequency Polygon, Ogive)</a></li>
+            </ul>
+        </div>
+
+        <section id="pop-sample">
+            <h2>1. Concepts of Statistical Population and Sample</h2>
+            
+            <h3>Population</h3>
+            <blockquote>
+                <strong>Population (or Universe):</strong> The entire group of individuals, items, or objects of interest in a statistical study.
+            </blockquote>
+            <ul>
+                <li><strong>Finite Population:</strong> A population where the number of units is countable and finite.
+                    <ul>
+                        <li><em>Example:</em> Number of students in your college.</li>
+                    </ul>
+                </li>
+                <li><strong>Infinite Population:</strong> A population where the number of units is theoretically infinite or so large that it is considered infinite.
+                    <ul>
+                        <li><em>Example:</em> The set of all possible outcomes of rolling a die repeatedly.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Sample</h3>
+            <blockquote>
+                <strong>Sample:</strong> A subset or a part of the population selected to represent the characteristics of the whole population.
+            </blockquote>
+            <p>We study samples because it is often too costly, time-consuming, or impossible to study the entire population. The process of selecting a sample is called <strong>sampling</strong>.</p>
+            <ul>
+                <li><em>Example:</em> To find the average height of all students in your college (population), you select 100 students (sample) and measure their heights.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="data-collection">
+            <h2>2. Primary and Secondary Data</h2>
+            
+            <h3>1. Primary Data</h3>
+            <p>Data collected <strong>for the first time</strong> by the researcher, specifically for the purpose of the study. It is original, raw data.</p>
+            <ul>
+                <li><strong>Methods:</strong> Surveys, personal interviews, experiments, direct observation.</li>
+                <li><strong>Pros:</strong> Specific to the research needs, more reliable and accurate.</li>
+                <li><strong>Cons:</strong> Very expensive and time-consuming to collect.</li>
+            </ul>
+
+            <h3>2. Secondary Data</h3>
+            <p>Data that has <strong>already been collected</strong> by someone else for some other purpose, but is used by the researcher for their current study.</p>
+            <ul>
+                <li><strong>Sources:</strong> Government publications (e.g., census reports), company records, journals, websites, books.</li>
+                <li><strong>Pros:</strong> Cheaper and faster to obtain.</li>
+                <li><strong>Cons:</strong> May not be perfectly suitable, data may be outdated or inaccurate. One must check its reliability and suitability.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="data-types">
+            <h2>3. Qualitative and Quantitative Data</h2>
+            
+            <h3>1. Qualitative (or Categorical) Data</h3>
+            <p>Data that represents characteristics, attributes, or qualities. It cannot be measured numerically but can be sorted into categories.</p>
+            <ul>
+                <li><em>Example:</em> Gender (Male, Female, Other)</li>
+                <li><em>Example:</em> Eye Color (Blue, Brown, Green)</li>
+                <li><em>Example:</em> Blood Type (A, B, AB, O)</li>
+            </ul>
+
+            <h3>2. Quantitative (or Numerical) Data</h3>
+            <p>Data that is numerical and represents a measurable quantity. It answers questions of "how much" or "how many."</p>
+            
+            <h4>a) Discrete Data</h4>
+            <p>Data that can only take specific, distinct values (usually integers). It is "counted." There are gaps between possible values.</p>
+            <ul>
+                <li><em>Example:</em> Number of children in a family (0, 1, 2, 3... but not 2.5)</li>
+                <li><em>Example:</em> Number of cars passing a toll booth in an hour.</li>
+            </ul>
+
+            <h4>b) Continuous Data</h4>
+            <p>Data that can take any value within a given range. It is "measured." There are no gaps between possible values (though our measurements are limited by our tools).</p>
+            <ul>
+                <li><em>Example:</em> Height of a student (e.g., 170.5 cm, 170.51 cm...)</li>
+                <li><em>Example:</em> Temperature of a room.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="scales">
+            <h2>4. Scales of Measurement</h2>
+            <p>These scales (or levels) describe the nature of information within the values assigned to variables. They are hierarchical (each level up adds more properties).</p>
+            
+            <h3>1. Nominal Scale</h3>
+            <p>The simplest scale. Data consists of categories or names only. There is no natural order or ranking.</p>
+            <ul>
+                <li><strong>Properties:</strong> Identity (e.g., 'Male' is different from 'Female').</li>
+                <li><strong>Operations:</strong> Counting (frequency), finding the mode.</li>
+                <li><strong>Examples:</strong> Jersey numbers, zip codes, eye color, marital status.</li>
+            </ul>
+
+            <h3>2. Ordinal Scale</h3>
+            <p>Data can be categorized and these categories have a natural order or rank. However, the *differences* between the ranks are not meaningful or uniform.</p>
+            <ul>
+                <li><strong>Properties:</strong> Identity + Order.</li>
+                <li><strong>Operations:</strong> Count, mode, median, rank correlation.</li>
+                <li><strong>Examples:</strong> Customer satisfaction (Poor, Fair, Good, Excellent), educational level (High School, Bachelor's, Master's), grades (A, B, C).</li>
+            </ul>
+
+            <h3>3. Interval Scale</h3>
+            <p>Data is numerical, ordered, and the differences between values are meaningful and uniform. However, there is <strong>no true zero point</strong> (zero is arbitrary and doesn't mean "absence").</p>
+            <ul>
+                <li><strong>Properties:</strong> Identity + Order + Meaningful Differences.</li>
+                <li><strong>Operations:</strong> Count, mode, median, mean, standard deviation. Addition and subtraction are meaningful.</li>
+                <li><strong>Examples:</strong> Temperature in Celsius or Fahrenheit (0°C doesn't mean "no heat"), calendar years (Year 0 is arbitrary), IQ scores.</li>
+            </ul>
+
+            <h3>4. Ratio Scale</h3>
+            <p>The highest level of measurement. It has all the properties of the interval scale, plus a <strong>true zero point</strong>, which indicates the "absence" of the quantity.</p>
+            <ul>
+                <li><strong>Properties:</strong> Identity + Order + Meaningful Differences + True Zero.</li>
+                <li><strong>Operations:</strong> All statistical operations, including multiplication and division (we can form ratios).</li>
+                <li><strong>Examples:</strong> Height, weight, age, income, distance. (0 kg means "no weight," $0 means "no money").</li>
+            </ul>
+
+            <div class="exam-tip">
+                <strong>Exam Tip:</strong> A classic question is "Differentiate between Interval and Ratio scales." The key answer is the <strong>true zero point</strong>. Ask yourself: "Does 0 mean the absence of the thing?" If yes, it's Ratio. If no, it's Interval.
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="presentation">
+            <h2>5. Presentation of Data by Tables and Diagrams</h2>
+            <p>After collection, raw data is unorganized. We must organize it for clarity.</p>
+
+            <h3>Tabulation (Tables)</h3>
+            <p>The systematic arrangement of classified data into rows and columns with a title and headings.</p>
+            
+            <h4>Example of a Table:</h4>
+            <table>
+                <caption>Table 1.1: Student Enrollment by Course, 2025</caption>
+                <thead>
+                    <tr>
+                        <th>Course</th>
+                        <th>Number of Students</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Statistics</td>
+                        <td>120</td>
+                    </tr>
+                    <tr>
+                        <td>Economics</td>
+                        <td>140</td>
+                    </tr>
+                    <tr>
+                        <td>History</td>
+                        <td>90</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total</strong></td>
+                        <td><strong>350</strong></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2"><em>Source: College Admission Records</em></td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <h3>Diagrams</h3>
+            <p>Visual representations of data. Used for qualitative or categorical data.</p>
+            <ul>
+                <li><strong>Bar Diagram (or Bar Chart):</strong> Uses rectangular bars (of equal width) to represent frequencies. The height of the bar is proportional to the frequency. <strong>There are gaps between bars.</strong>
+                    </li>
+                <li><strong>Pie Diagram (or Pie Chart):</strong> A circle divided into sectors, where the angle of each sector is proportional to the frequency of that category.
+                    <ul><li><strong>Angle = (Frequency / Total Frequency) * 360°</strong></li></ul>
+                    <p><em>Example:</em> For Statistics in Table 1.1, Angle = (120 / 350) * 360° ≈ 123.4°</p>
+                    </li>
+            </ul>
+        </section>
+        
+        <hr>
+
+        <section id="freq-dist">
+            <h2>6. Frequency Distributions</h2>
+            <p>A table that organizes data into classes (or groups) and shows the number of observations (frequency) that fall into each class.</p>
+            
+            <h3>1. Discrete Frequency Distribution</h3>
+            <p>Used for discrete data. We list each distinct value and its corresponding frequency.</p>
+            <table>
+                <caption>Discrete Frequency Distribution (No. of children in 20 families)</caption>
+                <thead>
+                    <tr>
+                        <th>Number of Children (x)</th>
+                        <th>Frequency (f)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total</strong></td>
+                        <td><strong>20</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>2. Continuous Frequency Distribution</h3>
+            <p>Used for continuous data. Data is grouped into <strong>class intervals</strong>.</p>
+            <ul>
+                <li><strong>Class Limits:</strong> The lowest (Lower Limit) and highest (Upper Limit) values a class can have. (e.g., 10-19).</li>
+                <li><strong>Exclusive Method:</strong> Class intervals like 10-20, 20-30, etc. The upper limit (20) is excluded from the first class and included in the next. This is the preferred method for continuous data.</li>
+                <li><strong>Inclusive Method:</strong> Class intervals like 10-19, 20-29, etc. Both limits are included. To make it continuous for graphing, we must find <strong>Class Boundaries</strong> (e.g., 9.5 - 19.5, 19.5 - 29.5).</li>
+                <li><strong>Class Mark (Midpoint):</strong> (Lower Limit + Upper Limit) / 2.</li>
+            </ul>
+            
+            <h3>3. Cumulative Frequency Distribution</h3>
+            <p>Shows the total frequency *up to* or *more than* a certain class boundary.</p>
+            <ul>
+                <li><strong>Less Than:</strong> Sum of frequencies from the top. (e.g., "Less than 20", "Less than 30").</li>
+                <li><strong>More Than:</strong> Sum of frequencies from the bottom. (e.g., "More than 10", "More than 20").</li>
+            </ul>
+        </section>
+        
+        <hr>
+
+        <section id="graphical">
+            <h2>7. Graphical Representation (Histogram, Frequency Polygon, Ogive)</h2>
+            
+            <h3>1. Histogram</h3>
+            <p>A graph of a continuous frequency distribution. It consists of adjacent rectangles.</p>
+            <ul>
+                <li>The <strong>X-axis</strong> represents the class boundaries (using the exclusive method or boundaries from the inclusive method).</li>
+                <li>The <strong>Y-axis</strong> represents the frequency.</li>
+                <li><strong>There are no gaps between the bars.</strong></li>
+            </ul>
+            <h3>2. Frequency Polygon</h3>
+            <p>A line graph representing a frequency distribution.</p>
+            <ul>
+                <li>It is drawn by plotting the <strong>class marks (midpoints)</strong> on the X-axis against the <strong>frequencies</strong> on the Y-axis.</li>
+                <li>The points are then joined by straight lines.</li>
+                <li>The polygon is "closed" by joining the first and last points to hypothetical class marks at either end with zero frequency.</li>
+            </ul>
+            <h3>3. Ogives (Cumulative Frequency Curves)</h3>
+            <p>An ogive is a graph of a cumulative frequency distribution. It is used to find partition values like the median and quartiles graphically.</p>
+            <ul>
+                <li><strong>Less Than Ogive:</strong>
+                    <ul>
+                        <li>Plot <strong>Upper Class Boundaries</strong> on the X-axis.</li>
+                        <li>Plot <strong>"Less Than" Cumulative Frequencies</strong> on the Y-axis.</li>
+                        <li>The curve rises from left to right.</li>
+                    </ul>
+                </li>
+                <li><strong>More Than Ogive:</strong>
+                    <ul>
+                        <li>Plot <strong>Lower Class Boundaries</strong> on the X-axis.</li>
+                        <li>Plot <strong>"More Than" Cumulative Frequencies</strong> on the Y-axis.</li>
+                        <li>The curve falls from left to right.</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="note">
+                <strong>Finding the Median:</strong> The <strong>Median</strong> is the X-coordinate of the intersection point of the "Less Than" and "More Than" ogives.
+            </div>
+            </section>
+
+    </div>
+  <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

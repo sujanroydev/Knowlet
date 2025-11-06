@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="101, 1st, dsc, knowlet, notes, semester, statistics, unit">
+
+    <meta name="description" content="Comprehensive notes for Statistics DSC 101 Unit 2 | 1st Semester Notes - Knowlet. Includes key concepts, definitions, and summaries for college students.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics DSC 101 Unit 2 | 1st Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #e74c3c;
+            border-bottom: 2px solid #fADBD8;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #c0392b;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #e74c3c;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        blockquote {
+            background: #fADBD8;
+            border-left: 5px solid #e74c3c;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #555;
+        }
+        .exam-tip, .note {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            border-left-width: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #d9534f;
+        }
+        .note strong {
+            color: #0275d8;
+        }
+        .formula {
+            background: #fef5e7;
+            border: 1px solid #fdebd0;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        #toc {
+            background: #fADBD8;
+            border: 1px solid #e74c3c;
+            padding: 15px 25px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #2c3e50;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc ul li a {
+            text-decoration: none;
+            color: #c0392b;
+        }
+        #toc ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 2: Measures of Central Tendency & Dispersion</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#central-tendency">1. Measures of Central Tendency (Averages)</a></li>
+                <li><a href="#partition">2. Partition Values</a></li>
+                <li><a href="#dispersion">3. Measures of Dispersion (Variability)</a></li>
+                <li><a href="#cv">4. Coefficient of Variation (Relative Dispersion)</a></li>
+                <li><a href="#graphical">5. Graphical Representation of Measures</a></li>
+                <li><a href="#moments">6. Moments</a></li>
+                <li><a href="#sheppard">7. Sheppard's Corrections for Moments</a></li>
+                <li><a href="#skew-kurt">8. Measures of Skewness and Kurtosis</a></li>
+            </ul>
+        </div>
+
+        <section id="central-tendency">
+            <h2>1. Measures of Central Tendency (Averages)</h2>
+            <p>A measure of central tendency is a single value that attempts to describe a set of data by identifying the central position within that set. They are also known as "averages."</p>
+            
+            <h3>Mathematical Averages</h3>
+            
+            <h4>1. Arithmetic Mean (AM or Mean)</h4>
+            <p>The sum of all observations divided by the number of observations.</p>
+            <div class="formula">
+                <strong>Ungrouped Data:</strong> x̄ = (x1 + x2 + ... + xn) / n = (Σx) / n
+                <br>
+                <strong>Grouped Data:</strong> x̄ = (Σf * x) / (Σf) = (Σf * x) / N
+                <br>
+                (where x = midpoint of class, f = frequency, N = total frequency)
+            </div>
+            <ul>
+                <li><strong>Pros:</strong> Easy to calculate, rigidly defined, uses all data points.</li>
+                <li><strong>Cons:</strong> Highly affected by extreme values (outliers).</li>
+            </ul>
+
+            <h4>2. Geometric Mean (GM)</h4>
+            <p>The n-th root of the product of n observations. Used for averaging ratios, percentages, or growth rates.</p>
+            <div class="formula">
+                <strong>Ungrouped Data:</strong> GM = (x1 * x2 * ... * xn)^(1/n)
+                <br>
+                <strong>Using Logs:</strong> log(GM) = (Σ log(x)) / n  =>  GM = Antilog[ (Σ log(x)) / n ]
+            </div>
+            <ul>
+                <li><strong>Pros:</strong> Less affected by outliers than AM, good for multiplicative data.</li>
+                <li><strong>Cons:</strong> Cannot be calculated if any value is zero or negative.</li>
+            </ul>
+
+            <h4>3. Harmonic Mean (HM)</h4>
+            <p>The reciprocal of the arithmetic mean of the reciprocals of the observations. Used for averaging rates and speeds.</p>
+            <div class="formula">
+                <strong>Ungrouped Data:</strong> HM = n / (Σ (1/x))
+                <br>
+                <strong>Grouped Data:</strong> HM = N / (Σ (f/x))
+            </div>
+            <ul>
+                <li><strong>Pros:</strong> Gives more weight to smaller values.</li>
+                <li><strong>Cons:</strong> Cannot be calculated if any value is zero. Difficult to understand.</li>
+            </ul>
+            <div class="note">
+                <strong>Note:</strong> For any set of positive numbers: <strong>AM ≥ GM ≥ HM</strong>.
+            </div>
+
+            <h3>Positional / Partitional Averages</h3>
+            
+            <h4>1. Median (Md)</h4>
+            <p>The middle value of a dataset that has been arranged in order (ascending or descending).</p>
+            <div class="formula">
+                <strong>Ungrouped Data:</strong>
+                <br>
+                - If n is odd: Median = Value of the ((n+1)/2)-th item.
+                <br>
+                - If n is even: Median = Average of the (n/2)-th and ((n/2) + 1)-th items.
+                <br><br>
+                <strong>Grouped Data:</strong> Median = L + [ ( (N/2) - cf ) / f ] * h
+                <br>
+                (L = lower boundary of median class, N = total frequency, cf = cumulative frequency *before* median class, f = frequency of median class, h = class width)
+            </div>
+            <ul>
+                <li><strong>Pros:</strong> Not affected by outliers (resistant measure), can be calculated for open-ended classes.</li>
+                <li><strong>Cons:</strong> Does not use all data points.</li>
+            </ul>
+
+            <h4>2. Mode (Mo)</h4>
+            <p>The value that appears most frequently in a dataset.</p>
+            <ul>
+                <li>A dataset can be <strong>unimodal</strong> (1 mode), <strong>bimodal</strong> (2 modes), or <strong>multimodal</strong> (>2 modes).</li>
+            </ul>
+            <div class="formula">
+                <strong>Grouped Data:</strong> Mode = L + [ (f1 - f0) / (2*f1 - f0 - f2) ] * h
+                <br>
+                (L = lower boundary of modal class, f1 = freq of modal class, f0 = freq of pre-modal class, f2 = freq of post-modal class, h = class width)
+            </div>
+            <ul>
+                <li><strong>Pros:</strong> Easy to find, not affected by outliers, the only average for nominal data.</li>
+                <li><strong>Cons:</strong> May not exist or may not be unique, ill-defined.</li>
+            </ul>
+            <div class="exam-tip">
+                <strong>Empirical Relationship:</strong> For a moderately skewed distribution:
+                <br>
+                <strong>Mean - Mode ≈ 3 * (Mean - Median)</strong>  or  <strong>Mode ≈ 3*Median - 2*Mean</strong>
+            </div>
+
+        </section>
+
+        <hr>
+
+        <section id="partition">
+            <h2>2. Partition Values</h2>
+            <p>Values that divide an ordered dataset into a number of equal parts.</p>
+            
+            <h3>1. Quartiles (Q)</h3>
+            <p>Divide the data into 4 equal parts.</p>
+            <ul>
+                <li><strong>Q1 (First/Lower Quartile):</strong> 25% of data is below it.</li>
+                <li><strong>Q2 (Second Quartile):</strong> 50% of data is below it. <strong>Q2 is the Median.</strong></li>
+                <li><strong>Q3 (Third/Upper Quartile):</strong> 75% of data is below it.</li>
+            </ul>
+            
+            <h3>2. Deciles (D)</h3>
+            <p>Divide the data into 10 equal parts (D1, D2, ... D9).</p>
+            
+            <h3>3. Percentiles (P)</h3>
+            <p>Divide the data into 100 equal parts (P1, P2, ... P99).</p>
+            
+            <div class="note">
+                <strong>Note:</strong> Q1 = P25,  Q2 = D5 = P50 = Median,  Q3 = P75.
+            </div>
+            
+            <div class="formula">
+                <strong>Formula for Grouped Data (Percentile 'k'):</strong>
+                <br>
+                Pk = L + [ ( (k*N/100) - cf ) / f ] * h
+                <br>
+                (To find Q1, use k=25. To find Q3, use k=75. To find D4, use k=40, etc.)
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="dispersion">
+            <h2>3. Measures of Dispersion (Variability)</h2>
+            <p>Measures that describe the spread, scatter, or variation of data points in a dataset. A low dispersion means data is clustered tightly around the center.</p>
+
+            <h3>Absolute Measures of Dispersion</h3>
+            (Expressed in the same units as the data)
+
+            <h4>1. Range</h4>
+            <p>The simplest measure. The difference between the largest and smallest observation.</p>
+            <div class="formula">Range = Largest Value (L) - Smallest Value (S)</div>
+            <ul>
+                <li><strong>Pros:</strong> Easy to calculate.</li>
+                <li><strong>Cons:</strong> Based on only two values, highly affected by outliers.</li>
+            </ul>
+
+            <h4>2. Inter-Quartile Range (IQR)</h4>
+            <p>The range of the middle 50% of the data. It is a resistant measure of spread.</p>
+            <div class="formula">IQR = Q3 - Q1</div>
+
+            <h4>3. Quartile Deviation (QD) or Semi-Interquartile Range</h4>
+            <p>Half of the Inter-Quartile Range.</p>
+            <div class="formula">QD = (Q3 - Q1) / 2</div>
+            <ul>
+                <li><strong>Pros:</strong> Not affected by outliers.</li>
+                <li><strong>Cons:</strong> Ignores 50% of the data (the extremes).</li>
+            </ul>
+
+            <h4>4. Mean Deviation (MD)</h4>
+            <p>The arithmetic mean of the absolute deviations of the observations from a measure of central tendency (mean, median, or mode).</p>
+            <div class="formula">
+                <strong>MD (from mean):</strong> (Σ |x - x̄|) / n
+                <br>
+                <strong>MD (from median):</strong> (Σ |x - Md|) / n
+            </div>
+            <ul>
+                <li><strong>Pros:</strong> Uses all data points.</li>
+                <li><strong>Cons:</strong> Ignores negative signs (mathematically problematic), difficult to compute.</li>
+            </ul>
+
+            <h4>5. Variance and Standard Deviation (SD)</h4>
+            <p>The most important and widely used measures of dispersion.</p>
+            <blockquote>
+                <strong>Variance (σ² or s²):</strong> The average of the <em>squared</em> deviations from the mean.
+            </blockquote>
+            <div class="formula">
+                <strong>Population Variance:</strong> σ² = (Σ (x - μ)²) / N
+                <br>
+                <strong>Sample Variance:</strong> s² = (Σ (x - x̄)²) / (n - 1)  <em>(Note the 'n-1' for unbiased estimate)</em>
+            </div>
+            <blockquote>
+                <strong>Standard Deviation (σ or s):</strong> The square root of the variance.
+            </blockquote>
+            <div class="formula">
+                <strong>SD (σ or s) = sqrt(Variance)</strong>
+                <br>
+                <strong>Computational Formula:</strong> s = sqrt[ ( (Σx²) - ( (Σx)² / n ) ) / (n - 1) ]
+            </div>
+            <ul>
+                <li><strong>Pros:</strong> Uses all data, mathematically sound, basis for many other statistical methods.</li>
+                <li><strong>Cons:</strong> Affected by outliers (due to squaring).</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="cv">
+            <h2>4. Coefficient of Variation (Relative Dispersion)</h2>
+            <p>Absolute measures (like SD) cannot be used to compare the variability of two different datasets if they have different units (e.g., heights vs. weights) or different means.</p>
+            <p>We use a <strong>relative measure</strong>, the Coefficient of Variation (CV).</p>
+            <blockquote>
+                <strong>Coefficient of Variation (CV):</strong> The ratio of the standard deviation to the mean, usually expressed as a percentage.
+            </blockquote>
+            <div class="formula">
+                CV = (Standard Deviation / Mean) * 100
+                <br>
+                CV = (s / x̄) * 100
+            </div>
+            <ul>
+                <li>It is a unit-free measure.</li>
+                <li>A <strong>lower CV</strong> means the data is <strong>more consistent</strong> or less variable.</li>
+                <li>A <strong>higher CV</strong> means the data is <strong>less consistent</strong> or more variable.</li>
+            </ul>
+            <div class="exam-tip">
+                <strong>Exam Tip:</strong> A common question is: "Team A has a mean score of 80 with SD=5. Team B has a mean score of 50 with SD=4. Which team is more consistent?"
+                <br>
+                - CV(A) = (5 / 80) * 100 = 6.25%
+                <br>
+                - CV(B) = (4 / 50) * 100 = 8%
+                <br>
+                - <strong>Answer:</strong> Team A is more consistent because its CV is lower.
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="graphical">
+            <h2>5. Graphical Representation of Measures</h2>
+            
+            <h3>1. Ogives (Cumulative Frequency Curves)</h3>
+            <p>An ogive is a graph of a cumulative frequency distribution. It is used to graphically locate partition values (Median, Quartiles, etc.).</p>
+            <ul>
+                <li><strong>Less Than Ogive:</strong>
+                    <ul>
+                        <li>Plot <strong>Upper Class Boundaries</strong> on the X-axis.</li>
+                        <li>Plot <strong>Less Than Cumulative Frequencies</strong> on the Y-axis.</li>
+                        <li>The curve rises from left to right.</li>
+                    </ul>
+                </li>
+                <li><strong>More Than Ogive:</strong>
+                    <ul>
+                        <li>Plot <strong>Lower Class Boundaries</strong> on the X-axis.</li>
+                        <li>Plot <strong>More Than Cumulative Frequencies</strong> on the Y-axis.</li>
+                        <li>The curve falls from left to right.</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="note">
+                <strong>Finding the Median:</strong> The <strong>Median</strong> is the X-coordinate of the intersection point of the "Less Than" and "More Than" ogives.
+                <br>
+                Alternatively, on a "Less Than" ogive, find the N/2 value on the Y-axis, draw a horizontal line to the curve, and then a vertical line down to the X-axis. This X-value is the Median.
+            </div>
+            <h3>2. Box Plot (Box-and-Whisker Plot)</h3>
+            <p>A graphical summary of a distribution based on five numbers: <strong>Minimum, Q1, Median (Q2), Q3, and Maximum.</strong></p>
+            <ul>
+                <li>A box is drawn from Q1 to Q3.</li>
+                <li>A vertical line is drawn inside the box at the Median.</li>
+                <li>"Whiskers" extend from the box to the Minimum and Maximum values (or to the last non-outlier point).</li>
+                <li>Outliers are often plotted as individual points.</li>
+            </ul>
+            <p>A box plot clearly shows the <strong>center</strong> (Median), <strong>spread</strong> (IQR/box length), and <strong>skewness</strong> (position of median in the box) of the data.</p>
+            </section>
+
+        <hr>
+
+        <section id="moments">
+            <h2>6. Moments</h2>
+            <p>Moments are a set of statistical parameters used to describe the characteristics (shape, center, spread) of a distribution.</p>
+            
+            <h3>1. Raw Moments (μ'<sub>r</sub>) - Moments about Origin (Zero)</h3>
+            <p>The r-th raw moment is the arithmetic mean of the r-th power of the observations.</p>
+            <div class="formula">
+                μ'<sub>r</sub> = (Σ x<sup>r</sup>) / n   (Ungrouped)
+                <br>
+                μ'<sub>r</sub> = (Σ f * x<sup>r</sup>) / N   (Grouped)
+            </div>
+            <ul>
+                <li>The <strong>first raw moment (r=1)</strong> is the <strong>Arithmetic Mean</strong>: μ'<sub>1</sub> = (Σx) / n = x̄</li>
+            </ul>
+
+            <h3>2. Central Moments (μ<sub>r</sub>) - Moments about the Mean</h3>
+            <p>The r-th central moment is the arithmetic mean of the r-th power of the deviations from the mean.</p>
+            <div class="formula">
+                μ<sub>r</sub> = (Σ (x - x̄)<sup>r</sup>) / n   (Ungrouped)
+                <br>
+                μ<sub>r</sub> = (Σ f * (x - x̄)<sup>r</sup>) / N   (Grouped)
+            </div>
+            <ul>
+                <li>The <strong>first central moment (r=1)</strong> is always <strong>zero</strong>: μ<sub>1</sub> = (Σ(x - x̄)) / n = 0</li>
+                <li>The <strong>second central moment (r=2)</strong> is the <strong>Variance</strong>: μ<sub>2</sub> = (Σ(x - x̄)²) / n = σ²</li>
+                <li>The <strong>third central moment (r=3)</strong>, μ<sub>3</sub>, is used to measure <strong>skewness</strong>.</li>
+                <li>The <strong>fourth central moment (r=4)</strong>, μ<sub>4</sub>, is used to measure <strong>kurtosis</strong>.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="sheppard">
+            <h2>7. Sheppard's Corrections for Moments</h2>
+            <p>When calculating moments from grouped data (a continuous frequency distribution), we assume all values in a class are at the midpoint. This introduces a "grouping error."</p>
+            <p>Sheppard's corrections are used to adjust the calculated moments (μ'<sub>r</sub>) to get a more accurate estimate, assuming the distribution is continuous and tapers off to zero at both ends.</p>
+            <div class="formula">
+  Let 'h' be the uniform class width.
+                <br><br>
+                <strong>Corrected μ<sub>1</sub></strong> = μ<sub>1</sub> = 0 (No change)
+                <br>
+                <strong>Corrected μ<sub>2</sub></strong> = μ<sub>2</sub> - (h² / 12)
+                <br>
+                <strong>Corrected μ<sub>3</sub></strong> = μ<sub>3</sub> (No change)
+                <br>
+                <strong>Corrected μ<sub>4</sub></strong> = μ<sub>4</sub> - (h² / 2) * μ<sub>2</sub> + (7 * h<sup>4</sup> / 240)
+            </div>
+            <div class="exam-tip">
+                <strong>Exam Tip:</strong> You usually only need to remember the correction for the second moment (variance). Corrected Variance = Calculated Variance - (h²/12).
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="skew-kurt">
+            <h2>8. Measures of Skewness and Kurtosis</h2>
+            
+            <h3>Skewness (Shape)</h3>
+            <p>Measures the <strong>asymmetry</strong> or lack of symmetry of a distribution.</p>
+            <ul>
+                <li><strong>Symmetrical Distribution:</strong> The "bell" shape is identical on both sides of the center.
+                    <ul><li><strong>Mean = Median = Mode</strong></li></ul>
+                </li>
+                <li><strong>Positively Skewed (Skewed to the Right):</strong> The "tail" of the distribution is longer on the right side.
+                    <ul><li><strong>Mean > Median > Mode</strong></li></ul>
+                </li>
+                <li><strong>Negatively Skewed (Skewed to the Left):</strong> The "tail" of the distribution is longer on the left side.
+                    <ul><li><strong>Mean < Median < Mode</strong></li></ul>
+                </li>
+            </ul>
+            <h4>Measures of SkewGness:</h4>
+            <ol>
+                <li><strong>Karl Pearson's Coefficient (Sk<sub>p</sub>):</strong>
+                    <div class="formula">Sk<sub>p</sub> = (Mean - Mode) / Standard Deviation</div>
+                    <div class="formula">(Approximate) Sk<sub>p</sub> = 3 * (Mean - Median) / Standard Deviation</div>
+                </li>
+                <li><strong>Bowley's Coefficient (Sk<sub>b</sub>):</strong> (Based on quartiles)
+                    <div class="formula">Sk<sub>b</sub> = (Q3 + Q1 - 2*Median) / (Q3 - Q1)</div>
+                </li>
+                <li><strong>Moment-based Coefficient (β<sub>1</sub> and γ<sub>1</sub>):</strong>
+                    <div class="formula">
+                        β<sub>1</sub> = (μ<sub>3</sub>)² / (μ<sub>2</sub>)³
+                        <br>
+                        γ<sub>1</sub> = sqrt(β<sub>1</sub>) = μ<sub>3</sub> / (μ<sub>2</sub>)<sup>1.5</sup>
+                    </div>
+                    (If γ<sub>1</sub> > 0, positive skew. If γ<sub>1</sub> < 0, negative skew. If γ<sub>1</sub> = 0, symmetrical)
+                </li>
+            </ol>
+            <h3>Kurtosis (Peakedness)</h3>
+            <p>Measures the <strong>peakedness</strong> or flatness of a distribution compared to the standard Normal distribution.</p>
+            <ul>
+                <li><strong>Leptokurtic:</strong> More peaked, sharper peak, and heavier/fatter tails. (Kurtosis > 3)</li>
+                <li><strong>Mesokurtic:</strong> The "normal" bell shape. (Kurtosis = 3)</li>
+                <li><strong>Platykurtic:</strong> Flatter, more rounded peak, and lighter/thinner tails. (Kurtosis < 3)</li>
+            </ul>
+            <h4>Measures of Kurtosis (β<sub>2</sub> and γ<sub>2</sub>):</h4>
+            <div class="formula">
+                β<sub>2</sub> = μ<sub>4</sub> / (μ<sub>2</sub>)²
+                <br>
+                γ<sub>2</sub> = β<sub>2</sub> - 3  (This is "excess kurtosis")
+            </div>
+            <ul>
+                <li>If <strong>β<sub>2</sub> = 3</strong> (or γ<sub>2</sub> = 0), it is <strong>Mesokurtic</strong>.</li>
+                <li>If <strong>β<sub>2</sub> > 3</strong> (or γ<sub>2</sub> > 0), it is <strong>Leptokurtic</strong>.</li>
+                <li>If <strong>β<sub>2</sub> < 3</strong> (or γ<sub>2</sub> < 0), it is <strong>Platykurtic</strong>.</li>
+            </ul>
+        </section>
+
+    </div>
+  <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

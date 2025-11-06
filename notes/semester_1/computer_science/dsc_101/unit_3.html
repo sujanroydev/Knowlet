@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="101, 1st, computer, dsc, knowlet, notes, science, semester, unit">
+
+    <meta name="description" content="Comprehensive notes for Computer Science DSC 101 Unit 3 | 1st Semester Notes - Knowlet. Includes key concepts, definitions, and summaries for college students.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Science DSC 101 Unit 3 | 1st Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 20px; background-color: #f4f4f9; color: #333; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.1); }
+        h1, h2, h3 { color: #ffc107; border-bottom: 2px solid #ffc107; padding-bottom: 5px; }
+        h1 { font-size: 2.2em; text-align: center; }
+        h2 { font-size: 1.8em; margin-top: 30px; }
+        h3 { font-size: 1.4em; color: #17a2b8; border-bottom: 1px solid #17a2b8; }
+        strong { color: #d9534f; }
+        blockquote { background: #e9ecef; border-left: 5px solid #ffc107; margin: 20px 0; padding: 15px; font-style: italic; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
+        th { background-color: #ffc107; color: #333; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .toc { background: #f8f9fa; border: 1px solid #dee2e6; padding: 15px; border-radius: 5px; margin-bottom: 30px; }
+        .toc h2 { border: none; margin-top: 0; }
+        .toc ul { list-style-type: none; padding: 0; }
+        .toc li a { text-decoration: none; color: #007bff; }
+        .toc li a:hover { text-decoration: underline; }
+        .exam-tip { background: #d1ecf1; border: 1px solid #bee5eb; border-left-width: 5px; padding: 15px; margin: 15px 0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 3: Combinational Logic</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#intro">3.1 Introduction to Combinational Logic</a></li>
+            <li><a href="#design-proc">3.2 Design and Analysis Procedures</a></li>
+            <li><a href="#adders">3.3 Adders and Subtractors</a></li>
+            <li><a href="#code-conv">3.4 Code Conversion</a></li>
+            <li><a href="#nand-xor">3.5 Multilevel NAND Circuits, XOR/Equivalence</a></li>
+            <li><a href="#adv-circuits">3.6 Advanced Arithmetic Circuits</a></li>
+            <li><a href="#data-proc">3.7 Data Processing Circuits</a></li>
+            <li><a href="#memory-logic">3.8 Memory and Programmable Logic</a></li>
+        </ul>
+    </div>
+
+    <h2 id="intro">3.1 Introduction to Combinational Logic</h2>
+    <blockquote>
+        A combinational logic circuit is one whose output at any given time depends <strong>only</strong> on the combination of its inputs at that same time. It has no memory elements, so its output is not a function of previous inputs.
+    </blockquote>
+    <h2 id="design-proc">3.2 Design and Analysis Procedures</h2>
+    <h3>Design Procedure</h3>
+    <ol>
+        <li><strong>Problem Statement:</strong> Understand the problem and determine the number of input and output variables.</li>
+        <li><strong>Truth Table:</strong> Create a truth table that shows the relationship between inputs and outputs.</li>
+        <li><strong>Simplification:</strong> Simplify the Boolean expression for each output using methods like K-maps or the Tabulation method.</li>
+        <li><strong>Logic Diagram:</strong> Draw the logic diagram based on the simplified expressions.</li>
+    </ol>
+
+    <h3>Analysis Procedure</h3>
+    <p>This is the reverse of the design procedure. You are given a circuit diagram and need to determine its function.</p>
+    <ol>
+        <li>Ensure the given circuit is combinational (no feedback paths).</li>
+        <li>Derive the Boolean expression for each output.</li>
+        <li>Create a truth table from the derived expressions.</li>
+        <li>Interpret the function of the circuit from the truth table.</li>
+    </ol>
+
+    <h2 id="adders">3.3 Adders and Subtractors</h2>
+    <h3>Half Adder</h3>
+    <p>A circuit that adds two single bits. It has two inputs (A, B) and two outputs (Sum, Carry).</p>
+    <ul>
+        <li><strong>Sum = A ⊕ B</strong> (A XOR B)</li>
+        <li><strong>Carry = A . B</strong> (A AND B)</li>
+    </ul>
+    <h3>Full Adder</h3>
+    <p>A circuit that adds three single bits (A, B, and a Carry-in C<sub>in</sub>). It can be constructed from two half adders.</p>
+    <ul>
+        <li><strong>Sum = A ⊕ B ⊕ C<sub>in</sub></strong></li>
+        <li><strong>Carry-out = AB + BC<sub>in</sub> + AC<sub>in</sub></strong></li>
+    </ul>
+    <h3>Half Subtractor and Full Subtractor</h3>
+    <p>Similar to adders, these circuits perform subtraction on binary bits, producing a Difference and a Borrow output.</p>
+    <h2 id="code-conv">3.4 Code Conversion</h2>
+    <p>Combinational circuits can be designed to convert from one binary code to another, for example, from Binary Coded Decimal (BCD) to Excess-3 code. The design procedure is followed: define inputs/outputs, create a truth table for the conversion, use K-maps to simplify the expression for each output bit, and draw the circuit.</p>
+
+    <h2 id="nand-xor">3.5 Multilevel NAND Circuits, XOR/Equivalence</h2>
+    <h3>Multilevel NAND Circuits</h3>
+    <p>Any Boolean expression can be implemented using only NAND gates. An AND-OR circuit can be easily converted to a NAND-NAND circuit. This is often advantageous as NAND gates are typically faster and cheaper to fabricate.</p>
+    <h3>Exclusive-OR (XOR) and Equivalence (XNOR)</h3>
+    <p>The XOR function is an important Boolean function used extensively in parity checkers and arithmetic circuits. Its output is true only when the inputs are different. The XNOR (Equivalence) function is its complement, producing a true output when the inputs are the same.</p>
+
+    <h2 id="adv-circuits">3.6 Advanced Arithmetic Circuits</h2>
+    <h3>Binary Parallel Adder</h3>
+    <p>To add binary numbers with more than one bit, we can cascade Full Adders. A 4-bit parallel adder is constructed using 4 Full Adders, where the carry-out of one stage is connected to the carry-in of the next stage.</p>
+    <h3>Decimal Adder (BCD Adder)</h3>
+    <p>A BCD adder adds two BCD digits (4 bits each) and produces a BCD sum. The logic is more complex than a binary adder because if the 4-bit binary sum is greater than 9, a correction is needed (by adding 6, which is 0110 in binary) to get the correct BCD result and generate a carry.</p>
+    <h3>Magnitude Comparator</h3>
+    <p>A circuit that compares two binary numbers (A and B) and determines their relative magnitude. The output consists of three signals indicating whether A > B, A = B, or A < B.</p>
+    <h2 id="data-proc">3.7 Data Processing Circuits</h2>
+    <h3>Decoders</h3>
+    <p>A decoder is a circuit that converts binary information from 'n' input lines to a maximum of 2<sup>n</sup> unique output lines. For example, a 3-to-8 decoder takes a 3-bit input and activates one of the 8 outputs.</p>
+    <div class="exam-tip">Decoders are used in memory addressing and instruction decoding in CPUs.</div>
+    <h3>Multiplexers (MUX)</h3>
+    <p>A multiplexer (or data selector) is a circuit that selects one of several input signals and forwards it to a single output line. The selection is controlled by a set of select lines. A 2<sup>n</sup>-to-1 MUX has 2<sup>n</sup> data inputs, 'n' select lines, and 1 output.</p>
+    <div class="exam-tip">MUX is like a digital switch. It's often called a universal logic module because any Boolean function can be implemented using a multiplexer.</div>
+    <h2 id="memory-logic">3.8 Memory and Programmable Logic</h2>
+    <h3>Read-Only Memory (ROM)</h3>
+    <p>A ROM is a memory device that stores binary information permanently. In the context of combinational logic, a ROM can be seen as a device that implements a set of Boolean functions. A ROM consists of a decoder and a set of OR gates. The decoder generates all the minterms, and the OR gates sum them to create the desired output functions.</p>
+    
+    <h3>Programmable Logic Array (PLA)</h3>
+    <p>A PLA is a flexible programmable logic device with both a programmable AND array and a programmable OR array. This allows the user to implement a specific set of SOP functions. It is more flexible than a ROM because it does not necessarily generate all the minterms, only the required product terms.</p>
+    </div>
+
+  <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

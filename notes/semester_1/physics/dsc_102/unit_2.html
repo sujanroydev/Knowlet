@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="102, 1st, dsc, knowlet, notes, physics, semester, unit">
+
+    <meta name="description" content="Comprehensive notes for Physics DSC 102 Unit 2 | 1st Semester Notes - Knowlet. Includes key concepts, definitions, and summaries for college students.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSC 102 Unit 2 | 1st Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dcdcdc;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #27ae60;
+            padding-bottom: 5px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            border-bottom-width: 3px;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #219d53;
+            border-bottom: 1px dotted #27ae60;
+        }
+        p, li {
+            font-size: 1.1em;
+            text-align: justify;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        blockquote {
+            font-family: 'Georgia', serif;
+            font-size: 1.2em;
+            font-style: italic;
+            background-color: #f0fff4;
+            border-left: 5px solid #27ae60;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        .exam-tip {
+            background-color: #fffbe6;
+            border: 1px solid #ffecb3;
+            border-left-width: 5px;
+            border-left-color: #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #c79100;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #27ae60;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        #toc {
+            background: #e6f7ee;
+            border: 1px solid #b3dfc9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            border-bottom: none;
+            margin-top: 0;
+            text-align: center;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #toc li {
+            margin: 5px 0;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #219d53;
+            font-weight: bold;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 2: Rotational Dynamics</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Angular Momentum (L)</a></li>
+                <li><a href="#topic2">Torque (τ)</a></li>
+                <li><a href="#topic3">Principle of Conservation of Angular Momentum</a></li>
+                <li><a href="#topic4">Moment of Inertia (I)</a></li>
+                <li><a href="#topic5">Calculation of Moment of Inertia</a></li>
+                <li><a href="#topic6">Elasticity: Hooke’s Law and Elastic Constants</a></li>
+                <li><a href="#topic7">Relation connecting Elastic constants</a></li>
+            </ul>
+        </div>
+        
+        <p>Rotational dynamics is the study of motion involving rotation. It uses analogs of linear concepts (like force, mass, and momentum) for rotational motion.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Linear Concept</th>
+                    <th>Rotational Analog</th>
+                    <th>Relationship</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Position (x)</td>
+                    <td>Angle (θ)</td>
+                    <td>x = rθ</td>
+                </tr>
+                <tr>
+                    <td>Velocity (v)</td>
+                    <td>Angular Velocity (ω = dθ/dt)</td>
+                    <td>v = ωr</td>
+                </tr>
+                <tr>
+                    <td>Acceleration (a)</td>
+                    <td>Angular Acceleration (α = dω/dt)</td>
+                    <td>a = αr</td>
+                </tr>
+                <tr>
+                    <td>Mass (m, Inertia)</td>
+                    <td><strong>Moment of Inertia (I)</strong></td>
+                    <td>I = Σmᵢrᵢ²</td>
+                </tr>
+                <tr>
+                    <td>Momentum (p = mv)</td>
+                    <td><strong>Angular Momentum (L = Iω)</strong></td>
+                    <td>L = r × p</td>
+                </tr>
+                <tr>
+                    <td>Force (F)</td>
+                    <td><strong>Torque (τ)</strong></td>
+                    <td>τ = r × F</td>
+                </tr>
+                <tr>
+                    <td>Newton's 2nd Law (F = ma)</td>
+                    <td><strong>Newton's 2nd Law (τ = Iα)</strong></td>
+                    <td>τ = dL/dt</td>
+                </tr>
+                <tr>
+                    <td>Kinetic Energy (K = ½mv²)</td>
+                    <td><strong>Rotational K.E. (K<sub>rot</sub> = ½Iω²)</strong></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="topic1">Angular Momentum (L)</h2>
+        
+        <h3>Angular Momentum of a Particle</h3>
+        <p>The angular momentum <strong>L</strong> of a single particle (with linear momentum <strong>p</strong> at a position <strong>r</strong> from the origin) is defined as the vector cross product:</p>
+        <blockquote>
+            <strong>L = r × p = r × (mv)</strong>
+        </blockquote>
+        <ul>
+            <li><strong>L</strong> is a vector. Its direction is perpendicular to both <strong>r</strong> and <strong>p</strong>, given by the right-hand rule.</li>
+            <li><strong>Magnitude:</strong> L = |r| |p| sin(φ) = rp sin(φ), where φ is the angle between <strong>r</strong> and <strong>p</strong>.</li>
+            <li>`r_perp = r sin(φ)` is the "lever arm", or the perpendicular distance from the origin to the line of motion. So, L = p * (r_perp).</li>
+        </ul>
+
+        <h3>Angular Momentum of a System of Particles</h3>
+        <p>The total angular momentum <strong>L<sub>total</sub></strong> of a system (e.g., a rigid body) is the vector sum of the angular momenta of all its individual particles:</p>
+        <blockquote>
+            <strong>L<sub>total</sub> = Σ Lᵢ = Σ (rᵢ × pᵢ)</strong>
+        </blockquote>
+        <p>For a rigid body rotating with a fixed angular velocity <strong>ω</strong> about an axis of symmetry, this simplifies to:</p>
+        <blockquote>
+            <strong>L = Iω</strong>
+        </blockquote>
+        <p>Where <strong>I</strong> is the Moment of Inertia (discussed below). This is the rotational analog of <strong>p = mv</strong>.</p>
+
+        <hr>
+
+        <h2 id="topic2">Torque (τ)</h2>
+        <p>Torque (or "moment of a force") is the rotational equivalent of force. It is the "twist" or "turning effect" produced by a force.</p>
+        <p>The torque <strong>τ</strong> produced by a force <strong>F</strong> applied at a position <strong>r</strong> from the origin is defined as:</p>
+        <blockquote>
+            <strong>τ = r × F</strong>
+        </blockquote>
+        <ul>
+            <li><strong>τ</strong> is a vector. Its direction indicates the axis of rotation (by the right-hand rule).</li>
+            <li><strong>Magnitude:</strong> τ = |r| |F| sin(φ) = rF sin(φ), where φ is the angle between <strong>r</strong> and <strong>F</strong>.</li>
+            <li>`r_perp = r sin(φ)` is the "lever arm". So, τ = F * (r_perp).</li>
+        </ul>
+
+        <h3>Relation between Torque and Angular Momentum</h3>
+        <p>This is the rotational form of Newton's Second Law. We start with L = r × p and differentiate with respect to time:</p>
+        <p class="formula">dL/dt = d/dt (r × p)</p>
+        <p>Using the product rule for cross products:</p>
+        <p class="formula">dL/dt = (dr/dt × p) + (r × dp/dt)</p>
+        <ul>
+            <li>The first term is (v × p) = (v × mv) = m(v × v). The cross product of any vector with itself is <strong>zero</strong>. So, (dr/dt × p) = 0.</li>
+            <li>The second term uses Newton's Second Law, F<sub>net</sub> = dp/dt. So, (r × dp/dt) = (r × F<sub>net</sub>).</li>
+            <li>By definition, (r × F<sub>net</sub>) is the net torque <strong>τ<sub>net</sub></strong>.</li>
+        </ul>
+        <p>Therefore, we get the fundamental law of rotational dynamics:</p>
+        <blockquote>
+            <strong>τ<sub>net</sub> = dL/dt</strong>
+        </blockquote>
+        <p><strong>In words:</strong> The net external torque on a system is equal to the rate of change of its total angular momentum.</p>
+        
+        <div class="exam-tip">
+            <strong>Analogy Check:</strong>
+            <ul>
+                <li>Linear: <strong>F<sub>net</sub> = dp/dt</strong></li>
+                <li>Rotational: <strong>τ<sub>net</sub> = dL/dt</strong></li>
+            </ul>
+        </div>
+        
+        <p>If we consider a rigid body with constant Moment of Inertia <strong>I</strong>:</p>
+        <p class="formula">τ<sub>net</sub> = dL/dt = d(Iω)/dt = I (dω/dt)</p>
+        <p>Since angular acceleration α = dω/dt, we get:</p>
+        <blockquote>
+            <strong>τ<sub>net</sub> = Iα</strong>
+        </blockquote>
+        <p>This is the rotational analog of <strong>F<sub>net</sub> = ma</strong>.</p>
+        
+        <hr>
+
+        <h2 id="topic3">Principle of Conservation of Angular Momentum</h2>
+        <p>From the law <strong>τ<sub>net</sub> = dL/dt</strong>.</p>
+        <p>If the <strong>net external torque</strong> acting on a system is zero (τ<sub>net</sub> = 0), then:</p>
+        <p class="formula">dL/dt = 0</p>
+        <p>This implies that <strong>L = constant</strong>.</p>
+        <blockquote>
+            <strong>Conservation of Angular Momentum:</strong> In an isolated system (one with no net external torque), the total angular momentum of the system remains constant.
+        </blockquote>
+        <p>L<sub>initial</sub> = L<sub>final</sub></p>
+        <p>I<sub>initial</sub> ω<sub>initial</sub> = I<sub>final</sub> ω<sub>final</sub></p>
+        
+        <div class="exam-tip">
+            <strong>Real-World Applications:</strong>
+            <ul>
+                <li><strong>Ice Skater:</strong> A spinning skater pulls her arms in. Her mass distribution is closer to the axis, so her Moment of Inertia (I) <strong>decreases</strong>. To keep L = Iω constant, her angular velocity (ω) must <strong>increase</strong>, and she spins faster.</li>
+                <li><strong>Diver:</strong> A diver tucks into a ball. 'I' decreases, so 'ω' increases, allowing them to complete more flips.</li>
+                <li><strong>Planetary Orbits:</strong> A planet's angular momentum around the sun is (almost) constant. When it is closer (r is small), its 'I' is smaller, so its 'v' (and 'ω') must be larger (Kepler's 2nd Law).</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2 id="topic4">Moment of Inertia (I)</h2>
+        <p>The Moment of Inertia (also called rotational inertia) is the rotational equivalent of mass. It measures an object's <strong>resistance to changes in its rotational motion</strong> (i.e., resistance to angular acceleration).</p>
+        <ul>
+            <li>A large 'I' means it is hard to start or stop the object's rotation.</li>
+            <li>Unlike mass (a scalar), Moment of Inertia is a <strong>tensor</strong>. Its value depends on:
+                <ol>
+                    <li>The total mass of the object.</li>
+                    <li>The <strong>distribution of that mass</strong> around the axis of rotation.</li>
+                    <li>The orientation and position of the axis of rotation.</li>
+                </ol>
+            </li>
+        </ul>
+        <p><strong>Definition:</strong></p>
+        <ul>
+            <li><strong>For discrete particles:</strong> I = Σ mᵢrᵢ² (where rᵢ is the perpendicular distance of mass mᵢ from the axis).</li>
+            <li><strong>For a continuous body:</strong> I = ∫ r² dm (where dm is an infinitesimal mass element at distance r from the axis).</li>
+        </ul>
+
+        <h3>Theorems of Moment of Inertia</h3>
+        <p>These are crucial for calculating 'I' for complex shapes.</p>
+        
+        <h4>1. Perpendicular Axis Theorem</h4>
+        <ul>
+            <li><strong>Applies to:</strong> 2D objects (laminas) only.</li>
+            <li><strong>Statement:</strong> The moment of inertia of a 2D body about an axis perpendicular to its plane (z-axis) is equal to the sum of its moments of inertia about any two perpendicular axes lying in its plane and intersecting at the same point.</li>
+            <blockquote>
+                <strong>I<sub>z</sub> = I<sub>x</sub> + I<sub>y</sub></strong>
+            </blockquote>
+        </ul>
+        
+        <h4>2. Parallel Axis Theorem</h4>
+        <ul>
+            <li><strong>Applies to:</strong> Any 3D object.</li>
+            <li><strong>Statement:</strong> The moment of inertia 'I' about any axis is equal to the moment of inertia about a parallel axis passing through the Centre of Mass (I<sub>CM</sub>), plus the product of the total mass (M) and the square of the perpendicular distance (d) between the two axes.</li>
+            <blockquote>
+                <strong>I = I<sub>CM</sub> + Md²</strong>
+            </blockquote>
+            <li><strong>Exam Tip:</strong> This theorem is *always* used to find the moment of inertia about an axis that does *not* pass through the CM.</li>
+        </ul>
+
+        <hr>
+
+        <h2 id="topic5">Calculation of Moment of Inertia</h2>
+
+        <h3>1. Rectangular Lamina</h3>
+        <p>Consider a thin rectangular lamina of mass M, length 'l' and width 'b'.</p>
+        <ul>
+            <li><strong>Axis through CM, parallel to width 'b':</strong> (i.e., rotating "lengthwise")
+                <br><strong>I<sub>CM</sub> = (1/12) Ml²</strong>
+            </li>
+            <li><strong>Axis through CM, parallel to length 'l':</strong> (i.e., rotating "widthwise")
+                <br><strong>I<sub>CM</sub> = (1/12) Mb²</strong>
+            </li>
+            <li><strong>Axis through CM, perpendicular to the lamina:</strong> (Using Perpendicular Axis Theorem)
+                <br>I<sub>z</sub> = I<sub>x</sub> + I<sub>y</sub> = (1/12)Ml² + (1/12)Mb²
+                <br><strong>I<sub>z</sub> = (1/12) M(l² + b²)</strong>
+            </li>
+        </ul>
+
+        <h3>2. Circular Body (Solid Disc)</h3>
+        <p>Consider a solid disc of mass M and radius R.</p>
+        <ul>
+            <li><strong>Axis through CM, perpendicular to the disc:</strong> (e.g., spinning a record)
+                <br><strong>I<sub>CM</sub> = (1/2) MR²</strong>
+            </li>
+            <li><strong>Axis along a diameter:</strong> (e.g., flipping the disc)
+                <br>By Perpendicular Axis Theorem: I<sub>z</sub> = I<sub>x</sub> + I<sub>y</sub>. Here, I<sub>z</sub> = (1/2)MR². Since all diameters are identical, I<sub>x</sub> = I<sub>y</sub> = I<sub>diameter</sub>.
+                <br>(1/2)MR² = 2 * I<sub>diameter</sub>
+                <br><strong>I<sub>diameter</sub> = (1/4) MR²</strong>
+            </li>
+        </ul>
+
+        <h3>3. Cylindrical Body (Solid Cylinder)</h3>
+        <p>Consider a solid cylinder of mass M, radius R, and length L.</p>
+        <ul>
+            <li><strong>Axis along the central axis of the cylinder:</strong> (e.g., a wheel on an axle)
+                <br>This is just a stack of solid discs. The length 'L' is irrelevant.
+                <br><strong>I<sub>CM</sub> = (1/2) MR²</strong>
+            </li>
+            <li><strong>Axis through CM, perpendicular to the cylinder's length:</strong> (e.g., twirling a baton)
+                <br>This requires integration and the parallel axis theorem.
+                <br><strong>I<sub>CM</sub> = (1/4)MR² + (1/12)ML²</strong>
+            </li>
+        </ul>
+        
+        <div class="exam-tip">
+            <strong>Common Moments of Inertia to Memorize:</strong>
+            <ul>
+                <li><strong>Thin Hoop/Ring (about center):</strong> I = MR²</li>
+                <li><strong>Solid Disc/Cylinder (about center):</strong> I = (1/2)MR²</li>
+                <li><strong>Solid Sphere (about center):</strong> I = (2/5)MR²</li>
+                <li><strong>Hollow Sphere (about center):</strong> I = (2/3)MR²</li>
+                <li><strong>Thin Rod (about center):</strong> I = (1/12)ML²</li>
+                <li><strong>Thin Rod (about end):</strong> I = (1/3)ML²  (This comes from I = I_cm + Md² = (1/12)ML² + M(L/2)² = (1/12 + 1/4)ML² = (1/3)ML²)</li>
+            </ul>
+        </div>
+        
+        <hr>
+
+        <h2 id="topic6">Elasticity: Hooke’s Law and Elastic Constants</h2>
+        <p>(Note: This topic is often placed in "Properties of Matter", but is included here as per the syllabus.)</p>
+        <p><strong>Elasticity</strong> is the property of a body to regain its original shape and size after the removal of a deforming force.</p>
+        
+        <h3>Stress and Strain</h3>
+        <ul>
+            <li><strong>Stress:</strong> The internal restoring force per unit area. `Stress = F_restoring / A`. (Units: N/m² or Pascals, Pa)</li>
+            <li><strong>Strain:</strong> The fractional deformation of the body. `Strain = Change in dimension / Original dimension`. (Unitless)</li>
+        </ul>
+
+        <h3>Hooke’s Law</h3>
+        <p>Within the elastic limit, <strong>stress is directly proportional to strain</strong>.</p>
+        <blockquote>
+            <strong>Stress ∝ Strain</strong>
+            <br>
+            <strong>Stress = E × Strain</strong>
+        </blockquote>
+        <p>The constant of proportionality `E` is called the <strong>Modulus of Elasticity</strong>. Its value depends on the material and the type of deformation.</p>
+
+        <h3>Elastic Constants (Moduli)</h3>
+        
+        <h4>1. Young’s Modulus (Y) - For change in length</h4>
+        <ul>
+            <li><strong>Longitudinal Stress:</strong> F/A</li>
+            <li><strong>Longitudinal Strain:</strong> ΔL / L</li>
+            <li><strong>Y = (F/A) / (ΔL/L)</strong></li>
+        </ul>
+
+        <h4>2. Bulk Modulus (K) - For change in volume</h4>
+        <ul>
+            <li><strong>Volume Stress (Pressure):</strong> F/A = P</li>
+            <li><strong>Volume Strain:</strong> -ΔV / V (Negative sign because volume decreases with positive pressure)</li>
+            <li><strong>K = P / (-ΔV/V)</strong></li>
+        </ul>
+        
+        <h4>3. Shear Modulus (η) or Modulus of Rigidity - For change in shape</h4>
+        <ul>
+            <li><strong>Shearing Stress:</strong> F_tangential / A</li>
+            <li><strong>Shearing Strain (θ):</strong> The angle of deformation.</li>
+            <li><strong>η = (F/A) / θ</strong></li>
+        </ul>
+
+        <h3>Poisson’s Ratio (σ)</h3>
+        <p>When an object is stretched longitudinally (e.g., a wire), it gets longer (longitudinal strain) but also thinner (lateral strain).</p>
+ <ul>
+            <li><strong>Longitudinal Strain:</strong> α = ΔL / L</li>
+            <li><strong>Lateral Strain:</strong> β = ΔD / D (Change in diameter / Original diameter)</li>
+        </ul>
+        <p>Poisson's Ratio `σ` is the ratio of lateral strain to longitudinal strain.</p>
+        <blockquote>
+            <strong>σ = - (Lateral Strain / Longitudinal Strain) = -β / α</strong>
+        </blockquote>
+        <p>(The negative sign is included because if `α` is positive (stretch), `β` is negative (shrink), making `σ` a positive number.)</p>
+        
+        <h4>Limiting Values of Poisson's Ratio (σ)</h4>
+        <ul>
+            <li><strong>Theoretical Limits:</strong> -1 < σ < 0.5</li>
+            <li><strong>Practical Limits (for most materials):</strong> 0 < σ < 0.5</li>
+            <li>A value of σ = 0.5 implies the material is incompressible (volume is constant). (e.g., rubber)</li>
+            <li>A value of σ ≈ 0.3 is common for metals.</li>
+        </ul>
+
+        <hr>
+
+        <h2 id="topic7">Relation connecting Elastic constants</h2>
+        <p>The four elastic constants (Y, K, η, σ) are not independent. For an isotropic material, if you know any two, you can find the other two. The derivation of these is complex, but the final relations are essential.</p>
+        
+        <blockquote>
+            <strong>Relation 1 (Y, η, σ):</strong> Y = 2η (1 + σ)
+        </blockquote>
+        
+        <blockquote>
+            <strong>Relation 2 (Y, K, σ):</strong> Y = 3K (1 - 2σ)
+        </blockquote>
+        
+        <div class="exam-tip">
+            <strong>Important Exam Questions:</strong>
+            <ol>
+                <li><strong>Derive Y = 3K (1 - 2σ):</strong> This is a standard derivation question.</li>
+                <li><strong>Eliminate σ:</strong> Equate the two expressions for Y (or solve both for σ).
+                    <br>From 1: σ = (Y/2η) - 1
+                    <br>From 2: σ = (1/2) (1 - Y/3K)
+                    <br>Equating them: (Y/2η) - 1 = (1/2) - (Y/6K)
+                    <br>Y/2η + Y/6K = 3/2
+                    <br>Y (3K + η) / (6Kη) = 3/2
+                    <br>Y (3K + η) = 9Kη
+                    <blockquote>
+                        <strong>Y = 9Kη / (3K + η)</strong>   (Relation between Y, K, and η)
+                    </blockquote>
+                </li>
+                <li><strong>Eliminate Y:</strong>
+                <br>2η (1 + σ) = 3K (1 - 2σ)
+                    <br>2η + 2ησ = 3K - 6Kσ
+                    <br>σ (2η + 6K) = 3K - 2η
+                    <blockquote>
+                        <strong>σ = (3K - 2η) / (6K + 2η)</strong> (Relation between σ, K, and η)
+                    </blockquote>
+                </li>
+            </ol>
+        </div>
+        
+    </div>
+  <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

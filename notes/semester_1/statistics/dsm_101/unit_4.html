@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="101, 1st, dsm, knowlet, notes, semester, statistics, unit">
+
+    <meta name="description" content="Comprehensive notes for Statistics DSM 101 Unit 4 | 1st Semester Notes - Knowlet. Includes key concepts, definitions, and summaries for college students.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics DSM 101 Unit 4 | 1st Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #8e44ad;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #8e44ad;
+            border-bottom: 2px solid #E8DAEF;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #7d3c98;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #8e44ad;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        blockquote {
+            background: #E8DAEF;
+            border-left: 5px solid #8e44ad;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #555;
+        }
+        .exam-tip, .note {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            border-left-width: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-tip strong {
+            color: #d9534f;
+        }
+        .note strong {
+            color: #0275d8;
+        }
+        .formula {
+            background: #f4ecf7;
+            border: 1px solid #d7bde2;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        #toc {
+            background: #E8DAEF;
+            border: 1px solid #8e44ad;
+            padding: 15px 25px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        #toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #2c3e50;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc ul li a {
+            text-decoration: none;
+            color: #7d3c98;
+        }
+        #toc ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 4: Regression and Curve Fitting</h1>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#regression-lines">1. Regression: Types of Regression (Lines)</a></li>
+                <li><a href="#regression-coeffs">2. Regression Coefficients and their Properties</a></li>
+                <li><a href="#angle">3. Angle Between Two Regression Lines</a></li>
+                <li><a href="#least-squares">4. Principle of Least Squares</a></li>
+                <li><a href="#fitting">5. Fitting of Linear, Polynomials, and Exponential Curves</a></li>
+                <li><a href="#determination">6. Coefficient of Determination (r²)</a></li>
+            </ul>
+        </div>
+
+        <section id="regression-lines">
+            <h2>1. Regression: Types of Regression (Lines)</h2>
+            <p>If correlation shows a relationship exists, regression describes that relationship with an equation. This equation can be used for <strong>prediction</strong>.</p>
+            <p>A "line of regression" is the <strong>line of best fit</strong> for the data. In bivariate analysis, there are <strong>two</strong> main types (lines) of linear regression.</p>
+
+            <h3>1. Regression Line of Y on X</h3>
+            <p>This line is used to <strong>predict the value of Y, given a value of X</strong>.</p>
+            <p><strong>Equation:</strong> (Y - ȳ) = b<sub>yx</sub> * (X - x̄)</p>
+            <p>Here, <strong>b<sub>yx</sub></strong> is the <strong>regression coefficient of Y on X</strong> (the slope). It represents the average change in Y for a one-unit change in X.</p>
+
+            <h3>2. Regression Line of X on Y</h3>
+            <p>This line is used to <strong>predict the value of X, given a value of Y</strong>.</p>
+            <p><strong>Equation:</strong> (X - x̄) = b<sub>xy</sub> * (Y - ȳ)</p>
+            <p>Here, <strong>b<sub>xy</sub></strong> is the <strong>regression coefficient of X on Y</strong>. It represents the average change in X for a one-unit change in Y.</p>
+
+            <div class="note">
+                <strong>Note:</strong> Both regression lines always pass through the point (x̄, ȳ), which is the mean of x and the mean of y.
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="regression-coeffs">
+            <h2>2. Regression Coefficients and their Properties</h2>
+            <p>The coefficients b<sub>yx</sub> and b<sub>xy</sub> are the slopes of the two regression lines.</p>
+
+            <h3>Formulas for Coefficients:</h3>
+            <div class="formula">
+                b<sub>yx</sub> = Cov(x, y) / σ<sub>x</sub>² = r * (σ<sub>y</sub> / σ<sub>x</sub>)
+                <br>
+                b<sub>xy</sub> = Cov(x, y) / σ<sub>y</sub>² = r * (σ<sub>x</sub> / σ<sub>y</sub>)
+            </div>
+            <div class="formula">
+                <strong>Computational Formulas:</strong>
+                <br>
+                b<sub>yx</sub> = [ n(Σxy) - (Σx)(Σy) ] / [ n(Σx²) - (Σx)² ]
+                <br>
+                b<sub>xy</sub> = [ n(Σxy) - (Σx)(Σy) ] / [ n(Σy²) - (Σy)² ]
+            </div>
+
+            <h3>Properties of Regression Coefficients:</h3>
+            <ol>
+                <li>
+                    <strong>Geometric Mean:</strong> The correlation coefficient 'r' is the geometric mean of the two regression coefficients.
+                    <div class="formula">r² = b<sub>yx</sub> * b<sub>xy</sub>   =>   r = ± sqrt(b<sub>yx</sub> * b<sub>xy</sub>)</div>
+                </li>
+                <li>
+                    <strong>Sign:</strong> 'r', b<sub>yx</sub>, and b<sub>xy</sub> all have the <strong>same sign</strong>.
+                </li>
+                <li>
+                    <strong>Magnitude:</strong> If one regression coefficient is greater than 1, the other *must* be less than 1 (as their product, r², cannot exceed 1).
+                </li>
+            </ol>
+            <div class="exam-tip">
+                <strong>Exam Tip:</strong> A classic question: "The two regression coefficients are 1.6 and 0.9. Is this possible?"
+                <br>
+                - Answer: No. r² = 1.6 * 0.9 = 1.44, which is > 1. This is impossible.
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="angle">
+            <h2>3. Angle Between Two Regression Lines</h2>
+            <p>The two regression lines intersect at (x̄, ȳ). The angle (θ) between them indicates the strength of the correlation.</p>
+            <div class="formula">
+                tan(θ) = [ (1 - r²) / (r) ] * [ (σ<sub>x</sub> * σ<sub>y</sub>) / (σ<sub>x</sub>² + σ<sub>y</sub>²) ]
+            </div>
+            
+            <h3>Key Insights:</h3>
+            <ul>
+                <li>If <strong>r = 0</strong>: tan(θ) = ∞, so <strong>θ = 90°</strong>. The lines are perpendicular. The variables are uncorrelated.</li>
+                <li>If <strong>r = +1 or -1</strong>: tan(θ) = 0, so <strong>θ = 0°</strong>. The two lines are <strong>coincident</strong> (they become the same line). This means perfect correlation.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="least-squares">
+            <h2>4. Principle of Least Squares</h2>
+            <p>This is the fundamental method used to find the "best-fit" line (the regression line) for a set of data points.</p>
+            
+            <blockquote>
+                <strong>Principle:</strong> The line of best fit is the one that <strong>minimizes the sum of the squares of the vertical errors (residuals)</strong>.
+            </blockquote>
+            
+            <ul>
+                <li><strong>Residual (Error):</strong> e<sub>i</sub> = (Observed y<sub>i</sub>) - (Predicted ŷ<sub>i</sub>)</li>
+                <li><strong>Goal:</strong> Minimize the Sum of Squared Errors (SSE).</li>
+            </ul>
+            <div class="formula">
+                Minimize: SSE = Σ (e<sub>i</sub>)² = Σ (y<sub>i</sub> - ŷ<sub>i</sub>)²
+            </div>
+            <p>For a straight line ŷ = a + bx, we use calculus (partial derivatives w.r.t. 'a' and 'b') to find the values that minimize SSE. This process generates the "Normal Equations."</p>
+            </section>
+
+        <hr>
+
+        <section id="fitting">
+            <h2>5. Fitting of Linear, Polynomials, and Exponential Curves</h2>
+            <p>Using the Principle of Least Squares, we can derive the <strong>Normal Equations</strong> needed to fit specific curves to data.</p>
+            
+            <h3>1. Fitting a Linear Equation (Straight Line)</h3>
+            <p><strong>Equation:</strong> y = a + bx</p>
+            <blockquote>
+                <strong>Normal Equations:</strong>
+                <ol>
+                    <li>Σy = n*a + b*(Σx)</li>
+                    <li>Σxy = a*(Σx) + b*(Σx²)</li>
+                </ol>
+            </blockquote>
+            <p>Solve these two simultaneous equations for 'a' and 'b'.</p>
+
+            <h3>2. Fitting a Polynomial (Parabola / Quadratic)</h3>
+            <p><strong>Equation:</strong> y = a + bx + cx²</p>
+            <blockquote>
+                <strong>Normal Equations:</strong>
+                <ol>
+                    <li>Σy = n*a + b*(Σx) + c*(Σx²)</li>
+                    <li>Σxy = a*(Σx) + b*(Σx²) + c*(Σx³)</li>
+                    <li>Σx²y = a*(Σx²) + b*(Σx³) + c*(Σx⁴)</li>
+                </ol>
+            </blockquote>
+            <p>Solve these three simultaneous equations for 'a', 'b', and 'c'.</p>
+
+            <h3>3. Fitting an Exponential Curve</h3>
+            <p><strong>Equation:</strong> y = a * b<sup>x</sup></p>
+            <p>This is not linear. We must <strong>transform it</strong> by taking the logarithm.</p>
+            <div class="formula">
+                log(y) = log(a) + x * log(b)
+            </div>
+            <p>Now, let <strong>Y = log(y)</strong>, <strong>A = log(a)</strong>, and <strong>B = log(b)</strong>.
+            <br>The equation becomes a straight line: <strong>Y = A + Bx</strong></p>
+            <p>We use the normal equations for a straight line, but with Y instead of y:</p>
+            <blockquote>
+                <strong>Normal Equations (Exponential):</strong>
+                <ol>
+                    <li>ΣY = n*A + B*(Σx)   =>   Σ(log y) = n*log(a) + log(b)*(Σx)</li>
+                    <li>ΣxY = A*(Σx) + B*(Σx²)   =>   Σ(x log y) = log(a)*(Σx) + log(b)*(Σx²)</li>
+                </ol>
+            </blockquote>
+            <p>Solve for A and B, then find <strong>a = antilog(A)</strong> and <strong>b = antilog(B)</strong>.</p>
+        </section>
+
+        <hr>
+
+        <section id="determination">
+            <h2>6. Coefficient of Determination (r²)</h2>
+            <blockquote>
+                <strong>Coefficient of Determination (r²):</strong> The square of the correlation coefficient (r). It represents the <strong>proportion of the total variance in the dependent variable (Y) that is explained or accounted for by the linear relationship with the independent variable (X)</strong>.
+            </blockquote>
+            <ul>
+                <li><strong>Range:</strong> 0 ≤ r² ≤ 1 (since it's a square).</li>
+                <li><em>Example:</em> If r = 0.9, then r² = 0.81.</li>
+                <li><strong>Interpretation:</strong> This means <strong>81%</strong> of the variation in Y can be explained by X. The remaining 19% (1 - r²) is unexplained variation, due to other factors or random error.</li>
+            </ul>
+        </section>
+
+    </div>
+  <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

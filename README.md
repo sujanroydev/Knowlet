@@ -9,6 +9,9 @@
 - 📱 **Mobile-friendly design** for studying anywhere
 - 🕑 **Recently visited** section for quick access to your history
 - 🌟 **Favorites** feature to bookmark your important materials
+- 🔎 **Search** any notes easily by knowlet search
+- ☀️ **Always screen on** feature to read without disturbance
+- 🛜 **Very light weight** for which knowlet also works at very low internet connection
 
 ## Subjects Covered
 
@@ -16,12 +19,14 @@
 - Physics
 - Computer Science
 - Statistics
-- Alternative English
 - Economics
 - Political Science
 - Education
 - History
 - Zoology
+- Geology
+- Botany
+- Biotechnology
 - And more!
 
 ## Website
@@ -35,24 +40,6 @@ Visit the platform: [Knowlet](https://knowlet.netlify.app/)
 3. **Download Notes:** Click on any subject or unit to view or download the study material.
 4. **Favorites & History:** Use the bottom navigation to access your favorite notes and recently visited pages.
 
-## Getting Started (Development)
-
-To run Knowlet locally:
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/SKR0411/Knowlet.git
-   cd Knowlet
-   ```
-
-2. **Open `index.html`:**
-   You can simply open `index.html` in your web browser, as Knowlet is a static site (HTML, CSS, JS).
-
-3. **Customize:**
-   - Edit or add notes in the `semesters/` directory.
-   - Update styles in `style.css` and `nav.css`.
-   - Modify or extend functionality in `script.js`.
-
 ## Contributing
 
 Want to contribute? Feel free to fork the repository, make changes, and submit a pull request!
@@ -62,9 +49,9 @@ Want to contribute? Feel free to fork the repository, make changes, and submit a
 
 ## License
 
-All notes and resources are provided free for educational use. See [Declaration](assets/knowlet_declaration.html) for more info.
+All notes and resources are provided free for educational use. See [Declaration](https://knowlet.netlify.app/assets/knowlet_declaration.html) for more info.
 
 ---
 
-**Designed & Maintained by [Sujan Roy](https://github.com/SKR0411)**  
+**Designed & Maintained by [Sujan Kumar Roy](https://github.com/SKR0411)**  
 © 2025 Knowlet | All rights reserved

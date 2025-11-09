@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive exam-ready notes for CSCDSM151 Programming with C, Unit 2: Functions, Program Structure, and Recursion. [cite_start]Based on Assam University (Silchar) NEP syllabus. [cite: 217-220]">
+    <meta name="keywords" content="CSCDSM151, Programming with C, Unit 2, C Functions, Storage Classes, Scope Rules, Recursion, C Preprocessor, Assam University, Knowlet">
+    <title>Computer Science DSM 151 Unit 2 | 2nd Semester Notes - Knowlet</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #0056b3; /* Deep Blue */
+            text-align: center;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1a73e8; /* Bright Blue */
+            border-bottom: 2px solid #e0e0e0;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #2a8a4d; /* Green */
+            padding-top: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        code, pre {
+            background-color: #eef1f5;
+            border-radius: 4px;
+            padding: 2px 5px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            padding: 15px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+        }
+        blockquote {
+            background-color: #fffbe6; /* Light Yellow */
+            border-left: 5px solid #ffc107; /* Amber */
+            margin: 20px 0;
+            padding: 15px 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #1a73e8;
+            color: #ffffff;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background-color: #e6f7ff;
+            border: 1px solid #b3e0ff;
+            padding: 15px 25px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            color: #0056b3;
+            margin-top: 0;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li {
+            margin: 8px 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #e6ffe6; /* Light Green */
+            border: 1px solid #5cb85c;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .common-mistake {
+            background-color: #fbeaea; /* Light Red */
+            border: 1px solid #d9534f;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><span id="spap_unit_2_title">Unit 2: Functions, Program Structure, and Recursion</span></h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#spap_2_1">1. [cite_start]Functions and Program Structure [cite: 218]</a>
+                    <ul>
+                        <li><a href="#spap_2_1_1">Defining and Accessing Functions</a></li>
+                        <li><a href="#spap_2_1_2">Function Prototypes</a></li>
+                        <li><a href="#spap_2_1_3">Passing Arguments (Pass by Value)</a></li>
+                    </ul>
+                </li>
+                <li><a href="#spap_2_2">2. [cite_start]Storage Classes [cite: 219]</a></li>
+                <li><a href="#spap_2_3">3. [cite_start]Scope Rules and Block Structure [cite: 219]</a></li>
+                <li><a href="#spap_2_4">4. [cite_start]Recursion in C [cite: 220]</a></li>
+                <li><a href="#spap_2_5">5. [cite_start]The C Preprocessor [cite: 220]</a></li>
+            </ul>
+        </div>
+
+        <h2 id="spap_2_1"><span id="spap_2_1_span">1. [cite_start]Functions and Program Structure [cite: 218]</span></h2>
+        <p><span id="spap_2_1_p1">A function is a self-contained block of code that performs a specific task. Using functions makes code modular, reusable, and easier to debug.</span></p>
+
+        <h3 id="spap_2_1_1"><span id="spap_2_1_1_span">Defining and Accessing Functions</span></h3>
+        <p><span id="spap_2_1_1_p1">A function has three parts:</span></p>
+        <ol>
+            <li><span id="spap_2_1_1_l1"><strong>Function Definition:</strong> This is the actual code for the function.
+<pre>
+// return_type function_name(parameter_list)
+int add(int a, int b) {
+    int sum = a + b;
+    return sum; // Returns a value
+}
+void printHello() { // void means it returns nothing
+    printf("Hello");
+}</pre>
+            </span></li>
+            <li><span id="spap_2_1_1_l2"><strong>Function Call:</strong> This is how you execute the function from <code>main()</code> or another function.
+<pre>
+int main() {
+    int result = add(5, 10); // Accessing 'add'
+    printHello();            // Accessing 'printHello'
+    return 0;
+}</pre>
+            </span></li>
+            <li><span id="spap_2_1_1_l3"><strong>Function Declaration (Prototype):</strong> See below.</span></li>
+        </ul>
+
+        [cite_start]<h3 id="spap_2_1_2"><span id="spap_2_1_2_span">Function Prototypes [cite: 219]</span></h3>
+        [cite_start]<p><span id="spap_2_1_2_p1">A function prototype is a declaration that tells the compiler the function's name, return type, and the data types of its parameters. [cite: 219]</span></p>
+        <p><span id="spap_2_1_2_p2"><strong>Why?</strong> If you define a function *after* <code>main()</code>, the compiler won't know it exists when <code>main()</code> tries to call it. A prototype at the top of the file solves this.</span></p>
+<pre>
+#include <stdio.h>
+
+// Function Prototype
+int add(int a, int b);
+void printHello(void); // void in parameters means it takes no arguments
+
+int main() {
+    int result = add(5, 10); // Compiler knows 'add' is valid
+    return 0;
+}
+
+// Function Definition
+int add(int a, int b) {
+    return a + b;
+}
+</pre>
+        <p><span id="spap_2_1_2_p3">The syllabus also mentions <strong>functions returning non-integers</strong>, which is standard. [cite_start]A function can return <code>float</code>, <code>char</code>, <code>double</code>, or even <code>struct</code> and <code>void</code> (which returns nothing). [cite: 219]</span></p>
+
+        <h3 id="spap_2_1_3"><span id="spap_2_1_3_span">Passing Arguments (Pass by Value)</span></h3>
+        <p><span id="spap_2_1_3_p1">By default, C uses <strong>"pass by value"</strong> when passing arguments. This means a *copy* of the variable's value is sent to the function. [cite_start]The original variable in <code>main()</code> is not affected. [cite: 218]</span></p>
+<pre>
+void increment(int x) {
+    x = x + 1; // 'x' is a copy
+    printf("Inside function: %d\n", x); // Prints 11
+}
+
+int main() {
+    int num = 10;
+    increment(num);
+    printf("Inside main: %d\n", num); // Still prints 10
+    return 0;
+}
+</pre>
+        <div class="exam-tip">
+            <span id="spap_2_1_3_tip1">To modify the original variable, you must pass a <strong>pointer</strong> to it (which is covered in Unit 3).</span>
+        </div>
+
+        <h2 id="spap_2_2"><span id="spap_2_2_span">2. [cite_start]Storage Classes [cite: 219]</span></h2>
+        <p><span id="spap_2_2_p1">Storage classes define the <strong>scope</strong> (visibility), <strong>lifetime</strong> (how long it exists), and <strong>storage location</strong> (e.g., memory, CPU register) of a variable.</span></p>
+        <table>
+            <tr>
+                <th>Keyword</th>
+                <th>Storage</th>
+                <th>Default Value</th>
+                <th>Scope</th>
+                <th>Lifetime</th>
+            </tr>
+            <tr>
+                <td><strong><code>auto</code></strong></td>
+                <td>Stack (RAM)</td>
+                <td>Garbage</td>
+                <td>Block (local)</td>
+                <td>Within the block</td>
+            </tr>
+            <tr>
+                <td><strong><code>extern</code></strong></td>
+                <td>Data Segment (RAM)</td>
+                <td>Zero</td>
+                <td>Global (all files)</td>
+                <td>Entire program</td>
+            </tr>
+            <tr>
+                <td><strong><code>static</code></strong></td>
+                <td>Data Segment (RAM)</td>
+                <td>Zero</td>
+                <td>Block (local) or File (global)</td>
+                <td>Entire program</td>
+            </tr>
+            <tr>
+                <td><strong><code>register</code></strong></td>
+                <td>CPU Register</td>
+                <td>Garbage</td>
+                <td>Block (local)</td>
+                <td>Within the block</td>
+            </tr>
+        </table>
+        <ul>
+            <li><span id="spap_2_2_l1"><strong><code>auto</code>:</strong> This is the default for all local variables. It's rarely written.</span></li>
+            <li><span id="spap_2_2_l2"><strong><code>extern</code>:</strong> Used to declare a global variable that is defined in *another* file.</span></li>
+            <li><span id="spap_2_2_l3"><strong><code>static</code>:</strong>
+                <ul>
+                    <li><strong>Inside a function:</strong> The variable retains its value between function calls (it's only initialized once).</li>
+                    <li><strong>Outside a function (global):</strong> The variable is only visible within that specific C file.</li>
+                </ul>
+            </span></li>
+            <li><span id="spap_2_2_l4"><strong><code>register</code>:</strong> A *request* to the compiler to store the variable in a fast CPU register. The compiler can ignore this. You cannot take the address (<code>&</code>) of a register variable.</span></li>
+        </ul>
+
+        <h2 id="spap_2_3"><span id="spap_2_3_span">3. [cite_start]Scope Rules and Block Structure [cite: 219]</span></h2>
+        <p><span id="spap_2_3_p1"><strong>Scope</strong> defines where a variable can be accessed.</span></p>
+        <ul>
+            <li><span id="spap_2_3_l1"><strong>Block Scope:</strong> A variable declared inside a block <code>{ ... }</code> is only visible within that block. This includes function bodies and inner blocks.</span></li>
+            <li><span id="spap_2_3_l2"><strong>Function Scope:</strong> Only used for <code>goto</code> labels.</span></li>
+            <li><span id="spap_2_3_l3"><strong>File Scope (Global):</strong> A variable declared outside of any function is global and visible to all functions in the file from the point of declaration.</span></li>
+        </ul>
+        [cite_start]<p><span id="spap_2_3_p2"><strong>Header files</strong> (e.g., <code>#include <stdio.h></code>) are files containing function prototypes and definitions that are textually included in your program by the preprocessor. [cite: 219]</span></p>
+
+        <h2 id="spap_2_4"><span id="spap_2_4_span">4. [cite_start]Recursion in C [cite: 220]</span></h2>
+        <p><span id="spap_2_4_p1"><strong>Recursion</strong> is a process where a function calls itself. A recursive function must have two parts:</span></p>
+        <ol>
+            <li><span id="spap_2_4_l1"><strong>Base Case:</strong> A condition that stops the recursion (to prevent an infinite loop).</span></li>
+            <li><span id="spap_2_4_l2"><strong>Recursive Step:</strong> The part that calls the function again, but with a "smaller" problem that moves it closer to the base case.</span></li>
+        </ol>
+        <p><span id="spap_2_4_p2"><strong>Example: Factorial (n!)</strong></span></p>
+<pre>
+[cite_start]// Problem solving with recursion [cite: 220]
+long factorial(int n) {
+    // Base Case
+    if (n == 0 || n == 1) {
+        return 1;
+    }
+    // Recursive Step
+    else {
+        return n * factorial(n - 1);
+    }
+}
+</pre>
+        <div class="common-mistake">
+            <strong>Common Mistake:</strong> Forgetting the base case. This will cause the function to call itself forever, leading to a <strong>"Stack Overflow"</strong> error as the program runs out of memory for function calls.
+        </div>
+
+        <h2 id="spap_2_5"><span id="spap_2_5_span">5. [cite_start]The C Preprocessor [cite: 220]</span></h2>
+        <p><span id="spap_2_5_p1">The preprocessor is a program that runs *before* the compiler. It modifies the source code based on directives (commands) that start with <code>#</code>.</span></p>
+        <ul>
+            <li><span id="spap_2_5_l1"><strong><code>#include</code>:</strong> Pastes the content of another file (a header file) into your code.
+<pre>#include <stdio.h> // For standard library
+#include "myheader.h" // For your own files</pre>
+            </span></li>
+            <li><span id="spap_2_5_l2"><strong><code>#define</code>:</strong> Used to define <strong>macros</strong> (constants or simple functions).
+<pre>
+// Defines a constant
+#define PI 3.14159
+
+// Defines a function-like macro
+#define SQUARE(x) ((x) * (x))
+
+// Usage:
+float area = PI * r * r;
+int r = SQUARE(5); // Becomes int r = ((5) * (5));</pre>
+                <div class="exam-tip">
+                    <span id="spap_2_5_tip1">Always wrap macro parameters in parentheses <code>(x)</code> to avoid operator precedence errors.</span>
+                </div>
+            </span></li>
+        </ul>
+
+    </div>
+</body>
+</html>

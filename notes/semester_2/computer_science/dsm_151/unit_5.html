@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    [cite_start]<meta name="description" content="Comprehensive exam-ready notes for CSCDSM151 Programming with C, Unit 5: Input/Output, Files, and Low-Level Programming. Based on Assam University (Silchar) NEP syllabus. [cite: 229-232]">
+    <meta name="keywords" content="CSCDSM151, Programming with C, Unit 5, C File Handling, fopen, fread, Bitwise Operators, Bit Fields, C Macros, Assam University, Knowlet">
+    <title>Computer Science DSM 151 Unit 5 | 2nd Semester Notes - Knowlet</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #0056b3; /* Deep Blue */
+            text-align: center;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1a73e8; /* Bright Blue */
+            border-bottom: 2px solid #e0e0e0;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #2a8a4d; /* Green */
+            padding-top: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        code, pre {
+            background-color: #eef1f5;
+            border-radius: 4px;
+            padding: 2px 5px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            padding: 15px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+        }
+        blockquote {
+            background-color: #fffbe6; /* Light Yellow */
+            border-left: 5px solid #ffc107; /* Amber */
+            margin: 20px 0;
+            padding: 15px 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #1a73e8;
+            color: #ffffff;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background-color: #e6f7ff;
+            border: 1px solid #b3e0ff;
+            padding: 15px 25px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            color: #0056b3;
+            margin-top: 0;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li {
+            margin: 8px 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #e6ffe6; /* Light Green */
+            border: 1px solid #5cb85c;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .common-mistake {
+            background-color: #fbeaea; /* Light Red */
+            border: 1px solid #d9534f;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><span id="spap_unit_5_title">Unit 5: Input/Output, Files, and Low-Level Programming</span></h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#spap_5_1">1. [cite_start]Standard Input and Output [cite: 229, 230]</a>
+                    <ul>
+                        <li><a href="#spap_5_1_1">Formatted Output (printf)</a></li>
+                        <li><a href="#spap_5_1_2">Formatted Input (scanf)</a></li>
+                    </ul>
+                </li>
+                <li><a href="#spap_5_2">2. [cite_start]Data Files [cite: 231]</a>
+                    <ul>
+                        <li><a href="#spap_5_2_1">Opening and Closing Files (fopen, fclose)</a></li>
+                        <li><a href="#spap_5_2_2">Processing Files (Formatted vs. Unformatted)</a></li>
+                        <li><a href="#spap_5_2_3">Miscellaneous Functions</a></li>
+                    </ul>
+                </li>
+                <li><a href="#spap_5_3">3. [cite_start]Low-Level Programming [cite: 232]</a>
+                    <ul>
+                        <li><a href="#spap_5_3_1">Register Variables</a></li>
+                        <li><a href="#spap_5_3_2">Bitwise Operations</a></li>
+                        <li><a href="#spap_5_3_3">Bit Fields</a></li>
+                        <li><a href="#spap_5_3_4">Enumeration (enum)</a></li>
+                    </ul>
+                </li>
+                <li><a href="#spap_5_4">4. [cite_start]Other Topics [cite: 232]</a>
+                    <ul>
+                        <li><a href="#spap_5_4_1">Command Line Arguments</a></li>
+                        <li><a href="#spap_5_4_2">Library Functions & Preprocessor</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h2 id="spap_5_1"><span id="spap_5_1_span">1. [cite_start]Standard Input and Output [cite: 229, 230]</span></h2>
+        <p><span id="spap_5_1_p1">This refers to I/O operations from the console (keyboard and screen), which are represented by <code>stdin</code> and <code>stdout</code>.</span></p>
+        
+        [cite_start]<h3 id="spap_5_1_1"><span id="spap_5_1_1_span">Formatted Output (printf) [cite: 229]</span></h3>
+        <p><span id="spap_5_1_1_p1"><code>printf</code> ("print formatted") is used to print data to the screen. It uses <strong>format specifiers</strong> (like <code>%d</code>) to indicate how to print a variable.</span></p>
+        <ul>
+            <li><span id="spap_5_1_1_l1"><code>%d</code> or <code>%i</code>: Integer</span></li>
+            <li><span id="spap_5_1_1_l2"><code>%f</code>: Float</span></li>
+            <li><span id="spap_5_1_1_l3"><code>%c</code>: Character</span></li>
+            <li><span id="spap_5_1_1_l4"><code>%s</code>: String (char array)</span></li>
+            <li><span id="spap_5_1_1_l5"><code>%p</code>: Pointer (address)</span></li>
+        </ul>
+        <p><span id="spap_5_1_1_p2"><code>printf</code> is a <strong>variable length argument</strong> function, meaning it can take a different number of arguments each time it's called. [cite_start]This is made possible by the <code>...</code> (ellipsis) syntax, handled by the <code><stdarg.h></code> library. [cite: 229]</span></p>
+
+        [cite_start]<h3 id="spap_5_1_2"><span id="spap_5_1_2_span">Formatted Input (scanf) [cite: 230]</span></h3>
+        <p><span id="spap_5_1_2_p1"><code>scanf</code> ("scan formatted") is used to read data from the keyboard. It uses the same format specifiers as <code>printf</code>.</span></p>
+        <div class="common-mistake">
+            <span id="spap_5_1_2_mistake1">You <strong>must</strong> pass the <strong>address</strong> (using <code>&</code>) of the variable you want to fill.
+<pre>int age;
+scanf("%d", &age); // Correct
+scanf("%d", age);  // WRONG: Will crash</pre>
+            The only exception is for strings (char arrays), which do not need <code>&</code> because the array name *is* an address.
+<pre>char name[50];
+scanf("%s", name); // Correct</pre>
+            </span>
+        </div>
+
+        <h2 id="spap_5_2"><span id="spap_5_2_span">2. [cite_start]Data Files [cite: 231]</span></h2>
+        <p><span id="spap_5_2_p1">File handling allows your program to read from and write to files on the disk, making data persistent. All file operations use a special pointer: <code>FILE *fp;</code>.</span></p>
+
+        [cite_start]<h3 id="spap_5_2_1"><span id="spap_5_2_1_span">Opening and Closing Files (fopen, fclose) [cite: 231]</span></h3>
+        <p><span id="spap_5_2_1_p1">You must open a file before you can use it. <code>fopen()</code> returns a <code>FILE</code> pointer, or <code>NULL</code> if it fails.</span></p>
+<pre>
+FILE *fp = NULL;
+// Open "data.txt" for writing ("w")
+fp = fopen("data.txt", "w"); 
+
+if (fp == NULL) {
+    printf("Error opening file!\n");
+    return 1; // Exit
+}
+// ... do file operations ...
+
+// Always close the file when done
+fclose(fp);
+</pre>
+        <p><span id="spap_5_2_1_p2"><strong>Common File Modes:</strong></span></p>
+        <ul>
+            <li><span id="spap_5_2_1_l1"><code>"r"</code>: Read (file must exist)</span></li>
+            <li><span id="spap_5_2_1_l2"><code>"w"</code>: Write (creates file; truncates/overwrites if it exists)</span></li>
+            <li><span id="spap_5_2_1_l3"><code>"a"</code>: Append (creates file; adds to the end if it exists)</span></li>
+            <li><span id="spap_5_2_1_l4"><code>"rb"</code>, <code>"wb"</code>, <code>"ab"</code>: Same, but for <strong>binary</strong> files.</span></li>
+        </ul>
+
+        [cite_start]<h3 id="spap_5_2_2"><span id="spap_5_2_2_span">Processing Files (Formatted vs. Unformatted) [cite: 231]</span></h3>
+        <ul>
+            <li><span id="spap_5_2_2_l1"><strong>Formatted (Text) Files:</strong> Use <code>fscanf()</code> and <code>fprintf()</code>. These are just like <code>scanf</code>/<code>printf</code>, but the first argument is the <code>FILE</code> pointer.
+<pre>fprintf(fp, "Name: %s, Age: %d\n", "Ravi", 25);
+int age;
+fscanf(fp, "%d", &age);</pre>
+            </span></li>
+            <li><span id="spap_5_2_2_l2"><strong>Unformatted (Binary) Files:</strong> Use <code>fread()</code> and <code>fwrite()</code>. These read/write raw bytes of data (like a <code>struct</code>) directly. They are much faster and more precise.
+<pre>
+struct Student s1;
+// Write the s1 object to the file
+fwrite(&s1, sizeof(struct Student), 1, fp);
+
+// Read one Student object into s2
+struct Student s2;
+fread(&s2, sizeof(struct Student), 1, fp);</pre>
+            </span></li>
+        </ul>
+
+        [cite_start]<h3 id="spap_5_2_3"><span id="spap_5_2_3_span">Miscellaneous Functions [cite: 231]</span></h3>
+        <ul>
+            <li><span id="spap_5_2_3_l1"><code>fseek(fp, offset, whence)</code>: Moves the file pointer to a specific location.</span></li>
+            <li><span id="spap_5_2_3_l2"><code>ftell(fp)</code>: Returns the current position of the file pointer.</span></li>
+            <li><span id="spap_5_2_3_l3"><code>rewind(fp)</code>: Moves the file pointer back to the beginning of the file.</span></li>
+        </ul>
+
+        <h2 id="spap_5_3"><span id="spap_5_3_span">3. [cite_start]Low-Level Programming [cite: 232]</span></h2>
+        <p><span id="spap_5_3_p1">This involves operations that are closer to the hardware, often manipulating individual bits.</span></p>
+
+        [cite_start]<h3 id="spap_5_3_1"><span id="spap_5_3_1_span">Register Variables [cite: 232]</span></h3>
+        <p><span id="spap_5_3_1_p1">This is a repeat from Unit 2. The <code>register</code> keyword suggests to the compiler that a variable should be stored in a CPU register for faster access. [cite_start]It's often used for loop counters, but modern compilers are smart enough to do this automatically. [cite: 232]</span></p>
+
+        [cite_start]<h3 id="spap_5_3_2"><span id="spap_5_3_2_span">Bitwise Operations [cite: 232]</span></h3>
+        <p><span id="spap_5_3_2_p1">These operators work on the binary (bit) representation of integers.</span></p>
+        <table>
+            <tr><th>Operator</th><th>Name</th><th>Example (a=5, b=3)</th><th>Result</th></tr>
+            <tr>
+                <td><code>&</code></td>
+                <td>Bitwise AND</td>
+                <td><code>0101 & 0011</code></td>
+                <td><code>0001</code> (1)</td>
+            </tr>
+            <tr>
+                <td><code>|</code></td>
+                <td>Bitwise OR</td>
+                <td><code>0101 | 0011</code></td>
+                <td><code>0111</code> (7)</td>
+            </tr>
+            <tr>
+                <td><code>^</code></td>
+                <td>Bitwise XOR</td>
+                <td><code>0101 ^ 0011</code></td>
+                <td><code>0110</code> (6)</td>
+            </tr>
+            <tr>
+                <td><code>~</code></td>
+                <td>Bitwise NOT</td>
+                <td><code>~0101</code></td>
+                <td><code>1010</code> (-6)</td>
+            </tr>
+            <tr>
+                <td><code><<</code></td>
+                <td>Left Shift</td>
+                <td><code>0101 << 1</code></td>
+                <td><code>1010</code> (10)</td>
+            </tr>
+            <tr>
+                <td><code>>></code></td>
+                <td>Right Shift</td>
+                <td><code>0101 >> 1</code></td>
+                <td><code>0010</code> (2)</td>
+            </tr>
+        </table>
+        <div class="exam-tip">
+            <span id="spap_5_3_2_tip1"><strong>Uses:</strong> Setting/checking a specific bit (e.g., flags), high-speed multiplication/division by 2, encryption.</span>
+        </div>
+
+        [cite_start]<h3 id="spap_5_3_3"><span id="spap_5_3_3_span">Bit Fields [cite: 232]</span></h3>
+        <p><span id="spap_5_3_3_p1">Bit fields allow you to define structure members that are only a specific number of <strong>bits</strong> wide. This is used to pack data tightly, often for hardware programming.</span></p>
+<pre>
+// This structure packs a date into 16 bits (2 bytes)
+struct Date {
+    unsigned int day : 5;  // 5 bits (can hold 0-31)
+    unsigned int month : 4; // 4 bits (can hold 0-15)
+    unsigned int year : 7;  // 7 bits (can hold 0-127)
+};
+</pre>
+
+        [cite_start]<h3 id="spap_5_3_4"><span id="spap_5_3_4_span">Enumeration (enum) [cite: 232]</span></h3>
+        <p><span id="spap_5_3_4_p1">An enumeration is a user-defined type that consists of a set of named integer constants. It makes code more readable.</span></p>
+<pre>
+// Define an enum for days of the week
+enum Weekday { MON, TUE, WED, THU, FRI, SAT, SUN };
+
+int main() {
+    // By default, MON=0, TUE=1, WED=2, ...
+    enum Weekday today = WED;
+    
+    if (today == 2) { // Works, but less readable
+        //...
+    }
+    if (today == WED) { // Much better
+        //...
+    }
+    return 0;
+}
+</pre>
+
+        <h2 id="spap_5_4"><span id="spap_5_4_span">4. [cite_start]Other Topics [cite: 232]</span></h2>
+        <p><span id="spap_5_4_p1">This unit re-lists several topics from previous units, likely for reinforcement.</span></p>
+        
+        [cite_start]<h3 id="spap_5_4_1"><span id="spap_5_4_1_span">Command Line Arguments [cite: 232]</span></h3>
+        <p><span id="spap_5_4_1_p1">See Unit 3 notes. [cite_start]This refers to <code>int main(int argc, char *argv[])</code> for receiving arguments when the program is executed. [cite: 232]</span></p>
+
+        [cite_start]<h3 id="spap_5_4_2"><span id="spap_5_4_2_span">Library Functions & Preprocessor [cite: 232]</span></h3>
+        <ul>
+            [cite_start]<li><span id="spap_5_4_2_l1"><strong>Library Functions:</strong> These are pre-written functions (like <code>printf</code>, <code>strcpy</code>, <code>fopen</code>) available in C's standard library. [cite: 232]</span></li>
+            <li><span id="spap_5_4_2_l2"><strong>Macros / The C Preprocessor:</strong> See Unit 2 notes. [cite_start]This refers to <code>#include</code> and <code>#define</code>. [cite: 232]</span></li>
+        </ul>
+    </div>
+</body>
+</html>

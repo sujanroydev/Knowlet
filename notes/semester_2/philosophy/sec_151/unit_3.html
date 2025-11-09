@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philosophy SEC 151 Unit 3 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Philosophy SEC 151 (Modern Logic), Unit 3. Covers the Shorter Truth-Table Method (Indirect Method, Reductio ad Absurdum) for proving invalidity.">
+    <meta name="keywords" content="Philosophy SEC 151, Modern Logic, Unit 3, Shorter Truth-Table, Indirect Method, Proving Invalidity, Reductio ad Absurdum, Assam University NEP Syllabus">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border: 1px solid #dcdcdc;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 30px;
+        }
+        h1, h2, h3 {
+            font-weight: 700;
+            color: #2c3e50;
+            margin-top: 1.5em;
+            margin-bottom: 0.7em;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #1a5276; /* Dark Blue */
+            border-bottom: 3px solid #1a5276;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 2em;
+            color: #2980b9; /* Medium Blue */
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 8px;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #3498db; /* Lighter Blue */
+        }
+        p {
+            font-size: 1.1em;
+            margin-bottom: 1em;
+        }
+        ul, ol {
+            margin-bottom: 1.5em;
+            padding-left: 25px;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        strong, em {
+            color: #d35400; /* Emphasis color */
+        }
+        .exam-tip, .important-note {
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 5px solid;
+            border-radius: 5px;
+            background-color: #fdfdfd;
+        }
+        .exam-tip {
+            border-color: #f39c12; /* Warning/Tip */
+            background-color: #fef9e7;
+        }
+        .important-note {
+            border-color: #e74c3c; /* Important */
+            background-color: #fcede8;
+        }
+        blockquote {
+            background: #f8f9f9;
+            border-left: 10px solid #bdc3c7;
+            margin: 1.5em 10px;
+            padding: 1em 15px;
+            font-size: 1.2em;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .toc {
+            background: #f8f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #bdc3c7;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #2c3e50;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc li {
+            margin: 0.5em 0;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: 500;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 3: Proving Invalidity (Shorter Truth-Table Method)</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Shorter Truth-Table Method (or Indirect Method)</a></li>
+                <li><a href="#topic2">Step-by-Step Example 1 (Proving Invalidity)</a></li>
+                <li><a href="#topic3">Step-by-Step Example 2 (Proving Validity)</a></li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <section id="topic1">
+            <h2>Shorter Truth-Table Method (or Indirect Method)</h2>
+            <p>The full truth-table method is effective but very slow, especially with 3 or more variables (8+ rows). The <strong>Shorter Truth-Table Method</strong> is a much faster way to check for validity.</p>
+            <p>It is also known as the <strong>"Indirect Method"</strong> or <strong>"Reductio ad Absurdum"</strong> (reduction to absurdity). It works by trying to *prove* the argument is invalid. If you succeed, it's invalid. If you fail (by finding a contradiction), it must be valid.</p>
+
+            <h3>The Core Strategy:</h3>
+            <ol>
+                <li><strong>Assume the argument is INVALID.</strong></li>
+                <li>To do this, we try to find a "counterexample row." We <strong>assign FALSE (F) to the conclusion</strong> and <strong>TRUE (T) to all the premises</strong>.</li>
+                <li>Work backward from these assigned values to find the truth values of the simple variables (p, q, r).</li>
+                <li><strong>Check for Consistency:</strong>
+                    <ul>
+                        <li><strong>If you can assign consistent values</strong> (e.g., 'p' is always T, 'q' is always F) that make all premises T and the conclusion F, your assumption was correct. The argument is <strong>INVALID</strong>.</li>
+                        <li><strong>If you are forced into a contradiction</strong> (e.g., 'p' must be T in one premise but F in another), your assumption was impossible. The argument is <strong>VALID</strong>.</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section id="topic2">
+            <h2>Step-by-Step Example 1 (Proving Invalidity)</h2>
+            <p><strong>Argument:</strong> "If I study (S), I will pass (P). I passed (P). Therefore, I studied (S)."</p>
+            <blockquote>
+                <strong>Symbolized:</strong> (S ⊃ P), P / ∴ S
+            </blockquote>
+
+            <h3>Step 1: Assume Invalid.</h3>
+            <p>We set up the argument and assign T to premises and F to the conclusion.</p>
+            <blockquote>
+                (S ⊃ P) &nbsp; / &nbsp; P &nbsp; // &nbsp; ∴ S<br>
+                &nbsp;&nbsp;&nbsp; T &nbsp;&nbsp;&nbsp;&nbsp; / &nbsp; T &nbsp; // &nbsp; ∴ F
+            </blockquote>
+
+            <h3>Step 2: Assign values from the "easiest" parts.</h3>
+            <p>The easiest parts are the conclusion (S) and Premise 2 (P), which are just simple variables.</p>
+            <ul>
+                <li>From the conclusion: <strong>S = F</strong></li>
+                <li>From Premise 2: <strong>P = T</strong></li>
+            </ul>
+
+            <h3>Step 3: Check for consistency.</h3>
+            <p>Now we plug these values (S=F, P=T) into Premise 1 to see if it can still be T.</p>
+            <blockquote>
+                (S ⊃ P)<br>
+                (F ⊃ T)<br>
+                &nbsp;&nbsp;&nbsp; T
+            </blockquote>
+            <p>This works! A (F ⊃ T) statement is <strong>TRUE</strong>.</p>
+            
+            <h3>Step 4: Conclusion.</h3>
+            <p>We successfully found a consistent assignment of truth values (S=F, P=T) that makes both premises TRUE and the conclusion FALSE.
+            <br>
+            Therefore, the argument is <strong>INVALID</strong>.</p>
+        </section>
+
+        <hr>
+
+        <section id="topic3">
+            <h2>Step-by-Step Example 2 (Proving Validity)</h2>
+            <p><strong>Argument:</strong> "If it's raining (R), the ground is wet (W). The ground is not wet (~W). Therefore, it is not raining (~R)."</p>
+            <blockquote>
+                <strong>Symbolized:</strong> (R ⊃ W), ~W / ∴ ~R
+            </blockquote>
+
+            <h3>Step 1: Assume Invalid.</h3>
+            <p>Assign T to premises and F to the conclusion.</p>
+            <blockquote>
+                (R ⊃ W) &nbsp; / &nbsp; ~W &nbsp; // &nbsp; ∴ ~R<br>
+                &nbsp;&nbsp;&nbsp; T &nbsp;&nbsp;&nbsp;&nbsp; / &nbsp; T &nbsp; // &nbsp; ∴ F
+            </blockquote>
+            
+            <h3>Step 2: Assign values from the conclusion and simple premises.</h3>
+            <ul>
+                <li>From the conclusion: If ~R is F, then <strong>R = T</strong>.</li>
+                <li>From Premise 2: If ~W is T, then <strong>W = F</strong>.</li>
+            </ul>
+            
+            <h3>Step 3: Check for consistency.</h3>
+            <p>Now we plug these values (R=T, W=F) into Premise 1 to see if it can be T.</p>
+            <blockquote>
+                (R ⊃ W)<br>
+                (T ⊃ F)<br>
+                &nbsp;&nbsp;&nbsp; F
+            </blockquote>
+
+            <h3>Step 4: Conclusion (Reductio ad Absurdum).</h3>
+            <p>Here we have a <strong>CONTRADICTION!</strong></p>
+            <p>Our assumption in Step 1 <em>requires</em> Premise 1 to be <strong>T</strong>.
+            <br>
+            But the values derived from the other premises and conclusion <em>force</em> Premise 1 to be <strong>F</strong>.
+            <br>
+            It is impossible to make all premises T and the conclusion F at the same time. The initial assumption was absurd.</p>
+            <p>Therefore, the argument is <strong>VALID</strong>.</p>
+        </section>
+    </div>
+</body>
+</html>

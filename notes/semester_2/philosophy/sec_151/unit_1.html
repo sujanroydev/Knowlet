@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philosophy SEC 151 Unit 1 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Philosophy SEC 151 (Modern Logic), Unit 1. Covers special symbols (variables and constants), symbolization, and the five basic truth-functions.">
+    <meta name="keywords" content="Philosophy SEC 151, Modern Logic, Unit 1, Variables and Constants, Symbolization, Truth Functions, Conjunction, Disjunction, Negation, Implication, Equivalence, Assam University NEP Syllabus">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border: 1px solid #dcdcdc;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 30px;
+        }
+        h1, h2, h3 {
+            font-weight: 700;
+            color: #2c3e50;
+            margin-top: 1.5em;
+            margin-bottom: 0.7em;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #1a5276; /* Dark Blue */
+            border-bottom: 3px solid #1a5276;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 2.em;
+            color: #2980b9; /* Medium Blue */
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 8px;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #3498db; /* Lighter Blue */
+        }
+        p {
+            font-size: 1.1em;
+            margin-bottom: 1em;
+        }
+        ul, ol {
+            margin-bottom: 1.5em;
+            padding-left: 25px;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        strong, em {
+            color: #d35400; /* Emphasis color */
+        }
+        .exam-tip, .important-note {
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 5px solid;
+            border-radius: 5px;
+            background-color: #fdfdfd;
+        }
+        .exam-tip {
+            border-color: #f39c12; /* Warning/Tip */
+            background-color: #fef9e7;
+        }
+        .important-note {
+            border-color: #e74c3c; /* Important */
+            background-color: #fcede8;
+        }
+        blockquote {
+            background: #ecf0f1;
+            border-left: 10px solid #bdc3c7;
+            margin: 1.5em 10px;
+            padding: 1em 15px;
+            font-size: 1.2em;
+            font-style: italic;
+            color: #555;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .toc {
+            background: #f8f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #bdc3c7;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #2c3e50;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc li {
+            margin: 0.5em 0;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: 500;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 1: Symbols, Symbolization, and Truth-Functions</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Special Symbols: Variables and Constants</a></li>
+                <li><a href="#topic2">Symbolization</a></li>
+                <li><a href="#topic3">Five Basic Truth-Functions</a></li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <section id="topic1">
+            <h2>Special Symbols: Variables and Constants</h2>
+            <p>In modern logic, we use special symbols to remove the ambiguity of ordinary language and reveal the underlying logical structure of an argument. The basic units are <strong>statements</strong> (or propositions), which are sentences that can be either True or False.</p>
+
+            <h3>1. Statement Variables</h3>
+            <ul>
+                <li><strong>Symbol:</strong> Lowercase letters, typically <strong>p, q, r, s...</strong></li>
+                <li><strong>Function:</strong> They are placeholders for any simple statement. They are "variable" because 'p' could stand for "It is raining" or "It is Tuesday."</li>
+                <li><strong>Example:</strong> The logical form "If p then q" can represent "If it rains (p) then the ground is wet (q)" or "If you study (p) then you will pass (q)."</li>
+            </ul>
+
+            <h3>2. Statement Constants</h3>
+            <ul>
+                <li><strong>Symbol:</strong> Uppercase letters, typically <strong>A, B, C...</strong></li>
+                <li><strong>Function:</strong> They stand for a <em>specific</em> simple statement. They are "constant" because 'A' will always mean "Assam is a state" throughout the argument.</li>
+                <li><strong>Example:</strong> To symbolize "Assam is a state and Bihar is a state," we would write "A • B". Here, A and B are constants.</li>
+            </ul>
+            <div class="exam-tip">
+                <strong>Exam Tip:</strong> For most logic problems, you will use <strong>statement variables (p, q, r)</strong> to analyze the *form* of an argument. You use constants when translating a specific argument from English into symbolic form.
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="topic2">
+            <h2>Symbolization</h2>
+            <p><strong>Symbolization</strong> is the process of translating arguments from ordinary language into the symbols of modern logic. This helps us to clearly see the argument's form and test its validity.</p>
+            
+            <h3>Steps to Symbolize:</h3>
+            <ol>
+                <li>Identify the <strong>simple statements</strong> and assign them uppercase letters (constants).</li>
+                <li>Identify the <strong>logical connectives</strong> (like "and," "or," "if...then," "not").</li>
+                <li>Combine the constants using the symbols for the connectives.</li>
+            </ol>
+
+            <h3>Example:</h3>
+            <p><strong>Argument:</strong> "If it is raining (R), then the ground is wet (W). It is raining (R). Therefore, the ground is wet (W)."</p>
+            <ul>
+                <li><strong>Simple Statements:</strong>
+                    <ul>
+                        <li>R = "It is raining."</li>
+                        <li>W = "The ground is wet."</li>
+                    </ul>
+                </li>
+                <li><strong>Connectives:</strong> "If...then...", "Therefore"</li>
+                <li><strong>Symbolized Form:</strong>
+                    <blockquote>
+                        R ⊃ W<br>
+                        R<br>
+                        / ∴ W
+                    </blockquote>
+                </li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="topic3">
+            <h2>Five Basic Truth-Functions</h2>
+            <p>A <strong>truth-function</strong> (or connective) is a logical operator that builds a complex statement from simple ones. The truth value (True/False) of the complex statement is completely determined by (is a "function" of) the truth values of the simple statements.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Function</th>
+                        <th>Symbol</th>
+                        <th>Name</th>
+                        <th>Meaning</th>
+                        <th>Truth-Table</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Negation</strong></td>
+                        <td><strong>~</strong> (tilde)</td>
+                        <td>"Not p"</td>
+                        <td>Reverses the truth value of the statement it precedes.</td>
+                        <td>
+                            <strong>p | ~p</strong><br>
+                            T | <strong>F</strong><br>
+                            F | <strong>T</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Conjunction</strong></td>
+                        <td><strong>•</strong> (dot)</td>
+                        <td>"p and q"</td>
+                        <td>True <strong>only if both</strong> conjuncts (p, q) are true.</td>
+                        <td>
+                            <strong>p | q | p • q</strong><br>
+                            T | T | <strong>T</strong><br>
+                            T | F | <strong>F</strong><br>
+                            F | T | <strong>F</strong><br>
+                            F | F | <strong>F</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Disjunction</strong></td>
+                        <td><strong>v</strong> (wedge)</td>
+                        <td>"p or q"</td>
+                        <td>This is the <strong>inclusive "or"</strong>. It is true if <em>at least one</em> disjunct is true. It is false <strong>only if both</strong> are false.</td>
+                        <td>
+                            <strong>p | q | p v q</strong><br>
+                            T | T | <strong>T</strong><br>
+                            T | F | <strong>T</strong><br>
+                            F | T | <strong>T</strong><br>
+                            F | F | <strong>F</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Implication</strong></td>
+                        <td><strong>⊃</strong> (horseshoe)</td>
+                        <td>"If p then q"</td>
+                        <td>Called "Material Implication." It is false <strong>only if</strong> the antecedent (p) is true and the consequent (q) is false.</td>
+                        <td>
+                            <strong>p | q | p ⊃ q</strong><br>
+                            T | T | <strong>T</strong><br>
+                            T | F | <strong>F</strong><br>
+                            F | T | <strong>T</strong><br>
+                            F | F | <strong>T</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Equivalence</strong></td>
+                        <td><strong>≡</strong> (triple bar)</td>
+                        <td>"p if and only if q"</td>
+                        <td>Called "Material Equivalence." It is true <strong>only if</strong> both p and q have the <strong>same truth value</strong>.</td>
+                        <td>
+                            <strong>p | q | p ≡ q</strong><br>
+                            T | T | <strong>T</strong><br>
+                            T | F | <strong>F</strong><br>
+                            F | T | <strong>F</strong><br>
+                            F | F | <strong>T</strong>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="important-note">
+                <strong>Key Points to Memorize:</strong>
+                <ul>
+                    <li>A <strong>Conjunction (•)</strong> is true only when <strong>both</strong> are true.</li>
+                    <li>A <strong>Disjunction (v)</strong> is false only when <strong>both</strong> are false.</li>
+                    <li>An <strong>Implication (⊃)</strong> is false only when <strong>T ⊃ F</strong>. (This is the most important rule to remember!)</li>
+                    <li>An <strong>Equivalence (≡)</strong> is true only when <strong>both sides are the same</strong> (T ≡ T or F ≡ F).</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive exam-ready lab notes for CSCDSC152 Lab on Data Structure. Covers all 23 assignments with logic, algorithms, and C++ template code. Based on Assam University (Silchar) NEP syllabus.">
+    <meta name="keywords" content="CSCDSC152, Data Structure Lab, C++ Templates, Linked List, Stack, Queue, Tree, BST, AVL, Sorting, Searching, Assam University, Knowlet">
+    <title>Computer Science DSC 152 Unit 1 | 2nd Semester Notes - Knowlet</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #0056b3; /* Deep Blue */
+            text-align: center;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1a73e8; /* Bright Blue */
+            border-bottom: 2px solid #e0e0e0;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #2a8a4d; /* Green */
+            padding-top: 10px;
+        }
+        h4 {
+            color: #d9534f; /* Reddish */
+            padding-top: 5px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        code, pre {
+            background-color: #eef1f5;
+            border-radius: 4px;
+            padding: 2px 5px;
+            font-family: 'Courier New', Courier, monospace;
+            word-wrap: break-word;
+        }
+        pre {
+            padding: 15px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+        }
+        blockquote {
+            background-color: #fffbe6; /* Light Yellow */
+            border-left: 5px solid #ffc107; /* Amber */
+            margin: 20px 0;
+            padding: 15px 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #1a73e8;
+            color: #ffffff;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background-color: #e6f7ff;
+            border: 1px solid #b3e0ff;
+            padding: 15px 25px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            color: #0056b3;
+            margin-top: 0;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li {
+            margin: 8px 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #e6ffe6; /* Light Green */
+            border: 1px solid #5cb85c;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .common-mistake {
+            background-color: #fbeaea; /* Light Red */
+            border: 1px solid #d9534f;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .assignment-box {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-left: 5px solid #2a8a4d;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CSCDSC152: Lab on Data Structure</h1>
+        <p>This document provides a comprehensive guide to all programming assignments listed in the CSCDSC152 syllabus. It includes the core logic, algorithms, and implementation tips needed for a practical exam or viva.</p>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#spap_lab_obj">Course Objectives & Outcomes</a></li>
+                <li><a href="#spap_lab_templates">A Note on C++ Templates</a></li>
+                <li><a href="#spap_lab_search_sort">Section 1: Searching, Sorting & Matrix Assignments</a>
+                    <ul>
+                        <li><a href="#spap_lab_1">Assignment 1: Linear & Binary Search (Templates)</a></li>
+                        <li><a href="#spap_lab_2">Assignment 2: Insertion, Bubble & Selection Sort (Templates)</a></li>
+                        <li><a href="#spap_lab_15">Assignment 15: Sparse Matrix Conversion</a></li>
+                        <li><a href="#spap_lab_18_21">Assignments 18, 19, 20, 21: Special Matrix Implementations</a></li>
+                    </ul>
+                </li>
+                <li><a href="#spap_lab_recursion">Section 2: Recursion Assignments</a>
+                    <ul>
+                        <li><a href="#spap_lab_11">Assignment 11: Factorial (Recursive vs. Iterative)</a></li>
+                        <li><a href="#spap_lab_12">Assignment 12: Fibonacci (Recursive vs. Iterative)</a></li>
+                        <li><a href="#spap_lab_13">Assignment 13: GCD (Recursive vs. Iterative)</a></li>
+                    </ul>
+                </li>
+                <li><a href="#spap_lab_linkedlist">Section 3: Linked List Assignments</a>
+                    <ul>
+                        <li><a href="#spap_lab_3">Assignment 3: Singly Linked List (Templates)</a></li>
+                        <li><a href="#spap_lab_4">Assignment 4: Doubly Linked List (Templates)</a></li>
+                        <li><a href="#spap_lab_5">Assignment 5: Circular Linked List (Templates)</a></li>
+                        <li><a href="#spap_lab_10">Assignment 10: Polynomial Addition</a></li>
+                    </ul>
+                </li>
+                <li><a href="#spap_lab_stack_queue">Section 4: Stack & Queue Assignments</a>
+                    <ul>
+                        <li><a href="#spap_lab_7">Assignment 7: Stack using Array (Templates)</a></li>
+                        <li><a href="#spap_lab_6">Assignment 6: Stack using Linked List</a></li>
+                        <li><a href="#spap_lab_8">Assignment 8: Queue using Circular Array (Templates)</a></li>
+                        <li><a href="#spap_lab_9">Assignment 9: Deque using Linked List</a></li>
+                        <li><a href="#spap_lab_16">Assignment 16: Reverse Stack (using additional Stack)</a></li>
+                        <li><a href="#spap_lab_17">Assignment 17: Reverse Stack (using additional Queue)</a></li>
+                    </ul>
+                </li>
+                <li><a href="#spap_lab_trees">Section 5: Tree Assignments</a>
+                    <ul>
+                        <li><a href="#spap_lab_14">Assignment 14: Binary Search Tree (BST) Operations</a></li>
+                        <li><a href="#spap_lab_22">Assignment 22: Threaded Binary Tree</a></li>
+                        <li><a href="#spap_lab_23">Assignment 23: AVL Tree Operations</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h2 id="spap_lab_obj">Course Objectives & Outcomes</h2>
+        <h3>Course Objectives</h3>
+        [cite_start]<p>The main objectives of this lab are to: [cite: 125, 126, 127, 128, 129]</p>
+        <ul>
+            [cite_start]<li>Apply the theoretical concepts of data structures in a practical programming environment. [cite: 126]</li>
+            [cite_start]<li>Implement and manipulate various data structures like arrays, lists, stacks, queues, and trees. [cite: 127]</li>
+            [cite_start]<li>Enhance programming, debugging, and testing skills related to data structures. [cite: 128, 129]</li>
+            [cite_start]<li>Gain practical knowledge of how data structures are used to solve problems. [cite: 130]</li>
+        </ul>
+        <h3>Course Outcomes</h3>
+        [cite_start]<p>Upon successful completion, students will be able to: [cite: 159, 160, 161, 162, 163]</p>
+        <ul>
+            [cite_start]<li>Demonstrate a solid understanding of data structures like arrays, linked lists, stacks, queues, trees, and hash tables. [cite: 160, 161]</li>
+            [cite_start]<li>Implement these data structures and their associated algorithms in a programming language. [cite: 162]</li>
+            [cite_start]<li>Analyze the time and space complexity of these algorithms. [cite: 163]</li>
+        </ul>
+
+        <h2 id="spap_lab_templates">A Note on C++ Templates</h2>
+        <p>Many assignments specify using <strong>templates</strong>. This allows you to write generic code that works with any data type (e.g., <code>int</code>, <code>float</code>, <code>char</code>).</p>
+        <p>A template class for a Stack would start like this:</p>
+<pre>
+template &lt;typename T&gt;
+class Stack {
+private:
+    T arr[100];
+    int top;
+public:
+    void push(T data) {
+        // ... logic
+    }
+    T pop() {
+        // ... logic
+    }
+    // ... other methods
+};
+</pre>
+        <p>When you create an object, you specify the type:</p>
+        <p><code>Stack&lt;int&gt; intStack;</code> (A stack for integers)<br>
+        <code>Stack&lt;float&gt; floatStack;</code> (A stack for floats)</p>
+        [cite_start]<p>The same logic applies to template functions for sorting or searching. [cite: 132, 133, 139, 140]</p>
+
+        <h2 id="spap_lab_search_sort">Section 1: Searching, Sorting & Matrix Assignments</h2>
+
+        <div class="assignment-box">
+            [cite_start]<h3 id="spap_lab_1">Assignment 1: Linear & Binary Search (Templates) [cite: 131]</h3>
+            [cite_start]<p><strong>Task:</strong> Write a template program to search an element from a list, offering users the option of Linear or Binary search. [cite: 131, 132]</p>
+            <h4>Logic</h4>
+            <ul>
+                <li><strong>Template Function:</strong> Your search functions should be template functions.
+                    <br><code>template &lt;typename T&gt; int linearSearch(T arr[], int size, T key)</code>
+                </li>
+                <li><strong>Linear Search:</strong>
+                    <ol>
+                        <li>Iterate from <code>i = 0</code> to <code>size - 1</code>.</li>
+                        <li>If <code>arr[i] == key</code>, return <code>i</code> (index found).</li>
+                        <li>If loop finishes, return <code>-1</code> (not found).</li>
+                    </ol>
+                </li>
+                <li><strong>Binary Search:</strong>
+                    <ol>
+                        <li><strong>Prerequisite:</strong> The array <strong>must be sorted</strong>. You should sort it first (using a sort from Assignment 2).</li>
+                        <li>Set <code>low = 0</code>, <code>high = size - 1</code>.</li>
+                        <li>While <code>low &lt;= high</code>:
+                            <ul>
+                                <li><code>mid = low + (high - low) / 2</code>.</li>
+                                <li>If <code>arr[mid] == key</code>, return <code>mid</code>.</li>
+                                <li>If <code>arr[mid] &lt; key</code>, set <code>low = mid + 1</code>.</li>
+                                <li>If <code>arr[mid] &gt; key</code>, set <code>high = mid - 1</code>.</li>
+                            </ul>
+                        </li>
+                        <li>If loop finishes, return <code>-1</code>.</li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+
+        <div class="assignment-box">
+            [cite_start]<h3 id="spap_lab_2">Assignment 2: Insertion, Bubble & Selection Sort (Templates) [cite: 133]</h3>
+            [cite_start]<p><strong>Task:</strong> Write a template program (WAP) to sort a list, offering users options for Insertion, Bubble, or Selection sort. [cite: 133, 134]</p>
+            <h4>Logic</h4>
+            <ul>
+                <li><strong>Bubble Sort:</strong>
+                    <ul>
+                        <li>Outer loop from <code>i = 0</code> to <code>n-2</code>.</li>
+                        <li>Inner loop from <code>j = 0</code> to <code>n-i-2</code>.</li>
+                        <li>If <code>arr[j] &gt; arr[j+1]</code>, swap them.</li>
+                    </ul>
+                </li>
+                <li><strong>Selection Sort:</strong>
+                    <ul>
+                        <li>Outer loop from <code>i = 0</code> to <code>n-2</code>.</li>
+                        <li>Find the index of the minimum element (<code>min_idx</code>) in the range <code>[i, n-1]</code>.</li>
+                        <li>Swap <code>arr[i]</code> with <code>arr[min_idx]</code>.</li>
+                    </ul>
+                </li>
+                <li><strong>Insertion Sort:</strong>
+                    <ul>
+                        <li>Outer loop from <code>i = 1</code> to <code>n-1</code>.</li>
+                        <li>Store <code>key = arr[i]</code>.</li>
+                        <li>Set <code>j = i - 1</code>.</li>
+                        <li>While <code>j &gt;= 0</code> and <code>arr[j] &gt; key</code>:
+                            <ul>
+                                <li><code>arr[j+1] = arr[j]</code> (shift element to the right).</li>
+                                <li><code>j = j - 1</code>.</li>
+                            </ul>
+                        </li>
+                        <li><code>arr[j+1] = key</code> (insert key in its correct position).</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="assignment-box">
+            [cite_start]<h3 id="spap_lab_15">Assignment 15: Sparse Matrix Conversion [cite: 150]</h3>
+            [cite_start]<p><strong>Task:</strong> WAP to convert a Sparse Matrix into non-zero form and vice-versa. [cite: 150]</p>
+            <h4>Logic</h4>
+            <p>The "non-zero form" (or Triplet Form) stores only non-zero elements in a <code>k x 3</code> matrix, where <code>k</code> is the number of non-zero elements.</p>
+            <p><code>triplet[k][3] -> [row, column, value]</code></p>
+            <p>A header row <code>triplet[0]</code> is often used to store <code>[total_rows, total_cols, total_non_zero]</code>.</p>
+            <ul>
+                <li><strong>Sparse to Triplet:</strong>
+                    <ol>
+                        <li>Create a <code>triplet</code> matrix. Initialize <code>k = 1</code> (for data, row 0 is header).</li>
+                        <li>Iterate through the original <code>M x N</code> matrix with nested loops (<code>i</code> for row, <code>j</code> for col).</li>
+                        <li>If <code>matrix[i][j] != 0</code>:
+                            <ul>
+                                <li><code>triplet[k][0] = i</code></li>
+                                <li><code>triplet[k][1] = j</code></li>
+                                <li><code>triplet[k][2] = matrix[i][j]</code></li>
+                                <li><code>k++</code></li>
+                            </ul>
+                        </li>
+                        <li>Finally, set header: <code>triplet[0][0] = M</code>, <code>triplet[0][1] = N</code>, <code>triplet[0][2] = k - 1</code>.</li>
+                    </ol>
+                </li>
+                <li><strong>Triplet to Sparse:</strong>
+                    <ol>
+                        <li>Read the header: <code>M = triplet[0][0]</code>, <code>N = triplet[0][1]</code>, <code>non_zero = triplet[0][2]</code>.</li>
+                        <li>Create a new <code>M x N</code> matrix and initialize all its elements to 0.</li>
+                        <li>Loop from <code>k = 1</code> to <code>non_zero</code>:
+                            <ul>
+                                <li><code>row = triplet[k][0]</code></li>
+                                <li><code>col = triplet[k][1]</code></li>
+                                <li><code>val = triplet[k][2]</code></li>
+                                <li>Set <code>matrix[row][col] = val</code>.</li>
+                            </ul>
+                        </li>
+                        <li>The <code>matrix</code> is now reconstructed.</li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="assignment-box">
+            [cite_start]<h3 id="spap_lab_18_21">Assignments 18, 19, 20, 21: Special Matrix Implementations [cite: 153, 154, 155, 156]</h3>
+            [cite_start]<p><strong>Task:</strong> Implement Diagonal, Lower Triangular, Upper Triangular, and Symmetric matrices using a 1D array. [cite: 153, 154, 155, 156]</p>
+            <h4>Logic</h4>
+            <p>The goal is to save space by only storing the non-zero (or unique) elements in a 1D array. This requires a "mapping formula" to convert 2D <code>(i, j)</code> indices to a 1D <code>(k)</code> index.</p>
+            <ul>
+                [cite_start]<li><strong>Diagonal Matrix:</strong> [cite: 153] Only <code>M[i][i]</code> elements are non-zero.
+                    <ul><li>Store only the <code>n</code> diagonal elements. Formula: <code>arr[i]</code> stores <code>M[i][i]</code>.</li></ul>
+                </li>
+                [cite_start]<li><strong>Lower Triangular:</strong> [cite: 154] Elements <code>M[i][j]</code> are non-zero only if <code>i &gt;= j</code>.
+                    <ul>
+                        <li>Number of elements = <code>n(n+1)/2</code>.</li>
+                        <li><strong>Row-Major Formula:</strong> <code>k = i(i+1)/2 + j</code></li>
+                    </ul>
+                </li>
+                [cite_start]<li><strong>Upper Triangular:</strong> [cite: 155] Elements <code>M[i][j]</code> are non-zero only if <code>i &lt;= j</code>.
+                    <ul>
+                        <li>Number of elements = <code>n(n+1)/2</code>.</li>
+                        <li><strong>Row-Major Formula:</strong> <code>k = i*n - i(i-1)/2 + j - i</code></li>
+                    </ul>
+                </li>
+                [cite_start]<li><strong>Symmetric Matrix:</strong> [cite: 156] <code>M[i][j] == M[j][i]</code>.
+                    <ul><li>Store only the lower or upper triangle. Use the same formula as that triangle.</li></ul>
+                </li>
+            </ul>
+        </div>
+        
+        <h2 id="spap_lab_recursion">Section 2: Recursion Assignments</h2>
+        
+        <div class="assignment-box">
+            [cite_start]<h3 id="spap_lab_11">Assignment 11: Factorial (Recursive vs. Iterative) [cite: 144]</h3>
+            <h4>Logic</h4>
+            <ul>
+                <li><strong>Iterative:</strong>
+<pre>
+function factorial_iter(n):
+    result = 1
+    for i = 2 to n:
+        result = result * i
+    return result
+</pre>
+                </li>
+                <li><strong>Recursive:</strong>
+<pre>
+function factorial_recur(n):
+    if n == 0 or n == 1:
+        return 1  // Base Case
+    else:
+        return n * factorial_recur(n - 1) // Recursive Step
+</pre>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="assignment-box">
+            [cite_start]<h3 id="spap_lab_12">Assignment 12: Fibonacci (Recursive vs. Iterative) [cite: 145]</h3>
+            <h4>Logic</h4>
+            <ul>
+                <li><strong>Iterative (Efficient):</strong>
+<pre>
+function fib_iter(n):
+    if n <= 1: return n
+    a = 0, b = 1, c
+    for i = 2 to n:
+        c = a + b
+        a = b
+        b = c
+    return b
+</pre>
+                </li>
+                <li><strong>Recursive (Inefficient):</strong>
+<pre>
+function fib_recur(n):
+    if n <= 1:
+        return n  // Base Cases (0 and 1)
+    else:
+        return fib_recur(n - 1) + fib_recur(n - 2)
+</pre>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="assignment-box">
+            [cite_start]<h3 id="spap_lab_13">Assignment 13: GCD (Recursive vs. Iterative) [cite: 146]</h3>
+            <h4>Logic (using Euclidean Algorithm)</h4>
+            <ul>
+                <li><strong>Iterative:</strong>
+<pre>
+function gcd_iter(a, b):
+    while b != 0:
+        temp = b
+        b = a % b
+        a = temp
+    return a
+</pre>
+                </li>
+                <li><strong>Recursive:</strong>
+<pre>
+function gcd_recur(a, b):
+    if b == 0:
+        return a  // Base Case
+    else:
+        return gcd_recur(b, a % b) // Recursive Step
+</pre>
+                </li>
+            </ul>
+        </div>
+        
+        <h2 id="spap_lab_linkedlist">Section 3: Linked List Assignments</h2>
+        <div class="exam-tip">
+            <strong>Key Structure (C++ Template):</strong> All linked list assignments will use a <code>Node</code> structure.
+<pre>template &lt;typename T&gt;
+struct Node {
+    T data;
+    Node* next; // For Singly & Circular
+    Node* prev; // For Doubly
+};
+</pre>
+        </div>
+
+        <div class="assignment-box">
+            [cite_start]<h3 id="spap_lab_3">Assignment 3: Singly Linked List (Templates) [cite: 135]</h3>
+            [cite_start]<p><strong>Task:</strong> Implement insertion, deletion, search, reverse, and concatenate. [cite: 135]</p>
+            <h4>Logic</h4>
+            <ul>
+                <li><strong>Insertion:</strong> At beginning (O(1)), at end (O(n)), at specific position (O(n)).</li>
+                <li><strong>Deletion:</strong> At beginning (O(1)), at end (O(n)), at specific position (O(n)).</li>
+                <li><strong>Search:</strong> Traverse the list from <code>head</code>, comparing <code>data</code>. Return <code>true</code> or the node if found, <code>false</code>/<code>NULL</code> otherwise.</li>
+                <li><strong>Reverse:</strong>
+                    <ul>
+                        <li>Use three pointers: <code>prev = NULL</code>, <code>current = head</code>, <code>next = NULL</code>.</li>
+                        <li>Loop while <code>current != NULL</code>:
+                            <ol>
+                                <li><code>next = current->next</code></li>
+                                <li><code>current->next = prev</code> (reverse the link)</li>
+                                <li><code>prev = current</code></li>
+                                <li><code>current = next</code></li>
+                            </ol>
+                        </li>
+                        <li>Finally, set <code>head = prev</code>.</li>
+                    </ul>
+                </li>
+                <li><strong>Concatenate (list1 + list2):</strong>
+                    <ol>
+                        <li>Traverse <code>list1</code> to find its last node.</li>
+                        <li>Set <code>last_node_of_list1->next = list2->head</code>.</li>
+                        <li>(Be careful not to destroy <code>list2</code>; the <code>+</code> operator should ideally create a new list or append <code>list2</code> to <code>list1</code>).</li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="assignment-box">[cite_start]<h3 id="spap_lab_4">Assignment 4: Doubly Linked List (Templates) [cite: 136]</h3>
+            [cite_start]<p><strong>Task:</strong> Implement insertion, deletion, search, and reverse. [cite: 136]</p>
+            <h4>Logic</h4>
+            <p><strong>Key:</strong> Every operation must correctly update <strong>both</strong> <code>next</code> and <code>prev</code> pointers.</p>
+            <ul>
+                <li><strong>Insertion (e.g., after a node <code>p</code>):</strong>
+                    <ol>
+                        <li><code>newNode->next = p->next</code></li>
+                        <li><code>newNode->prev = p</code></li>
+                        <li>If <code>p->next != NULL</code>, then <code>p->next->prev = newNode</code></li>
+                        <li><code>p->next = newNode</code></li>
+                    </ol>
+                </li>
+                <li><strong>Deletion (of node <code>p</code>):</strong>
+                    <ol>
+                        <li><code>p->prev->next = p->next</code></li>
+                        <li>If <code>p->next != NULL</code>, then <code>p->next->prev = p->prev</code></li>
+                        <li><code>delete p</code></li>
+                    </ol>
+                </li>
+                <li><strong>Reverse:</strong>
+                    <ul>
+                        <li>Traverse the list. For each node, swap its <code>prev</code> and <code>next</code> pointers.</li>
+                        <li>Finally, swap the <code>head</code> and <code>tail</code> pointers of the list.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="assignment-box">
+            [cite_start]<h3 id="spap_lab_5">Assignment 5: Circular Linked List (Templates) [cite: 137]</h3>
+            [cite_start]<p><strong>Task:</strong> Implement insertion, deletion, search, and reverse. [cite: 137]</p>
+            <h4>Logic</h4>
+            <p><strong>Key:</strong> The list never has a <code>NULL</code> end. The <code>head</code>'s "previous" is the tail, and the <code>tail</code>'s <code>next</code> is the head. A <code>tail</code> pointer is often maintained instead of a <code>head</code>, as <code>tail->next</code> gives you the head.</p>
+            <ul>
+                <li><strong>Traversal:</strong> Use a <code>do-while</code> loop to ensure the head is processed.
+                    <br><code>temp = head; do { ...; temp = temp->next; } while (temp != head);</code>
+                </li>
+                <li><strong>Insertion/Deletion:</strong> Similar to singly linked list, but with extra care when modifying the <code>head</code> or <code>tail</code>, as you must update the <code>tail->next</code> pointer.</li>
+            </ul>
+        </div>
+        
+        <div class="assignment-box">[cite_start]<h3 id="spap_lab_10">Assignment 10: Polynomial Addition [cite: 143]</h3>
+            [cite_start]<p><strong>Task:</strong> WAP to scan a polynomial using a linked list and add two polynomials. [cite: 143]</p>
+            <h4>Logic</h4>
+            <ul>
+                <li><strong>Node Structure:</strong> Each node represents one term.
+<pre>
+struct Term {
+    int coeff;  // Coefficient
+    int exp;    // Exponent
+    Term* next;
+};
+</pre>
+                </li>
+                <li><strong>Storage:</strong> Store the polynomial as a linked list, sorted in <strong>descending order of exponent</strong>.</li>
+                <li><strong>Addition (<code>poly1</code>, <code>poly2</code>):</strong>
+                    <ol>
+                        <li>Create a new <code>result</code> list.</li>
+                        <li>Use two pointers, <code>p1</code> (for <code>poly1</code>) and <code>p2</code> (for <code>poly2</code>).</li>
+                        <li>While <code>p1 != NULL</code> and <code>p2 != NULL</code>:
+                            <ul>
+                                <li>If <code>p1->exp > p2->exp</code>: Add <code>p1</code>'s term to <code>result</code>, advance <code>p1</code>.</li>
+                                <li>If <code>p1->exp < p2->exp</code>: Add <code>p2</code>'s term to <code>result</code>, advance <code>p2</code>.</li>
+                                <li>If <code>p1->exp == p2->exp</code>: Add the coefficients (<code>p1->coeff + p2->coeff</code>). If the sum is not zero, add the new term to <code>result</code>. Advance both <code>p1</code> and <code>p2</code>.</li>
+                            </ul>
+                        </li>
+                        <li>When one list finishes, append the entire remainder of the other list to <code>result</code>.</li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+
+        <h2 id="spap_lab_stack_queue">Section 4: Stack & Queue Assignments</h2>
+        
+        <div class="assignment-box">
+            [cite_start]<h3 id="spap_lab_7">Assignment 7: Stack using Array (Templates) [cite: 139]</h3>
+            <h4>Logic</h4>
+            <ul>
+                <li><strong>Members:</strong> <code>T arr[MAX_SIZE]</code>, <code>int top</code>.</li>
+                <li><strong>Constructor:</strong> Initialize <code>top = -1</code>.</li>
+                <li><strong>push(T data):</strong>
+                    <ol>
+                        <li>Check for Overflow (<code>if top == MAX_SIZE - 1</code>).</li>
+                        <li><code>top++</code>.</li>
+                        <li><code>arr[top] = data</code>.</li></ol>
+                </li>
+                <li><strong>pop():</strong>
+                    <ol>
+                        <li>Check for Underflow (<code>if top == -1</code>).</li>
+                        <li><code>T data = arr[top]</code>.</li>
+                        <li><code>top--</code>.</li>
+                        <li>Return <code>data</code>.</li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+
+        <div class="assignment-box">
+            [cite_start]<h3 id="spap_lab_6">Assignment 6: Stack using Linked List [cite: 138]</h3>
+            <h4>Logic</h4>
+            <ul>
+                <li><strong>Member:</strong> <code>Node* top</code> (which is just the <code>head</code> of the list).</li>
+                <li><strong>Constructor:</strong> Initialize <code>top = NULL</code>.</li>
+                <li><strong>push(T data):</strong> (Insert at Beginning)
+                    <ol>
+                        <li><code>newNode = new Node(data)</code>.</li>
+                        <li><code>newNode->next = top</code>.</li>
+                        <li><code>top = newNode</code>.</li>
+                    </ol>
+                </li>
+                <li><strong>pop():</strong> (Delete at Beginning)
+                    <ol>
+                        <li>Check for Underflow (<code>if top == NULL</code>).</li>
+                        <li><code>temp = top</code>.</li>
+                        <li><code>T data = top->data</code>.</li>
+                        <li><code>top = top->next</code>.</li>
+                        <li><code>delete temp</code>.</li>
+                        <li>Return <code>data</code>.</li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="assignment-box">
+            [cite_start]<h3 id="spap_lab_8">Assignment 8: Queue using Circular Array (Templates) [cite: 140]</h3>
+            <h4>Logic</h4><ul>
+                <li><strong>Members:</strong> <code>T arr[MAX_SIZE]</code>, <code>int front</code>, <code>int rear</code>.</li>
+                <li><strong>Constructor:</strong> Initialize <code>front = -1</code>, <code>rear = -1</code>.</li>
+                <li><strong>isFull():</strong> <code>return (rear + 1) % MAX_SIZE == front;</code></li>
+                <li><strong>isEmpty():</strong> <code>return front == -1;</code></li>
+                <li><strong>enqueue(T data):</strong>
+                    <ol>
+                        <li>Check if full.</li>
+                        <li>If empty (<code>front == -1</code>), set <code>front = 0</code>.</li>
+                        <li><code>rear = (rear + 1) % MAX_SIZE</code>.</li>
+                        <li><code>arr[rear] = data</code>.</li>
+                    </ol>
+                </li>
+                <li><strong>dequeue():</strong>
+                    <ol>
+                        <li>Check if empty.</li>
+                        <li><code>T data = arr[front]</code>.</li>
+                        <li>If <code>front == rear</code> (only one element), set <code>front = -1</code>, <code>rear = -1</code>.</li>
+                        <li>Else, <code>front = (front + 1) % MAX_SIZE</code>.</li>
+                        <li>Return <code>data</code>.</li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="assignment-box">
+            [cite_start]<h3 id="spap_lab_9">Assignment 9: Deque using Linked List [cite: 141]</h3>
+            [cite_start]<p><strong>Task:</strong> Create and perform operations on a Double-ended Queue using a Doubly Linked List. [cite: 141, 142]</p>
+            <h4>Logic</h4>
+            <ul>
+                <li><strong>Members:</strong> <code>Node* front</code>, <code>Node* rear</code> (use a Doubly Linked List).</li>
+                <li><strong>insertFront():</strong> Insert at the beginning of the DLL.</li>
+                <li><strong>insertRear():</strong> Insert at the end of the DLL.</li>
+                <li><strong>deleteFront():</strong> Delete from the beginning of the DLL.</li>
+                <li><strong>deleteRear():</strong> Delete from the end of the DLL.</li>
+            </ul>
+            <div class="common-mistake">
+                Be very careful with <code>front</code> and <code>rear</code> pointers. When deleting the *last* element, you must set *both* <code>front</code> and <code>rear</code> to <code>NULL</code>.
+            </div>
+        </div>
+        
+        <div class="assignment-box">
+            [cite_start]<h3 id="spap_lab_16">Assignment 16: Reverse Stack (using additional Stack) [cite: 151]</h3>
+            <h4>Logic</h4><p>This is simple. To reverse <code>S1</code> using <code>S2</code>:</p>
+            <ol>
+                <li>While <code>S1</code> is not empty, <code>push(S1.pop())</code> onto <code>S2</code>.</li>
+                <li>Now <code>S2</code> holds all elements in reverse order.</li>
+                <li>(Optional) If you need the reversed elements back in <code>S1</code>, use a third stack <code>S3</code> (or a Queue) as an intermediary, or just assign <code>S1 = S2</code> if the class supports it.</li>
+            </ol>
+        </div>
+        
+        <div class="assignment-box">
+            [cite_start]<h3 id="spap_lab_17">Assignment 17: Reverse Stack (using additional Queue) [cite: 152]</h3>
+            <h4>Logic</h4>
+            <p>To reverse Stack <code>S</code> using Queue <code>Q</code>:</p>
+            <ol>
+                <li>While <code>S</code> is not empty, <code>enqueue(S.pop())</code> into <code>Q</code>. (Elements are now in <code>Q</code> in the original stack order).</li>
+                <li>While <code>Q</code> is not empty, <code>push(Q.dequeue())</code> onto <code>S</code>. (Elements are put back into <code>S</code> in reverse order).</li>
+            </ol>
+        </div>
+
+        <h2 id="spap_lab_trees">Section 5: Tree Assignments</h2>
+
+        <div class="assignment-box">
+            [cite_start]<h3 id="spap_lab_14">Assignment 14: Binary Search Tree (BST) Operations [cite: 147]</h3>
+            [cite_start]<p><strong>Task:</strong> Create a BST and implement a large number of operations. [cite: 147, 148, 149]</p>
+            <h4>Logic</h4>
+            <ul>
+                <li><strong>Node Structure:</strong> <code>{ T data; Node *left; Node *right; }</code></li>
+                [cite_start]<li><strong>(a) Insertion (Recursive):</strong> [cite: 148]
+<pre>
+function insert(node, key):
+    if node == NULL: return new Node(key)
+    if key < node->data:
+        node->left = insert(node->left, key)
+    else:
+        node->right = insert(node->right, key)
+    return node
+</pre>
+                </li>
+                [cite_start]<li><strong>(b) Deletion by Copying:</strong> [cite: 148] (Case 3: 2 children)
+                    <ol>
+                        <li>Find Inorder Successor (smallest node in the right subtree).</li>
+                        <li>Copy successor's data to the node to be deleted.</li>
+                        <li>Recursively delete the successor (which is an easier 0 or 1-child case).</li>
+                    </ol>
+                </li>[cite_start]<li><strong>(c) Deletion by Merging:</strong> [cite: 148] (Alternative Case 3)
+                    <ol>
+                        <li>Find the largest node in the *left* subtree.</li>
+                        <li>Make the *entire right subtree* the right child of that largest node.</li>
+                        <li>Point the parent of the deleted node to the root of the left subtree.</li>
+                    </ol>
+                </li>
+                [cite_start]<li><strong>(d) Search:</strong> [cite: 148] Similar to insertion, follow <code>left</code>/<code>right</code> paths. Return <code>true</code> if found, <code>false</code> if <code>NULL</code> is hit.</li>
+                [cite_start]<li><strong>(e) Traversals (Recursive):</strong> [cite: 149]
+                    <ul>
+                        <li><strong>Preorder:</strong> <code>visit(node)</code>, <code>traverse(node->left)</code>, <code>traverse(node->right)</code>.</li>
+                        <li><strong>Inorder:</strong> <code>traverse(node->left)</code>, <code>visit(node)</code>, <code>traverse(node->right)</code>.</li>
+                        <li><strong>Postorder:</strong> <code>traverse(node->left)</code>, <code>traverse(node->right)</code>, <code>visit(node)</code>.</li>
+                    </ul>
+                </li>
+                [cite_start]<li><strong>(f) Traversals (Iterative):</strong> [cite: 149] Use a Stack. (See theory notes for CSCDSC151, Unit 3).</li>
+                [cite_start]<li><strong>(g) Level-by-Level Traversal:</strong> [cite: 149] Use a <strong>Queue</strong>.
+                    <ol>
+                        <li>Enqueue the <code>root</code>.</li>
+                        <li>While Queue is not empty:
+                            <ul>
+                                <li><code>node = dequeue()</code></li>
+                                <li><code>visit(node)</code></li>
+                                <li>If <code>node->left != NULL</code>, enqueue <code>node->left</code>.</li>
+                                <li>If <code>node->right != NULL</code>, enqueue <code>node->right</code>.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </li>
+                [cite_start]<li><strong>(h) Count Leaf & Non-Leaf Nodes:</strong> [cite: 149]
+<pre>
+function countLeaf(node):
+    if node == NULL: return 0
+    if node->left == NULL and node->right == NULL:
+        return 1
+    return countLeaf(node->left) + countLeaf(node->right)
+// Non-leaf is total_nodes - leaf_nodes
+</pre>
+                </li>
+                [cite_start]<li><strong>(i) Display Height of Tree:</strong> [cite: 149]
+<pre>
+function height(node):
+    if node == NULL: return -1 // or 0 for "count of nodes"
+    return 1 + max(height(node->left), height(node->right))
+</pre></li>
+                [cite_start]<li><strong>(j) Create Mirror Image:</strong> [cite: 149]
+<pre>
+function mirror(node):
+    if node == NULL: return
+    mirror(node->left)
+    mirror(node->right)
+    swap(node->left, node->right)
+</pre>
+                </li>
+                [cite_start]<li><strong>(k) Check if Two BSTs are Equal:</strong> [cite: 149]
+<pre>
+function areEqual(r1, r2):
+    if r1 == NULL and r2 == NULL: return true
+    if r1 == NULL or r2 == NULL: return false
+    return (r1->data == r2->data) and
+           areEqual(r1->left, r2->left) and
+           areEqual(r1->right, r2->right)
+</pre>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="assignment-box">
+            [cite_start]<h3 id="spap_lab_22">Assignment 22: Threaded Binary Tree [cite: 157]</h3>
+            [cite_start]<p><strong>Task:</strong> Create a Threaded Binary Tree (TBT) as per inorder traversal and implement operations like find successor/predecessor, insert, and inorder traversal. [cite: 157]</p>
+            <h4>Logic</h4>
+            <ul>
+                <li><strong>Node Structure:</strong>
+<pre>
+struct TBTNode {
+    T data;
+    TBTNode *left, *right;
+    bool isLeftThread;  // True if left pointer is a thread
+    bool isRightThread; // True if right pointer is a thread
+};
+</pre>
+                </li>
+                <li><strong>Inorder Traversal (without stack/recursion):</strong>
+                    <ol>
+                        <li>Find the leftmost node of the tree.</li>
+                        <li>While <code>node != NULL</code>:
+                            <ul><li><code>visit(node)</code>.</li>
+                                <li>If <code>node->isRightThread == true</code>, <code>node = node->right</code> (follow thread).</li>
+                                <li>Else, <code>node = node->right</code>, and then find the leftmost node of that subtree.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </li>
+                <li><strong>Insertion:</strong> This is complex. You must find the correct empty spot, insert the new node, and update the <code>inorder</code> and <code>predecessor</code> threads of the surrounding nodes.</li>
+            </ul>
+        </div>
+        
+        <div class="assignment-box">
+            [cite_start]<h3 id="spap_lab_23">Assignment 23: AVL Tree Operations [cite: 158]</h3>
+            [cite_start]<p><strong>Task:</strong> Implement various operations on an AVL Tree. [cite: 158]</p>
+            <h4>Logic</h4>
+            <p>This builds on Assignment 14 (BST). Your <code>insert</code> and <code>delete</code> functions must now be modified to include rebalancing.</p>
+            <ol>
+                <li>Perform the standard BST insertion/deletion.</li>
+                <li>After the operation, move back up the tree (via recursion) to the root.</li>
+                <li>At each node, update its height.</li>
+                <li>Calculate the <strong>Balance Factor (BF)</strong>: <code>BF = height(node->left) - height(node->right)</code>.</li>
+                <li><strong>If <code>BF > 1</code> (Left-Heavy):</strong>
+                    <ul>
+                        <li>If key was inserted in <code>node->left->left</code>: Perform <strong>LL Rotate (Right Rotate)</strong>.</li>
+                        <li>If key was inserted in <code>node->left->right</code>: Perform <strong>LR Rotate (Left-Right Rotate)</strong>.</li>
+                    </ul>
+                </li>
+                <li><strong>If <code>BF < -1</code> (Right-Heavy):</strong>
+                    <ul>
+                        <li>If key was inserted in <code>node->right->right</code>: Perform <strong>RR Rotate (Left Rotate)</strong>.</li>
+                        <li>If key was inserted in <code>node->right->left</code>: Perform <strong>RL Rotate (Right-Left Rotate)</strong>.</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="exam-tip">
+                A <strong>viva</strong> for this assignment will almost certainly involve drawing the rotations. Be prepared to show the LL, RR, LR, and RL rotations on a whiteboard.
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

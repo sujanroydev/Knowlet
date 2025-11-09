@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive lab notes for CSCSEC151 Python Programming, covering all 18 assignments: loops, functions, strings, lists, sorting, file handling, and plotting. Based on Assam University (Silchar) NEP syllabus.">
+    <meta name="keywords" content="CSCSEC151, Python Programming Lab, Assam University, Knowlet, Python Assignments, Python Loops, Python Functions, Python Sorting, Python File Handling, Matplotlib Lab">
+    <title>Computer Science SEC 151 Unit 2 | 2nd Semester Notes - Knowlet</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #0056b3; /* Deep Blue */
+            text-align: center;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1a73e8; /* Bright Blue */
+            border-bottom: 2px solid #e0e0e0;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #2a8a4d; /* Green */
+            padding-top: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        code, pre {
+            background-color: #eef1f5;
+            border-radius: 4px;
+            padding: 2px 5px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            padding: 15px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+        }
+        blockquote {
+            background-color: #fffbe6; /* Light Yellow */
+            border-left: 5px solid #ffc107; /* Amber */
+            margin: 20px 0;
+            padding: 15px 20px;
+        }
+        .assignment-box {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-left: 5px solid #2a8a4d;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CSCSEC151: Python Programming (Lab Notes)</h1>
+        
+        <h2 id="spap_lab_obj">Lab Objectives</h2>
+        <p>This practical part aims to[cite: 369]:</p>
+        <ul>
+            <li><span id="spap_lab_obj_1">Provide hands-on experience with Python code[cite: 371].</span></li>
+            <li><span id="spap_lab_obj_2">Practice fundamental concepts like variables, data types, loops, conditionals, and functions[cite: 373].</span></li>
+            <li><span id="spap_lab_obj_3">Introduce Python libraries for solving complex problems, including data manipulation and visualization [cite: 374-375].</span></li>
+        </ul>
+        
+        <h2><span id="spap_lab_assign_title">Laboratory Programming Assignments</span></h2>
+
+        <div class="assignment-box">
+            <h3><span id="spap_lab_1">Assignment 1: Celsius/Fahrenheit Table [cite: 377]</span></h3>
+            <p><strong>Task:</strong> Using a loop, print a table of Celsius/Fahrenheit equivalences from 0 to 100.</p>
+            <h4><span id="spap_lab_1_logic">Logic</span></h4>
+            <p><span id="spap_lab_1_p1">The formula is F = (C * 9/5) + 32.</span></p>
+<pre>
+print("Celsius  |  Fahrenheit")
+print("-----------------------")
+for c in range(0, 101):
+    f = (c * 9/5) + 32
+    print(f"{c:7}  |  {f:10.1f}")
+</pre>
+        </div>
+        
+        <div class="assignment-box">
+            <h3><span id="spap_lab_2">Assignment 2: Sin/Cos/Tan Table [cite: 379]</span></h3>
+            <p><strong>Task:</strong> Using a <code>while</code> loop, produce a table of sins, cosines, and tangents for x from 0 to 10 in steps of 0.2.</p>
+            <h4><span id="spap_lab_2_logic">Logic</span></h4>
+            <p><span id="spap_lab_2_p1">You must import the <code>math</code> module.</span></p>
+<pre>
+import math
+
+print("x    |  sin(x)  |  cos(x)  |  tan(x)")
+print("--------------------------------------")
+x = 0.0
+while x <= 10.0:
+    s = math.sin(x)
+    c = math.cos(x)
+    t = math.tan(x)
+    print(f"{x:.1f}  |  {s:+.4f}  |  {c:+.4f}  |  {t:+.4f}")
+    x += 0.2
+</pre>
+        </div>
+
+        <div class="assignment-box">
+            <h3><span id="spap_lab_3">Assignment 3: Leap Year [cite: 382]</span></h3>
+            <p><strong>Task:</strong> Read an integer and print "leap year" or "not a leap year".</p>
+            <h4><span id="spap_lab_3_logic">Logic</span></h4>
+            <p><span id="spap_lab_3_p1">A leap year is divisible by 4, except for years divisible by 100, unless they are also divisible by 400.</span></p>
+<pre>
+year = int(input("Enter a year: "))
+
+if (year % 400 == 0) or (year % 100 != 0 and year % 4 == 0):
+    print(f"{year} is a leap year.")
+else:
+    print(f"{year} is not a leap year.")
+</pre>
+        </div>
+        
+        <div class="assignment-box">
+            <h3><span id="spap_lab_4_5">Assignments 4 & 5: Pattern Printing [cite: 383, 385-389]</span></h3>
+            <p><strong>Task:</strong> Take a number <code>n</code> and print a pattern (e.g., a triangle of stars).</p>
+            <h4><span id="spap_lab_4_5_logic">Logic</span></h4>
+            <p><span id="spap_lab_4_5_p1">This uses nested loops. The outer loop controls the rows, the inner loop controls the columns.</span></p>
+<pre>
+n = 5
+for i in range(1, n + 1):
+    for j in range(i):
+        print("*", end="")
+    print() # Newline
+</pre>
+        </div>
+
+        <div class="assignment-box">
+            <h3><span id="spap_lab_6">Assignment 6: Series Calculation [cite: 390-391]</span></h3>
+            <p><strong>Task:</strong> Write a function that takes <code>n</code> and calculates <code>1 + 1/1! + 1/2! + ... + 1/n!</code></p>
+            <h4><span id="spap_lab_6_logic">Logic</span></h4>
+<pre>
+import math
+
+def calculate_series(n):
+    total_sum = 1.0
+    for i in range(1, n + 1):
+        total_sum += 1 / math.factorial(i)
+    return total_sum
+
+print(calculate_series(5))
+</pre>
+        </div>
+        
+        <div class="assignment-box">
+            <h3><span id="spap_lab_7_8">Assignments 7 & 8: Factorial & Palindrome [cite: 392-393]</span></h3>
+            <p><strong>Task 7:</strong> Write a function to calculate the factorial of an integer.</p>
+            <p><strong>Task 8:</strong> Write a function to check if a string is a palindrome.</p>
+            <h4><span id="spap_lab_7_8_logic">Logic</span></h4>
+<pre>
+def factorial(n):
+    if n == 0:
+        return 1
+    result = 1
+    for i in range(1, n + 1):
+        result *= i
+    return result
+
+def is_palindrome(s):
+    # s[::-1] creates a reversed copy of the string
+    return s == s[::-1]
+
+print(factorial(5))
+print(is_palindrome("racecar"))
+print(is_palindrome("hello"))
+</pre>
+        </div>
+
+        <div class="assignment-box">
+            <h3><span id="spap_lab_9_14">Assignments 9-14: Basic Problems [cite: 394-399]</span></h3>
+            <ul>
+                <li><span id="spap_lab_9_14_l1"><strong>(9) String to list:</strong> <code>list('abc')</code> gives <code>['a', 'b', 'c']</code>.</span></li>
+                <li><span id="spap_lab_9_14_l2"><strong>(10) Fibonacci:</strong> Use an iterative approach (see theory notes).</span></li>
+                <li><span id="spap_lab_9_14_l3"><strong>(11) Even/Odd:</strong> Use the modulus operator: <code>if num % 2 == 0:</code></span></li>
+                <li><span id="spap_lab_9_14_l4"><strong>(12) Compare 3 numbers:</strong> Use <code>if/elif/else</code>.</span></li>
+                <li><span id="spap_lab_9_14_l5"><strong>(13) Factors:</strong> Loop from 1 to <code>n</code>, check <code>if n % i == 0</code>.</span></li>
+                <li><span id="spap_lab_9_14_l6"><strong>(14) GCD:</strong> Use the Euclidean algorithm.
+<pre>
+def gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+print(gcd(48, 18))
+</pre>
+                </span></li>
+            </ul>
+        </div>
+        
+        <div class="assignment-box">
+            <h3><span id="spap_lab_15">Assignment 15: Sorting [cite: 400]</span></h3>
+            <p><strong>Task:</strong> Sort a list using Insertion, Bubble, and Selection sort.</p>
+            <h4><span id="spap_lab_15_logic">Logic</span></h4>
+<pre>
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+    return arr
+
+# (Implement selection_sort and insertion_sort similarly)
+</pre>
+        </div>
+        
+        <div class="assignment-box">
+            <h3><span id="spap_lab_16_17">Assignments 16 & 17: File/Exception Handling & Strings [cite: 401-402]</span></h3>
+            <p><strong>Task 16:</strong> Problems related to file handling and exceptions.</p>
+            <p><strong>Task 17:</strong> Problems related to string manipulations.</p>
+            <h4><span id="spap_lab_16_17_logic">Logic</span></h4>
+<pre>
+# Exception Handling
+try:
+    f = open("non_existent_file.txt", "r")
+    print(f.read())
+except FileNotFoundError:
+    print("Error: The file was not found.")
+except Exception as e:
+    print(f"An error occurred: {e}")
+
+# String Manipulation
+s = "   Hello, World!   "
+print(s.strip())         # "Hello, World!"
+print(s.split(','))      # ['   Hello', ' World!   ']
+print(s.upper())         # "   HELLO, WORLD!   "
+</pre>
+        </div>
+        
+        <div class="assignment-box">
+            <h3><span id="spap_lab_18">Assignment 18: Plotting [cite: 402]</span></h3>
+            <p><strong>Task:</strong> Write a program to draw a line, bar, histogram, pie chart, etc.</p>
+            <h4><span id="spap_lab_18_logic">Logic</span></h4>
+            <p><span id="spap_lab_18_p1">Requires <code>matplotlib</code>. (Run <code>pip install matplotlib</code> first).</span></p>
+<pre>
+import matplotlib.pyplot as plt
+
+# --- Bar Chart ---
+labels = ['A', 'B', 'C']
+values = [10, 40, 20]
+plt.bar(labels, values)
+plt.title("Bar Chart")
+plt.show()
+
+# --- Pie Chart ---
+sizes = [15, 30, 45, 10]
+plt.pie(sizes, labels=['Frogs', 'Hogs', 'Dogs', 'Logs'], autopct='%1.1f%%')
+plt.title("Pie Chart")
+plt.show()
+</pre>
+            </div>
+
+    </div>
+</body>
+</html>

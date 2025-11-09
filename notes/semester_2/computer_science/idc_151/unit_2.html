@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive exam-ready notes for CSCIDC151 Programming Fundamentals with C, Unit 2: Algorithms, Flowcharts, and C Overview. [cite_start]Based on Assam University (Silchar) NEP syllabus. [cite: 450-452]">
+    <meta name="keywords" content="CSCIDC151, Programming Fundamentals with C, Unit 2, Algorithms, Flowcharts, C Program Structure, Assam University, Knowlet">
+    <title>Computer Science IDC 151 Unit 2 | 2nd Semester Notes - Knowlet</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #0056b3; /* Deep Blue */
+            text-align: center;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1a73e8; /* Bright Blue */
+            border-bottom: 2px solid #e0e0e0;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #2a8a4d; /* Green */
+            padding-top: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        code, pre {
+            background-color: #eef1f5;
+            border-radius: 4px;
+            padding: 2px 5px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            padding: 15px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+        }
+        blockquote {
+            background-color: #fffbe6; /* Light Yellow */
+            border-left: 5px solid #ffc107; /* Amber */
+            margin: 20px 0;
+            padding: 15px 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #1a73e8;
+            color: #ffffff;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background-color: #e6f7ff;
+            border: 1px solid #b3e0ff;
+            padding: 15px 25px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            color: #0056b3;
+            margin-top: 0;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li {
+            margin: 8px 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #e6ffe6; /* Light Green */
+            border: 1px solid #5cb85c;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .common-mistake {
+            background-color: #fbeaea; /* Light Red */
+            border: 1px solid #d9534f;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><span id="spap_unit_2_title">Unit 2: Art of Programming and C Overview</span></h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#spap_2_1">1. [cite_start]Art of Programming through Algorithms and Flowcharts [cite: 450]</a>
+                    <ul>
+                        [cite_start]<li><a href="#spap_2_1_1">Qualities of a Good Algorithm [cite: 450]</a></li>
+                        [cite_start]<li><a href="#spap_2_1_2">Flowchart Symbols [cite: 450]</a></li>
+                        [cite_start]<li><a href="#spap_2_1_3">Rules for designing Flowcharts [cite: 450]</a></li>
+                    </ul>
+                </li>
+                <li><a href="#spap_2_2">2. [cite_start]Overview of C Programming [cite: 451]</a>
+                    <ul>
+                        [cite_start]<li><a href="#spap_2_2_1">History and Importance of C [cite: 451]</a></li>
+                        [cite_start]<li><a href="#spap_2_2_2">Basic Structure of C program [cite: 451]</a></li>
+                        [cite_start]<li><a href="#spap_2_2_3">Executing a C program [cite: 451]</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h2 id="spap_2_1"><span id="spap_2_1_span">1. [cite_start]Art of Programming through Algorithms and Flowcharts [cite: 450]</span></h2>
+        <p><span id="spap_2_1_p1">Before writing code, a programmer must plan the logic. [cite_start]This "art of programming" is done using algorithms and flowcharts[cite: 450].</span></p>
+
+        [cite_start]<blockquote><span id="spap_2_1_p2">An <strong>Algorithm</strong> is a finite, step-by-step, unambiguous set of instructions to solve a specific problem[cite: 450].</span></blockquote>
+        
+        <p><span id="spap_2_1_p3"><strong>Example: Algorithm to add two numbers</strong></span></p>
+        <ol>
+            <li><span id="spap_2_1_l1">Start</span></li>
+            <li><span id="spap_2_1_l2">Declare three variables: <code>num1</code>, <code>num2</code>, <code>sum</code>.</span></li>
+            <li><span id="spap_2_1_l3">Read values for <code>num1</code> and <code>num2</code>.</span></li>
+            <li><span id="spap_2_1_l4">Calculate <code>sum = num1 + num2</code>.</span></li>
+            <li><span id="spap_2_1_l5">Display <code>sum</code>.</span></li>
+            <li><span id="spap_2_1_l6">Stop</span></li>
+        </ol>
+
+        [cite_start]<h3 id="spap_2_1_1"><span id="spap_2_1_1_span">Qualities of a Good Algorithm [cite: 450]</span></h3>
+        <p><span id="spap_2_1_1_p1">A good algorithm must have the following properties:</span></p>
+        <ul>
+            <li><span id="spap_2_1_1_l1"><strong>Input:</strong> It must take zero or more well-defined inputs.</span></li>
+            <li><span id="spap_2_1_1_l2"><strong>Output:</strong> It must produce one or more well-defined outputs.</span></li>
+            <li><span id="spap_2_1_1_l3"><strong>Finiteness:</strong> It must terminate after a finite number of steps.</span></li>
+            <li><span id="spap_2_1_1_l4"><strong>Definiteness/Unambiguous:</strong> Each step must be clear and precisely defined.</span></li>
+            <li><span id="spap_2_1_1_l5"><strong>Effectiveness:</strong> Each step must be simple enough to be carried out (e.g., "add two numbers" is effective; "find the best move" is not).</span></li>
+        </ul>
+
+        [cite_start]<h3 id="spap_2_1_2"><span id="spap_2_1_2_span">Flowchart Symbols [cite: 450]</span></h3>
+        <p><span id="spap_2_1_2_p1">A <strong>Flowchart</strong> is a graphical or pictorial representation of an algorithm. [cite_start]It uses standard symbols to show the sequence of operations[cite: 450].</span></p>
+        
+        <table>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Function</th>
+            </tr>
+            <tr>
+                <td>Oval / Terminal</td>
+                <td><strong>Start / Stop</strong></td>
+                <td>Indicates the beginning or end of the flowchart.</td>
+            </tr>
+            <tr>
+                <td>Parallelogram</td>
+                <td><strong>Input / Output</strong></td>
+                <td>Used for reading data (Input) or displaying results (Output).</td>
+            </tr>
+            <tr>
+                <td>Rectangle</td>
+                <td><strong>Process</strong></td>
+                <td>Represents an operation or calculation (e.g., <code>sum = a + b</code>).</td>
+            </tr>
+            <tr>
+                <td>Diamond</td>
+                <td><strong>Decision</strong></td>
+                <td>Used for asking a question (e.g., <code>is a > b?</code>). Has one entry and two exits (Yes/No).</td>
+            </tr>
+            <tr>
+                <td>Arrows</td>
+                <td><strong>Flow Lines</strong></td>
+                <td>Show the direction and sequence of operations.</td>
+            </tr>
+        </table>
+
+        [cite_start]<h3 id="spap_2_1_3"><span id="spap_2_1_3_span">Rules for designing Flowcharts [cite: 450]</span></h3>
+        <ul>
+            [cite_start]<li><span id="spap_2_1_3_l1">A flowchart should have only one <strong>Start</strong> and one <strong>Stop</strong> symbol[cite: 450].</span></li>
+            <li><span id="spap_2_1_3_l2">The flow of logic should generally be from <strong>top to bottom</strong> or <strong>left to right</strong>.</span></li>
+            <li><span id="spap_2_1_3_l3">A decision (diamond) symbol must have two exit points (Yes, No).</span></li>
+            <li><span id="spap_2_1_3_l4">All symbols must be connected by flow lines (arrows).</span></li>
+        </ul>
+
+        <h2 id="spap_2_2"><span id="spap_2_2_span">2. [cite_start]Overview of C Programming [cite: 451]</span></h2>
+
+        [cite_start]<h3 id="spap_2_2_1"><span id="spap_2_2_1_span">History and Importance of C [cite: 451]</span></h3>
+        <ul>
+            [cite_start]<li><span id="spap_2_2_1_l1"><strong>History:</strong> C was developed in the early 1970s by <strong>Dennis Ritchie</strong> at Bell Labs[cite: 451]. It was created to write the UNIX operating system.</span></li>
+            <li><span id="spap_2_2_1_l2"><strong>Importance:</strong>
+                <ul>
+                    <li>It is a <strong>"middle-level" language</strong>: it has high-level features (portability, easy-to-read) and low-level features (pointer manipulation, direct memory access).</li>
+                    <li>It is extremely <strong>fast and efficient</strong>.</li>
+                    <li>It is the foundation for many other languages (C++, C#, Java, Python) and modern operating systems (Windows, Linux, macOS).</li>
+                </ul>
+            </span></li>
+        </ul>
+
+        [cite_start]<h3 id="spap_2_2_2"><span id="spap_2_2_2_span">Basic Structure of C program [cite: 451]</span></h3>
+        [cite_start]<p><span id="spap_2_2_2_p1">Every C program follows a standard structure[cite: 451].</span></p>
+<pre>
+#include <stdio.h>  // Preprocessor Directive
+
+// Global declarations (if any)
+
+int main() {        // The main function where execution begins
+    
+    // Variable declarations
+    int num;
+    
+    // Program statements
+    printf("Hello, World!");
+    
+    return 0;   // Return statement
+}
+</pre>
+        <ul>
+            <li><span id="spap_2_2_2_l1"><strong><code>#include <stdio.h></code>:</strong> A preprocessor directive that tells the compiler to include the "Standard Input/Output" header file (which contains <code>printf</code>, <code>scanf</code>, etc.).</span></li>
+            <li><span id="spap_2_2_2_l2"><strong><code>int main()</code>:</strong> The main function. Every C program must have one. Execution *always* starts here.</span></li>
+            <li><span id="spap_2_2_2_l3"><strong><code>{ ... }</code>:</strong> The curly braces define the "body" or block of the function.</span></li>
+            <li><span id="spap_2_2_2_l4"><strong><code>return 0;</code>:</strong> Tells the operating system that the program executed successfully.</span></li>
+        </ul>
+
+        [cite_start]<h3 id="spap_2_2_3"><span id="spap_2_2_3_span">Executing a C program [cite: 451]</span></h3>
+        <p><span id="spap_2_2_3_p1">The process from writing code to getting an output involves several steps:</span></p>
+        
+        <ol>
+            <li><span id="spap_2_2_3_l1"><strong>Create (Write) Source Code:</strong> Save your program as a <code>.c</code> file (e.g., <code>hello.c</code>).</span></li>
+            <li><span id="spap_2_2_3_l2"><strong>Compile:</strong> Use a compiler (like <code>gcc</code>) to translate the source code into machine-readable object code (<code>hello.o</code>). The compiler also checks for syntax errors.</span></li>
+            <li><span id="spap_2_2_3_l3"><strong>Link:</strong> A <strong>Linker</strong> combines your object code with any necessary library code (like the code for <code>printf</code>) to create a final executable file (e.g., <code>hello.exe</code> or <code>a.out</code>).</span></li>
+            <li><span id="spap_2_2_3_l4"><strong>Execute (Run):</strong> You run the executable file, and the computer performs the instructions.</span></li>
+        </ol>
+    </div>
+</body>
+</html>

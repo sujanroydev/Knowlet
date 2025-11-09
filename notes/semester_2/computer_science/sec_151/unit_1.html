@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive theory notes for CSCSEC151 Python Programming, covering all 5 units: basics, flow control, strings, lists, tuples, sets, dictionaries, functions, modules, files, and Matplotlib. Based on Assam University (Silchar) NEP syllabus.">
+    <meta name="keywords" content="CSCSEC151, Python Programming, Unit 1, Unit 2, Unit 3, Unit 4, Unit 5, Assam University, Knowlet, Python Data Types, Python Loops, Python Functions, Python Files, Matplotlib">
+    <title>Computer Science SEC 151 Unit 1 | 2nd Semester Notes - Knowlet</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #0056b3; /* Deep Blue */
+            text-align: center;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1a73e8; /* Bright Blue */
+            border-bottom: 2px solid #e0e0e0;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #2a8a4d; /* Green */
+            padding-top: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        code, pre {
+            background-color: #eef1f5;
+            border-radius: 4px;
+            padding: 2px 5px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            padding: 15px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+        }
+        blockquote {
+            background-color: #fffbe6; /* Light Yellow */
+            border-left: 5px solid #ffc107; /* Amber */
+            margin: 20px 0;
+            padding: 15px 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #1a73e8;
+            color: #ffffff;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background-color: #e6f7ff;
+            border: 1px solid #b3e0ff;
+            padding: 15px 25px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            color: #0056b3;
+            margin-top: 0;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li {
+            margin: 8px 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #e6ffe6; /* Light Green */
+            border: 1px solid #5cb85c;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .common-mistake {
+            background-color: #fbeaea; /* Light Red */
+            border: 1px solid #d9534f;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CSCSEC151: Python Programming (Theory Notes)</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#spap_unit_1">Unit 1: Introduction</a></li>
+                <li><a href="#spap_unit_2">Unit 2: Flow of Control & Strings</a></li>
+                <li><a href="#spap_unit_3">Unit 3: Lists, Tuples, Sets, Dictionaries & Modules</a></li>
+                <li><a href="#spap_unit_4">Unit 4: Functions & Modules</a></li>
+                <li><a href="#spap_unit_5">Unit 5: Files, Exceptions, and Plotting</a></li>
+            </ul>
+        </div>
+
+        <h2 id="spap_unit_1"><span id="spap_unit_1_title">Unit 1: Introduction</span></h2>
+        
+        <h3><span id="spap_1_1">Basic Elements</span></h3>
+        <p><span id="spap_1_1_p1">Python code is built from these basic elements:</span></p>
+        <ul>
+            <li><span id="spap_1_1_l1"><strong>Python Character Set:</strong> The set of valid characters, including letters (A-Z, a-z), digits (0-9), and special symbols.</span></li>
+            <li><span id="spap_1_1_l2"><strong>Python Tokens:</strong> The smallest individual unit in a program.
+                <ul>
+                    <li><strong>Keyword:</strong> Reserved words with special meanings (e.g., <code>if</code>, <code>for</code>, <code>def</code>, <code>True</code>).</li>
+                    <li><strong>Identifier:</strong> Names given to variables, functions, etc. (e.g., <code>my_var</code>, <code>age</code>).</li>
+                    <li><strong>Literal:</strong> Constant data values (e.g., <code>10</code>, <code>"Hello"</code>, <code>3.14</code>).</li>
+                    <li><strong>Operator:</strong> Symbols that perform operations (e.g., <code>+</code>, <code>=</code>, <code>></code>).</li>
+                    <li><strong>Punctuator:</strong> Symbols used to structure the code (e.g., <code>(</code>, <code>)</code>, <code>#</code>, <code>:</code>).</li>
+                </ul>
+            </span></li>
+        </ul>
+        
+        <h3><span id="spap_1_2">Variables, L-value, R-value, and Comments</span></h3>
+        <ul>
+            <li><span id="spap_1_2_l1"><strong>Variables:</strong> A named location in memory used to store data. You create one by assigning a value: <code>age = 25</code>.</span></li>
+            <li><span id="spap_1_2_l2"><strong>l-value and r-value:</strong>
+                <ul>
+                    <li><strong>l-value (Locator value):</strong> Refers to a memory location. An identifier that can be on the *left-hand side* of an assignment (e.g., the <code>age</code> in <code>age = 25</code>).</li>
+                    <li><strong>r-value (Read value):</strong> Refers to a data value. An expression that can be on the *right-hand side* of an assignment (e.g., the <code>25</code> in <code>age = 25</code>, or <code>age + 1</code>).</li>
+                </ul>
+            </span></li>
+            <li><span id="spap_1_2_l3"><strong>Comments:</strong> Text ignored by the interpreter, used to explain code. In Python, single-line comments start with <code>#</code>.</span></li>
+        </ul>
+
+        <h3><span id="spap_1_3">Data Types</span></h3>
+        <p><span id="spap_1_3_p1">Python is dynamically-typed, meaning you don't need to declare a variable's type.</span></p>
+        <table>
+            <tr><th>Category</th><th>Type</th><th>Example</th><th>Mutable/Immutable?</th></tr>
+            <tr>
+                <td rowspan="3">Number</td>
+                <td><code>int</code></td>
+                <td><code>10</code>, <code>-50</code></td>
+                <td>Immutable</td>
+            </tr>
+            <tr>
+                <td><code>float</code></td>
+                <td><code>3.14</code>, <code>-0.5</code></td>
+                <td>Immutable</td>
+            </tr>
+            <tr>
+                <td><code>complex</code></td>
+                <td><code>3 + 4j</code></td>
+                <td>Immutable</td>
+            </tr>
+            <tr>
+                <td>Boolean</td>
+                <td><code>bool</code></td>
+                <td><code>True</code>, <code>False</code></td>
+                <td>Immutable</td>
+            </tr>
+            <tr>
+                <td rowspan="3">Sequence</td>
+                <td><code>str</code> (string)</td>
+                <td><code>"Hello"</code>, <code>'Python'</code></td>
+                <td>Immutable</td>
+            </tr>
+            <tr>
+                <td><code>list</code></td>
+                <td><code>[1, "a", 3.5]</code></td>
+                <td><strong>Mutable</strong></td>
+            </tr>
+            <tr>
+                <td><code>tuple</code></td>
+                <td><code>(1, "a", 3.5)</code></td>
+                <td>Immutable</td>
+            </tr>
+            <tr>
+                <td>None Type</td>
+                <td><code>NoneType</code></td>
+                <td><code>None</code></td>
+                <td>Immutable</td>
+            </tr>
+            <tr>
+                <td>Mapping</td>
+                <td><code>dict</code> (dictionary)</td>
+                <td><code>{"key": "value"}</code></td>
+                <td><strong>Mutable</strong></td>
+            </tr>
+            <tr>
+                <td>Set</td>
+                <td><code>set</code></td>
+                <td><code>{1, 2, 3}</code></td>
+                <td><strong>Mutable</strong></td>
+            </tr>
+        </table>
+        <ul>
+            <li><span id="spap_1_3_l1"><strong>Immutable:</strong> Cannot be changed after creation (e.g., numbers, strings, tuples).</span></li>
+            <li><span id="spap_1_3_l2"><strong>Mutable:</strong> Can be changed after creation (e.g., lists, dictionaries, sets).</span></li>
+        </ul>
+
+        <h3><span id="spap_1_4">Operators</span></h3>
+        <ul>
+            <li><span id="spap_1_4_l1"><strong>Arithmetic:</strong> <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code> (float division), <code>//</code> (floor division), <code>%</code> (modulus), <code>**</code> (exponent).</span></li>
+            <li><span id="spap_1_4_l2"><strong>Relational:</strong> <code>==</code>, <code>!=</code>, <code>></code>, <code><</code>, <code>>=</code>, <code><=</code>.</span></li>
+            <li><span id="spap_1_4_l3"><strong>Logical:</strong> <code>and</code>, <code>or</code>, <code>not</code>.</span></li>
+            <li><span id="spap_1_4_l4"><strong>Assignment:</strong> <code>=</code></span></li>
+            <li><span id="spap_1_4_l5"><strong>Augmented Assignment:</strong> <code>+=</code>, <code>-=</code>, <code>*=</code>, etc.</span></li>
+            <li><span id="spap_1_4_l6"><strong>Identity:</strong> <code>is</code>, <code>is not</code> (Checks if two variables point to the *same* object in memory).</span></li>
+            <li><span id="spap_1_4_l7"><strong>Membership:</strong> <code>in</code>, <code>not in</code> (Checks if a value is present in a sequence).</span></li>
+        </ul>
+
+        <h3><span id="spap_1_5">Expressions, Type Conversion, and I/O</span></h3>
+        <ul>
+            <li><span id="spap_1_5_l1"><strong>Expression:</strong> A combination of values, variables, and operators that evaluates to a single value (e.g., <code>x + 5</code>).</span></li>
+            <li><span id="spap_1_5_l2"><strong>Statement:</strong> A complete instruction that Python can execute (e.g., <code>x = 5</code>).</span></li>
+            <li><span id="spap_1_5_l3"><strong>Type Conversion (Casting):</strong>
+                <ul>
+                    <li><strong>Implicit:</strong> Python automatically converts types (e.g., <code>int + float</code> becomes <code>float</code>).</li>
+                    <li><strong>Explicit:</strong> You force a type change using functions like <code>int()</code>, <code>float()</code>, <code>str()</code>.</li>
+                </ul>
+            </span></li>
+            <li><span id="spap_1_5_l4"><strong>Input/Output:</strong>
+                <ul>
+                    <li><code>input("Prompt: ")</code>: Accepts data from the console. <strong>Returns a string.</strong></li>
+                    <li><code>print(...)</code>: Displays output to the console.</li>
+                </ul>
+<pre>
+name = input("Enter your name: ")
+age_str = input("Enter your age: ")
+age = int(age_str) # Explicit conversion
+print("Hello,", name, "you are", age, "years old.")
+</pre>
+            </span></li>
+        </ul>
+
+        <h2 id="spap_unit_2"><span id="spap_unit_2_title">Unit 2: Flow of Control & Strings</span></h2>
+
+        <h3><span id="spap_2_1">Flow of Control</span></h3>
+        <ul>
+            <li><span id="spap_2_1_l1"><strong>Indentation:</strong> Python uses indentation (spaces or tabs) to define code blocks, not curly braces <code>{}</code>. This is mandatory.</span></li>
+            <li><span id="spap_2_1_l2"><strong>Sequential:</strong> Code executes from top to bottom, one line at a time.</span></li>
+            <li><span id="spap_2_1_l3"><strong>Conditional (Selection):</strong>
+                <ul>
+                    <li><code>if</code>: Executes a block if a condition is true.</li>
+                    <li><code>if-else</code>: Executes one block if true, another if false.</li>
+                    <li><code>if-elif-else</code>: A chain of conditions.
+<pre>
+if x > 10:
+    print("Large")
+elif x > 5:
+    print("Medium")
+else:
+    print("Small")
+</pre>
+                    </li>
+                </ul>
+            </span></li>
+            <li><span id="spap_2_1_l4"><strong>Iterative (Loops):</strong>
+                <ul>
+                    <li><code>for</code> loop: Iterates over a sequence (like a list, string, or <code>range()</code>).
+<pre>
+for i in range(5):  # i will be 0, 1, 2, 3, 4
+    print(i)
+</pre>
+                    </li>
+                    <li><code>while</code> loop: Repeats a block as long as a condition is true.
+<pre>
+count = 0
+while count < 5:
+    print(count)
+    count += 1
+</pre>
+                    </li>
+                    <li><code>break</code>: Exits the loop immediately.</li>
+                    <li><code>continue</code>: Skips the rest of the current iteration and moves to the next.</li>
+                </ul>
+            </span></li>
+        </ul>
+
+        <h3><span id="spap_2_2">Strings</span></h3>
+        <ul>
+            <li><span id="spap_2_2_l1"><strong>Introduction:</strong> An immutable sequence of characters.</span></li>
+            <li><span id="spap_2_2_l2"><strong>Operations:</strong>
+                <ul>
+                    <li><code>+</code> (Concatenation): <code>"Hello" + " " + "World"</code></li>
+                    <li><code>*</code> (Repetition): <code>"Go" * 3</code> (produces <code>"GoGoGo"</code>)</li>
+                    <li><code>in</code> (Membership): <code>"H" in "Hello"</code> (produces <code>True</code>)</li>
+                    <li><strong>Slicing:</strong> <code>s[start:end:step]</code>. Very powerful.
+<pre>
+s = "Python"
+s[0]    # 'P'
+s[1:4]  # 'yth'
+s[:3]   # 'Pyt'
+s[-1]   # 'n' (last character)
+s[::-1] # 'nohtyP' (reverses the string)
+</pre>
+                    </li>
+                </ul>
+            </span></li>
+            <li><span id="spap_2_2_l3"><strong>Traversing:</strong> Use a <code>for</code> loop: <code>for char in my_string: print(char)</code></span></li>
+            <li><span id="spap_2_2_l4"><strong>Built-in Functions/Methods:</strong> <code>len()</code>, <code>.upper()</code>, <code>.lower()</code>, <code>.find()</code>, <code>.split()</code>, <code>.strip()</code>.</span></li>
+        </ul>
+        
+        <h2 id="spap_unit_3"><span id="spap_unit_3_title">Unit 3: Lists, Tuples, Sets, Dictionaries & Modules</span></h2>
+
+        <h3><span id="spap_3_1">Lists</span></h3>
+        <ul>
+            <li><span id="spap_3_1_l1"><strong>Introduction:</strong> A mutable (changeable), ordered sequence of elements.</span></li>
+            <li><span id="spap_3_1_l2"><strong>Indexing/Slicing:</strong> Works just like strings.</span></li>
+            <li><span id="spap_3_1_l3"><strong>Operations:</strong> <code>+</code>, <code>*</code>, <code>in</code>, <code>len()</code>.</span></li>
+            <li><span id="spap_3_1_l4"><strong>Methods:</strong> <code>.append(item)</code>, <code>.insert(index, item)</code>, <code>.pop(index)</code>, <code>.remove(item)</code>, <code>.sort()</code>, <code>.reverse()</code>.</span></li>
+            <li><span id="spap_3_1_l5"><strong>Nested Lists:</strong> Lists within lists (e.g., <code>matrix = [[1,2],[3,4]]</code>).</span></li>
+        </ul>
+
+        <h3><span id="spap_3_2">Tuples</span></h3>
+        <ul>
+            <li><span id="spap_3_2_l1"><strong>Introduction:</strong> An immutable (unchangeable), ordered sequence. Defined with parentheses <code>()</code>.</span></li>
+            <li><span id="spap_3_2_l2"><strong>Use Case:</strong> Use when you want to ensure data is not accidentally changed. They are faster than lists.</span></li>
+            <li><span id="spap_3_2_l3"><strong>Operations:</strong> Indexing, slicing, concatenation, repetition, <code>len()</code>.</span></li>
+        </ul>
+        
+        <h3><span id="spap_3_3">Set</span></h3>
+        <ul>
+            <li><span id="spap_3_3_l1"><strong>Introduction:</strong> A mutable, unordered collection of <strong>unique</strong> elements. Defined with curly braces <code>{}</code> (or <code>set()</code> for an empty set).</span></li>
+            <li><span id="spap_3_3_l2"><strong>Adding/Removing:</strong> <code>.add(item)</code>, <code>.remove(item)</code>.</span></li>
+            <li><span id="spap_3_3_l3"><strong>Set Operations:</strong>
+                <ul>
+                    <li><code>|</code> (Union): <code>set1 | set2</code></li>
+                    <li><code>&</code> (Intersection): <code>set1 & set2</code></li>
+                    <li><code>-</code> (Difference): <code>set1 - set2</code></li>
+                </ul>
+            </span></li>
+        </ul>
+        
+        <h3><span id="spap_3_4">Dictionary</span></h3>
+        <ul>
+            <li><span id="spap_3_4_l1"><strong>Introduction:</strong> A mutable, unordered collection of <strong>key-value pairs</strong>. Defined with <code>{}</code>.</span></li>
+            <li><span id="spap_3_4_l2"><strong>Accessing:</strong> <code>my_dict['key']</code>. Accessing a non-existent key causes an error.</span></li>
+            <li><span id="spap_3_4_l3"><strong>Mutability:</strong>
+                <ul>
+                    <li>Add/Modify: <code>my_dict['new_key'] = "new_value"</code></li>
+                </ul>
+            </span></li>
+            <li><span id="spap_3_4_l4"><strong>Traversing:</strong>
+<pre>
+for key in my_dict:
+    print(key, my_dict[key])
+
+for key, value in my_dict.items():
+    print(key, value)
+</pre>
+            </span></li>
+            <li><span id="spap_3_4_l5"><strong>Methods:</strong> <code>.keys()</code>, <code>.values()</code>, <code>.items()</code>, <code>.get(key)</code> (safe access, returns <code>None</code> if key not found).</span></li>
+        </ul>
+        
+        <h3><span id="spap_3_5">Python Modules</span></h3>
+        <ul>
+            <li><span id="spap_3_5_l1">A module is a Python file (<code>.py</code>) containing functions and variables.</span></li>
+            <li><span id="spap_3_5_l2"><code>import <module></code>: Imports the whole module. You access members with <code>module.member</code>.
+<pre>
+import math
+print(math.pi)
+</pre>
+            </span></li>
+            <li><span id="spap_3_5_l3"><code>from <module> import <member></code>: Imports a specific member into your namespace.
+<pre>
+from math import pi
+print(pi)
+</pre>
+            </span></li>
+        </ul>
+
+        <h2 id="spap_unit_4"><span id="spap_unit_4_title">Unit 4: Functions & Modules</span></h2>
+
+        <h3><span id="spap_4_1">Python Functions</span></h3>
+        <ul>
+            <li><span id="spap_4_1_l1"><strong>Definition:</strong> A reusable block of code, defined with the <code>def</code> keyword.
+<pre>
+def greet(name):
+    print("Hello,", name)
+</pre>
+            </span></li>
+            <li><span id="spap_4_1_l2"><strong>Call:</strong> You execute the function by writing its name: <code>greet("Alice")</code>.</span></li>
+            <li><span id="spap_4_1_l3"><strong>Arguments:</strong> Data passed into a function.
+                <ul>
+                    <li><strong>Default arguments:</strong> <code>def greet(name="Guest")</code></li>
+                    <li><strong>Keyword arguments:</strong> <code>greet(name="Alice")</code></li>
+                </ul>
+            </span></li>
+            <li><span id="spap_4_1_l4"><strong>Pass by Object Reference:</strong>
+                <ul>
+                    <li>If you pass an <strong>immutable</strong> object (like a string, int), the function cannot change the original.</li>
+                    <li>If you pass a <strong>mutable</strong> object (like a list), the function *can* change the original.</li>
+                </ul>
+            </span></li>
+            <li><span id="spap_4_1_l5"><strong>Recursion:</strong> A function that calls itself. Must have a <strong>base case</strong> to stop.
+                <ul>
+                    <li><strong>Advantages:</strong> Elegant solution for some problems (e.g., factorial, tree traversal).</li>
+                    <li><strong>Disadvantages:</strong> Can be slow and consume a lot of memory (risk of "stack overflow").</li>
+                </ul>
+            </span></li>
+            <li><span id="spap_4_1_l6"><strong>Scope and Lifetime:</strong>
+                <ul>
+                    <li><strong>Local Scope:</strong> Variables defined inside a function. Only exist while the function is running.</li>
+                    <li><strong>Global Scope:</strong> Variables defined outside all functions. Accessible everywhere.</li>
+                </ul>
+            </span></li>
+        </ul>
+
+        <h3><span id="spap_4_2">Python Modules and Packages [cite: 351]</span></h3>
+        <ul>
+            <li><span id="spap_4_2_l1"><strong>Module:</strong> A single <code>.py</code> file.</span></li>
+            <li><span id="spap_4_2_l2"><strong>Package:</strong> A collection of modules in a directory. The directory must contain a file named <code>__init__.py</code> (can be empty).</span></li>
+        </ul>
+        
+        <h2 id="spap_unit_5"><span id="spap_unit_5_title">Unit 5: Files, Exceptions, and Plotting</span></h2>
+        
+        <h3><span id="spap_5_1">Python Files [cite: 353]</span></h3>
+        <p><span id="spap_5_1_p1">Used to read from and write to files on your disk.</span></p>
+        <p><span id="spap_5_1_p2"><strong>Best Practice (<code>with open</code>):</strong> This automatically closes the file for you.</span></p>
+<pre>
+# Writing to a file (overwrites)
+with open("output.txt", "w") as f:
+    f.write("Hello, file!\n")
+    f.write("This is a new line.\n")
+
+# Reading from a file
+with open("output.txt", "r") as f:
+    content = f.read()print(content)
+</pre>
+        <p><span id="spap_5_1_p3"><strong>Modes:</strong> <code>"r"</code> (read), <code>"w"</code> (write, overwrites), <code>"a"</code> (append), <code>"r+"</code> (read/write).</span></p>
+
+        <h3><span id="spap_5_2">Exception Handling [cite: 353]</span></h3>
+        <p><span id="spap_5_2_p1">How to handle errors gracefully without crashing the program.</span></p>
+        <ul>
+            <li><span id="spap_5_2_l1"><strong><code>try</code>:</strong> The block of code that *might* cause an error.</span></li>
+            <li><span id="spap_5_2_l2"><strong><code>except</code>:</strong> The block that runs *if* an error occurs. You can catch specific exceptions (e.g., <code>ZeroDivisionError</code>, <code>FileNotFoundError</code>).</span></li>
+            <li><span id="spap_5_2_l3"><strong><code>finally</code>:</strong> This block runs *no matter what* (whether an error occurred or not). Used for cleanup.</span></li>
+        </ul>
+<pre>
+try:
+    x = 10 / 0
+except ZeroDivisionError:
+    print("You cannot divide by zero!")
+finally:
+    print("This always runs.")
+</pre>
+        <ul>
+            <li><span id="spap_5_2_l4"><strong>User-defined Exception:</strong> You can create your own exceptions by inheriting from the <code>Exception</code> class.</span></li>
+        </ul>
+
+        <h3><span id="spap_5_3">Python Graph Plotting using Matplotlib [cite: 353]</span></h3>
+        <p><span id="spap_5_3_p1">Matplotlib is a powerful library for creating static, animated, and interactive visualizations.</span></p>
+        <p><span id="spap_5_3_p2"><strong>Installation:</strong> You must first install it: <code>pip install matplotlib</code></span></p>
+        <p><span id="spap_5_3_p3"><strong>Basic Example (Line Plot):</strong></span></p>
+        <pre>
+import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4]
+y = [2, 4, 1, 5]
+
+plt.plot(x, y) # Create the line plot
+plt.title("Simple Line Plot")
+plt.xlabel("X-Axis")
+plt.ylabel("Y-Axis")
+plt.show() # Display the plot
+</pre>
+        <p><span id="spap_5_3_p4">Other common plots include <code>plt.bar()</code> (bar chart), <code>plt.hist()</code> (histogram), and <code>plt.pie()</code> (pie chart).</span></p>
+
+    </div>
+</body>
+</html>

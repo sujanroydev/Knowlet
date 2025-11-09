@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philosophy SEC 151 Unit 4 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Philosophy SEC 151 (Modern Logic), Unit 4. Covers Formal Proofs of Validity (Natural Deduction) and the Elementary Rules of Inference.">
+    <meta name="keywords" content="Philosophy SEC 151, Modern Logic, Unit 4, Formal Proof, Natural Deduction, Rules of Inference, Modus Ponens, Modus Tollens, Hypothetical Syllogism, Disjunctive Syllogism, Assam University NEP Syllabus">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border: 1px solid #dcdcdc;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 30px;
+        }
+        h1, h2, h3 {
+            font-weight: 700;
+            color: #2c3e50;
+            margin-top: 1.5em;
+            margin-bottom: 0.7em;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #1a5276; /* Dark Blue */
+            border-bottom: 3px solid #1a5276;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 2em;
+            color: #2980b9; /* Medium Blue */
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 8px;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #3498db; /* Lighter Blue */
+        }
+        p {
+            font-size: 1.1em;
+            margin-bottom: 1em;
+        }
+        ul, ol {
+            margin-bottom: 1.5em;
+            padding-left: 25px;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        strong, em {
+            color: #d35400; /* Emphasis color */
+        }
+        .exam-tip, .important-note {
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 5px solid;
+            border-radius: 5px;
+            background-color: #fdfdfd;
+        }
+        .exam-tip {
+            border-color: #f39c12; /* Warning/Tip */
+            background-color: #fef9e7;
+        }
+        .important-note {
+            border-color: #e74c3c; /* Important */
+            background-color: #fcede8;
+        }
+        blockquote {
+            background: #f8f9f9;
+            border-left: 10px solid #bdc3c7;
+            margin: 1.5em 10px;
+            padding: 1em 15px;
+            font-size: 1.2em;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .toc {
+            background: #f8f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #bdc3c7;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #2c3e50;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc li {
+            margin: 0.5em 0;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: 500;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 4: Formal Proof of Validity</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">What is a Formal Proof (Natural Deduction)?</a></li>
+                <li><a href="#topic2">The Elementary Rules of Inference</a></li>
+                <li><a href="#topic3">Example of a Formal Proof</a></li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <section id="topic1">
+            <h2>What is a Formal Proof (Natural Deduction)?</h2>
+            <p>For complex arguments (with 4+ variables), truth tables become too large (16+ rows). A <strong>Formal Proof</strong> is a step-by-step method of deducing a conclusion from a set of premises using a small set of "Elementary Rules of Inference."</p>
+            <p>This method is called <strong>Natural Deduction</strong> because it mimics the way we naturally reason.</p>
+            
+            <h3>Structure of a Proof:</h3>
+            <ol>
+                <li>List the premises, numbering each line.</li>
+                <li>Draw a line and write the conclusion, prefixed with "/ ∴".</li>
+                <li>Create new lines, each one justified by citing a previous line(s) and the abbreviation for the rule used.</li>
+                <li>The proof is complete when you have derived the conclusion.</li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section id="topic2">
+            <h2>The Elementary Rules of Inference</h2>
+            <p>These are 9 basic, valid argument forms that we accept as given. They are the tools we use to build our proofs.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rule Name</th>
+                        <th>Abbreviation</th>
+                        <th>Argument Form</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Modus Ponens</strong></td>
+                        <td><strong>M.P.</strong></td>
+                        <td>p ⊃ q<br>p<br>/ ∴ q</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Modus Tollens</strong></td>
+                        <td><strong>M.T.</strong></td>
+                        <td>p ⊃ q<br>~q<br>/ ∴ ~p</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hypothetical Syllogism</strong></td>
+                        <td><strong>H.S.</strong></td>
+                        <td>p ⊃ q<br>q ⊃ r<br>/ ∴ p ⊃ r</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Disjunctive Syllogism</strong></td>
+                        <td><strong>D.S.</strong></td>
+                        <td>p v q<br>~p<br>/ ∴ q</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Constructive Dilemma</strong></td>
+                        <td><strong>C.D.</strong></td>
+                        <td>(p ⊃ q) • (r ⊃ s)<br>p v r<br>/ ∴ q v s</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Destructive Dilemma</strong></td>
+                        <td><strong>D.D.</strong></td>
+                        <td>(p ⊃ q) • (r ⊃ s)<br>~q v ~s<br>/ ∴ ~p v ~r</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Simplification</strong></td>
+                        <td><strong>Simp.</strong></td>
+                        <td>p • q<br>/ ∴ p</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Conjunction</strong></td>
+                        <td><strong>Conj.</strong></td>
+                        <td>p<br>q<br>/ ∴ p • q</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Addition</strong></td>
+                        <td><strong>Add.</strong></td>
+                        <td>p<br>/ ∴ p v q</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="important-note">
+                <strong>Crucial Rules for Exams:</strong>
+                <ul>
+                    <li><strong>M.P. (Modus Ponens):</strong> The "workhorse" of proofs. If you have "If P then Q" and you have "P", you can write "Q".</li>
+                    <li><strong>M.T. (Modus Tollens):</strong> If you have "If P then Q" and you have "Not Q", you can write "Not P".</li>
+                    <li><strong>H.S. (Hypothetical Syllogism):</strong> Lets you chain implications together.</li>
+                    <li><strong>D.S. (Disjunctive Syllogism):</strong> If you have "P or Q" and you know "Not P", you must have "Q".</li>
+                </ul>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="topic3">
+            <h2>Example of a Formal Proof</h2>
+            <p>Let's construct a formal proof for the following valid argument:</p>
+            
+            <blockquote>
+                1. A ⊃ B<br>
+                2. A v (C • D)<br>
+                3. ~B<br>
+                / ∴ C
+            </blockquote>
+            
+            <p><strong>Proof:</strong></p>
+            
+            <blockquote>
+                4. ~A &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (from 1, 3, <strong>M.T.</strong>)
+                <br>
+                5. C • D &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (from 2, 4, <strong>D.S.</strong>)
+                <br>
+                6. C &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (from 5, <strong>Simp.</strong>)
+            </blockquote>
+
+            <p><strong>Explanation:</strong></p>
+            <ol>
+                <li>We start with the three premises.</li>
+                <li><strong>Line 4:</strong> We look at lines 1 (A ⊃ B) and 3 (~B). This perfectly matches the form for Modus Tollens (M.T.). So, we can deduce ~A.</li>
+                <li><strong>Line 5:</strong> We look at lines 2 (A v (C • D)) and 4 (~A). This matches the form for Disjunctive Syllogism (D.S.). We have "P or Q" and we have "Not P", so we can deduce "Q", which in this case is (C • D).</li>
+                <li><strong>Line 6:</strong> We look at line 5 (C • D). The rule of Simplification (Simp.) says if we have "P and Q", we can deduce "P". So, we deduce C.</li>
+                <li>Since C was our conclusion, the proof is complete.</li>
+            </ol>
+        </section>
+    </div>
+</body>
+</html>

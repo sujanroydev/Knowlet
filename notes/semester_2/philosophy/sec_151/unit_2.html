@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philosophy SEC 151 Unit 2 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Philosophy SEC 151 (Modern Logic), Unit 2. Covers constructing truth tables, decision procedures, and testing for validity/invalidity.">
+    <meta name="keywords" content="Philosophy SEC 151, Modern Logic, Unit 2, Truth Tables, Decision Procedure, Testing Validity, Tautology, Contradiction, Contingent, Assam University NEP Syllabus">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border: 1px solid #dcdcdc;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 30px;
+        }
+        h1, h2, h3 {
+            font-weight: 700;
+            color: #2c3e50;
+            margin-top: 1.5em;
+            margin-bottom: 0.7em;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #1a5276; /* Dark Blue */
+            border-bottom: 3px solid #1a5276;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 2em;
+            color: #2980b9; /* Medium Blue */
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 8px;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #3498db; /* Lighter Blue */
+        }
+        p {
+            font-size: 1.1em;
+            margin-bottom: 1em;
+        }
+        ul, ol {
+            margin-bottom: 1.5em;
+            padding-left: 25px;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        strong, em {
+            color: #d35400; /* Emphasis color */
+        }
+        .exam-tip, .important-note {
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 5px solid;
+            border-radius: 5px;
+            background-color: #fdfdfd;
+        }
+        .exam-tip {
+            border-color: #f39c12; /* Warning/Tip */
+            background-color: #fef9e7;
+        }
+        .important-note {
+            border-color: #e74c3c; /* Important */
+            background-color: #fcede8;
+        }
+        blockquote {
+            background: #ecf0f1;
+            border-left: 10px solid #bdc3c7;
+            margin: 1.5em 10px;
+            padding: 1em 15px;
+            font-size: 1.2em;
+            font-style: italic;
+            color: #555;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .toc {
+            background: #f8f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #bdc3c7;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #2c3e50;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc li {
+            margin: 0.5em 0;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: 500;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        .valid { background-color: #e8f8f5; }
+        .invalid { background-color: #fcede8; border: 2px solid #e74c3c; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 2: The Truth-Table Method</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Construction of Truth Tables for Statement Forms</a></li>
+                <li><a href="#topic2">Classifying Statement Forms</a></li>
+                <li><a href="#topic3">Decision Procedure: Testing for Validity/Invalidity</a></li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <section id="topic1">
+            <h2>Construction of Truth Tables for Statement Forms</h2>
+            <p>A <strong>truth table</strong> is a complete list of all possible truth values for a statement form. It is a "decision procedure" because it can mechanically decide (in a finite number of steps) if a statement form is a tautology or if an argument is valid.</p>
+            
+            <h3>How to build a truth table:</h3>
+            <ol>
+                <li><strong>Determine the number of rows:</strong> The number of rows is <strong>2<sup>n</sup></strong>, where 'n' is the number of distinct simple variables.
+                    <ul>
+                        <li>1 variable (p): 2<sup>1</sup> = 2 rows</li>
+                        <li>2 variables (p, q): 2<sup>2</sup> = 4 rows</li>
+                        <li>3 variables (p, q, r): 2<sup>3</sup> = 8 rows</li>
+                    </ul>
+                </li>
+                <li><strong>Create "guide columns"</strong> for the simple variables.
+                    <ul>
+                        <li>For 2 variables: The 'q' column alternates T, F. The 'p' column alternates T, T, F, F.</li>
+                        <li>For 3 variables: 'r' alternates T, F. 'q' alternates T, T, F, F. 'p' alternates T, T, T, T, F, F, F, F.</li>
+                    </ul>
+                </li>
+                <li><strong>Calculate the truth values</strong> for each connective, working from the "inside out" (connectives inside parentheses first) to the "main connective."</li>
+            </ol>
+
+            <h3>Example: Construction for (p ⊃ q) • p</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>p</th>
+                        <th>q</th>
+                        <th>(p ⊃ q)</th>
+                        <th>(p ⊃ q) • p</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>T</td>
+                        <td>T</td>
+                        <td>T</td>
+                        <td><strong>T</strong></td>
+                    </tr>
+                    <tr>
+                        <td>T</td>
+                        <td>F</td>
+                        <td>F</td>
+                        <td><strong>F</strong></td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>T</td>
+                        <td>T</td>
+                        <td><strong>F</strong></td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>F</td>
+                        <td>T</td>
+                        <td><strong>F</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <section id="topic2">
+            <h2>Classifying Statement Forms</h2>
+            <p>By looking at the <strong>main connective's column</strong> in a completed truth table, we can classify any statement form into one of three categories:</p>
+            <ol>
+                <li><strong>Tautology (or Tautologous):</strong> A statement form that is <strong>always true</strong>, regardless of the truth values of its components. The main column is all <strong>T</strong>'s.
+                    <ul><li>Example: <strong>p v ~p</strong> (Law of Excluded Middle)</li></ul>
+                </li>
+                <li><strong>Contradiction (or Contradictory):</strong> A statement form that is <strong>always false</strong>. The main column is all <strong>F</strong>'s.
+                    <ul><li>Example: <strong>p • ~p</strong> (Law of Non-Contradiction)</li></ul>
+                </li>
+                <li><strong>Contingent (or Contingency):</strong> A statement form that is <strong>sometimes true and sometimes false</strong>. The main column has at least one <strong>T</strong> and at least one <strong>F</strong>.
+                    <ul><li>Example: <strong>p ⊃ q</strong></li></ul>
+                </li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section id="topic3">
+            <h2>Decision Procedure: Testing for Validity/Invalidity</h2>
+            <p>A <strong>valid</strong> deductive argument is one where it is <strong>impossible</strong> for the premises to be true and the conclusion to be false at the same time.</p>
+            <p>The truth-table method tests for validity by checking every possible scenario (every row).</p>
+
+            <h3>The Test:</h3>
+            <ol>
+                <li>Symbolize the argument.</li>
+                <li>Create a single truth table that includes columns for all premises and the conclusion.</li>
+                <li>Examine every row of the completed table.</li>
+                <li>Search for a <strong>"counterexample" row</strong>: a row where all premises are <strong>TRUE (T)</strong> and the conclusion is <strong>FALSE (F)</strong>.</li>
+            </ol>
+            <blockquote>
+                <strong>If you find even ONE such row (T, T... / ∴ F), the argument is INVALID.</strong>
+                <br>
+                <strong>If no such row exists, the argument is VALID.</strong>
+            </blockquote>
+
+            <h3>Example 1: A Valid Argument (Modus Ponens)</h3>
+            <p><strong>Argument:</strong> p ⊃ q, p / ∴ q</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>p</th>
+                        <th>q</th>
+                        <th>Premise 1 (p ⊃ q)</th>
+                        <th>Premise 2 (p)</th>
+                        <th>Conclusion (q)</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="valid">
+                        <td>T</td>
+                        <td>T</td>
+                        <td><strong>T</strong></td>
+                        <td><strong>T</strong></td>
+                        <td><strong>T</strong></td>
+                        <td>Premises T, Concl T. (OK)</td>
+                    </tr>
+                    <tr>
+                        <td>T</td>
+                        <td>F</td>
+                        <td><strong>F</strong></td>
+                        <td><strong>T</strong></td>
+                        <td><strong>F</strong></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>T</td>
+                        <td><strong>T</strong></td>
+                        <td><strong>F</strong></td>
+                        <td><strong>T</strong></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>F</td>
+                        <td><strong>T</strong></td>
+                        <td><strong>F</strong></td>
+                        <td><strong>F</strong></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>Result:</strong> We looked at all 4 rows. There is no row where the premises (P1, P2) are both T and the conclusion (C) is F. Therefore, the argument is <strong>VALID</strong>.</p>
+
+            <h3>Example 2: An Invalid Argument (Fallacy of Affirming the Consequent)</h3>
+            <p><strong>Argument:</strong> p ⊃ q, q / ∴ p</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>p</th>
+                        <th>q</th>
+                        <th>Premise 1 (p ⊃ q)</th>
+                        <th>Premise 2 (q)</th>
+                        <th>Conclusion (p)</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="valid">
+                        <td>T</td>
+                        <td>T</td>
+                        <td><strong>T</strong></td>
+                        <td><strong>T</strong></td>
+                        <td><strong>T</strong></td>
+                        <td>Premises T, Concl T. (OK)</td>
+                    </tr>
+                    <tr>
+                        <td>T</td>
+                        <td>F</td>
+                        <td><strong>F</strong></td>
+                        <td><strong>T</strong></td>
+                        <td><strong>T</strong></td>
+                        <td></td>
+                    </tr>
+                    <tr class="invalid">
+                        <td>F</td>
+                        <td>T</td>
+                        <td><strong>T</strong></td>
+                        <td><strong>T</strong></td>
+                        <td><strong>F</strong></td>
+                        <td><strong>INVALIDATING ROW!</strong></td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>F</td>
+                        <td><strong>T</strong></td>
+                        <td><strong>F</strong></td>
+                        <td><strong>F</strong></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>Result:</strong> In <strong>row 3</strong>, the premises (P1, P2) are both <strong>TRUE</strong>, but the conclusion (C) is <strong>FALSE</strong>. This one counterexample is enough to prove the argument is <strong>INVALID</strong>.</p>
+        </section>
+    </div>
+</body>
+</html>

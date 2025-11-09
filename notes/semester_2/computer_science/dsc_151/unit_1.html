@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive exam-ready notes for CSCDSC151 Data Structure, Unit 1: Arrays, Stacks, and Recursion. Based on Assam University (Silchar) NEP syllabus.">
+    <meta name="keywords" content="Data Structures, CSCDSC151, Unit 1, Arrays, Sparse Matrix, Stacks, Postfix, Infix, Prefix, Recursion, Assam University, Knowlet">
+    <title>Computer Science DSC 151 Unit 1 | 2nd Semester Notes - Knowlet</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #0056b3; /* Deep Blue */
+            text-align: center;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1a73e8; /* Bright Blue */
+            border-bottom: 2px solid #e0e0e0;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #2a8a4d; /* Green */
+            padding-top: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        code, pre {
+            background-color: #eef1f5;
+            border-radius: 4px;
+            padding: 2px 5px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            padding: 15px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+        }
+        blockquote {
+            background-color: #fffbe6; /* Light Yellow */
+            border-left: 5px solid #ffc107; /* Amber */
+            margin: 20px 0;
+            padding: 15px 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #1a73e8;
+            color: #ffffff;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background-color: #e6f7ff;
+            border: 1px solid #b3e0ff;
+            padding: 15px 25px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            color: #0056b3;
+            margin-top: 0;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li {
+            margin: 8px 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #e6ffe6; /* Light Green */
+            border: 1px solid #5cb85c;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .common-mistake {
+            background-color: #fbeaea; /* Light Red */
+            border: 1px solid #d9534f;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 1: Arrays, Stacks, and Recursion</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#spap_1_1">1. Arrays</a>
+                    <ul>
+                        <li><a href="#spap_1_1_1">Single-dimensional Arrays</a></li>
+                        <li><a href="#spap_1_1_2">Multi-dimensional Arrays</a></li>
+                        <li><a href="#spap_1_1_3">Sparse Matrices</a></li>
+                    </ul>
+                </li>
+                <li><a href="#spap_1_2">2. Stacks</a>
+                    <ul>
+                        <li><a href="#spap_1_2_1">Implementing Stacks in an Array</a></li>
+                        <li><a href="#spap_1_2_2">Prefix, Infix, and Postfix Expressions</a></li>
+                        <li><a href="#spap_1_2_3">Utility and Conversion of Expressions</a></li>
+                        <li><a href="#spap_1_2_4">Applications of Stack</a></li>
+                        <li><a href="#spap_1_2_5">Limitations of Array Representation of Stack</a></li>
+                    </ul>
+                </li>
+                <li><a href="#spap_1_3">3. Recursion</a>
+                    <ul>
+                        <li><a href="#spap_1_3_1">Recursive Definitions and Implementation</a></li>
+                        <li><a href="#spap_1_3_2">Advantages and Limitations of Recursion</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h2 id="spap_1_1">1. Arrays</h2>
+        <p>An <strong>array</strong> is a linear data structure that stores a collection of elements of the <strong>same data type</strong> in <strong>contiguous memory locations</strong>. Each element is identified by at least one array index or key.</p>
+        
+        <h3 id="spap_1_1_1">Single-dimensional Arrays</h3>
+        <p>A single-dimensional (1D) array is the simplest form, represented as a single row or column of elements.</p>
+        <ul>
+            <li><strong>Declaration:</strong> <code>int arr[10];</code> (This declares an integer array named <code>arr</code> that can hold 10 elements).</li>
+            <li><strong>Indexing:</strong> Elements are accessed using an index, which starts at <strong>0</strong> and goes up to <strong>size-1</strong>. The first element is <code>arr[0]</code>, and the last is <code>arr[9]</code>.</li>
+            <li><strong>Memory:</strong> If the base address (address of <code>arr[0]</code>) is <code>B</code> and the size of the data type (e.g., <code>int</code>) is <code>W</code> bytes, the address of any element <code>arr[i]</code> can be calculated as:
+                <blockquote>Address(arr[i]) = B + i * W</blockquote>
+            </li>
+        </ul>
+
+        <h3 id="spap_1_1_2">Multi-dimensional Arrays</h3>
+        <p>A multi-dimensional array has more than one dimension. The most common is the two-dimensional (2D) array, which can be visualized as a table or grid with rows and columns.</p>
+        <ul>
+            <li><strong>Declaration:</strong> <code>int matrix[3][4];</code> (This declares a 2D array with 3 rows and 4 columns).</li>
+            <li><strong>Accessing:</strong> Elements are accessed using two indices: <code>matrix[row][col]</code>. For example, <code>matrix[1][2]</code>.</li>
+            <li><strong>Memory Representation:</strong> Although we visualize it as a grid, memory is linear. 2D arrays are flattened into 1D in two ways:
+                <ol>
+                    <li><strong>Row-Major Order:</strong> (Default in C/C++/Java) All elements of the first row are stored contiguously, followed by all elements of the second row, and so on.
+                        <p><strong>Address Calculation (Row-Major) for <code>arr[i][j]</code> in an <code>M x N</code> array (M rows, N cols):</strong></p>
+                        <blockquote>Address(arr[i][j]) = B + (i * N + j) * W</blockquote>
+                    </li>
+                    <li><strong>Column-Major Order:</strong> (Default in FORTRAN) All elements of the first column are stored contiguously, followed by all elements of the second column, and so on.
+                        <p><strong>Address Calculation (Column-Major) for <code>arr[i][j]</code> in an <code>M x N</code> array:</strong></p>
+                        <blockquote>Address(arr[i][j]) = B + (j * M + i) * W</blockquote>
+                    </li>
+                </ol>
+            </li>
+        </ul>
+
+        <h3 id="spap_1_1_3">Sparse Matrices</h3>
+        <p>A <strong>sparse matrix</strong> is a matrix in which most of the elements are zero. It is inefficient to store this matrix in a standard 2D array because a huge amount of memory is wasted on storing zeros.</p>
+        
+        <h4>Array Representation (Triplet Representation)</h4>
+        <p>This method stores only the non-zero elements. A 2D array is created with three columns:</p>
+        <ul>
+            <li><strong>Column 1:</strong> Row index of the non-zero element.</li>
+            <li><strong>Column 2:</strong> Column index of the non-zero element.</li>
+            <li><strong>Column 3:</strong> The non-zero value itself.</li>
+        </ul>
+        <p>The first row of this representation is often used to store the metadata: (Total Rows, Total Columns, Total Non-Zero Elements).</p>
+        <p><strong>Example:</strong></p>
+        <p>Original Matrix (4x4):<br>
+        <code>
+            [ 0, 0, 3, 0 ]<br>
+            [ 5, 0, 0, 0 ]<br>
+            [ 0, 1, 0, 0 ]<br>
+            [ 0, 0, 0, 2 ]
+        </code>
+        </p>
+        <p>Array (Triplet) Representation (5x3):</p>
+        <table>
+            <tr><th>Row</th><th>Col</th><th>Value</th></tr>
+            <tr><td>4</td><td>4</td><td>4</td></tr> <tr><td>0</td><td>2</td><td>3</td></tr> <tr><td>1</td><td>0</td><td>5</td></tr> <tr><td>2</td><td>1</td><td>1</td></tr> <tr><td>3</td><td>3</td><td>2</td></tr> </table>
+
+        <h4>Linked Representation</h4>
+        <p>This method uses a linked list to store the non-zero elements. Each node in the linked list contains:</p>
+        <ul>
+            <li>Row index</li>
+            <li>Column index</li>
+            <li>Value</li>
+            <li>Pointer to the next node</li>
+        </ul>
+        <p>A header node can store the matrix dimensions. This is more flexible than the array representation as it doesn't require pre-allocating space for the non-zero elements.</p>
+        <h2 id="spap_1_2">2. Stacks</h2>
+        <p>A <strong>Stack</strong> is a linear data structure that follows the <strong>LIFO (Last-In, First-Out)</strong> principle. This means the element added last is the first one to be removed. Think of it as a stack of plates.</p>
+        <p>The primary operations are:</p>
+        <ul>
+            <li><strong>push(element):</strong> Adds an element to the top of the stack.</li>
+            <li><strong>pop():</strong> Removes and returns the element from the top of the stack.</li>
+            <li><strong>peek() or top():</strong> Returns the top element without removing it.</li>
+            <li><strong>isEmpty():</strong> Checks if the stack is empty.</li>
+            <li><strong>isFull():</strong> Checks if the stack is full (relevant for array implementation).</li>
+        </ul>
+        
+        <h3 id="spap_1_2_1">Implementing Stacks in an Array</h3>
+        <p>A stack can be easily implemented using a 1D array and a variable <code>top</code> that keeps track of the index of the last element added.</p>
+        <ul>
+            <li><strong>Initialization:</strong> Create an array <code>stack[MAX_SIZE]</code> and initialize <code>top = -1</code> (indicating the stack is empty).</li>
+            <li><strong>push(value):</strong>
+                <ol>
+                    <li>Check for <strong>Stack Overflow</strong> (if <code>top == MAX_SIZE - 1</code>).</li>
+                    <li>Increment <code>top</code> (<code>top = top + 1</code>).</li>
+                    <li>Set <code>stack[top] = value</code>.</li>
+                </ol>
+            </li>
+            <li><strong>pop():</strong>
+                <ol>
+                    <li>Check for <strong>Stack Underflow</strong> (if <code>top == -1</code>).</li>
+                    <li>Get the value: <code>value = stack[top]</code>.</li>
+                    <li>Decrement <code>top</code> (<code>top = top - 1</code>).</li>
+                    <li>Return <code>value</code>.</li>
+                </ol>
+            </li>
+        </ul>
+        <div class="common-mistake">
+            <strong>Common Mistake:</strong> Forgetting to check for Overflow (before push) and Underflow (before pop). This can lead to undefined behavior or program crashes.
+        </div>
+        
+        <h4>Implementing Multiple Stacks in an Array</h4>
+        <p>It is possible to implement two stacks in a single array efficiently. One stack starts from index <code>0</code> (grows right), and the second stack starts from index <code>MAX_SIZE - 1</code> (grows left).</p>
+        <ul>
+            <li>Stack 1: <code>top1</code> starts at <code>-1</code> and increments on push.</li>
+            <li>Stack 2: <code>top2</code> starts at <code>MAX_SIZE</code> and decrements on push.</li>
+            <li><strong>Overflow Condition:</strong> The stacks are full only when <code>top1 + 1 == top2</code>. This setup utilizes the array space much more efficiently.</li>
+        </ul>
+        <h3 id="spap_1_2_2">Prefix, Infix, and Postfix Expressions</h3>
+        <p>These are different notations for writing arithmetic expressions.</p>
+        <ul>
+            <li><strong>Infix:</strong> The standard notation where the operator is <em>between</em> the operands. (e.g., <code>A + B</code>)
+                <ul><li>Problem: Requires parentheses and rules of precedence (BODMAS) to define the order of evaluation.</li></ul>
+            </li>
+            <li><strong>Prefix (Polish Notation):</strong> The operator comes <em>before</em> the operands. (e.g., <code>+ A B</code>)</li>
+            <li><strong>Postfix (Reverse Polish Notation):</strong> The operator comes <em>after</em> the operands. (e.g., <code>A B +</code>)</li>
+        </ul>
+        <p><strong>Utility:</strong> Prefix and Postfix notations <strong>do not require parentheses or precedence rules</strong>. They are ideal for computer evaluation, which is why stacks are used.</p>
+        <table>
+            <tr><th>Infix</th><th>Prefix</th><th>Postfix</th></tr>
+            <tr><td>A + B</td><td>+ A B</td><td>A B +</td></tr>
+            <tr><td>(A + B) * C</td><td>* + A B C</td><td>A B + C *</td></tr>
+            <tr><td>A + (B * C)</td><td>+ A * B C</td><td>A B C * +</td></tr>
+        </table>
+
+        <h3 id="spap_1_2_3">Utility and Conversion of Expressions</h3>
+        
+        <h4>Algorithm: Infix to Postfix Conversion</h4>
+        <p>This is a classic stack application. We use a stack to hold operators and parentheses.</p>
+        <ol>
+            <li>Create an empty stack (for operators) and an empty string (for the postfix result).</li>
+            <li>Scan the infix expression from left to right.</li>
+            <li><strong>If the character is an operand (e.g., A, B, 1, 2):</strong> Append it directly to the postfix string.</li>
+            <li><strong>If the character is an open parenthesis '(':</strong> Push it onto the stack.</li>
+            <li><strong>If the character is a close parenthesis ')':</strong> Pop operators from the stack and append them to the postfix string until an open parenthesis '(' is encountered. Pop and discard the '('.</li>
+            <li><strong>If the character is an operator:</strong>
+                <ul>
+                    <li>While the stack is not empty AND the top of the stack is an operator with higher or equal precedence than the current operator:</li>
+                    <li>Pop the operator from the stack and append it to the postfix string.</li>
+                    <li>After the loop, push the current operator onto the stack.</li>
+                </ul>
+            </li>
+            <li>After scanning the entire infix expression, pop any remaining operators from the stack and append them to the postfix string.</li>
+        </ol>
+
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> Be sure to manage precedence. (e.g., <code>*</code> and <code>/</code> have higher precedence than <code>+</code> and <code>-</code>). Associativity (left-to-right) is handled by the "equal precedence" part of the rule.
+        </div>
+        
+        <h4>Algorithm: Evaluation of Postfix Expression</h4>
+        <p>This also uses a stack, but this time to hold operands (numbers).</p>
+        <ol>
+            <li>Create an empty stack (for operands).</li>
+            <li>Scan the postfix expression from left to right.</li>
+            <li><strong>If the character is an operand:</strong> Push its value onto the stack.</li>
+            <li><strong>If the character is an operator:</strong>
+                <ol>
+                    <li>Pop the top two operands from the stack (e.g., <code>operand2 = pop()</code>, <code>operand1 = pop()</code>).</li>
+                    <li>Perform the operation: <code>result = operand1 operator operand2</code>.</li>
+                    <li>Push the <code>result</code> back onto the stack.</li>
+                </ol>
+            </li>
+            <li>After scanning the entire expression, the final result will be the only value left in the stack. Pop and return it.</li>
+        </ol>
+        <p><strong>Example:</strong> Evaluate <code>2 3 + 5 *</code></p>
+        <ol>
+            <li>Scan '2': Push 2. Stack: [2]</li>
+            <li>Scan '3': Push 3. Stack: [2, 3]</li>
+            <li>Scan '+': Pop 3, Pop 2. Calculate 2 + 3 = 5. Push 5. Stack: [5]</li>
+            <li>Scan '5': Push 5. Stack: [5, 5]</li>
+            <li>Scan '*': Pop 5, Pop 5. Calculate 5 * 5 = 25. Push 25. Stack: [25]</li>
+            <li>End of expression. Pop 25. Result is 25.</li>
+        </ol>
+
+        <h3 id="spap_1_2_4">Applications of Stack</h3>
+        <ul>
+            <li><strong>Expression Evaluation:</strong> Infix to Postfix/Prefix conversion and evaluation.</li>
+            <li><strong>Function Call Management:</strong> The "Call Stack" stores activation records (local variables, return addresses) for function calls. This is how recursion is managed.</li>
+            <li><strong>Backtracking:</strong> Used in algorithms like maze-solving or finding paths in a graph (Depth First Search).</li>
+            <li><strong>Undo/Redo Operations:</strong> In text editors or software, a stack can store previous states.</li>
+            <li><strong>Parenthesis Checking:</strong> Validating if an expression has balanced parentheses.</li>
+        </ul>
+
+        <h3 id="spap_1_2_5">Limitations of Array Representation of Stack</h3>
+        <ul>
+            <li><strong>Fixed Size:</strong> The array size is declared at compile time (static). This leads to two problems:
+                <ol>
+                    <li><strong>Stack Overflow:</strong> If the stack size is too small, pushing a new element will fail.</li>
+                    <li><strong>Wasted Memory:</strong> If the stack size is too large, but only a few elements are ever used, the remaining space is wasted.</li>
+                </ol>
+            </li>
+            <li><strong>Cost of Resizing:</strong> While dynamic arrays can be used, resizing (creating a new, larger array and copying all elements) is an O(n) operation, which can be slow.</li>
+        </ul>
+        <p>(These limitations are solved by using a Linked List to implement a stack, as seen in Unit 2).</p>
+
+        <h2 id="spap_1_3">3. Recursion</h2>
+        <p><strong>Recursion</strong> is a programming technique where a function calls itself, either directly or indirectly. A recursive function solves a problem by breaking it down into smaller, simpler versions of the same problem.</p>
+
+        <h3 id="spap_1_3_1">Recursive Definitions and Implementation</h3>
+        <p>A recursive definition (and its implementation) must have two parts:</p>
+        <ol>
+            <li><strong>Base Case (or Terminating Condition):</strong> This is the simplest version of the problem, which can be solved directly without further recursion. It stops the function from calling itself infinitely.</li>
+            <li><strong>Recursive Step:</strong> This part breaks the problem into a smaller subproblem and calls the function itself to solve that subproblem. It must make progress toward the base case.</li>
+        </ol>
+
+        <div class="common-mistake">
+            <strong>Common Mistake:</strong> Forgetting the base case. This leads to infinite recursion and eventually a <strong>Stack Overflow</strong> error, as the call stack runs out of memory.
+        </div>
+        
+        <h4>Example: Factorial</h4>
+        <p><strong>Problem:</strong> Find the factorial of a non-negative integer <code>n</code> (n!).</p>
+        <ul>
+            <li><strong>Recursive Definition:</strong>
+                <ul>
+                    <li>n! = 1, if n = 0 (Base Case)</li>
+                    <li>n! = n * (n-1)!, if n > 0 (Recursive Step)</li>
+                </ul>
+            </li>
+            <li><strong>Implementation (Pseudocode):</strong>
+<pre>
+function factorial(n):
+    if n == 0:
+        return 1               // Base Case
+    else:
+        return n * factorial(n - 1) // Recursive Step
+</pre>
+            </li>
+        </ul>
+        
+        <h4>Example: Fibonacci Series</h4>
+        <p><strong>Problem:</strong> Find the n-th Fibonacci number (0, 1, 1, 2, 3, 5, 8...)</p>
+        <ul>
+            <li><strong>Recursive Definition:</strong>
+                <ul>
+                    <li>Fib(n) = 0, if n = 0 (Base Case 1)</li>
+                    <li>Fib(n) = 1, if n = 1 (Base Case 2)</li>
+                    <li>Fib(n) = Fib(n-1) + Fib(n-2), if n > 1 (Recursive Step)</li>
+                </ul>
+            </li>
+            <li><strong>Implementation (Pseudocode):</strong><pre>
+function fibonacci(n):
+    if n == 0:
+        return 0
+    else if n == 1:
+        return 1
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
+</pre>
+            </li>
+        </ul>
+
+        <h3 id="spap_1_3_2">Advantages and Limitations of Recursion</h3>
+        
+        <h4>Advantages:</h4>
+        <ul>
+            <li><strong>Elegance and Simplicity:</strong> Recursive solutions can be very clean and easy to read for problems that are naturally recursive (e.g., tree traversals, Tower of Hanoi).</li>
+            <li><strong>Problem Solving:</strong> It's a powerful tool for solving complex problems by breaking them down (Divide and Conquer strategy).</li>
+        </ul>
+        
+        <h4>Limitations:</h4>
+        <ul>
+            <li><strong>Performance Overhead:</strong> Every function call adds an activation record to the call stack. This consumes memory and time. An iterative solution (using loops) is almost always faster and uses less memory.</li>
+            <li><strong>Stack Overflow:</strong> If the recursion is too deep (e.g., <code>factorial(100000)</code>), the call stack can run out of memory, crashing the program.</li>
+            <li><strong>Redundant Computations:</strong> The Fibonacci example is a classic case of inefficiency. <code>fibonacci(5)</code> calls <code>fibonacci(4)</code> and <code>fibonacci(3)</code>. But <code>fibonacci(4)</code> *also* calls <code>fibonacci(3)</code>, leading to the same subproblem being solved multiple times. (This can be fixed with memoization).</li>
+        </ul>
+
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> Any problem that can be solved recursively can also be solved iteratively (using loops). Often, an iterative solution is preferred for performance, but a recursive solution is easier to design and understand first.
+        </div>
+
+    </div>
+</body>
+</html>

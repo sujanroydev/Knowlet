@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biotechnology DSM 151 Unit 5 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive notes for Biotechnology (BTC DSM 151T) Unit 5: Enzymes and Carbohydrate Metabolism, as per NEP syllabus. Covers enzyme kinetics, inhibition, Glycolysis, TCA Cycle, and ETC.">
+    <meta name="keywords" content="Biotechnology DSM 151T, Unit 5, Enzymes, Enzyme Inhibition, Glycolysis, TCA Cycle, Electron Transport Chain, Metabolism, Assam University, NEP Syllabus, Biochemistry notes">
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dcdcdc;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #9b59b6;
+            padding-bottom: 5px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #5b2c6f;
+        }
+        h2 {
+            font-size: 1.8em;
+            color: #8e44ad;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #9b59b6;
+            border-bottom: 1px dashed #ccc;
+        }
+        p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 25px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 1em;
+        }
+        table, th, td {
+            border: 1px solid #bdc3c7;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #9b59b6;
+            color: #ffffff;
+        }
+        tr:nth-child(even) {
+            background-color: #ecf0f1;
+        }
+        tr:hover {
+            background-color: #f5eef8;
+        }
+        blockquote {
+            background-color: #f4ecf7;
+            border-left: 5px solid #9b59b6;
+            margin: 15px 0;
+            padding: 10px 20px;
+            font-style: italic;
+        }
+        .exam-tip {
+            background-color: #fef9e7;
+            border: 1px solid #f1c40f;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .exam-tip strong {
+            color: #d35400;
+        }
+        .toc {
+            background: #f4ecf7;
+            border: 1px solid #d7bde2;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 25px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            color: #5b2c6f;
+            margin-top: 0;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc li a {
+            text-decoration: none;
+            color: #8e44ad;
+        }
+        .toc li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 5: Enzymes and Carbohydrate Metabolism</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#enz-intro">1. Enzymes: Introduction</a></li>
+                <li><a href="#nomenclature">2. Nomenclature and Classification of Enzymes</a></li>
+                <li><a href="#activation-energy">3. Activation Energy</a></li>
+                <li><a href="#factors">4. Factors Affecting Enzyme Activity</a></li>
+                <li><a href="#inhibition">5. Enzyme Inhibition (Reversible and Irreversible)</a></li>
+                <li><a href="#cofactors">6. Cofactors and Prosthetic Groups</a></li>
+                <li><a href="#metabolism-intro">7. Carbohydrate Metabolism: Introduction</a></li>
+                <li><a href="#glycolysis">8. Glycolysis</a></li>
+                <li><a href="#tca">9. TCA Cycle (Krebs Cycle)</a></li>
+                <li><a href="#etc">10. Electron Transport Chain (ETC)</a></li>
+            </ul>
+        </div>
+        
+        <h2 id="enz-intro">1. Enzymes: Introduction</h2>
+        <blockquote>
+            <p><strong>Enzymes</strong> are biological catalysts. They are (mostly) globular proteins that increase the rate of a chemical reaction without being consumed in the process. They are highly specific and highly efficient.</p>
+        </blockquote>
+
+        <h2 id="nomenclature">2. Nomenclature and Classification of Enzymes</h2>
+        
+        <h3>a) Nomenclature</h3>
+        <p>Enzymes are typically named by adding the suffix <strong>"-ase"</strong> to the name of their substrate (e.g., Urease, Lactase) or the reaction they catalyze (e.g., DNA Polymerase)[cite: 1025].</p>
+
+        <h3>b) Classification (IUBMB)</h3>
+        <p>The International Union of Biochemistry and Molecular Biology (IUBMB) classifies all enzymes into <strong>six major classes</strong>[cite: 1025]:</p>
+        
+        <ol>
+            <li><strong>(EC 1) Oxidoreductases:</strong> Catalyze redox reactions.</li>
+            <li><strong>(EC 2) Transferases:</strong> Catalyze the transfer of a functional group.</li>
+            <li><strong>(EC 3) Hydrolases:</strong> Catalyze hydrolysis (breaking a bond using water).</li>
+            <li><strong>(EC 4) Lyases:</strong> Catalyze bond cleavage by means other than hydrolysis or oxidation.</li>
+            <li><strong>(EC 5) Isomerases:</strong> Catalyze rearrangement within a molecule.</li>
+            <li><strong>(EC 6) Ligases:</strong> Catalyze the joining of two molecules, using ATP.</li>
+        </ol>
+        
+        <div class="exam-tip">
+            <strong>Mnemonic for the 6 classes:</strong> "<strong>O</strong>ver <strong>T</strong>he <strong>H</strong>ill <strong>L</strong>ies <strong>I</strong>nvisible <strong>L</strong>ight"
+        </div>
+
+        <h2 id="activation-energy">3. Activation Energy</h2>
+        <blockquote>
+            <p><strong>Activation Energy (E<sub>A</sub>)</strong> is the minimum amount of energy required to start a chemical reaction, or the energy needed to reach the high-energy <strong>transition state</strong>[cite: 1025].</p>
+        </blockquote>
+        
+        <p>Enzymes speed up reaction rates by <strong>lowering the activation energy (E<sub>A</sub>)</strong>. They do this by providing an alternative reaction pathway and stabilizing the transition state.</p>
+        
+        
+
+[Image of an energy profile diagram showing a reaction with and without an enzyme]
+
+        
+        <h2 id="factors">4. Factors Affecting Enzyme Activity</h2>
+        
+        <h3>a) Effect of Temperature</h3>
+        <ul>
+            <li>As temperature increases, the reaction rate increases (more kinetic energy).</li>
+            <li>However, above an <strong>optimal temperature</strong>, the enzyme begins to <strong>denature</strong> (lose its 3D structure), and the rate drops rapidly.</li>
+        </ul>
+        
+        <h3>b) Effect of pH</h3>
+        <ul>
+            <li>Each enzyme has an <strong>optimal pH</strong> at which its activity is maximal (e.g., Pepsin ≈ pH 2; Trypsin ≈ pH 8).</li>
+            <li>Extreme pH alters the ionization of R-groups in the active site and can lead to denaturation.</li>
+        </ul>
+        
+        
+
+[Image of graphs showing enzyme activity vs. temperature and vs. pH]
+
+        
+        <h3>c) Effect of Substrate Concentration [S]</h3>
+        <ul>
+            <li>As [S] increases, the reaction rate increases...</li>
+            <li>...until the enzyme becomes <strong>saturated</strong>. At this point, all active sites are occupied, and the reaction reaches its <strong>maximum velocity (V<sub>max</sub>)</strong>.</li>
+        </ul>
+
+        <h2 id="inhibition">5. Enzyme Inhibition (Reversible and Irreversible)</h2>
+        <p>Inhibitors are molecules that reduce or stop enzyme activity[cite: 1025].</p>
+        
+        <h3>a) Reversible Inhibition</h3>
+        <p>The inhibitor binds non-covalently and can be removed.</p>
+        <ul>
+            <li><strong>Competitive Inhibition:</strong> The inhibitor mimics the substrate and binds to the <strong>active site</strong>. It can be overcome by adding more substrate.</li>
+            <li><strong>Non-competitive Inhibition:</strong> The inhibitor binds to an <strong>allosteric site</strong> (a different site), changing the shape of the active site. It cannot be overcome by adding more substrate.</li>
+        </ul>
+        [Image comparing competitive and non-competitive inhibition]
+
+        <h3>b) Irreversible Inhibition</h3>
+        <p>The inhibitor binds <em>covalently</em> to the enzyme, permanently disabling it[cite: 1025]. Examples include heavy metals and some nerve gases.</p>
+
+        <h2 id="cofactors">6. Cofactors and Prosthetic Groups</h2>
+        <p>Many enzymes require a non-protein chemical component to be active[cite: 1025].</p>
+        
+        <blockquote>
+            <p><strong>Apoenzyme</strong> (inactive protein part) + <strong>Cofactor</strong> (non-protein part) = <strong>Holoenzyme</strong> (active enzyme)</p>
+        </blockquote>
+
+        <p>Cofactors can be:</p>
+        <ol>
+            <li><strong>Inorganic Ions:</strong> Metal ions like Mg²⁺, Zn²⁺.</li>
+            <li><strong>Coenzymes:</strong> Organic (carbon-based) molecules, often derived from vitamins (e.g., NAD⁺, FAD).</li>
+        </ol>
+        
+        <h3>Prosthetic Groups</h3>
+        <blockquote>
+            <p>A <strong>prosthetic group</strong> is a coenzyme (or metal ion) that is <strong>tightly and covalently</strong> (or very strongly) bound to the apoenzyme, forming a permanent part of the active enzyme (e.g., the heme group)[cite: 1025].</p>
+        </blockquote>
+
+        <h2 id="metabolism-intro" style="border-color: #1abc9c;">7. Carbohydrate Metabolism: Introduction</h2>
+        <p>Carbohydrate metabolism is the set of biochemical processes responsible for the synthesis, breakdown, and interconversion of carbohydrates[cite: 1026]. This unit focuses on the breakdown of glucose to generate ATP.</p>
+
+        <h2 id="glycolysis" style="border-color: #1abc9c;">8. Glycolysis</h2>
+        <blockquote>
+            <p><strong>Glycolysis</strong> is a 10-step metabolic pathway that converts one molecule of <strong>Glucose</strong> (6C) into two molecules of <strong>Pyruvate</strong> (3C)[cite: 1026].</p>
+        </blockquote>
+        
+        <ul>
+            <li><strong>Location:</strong> Cytosol of all cells.</li>
+            <li><strong>Phases:</strong>
+                <ol>
+                    <li><strong>Energy Investment Phase:</strong> Consumes <strong>2 ATP</strong>.</li>
+                    <li><strong>Energy Payoff Phase:</strong> Produces <strong>4 ATP</strong> and <strong>2 NADH</strong>.</li>
+                </ol>
+            </li>
+            <li><strong>Net Yield (per 1 Glucose):</strong>
+                <ul>
+                    <li><strong>2 Pyruvate</strong></li>
+                    <li><strong>2 ATP</strong></li>
+                    <li><strong>2 NADH</strong></li>
+                </ul>
+            </li>
+        </ul>
+        
+
+        <h2 id="tca" style="border-color: #1abc9c;">9. TCA Cycle (Krebs Cycle / Citric Acid Cycle)</h2>
+        <p>Before the cycle, the 2 Pyruvate (3C) from glycolysis are converted to 2 <strong>Acetyl-CoA</strong> (2C) in the mitochondria. This is the "link reaction."</p>
+        
+        <blockquote>
+            <p>The <strong>TCA Cycle</strong> is the final common pathway for the oxidation of fuel molecules. It completely oxidizes <strong>Acetyl-CoA</strong> to CO₂[cite: 1026].</p>
+        </blockquote>
+        
+        <ul>
+            <li><strong>Location:</strong> Mitochondrial Matrix.</li>
+            <li><strong>Process:</strong> The cycle begins when Acetyl-CoA (2C) combines with Oxaloacetate (4C) to form Citrate (6C). In a series of 8 steps, the cycle regenerates Oxaloacetate and releases energy.</li>
+        </ul>
+        
+        <h3>Net Yield (per 1 Glucose, which means 2 turns of the cycle):</h3>
+        <ul>
+            <li><strong>4 CO₂</strong> (released)</li>
+            <li><strong>6 NADH</strong></li>
+            <li><strong>2 FADH₂</strong></li>
+            <li><strong>2 GTP</strong> (or ATP)</li>
+        </ul>
+        
+
+        <h2 id="etc" style="border-color: #1abc9c;">10. Electron Transport Chain (ETC)</h2>
+        <p>The ETC (or <strong>Oxidative Phosphorylation</strong>) is the process that uses the high-energy electrons from NADH and FADH₂ (produced in glycolysis and the TCA cycle) to generate the vast majority of ATP[cite: 1026].</p>
+        
+        <ul>
+            <li><strong>Location:</strong> Inner Mitochondrial Membrane.</li>
+        </ul>
+        
+        <h3>The Process (Chemiosmosis)</h3>
+        <ol>
+            <li><strong>Electron Transport:</strong> Electrons from NADH and FADH₂ are passed down a series of protein complexes (I, II, III, IV).</li>
+            <li><strong>Proton Pumping:</strong> As electrons move, energy is used to pump protons (H⁺) from the matrix into the <strong>intermembrane space</strong>, creating a strong electrochemical gradient.</li>
+            <li><strong>Final Electron Acceptor:</strong> The electrons at the end of the chain are transferred to <strong>Oxygen (O₂)</strong>, which combines with H⁺ to form <strong>Water (H₂O)</strong>.</li>
+            <li><strong>ATP Synthesis:</strong> The H⁺ ions flow back into the matrix down their gradient, passing through the <strong>ATP Synthase</strong> enzyme. This flow drives the "motor" of ATP synthase, which phosphorylates ADP to make <strong>ATP</strong>.</li>
+        </ol>
+        
+        
+
+[Image of the Electron Transport Chain and ATP Synthase on the inner mitochondrial membrane]
+
+        
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> Remember the cellular locations!
+            <ul>
+                <li><strong>Glycolysis:</strong> Cytosol</li>
+                <li><strong>TCA Cycle:</strong> Mitochondrial Matrix</li>
+                <li><strong>Electron Transport Chain:</strong> Inner Mitochondrial Membrane</li>
+            </ul>
+            This is the core of aerobic cellular respiration.
+        </div>
+
+    </div>
+</body>
+</html>

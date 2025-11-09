@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive exam-ready notes for CSCDSC151 Data Structure, Unit 4: Searching and Sorting. Based on Assam University (Silchar) NEP syllabus.">
+    <meta name="keywords" content="Data Structures, CSCDSC151, Unit 4, Searching, Sorting, Linear Search, Binary Search, Bubble Sort, Selection Sort, Insertion Sort, Merge Sort, Quick Sort, Assam University, Knowlet">
+    <title>Computer Science DSC 151 Unit 4 | 2nd Semester Notes - Knowlet</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #0056b3; /* Deep Blue */
+            text-align: center;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1a73e8; /* Bright Blue */
+            border-bottom: 2px solid #e0e0e0;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #2a8a4d; /* Green */
+            padding-top: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        code, pre {
+            background-color: #eef1f5;
+            border-radius: 4px;
+            padding: 2px 5px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            padding: 15px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+        }
+        blockquote {
+            background-color: #fffbe6; /* Light Yellow */
+            border-left: 5px solid #ffc107; /* Amber */
+            margin: 20px 0;
+            padding: 15px 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #1a73e8;
+            color: #ffffff;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background-color: #e6f7ff;
+            border: 1px solid #b3e0ff;
+            padding: 15px 25px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            color: #0056b3;
+            margin-top: 0;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li {
+            margin: 8px 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #e6ffe6; /* Light Green */
+            border: 1px solid #5cb85c;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .common-mistake {
+            background-color: #fbeaea; /* Light Red */
+            border: 1px solid #d9534f;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 4: Searching and Sorting</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#spap_4_1">1. Searching</a>
+                    <ul>
+                        <li><a href="#spap_4_1_1">Linear Search</a></li>
+                        <li><a href="#spap_4_1_2">Binary Search</a></li>
+                        <li><a href="#spap_4_1_3">Comparison of Linear and Binary Search</a></li>
+                    </ul>
+                </li>
+                <li><a href="#spap_4_2">2. Sorting</a>
+                    <ul>
+                        <li><a href="#spap_4_2_1">Key Sorting Concepts (Stable vs. Unstable)</a></li>
+                        <li><a href="#spap_4_2_2">Bubble Sort</a></li>
+                        <li><a href="#spap_4_2_3">Selection Sort</a></li>
+                        <li><a href="#spap_4_2_4">Insertion Sort</a></li>
+                        <li><a href="#spap_4_2_5">Merge Sort</a></li>
+                        <li><a href="#spap_4_2_6">Quick Sort</a></li>
+                        <li><a href="#spap_4_2_7">Comparison of Sorting Techniques</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h2 id="spap_4_1">1. Searching</h2>
+        <p><strong>Searching</strong> is the process of finding a particular element (the "key") within a collection of elements (like an array or list).</p>
+
+        <h3 id="spap_4_1_1">Linear Search</h3>
+        <p>This is the simplest search algorithm. It sequentially checks each element in the list until the target key is found or the end of the list is reached.</p>
+        <ul>
+            <li><strong>Algorithm:</strong>
+                <ol>
+                    <li>Start from the first element (index 0).</li>
+                    <li>Compare the current element with the <code>key</code>.</li>
+                    <li>If they match, return the current index (element found).</li>
+                    <li>If they don't match, move to the next element.</li>
+                    <li>If the end of the list is reached, return -1 (element not found).</li>
+                </ol>
+            </li>
+            <li><strong>Prerequisite:</strong> None. The list does <strong>not</strong> need to be sorted.</li>
+            <li><strong>Time Complexity:</strong>
+                <ul>
+                    <li><strong>Best Case:</strong> O(1) (Key is the first element).</li>
+                    <li><strong>Worst Case:</strong> O(n) (Key is the last element or not present).</li>
+                    <li><strong>Average Case:</strong> O(n).</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3 id="spap_4_1_2">Binary Search</h3>
+        <p>This is a much more efficient search algorithm, but it has one major prerequisite: <strong>the list must be sorted</strong>.</p>
+        <p>It works on the "Divide and Conquer" principle.</p>
+        <ul>
+            <li><strong>Algorithm (Iterative):</strong>
+                <ol>
+                    <li>Set <code>low = 0</code> and <code>high = n - 1</code> (where <code>n</code> is the number of elements).</li>
+                    <li>Loop while <code>low <= high</code>:</li>
+                    <li>Calculate <code>mid = floor((low + high) / 2)</code>.</li>
+                    <li>Compare the element at <code>arr[mid]</code> with the <code>key</code>:
+                        <ul>
+                            <li>If <code>arr[mid] == key</code>, return <code>mid</code> (element found).</li>
+                            <li>If <code>arr[mid] < key</code>, the key must be in the right half. Set <code>low = mid + 1</code>.</li>
+                            <li>If <code>arr[mid] > key</code>, the key must be in the left half. Set <code>high = mid - 1</code>.</li>
+                        </ul>
+                    </li>
+                    <li>If the loop finishes (<code>low > high</code>), return -1 (element not found).</li>
+                </ol>
+            </li>
+            <li><strong>Prerequisite:</strong> <strong>The array must be sorted.</strong></li>
+            <li><strong>Time Complexity:</strong>
+                <ul>
+                    <li><strong>Best Case:</strong> O(1) (Key is the middle element).</li>
+                    <li><strong>Worst Case:</strong> O(log n) (Key is at the end or not present).</li>
+                    <li><strong>Average Case:</strong> O(log n).</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="common-mistake">
+            <strong>Common Mistake:</strong> A common bug is integer overflow when calculating the midpoint. <code>mid = low + (high - low) / 2</code> is a safer way to write <code>mid = (low + high) / 2</code> for very large arrays.
+        </div>
+        
+        <h3 id="spap_4_1_3">Comparison of Linear and Binary Search</h3>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Linear Search</th>
+                <th>Binary Search</th>
+            </tr>
+            <tr>
+                <td><strong>Prerequisite</strong></td>
+                <td>None. Works on sorted or unsorted data.</td>
+                <td><strong>Data must be sorted.</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Time Complexity</strong></td>
+                <td>O(n) (linear)</td>
+                <td>O(log n) (logarithmic)</td>
+            </tr>
+            <tr>
+                <td><strong>Speed</strong></td>
+                <td>Slow for large datasets.</td>
+                <td>Very fast, even for large datasets.</td>
+            </tr>
+            <tr>
+                <td><strong>Data Structure</strong></td>
+                <td>Works on arrays and linked lists.</td>
+                <td>Works efficiently only on arrays (for O(1) access to the <code>mid</code> element).</td>
+            </tr>
+        </table>
+        
+        <h2 id="spap_4_2">2. Sorting</h2>
+        <p><strong>Sorting</strong> is the process of arranging elements in a collection in a specific order (e.g., ascending or descending).</p>
+
+        <h3 id="spap_4_2_1">Key Sorting Concepts (Stable vs. Unstable)</h3>
+        <ul>
+            <li><strong>In-Place Sort:</strong> An algorithm that sorts the data using only a small, constant amount of extra memory (O(1) space). It modifies the original array directly. (e.g., Bubble, Selection, Insertion, Quick Sort).</li>
+            <li><strong>Out-of-Place Sort:</strong> An algorithm that requires extra memory (e.g., O(n) space) to hold temporary data. (e.g., Merge Sort).</li>
+            <li><strong>Stable Sort:</strong> A sorting algorithm is <strong>stable</strong> if it preserves the relative order of equal-valued elements.
+                <p>Example: If you have <code>(5, 'apple')</code> and <code>(5, 'banana')</code> and you sort by number, a stable sort will <em>guarantee</em> that 'apple' comes before 'banana' in the output. An unstable sort might swap them.</p>
+                <p><strong>Stable:</strong> Bubble, Insertion, Merge Sort.<br>
+                   <strong>Unstable:</strong> Selection, Quick Sort.</p>
+            </li>
+        </ul>
+
+        <h3 id="spap_4_2_2">Bubble Sort</h3>
+        <p>The simplest sorting algorithm. It repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. This "bubbles" the largest elements to the end.</p>
+        <ul>
+            <li><strong>Algorithm:</strong>
+                <ol>
+                    <li>Outer loop from <code>i = 0</code> to <code>n-2</code>.</li>
+                    <li>Inner loop from <code>j = 0</code> to <code>n-i-2</code>.</li>
+                    <li>Compare <code>arr[j]</code> and <code>arr[j+1]</code>.</li>
+                    <li>If <code>arr[j] > arr[j+1]</code>, swap them.</li>
+                </ol>
+                (Can be optimized by adding a flag to stop if no swaps occur in an inner loop pass, meaning the array is already sorted).
+            </li>
+            <li><strong>Time Complexity:</strong>
+                <ul>
+                    <li><strong>Best Case:</strong> O(n) (if optimized and array is already sorted).</li>
+                    <li><strong>Worst/Average Case:</strong> O(n²)</li>
+                </ul>
+            </li>
+            <li><strong>Space:</strong> O(1) (In-place).</li>
+            <li><strong>Stable:</strong> Yes.</li>
+        </ul>
+
+        <h3 id="spap_4_2_3">Selection Sort</h3>
+        <p>This algorithm divides the list into a sorted sublist (at the beginning) and an unsorted sublist.</p>
+        <ul>
+            <li><strong>Algorithm:</strong>
+                <ol>
+                    <li>Outer loop from <code>i = 0</code> to <code>n-2</code>. (<code>i</code> is the boundary of the sorted sublist).</li>
+                    <li>Assume <code>min_index = i</code>.</li>
+                    <li>Inner loop from <code>j = i+1</code> to <code>n-1</code> to find the <strong>minimum</strong> element in the unsorted sublist.</li>
+                    <li>If a smaller element is found, update <code>min_index</code>.</li>
+                    <li>After the inner loop, swap <code>arr[i]</code> with <code>arr[min_index]</code>.</li>
+                </ol>
+            </li>
+            <li><strong>Time Complexity:</strong> O(n²) (Best, Worst, and Average). It always performs (n-1) passes.</li>
+            <li><strong>Space:</strong> O(1) (In-place).</li>
+            <li><strong>Stable:</strong> No (by default).</li>
+        </ul>
+        <div class="exam-tip">
+            Selection Sort is useful when memory writes are "expensive," as it performs the minimum possible number of swaps (O(n) swaps).
+        </div>
+
+        <h3 id="spap_4_2_4">Insertion Sort</h3>
+        <p>Builds the final sorted array one item at a time. It's like sorting a hand of playing cards. It takes an element from the unsorted part and "inserts" it into its correct position in the sorted part.</p>
+        <ul>
+            <li><strong>Algorithm:</strong>
+                <ol>
+                    <li>Outer loop from <code>i = 1</code> to <code>n-1</code>. (Element at <code>arr[i]</code> is the <code>key</code> to be inserted).</li>
+                    <li>Store <code>key = arr[i]</code>.</li>
+                    <li>Inner loop (<code>j = i - 1</code>) moves backward (<code>j >= 0</code>).</li>
+                    <li>While <code>arr[j] > key</code>, shift the element: <code>arr[j+1] = arr[j]</code> and decrement <code>j</code>.</li>
+                    <li>When the loop stops, insert the <code>key</code>: <code>arr[j+1] = key</code>.</li>
+                </ol>
+            </li>
+            <li><strong>Time Complexity:</strong>
+                <ul>
+                    <li><strong>Best Case:</strong> O(n) (If the array is already sorted).</li>
+                    <li><strong>Worst/Average Case:</strong> O(n²)</li>
+                </ul>
+            </li>
+            <li><strong>Space:</strong> O(1) (In-place).</li>
+            <li><strong>Stable:</strong> Yes.</li>
+        </ul>
+        <div class="exam-tip">
+            Insertion sort is very efficient for <strong>small datasets</strong> and for datasets that are <strong>almost sorted</strong>.
+        </div>
+        
+        <h3 id="spap_4_2_5">Merge Sort</h3>
+        <p>A "Divide and Conquer" algorithm. It's one of the most efficient sorting algorithms.</p>
+        <ul>
+            <li><strong>Algorithm:</strong>
+                <ol>
+                    <li><strong>Divide:</strong> Recursively divide the array into two halves until you have 1-element arrays (which are trivially sorted).</li>
+                    <li><strong>Conquer:</strong> <strong>Merge</strong> the sorted subarrays back together. The <code>merge</code> function is the core:
+                        <ul>
+                            <li>It takes two sorted subarrays.</li>
+                            <li>It creates a temporary array.</li>
+                            <li>It compares the first elements of both subarrays, copies the smaller one to the temp array, and advances that subarray's pointer.</li>
+                            <li>It repeats this until one subarray is empty, then copies the rest of the other subarray.</li>
+                            <li>Finally, it copies the merged (and sorted) data from the temp array back into the original array.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </li>
+            <li><strong>Time Complexity:</strong> O(n log n) (Best, Worst, and Average).</li>
+            <li><strong>Space:</strong> O(n) (Out-of-place, for the temporary array).</li>
+            <li><strong>Stable:</strong> Yes.</li>
+        </ul>
+        <h3 id="spap_4_2_6">Quick Sort</h3>
+        <p>Another "Divide and Conquer" algorithm. It is generally the fastest sorting algorithm in practice.</p>
+        <ul>
+            <li><strong>Algorithm:</strong>
+                <ol>
+                    <li><strong>Divide:</strong> Pick an element from the array as the <strong>pivot</strong> (e.g., first, last, or random).</li>
+                    <li><strong>Conquer:</strong> <strong>Partition</strong> the array. Reorder the array so that all elements smaller than the pivot are to its left, and all elements greater are to its right. The pivot is now in its final sorted position.</li>
+                    <li><strong>Recurse:</strong> Recursively apply Quick Sort to the two subarrays (the one to the left of the pivot and the one to the right).</li>
+                </ol>
+            </li>
+            <li><strong>Time Complexity:</strong>
+                <ul>
+                    <li><strong>Best/Average Case:</strong> O(n log n).</li>
+                    <li><strong>Worst Case:</strong> O(n²) (Occurs if the pivot is always the smallest or largest element, e.g., on an already-sorted array).</li>
+                </ul>
+            </li>
+            <li><strong>Space:</strong> O(log n) (In-place sort, but uses O(log n) stack space for recursion).</li>
+            <li><strong>Stable:</strong> No.</li>
+        </ul>
+        <div class="common-mistake">
+            The worst case (O(n²)) is a major drawback. This can be mitigated by choosing a good pivot, such as a random element or the "median-of-three."
+        </div>
+
+        <h3 id="spap_4_2_7">Comparison of Sorting Techniques</h3>
+        <table>
+            <tr>
+                <th>Algorithm</th>
+                <th>Time (Best)</th>
+                <th>Time (Average)</th>
+                <th>Time (Worst)</th>
+                <th>Space</th>
+                <th>Stable</th>
+            </tr>
+            <tr>
+                <td><strong>Bubble Sort</strong></td>
+                <td>O(n)</td>
+                <td>O(n²)</td>
+                <td>O(n²)</td>
+                <td>O(1)</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td><strong>Selection Sort</strong></td>
+                <td>O(n²)</td>
+                <td>O(n²)</td>
+                <td>O(n²)</td>
+                <td>O(1)</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td><strong>Insertion Sort</strong></td>
+                <td>O(n)</td>
+                <td>O(n²)</td>
+                <td>O(n²)</td>
+                <td>O(1)</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td><strong>Merge Sort</strong></td>
+                <td>O(n log n)</td>
+                <td>O(n log n)</td>
+                <td>O(n log n)</td>
+                <td>O(n)</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td><strong>Quick Sort</strong></td>
+                <td>O(n log n)</td>
+                <td>O(n log n)</td>
+                <td>O(n²)</td>
+                <td>O(log n)</td>
+                <td>No</td>
+            </tr>
+        </table>
+        
+        <div class="exam-tip">
+            <strong>Key Takeaway:</strong>
+            <ul>
+                <li>For small or nearly sorted lists: Use <strong>Insertion Sort</strong>.</li>
+                <li>For guaranteed O(n log n) performance and stability: Use <strong>Merge Sort</strong>.</li>
+                <li>For the fastest average-case performance: Use <strong>Quick Sort</strong> (with a good pivot strategy).</li>
+            </ul>
+        </div>
+        
+    </div>
+</body>
+</html>

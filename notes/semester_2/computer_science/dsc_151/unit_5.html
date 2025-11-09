@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive exam-ready notes for CSCDSC151 Data Structure, Unit 5: Hashing. Based on Assam University (Silchar) NEP syllabus.">
+    <meta name="keywords" content="Data Structures, CSCDSC151, Unit 5, Hashing, Hash Table, Hash Function, Collision Resolution, Linear Probing, Quadratic Probing, Double Hashing, Open Addressing, Closed Addressing, Assam University, Knowlet">
+    <title>Computer Science DSC 151 Unit 5 | 2nd Semester Notes - Knowlet</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #0056b3; /* Deep Blue */
+            text-align: center;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1a73e8; /* Bright Blue */
+            border-bottom: 2px solid #e0e0e0;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #2a8a4d; /* Green */
+            padding-top: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        code, pre {
+            background-color: #eef1f5;
+            border-radius: 4px;
+            padding: 2px 5px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            padding: 15px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+        }
+        blockquote {
+            background-color: #fffbe6; /* Light Yellow */
+            border-left: 5px solid #ffc107; /* Amber */
+            margin: 20px 0;
+            padding: 15px 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #1a73e8;
+            color: #ffffff;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background-color: #e6f7ff;
+            border: 1px solid #b3e0ff;
+            padding: 15px 25px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            color: #0056b3;
+            margin-top: 0;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li {
+            margin: 8px 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #e6ffe6; /* Light Green */
+            border: 1px solid #5cb85c;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .common-mistake {
+            background-color: #fbeaea; /* Light Red */
+            border: 1px solid #d9534f;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 5: Hashing</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#spap_5_1">1. Introduction to Hashing</a>
+                    <ul>
+                        <li><a href="#spap_5_1_1">Hash Table, Hash Key, Hash Function</a></li>
+                        <li><a href="#spap_5_1_2">Load Factor</a></li>
+                    </ul>
+                </li>
+                <li><a href="#spap_5_2">2. Hash Functions</a>
+                    <ul>
+                        <li><a href="#spap_5_2_1">Characteristics of Good Hash Functions</a></li>
+                        <li><a href="#spap_5_2_2">Types of Hash Functions</a></li>
+                    </ul>
+                </li>
+                <li><a href="#spap_5_3">3. Collision</a>
+                    <ul>
+                        <li><a href="#spap_5_3_1">Collision Resolution Techniques</a></li>
+                    </ul>
+                </li>
+                <li><a href="#spap_5_4">4. Closed Addressing (Separate Chaining)</a></li>
+                <li><a href="#spap_5_5">5. Open Addressing (Probing)</a>
+                    <ul>
+                        <li><a href="#spap_5_5_1">Linear Probing</a></li>
+                        <li><a href="#spap_5_5_2">Quadratic Probing</a></li>
+                        <li><a href="#spap_5_5_3">Double Hashing</a></li>
+                    </ul>
+                </li>
+                <li><a href="#spap_5_6">6. Comparison of Collision Resolution Techniques</a></li>
+            </ul>
+        </div>
+
+        <h2 id="spap_5_1">1. Introduction to Hashing</h2>
+        <p><strong>Hashing</strong> is a technique used to map data of arbitrary size (the "key") to data of a fixed size (the "hash value" or "index"). This is used to implement a <strong>Hash Table</strong>, a data structure that provides very fast <strong>O(1) average-case</strong> insertion, deletion, and search.</p>
+        <p>It's like a "magic" array where you can store an item (e.g., a person's name) and find it instantly without searching.</p>
+
+        <h3 id="spap_5_1_1">Hash Table, Hash Key, Hash Function</h3>
+        <ul>
+            <li><strong>Hash Table:</strong> This is the data structure itself, typically an array. Each slot in the array is called a "bucket" or "slot."</li>
+            <li><strong>Hash Key:</strong> This is the input data (e.g., a string "John Smith", a number 12345) that we want to store or search for.</li>
+            <li><strong>Hash Function:</strong> This is the "magic" function. It takes the <code>key</code> as input and computes an index (a hash value) for the <code>Hash Table</code>.
+                <blockquote><code>index = hash_function(key)</code></blockquote>
+                <p>The goal is to store the data associated with "John Smith" at <code>hash_table[index]</code>.</p>
+            </li>
+        </ul>
+        <h3 id="spap_5_1_2">Load Factor (α)</h3>
+        <p>The <strong>Load Factor</strong> is a measure of how full the hash table is. It is crucial for performance.</p>
+        <blockquote>
+            <strong>α = n / M</strong><br>
+            where:<br>
+            <strong>n</strong> = number of elements stored in the table<br>
+            <strong>M</strong> = size of the hash table (number of buckets)
+        </blockquote>
+        <p>A high load factor (e.g., α > 1 for chaining, α > 0.7 for open addressing) leads to more collisions and slower performance. A low load factor is fast but wastes memory.</p>
+
+        <h2 id="spap_5_2">2. Hash Functions</h2>
+
+        <h3 id="spap_5_2_1">Characteristics of Good Hash Functions</h3>
+        <ol>
+            <li><strong>Fast Computation:</strong> It must be very quick to compute (ideally O(1)).</li>
+            <li><strong>Uniform Distribution (Deterministic):</strong> It should map keys as evenly as possible across all buckets. Given a key, it must always produce the same index.</li>
+            <li><strong>Low Collisions:</strong> It should minimize the number of "collisions" (when two different keys map to the same index).</li>
+        </ol>
+
+        <h3 id="spap_5_2_2">Types of Hash Functions</h3>
+        <ul>
+            <li><strong>1. Division Method:</strong>
+                <p>The simplest method. Take the key <code>k</code> and the table size <code>M</code>.</p>
+                <blockquote><code>h(k) = k % M</code> (k modulo M)</blockquote>
+                <p><strong>Tip:</strong> <code>M</code> should ideally be a <strong>prime number</strong> that is not close to a power of 2. This helps distribute the keys more uniformly.</p>
+            </li>
+            <li><strong>2. Mid-Square Method:</strong>
+                <p>Square the key <code>k</code>, and then take the middle <code>r</code> digits of the result as the index.</p>
+                <p>Example: <code>k = 1234</code>, <code>M = 100</code> (so <code>r=2</code>).<br>
+                <code>k² = 1522756</code>. Middle 2 digits: <code>27</code>. <code>index = 27</code>.</p>
+            </li>
+            <li><strong>3. Folding Method:</strong>
+                <p>The key is partitioned into several parts, and the parts are combined (e.g., added) to get the index.</p>
+                <p>Example: <code>k = 12345678</code>, <code>M = 1000</code>.
+                Fold into parts of 3: <code>123</code>, <code>456</code>, <code>78</code>.
+                Add them: <code>123 + 456 + 78 = 657</code>. <code>index = 657</code>.</p>
+            </li>
+        </ul>
+
+        <h2 id="spap_5_3">3. Collision</h2>
+        <blockquote>
+            A <strong>Collision</strong> occurs when a hash function maps two or more different keys to the <strong>same index</strong> (bucket).
+            <p><code>h(key1) == h(key2)</code>, where <code>key1 != key2</code></p>
+        </blockquote>
+        <p>Since collisions are inevitable (Pigeonhole Principle), we must have a strategy to handle them.</p>
+
+        <h3 id="spap_5_3_1">Collision Resolution Techniques</h3>
+        <p>There are two main categories for resolving collisions:</p>
+        <ol>
+            <li><strong>Closed Addressing (or Separate Chaining):</strong> Store the colliding elements *outside* the table.</li>
+            <li><strong>Open Addressing (or Closed Hashing):</strong> Store the colliding elements in *another empty bucket* within the table.</li>
+        </ol>
+        
+        <div class="common-mistake">
+            <strong>Confusing Terminology:</strong>
+            <ul>
+                <li><strong>Open Hashing = Closed Addressing = Separate Chaining</strong> (Buckets are "open" to hold more than one item via a list).</li>
+                <li><strong>Closed Hashing = Open Addressing = Probing</strong> (The table is "closed"; all items must fit within the table's "address" space).</li>
+            </ul>
+            [cite_start]The syllabus [cite: 110] uses "Open Addressing & closed Addressing", which is ambiguous. We will follow the standard definitions where "Closed Addressing" means Separate Chaining and "Open Addressing" means Probing.
+        </div>
+        
+        <h2 id="spap_5_4">4. Closed Addressing (Separate Chaining)</h2>
+        <p>This is the simplest and most common technique.</p>
+        <ul>
+            <li><strong>Idea:</strong> Each bucket in the hash table (<code>M</code>) does not hold the element itself, but instead holds a <strong>pointer to a linked list</strong>.</li>
+            <li><strong>Operation:</strong>
+                <ul>
+                    <li><strong>Insert:</strong> Compute <code>index = h(key)</code>. Go to <code>hash_table[index]</code> and insert the new element at the beginning of that linked list (O(1)).</li>
+                    <li><strong>Search:</strong> Compute <code>index = h(key)</code>. Go to <code>hash_table[index]</code> and perform a linear search on the linked list (O(n/M) or O(α)).</li>
+                </ul>
+            </li>
+        </ul>
+        <p><strong>Advantages:</strong>
+            <ul>
+                <li>Very simple to implement.</li>
+                <li>Load factor (α) can be greater than 1.</li>
+                <li>Deletion is easy (just remove from the linked list).</li>
+            </ul>
+        <p><strong>Disadvantages:</strong>
+            <ul>
+                <li>Wastes memory on pointers.</li>
+                <li>Can be slow if one chain becomes very long (poor hash function).</li>
+            </ul>
+        </p>
+        
+        <h2 id="spap_5_5">5. Open Addressing (Probing)</h2>
+        <p>In this method, all elements are stored <strong>inside the hash table array itself</strong>. When a collision occurs, we "probe" (search) for the next available empty bucket according to a rule.</p>
+        <p>The hash function is modified to include a probe sequence <code>i</code> (where <code>i = 0, 1, 2, ...</code>).</p>
+        <blockquote><code>h(key, i) = (h'(key) + f(i)) % M</code></blockquote>
+        <p><strong>Important:</strong> The load factor <strong>α must be less than 1</strong> (α ≤ 1). The table can never be more than 100% full.</p>
+
+        <h3 id="spap_5_5_1">Linear Probing</h3>
+        <p>This is the simplest probing method. If a collision occurs, just check the <strong>next sequential bucket</strong>.</p>
+        <ul>
+            <li><strong>Function:</strong> <code>f(i) = i</code>.</li>
+            <li><strong>Probe Sequence:</strong> <code>h'(k)</code>, <code>(h'(k) + 1) % M</code>, <code>(h'(k) + 2) % M</code>, ...</li>
+            <li><strong>Problem: Primary Clustering.</strong>
+                <p>If collisions start to build up in one spot, they create a "cluster" of occupied buckets. A new insertion in that area will have to travel a long way to find an empty spot, making search/insert times degrade toward O(n).</p>
+            </li>
+        </ul>
+        
+        <h3 id="spap_5_5_2">Quadratic Probing</h3>
+        <p>This method probes using a quadratic step, which helps avoid primary clustering.</p>
+        <ul>
+            <li><strong>Function:</strong> <code>f(i) = c1*i + c2*i²</code> (Commonly, <code>f(i) = i²</code>).</li>
+            <li><strong>Probe Sequence:</strong> <code>h'(k)</code>, <code>(h'(k) + 1) % M</code>, <code>(h'(k) + 4) % M</code>, <code>(h'(k) + 9) % M</code>, ...</li>
+            <li><strong>Problem: Secondary Clustering.</strong>
+                <p>If two keys have the same initial hash <code>h'(k)</code>, they will follow the <em>exact same probe sequence</em>. This is less of a problem than primary clustering but still not ideal.</p>
+            </li>
+        </ul>
+        
+        <h3 id="spap_5_5_3">Double Hashing</h3>
+        <p>This is the best open addressing method. It uses a <strong>second hash function</strong> to determine the "step size" of the probe. The step size is different for every key.</p>
+        <ul>
+            <li><strong>Function:</strong> <code>f(i) = i * h2(k)</code>.</li>
+            <li><strong>Probe Sequence:</strong> <code>h'(k)</code>, <code>(h'(k) + h2(k)) % M</code>, <code>(h'(k) + 2*h2(k)) % M</code>, ...</li>
+            <li><code>h2(k)</code> must be chosen carefully (e.g., <code>h2(k) = 1 + (k % (M-1))</code>) to ensure it never produces 0.</li>
+            <li><strong>Advantage:</strong> This method avoids both primary and secondary clustering. It distributes keys most uniformly.</li>
+        </ul>
+
+        <h2 id="spap_5_6">6. Comparison of Collision Resolution Techniques</h2>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Separate Chaining (Closed Addr.)</th>
+                <th>Open Addressing (Linear Probing)</th>
+                <th>Open Addressing (Double Hashing)</th>
+            </tr>
+            <tr>
+                <td><strong>Load Factor (α)</strong></td>
+                <td>Can be > 1.</td>
+                <td>Must be < 1. (Performance degrades badly after 0.7).</td>
+                <td>Must be < 1.</td>
+            </tr>
+            <tr>
+                <td><strong>Clustering</strong></td>
+                <td>None (but lists can get long).</td>
+                <td>Primary Clustering (Bad).</td>
+                <td>None (Good).</td>
+            </tr>
+            <tr>
+                <td><strong>Space Usage</strong></td>
+                <td>Extra space for pointers.</td>
+                <td>No extra space. Good cache performance.</td>
+                <td>No extra space. Good cache performance.</td>
+            </tr>
+            <tr>
+                <td><strong>Deletion</strong></td>
+                <td>Easy.</td>
+                <td>Very difficult (must use "tombstones" or rehash).</td>
+                <td>Very difficult.</td>
+            </tr>
+        </table>
+        
+        <div class="exam-tip">
+            <strong>When to use which?</strong>
+            <ul>
+                <li>If you need a simple implementation and deletion is common, use <strong>Separate Chaining</strong>.</li>
+                <li>If memory is tight, speed is critical, and deletions are rare, use <strong>Open Addressing with Double Hashing</strong>.</li>
+            </ul>
+        </div>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    [cite_start]<meta name="description" content="Comprehensive exam-ready notes for CSCIDC151 Programming Fundamentals with C, Unit 1: Introduction to Programming. Based on Assam University (Silchar) NEP syllabus. [cite: 446-449]">
+    <meta name="keywords" content="CSCIDC151, Programming Fundamentals with C, Unit 1, Programming Languages, Compiler, Interpreter, Errors in Programming, Assam University, Knowlet">
+    <title>Computer Science IDC 151 Unit 1 | 2nd Semester Notes - Knowlet</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #0056b3; /* Deep Blue */
+            text-align: center;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1a73e8; /* Bright Blue */
+            border-bottom: 2px solid #e0e0e0;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #2a8a4d; /* Green */
+            padding-top: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        code, pre {
+            background-color: #eef1f5;
+            border-radius: 4px;
+            padding: 2px 5px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            padding: 15px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+        }
+        blockquote {
+            background-color: #fffbe6; /* Light Yellow */
+            border-left: 5px solid #ffc107; /* Amber */
+            margin: 20px 0;
+            padding: 15px 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #1a73e8;
+            color: #ffffff;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background-color: #e6f7ff;
+            border: 1px solid #b3e0ff;
+            padding: 15px 25px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            color: #0056b3;
+            margin-top: 0;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li {
+            margin: 8px 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #e6ffe6; /* Light Green */
+            border: 1px solid #5cb85c;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .common-mistake {
+            background-color: #fbeaea; /* Light Red */
+            border: 1px solid #d9534f;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><span id="spap_unit_1_title">Unit 1: Introduction to Programming</span></h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#spap_1_1">1. Introduction to Computer Programs</a></li>
+                <li><a href="#spap_1_2">2. Programming Languages</a>
+                    <ul>
+                        [cite_start]<li><a href="#spap_1_2_1">Natural Language vs. Programming Language [cite: 446]</a></li>
+                        [cite_start]<li><a href="#spap_1_2_2">Machine Level Language [cite: 446]</a></li>
+                        [cite_start]<li><a href="#spap_1_2_3">Assembly Level Language [cite: 446]</a></li>
+                        [cite_start]<li><a href="#spap_1_2_4">High-level Language [cite: 446]</a></li>
+                    </ul>
+                </li>
+                <li><a href="#spap_1_3">3. Language Translators</a>
+                    <ul>
+                        [cite_start]<li><a href="#spap_1_3_1">Compiler [cite: 446]</a></li>
+                        [cite_start]<li><a href="#spap_1_3_2">Interpreter [cite: 446]</a></li>
+                    </ul>
+                </li>
+                <li><a href="#spap_1_4">4. [cite_start]Key Programming Terms [cite: 447]</a></li>
+                <li><a href="#spap_1_5">5. [cite_start]Errors in Computer Programs [cite: 448]</a></li>
+            </ul>
+        </div>
+
+        <h2 id="spap_1_1"><span id="spap_1_1_span">1. Introduction to Computer Programs</span></h2>
+        [cite_start]<p><span id="spap_1_1_p1">A <strong>computer program</strong> is a sequence of instructions, written in a specific programming language, that a computer can execute to perform a task[cite: 446]. Think of it as a detailed recipe that a computer follows precisely.</span></p>
+
+        <h2 id="spap_1_2"><span id="spap_1_2_span">2. Programming Languages</span></h2>
+        
+        [cite_start]<h3 id="spap_1_2_1"><span id="spap_1_2_1_span">Natural Language vs. Programming Language [cite: 446]</span></h3>
+        <p><span id="spap_1_2_1_p1"><strong>Natural Languages</strong> (like English, Hindi, Bengali) are what humans use to communicate. They are complex, ambiguous, and evolve over time.</span></p>
+        <p><span id="spap_1_2_1_p2"><strong>Programming Languages</strong> (like C, Java, Python) are formal, structured languages used to communicate instructions to a computer. [cite_start]They are unambiguous and have strict syntax rules[cite: 446].</span></p>
+
+        [cite_start]<h3 id="spap_1_2_2"><span id="spap_1_2_2_span">Machine Level Language (1st Generation) [cite: 446]</span></h3>
+        <ul>
+            <li><span id="spap_1_2_2_l1">This is the "natural language" of the computer's CPU.</span></li>
+            <li><span id="spap_1_2_2_l2">It consists purely of binary code (1s and 0s).</span></li>
+            <li><span id="spap_1_2_2_l3">It is extremely fast to execute but almost impossible for humans to read or write.</span></li>
+            <li><span id="spap_1_2_2_l4">It is <strong>machine-dependent</strong> (a program for one CPU won't work on another).</span></li>
+        </ul>
+
+        [cite_start]<h3 id="spap_1_2_3"><span id="spap_1_2_3_span">Assembly Level Language (2nd Generation) [cite: 446]</span></h3>
+        <ul>
+            <li><span id="spap_1_2_3_l1">This language uses short, English-like mnemonics (e.g., <code>MOV</code>, <code>ADD</code>, <code>JMP</code>) to represent machine-level instructions.</span></li>
+            <li><span id="spap_1_2_3_l2">It is easier to read than machine code but is still very low-level.</span></li>
+            <li><span id="spap_1_2_3_l3">It must be translated into machine code by a program called an <strong>Assembler</strong>.</span></li>
+            <li><span id="spap_1_2_3_l4">It is also machine-dependent.</span></li>
+        </ul>
+
+        [cite_start]<h3 id="spap_1_2_4"><span id="spap_1_2_4_span">High-level Language (3rd Generation) [cite: 446]</span></h3>
+        <ul>
+            <li><span id="spap_1_2_4_l1">These languages (like C, FORTRAN, Pascal, Python, Java) use English-like words and mathematical notation.</span></li>
+            <li><span id="spap_1_2_4_l2">They are focused on problem-solving rather than computer hardware.</span></li>
+            <li><span id="spap_1_2_4_l3">They are <strong>machine-independent</strong> (portable) and must be translated using a Compiler or Interpreter.</span></li>
+        </ul>
+
+        <h2 id="spap_1_3"><span id="spap_1_3_span">3. Language Translators</span></h2>
+        <p><span id="spap_1_3_p1">Computers only understand machine code. A translator is a program that converts high-level or assembly language into machine code.</span></p>
+
+        [cite_start]<h3 id="spap_1_3_1"><span id="spap_1_3_1_span">Compiler [cite: 446]</span></h3>
+        <p><span id="spap_1_3_1_p1">A compiler reads the *entire* source code at once, translates it, and creates a separate executable file (e.g., an <code>.exe</code> file).</span></p>
+        <ul>
+            <li><span id="spap_1_3_1_l1"><strong>Process:</strong> Source Code -> Compiler -> Object Code -> Linker -> Executable File.</span></li>
+            <li><span id="spap_1_3_1_l2">Reports all syntax errors at the end of compilation.</span></li>
+            <li><span id="spap_1_3_1_l3"><strong>Result:</strong> Fast execution speed (once compiled).</span></li>
+            <li><span id="spap_1_3_1_l4"><strong>Example:</strong> C, C++, Java (partially).</span></li>
+        </ul>
+
+        [cite_start]<h3 id="spap_1_3_2"><span id="spap_1_3_2_span">Interpreter [cite: 446]</span></h3>
+        <p><span id="spap_1_3_2_p1">An interpreter reads the source code one line at a time, translates that line, and executes it immediately.</span></p>
+        <ul>
+            <li><span id="spap_1_3_2_l1"><strong>Process:</strong> Source Code -> Interpreter -> Direct Execution (no separate file).</span></li>
+            <li><span id="spap_1_3_2_l2">Stops execution as soon as it finds an error.</span></li>
+            <li><span id="spap_1_3_2_l3"><strong>Result:</strong> Slower execution speed (must be translated every time) but easier for debugging.</span></li>
+            <li><span id="spap_1_3_2_l4"><strong>Example:</strong> Python, JavaScript, old BASIC.</span></li>
+        </ul>
+        
+
+        <h2 id="spap_1_4"><span id="spap_1_4_span">4. [cite_start]Key Programming Terms [cite: 447]</span></h2>
+        <ul>
+            [cite_start]<li><span id="spap_1_4_l1"><strong>Source Code:</strong> The human-readable program written in a high-level language[cite: 447].</span></li>
+            [cite_start]<li><span id="spap_1_4_l2"><strong>Target Code (or Object Code):</strong> The machine-level code produced by a compiler[cite: 447].</span></li>
+            [cite_start]<li><span id="spap_1_4_l3"><strong>Input:</strong> Data provided to the program (e.g., from the keyboard)[cite: 447].</span></li>
+            [cite_start]<li><span id="spap_1_4_l4"><strong>Output:</strong> Data provided *by* the program (e.g., to the screen)[cite: 447].</span></li>
+            [cite_start]<li><span id="spap_1_4_l5"><strong>Compiling:</strong> The act of translating source code into target code[cite: 447].</span></li>
+            <li><span id="spap_1_4_l6"><strong>Warning:</strong> A message from the compiler about a potential, but not critical, issue (e.g., "variable declared but not used"). [cite_start]The program will still compile[cite: 447].</span></li>
+            [cite_start]<li><span id="spap_1_4_l7"><strong>Running:</strong> Executing the compiled program[cite: 447].</span></li>
+            [cite_start]<li><span id="spap_1_4_l8"><strong>Debugging:</strong> The process of finding and fixing errors (bugs) in a program[cite: 447].</span></li>
+            [cite_start]<li><span id="spap_1_4_l9"><strong>Testing:</strong> The process of running a program with various inputs to verify that it works correctly[cite: 447].</span></li>
+        </ul>
+
+        <h2 id="spap_1_5"><span id="spap_1_5_span">5. [cite_start]Errors in Computer Programs [cite: 448]</span></h2>
+        [cite_start]<p><span id="spap_1_5_p1">There are three main types of errors in programming[cite: 448]:</span></p>
+        <ol>
+            <li><span id="spap_1_5_l1"><strong>Syntax Errors (Compile-time Errors):</strong>
+                <ul>
+                    <li>Errors in the grammar of the programming language.</li>
+                    <li>Examples: Forgetting a semicolon (<code>;</code>), misspelling a keyword (<code>whlie</code> instead of <code>while</code>).</li>
+                    <li>These are caught by the compiler, and the program will not run.</li>
+                </ul>
+            </span></li>
+            <li><span id="spap_1_5_l2"><strong>Runtime Errors:</strong>
+                <ul>
+                    <li>Errors that occur *while* the program is running.</li>
+                    <li>Examples: Dividing a number by zero, trying to access an invalid memory location.</li>
+                    <li>These errors will cause the program to crash or behave unexpectedly.</li>
+                </ul>
+            </span></li>
+            <li><span id="spap_1_5_l3"><strong>Logical Errors:</strong>
+                <ul>
+                    <li>The program runs successfully but produces the wrong output.</li>
+                    <li>The "grammar" is correct, but the "meaning" (logic) is flawed.</li>
+                    <li>Example: Using <code>(a + b) / 2</code> to calculate the average but writing <code>a + b / 2</code> (which is <code>a + (b/2)</code>).</li>
+                    <li>These are the most difficult errors to find and fix.</li>
+                </ul>
+            </span></li>
+        </ol>
+    </div>
+</body>
+</html>

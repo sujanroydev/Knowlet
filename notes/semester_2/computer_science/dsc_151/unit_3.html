@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive exam-ready notes for CSCDSC151 Data Structure, Unit 3: Trees. Based on Assam University (Silchar) NEP syllabus.">
+    <meta name="keywords" content="Data Structures, CSCDSC151, Unit 3, Trees, Binary Tree, Binary Search Tree, BST, AVL Tree, Heap Tree, Threaded Binary Tree, Assam University, Knowlet">
+    <title>Computer Science DSC 151 Unit 3 | 2nd Semester Notes - Knowlet</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #0056b3; /* Deep Blue */
+            text-align: center;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1a73e8; /* Bright Blue */
+            border-bottom: 2px solid #e0e0e0;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #2a8a4d; /* Green */
+            padding-top: 10px;
+        }
+        h4 {
+            color: #d9534f; /* Reddish */
+            padding-top: 5px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        code, pre {
+            background-color: #eef1f5;
+            border-radius: 4px;
+            padding: 2px 5px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            padding: 15px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+        }
+        blockquote {
+            background-color: #fffbe6; /* Light Yellow */
+            border-left: 5px solid #ffc107; /* Amber */
+            margin: 20px 0;
+            padding: 15px 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #1a73e8;
+            color: #ffffff;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background-color: #e6f7ff;
+            border: 1px solid #b3e0ff;
+            padding: 15px 25px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            color: #0056b3;
+            margin-top: 0;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li {
+            margin: 8px 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #e6ffe6; /* Light Green */
+            border: 1px solid #5cb85c;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .common-mistake {
+            background-color: #fbeaea; /* Light Red */
+            border: 1px solid #d9534f;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 3: Trees</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#spap_3_1">1. Introduction to Tree as a Data Structure</a>
+                    <ul>
+                        <li><a href="#spap_3_1_1">Key Terminology</a></li>
+                        <li><a href="#spap_3_1_2">Types of Binary Trees</a></li>
+                    </ul>
+                </li>
+                <li><a href="#spap_3_2">2. Binary Search Trees (BST)</a>
+                    <ul>
+                        <li><a href="#spap_3_2_1">Properties</a></li>
+                        <li><a href="#spap_3_2_2">Insertion in BST</a></li>
+                        <li><a href="#spap_3_2_3">Deletion in BST</a></li>
+                        <li><a href="#spap_3_2_4">Recursive and Iterative Traversals</a></li>
+                    </ul>
+                </li>
+                <li><a href="#spap_3_3">3. Threaded Binary Trees</a>
+                    <ul>
+                        <li><a href="#spap_3_3_1">Insertion, Deletion, and Traversals</a></li>
+                    </ul>
+                </li>
+                <li><a href="#spap_3_4">4. Height-Balanced Trees (AVL Trees)</a>
+                    <ul>
+                        <li><a href="#spap_3_4_1">Balance Factor</a></li>
+                        <li><a href="#spap_3_4_2">Rotations (Operations)</a></li>
+                    </ul>
+                </li>
+                <li><a href="#spap_3_5">5. Heap Tree</a>
+                    <ul>
+                        <li><a href="#spap_3_5_1">Operations</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h2 id="spap_3_1">1. Introduction to Tree as a Data Structure</h2>
+        <p>A <strong>Tree</strong> is a non-linear, hierarchical data structure that consists of nodes connected by edges. It is one of the most important and widely used data structures.</p>
+        <p>Unlike linked lists, where each node points to one successor, a tree node can point to multiple successors (children).</p>
+        <h3 id="spap_3_1_1">Key Terminology</h3>
+        <ul>
+            <li><strong>Node:</strong> The basic unit containing data and pointers to other nodes.</li>
+            <li><strong>Root:</strong> The topmost node in the tree. It is the only node with no parent.</li>
+            <li><strong>Edge:</strong> The link connecting a parent node to a child node.</li>
+            <li><strong>Parent:</strong> A node that has a child (or children).</li>
+            <li><strong>Child:</strong> A node that is pointed to by a parent.</li>
+            <li><strong>Leaf (or External Node):</strong> A node with no children.</li>
+            <li><strong>Internal Node:</strong> A node that has at least one child.</li>
+            <li><strong>Siblings:</strong> Nodes that share the same parent.</li>
+            <li><strong>Subtree:</strong> A tree consisting of a node and all of its descendants.</li>
+            <li><strong>Height of a Node:</strong> The length of the longest path from the node to a leaf. The height of a leaf is 0.</li>
+            <li><strong>Height of a Tree:</strong> The height of the root node.</li>
+            <li><strong>Depth of a Node:</strong> The length of the path from the root to the node. The depth of the root is 0.</li>
+            <li><strong>Degree of a Node:</strong> The number of children a node has.</li>
+            <li><strong>Degree of a Tree:</strong> The maximum degree of any node in the tree.</li>
+        </ul>
+        
+        <p>A <strong>Binary Tree</strong> is a specific type of tree in which every node can have <strong>at most two children</strong>: a left child and a right child.</p>
+
+        <h3 id="spap_3_1_2">Types of Binary Trees</h3>
+        <ul>
+            <li><strong>Full Binary Tree:</strong> A binary tree where every node has either 0 or 2 children.</li>
+            <li><strong>Complete Binary Tree:</strong> A binary tree where all levels are completely filled *except* possibly the last level, and all nodes in the last level are as far left as possible. (This is important for Heaps).</li>
+            <li><strong>Perfect Binary Tree:</strong> A binary tree where all internal nodes have 2 children and all leaves are at the same level.</li>
+            <li><strong>Skewed Binary Tree:</strong> A tree where each node has only one child (either all left or all right). It behaves just like a linked list.</li>
+        </ul>
+
+        <h2 id="spap_3_2">2. Binary Search Trees (BST)</h2>
+        <p>A <strong>Binary Search Tree</strong> is a binary tree with a special property that makes searching very efficient.</p>
+        
+        <h3 id="spap_3_2_1">Properties</h3>
+        <blockquote>
+            For any node <code>N</code> in a BST:
+            <ol>
+                <li>All values in <code>N</code>'s <strong>left subtree</strong> are <strong>less than</strong> <code>N</code>'s value.</li>
+                <li>All values in <code>N</code>'s <strong>right subtree</strong> are <strong>greater than</strong> <code>N</code>'s value.</li>
+                <li>Both the left and right subtrees must also be binary search trees.</li>
+            </ol>
+        </blockquote>
+        <p>This property allows for fast searching, insertion, and deletion, with an average-case time complexity of <strong>O(log n)</strong>. The worst case (for a skewed tree) is O(n).</p>
+
+        <h3 id="spap_3_2_2">Insertion in BST</h3>
+        <p>To insert a new value:</p>
+        <ol>
+            <li>Start at the root.</li>
+            <li>Compare the new value with the root's value.</li>
+            <li>If the new value is <strong>less</strong>, move to the <strong>left child</strong>.</li>
+            <li>If the new value is <strong>greater</strong>, move to the <strong>right child</strong>.</li>
+            <li>Repeat this process until you reach a <code>NULL</code> pointer (an empty spot).</li>
+            <li>Insert the new node at that empty spot.</li>
+        </ol>
+
+        <h3 id="spap_3_2_3">Deletion in BST</h3>
+        <p>This is the most complex operation. There are three cases:</p>
+        <ol>
+            <li><strong>Case 1: Node to be deleted is a Leaf (0 children)</strong>
+                <ul><li>Simply remove the node (set its parent's pointer to <code>NULL</code>).</li></ul>
+            </li>
+            <li><strong>Case 2: Node to be deleted has 1 child</strong>
+                <ul><li>"Bypass" the node: Link the node's parent directly to the node's child.</li></ul>
+            </li>
+            <li><strong>Case 3: Node to be deleted has 2 children</strong>
+                <ol>
+                    <li>Find the node's "successor." This can be either:
+                        <ul>
+                            <li>The <strong>Inorder Successor:</strong> The smallest node in its right subtree (go right once, then all the way left).</li>
+                            <li>The <strong>Inorder Predecessor:</strong> The largest node in its left subtree (go left once, then all the way right).</li>
+                        </ul>
+                    </li>
+                    <li>Copy the value of the successor (or predecessor) into the node to be deleted.</li>
+                    <li>Delete the successor (or predecessor) node (which is an easier Case 1 or Case 2 deletion).</li>
+                </ol>
+            </li>
+        </ol>
+        <h3 id="spap_3_2_4">Recursive and Iterative Traversals</h3>
+        <p>Traversal means visiting every node in the tree exactly once. The three main types are (L=Left, R=Right, P=Process/Visit Node):</p>
+        
+        <h4>1. Inorder Traversal (L-P-R)</h4>
+        <ul>
+            <li><strong>Recursive:</strong>
+<pre>
+function inorder(node):
+    if node == NULL: return
+    inorder(node.left)
+    visit(node.data)
+    inorder(node.right)
+</pre>
+            </li>
+            <li><strong>Iterative (using a Stack):</strong>
+                <ol>
+                    <li>Create an empty stack.</li>
+                    <li>Start with the <code>root</code> node.</li>
+                    <li>Loop:
+                        <ul>
+                            <li>While the current node is not <code>NULL</code>, push it onto the stack and move to its left child.</li>
+                            <li>If the current node is <code>NULL</code> (and stack is not empty): Pop a node, visit it, and move to its right child.</li>
+                        </ul>
+                    </li>
+                    <li>Repeat until both the stack is empty and the current node is <code>NULL</code>.</li>
+                </ol>
+            </li>
+            <li><strong>Utility:</strong> For a BST, an inorder traversal visits the nodes in <strong>sorted, ascending order</strong>.</li>
+        </ul>
+
+        <h4>2. Preorder Traversal (P-L-R)</h4>
+        <ul>
+            <li><strong>Recursive:</strong>
+<pre>
+function preorder(node):
+    if node == NULL: return
+    visit(node.data)
+    preorder(node.left)
+    preorder(node.right)
+</pre>
+            </li>
+            <li><strong>Iterative (using a Stack):</strong>
+                <ol>
+                    <li>Push the <code>root</code> onto the stack.</li>
+                    <li>Loop while stack is not empty:</li>
+                    <li>Pop a node, visit it.</li>
+                    <li>Push its <strong>right child</strong> (if it exists) onto the stack.</li>
+                    <li>Push its <strong>left child</strong> (if it exists) onto the stack.</li>
+                    <li>(Note: Right is pushed *before* left to ensure left is processed first, due to LIFO).</li>
+                </ol>
+            </li>
+            <li><strong>Utility:</strong> Used to create a copy of the tree.</li>
+        </ul>
+
+        <h4>3. Postorder Traversal (L-R-P)</h4>
+        <ul>
+            <li><strong>Recursive:</strong>
+<pre>
+function postorder(node):
+    if node == NULL: return
+    postorder(node.left)
+    postorder(node.right)
+    visit(node.data)
+</pre>
+            </li>
+            <li><strong>Iterative (using two Stacks):</strong> This is the most complex iterative traversal. A simpler (but modified) approach uses one stack.</li>
+            <li><strong>Utility:</strong> Used to delete a tree. You must delete children before you can delete the parent.</li>
+        </ul>
+        
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> Given a preorder and inorder traversal, you can uniquely reconstruct a binary tree. This is a very common exam question.
+        </div>
+        
+        <h2 id="spap_3_3">3. Threaded Binary Trees</h2>
+        <p>In a standard binary tree, there are many <code>NULL</code> pointers (especially at leaf nodes). A <strong>threaded binary tree</strong> re-uses these <code>NULL</code> pointers to "thread" the tree, making traversal more efficient.</p>
+        <p>A <code>NULL</code> right child pointer is replaced with a pointer (a "thread") to the node's <strong>Inorder Successor</strong>.
+        A <code>NULL</code> left child pointer is replaced with a pointer to the node's <strong>Inorder Predecessor</strong>.</p>
+        <p>Two flag bits are needed in each node to indicate if the <code>left</code>/<code>right</code> pointers are normal child links or threads.</p>
+        
+        <h3 id="spap_3_3_1">Insertion, Deletion, and Traversals</h3>
+        <ul>
+            <li><strong>Advantage:</strong> Inorder traversal can be performed <strong>without a stack or recursion</strong>. You just follow the <code>right</code> pointers (which are either children or threads).</li>
+            <li><strong>Disadvantage:</strong> Insertion and deletion are much more complex because you must maintain the threads, which may involve updating nodes far away from the inserted/deleted node.</li>
+        </ul>
+        
+        <h2 id="spap_3_4">4. Height-Balanced Trees (AVL Trees)</h2>
+        <p>A standard BST has a worst-case time complexity of O(n) if it becomes "skewed" (like a linked list). An <strong>AVL Tree</strong> (named after its inventors, <strong>A</strong>delson-<strong>V</strong>elsky and <strong>L</strong>andis) is a <strong>self-balancing</strong> binary search tree.</p>
+
+        <h3 id="spap_3_4_1">Balance Factor</h3>
+        <p>An AVL tree ensures that the heights of the two child subtrees of any node differ by <strong>at most one</strong>.</p>
+        <blockquote>
+            <strong>Balance Factor (BF) = Height(Left Subtree) - Height(Right Subtree)</strong>
+        </blockquote>
+        <p>For a tree to be an AVL tree, every single node must have a Balance Factor of <strong>-1, 0, or 1</strong>.</p>
+        <p>If an insertion or deletion causes any node's BF to become -2 or +2, the tree is "unbalanced" and must be "rebalanced."</p>
+        
+        <h3 id="spap_3_4_2">Rotations (Operations)</h3>
+        <p>Rebalancing is done using <strong>rotations</strong>. A rotation is a local operation that changes the structure of the tree to restore balance, while *preserving* the BST property.</p>
+        <p>There are four imbalance cases, which require two types of rotations:</p>
+        
+        <h4>1. Left-Left (LL) Case (BF = +2)</h4>
+        <ul>
+            <li><strong>Problem:</strong> The new node was inserted in the <strong>left</strong> subtree of the <strong>left</strong> child of the unbalanced node (Z).</li>
+            <li><strong>Solution:</strong> Perform a <strong>Right Rotation</strong> on Z.</li>
+        </ul>
+        <h4>2. Right-Right (RR) Case (BF = -2)</h4>
+        <ul>
+            <li><strong>Problem:</strong> The new node was inserted in the <strong>right</strong> subtree of the <strong>right</strong> child of Z.</li>
+            <li><strong>Solution:</strong> Perform a <strong>Left Rotation</strong> on Z.</li>
+        </ul>
+        <h4>3. Left-Right (LR) Case (BF = +2)</h4>
+        <ul>
+            <li><strong>Problem:</strong> The new node was inserted in the <strong>right</strong> subtree of the <strong>left</strong> child of Z.</li>
+            <li><strong>Solution:</strong> Perform a <strong>Left Rotation</strong> on the *child* (Y), followed by a <strong>Right Rotation</strong> on the *parent* (Z). This is a double rotation.</li>
+        </ul>
+        <h4>4. Right-Left (RL) Case (BF = -2)</h4>
+        <ul>
+            <li><strong>Problem:</strong> The new node was inserted in the <strong>left</strong> subtree of the <strong>right</strong> child of Z.</li>
+            <li><strong>Solution:</strong> Perform a <strong>Right Rotation</strong> on the *child* (Y), followed by a <strong>Left Rotation</strong> on the *parent* (Z).</li>
+        </ul>
+        <div class="exam-tip">
+            By performing these rotations, the AVL tree guarantees that its height remains O(log n), so all operations (search, insert, delete) are <strong>O(log n) in the worst case</strong>.
+        </div>
+        
+        <h2 id="spap_3_5">5. Heap Tree</h2>
+        <p>A <strong>Heap</strong> is a specialized tree-based data structure. It is a <strong>complete binary tree</strong> that satisfies the <strong>heap property</strong>.</p>
+        <p>A heap is <strong>NOT</strong> a Binary Search Tree. There is no left/right ordering property.</p>
+        <p><strong>Heap Property:</strong></p>
+        <ul>
+            <li><strong>Max-Heap:</strong> The value of any parent node is <strong>greater than or equal to</strong> the values of its children. The root node is the maximum element.</li>
+            <li><strong>Min-Heap:</strong> The value of any parent node is <strong>less than or equal to</strong> the values of its children. The root node is the minimum element.</li>
+        </ul>
+        
+        <p><strong>Representation:</strong> Because heaps are complete binary trees, they are almost always stored in an <strong>array</strong>, not with pointers.
+            For a node at index <code>i</code>:
+            <ul>
+                <li>Its left child is at index <code>2*i + 1</code>.</li>
+                <li>Its right child is at index <code>2*i + 2</code>.</li>
+                <li>Its parent is at index <code>floor((i - 1) / 2)</code>.</li></ul>
+        </p>
+        
+        <h3 id="spap_3_5_1">Operations</h3>
+        <p>Operations involve adding/removing elements and then "heapifying" (fixing the heap property).</p>
+        
+        <h4>1. Insertion (O(log n))</h4>
+        <ol>
+            <li>Add the new element to the *end* of the array (the next open spot in the complete tree).</li>
+            <li>"Bubble Up" (or Heapify-Up): Compare the new element with its parent.</li>
+            <li>If it violates the heap property (e.g., in a Max-Heap, it's larger than its parent), swap them.</li>
+            <li>Repeat this process (comparing and swapping with the parent) until the heap property is restored or the node reaches the root.</li>
+        </ol>
+
+        <h4>2. Deletion (Extract-Max / Extract-Min) (O(log n))</h4>
+        <ol>
+            <li>The element to be removed is always the <strong>root</strong> (index 0).</li>
+            <li>Store the root's value (to return it).</li>
+            <li>Move the <strong>last element</strong> in the array to the root (index 0).</li>
+            <li>"Bubble Down" (or Heapify-Down):
+                <ul>
+                    <li>Compare the new root with its children.</li>
+                    <li>If it violates the heap property, swap it with its <strong>larger</strong> child (for Max-Heap) or <strong>smaller</strong> child (for Min-Heap).</li>
+                    <li>Repeat this process (comparing and swapping down the tree) until the heap property is restored or the node becomes a leaf.</li>
+                </ul>
+            </li>
+        </ol>
+        <p><strong>Applications:</strong> Heaps are the default implementation for <strong>Priority Queues</strong> (Unit 2). They are also used in the <strong>HeapSort</strong> algorithm (Unit 4).</p>
+
+    </div>
+</body>
+</html>
+     

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive exam-ready notes for CSCDSC151 Data Structure, Unit 2: Linked Lists and Queues. Based on Assam University (Silchar) NEP syllabus.">
+    <meta name="keywords" content="Data Structures, CSCDSC151, Unit 2, Linked List, Singly, Doubly, Circular, Queues, Deque, Priority Queue, Skip Lists, Assam University, Knowlet">
+    <title>Computer Science DSC 151 Unit 2 | 2nd Semester Notes - Knowlet</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #0056b3; /* Deep Blue */
+            text-align: center;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1a73e8; /* Bright Blue */
+            border-bottom: 2px solid #e0e0e0;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #2a8a4d; /* Green */
+            padding-top: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        code, pre {
+            background-color: #eef1f5;
+            border-radius: 4px;
+            padding: 2px 5px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            padding: 15px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+        }
+        blockquote {
+            background-color: #fffbe6; /* Light Yellow */
+            border-left: 5px solid #ffc107; /* Amber */
+            margin: 20px 0;
+            padding: 15px 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #1a73e8;
+            color: #ffffff;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background-color: #e6f7ff;
+            border: 1px solid #b3e0ff;
+            padding: 15px 25px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            color: #0056b3;
+            margin-top: 0;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li {
+            margin: 8px 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #e6ffe6; /* Light Green */
+            border: 1px solid #5cb85c;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .common-mistake {
+            background-color: #fbeaea; /* Light Red */
+            border: 1px solid #d9534f;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 2: Linked Lists and Queues</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#spap_2_1">1. Linked Lists</a>
+                    <ul>
+                        <li><a href="#spap_2_1_1">Arrays vs. Linked Lists</a></li>
+                        <li><a href="#spap_2_1_2">Singly Linked Lists</a></li>
+                        <li><a href="#spap_2_1_3">Doubly Linked Lists</a></li>
+                        <li><a href="#spap_2_1_4">Circular Lists</a></li>
+                        <li><a href="#spap_2_1_5">Array and Linked Representation</a></li>
+                        <li><a href="#spap_2_1_6">Normal and Circular Representation of Stack in Lists</a></li>
+                        <li><a href="#spap_2_1_7">Self Organizing Lists</a></li>
+                        <li><a href="#spap_2_1_8">Skip Lists</a></li>
+                    </ul>
+                </li>
+                <li><a href="#spap_2_2">2. Queues</a>
+                    <ul>
+                        <li><a href="#spap_2_2_1">Array Representation of Queue</a></li>
+                        <li><a href="#spap_2_2_2">Linked Representation of Queue</a></li>
+                        <li><a href="#spap_2_2_3">De-queue (Deque)</a></li>
+                        <li><a href="#spap_2_2_4">Priority Queues</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h2 id="spap_2_1">1. Linked Lists</h2>
+        <p>A <strong>Linked List</strong> is a linear data structure, like an array, but its elements are not stored in contiguous memory locations. Instead, elements are linked using pointers.</p>
+        <p>Each element in a linked list is called a <strong>node</strong>. A node consists of two parts:</p>
+        <ol>
+            <li><strong>Data:</strong> The actual value stored in the node.</li>
+            <li><strong>Next (Pointer/Link):</strong> A pointer that stores the memory address of the next node in the sequence.</li>
+        </ol>
+        <p>The entry point to the linked list is a special pointer called the <strong>head</strong>, which points to the first node. The last node in the list has its <code>next</code> pointer set to <strong>NULL</strong>.</p>
+        <h3 id="spap_2_1_1">Arrays vs. Linked Lists</h3>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Array</th>
+                <th>Linked List</th>
+            </tr>
+            <tr>
+                <td><strong>Memory</strong></td>
+                <td>Contiguous memory allocation.</td>
+                <td>Non-contiguous (dynamic) allocation.</td>
+            </tr>
+            <tr>
+                <td><strong>Size</strong></td>
+                <td>Static (fixed size). Must be known at compile time.</td>
+                <td>Dynamic (size can grow and shrink at runtime).</td>
+            </tr>
+            <tr>
+                <td><strong>Access</strong></td>
+                <td><strong>Fast random access (O(1)).</strong> Can access <code>arr[i]</code> directly.</td>
+                <td><strong>Slow sequential access (O(n)).</strong> Must traverse from the <code>head</code>.</td>
+            </tr>
+            <tr>
+                <td><strong>Insertion/Deletion</strong></td>
+                <td><strong>Slow (O(n)).</strong> Requires shifting elements.</td>
+                <td><strong>Fast (O(1))</strong>, if the position (node) is known.</td>
+            </tr>
+            <tr>
+                <td><strong>Memory Overhead</strong></td>
+                <td>None.</td>
+                <td>Extra memory is required for the <code>next</code> pointer in each node.</td>
+            </tr>
+        </table>
+
+        <h3 id="spap_2_1_2">Singly Linked Lists</h3>
+        <p>This is the standard linked list described above, where each node has one pointer (<code>next</code>) pointing to the next node in the list. Traversal is one-way (forward) only.</p>
+        <p><strong>Basic Operations:</strong></p>
+        <ul>
+            <li><strong>Traversal:</strong> Start from <code>head</code>, follow <code>next</code> pointers until <code>NULL</code>.</li>
+            <li><strong>Insertion:</strong>
+                <ul>
+                    <li><strong>At Beginning (O(1)):</strong> Create a new node. Point its <code>next</code> to the current <code>head</code>. Update <code>head</code> to point to the new node.</li>
+                    <li><strong>At End (O(n)):</strong> Traverse to the last node. Point its <code>next</code> to the new node.</li>
+                    <li><strong>At Middle (O(n)):</strong> Traverse to the node *before* the desired position. Update pointers.</li>
+                </ul>
+            </li>
+            <li><strong>Deletion:</strong>
+                <ul>
+                    <li><strong>At Beginning (O(1)):</strong> Store <code>head</code> in a temp node. Update <code>head = head.next</code>. Free the temp node.</li>
+                    <li><strong>At End (O(n)):</strong> Traverse to the *second-to-last* node. Set its <code>next</code> to <code>NULL</code>. Free the last node.</li>
+                    <li><strong>At Middle (O(n)):</strong> Traverse to the node *before* the one to be deleted. Update pointers to "skip" the deleted node.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="common-mistake">
+            <strong>Common Mistake:</strong> Losing the list. When inserting at the beginning, always make the new node point to the <em>current</em> <code>head</code> <strong>before</strong> you update <code>head</code> to point to the new node.
+        </div>
+
+        <h3 id="spap_2_1_3">Doubly Linked Lists</h3>
+        <p>A <strong>doubly linked list</strong> (DLL) node contains two pointers in addition to the data:</p>
+        <ol>
+            <li><strong>Data:</strong> The value.</li>
+            <li><strong>Next:</strong> Points to the next node (or <code>NULL</code>).</li>
+            <li><strong>Prev:</strong> Points to the previous node (or <code>NULL</code> for the <code>head</code>).</li>
+        </ol>
+        <p><strong>Advantages over Singly Linked List:</strong></p>
+        <ul>
+            <li>Can be traversed in <strong>both directions</strong> (forward and backward).</li>
+            <li>Deletion is more efficient. If you are given a pointer to the node to be deleted, you don't need to traverse to find its previous node (unlike in a singly list). You can access it directly via <code>node.prev</code>.</li>
+        </ul>
+        <p><strong>Disadvantage:</strong></p>
+        <ul>
+            <li>Requires extra memory for the <code>prev</code> pointer.</li>
+            <li>Insertion and deletion operations are more complex as two pointers (<code>next</code> and <code>prev</code>) must be updated.</li>
+        </ul>
+
+        <h3 id="spap_2_1_4">Circular Lists</h3>
+        <p>A <strong>circular linked list</strong> is a list where the last node does not point to <code>NULL</code>. Instead, its <code>next</code> pointer points back to the <strong>head</strong> node, forming a circle.</p>
+        <p><strong>Advantages:</strong></p>
+        <ul>
+            <li>The entire list can be traversed starting from any node.</li>
+            <li>Useful for applications that require round-robin processing (e.g., CPU scheduling).</li>
+        </ul>
+        <p>A <strong>Circular Doubly Linked List</strong> also exists, where the <code>head.prev</code> points to the last node, and the <code>last.next</code> points to the <code>head</code>.</p>
+
+        <h3 id="spap_2_1_5">Array and Linked Representation</h3>
+        <p>This refers to the comparison of implementing linear lists using arrays versus linked lists, as detailed in the table <a href="#spap_2_1_1">above</a>.</p>
+        
+        <h3 id="spap_2_1_6">Normal and Circular Representation of Stack in Lists</h3>
+        <p>As discussed in Unit 1, the array implementation of a stack has a fixed-size limitation. A linked list is a perfect solution for this.</p>
+        
+        <h4>Normal Linked List Stack</h4>
+        <p>A stack is implemented using a standard <strong>singly linked list</strong>. The LIFO behavior is achieved by performing <code>push</code> and <code>pop</code> operations at the <strong>beginning (head)</strong> of the list.</p>
+        <ul>
+            <li>The <code>head</code> pointer of the list acts as the <code>top</code> of the stack.</li>
+            <li><strong>push(value):</strong> Same as "Insert at Beginning" (O(1)).</li>
+            <li><strong>pop():</strong> Same as "Delete at Beginning" (O(1)).</li>
+        </ul>
+        <p>This implementation is very efficient and overcomes the overflow problem (it's only limited by the total system memory).</p>
+
+        <h4>Circular List Stack</h4>
+        <p>While possible, using a circular list to implement a stack is less common. One could maintain a single pointer <code>last</code> (pointing to the last node). The "top" of the stack would be <code>last.next</code> (the head). Pushing and popping would still happen at the "head" (<code>last.next</code>), which remains an O(1) operation.</p>
+
+        <h3 id="spap_2_1_7">Self Organizing Lists</h3>
+        <p>A <strong>self-organizing list</strong> is a linked list that reorders its nodes based on access patterns to improve average search time. The goal is to keep frequently accessed elements near the front of the list.</p>
+        <p>Common heuristics:</p>
+        <ol>
+            <li><strong>Move-to-Front (MTF):</strong> When a node is accessed, it is moved to the very front (head) of the list.</li>
+            <li><strong>Transpose (or Swap):</strong> When a node is accessed, it is swapped with the node immediately *before* it.</li>
+        </ol>
+
+        <h3 id="spap_2_1_8">Skip Lists</h3>
+        <p>A <strong>skip list</strong> is a probabilistic data structure that provides efficient search (average O(log n)) in a sorted list. It's essentially a linked list with "express lanes."</p>
+        <p>It's built in layers. The bottom layer (Level 0) is a regular sorted linked list. Each higher layer (Level 1, Level 2, ...) contains a subset of the nodes from the layer below. A node in Level <code>i</code> has a random probability of also appearing in Level <code>i+1</code>.</p>
+        <p>To search, you start at the highest layer. You traverse forward until you find a node greater than your target. You then drop down one layer and continue. This "skipping" allows you to bypass large portions of the list, achieving logarithmic time complexity, similar to a balanced binary search tree.</p>
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> Skip lists are an important alternative to balanced trees (like AVL or Red-Black trees) because they are often simpler to implement and can perform just as well.
+        </div>
+        
+        <h2 id="spap_2_2">2. Queues</h2>
+        <p>A <strong>Queue</strong> is a linear data structure that follows the <strong>FIFO (First-In, First-Out)</strong> principle. This means the element added first is the first one to be removed. Think of it as a line of people waiting for a ticket.</p>
+        <p>The primary operations are:</p>
+        <ul>
+            <li><strong>enqueue(element):</strong> Adds an element to the <strong>rear</strong> (end) of the queue.</li>
+            <li><strong>dequeue():</strong> Removes and returns the element from the <strong>front</strong> (beginning) of the queue.</li>
+            <li><strong>peek() or front():</strong> Returns the front element without removing it.</li>
+            <li><strong>isEmpty():</strong> Checks if the queue is empty.</li>
+        </ul>
+        <p>A queue is managed with two pointers: <code>front</code> (points to the first element) and <code>rear</code> (points to the last element).</p>
+
+        <h3 id="spap_2_2_1">Array Representation of Queue</h3>
+        <p>A simple 1D array can be used, but it's inefficient. If you dequeue, the <code>front</code> pointer moves, and that space is "lost." You would have to shift all elements (O(n)), which is slow.</p>
+        <p>A much better solution is a <strong>Circular Array (or Circular Queue)</strong>.</p>
+        <ul>
+            <li>Use an array <code>queue[MAX_SIZE]</code> and two indices, <code>front</code> and <code>rear</code>.</li>
+            <li>Initialize <code>front = -1</code> and <code>rear = -1</code>.</li>
+            <li><strong>Enqueue:</strong> Increment <code>rear</code> using modulo arithmetic: <code>rear = (rear + 1) % MAX_SIZE</code>. Then insert the element.</li>
+            <li><strong>Dequeue:</strong> Increment <code>front</code> using modulo arithmetic: <code>front = (front + 1) % MAX_SIZE</code>. Then return the element.</li>
+            <li><strong>Full Condition:</strong> <code>(rear + 1) % MAX_SIZE == front</code></li>
+            <li><strong>Empty Condition:</strong> <code>front == rear</code> (or <code>front == -1</code>)</li>
+        </ul>
+        <h3 id="spap_2_2_2">Linked Representation of Queue</h3>
+        <p>This is a more flexible implementation that avoids the fixed-size limit. A singly linked list is used with two external pointers: <code>front</code> and <code>rear</code>.</p>
+        <ul>
+            <li><code>front</code> points to the <strong>head</strong> of the list.</li>
+            <li><code>rear</code> points to the <strong>last node</strong> of the list.</li>
+            <li><strong>Enqueue (O(1)):</strong> Same as "Insert at End" in a linked list. Create a new node, point <code>rear.next</code> to it, and update <code>rear</code>.</li>
+            <li><strong>Dequeue (O(1)):</strong> Same as "Delete at Beginning" in a linked list. Get data from <code>front</code>, update <code>front = front.next</code>, and free the old front node.</li>
+        </ul>
+        <div class="common-mistake">
+            <strong>Common Mistake:</strong> When the queue becomes empty after a dequeue, you must remember to also set the <code>rear</code> pointer to <code>NULL</code> (not just <code>front</code>).
+        </div>
+
+        <h3 id="spap_2_2_3">De-queue (Deque)</h3>
+        <p>A <strong>Deque</strong> (pronounced "deck"), or <strong>Double-Ended Queue</strong>, is a generalization of a queue that allows insertion and deletion from <strong>both ends</strong> (front and rear).</p>
+        <p>Operations:</p>
+        <ul>
+            <li>Insert at Front</li>
+            <li>Delete at Front</li>
+            <li>Insert at Rear</li>
+            <li>Delete at Rear</li>
+        </ul>
+        <p>It can be implemented using either a circular array or a doubly linked list.</p>
+
+        <h3 id="spap_2_2_4">Priority Queues</h3>
+        <p>A <strong>Priority Queue</strong> is an abstract data type where each element has an associated <strong>priority</strong>. The operations are:</p>
+        <ul>
+            <li><strong>Insert(element, priority):</strong> Adds an element.</li>
+            <li><strong>Extract-Max() (or Extract-Min()):</strong> Removes and returns the element with the <strong>highest</strong> (or lowest) priority.</li>
+        </ul>
+        <p>This is different from a normal queue; the "first-in" element is not necessarily the "first-out."</p>
+        <p><strong>Implementations:</strong></p>
+        <ul>
+            <li><strong>Unsorted Array/List:</strong> Insert is O(1). Extract-Max is O(n) (must search).</li>
+            <li><strong>Sorted Array/List:</strong> Insert is O(n) (must find spot). Extract-Max is O(1).</li>
+            <li><strong>Heap (Best):</strong> (See Unit 3). Both Insert and Extract-Max are O(log n). This is the most common implementation.</li>
+        </ul>
+
+    </div>
+</body>
+</html>

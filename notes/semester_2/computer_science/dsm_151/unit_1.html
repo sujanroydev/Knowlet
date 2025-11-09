@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    [cite_start]<meta name="description" content="Comprehensive exam-ready notes for CSCDSM151 Programming with C, Unit 1: Fundamentals and Control Structures. Based on Assam University (Silchar) NEP syllabus. [cite: 213-216]">
+    <meta name="keywords" content="CSCDSM151, Programming with C, Unit 1, C Data Types, C Control Structures, C Operators, if-else, for loop, while loop, Assam University, Knowlet">
+    <title>Computer Science DSM 151 Unit 1 | 2nd Semester Notes - Knowlet</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #0056b3; /* Deep Blue */
+            text-align: center;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1a73e8; /* Bright Blue */
+            border-bottom: 2px solid #e0e0e0;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #2a8a4d; /* Green */
+            padding-top: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        code, pre {
+            background-color: #eef1f5;
+            border-radius: 4px;
+            padding: 2px 5px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            padding: 15px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+        }
+        blockquote {
+            background-color: #fffbe6; /* Light Yellow */
+            border-left: 5px solid #ffc107; /* Amber */
+            margin: 20px 0;
+            padding: 15px 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #1a73e8;
+            color: #ffffff;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background-color: #e6f7ff;
+            border: 1px solid #b3e0ff;
+            padding: 15px 25px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            color: #0056b3;
+            margin-top: 0;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li {
+            margin: 8px 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #e6ffe6; /* Light Green */
+            border: 1px solid #5cb85c;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .common-mistake {
+            background-color: #fbeaea; /* Light Red */
+            border: 1px solid #d9534f;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><span id="spap_unit_1_title">Unit 1: Fundamentals of C Programming and Control Structures</span></h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#spap_1_1">1. [cite_start]Fundamentals of C Programming [cite: 214]</a>
+                    <ul>
+                        <li><a href="#spap_1_1_1">Data Types</a></li>
+                        <li><a href="#spap_1_1_2">Expressions and Operations</a></li>
+                        <li><a href="#spap_1_1_3">Input and Output</a></li>
+                    </ul>
+                </li>
+                <li><a href="#spap_1_2">2. [cite_start]Writing Simple C Programs [cite: 214]</a></li>
+                <li><a href="#spap_1_3">3. [cite_start]Control Structures [cite: 215]</a>
+                    <ul>
+                        <li><a href="#spap_1_3_1">Decision Making (if, switch)</a></li>
+                        <li><a href="#spap_1_3_2">Loops (while, do-while, for)</a></li>
+                        <li><a href="#spap_1_3_3">Jump Statements (break, continue, goto)</a></li>
+                        <li><a href="#spap_1_3_4">Nested Loops</a></li>
+                    </ul>
+                </li>
+                <li><a href="#spap_1_4">4. [cite_start]Problem Solving Applications [cite: 216]</a></li>
+            </ul>
+        </div>
+
+        <h2 id="spap_1_1"><span id="spap_1_1_span">1. [cite_start]Fundamentals of C Programming [cite: 214]</span></h2>
+        <p><span id="spap_1_1_p1">This section covers the basic building blocks of the C language.</span></p>
+
+        <h3 id="spap_1_1_1"><span id="spap_1_1_1_span">Data Types</span></h3>
+        <p><span id="spap_1_1_1_p1">Data types define the type and size of data a variable can store.</span></p>
+        <table>
+            <tr>
+                <th>Data Type</th>
+                <th>Keyword</th>
+                <th>Typical Size (bytes)</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>Integer</td>
+                <td><code>int</code></td>
+                <td>2 or 4</td>
+                <td>Stores whole numbers (e.g., 5, -10).</td>
+            </tr>
+            <tr>
+                <td>Character</td>
+                <td><code>char</code></td>
+                <td>1</td>
+                <td>Stores a single character (e.g., 'a', '$').</td>
+            </tr>
+            <tr>
+                <td>Floating Point</td>
+                <td><code>float</code></td>
+                <td>4</td>
+                <td>Stores single-precision numbers with decimals (e.g., 3.14).</td>
+            </tr>
+            <tr>
+                <td>Double</td>
+                <td><code>double</code></td>
+                <td>8</td>
+                <td>Stores double-precision numbers with decimals.</td>
+            </tr>
+            <tr>
+                <td>No Type</td>
+                <td><code>void</code></td>
+                <td>N/A</td>
+                <td>Used for functions that return nothing or for generic pointers.</td>
+            </tr>
+        </table>
+        <p><span id="spap_1_1_1_p2">These can be modified with qualifiers like <code>short</code>, <code>long</code>, <code>signed</code>, and <code>unsigned</code>.</span></p>
+
+        <h3 id="spap_1_1_2"><span id="spap_1_1_2_span">Expressions and Operations</span></h3>
+        <p><span id="spap_1_1_2_p1">An <strong>expression</strong> is a combination of variables, constants, and operators that evaluates to a single value.</span></p>
+        <ul>
+            <li><span id="spap_1_1_2_l1"><strong>Arithmetic Operations:</strong> <code>+</code> (add), <code>-</code> (subtract), <code>*</code> (multiply), <code>/</code> (divide), <code>%</code> (modulus/remainder).</span></li>
+            <li><span id="spap_1_1_2_l2"><strong>Relational Operations:</strong> <code>==</code> (equal to), <code>!=</code> (not equal to), <code>></code>, <code><</code>, <code>>=</code>, <code><=</code>. These evaluate to 1 (true) or 0 (false).</span></li>
+            <li><span id="spap_1_1_2_l3"><strong>Logical Operations:</strong> <code>&&</code> (logical AND), <code>||</code> (logical OR), <code>!</code> (logical NOT).</span></li>
+            <li><span id="spap_1_1_2_l4"><strong>Assignment Operation:</strong> <code>=</code> (assigns the value on the right to the variable on the left).</span></li>
+        </ul>
+
+        <h3 id="spap_1_1_3"><span id="spap_1_1_3_span">Input and Output</span></h3>
+        <p><span id="spap_1_1_3_p1">C uses standard library functions for I/O. You must <code>#include <stdio.h></code>.</span></p>
+        <ul>
+            <li><span id="spap_1_1_3_l1"><strong>Output:</strong> <code>printf()</code> is used to print formatted output to the console.
+<pre>printf("Hello, World!\n");
+printf("The number is: %d\n", myVariable);</pre>
+            </span></li>
+            <li><span id="spap_1_1_3_l2"><strong>Input:</strong> <code>scanf()</code> is used to read formatted input from the console.
+<pre>int age;
+printf("Enter your age: ");
+scanf("%d", &age); // & is the "address-of" operator</pre>
+            </span></li>
+        </ul>
+        <div class="common-mistake">
+            <strong>Common Mistake:</strong> Forgetting the ampersand (<code>&</code>) in <code>scanf()</code> is the most common bug for beginners. <code>scanf</code> needs the *address* of the variable to store the value.
+        </div>
+
+        <h2 id="spap_1_2"><span id="spap_1_2_span">2. [cite_start]Writing Simple C Programs [cite: 214]</span></h2>
+        <p><span id="spap_1_2_p1">A simple C program has a standard structure:</span></p>
+<pre>
+// 1. Preprocessor Directives
+#include <stdio.h>
+
+// 2. Main function (execution starts here)
+int main() {
+    // 3. Variable Declaration
+    int a, b, sum;
+
+    // 4. Program Logic / Statements
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
+
+    sum = a + b;
+
+    printf("The sum is: %d\n", sum);
+
+    // 5. Return Statement
+    return 0; // 0 indicates successful execution
+}
+</pre>
+        <h2 id="spap_1_3"><span id="spap_1_3_span">3. [cite_start]Control Structures [cite: 215]</span></h2>
+        <p><span id="spap_1_3_p1">Control structures allow you to control the flow of your program's execution.</span></p>
+
+        <h3 id="spap_1_3_1"><span id="spap_1_3_1_span">Decision Making (if, switch)</span></h3>
+        <ul>
+            <li><span id="spap_1_3_1_l1"><strong><code>if</code> Statement:</strong> Executes code if a condition is true.
+<pre>if (age >= 18) {
+    printf("You can vote.");
+}</pre>
+            </span></li>
+            <li><span id="spap_1_3_1_l2"><strong><code>if-else</code> Statement:</strong> Executes one block if true, another if false.
+<pre>if (num % 2 == 0) {
+    printf("Even");
+} else {
+    printf("Odd");
+}</pre>
+            </span></li>
+            <li><span id="spap_1_3_1_l3"><strong><code>else if</code> Ladder:</strong> Used for multiple exclusive conditions.
+<pre>if (marks >= 90) {
+    printf("Grade A");
+} else if (marks >= 80) {
+    printf("Grade B");
+} else {
+    printf("Grade C");
+}</pre>
+            </span></li>
+            <li><span id="spap_1_3_1_l4"><strong><code>switch</code> Statement:</strong> Efficiently checks a variable against a list of constant values.
+<pre>switch (day) {
+    case 1:
+        printf("Monday");
+        break; // A break is crucial!
+    case 2:
+        printf("Tuesday");
+        break;
+    default:
+        printf("Invalid day");
+}</pre>
+            </span></li>
+        </ul>
+        <div class="common-mistake">
+            <strong><code>switch</code> Mistake:</strong> Forgetting <code>break</code> causes "fall-through." If <code>day</code> is 1, the program will print "Monday", then "Tuesday", then "Invalid day".
+        </div>
+
+        <h3 id="spap_1_3_2"><span id="spap_1_3_2_span">Loops (while, do-while, for)</span></h3>
+        <ul>
+            <li><span id="spap_1_3_2_l1"><strong><code>while</code> Loop:</strong> An <strong>entry-controlled loop</strong>. The condition is checked *before* the loop body executes.
+<pre>int i = 1;
+while (i <= 5) {
+    printf("%d ", i);
+    i++;
+}
+// Output: 1 2 3 4 5</pre>
+            </span></li>
+            <li><span id="spap_1_3_2_l2"><strong><code>do-while</code> Loop:</strong> An <strong>exit-controlled loop</strong>. The loop body *always* executes at least once.
+<pre>int i = 1;
+do {
+    printf("%d ", i);
+    i++;
+} while (i <= 5);
+// Output: 1 2 3 4 5</pre>
+            </span></li>
+            <li><span id="spap_1_3_2_l3"><strong><code>for</code> Loop:</strong> The most common loop. It combines initialization, condition, and increment in one line.
+<pre>for (int i = 1; i <= 5; i++) {
+    printf("%d ", i);
+}
+// Output: 1 2 3 4 5</pre>
+            </span></li>
+        </ul>
+
+        <h3 id="spap_1_3_3"><span id="spap_1_3_3_span">Jump Statements (break, continue, goto)</span></h3>
+        <ul>
+            [cite_start]<li><span id="spap_1_3_3_l1"><strong><code>break</code>:</strong> Immediately terminates the innermost loop (<code>for</code>, <code>while</code>, <code>do-while</code>) or <code>switch</code> statement. [cite: 215]</span></li>
+            [cite_start]<li><span id="spap_1_3_3_l2"><strong><code>continue</code>:</strong> Skips the rest of the current loop iteration and moves to the next iteration. [cite: 215]</span></li>
+            <li><span id="spap_1_3_3_l3"><strong><code>goto</code>:</strong> Unconditionally jumps to a labeled statement.
+<pre>if (error) {
+    goto cleanup;
+}
+// ...
+cleanup:
+    printf("Cleaning up resources.");</pre>
+                <div class="exam-tip">
+                    <strong>Exam Tip:</strong> Use <code>goto</code> sparingly. It can make code very difficult to read and debug. [cite_start]It's generally considered bad practice but is mentioned in the syllabus. [cite: 215]
+                </div>
+            </span></li>
+        </ul>
+
+        <h3 id="spap_1_3_4"><span id="spap_1_3_4_span">Nested Loops</span></h3>
+        <p><span id="spap_1_3_4_p1">A loop inside another loop. [cite_start]This is commonly used for working with 2D arrays or printing patterns. [cite: 215]</span></p>
+<pre>
+// Prints a 3x3 square of stars
+for (int i = 0; i < 3; i++) {      // Outer loop (rows)
+    for (int j = 0; j < 3; j++) {  // Inner loop (columns)
+        printf("* ");
+    }
+    printf("\n"); // Newline after each row
+}
+</pre>
+
+        <h2 id="spap_1_4"><span id="spap_1_4_span">4. [cite_start]Problem Solving Applications [cite: 216]</span></h2>
+        <p><span id="spap_1_4_p1">This unit requires applying the above control structures to solve elementary problems, such as:</span></p>
+        <ul>
+            <li><span id="spap_1_4_l1"><strong>Mathematics:</strong>
+                <ul>
+                    <li>Finding the factorial of a number (using a <code>for</code> loop).</li>
+                    <li>Checking if a number is prime (using a <code>for</code> loop and <code>if</code>).</li>
+                    <li>Generating the Fibonacci series (using a <code>while</code> loop).</li>
+                    <li>Finding the sum of digits of a number (using a <code>while</code> loop and <code>%</code>).</li>
+                </ul>
+            </span></li>
+            <li><span id="spap_1_4_l2"><strong>Statistics:</strong>
+                <ul>
+                    <li>Calculating the average of <code>n</code> numbers.</li>
+                    <li>Finding the maximum and minimum values in a list of numbers.</li>
+                </ul>
+            </span></li>
+        </ul>
+
+    </div>
+</body>
+</html>

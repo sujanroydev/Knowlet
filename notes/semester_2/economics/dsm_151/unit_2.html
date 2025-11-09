@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive notes for Economics (ECODSM-151) Unit 2: Theory of Consumer Behaviour, from the 2nd Semester syllabus. Covers cardinal vs. ordinal utility, indifference curves, budget constraints, and consumer equilibrium.">
+    <meta name="keywords" content="ECODSM-151, Elementary Economics, Unit 2, Consumer Behaviour, Cardinal Utility, Ordinal Utility, Indifference Curve, Budget Line, Consumer Equilibrium, Hicks and Slutsky, PCC, ICC, Assam University Syllabus">
+    <title>Economics DSM 151 Unit 2 | 2nd Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f4f7f6;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 1000px;
+        margin: 20px auto;
+        background-color: #ffffff;
+        border: 1px solid #d1d1d1;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+      header {
+        background-color: #0056b3; /* Economics Blue */
+        color: #ffffff;
+        padding: 20px 30px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2.5em;
+      }
+      header p {
+        margin: 5px 0 0;
+        font-size: 1.1em;
+      }
+      .content {
+        padding: 30px;
+      }
+      #toc {
+        background-color: #eef5ff;
+        border: 1px solid #b3d1ff;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 30px;
+      }
+      #toc h2 {
+        margin-top: 0;
+        border-bottom: 2px solid #0056b3;
+        padding-bottom: 10px;
+      }
+      #toc ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+      #toc li {
+        margin-bottom: 10px;
+      }
+      #toc a {
+        text-decoration: none;
+        color: #004a99;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+      #toc a:hover {
+        color: #007bff;
+        text-decoration: underline;
+      }
+      h2 {
+        color: #0056b3;
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 10px;
+        margin-top: 40px;
+      }
+      h3 {
+        color: #007bff;
+        margin-top: 30px;
+      }
+      p, li {
+        font-size: 1.05em;
+      }
+      ul, ol {
+        padding-left: 20px;
+      }
+      blockquote {
+        background-color: #f9f9f9;
+        border-left: 5px solid #007bff;
+        margin: 20px 0;
+        padding: 15px 20px;
+        font-style: italic;
+      }
+      .exam-tip, .common-mistake, .real-world {
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 8px;
+        border-left-width: 5px;
+        border-left-style: solid;
+      }
+      .exam-tip {
+        background-color: #fffbeb;
+        border-color: #fdd835; /* Yellow */
+      }
+      .common-mistake {
+        background-color: #ffebee;
+        border-color: #e53935; /* Red */
+      }
+      .real-world {
+        background-color: #e6f7ff;
+        border-color: #1890ff; /* Blue */
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+      th, td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+      th {
+        background-color: #0056b3;
+        color: white;
+      }
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      .placeholder {
+        background-color: #fafafa;
+        border: 2px dashed #ccc;
+        padding: 20px;
+        text-align: center;
+        border-radius: 8px;
+        margin: 20px 0;
+        font-style: italic;
+        color: #777;
+      }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Unit 2: Theory of Consumer Behaviour</h1>
+            <p>ECODSM-151: Elementary Economics | 2nd Semester Notes</p>
+        </header>
+        <div class="content">
+
+            <div id="toc">
+                <h2>Table of Contents</h2>
+                <ul>
+                    <li><a href="#cardinal-ordinal">1. Cardinal utility vs Ordinal utility</a></li>
+                    <li><a href="#cardinal-utility">2. Cardinal Utility and Optimum Choice</a></li>
+                    <li><a href="#ldmu">3. Law of Diminishing Marginal Utility (LDMU)</a></li>
+                    <li><a href="#indifference-curve">4. Indifference Curve and Indifference Map</a></li>
+                    <li><a href="#budget-constraint">5. Budget Constraint (or Budget Line)</a></li>
+                    <li><a href="#consumer-optimum">6. Consumer's Optimum Choice (Ordinal Approach)</a></li>
+                    <li><a href="#pcc-icc">7. Price Consumption Curve (PCC) and Income Consumption Curve (ICC)</a></li>
+                    <li><a href="#price-effect">8. Income and Substitution Effects (Hicks and Slutsky)</a></li>
+                    <li><a href="#demand-derivation">9. Derivation of Demand Curves from ICs</a></li>
+                </ul>
+            </div>
+
+            <section id="cardinal-ordinal">
+                <h2>1. Cardinal utility vs Ordinal utility</h2>
+                <p><strong>Utility</strong> is the measure of satisfaction a consumer gets from consuming a good or service. There are two main approaches to measuring it:</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Cardinal Utility</th>
+                            <th>Ordinal Utility</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Core Idea</strong></td>
+                            <td>Utility is <strong>measurable</strong> in numerical units (like 10 "utils").</td>
+                            <td>Utility is <strong>not measurable</strong>, but it is <strong>comparable</strong>.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>What it does</strong></td>
+                            <td>You can say "I get 10 utils from an apple and 20 utils from a banana."</td>
+                            <td>You can only <strong>rank</strong> your preferences. "I prefer a banana *to* an apple."</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Proponents</strong></td>
+                            <td>Marshall (Neoclassical)</td>
+                            <td>Hicks and Allen (Modern)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Main Tool</strong></td>
+                            <td>Law of Diminishing Marginal Utility.</td>
+                            <td>Indifference Curve Analysis.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section id="cardinal-utility">
+                <h2>2. Cardinal Utility and Optimum Choice</h2>
+                <p>The cardinal approach assumes you can measure satisfaction. The goal of the consumer is to maximize their total utility.</p>
+                <ul>
+                    <li><strong>Total Utility (TU):</strong> The total satisfaction from consuming *all* units of a good.</li>
+                    <li><strong>Marginal Utility (MU):</strong> The *additional* satisfaction from consuming *one more* unit of a good.
+                        <blockquote>MU = (Change in TU) / (Change in Quantity)</blockquote>
+                    </li>
+                </ul>
+                <p><strong>Optimum Choice (Law of Equi-Marginal Utility):</strong>
+                <br>
+                A consumer is at their optimum (maximizing utility) when they have allocated their income so that the <strong>last dollar spent on every good gives them the same amount of marginal utility.</strong></p>
+                <blockquote>
+                    <strong>MU<sub>X</sub> / P<sub>X</sub> = MU<sub>Y</sub> / P<sub>Y</sub> = ... = MU<sub>M</sub> (Marginal Utility of Money)</strong>
+                </blockquote>
+                <ul>
+                    <li><strong>MU<sub>X</sub> / P<sub>X</sub></strong> is the "bang for your buck" from good X.</li>
+                    <li>If (MU<sub>X</sub> / P<sub>X</sub>) > (MU<sub>Y</sub> / P<sub>Y</sub>), you are getting more satisfaction per dollar from good X. You should buy *more* X and *less* Y.</li>
+                    <li>As you buy more X, its MU falls (see LDMU), and as you buy less Y, its MU rises. This continues until they become equal.</li>
+                </ul>
+            </section>
+
+            <section id="ldmu">
+                <h2>3. Law of Diminishing Marginal Utility (LDMU)</h2>
+                <blockquote>
+                    <strong>The Law:</strong> Ceteris paribus, as a person consumes more and more units of a good, the <strong>marginal utility (additional satisfaction)</strong> derived from each successive unit will eventually <strong>decrease</strong>.
+                </blockquote>
+                <p><strong>Example:</strong> The first slice of pizza gives you 20 utils (you're starving). The second gives 15 utils. The third gives 8 utils. The eighth slice might give 0 or even negative utils (you feel sick).</p>
+                <p>This law is the reason why the demand curve slopes downwards.</p>
+            </section>
+
+            <section id="indifference-curve">
+                <h2>4. Indifference Curve and Indifference Map</h2>
+                <p>This is the main tool of the <strong>ordinal utility</strong> approach.</p>
+                <blockquote>
+                    <strong>Indifference Curve (IC):</strong> A curve that shows all the different combinations (bundles) of two goods that give a consumer the <strong>same level of satisfaction (utility)</strong>.
+                </blockquote>
+                <p>The consumer is "indifferent" between any two points on the same IC.</p>
+                
+                <h3>Properties of Indifference Curves:</h3>
+                <ol>
+                    <li><strong>They are downward sloping:</strong> To get more of Good X, you must give up some of Good Y to stay at the same satisfaction level.</li>
+                    <li><strong>They are convex to the origin:</strong> This reflects the <strong>Diminishing Marginal Rate of Substitution (MRS)</strong>.
+                        <ul>
+                            <li><strong>MRS:</strong> The rate at which a consumer is willing to give up Good Y to get one more unit of Good X.</li>
+                            <li><strong>Diminishing MRS:</strong> When you have a lot of Y and little X, you'll give up a lot of Y for one X. When you have little Y and a lot of X, you'll give up very little Y for one more X.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Higher ICs represent higher utility:</strong> A bundle on IC<sub>2</sub> is always preferred to a bundle on IC<sub>1</sub>.</li>
+                    <li><strong>ICs never intersect:</strong> This would violate the assumption of rational preferences (transitivity).</li>
+                </ol>
+
+                <p>An <strong>Indifference Map</strong> is a collection of many indifference curves, showing the consumer's entire preference system.</p>
+                <div class="placeholder">
+                    <p><strong></strong></p>
+                </div>
+            </section>
+
+            <section id="budget-constraint">
+                <h2>5. Budget Constraint (or Budget Line)</h2>
+                <p>The budget line shows all the combinations of two goods that a consumer can purchase, given their <strong>income (M)</strong> and the <strong>prices of the goods (P<sub>X</sub>, P<sub>Y</sub>)</strong>.</p>
+                <blockquote>
+                    <strong>Equation of the Budget Line:</strong>
+                    <br>
+                    (P<sub>X</sub> * Q<sub>X</sub>) + (P<sub>Y</sub> * Q<sub>Y</sub>) = M
+                </blockquote>
+                <p>The <strong>slope</strong> of the budget line is <strong>-(P<sub>X</sub> / P<sub>Y</sub>)</strong>. It represents the market rate of trade-off (opportunity cost).</p>
+            </section>
+
+            <section id="consumer-optimum">
+                <h2>6. Consumer's Optimum Choice (Ordinal Approach)</h2>
+                <p>The consumer wants to reach the <strong>highest possible indifference curve</strong> while staying <strong>on or inside their budget line</strong>.</p>
+                
+                <p>This "optimum" or "equilibrium" occurs at the point of <strong>tangency</strong> between the budget line and an indifference curve.</p>
+
+                <div class="placeholder">
+                    <p><strong></strong></p>
+                </div>
+                
+                <p>At the point of tangency:</p>
+                <blockquote>
+                    <strong>Slope of IC = Slope of Budget Line</strong>
+                    <br>
+                    <strong>MRS = P<sub>X</sub> / P<sub>Y</sub></strong>
+                </blockquote>
+                <p>This is the same conclusion as the cardinal approach (MU<sub>X</sub>/MU<sub>Y</sub> = P<sub>X</sub>/P<sub>Y</sub>), just derived differently.</p>
+            </section>
+
+            <section id="pcc-icc">
+                <h2>7. Price Consumption Curve (PCC) and Income Consumption Curve (ICC)</h2>
+                <ul>
+                    <li><strong>Income Consumption Curve (ICC):</strong> Shows how the consumer's optimal bundle changes when their <strong>income changes</strong> (holding prices constant). It is the line connecting all the tangency points as the budget line shifts outwards.
+                        <ul>
+                            <li>For <strong>normal goods</strong>, the ICC slopes upwards.</li>
+                            <li>For an <strong>inferior good</strong>, the ICC will bend backwards.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Price Consumption Curve (PCC):</strong> Shows how the consumer's optimal bundle changes when the <strong>price of one good changes</strong> (holding income and the other price constant). It is the line connecting all the tangency points as the budget line rotates.</li>
+                </ul>
+            </section>
+
+            <section id="price-effect">
+                <h2>8. Income and Substitution Effects (Hicks and Slutsky)</h2>
+                <p>When the price of a good (e.g., Good X) falls, the consumer buys more of it. This total change in quantity (the "Price Effect") can be broken down into two parts:</p>
+                
+                <ol>
+                    <li><strong>Substitution Effect (SE):</strong>
+                        <ul>
+                            <li><strong>What is it?</strong> The change in consumption due to the good becoming *relatively cheaper* than other goods.</li>
+                            <li><strong>Direction:</strong> Always positive. You *always* buy more of the good that has become cheaper.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Income Effect (IE):</strong>
+                        <ul>
+                            <li><strong>What is it?</strong> The change in consumption due to the price drop *increasing your real income* (your purchasing power). You feel richer.</li>
+                            <li><strong>Direction:</strong>
+                                <ul>
+                                    <li><strong>Normal Good:</strong> Positive (you buy more).</li>
+                                    <li><strong>Inferior Good:</strong> Negative (you buy less).</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+                
+                <p><strong>Price Effect = Substitution Effect + Income Effect</strong></p>
+                
+                <p>The <strong>Hicksian</strong> and <strong>Slutsky</strong> methods are two different ways of graphically separating these two effects.
+                    <ul>
+                        <li><strong>Hicksian Method:</strong> Uses a "compensating" budget line that is tangent to the *original* indifference curve.</li>
+                        <li><strong>Slutsky Method:</strong> Uses a compensating budget line that passes through the *original* bundle.</li>
+                    </ul>
+                </This is a more advanced topic, but the key is to understand the two effects.</p>
+                <div class="common-mistake">
+                    <strong>Giffen Goods:</strong>
+                    <p>A Giffen good is a special type of <strong>inferior good</strong> where the <strong>negative Income Effect</strong> is so strong that it *overwhelms* the positive Substitution Effect, leading to the perverse result that a price *fall* causes the consumer to buy *less*.</p>
+                </div>
+            </section>
+            
+            <section id="demand-derivation">
+                <h2>9. Derivation of Demand Curves from ICs</h2>
+                <p>The individual demand curve can be derived directly from the <strong>Price Consumption Curve (PCC)</strong>.</p>
+                <p><strong>How to do it:</strong></p>
+                <ol>
+                    <li>Start with a consumer in equilibrium at price P<sub>1</sub> (e.g., $10) and quantity Q<sub>1</sub> (e.g., 5 units).</li>
+                    <li>Now, let the price of the good fall to P<sub>2</sub> (e.g., $5). The budget line rotates outwards.</li>
+                    <li>The consumer finds a new equilibrium on a higher IC, at quantity Q<sub>2</sub> (e.g., 12 units).</li>
+                    <li>In a new graph (with Price on the Y-axis and Quantity on the X-axis), plot these two points: (P=10, Q=5) and (P=5, Q=12).</li>
+                    <li>Connecting these points gives you the consumer's <strong>demand curve</strong>.</li>
+                </ol>
+                
+                <div class="placeholder">
+                    <p><strong>
+
+[Image of the derivation of a demand curve from a Price Consumption Curve]
+</strong></p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

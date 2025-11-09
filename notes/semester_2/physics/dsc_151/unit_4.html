@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSC 151 Unit 4 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for PHYDSC151T (Electricity and Magnetism) Unit 4, covering Thermoelectricity, including the Seebeck, Peltier, and Thomson effects.">
+    <meta name="keywords" content="PHYDSC151T, Electricity and Magnetism, Unit 4, Thermoelectricity, Seebeck Effect, Peltier Effect, Thomson Effect, Thermocouple, Assam University, 2nd Semester Physics">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3, h4 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            border-bottom: 3px solid #f39c12;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 2em;
+            color: #f39c12;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #e67e22;
+            margin-top: 25px;
+        }
+        h4 {
+            font-size: 1.2em;
+            color: #555;
+        }
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            font-size: 1.1em;
+            font-style: italic;
+            font-family: 'Georgia', serif;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: #fef9e7;
+            border-left: 5px solid #f39c12;
+            color: #34495e;
+            border-radius: 5px;
+        }
+        code, .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.1em;
+        }
+        .exam-tip {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d4a017;
+        }
+        #toc {
+            background: #fffaf0;
+            border: 1px solid #ffe8cc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        #toc h3 {
+            margin-top: 0;
+            color: #b95000;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 10px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #e67e22;
+            font-weight: bold;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 4: Thermoelectricity</h1>
+
+        <div id="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#intro">1. Introduction to Thermoelectricity</a></li>
+                <li><a href="#effects">2. Thermoelectric Effects (Seebeck, Peltier, Thomson)</a></li>
+                <li><a href="#laws">3. EMF and Laws of Thermocouples</a></li>
+                <li><a href="#power">4. Thermoelectric Power</a></li>
+                <li><a href="#thermo">5. Applications of Thermodynamics on Thermocouple</a></li>
+            </ul>
+        </div>
+
+        <h2 id="intro">1. Introduction to Thermoelectricity</h2>
+        <p><strong>Thermoelectricity</strong> is a branch of physics that studies the direct conversion of temperature differences into electrical voltage (and vice versa). A <strong>thermocouple</strong> is a device made of two dissimilar metals that utilizes these effects.</p>
+
+        <h3>Variation of Thermo-EMF with Temperature</h3>
+        <p>When the two junctions of a thermocouple are held at different temperatures (a "hot" junction T and a "cold" reference junction T<sub>0</sub>, usually 0°C), a <strong>thermo-EMF (E)</strong> is produced.</p>
+        <p>For most metal pairs, the relationship between EMF (E) and the hot junction temperature (T) is a parabolic function:</p>
+        <blockquote><strong>Formula:</strong> E = aT + (1/2)bT<sup>2</sup></blockquote>
+        <p>Where 'a' and 'b' are thermoelectric constants specific to the pair of metals.</p>
+        <h4>Neutral Temperature (T<sub>n</sub>)</h4>
+        <p>This is the temperature of the hot junction at which the thermo-EMF (E) is <strong>maximum</strong>.</p>
+        <p>To find it, we find where the rate of change of EMF is zero: dE/dT = 0.</p>
+        <p>dE/dT = a + bT. Setting to zero: a + bT<sub>n</sub> = 0</p>
+        <blockquote><strong>Formula:</strong> T<sub>n</sub> = -a / b</blockquote>
+
+        <h4>Inversion Temperature (T<sub>i</sub>)</h4>
+        <p>This is the temperature of the hot junction (other than the reference T=0) at which the thermo-EMF becomes <strong>zero</strong> again. The EMF changes direction (inverts) beyond this temperature.</p>
+        <p>We set E = 0: aT<sub>i</sub> + (1/2)bT<sub>i</sub><sup>2</sup> = 0</p>
+        <p>T<sub>i</sub> (a + (1/2)bT<sub>i</sub>) = 0. This gives T=0 or T<sub>i</sub> = -2a / b.</p>
+        <blockquote><strong>Formula:</strong> T<sub>i</sub> = -2a / b</blockquote>
+        <p><strong>Important Relation:</strong> T<sub>i</sub> = 2T<sub>n</sub>. The neutral temperature is exactly halfway between the cold junction (0°C) and the inversion temperature.</p>
+
+        <h2 id="effects">2. Thermoelectric Effects (Seebeck, Peltier, Thomson)</h2>
+        
+        <h3>Seebeck Effect</h3>
+        <p><strong>Explanation:</strong> The <strong>Seebeck effect</strong> is the production of a voltage (thermo-EMF) in a circuit made of two dissimilar conductors (e.g., Copper and Iron) when their two junctions are maintained at different temperatures (T<sub>H</sub> and T<sub>C</sub>).</p>
+        <p>This is the basic principle of a <strong>thermocouple</strong>, which is used as a thermometer.</p>
+        <p>The <strong>Seebeck Coefficient (S)</strong>, or Thermoelectric Power, is the local voltage produced per unit temperature difference: S = dV/dT.</p>
+
+        <h3>Peltier Effect</h3>
+        <p><strong>Explanation:</strong> The <strong>Peltier effect</strong> is the reverse of the Seebeck effect. When an electric current (I) is passed through a junction of two dissimilar metals, heat is either <strong>absorbed</strong> or <strong>liberated</strong> at that junction, causing it to heat up or cool down.</p>
+        <p>The direction of heating/cooling reverses if the current direction reverses. This is the basis for thermoelectric coolers (Peltier coolers).</p>
+        <p>The <strong>Peltier Coefficient (Π)</strong> relates the rate of heat (Q/t) absorbed or liberated to the current (I):</p>
+        <blockquote><strong>Formula:</strong> (Q/t) = Π * I</blockquote>
+        <p>The unit of Π is Joules/Coulomb, which is Volts.</p>
+
+        <h3>Thomson Effect</h3>
+        <p><strong>Explanation:</strong> The <strong>Thomson effect</strong> describes the absorption or liberation of heat when an electric current flows through a <strong>single conductor</strong> that has a <strong>temperature gradient</strong> along its length.</p>
+        <p><strong>Prediction:</strong> William Thomson (Lord Kelvin) predicted this effect using thermodynamics. He argued that if current flows from a hot end to a cold end, the Seebeck and Peltier effects alone do not conserve energy, and a third effect must exist.</p>
+        <p>The <strong>Thomson Coefficient (σ)</strong> relates the heat generated (dQ) to the charge (dq) and the temperature difference (dT): dQ = σ dq dT.</p>
+
+        <div class="exam-tip">
+            <strong>How to remember:</strong>
+            <ul>
+                <li><strong>Seebeck:</strong> ΔT → V (Temp difference creates Voltage)</li>
+                <li><strong>Peltier:</strong> I → ΔT (Current creates Temp difference at a junction)</li>
+                <li><strong>Thomson:</strong> I + ΔT → Heat (Current in a *single* material with a temp gradient)</li>
+            </ul>
+        </div>
+
+        <h2 id="laws">3. EMF and Laws of Thermocouples</h2>
+        <p>The total EMF in a thermocouple circuit is the sum of all Seebeck and Thomson EMFs in the loop. Two fundamental laws govern this behavior:</p>
+
+        <h3>Law of Intermediate Temperature</h3>
+        <p><strong>Statement:</strong> If a thermocouple (A, B) produces an EMF <strong>E<sub>12</sub></strong> with its junctions at temperatures T<sub>1</sub> and T<sub>2</sub>, and an EMF <strong>E<sub>23</sub></strong> with junctions at T<sub>2</sub> and T<sub>3</sub>, then the EMF <strong>E<sub>13</sub></strong> it produces with junctions at T<sub>1</sub> and T<sub>3</sub> is:</p>
+        <blockquote><strong>Formula:</strong> E<sub>13</sub> = E<sub>12</sub> + E<sub>23</sub></blockquote>
+        <p><strong>Use:</strong> This law allows us to calibrate a thermocouple at a reference temperature (like 0°C) and then calculate the EMF for any other pair of temperatures.</p>
+
+        <h3>Law of Intermediate Metals</h3>
+        <p><strong>Statement:</strong> The introduction of a third, different metal (C) into a thermocouple circuit (A-B) will <strong>not change the total EMF</strong>, provided that the two new junctions created by inserting metal C are at the <strong>same temperature</strong>.</p>
+        <p><strong>Use:</strong> This is a crucial practical law. It means we can insert a voltmeter (which is a "third metal") into a thermocouple circuit to measure its EMF without altering the reading, as long as both terminals of the voltmeter are at the same (room) temperature.</p>
+        <h2 id="power">4. Thermoelectric Power</h2>
+        <p><strong>Thermoelectric Power (S)</strong> is another name for the <strong>Seebeck Coefficient</strong>. It is defined as the rate of change of the thermo-EMF (E) with respect to temperature (T).</p>
+        <blockquote><strong>Definition:</strong> S = dE / dT</blockquote>
+        <p>If we use the parabolic relation E = aT + (1/2)bT<sup>2</sup>, then the thermoelectric power is:</p>
+        <blockquote><strong>Formula:</strong> S = a + bT</blockquote>
+        <p>This shows that the thermoelectric power (S) is a <strong>linear function of temperature</strong>.</p>
+
+        <h3>Thermoelectric Power Diagram</h3>
+        <p>This is a graph of the Thermoelectric Power (S) versus Temperature (T). Since S = a + bT, this graph is a straight line.</p>
+        <p><strong>Use:</strong> The area under this (S vs. T) graph between two temperatures (T<sub>1</sub> and T<sub>2</sub>) gives the total thermo-EMF generated between those temperatures.</p>
+        <p>E = ∫<sub>T1</sub><sup>T2</sup> S dT = Area under S-T graph</p>
+
+        <h2 id="thermo">5. Applications of Thermodynamics on Thermocouple</h2>
+        <p>Lord Kelvin applied the laws of thermodynamics (particularly the Second Law) to the thermoelectric circuit, treating it as a reversible heat engine. This led to two critical relationships (Kelvin's Relations) that link the three thermoelectric coefficients (S, Π, σ).</p>
+        
+        <h3>Kelvin's First Relation (Peltier-Seebeck)</h3>
+        <p>It connects the Peltier coefficient (Π) at a junction with the Seebeck coefficient (S) of the two metals at that temperature (T, in Kelvin).</p>
+        <blockquote><strong>Kelvin's 1st Relation:</strong> Π<sub>AB</sub> = T * S<sub>AB</sub></blockquote>
+        <p>Where S<sub>AB</sub> = dE/dT. This shows that the Peltier effect (heating/cooling) and Seebeck effect (voltage) are fundamentally linked.</p>
+
+        <h3>Kelvin's Second Relation (Thomson-Seebeck)</h3>
+        <p>It connects the difference in the Thomson coefficients (σ<sub>A</sub>, σ<sub>B</sub>) of the two metals to the second derivative of the EMF (i.e., the slope of the S-T graph).</p>
+        <blockquote><strong>Kelvin's 2nd Relation:</strong> σ<sub>A</sub> - σ<sub>B</sub> = T * (d<sup>2</sup>E / dT<sup>2</sup>) = T * (dS<sub>AB</sub> / dT)</blockquote>
+        <p>This relation proves that if the EMF-Temperature graph (E vs. T) is not a straight line (i.e., d<sup>2</sup>E/dT<sup>2</sup> ≠ 0), then the Thomson effect *must* exist.</p>
+        <p>These equations are the theoretical foundation of thermoelectricity.</p>
+
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

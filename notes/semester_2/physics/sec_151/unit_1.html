@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics SEC 151 Unit 1 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for PHYSEC151 (Electrical Circuits and Safety) Unit 1, covering Basic Electricity Principles, Ohm's Law, KCL/KVL, and AC/DC concepts.">
+    <meta name="keywords" content="PHYSEC151, Unit 1, Electrical Circuits, Basic Electricity, Ohm's Law, KCL, KVL, AC/DC, Electrical Load, Assam University, 2nd Semester Physics">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f7f6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3, h4 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            border-bottom: 3px solid #d35400;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 2em;
+            color: #d35400;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #e67e22;
+            margin-top: 25px;
+        }
+        h4 {
+            font-size: 1.2em;
+            color: #555;
+        }
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            font-size: 1.1em;
+            font-style: italic;
+            font-family: 'Georgia', serif;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: #fef5e7;
+            border-left: 5px solid #d35400;
+            color: #34495e;
+            border-radius: 5px;
+        }
+        code, .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.1em;
+        }
+        .exam-tip {
+            background: #fcf3cf;
+            border: 1px solid #f1c40f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #a04000;
+        }
+        #toc {
+            background: #fffaf0;
+            border: 1px solid #fdebd0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        #toc h3 {
+            margin-top: 0;
+            color: #b95000;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 10px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #e67e22;
+            font-weight: bold;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 1: Basic Electricity Principles</h1>
+
+        <div id="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#vcrp">1. Voltage, Current, Resistance, and Power</a></li>
+                <li><a href="#ohm">2. Ohm's Law</a></li>
+                <li><a href="#combinations">3. Series, Parallel, and Series-Parallel Combinations</a></li>
+                <li><a href="#kirchhoff">4. KCL & KVL</a></li>
+                <li><a href="#acdc">5. AC and DC Electricity</a></li>
+                <li><a href="#load">6. Electrical Load and its Types</a></li>
+                <li><a href="#ac-terms">7. AC Terminology</a></li>
+            </ul>
+        </div>
+
+        <h2 id="vcrp">1. Voltage, Current, Resistance, and Power</h2>
+        
+        <h3>Voltage (V)</h3>
+        <p><strong>Voltage</strong> (also called Electric Potential Difference) is the electrical "pressure" that pushes electric charge (current) through a circuit. It represents the work done per unit charge.</p>
+        <p><strong>Unit:</strong> Volt (V).</p>
+        
+        <h3>Current (I)</h3>
+        <p><strong>Current</strong> is the rate of flow of electric charge. It is the amount of charge that passes a point in a given time.</p>
+        <p><strong>Unit:</strong> Ampere (A).</p>
+        
+        <h3>Resistance (R)</h3>
+        <p><strong>Resistance</strong> is the opposition to the flow of electric current. It converts electrical energy into heat.</p>
+        <p><strong>Unit:</strong> Ohm (Ω).</p>
+        
+        <h3>Power (P)</h3>
+        <p><strong>Electrical Power</strong> is the rate at which electrical energy is used or converted.</p>
+        <blockquote><strong>Formulas:</strong>
+            <ul>
+                <li>P = V × I (Power = Voltage × Current)</li>
+                <li>P = I² × R</li>
+                <li>P = V² / R</li>
+            </ul>
+        </blockquote>
+        <p><strong>Unit:</strong> Watt (W).</p>
+
+        <h2 id="ohm">2. Ohm's Law</h2>
+        <p><strong>Ohm's Law</strong> states that the current (I) flowing through a conductor is directly proportional to the voltage (V) across it, assuming constant temperature.</p>
+        <blockquote><strong>Formula:</strong> V = I × R</blockquote>
+        <p>This is the fundamental relationship between the three basic quantities.</p>
+
+        <h2 id="combinations">3. Series, Parallel, and Series-Parallel Combinations</h2>
+        
+        <h3>Resistances</h3>
+        <ul>
+            <li><strong>Series:</strong> Resistors are connected end-to-end.
+                <ul>
+                    <li>The <strong>current (I) is the same</strong> through all components.</li>
+                    <li>The <strong>total voltage (V) is the sum</strong> of individual voltages.</li>
+                    <li><strong>Equivalent Resistance (R<sub>eq</sub>):</strong> R<sub>eq</sub> = R₁ + R₂ + ...</li>
+                </ul>
+            </li>
+            <li><strong>Parallel:</strong> Resistors are connected across the same two points.
+                <ul>
+                    <li>The <strong>voltage (V) is the same</strong> across all components.</li>
+                    <li>The <strong>total current (I) is the sum</strong> of individual currents.</li>
+                    <li><strong>Equivalent Resistance (R<sub>eq</sub>):</strong> 1/R<sub>eq</sub> = 1/R₁ + 1/R₂ + ...</li>
+                </ul>
+            </li>
+            <li><strong>Series-Parallel:</strong> The circuit is a mix of both. To solve, you simplify the circuit step-by-step, combining the simple series or parallel sections first.</li>
+        </ul>
+        
+        <h3>Voltages (Batteries)</h3>
+        <ul>
+            <li><strong>Series:</strong> Voltages add up. Connecting two 1.5V batteries in series (+ to -) gives 3.0V.</li>
+            <li><strong>Parallel:</strong> Voltages are the same. Connecting two 1.5V batteries in parallel (all + together, all - together) still gives 1.5V, but doubles the current capacity. (<strong>Warning:</strong> Only connect identical batteries in parallel).</li>
+        </ul>
+        
+        [Image of series vs parallel resistor circuits]
+
+        <h2 id="kirchhoff">4. KCL & KVL</h2>
+        <p>These laws are used to analyze complex circuits where simple series/parallel rules don't apply.</p>
+        
+        <h3>Kirchhoff's Current Law (KCL)</h3>
+        <p><strong>Statement:</strong> The algebraic sum of all currents entering a junction (or node) is zero.
+        <br><strong>In simple terms:</strong> Σ I<sub>in</sub> = Σ I<sub>out</sub>
+        <br>This is a statement of the <strong>conservation of charge</strong>.</p>
+        
+        <h3>Kirchhoff's Voltage Law (KVL)</h3>
+        <p><strong>Statement:</strong> The algebraic sum of all voltages (rises and drops) around any closed loop in a circuit is zero.
+        <br><strong>In simple terms:</strong> Σ V<sub>rises</sub> (like batteries) = Σ V<sub>drops</sub> (like resistors)
+        <br>This is a statement of the <strong>conservation of energy</strong>.</p>
+        
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> When using KVL, be consistent with your sign convention.
+            <ul>
+                <li>If you trace a loop in the same direction as the current, the voltage change across a resistor is a *drop* (-IR).</li>
+                <li>If you trace from the - to the + terminal of a battery, it's a *rise* (+V).</li>
+            </ul>
+        </div>
+
+        <h2 id="acdc">5. AC and DC Electricity</h2>
+        
+        <h3>DC (Direct Current)</h3>
+        <ul>
+            <li><strong>Definition:</strong> The flow of electric charge is in <strong>one direction only</strong>.</li>
+            <li><strong>Source:</strong> Batteries, solar cells, DC generators.</li>
+            <li><strong>Waveform:</strong> A straight, flat line.</li>
+        </ul>
+        
+        <h3>AC (Alternating Current)</h3>
+        <ul>
+            <li><strong>Definition:</strong> The flow of electric charge <strong>periodically reverses direction</strong>.</li>
+            <li><strong>Source:</strong> Power plant generators (alternators), household wall sockets.</li>
+            <li><strong>Waveform:</strong> A sine wave (sinusoidal).</li>
+        </ul>
+        
+        [Image of AC waveform vs DC waveform]
+
+        <h2 id="load">6. Electrical Load and its Types</h2>
+        <p>An <strong>electrical load</strong> is any device that consumes electrical power and converts it into another form of energy (heat, light, motion, etc.).</p>
+        
+        <h3>Types of Loads:</h3>
+        <ol>
+            <li><strong>Resistive Load:</strong>
+                <ul>
+                    <li>Converts electrical energy to <strong>heat</strong>.</li>
+                    <li>Current and voltage are <strong>in phase</strong>.</li>
+                    <li><strong>Examples:</strong> Incandescent light bulbs, electric heaters, toasters.</li>
+                </ul>
+            </li>
+            <li><strong>Inductive Load:</strong>
+                <ul>
+                    <li>Uses magnetic fields; stores energy in a magnetic field.</li>
+                    <li>Current <strong>lags</strong> voltage.</li>
+                    <li><strong>Examples:</strong> Electric motors, fans, transformers, solenoids.</li>
+                </ul>
+            </li>
+            <li><strong>Capacitive Load:</strong>
+                <ul>
+                    <li>Stores energy in an electric field.</li>
+                    <li>Current <strong>leads</strong> voltage.</li>
+                    <li><strong>Examples:</strong> Capacitors, switching power supplies.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h2 id="ac-terms">7. AC Terminology</h2>
+        <p>Describing an AC sine wave:</p>
+        [Image of a sine wave labeled with Amplitude, Period, and Cycle]
+        
+        <ul>
+            <li><strong>Amplitude:</strong> The maximum (peak) value of the voltage or current.</li>
+            <li><strong>Instantaneous Value:</strong> The value of the voltage or current at any specific moment in time.</li>
+            <li><strong>Cycle:</strong> One complete repetition of the AC waveform (one positive half and one negative half).</li>
+            <li><strong>Time Period (T):</strong> The time (in seconds) it takes to complete one full cycle.</li>
+            <li><strong>Frequency (f):</strong> The number of cycles completed per second (f = 1/T).
+                <br><strong>Unit:</strong> Hertz (Hz). Household electricity is typically 50 Hz or 60 Hz.</li>
+            <li><strong>Phase Angle (φ):</strong> The angular position of the waveform (in degrees or radians) at a specific instant, often relative to t=0.</li>
+            <li><strong>Phase Difference:</strong> The angular offset between two different AC waveforms (e.g., the phase difference between voltage and current).</li>
+        </ul>
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

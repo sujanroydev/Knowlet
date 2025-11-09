@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive notes for Chemistry SEC 151, Unit 2: Analysis of Soil and Water. Covers soil pH, moisture, and nutrient estimation (Ca, Mg, K), and water hardness, pH, and ion estimation (Ca, Mg, Cl, SO4).">
+    <meta name="keywords" content="Chemistry SEC 151, Unit 2, Soil Analysis, Water Analysis, Water Hardness, EDTA Titration, Flame Photometry, Complexometric Titration, Knowlet">
+    <title>Chemistry SEC 151 Unit 2 | 2nd Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #28a745; /* Green */
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #218838; /* Darker green */
+        }
+        h2 {
+            font-size: 1.8em;
+            color: #28a745; /* Primary green */
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #1e7e34; /* Darker green */
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #e6f7ec;
+            border-left: 5px solid #28a745;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            font-size: 1.1em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f1f3f5;
+            color: #495057;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .exam-tip {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .exam-tip strong {
+            color: #0c5460;
+        }
+        nav.toc {
+            background: #fdfdfd;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 30px;
+        }
+        nav.toc h3 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #333;
+        }
+        nav.toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        nav.toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        nav.toc ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 2: Analysis of Soil and Water</h1>
+        <p>This unit covers the practical methods used to assess the quality of soil for agriculture and water for human consumption and environmental health.</p>
+
+        <nav class="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#topic1">Part A: Analysis of Soil</a></li>
+                <li><a href="#topic2">Part B: Analysis of Water</a></li>
+            </ul>
+        </nav>
+
+        <section id="topic1">
+            <h2>Part A: Analysis of Soil</h2>
+            <p>Soil analysis determines the composition and properties of soil, which is crucial for crop management and fertility.</p>
+            
+            <h3>1. Collection and Preparation of Soil Sample</h3>
+            <p>A composite sample is collected by taking small samples from multiple locations in a field (e.g., in a 'W' pattern), mixing them, drying them in the air, grinding them, and sieving them to get a uniform, representative sample.</p>
+
+            <h3>2. Determination of Soil Moisture</h3>
+            <p><strong>Principle (Gravimetric):</strong> The moisture is determined by finding the mass lost from the soil upon heating.</p>
+            <p><strong>Method:</strong>
+            <ol>
+                <li>Weigh a clean, dry crucible (W1).</li>
+                <li>Add a sample of fresh soil and weigh again (W2). Mass of soil = W2 - W1.</li>
+                <li>Heat the crucible in an oven at 105-110°C for several hours (or until constant weight).</li>
+                <li>Cool in a desiccator and weigh again (W3). Mass of dry soil = W3 - W1.</li>
+                <li>Mass of moisture lost = W2 - W3.</li>
+            </ol>
+            <blockquote>
+                <strong>Calculation:</strong>
+                <br>
+                % Moisture = ( (W2 - W3) / (W2 - W1) ) × 100
+            </blockquote>
+
+            <h3>3. Determination of Soil pH</h3>
+            <p><strong>Principle:</strong> Soil pH measures the acidity or alkalinity of the soil, which affects nutrient availability for plants. A soil suspension is made, and the pH is measured using a pH meter or universal indicator solution.</p>
+            
+            <h3>4. Estimation of Calcium (Ca) and Magnesium (Mg)</h3>
+            <p><strong>Principle (Complexometric Titration):</strong> The Ca²⁺ and Mg²⁺ ions are extracted from the soil into a solution. They are then titrated with a standard solution of <strong>EDTA</strong> (Ethylenediaminetetraacetic acid), which is a chelating agent. It forms a stable, 1:1 complex with metal ions.</p>
+            <ul>
+                <li><strong>Total Ca²⁺ + Mg²⁺:</strong> A buffer (pH 10) is added, and <strong>Eriochrome Black-T (EBT)</strong> indicator is used. The endpoint is a color change from <strong>wine red to blue</strong>.</li>
+                <li><strong>Ca²⁺ only:</strong> The titration is repeated at a high pH (12-13), where Mg²⁺ precipitates as Mg(OH)₂. A different indicator (e.g., Murexide) is used.</li>
+                <li><strong>Mg²⁺ content</strong> is then found by subtraction.</li>
+            </ul>
+
+            <h3>5. Estimation of Potassium (K)</h3>
+            <p><strong>Principle (Flame Photometry):</strong> This technique is used for alkali and alkaline earth metals.
+            <ol>
+                <li>The K⁺ ions are extracted from the soil into a solution.</li>
+                <li>The solution is sprayed into a hot, non-luminous flame.</li>
+                <li>The heat of the flame excites the potassium atoms, which then emit light at a <strong>characteristic wavelength</strong> (lilac/violet for K).</li>
+                <li>The *intensity* of the emitted light is measured by the photometer and is directly proportional to the *concentration* of potassium in the sample.</li>
+            </ol>
+            [Image of a Flame Photometer diagram]
+        </section>
+
+        <hr>
+
+        <section id="topic2">
+            <h2>Part B: Analysis of Water</h2>
+            
+            <h3>1. Determination of Water pH</h3>
+            <p><strong>Principle:</strong> Measures the hydrogen ion (H⁺) concentration. It is a critical indicator of water quality. Measured using a calibrated pH meter or pH paper.</p>
+
+            <h3>2. Estimation of Water Hardness (Ca²⁺ and Mg²⁺)</h3>
+            <p><strong>Hardness</strong> is the property of water that prevents lathering with soap, caused by dissolved Ca²⁺ and Mg²⁺ ions.
+            <ul>
+                <li><strong>Temporary Hardness:</strong> Due to bicarbonates (HCO₃⁻). Can be removed by boiling.</li>
+                <li><strong>Permanent Hardness:</strong> Due to chlorides (Cl⁻) and sulfates (SO₄²⁻). Cannot be removed by boiling.</li>
+            </ul>
+            <p><strong>Principle (Complexometric Titration):</strong> Exactly the same as for soil. The total hardness (Ca²⁺ + Mg²⁺) is determined by titrating the water sample with standard EDTA solution at pH 10 using Eriochrome Black-T (EBT) indicator. The endpoint is a <strong>wine red to blue</strong> color change.</p>
+
+            <h3>3. Estimation of Chloride (Cl⁻)</h3>
+            <p><strong>Principle (Argentometry - Mohr's Method):</strong> The water sample is titrated with a standard solution of <strong>silver nitrate (AgNO₃)</strong>.
+            <br>
+            <strong>Reaction:</strong> Ag⁺ (aq) + Cl⁻ (aq) → AgCl (s) (White precipitate)
+            <br>
+            The indicator used is <strong>potassium chromate (K₂CrO₄)</strong>. After all the chloride has precipitated, the very next drop of Ag⁺ reacts with the chromate indicator to form a <strong>red-brown precipitate</strong> of silver chromate (Ag₂CrO₄), which signals the endpoint.
+            <br>
+            <strong>Endpoint Reaction:</strong> 2Ag⁺ (aq) + CrO₄²⁻ (aq) → Ag₂CrO₄ (s) (Red-brown)
+            </p>
+
+            <h3>4. Estimation of Sulphate (SO₄²⁻)</h3>
+            <p><strong>Principle (Gravimetric Analysis):</strong> This method involves precipitating the target ion (sulphate) from solution as a highly insoluble, stable compound that can be weighed.
+            <ol>
+                <li>A known, large volume of the water sample is taken.</li>
+                <li>It is acidified, and a hot solution of <strong>barium chloride (BaCl₂)</strong> is added in excess.</li>
+                <li>Sulphate precipitates as highly insoluble barium sulphate (BaSO₄).
+                <br><strong>Reaction:</strong> Ba²⁺ (aq) + SO₄²⁻ (aq) → BaSO₄ (s) (White precipitate)
+                </li>
+                <li>The precipitate is filtered, washed, dried, and ignited in a furnace.</li>
+                <li>The final, stable BaSO₄ is cooled in a desiccator and weighed.</li>
+                <li>From the mass of BaSO₄, the original mass of sulphate can be calculated.</li>
+            </ol>
+        </section>
+        
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

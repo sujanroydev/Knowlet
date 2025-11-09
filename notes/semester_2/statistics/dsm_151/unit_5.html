@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics DSM 151 Unit 5 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Statistics DSM 151 (Statistical Methods and Probability), Unit 5, based on the Assam University syllabus. Covers Addition, Multiplication, and Bayes' Theorem.">
+    <meta name="keywords" content="Statistics DSM 151, Statistical Methods, Unit 5, Assam University, Probability Theorems, Addition Rule, Multiplication Rule, Conditional Probability, Bayes' Theorem, Independent Events">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        h1 {
+            color: #004d40; /* Teal tone for DSM */
+            border-bottom: 3px solid #004d40;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #00695c;
+            border-bottom: 1px solid #e0e0e0;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #333;
+            padding-top: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        code {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #e0f2f1;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+        blockquote {
+            background-color: #e0f2f1;
+            border-left: 5px solid #004d40;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        .formula {
+            background-color: #fdfdfd;
+            border: 1px dashed #ccc;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            text-align: center;
+            overflow-x: auto;
+        }
+        .exam-tip, .common-mistake {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .exam-tip {
+            background-color: #fffbe6;
+            border: 1px solid #ffecb3;
+        }
+        .common-mistake {
+            background-color: #ffebee;
+            border: 1px solid #ffcdd2;
+        }
+        .toc {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            margin-top: 0;
+            color: #00695c;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #337ab7;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .placeholder {
+            border: 2px dashed #aaa;
+            padding: 20px;
+            text-align: center;
+            background-color: #fafafa;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 5: Probability Theorems</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#conditional">5.1 Conditional Probability</a></li>
+                <li><a href="#multiplication">5.2 Multiplication Theorem of Probability</a></li>
+                <li><a href="#addition">5.3 Addition Theorem of Probability</a></li>
+                <li><a href="#total_prob">5.4 Theorem of Total Probability</a></li>
+                <li><a href="#independence">5.5 Independent Events</a></li>
+                <li><a href="#bayes">5.6 Bayes' Theorem and Applications</a></li>
+            </ul>
+        </div>
+        
+        <p>This unit builds on the axioms from Unit 4 to derive the fundamental rules for calculating complex probabilities.</p>
+
+        [cite_start]<h2 id="conditional">5.1 Conditional Probability [cite: 1499]</h2>
+        
+        <h3>Definition</h3>
+        <p>The <strong>conditional probability</strong> of event A occurring, <strong>given that</strong> event B has already occurred, is denoted P(A | B).</p>
+        <p>It "restricts" the sample space. We are now only interested in the outcomes where B happened. Out of those, what is the probability that A *also* happened?</p>
+        
+        
+        <div class="formula">P(A | B) = P(A ∩ B) / P(B),   provided P(B) > 0</div>
+        
+        <ul>
+            <li><strong>Example:</strong> Rolling a fair die. S = {1, 2, 3, 4, 5, 6}.
+                <ul>
+                    <li>Let A = "Get a number > 3" = {4, 5, 6}. P(A) = 3/6.</li>
+                    <li>Let B = "Get an even number" = {2, 4, 6}. P(B) = 3/6.</li>
+                    <li>A ∩ B = {4, 6}. P(A ∩ B) = 2/6.</li>
+                </ul>
+            </li>
+            <li><strong>Question:</strong> What is the probability of getting a number > 3, GIVEN that it was an even number? (Find P(A | B)).
+                <ul>
+                    <li><strong>Method 1 (Formula):</strong> P(A | B) = P(A ∩ B) / P(B) = (2/6) / (3/6) = 2/3.</li>
+                    <li><strong>Method 2 (Logic):</strong> We know the outcome is B = {2, 4, 6}. This is our new sample space (size 3). Within this set, which outcomes are also in A? {4, 6} (size 2). Therefore, the probability is 2/3.</li>
+                </ul>
+            </li>
+        </ul>
+        
+        [cite_start]<h2 id="multiplication">5.2 Multiplication Theorem of Probability [cite: 1499]</h2>
+        <p>This is just a rearrangement of the conditional probability formula. It's used to find the probability of an <strong>intersection</strong> (A AND B).</p>
+        
+        <blockquote>
+            <strong>General Rule:</strong>
+            <div class="formula">P(A ∩ B) = P(A) * P(B | A)</div>
+            <p>...or...</p>
+            <div class="formula">P(A ∩ B) = P(B) * P(A | B)</div>
+        </blockquote>
+        
+        <p><strong>In words:</strong> "The probability of A and B both happening is the probability of A happening, *times* the probability of B happening *given that A has already happened*."</p>
+        <ul>
+            <li><strong>Example:</strong> Draw 2 cards from a deck *without replacement*. What is P(King and then Queen)?
+                <ul>
+                    <li>A = 1st card is King. P(A) = 4/52.</li>
+                    <li>B = 2nd card is Queen.</li>
+                    <li>We need P(A ∩ B) = P(A) * P(B | A).</li>
+                    <li>P(B | A) = "Prob. of 2nd being Queen, GIVEN 1st was a King." After taking one King, there are 51 cards left, 4 of which are Queens. So, P(B | A) = 4/51.</li>
+                    <li>P(A ∩ B) = (4/52) * (4/51) = 16/2652.</li>
+                </ul>
+            </li>
+        </ul>
+        
+        [cite_start]<h2 id="addition">5.3 Addition Theorem of Probability [cite: 1499]</h2>
+        <p>This rule is used to find the probability of a <strong>union</strong> (A OR B).</p>
+        
+        <blockquote>
+            <strong>General Rule (for ANY two events):</strong>
+            <div class="formula">P(A ∪ B) = P(A) + P(B) - P(A ∩ B)</div>
+        </blockquote>
+        
+        <p><strong>In words:</strong> "We add P(A) and P(B). But if we do, we've double-counted the intersection (A ∩ B), so we must subtract it once."</p>
+        
+        <div class="exam-tip">
+            <strong>Special Case (Mutually Exclusive Events):</strong>
+            <p>If A and B are mutually exclusive, then A ∩ B = Ø, so P(A ∩ B) = 0.</p>
+            <p>The formula simplifies to: <strong>P(A ∪ B) = P(A) + P(B)</strong>. (This is Axiom 3 from Unit 4).</p>
+        </div>
+
+        [cite_start]<h2 id="total_prob">5.4 Theorem of Total Probability [cite: 1499]</h2>
+        <p>This theorem is used to find the "total" probability of an event (A) when we don't know P(A) directly, but we *do* know its conditional probability based on a set of other events.</p>
+        
+        <p>Let B₁, B₂, ..., Bₙ be a set of events that are <strong>mutually exclusive and exhaustive</strong> (they form a "partition" of the entire sample space S).</p>
+        
+        
+        <blockquote>
+            <strong>Theorem:</strong>
+            <div class="formula">P(A) = P(A | B₁)P(B₁) + P(A | B₂)P(B₂) + ... + P(A | Bₙ)P(Bₙ)</div>
+            <p>...which can be written using the multiplication rule as...</p>
+            <div class="formula">P(A) = P(A ∩ B₁) + P(A ∩ B₂) + ... + P(A ∩ Bₙ)</div>
+        </blockquote>
+        
+        <ul>
+            <li><strong>Example:</strong>
+                <ul>
+                    <li>Urn 1 (B₁) has 2 Red, 3 White balls. P(B₁) = 1/2.</li>
+                    <li>Urn 2 (B₂) has 4 Red, 1 White ball. P(B₂) = 1/2.</li>
+                    <li>You pick an urn at random and then pick one ball. What is the total probability of getting a Red ball (A)?</li>
+                    <li>P(A | B₁) = Prob. Red GIVEN Urn 1 = 2/5.</li>
+                    <li>P(A | B₂) = Prob. Red GIVEN Urn 2 = 4/5.</li>
+                    <li>P(A) = P(A | B₁)P(B₁) + P(A | B₂)P(B₂)</li>
+                    <li>P(A) = (2/5)(1/2) + (4/5)(1/2) = 1/5 + 2/5 = 3/5.</li>
+                </ul>
+            </li>
+        </ul>
+        
+        [cite_start]<h2 id="independence">5.5 Independent Events [cite: 1500]</h2>
+        
+        <h3>Definition</h3>
+        <p>Two events A and B are <strong>statistically independent</strong> if the occurrence of one event <strong>does not affect</strong> the probability of the other event occurring.</p>
+        
+        <blockquote>
+            <strong>Formal Definition:</strong> A and B are independent if and only if:
+            <div class="formula">P(A ∩ B) = P(A) * P(B)</div>
+        </blockquote>
+        
+        <p>This leads to the <strong>Multiplication Rule for Independent Events</strong>:</p>
+        <p>If A and B are independent, P(A | B) = P(A) and P(B | A) = P(B).</p>
+        
+        <div class="common-mistake">
+            <strong>Independent vs. Mutually Exclusive</strong> - This is a very common point of confusion.
+            <ul>
+                <li><strong>Mutually Exclusive:</strong> P(A ∩ B) = 0. (If A happens, B *cannot* happen). They are highly <strong>dependent</strong>.</li>
+                <li><strong>Independent:</strong> P(A ∩ B) = P(A) * P(B). (If A happens, it doesn't change B's probability). They *can* happen together (unless P(A) or P(B) is 0).</li>
+            </ul>
+        </div>
+        
+        [cite_start]<h3>Pairwise vs. Mutual Independence [cite: 1500]</h3>
+        <p>For <strong>three</strong> events (A, B, C):</p>
+        <ul>
+            <li><strong>Pairwise Independent:</strong> They are independent in pairs.
+                <ul>
+                    <li>P(A ∩ B) = P(A)P(B)</li>
+                    <li>P(A ∩ C) = P(A)P(C)</li>
+                    <li>P(B ∩ C) = P(B)P(C)</li>
+                </ul>
+            </li>
+            <li><strong>Mutually Independent:</strong> They are pairwise independent, AND...
+                <ul>
+                    <li><strong>P(A ∩ B ∩ C) = P(A)P(B)P(C)</strong></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="exam-tip"><strong>Mutual independence is a stronger condition than pairwise independence.</strong> You can have events that are pairwise independent but not mutually independent.</div>
+
+        [cite_start]<h2 id="bayes">5.6 Bayes' Theorem and Applications [cite: 1501]</h2>
+        <p>Bayes' Theorem is one of the most important theorems in probability. It is used to <strong>update a probability</strong> based on <strong>new evidence</strong>.</p>
+        
+        <p>It "flips" a conditional probability. We often know P(Evidence | Hypothesis), but we *want* to know P(Hypothesis | Evidence).</p>
+        <ul>
+            <li>We know P(Symptom | Disease).</li>
+            <li>We want to know P(Disease | Symptom).</li>
+        </ul>
+        
+        <h3>The Theorem</h3>
+        <p>Let B₁, B₂, ..., Bₙ be a partition of the sample space (e.g., "Disease 1", "Disease 2", "No Disease"). Let A be some new evidence (e.g., "Positive Test Result").</p>
+        
+        <p>Bayes' Theorem finds the probability of a specific hypothesis (say, Bₖ) given the evidence (A):</p>
+        
+        <blockquote>
+            <div class="formula">P(Bₖ | A) = [ P(A | Bₖ) * P(Bₖ) ] / P(A)</div>
+            <p>Using the Theorem of Total Probability for P(A), this is written as:</p>
+            <div class="formula">P(Bₖ | A) = [ P(A | Bₖ)P(Bₖ) ] / [ Σ P(A | Bᵢ)P(Bᵢ) ]</div>
+        </blockquote>
+
+        <h3>Terminology</h3>
+        <ul>
+            <li><strong>P(Bₖ): Prior Probability.</strong> Our belief in the hypothesis *before* seeing the new evidence. (e.g., the general prevalence of the disease in a population).</li>
+            <li><strong>P(A | Bₖ): Likelihood.</strong> The probability of seeing the evidence, *given* that our hypothesis is true. (e.g., the "true positive rate" or "sensitivity" of the test).</li>
+            <li><strong>P(A): Marginal Likelihood / Total Probability.</strong> The total probability of seeing the evidence, averaged over all possible hypotheses.</li>
+            <li><strong>P(Bₖ | A): Posterior Probability.</strong> Our *updated* belief in the hypothesis *after* seeing the evidence. This is the answer we are looking for.</li>
+        </ul>
+
+        <div class="formula">Posterior = (Likelihood * Prior) / Evidence</div>
+        
+        [cite_start]<h3>Example [cite: 1500]</h3>
+        <p>A factory has two machines. Machine 1 (B₁) makes 60% of products (P(B₁)=0.6). Machine 2 (B₂) makes 40% (P(B₂)=0.4).
+        <br>Machine 1 has a 5% defect rate (P(A|B₁)=0.05).
+        <br>Machine 2 has a 10% defect rate (P(A|B₂)=0.10).
+        <br><strong>Question:</strong> You find a defective product (A). What is the probability it came from Machine 1? (Find P(B₁ | A)).</p>
+        
+        <ol>
+            <li><strong>Find P(A) (Total Probability of a Defect):</strong>
+                <br>P(A) = P(A|B₁)P(B₁) + P(A|B₂)P(B₂)
+                <br>P(A) = (0.05)(0.60) + (0.10)(0.40)
+                <br>P(A) = 0.03 + 0.04 = 0.07 (7% of all products are defective)
+            </li>
+            <li><strong>Use Bayes' Formula:</strong>
+                <br>P(B₁ | A) = [ P(A | B₁)P(B₁) ] / P(A)
+                <br>P(B₁ | A) = (0.05 * 0.60) / 0.07
+                <br>P(B₁ | A) = 0.03 / 0.07 = 3/7 ≈ 0.428
+            </li>
+        </ol>
+        <p><strong>Interpretation:</strong> Even though Machine 1 makes more products, a defective item is more likely to be from Machine 2 (P(B₂|A) = 4/7). Our prior belief (60%) that it was from Machine 1 has been updated *downward* (to 42.8%) based on the new evidence that the product was defective.</p>
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

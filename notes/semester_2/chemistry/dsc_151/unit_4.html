@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive notes for Chemistry DSC 151, Unit 4: Stereochemistry and Conformation analysis. Covers isomerism, chirality, R/S, E/Z, and conformational analysis of alkanes and cycloalkanes.">
+    <meta name="keywords" content="Chemistry DSC 151, Unit 4, Stereochemistry, Isomerism, Chirality, Enantiomers, Diastereomers, R/S Configuration, E/Z Notations, Conformation, Newman Projection, Cyclohexane, Baeyer Strain, Knowlet">
+    <title>Chemistry DSC 151 Unit 4 | 2nd Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #ffc107; /* Yellow */
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #e0a800; /* Darker yellow */
+        }
+        h2 {
+            font-size: 1.8em;
+            color: #ffc107; /* Primary yellow */
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #d39e00; /* Darker yellow */
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #fffbeb;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            font-size: 1.1em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f1f3f5;
+            color: #495057;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .exam-tip {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .exam-tip strong {
+            color: #0c5460;
+        }
+        nav.toc {
+            background: #fdfdfd;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 30px;
+        }
+        nav.toc h3 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #333;
+        }
+        nav.toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        nav.toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        nav.toc ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 4: Stereochemistry and Conformation analysis</h1>
+        <p>(Corresponds to Unit-V in the syllabus image)</p>
+
+        <nav class="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#topic1">Isomerism: Types and Classification</a></li>
+                <li><a href="#topic2">Geometrical Isomerism</a></li>
+                <li><a href="#topic3">Optical Isomerism: Chirality and Enantiomers</a></li>
+                <li><a href="#topic4">Optical Isomerism: Multiple Chiral Centers</a></li>
+                <li><a href="#topic5">Configuration: D/L and R/S Systems</a></li>
+                <li><a href="#topic6">Conformational Analysis of Alkanes</a></li>
+                <li><a href="#topic7">Conformational Analysis of Cycloalkanes</a></li>
+            </ul>
+        </nav>
+
+        <section id="topic1">
+            <h2>Isomerism: Types and Classification</h2>
+            <blockquote>
+                <strong>Isomers:</strong> Different compounds that have the <strong>same molecular formula</strong> but different properties.
+            </blockquote>
+            <ul>
+                <li><strong>1. Constitutional (or Structural) Isomers:</strong> Same formula, <strong>different connectivity</strong> (different atom-to-atom bonding sequence).
+                    <ul>
+                        <li><strong>Chain Isomerism:</strong> Different carbon skeleton (e.g., n-butane and isobutane).</li>
+                        <li><strong>Position Isomerism:</strong> Same skeleton, different position of functional group or substituent (e.g., propan-1-ol and propan-2-ol).</li>
+                        <li><strong>Functional Group Isomerism:</strong> Same formula, different functional group (e.g., ethanol (C₂H₅OH) and dimethyl ether (CH₃OCH₃)).</li>
+                        <li><strong>Metamerism:</strong> Different alkyl groups on either side of a functional group (e.g., diethyl ether and methyl propyl ether).</li>
+                    </ul>
+                </li>
+                <li><strong>2. Stereoisomers:</strong> Same formula, same connectivity, but <strong>different spatial arrangement</strong> of atoms.
+                    <ul>
+                        <li><strong>Enantiomers:</strong> Stereoisomers that are non-superimposable mirror images of each other.</li>
+                        <li><strong>Diastereomers:</strong> Stereoisomers that are *not* mirror images of each other (e.g., cis-trans isomers).</li>
+                    </ul>
+                </li>
+            </ul>
+            <p><strong>Conformational Isomers (Conformers):</strong> Different spatial arrangements of a molecule that are <strong>inter-convertible by rotation about single bonds</strong> (e.g., staggered and eclipsed ethane). These are generally *not* considered true isomers as they cannot be separated.</p>
+        </section>
+
+        <hr>
+
+        <section id="topic2">
+            <h2>Geometrical Isomerism</h2>
+            <p>A type of stereoisomerism (specifically diastereomerism) that arises due to <strong>restricted rotation</strong> about a bond (usually a C=C double bond or a ring).</p>
+
+            <h3>Cis-Trans Isomerism</h3>
+            <p>Used for disubstituted alkenes or rings.</p>
+            <ul>
+                <li><strong>Cis:</strong> The two identical (or higher priority) groups are on the <strong>same side</strong> of the double bond/ring.</li>
+                <li><strong>Trans:</strong> The two identical (or higher priority) groups are on <strong>opposite sides</strong>.</li>
+            </ul>
+            <p><strong>Example:</strong> But-2-ene exists as cis-but-2-ene and trans-but-2-ene.</p>
+            
+            <h3>Syn-Anti Isomerism</h3>
+            <p>This is geometrical isomerism in compounds containing a C=N bond (like oximes).</p>
+            <ul>
+                <li><strong>Syn:</strong> The -H and -OH groups are on the same side.</li>
+                <li><strong>Anti:</strong> The -H and -OH groups are on opposite sides.</li>
+            </ul>
+
+            <h3>E/Z Notations (Cahn-Ingold-Prelog Rules)</h3>
+            <p>The cis-trans system fails for tri- or tetra-substituted alkenes. The E/Z system is a universal method based on <strong>priority</strong>.</p>
+            
+            <p><strong>Cahn-Ingold-Prelog (CIP) Priority Rules:</strong></p>
+            <ol>
+                <li>Assign priority to the two groups on *each* carbon of the double bond.</li>
+                <li>Priority is based on <strong>atomic number</strong> of the atom directly attached. Higher atomic number = higher priority. (e.g., Br > Cl > O > N > C > H).</li>
+                <li>If atoms are the same, move to the next atoms along the chain until a point of difference is found.</li>
+                <li>Multiple bonds count as multiple connections to that atom (e.g., C=O counts as C bonded to two O's).</li>
+            </ol>
+            
+            <p><strong>Assigning E/Z:</strong></p>
+            <ul>
+                <li><strong>Z (Zusammen - "Together"):</strong> The two <strong>high-priority</strong> groups are on the <strong>same side</strong> (cis-like).</li>
+                <li><strong>E (Entgegen - "Opposite"):</strong> The two <strong>high-priority</strong> groups are on <strong>opposite sides</strong> (trans-like).</li>
+            </ul>
+            </section>
+        
+        <hr>
+
+        <section id="topic3">
+            <h2>Optical Isomerism: Chirality and Enantiomers</h2>
+
+            <h3>Optical Activity</h3>
+            <p>The ability of a substance to rotate the plane of
+            plane-polarized light. Compounds that do this are called <strong>optically active</strong>.</p>
+            <ul>
+                <li><strong>Dextrorotatory (+):</strong> Rotates light clockwise.</li>
+                <li><strong>Levorotatory (-):</strong> Rotates light counter-clockwise.</li>
+            </ul>
+            <p><strong>Specific Rotation [α]:</strong> A standardized measure of optical rotation.
+            <br> [α] = (observed rotation α) / (concentration c * path length l)</p>
+
+            <h3>Chirality and Chiral Centers</h3>
+            <blockquote>
+                <strong>Chiral:</strong> An object or molecule that is <strong>non-superimposable on its mirror image</strong>. (e.g., your hands).
+                <br>
+                <strong>Achiral:</strong> An object that *is* superimposable on its mirror image (e.g., a simple sphere or cube).
+            </blockquote>
+            <ul>
+                <li>A <strong>chiral center (or asymmetric carbon)</strong> is a carbon atom bonded to <strong>four different groups</strong>.</li>
+                <li>A molecule with one chiral center is *always* chiral.</li>
+                <li><strong>Elements of Symmetry:</strong> A molecule is achiral if it possesses an element of symmetry, such as a <strong>plane of symmetry (σ)</strong> or a <strong>center of symmetry (i)</strong>.</li>
+            </ul>
+
+            <h3>Enantiomers</h3>
+            <blockquote>
+                <strong>Enantiomers:</strong> A pair of stereoisomers that are <strong>non-superimposable mirror images</strong> of each other.
+            </blockquote>
+            <ul>
+                <li>Enantiomers have <strong>identical physical properties</strong> (boiling point, melting point, solubility) *except* for their interaction with plane-polarized light (they rotate it in equal but opposite directions) and their interaction with other chiral molecules.</li>
+                <li><strong>Racemic Mixture (or Racemate):</strong> A 50:50 mixture of two enantiomers. It is <strong>optically inactive</strong> because the rotations cancel each other out (external compensation).</li>
+                <li><strong>Resolution:</strong> The process of separating a racemic mixture into its pure enantiomers.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="topic4">
+            <h2>Optical Isomerism: Multiple Chiral Centers</h2>
+
+            <h3>Diastereomers</h3>
+            <blockquote>
+                <strong>Diastereomers:</strong> Stereoisomers that are <strong>not mirror images</strong> of each other.
+            </blockquote>
+            <ul>
+                <li>Occur in molecules with <strong>two or more chiral centers</strong>.</li>
+                <li>Unlike enantiomers, diastereomers have <strong>different physical properties</strong> (different melting points, boiling points, solubilities, etc.).</li>
+                <li>Geometrical isomers (cis/trans) are a type of diastereomer.</li>
+            </ul>
+            <p><strong>Rule of 2ⁿ:</strong> For a molecule with 'n' chiral centers, the maximum number of possible stereoisomers is <strong>2ⁿ</strong>.</p>
+
+            <h3>Meso Compounds</h3>
+            <blockquote>
+                <strong>Meso Compound:</strong> An <strong>achiral</strong> compound that has <strong>chiral centers</strong>.
+            </blockquote>
+            <ul>
+                <li>A meso compound is superimposable on its mirror image.</li>
+                <li>It must have two or more chiral centers AND a <strong>plane of symmetry</strong>.</li>
+                <li>Because it is achiral, it is <strong>optically inactive</strong> (due to internal compensation).</li>
+            </ul>
+            <p><strong>Example: Tartaric Acid</strong>
+            <br>It has 2 chiral centers (C2, C3). n=2, so max 2²=4 stereoisomers.
+            <br>It exists as (+)-tartaric acid (2R,3R), (-)-tartaric acid (2S,3S), and meso-tartaric acid (2R,3S).
+            <br>The (2R,3S) form has a plane of symmetry, so it is achiral. Its mirror image (2S,3R) is the same molecule.
+            <br>Therefore, tartaric acid has only <strong>3</strong> stereoisomers, not 4.
+            <br>(+)- and (-)- forms are enantiomers.
+            <br>(+)- and meso- forms are diastereomers.</p>
+            </section>
+
+        <hr>
+
+        <section id="topic5">
+            <h2>Configuration: D/L and R/S Systems</h2>
+            <p><strong>Configuration:</strong> The fixed, 3D arrangement of atoms that defines a stereoisomer. Can only be changed by breaking bonds.</p>
+
+            <h3>D/L Designation (Relative Configuration)</h3>
+            <ul>
+                <li>Used mainly for carbohydrates and amino acids.</li>
+                <li>Based on the configuration of <strong>glyceraldehyde</strong>.</li>
+                <li>The molecule is drawn in a <strong>Fischer projection</strong>.</li>
+                <li>If the -OH group (for sugars) or -NH₂ group (for amino acids) on the <strong>highest-numbered chiral center</strong> is on the:
+                    <ul>
+                        <li><strong>Right:</strong> D configuration</li>
+                        <li><strong>Left:</strong> L configuration</li>
+                    </ul>
+                </li>
+                <li><strong>Note:</strong> D/L has <strong>no relation</strong> to the optical rotation (+)/(-). e.g., D-Glucose is (+), but D-Fructose is (-).</li>
+            </ul>
+
+            <h3>R/S Designation (Absolute Configuration)</h3>
+            <p>A universal system that assigns an absolute configuration (R or S) to each chiral center, using the <strong>Cahn-Ingold-Prelog (CIP) priority rules</strong>.</p>
+            <p><strong>Steps:</strong></p>
+            <ol>
+                <li>Assign priorities (1-4, 1=highest) to the four groups attached to the chiral center using CIP rules.</li>
+                <li>Orient the molecule so the <strong>lowest priority group (4) points away</strong> from you (to the back, on a dashed bond).</li>
+                <li>Trace the path from priority 1 → 2 → 3.</li>
+                <li>
+                    <ul>
+                        <li>If the path is <strong>Clockwise:</strong> Configuration is <strong>R</strong> (from Latin, *Rectus* - right).</li>
+                        <li>If the path is <strong>Counter-clockwise:</strong> Configuration is <strong>S</strong> (from Latin, *Sinister* - left).</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="exam-tip">
+                <strong>Fischer Projection Trick:</strong> If the lowest priority group (4) is on a <strong>vertical</strong> line, R is clockwise and S is counter-clockwise. If group 4 is on a <strong>horizontal</strong> line, the rule is <strong>reversed</strong> (clockwise = S, counter-clockwise = R).
+            </div>
+        </section>
+        
+        <hr>
+        
+        <section id="topic6">
+            <h2>Conformational Analysis of Alkanes</h2>
+            <p>Analysis of the different spatial arrangements (conformers) and their relative energies, arising from rotation around C-C single bonds.</p>
+            <p><strong>Projections:</strong></p>
+            <ul>
+                <li><strong>Sawhorse Projection:</strong> Views the C-C bond from an oblique angle.</li>
+                <li><strong>Newman Projection:</strong> Views the C-C bond end-on. The front carbon is a point, the back carbon is a circle.</li>
+            </ul>
+
+            <h3>Ethane (CH₃-CH₃)</h3>
+            <ul>
+                <li><strong>Staggered:</strong> H atoms on the back carbon are in the gaps between H atoms on the front. This is the <strong>most stable</strong> conformer (lowest energy). Dihedral angle = 60°.</li>
+                <li><strong>Eclipsed:</strong> H atoms on the back carbon are directly behind the H atoms on the front. This is the <strong>least stable</strong> conformer (highest energy). Dihedral angle = 0°.</li>
+                <li><strong>Torsional Strain:</strong> The 12 kJ/mol (3 kcal/mol) energy difference between them is due to electron-electron repulsion in the C-H bonds.</li>
+            </ul>
+            <h3>Butane (CH₃-CH₂-CH₂-CH₃)</h3>
+            <p>Viewing along the C2-C3 bond:</p>
+            <ul>
+                <li><strong>Anti (Staggered):</strong> The two methyl groups are 180° apart. <strong>Most stable</strong> conformer. (0 kJ/mol).</li>
+                <li><strong>Gauche (Staggered):</strong> The two methyl groups are 60° apart. This is stable, but 3.8 kJ/mol (0.9 kcal/mol) less stable than *anti* due to <strong>steric strain</strong> between the methyl groups.</li>
+                <li><strong>Eclipsed:</strong> The two methyl groups are 0° apart. <strong>Least stable</strong> conformer (highest energy peak).
+                <li><strong>Partially Eclipsed:</strong> A methyl group is eclipsed with a hydrogen.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="topic7">
+            <h2>Conformational Analysis of Cycloalkanes</h2>
+
+            <h3>Baeyer Strain Theory</h3>
+            <ul>
+                <li>Baeyer proposed that cycloalkanes are planar.</li>
+                <li>He assumed the ideal bond angle is 109.5° (tetrahedral).</li>
+                <li><strong>Angle Strain:</strong> The deviation from 109.5° causes instability.
+                    <br>e.g., Cyclopropane (60° angles) and Cyclobutane (90° angles) have severe angle strain.
+                </li>
+                <li><strong>Limitation:</strong> Baeyer's theory predicted cyclopentane (108°) would be most stable and cyclohexane (120°) would be highly strained. This is <strong>incorrect</strong>.</li>
+            </ul>
+
+            <h3>Strain-less Ring Theory (Sachse-Mohr)</h3>
+            <p>Rings larger than cyclopropane are <strong>not planar</strong>. They "pucker" to relieve strain.</p>
+            <ul>
+                <li><strong>Angle Strain:</strong> Strain from bond angles deviating from 109.5°.</li>
+                <li><strong>Torsional Strain:</strong> Strain from eclipsing C-H bonds.</li>
+                <li><strong>Steric Strain:</strong> Strain from bulky groups being too close.</li>
+            </ul>
+            
+            <h3>Conformations of Cyclohexane</h3>
+            <p>Cyclohexane is the most stable cycloalkane because it can adopt a <strong>puckered chair conformation</strong> which has <strong>zero strain</strong>:</p>
+            <ul>
+                <li>All C-C-C bond angles are <strong>109.5°</strong> (no angle strain).</li>
+                <li>All C-H bonds are <strong>staggered</strong> (no torsional strain).</li>
+            </ul>
+            
+            <p><strong>Conformers:</strong></p>
+            <ol>
+                <li><strong>Chair:</strong> Most stable conformer.
+                    <ul>
+                        <li><strong>Axial bonds (a):</strong> 6 bonds, parallel to the C3 axis (3 up, 3 down).</li>
+                        <li><strong>Equatorial bonds (e):</strong> 6 bonds, pointing out from the "equator" of the ring.</li>
+                    </ul>
+                </li>
+                <li><strong>Boat:</strong> Less stable. No angle strain, but has:
+                    <ul>
+                        <li>Significant <strong>torsional strain</strong> from eclipsed C-H bonds.</li>
+                        <li><strong>Steric strain</strong> from "flagpole" hydrogens (C1 and C4) pointing at each other.</li>
+                    </ul>
+                </li>
+                <li><strong>Twist-Boat:</strong> More stable than the boat (relieves some strain), but less stable than the chair.</li>
+                <li><strong>Half-Chair:</strong> Highest energy, transition state between chair and twist-boat.</li>
+            </ol>
+            <h3>Monosubstituted Cyclohexane</h3>
+            <p>A substituent (e.g., -CH₃) can be either axial or equatorial. The ring rapidly flips between two chair forms, interconverting axial and equatorial positions.</p>
+            <blockquote>
+                The <strong>equatorial position is more stable</strong> for bulky groups.
+            </blockquote>
+            <p><strong>Reason:</strong> A bulky group in the <strong>axial</strong> position experiences <strong>1,3-diaxial interactions</strong> (steric strain) with the two other axial hydrogens on the same side of the ring. This is absent in the equatorial position.</p>
+            
+            <h3>Disubstituted Cyclohexane</h3>
+            <p>The stability depends on the (cis/trans) relationship and whether the groups are axial or equatorial.</p>
+            <ul>
+                <li><strong>1,2-disubstituted:</strong> cis = (a,e) or (e,a); trans = (a,a) or (e,e). The <strong>trans-(e,e)</strong> form is most stable.</li>
+                <li><strong>1,3-disubstituted:</strong> cis = (a,a) or (e,e); trans = (a,e) or (e,a). The <strong>cis-(e,e)</strong> form is most stable.</li>
+                <li><strong>1,4-disubstituted:</strong> cis = (a,e) or (e,a); trans = (a,a) or (e,e). The <strong>trans-(e,e)</strong> form is most stable.</li>
+            </ul>
+            <div class="exam-tip">
+                <strong>Golden Rule:</strong> The most stable conformer of a substituted cyclohexane will have the <strong>maximum number of bulky groups in the equatorial position</strong>.
+            </div>
+        </section>
+
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

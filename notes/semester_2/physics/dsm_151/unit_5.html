@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSM 151 Unit 5 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for PHYDSM151T (Mathematical Physics, Mechanics and Relativity) Unit 5, covering Fluids (Surface Tension, Viscosity) and Special Theory of Relativity.">
+    <meta name="keywords" content="PHYDSM151T, Fluids, Unit 5, Surface Tension, Viscosity, Poiseuille's Formula, Special Theory of Relativity, Lorentz Transformation, Length Contraction, Time Dilation, Assam University, 2nd Semester Physics">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3, h4 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            border-bottom: 3px solid #f39c12;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 2em;
+            color: #f39c12;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #e67e22;
+            margin-top: 25px;
+        }
+        h4 {
+            font-size: 1.2em;
+            color: #555;
+        }
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            font-size: 1.1em;
+            font-style: italic;
+            font-family: 'Georgia', serif;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: #fef9e7;
+            border-left: 5px solid #f39c12;
+            color: #34495e;
+            border-radius: 5px;
+        }
+        code, .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.1em;
+        }
+        .exam-tip {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d4a017;
+        }
+        #toc {
+            background: #fffaf0;
+            border: 1px solid #ffe8cc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        #toc h3 {
+            margin-top: 0;
+            color: #b95000;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 10px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #e67e22;
+            font-weight: bold;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 5: Fluids and Special Theory of Relativity</h1>
+
+        <div id="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#fluids">1. [cite_start]Fluids [cite: 1362]</a></li>
+                <li><a href="#surface-tension">2. [cite_start]Surface Tension [cite: 1362]</a></li>
+                <li><a href="#viscosity">3. [cite_start]Viscosity [cite: 1363]</a></li>
+                <li><a href="#relativity">4. [cite_start]Special Theory of Relativity [cite: 1364]</a></li>
+            </ul>
+        </div>
+
+        <h2 id="fluids">1. [cite_start]Fluids [cite: 1362]</h2>
+        <p>A fluid is a substance (a liquid or a gas) that deforms continuously under an applied shear stress. In this unit, we focus on two key properties of liquids: surface tension and viscosity.</p>
+
+        <h2 id="surface-tension">2. [cite_start]Surface Tension (T or S) [cite: 1362]</h2>
+        <p><strong>Surface Tension</strong> is the tendency of liquid surfaces to shrink into the minimum possible surface area. It is caused by <strong>cohesive forces</strong> (attraction between like molecules) being stronger at the surface than in the bulk liquid.</p>
+        <p>It can be defined in two ways:</p>
+        <ol>
+            <li><strong>As a force per unit length:</strong> The force (F) acting along the surface, perpendicular to any line of length (L).
+                <blockquote><strong>Formula:</strong> T = F / L  (Units: N/m)</blockquote>
+            </li>
+            <li><strong>As surface energy per unit area:</strong> The work done (W) required to increase the surface area (A) of the liquid.
+                <blockquote><strong>Formula:</strong> T = W / ΔA  (Units: J/m²)</blockquote>
+            </li>
+        </ol>
+        
+        [cite_start]<h3>Excess of Pressure (Laplace's Law) [cite: 1362]</h3>
+        <p>Because of surface tension, a curved liquid surface (like in a drop or bubble) creates a pressure difference (ΔP) between the inside and the outside. The pressure is <strong>always higher on the concave side</strong>.</p>
+        
+        <h4>1. Spherical Drop (e.g., a liquid drop in air)</h4>
+        <p>A drop has only <strong>one</strong> surface. The excess pressure (ΔP) inside is:</p>
+        <blockquote><strong>Formula:</strong> ΔP = P<sub>inside</sub> - P<sub>outside</sub> = 2T / r</blockquote>
+        <p>Where T is the surface tension and r is the radius of the drop.</p>
+        
+        <h4>2. Spherical Bubble (e.g., a soap bubble in air)</h4>
+        <p>A soap bubble has <strong>two</strong> surfaces (an inner and an outer surface) in contact with the air. Both contribute to the pressure.</p>
+        <blockquote><strong>Formula:</strong> ΔP = P<sub>inside</sub> - P<sub>outside</sub> = 4T / r</blockquote>
+        
+        <h4>3. [cite_start]Cylindrical Drop (or cylindrical bubble) [cite: 1362]</h4>
+        <p>For a long cylindrical drop of radius r (like a dewdrop on a thin wire), which has one curved surface:</p>
+        <blockquote><strong>Formula:</strong> ΔP = T / r</blockquote>
+        <p><strong>Note:</strong> A cylindrical bubble (like a long bubble in a liquid) would have ΔP = 2T/r.</p>
+        
+        [cite_start]<h3>Variation of Surface Tension with Temperature [cite: 1362]</h3>
+        <p>Surface tension is a result of cohesive forces. As <strong>temperature increases</strong>, the kinetic energy of the molecules increases, and the cohesive forces weaken.
+        <br>Therefore, the <strong>surface tension of a liquid decreases as temperature increases</strong>.</p>
+        <p>At the <strong>critical temperature</strong>, the distinction between liquid and gas disappears, and the surface tension becomes zero.</p>
+        
+        <h2 id="viscosity">3. [cite_start]Viscosity (η) [cite: 1363]</h2>
+        <p><strong>Viscosity</strong> is the measure of a fluid's resistance to flow. It's the "internal friction" of a fluid. High viscosity (like honey) means high resistance to flow; low viscosity (like water) means low resistance.</p>
+        <p>Newton's law of viscosity states that the shear stress (F/A) required to maintain a velocity gradient (dv/dz) between fluid layers is:</p>
+        <blockquote><strong>Formula:</strong> F/A = η * (dv/dz)</blockquote>
+        <p>Where η is the <strong>coefficient of viscosity</strong>.</p>
+        
+        [cite_start]<h3>Rate Flow of Liquid in a Capillary Tube (Poiseuille's Formula) [cite: 1363]</h3>
+        <p>When a fluid flows steadily (laminar flow) through a narrow tube (capillary) of radius r and length L, driven by a pressure difference ΔP, the <strong>volume flow rate (Q)</strong> (volume per second) is given by <strong>Poiseuille's Formula</strong>:</p>
+        
+        <blockquote><strong>Poiseuille's Formula:</strong> Q = V/t = (π * ΔP * r⁴) / (8ηL)</blockquote>
+        
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> This formula is extremely important. Note the dependencies:
+            <ul>
+                <li>Flow (Q) is proportional to <strong>ΔP</strong>. (Makes sense: more pressure, more flow).</li>
+                <li>Flow (Q) is proportional to <strong>r⁴</strong>. (This is huge! Doubling the radius increases the flow by 2⁴ = 16 times).</li>
+                <li>Flow (Q) is inversely proportional to <strong>η</strong> and <strong>L</strong>. (Makes sense: more viscosity or longer tube, less flow).</li>
+            </ul>
+        </div>
+        
+        [cite_start]<h3>Variations of Viscosity of a Liquid with Temperature [cite: 1363]</h3>
+        <p>For <strong>liquids</strong>, viscosity is primarily due to intermolecular cohesive forces.</p>
+        <ul>
+            <li>As <strong>temperature increases</strong>, these cohesive forces weaken.</li>
+            <li>Molecules can slide past each other more easily.</li>
+            <li>Therefore, the <strong>viscosity of a liquid *decreases* as temperature increases</strong>. (e.g., cold honey is very thick, hot honey is runny).</li>
+        </ul>
+        <p><em>(Note: This is the opposite for gases, where viscosity *increases* with temperature, as it's caused by molecular collisions, not cohesion.)</em></p>
+        
+        <h2 id="relativity">4. [cite_start]Special Theory of Relativity [cite: 1364]</h2>
+        <p>The Special Theory of Relativity (STR), proposed by Albert Einstein in 1905, describes physics in <strong>inertial frames of reference</strong> (frames that are not accelerating).</p>
+        
+        [cite_start]<h3>Frames of Reference and Galilean Transformation [cite: 1364]</h3>
+        <p>An <strong>inertial frame</strong> is one where Newton's First Law (inertia) holds. Any frame moving at a constant velocity relative to an inertial frame is also an inertial frame.</p>
+        <p>A <strong>Galilean Transformation</strong> is the "common sense" way to relate coordinates between two inertial frames (S and S') where S' moves at a constant velocity <strong>v</strong> relative to S (e.g., along the x-axis).</p>
+        <blockquote>
+            <strong>Galilean Transformation:</strong>
+            <ul>
+                <li>x' = x - vt</li>
+                <li>y' = y</li>
+                <li>z' = z</li>
+                <li><strong>t' = t</strong>  (The "common sense" part: time is absolute)</li>
+            </ul>
+        </blockquote>
+        <p><strong>Problem:</strong> This transformation works for mechanics, but it fails for electromagnetism. Maxwell's equations predict a constant speed of light, <strong>c</strong>. According to Galileo, an observer in S' should measure c' = c - v, but experiments (like Michelson-Morley) showed the speed of light is *always* c for all observers.</p>
+        
+        [cite_start]<h3>Postulates of Special Theory of Relativity [cite: 1364]</h3>
+        <p>Einstein fixed this by proposing two new postulates:</p>
+        
+        <blockquote>
+            <strong>Postulate 1 (The Principle of Relativity):</strong> The laws of physics are the same (have the same form) in all inertial frames of reference.
+            <br><br>
+            <strong>Postulate 2 (The Constancy of the Speed of Light):</strong> The speed of light in a vacuum (c) has the same value for all observers in all inertial frames, regardless of the motion of the source or the observer.
+        </blockquote>
+        
+        [cite_start]<h3>Lorentz Transformation (Derivation specified in syllabus) [cite: 1365]</h3>
+        <p>To make both postulates true, the Galilean transformations must be wrong. The new, correct transformations are the <strong>Lorentz Transformations</strong>. We must find a transformation that keeps the speed of light constant.</p>
+        
+        <p><strong>Derivation Outline:</strong></p>
+        <ol>
+            <li>Assume a linear transformation (to map straight lines to straight lines):
+                <p>x' = γ (x - vt)  (We introduce a "fudge factor" γ)</p>
+                <p>x = γ' (x' + vt') (The inverse, from S' to S)</p>
+            </li>
+            <li>By Postulate 1, the physics must be the same, so γ must equal γ'.
+                <p>x = γ (x' + vt')</p>
+            </li>
+            <li>Now, use Postulate 2. Imagine a light pulse starts at the origin (x=0, t=0) when the origins coincide (x'=0, t'=0).</li>
+            <li>In frame S, the light's position is: <strong>x = ct</strong></li>
+            <li>In frame S', the light's position is: <strong>x' = ct'</strong></li>
+            <li>Substitute these into our transformation equations:
+                <p>ct' = γ (ct - vt) = γt (c - v)</p>
+                <p>ct = γ (ct' + vt') = γt' (c + v)</p>
+            </li>
+            <li>Multiply these two new equations together:
+                <p>(ct') (ct) = [γt (c - v)] [γt' (c + v)]</p>
+                <p>c² t' t = γ² t t' (c - v)(c + v)</p>
+                <p>c² = γ² (c² - v²)</p>
+            </li>
+            <li>Solve for γ:
+                <p>γ² = c² / (c² - v²) = 1 / ( (c² - v²) / c² ) = 1 / (1 - v²/c²)</p>
+                <p><strong>γ = 1 / √(1 - v²/c²)</strong> (This is the <strong>Lorentz factor</strong>)</p>
+            </li>
+            <li>By substituting γ back and solving for t', we also find that time is not absolute:
+                <p><strong>t' = γ (t - vx/c²)</strong></p>
+            </li>
+        </ol>
+
+        <blockquote>
+            <strong>Lorentz Transformations:</strong>
+            <ul>
+                <li>x' = γ (x - vt)</li>
+                <li>y' = y</li>
+                <li>z' = z</li>
+                <li>t' = γ (t - vx/c²)</li>
+            </ul>
+            <p>where γ = 1 / √(1 - v²/c²)</p>
+        </blockquote>
+        <p><strong>Note:</strong> If v << c, then v²/c² ≈ 0, γ ≈ 1, and vx/c² ≈ 0. The Lorentz transformations simplify to the Galilean transformations, which is why we don't notice relativity in everyday life.</p>
+        
+        [cite_start]<h3>Length Contraction [cite: 1365]</h3>
+        <p>A consequence of the Lorentz transformations. An object of length L₀ (its "proper length") in its own rest frame will appear shorter to an observer moving relative to it.</p>
+        <p>The measured length L is:</p>
+        <blockquote><strong>Formula:</strong> L = L₀ / γ = L₀ * √(1 - v²/c²)</blockquote>
+        <p><strong>Result:</strong> Moving objects appear shorter in the direction of their motion.</p>
+        
+        [cite_start]<h3>Time Dilation [cite: 1365]</h3>
+        <p>Another consequence. Time passes slower for moving clocks.</p>
+        <p>If an observer measures a time interval T₀ (the "proper time") on a clock at rest with them, an observer moving at speed v will measure a *longer* time interval (T) for that same event.</p>
+        <blockquote><strong>Formula:</strong> T = γ * T₀ = T₀ / √(1 - v²/c²)</blockquote>
+        <p><strong>Result:</strong> Moving clocks run slow.</p>
+
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

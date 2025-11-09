@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive notes for Chemistry DSC 151 (Physical/Organic), Unit 2: Chemical Bonding. Covers VSEPR theory, Valence Bond Theory (VBT), hybridization, and Molecular Orbital (MO) theory.">
+    <meta name="keywords" content="Chemistry DSC 151, Unit 2, Chemical Bonding, VSEPR Theory, Valence Bond Theory, VBT, Hybridization, MO Theory, LCAO, Bond Order, Knowlet">
+    <title>Chemistry DSM 151 Unit 2 | 2nd Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #28a745; /* Green */
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #218838; /* Darker green */
+        }
+        h2 {
+            font-size: 1.8em;
+            color: #28a745; /* Primary green */
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #1e7e34; /* Darker green */
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #e6f7ec;
+            border-left: 5px solid #28a745;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            font-size: 1.1em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f1f3f5;
+            color: #495057;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .exam-tip {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .exam-tip strong {
+            color: #0c5460;
+        }
+        nav.toc {
+            background: #fdfdfd;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 30px;
+        }
+        nav.toc h3 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #333;
+        }
+        nav.toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        nav.toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        nav.toc ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 2: Chemical Bonding and Molecular Structure</h1>
+
+        <nav class="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#topic1">Valence Bond Approach (VBT)</a></li>
+                <li><a href="#topic2">VSEPR Theory</a></li>
+                <li><a href="#topic3">Hybridization</a></li>
+                <li><a href="#topic4">Concept of Resonance</a></li>
+                <li><a href="#topic5">Molecular Orbital (MO) Approach</a></li>
+                <li><a href="#topic6">Comparison of VB and MO theories</a></li>
+            </ul>
+        </nav>
+
+        <section id="topic1">
+            <h2>Valence Bond Approach (VBT)</h2>
+            <p>Introduced by Heitler and London, and later developed by Pauling, VBT describes chemical bonding as the <strong>overlap of atomic orbitals</strong>. A covalent bond is formed when two half-filled valence atomic orbitals from two different atoms overlap. The electrons in the overlapping region are shared and must have opposite spins.</p>
+            
+            <h3>Key Concepts:</h3>
+            <ul>
+                <li><strong>Overlap:</strong> The extent of overlap determines the strength of the bond. Greater overlap = stronger bond.</li>
+                <li><strong>Sigma (σ) bond:</strong> Formed by <strong>end-to-end (head-on)</strong> overlap of orbitals (e.g., s-s, s-p, p_z-p_z). This bond is symmetrical about the internuclear axis. All single bonds are sigma bonds.</li>
+                <li><strong>Pi (π) bond:</strong> Formed by <strong>sideways (lateral)</strong> overlap of p-orbitals (e.g., p_x-p_x, p_y-p_y). This bond has electron density above and below the internuclear axis. A π-bond is weaker than a σ-bond and only forms *after* a σ-bond is already present.</li>
+            </ul>
+            <p><strong>Example:</strong> In N₂ (a triple bond), there is one σ-bond and two π-bonds.</p>
+            </section>
+
+        <hr>
+
+        <section id="topic2">
+            <h2>VSEPR Theory</h2>
+            <p>The <strong>Valence Shell Electron Pair Repulsion (VSEPR)</strong> theory is a model used to predict the 3D geometry of individual molecules. It is based on a simple premise:</p>
+            <blockquote>
+                "The electron pairs (both bonding pairs and lone pairs) in the valence shell of a central atom will arrange themselves in space to be as far apart as possible, thereby minimizing repulsion."
+            </blockquote>
+            
+            <h3>Hierarchy of Repulsion:</h3>
+            <p>The repulsion between electron pairs follows this order:</p>
+            <strong><span id="spap_{1}">Lone Pair - Lone Pair (LP-LP) > Lone Pair - Bonding Pair (LP-BP) > Bonding Pair - Bonding Pair (BP-BP)</span></strong>
+            <p>This is because lone pairs are only held by one nucleus and are more "spread out" (fatter) than bonding pairs, which are held by two nuclei.</p>
+
+            <h3>Predicting Shapes:</h3>
+            <ol>
+                <li>Draw the Lewis structure to find the central atom.</li>
+                <li>Count the <strong>total number of electron domains</strong> (or "steric number") around the central atom. (A single bond, double bond, triple bond, or lone pair each counts as ONE domain).</li>
+                <li>This total number determines the <strong>electron geometry</strong> (the arrangement of all electron pairs).</li>
+                <li>The arrangement of *only the atoms* (ignoring the lone pairs) determines the <strong>molecular shape</strong>.</li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section id="topic3">
+            <h2>Hybridization</h2>
+            <p>Hybridization is a concept within VBT, proposed by Pauling. It is the <strong>mixing of atomic orbitals</strong> of slightly different energies (e.g., one s and three p orbitals) to form a new set of <strong>hybrid orbitals</strong> of equivalent energy and shape.</p>
+            <p>These new hybrid orbitals are more effective at forming stable bonds and are oriented in space to match the geometries predicted by VSEPR theory.</p>
+            
+            <h3>Shapes of molecules and ions on the basis of VSEPR and hybridization</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Electron Domains (Steric No.)</th>
+                        <th>Hybridization</th>
+                        <th>Electron Geometry</th>
+                        <th>Lone Pairs</th>
+                        <th>Molecular Shape</th>
+                        <th>Bond Angle</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2</td>
+                        <td><strong>sp</strong></td>
+                        <td>Linear</td>
+                        <td>0</td>
+                        <td>Linear</td>
+                        <td>180°</td>
+                        <td>BeCl₂, CO₂</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><strong>sp²</strong></td>
+                        <td>Trigonal Planar</td>
+                        <td>0</td>
+                        <td>Trigonal Planar</td>
+                        <td>120°</td>
+                        <td>BF₃, SO₃</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>sp²</td>
+                        <td>Trigonal Planar</td>
+                        <td>1</td>
+                        <td><strong>Bent (V-shape)</strong></td>
+                        <td><120°</td>
+                        <td>SO₂</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><strong>sp³</strong></td>
+                        <td>Tetrahedral</td>
+                        <td>0</td>
+                        <td>Tetrahedral</td>
+                        <td>109.5°</td>
+                        <td>CH₄, NH₄⁺</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>sp³</td>
+                        <td>Tetrahedral</td>
+                        <td>1</td>
+                        <td><strong>Trigonal Pyramidal</strong></td>
+                        <td><109.5° (e.g., NH₃, 107°)</td>
+                        <td>NH₃</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>sp³</td>
+                        <td>Tetrahedral</td>
+                        <td>2</td>
+                        <td><strong>Bent (V-shape)</strong></td>
+                        <td><109.5° (e.g., H₂O, 104.5°)</td>
+                        <td>H₂O</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><strong>sp³d</strong></td>
+                        <td>Trigonal Bipyramidal</td>
+                        <td>0</td>
+                        <td>Trigonal Bipyramidal</td>
+                        <td>90°, 120°</td>
+                        <td>PCl₅</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>sp³d</td>
+                        <td>Trigonal Bipyramidal</td>
+                        <td>1</td>
+                        <td><strong>See-Saw</strong></td>
+                        <td><90°, <120°</td>
+                        <td>SF₄</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>sp³d</td>
+                        <td>Trigonal Bipyramidal</td>
+                        <td>2</td>
+                        <td><strong>T-shaped</strong></td>
+                        <td><90°</td>
+                        <td>ClF₃</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td><strong>sp³d²</strong></td>
+                        <td>Octahedral</td>
+                        <td>0</td>
+                        <td>Octahedral</td>
+                        <td>90°</td>
+                        <td>SF₆</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>sp³d²</td>
+                        <td>Octahedral</td>
+                        <td>1</td>
+                        <td><strong>Square Pyramidal</strong></td>
+                        <td><90°</td>
+                        <td>BrF₅</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>sp³d²</td>
+                        <td>Octahedral</td>
+                        <td>2</td>
+                        <td><strong>Square Planar</strong></td>
+                        <td>90°</td>
+                        <td>XeF₄</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="exam-tip">
+                <strong>VSEPR Rule for TBP:</strong> In a trigonal bipyramidal (TBP) geometry, lone pairs *always* occupy the <strong>equatorial</strong> positions to minimize repulsion, not the axial positions.
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="topic4">
+            <h2>Concept of Resonance</h2>
+            <p>Resonance is a VBT concept used when a <strong>single Lewis structure is insufficient</strong> to describe the bonding in a molecule or ion.
+            <br>
+            <strong>Example:</strong> In the carbonate ion (CO₃²⁻), a single Lewis structure would show one C=O double bond and two C-O single bonds. This is incorrect, as experiments show all three C-O bonds are identical in length (intermediate between a single and double bond).</p>
+            <p><strong>Definition:</strong> The true structure is a <strong>resonance hybrid</strong> (an average) of all possible, valid Lewis structures (called <strong>canonical forms</strong> or <strong>resonance structures</strong>). The electrons in the π-system are <strong>delocalized</strong> (spread out) over the molecule.</p>
+            <p><strong>Rules for Resonance:</strong></p>
+            <ul>
+                <li>Only electrons (π-electrons or lone pairs) move, not atoms.</li>
+                <li>All canonical forms must be valid Lewis structures.</li>
+                <li>The true hybrid is more stable than any single canonical form. This increased stability is called <strong>resonance energy</strong>.</li>
+            </ul>
+            </section>
+
+        <hr>
+
+        <section id="topic5">
+            <h2>Molecular Orbital (MO) Approach</h2>
+            <p>MO theory describes bonding in terms of <strong>molecular orbitals (MOs)</strong>, which are delocalized over the entire molecule, rather than localized between two atoms (like in VBT).</p>
+
+            <h3>Rules for the LCAO Method</h3>
+            <p>MOs are formed by the <strong>Linear Combination of Atomic Orbitals (LCAO)</strong>.</p>
+            <ol>
+                <li>Atomic orbitals (AOs) must have <strong>similar energy</strong> to combine. (e.g., 1s combines with 1s, but not with 2s).</li>
+                <li>AOs must have the <strong>same symmetry</strong> relative to the molecular axis. (e.g., a p_z orbital can combine with another p_z, but not with a p_x).</li>
+                <li>AOs must <strong>overlap effectively</strong>.</li>
+            </ol>
+            <p>When two AOs combine, they form two MOs:</p>
+            <ul>
+                <li><strong>Bonding Molecular Orbital (BMO):</strong> Formed by constructive interference (addition) of AOs. It has lower energy than the original AOs, has high electron density between the nuclei, and stabilizes the molecule. (e.g., σ, π)</li>
+                <li><strong>Anti-bonding Molecular Orbital (ABMO):</strong> Formed by destructive interference (subtraction) of AOs. It has higher energy, has a node between the nuclei, and destabilizes the molecule. (e.g., σ*, π*)</li>
+            </ul>
+            
+            <h3>MOs from s-s and p-p Overlap</h3>
+            <ul>
+                <li><strong>s-s overlap:</strong> 1s + 1s → σ1s (bonding) and σ*1s (anti-bonding)</li>
+                <li><strong>p-p overlap (end-on):</strong> p_z + p_z → σp (bonding) and σ*p (anti-bonding)</li>
+                <li><strong>p-p overlap (sideways):</strong> p_x + p_x → πp_x (bonding) and π*p_x (anti-bonding). Similarly, p_y + p_y → πp_y and π*p_y. The πp_x and πp_y orbitals are degenerate (same energy).</li>
+            </ul>
+
+            <h3>MO Diagrams of Homonuclear Diatomics (H₂ to Ne₂)</h3>
+            <p>Electrons are filled into the resulting MOs using the Aufbau principle, Pauli exclusion principle, and Hund's rule, just like for atoms.</p>
+            
+            <p><strong>Energy Level Order (for O₂, F₂, Ne₂):</strong>
+            <br>
+            σ1s < σ*1s < σ2s < σ*2s < <strong>σ2p</strong> < <strong>π2p</strong> < π*2p < σ*2p
+            </p>
+            
+            <p><strong>Energy Level Order (for B₂, C₂, N₂):</strong>
+            <br>
+            Due to <strong>s-p mixing</strong>, the σ2p orbital is pushed to a higher energy than the π2p orbitals.
+            <br>
+            σ1s < σ*1s < σ2s < σ*2s < <strong>π2p</strong> < <strong>σ2p</strong> < π*2p < σ*2p
+            </p>
+            
+            <h3>Bond Order and Magnetic Properties</h3>
+            <blockquote>
+                <strong>Bond Order = 1/2 · (No. of Bonding e⁻ - No. of Anti-bonding e⁻)</strong>
+            </blockquote>
+            <ul>
+                <li><strong>Bond Order > 0:</strong> Molecule is stable (exists).</li>
+                <li><strong>Bond Order = 0:</strong> Molecule is unstable (does not exist, e.g., He₂).</li>
+                <li>Higher bond order = stronger bond = shorter bond length.</li>
+            </ul>
+            <p><strong>Magnetic Properties:</strong>
+            <ul>
+                <li><strong>Paramagnetic:</strong> Has unpaired electrons. Attracted to a magnetic field. (e.g., O₂, B₂)</li>
+                <li><strong>Diamagnetic:</strong> All electrons are paired. Repelled by a magnetic field. (e.g., N₂, F₂)</li>
+            </ul>
+            <div class="exam-tip">
+                <strong>Success of MO Theory:</strong> MO theory correctly predicts that O₂ is paramagnetic (with two unpaired electrons in the π*2p orbitals) and has a bond order of 2, while VBT incorrectly predicts it is diamagnetic.
+            </div>
+
+            <h3>Homonuclear vs. Heteronuclear Diatomics (CO, NO, NO⁺)</h3>
+            <p>For heteronuclear diatomics, the AOs of the more electronegative atom are lower in energy. This creates an uneven (polar) distribution of electrons in the MOs.</p>
+            <ul>
+                <li><strong>CO (14 e⁻, like N₂):</strong> Bond Order = 1/2(10-4) = 3. Diamagnetic.</li>
+                <li><strong>NO (15 e⁻):</strong> Bond Order = 1/2(10-5) = 2.5. Paramagnetic (1 unpaired e⁻ in π*).</li>
+                <li><strong>NO⁺ (14 e⁻, like N₂):</strong> Bond Order = 1/2(10-4) = 3. Diamagnetic.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="topic6">
+            <h2>Comparison of VB and MO theories</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Valence Bond Theory (VBT)</th>
+                        <th>Molecular Orbital Theory (MOT)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Basic Concept</strong></td>
+                        <td>Overlap of atomic orbitals. Electrons are <strong>localized</strong> between two atoms.</td>
+                        <td>Combination of atomic orbitals to form molecular orbitals. Electrons are <strong>delocalized</strong> over the molecule.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bonding Unit</strong></td>
+                        <td>A covalent bond is formed by two overlapping AOs.</td>
+                        <td>The entire molecule is the unit. All AOs combine.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Resonance</strong></td>
+                        <td><strong>Required</strong> to explain delocalization (e.g., benzene).</td>
+                        <td><strong>Not required.</strong> Delocalization is an inherent part of the theory.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Magnetic Properties</strong></td>
+                        <td>Fails to explain some, e.g., the paramagnetism of O₂.</td>
+                        <td>Successfully explains magnetic properties (e.g., O₂, B₂).</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Species Explained</strong></td>
+                        <td>Mainly explains molecules in their ground state.</td>
+                        <td>Explains ground states, excited states, and the existence of ions (e.g., H₂⁺).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ease of Use</strong></td>
+                        <td>More intuitive and easier to visualize for shapes (VSEPR, hybridization).</td>
+                        <td>More complex and mathematical, but more accurate and powerful.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

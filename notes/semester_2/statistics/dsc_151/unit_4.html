@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics DSC 151 Unit 4 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Statistics DSC 151 (Probability Distributions), Unit 4, based on the Assam University syllabus. Covers all key discrete distributions: Bernoulli, Binomial, Poisson, Geometric, Negative Binomial, and Hypergeometric.">
+    <meta name="keywords" content="Statistics DSC 151, Probability Distributions, Unit 4, Assam University, Discrete Distributions, Bernoulli, Binomial, Poisson, Geometric, Negative Binomial, Hypergeometric">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        h1 {
+            color: #2e7d32;
+            border-bottom: 3px solid #2e7d32;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #388e3c;
+            border-bottom: 1px solid #e0e0e0;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #333;
+            padding-top: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        code {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #eef;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+        blockquote {
+            background-color: #e8f5e9;
+            border-left: 5px solid #2e7d32;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        .formula {
+            background-color: #fdfdfd;
+            border: 1px dashed #ccc;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        .exam-tip {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            background-color: #fffbe6;
+            border: 1px solid #ffecb3;
+        }
+        .toc {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            margin-top: 0;
+            color: #388e3c;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #337ab7;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #388e3c;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .placeholder {
+            border: 2px dashed #aaa;
+            padding: 20px;
+            text-align: center;
+            background-color: #fafafa;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 4: Discrete Probability Distributions</h1>
+        
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#intro">Introduction</a></li>
+                <li><a href="#uniform">4.1 Discrete Uniform Distribution</a></li>
+                <li><a href="#bernoulli">4.2 Bernoulli Distribution</a></li>
+                <li><a href="#binomial">4.3 Binomial Distribution</a></li>
+                <li><a href="#poisson">4.4 Poisson Distribution</a></li>
+                <li><a href="#geometric">4.5 Geometric Distribution</a></li>
+                <li><a href="#negative_binomial">4.6 Negative Binomial Distribution</a></li>
+                <li><a href="#hypergeometric">4.7 Hypergeometric Distribution</a></li>
+                <li><a href="#summary">4.8 Summary Table & Relationships</a></li>
+            </ul>
+        </div>
+        
+        <h2 id="intro">Introduction</h2>
+        <p>This unit covers the most common "named" discrete distributions. For each one, you should know its <strong>story</strong> (when to use it), its <strong>p.m.f.</strong>, its <strong>parameters</strong>, its <strong>Mean (E[X])</strong>, its <strong>Variance (Var(X))</strong>, and its <strong>M.G.F.</strong></p>
+
+        <h2 id="uniform">4.1 Discrete Uniform Distribution</h2>
+        <ul>
+            <li><strong>Story:</strong> The "simplest" distribution. All outcomes are equally likely. (e.g., rolling a single fair die).</li>
+            <li><strong>Parameters:</strong> <code>n</code> (the number of possible outcomes). Let the outcomes be x₁, x₂, ..., xₙ.</li>
+            <li><strong>P.M.F.:</strong>
+                <div class="formula">p(x) = 1/n,  for x = x₁, x₂, ..., xₙ</div>
+            </li>
+            <li><strong>Example (Fair Die):</strong> n=6. Outcomes are {1, 2, 3, 4, 5, 6}.
+                <br>p(x) = 1/6, for x = 1, 2, 3, 4, 5, 6.
+            </li>
+            <li><strong>Mean:</strong> E[X] = (n+1)/2 (for outcomes 1, 2, ..., n)</li>
+            <li><strong>Variance:</strong> Var(X) = (n²-1)/12 (for outcomes 1, 2, ..., n)</li>
+        </ul>
+
+        <h2 id="bernoulli">4.2 Bernoulli Distribution</h2>
+        <ul>
+            <li><strong>Story:</strong> A single trial with exactly two outcomes: "Success" (x=1) or "Failure" (x=0). (e.g., one coin flip).</li>
+            <li><strong>Parameters:</strong> <code>p</code> (the probability of success).</li>
+            <li><strong>P.M.F.:</strong>
+                <div class="formula">p(x) = p<sup>x</sup> * (1-p)<sup>1-x</sup>,  for x = 0, 1</div>
+                <p>This is a clever way to write it:
+                <br>If x=1 (Success): p¹ * (1-p)⁰ = p
+                <br>If x=0 (Failure): p⁰ * (1-p)¹ = 1-p
+                </p>
+            </li>
+            <li><strong>Mean:</strong> E[X] = p</li>
+            <li><strong>Variance:</strong> Var(X) = p * (1-p) = pq (where q = 1-p)</li>
+            <li><strong>M.G.F.:</strong> M(t) = (1-p) + p*e<sup>t</sup> = q + pe<sup>t</sup></li>
+        </ul>
+
+        <h2 id="binomial">4.3 Binomial Distribution</h2>
+        <ul>
+            <li><strong>Story:</strong> The total number of successes (X) in <code>n</code> <strong>independent</strong> Bernoulli trials, each with the same success probability <code>p</code>.</li>
+            <li><strong>Assumptions (B.I.N.S.):</strong>
+                <ul>
+                    <li><strong>B</strong>inary: Each trial is Success/Failure.</li>
+                    <li><strong>I</strong>ndependent: Trials are independent.</li>
+                    <li><strong>N</strong>umber: Fixed number of trials, <code>n</code>.</li>
+                    <li><strong>S</strong>ame: Probability of success <code>p</code> is the same for all trials.</li>
+                </ul>
+            </li>
+            <li><strong>Parameters:</strong> <code>n</code> (number of trials), <code>p</code> (probability of success). We write <strong>X ~ Bin(n, p)</strong>.</li>
+            <li><strong>P.M.F.:</strong>
+                <div class="formula">p(x) = C(n, x) * p<sup>x</sup> * (1-p)<sup>n-x</sup>,  for x = 0, 1, ..., n</div>
+                <p>Where C(n, x) = "n choose x" = n! / (x! * (n-x)!)</p>
+            </li>
+            <li><strong>Mean:</strong> E[X] = n * p</li>
+            <li><strong>Variance:</strong> Var(X) = n * p * (1-p) = npq</li>
+            <li><strong>M.G.F.:</strong> M(t) = (q + pe<sup>t</sup>)<sup>n</sup></li>
+            <li><strong>Relationship:</strong> A Binomial(n, p) is the <strong>sum of n independent Bernoulli(p)</strong> random variables.</li>
+        </ul>
+
+        <h2 id="poisson">4.4 Poisson Distribution</h2>
+        <ul>
+            <li><strong>Story:</strong> The number of events (X) occurring in a <strong>fixed interval</strong> of time or space, when the events occur at a known average rate <code>λ</code> (lambda) and independently of the time since the last event.</li>
+            <li><strong>Examples:</strong>
+                <ul>
+                    <li>Number of phone calls to a call center in one hour.</li>
+                    <li>Number of typos on a page in a book.</li>
+                    <li>Number of radioactive decay events in one second.</li>
+                </ul>
+            </li>
+            <li><strong>Parameters:</strong> <code>λ</code> (the average rate of events per interval). We write <strong>X ~ Poi(λ)</strong>.</li>
+            <li><strong>P.M.F.:</strong>
+                <div class="formula">p(x) = (e<sup>-λ</sup> * λ<sup>x</sup>) / x!,  for x = 0, 1, 2, ...</div>
+            </li>
+            <li><strong>Mean:</strong> E[X] = λ</li>
+            <li><strong>Variance:</strong> Var(X) = λ</li>
+            <li class="exam-tip"><strong>Property:</strong> The mean is <strong>equal</strong> to the variance. This is a key identifying feature of the Poisson distribution.</li>
+            <li><strong>M.G.F.:</strong> M(t) = e<sup>λ(e<sup>t</sup> - 1)</sup></li>
+            <li><strong>Property (Additivity):</strong> If X ~ Poi(λ₁) and Y ~ Poi(λ₂) are independent, then (X+Y) ~ Poi(λ₁ + λ₂).</li>
+        </ul>
+        <div class="exam-tip">
+            <strong>Poisson Approximation to Binomial:</strong>
+            <p>The Poisson distribution can be used as an approximation for the Binomial(n, p) distribution when:</p>
+            <ol>
+                <li><code>n</code> is very large (e.g., n > 100)</li>
+                <li><code>p</code> is very small (e.g., p < 0.01)</li>
+            </ol>
+            <p>In this case, we set <strong>λ = n * p</strong>. This is used because the Binomial C(n,x) formula becomes computationally difficult with large n.</p>
+        </div>
+
+        <h2 id="geometric">4.5 Geometric Distribution</h2>
+        <ul>
+            <li><strong>Story:</strong> The number of Bernoulli trials (X) needed to get the <strong>first success</strong>.</li>
+            <li><strong>Example:</strong> Keep flipping a coin until you get the first Head. X is the number of flips.</li>
+            <li><strong>Parameters:</strong> <code>p</code> (probability of success on any given trial).</li>
+            <li><strong>P.M.F.:</strong>
+                <div class="formula">p(x) = (1-p)<sup>x-1</sup> * p,  for x = 1, 2, 3, ...</div>
+                <p>(This means you have x-1 failures, followed by 1 success).</p>
+            </li>
+            <li><strong>Mean:</strong> E[X] = 1 / p</li>
+            <li><strong>Variance:</strong> Var(X) = (1-p) / p² = q / p²</li>
+            <li><strong>M.G.F.:</strong> M(t) = (p * e<sup>t</sup>) / (1 - (1-p)e<sup>t</sup>)</li>
+            <li><strong>Property (Memorylessness):</strong> The Geometric distribution is "memoryless." P(X > a+b | X > a) = P(X > b). This means if you've already waited 'a' trials without success, the probability of waiting an additional 'b' trials is the same as if you just started.</li>
+        </ul>
+        <p><em>(Note: Some textbooks define X as the number of *failures* before the first success. The syllabus's companion, Negative Binomial, suggests this "number of trials" definition is the one to use.)</em></p>
+        
+        <h2 id="negative_binomial">4.6 Negative Binomial Distribution</h2>
+        <ul>
+            <li><strong>Story:</strong> A generalization of the Geometric. It is the number of Bernoulli trials (X) needed to achieve a <strong>fixed number of successes</strong>, <code>r</code>.</li>
+            <li><strong>Example:</strong> Keep flipping a coin until you get 3 Heads (r=3). X is the total number of flips.</li>
+            <li><strong>Parameters:</strong> <code>r</code> (number of successes to achieve), <code>p</code> (probability of success).</li>
+            <li><strong>P.M.F.:</strong>
+                <div class="formula">p(x) = C(x-1, r-1) * p<sup>r</sup> * (1-p)<sup>x-r</sup>,  for x = r, r+1, ...</div>
+                <p><strong>Logic:</strong> For the r-th success to be on the x-th trial, two things must happen:
+                <br>1. The first (x-1) trials must contain exactly (r-1) successes. (This is C(x-1, r-1)).
+                <br>2. The x-th trial must be a success (This is 'p').
+                </ol>
+            </li>
+            <li><strong>Mean:</strong> E[X] = r / p</li>
+            <li><strong>Variance:</strong> Var(X) = r * (1-p) / p² = rq / p²</li>
+            <li><strong>Relationship:</strong> The Geometric distribution is just a Negative Binomial with r=1.</li>
+        </ul>
+
+        <h2 id="hypergeometric">4.7 Hypergeometric Distribution</h2>
+        <ul>
+            <li><strong>Story:</strong> This is the "Binomial without replacement." It's the number of successes (X) you get in a sample of size <code>n</code>, drawn <strong>without replacement</strong> from a finite population of size <code>N</code> that contains <code>K</code> successes.</li>
+            <li><strong>Example:</strong> An urn contains 50 balls (N=50), 20 of which are red (K=20). You draw 10 balls (n=10) *without replacement*. X is the number of red balls you drew.</li>
+            <li><strong>Parameters:</strong> <code>N</code> (total population size), <code>K</code> (total number of successes in population), <code>n</code> (sample size).</li>
+            <li><strong>P.M.F.:</strong>
+                <div class="formula">p(x) = [ C(K, x) * C(N-K, n-x) ] / C(N, n)</div>
+                <p><strong>Logic:</strong> (Ways to choose x successes from K) * (Ways to choose n-x failures from N-K) / (Total ways to choose n items from N).</p>
+            </li>
+            <li><strong>Mean:</strong> E[X] = n * (K / N) = n * p (where p = K/N is the initial proportion of successes).</li>
+            <li class="exam-tip">The mean is the same as the Binomial mean!</li>
+            <li><strong>Variance:</strong> Var(X) = n * (K/N) * (1 - K/N) * [ (N-n) / (N-1) ]</li>
+            <p>The term <strong>(N-n)/(N-1)</strong> is the <strong>Finite Population Correction (FPC)</strong> factor. As N → ∞, the FPC → 1, and the variance becomes the Binomial variance. This is why Hypergeometric → Binomial as the population size gets large.</p>
+        </ul>
+        
+        <h2 id="summary">4.8 Summary Table & Relationships</h2>
+        
+        <div class="placeholder">
+            </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Distribution</th>
+                    <th>Parameters</th>
+                    <th>P.M.F. p(x)</th>
+                    <th>Mean E[X]</th>
+                    <th>Variance Var(X)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Bernoulli</strong></td>
+                    <td>p</td>
+                    <td>p<sup>x</sup>(1-p)¹⁻ˣ</td>
+                    <td>p</td>
+                    <td>p(1-p)</td>
+                </tr>
+                <tr>
+                    <td><strong>Binomial</strong></td>
+                    <td>n, p</td>
+                    <td>C(n, x) p<sup>x</sup>(1-p)ⁿ⁻ˣ</td>
+                    <td>np</td>
+                    <td>np(1-p)</td>
+                </tr>
+                <tr>
+                    <td><strong>Poisson</strong></td>
+                    <td>λ</td>
+                    <td>(e<sup>-λ</sup> λ<sup>x</sup>) / x!</td>
+                    <td>λ</td>
+                    <td>λ</td>
+                </tr>
+                <tr>
+                    <td><strong>Geometric</strong></td>
+                    <td>p</td>
+                    <td>(1-p)<sup>x-1</sup> p</td>
+                    <td>1/p</td>
+                    <td>(1-p)/p²</td>
+                </tr>
+                <tr>
+                    <td><strong>Negative Binomial</strong></td>
+                    <td>r, p</td>
+                    <td>C(x-1, r-1) p<sup>r</sup>(1-p)ˣ⁻ʳ</td>
+                    <td>r/p</td>
+                    <td>r(1-p)/p²</td>
+                </tr>
+                <tr>
+                    <td><strong>Hypergeometric</strong></td>
+                    <td>N, K, n</td>
+                    <td>[C(K,x)C(N-K,n-x)]/C(N,n)</td>
+                    <td>n(K/N)</td>
+                    <td>n(K/N)(1-K/N)[(N-n)/(N-1)]</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

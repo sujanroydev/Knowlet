@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics DSC 151 Unit 5 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Statistics DSC 151 (Probability Distributions), Unit 5, based on the Assam University syllabus. Covers all key continuous distributions: Normal, Exponential, Uniform, Beta, Gamma, Cauchy, Weibull, and Laplace.">
+    <meta name="keywords" content="Statistics DSC 151, Probability Distributions, Unit 5, Assam University, Continuous Distributions, Normal, Exponential, Uniform, Beta, Gamma, Cauchy, Weibull, Laplace">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        h1 {
+            color: #4a148c;
+            border-bottom: 3px solid #4a148c;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #6a1b9a;
+            border-bottom: 1px solid #e0e0e0;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #333;
+            padding-top: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        code {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #eef;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+        blockquote {
+            background-color: #f3e5f5;
+            border-left: 5px solid #4a148c;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        .formula {
+            background-color: #fdfdfd;
+            border: 1px dashed #ccc;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        .exam-tip, .common-mistake {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .exam-tip {
+            background-color: #fffbe6;
+            border: 1px solid #ffecb3;
+        }
+        .common-mistake {
+            background-color: #ffebee;
+            border: 1px solid #ffcdd2;
+        }
+        .toc {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            margin-top: 0;
+            color: #6a1b9a;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #337ab7;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #6a1b9a;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .placeholder {
+            border: 2px dashed #aaa;
+            padding: 20px;
+            text-align: center;
+            background-color: #fafafa;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 5: Continuous Probability Distributions</h1>
+        
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#uniform">5.1 Continuous Uniform Distribution</a></li>
+                <li><a href="#normal">5.2 Normal Distribution</a></li>
+                <li><a href="#exponential">5.3 Exponential Distribution</a></li>
+                <li><a href="#gamma">5.4 Gamma Distribution</a></li>
+                <li><a href="#beta">5.5 Beta Distribution</a></li>
+                <li><a href="#cauchy">5.6 Cauchy Distribution</a></li>
+                <li><a href="#weibull">5.7 Weibull Distribution</a></li>
+                <li><a href="#laplace">5.8 Laplace Distribution</a></li>
+                <li><a href="#summary">5.9 Summary Table & Relationships</a></li>
+            </ul>
+        </div>
+
+        <h2 id="uniform">5.1 Continuous Uniform Distribution</h2>
+        <ul>
+            <li><strong>Story:</strong> Any value within a given interval [a, b] is equally likely. It represents a complete lack of knowledge about the value, except that it's in the interval.</li>
+            <li><strong>Example:</strong> A random number generator that produces a number between 0 and 1.</li>
+            <li><strong>Parameters:</strong> <code>a</code> (lower bound), <code>b</code> (upper bound). We write <strong>X ~ U(a, b)</strong>.</li>
+            <li><strong>P.D.F.:</strong>
+                <div class="formula">f(x) = 1 / (b - a),  for a ≤ x ≤ b</div>
+                <p>(And f(x)=0 otherwise. The graph is a simple rectangle of height 1/(b-a) and width (b-a), so the area is 1).</p>
+            </li>
+            <li><strong>Mean:</strong> E[X] = (a + b) / 2</li>
+            <li><strong>Variance:</strong> Var(X) = (b - a)² / 12</li>
+            <li><strong>M.G.F.:</strong> M(t) = (e<sup>tb</sup> - e<sup>ta</sup>) / (t * (b - a))</li>
+        </ul>
+
+        <h2 id="normal">5.2 Normal Distribution (Gaussian Distribution)</h2>
+        <ul>
+            <li><strong>Story:</strong> The most important distribution in all of statistics. It's the "bell curve." It arises naturally from the <strong>Central Limit Theorem</strong>, which states that the sum of many independent random variables tends to be normally distributed. It's used to model phenomena like height, IQ scores, measurement errors, etc.</li>
+            <li><strong>Parameters:</strong> <code>μ</code> (mu, the mean), <code>σ²</code> (sigma-squared, the variance). We write <strong>X ~ N(μ, σ²)</strong>.</li>
+            <li><strong>P.D.F.:</strong>
+                <div class="formula">f(x) = [ 1 / (σ * sqrt(2π)) ] * e<sup>-(x - μ)² / (2σ²)</sup>,  for -∞ < x < +∞</div>
+            </li>
+            <div class="placeholder">
+                </div>
+            <li><strong>Mean:</strong> E[X] = μ</li>
+            <li><strong>Variance:</strong> Var(X) = σ²</li>
+            <li><strong>M.G.F.:</strong> M(t) = e<sup>(μt + σ²t²/2)</sup></li>
+            <li><strong>Property (Additivity):</strong> If X ~ N(μ₁, σ₁²) and Y ~ N(μ₂, σ₂²) are independent, then (aX + bY) is also Normal.
+                <br>Specifically, (X+Y) ~ N(μ₁ + μ₂, σ₁² + σ₂²).
+            </li>
+        </ul>
+        <h3>Standard Normal Distribution (Z)</h3>
+        <ul>
+            <li>This is a special case of the Normal distribution with <strong>μ = 0</strong> and <strong>σ² = 1</strong>. We write <strong>Z ~ N(0, 1)</strong>.</li>
+            <li><strong>P.D.F.:</strong> φ(z) = [ 1 / sqrt(2π) ] * e<sup>-z²/2</sup></li>
+            <li><strong>Standardization:</strong> Any Normal variable X ~ N(μ, σ²) can be transformed into a Standard Normal variable Z by:</li>
+            <div class="formula">Z = (X - μ) / σ</div>
+            <p>This is how we use Z-tables to find probabilities for any Normal distribution.</p>
+        </ul>
+
+        <h2 id="exponential">5.3 Exponential Distribution</h2>
+        <ul>
+            <li><strong>Story:</strong> Describes the waiting time (X) until the next event in a Poisson process.</li>
+            <li><strong>Examples:</strong>
+                <ul>
+                    <li>Time between phone calls at a call center.</li>
+                    <li>Time until a radioactive particle decays.</li>
+                    <li>Lifetime of a component that fails at a constant rate.</li>
+                </ul>
+            </li>
+            <li><strong>Parameters:</strong> <code>λ</code> (lambda, the "rate" of events; same λ as in the Poisson process).</li>
+            <li><strong>P.D.F.:</strong>
+                <div class="formula">f(x) = λ * e<sup>-λx</sup>,  for x ≥ 0</div>
+            </li>
+            <li><strong>Mean:</strong> E[X] = 1 / λ (If the rate is 5 calls/hour, the mean wait time is 1/5 = 0.2 hours).</li>
+            <li><strong>Variance:</strong> Var(X) = 1 / λ²</li>
+            <li><strong>M.G.F.:</strong> M(t) = λ / (λ - t), for t < λ</li>
+            <li><strong>Property (Memorylessness):</strong> Just like the Geometric, the Exponential is memoryless. P(X > s+t | X > s) = P(X > t). If a lightbulb has worked for 100 hours, its probability of working for another 50 hours is the same as a brand new bulb working for 50 hours.</li>
+        </ul>
+        
+        <h2 id="gamma">5.4 Gamma Distribution</h2>
+        <ul>
+            <li><strong>Story:</strong> A generalization of the Exponential. It is the waiting time (X) until <code>α</code> (alpha) events have occurred in a Poisson process.</li>
+            <li><strong>Parameters:</strong> <code>α</code> (alpha, the "shape" parameter, or number of events), <code>λ</code> (lambda, the "rate" parameter). We write <strong>X ~ Gamma(α, λ)</strong>.</li>
+            <li><strong>P.D.F.:</strong>
+                <div class="formula">f(x) = [ λ<sup>α</sup> / Γ(α) ] * x<sup>α-1</sup> * e<sup>-λx</sup>,  for x ≥ 0</div>
+                <p>Where <strong>Γ(α) (Gamma function)</strong> is a generalization of the factorial. Γ(n) = (n-1)! for integers. Γ(α) = ∫<sub>0</sub><sup>∞</sup> t<sup>α-1</sup>e<sup>-t</sup> dt.</p>
+            </li>
+            <li><strong>Mean:</strong> E[X] = α / λ</li>
+            <li><strong>Variance:</strong> Var(X) = α / λ²</li>
+            <li><strong>M.G.F.:</strong> M(t) = (λ / (λ - t))<sup>α</sup></li>
+            <li><strong>Relationships:</strong>
+                <ul>
+                    <li><strong>Gamma(1, λ) = Exponential(λ)</strong>. (Set α=1 in all formulas).</li>
+                    <li>The <strong>sum of <code>α</code> independent Exponential(λ)</strong> variables is a <strong>Gamma(α, λ)</strong> variable.</li>
+                    <li>The <strong>Chi-Square (χ²)</strong> distribution is a special case of the Gamma.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2 id="beta">5.5 Beta Distribution</h2>
+        <ul>
+            <li><strong>Story:</strong> Very flexible distribution used to model variables that are constrained to be between 0 and 1, such as <strong>proportions, percentages, or probabilities</strong>.</li>
+            <li><strong>Examples:</strong>
+                <ul>
+                    <li>The proportion of defective items in a shipment.</li>
+                    <li>The fraction of time a machine is operational.</li>
+                </ul>
+            </li>
+            <li><strong>Parameters:</strong> <code>α</code> (alpha, shape), <code>β</code> (beta, shape). We write <strong>X ~ Beta(α, β)</strong>.</li>
+            <li><strong>P.D.F.:</strong>
+                <div class="formula">f(x) = [ 1 / B(α, β) ] * x<sup>α-1</sup> * (1-x)<sup>β-1</sup>,  for 0 ≤ x ≤ 1</div>
+                <p>Where <strong>B(α, β) (Beta function)</strong> = Γ(α)Γ(β) / Γ(α+β).</p>
+            </li>
+            <li><strong>Mean:</strong> E[X] = α / (α + β)</li>
+            <li><strong>Variance:</strong> Var(X) = (αβ) / [ (α+β)² * (α+β+1) ]</li>
+            <li><strong>Note:</strong> If α=1, β=1, then f(x)=1. This is the <strong>Uniform(0, 1)</strong> distribution.</li>
+        </ul>
+
+        <h2 id="cauchy">5.6 Cauchy Distribution</h2>
+        <ul>
+            <li><strong>Story:</strong> A "pathological" distribution famous for being a counterexample. It's the ratio of two independent Standard Normal (N(0,1)) variables.</li>
+            <li><strong>Example:</strong> A lighthouse at (0, 1) spins. The x-coordinate where the light beam hits the x-axis follows a Cauchy distribution.</li>
+            <li><strong>Parameters:</strong> <code>θ</code> (theta, location/median), <code>γ</code> (gamma, scale).</li>
+            <li><strong>P.D.F.:</strong>
+                <div class="formula">f(x) = 1 / [ πγ * (1 + ((x-θ)/γ)²) ]</div>
+            </li>
+            <li class="common-mistake">
+                <strong>Extremely Important Property:</strong> The <strong>Mean (E[X]) and Variance (Var(X)) are UNDEFINED</strong>.
+                <p>The integrals ∫ x*f(x) dx and ∫ x²*f(x) dx do not converge. The M.G.F. also does not exist. The "tails" of the distribution are too "fat."</p>
+            </li>
+            <li><strong>Median:</strong> θ</li>
+        </ul>
+
+        <h2 id="weibull">5.7 Weibull Distribution</h2>
+        <ul>
+            <li><strong>Story:</strong> Widely used in reliability and survival analysis to model the "time to failure" of a component. It is more flexible than the Exponential because its failure rate can change over time.</li>
+            <li><strong>Parameters:</strong> <code>k</code> (shape), <code>λ</code> (lambda, scale).</li>
+            <li><strong>P.D.F.:</strong>
+                <div class="formula">f(x) = (k/λ) * (x/λ)<sup>k-1</sup> * e<sup>-(x/λ)<sup>k</sup></sup>,  for x ≥ 0</div>
+            </li>
+            <li><strong>Relationship to Exponential:</strong> If k=1 (shape parameter is 1), the Weibull distribution simplifies to the <strong>Exponential(1/λ)</strong> distribution. (Note the parameter inversion).</li>
+            <li><strong>Mean:</strong> E[X] = λ * Γ(1 + 1/k)</li>
+            <li><strong>Variance:</strong> Var(X) = λ² * [ Γ(1 + 2/k) - (Γ(1 + 1/k))² ]</li>
+        </ul>
+
+        <h2 id="laplace">5.8 Laplace Distribution (Double Exponential)</h2>
+        <ul>
+            <li><strong>Story:</strong> Looks like two Exponential distributions placed back-to-back. It is "peaked" at the mean and has fatter tails than a Normal distribution, making it useful for modeling data with more outliers.</li>
+            <li><strong>Parameters:</strong> <code>μ</code> (location/mean), <code>b</code> (scale).</li>
+            <li><strong>P.D.F.:</strong>
+                <div class="formula">f(x) = [ 1 / (2b) ] * e<sup>-|x - μ| / b</sup>,  for -∞ < x < +∞</div>
+            </li>
+            <li><strong>Mean:</strong> E[X] = μ</li>
+            <li><strong>Variance:</strong> Var(X) = 2b²</li>
+        </ul>
+
+        <h2 id="summary">5.9 Summary Table & Relationships</h2>
+        <div class="placeholder">
+            </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Distribution</th>
+                    <th>Parameters</th>
+                    <th>Mean E[X]</th>
+                    <th>Variance Var(X)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Uniform(a, b)</strong></td>
+                    <td>a, b</td>
+                    <td>(a+b)/2</td>
+                    <td>(b-a)²/12</td>
+                </tr>
+                <tr>
+                    <td><strong>Normal(μ, σ²)</strong></td>
+                    <td>μ, σ²</td>
+                    <td>μ</td>
+                    <td>σ²</td>
+                </tr>
+                <tr>
+                    <td><strong>Exponential(λ)</strong></td>
+                    <td>λ (rate)</td>
+                    <td>1/λ</td>
+                    <td>1/λ²</td>
+                </tr>
+                <tr>
+                    <td><strong>Gamma(α, λ)</strong></td>
+                    <td>α (shape), λ (rate)</td>
+                    <td>α/λ</td>
+                    <td>α/λ²</td>
+                </tr>
+                <tr>
+                    <td><strong>Beta(α, β)</strong></td>
+                    <td>α (shape), β (shape)</td>
+                    <td>α / (α+β)</td>
+                    <td>(αβ) / [ (α+β)²(α+β+1) ]</td>
+                </tr>
+                <tr>
+                    <td><strong>Cauchy(θ, γ)</strong></td>
+                    <td>θ (loc), γ (scale)</td>
+                    <td><strong>Undefined</strong></td>
+                    <td><strong>Undefined</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

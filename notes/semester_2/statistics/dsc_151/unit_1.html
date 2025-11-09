@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics DSC 151 Unit 1 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Statistics DSC 151 (Probability Distributions), Unit 1, based on the Assam University syllabus. Covers random variables (discrete, continuous), PMF, PDF, CDF, and transformations.">
+    <meta name="keywords" content="Statistics DSC 151, Probability Distributions, Unit 1, Assam University, Random Variables, PMF, PDF, CDF, Univariate Transformations, Bivariate Transformations, Joint Marginal Conditional Distributions">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        h1 {
+            color: #2a7a9a;
+            border-bottom: 3px solid #2a7a9a;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #005662;
+            border-bottom: 1px solid #e0e0e0;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #333;
+            padding-top: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        code {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #eef;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+        blockquote {
+            background-color: #f0f8ff;
+            border-left: 5px solid #2a7a9a;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        .formula {
+            background-color: #fdfdfd;
+            border: 1px dashed #ccc;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        .exam-tip, .common-mistake {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .exam-tip {
+            background-color: #fffbe6;
+            border: 1px solid #ffecb3;
+        }
+        .common-mistake {
+            background-color: #ffebee;
+            border: 1px solid #ffcdd2;
+        }
+        .toc {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            margin-top: 0;
+            color: #005662;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #337ab7;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .placeholder {
+            border: 2px dashed #aaa;
+            padding: 20px;
+            text-align: center;
+            background-color: #fafafa;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #005662;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 1: Random Variables and Distributions</h1>
+        
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#univariate_rv">1.1 Univariate Random Variables</a></li>
+                <li><a href="#pmf_pdf_cdf">1.2 PMF, PDF, and CDF</a></li>
+                <li><a href="#univariate_transform">1.3 Univariate Transformations</a></li>
+                <li><a href="#bivariate_rv">1.4 Two-Dimensional (Bivariate) Random Variables</a></li>
+                <li><a href="#joint_marginal_conditional">1.5 Joint, Marginal, and Conditional Distributions</a></li>
+                <li><a href="#independence">1.6 Independence of Variables</a></li>
+                <li><a href="#bivariate_transform">1.7 Bivariate Transformations</a></li>
+            </ul>
+        </div>
+
+        <h2 id="univariate_rv">1.1 Univariate Random Variables</h2>
+        
+        <h3>Definition of a Random Variable</h3>
+        <p>A <strong>random variable</strong> (often denoted as X, Y, etc.) is a function that assigns a unique numerical value to each possible outcome in the sample space (S) of a random experiment.</p>
+        <p>It's a "variable" because it can take different values, and "random" because the specific value it takes is determined by the outcome of a random phenomenon.</p>
+        
+        <blockquote>
+            <strong>Example:</strong> Consider tossing two fair coins.
+            <ul>
+                <li>The sample space is S = {HH, HT, TH, TT}.</li>
+                <li>Let the random variable X be "the number of heads."</li>
+                <li>X is a function that maps outcomes to numbers:
+                    <ul>
+                        <li>X(HH) = 2</li>
+                        <li>X(HT) = 1</li>
+                        <li>X(TH) = 1</li>
+                        <li>X(TT) = 0</li>
+                    </ul>
+                </li>
+                <li>The possible values for X are {0, 1, 2}.</li>
+            </ul>
+        </blockquote>
+
+        <h3>Discrete vs. Continuous Random Variables</h3>
+        <p>Random variables are broadly classified into two types:</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Definition</th>
+                    <th>Values are...</th>
+                    <th>Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Discrete</strong></td>
+                    <td>A random variable that can take on a finite or countably infinite number of distinct values.</td>
+                    <td><strong>Counted.</strong> There are "gaps" between possible values.</td>
+                    <td>
+                        <ul>
+                            <li>Number of heads in 3 coin flips (0, 1, 2, 3)</li>
+                            <li>Number of cars passing a toll booth in an hour (0, 1, 2, ...)</li>
+                            <li>Number of defective items in a batch (0, 1, ..., n)</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Continuous</strong></td>
+                    <td>A random variable that can take on any value within a given range or interval.</td>
+                    <td><strong>Measured.</strong> There are no gaps between values.</td>
+                    <td>
+                        <ul>
+                            <li>Height of a student (e.g., any value between 150cm and 190cm)</li>
+                            <li>Temperature of a room</li>
+                            <li>Time until a light bulb burns out</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="pmf_pdf_cdf">1.2 PMF, PDF, and CDF</h2>
+        <p>We describe the probability of different values of a random variable using a distribution function.</p>
+
+        <h3>Probability Mass Function (p.m.f.)</h3>
+        <ul>
+            <li><strong>Used for:</strong> Discrete Random Variables.</li>
+            <li><strong>Definition:</strong> A function p(x) that gives the probability that the discrete random variable X is exactly equal to some value x.</li>
+            <div class="formula">p(x) = P(X = x)</div>
+            <li><strong>Properties:</strong>
+                <ol>
+                    <li>p(x) ≥ 0 for all x (Probabilities can't be negative).</li>
+                    <li>Σ p(x) = 1 (The sum of probabilities for all possible outcomes must be 1).</li>
+                </ol>
+            </li>
+            <li><strong>Example (Two Coin Toss):</strong> For X = number of heads, the p.m.f. is:
+                <ul>
+                    <li>p(0) = P(X=0) = P(TT) = 1/4</li>
+                    <li>p(1) = P(X=1) = P(HT or TH) = 2/4 = 1/2</li>
+                    <li>p(2) = P(X=2) = P(HH) = 1/4</li>
+                    <li>Check: (1/4) + (1/2) + (1/4) = 1.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Probability Density Function (p.d.f.)</h3>
+        <ul>
+            <li><strong>Used for:</strong> Continuous Random Variables.</li>
+            <li><strong>Definition:</strong> A function f(x) where the area under the curve between two points (a, b) gives the probability that X falls within that interval.</li>
+            <div class="formula">P(a ≤ X ≤ b) = ∫<sub>a</sub><sup>b</sup> f(x) dx</div>
+            <li><strong>Properties:</strong>
+                <ol>
+                    <li>f(x) ≥ 0 for all x (The density curve cannot dip below the x-axis).</li>
+                    <li>∫<sub>-∞</sub><sup>+∞</sup> f(x) dx = 1 (The total area under the entire curve must be 1).</li>
+                </ol>
+            </li>
+        </ul>
+        <div class="common-mistake">
+            <strong>Common Mistake:</strong> For a continuous random variable, the probability of any single, exact value is <strong>zero</strong>.
+            <p>P(X = a) = ∫<sub>a</sub><sup>a</sup> f(x) dx = 0.</p>
+            <p>This is because there is no "area" under a single point. Probabilities are only defined over intervals. This also means P(a ≤ X ≤ b) is the same as P(a < X < b).</p>
+        </div>
+
+        <h3>Cumulative Distribution Function (c.d.f.)</h3>
+        <ul>
+            <li><strong>Used for:</strong> Both Discrete and Continuous Random Variables.</li>
+            <li><strong>Definition:</strong> A function F(x) that gives the probability that the random variable X is less than or equal to a specific value x.</li>
+            <div class="formula">F(x) = P(X ≤ x)</div>
+            <li><strong>For Discrete X:</strong> F(x) = Σ<sub>t≤x</sub> p(t)
+                <ul><li>The C.D.F. is a "step function" that jumps up at each possible value of X.</li></ul>
+            </li>
+            <li><strong>For Continuous X:</strong> F(x) = ∫<sub>-∞</sub><sup>x</sup> f(t) dt
+                <ul>
+                    <li>The C.D.F. is a continuous, non-decreasing function.</li>
+                    <li><strong>Relationship to p.d.f.:</strong> You can get the p.d.f. by differentiating the c.d.f.: f(x) = d/dx F(x).</li>
+                </ul>
+            </li>
+            <li><strong>Universal Properties of C.D.F.:</strong>
+                <ol>
+                    <li>0 ≤ F(x) ≤ 1 (It is a probability).</li>
+                    <li>F(x) is non-decreasing (i.e., if a < b, then F(a) ≤ F(b)).</li>
+                    <li>lim<sub>x→-∞</sub> F(x) = 0 (Probability of X ≤ -∞ is 0).</li>
+                    <li>lim<sub>x→+∞</sub> F(x) = 1 (Probability of X ≤ +∞ is 1).</li>
+                </ol>
+            </li>
+        </ul>
+
+        <h2 id="univariate_transform">1.3 Univariate Transformations</h2>
+        <p>Often, we are interested in a function of a random variable. If we know the distribution of X, can we find the distribution of Y = g(X)?</p>
+        
+        <h3>Discrete Case</h3>
+        <p>This is straightforward. The p.m.f. of Y is found by summing the probabilities of all x values that map to a given y value.</p>
+        <p>p<sub>Y</sub>(y) = P(Y=y) = P(g(X) = y) = Σ<sub>{x | g(x)=y}</sub> p<sub>X</sub>(x)</p>
+        <blockquote>
+            <strong>Example:</strong> Let X have p.m.f. p(-1)=0.1, p(0)=0.3, p(1)=0.4, p(2)=0.2.<br>
+            Find the p.m.f. of Y = X².
+            <ul>
+                <li>Y can take values X² = {(-1)², 0², 1², 2²} = {1, 0, 4}.</li>
+                <li>p<sub>Y</sub>(0) = P(Y=0) = P(X²=0) = P(X=0) = 0.3</li>
+                <li>p<sub>Y</sub>(1) = P(Y=1) = P(X²=1) = P(X=-1 or X=1) = p<sub>X</sub>(-1) + p<sub>X</sub>(1) = 0.1 + 0.4 = 0.5</li>
+                <li>p<sub>Y</sub>(4) = P(Y=4) = P(X²=4) = P(X=2) = 0.2</li>
+                <li>The p.m.f. for Y is: p<sub>Y</sub>(0)=0.3, p<sub>Y</sub>(1)=0.5, p<sub>Y</sub>(4)=0.2. (Check: 0.3+0.5+0.2 = 1).</li>
+            </ul>
+        </blockquote>
+
+        <h3>Continuous Case (Change of Variable Technique)</h3>
+        <p>This is more complex and requires calculus. If Y = g(X) is a monotonic (strictly increasing or decreasing) function, we can find the p.d.f. of Y.</p>
+        <ol>
+            <li>Find the inverse function: x = g⁻¹(y).</li>
+            <li>Find the derivative of the inverse function: dx/dy.</li>
+            <li>The p.d.f. of Y is given by the formula:</li>
+        </ol>
+        <div class="formula">
+            f<sub>Y</sub>(y) = f<sub>X</sub>(g⁻¹(y)) * |dx/dy|
+        </div>
+        <p>The |dx/dy| term is called the <strong>Jacobian</strong> of the transformation. It scales the density function to ensure the total area remains 1.</p>
+        
+        <blockquote>
+            <strong>Example:</strong> Let X be a continuous RV with p.d.f. f<sub>X</sub>(x) = 2x, for 0 < x < 1.<br>
+            Find the p.d.f. of Y = 8X³.
+            <ol>
+                <li><strong>Find range of Y:</strong> If 0 < x < 1, then 0 < 8x³ < 8. So, 0 < y < 8.</li>
+                <li><strong>Find inverse:</strong> y = 8x³  =>  x³ = y/8  =>  x = (y/8)¹/³ = y¹/³ / 2.  So, g⁻¹(y) = y¹/³ / 2.</li>
+                <li><strong>Find derivative:</strong> dx/dy = d/dy ( (1/2) * y¹/³ ) = (1/2) * (1/3) * y⁻²/³ = 1 / (6y²/³).</li>
+                <li><strong>Apply formula:</strong>
+                    <ul>
+                        <li>f<sub>Y</sub>(y) = f<sub>X</sub>(g⁻¹(y)) * |dx/dy|</li>
+                        <li>f<sub>Y</sub>(y) = 2(g⁻¹(y)) * |1 / (6y²/³)|</li>
+                        <li>f<sub>Y</sub>(y) = 2(y¹/³ / 2) * (1 / (6y²/³))  <em>(Since y > 0, absolute value is not needed)</em></li>
+                        <li>f<sub>Y</sub>(y) = (y¹/³) * (1 / (6y²/³)) = y¹/³⁻²/³ / 6 = y⁻¹/³ / 6</li>
+                    </ul>
+                </li>
+                <li><strong>Final PDF:</strong> f<sub>Y</sub>(y) = 1 / (6y¹/³), for 0 < y < 8.</li>
+            </ol>
+        </blockquote>
+        
+        <h2 id="bivariate_rv">1.4 Two-Dimensional (Bivariate) Random Variables</h2>
+        <p>We often need to study two or more random variables simultaneously. A bivariate random variable is an ordered pair (X, Y) that maps each outcome in a sample space S to a point in the 2D plane.</p>
+        <ul>
+            <li><strong>(Discrete, Discrete):</strong> (Number of heads, Number of tails).</li>
+            <li><strong>(Continuous, Continuous):</strong> (Height, Weight).</li>
+            <li><strong>(Discrete, Continuous):</strong> (Number of children in a family, Annual income).</li>
+        </ul>
+        
+        <h2 id="joint_marginal_conditional">1.5 Joint, Marginal, and Conditional Distributions</h2>
+        
+        <h3>Joint p.m.f. and p.d.f.</h3>
+        <p>This is the 2D equivalent of a p.m.f./p.d.f. It describes the probability of X and Y *simultaneously* taking on certain values.</p>
+        <ul>
+            <li><strong>Joint p.m.f. (Discrete):</strong> p(x, y) = P(X=x, Y=y)
+                <ul>
+                    <li>Properties: 1. p(x,y) ≥ 0,  2. Σ<sub>x</sub> Σ<sub>y</sub> p(x,y) = 1</li>
+                </ul>
+            </li>
+            <li><strong>Joint p.d.f. (Continuous):</strong> f(x, y)
+                <ul>
+                    <li>Properties: 1. f(x,y) ≥ 0,  2. ∫<sub>-∞</sub><sup>+∞</sup> ∫<sub>-∞</sub><sup>+∞</sup> f(x,y) dx dy = 1</li>
+                    <li>Probability is volume: P(a<X<b, c<Y<d) = ∫<sub>c</sub><sup>d</sup> ∫<sub>a</sub><sup>b</sup> f(x,y) dx dy.</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h3>Joint c.d.f.</h3>
+        <p>F(x, y) = P(X ≤ x, Y ≤ y)</p>
+        <ul>
+            <li><strong>Discrete:</strong> F(x, y) = Σ<sub>s≤x</sub> Σ<sub>t≤y</sub> p(s, t)</li>
+            <li><strong>Continuous:</strong> F(x, y) = ∫<sub>-∞</sub><sup>y</sup> ∫<sub>-∞</sub><sup>x</sup> f(s, t) ds dt</li>
+            <li>We can get the joint p.d.f. from the c.d.f.: f(x,y) = ∂²F(x,y) / (∂x ∂y).</li>
+        </ul>
+        
+        <h3>Marginal Distributions</h3>
+        <p>The marginal distribution of X is the individual probability distribution of X, "ignoring" Y. We get it by "summing out" or "integrating out" the other variable from the joint distribution.</p>
+        
+        <ul>
+            <li><strong>Marginal p.m.f. for X (Discrete):</strong>
+                <div class="formula">p<sub>X</sub>(x) = P(X=x) = Σ<sub>y</sub> p(x, y)</div>
+                <p>Think of this as summing across the rows in a joint probability table.</p>
+            </li>
+            <li><strong>Marginal p.d.f. for X (Continuous):</strong>
+                <div class="formula">f<sub>X</sub>(x) = ∫<sub>-∞</sub><sup>+∞</sup> f(x, y) dy</div>
+                <p>This gives the individual p.d.f. for X. The same logic applies for finding the marginal distribution of Y (sum/integrate over x).</p>
+            </li>
+        </ul>
+
+        <h3>Conditional Distributions</h3>
+        <p>The conditional distribution describes the probability of one variable *given that we know* the value of the other. It's like taking a "slice" of the joint distribution.</p>
+        
+        <ul>
+            <li><strong>Conditional p.m.f. of Y given X=x:</strong>
+                <div class="formula">p(y | x) = P(Y=y | X=x) = P(X=x, Y=y) / P(X=x) = p(x, y) / p<sub>X</sub>(x)</div>
+            </li>
+            <li><strong>Conditional p.d.f. of Y given X=x:</strong>
+                <div class="formula">f(y | x) = f(x, y) / f<sub>X</sub>(x)</div>
+            </li>
+        </ul>
+        <div class="exam-tip">
+            <strong>Key Relationship:</strong> The joint distribution is the product of the marginal and the conditional.
+            <p><strong>f(x, y) = f(y | x) * f<sub>X</sub>(x)</strong>   and   <strong>f(x, y) = f(x | y) * f<sub>Y</sub>(y)</strong></p>
+            <p>This is just a rearrangement of the conditional formula and is extremely useful in proofs.</p>
+        </div>
+
+        <h2 id="independence">1.6 Independence of Variables</h2>
+        <blockquote>
+            <strong>Definition:</strong> Two random variables X and Y are <strong>independent</strong> if and only if their joint distribution function factors into the product of their individual marginal distribution functions.
+        </blockquote>
+        
+        <ul>
+            <li><strong>For all (x, y):</strong>
+                <ul>
+                    <li><strong>Joint c.d.f.:</strong> F(x, y) = F<sub>X</sub>(x) * F<sub>Y</sub>(y)</li>
+                    <li><strong>Joint p.m.f./p.d.f.:</strong> f(x, y) = f<sub>X</sub>(x) * f<sub>Y</sub>(y)</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <p>If X and Y are independent, then the conditional distribution is equal to the marginal distribution:</p>
+        <p><strong>f(y | x)</strong> = f(x, y) / f<sub>X</sub>(x) = (f<sub>X</sub>(x) * f<sub>Y</sub>(y)) / f<sub>X</sub>(x) = <strong>f<sub>Y</sub>(y)</strong></p>
+        <p>This makes intuitive sense: if the variables are independent, knowing the value of X gives you no new information about Y.</p>
+
+        <h2 id="bivariate_transform">1.7 Bivariate Transformations</h2>
+        <p>This extends the univariate case. We have (X, Y) and want to find the joint p.d.f. of new variables, U and V, where:</p>
+        <p>U = g₁(X, Y) and V = g₂(X, Y)</p>
+        
+        <h3>The Jacobian Method (Change of Variables)</h3>
+        <ol>
+            <li>Define the transformations: U = g₁(X, Y) and V = g₂(X, Y).</li>
+            <li>Solve for the inverse functions: X = h₁(U, V) and Y = h₂(U, V).</li>
+            <li>Calculate the <strong>Jacobian determinant (J)</strong> of the inverse transformation. This is the determinant of a matrix of partial derivatives:</li>
+        </ol>
+        <div class="formula">
+            J = det 
+            [ 
+              (∂x/∂u) (∂x/∂v) 
+              (∂y/∂u) (∂y/∂v) 
+            ] 
+            = (∂x/∂u)(∂y/∂v) - (∂x/∂v)(∂y/∂u)
+        </div>
+        <ol start="4">
+            <li>The new joint p.d.f. for U and V is:</li>
+        </ol>
+        <div class="formula">
+            f<sub>U,V</sub>(u, v) = f<sub>X,Y</sub>(h₁(u, v), h₂(u, v)) * |J|
+        </div>
+        <p>You must also transform the domain (the range of possible x, y values) into the new domain for u, v.</p>
+        
+        <div class="placeholder">
+            </div>
+
+        <div class="exam-tip">
+            <strong>Classic Exam Problem:</strong> Let X and Y be independent Exponential(λ) variables. Find the joint distribution of U = X+Y and V = X/(X+Y).
+            <p>You will find that U and V are independent, where U is a Gamma variable and V is a Beta variable. This is a very common and important transformation.</p>
+        </div>
+        
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

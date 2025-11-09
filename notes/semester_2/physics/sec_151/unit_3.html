@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics SEC 151 Unit 3 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for PHYSEC151 (Electrical Circuits and Safety) Unit 3, covering Electrical Drawing, Symbols, Generators, and Transformers.">
+    <meta name="keywords" content="PHYSEC151, Unit 3, Electrical Drawing, Schematics, Power Factor, Generators, Transformers, Inductance, Capacitance, Impedance, Assam University, 2nd Semester Physics">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f7f6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3, h4 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            border-bottom: 3px solid #d35400;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 2em;
+            color: #d35400;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #e67e22;
+            margin-top: 25px;
+        }
+        h4 {
+            font-size: 1.2em;
+            color: #555;
+        }
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            font-size: 1.1em;
+            font-style: italic;
+            font-family: 'Georgia', serif;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: #fef5e7;
+            border-left: 5px solid #d35400;
+            color: #34495e;
+            border-radius: 5px;
+        }
+        code, .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.1em;
+        }
+        .exam-tip {
+            background: #fcf3cf;
+            border: 1px solid #f1c40f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #a04000;
+        }
+        #toc {
+            background: #fffaf0;
+            border: 1px solid #fdebd0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        #toc h3 {
+            margin-top: 0;
+            color: #b95000;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 10px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #e67e22;
+            font-weight: bold;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 3: Electrical Drawing, Generators, and Transformers</h1>
+
+        <div id="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#drawing">1. Electrical Drawing and Symbols</a></li>
+                <li><a href="#analysis">2. DC Circuit Analysis</a></li>
+                <li><a href="#pf">3. Power Factor</a></li>
+                <li><a href="#gen-trans">4. Generators and Transformers</a></li>
+            </ul>
+        </div>
+
+        <h2 id="drawing">1. Electrical Drawing and Symbols</h2>
+        <p>Electrical drawings are used to represent circuits in a standard way.</p>
+        
+        <h3>Main Electric Circuit Elements</h3>
+        <p>These are the basic building blocks:</p>
+        <ul>
+            <li><strong>Source:</strong> Provides energy (e.g., Battery, AC Voltage Source).</li>
+            <li><strong>Path:</strong> Conductors (wires) for the current to flow.</li>
+            <li><strong>Load:</strong> Consumes energy (e.g., Resistor, Lamp, Motor).</li>
+            <li><strong>Control:</strong> Regulates the flow (e.g., Switch).</li>
+        </ul>
+        
+        <h3>Drawing Types</h3>
+        <ul>
+            <li><strong>Blueprints:</strong> A general term for any detailed technical drawing (often blue, historically).</li>
+            <li><strong>Schematics (Circuit Diagrams):</strong> The most important type. Uses standard symbols to show the *function* and *connections* of a circuit, not its physical appearance or layout.</li>
+            <li><strong>Ladder Diagrams:</strong> A specific type of schematic used for industrial control logic (like in PLCs). It looks like a ladder, with two vertical "rails" (power) and horizontal "rungs" representing control circuits (switches, relays, motors).</li>
+        </ul>
+        
+        <h3>Common Drawing Symbols</h3>
+        <p>It's essential to memorize the standard symbols for components.</p>
+        
+        [Image of common electrical schematic symbols: Resistor, Capacitor, Inductor, Switch, DC Source (Battery), AC Source, Lamp, Motor, Ground, Fuse]
+
+        <h2 id="analysis">2. DC Circuit Analysis</h2>
+        
+        <h3>Rules to Analyze DC Circuits</h3>
+        <p>To analyze a DC circuit, you find the voltage across and current through each component. The main rules are:</p>
+        <ol>
+            <li><strong>Ohm's Law:</strong> V = IR</li>
+            <li><strong>Kirchhoff's Current Law (KCL):</strong> Σ I<sub>in</sub> = Σ I<sub>out</sub> at any node.</li>
+            <li><strong>Kirchhoff's Voltage Law (KVL):</strong> Σ V<sub>rises</sub> = Σ V<sub>drops</sub> in any loop.</li>
+        </ol>
+        
+        <h3>Current and Voltage Drop</h3>
+        <p>When current (I) flows through a resistor (R), it creates a <strong>voltage drop</strong> (V = IR). This is a loss of electrical potential, which is converted to heat.</p>
+        <p><strong>Example:</strong> In a simple series circuit with a 12V battery and two resistors (R₁=4Ω, R₂=2Ω):</p>
+        <ol>
+            <li><strong>Total Resistance:</strong> R<sub>eq</sub> = R₁ + R₂ = 4 + 2 = 6Ω.</li>
+            <li><strong>Total Current:</strong> I = V / R<sub>eq</sub> = 12V / 6Ω = 2A.</li>
+            <li><strong>Voltage Drop (R₁):</strong> V₁ = I × R₁ = 2A × 4Ω = 8V.</li>
+            <li><strong>Voltage Drop (R₂):</strong> V₂ = I × R₂ = 2A × 2Ω = 4V.</li>
+            <li><strong>Check (KVL):</strong> 8V + 4V = 12V (Total drop = Total rise).</li>
+        </ol>
+
+        <h2 id="pf">3. Power Factor</h2>
+        <p><strong>Power Factor (PF)</strong> is a concept for <strong>AC circuits only</strong>.</p>
+        <p>In AC circuits, we have two types of power:</p>
+        <ul>
+            <li><strong>True Power (P):</strong> The actual power used to do work (e.g., create heat or motion). Measured in <strong>Watts (W)</strong>.</li>
+            <li><strong>Apparent Power (S):</strong> The "total" power drawn by the circuit (S = V<sub>rms</sub> × I<sub>rms</sub>). Measured in <strong>Volt-Amperes (VA)</strong>.</li>
+        </ul>
+        <p>In circuits with inductive or capacitive loads, some power is "borrowed" and "returned" to the circuit each cycle to build magnetic or electric fields. This "reactive power" doesn't do work, but it increases the Apparent Power (S).</p>
+        
+        <blockquote><strong>Definition:</strong> Power Factor (PF) = True Power (P) / Apparent Power (S)</blockquote>
+        
+        <ul>
+            <li>PF is a number between 0 and 1 (or 0% to 100%).</li>
+            <li>A purely <strong>resistive</strong> circuit (heater) has PF = 1 (or 100%). All power is used.</li>
+            <li>An <strong>inductive</strong> circuit (motor) has a "lagging" PF < 1.</li>
+            <li>A <strong>capacitive</strong> circuit has a "leading" PF < 1.</li>
+        </ul>
+        <p>Low power factor is inefficient. Power companies charge penalties for it because they have to supply the high Apparent Power (S) even if the True Power (P) being used is low.</p>
+
+        <h2 id="gen-trans">4. Generators and Transformers</h2>
+        
+        <h3>DC Power Sources</h3>
+        <p>Sources that provide Direct Current (constant voltage/current).</p>
+        <ul>
+            <li><strong>Batteries:</strong> Chemical power sources.</li>
+            <li><strong>Solar Cells:</strong> Convert light to DC.</li>
+            <li><strong>DC Generators (Dynamo):</strong> Convert mechanical rotation to DC.</li>
+            <li><strong>Power Supplies:</strong> Convert AC from the wall into DC for electronics.</li>
+        </ul>
+        
+        <h3>AC/DC Generators</h3>
+        <p>A generator converts mechanical energy into electrical energy using <strong>Faraday's Law of Induction</strong> (rotating a coil of wire in a magnetic field).</p>
+        <ul>
+            <li><strong>AC Generator (Alternator):</strong> The rotating coil is connected to <strong>slip rings</strong>. These continuous rings output the natural sinusoidal AC voltage. This is how all power plants work.</li>
+            <li><strong>DC Generator (Dynamo):</strong> The rotating coil is connected to a <strong>split-ring commutator</strong>. This special switch reverses the connection to the external circuit every half-rotation, "flipping" the negative half of the AC wave. This produces a pulsating DC.</li>
+        </ul>
+        [Image of AC Generator (slip rings) vs DC Generator (split-ring commutator)]
+
+        <h3>Inductance, Capacitance, and Impedance</h3>
+        <p>In AC circuits, components resist current in different ways:</p>
+        <ul>
+            <li><strong>Resistance (R):</strong> "Normal" resistance. Opposes AC and DC.</li>
+            <li><strong>Inductive Reactance (X<sub>L</sub>):</strong> An inductor's opposition to AC. It *increases* with frequency (X<sub>L</sub> = 2πfL).</li>
+            <li><strong>Capacitive Reactance (X<sub>C</sub>):</strong> A capacitor's opposition to AC. It *decreases* with frequency (X<sub>C</sub> = 1 / (2πfC)).</li>
+        </ul>
+        <p><strong>Impedance (Z)</strong> is the total opposition to current in an AC circuit. It's the vector sum of resistance and reactance.</p>
+        <blockquote><strong>Formula:</strong> Z = √(R² + (X<sub>L</sub> - X<sub>C</sub>)²)</blockquote>
+
+        <h3>Operation of Transformers</h3>
+        <p>A <strong>transformer</strong> is a static device that transfers AC power from one circuit to another, usually changing the voltage and current levels. It <strong>does not work for DC</strong>.</p>
+        <p><strong>Principle (Mutual Induction):</strong></p>
+        <ol>
+            <li>An AC voltage (V<sub>p</sub>) is applied to the <strong>primary coil</strong> (N<sub>p</sub> turns).</li>
+            <li>This AC creates a continuously changing magnetic flux in the <strong>iron core</strong>.</li>
+            <li>The shared, changing magnetic flux induces an AC voltage (V<sub>s</sub>) in the <strong>secondary coil</strong> (N<sub>s</sub> turns).</li>
+        </ol>
+        
+        [Image of a step-up and step-down transformer schematic]
+        
+        <p><strong>Ideal Transformer Equation:</strong></p>
+        <blockquote><strong>Voltage Ratio:</strong> V<sub>p</sub> / V<sub>s</sub> = N<sub>p</sub> / N<sub>s</sub></blockquote>
+        <blockquote><strong>Current Ratio:</strong> I<sub>p</sub> / I<sub>s</sub> = N<sub>s</sub> / N<sub>p</sub></blockquote>
+        
+        <ul>
+            <li><strong>Step-Up Transformer:</strong> N<sub>s</sub> > N<sub>p</sub>. Voltage increases, current decreases. (Used at power plants to transmit at high voltage).</li>
+            <li><strong>Step-Down Transformer:</strong> N<sub>s</sub> < N<sub>p</sub>. Voltage decreases, current increases. (Used on utility poles and in phone chargers).</li>
+        </ul>
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSC 151 Unit 5 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for PHYDSC151T (Electricity and Magnetism) Unit 5, covering AC Circuits, LCR Circuits, Resonance, Network Theorems, and Ballistic Galvanometer.">
+    <meta name="keywords" content="PHYDSC151T, Electricity and Magnetism, Unit 5, AC Circuits, LCR Circuit, Resonance, Thevenin, Norton, Max Power, Ballistic Galvanometer, Assam University, 2nd Semester Physics">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3, h4 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            border-bottom: 3px solid #8e44ad;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 2em;
+            color: #8e44ad;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #7d3c98;
+            margin-top: 25px;
+        }
+        h4 {
+            font-size: 1.2em;
+            color: #555;
+        }
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            font-size: 1.1em;
+            font-style: italic;
+            font-family: 'Georgia', serif;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: #f5eaf8;
+            border-left: 5px solid #8e44ad;
+            color: #34495e;
+            border-radius: 5px;
+        }
+        code, .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.1em;
+        }
+        .exam-tip {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d4a017;
+        }
+        #toc {
+            background: #fdf6ff;
+            border: 1px solid #f0d9ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        #toc h3 {
+            margin-top: 0;
+            color: #5b2c6f;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 10px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #7d3c98;
+            font-weight: bold;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 5: Electrical Circuits</h1>
+
+        <div id="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#ac-intro">1. AC Circuits: Kirchhoff's Laws, Reactance, Impedance</a></li>
+                <li><a href="#lcr-series">2. Series LCR Circuit</a></li>
+                <li><a href="#lcr-parallel">3. Parallel LCR Circuit</a></li>
+                <li><a href="#network">4. Network Theorems</a></li>
+                <li><a href="#ballistic">5. Ballistic Galvanometer</a></li>
+            </ul>
+        </div>
+
+        <h2 id="ac-intro">1. AC Circuits: Kirchhoff's Laws, Reactance, Impedance</h2>
+        
+        <h3>Kirchhoff's Laws for AC Circuits</h3>
+        <p>Kirchhoff's laws, fundamental to DC circuits, also apply to AC circuits. However, we must use <strong>phasors</strong> and <strong>complex impedances</strong>, as the voltages and currents have both magnitude and phase.</p>
+        <ul>
+            <li><strong>Kirchhoff's Current Law (KCL):</strong> The phasor sum of currents entering any node is zero. (ΣI = 0)</li>
+            <li><strong>Kirchhoff's Voltage Law (KVL):</strong> The phasor sum of voltage drops around any closed loop is zero. (ΣV = 0)</li>
+        </ul>
+
+        <h3>Complex Reactance and Impedance</h3>
+        <p>To analyze AC circuits, we use complex numbers (j, where j<sup>2</sup> = -1) to represent phase shifts. A sinusoidal voltage V(t) = V<sub>0</sub>cos(&omega;t) is represented as the real part of V = V<sub>0</sub>e<sup>j&omega;t</sup>.</p>
+        <p><strong>Impedance (Z)</strong> is the "complex resistance" of a component. It is defined as the ratio of the phasor voltage (V) to the phasor current (I): <strong>Z = V / I</strong>.</p>
+        <p><strong>Reactance (X)</strong> is the imaginary part of impedance. It represents the opposition to current flow that arises from phase shifts in inductors and capacitors.</p>
+        
+        <h4>Impedances of Basic Components:</h4>
+        <ul>
+            <li><strong>Resistor (R):</strong>
+                <p>Z<sub>R</sub> = R</p>
+                <p>(Voltage and current are in phase).</p>
+            </li>
+            <li><strong>Inductor (L):</strong>
+                <p>Z<sub>L</sub> = j&omega;L</p>
+                <p>(Reactance: X<sub>L</sub> = &omega;L. Voltage leads current by 90°).</p>
+            </li>
+            <li><strong>Capacitor (C):</strong>
+                <p>Z<sub>C</sub> = 1 / (j&omega;C) = -j / (&omega;C)</p>
+                <p>(Reactance: X<sub>C</sub> = -1/(&omega;C). Voltage lags current by 90°).</p>
+            </li>
+        </ul>
+
+        <h2 id="lcr-series">2. Series LCR Circuit</h2>
+        <p>A resistor (R), inductor (L), and capacitor (C) are connected in series to an AC voltage source V.</p>
+        <p>The total impedance Z is the sum of the individual impedances:</p>
+        <blockquote><strong>Total Impedance (Z):</strong> Z = Z<sub>R</sub> + Z<sub>L</sub> + Z<sub>C</sub> = R + j&omega;L - j/(&omega;C)</blockquote>
+        <blockquote><strong>Z = R + j(&omega;L - 1/(&omega;C))</strong></blockquote>
+        <p>The magnitude of the impedance is |Z| = √[R<sup>2</sup> + (&omega;L - 1/(&omega;C))<sup>2</sup>].</p>
+        <p>The current in the circuit is I = V / Z. Its magnitude |I| = |V| / |Z|.</p>
+        
+        <h3>(i) Resonance</h3>
+        <p><strong>Resonance</strong> occurs when the total reactance is zero (X<sub>L</sub> + X<sub>C</sub> = 0).</p>
+        <p>&omega;L - 1/(&omega;C) = 0  =>  &omega;L = 1/(&omega;C)</p>
+        <p>This happens at the <strong>resonant angular frequency (&omega;<sub>0</sub>)</strong>:</p>
+        <blockquote><strong>Resonant Frequency:</strong> &omega;<sub>0</sub> = 1 / √(LC)</blockquote>
+        <p>At resonance:</p>
+        <ul>
+            <li>Impedance Z is minimum (|Z| = R).</li>
+            <li>Current |I| is <strong>maximum</strong> (|I| = |V|/R).</li>
+            <li>The circuit is purely resistive (current is in phase with voltage).</li>
+        </ul>
+
+        <h3>(ii) Power Dissipation</h3>
+        <p>Only the resistor dissipates power. The average power (P<sub>avg</sub>) dissipated by the circuit is:</p>
+        <blockquote><strong>Average Power:</strong> P<sub>avg</sub> = I<sub>rms</sub><sup>2</sup>R</blockquote>
+        <p>This can also be written as P<sub>avg</sub> = V<sub>rms</sub>I<sub>rms</sub> cos(φ), where <strong>cos(φ) = R/|Z|</strong> is the <strong>Power Factor</strong>. At resonance, |Z|=R, so cos(φ)=1 and power is maximum.</p>
+
+        <h3>(iii) Quality Factor (Q)</h3>
+        <p>The <strong>Q Factor</strong> is a dimensionless parameter that measures the "sharpness" or "quality" of the resonance peak.</p>
+        <p>A high Q factor means a very sharp, narrow resonance (high selectivity). A low Q factor means a broad, flat resonance.</p>
+        <blockquote><strong>Q Factor:</strong> Q = &omega;<sub>0</sub>L / R = 1 / (&omega;<sub>0</sub>CR)</blockquote>
+
+        <h3>(iv) Bandwidth (&Delta;&omega;)</h3>
+        <p>The <strong>bandwidth</strong> is the range of frequencies for which the power dissipated is at least half the maximum power. It is the width of the resonance curve at the "half-power points".</p>
+        <p>&Delta;&omega; = &omega;<sub>high</sub> - &omega;<sub>low</sub></p>
+        <p>The bandwidth is related to the Q factor:</p>
+        <blockquote><strong>Bandwidth:</strong> &Delta;&omega; = &omega;<sub>0</sub> / Q = R / L</blockquote>
+        <p>A high Q factor corresponds to a small bandwidth.</p>
+        <h2 id="lcr-parallel">3. Parallel LCR Circuit</h2>
+        <p>R, L, and C are connected in parallel. It is easier to analyze this using <strong>admittance (Y)</strong>, which is the reciprocal of impedance (Y = 1/Z).</p>
+        <p>Y = Y<sub>R</sub> + Y<sub>L</sub> + Y<sub>C</sub> = 1/R + 1/(j&omega;L) + j&omega;C</p>
+        <blockquote><strong>Total Admittance (Y):</strong> Y = 1/R + j(&omega;C - 1/(&omega;L))</blockquote>
+        <p>Resonance occurs when the imaginary part is zero, at the same &omega;<sub>0</sub> = 1/√(LC).</p>
+        <p>At resonance:</p>
+        <ul>
+            <li>Admittance Y is minimum (Y = 1/R).</li>
+            <li>Impedance Z is <strong>maximum</strong> (Z = R).</li>
+            <li>Total current |I| = |V|/|Z| is <strong>minimum</strong>.</li>
+        </ul>
+        <p>This is often called a "rejector" circuit because it has minimum current (maximum impedance) at the resonant frequency.</p>
+
+        <h2 id="network">4. Network Theorems</h2>
+        <p>These are powerful tools for simplifying complex linear circuits.</p>
+
+        <h3>Thevenin's Theorem</h3>
+        <p><strong>Statement:</strong> Any linear, two-terminal network can be replaced by a single equivalent voltage source (V<sub>th</sub>) in series with a single equivalent resistor (R<sub>th</sub>).</p>
+        <ul>
+            <li><strong>V<sub>th</sub> (Thevenin Voltage):</strong> The <strong>open-circuit voltage</strong> measured across the two terminals.</li>
+            <li><strong>R<sub>th</sub> (Thevenin Resistance):</strong> The <strong>equivalent resistance</strong> "looking back" into the terminals, with all independent voltage sources shorted and all independent current sources opened.</li>
+        </ul>
+        <h3>Norton's Theorem</h3>
+        <p><strong>Statement:</strong> Any linear, two-terminal network can be replaced by a single equivalent current source (I<sub>N</sub>) in parallel with a single equivalent resistor (R<sub>N</sub>).</p>
+        <ul>
+            <li><strong>I<sub>N</sub> (Norton Current):</strong> The <strong>short-circuit current</strong> that flows between the two terminals.</li>
+            <li><strong>R<sub>N</sub> (Norton Resistance):</strong> This is exactly the same as the Thevenin resistance (R<sub>N</sub> = R<sub>th</sub>).</li>
+        </ul>
+        <p><strong>Relation:</strong> V<sub>th</sub> = I<sub>N</sub> * R<sub>th</sub></p>
+
+        <h3>Maximum Power Transfer Theorem</h3>
+        <p><strong>Statement:</strong> For a given source (with a Thevenin equivalent V<sub>th</sub>, R<sub>th</sub>), maximum power is delivered to a load (R<sub>L</sub>) when the load resistance is equal to the source resistance.</p>
+        <blockquote><strong>Condition for Max Power:</strong> R<sub>L</sub> = R<sub>th</sub></blockquote>
+        <p>When this condition is met, the maximum power transferred to the load is:</p>
+        <blockquote><strong>Max Power:</strong> P<sub>max</sub> = V<sub>th</sub><sup>2</sup> / (4R<sub>th</sub>)</blockquote>
+        <p><strong>Note for AC:</strong> In AC circuits, max power is transferred when the load impedance Z<sub>L</sub> is the <strong>complex conjugate</strong> of the source impedance Z<sub>th</sub>. (Z<sub>L</sub> = Z<sub>th</sub>*).</p>
+
+        <h2 id="ballistic">5. Ballistic Galvanometer</h2>
+        <p>A <strong>ballistic galvanometer</strong> is a special type of galvanometer designed to measure the total <strong>charge (Q)</strong> that passes in a short burst or pulse, rather than a steady current (I).</p>
+
+        <h3>Working Principle</h3>
+        <p>A normal galvanometer has low inertia and reacts quickly to current. A ballistic galvanometer is built with a <strong>high moment of inertia (I<sub>m</sub>)</strong> and a long period of oscillation.</p>
+        <ol>
+            <li>A pulse of charge Q = ∫ I dt is passed through the coil. The pulse must be very fast, finishing before the coil has time to move significantly.</li>
+            <li>This pulse delivers an <strong>angular impulse</strong> to the coil, giving it an initial angular velocity.</li>
+            <li>The coil then swings, twisting its suspension. The kinetic energy is converted into potential energy in the suspension.</li>
+            <li>The coil swings to a maximum deflection angle (θ<sub>max</sub>) (the "throw").</li>
+        </ol>
+        <p>It can be shown that the total charge (Q) is directly proportional to the first maximum deflection (θ<sub>max</sub>):</p>
+        <blockquote><strong>Formula:</strong> Q = k * θ<sub>max</sub></blockquote>
+        <p>Where 'k' is the ballistic constant of the instrument.</p>
+
+        <h3>Sensitivity</h3>
+        <ul>
+            <li><strong>Current Sensitivity:</strong> Deflection per unit current (θ/I). This is high for a normal galvanometer.</li>
+            <li><strong>Charge Sensitivity (Ballistic):</strong> Deflection per unit charge (θ/Q). This is what is maximized for a ballistic galvanometer.</li>
+        </ul>
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

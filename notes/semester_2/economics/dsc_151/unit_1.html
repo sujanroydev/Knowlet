@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive notes for Economics (ECODSC-151) Unit 1: Set and Function, from the 2nd Semester syllabus. Covers sets, Venn diagrams, functions, limits, and continuity.">
+    <meta name="keywords" content="ECODSC-151, Elementary Mathematics for Economics, Unit 1, Set and Function, Economics 2nd Semester, Set Theory, Venn Diagram, Limits, Continuity, Assam University Syllabus">
+    <title>Economics DSC 151 Unit 1 | 2nd Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f4f7f6;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 1000px;
+        margin: 20px auto;
+        background-color: #ffffff;
+        border: 1px solid #d1d1d1;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+      header {
+        background-color: #0056b3; /* Economics Blue */
+        color: #ffffff;
+        padding: 20px 30px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2.5em;
+      }
+      header p {
+        margin: 5px 0 0;
+        font-size: 1.1em;
+      }
+      .content {
+        padding: 30px;
+      }
+      #toc {
+        background-color: #eef5ff;
+        border: 1px solid #b3d1ff;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 30px;
+      }
+      #toc h2 {
+        margin-top: 0;
+        border-bottom: 2px solid #0056b3;
+        padding-bottom: 10px;
+      }
+      #toc ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+      #toc li {
+        margin-bottom: 10px;
+      }
+      #toc a {
+        text-decoration: none;
+        color: #004a99;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+      #toc a:hover {
+        color: #007bff;
+        text-decoration: underline;
+      }
+      h2 {
+        color: #0056b3;
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 10px;
+        margin-top: 40px;
+      }
+      h3 {
+        color: #007bff;
+        margin-top: 30px;
+      }
+      p, li {
+        font-size: 1.05em;
+      }
+      ul, ol {
+        padding-left: 20px;
+      }
+      blockquote {
+        background-color: #f9f9f9;
+        border-left: 5px solid #007bff;
+        margin: 20px 0;
+        padding: 15px 20px;
+        font-style: italic;
+      }
+      .exam-tip, .common-mistake, .real-world {
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 8px;
+        border-left-width: 5px;
+        border-left-style: solid;
+      }
+      .exam-tip {
+        background-color: #fffbeb;
+        border-color: #fdd835; /* Yellow */
+      }
+      .common-mistake {
+        background-color: #ffebee;
+        border-color: #e53935; /* Red */
+      }
+      .real-world {
+        background-color: #e6f7ff;
+        border-color: #1890ff; /* Blue */
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+      th, td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+      th {
+        background-color: #0056b3;
+        color: white;
+      }
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      .formula {
+        font-family: "Courier New", Courier, monospace;
+        font-size: 1.1em;
+        background-color: #eee;
+        padding: 10px;
+        border-radius: 5px;
+        display: block;
+        margin: 10px 0;
+      }
+      .placeholder {
+        background-color: #fafafa;
+        border: 2px dashed #ccc;
+        padding: 20px;
+        text-align: center;
+        border-radius: 8px;
+        margin: 20px 0;
+        font-style: italic;
+        color: #777;
+      }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Unit 1: Set and Function</h1>
+            <p>ECODSC-151: Elementary Mathematics for Economics | 2nd Semester Notes</p>
+        </header>
+        <div class="content">
+
+            <div id="toc">
+                <h2>Table of Contents</h2>
+                <ul>
+                    <li><a href="#set-operations">1. Set and set operations</a></li>
+                    <li><a href="#venn-diagram">2. Venn diagram</a></li>
+                    <li><a href="#cartesian-product">3. Cartesian product</a></li>
+                    <li><a href="#relations">4. Relations</a></li>
+                    <li><a href="#functions">5. Functions and their properties</a></li>
+                    <li><a href="#logarithmic">6. Basic logarithmic</a></li>
+                    <li><a href="#limit">7. Limit of a function</a></li>
+                    <li><a href="#continuity">8. Continuity</a></li>
+                </ul>
+            </div>
+
+            <section id="set-operations">
+                <h2>1. Set and set operations</h2>
+                <p>A <strong>set</strong> is a well-defined collection of distinct objects. The objects in a set are called its <strong>elements</strong> or <strong>members</strong>.</p>
+                
+                <h3>Methods of Describing a Set:</h3>
+                <ul>
+                    <li><strong>Roster or Tabular Method:</strong> Listing all the elements, separated by commas and enclosed in curly braces {}.
+                        <br><em>Example:</em> A = {1, 2, 3, 4, 5}</li>
+                    <li><strong>Set-Builder or Rule Method:</strong> Describing the set by a property that its elements must satisfy.
+                        <br><em>Example:</em> B = {x | x is an even number and x < 10} (Read as: "x such that x is an even number and x is less than 10")</li>
+                </ul>
+
+                <h3>Important Types of Sets:</h3>
+                <ul>
+                    <li><strong>Empty Set (or Null Set):</strong> A set with no elements, denoted by <strong>{}</strong> or <strong>∅</strong>.</li>
+                    <li><strong>Subset (⊆):</strong> Set A is a subset of set B (A ⊆ B) if every element of A is also an element of B.</li>
+                    <li><strong>Proper Subset (⊂):</strong> A is a proper subset of B (A ⊂ B) if A ⊆ B and A ≠ B.</li>
+                    <li><strong>Universal Set (U):</strong> The set containing all elements under consideration in a particular problem.</li>
+                </ul>
+
+                <h3>Set Operations:</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Operation</th>
+                            <th>Symbol</th>
+                            <th>Definition</th>
+                            <th>Example (A={1,2,3}, B={3,4,5})</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Union</strong></td>
+                            <td>A ∪ B</td>
+                            <td>All elements that are in A, or in B, or in both.</td>
+                            <td>{1, 2, 3, 4, 5}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Intersection</strong></td>
+                            <td>A ∩ B</td>
+                            <td>All elements that are in <strong>both</strong> A and B.</td>
+                            <td>{3}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Difference</strong></td>
+                            <td>A - B</td>
+                            <td>All elements that are in A but <strong>not</strong> in B.</td>
+                            <td>{1, 2}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Complement</strong></td>
+                            <td>A' or A<sup>c</sup></td>
+                            <td>All elements in the Universal Set (U) that are <strong>not</strong> in A. (If U={1,2,3,4,5,6}, A' = {4,5,6})</td>
+                            <td>{4, 5, 6} (assuming U={1..6})</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="exam-tip">
+                    <strong>De Morgan's Laws:</strong> These are frequently asked in exams!
+                    <ol>
+                        <li>(A ∪ B)' = A' ∩ B'</li>
+                        <li>(A ∩ B)' = A' ∪ B'</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section id="venn-diagram">
+                <h2>2. Venn diagram</h2>
+                <p>A Venn diagram is a visual representation of sets, showing the relationships between them. The Universal Set (U) is typically represented by a rectangle, and subsets are represented by circles inside it.</p>
+                
+                <div class="placeholder">
+                    <p><strong>[Diagram: Venn Diagram Basics]</strong><br>
+                    A rectangle labeled 'U' containing two overlapping circles labeled 'A' and 'B'.
+                    <ul>
+                        <li>The overlapping region is A ∩ B.</li>
+                        <li>The entire area of both circles combined is A ∪ B.</li>
+                        <li>The part of circle A not overlapping is A - B.</li>
+                        <li>The area outside both circles but inside U is (A ∪ B)'.</li>
+                    </ul>
+                    </p>
+                </div>
+
+                <div class="real-world">
+                    <strong>Economic Application:</strong>
+                    <ul>
+                        <li>Let A = {Households with a car}</li>
+                        <li>Let B = {Households with a house}</li>
+                        <li>A ∩ B = {Households with both a car and a house}</li>
+                        <li>A ∪ B = {Households with at least one of the assets}</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="cartesian-product">
+                <h2>3. Cartesian product</h2>
+                <blockquote>
+                    <strong>Definition:</strong> The Cartesian product of two non-empty sets A and B, denoted <strong>A × B</strong>, is the set of all possible <strong>ordered pairs</strong> (a, b) where a ∈ A and b ∈ B.
+                    <br>
+                    <span class="formula">A × B = {(a, b) | a ∈ A and b ∈ B}</span>
+                </blockquote>
+
+                <p><strong>Example:</strong>
+                <br>Let A = {1, 2} and B = {a, b, c}
+                <br>Then, A × B = {(1, a), (1, b), (1, c), (2, a), (2, b), (2, c)}</p>
+
+                <p><strong>Example:</strong>
+                <br>Let B = {a, b, c} and A = {1, 2}
+                <br>Then, B × A = {(a, 1), (a, 2), (b, 1), (b, 2), (c, 1), (c, 2)}</p>
+
+                <div class="common-mistake">
+                    <strong>Order Matters!</strong> The Cartesian product is <strong>not</strong> commutative.
+                    <br>As seen in the example, <strong>A × B ≠ B × A</strong> (unless A = B or one is ∅).
+                </div>
+
+                <p>If set A has <em>m</em> elements and set B has <em>n</em> elements, then A × B has <em>m * n</em> elements (ordered pairs).</p>
+            </section>
+            
+            <section id="relations">
+                <h2>4. Relations</h2>
+                <blockquote>
+                    <strong>Definition:</strong> A <strong>relation</strong> R from a set A to a set B is any <strong>subset</strong> of the Cartesian product A × B.
+                    <br>
+                    <span class="formula">R ⊆ A × B</span>
+                </blockquote>
+                <p>If (a, b) ∈ R, we say that 'a' is related to 'b', sometimes written as aRb.</p>
+
+                <ul>
+                    <li><strong>Domain:</strong> The set of all first elements (a's) in the ordered pairs of R.</li>
+                    <li><strong>Codomain:</strong> The entire set B.</li>
+                    <li><strong>Range:</strong> The set of all second elements (b's) in the ordered pairs of R. The range is always a subset of the codomain.</li>
+                </ul>
+
+                <p><strong>Example:</strong>
+                <br>Let A = {1, 2, 3} and B = {2, 4, 6}
+                <br>A × B = {(1,2), (1,4), (1,6), (2,2), (2,4), (2,6), (3,2), (3,4), (3,6)}
+                <br>Let's define a relation R as "is half of": R = {(a, b) | b = 2a}
+                <br>R = {(1, 2), (2, 4), (3, 6)}
+                <br>
+                <ul>
+                    <li><strong>Domain(R)</strong> = {1, 2, 3}</li>
+                    <li><strong>Codomain(R)</strong> = {2, 4, 6}</li>
+                    <li><strong>Range(R)</strong> = {2, 4, 6}</li>
+                </ul>
+                </p>
+            </section>
+            
+            <section id="functions">
+                <h2>5. Functions and their properties</h2>
+                <blockquote>
+                    <strong>Definition:</strong> A <strong>function</strong> (or mapping) <em>f</em> from a set A to a set B (written <em>f: A → B</em>) is a special type of relation in which <strong>every element</strong> in the domain (A) is paired with <strong>exactly one</strong> element in the codomain (B).
+                </blockquote>
+
+                <p>We write <strong>y = f(x)</strong>, where x is the <strong>independent variable</strong> (from domain A) and y is the <strong>dependent variable</strong> (from codomain B).</p>
+
+                <div class="common-mistake">
+                    <strong>Function vs. Relation:</strong>
+                    <ul>
+                        <li>All functions are relations, but not all relations are functions.</li>
+                        <li><strong>Vertical Line Test:</strong> If you can draw a vertical line on a graph that crosses the curve more than once, it is <em>not</em> a function.</li>
+                    </ul>
+                </div>
+
+                <h3>Properties of Functions (Types):</h3>
+                <ol>
+                    <li><strong>Injective (One-to-One):</strong>
+                        <p>A function is injective if different inputs (x-values) always produce different outputs (y-values).
+                        <br><em>Formally:</em> If f(x<sub>1</sub>) = f(x<sub>2</sub>), then x<sub>1</sub> = x<sub>2</sub>.
+                        <br><em>Example:</em> f(x) = 2x + 1 is injective.
+                        <br><em>Non-Example:</em> f(x) = x² is <em>not</em> injective (since f(2) = 4 and f(-2) = 4).</p>
+                    </li>
+                    <li><strong>Surjective (Onto):</strong>
+                        <p>A function is surjective if every element in the codomain (B) is the output for at least one input from the domain (A).
+                        <br><em>Formally:</em> The Range is equal to the Codomain.
+                        <br><em>Example:</em> f(x) = 2x + 1 (from R to R) is surjective, as it can produce any real number.</p>
+                    </li>
+                    <li><strong>Bijective (One-to-One and Onto):</strong>
+                        <p>A function is bijective if it is <strong>both</strong> injective and surjective. Bijective functions have an inverse function.</p>
+                    </li>
+                </ol>
+
+                <div class="real-world">
+                    <strong>Economic Functions:</strong>
+                    <ul>
+                        <li><strong>Demand Function:</strong> Q<sub>d</sub> = f(P). Quantity demanded is a function of price.</li>
+                        <li><strong>Cost Function:</strong> TC = f(Q). Total cost is a function of quantity produced.</li>
+                        <li><strong>Utility Function:</strong> U = f(X, Y). Utility is a function of the quantity of two goods consumed.</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section id="logarithmic">
+                <h2>6. Basic logarithmic</h2>
+                <blockquote>
+                    <strong>Definition:</strong> The logarithm is the inverse operation to exponentiation.
+                    <br>The statement <strong>y = log<sub>b</sub>(x)</strong> (read: "log base b of x") is equivalent to the statement <strong>b<sup>y</sup> = x</strong>.
+                </blockquote>
+                <ul>
+                    <li><strong>b</strong> is the <strong>base</strong> (must be b > 0 and b ≠ 1).</li>
+                    <li><strong>x</strong> is the <strong>argument</strong> (must be x > 0).</li>
+                </ul>
+
+                <h3>Types of Logarithms:</h3>
+                <ul>
+                    <li><strong>Common Logarithm:</strong> Base 10. Written as log(x).</li>
+                    <li><strong>Natural Logarithm:</strong> Base <em>e</em> (Euler's number ≈ 2.718). Written as <strong>ln(x)</strong>. This is the most common log in economics.</li>
+                </ul>
+
+                <h3>Key Properties of Logarithms (Rules):</h3>
+                <ol>
+                    <li><strong>Product Rule:</strong> ln(a * b) = ln(a) + ln(b)</li>
+                    <li><strong>Quotient Rule:</strong> ln(a / b) = ln(a) - ln(b)</li>
+                    <li><strong>Power Rule:</strong> ln(a<sup>n</sup>) = n * ln(a)</li>
+                    <li><strong>Base Rules:</strong> ln(e) = 1 and ln(1) = 0</li>
+                </ol>
+                
+                <div class="real-world">
+                    <strong>Economic Application: Log-Linear Models</strong>
+                    <p>Logarithms are used to measure <strong>percentage changes</strong> and <strong>elasticity</strong>. If we have a demand function ln(Q) = a - b * ln(P), the coefficient 'b' is directly the price elasticity of demand.</p>
+                </div>
+            </section>
+            
+            <section id="limit">
+                <h2>7. Limit of a function</h2>
+                <blockquote>
+                    <strong>Intuitive Definition:</strong> The <strong>limit</strong> of a function f(x) as x approaches a value 'c' is the value that f(x) (or y) gets closer and closer to.
+                    <br>We write this as: <strong>lim<sub>x→c</sub> f(x) = L</strong>
+                </blockquote>
+                <p>The limit is about the <em>approaching</em> value, not what happens <em>at</em> the value. The function doesn't even need to be defined at x = c.</p>
+
+                <h3>One-Sided Limits:</h3>
+                <ul>
+                    <li><strong>Left-Hand Limit (LHL):</strong> The value f(x) approaches as x approaches 'c' from the left (from numbers smaller than c).
+                        <br>Written: <strong>lim<sub>x→c⁻</sub> f(x)</strong></li>
+                    <li><strong>Right-Hand Limit (RHL):</strong> The value f(x) approaches as x approaches 'c' from the right (from numbers larger than c).
+                        <br>Written: <strong>lim<sub>x→c⁺</sub> f(x)</strong></li>
+                </ul>
+
+                <div class="exam-tip">
+                    <strong>Existence of a Limit:</strong>
+                    <p>A limit L exists at x = c <strong>if and only if</strong> the left-hand limit equals the right-hand limit.
+                    <br><span class="formula">lim<sub>x→c⁻</sub> f(x) = lim<sub>x→c⁺</sub> f(x) = L</span>
+                    <br>If LHL ≠ RHL, the limit <strong>does not exist (DNE)</strong> at x = c.</p>
+                </div>
+
+                <h3>Properties of Limits:</h3>
+                <p>If lim<sub>x→c</sub> f(x) = L and lim<sub>x→c</sub> g(x) = M:</p>
+                <ul>
+                    <li><strong>Sum/Difference:</strong> lim [f(x) ± g(x)] = L ± M</li>
+                    <li><strong>Product:</strong> lim [f(x) * g(x)] = L * M</li>
+                    <li><strong>Quotient:</strong>lim [f(x) / g(x)] = L / M (provided M ≠ 0)</li>
+                </ul>
+            </section>
+
+            <section id="continuity">
+                <h2>8. Continuity</h2>
+                <p>A function is <strong>continuous</strong> if its graph is a single unbroken curve. You can draw it without lifting your pen from the paper.</p>
+
+                <blockquote>
+                    <strong>Formal Definition:</strong> A function f(x) is <strong>continuous at a point x = c</strong> if it meets all three of the following conditions:
+                    <ol>
+                        <li><strong>f(c) is defined.</strong> (The point exists)</li>
+                        <li><strong>lim<sub>x→c</sub> f(x) exists.</strong> (The LHL = RHL)</li>
+                        <li><strong>lim<sub>x→c</sub> f(x) = f(c).</strong> (The limit value is the same as the point's value)</li>
+                    </ol>
+                </blockquote>
+                
+                <h3>Types of Discontinuity:</h3>
+                <ul>
+                    <li><strong>Removable Discontinuity (Hole):</strong> Condition 1 or 3 fails. A "hole" in the graph that could be "plugged."</li>
+                    <li><strong>Jump Discontinuity:</strong> Condition 2 fails (LHL ≠ RHL). The graph "jumps" from one level to another. (e.g., a "step" function for taxi fares).</li>
+                    <li><strong>Infinite Discontinuity (Asymptote):</strong> The limit approaches +∞ or -∞. (e.g., f(x) = 1/x at x = 0).</li>
+                </ul>
+                
+                <div class="real-world">
+                    <strong>Economic Application:</strong>
+                    <p>We often <em>assume</em> economic functions (like demand, cost, production functions) are continuous and smooth. This allows us to use calculus (derivatives) to find optimal points (like maximum profit or minimum cost). A "jump" discontinuity could represent a sudden tax increase or a change in technology.</p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

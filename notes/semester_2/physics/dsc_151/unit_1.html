@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSC 151 Unit 1 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for PHYDSC151T (Electricity and Magnetism) Unit 1, covering Electric Field, Gauss's Law, Electric Potential, Laplace's and Poisson's Equations, and Electric Dipoles.">
+    <meta name="keywords" content="PHYDSC151T, Electricity and Magnetism, Unit 1, Electric Field, Gauss Law, Electric Potential, Laplace, Poisson, Electric Dipole, Assam University, 2nd Semester Physics">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3, h4 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 2em;
+            color: #3498db;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        h4 {
+            font-size: 1.2em;
+            color: #555;
+        }
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            font-size: 1.1em;
+            font-style: italic;
+            font-family: 'Georgia', serif;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: #ecf0f1;
+            border-left: 5px solid #3498db;
+            color: #34495e;
+            border-radius: 5px;
+        }
+        code, .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.1em;
+        }
+        .exam-tip {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d4a017;
+        }
+        #toc {
+            background: #ecf8ff;
+            border: 1px solid #bde0ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        #toc h3 {
+            margin-top: 0;
+            color: #0056b3;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 10px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 1: Electric Field and Electric Potential</h1>
+
+        <div id="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#ef-lines">1. Electric Field and Field Lines</a></li>
+                <li><a href="#flux">2. Electric Flux</a></li>
+                <li><a href="#gauss">3. Gauss's Law and its Applications</a></li>
+                <li><a href="#conservative">4. Conservative Nature of Electrostatic Field</a></li>
+                <li><a href="#potential">5. Electrostatic Potential</a></li>
+                <li><a href="#relation">6. Relation between E-Field and Potential</a></li>
+                <li><a href="#poisson-laplace">7. Laplace's and Poisson's Equations</a></li>
+                <li><a href="#uniqueness">8. The Uniqueness Theorem</a></li>
+                <li><a href="#dipole">9. Electric Dipole (Potential, Field, Force, Torque)</a></li>
+            </ul>
+        </div>
+
+        <h2 id="ef-lines">1. Electric Field and Field Lines</h2>
+        <p>An <strong>Electric Field (E)</strong> is a vector field surrounding an electric charge that exerts a force on other charges. It is defined as the force (F) experienced by a small positive test charge (q<sub>0</sub>) divided by the charge itself.</p>
+        <blockquote><strong>Formula:</strong> E = F / q<sub>0</sub></blockquote>
+        <p>The unit of the electric field is Newtons per Coulomb (N/C) or Volts per meter (V/m).</p>
+        
+        <h3>Electric Field Lines</h3>
+        <p>Electric field lines are imaginary lines used to visualize the electric field.</p>
+        <ul>
+            <li>They originate from positive charges and terminate on negative charges (or at infinity).</li>
+            <li>The tangent to a field line at any point gives the direction of the electric field E at that point.</li>
+            <li>The density of the field lines (how close they are) in a region is proportional to the strength (magnitude) of the electric field.</li>
+            <li>Electric field lines can never cross each other. If they did, it would imply two different directions of the E-field at the same point, which is impossible.</li>
+        </ul>
+        <h2 id="flux">2. Electric Flux (Φ<sub>E</sub>)</h2>
+        <p>Electric flux is the measure of the "flow" of the electric field through a given surface. It quantifies how many electric field lines pass through a specific area.</p>
+        <p>For a uniform electric field E passing through a flat area A with an angle &theta; between E and the area's normal vector:</p>
+        <blockquote><strong>Formula (Uniform Field):</strong> Φ<sub>E</sub> = E A cos(θ)</blockquote>
+        <p>In general, for a non-uniform field and a curved surface, the flux is calculated by integrating the dot product of the electric field (E) and the differential area vector (dA) over the entire surface.</p>
+        <blockquote><strong>Formula (General):</strong> Φ<sub>E</sub> = ∫<sub>S</sub> E ⋅ dA</blockquote>
+        
+        <h2 id="gauss">3. Gauss's Law and its Applications</h2>
+        <p>Gauss's Law relates the net electric flux (Φ<sub>E</sub>) through a closed surface (called a "Gaussian surface") to the net electric charge (Q<sub>enclosed</sub>) enclosed within that surface.</p>
+        <blockquote><strong>Gauss's Law:</strong> Φ<sub>E</sub> = ∮ E ⋅ dA = Q<sub>enclosed</sub> / ε<sub>0</sub></blockquote>
+        <p>Where ε<sub>0</sub> is the permittivity of free space (8.854 × 10<sup>-12</sup> C<sup>2</sup>/N·m<sup>2</sup>).</p>
+        
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> Gauss's Law is most useful for calculating the electric field in situations with high symmetry (spherical, cylindrical, or planar). The key is to choose a Gaussian surface that matches the symmetry, so that the electric field E is constant and perpendicular to the surface.
+        </div>
+        
+        <h3>Applications of Gauss's Law</h3>
+        <h4>a) Spherical Symmetry (e.g., Uniformly Charged Sphere)</h4>
+        <p>To find the E-field from a sphere of radius R and total charge Q, we use a spherical Gaussian surface of radius r.</p>
+        <ul>
+            <li><strong>Outside the sphere (r > R):</strong> The Gaussian surface encloses all the charge Q. 
+                <p>E(4πr<sup>2</sup>) = Q / ε<sub>0</sub>  =>  <strong>E = Q / (4πε<sub>0</sub>r<sup>2</sup>)</strong></p>
+                <p>(The field is identical to that of a point charge Q at the center).</p>
+            </li>
+            <li><strong>Inside a conducting sphere (r < R):</strong> Q<sub>enclosed</sub> = 0 (charge is on the surface). Therefore, <strong>E = 0</strong>.</li>
+        </ul>
+        
+        <h4>b) Cylindrical Symmetry (e.g., Infinite Line of Charge)</h4>
+        <p>For a line with charge per unit length &lambda;, we use a cylindrical Gaussian surface of radius r and length L.</p>
+        <p>The flux is only through the curved wall (E is parallel to the end caps). Q<sub>enclosed</sub> = &lambda;L.</p>
+        <p>E(2πrL) = &lambda;L / ε<sub>0</sub>  =>  <strong>E = &lambda; / (2πε<sub>0</sub>r)</strong></p>
+        
+        <h4>c) Planar Symmetry (e.g., Infinite Sheet of Charge)</h4>
+        <p>For a sheet with charge per unit area &sigma;, we use a cylindrical "pillbox" Gaussian surface that pokes through the sheet.</p>
+        <p>Flux is through the two end caps (Area A). Q<sub>enclosed</sub> = &sigma;A.</p>
+        <p>E(A) + E(A) = &sigma;A / ε<sub>0</sub>  =>  2EA = &sigma;A / ε<sub>0</sub>  =>  <strong>E = &sigma; / (2ε<sub>0</sub>)</strong></p>
+        <p><strong>Note:</strong> The field is constant and does not depend on the distance from the sheet.</p>
+
+        <h2 id="conservative">4. Conservative Nature of Electrostatic Field</h2>
+        <p>An electrostatic field is a <strong>conservative field</strong>. This means the work done by the field in moving a charge from one point to another is <strong>independent of the path taken</strong>.</p>
+        <p>A direct consequence of this is that the work done in moving a charge around any closed loop is zero.</p>
+        <blockquote>∮ E ⋅ dl = 0</blockquote>
+        <p>Mathematically, this is equivalent to saying the curl of the electrostatic field is zero:</p>
+        <blockquote>∇ × E = 0</blockquote>
+        
+        <h2 id="potential">5. Electrostatic Potential (V)</h2>
+        <p>Because the electrostatic field is conservative, we can define a scalar quantity called <strong>Electrostatic Potential (V)</strong>. It is defined as the potential energy (U) per unit charge (q).</p>
+        <blockquote><strong>Definition:</strong> V = U / q</blockquote>
+        <p>The potential difference (ΔV) between two points is the work done per unit charge (W) to move a charge from one point to the other.</p>
+        <blockquote>ΔV = V<sub>b</sub> - V<sub>a</sub> = -∫<sub>a</sub><sup>b</sup> E ⋅ dl</blockquote>
+        <p>The unit of potential is the Volt (V), where 1 Volt = 1 Joule / Coulomb.</p>
+
+        <h2 id="relation">6. Relation between E-Field and Potential</h2>
+        <p>The electric field E is the negative <strong>gradient</strong> of the potential V. The gradient is a vector operator (∇).</p>
+        <blockquote><strong>Formula:</strong> E = -∇V</blockquote>
+        <p>This means the E-field points in the direction of the steepest decrease in potential.</p>
+        <p>In Cartesian coordinates, this breaks down into components:</p>
+        <ul>
+            <li>E<sub>x</sub> = -∂V/∂x</li>
+            <li>E<sub>y</sub> = -∂V/∂y</li>
+            <li>E<sub>z</sub> = -∂V/∂z</li>
+        </ul>
+
+        <h2 id="poisson-laplace">7. Laplace's and Poisson's Equations</h2>
+        <p>These two equations are fundamental in electrostatics. They are derived by combining Gauss's Law (in differential form) with the E-V relation.</p>
+        <ol>
+            <li><strong>Gauss's Law (differential):</strong> ∇ ⋅ E = ρ / ε<sub>0</sub> (where ρ is the volume charge density)</li>
+            <li><strong>E-V Relation:</strong> E = -∇V</li>
+        </ol>
+        <p>Substitute (2) into (1):</p>
+        <p>∇ ⋅ (-∇V) = ρ / ε<sub>0</sub>  =>  -∇<sup>2</sup>V = ρ / ε<sub>0</sub></p>
+        <p>This gives <strong>Poisson's Equation</strong>, which relates the potential in a region to the charge density in that region.</p>
+        <blockquote><strong>Poisson's Equation:</strong> ∇<sup>2</sup>V = -ρ / ε<sub>0</sub></blockquote>
+        <p>In a region of space where there is <strong>no charge</strong> (ρ = 0), Poisson's equation simplifies to <strong>Laplace's Equation</strong>.</p>
+        <blockquote><strong>Laplace's Equation:</strong> ∇<sup>2</sup>V = 0</blockquote>
+        <p>The operator ∇<sup>2</sup> is called the <strong>Laplacian</strong>.</p>
+
+        <h2 id="uniqueness">8. The Uniqueness Theorem</h2>
+        <p>The syllabus requires the <strong>statement only</strong>.</p>
+        <blockquote><strong>Uniqueness Theorem Statement:</strong> If the potential (V) or its normal derivative (∂V/∂n) is specified on all boundaries (conductors, surfaces at infinity, etc.) of a region that obeys Poisson's equation, then the solution for the potential (V) within that region is <strong>unique</strong>.</blockquote>
+        <div class="exam-tip">
+            <strong>What this means:</strong> It doesn't matter *how* you find a solution (e.g., "guessing", separation of variables, method of images). If your solution (1) satisfies Poisson's/Laplace's equation and (2) matches all the boundary conditions, it is the *only* correct solution.
+        </div>
+
+        <h2 id="dipole">9. Electric Dipole</h2>
+        <p>An electric dipole consists of two equal and opposite charges (+q and -q) separated by a small vector distance (d, pointing from -q to +q).</p>
+        <p>The <strong>electric dipole moment (p)</strong> is a vector:</p>
+        <blockquote><strong>Formula:</strong> p = qd</blockquote>
+        
+        <h3>Potential and Electric Field of a Dipole</h3>
+        <p>At a point P far away from the dipole (r >> d), the potential V and field E can be calculated. In spherical coordinates (r, θ), where θ is the angle from the dipole axis:</p>
+        <ul>
+            <li><strong>Potential (V):</strong> V(r, θ) = (p cos(θ)) / (4πε<sub>0</sub>r<sup>2</sup>)</li>
+            <li><strong>Electric Field (E):</strong> Derived from E = -∇V. It has two components:
+                <ul>
+                    <li>Radial component (E<sub>r</sub>): E<sub>r</sub> = (2p cos(θ)) / (4πε<sub>0</sub>r<sup>3</sup>)</li>
+                    <li>Tangential component (E<sub>θ</sub>): E<sub>θ</sub> = (p sin(θ)) / (4πε<sub>0</sub>r<sup>3</sup>)</li>
+                </ul>
+            </li>
+        </ul>
+        <h3>Force and Torque on a Dipole</h3>
+        <p>When a dipole (p) is placed in an external electric field (E):</p>
+        <ul>
+            <li><strong>In a UNIFORM E-field:</strong>
+                <ul>
+                    <li>The net <strong>force</strong> on the dipole is <strong>zero</strong>.</li>
+                    <li>It experiences a <strong>torque (τ)</strong> that tries to align it with the field.</li>
+                    <li><strong>Torque Formula:</strong> τ = p × E (Magnitude: τ = pE sin(θ))</li>
+                    <li><strong>Potential Energy (U):</strong> U = -p ⋅ E = -pE cos(θ)</li>
+                </ul>
+            </li>
+            <li><strong>In a NON-UNIFORM E-field:</strong>
+                <ul>
+                    <li>The dipole experiences both a <strong>torque</strong> *and* a net <strong>force</strong>.</li>
+                    <li>The force is given by F = (p ⋅ ∇)E.</li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

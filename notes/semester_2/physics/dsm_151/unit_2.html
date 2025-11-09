@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSM 151 Unit 2 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for PHYDSM151T (Mathematical Physics, Mechanics and Relativity) Unit 2, covering Momentum, Energy, Work-Energy Theorem, and Rotational Motion.">
+    <meta name="keywords" content="PHYDSM151T, Mechanics, Unit 2, Conservation of Momentum, Conservation of Energy, Work Energy Theorem, Centre of Mass, Rotational Motion, Angular Momentum, Torque, Moment of Inertia, Assam University, 2nd Semester Physics">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3, h4 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 2em;
+            color: #e74c3c;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #c0392b;
+            margin-top: 25px;
+        }
+        h4 {
+            font-size: 1.2em;
+            color: #555;
+        }
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            font-size: 1.1em;
+            font-style: italic;
+            font-family: 'Georgia', serif;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: #fbeee;
+            border-left: 5px solid #e74c3c;
+            color: #34495e;
+            border-radius: 5px;
+        }
+        code, .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.1em;
+        }
+        .exam-tip {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d4a017;
+        }
+        #toc {
+            background: #fff5f5;
+            border: 1px solid #ffcccc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        #toc h3 {
+            margin-top: 0;
+            color: #a03030;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 10px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #c0392b;
+            font-weight: bold;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 2: Momentum, Energy and Rotational Motion</h1>
+
+        <div id="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#momentum-energy">1. [cite_start]Momentum and Energy [cite: 1348]</a></li>
+                <li><a href="#work-energy">2. [cite_start]Work Energy Theorem [cite: 1348]</a></li>
+                <li><a href="#cm">3. [cite_start]Centre of Mass and Centre of Gravity [cite: 1348]</a></li>
+                <li><a href="#rotational">4. [cite_start]Rotational Motion [cite: 1349]</a></li>
+            </ul>
+        </div>
+
+        <h2 id="momentum-energy">1. [cite_start]Momentum and Energy [cite: 1348]</h2>
+
+        [cite_start]<h3>Conservation of Momentum [cite: 1348]</h3>
+        <p><strong>Linear Momentum (p)</strong> of a particle is the product of its mass (m) and velocity (v).</p>
+        <blockquote><strong>Formula:</strong> <strong>p</strong> = m<strong>v</strong></blockquote>
+        <p>Newton's Second Law states that the net external force (<strong>F</strong><sub>net</sub>) on a system is equal to the rate of change of its total linear momentum (<strong>P</strong><sub>total</sub>).</p>
+        <blockquote><strong>Newton's Second Law:</strong> <strong>F</strong><sub>net</sub> = d<strong>P</strong><sub>total</sub> / dt</blockquote>
+        <p>The <strong>Principle of Conservation of Linear Momentum</strong> follows directly from this:</p>
+        <blockquote><strong>Principle:</strong> If the net external force acting on a system is zero (<strong>F</strong><sub>net</sub> = <strong>0</strong>), then the total linear momentum (<strong>P</strong><sub>total</sub>) of the system remains constant.
+        <p>If <strong>F</strong><sub>net</sub> = <strong>0</strong>, then d<strong>P</strong><sub>total</sub> / dt = 0  =>  <strong>P</strong><sub>total</sub> = constant</p>
+        </blockquote>
+        <p>This is extremely useful for analyzing collisions, explosions, etc., where internal forces are large but external forces are negligible.</p>
+        <p><strong>Example:</strong> A 2kg object (A) at 10 m/s hits a 3kg stationary object (B). They stick together.
+        <br>P<sub>initial</sub> = <strong>p</strong><sub>A</sub> + <strong>p</strong><sub>B</sub> = (2 kg)(10 m/s) + (3 kg)(0 m/s) = 20 kg·m/s
+        <br>P<sub>final</sub> = (m<sub>A</sub> + m<sub>B</sub>)<strong>v</strong><sub>f</sub> = (2+3)<strong>v</strong><sub>f</sub> = 5<strong>v</strong><sub>f</sub>
+        <br>By conservation: P<sub>initial</sub> = P<sub>final</sub>  =>  20 = 5<strong>v</strong><sub>f</sub>  =>  <strong>v</strong><sub>f</sub> = 4 m/s.</p>
+
+        [cite_start]<h3>Conservation of Energy [cite: 1348]</h3>
+        <p><strong>Energy</strong> is the capacity to do work. The total energy of an isolated system is always conserved (Law of Conservation of Energy). In mechanics, we often focus on <strong>Total Mechanical Energy (E)</strong>, which is the sum of Kinetic Energy (K) and Potential Energy (U).</p>
+        <blockquote><strong>Formula:</strong> E = K + U</blockquote>
+        <p><strong>Kinetic Energy (K):</strong> Energy of motion. K = (1/2)mv²</p>
+        <p><strong>Potential Energy (U):</strong> Stored energy due to position or configuration (e.g., gravitational U<sub>g</sub> = mgh, elastic U<sub>e</sub> = (1/2)kx²).</p>
+        
+        <p>The <strong>Principle of Conservation of Mechanical Energy</strong> states:</p>
+        <blockquote><strong>Principle:</strong> If only <strong>conservative forces</strong> (like gravity, spring force) do work within a system, the total mechanical energy (E = K + U) of the system remains constant.
+        <p>K<sub>initial</sub> + U<sub>initial</sub> = K<sub>final</sub> + U<sub>final</sub></p>
+        </blockquote>
+        <p>If <strong>non-conservative forces</strong> (like friction, air resistance) are present, they do work (W<sub>nc</sub>) and the mechanical energy is not conserved. The change in energy equals the work done by these forces.</p>
+        <blockquote>ΔE = ΔK + ΔU = W<sub>nc</sub></blockquote>
+
+        <h2 id="work-energy">2. [cite_start]Work Energy Theorem [cite: 1348]</h2>
+        <p>The <strong>Work-Energy Theorem</strong> provides a direct link between the <strong>net work (W<sub>net</sub>)</strong> done on an object and the change in its <strong>kinetic energy (ΔK)</strong>.</p>
+        <p><strong>Derivation:</strong>
+        <br>Net Work, W<sub>net</sub> = ∫ <strong>F</strong><sub>net</sub> ⋅ d<strong>x</strong>
+        <br>Using F<sub>net</sub> = ma = m(dv/dt): W<sub>net</sub> = ∫ m(dv/dt) ⋅ dx
+        <br>Using the chain rule, (dv/dt)dx = (dx/dt)dv = v dv.
+        <br>W<sub>net</sub> = ∫<sub>v1</sub><sup>v2</sup> m v dv = m [ (1/2)v² ]<sub>v1</sub><sup>v2</sup>
+        <br>W<sub>net</sub> = (1/2)mv₂² - (1/2)mv₁²</p>
+        
+        <blockquote><strong>Work-Energy Theorem:</strong> W<sub>net</sub> = K<sub>final</sub> - K<sub>initial</sub> = ΔK</blockquote>
+        <p><strong>Significance:</strong> This theorem is universal. The *net* work (done by *all* forces, conservative and non-conservative) equals the change in *kinetic* energy. This is different from the conservation of mechanical energy, which deals with K and U.</p>
+        
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> Be clear on the difference:
+            <ul>
+                <li><strong>Work-Energy Theorem:</strong> W<sub>net</sub> = ΔK. (Always true)</li>
+                <li><strong>Conservation of Mechanical Energy:</strong> ΔK + ΔU = 0. (Only if W<sub>nc</sub> = 0)</li>
+            </ul>
+        </div>
+
+        <h2 id="cm">3. [cite_start]Centre of Mass and Centre of Gravity [cite: 1348]</h2>
+        
+        <h3>Centre of Mass (CM)</h3>
+        <p>The <strong>Centre of Mass</strong> is a specific point in a system or object that moves as if all the system's mass were concentrated at that point and all external forces were applied there.</p>
+        <p>For a system of discrete particles (m₁, m₂, ...) at positions (<strong>r</strong>₁, <strong>r</strong>₂, ...):</p>
+        <blockquote><strong>Formula (Position):</strong> <strong>R</strong><sub>CM</sub> = (m₁<strong>r</strong>₁ + m₂<strong>r</strong>₂ + ...) / (m₁ + m₂ + ...) = (Σm<sub>i</sub><strong>r</strong><sub>i</sub>) / M<sub>total</sub></blockquote>
+        <p>For a continuous body with density ρ:</p>
+        <blockquote><strong>Formula (Continuous):</strong> <strong>R</strong><sub>CM</sub> = (1/M<sub>total</sub>) ∫ <strong>r</strong> dm = (1/M<sub>total</sub>) ∫ <strong>r</strong> ρ(<strong>r</strong>) dV</blockquote>
+        <p>The motion of the CM is governed by Newton's Second Law for the whole system:</p>
+        <blockquote><strong>Formula (Motion):</strong> <strong>F</strong><sub>net, external</sub> = M<sub>total</sub> <strong>a</strong><sub>CM</sub></blockquote>
+        <p>This means internal forces (like in an explosion) do not change the motion of the CM.</p>
+
+        <h3>Centre of Gravity (CG)</h3>
+        <p>The <strong>Centre of Gravity</strong> is the point where the net gravitational torque on the object is zero. It's the "balance point" of the object.</p>
+        <p><strong>Key Difference:</strong></p>
+        <ul>
+            <li><strong>Centre of Mass (CM)</strong> is defined by the mass distribution.</li>
+            <li><strong>Centre of Gravity (CG)</strong> is defined by the weight distribution.</li>
+        </ul>
+        <p><strong>When are they the same?</strong> In a <strong>uniform gravitational field</strong> (like near the Earth's surface, for small objects), the force of gravity (g) is the same on all parts of the object. [cite_start]In this case, the CM and CG are in the <strong>same location</strong>. [cite: 1348]</p>
+        <p>For a very large object (like a skyscraper), 'g' is slightly weaker at the top than the bottom, so the CG would be very slightly lower than the CM. For this syllabus, you can assume they are identical.</p>
+        
+        <h2 id="rotational">4. [cite_start]Rotational Motion [cite: 1349]</h2>
+        
+        [cite_start]<h3>Angular Velocity (ω) and Angular Momentum (L) [cite: 1349]</h3>
+        <p><strong>Angular Velocity (ω):</strong> The rate of change of angular position (θ). It is a vector pointing along the axis of rotation (Right-Hand Rule).</p>
+        <blockquote><strong>Formula:</strong> ω = dθ / dt</blockquote>
+        <p><strong>Angular Momentum (L):</strong> The rotational equivalent of linear momentum.</p>
+        <p>For a single particle, <strong>L</strong> is defined relative to an origin:</p>
+        <blockquote><strong>Formula (Particle):</strong> <strong>L</strong> = <strong>r</strong> × <strong>p</strong> = <strong>r</strong> × (m<strong>v</strong>)</blockquote>
+        <p>For a rigid body rotating about an axis, <strong>L</strong> is:</p>
+        <blockquote><strong>Formula (Rigid Body):</strong> <strong>L</strong> = Iω</blockquote>
+        <p>Where <strong>I</strong> is the Moment of Inertia.</p>
+
+        [cite_start]<h3>Torque (τ) [cite: 1349]</h3>
+        <p><strong>Torque</strong> is the rotational equivalent of force. It is the "twist" that causes a change in rotational motion (an angular acceleration).</p>
+        <p>For a force <strong>F</strong> applied at a position <strong>r</strong> from the axis:</p>
+        <blockquote><strong>Formula:</strong> <strong>τ</strong> = <strong>r</strong> × <strong>F</strong></blockquote>
+        <p>Torque is also the rate of change of angular momentum (Rotational Newton's Second Law):</p>
+        <blockquote><strong>Formula:</strong> <strong>τ</strong><sub>net</sub> = d<strong>L</strong> / dt</blockquote>
+
+        [cite_start]<h3>Conservation of Angular Momentum [cite: 1349]</h3>
+        <p>From <strong>τ</strong><sub>net</sub> = d<strong>L</strong> / dt, we get the conservation principle:</p>
+        <blockquote><strong>Principle:</strong> If the net external torque (<strong>τ</strong><sub>net</sub>) acting on a system is zero, then the total angular momentum (<strong>L</strong><sub>total</sub>) of the system remains constant.
+        <p>If <strong>τ</strong><sub>net</sub> = <strong>0</strong>, then d<strong>L</strong> / dt = 0  =>  <strong>L</strong> = constant</p>
+        </blockquote>
+        <p>This means: <strong>L</strong><sub>initial</sub> = <strong>L</strong><sub>final</sub>  =>  I<sub>initial</sub>ω<sub>initial</sub> = I<sub>final</sub>ω<sub>final</sub></p>
+        <p><strong>Example:</strong> An ice skater spinning with arms out (high I, low ω) pulls their arms in (low I). To conserve L, their angular velocity (ω) must increase dramatically.</p>
+        
+        [cite_start]<h3>Moment of Inertia (I) and Radius of Gyration (K) [cite: 1349]</h3>
+        <p><strong>Moment of Inertia (I)</strong> is the rotational equivalent of mass. It measures an object's resistance to angular acceleration.</p>
+        <p>For a system of discrete masses (m<sub>i</sub>) at distances (r<sub>i</sub>) from the axis:</p>
+        <blockquote><strong>Formula (Discrete):</strong> I = Σm<sub>i</sub>r<sub>i</sub>²</blockquote>
+        <p>For a continuous body:</p>
+        <blockquote><strong>Formula (Continuous):</strong> I = ∫ r² dm</blockquote>
+        <p><strong>Radius of Gyration (K):</strong> The distance from the axis where all the object's mass (M) could be concentrated to give the same moment of inertia.</p>
+        <blockquote><strong>Formula:</strong> I = MK²  =>  K = √(I / M)</blockquote>
+        
+        [cite_start]<h3>Calculation of Moment of Inertia [cite: 1350]</h3>
+        <p>You need to know the standard formulas for these shapes:</p>
+        
+        <h4>1. Rectangular Bar (or Lamina)</h4>
+        <p>For a thin rectangular bar of mass M and length L, axis through the center and perpendicular to the length:</p>
+        <blockquote><strong>Formula (Bar, center):</strong> I = (1/12)ML²</blockquote>
+        
+        <h4>2. Cylinder</h4>
+        <p>For a <strong>solid cylinder</strong> of mass M and radius R, axis along the cylinder's main axis of symmetry:</p>
+        <blockquote><strong>Formula (Solid Cylinder, main axis):</strong> I = (1/2)MR²</blockquote>
+        <p>This is the same as a flat disc.</p>
+        <h4>3. Shell (Hollow Cylinder)</h4>
+        <p>For a <strong>thin cylindrical shell</strong> (or hoop) of mass M and radius R, axis along the cylinder's main axis:</p>
+        <blockquote><strong>Formula (Hollow Cylinder/Hoop):</strong> I = MR²</blockquote>
+        <p>All the mass is at the same distance R from the axis.</p>
+        <div class="exam-tip">
+            <strong>Key Theorems for M.I. (Not listed but essential):</strong>
+            <ul>
+                <li><strong>Parallel Axis Theorem:</strong> I = I<sub>cm</sub> + Md². (Relates M.I. about center of mass, I<sub>cm</sub>, to M.I. about a parallel axis at distance d).</li>
+                <li><strong>Perpendicular Axis Theorem (for 2D objects):</strong> I<sub>z</sub> = I<sub>x</sub> + I<sub>y</sub>. (Relates M.I. about perpendicular axes).</li>
+            </ul>
+        </div>
+        
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive notes for Economics (ECODSC-151) Unit 4: Differential Calculus - 2 (Multi-variable case), from the 2nd Semester syllabus.">
+    <meta name="keywords" content="ECODSC-151, Elementary Mathematics for Economics, Unit 4, Multi-variable Calculus, Partial Derivative, Constrained Optimization, Lagrangian Multiplier, Hessian, Utility Maximization">
+    <title>Economics DSC 151 Unit 4 | 2nd Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f4f7f6;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 1000px;
+        margin: 20px auto;
+        background-color: #ffffff;
+        border: 1px solid #d1d1d1;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+      header {
+        background-color: #0056b3; /* Economics Blue */
+        color: #ffffff;
+        padding: 20px 30px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2.5em;
+      }
+      header p {
+        margin: 5px 0 0;
+        font-size: 1.1em;
+      }
+      .content {
+        padding: 30px;
+      }
+      #toc {
+        background-color: #eef5ff;
+        border: 1px solid #b3d1ff;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 30px;
+      }
+      #toc h2 {
+        margin-top: 0;
+        border-bottom: 2px solid #0056b3;
+        padding-bottom: 10px;
+      }
+      #toc ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+      #toc li {
+        margin-bottom: 10px;
+      }
+      #toc a {
+        text-decoration: none;
+        color: #004a99;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+      #toc a:hover {
+        color: #007bff;
+        text-decoration: underline;
+      }
+      h2 {
+        color: #0056b3;
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 10px;
+        margin-top: 40px;
+      }
+      h3 {
+        color: #007bff;
+        margin-top: 30px;
+      }
+      p, li {
+        font-size: 1.05em;
+      }
+      ul, ol {
+        padding-left: 20px;
+      }
+      blockquote {
+        background-color: #f9f9f9;
+        border-left: 5px solid #007bff;
+        margin: 20px 0;
+        padding: 15px 20px;
+        font-style: italic;
+      }
+      .exam-tip, .common-mistake, .real-world {
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 8px;
+        border-left-width: 5px;
+        border-left-style: solid;
+      }
+      .exam-tip {
+        background-color: #fffbeb;
+        border-color: #fdd835; /* Yellow */
+      }
+      .common-mistake {
+        background-color: #ffebee;
+        border-color: #e53935; /* Red */
+      }
+      .real-world {
+        background-color: #e6f7ff;
+        border-color: #1890ff; /* Blue */
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+      th, td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+      th {
+        background-color: #0056b3;
+        color: white;
+      }
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      .formula {
+        font-family: "Courier New", Courier, monospace;
+        font-size: 1.1em;
+        background-color: #eee;
+        padding: 10px;
+        border-radius: 5px;
+        display: block;
+        margin: 10px 0;
+      }
+      .matrix {
+        font-family: "Courier New", Courier, monospace;
+        font-size: 1.2em;
+        line-height: 1.4;
+        white-space: pre;
+      }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Unit 4: Differential Calculus - 2 (Multi-variable case)</h1>
+            <p>ECODSC-151: Elementary Mathematics for Economics | 2nd Semester Notes</p>
+        </header>
+        <div class="content">
+
+            <div id="toc">
+                <h2>Table of Contents</h2>
+                <ul>
+                    <li><a href="#partial-total">1. Partial and Total Derivative</a></li>
+                    <li><a href="#unconstrained">2. Unconstrained Optimisation problem</a></li>
+                    <li><a href="#constrained">3. Constraint optimisation</a></li>
+                    <li><a href="#lagrangian">4. Lagrangian multiplier</a></li>
+                    <li><a href="#hessian">5. Hessian determinants</a></li>
+                    <li><a href="#bordered-hessian">6. Bordered Hessian determinant</a></li>
+                    <li><a href="#econ-apps">7. Economic application</a></li>
+                </ul>
+            </div>
+
+            <section id="partial-total">
+                <h2>1. Partial and Total Derivative</h2>
+                <p>Most economic models involve more than one variable. For example, Utility depends on goods X and Y: U = f(X, Y). A Production Function depends on Labor (L) and Capital (K): Q = f(L, K).</p>
+
+                <h3>Partial Derivative</h3>
+                <blockquote>
+                    <strong>Definition:</strong> A <strong>partial derivative</strong> measures the rate of change of a multi-variable function with respect to <strong>one</strong> variable, while <strong>holding all other variables constant</strong>.
+                </blockquote>
+                <ul>
+                    <li>The partial derivative of f(X, Y) with respect to X is <strong>∂f/∂X</strong> or <strong>f<sub>X</sub></strong>.</li>
+                    <li>The partial derivative of f(X, Y) with respect to Y is <strong>∂f/∂Y</strong> or <strong>f<sub>Y</sub></strong>.</li>
+                </ul>
+                <p><strong>Example:</strong> Let U(X, Y) = X²Y³
+                <br>To find ∂U/∂X, treat Y³ as a constant: ∂U/∂X = (Y³) * (2X) = 2XY³
+                <br>To find ∂U/∂Y, treat X² as a constant: ∂U/∂Y = (X²) * (3Y²) = 3X²Y²</p>
+                
+                <div class="real-world">
+                    <strong>Economic Meaning:</strong>
+                    <ul>
+                        <li><strong>∂U/∂X = MU<sub>X</sub></strong> (Marginal Utility of good X). It's the extra utility from consuming one more unit of X, <em>holding consumption of Y constant</em>.</li>
+                        <li><strong>∂Q/∂L = MP<sub>L</sub></strong> (Marginal Product of Labor). It's the extra output from one more unit of L, <em>holding capital (K) constant</em>.</li>
+                    </ul>
+                </div>
+                
+                <h3>Total Derivative and Total Differential</h3>
+                <p>The <strong>total differential (df)</strong> measures the <em>total change</em> in the function f(X, Y) resulting from <em>small changes</em> in <strong>both</strong> X (by dX) and Y (by dY) simultaneously.</p>
+                <blockquote>
+                    <span class="formula">df = (∂f/∂X)dX + (∂f/∂Y)dY</span>
+                    <p>Total Change = (Change from X) + (Change from Y)</p>
+                </blockquote>
+            </section>
+            
+            <section id="unconstrained">
+                <h2>2. Unconstrained Optimisation problem</h2>
+                <p>This is the process of finding the maximum or minimum of a function of two or more variables, like f(X, Y), without any constraints.</p>
+                <p><strong>Example:</strong> A firm wants to maximize profit π(L, K) = P*Q(L, K) - wL - rK by choosing the optimal amount of Labor (L) and Capital (K).</p>
+
+                <h3>Steps for Unconstrained Optimization:</h3>
+                <ol>
+                    <li>
+                        <strong>First-Order Condition (FOC):</strong>
+                        <p>Find the critical point (X₀, Y₀) where the function is "flat" in all directions. This means <strong>all</strong> partial derivatives must be zero simultaneously.</p>
+                        <blockquote>
+                            <span class="formula">∂f/∂X = 0</span>
+                            <span class="formula">∂f/∂Y = 0</span>
+                        </blockquote>
+                        <p>You must solve this system of two equations for X and Y.</p>
+                    </li>
+                    <li>
+                        <strong>Second-Order Condition (SOC):</strong>
+                        <p>This test determines if the critical point is a max, min, or saddle point. It uses the <strong>Hessian determinant</strong> (see section 5).</p>
+                    </li>
+                </ol>
+            </section>
+            
+            <section id="constrained">
+                <h2>3. Constraint optimisation</h2>
+                <p>This is the most common type of problem in economics. It involves maximizing or minimizing an <strong>objective function</strong> subject to a <strong>constraint</strong> (which limits your choices).</p>
+                
+                <h3>Common Economic Examples:</h3>
+                <ul>
+                    <li>
+                        <strong>Problem 1: Consumer's Choice</strong>
+                        <ul>
+                            <li><strong>Objective:</strong> Maximize Utility, U(X, Y)</li>
+                            <li><strong>Constraint:</strong> Budget, P<sub>X</sub>*X + P<sub>Y</sub>*Y = M</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Problem 2: Producer's Choice (Cost Minimization)</strong>
+                        <ul>
+                            <li><strong>Objective:</strong> Minimize Cost, C(L, K) = wL + rK</li>
+                            <li><strong>Constraint:</strong> Production Quota, Q(L, K) = Q₀</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>The primary method to solve these problems is the <strong>Lagrangian multiplier method</strong>.</p>
+            </section>
+
+            <section id="lagrangian">
+                <h2>4. Lagrangian multiplier</h2>
+                <p>The Lagrangian method combines the objective function and the constraint into a <em>new</em>, unconstrained function called the <strong>Lagrangian (L)</strong>.</p>
+                
+                <p>For a general problem:
+                <br>Maximize f(X, Y)
+                <br>Subject to g(X, Y) = c</p>
+
+                <h3>Steps to use the Lagrangian Method:</h3>
+                <ol>
+                    <li>
+                        <strong>Set up the Lagrangian Function (L):</strong>
+                        <p>L includes the objective function, the constraint, and a new variable <strong>λ (lambda)</strong>, the Lagrangian multiplier.</p>
+                        <blockquote>
+                            <span class="formula">L(X, Y, λ) = f(X, Y) - λ [g(X, Y) - c]</span>
+                            <p>(Note: Some use +λ, which just flips the sign of λ's interpretation. Both are valid if used consistently.)</p>
+                        </blockquote>
+                    </li>
+                    <li>
+                        <strong>Find the First-Order Conditions (FOCs):</strong>
+                        <p>Take the partial derivative of L with respect to <em>all</em> variables (X, Y, and λ) and set them all to zero.</p>
+                        <blockquote>
+                            <span class="formula">(1)  ∂L/∂X = (∂f/∂X) - λ(∂g/∂X) = 0</span>
+                            <span class="formula">(2)  ∂L/∂Y = (∂f/∂Y) - λ(∂g/∂Y) = 0</span>
+                            <span class="formula">(3)  ∂L/∂λ = -[g(X, Y) - c] = 0  =>  g(X, Y) = c</span>
+                        </blockquote>
+                        <p>Notice that FOC (3) simply restores our original constraint!</p>
+                    </li>
+                    <li>
+                        <strong>Solve the System:</strong>
+                        <p>You now have a system of 3 equations and 3 unknowns (X, Y, λ). Solve them to find the optimal values X*, Y*, and λ*.</p>
+                    </li>
+                </ol>
+
+                <div class="exam-tip">
+                    <strong>A Key Shortcut (for Utility Maximization):</strong>
+                    <p>From FOC (1): ∂f/∂X = λ(∂g/∂X)
+                    <br>From FOC (2): ∂f/∂Y = λ(∂g/∂Y)
+                    <br>
+                    <br>Divide (1) by (2):
+                    <br><strong>(∂f/∂X) / (∂f/∂Y) = (∂g/∂X) / (∂g/∂Y)</strong>
+                    <br>
+                    <br>For the utility problem, this translates to:
+                    <br><strong>(MU<sub>X</sub>) / (MU<sub>Y</sub>) = P<sub>X</sub> / P<sub>Y</sub></strong>
+                    <br>or
+                    <br><strong>MU<sub>X</sub> / P<sub>X</sub> = MU<sub>Y</sub> / P<sub>Y</sub></strong>
+                    <br>(The "bang for your buck" is equal for the last dollar spent on each good).</p>
+                </div>
+                
+                <div class="real-world">
+                    <strong>Interpretation of λ (the "Shadow Price"):</strong>
+                    <p>The value of the multiplier <strong>λ*</strong> at the optimum tells you how much the <strong>objective function</strong> (e.g., Utility) would increase if the <strong>constraint</strong> (e.g., Budget) were relaxed by one unit.</p>
+                    <p>If λ* = 5, it means that if your income (M) increased by $1, your maximum possible utility would increase by 5 "utils". It is the <strong>marginal utility of income</strong>.</p>
+                </div>
+            </section>
+            
+            <section id="hessian">
+                <h2>5. Hessian determinants</h2>
+                <p>The <strong>Hessian</strong> is a matrix of all the second-order partial derivatives. It is the multi-variable version of the "second derivative" and is used in the SOC for <strong>unconstrained</strong> optimization.</p>
+                
+                <p>For a function f(X, Y), we have four second-order partials:
+                <ul>
+                    <li>f<sub>XX</sub> = ∂²f/∂X² (Differentiate wrt X, then wrt X again)</li>
+                    <li>f<sub>YY</sub> = ∂²f/∂Y² (Differentiate wrt Y, then wrt Y again)</li>
+                    <li>f<sub>XY</sub> = ∂²f/∂Y∂X (Differentiate wrt X, then wrt Y)</li>
+                    <li>f<sub>YX</sub> = ∂²f/∂X∂Y (Differentiate wrt Y, then wrt X)</li>
+                </ul>
+                <p><strong>Young's Theorem:</strong> As long as the second partials are continuous, f<sub>XY</sub> = f<sub>YX</sub>.</p>
+
+                <blockquote>
+                    <strong>The Hessian Matrix (H):</strong>
+                    <div class="matrix">
+                    H = [ f<sub>XX</sub>   f<sub>XY</sub> ]<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;[ f<sub>YX</sub>   f<sub>YY</sub> ]
+                    </div>
+                </blockquote>
+                <p>The <strong>Hessian determinant |H|</strong> is:
+                <span class="formula">|H| = (f<sub>XX</sub>)(f<sub>YY</sub>) - (f<sub>XY</sub>)²</span>
+                </p>
+
+                <h3>Second-Order Condition (SOC) for Unconstrained Optimization:</h3>
+                <p>At a critical point (where f<sub>X</sub> = 0 and f<sub>Y</sub> = 0):</p>
+                <ul>
+                    <li><strong>Local Maximum:</strong>  f<sub>XX</sub> < 0  AND  |H| > 0</li>
+                    <li><strong>Local Minimum:</strong>  f<sub>XX</sub> > 0  AND  |H| > 0</li>
+                    <li><strong>Saddle Point:</strong>   |H| < 0</li>
+                    <li><strong>Inconclusive:</strong>    |H| = 0</li>
+                </ul>
+            </section>
+            
+            <section id="bordered-hessian">
+                <h2>6. Bordered Hessian determinant</h2>
+                <p>The <strong>Bordered Hessian</strong> is the SOC for <strong>constrained</strong> optimization. It is the Hessian of the Lagrangian function, "bordered" by the derivatives of the constraint.</p>
+
+                <p>For L(X, Y, λ) with constraint g(X, Y) = c:
+                <br>g<sub>X</sub> = ∂g/∂X and g<sub>Y</sub> = ∂g/∂Y
+                <br>L<sub>XX</sub> = ∂²L/∂X², L<sub>XY</sub> = ∂²L/∂Y∂X, etc.</p>
+                
+                <blockquote>
+                    <strong>The Bordered Hessian Matrix (|H<sub>B</sub>|):</strong>
+                    <div class="matrix">
+                    |H<sub>B</sub>| = [ 0      g<sub>X</sub>      g<sub>Y</sub>    ]<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ g<sub>X</sub>    L<sub>XX</sub>   L<sub>XY</sub> ]<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ g<sub>Y</sub>    L<sub>YX</sub>   L<sub>YY</sub> ]
+                    </div>
+                </blockquote>
+
+                <h3>Second-Order Condition (SOC) for Constrained Optimization:</h3>
+                <p>At the optimal point (X*, Y*, λ*):</p>
+                <ul>
+                    <li><strong>Local Maximum:</strong>  <strong>|H<sub>B</sub>| > 0</strong></li>
+                    <li><strong>Local Minimum:</strong>  <strong>|H<sub>B</sub>| < 0</strong></li>
+                </ul>
+                <div class="common-mistake">
+                    <strong>The signs are reversed!</strong>
+                    <br>Unlike the unconstrained Hessian (where |H|>0 for both max and min), the Bordered Hessian has a clear sign difference: <strong>Positive for Max, Negative for Min</strong>. This is a very common exam mistake.
+                </div>
+            </section>
+            
+            <section id="econ-apps">
+                <h2>7. Economic application</h2>
+                <p>This entire unit is about the core mathematical tools of microeconomics.</p>
+
+                <h3>Example: Utility Maximization (Full Problem)</h3>
+                <ul>
+                    <li><strong>Problem:</strong> Maximize U = XY subject to 2X + 4Y = 120.</li>
+                    <li><strong>1. Lagrangian:</strong>
+                        <br>L = XY - λ(2X + 4Y - 120)</li>
+                    <li><strong>2. FOCs:</strong>
+                        <br>(1) ∂L/∂X = Y - 2λ = 0  =>  <strong>Y = 2λ</strong>
+                        <br>(2) ∂L/∂Y = X - 4λ = 0  =>  <strong>X = 4λ</strong>
+                        <br>(3) ∂L/∂λ = -(2X + 4Y - 120) = 0  =>  <strong>2X + 4Y = 120</strong></li>
+                    <li><strong>3. Solve:</strong>
+                        <br>Substitute (1) and (2) into (3):
+                        <br>2(4λ) + 4(2λ) = 120
+                        <br>8λ + 8λ = 120
+                        <br>16λ = 120  =>  <strong>λ* = 7.5</strong>
+                        <br>
+                        <br>Now find X* and Y*:
+                        <br>X* = 4λ = 4(7.5) = <strong>30</strong>
+                        <br>Y* = 2λ = 2(7.5) = <strong>15</strong>
+                        <br>
+                        <br><strong>Optimal Bundle:</strong> (X=30, Y=15)
+                        <br><strong>Interpretation of λ:</strong> If income increases by $1 (to 121), utility will increase by approx. 7.5.
+                    </li>
+                    <li><strong>4. Check SOC (Bordered Hessian):</strong>
+                        <br>g<sub>X</sub> = 2, g<sub>Y</sub> = 4
+                        <br>L<sub>XX</sub> = 0, L<sub>YY</sub> = 0, L<sub>XY</sub> = 1
+                        <div class="matrix">
+                        |H<sub>B</sub>| = [ 0   2   4 ]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ 2   0   1 ]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ 4   1   0 ]
+                        </div>
+                        <br>|H<sub>B</sub>| = 0(0-1) - 2(0-4) + 4(2-0) = 0 - 2(-4) + 4(2) = 8 + 8 = <strong>16</strong>
+                        <br>Since <strong>|H<sub>B</sub>| = 16 > 0</strong>, we have confirmed this is a <strong>maximum</strong>.
+                    </li>
+                </ul>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

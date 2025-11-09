@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSC 151 Unit 2 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for PHYDSC151T (Electricity and Magnetism) Unit 2, covering Electrostatic Energy, Capacitance, Method of Images, and Dielectric Properties.">
+    <meta name="keywords" content="PHYDSC151T, Electricity and Magnetism, Unit 2, Electrostatic Energy, Capacitance, Method of Images, Dielectrics, Polarization, Displacement Vector D, Assam University, 2nd Semester Physics">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3, h4 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 2em;
+            color: #e74c3c;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #c0392b;
+            margin-top: 25px;
+        }
+        h4 {
+            font-size: 1.2em;
+            color: #555;
+        }
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            font-size: 1.1em;
+            font-style: italic;
+            font-family: 'Georgia', serif;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: #fbeee;
+            border-left: 5px solid #e74c3c;
+            color: #34495e;
+            border-radius: 5px;
+        }
+        code, .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.1em;
+        }
+        .exam-tip {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d4a017;
+        }
+        #toc {
+            background: #fff5f5;
+            border: 1px solid #ffcccc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        #toc h3 {
+            margin-top: 0;
+            color: #a03030;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 10px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #c0392b;
+            font-weight: bold;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 2: Electrostatic Energy, Capacitance and Dielectrics</h1>
+
+        <div id="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#energy">1. Electrostatic Energy</a></li>
+                <li><a href="#force-conductor">2. Surface Charge and Force on a Conductor</a></li>
+                <li><a href="#capacitance">3. Capacitance</a></li>
+                <li><a href="#images">4. Method of Images</a></li>
+                <li><a href="#dielectrics">5. Dielectric Properties of Matter</a></li>
+                <li><a href="#d-vector">6. The Displacement Vector (D)</a></li>
+                <li><a href="#cap-dielectric">7. Capacitors with Dielectrics</a></li>
+            </ul>
+        </div>
+
+        <h2 id="energy">1. Electrostatic Energy</h2>
+        <p>Electrostatic energy (or potential energy, U) is the energy stored in a system of charges. It is equal to the work done (W) to assemble these charges from infinity to their final positions.</p>
+        
+        <h3>Electrostatic Energy of a System of Discrete Charges</h3>
+        <p>The work done to bring a set of charges q<sub>1</sub>, q<sub>2</sub>, ..., q<sub>n</sub> into position is:</p>
+        <blockquote><strong>Formula:</strong> U = (1/2) &sum;<sub>i=1</sub><sup>n</sup> q<sub>i</sub>V(r<sub>i</sub>)</blockquote>
+        <p>Where V(r<sub>i</sub>) is the potential at the location of charge q<sub>i</sub> due to *all other* charges.</p>
+        <p>For a continuous charge distribution (density &rho;), the sum becomes an integral:</p>
+        <blockquote><strong>Formula (Continuous):</strong> U = (1/2) ∫ &rho;(r)V(r) d&tau;</blockquote>
+        <p>This energy can also be expressed as being stored in the electric field itself, with an energy density (u) given by:</p>
+        <blockquote><strong>Energy Density:</strong> u = (1/2)ε<sub>0</sub>E<sup>2</sup></blockquote>
+        <p>The total energy is the integral of this density over all space: U = ∫<sub>all space</sub> (1/2)ε<sub>0</sub>E<sup>2</sup> d&tau;</p>
+
+        <h3>Electrostatic Energy of a Charged Sphere</h3>
+        <p>We can find the energy of a uniformly charged solid sphere (charge Q, radius R) by integrating the energy density.</p>
+        <ul>
+            <li><strong>Field inside (r < R):</strong> E = Qr / (4πε<sub>0</sub>R<sup>3</sup>)</li>
+            <li><strong>Field outside (r > R):</strong> E = Q / (4πε<sub>0</sub>r<sup>2</sup>)</li>
+        </ul>
+        <p>Integrating u = (1/2)ε<sub>0</sub>E<sup>2</sup> over all space (from r=0 to &infin;) gives the total energy:</p>
+        <blockquote><strong>Total Energy (Solid Sphere):</strong> U = 3Q<sup>2</sup> / (20πε<sub>0</sub>R)</blockquote>
+        <p>For a <strong>hollow conducting sphere</strong> (all charge Q on surface), E=0 inside. Integrating the field density from R to &infin; gives:</p>
+        <blockquote><strong>Total Energy (Hollow Sphere):</strong> U = Q<sup>2</sup> / (8πε<sub>0</sub>R)</blockquote>
+
+        <h2 id="force-conductor">2. Surface Charge and Force on a Conductor</h2>
+        <p>In electrostatics, all charge on a conductor resides on its surface. The electric field just outside the surface is E = &sigma; / ε<sub>0</sub> (perpendicular to the surface), and the field inside is E = 0.</p>
+        <p>The charge on the surface experiences an outward-directed force. This force is due to the field created by *all other charges* on the conductor (excluding the small patch of charge itself).</p>
+        <p>The field at the surface is an average: E<sub>avg</sub> = (E<sub>out</sub> + E<sub>in</sub>) / 2 = (&sigma;/ε<sub>0</sub> + 0) / 2 = &sigma; / (2ε<sub>0</sub>).</p>
+        <p>The force (dF) on a small area (dA) with charge (dq = &sigma;dA) is:</p>
+        <p>dF = (dq) * E<sub>avg</sub> = (&sigma;dA) * (&sigma; / 2ε<sub>0</sub>) = (&sigma;<sup>2</sup> / 2ε<sub>0</sub>) dA</p>
+        <p>This gives the <strong>electrostatic pressure</strong> (Force per unit area) pushing outward on the conductor:</p>
+        <blockquote><strong>Force per unit area (Pressure):</strong> P = dF/dA = &sigma;<sup>2</sup> / (2ε<sub>0</sub>) = (1/2)ε<sub>0</sub>E<sup>2</sup></blockquote>
+
+        <h2 id="capacitance">3. Capacitance</h2>
+        <p>A capacitor is a device that stores electrostatic energy. It consists of two conductors (plates). When a voltage (V) is applied, one plate gets charge +Q and the other gets -Q.</p>
+        <p><strong>Capacitance (C)</strong> is the ratio of the charge (Q) stored on one plate to the potential difference (V) between the plates.</p>
+        <blockquote><strong>Definition:</strong> C = Q / V</blockquote>
+        <p>The unit of capacitance is the <strong>Farad (F)</strong>, where 1 Farad = 1 Coulomb / Volt.</p>
+
+        <h3>Principle of a Capacitor</h3>
+        <p>The capacitance of a single conductor (A) is small. If we bring an uncharged conductor (B) near it, V decreases and C increases. If we then ground conductor B, the potential of A drops significantly, and its capacitance C = Q/V increases dramatically. This is the principle: two conductors, one charged and one earthed, separated by an insulator.</p>
+
+        <h3>Capacitance of an Isolated Conductor</h3>
+        <p>Even a single conductor has capacitance. It is the ratio of its charge Q to its potential V (measured relative to V=0 at infinity).</p>
+        <p><strong>Example: Isolated Sphere (Radius R):</strong></p>
+        <p>The potential on its surface is V = Q / (4πε<sub>0</sub>R).</p>
+        <p>Therefore, C = Q / V = Q / (Q / (4πε<sub>0</sub>R))</p>
+        <blockquote><strong>Capacitance (Isolated Sphere):</strong> C = 4πε<sub>0</sub>R</blockquote>
+
+        <h2 id="images">4. Method of Images</h2>
+        <p>This is a powerful problem-solving technique in electrostatics. It allows us to solve for the potential in a region with simple boundary conditions (like a grounded conducting plane) by replacing the boundary with one or more "image charges" outside the region of interest.</p>
+        <p>This works because of the <strong>Uniqueness Theorem</strong>: if we can find a configuration of image charges that satisfies the boundary conditions (e.g., V=0 on the conductor), then the potential in the original region is solved correctly.</p>
+
+        <h3>Application 1: Point Charge and a Grounded Infinite Sheet</h3>
+        <p><strong>Problem:</strong> A point charge +q is at a distance 'd' from an infinite, grounded (V=0) conducting plane.</p>
+        <p><strong>Solution:</strong> We remove the plane. We place an "image" charge -q at a distance 'd' *behind* the plane (at z = -d, if +q is at z = +d).</p>
+        <p>The potential in the region z > 0 is now the superposition of V<sub>+q</sub> and V<sub>-q</sub>. This configuration correctly creates V=0 on the z=0 plane, so it is the unique solution for the region z > 0.</p>
+        <h3>Application 2: Point Charge and a Grounded Conducting Sphere</h3>
+        <p><strong>Problem:</strong> A point charge +q is at a distance 'a' from the center of a grounded (V=0) conducting sphere of radius R (where a > R).</p>
+        <p><strong>Solution:</strong> We replace the sphere with two image charges placed *inside* the original sphere's volume:</p>
+        <ol>
+            <li>An image charge <strong>q' = -q(R/a)</strong></li>
+            <li>Placed at a distance <strong>b = R<sup>2</sup>/a</strong> from the center (on the same line as +q).</li>
+        </ol>
+        <p>This arrangement of +q, q', and b produces V=0 on the surface r=R, giving the correct potential *outside* the sphere.</p>
+
+        <h2 id="dielectrics">5. Dielectric Properties of Matter</h2>
+        <p>A <strong>dielectric</strong> is an electrical insulator. When placed in an external electric field (E<sub>0</sub>), it does not conduct, but the molecules within it become polarized.</p>
+
+        <h3>Electric Field in Matter</h3>
+        <p>The external field E<sub>0</sub> causes the positive and negative charges in the dielectric's atoms/molecules to separate slightly. These tiny dipoles create an *internal* electric field (E<sub>induced</sub>) that opposes the external field.</p>
+        <p>The <strong>net electric field (E)</strong> inside the dielectric is the vector sum: E = E<sub>0</sub> + E<sub>induced</sub>. The magnitude is E < E<sub>0</sub>.</p>
+
+        <h3>Polarization (P)</h3>
+        <p><strong>Polarization (P)</strong> is a vector field defined as the <strong>net dipole moment per unit volume</strong>. It measures the degree of polarization of the material.</p>
+        
+        <h3>Polarization (Bound) Charges</h3>
+        <p>This polarization is not due to free-moving charges, but to "bound" charges. This creates an effective charge density:</p>
+        <ul>
+            <li><strong>Bound Surface Charge:</strong> &sigma;<sub>b</sub> = P ⋅ n̂ (where n̂ is the normal vector)</li>
+            <li><strong>Bound Volume Charge:</strong> &rho;<sub>b</sub> = -∇ ⋅ P</li>
+        </ul>
+        
+        <h3>Electrical Susceptibility (χ<sub>e</sub>) and Dielectric Constant (κ)</h3>
+        <p>For most materials (linear dielectrics), the polarization P is directly proportional to the *net* electric field E inside the material:</p>
+        <blockquote><strong>Formula:</strong> P = ε<sub>0</sub>χ<sub>e</sub>E</blockquote>
+        <p><strong>χ<sub>e</sub> (Chi)</strong> is the <strong>electric susceptibility</strong>, a dimensionless quantity that measures how easily a material polarizes.</p>
+        <p>The <strong>Dielectric Constant (κ)</strong>, also called relative permittivity (&epsilon;<sub>r</sub>), is defined as:</p>
+        <blockquote><strong>Formula:</strong> κ = 1 + χ<sub>e</sub></blockquote>
+        <p>It relates the permittivity of the material (&epsilon;) to the permittivity of free space (&epsilon;<sub>0</sub>): &epsilon; = κε<sub>0</sub>.</p>
+
+        <h2 id="d-vector">6. The Displacement Vector (D)</h2>
+        <p>In materials, the total electric field E is caused by *both* free charges (&rho;<sub>free</sub>) and bound charges (&rho;<sub>b</sub>). This can be complicated.</p>
+        <p>We define a new auxiliary vector field, the <strong>Electric Displacement (D)</strong>, which depends *only* on the free charges.</p>
+        <blockquote><strong>Definition:</strong> D = ε<sub>0</sub>E + P</blockquote>
+        
+        <h3>Relations connecting E, P, and D</h3>
+        <p>We can write D in terms of E using the susceptibility:</p>
+        <p>D = ε<sub>0</sub>E + (ε<sub>0</sub>χ<sub>e</sub>E) = ε<sub>0</sub>(1 + χ<sub>e</sub>)E</p>
+        <p>Since κ = 1 + χ<sub>e</sub>, we get the simple relation:</p>
+        <blockquote><strong>Formula:</strong> D = κε<sub>0</sub>E = εE</blockquote>
+        
+        <h3>Gauss's Law in Dielectrics</h3>
+        <p>The main advantage of D is that it obeys a simple form of Gauss's Law that only involves the *free* charge enclosed.</p>
+        <blockquote><strong>Gauss's Law for D:</strong> ∮ D ⋅ dA = Q<sub>free, enclosed</sub></blockquote>
+        <p>In differential form: <strong>∇ ⋅ D = ρ<sub>free</sub></strong></p>
+        
+        <div class="exam-tip">
+            <strong>When to use E vs. D:</strong>
+            <ul>
+                <li>Use <strong>E</strong> when you need the actual field (e.g., to find the force on a charge). E is the fundamental field.</li>
+                <li>Use <strong>D</strong> when you are working with dielectrics and want a simple relation to the *free charges* you control (e.g., the charge on the capacitor plates).</li>
+            </ul>
+        </div>
+
+        <h2 id="cap-dielectric">7. Capacitors with Dielectrics</h2>
+        <p>When the space between the plates of a capacitor is filled with a dielectric material (constant κ), the capacitance is increased.</p>
+        <p>For a given charge Q on the plates, the free charge is unchanged. The dielectric polarizes, creating an opposing field E<sub>induced</sub>.</p>
+        <ul>
+            <li>Net Field: E = E<sub>0</sub> / κ (Field is reduced)</li>
+            <li>Potential Difference: V = E &sdot; d = (E<sub>0</sub> / κ) &sdot; d = V<sub>0</sub> / κ (Voltage is reduced)</li>
+        </ul>
+        <p>The new capacitance C is:</p>
+        <p>C = Q / V = Q / (V<sub>0</sub> / κ) = κ (Q / V<sub>0</sub>) = κC<sub>0</sub></p>
+        <blockquote><strong>Capacitance with Dielectric:</strong> C = κC<sub>0</sub></blockquote>
+        <p>The capacitance is increased by a factor of κ.</p>
+
+        <h3>Examples:</h3>
+        <ul>
+            <li><strong>Parallel Plate Capacitor:</strong> C = κε<sub>0</sub>A / d</li>
+            <li><strong>Spherical Capacitor:</strong> C = 4πε<sub>0</sub>κ (ab / (b-a))</li>
+            <li><strong>Cylindrical Capacitor:</strong> C = 2πε<sub>0</sub>κL / ln(b/a)</li>
+        </ul>
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

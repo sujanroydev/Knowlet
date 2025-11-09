@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive notes for Economics (ECODSC-151) Unit 2: Introduction to Linear Algebra: Determinants and Matrix, from the 2nd Semester syllabus.">
+    <meta name="keywords" content="ECODSC-151, Elementary Mathematics for Economics, Unit 2, Linear Algebra, Matrix, Determinants, Cramer's Rule, Matrix Inverse, Economic Applications, Leontief Model">
+    <title>Economics DSC 151 Unit 2 | 2nd Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f4f7f6;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 1000px;
+        margin: 20px auto;
+        background-color: #ffffff;
+        border: 1px solid #d1d1d1;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+      header {
+        background-color: #0056b3; /* Economics Blue */
+        color: #ffffff;
+        padding: 20px 30px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2.5em;
+      }
+      header p {
+        margin: 5px 0 0;
+        font-size: 1.1em;
+      }
+      .content {
+        padding: 30px;
+      }
+      #toc {
+        background-color: #eef5ff;
+        border: 1px solid #b3d1ff;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 30px;
+      }
+      #toc h2 {
+        margin-top: 0;
+        border-bottom: 2px solid #0056b3;
+        padding-bottom: 10px;
+      }
+      #toc ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+      #toc li {
+        margin-bottom: 10px;
+      }
+      #toc a {
+        text-decoration: none;
+        color: #004a99;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+      #toc a:hover {
+        color: #007bff;
+        text-decoration: underline;
+      }
+      h2 {
+        color: #0056b3;
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 10px;
+        margin-top: 40px;
+      }
+      h3 {
+        color: #007bff;
+        margin-top: 30px;
+      }
+      p, li {
+        font-size: 1.05em;
+      }
+      ul, ol {
+        padding-left: 20px;
+      }
+      blockquote {
+        background-color: #f9f9f9;
+        border-left: 5px solid #007bff;
+        margin: 20px 0;
+        padding: 15px 20px;
+        font-style: italic;
+      }
+      .exam-tip, .common-mistake, .real-world {
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 8px;
+        border-left-width: 5px;
+        border-left-style: solid;
+      }
+      .exam-tip {
+        background-color: #fffbeb;
+        border-color: #fdd835; /* Yellow */
+      }
+      .common-mistake {
+        background-color: #ffebee;
+        border-color: #e53935; /* Red */
+      }
+      .real-world {
+        background-color: #e6f7ff;
+        border-color: #1890ff; /* Blue */
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+      th, td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+      th {
+        background-color: #0056b3;
+        color: white;
+      }
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      .formula {
+        font-family: "Courier New", Courier, monospace;
+        font-size: 1.1em;
+        background-color: #eee;
+        padding: 10px;
+        border-radius: 5px;
+        display: block;
+        margin: 10px 0;
+      }
+      .placeholder {
+        background-color: #fafafa;
+        border: 2px dashed #ccc;
+        padding: 20px;
+        text-align: center;
+        border-radius: 8px;
+        margin: 20px 0;
+        font-style: italic;
+        color: #777;
+      }
+      .matrix {
+        font-family: "Courier New", Courier, monospace;
+        font-size: 1.2em;
+        line-height: 1.4;
+        white-space: pre;
+      }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Unit 2: Introduction to Linear Algebra: Determinants and Matrix</h1>
+            <p>ECODSC-151: Elementary Mathematics for Economics | 2nd Semester Notes</p>
+        </header>
+        <div class="content">
+
+            <div id="toc">
+                <h2>Table of Contents</h2>
+                <ul>
+                    <li><a href="#matrix-types">1. Matrix and Types of Matrix</a></li>
+                    <li><a href="#matrix-ops">2. Matrix Operations</a></li>
+                    <li><a href="#determinants">3. Determinants and its properties</a></li>
+                    <li><a href="#transpose">4. Transpose of a matrix</a></li>
+                    <li><a href="#vectors">5. Scalar products, norms, orthogonality (Vectors)</a></li>
+                    <li><a href="#linear-transform">6. Linear transformations</a></li>
+                    <li><a href="#simultaneous-eqs">7. Solution of simultaneous linear equations</a></li>
+                    <li><a href="#econ-apps">8. Economic applications of matrix algebra</a></li>
+                </ul>
+            </div>
+
+            <section id="matrix-types">
+                <h2>1. Matrix and Types of Matrix</h2>
+                <blockquote>
+                    <strong>Definition:</strong> A <strong>matrix</strong> is a rectangular array of numbers (or functions) arranged in <em>m</em> rows and <em>n</em> columns. It is an <em>m × n</em> ("m by n") matrix.
+                </blockquote>
+                
+                <h3>Types of Matrix:</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Row Matrix (or Row Vector)</strong></td>
+                            <td>A matrix with only one row (1 × n).</td>
+                            <td class="matrix">[ 1  5  -2 ]</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Column Matrix (or Column Vector)</strong></td>
+                            <td>A matrix with only one column (m × 1).</td>
+                            <td class="matrix">[ 3 ]<br>[ 0 ]<br>[ 7 ]</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Square Matrix</strong></td>
+                            <td>Number of rows equals number of columns (n × n).</td>
+                            <td class="matrix">[ 1  2 ]<br>[ 3  4 ]</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Null (or Zero) Matrix</strong></td>
+                            <td>All elements are zero.</td>
+                            <td class="matrix">[ 0  0 ]<br>[ 0  0 ]</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Identity (or Unit) Matrix (I)</strong></td>
+                            <td>A square matrix with 1s on the main diagonal (top-left to bottom-right) and 0s elsewhere.</td>
+                            <td class="matrix">[ 1  0 ]<br>[ 0  1 ]</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Diagonal Matrix</strong></td>
+                            <td>A square matrix where all non-diagonal elements are zero.</td>
+                            <td class="matrix">[ 5  0  0 ]<br>[ 0 -2  0 ]<br>[ 0  0  1 ]</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Symmetric Matrix</strong></td>
+                            <td>A square matrix where A = A<sup>T</sup> (a<sub>ij</sub> = a<sub>ji</sub>).</td>
+                            <td class="matrix">[ 1  5  3 ]<br>[ 5  2  7 ]<br>[ 3  7  4 ]</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section id="matrix-ops">
+                <h2>2. Matrix Operations</h2>
+                <h3>A. Addition and Subtraction</h3>
+                <p>You can only add or subtract matrices that have the <strong>same dimensions</strong> (same number of rows and columns). The operation is performed element-wise.</p>
+                
+                <h3>B. Scalar Multiplication</h3>
+                <p>To multiply a matrix by a scalar (a single number), you multiply <strong>every element</strong> in the matrix by that scalar.</p>
+                
+                <h3>C. Matrix Multiplication (A × B)</h3>
+                <p>This is the most complex operation. To multiply matrix A (dimensions <em>m × n</em>) by matrix B (dimensions <em>n × p</em>), two conditions must be met:</p>
+                <ol>
+                    <li>The number of <strong>columns in A (n)</strong> must equal the number of <strong>rows in B (n)</strong>.</li>
+                    <li>The resulting matrix C will have dimensions <em>m × p</em>.</li>
+                </ol>
+                <p>Each element c<sub>ij</sub> in the new matrix is found by taking the <strong>dot product</strong> of the <em>i</em>-th row of A and the <em>j</em>-th column of B.</p>
+                
+                <div class="common-mistake">
+                    <strong>Matrix Multiplication is NOT Commutative!</strong>
+                    <br>In general, <strong>A × B ≠ B × A</strong>.
+                    <br>In fact, B × A might not even be possible if the dimensions don't align.
+                </div>
+            </section>
+
+            <section id="determinants">
+                <h2>3. Determinants and its properties</h2>
+                <p>The <strong>determinant</strong> is a special scalar value that can be computed from a <strong>square matrix</strong>. It is denoted as <strong>det(A)</strong> or <strong>|A|</strong>.</p>
+                
+                <h3>Calculating Determinants:</h3>
+                <ul>
+                    <li><strong>For a 2×2 Matrix:</strong>
+                        <div class="matrix">
+                        A = [ a  b ]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;[ c  d ]
+                        </div>
+                        <span class="formula">|A| = ad - bc</span>
+                    </li>
+                    <li><strong>For a 3×3 Matrix (Sarrus's Rule or Cofactor Expansion):</strong>
+                        <p>Cofactor expansion is the general method. For any row <em>i</em> or column <em>j</em>, the determinant is the sum of each element multiplied by its <strong>cofactor</strong>.</p>
+                        <span class="formula">|A| = a<sub>11</sub>C<sub>11</sub> + a<sub>12</sub>C<sub>12</sub> + a<sub>13</sub>C<sub>13</sub></span>
+                        <p>Where the cofactor C<sub>ij</sub> = (-1)<sup>i+j</sup> * M<sub>ij</sub> (M<sub>ij</sub> is the "minor", the determinant of the 2x2 matrix left after removing row <em>i</em> and column <em>j</em>).</p>
+                    </li>
+                </ul>
+
+                <div class="exam-tip">
+                    <p>A square matrix A is <strong>invertible</strong> (has an inverse) if and only if its determinant is non-zero (<strong>|A| ≠ 0</strong>).</p>
+                    <p>If |A| = 0, the matrix is called <strong>singular</strong>.</p>
+                </div>
+
+                <h3>Properties of Determinants:</h3>
+                <ul>
+                    <li>If you swap two rows (or columns), the sign of the determinant flips.</li>
+                    <li>If a matrix has a row (or column) of all zeros, |A| = 0.</li>
+                    <li>If a matrix has two identical rows (or columns), |A| = 0.</li>
+                    <li>|A<sup>T</sup>| = |A| (Transpose has the same determinant).</li>
+                    <li>|A × B| = |A| × |B|</li>
+                </ul>
+            </section>
+            
+            <section id="transpose">
+                <h2>4. Transpose of a matrix</h2>
+                <blockquote>
+                    <strong>Definition:</strong> The <strong>transpose</strong> of a matrix A, denoted <strong>A<sup>T</sup></strong> (or A'), is the matrix obtained by swapping its rows and columns.
+                    <br>If A is <em>m × n</em>, then A<sup>T</sup> is <em>n × m</em>.
+                </blockquote>
+                <p><strong>Example:</strong></p>
+                <div class="matrix">
+                A = [ 1  2  3 ]   ==>   A<sup>T</sup> = [ 1  4 ]<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;[ 4  5  6 ]   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ 2  5 ]<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ 3  6 ]
+                </div>
+                
+                <h3>Properties of Transpose:</h3>
+                <ul>
+                    <li>(A<sup>T</sup>)<sup>T</sup> = A</li>
+                    <li>(A + B)<sup>T</sup> = A<sup>T</sup> + B<sup>T</sup></li>
+                    <li>(k * A)<sup>T</sup> = k * A<sup>T</sup> (where k is a scalar)</li>
+                    <li><strong>(A × B)<sup>T</sup> = B<sup>T</sup> × A<sup>T</sup></strong> (Note the reversal of order!)</li>
+                </ul>
+            </section>
+
+            <section id="vectors">
+                <h2>5. Scalar products, norms, orthogonality (Vectors)</h2>
+                <p>A <strong>vector</strong> is a matrix with only one row (row vector) or one column (column vector). We'll consider two vectors, <strong>u</strong> and <strong>v</strong>.</p>
+                <p>Let <strong>u</strong> = (u<sub>1</sub>, u<sub>2</sub>, ..., u<sub>n</sub>) and <strong>v</strong> = (v<sub>1</sub>, v<sub>2</sub>, ..., v<sub>n</sub>)</p>
+                
+                <ul>
+                    <li><strong>Scalar (Dot) Product:</strong> The dot product <strong>u · v</strong> is a single scalar value.
+                        <span class="formula">u · v = u<sub>1</sub>v<sub>1</sub> + u<sub>2</sub>v<sub>2</sub> + ... + u<sub>n</sub>v<sub>n</sub></span>
+                    </li>
+                    <li><strong>Norm (Length or Magnitude):</strong> The norm of a vector <strong>u</strong>, written <strong>||u||</strong>, is its length.
+                        <span class="formula">||u|| = √(u<sub>1</sub>² + u<sub>2</sub>² + ... + u<sub>n</sub>²)</span>
+                        <p>Note: ||u||² = u · u</p>
+                    </li>
+                    <li><strong>Orthogonality:</strong> Two vectors <strong>u</strong> and <strong>v</strong> are <strong>orthogonal</strong> (perpendicular) if their dot product is zero.
+                        <span class="formula">u · v = 0</span>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="linear-transform">
+                <h2>6. Linear transformations</h2>
+                <p>A <strong>transformation</strong> T is a function that maps a vector from one space to another (e.g., T(<strong>v</strong>) = <strong>w</strong>).</p>
+                <p>A transformation T is <strong>linear</strong> if it satisfies two properties for all vectors <strong>u</strong>, <strong>v</strong> and any scalar <em>c</em>:</p>
+                <ol>
+                    <li><strong>Additivity:</strong> T(<strong>u</strong> + <strong>v</strong>) = T(<strong>u</strong>) + T(<strong>v</strong>)</li>
+                    <li><strong>Homogeneity:</strong> T(<em>c</em><strong>u</strong>) = <em>c</em>T(<strong>u</strong>)</li>
+                </ol>
+                <p><strong>Matrix Representation:</strong> Every linear transformation T can be represented by matrix multiplication. T(<strong>x</strong>) = A<strong>x</strong>, where A is the "transformation matrix".</p>
+                <p><strong>Elementary Operations:</strong> These are operations on the rows of a matrix (used in Gaussian elimination to solve systems of equations).
+                <ol>
+                    <li>Swapping two rows.</li>
+                    <li>Multiplying a row by a non-zero scalar.</li>
+                    <li>Adding a multiple of one row to another row.</li>
+                </ol>
+                </p>
+            </section>
+
+            <section id="simultaneous-eqs">
+                <h2>7. Solution of simultaneous linear equations</h2>
+                <p>A system of <em>n</em> linear equations with <em>n</em> variables can be written in matrix form as:</p>
+                <span class="formula">A X = B</span>
+                <ul>
+                    <li><strong>A</strong> is the <em>n × n</em> <strong>coefficient matrix</strong>.</li>
+                    <li><strong>X</strong> is the <em>n × 1</em> <strong>vector of variables</strong>.</li>
+                    <li><strong>B</strong> is the <em>n × 1</em> <strong>vector of constants</strong>.</li>
+                </ul>
+                
+                <h3>Method 1: Matrix Inverse Method</h3>
+                <p>If the coefficient matrix A is non-singular (i.e., |A| ≠ 0), it has an inverse, A<sup>-1</sup>.</p>
+                <ol>
+                    <li>Start with AX = B</li>
+                    <li>Multiply both sides by A<sup>-1</sup> (on the left): A<sup>-1</sup>(AX) = A<sup>-1</sup>B</li>
+                    <li>Since A<sup>-1</sup>A = I (Identity matrix): (A<sup>-1</sup>A)X = A<sup>-1</sup>B  =>  IX = A<sup>-1</sup>B</li>
+                    <li>The solution is: <span class="formula">X = A<sup>-1</sup> B</span></li>
+                </ol>
+                
+                <h3>Method 2: Cramer's Rule</h3>
+                <p>This rule gives a direct formula for each variable in the solution vector X, but is only practical for 2x2 or 3x3 systems.
+                <br>
+                The solution for a variable <em>x<sub>i</sub></em> is:</p>
+                <blockquote>
+                    <span class="formula">x<sub>i</sub> = |A<sub>i</sub>| / |A|</span>
+                </blockquote>
+                <ul>
+                    <li><strong>|A|</strong> is the determinant of the main coefficient matrix A.</li>
+                    <li><strong>|A<sub>i</sub>|</strong> is the determinant of a special matrix (A<sub>i</sub>) formed by replacing the <em>i</em>-th <strong>column</strong> of A with the constant vector <strong>B</strong>.</li>
+                </ul>
+                
+                <div class="exam-tip">
+                    <strong>Example (Cramer's Rule 2x2):</strong>
+                    <br>System:
+                    <br>ax + by = e
+                    <br>cx + dy = f
+                    <br>
+                    <br>Matrix A = [a b; c d], Vector B = [e; f]
+                    <br>
+                    <br>|A| = ad - bc
+                    <br>|A<sub>x</sub>| = |[e b; f d]| = ed - bf
+                    <br>|A<sub>y</sub>| = |[a e; c f]| = af - ec
+                    <br>
+                    <br>Solution:
+                    <br><strong>x = (ed - bf) / (ad - bc)</strong>
+                    <br><strong>y = (af - ec) / (ad - bc)</strong>
+                </div>
+            </section>
+            
+            <section id="econ-apps">
+                <h2>8. Economic applications of matrix algebra</h2>
+                
+                <h3>A. Solving Market Equilibrium</h3>
+                <p>Consider a 2-good market (e.g., apples and bananas). The demand and supply for each good depends on the price of <em>both</em> goods. We can set Q<sub>d</sub> = Q<sub>s</sub> for both markets to get a system of linear equations in the prices P<sub>a</sub> and P<sub>b</sub>. We can then use Cramer's Rule or the Inverse Method to find the equilibrium prices.</p>
+                
+                <h3>B. Leontief Input-Output Model</h3>
+                <p>This is a major application of linear algebra in economics, showing how the output of one industry is an input for another.</p>
+                <ul>
+                    <li><strong>X</strong> = Total Output vector (What each industry produces).</li>
+                    <li><strong>D</strong> = Final Demand vector (What consumers want).</li>
+                    <li><strong>A</strong> = Technology Matrix (or Input-Output Coefficient matrix). An element a<sub>ij</sub> shows how much input from industry <em>i</em> is needed to produce 1 unit of output for industry <em>j</em>.</li>
+                </ul>
+                <p>The fundamental equation is:
+                <br><strong>Total Output = Intermediate Demand + Final Demand</strong>
+                <br><span class="formula">X = AX + D</span>
+                </p>
+                <p>To find the <strong>Total Output (X)</strong> needed to satisfy a given <strong>Final Demand (D)</strong>:</p>
+                <ol>
+                    <li>X - AX = D</li>
+                    <li>(I - A)X = D   (where I is the identity matrix)</li>
+                    <li><span class="formula">X = (I - A)<sup>-1</sup> D</span></li>
+                </ol>
+                <p>The matrix <strong>(I - A)<sup>-1</sup></strong> is called the <strong>Leontief Inverse Matrix</strong>. Each element tells you the total output from industry <em>i</em> required to deliver 1 unit of final output to industry <em>j</em>, accounting for all knock-on effects.</p>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

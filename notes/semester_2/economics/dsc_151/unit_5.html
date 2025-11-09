@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive notes for Economics (ECODSC-151) Unit 5: Integration of functions, from the 2nd Semester syllabus. Covers definite/indefinite integrals, Consumer's Surplus, and Producer's Surplus.">
+    <meta name="keywords" content="ECODSC-151, Elementary Mathematics for Economics, Unit 5, Integration, Antiderivative, Definite Integral, Indefinite Integral, Consumer's Surplus, Producer's Surplus">
+    <title>Economics DSC 151 Unit 5 | 2nd Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f4f7f6;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 1000px;
+        margin: 20px auto;
+        background-color: #ffffff;
+        border: 1px solid #d1d1d1;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+      header {
+        background-color: #0056b3; /* Economics Blue */
+        color: #ffffff;
+        padding: 20px 30px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2.5em;
+      }
+      header p {
+        margin: 5px 0 0;
+        font-size: 1.1em;
+      }
+      .content {
+        padding: 30px;
+      }
+      #toc {
+        background-color: #eef5ff;
+        border: 1px solid #b3d1ff;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 30px;
+      }
+      #toc h2 {
+        margin-top: 0;
+        border-bottom: 2px solid #0056b3;
+        padding-bottom: 10px;
+      }
+      #toc ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+      #toc li {
+        margin-bottom: 10px;
+      }
+      #toc a {
+        text-decoration: none;
+        color: #004a99;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+      #toc a:hover {
+        color: #007bff;
+        text-decoration: underline;
+      }
+      h2 {
+        color: #0056b3;
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 10px;
+        margin-top: 40px;
+      }
+      h3 {
+        color: #007bff;
+        margin-top: 30px;
+      }
+      p, li {
+        font-size: 1.05em;
+      }
+      ul, ol {
+        padding-left: 20px;
+      }
+      blockquote {
+        background-color: #f9f9f9;
+        border-left: 5px solid #007bff;
+        margin: 20px 0;
+        padding: 15px 20px;
+        font-style: italic;
+      }
+      .exam-tip, .common-mistake, .real-world {
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 8px;
+        border-left-width: 5px;
+        border-left-style: solid;
+      }
+      .exam-tip {
+        background-color: #fffbeb;
+        border-color: #fdd835; /* Yellow */
+      }
+      .common-mistake {
+        background-color: #ffebee;
+        border-color: #e53935; /* Red */
+      }
+      .real-world {
+        background-color: #e6f7ff;
+        border-color: #1890ff; /* Blue */
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+      th, td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+      th {
+        background-color: #0056b3;
+        color: white;
+      }
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      .formula {
+        font-family: "Courier New", Courier, monospace;
+        font-size: 1.1em;
+        background-color: #eee;
+        padding: 10px;
+        border-radius: 5px;
+        display: block;
+        margin: 10px 0;
+      }
+      .placeholder {
+        background-color: #fafafa;
+        border: 2px dashed #ccc;
+        padding: 20px;
+        text-align: center;
+        border-radius: 8px;
+        margin: 20px 0;
+        font-style: italic;
+        color: #777;
+      }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Unit 5: Integration of functions</h1>
+            <p>ECODSC-151: Elementary Mathematics for Economics | 2nd Semester Notes</p>
+        </header>
+        <div class="content">
+
+            <div id="toc">
+                <h2>Table of Contents</h2>
+                <ul>
+                    <li><a href="#integration-intro">1. Integration as Anti-differentiation</a></li>
+                    <li><a href="#rules-integration">2. Basic rules of integration</a></li>
+                    <li><a href="#definite-indefinite">3. Definite and indefinite integral</a></li>
+                    <li><a href="#econ-apps">4. Application of integration in economics</a></li>
+                    <li><a href="#consumer-surplus">5. Consumer's surplus</a></li>
+                    <li><a href="#producer-surplus">6. Producer's surplus</a></li>
+                </ul>
+            </div>
+
+            <section id="integration-intro">
+                <h2>1. Integration as Anti-differentiation</h2>
+                <blockquote>
+                    <strong>Definition:</strong> <strong>Integration</strong> is the reverse process of differentiation. If differentiating function F(x) gives you f(x), then integrating f(x) gives you back F(x) (plus a constant).
+                    <br><br>
+                    If d/dx [F(x)] = f(x), then ∫f(x)dx = F(x) + C
+                </blockquote>
+                <p><strong>F(x)</strong> is called the <strong>antiderivative</strong> or <strong>indefinite integral</strong> of f(x).</p>
+                <p><strong>C</strong> is the <strong>constant of integration</strong>. It is required because the derivative of any constant is zero. We lose this constant during differentiation, so we must add it back when integrating.</p>
+                <p><strong>Example:</strong>
+                <br>We know d/dx (x²) = 2x.
+                <br>Therefore, ∫2x dx = x² + C.
+                <br>(The original function could have been x², or x²+5, or x²-100. All have a derivative of 2x).</p>
+            </section>
+            
+            <section id="rules-integration">
+                <h2>2. Basic rules of integration</h2>
+                <p>These rules are the reverse of the differentiation rules.</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rule Name</th>
+                            <th>Function to Integrate: f(x)</th>
+                            <th>Integral: ∫f(x)dx</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Power Rule</strong></td>
+                            <td>x<sup>n</sup>  (where n ≠ -1)</td>
+                            <td><strong>[ x<sup>(n+1)</sup> / (n+1) ] + C</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Special Case (1/x)</strong></td>
+                            <td>x<sup>-1</sup> or 1/x</td>
+                            <td><strong>ln|x| + C</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Constant Rule</strong></td>
+                            <td>k (a constant)</td>
+                            <td><strong>kx + C</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Constant Multiple</strong></td>
+                            <td>k * f(x)</td>
+                            <td><strong>k * ∫f(x)dx</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sum/Difference Rule</strong></td>
+                            <td>f(x) ± g(x)</td>
+                            <td><strong>∫f(x)dx ± ∫g(x)dx</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Exponential Rule (e)</strong></td>
+                            <td>e<sup>x</sup></td>
+                            <td><strong>e<sup>x</sup> + C</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="common-mistake">
+                    <strong>Don't Forget +C!</strong>
+                    <br>Forgetting the constant of integration "+C" is the most common mistake in indefinite integration. It is crucial for finding total cost from marginal cost.
+                </div>
+            </section>
+            
+            <section id="definite-indefinite">
+                <h2>3. Definite and indefinite integral</h2>
+
+                <h3>A. Indefinite Integral</h3>
+                <p>This is what we have seen so far. It is the general antiderivative, which results in a <strong>function + C</strong>.</p>
+                <blockquote>
+                    <span class="formula">∫f(x)dx = F(x) + C</span>
+                </blockquote>
+                
+                <h3>B. Definite Integral</h3>
+                <p>A definite integral is an integral with <strong>limits of integration</strong> (a "from" value <em>a</em> and a "to" value <em>b</em>). It results in a single <strong>numerical value</strong>.</p>
+                <p>Geometrically, the definite integral represents the <strong>area under the curve</strong> f(x) from x = a to x = b.</p>
+                
+                <blockquote>
+                    <strong>The Fundamental Theorem of Calculus:</strong>
+                    <p>To evaluate the definite integral of f(x) from <em>a</em> to <em>b</em>:</p>
+                    <span class="formula">∫<sub>a</sub><sup>b</sup> f(x)dx = [ F(x) ]<sub>a</sub><sup>b</sup> = F(b) - F(a)</span>
+                    <ol>
+                        <li>Find the antiderivative F(x). (You can ignore the +C, as it will cancel out).</li>
+                        <li>Plug in the <em>upper</em> limit <em>b</em>: F(b).</li>
+                        <li>Plug in the <em>lower</em> limit <em>a</em>: F(a).</li>
+                        <li>Subtract the two: F(b) - F(a).</li>
+                    </ol>
+                </blockquote>
+                
+                <p><strong>Example:</strong> Find the area under the curve f(x) = 2x from x=1 to x=3.
+                <br>∫<sub>1</sub><sup>3</sup> 2x dx
+                <br>1. Antiderivative F(x) = x²
+                <br>2. F(b) = F(3) = (3)² = 9
+                <br>3. F(a) = F(1) = (1)² = 1
+                <br>4. F(b) - F(a) = 9 - 1 = <strong>8</strong>.
+                </p>
+                <div class="placeholder">
+                    <p><strong>[Diagram: Definite Integral as Area]</strong></p>
+                </div>
+            </section>
+
+            <section id="econ-apps">
+                <h2>4. Application of integration in economics</h2>
+                <p>Integration allows us to go from a <strong>Marginal</strong> concept back to a <strong>Total</strong> concept.</p>
+                
+                <h3>Finding Total Cost from Marginal Cost</h3>
+                <p>If you are given the Marginal Cost function MC(Q), you can find the Total Cost function TC(Q).</p>
+                <blockquote>
+                    <span class="formula">TC(Q) = ∫MC(Q) dQ = VC(Q) + FC</span>
+                </blockquote>
+                <ul>
+                    <li>When you integrate MC, you get the <strong>Total Variable Cost (VC)</strong>, plus the constant of integration C.</li>
+                    <li>In economics, this constant C is not just any constant; it is the <strong>Fixed Cost (FC)</strong>—the cost incurred even when Q = 0.</li>
+                </ul>
+                <p><strong>Example:</strong>
+                <br>Given MC(Q) = 2Q + 10, and Fixed Costs (FC) are 50. Find the Total Cost (TC) function.
+                <br>1. Integrate MC:
+                <br>TC(Q) = ∫(2Q + 10) dQ = 2(Q²/2) + 10Q + C = Q² + 10Q + C
+                <br>2. Solve for C:
+                <br>We know that TC(0) = FC.
+                <br>TC(0) = (0)² + 10(0) + C = 50  =>  C = 50
+                <br>3. Final Function:
+                <br><strong>TC(Q) = Q² + 10Q + 50</strong>
+                </p>
+            </section>
+
+            <section id="consumer-surplus">
+                <h2>5. Consumer's surplus</h2>
+                <blockquote>
+                    <strong>Definition:</strong> <strong>Consumer's Surplus (CS)</strong> is the total benefit or "gain" consumers receive by paying the market price (P<sub>e</sub>) for a good, when many of them were willing to pay a higher price.
+                    <br><br>
+                    It is the <strong>area below the demand curve</strong> and <strong>above the equilibrium price line</strong>, from Q=0 to Q=Q<sub>e</sub>.
+                </blockquote>
+
+                <div class="placeholder">
+                    <p><strong>[Diagram: Consumer's Surplus]</strong></p>
+                </div>
+
+                <h3>Calculating Consumer's Surplus:</h3>
+                <p>CS = (Total area under Demand curve) - (Total amount spent by consumers)
+                <br>Total amount spent = P<sub>e</sub> * Q<sub>e</sub> (a rectangle)
+                <br>Total area under Demand = ∫<sub>0</sub><sup>Qe</sup> D(Q) dQ</p>
+                
+                <blockquote>
+                    <span class="formula">CS = ∫<sub>0</sub><sup>Qe</sup> [D(Q) - P<sub>e</sub>] dQ</span>
+                    <p>... or, more simply:</p>
+                    <span class="formula">CS = [ ∫<sub>0</sub><sup>Qe</sup> D(Q) dQ ] - (P<sub>e</sub> * Q<sub>e</sub>)</span>
+                </blockquote>
+            </section>
+            
+            <section id="producer-surplus">
+                <h2>6. Producer's surplus</h2>
+                <blockquote>
+                    <strong>Definition:</strong> <strong>Producer's Surplus (PS)</strong> is the total benefit or "gain" producers receive by selling at the market price (P<sub>e</sub>), when many of them were willing to sell for a lower price.
+                    <br><br>
+                    It is the <strong>area above the supply curve</strong> and <strong>below the equilibrium price line</strong>, from Q=0 to Q=Q<sub>e</sub>.
+                </blockquote>
+
+                <div class="placeholder">
+                    <p><strong>[Diagram: Producer's Surplus]</strong></p>
+                </div>
+                
+                <h3>Calculating Producer's Surplus:</h3>
+                <p>PS = (Total amount received by producers) - (Total area under Supply curve)
+                <br>Total amount received = P<sub>e</sub> * Q<sub>e</sub> (a rectangle)
+                <br>Total area under Supply = ∫<sub>0</sub><sup>Qe</sup> S(Q) dQ</p>
+                
+                <blockquote>
+                    <span class="formula">PS = ∫<sub>0</sub><sup>Qe</sup> [P<sub>e</sub> - S(Q)] dQ</span>
+                    <p>... or, more simply:</p>
+                    <span class="formula">PS = (P<sub>e</sub> * Q<sub>e</sub>) - [ ∫<sub>0</sub><sup>Qe</sup> S(Q) dQ ]</span>
+                </blockquote>
+
+                <div class="exam-tip">
+                    <strong>Exam Problem Example:</strong>
+                    <p>Given:
+                    <br>Demand: P = 30 - 2Q
+                    <br>Supply: P = 5 + 3Q
+                    <br>Find CS and PS.</p>
+                    <p><strong>Step 1: Find Equilibrium (P<sub>e</sub>, Q<sub>e</sub>)</strong>
+                    <br>Set Demand = Supply:
+                    <br>30 - 2Q = 5 + 3Q
+                    <br>25 = 5Q  =>  <strong>Q<sub>e</sub> = 5</strong>
+                    <br>P<sub>e</sub> = 30 - 2(5) = 30 - 10 = <strong>20</strong>
+                    <br>So, (P<sub>e</sub>, Q<sub>e</sub>) = (20, 5).</p>
+                    
+                    <p><strong>Step 2: Calculate CS</strong>
+                    <br>CS = ∫<sub>0</sub><sup>5</sup> (30 - 2Q) dQ - (20 * 5)
+                    <br>CS = [ 30Q - Q² ]<sub>0</sub><sup>5</sup> - 100
+                    <br>CS = [ (30*5 - 5²) - (30*0 - 0²) ] - 100
+                    <br>CS = [ 150 - 25 ] - 100
+                    <br>CS = 125 - 100 = <strong>25</strong></p>
+                    
+                    <p><strong>Step 3: Calculate PS</strong>
+                    <br>PS = (20 * 5) - ∫<sub>0</sub><sup>5</sup> (5 + 3Q) dQ
+                    <br>PS = 100 - [ 5Q + (3/2)Q² ]<sub>0</sub><sup>5</sup>
+                    <br>PS = 100 - [ (5*5 + (3/2)5²) - (0) ]
+                    <br>PS = 100 - [ 25 + (3/2)*25 ]
+                    <br>PS = 100 - [ 25 + 37.5 ]
+                    <br>PS = 100 - 62.5 = <strong>37.5</strong></p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

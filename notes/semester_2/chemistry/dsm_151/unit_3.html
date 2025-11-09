@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive notes for Chemistry DSC 151 (Physical/Organic), Unit 3: Gases. Covers Kinetic Theory of Gases, gas laws, van der Waals equation, and liquefaction of gases.">
+    <meta name="keywords" content="Chemistry DSC 151, Unit 3, Gases, Kinetic Theory of Gases, Ideal Gas, Real Gas, van der Waals Equation, RMS Velocity, Maxwell Distribution, Liquefaction, Critical Temperature, Knowlet">
+    <title>Chemistry DSM 151 Unit 3 | 2nd Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #dc3545; /* Red */
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #c82333; /* Darker red */
+        }
+        h2 {
+            font-size: 1.8em;
+            color: #dc3545; /* Primary red */
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #bd2130; /* Darker red */
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #fdeaea;
+            border-left: 5px solid #dc3545;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            font-size: 1.1em;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f1f3f5;
+            color: #495057;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .exam-tip {
+            background: #fffbeb;
+            border: 1px solid #ffeeba;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .exam-tip strong {
+            color: #856404;
+        }
+        nav.toc {
+            background: #fdfdfd;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 30px;
+        }
+        nav.toc h3 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #333;
+        }
+        nav.toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        nav.toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        nav.toc ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 3: Gases</h1>
+
+        <nav class="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#topic1">Kinetic Theory of Gases (KMT)</a></li>
+                <li><a href="#topic2">Derivation of Kinetic Gas Equation and Gas Laws</a></li>
+                <li><a href="#topic3">Molecular Velocities</a></li>
+                <li><a href="#topic4">Real Gases: Deviation from Ideal Behaviour</a></li>
+                <li><a href="#topic5">Van der Waals Equation</a></li>
+                <li><a href="#topic6">Liquefaction of Gases</a></li>
+            </ul>
+        </nav>
+
+        <section id="topic1">
+            <h2>Kinetic Theory of Gases (KMT)</h2>
+            <p>KMT is a model that explains the macroscopic properties of a gas (like pressure, temperature) based on the behavior of its microscopic particles (atoms or molecules). This model describes an <strong>Ideal Gas</strong>.</p>
+            
+            <h3>Postulates of Kinetic Theory of Gases</h3>
+            <ol>
+                <li>Gases are made of a large number of tiny particles that are in constant, random, straight-line motion.</li>
+                <li>The <strong>volume of the gas particles themselves is negligible</strong> compared to the total volume of the container. (Particles are point masses).</li>
+                <li>There are <strong>no intermolecular forces of attraction or repulsion</strong> between gas particles.</li>
+                <li>Collisions between particles and with the walls of the container are perfectly <strong>elastic</strong> (no kinetic energy is lost).</li>
+                <li>The pressure of the gas is due to the collisions of the particles with the walls of the container.</li>
+                <li>The <strong>average kinetic energy</strong> of the gas particles is directly proportional to the <strong>absolute temperature (in Kelvin)</strong>.</li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section id="topic2">
+            <h2>Derivation of Kinetic Gas Equation and Gas Laws</h2>
+            
+            <h3>Kinetic Gas Equation (Derivation not in syllabus, only equation)</h3>
+            <p>Based on the postulates of KMT, the pressure (P) exerted by a gas is given by:</p>
+            <blockquote>
+                PV = (1/3)mnc²
+            </blockquote>
+            <p>Where:</p>
+            <ul>
+                <li><strong>P</strong> = Pressure</li>
+                <li><strong>V</strong> = Volume of the container</li>
+                <li><strong>m</strong> = mass of one gas particle</li>
+                <li><strong>n</strong> = total number of gas particles in volume V</li>
+                <li><strong>c²</strong> = mean square velocity of the gas particles (the average of the squares of all particle velocities)</li>
+            </ul>
+            <p>We define <strong>c</strong> as the <strong>root mean square (rms) velocity</strong>, so c = (c²)¹/².</p>
+            
+            <h3>Deduction of Gas Laws from Kinetic Gas Equation</h3>
+            <p>The average kinetic energy (KE) of *one* particle is (1/2)mc².
+            <br>The total KE of *n* particles is n · (1/2)mc².
+            <br>From the kinetic equation, PV = (2/3) · [n · (1/2)mc²]
+            <br>PV = (2/3) · (Total KE)
+            <br>
+            Since KMT states that average KE ∝ T, then Total KE = k·T (where k is a constant).
+            <br>Therefore, <strong>PV = (2/3)k·T</strong>. Since (2/3)k is a constant, we get <strong>PV ∝ T</strong>, which is the <strong>Ideal Gas Law</strong> (PV=nRT).</p>
+            
+            <ol>
+                <li>
+                    <strong>Boyle's Law (P ∝ 1/V at constant T):</strong>
+                    <br>From PV = (2/3)k·T, if T is constant, then the entire right side is constant. So, PV = constant.
+                </li>
+                <li>
+                    <strong>Charles's Law (V ∝ T at constant P):</strong>
+                    <br>From PV = (2/3)k·T, V = [(2/3)k/P] · T. If P is constant, then V = (constant) · T.
+                </li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section id="topic3">
+            <h2>Molecular Velocities</h2>
+            <p>Gas particles do not all move at the same speed. Their speeds are described by the <strong>Maxwell-Boltzmann distribution of molecular velocities</strong>. This distribution shows the number of molecules (or probability) versus their speed at a given temperature.</p>
+            <p>From this distribution, we define three types of molecular velocities:</p>
+            <ol>
+                <li><strong>Root Mean Square Velocity (c_rms):</strong> The square root of the mean of the squares of the velocities.
+                    <blockquote>
+                        c_rms = √(3RT / M) = √(3PV / M) = √(3P / d)
+                    </blockquote>
+                </li>
+                <li><strong>Average Velocity (c_avg):</strong> The arithmetic mean of the speeds of all molecules.
+                    <blockquote>
+                        c_avg = √(8RT / πM)
+                    </blockquote>
+                </li>
+                <li><strong>Most Probable Velocity (c_mp):</strong> The velocity possessed by the largest number of molecules (the peak of the curve).
+                    <blockquote>
+                        c_mp = √(2RT / M)
+                    </blockquote>
+                </li>
+            </ol>
+            <p>Where: <strong>R</strong> = 8.314 J/mol·K, <strong>T</strong> = temperature in Kelvin, <strong>M</strong> = Molar mass in <strong>kg/mol</strong>.</p>
+            <div class="exam-tip">
+                <strong>Important:</strong> When calculating velocities, Molar Mass (M) <strong>must be in kg/mol</strong> (e.g., for O₂, M = 0.032 kg/mol) to be consistent with R in J/mol·K.
+                <br>
+                <strong>Ratio:</strong> c_mp : c_avg : c_rms = 1 : 1.128 : 1.224
+            </div>
+            
+            <h3>Mean Free Path (no derivation)</h3>
+            <blockquote>
+                <strong>Definition:</strong> The average distance a gas particle travels between successive collisions.
+                <br>
+                λ = (1 / √2) · (1 / (πd²N*))
+            </blockquote>
+            <p>Where: λ = mean free path, d = molecular diameter, N* = number of molecules per unit volume.</p>
+        </section>
+
+        <hr>
+
+        <section id="topic4">
+            <h2>Real Gases: Deviation from Ideal Behaviour</h2>
+            <p>An ideal gas (PV=nRT) is hypothetical. <strong>Real gases</strong> (like H₂, N₂, CO₂) only behave ideally at <strong>High Temperatures</strong> and <strong>Low Pressures</strong>.</p>
+            
+            <p><strong>Causes of Deviation:</strong> Real gases deviate from ideal behavior because two postulates of the KMT are false:</p>
+            <ol>
+                <li><strong>Faulty Volume Postulate:</strong> KMT assumes gas particles have zero volume. At <strong>high pressure</strong>, the gas is compressed, and the volume of the particles themselves *is* significant compared to the container volume.</li>
+                <li><strong>Faulty Force Postulate:</strong> KMT assumes no intermolecular forces. At <strong>low temperature</strong>, particles move slowly and get close, and intermolecular forces (like van der Waals forces) *do* become significant.</li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section id="topic5">
+            <h2>Van der Waals Equation</h2>
+            <p>Van der Waals modified the ideal gas equation (PV=nRT) to account for the behavior of real gases. He introduced two correction factors, 'a' and 'b'.</p>
+            
+            <blockquote>
+                <strong>Van der Waals Equation (for n moles):</strong>
+                <br>
+                (P + an²/V²) (V - nb) = nRT
+            </blockquote>
+
+            <h3>1. Volume Correction (the 'b' term)</h3>
+            <ul>
+                <li><strong>Reason:</strong> Gas particles have a finite volume ('b'), called the 'excluded volume'.</li>
+                <li><strong>Correction:</strong> The "free" volume available for the gas to move in is not V, but (V - nb).
+                <li><strong>'b'</strong> is a measure of the <strong>effective size</strong> of the gas particles.</li>
+            </ul>
+
+            <h3>2. Pressure Correction (the 'a' term)</h3>
+            <ul>
+                <li><strong>Reason:</strong> Gas particles attract each other (intermolecular forces). A particle about to hit the wall is pulled back by its neighbors, so it hits the wall with less force. The observed pressure (P) is *lower* than the ideal pressure.</li>
+                <li><strong>Correction:</strong> The pressure correction term (P_correction) is proportional to the square of the density (n/V)².
+                <br>P_correction = a(n/V)²
+                <br>The corrected "ideal" pressure is (P_observed + an²/V²).</li>
+                <li><strong>'a'</strong> is a measure of the <strong>strength of intermolecular forces</strong>.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="topic6">
+            <h2>Liquefaction of Gases</h2>
+            <p>Real gases can be liquefied by <strong>increasing pressure</strong> and <strong>decreasing temperature</strong>. This forces the molecules close together and slows them down, allowing intermolecular forces ('a') to take over and condense the gas into a liquid.</p>
+            <p>However, for every gas, there is a <strong>critical temperature (T_c)</strong> above which it <strong>cannot be liquefied</strong>, no matter how much pressure is applied.</p>
+
+            <h3>Critical Phenomena</h3>
+            <ul>
+                <li><strong>Critical Temperature (T_c):</strong> The maximum temperature at which a gas can be liquefied by the application of pressure alone.
+                    <blockquote>T_c = 8a / 27Rb</blockquote>
+                </li>
+                <li><strong>Critical Pressure (P_c):</strong> The minimum pressure required to liquefy a gas *at* its critical temperature.
+                    <blockquote>P_c = a / 27b²</blockquote>
+                </li>
+                <li><strong>Critical Volume (V_c):</strong> The volume occupied by one mole of the gas at T_c and P_c.
+                    <blockquote>V_c = 3b</blockquote>
+                </li>
+            </ul>
+            <p><strong>Significance:</strong>
+            <br>
+            A gas with a high 'a' value (strong intermolecular forces) has a high T_c and is easier to liquefy (e.g., CO₂, NH₃).
+            <br>
+            A gas with a low 'a' value (weak forces) has a very low T_c and is difficult to liquefy (e.g., H₂, He, so-called "permanent gases").</p>
+        </section>
+
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

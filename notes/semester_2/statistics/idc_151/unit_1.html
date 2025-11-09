@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics IDC 151 Unit 1 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Statistics IDC 151 (Index Number and Time Series Analysis), Unit 1, based on the Assam University syllabus. Covers definitions, construction problems, and unweighted/weighted index numbers.">
+    <meta name="keywords" content="Statistics IDC 151, Index Number, Unit 1, Assam University, Laspeyre's, Paasche's, Marshall-Edgeworth, Fisher's, Weighted Index, Unweighted Index">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f7f3f0; /* Light brown background */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #3e2723; /* Dark brown */
+        }
+        h1 {
+            color: #4e342e; /* Darker brown */
+            border-bottom: 3px solid #4e342e;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #5d4037; /* Medium brown */
+            border-bottom: 1px solid #e0e0e0;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #6d4c41;
+            padding-top: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        code {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #efebe9;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+        blockquote {
+            background-color: #f7f3f0;
+            border-left: 5px solid #5d4037;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        .formula {
+            background-color: #fdfdfd;
+            border: 1px dashed #ccc;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            text-align: center;
+            overflow-x: auto;
+        }
+        .exam-tip, .common-mistake {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .exam-tip {
+            background-color: #fffbe6;
+            border: 1px solid #ffecb3;
+        }
+        .common-mistake {
+            background-color: #ffebee;
+            border: 1px solid #ffcdd2;
+        }
+        .toc {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            margin-top: 0;
+            color: #5d4037;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #337ab7;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #5d4037;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        [cite_start]<h1>Unit 1: Index Number-I [cite: 2124]</h1>
+        
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#definition">1.1 Definition of Index Numbers</a></li>
+                <li><a href="#construction_problems">1.2 Problems in the Construction of Index Numbers</a></li>
+                <li><a href="#unweighted">1.3 Unweighted Index Numbers</a></li>
+                <li><a href="#weighted">1.4 Weighted Index Numbers</a></li>
+                <li><a href="#laspeyres">1.5 Laspeyre's Index</a></li>
+                <li><a href="#paasche">1.6 Paasche's Index</a></li>
+                <li><a href="#marshall_edgeworth">1.7 Marshall-Edgeworth Index</a></li>
+                <li><a href="#fisher">1.8 Fisher's Ideal Index</a></li>
+                <li><a href="#applications">1.9 Applications and Limitations</a></li>
+            </ul>
+        </div>
+
+        [cite_start]<h2 id="definition">1.1 Definition of Index Numbers [cite: 2125]</h2>
+        
+        <blockquote>
+            An <strong>index number</strong> is a specialized statistical measure that shows the <strong>change in a variable (or group of related variables) over time, or between different locations or categories.</strong>
+        </blockquote>
+        
+        <p>It's a way to express a complex change in a single, simple number. The most common type is a <strong>price index</strong>, which measures the change in the general price level of a group of items.</p>
+        
+        <ul>
+            <li><strong>Base Period:</strong> The period against which all comparisons are made. The index for the base period is always <strong>100</strong>.</li>
+            <li><strong>Current Period:</strong> The period for which we want to measure the change.</li>
+        </ul>
+        
+        <p>If the price index for 2024 is 115 (with 2020 as the base year), it means that, on average, prices have increased by 15% from 2020 to 2024.</p>
+
+        [cite_start]<h2 id="construction_problems">1.2 Problems in the Construction of Index Numbers [cite: 2125]</h2>
+        <p>Creating a good index number is difficult. Here are the main challenges:</p>
+        <ol>
+            <li><strong>Purpose of the Index:</strong> What are we measuring? An index for consumer prices (like food) will be different from one for industrial production. The purpose must be clear.</li>
+            <li><strong>Selection of the Base Period:</strong> The base year should be a "normal" or "stable" year, free from unusual events like wars, famines, or economic crises. A bad base year will distort all comparisons.</li>
+            <li><strong>Selection of Items (The "Basket"):</strong> We can't include every single item. We must select a <strong>representative sample</strong>. (e.g., for a food price index, we'd include rice and milk, but maybe not expensive imported cheese).</li>
+            <li><strong>Obtaining Price/Quantity Data:</strong> It can be hard to get accurate, representative prices from various locations.</li>
+            <li><strong>Choice of Average:</strong> Should we use the Arithmetic Mean, Geometric Mean, or Median? The Geometric Mean is often preferred as it's less affected by outliers.</li>
+            <li><strong>Choice of Weights:</strong> This is the most important problem. Should all items be treated equally (unweighted), or should more important items (like rice) have a greater impact (weight) on the index than less important items (like salt)?</li>
+        </ol>
+
+        [cite_start]<h2 id="unweighted">1.3 Unweighted Index Numbers [cite: 2125]</h2>
+        <p>These methods assume all items in the basket are equally important. They are simple but often unrealistic.</p>
+        <p><strong>Notation:</strong></p>
+        <ul>
+            <li><code>p₀</code> = Price of an item in the Base period</li>
+            <li><code>q₀</code> = Quantity of an item in the Base period</li>
+            <li><code>p₁</code> = Price of an item in the Current period</li>
+            <li><code>q₁</code> = Quantity of an item in the Current period</li>
+            <li><code>P₀₁</code> = Price Index of the Current period (1) based on the Base period (0)</li>
+        </ul>
+
+        <h3>1. Simple Aggregative Method</h3>
+        <p>Adds up all current prices and divides by the sum of all base prices.</p>
+        <div class="formula">P₀₁ = ( Σp₁ / Σp₀ ) * 100</div>
+        <div class="common-mistake">
+            <strong>Major Flaw:</strong> This method is heavily distorted by items with high prices (e.g., a car, even if rarely bought) and by the units of measurement (e.g., measuring rice in grams vs. kilograms will completely change the index).
+        </div>
+
+        <h3>2. Simple Average of Price Relatives Method</h3>
+        <p>A "price relative" is (p₁/p₀) for a single item. This method averages these relatives.</p>
+        <div class="formula">P₀₁ = ( 1/n ) * Σ( p₁ / p₀ ) * 100</div>
+        <p>This is better than the aggregative method as it is not affected by units of measurement.</p>
+
+        [cite_start]<h2 id="weighted">1.4 Weighted Index Numbers [cite: 2125]</h2>
+        <p>These methods are more realistic. They assign a <strong>weight (w)</strong> to each item based on its relative importance (e.g., how much money is spent on it). The "weight" is usually the <strong>value (Price × Quantity)</strong>.</p>
+        
+        <h3>Weighted Aggregative Methods</h3>
+        <p>This is the most common category. The general formula is:</p>
+        <div class="formula">P₀₁ = ( Σ(p₁w) / Σ(p₀w) ) * 100</div>
+        <p>The difference between methods (Laspeyre's, Paasche's, etc.) is simply in <strong>what they choose for the weight 'w'</strong>.</p>
+
+        [cite_start]<h2 id="laspeyres">1.5 Laspeyre's Index [cite: 2125]</h2>
+        <ul>
+            <li><strong>Weight Used:</strong> Base period quantities (q₀).</li>
+            <li><strong>Logic:</strong> It measures the change in cost of buying the <strong>same basket of goods from the base year</strong> at current prices.</li>
+        </ul>
+        <div class="formula">P₀₁ (L) = ( Σ(p₁q₀) / Σ(p₀q₀) ) * 100</div>
+        <div class="exam-tip">
+            <strong>Pros:</strong> Easy to calculate (base quantities `q₀` don't change each year). Easy to compare over time.
+            <br>
+            <strong>Cons:</strong> Tends to <strong>overestimate</strong> inflation. It assumes people keep buying the same (base year) basket, even when prices change (in reality, people substitute cheaper goods).
+        </div>
+        
+        [cite_start]<h2 id="paasche">1.6 Paasche's Index [cite: 2125]</h2>
+        <ul>
+            <li><strong>Weight Used:</strong> Current period quantities (q₁).</li>
+            <li><strong>Logic:</strong> It measures the change in cost of buying <strong>today's basket of goods</strong> at current prices versus base-year prices.</li>
+        </ul>
+        <div class="formula">P₀₁ (P) = ( Σ(p₁q₁) / Σ(p₀q₁) ) * 100</div>
+        <div class="exam-tip">
+            <strong>Pros:</strong> Reflects current consumption patterns.
+            <br>
+            <strong>Cons:</strong> Tends to <strong>underestimate</strong> inflation (due to substitution bias). Very difficult to calculate (you need new quantity data every period). Hard to compare year-to-year.
+        </div>
+
+        [cite_start]<h2 id="marshall_edgeworth">1.7 Marshall-Edgeworth Index [cite: 2125]</h2>
+        <ul>
+            <li><strong>Weight Used:</strong> The <strong>average</strong> of the base and current period quantities. w = (q₀ + q₁) / 2</li>
+            <li><strong>Logic:</strong> A compromise between Laspeyre's and Paasche's.</li>
+        </ul>
+        <div class="formula">P₀₁ (ME) = [ Σ(p₁ * (q₀ + q₁)) / Σ(p₀ * (q₀ + q₁)) ] * 100</div>
+        <p>This can be rewritten as:</p>
+        <div class="formula">P₀₁ (ME) = [ (Σp₁q₀ + Σp₁q₁) / (Σp₀q₀ + Σp₀q₁) ] * 100</div>
+        
+        [cite_start]<h2 id="fisher">1.8 Fisher's Ideal Index [cite: 2125]</h2>
+        <ul>
+            <li><strong>Logic:</strong> Another compromise, considered the "Ideal" index. It is the <strong>Geometric Mean</strong> of Laspeyre's and Paasche's indexes.</li>
+        </ul>
+        <div class="formula">P₀₁ (F) = sqrt( P₀₁(L) * P₀₁(P) )</div>
+        <p>Expanding this:</p>
+        <div class="formula">P₀₁ (F) = sqrt( [ (Σp₁q₀ / Σp₀q₀) ] * [ (Σp₁q₁ / Σp₀q₁) ] ) * 100</div>
+        <div class="exam-tip">
+            <strong>Why is it "Ideal"?</strong>
+            <ol>
+                <li>It balances the upward bias of Laspeyre's and the downward bias of Paasche's.</li>
+                <li>It satisfies important statistical tests (Time Reversal and Factor Reversal tests), which we will see in the next unit.</li>
+            </ol>
+        </div>
+
+        [cite_start]<h2 id="applications">1.9 Applications and Limitations of Index Numbers [cite: 2126]</h2>
+        
+        <h3>Applications</h3>
+        <ul>
+            <li><strong>Economic Barometers:</strong> They are used to measure the "health" of an economy (e.g., Consumer Price Index (CPI), Stock Market Indices like Sensex).</li>
+            <li><strong>Inflation/Deflation:</strong> The CPI is the official measure of inflation.</li>
+            <li><strong>Wage Adjustments:</strong> Used to adjust salaries and pensions (e.g., Dearness Allowance) to maintain purchasing power.</li>
+            <li><strong>Policy Making:</strong> Government uses indices to formulate economic, fiscal, and monetary policies.</li>
+            <li><strong>Deflating:</strong> Used to convert "nominal" values (at current prices) to "real" values (at constant, base-year prices) to see true growth.
+                <br><strong>Real Value = (Nominal Value / Price Index) * 100</strong>
+            </li>
+        </ul>
+        
+        <h3>Limitations</h3>
+        <ul>
+            <li><strong>Only Approximations:</strong> They are based on samples, so they are not perfectly accurate.</li>
+            <li><strong>Can be Misleading:</strong> A poor choice of base year, weights, or items can create a biased index.</li>
+            <li><strong>Ignores Quality Changes:</strong> A phone in 2024 is much more expensive than one in 2010, but it's also a vastly superior product. An index number struggles to capture this change in quality.</li>
+            <li><strong>Tastes and Habits Change:</strong> The "basket of goods" from 10 years ago might be irrelevant today, making long-term comparisons difficult.</li>
+        </ul>
+
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

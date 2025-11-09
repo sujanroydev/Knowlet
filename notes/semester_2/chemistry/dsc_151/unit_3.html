@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive notes for Chemistry DSC 151, Unit 3: Aromatic Hydrocarbons. Covers aromaticity, Hückel's rule, electrophilic substitution, and reactions of polycyclic hydrocarbons.">
+    <meta name="keywords" content="Chemistry DSC 151, Unit 3, Aromaticity, Hückel's Rule, Electrophilic Aromatic Substitution, Friedel-Crafts, Activating Groups, Deactivating Groups, Naphthalene, Anthracene, Annulenes, Knowlet">
+    <title>Chemistry DSC 151 Unit 3 | 2nd Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #dc3545; /* Red */
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #c82333; /* Darker red */
+        }
+        h2 {
+            font-size: 1.8em;
+            color: #dc3545; /* Primary red */
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #bd2130; /* Darker red */
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #fdeaea;
+            border-left: 5px solid #dc3545;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            font-size: 1.1em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f1f3f5;
+            color: #495057;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .exam-tip {
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .exam-tip strong {
+            color: #856404;
+        }
+        nav.toc {
+            background: #fdfdfd;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 30px;
+        }
+        nav.toc h3 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #333;
+        }
+        nav.toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        nav.toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        nav.toc ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 3: Aromatic Hydrocarbon</h1>
+
+        <nav class="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#topic1">Aromaticity and Hückel's Rule</a></li>
+                <li><a href="#topic2">Electrophilic Aromatic Substitution (EAS) - General Mechanism</a></li>
+                <li><a href="#topic3">Specific EAS Reactions</a></li>
+                <li><a href="#topic4">Effects of Substituents on EAS</a></li>
+                <li><a href="#topic5">Polycyclic Aromatic Hydrocarbons (PAHs) and Annulenes</a></li>
+            </ul>
+        </nav>
+
+        <section id="topic1">
+            <h2>Aromaticity and Hückel's Rule</h2>
+            <p>Aromaticity is a property of cyclic, planar molecules with a ring of resonance bonds that gives them increased stability compared to other geometric or connective arrangements with the same set of atoms.</p>
+            
+            <blockquote>
+                <strong>Hückel's Rule for Aromaticity:</strong>
+                <br>
+                A molecule is aromatic only if it is:
+                <ol>
+                    <li><strong>Cyclic</strong></li>
+                    <li><strong>Planar</strong> (all atoms in the ring are sp² hybridized)</li>
+                    <li><strong>Fully Conjugated</strong> (a continuous system of p-orbitals)</li>
+                    <li>Contains <strong>(4n + 2) π electrons</strong>, where 'n' is an integer (n = 0, 1, 2, 3...).</li>
+                </ol>
+                This means aromatic compounds have 2, 6, 10, 14, ... π electrons.
+            </blockquote>
+            
+            <p><strong>Anti-aromaticity:</strong> A molecule that meets the first 3 criteria but has <strong>(4n) π electrons</strong> (4, 8, 12...). These molecules are *highly unstable*.</p>
+            <p><strong>Non-aromatic:</strong> A molecule that fails any of the first 3 criteria (e.g., it is non-planar or not fully conjugated).</p>
+
+            <h3>Examples:</h3>
+            <ul>
+                <li><strong>Arenes (e.g., Benzene):</strong> Cyclic, planar, fully conjugated, and has 6 π electrons (n=1). It is <strong>aromatic</strong>.</li>
+                <li><strong>Cyclic Carbocations/Carbanions:</strong>
+                    <ul>
+                        <li><strong>Cyclopropenyl cation:</strong> 2 π electrons (n=0). <strong>Aromatic</strong>.</li>
+                        <li><strong>Cyclopentadienyl anion:</strong> 6 π electrons (n=1). <strong>Aromatic</strong>.</li>
+                        <li><strong>Cyclopentadienyl cation:</strong> 4 π electrons (n=1). <strong>Anti-aromatic</strong> (unstable).</li>
+                        <li><strong>Cycloheptatrienyl (Tropylium) cation:</strong> 6 π electrons (n=1). <strong>Aromatic</strong>.</li>
+                    </ul>
+                </li>
+                <li><strong>Heterocyclic Compounds:</strong> Lone pairs can participate in the π system if they are in a p-orbital.
+                    <ul>
+                        <li><strong>Pyridine:</strong> 6 π electrons. The N lone pair is in an sp² orbital (in the plane of the ring) and does *not* count. <strong>Aromatic</strong>.</li>
+                        <li><strong>Pyrrole:</strong> 6 π electrons. The N lone pair is in a p-orbital and *does* count towards the 6 π electrons. <strong>Aromatic</strong>.</li>
+                        <li><strong>Furan:</strong> 6 π electrons. One O lone pair is in a p-orbital (counts), the other is in an sp² orbital (does not count). <strong>Aromatic</strong>.</li>
+                    </ul>
+                </li>
+            </ul>
+            </section>
+
+        <hr>
+
+        <section id="topic2">
+            <h2>Electrophilic Aromatic Substitution (EAS) - General Mechanism</h2>
+            <p>This is the characteristic reaction of aromatic compounds. An electrophile (E⁺) attacks the electron-rich benzene ring, and a proton (H⁺) is substituted.</p>
+            <p><strong>General Mechanism (Two Steps):</strong></p>
+            <ol>
+                <li><strong>Step 1: Attack by the electrophile (Slow, Rate-Determining Step)</strong>
+                    <br>The π-electron system of the ring attacks the electrophile (E⁺) to form a resonance-stabilized carbocation intermediate known as an <strong>arenium ion</strong> or <strong>sigma complex</strong>. This step destroys aromaticity and has a high activation energy.
+                </li>
+                <li><strong>Step 2: Deprotonation (Fast)</strong>
+                    <br>A base (often the conjugate base of the acid used to generate E⁺) removes the proton from the sp³-hybridized carbon, restoring the aromaticity of the ring.
+                </li>
+            </ol>
+            </section>
+
+        <hr>
+
+        <section id="topic3">
+            <h2>Specific EAS Reactions</h2>
+            <p>Each reaction follows the general mechanism, differing only in how the electrophile (E⁺) is generated.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Reaction</th>
+                        <th>Reagents</th>
+                        <th>Electrophile (E⁺)</th>
+                        <th>Mechanism of E⁺ Generation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Halogenation</strong></td>
+                        <td>Cl₂ + FeCl₃<br>or<br>Br₂ + FeBr₃</td>
+                        <td>Cl⁺ or Br⁺ (Halonium ion)</td>
+                        <td>Cl-Cl + FeCl₃ → Cl⁺ + [FeCl₄]⁻</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nitration</strong></td>
+                        <td>Conc. HNO₃ + Conc. H₂SO₄ (Nitrating mixture)</td>
+                        <td>NO₂⁺ (Nitronium ion)</td>
+                        <td>HNO₃ + 2 H₂SO₄ ⇌ NO₂⁺ + H₃O⁺ + 2 HSO₄⁻</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sulphonation</strong></td>
+                        <td>Fuming H₂SO₄ (H₂SO₄ + SO₃)</td>
+                        <td>SO₃ (neutral, but highly electrophilic)</td>
+                        <td>2 H₂SO₄ ⇌ SO₃ + H₃O⁺ + HSO₄⁻</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Friedel-Crafts Alkylation</strong></td>
+                        <td>R-Cl + AlCl₃ (Lewis acid catalyst)</td>
+                        <td>R⁺ (A carbocation)</td>
+                        <td>R-Cl + AlCl₃ → R⁺ + [AlCl₄]⁻</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Friedel-Crafts Acylation</strong></td>
+                        <td>R-CO-Cl + AlCl₃ (Lewis acid catalyst)</td>
+                        <td>R-C≡O⁺ (Acylium ion)</td>
+                        <td>R-CO-Cl + AlCl₃ → [R-C≡O⁺ ↔ R-C⁺=O] + [AlCl₄]⁻</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Limitations of Friedel-Crafts Reactions</h3>
+            <ol>
+                <li><strong>Carbocation Rearrangement (Alkylation only):</strong> If the initial carbocation (R⁺) is 1°, it will rearrange to a more stable 2° or 3° carbocation if possible. This leads to unexpected products.
+                    <br><strong>Example:</strong> Benzene + 1-chloropropane → Isopropylbenzene (Cumene), not n-propylbenzene.
+                    <br><strong>Solution:</strong> Use Friedel-Crafts Acylation followed by reduction (e.g., Clemmensen or Wolff-Kishner) to get the straight-chain product. Acylium ions do *not* rearrange.
+                </li>
+                <li><strong>Deactivated Rings:</strong> Friedel-Crafts reactions <strong>do not work</strong> on strongly deactivated rings (e.g., nitrobenzene, benzoic acid) or on aniline (-NH₂).</li>
+                <li><strong>Polyalkylation (Alkylation only):</strong> The alkyl group (R-) added to the ring is *activating*, making the product (e.g., toluene) *more reactive* than benzene. This leads to multiple alkyl groups being added.</li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section id="topic4">
+            <h2>Effects of Substituents on EAS</h2>
+            <p>Substituents already on the ring affect both the <strong>rate</strong> of the reaction and the <strong>position</strong> (orientation) of the incoming electrophile.</p>
+
+            <h3>Activating and Deactivating Groups</h3>
+            <ul>
+                <li><strong>Activating Groups:</strong> These groups <strong>donate electron density</strong> to the ring, making it more nucleophilic and *faster* to react. They stabilize the arenium ion intermediate.
+                    <br><strong>Examples:</strong> -NH₂, -OH, -OR, -R (alkyl), -O-CO-R.
+                </li>
+                <li><strong>Deactivating Groups:</strong> These groups <strong>withdraw electron density</strong> from the ring, making it less nucleophilic and *slower* to react. They destabilize the arenium ion.
+                    <br><strong>Examples:</strong> -NO₂, -CN, -SO₃H, -COOH, -CHO, -COR, -NR₃⁺.
+                </li>
+            </ul>
+
+            <h3>Ortho/Para vs. Meta Directors</h3>
+            <ul>
+                <li><strong>Ortho, Para-Directors:</strong> These groups direct the new substituent to the positions *ortho* (1,2) or *para* (1,4) to themselves.
+                    <br><strong>Reason:</strong> They can stabilize the intermediate arenium ion via resonance (if they have a lone pair) or hyperconjugation (if they are alkyl groups).
+                    <br><strong>Groups:</strong> All <strong>activating groups</strong> are o,p-directors.
+                    <br><strong>Exception (Halogens):</strong> -F, -Cl, -Br, -I are <strong>deactivating</strong> (due to strong -I effect) but are <strong>ortho, para-directing</strong> (due to +M effect from lone pairs).
+                </li>
+                <li><strong>Meta-Directors:</strong> These groups direct the new substituent to the *meta* (1,3) position.
+                    <br><strong>Reason:</strong> They strongly destabilize the arenium ions formed by ortho or para attack. The meta-attack intermediate is "less bad" by comparison.
+                    <br><strong>Groups:</strong> All <strong>deactivating groups</strong> (except halogens) are m-directors.
+                </li>
+            </ul>
+            <div class="exam-tip">
+                <strong>Summary Table for Substituents:</strong>
+                <table>
+                    <thead><tr><th>Group Type</th><th>Effect on Rate</th><th>Directing Effect</th><th>Examples</th></tr></thead>
+                    <tbody>
+                        <tr><td>Strong Activators</td><td>Strongly Activate</td><td>Ortho, Para</td><td>-NH₂, -OH, -O⁻</td></tr>
+                        <tr><td>Moderate Activators</td><td>Activate</td><td>Ortho, Para</td><td>-OR, -NHCOR</td></tr>
+                        <tr><td>Weak Activators</td><td>Weakly Activate</td><td>Ortho, Para</td><td>-R (alkyl), -Ph</td></tr>
+                        <tr><td>Deactivators</td><td>Weakly Deactivate</td><td><strong>Ortho, Para</strong></td><td><strong>-F, -Cl, -Br, -I</strong></td></tr>
+                        <tr><td>Moderate Deactivators</td><td>Deactivate</td><td>Meta</td><td>-CHO, -COR, -COOH</td></tr>
+                        <tr><td>Strong Deactivators</td><td>Strongly Deactivate</td><td>Meta</td><td>-NO₂, -CN, -SO₃H, -NR₃⁺</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="topic5">
+            <h2>Polycyclic Aromatic Hydrocarbons (PAHs) and Annulenes</h2>
+            
+            <h3>Naphthalene, Phenanthrene, and Anthracene</h3>
+            <p>These are PAHs with fused benzene rings.</p>
+            <ul>
+                <li><strong>Naphthalene (C₁₀H₈):</strong> Two fused rings.
+                    <ul>
+                        <li><strong>Structure:</strong> All 10 carbons are sp². It has 10 π electrons (n=2), so it is aromatic.
+                        <li><strong>Reactions:</strong> Undergoes EAS, similar to benzene but is *more reactive*.
+                        <li><strong>Orientation:</strong> Attack at C1 (α-position) is kinetically favored (more stable intermediate). Attack at C2 (β-position) is thermodynamically favored (more stable product) but usually occurs only at high temperatures.
+                    </ul>
+                </li>
+                <li><strong>Anthracene (C₁₄H₁₀):</strong> Three rings fused linearly.
+                    <ul>
+                        <li><strong>Reactions:</strong> The central ring (C9, C10) is the most reactive. It undergoes addition reactions (like Diels-Alder) more readily than substitution, as this retains two stable benzene rings.
+                    </ul>
+                </li>
+                <li><strong>Phenanthrene (C₁₄H₁₀):</strong> Three rings fused in an angular fashion.
+                    <ul>
+                        <li><strong>Structure:</strong> More stable than its isomer, anthracene.
+                        <li><strong>Reactions:</strong> Reacts at C9 and C10 (the "bay" region).
+                    </ul>
+                </li>
+            </ul>
+            <p><strong>Structure Clarification:</strong> Their structures were historically elucidated by oxidative cleavage (e.g., with O₃ or KMnO₄) and analyzing the resulting products (e.g., phthalic acid from naphthalene proves it has one benzene ring fused to another fragment).</p>
+
+            <h3>Annulenes</h3>
+            <p>Annulenes are monocyclic hydrocarbons with alternating single and double bonds. They are named as [N]annulene, where N is the number of carbons in the ring.</p>
+            <ul>
+                <li><strong>[4]annulene (Cyclobutadiene):</strong> 4 π electrons. <strong>Anti-aromatic</strong> and highly unstable.</li>
+                <li><strong>[6]annulene (Benzene):</strong> 6 π electrons. <strong>Aromatic</strong>.</li>
+                <li><strong>[8]annulene (Cyclooctatetraene):</strong> 8 π electrons. It *should* be anti-aromatic, but to avoid this instability, it adopts a non-planar "tub" shape. This breaks conjugation, making it <strong>non-aromatic</strong>.</li>
+                <li><strong>[10]annulene:</strong> 10 π electrons (4n+2). It *should* be aromatic, but the planar isomer has severe angle strain. The molecule is not perfectly planar, so its aromaticity is weak.</li>
+                <li><strong>[18]annulene:</strong> 18 π electrons (n=4). It *is* large enough to be planar and is <strong>aromatic</strong>.</li>
+            </ul>
+        </section>
+
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

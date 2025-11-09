@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive notes for Chemistry SEC 151, Unit 1: Basic Concepts. Covers analytical chemistry, sampling, errors, significant figures, concentration, and chromatography (TLC, Paper).">
+    <meta name="keywords" content="Chemistry SEC 151, Unit 1, Basic Concepts, Analytical Chemistry, Sampling, Errors, Significant Figures, Chromatography, TLC, Paper Chromatography, R_f Value, Knowlet">
+    <title>Chemistry SEC 151 Unit 1 | 2nd Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #0056b3; /* Dark blue */
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #004085; /* Deeper blue */
+        }
+        h2 {
+            font-size: 1.8em;
+            color: #007bff; /* Primary blue */
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #17a2b8; /* Info blue */
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #eef7ff;
+            border-left: 5px solid #007bff;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            font-size: 1.1em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f1f3f5;
+            color: #495057;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .exam-tip {
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .exam-tip strong {
+            color: #856404;
+        }
+        nav.toc {
+            background: #fdfdfd;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 30px;
+        }
+        nav.toc h3 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #333;
+        }
+        nav.toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        nav.toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        nav.toc ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 1: Basic Concepts</h1>
+
+        <nav class="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#topic1">Importance of Analytical Chemistry</a></li>
+                <li><a href="#topic2">Concept of Sampling</a></li>
+                <li><a href="#topic3">Accuracy, Precision, and Errors</a></li>
+                <li><a href="#topic4">Significant Figures</a></li>
+                <li><a href="#topic5">Concentration Units</a></li>
+                <li><a href="#topic6">Introduction to Chromatography</a></li>
+                <li><a href="#topic7">Paper Chromatography</a></li>
+                <li><a href="#topic8">Thin Layer Chromatography (TLC)</a></li>
+            </ul>
+        </nav>
+
+        <section id="topic1">
+            <h2>Importance of Analytical Chemistry</h2>
+            <p><strong>Analytical Chemistry</strong> is the science of obtaining, processing, and communicating information about the composition and structure of matter. It answers the question, "What is it, and how much of it is there?"</p>
+            <h3>Interdisciplinary Nature:</h3>
+            <p>Analytical chemistry is a service science; it's essential to nearly all other scientific fields:</p>
+            <ul>
+                <li><strong>Medicine:</strong> Blood tests (e.g., glucose, cholesterol levels), drug analysis, and disease diagnosis.</li>
+                <li><strong>Environment:</strong> Monitoring water and air pollution (e.g., pesticides, heavy metals).</li>
+                <li><strong>Food Science:</strong> Checking for nutritional value, detecting adulterants, and ensuring safety.</li>
+                <li><strong>Forensics:</strong> Analyzing DNA, fibers, and unknown substances at a crime scene.</li>
+                <li><strong>Industry:</strong> Quality control to ensure a product (like plastic, metal, or pharmaceuticals) meets specifications.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="topic2">
+            <h2>Concept of Sampling</h2>
+            <p><strong>Sampling</strong> is the process of selecting a small, representative portion of a large bulk material for analysis. It is often the most critical step, as the analysis result is useless if the sample is not representative of the whole.</p>
+            <blockquote>
+                <strong>Example:</strong> To analyze a 10-ton shipment of grain for protein, you can't test the whole shipment. You must take small amounts from multiple bags/locations and combine them (a "composite sample") to accurately represent the average protein content.
+            </blockquote>
+            <ul>
+                <li><strong>Homogeneous Sample:</strong> A sample that is uniform throughout (e.g., a clear salt solution). Sampling is easy.</li>
+                <li><strong>Heterogeneous Sample:</strong> A sample with non-uniform composition (e.g., a soil sample, a chocolate chip cookie). Sampling is difficult and requires careful procedures (like grinding, mixing, and quartering) to get a representative portion.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="topic3">
+            <h2>Accuracy, Precision, and Errors</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Definition</th>
+                        <th>Example (True Value = 5.0 g)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Accuracy</strong></td>
+                        <td>How close a measured value is to the <strong>true or accepted value</strong>.</td>
+                        <td>A measurement of 4.9 g is accurate. A measurement of 4.2 g is not.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Precision</strong></td>
+                        <td>How close a set of measurements are to <strong>each other</strong> (reproducibility).</td>
+                        <td>Measurements of 4.2 g, 4.2 g, and 4.1 g are precise (but not accurate).</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="exam-tip">
+                <strong>Goal:</strong> All good analysis must be both <strong>accurate and precise</strong>.
+            </div>
+            
+            <h3>Sources of Error in Analysis</h3>
+            <p>An error is the difference between the measured value and the true value.</p>
+            <ol>
+                <li><strong>Systematic (or Determinate) Errors:</strong>
+                    <ul>
+                        <li><strong>What:</strong> A reproducible error that is always in one direction (e.g., always too high or always too low). It affects <strong>accuracy</strong>.</li>
+                        <li><strong>Cause:</strong> Faulty equipment (e.g., uncalibrated balance), incorrect method, or personal bias (e.g., consistently misreading a burette).</li>
+                        <li><strong>Fix:</strong> Can be identified and corrected (e.g., by calibrating equipment).</li>
+                    </ul>
+                </li>
+                <li><strong>Random (or Indeterminate) Errors:</strong>
+                    <ul>
+                        <li><strong>What:</strong> Unpredictable, small errors that can be positive or negative. They affect <strong>precision</strong>.</li>
+                        <li><strong>Cause:</strong> Natural limitations of measurement (e.g., fluctuation in temperature, electronic noise in an instrument).</li>
+                        <li><strong>Fix:</strong> Cannot be eliminated, but can be minimized by taking multiple measurements and calculating an average.</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section id="topic4">
+            <h2>Significant Figures</h2>
+            <p>Significant figures are all the certain digits in a measurement plus one uncertain (estimated) digit. They indicate the precision of a measurement.</p>
+            <h3>Rules for Counting:</h3>
+            <ol>
+                <li><strong>Non-zero digits</strong> are always significant (e.g., 22.5 has 3).</li>
+                <li><strong>Captive zeros</strong> (between non-zero digits) are significant (e.g., 2.05 has 3).</li>
+                <li><strong>Leading zeros</strong> (before non-zero digits) are NOT significant (e.g., 0.0025 has 2).</li>
+                <li><strong>Trailing zeros</strong> are significant ONLY if there is a decimal point (e.g., 25.0 has 3; 2500 has 2, but 2500. has 4).</li>
+            </ol>
+            <h3>Rules for Calculations:</h3>
+            <ul>
+                <li><strong>Addition/Subtraction:</strong> The answer is limited by the number with the *fewest decimal places*.
+                <br>(e.g., 12.52 + 5.1 = 17.62 → rounds to <strong>17.6</strong>)</li>
+                <li><strong>Multiplication/Division:</strong> The answer is limited by the number with the *fewest significant figures*.
+                <br>(e.g., 12.52 (4 sig figs) × 5.1 (2 sig figs) = 63.852 → rounds to <strong>64</strong>)</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="topic5">
+            <h2>Concentration Units</h2>
+            <p>Used to express the amount of solute in a given amount of solvent or solution.</p>
+            <ul>
+                <li><strong>Molarity (M):</strong> Moles of solute per liter of solution (mol/L). Used in titrations.</li>
+                <li><strong>Molality (m):</strong> Moles of solute per kilogram of solvent (mol/kg). Temperature-independent.</li>
+                <li><strong>Normality (N):</strong> Gram equivalent weight of solute per liter of solution. (Often Molarity × n-factor).</li>
+                <li><strong>Parts Per Million (ppm):</strong> Milligrams of solute per liter of solution (mg/L). Used for very dilute solutions, like pollutants in water. (1 ppm = 1 mg/kg)</li>
+                <li><strong>Parts Per Billion (ppb):</strong> Micrograms of solute per liter of solution (µg/L). Used for trace-level analysis.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="topic6">
+            <h2>Introduction to Chromatography</h2>
+            <blockquote>
+                <strong>Definition:</strong> Chromatography is a powerful laboratory technique used to <strong>separate the components of a mixture</strong>.
+            </blockquote>
+            <h3>Principle:</h3>
+            <p>All chromatographic separations work based on differential partitioning. The mixture is dissolved in a <strong>mobile phase</strong> (a liquid or gas), which is then passed over a <strong>stationary phase</strong> (a solid or a liquid coated on a solid).</p>
+            <p>The components of the mixture separate because they have different affinities (attractions) for the two phases.
+            <ul>
+                <li>A component that is <strong>strongly attracted to the stationary phase</strong> will move <strong>slowly</strong>.</li>
+                <li>A component that is <strong>more soluble in the mobile phase</strong> will move <strong>quickly</strong>.</li>
+            </ul>
+            This difference in speed causes the components to separate into distinct bands.
+        </section>
+
+        <hr>
+
+        <section id="topic7">
+            <h2>Paper Chromatography</h2>
+            <ul>
+                <li><strong>Stationary Phase:</strong> A high-quality filter paper (cellulose). The <strong>water</strong> trapped in the pores of the paper is the true stationary phase.</li>
+                <li><strong>Mobile Phase:</strong> A developing solvent (e.g., a mixture of alcohol and water).</li>
+                <li><strong>Technique:</strong>
+                    1. A spot of the mixture (e.g., ink) is applied near the bottom of the paper.
+                    2. The paper is suspended in a sealed jar with the bottom edge (below the spot) dipped into the mobile phase.
+                    3. The solvent moves up the paper by <strong>capillary action</strong>, carrying the components of the mixture with it.
+                    4. The components separate into different colored spots.
+                </li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="topic8">
+            <h2>Thin Layer Chromatography (TLC)</h2>
+            <p>A faster and more efficient version of paper chromatography.</p>
+            <ul>
+                <li><strong>Stationary Phase:</strong> A thin layer (e.g., 0.25 mm) of an adsorbent material (like <strong>silica gel</strong> or <strong>alumina</strong>) coated onto a glass plate or plastic sheet.</li>
+                <li><strong>Mobile Phase:</strong> A solvent or solvent mixture in a developing tank.</li>
+                <li><strong>Technique:</strong> Similar to paper chromatography. A small spot of the sample is applied, and the plate is placed in a sealed tank with the solvent. The solvent moves up by capillary action, separating the components.</li>
+                <li><strong>Visualization:</strong> If the spots are colorless, they can be visualized by spraying with a reagent (e.g., ninhydrin for amino acids) or by viewing under UV light.</li>
+            </ul>
+            [Image of a TLC plate showing separated spots]
+            
+            <h3>R_f Value (Retardation Factor)</h3>
+            <p>Used in both TLC and paper chromatography to identify components.</p>
+            <blockquote>
+                <strong>R_f = (Distance traveled by the spot) / (Distance traveled by the solvent front)</strong>
+            </blockquote>
+            <ul>
+                <li>The R_f value is always between 0 and 1.</li>
+                <li>It is a characteristic constant for a specific compound, in a specific solvent system, on a specific stationary phase.</li>
+                <li>By comparing the R_f value of an unknown spot to the R_f value of a known standard, one can identify the unknown.</li>
+            </ul>
+        </section>
+
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

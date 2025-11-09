@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSM 151 Unit 1 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for PHYDSM151T (Mathematical Physics, Mechanics and Relativity) Unit 1, covering Vector Algebra, Vector Calculus, and Ordinary Differential Equations.">
+    <meta name="keywords" content="PHYDSM151T, Mathematical Physics, Unit 1, Vectors, Gradient, Divergence, Curl, Gauss's Theorem, Stokes' Theorem, Ordinary Differential Equations, Assam University, 2nd Semester Physics">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3, h4 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 2em;
+            color: #3498db;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        h4 {
+            font-size: 1.2em;
+            color: #555;
+        }
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            font-size: 1.1em;
+            font-style: italic;
+            font-family: 'Georgia', serif;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: #ecf0f1;
+            border-left: 5px solid #3498db;
+            color: #34495e;
+            border-radius: 5px;
+        }
+        code, .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.1em;
+        }
+        .exam-tip {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d4a017;
+        }
+        #toc {
+            background: #ecf8ff;
+            border: 1px solid #bde0ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        #toc h3 {
+            margin-top: 0;
+            color: #0056b3;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 10px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 1: Vectors and Ordinary Differential Equations</h1>
+
+        <div id="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#vectors">1. [cite_start]Vectors [cite: 1344]</a></li>
+                <li><a href="#vector-calc">2. [cite_start]Introduction to Vector Calculus [cite: 1345]</a></li>
+                <li><a href="#vector-int">3. [cite_start]Vector Integration [cite: 1345]</a></li>
+                <li><a href="#ode">4. [cite_start]Ordinary Differential Equations (ODE) [cite: 1346]</a></li>
+            </ul>
+        </div>
+
+        <h2 id="vectors">1. [cite_start]Vectors [cite: 1344]</h2>
+        
+        [cite_start]<h3>Dot (Scalar) Product [cite: 1344]</h3>
+        <p>The dot product of two vectors <strong>A</strong> and <strong>B</strong> is a scalar quantity. It is defined as:</p>
+        <blockquote><strong>Definition:</strong> <strong>A</strong> ⋅ <strong>B</strong> = |A| |B| cos(θ)</blockquote>
+        <p>Where |A| and |B| are the magnitudes of the vectors and θ is the angle between them.</p>
+        <p>In Cartesian coordinates (<strong>A</strong> = A<sub>x</sub><strong>i</strong> + A<sub>y</sub><strong>j</strong> + A<sub>z</sub><strong>k</strong>, <strong>B</strong> = B<sub>x</sub><strong>i</strong> + B<sub>y</sub><strong>j</strong> + B<sub>z</sub><strong>k</strong>):</p>
+        <blockquote><strong>Formula:</strong> <strong>A</strong> ⋅ <strong>B</strong> = A<sub>x</sub>B<sub>x</sub> + A<sub>y</sub>B<sub>y</sub> + A<sub>z</sub>B<sub>z</sub></blockquote>
+        
+        <h4>Properties:</h4>
+        <ul>
+            [cite_start]<li><strong>Commutative:</strong> <strong>A</strong> ⋅ <strong>B</strong> = <strong>B</strong> ⋅ <strong>A</strong> [cite: 1344]</li>
+            <li><strong>Distributive:</strong> <strong>A</strong> ⋅ (<strong>B</strong> + <strong>C</strong>) = <strong>A</strong> ⋅ <strong>B</strong> + <strong>A</strong> ⋅ <strong>C</strong></li>
+            <li>If <strong>A</strong> ⊥ <strong>B</strong> (orthogonal), then θ = 90° and <strong>A</strong> ⋅ <strong>B</strong> = 0.</li>
+            <li>If <strong>A</strong> || <strong>B</strong> (parallel), then θ = 0° and <strong>A</strong> ⋅ <strong>B</strong> = |A| |B|.</li>
+            <li><strong>Self-product:</strong> <strong>A</strong> ⋅ <strong>A</strong> = |A|² = A<sub>x</sub>² + A<sub>y</sub>² + A<sub>z</sub>²</li>
+        </ul>
+        <p><strong>Physical Example:</strong> Work done (W) by a constant force <strong>F</strong> over a displacement <strong>d</strong> is W = <strong>F</strong> ⋅ <strong>d</strong>.</p>
+
+        [cite_start]<h3>Cross (Vector) Product [cite: 1344]</h3>
+        <p>The cross product of two vectors <strong>A</strong> and <strong>B</strong> is a new vector that is perpendicular to both <strong>A</strong> and <strong>B</strong>.</p>
+        <p>Its magnitude is:</p>
+        <blockquote><strong>Magnitude:</strong> |<strong>A</strong> × <strong>B</strong>| = |A| |B| sin(θ)</blockquote>
+        <p>The direction is given by the <strong>Right-Hand Rule</strong>. In Cartesian coordinates, it is calculated using a determinant:</p>
+        <blockquote>
+            <strong>Formula:</strong> <strong>A</strong> × <strong>B</strong> = 
+            | <strong>i</strong> &nbsp;&nbsp; <strong>j</strong> &nbsp;&nbsp; <strong>k</strong> | <br>
+            | A<sub>x</sub> &nbsp; A<sub>y</sub> &nbsp; A<sub>z</sub> | <br>
+            | B<sub>x</sub> &nbsp; B<sub>y</sub> &nbsp; B<sub>z</sub> | <br>
+            = (A<sub>y</sub>B<sub>z</sub> - A<sub>z</sub>B<sub>y</sub>)<strong>i</strong> - (A<sub>x</sub>B<sub>z</sub> - A<sub>z</sub>B<sub>x</sub>)<strong>j</strong> + (A<sub>x</sub>B<sub>y</sub> - A<sub>y</sub>B<sub>x</sub>)<strong>k</strong>
+        </blockquote>
+        
+        <h4>Properties:</h4>
+        <ul>
+            [cite_start]<li><strong>Anti-commutative:</strong> <strong>A</strong> × <strong>B</strong> = - (<strong>B</strong> × <strong>A</strong>) [cite: 1344]</li>
+            <li><strong>Distributive:</strong> <strong>A</strong> × (<strong>B</strong> + <strong>C</strong>) = <strong>A</strong> × <strong>B</strong> + <strong>A</strong> × <strong>C</strong></li>
+            <li>If <strong>A</strong> || <strong>B</strong> (parallel), then θ = 0° and <strong>A</strong> × <strong>B</strong> = <strong>0</strong>.</li>
+            <li><strong>Self-product:</strong> <strong>A</strong> × <strong>A</strong> = <strong>0</strong>.</li>
+        </ul>
+        <p><strong>Physical Example:</strong> Torque (<strong>τ</strong>) due to a force <strong>F</strong> applied at a position <strong>r</strong> from the pivot is <strong>τ</strong> = <strong>r</strong> × <strong>F</strong>.</p>
+
+        [cite_start]<h3>Scalar and Vector Triple Products [cite: 1344]</h3>
+        
+        <h4>1. Scalar Triple Product</h4>
+        <p>This product results in a scalar. It is defined as:</p>
+        <blockquote><strong>Definition:</strong> <strong>A</strong> ⋅ (<strong>B</strong> × <strong>C</strong>)</blockquote>
+        <p><strong>Physical Significance:</strong> The absolute value |<strong>A</strong> ⋅ (<strong>B</strong> × <strong>C</strong>)| represents the <strong>volume of the parallelepiped</strong> formed by the vectors <strong>A</strong>, <strong>B</strong>, and <strong>C</strong>.</p>
+        <p>It can be calculated using a determinant:</p>
+        <blockquote>
+            <strong>Formula:</strong> <strong>A</strong> ⋅ (<strong>B</strong> × <strong>C</strong>) =
+            | A<sub>x</sub> &nbsp; A<sub>y</sub> &nbsp; A<sub>z</sub> | <br>
+            | B<sub>x</sub> &nbsp; B<sub>y</sub> &nbsp; B<sub>z</sub> | <br>
+            | C<sub>x</sub> &nbsp; C<sub>y</sub> &nbsp; C<sub>z</sub> |
+        </blockquote>
+        <p><strong>Property:</strong> The dot and cross can be interchanged, and the vectors can be cyclically rotated without changing the value:</p>
+        <p><strong>A</strong> ⋅ (<strong>B</strong> × <strong>C</strong>) = <strong>B</strong> ⋅ (<strong>C</strong> × <strong>A</strong>) = <strong>C</strong> ⋅ (<strong>A</strong> × <strong>B</strong>) = (<strong>A</strong> × <strong>B</strong>) ⋅ <strong>C</strong></p>
+
+        <h4>2. Vector Triple Product</h4>
+        <p>This product results in a vector. It is defined as:</p>
+        <blockquote><strong>Definition:</strong> <strong>A</strong> × (<strong>B</strong> × <strong>C</strong>)</blockquote>
+        <p><strong>Physical Significance:</strong> The resulting vector lies in the plane formed by vectors <strong>B</strong> and <strong>C</strong>.</p>
+        <p>This is computed using the <strong>"BAC-CAB" rule</strong>:</p>
+        <blockquote><strong>Formula:</strong> <strong>A</strong> × (<strong>B</strong> × <strong>C</strong>) = <strong>B</strong>(<strong>A</strong> ⋅ <strong>C</strong>) - <strong>C</strong>(<strong>A</strong> ⋅ <strong>B</strong>)</blockquote>
+        <div class="exam-tip">
+            <strong>Common Mistake:</strong> The vector triple product is <strong>not associative</strong>!
+            <p><strong>A</strong> × (<strong>B</strong> × <strong>C</strong>) ≠ (<strong>A</strong> × <strong>B</strong>) × <strong>C</strong></p>
+            <p>(<strong>A</strong> × <strong>B</strong>) × <strong>C</strong> = -<strong>C</strong> × (<strong>A</strong> × <strong>B</strong>) = -[<strong>A</strong>(<strong>C</strong> ⋅ <strong>B</strong>) - <strong>B</strong>(<strong>C</strong> ⋅ <strong>A</strong>)] = <strong>B</strong>(<strong>A</strong> ⋅ <strong>C</strong>) - <strong>A</strong>(<strong>B</strong> ⋅ <strong>C</strong>)</p>
+        </div>
+        
+        <h2 id="vector-calc">2. [cite_start]Introduction to Vector Calculus [cite: 1345]</h2>
+        <p>We introduce the vector differential operator <strong>Del (∇)</strong>:</p>
+        <blockquote><strong>Del Operator:</strong> ∇ = <strong>i</strong>(∂/∂x) + <strong>j</strong>(∂/∂y) + <strong>k</strong>(∂/∂z)</blockquote>
+        <p>This operator can act on scalar fields (like temperature, T(x,y,z)) and vector fields (like electric field, <strong>E</strong>(x,y,z)).</p>
+
+        [cite_start]<h3>Gradient (grad) [cite: 1345]</h3>
+        <p>The gradient acts on a <strong>scalar field (f)</strong> and produces a <strong>vector field</strong>.</p>
+        <blockquote><strong>Definition:</strong> grad(f) = ∇f = <strong>i</strong>(∂f/∂x) + <strong>j</strong>(∂f/∂y) + <strong>k</strong>(∂f/∂z)</blockquote>
+        [cite_start]<p><strong>Physical Significance:</strong> [cite: 1345]</p>
+        <ul>
+            <li>The vector ∇f points in the direction of the <strong>steepest increase</strong> of the scalar f.</li>
+            <li>The magnitude |∇f| is the rate of that maximum increase.</li>
+            <li><strong>Example:</strong> If T(x,y,z) is a temperature field, ∇T is a vector pointing towards the hottest direction. The electrostatic field is the negative gradient of the electric potential: <strong>E</strong> = -∇V.</li>
+        </ul>
+
+        [cite_start]<h3>Divergence (div) [cite: 1345]</h3>
+        <p>The divergence acts on a <strong>vector field (V)</strong> and produces a <strong>scalar field</strong>. It is the dot product of ∇ and <strong>V</strong>.</p>
+        <blockquote><strong>Definition:</strong> div(<strong>V</strong>) = ∇ ⋅ <strong>V</strong> = (∂V<sub>x</sub>/∂x) + (∂V<sub>y</sub>/∂y) + (∂V<sub>z</sub>/∂z)</blockquote>
+        [cite_start]<p><strong>Physical Significance:</strong> [cite: 1345]</p>
+        <ul>
+            <li>Divergence measures how much a vector field is "spreading out" or "diverging" from a point.</li>
+            <li>If ∇ ⋅ <strong>V</strong> > 0, the point is a <strong>source</strong>.</li>
+            <li>If ∇ ⋅ <strong>V</strong> < 0, the point is a <strong>sink</strong>.</li>
+            <li>If ∇ ⋅ <strong>V</strong> = 0, the field is <strong>solenoidal</strong> (no sources or sinks, like the magnetic field <strong>B</strong>, ∇ ⋅ <strong>B</strong> = 0).</li>
+            <li><strong>Example:</strong> In fluid flow, ∇ ⋅ <strong>v</strong> (where <strong>v</strong> is velocity) measures the rate at which fluid is expanding from a point.</li>
+        </ul>
+        
+        [cite_start]<h3>Curl (curl) [cite: 1345]</h3>
+        <p>The curl acts on a <strong>vector field (V)</strong> and produces another <strong>vector field</strong>. It is the cross product of ∇ and <strong>V</strong>.</p>
+        <blockquote>
+            <strong>Definition:</strong> curl(<strong>V</strong>) = ∇ × <strong>V</strong> = 
+            | <strong>i</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>j</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>k</strong> | <br>
+            | ∂/∂x &nbsp;&nbsp;&nbsp; ∂/∂y &nbsp;&nbsp;&nbsp; ∂/∂z | <br>
+            | V<sub>x</sub> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; V<sub>y</sub> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; V<sub>z</sub> |
+        </blockquote>
+        [cite_start]<p><strong>Physical Significance:</strong> [cite: 1345]</p>
+        <ul>
+            <li>Curl measures the "circulation" or "rotation" of a vector field at a point.</li>
+            <li>If ∇ × <strong>V</strong> = <strong>0</strong>, the field is <strong>irrotational</strong> or <strong>conservative</strong> (like an electrostatic field, ∇ × <strong>E</strong> = 0).</li>
+            <li><strong>Example:</strong> In fluid flow, ∇ × <strong>v</strong> represents the vorticity (how a paddlewheel would spin at that point). A magnetic field curls around a current: ∇ × <strong>B</strong> = μ₀<strong>J</strong>.</li>
+        </ul>
+        
+        <h2 id="vector-int">3. [cite_start]Vector Integration [cite: 1345]</h2>
+        
+        [cite_start]<h3>Line, Surface, and Volume Integrals [cite: 1345]</h3>
+        <ul>
+            <li><strong>Line Integral:</strong> Integrates a vector field <strong>V</strong> along a path <em>C</em>.
+                <p><strong>Formula:</strong> ∫<sub>C</sub> <strong>V</strong> ⋅ d<strong>l</strong></p>
+                <p><strong>Example:</strong> Work done by a variable force <strong>F</strong> along a path <em>C</em> is W = ∫<sub>C</sub> <strong>F</strong> ⋅ d<strong>l</strong>.</p>
+            </li>
+            <li><strong>Surface Integral:</strong> Integrates a vector field <strong>V</strong> over a surface <em>S</em>.
+                <p><strong>Formula:</strong> ∫∫<sub>S</sub> <strong>V</strong> ⋅ d<strong>S</strong></p>
+                <p><strong>Example:</strong> Electric flux (Φ<sub>E</sub>) through a surface <em>S</em> is Φ<sub>E</sub> = ∫∫<sub>S</sub> <strong>E</strong> ⋅ d<strong>S</strong>.</p>
+            </li>
+            <li><strong>Volume Integral:</strong> Integrates a scalar field <em>f</em> over a volume <em>τ</em>.
+                <p><strong>Formula:</strong> ∫∫∫<sub>τ</sub> <em>f</em> dτ</p>
+                <p><strong>Example:</strong> Total charge (Q) in a volume <em>τ</em> with charge density ρ is Q = ∫∫∫<sub>τ</sub> ρ dτ.</p>
+            </li>
+        </ul>
+        
+        [cite_start]<h3>Gauss-Divergence Theorem (Statement Only) [cite: 1345]</h3>
+        <p>This theorem relates a <strong>volume integral</strong> of the divergence of a vector field to a <strong>closed surface integral</strong> of the flux of that field.</p>
+        <blockquote><strong>Theorem Statement:</strong> The flux of a vector field <strong>V</strong> through a closed surface <em>S</em> is equal to the volume integral of the divergence of <strong>V</strong> over the volume <em>τ</em> enclosed by that surface.
+        <p><strong>Formula:</strong> ∮∮<sub>S</sub> <strong>V</strong> ⋅ d<strong>S</strong> = ∫∫∫<sub>τ</sub> (∇ ⋅ <strong>V</strong>) dτ</p>
+        </blockquote>
+        <p><strong>Physical Meaning:</strong> The total "stuff" flowing out of a closed surface (left side) is equal to the sum of all the "sources" inside that volume (right side).</p>
+        [cite_start]<h3>Stoke's Theorem (Statement Only) [cite: 1345]</h3>
+        <p>This theorem relates an <strong>open surface integral</strong> of the curl of a vector field to a <strong>closed line integral</strong> of that field around the boundary of the surface.</p>
+        <blockquote><strong>Theorem Statement:</strong> The line integral (circulation) of a vector field <strong>V</strong> around a closed loop <em>C</em> is equal to the surface integral of the curl of <strong>V</strong> over any open surface <em>S</em> bounded by that loop.
+        <p><strong>Formula:</strong> ∮<sub>C</sub> <strong>V</strong> ⋅ d<strong>l</strong> = ∫∫<sub>S</sub> (∇ × <strong>V</strong>) ⋅ d<strong>S</strong></p>
+        </blockquote>
+        <p><strong>Physical Meaning:</strong> The total "rotation" of a field over a surface (right side) is equal to the "circulation" of the field around the edge of that surface (left side).</p>
+        <h2 id="ode">4. [cite_start]Ordinary Differential Equations (ODE) [cite: 1346]</h2>
+        
+        [cite_start]<h3>1st Order Homogeneous Differential Equations [cite: 1346]</h3>
+        <p>A homogeneous ODE of the first order can be written in the form:</p>
+        <p>dy/dx = f(y/x)</p>
+        <p><strong>How to Solve (Separation of Variables):</strong></p>
+        <ol>
+            <li>Make the substitution <strong>v = y/x</strong>, which means <strong>y = vx</strong>.</li>
+            <li>Differentiate y = vx with respect to x: <strong>dy/dx = v + x(dv/dx)</strong>.</li>
+            <li>Substitute v and dy/dx into the original equation: v + x(dv/dx) = f(v).</li>
+            <li>This new equation is separable: x(dv/dx) = f(v) - v.</li>
+            <li>Separate the variables: <strong>dv / (f(v) - v) = dx / x</strong>.</li>
+            <li>Integrate both sides: ∫ dv / (f(v) - v) = ∫ dx / x = ln|x| + C.</li>
+            <li>Solve the integral for v, and then substitute back <strong>v = y/x</strong> to get the final solution for y.</li>
+        </ol>
+        
+        [cite_start]<h3>2nd Order Homogeneous Differential Equations with Constant Coefficients [cite: 1346]</h3>
+        <p>This is a very common type of equation in physics (e.g., in Simple Harmonic Motion). The general form is:</p>
+        <blockquote><strong>General Form:</strong> a(d²y/dx²) + b(dy/dx) + cy = 0</blockquote>
+        <p>Where a, b, and c are constants.</p>
+        <p><strong>How to Solve:</strong></p>
+        <ol>
+            <li>Assume a solution of the form <strong>y = e<sup>mx</sup></strong>.</li>
+            <li>Substitute this into the ODE:
+                <p>y' = me<sup>mx</sup></p>
+                <p>y'' = m²e<sup>mx</sup></p>
+                <p>a(m²e<sup>mx</sup>) + b(me<sup>mx</sup>) + c(e<sup>mx</sup>) = 0</p>
+            </li>
+            <li>Factor out e<sup>mx</sup> (which is never zero): e<sup>mx</sup> (am² + bm + c) = 0</li>
+            <li>This leaves the <strong>Auxiliary Equation (or Characteristic Equation)</strong>:
+                <blockquote><strong>Auxiliary Equation:</strong> am² + bm + c = 0</blockquote>
+            </li>
+            <li>Solve this quadratic equation for 'm'. This gives two roots, m₁ and m₂. The general solution for y depends on the nature of these roots.</li>
+        </ol>
+        
+        <h4>Case 1: Two Real, Distinct Roots (b² - 4ac > 0)</h4>
+        <p>The roots are m₁ and m₂. The general solution is:</p>
+        <blockquote><strong>Solution:</strong> y(x) = C₁e<sup>m₁x</sup> + C₂e<sup>m₂x</sup></blockquote>
+        
+        <h4>Case 2: Two Real, Repeated Roots (b² - 4ac = 0)</h4>
+        <p>The roots are m₁ = m₂ = m. The general solution is:</p>
+        <blockquote><strong>Solution:</strong> y(x) = (C₁ + C₂x)e<sup>mx</sup></blockquote>
+        
+        <h4>Case 3: Two Complex Roots (b² - 4ac < 0)</h4>
+        <p>The roots are a complex conjugate pair: m = α ± iβ. The solution is:</p>
+        <p>y(x) = C₁e<sup>(α + iβ)x</sup> + C₂e<sup>(α - iβ)x</sup></p>
+        <p>Using Euler's formula (e<sup>iθ</sup> = cosθ + isinθ), this simplifies to a more useful form:</p>
+        <blockquote><strong>Solution:</strong> y(x) = e<sup>αx</sup> (A cos(βx) + B sin(βx))</blockquote>
+        <p><strong>Example (SHM):</strong> d²x/dt² + ω²x = 0.
+        <br>Auxiliary equation: m² + ω² = 0.
+        <br>Roots: m = ±iω. (This is Case 3 with α=0, β=ω).
+        <br>Solution: x(t) = A cos(ωt) + B sin(ωt).</p>
+        
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

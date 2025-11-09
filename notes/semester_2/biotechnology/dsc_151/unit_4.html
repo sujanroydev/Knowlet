@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biotechnology DSC 151T Unit 4 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Unit 4 notes for Biotechnology (BTC DSC 151T): Enzymes. Covers nomenclature, classification, specificity, models (Lock-and-Key, Induced-Fit), enzyme kinetics, and inhibition.">
+    <meta name="keywords" content="Enzymes, Enzyme Kinetics, Enzyme Inhibition, Active Site, Lock-and-Key Model, Induced-Fit Model, Biotechnology DSC 151T, Unit 4, Biochemistry notes">
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dcdcdc;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #f39c12;
+            padding-bottom: 5px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #a04000;
+        }
+        h2 {
+            font-size: 1.8em;
+            color: #d35400;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #e67e22;
+            border-bottom: 1px dashed #ccc;
+        }
+        p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 25px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 1em;
+        }
+        table, th, td {
+            border: 1px solid #bdc3c7;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f39c12;
+            color: #ffffff;
+        }
+        tr:nth-child(even) {
+            background-color: #ecf0f1;
+        }
+        tr:hover {
+            background-color: #fdebd0;
+        }
+        blockquote {
+            background-color: #fef5e7;
+            border-left: 5px solid #f39c12;
+            margin: 15px 0;
+            padding: 10px 20px;
+            font-style: italic;
+        }
+        .exam-tip {
+            background-color: #fef9e7;
+            border: 1px solid #f1c40f;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .exam-tip strong {
+            color: #d35400;
+        }
+        .toc {
+            background: #fef5e7;
+            border: 1px solid #f8c471;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 25px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            color: #a04000;
+            margin-top: 0;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc li a {
+            text-decoration: none;
+            color: #d35400;
+        }
+        .toc li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 4: Enzymes</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#nomenclature">1. Nomenclature and Classification of Enzymes</a></li>
+                <li><a href="#specificity">2. Enzyme Specificity</a></li>
+                <li><a href="#models">3. Models of Enzyme Action (Lock-and-Key and Induced-Fit)</a></li>
+                <li><a href="#activation-energy">4. Activation Energy</a></li>
+                <li><a href="#factors">5. Factors Affecting Enzyme Activity</a></li>
+                <li><a href="#inhibition">6. Enzyme Inhibition (Reversible and Irreversible)</a></li>
+                <li><a href="#cofactors">7. Cofactors and Prosthetic Groups</a></li>
+            </ul>
+        </div>
+        
+        <blockquote>
+            <p><strong>Enzymes</strong> are biological catalysts. They are (mostly) globular proteins that increase the rate of a chemical reaction without being consumed in the process. They are highly specific and highly efficient.</p>
+        </blockquote>
+
+        <h2 id="nomenclature">1. Nomenclature and Classification of Enzymes</h2>
+        
+        <h3>a) Nomenclature</h3>
+        <p>Enzymes are typically named by adding the suffix <strong>"-ase"</strong> to the name of their substrate or the reaction they catalyze.</p>
+        <ul>
+            <li><strong>Substrate:</strong> Urease (hydrolyzes Urea), Lactase (hydrolyzes Lactose).</li>
+            <li><strong>Reaction:</strong> DNA Polymerase (polymerizes DNA), Dehydrogenase (removes hydrogen).</li>
+        </ul>
+
+        <h3>b) Classification (IUBMB)</h3>
+        <p>The International Union of Biochemistry and Molecular Biology (IUBMB) classifies all enzymes into <strong>six major classes</strong>, each with a unique <strong>EC number</strong> (Enzyme Commission number).</p>
+        
+        <p class="exam-tip"><strong>Mnemonic for the 6 classes:</strong> "<strong>O</strong>ver <strong>T</strong>he <strong>H</strong>ill <strong>L</strong>ies <strong>I</strong>nvisible <strong>L</strong>ight"</p>
+        
+        <ol>
+            <li><strong><span id="spap_9">(EC 1) Oxidoreductases:</span></strong> Catalyze oxidation-reduction (redox) reactions (e.g., Dehydrogenase, Oxidase).</li>
+            <li><strong><span id="spap_10">(EC 2) Transferases:</span></strong> Catalyze the transfer of a functional group (e.g., methyl, phosphate) from one molecule to another (e.g., Kinase, Transaminase).</li>
+            <li><strong><span id="spap_11">(EC 3) Hydrolases:</span></strong> Catalyze hydrolysis reactions (breaking a bond using water) (e.g., Protease, Lipase, Amylase).</li>
+            <li><strong><span id="spap_12">(EC 4) Lyases:</span></strong> Catalyze the cleavage of C-C, C-O, C-N bonds by means *other* than hydrolysis or oxidation, often forming a double bond (e.g., Decarboxylase, Synthase).</li>
+            <li><strong><span id="spap_13">(EC 5) Isomerases:</span></strong> Catalyze the rearrangement of atoms within a molecule (e.g., Mutase, Isomerase).</li>
+            <li><strong><span id="spap_14">(EC 6) Ligases:</span></strong> Catalyze the joining of two molecules, coupled with the hydrolysis of ATP (e.g., DNA Ligase, Synthetase).</li>
+        </ol>
+
+        <h2 id="specificity">2. Enzyme Specificity</h2>
+        <p>This is a hallmark property of enzymes. Specificity refers to the ability of an enzyme to bind and catalyze only one or a small group of substrates.</p>
+        <ul>
+            <li><strong>Absolute Specificity:</strong> Catalyzes only one specific substrate (e.g., Urease only acts on urea).</li>
+            <li><strong>Group Specificity:</strong> Acts on a group of substrates with a similar structure (e.g., Hexokinase phosphorylates various hexose sugars like glucose, fructose).</li>
+            <li><strong>Stereospecificity:</strong> Acts on only one stereoisomer (L- or D-) of a substrate.</li>
+        </ul>
+
+        <h2 id="models">3. Models of Enzyme Action (Lock-and-Key and Induced-Fit)</h2>
+        
+        <h3>a) Active Site</h3>
+        <p>The <strong>active site</strong> is a specific 3D cleft or pocket on the enzyme's surface where the substrate binds and the chemical reaction occurs.</p>
+
+        <h3>b) Lock-and-Key Model (Emil Fischer, 1894)</h3>
+        <ul>
+            <li><strong>Concept:</strong> The active site has a rigid, pre-formed shape that is perfectly complementary to the substrate, like a lock and its key.</li>
+            <li><strong>Limitation:</strong> This model is too rigid and does not explain how the enzyme stabilizes the transition state.</li>
+        </ul>
+        <h3>c) Induced-Fit Model (Daniel Koshland, 1958)</h3>
+        <ul>
+            <li><strong>Concept:</strong> The active site is flexible, not rigid. The binding of the substrate <em>induces</em> a conformational change in the enzyme, causing the active site to "wrap around" the substrate.</li>
+            <li><strong>Significance:</strong> This is the more accepted model. This "hugging" (induced fit) strains the substrate's bonds and orients the catalytic groups, which helps stabilize the <strong>transition state</strong> and lower the activation energy.</li>
+        </ul>
+        <h2 id="activation-energy">4. Activation Energy (E<sub>A</sub>)</h2>
+        <blockquote>
+            <p><strong>Activation Energy (E<sub>A</sub>)</strong> is the minimum amount of energy required to start a chemical reaction, or the energy needed to reach the high-energy <strong>transition state</strong>.</p>
+        </blockquote>
+        
+        <p><strong>Enzymes do not change the overall free energy (ΔG) of a reaction.</strong> Instead, they speed up the reaction rate by <strong>lowering the activation energy (E<sub>A</sub>)</strong>. They do this by providing an alternative reaction pathway and stabilizing the transition state.</p>
+        
+        <center>
+            <img src="https://i.imgur.com/3jGqHh7.png" alt="Energy Profile of a Reaction with and without an enzyme" style="width:70%;">
+        </center>
+
+        <h2 id="factors">5. Factors Affecting Enzyme Activity</h2>
+        
+        <h3>a) Effect of Temperature</h3>
+        <ul>
+            <li>As temperature increases, the reaction rate increases (more kinetic energy).</li>
+            <li>However, above an <strong>optimal temperature</strong>, the enzyme begins to <strong>denature</strong> (lose its 3D structure), and the rate drops rapidly.</li>
+        </ul>
+        
+        <h3>b) Effect of pH</h3>
+        <ul>
+            <li>Each enzyme has an <strong>optimal pH</strong> at which its activity is maximal (e.g., Pepsin ≈ pH 2; Trypsin ≈ pH 8).</li>
+            <li>Extreme pH (too acidic or basic) alters the ionization state of the amino acid R-groups in the active site and can lead to denaturation.</li>
+        </ul>
+        
+        <h3>c) Effect of Substrate Concentration [S]</h3>
+        <ul>
+            <li>At a fixed enzyme concentration, as [S] increases, the reaction rate (velocity, V) increases...</li>
+            <li>...until the enzyme becomes <strong>saturated</strong>. At this point, all active sites are occupied, and the reaction reaches its <strong>maximum velocity (V<sub>max</sub>)</strong>.</li>
+            <li>This relationship is described by the <strong>Michaelis-Menten equation</strong>.</li>
+        </ul>
+        <h2 id="inhibition">6. Enzyme Inhibition (Reversible and Irreversible)</h2>
+        <p>Inhibitors are molecules that reduce or stop enzyme activity. This is a key mechanism for regulating metabolic pathways and is the basis for many drugs.</p>
+        
+        <h3>a) Reversible Inhibition</h3>
+        <p>The inhibitor binds non-covalently and can be removed, restoring enzyme activity.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>How it Works</th>
+                    <th>Effect on K<sub>m</sub></th>
+                    <th>Effect on V<sub>max</sub></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Competitive</strong></td>
+                    <td>Inhibitor mimics the substrate and binds to the <strong>active site</strong>.</td>
+                    <td><strong>Increases</strong> (needs more substrate to compete)</td>
+                    <td><strong>No change</strong> (can be overcome by high [S])</td>
+                </tr>
+                <tr>
+                    <td><strong>Non-competitive</strong></td>
+                    <td>Inhibitor binds to an <strong>allosteric site</strong> (not the active site), changing the enzyme's shape.</td>
+                    <td><strong>No change</strong></td>
+                    <td><strong>Decreases</strong> (cannot be overcome by [S])</td>
+                </tr>
+                <tr>
+                    <td><strong>Uncompetitive</strong></td>
+                    <td>Inhibitor binds <em>only</em> to the <strong>enzyme-substrate (ES) complex</strong>.</td>
+                    <td><strong>Decreases</strong></td>
+                    <td><strong>Decreases</strong></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> Understand the competitive vs. non-competitive inhibition table. This is a classic topic. Remember: Competitive inhibitors "compete" for the active site.
+        </div>
+
+        <h3>b) Irreversible Inhibition</h3>
+        <p>The inhibitor binds <em>covalently</em> to the enzyme, permanently disabling it. Examples include heavy metals (mercury, lead) and some nerve gases.</p>
+
+        <h2 id="cofactors">7. Cofactors and Prosthetic Groups</h2>
+        <p>Many enzymes require a non-protein chemical component to be active.</p>
+        
+        <blockquote>
+            <p><strong>Apoenzyme</strong> (inactive protein part) + <strong>Cofactor</strong> (non-protein part) = <strong>Holoenzyme</strong> (active enzyme)</p>
+        </blockquote>
+
+        <p>Cofactors can be:</p>
+        <ol>
+            <li><strong>Inorganic Ions:</strong> Metal ions like Mg²⁺, Zn²⁺, Fe²⁺. They often help in binding the substrate or stabilizing the enzyme structure.</li>
+            <li><strong>Coenzymes:</strong> Organic (carbon-based) molecules.
+                <ul>
+                    <li>They are often derived from <strong>vitamins</strong> (e.g., NAD⁺ from Niacin/B3; FAD from Riboflavin/B2).</li>
+                    <li>They act as transient carriers of specific functional groups.</li>
+                </ul>
+            </li>
+        </ol>
+        
+        <h3>Prosthetic Groups</h3>
+        <blockquote>
+            <p>A <strong>prosthetic group</strong> is a coenzyme (or metal ion) that is <strong>tightly and covalently</strong> (or very strongly) bound to the apoenzyme, forming a permanent part of the active enzyme.</p>
+        </blockquote>
+        <p><strong>Example:</strong> The <strong>heme group</strong> in enzymes like catalase and cytochrome oxidase is a prosthetic group.</p>
+
+    </div>
+</body>
+</html>

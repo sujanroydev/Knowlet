@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics IDC 151 Unit 2 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Statistics IDC 151 (Index Number and Time Series Analysis), Unit 2, based on the Assam University syllabus. Covers Time Reversal Test, Factor Reversal Test, Chain Index Numbers, and CPI.">
+    <meta name="keywords" content="Statistics IDC 151, Index Number, Unit 2, Assam University, Time Reversal Test, Factor Reversal Test, Chain Index Numbers, Consumer Price Index, CPI">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f7f3f0; /* Light brown background */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #3e2723; /* Dark brown */
+        }
+        h1 {
+            color: #4e342e; /* Darker brown */
+            border-bottom: 3px solid #4e342e;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #5d4037; /* Medium brown */
+            border-bottom: 1px solid #e0e0e0;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #6d4c41;
+            padding-top: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        code {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #efebe9;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+        blockquote {
+            background-color: #f7f3f0;
+            border-left: 5px solid #5d4037;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        .formula {
+            background-color: #fdfdfd;
+            border: 1px dashed #ccc;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            text-align: center;
+            overflow-x: auto;
+        }
+        .exam-tip, .common-mistake {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .exam-tip {
+            background-color: #fffbe6;
+            border: 1px solid #ffecb3;
+        }
+        .common-mistake {
+            background-color: #ffebee;
+            border: 1px solid #ffcdd2;
+        }
+        .toc {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            margin-top: 0;
+            color: #5d4037;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #337ab7;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #5d4037;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        [cite_start]<h1>Unit 2: Index Number-II [cite: 2127]</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#tests">2.1 Tests for Index Numbers</a></li>
+                <li><a href="#trt">2.2 Time Reversal Test</a></li>
+                <li><a href="#frt">2.3 Factor Reversal Test</a></li>
+                <li><a href="#chain_index">2.4 Chain Index Numbers</a></li>
+                <li><a href="#cpi">2.5 Consumer Price Index (CPI) Numbers</a></li>
+            </ul>
+        </div>
+        
+        <h2 id="tests">2.1 Tests for Index Numbers</h2>
+        <p>To be considered a good ("ideal") index, a formula should satisfy certain mathematical properties. These tests check the logical consistency of the index formula.</p>
+        <p><strong>Notation:</strong></p>
+        <ul>
+            <li><code>P₀₁</code> = Price index for period 1 (current) based on period 0 (base).</li>
+            <li><code>P₁₀</code> = Price index for period 0 (current) based on period 1 (base).</li>
+            <li><code>Q₀₁</code> = Quantity index for period 1 based on period 0.</li>
+            <li><code>V₀₁</code> = Value index for period 1 based on period 0 = Σp₁q₁ / Σp₀q₀</li>
+        </ul>
+        
+        [cite_start]<h2 id="trt">2.2 Time Reversal Test [cite: 2128]</h2>
+        
+        <blockquote>
+            <strong>The Test:</strong> An index formula satisfies this test if, when the base period and current period are interchanged, the two resulting index numbers are <strong>reciprocals</strong> of each other.
+            <div class="formula">P₀₁ * P₁₀ = 1</div>
+        </blockquote>
+        
+        <p><strong>Logic:</strong> If prices doubled from 2020 to 2024 (P₀₁ = 2), then from 2024's perspective, 2020 prices should be half (P₁₀ = 1/2). Their product should be 1.</p>
+        
+        <h3>Checking the Formulas:</h3>
+        <ul>
+            <li><strong>Laspeyre's (L):</strong>
+                <ul>
+                    <li>P₀₁(L) = Σp₁q₀ / Σp₀q₀</li>
+                    <li>P₁₀(L) = Σp₀q₁ / Σp₁q₁  <em>(Swap 0 and 1, but 'q' is always base, which is now '1')</em></li>
+                    <li>P₀₁(L) * P₁₀(L) = (Σp₁q₀ / Σp₀q₀) * (Σp₀q₁ / Σp₁q₁)  <strong>≠ 1</strong></li>
+                    <li><strong>Conclusion: Laspeyre's FAILS the test.</strong></li>
+                </ul>
+            </li>
+            <li><strong>Paasche's (P):</strong>
+                <ul>
+                    <li>P₀₁(P) = Σp₁q₁ / Σp₀q₁</li>
+                    <li>P₁₀(P) = Σp₀q₀ / Σp₁q₀  <em>(Swap 0 and 1, 'q' is always current, which is now '0')</em></li>
+                    <li>P₀₁(P) * P₁₀(P) = (Σp₁q₁ / Σp₀q₁) * (Σp₀q₀ / Σp₁q₀)  <strong>≠ 1</strong></li>
+                    <li><strong>Conclusion: Paasche's FAILS the test.</strong></li>
+                </ul>
+            </li>
+            <li><strong>Fisher's (F):</strong>
+                <ul>
+                    <li>P₀₁(F) = sqrt[ (Σp₁q₀/Σp₀q₀) * (Σp₁q₁/Σp₀q₁) ]</li>
+                    <li>P₁₀(F) = sqrt[ (Σp₀q₁/Σp₁q₁) * (Σp₀q₀/Σp₁q₀) ]</li>
+                    <li>P₀₁(F) * P₁₀(F) = sqrt[ (A/B)*(C/D) * (D/C)*(B/A) ] = sqrt(1) = <strong>1</strong></li>
+                    <li><strong>Conclusion: Fisher's SATISFIES the test.</strong> (This is one reason it's "Ideal".)</li>
+                </ul>
+            </li>
+        </ul>
+        
+        [cite_start]<h2 id="frt">2.3 Factor Reversal Test [cite: 2128]</h2>
+        
+        <blockquote>
+            <strong>The Test:</strong> An index formula satisfies this test if, when the price (p) and quantity (q) "factors" are interchanged, the product of the resulting Price Index and Quantity Index equals the true Value Index.
+            <div class="formula">P₀₁ * Q₀₁ = V₀₁ = Σp₁q₁ / Σp₀q₀</div>
+        </blockquote>
+        
+        <p><strong>Logic:</strong> The total change in Value (Price × Quantity) should be the product of the change in Price and the change in Quantity.</p>
+        
+        <h3>Checking the Formulas:</h3>
+        <ul>
+            <li><strong>Laspeyre's (L):</strong>
+                <ul>
+                    <li>P₀₁(L) = Σp₁q₀ / Σp₀q₀</li>
+                    <li>Q₀₁(L) = Σq₁p₀ / Σq₀p₀  <em>(Swap 'p' and 'q' in the formula)</em></li>
+                    <li>P₀₁(L) * Q₀₁(L) = (Σp₁q₀ / Σp₀q₀) * (Σq₁p₀ / Σq₀p₀) <strong>≠ V₀₁</strong></li>
+                    <li><strong>Conclusion: Laspeyre's FAILS the test.</strong></li>
+                </ul>
+            </li>
+            <li><strong>Paasche's (P):</strong>
+                <ul>
+                    <li>P₀₁(P) = Σp₁q₁ / Σp₀q₁</li>
+                    <li>Q₀₁(P) = Σq₁p₁ / Σq₀p₁  <em>(Swap 'p' and 'q' in the formula)</em></li>
+                    <li>P₀₁(P) * Q₀₁(P) = (Σp₁q₁ / Σp₀q₁) * (Σq₁p₁ / Σq₀p₁) <strong>≠ V₀₁</strong></li>
+                    <li><strong>Conclusion: Paasche's FAILS the test.</strong></li>
+                </ul>
+            </li>
+            <li><strong>Fisher's (F):</strong>
+                <ul>
+                    <li>P₀₁(F) = sqrt[ (Σp₁q₀/Σp₀q₀) * (Σp₁q₁/Σp₀q₁) ]</li>
+                    <li>Q₀₁(F) = sqrt[ (Σq₁p₀/Σq₀p₀) * (Σq₁p₁/Σq₀p₁) ]  <em>(Swap 'p' and 'q')</em></li>
+                    <li>P₀₁(F) * Q₀₁(F) = sqrt[ (Σp₁q₀/Σp₀q₀) * (Σp₁q₁/Σp₀q₁) * (Σq₁p₀/Σq₀p₀) * (Σq₁p₁/Σq₀p₁) ]</li>
+                    <li>P₀₁(F) * Q₀₁(F) = sqrt[ (Σp₁q₁/Σp₀q₀) * (Σp₁q₁/Σp₀q₀) ]  <em>(Terms cancel out)</em></li>
+                    <li>P₀₁(F) * Q₀₁(F) = <strong>Σp₁q₁ / Σp₀q₀ = V₀₁</strong></li>
+                    <li><strong>Conclusion: Fisher's SATISFIES the test.</strong> (This is the other reason it's "Ideal".)</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="exam-tip">
+            <strong>Summary of Tests:</strong>
+            <table>
+                <thead>
+                    <tr><th>Index Formula</th><th>Time Reversal Test</th><th>Factor Reversal Test</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Laspeyre's</td><td><strong>FAILS</strong></td><td><strong>FAILS</strong></td></tr>
+                    <tr><td>Paasche's</td><td><strong>FAILS</strong></td><td><strong>FAILS</strong></td></tr>
+                    <tr><td>Marshall-Edgeworth</td><td><strong>SATISFIES</strong></td><td><strong>FAILS</strong></td></tr>
+                    <tr><td>Fisher's Ideal</td><td><strong>SATISFIES</strong></td><td><strong>SATISFIES</strong></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        [cite_start]<h2 id="chain_index">2.4 Chain Index Numbers [cite: 2128]</h2>
+        <p>The methods we've seen so far are <strong>Fixed Base Index Numbers</strong> (e.g., 2010=100, 2011=105, 2012=112... all compared to 2010).</p>
+        <p><strong>Chain Index Numbers</strong> are different. Each period is compared to the <strong>immediately preceding period</strong>. This creates a "chain."</p>
+        
+        <h3>Process:</h3>
+        <ol>
+            <li><strong>Step 1: Calculate Link Relatives.</strong> This is an index for each period with the <em>previous</em> period as the base.
+                <ul>
+                    <li>Link Relative for Period 2 = (P₂ / P₁) * 100</li>
+                    <li>Link Relative for Period 3 = (P₃ / P₂) * 100</li>
+                </ul>
+            </li>
+            <li><strong>Step 2: Chain the Links.</strong> Multiply the current link relative by the previous chain index (and divide by 100).
+                <ul>
+                    <li>Chain Index for Period 1 = 100</li>
+                    <li>Chain Index for Period 2 = (Link Relative for 2 * Chain Index for 1) / 100</li>
+                    <li>Chain Index for Period 3 = (Link Relative for 3 * Chain Index for 2) / 100</li>
+                </ul>
+            </li>
+        </ol>
+        
+        <h3>Pros and Cons:</h3>
+        <ul>
+            <li><strong>Pros:</strong>
+                <ul>
+                    <li>Allows for adding or removing items from the "basket" easily, as the weights can be updated yearly.</li>
+                    <li>Uses a more recent, relevant base for comparison.</li>
+                </ul>
+            </li>
+            <li><strong>Cons:</strong>
+                <ul>
+                    <li>More complex to calculate.</li>
+                    <li>May have "drift" or "error" that accumulates over long periods.</li>
+                </ul>
+            </li>
+        </ul>
+
+        [cite_start]<h2 id="cpi">2.5 Consumer Price Index (CPI) Numbers [cite: 2128]</h2>
+        
+        <h3>Definition</h3>
+        <p>The <strong>Consumer Price Index (CPI)</strong>, also known as the <strong>Cost of Living Index</strong>, is the most well-known index. It measures the average change over time in the prices paid by urban consumers for a <strong>fixed basket of consumer goods and services</strong> (food, housing, transport, medical care, etc.).</p>
+        <p>It is the primary measure of <strong>inflation</strong>.</p>
+        
+        <h3>Construction</h3>
+        <p>Constructing the CPI is a massive, complex task:</p>
+        <ol>
+            <li><strong>Family Budget Surveys:</strong> A survey is done on thousands of families to determine <em>what</em> they buy and <em>how much</em> of their budget they spend on each item (e.g., 25% on food, 30% on housing...). This determines the "basket" and, more importantly, the <strong>weights (w)</strong>.</li>
+            <li><strong>Price Collection:</strong> The government collects tens of thousands of price quotes for all the items in the basket from stores all over the country.</li>
+            <li><strong>Calculation:</strong> The CPI is calculated using a weighted index formula. Most countries use a variation of <strong>Laspeyre's method</strong> (a fixed basket/weights).
+                <div class="formula">CPI = [ Σ(p₁w) / Σ(p₀w) ] * 100</div>
+                <p>This is also known as the <strong>Weighted Aggregative Expenditure Method</strong>, which is identical to Laspeyre's formula (w = p₀q₀).</p>
+            </li>
+        </ol>
+        
+        <h3>Applications</h3>
+        <ul>
+            <li><strong>Measure of Inflation:</strong> The percentage change in the CPI is the inflation rate.</li>
+            <li><strong>Wage/Pension Adjustment:</strong> Used to calculate "cost-of-living adjustments" (like Dearness Allowance) to protect salaries from losing purchasing power.</li>
+            <li><strong>Economic Policy:</strong> The central bank (like the RBI) uses the CPI to make decisions about interest rates to control inflation.</li>
+            <li><strong>Deflating:</strong> Converting nominal wages to "real wages" to see if purchasing power has actually increased.</li>
+        </ul>
+        
+        <h3>Limitations</h3>
+        <ul>
+            <li><strong>Substitution Bias:</strong> As a Laspeyre's-type index, it has an upward bias because it assumes a fixed basket (it ignores the fact that people switch to chicken if beef prices rise).</li>
+            <li><strong>New Goods Bias:</strong> The "basket" is slow to update. It doesn't account for the value of new products (e.g., smartphones, streaming services) when they first appear.</li>
+            <li><strong>Quality Change Bias:</strong> It struggles to account for improvements in product quality (a 2024 car is better than a 2010 car).</li>
+            <li><strong>Not for Everyone:</strong> The "average" basket for an "urban consumer" may not reflect the spending patterns of a rural family or a wealthy individual.</li>
+        </ul>
+
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

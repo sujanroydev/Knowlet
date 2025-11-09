@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics DSC 151 Unit 2 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Statistics DSC 151 (Probability Distributions), Unit 2, based on the Assam University syllabus. Covers mathematical expectation, variance, covariance, and properties.">
+    <meta name="keywords" content="Statistics DSC 151, Probability Distributions, Unit 2, Assam University, Mathematical Expectation, Variance, Covariance, Properties of Expectation, Bivariate Expectation">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        h1 {
+            color: #b71c1c;
+            border-bottom: 3px solid #b71c1c;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #c62828;
+            border-bottom: 1px solid #e0e0e0;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #333;
+            padding-top: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        code {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #eef;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+        blockquote {
+            background-color: #fbe9e7;
+            border-left: 5px solid #b71c1c;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        .formula {
+            background-color: #fdfdfd;
+            border: 1px dashed #ccc;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        .exam-tip, .common-mistake {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .exam-tip {
+            background-color: #fffbe6;
+            border: 1px solid #ffecb3;
+        }
+        .common-mistake {
+            background-color: #ffebee;
+            border: 1px solid #ffcdd2;
+        }
+        .toc {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            margin-top: 0;
+            color: #c62828;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #337ab7;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .placeholder {
+            border: 2px dashed #aaa;
+            padding: 20px;
+            text-align: center;
+            background-color: #fafafa;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 2: Mathematical Expectation</h1>
+        
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#expectation">2.1 Mathematical Expectation of a Random Variable</a></li>
+                <li><a href="#properties">2.2 Properties of Expectation (Addition & Multiplication Theorems)</a></li>
+                <li><a href="#variance_covariance">2.3 Variance and Covariance</a></li>
+                <li><a href="#bivariate_expectation">2.4 Expectation of a Bivariate Random Variable</a></li>
+                <li><a href="#examples">2.5 Solved Examples</a></li>
+            </ul>
+        </div>
+
+        <h2 id="expectation">2.1 Mathematical Expectation of a Random Variable</h2>
+        
+        <h3>Definition of Expectation (E[X])</h3>
+        <p>The <strong>mathematical expectation</strong> (or <strong>expected value</strong>, <strong>mean</strong>) of a random variable X is the weighted average of all possible values that X can take, with the weights being their respective probabilities.</p>
+        <p>It represents the long-run average value of X if the experiment were repeated many times. It is often denoted as <strong>μ</strong> (mu).</p>
+        
+        <ul>
+            <li><strong>For a Discrete RV (X):</strong>
+                <div class="formula">E[X] = Σ<sub>x</sub> x * p(x)</div>
+                <p>Sum of (value * probability of value) for all possible values x.</p>
+            </li>
+            <li><strong>For a Continuous RV (X):</strong>
+                <div class="formula">E[X] = ∫<sub>-∞</sub><sup>+∞</sup> x * f(x) dx</div>
+                <p>Integral of (value * density at value) over the entire range of x.</p>
+            </li>
+        </ul>
+
+        <h3>Expectation of a Function g(X)</h3>
+        <p>We often need the expectation of a function of X, say Y = g(X). We can find E[Y] *without* first finding the p.d.f. of Y, using the <strong>Law of the Unconscious Statistician (LOTUS)</strong>.</p>
+        
+        <ul>
+            <li><strong>Discrete:</strong>
+                <div class="formula">E[g(X)] = Σ<sub>x</sub> g(x) * p(x)</div>
+            </li>
+            <li><strong>Continuous:</strong>
+                <div class="formula">E[g(X)] = ∫<sub>-∞</sub><sup>+∞</sup> g(x) * f(x) dx</div>
+            </li>
+        </ul>
+        <blockquote>
+            <strong>Example:</strong> Let X be a discrete RV with p.m.f. p(0)=0.5, p(1)=0.3, p(2)=0.2.<br>
+            Find E[X] and E[X²].
+            <ul>
+                <li><strong>E[X]</strong> = (0 * p(0)) + (1 * p(1)) + (2 * p(2)) = (0 * 0.5) + (1 * 0.3) + (2 * 0.2) = 0 + 0.3 + 0.4 = <strong>0.7</strong></li>
+                <li><strong>E[X²]</strong> = (0² * p(0)) + (1² * p(1)) + (2² * p(2)) = (0 * 0.5) + (1 * 0.3) + (4 * 0.2) = 0 + 0.3 + 0.8 = <strong>1.1</strong></li>
+            </ul>
+        </blockquote>
+        
+        <h2 id="properties">2.2 Properties of Expectation (Addition & Multiplication Theorems)</h2>
+        <p>Expectation has several key properties that make it a powerful tool.</p>
+        
+        <ol>
+            <li><strong>E[c] = c</strong>
+                <p>The expected value of a constant (c) is just the constant itself. (e.g., E[5] = 5).</p>
+            </li>
+            <li><strong>E[c * X] = c * E[X]</strong>
+                <p>Constants can be factored out of an expectation.</p>
+            </li>
+            <li><strong>E[aX + b] = a * E[X] + b</strong> (from properties 1 and 2)
+                <p>Expectation is a <strong>linear operator</strong>.</p>
+            </li>
+            <li><strong>Addition Theorem: E[X + Y] = E[X] + E[Y]</strong>
+                <p>The expectation of a sum is the sum of the expectations. This is known as the <strong>Linearity of Expectation</strong>.</p>
+                <div class="exam-tip">
+                    <strong>Crucial Exam Point:</strong> The Addition Theorem E[X + Y] = E[X] + E[Y] holds <strong>whether or not X and Y are independent</strong>. This is a very powerful property and a common exam question.
+                </div>
+            </li>
+            <li><strong>Multiplication Theorem: E[X * Y] = E[X] * E[Y] (if X and Y are independent)</strong>
+                <p>The expectation of a product is the product of the expectations *only if* the variables are independent.</p>
+                <div class="common-mistake">
+                    <strong>Warning:</strong> The reverse is <strong>not</strong> true! If E[XY] = E[X]E[Y], it does <strong>not</strong> necessarily mean X and Y are independent. It only means they are <strong>uncorrelated</strong> (a weaker condition, which we'll see next).
+                </div>
+            </li>
+        </ol>
+
+        <h2 id="variance_covariance">2.3 Variance and Covariance</h2>
+
+        <h3>Variance (Var(X) or σ²)</h3>
+        <p>While expectation tells us the "center" of a distribution, <strong>variance</strong> tells us about its "spread" or "dispersion." A small variance means data points are clustered tightly around the mean. A large variance means they are spread out.</p>
+        
+        <ul>
+            <li><strong>Definition:</strong> Variance is the expected value of the squared deviation from the mean (μ = E[X]).</li>
+            <div class="formula">Var(X) = E[ (X - μ)² ]</div>
+            <li><strong>Computational Formula (Very Important):</strong> This is almost always used for calculations.</li>
+            <div class="formula">Var(X) = E[X²] - (E[X])²</div>
+            <li><strong>Standard Deviation (σ):</strong> The square root of the variance: σ = sqrt(Var(X)). It is in the same units as X, making it more interpretable.</li>
+        </ul>
+        
+        <h3>Properties of Variance</h3>
+        <ol>
+            <li><strong>Var(X) ≥ 0</strong> (Variance can never be negative, as it's an expectation of a squared value).</li>
+            <li><strong>Var(c) = 0</strong> (A constant has no spread, so its variance is zero).</li>
+            <li><strong>Var(aX + b) = a² * Var(X)</strong>
+                <ul>
+                    <li>Adding a constant 'b' shifts the distribution but doesn't change its spread (Var(X+b) = Var(X)).</li>
+                    <li>Multiplying by 'a' scales the spread by a² (Var(aX) = a²Var(X)).</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>Covariance (Cov(X, Y))</h3>
+        <p><strong>Covariance</strong> measures the joint variability of two random variables, (X, Y). It describes the direction of the linear relationship between them.</p>
+        
+        <ul>
+            <li><strong>Positive Covariance:</strong> X and Y tend to move in the same direction (when X is high, Y tends to be high).</li>
+            <li><strong>Negative Covariance:</strong> X and Y tend to move in opposite directions (when X is high, Y tends to be low).</li>
+            <li><strong>Zero Covariance:</strong> No linear relationship (they are <strong>uncorrelated</strong>).</li>
+        </ul>
+
+        <ul>
+            <li><strong>Definition:</strong> Cov(X, Y) = E[ (X - E[X]) * (Y - E[Y]) ]</li>
+            <li><strong>Computational Formula:</strong></li>
+            <div class="formula">Cov(X, Y) = E[X * Y] - E[X] * E[Y]</div>
+        </ul>
+
+        <div class="exam-tip">
+            <strong>Independence vs. Uncorrelated:</strong>
+            <ul>
+                <li>If X and Y are <strong>independent</strong>, then E[XY] = E[X]E[Y]. This means <strong>Cov(X, Y) = 0</strong>.</li>
+                <li>So, <strong>Independence implies Uncorrelated</strong>.</li>
+                <li>The reverse is <strong>NOT</strong> true. Cov(X, Y) = 0 does <strong>NOT</strong> imply independence (except for special cases like the Bivariate Normal distribution).</li>
+            </ul>
+        </div>
+        
+        <h3>Variance of a Sum (General Case)</h3>
+        <p>Using covariance, we can state the general formula for the variance of a sum:</p>
+        <div class="formula">Var(X + Y) = Var(X) + Var(Y) + 2 * Cov(X, Y)</div>
+        <div class="formula">Var(X - Y) = Var(X) + Var(Y) - 2 * Cov(X, Y)</div>
+        
+        <p>If X and Y are <strong>independent</strong>, then Cov(X, Y) = 0, and the formulas simplify:</p>
+        <p><strong>Var(X + Y) = Var(X) + Var(Y)</strong>   (if independent)</p>
+        <p><strong>Var(X - Y) = Var(X) + Var(Y)</strong>   (if independent)</p>
+        
+        <div class="common-mistake">
+            <strong>Warning:</strong> A very common mistake is to think Var(X - Y) = Var(X) - Var(Y). This is <strong>WRONG</strong>. Variance is a measure of spread (a squared quantity), so it always adds.
+        </div>
+
+        <h2 id="bivariate_expectation">2.4 Expectation of a Bivariate Random Variable</h2>
+        <p>This is simply an application of the Law of the Unconscious Statistician (LOTUS) for a function of two variables, g(X, Y).</p>
+        
+        <ul>
+            <li><strong>Discrete:</strong>
+                <div class="formula">E[g(X, Y)] = Σ<sub>x</sub> Σ<sub>y</sub> g(x, y) * p(x, y)</div>
+            </li>
+            <li><strong>Continuous:</strong>
+                <div class="formula">E[g(X, Y)] = ∫<sub>-∞</sub><sup>+∞</sup> ∫<sub>-∞</sub><sup>+∞</sup> g(x, y) * f(x, y) dx dy</div>
+            </li>
+        </ul>
+        <p>The formulas for E[X+Y], E[XY], and Cov(X,Y) are all special cases of this.</p>
+        <ul>
+            <li>To find E[X+Y], let g(x, y) = x + y.</li>
+            <li>To find E[XY], let g(x, y) = x * y.</li>
+        </ul>
+
+        <h2 id="examples">2.5 Solved Examples</h2>
+        
+        <blockquote>
+            <strong>Example:</strong> Let (X, Y) have the joint p.d.f. f(x, y) = 2 for 0 < x < y < 1, and 0 otherwise.
+            <p>Find E[X] and E[Y].</p>
+            <p><strong>1. Find Marginal PDFs first:</strong></p>
+            <ul>
+                <li><strong>f<sub>X</sub>(x):</strong> We integrate over y. The bounds for y are from x to 1.
+                    <br>f<sub>X</sub>(x) = ∫<sub>x</sub><sup>1</sup> 2 dy = [2y] from x to 1 = 2(1) - 2(x) = <strong>2(1-x)</strong>, for 0 < x < 1.
+                </li>
+                <li><strong>f<sub>Y</sub>(y):</strong> We integrate over x. The bounds for x are from 0 to y.
+                    <br>f<sub>Y</sub>(y) = ∫<sub>0</sub><sup>y</sup> 2 dx = [2x] from 0 to y = 2(y) - 2(0) = <strong>2y</strong>, for 0 < y < 1.
+                </li>
+            </ul>
+            <p><strong>2. Calculate Expectations using Marginals:</strong></p>
+            <ul>
+                <li><strong>E[X]</strong> = ∫<sub>0</sub><sup>1</sup> x * f<sub>X</sub>(x) dx = ∫<sub>0</sub><sup>1</sup> x * 2(1-x) dx = 2 ∫<sub>0</sub><sup>1</sup> (x - x²) dx
+                    <br>= 2 [x²/2 - x³/3] from 0 to 1 = 2 * ( (1/2 - 1/3) - 0 ) = 2 * (1/6) = <strong>1/3</strong>.
+                </li>
+                <li><strong>E[Y]</strong> = ∫<sub>0</sub><sup>1</sup> y * f<sub>Y</sub>(y) dy = ∫<sub>0</sub><sup>1</sup> y * (2y) dy = 2 ∫<sub>0</sub><sup>1</sup> y² dy
+                    <br>= 2 [y³/3] from 0 to 1 = 2 * ( 1/3 - 0 ) = <strong>2/3</strong>.
+                </li>
+            </ul>
+            <p><strong>Alternative (using joint p.d.f.):</strong></p>
+            <ul>
+                <li><strong>E[X]</strong> = ∫<sub>0</sub><sup>1</sup> ∫<sub>0</sub><sup>y</sup> x * (2) dx dy = ∫<sub>0</sub><sup>1</sup> [x²] from 0 to y dy = ∫<sub>0</sub><sup>1</sup> y² dy = [y³/3] from 0 to 1 = <strong>1/3</strong>.</li>
+            </ul>
+        </blockquote>
+        
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

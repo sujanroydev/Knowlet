@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSM 151 Unit 4 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for PHYDSM151T (Mathematical Physics, Mechanics and Relativity) Unit 4, covering Elasticity, Hooke's Law, Elastic Moduli, Poisson's Ratio, and Bending of Beams.">
+    <meta name="keywords" content="PHYDSM151T, Mechanics, Unit 4, Elasticity, Hooke's Law, Stress, Strain, Young's Modulus, Poisson's Ratio, Torsional Pendulum, Cantilever, Bending of Beams, Assam University, 2nd Semester Physics">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3, h4 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            border-bottom: 3px solid #8e44ad;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 2em;
+            color: #8e44ad;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #7d3c98;
+            margin-top: 25px;
+        }
+        h4 {
+            font-size: 1.2em;
+            color: #555;
+        }
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            font-size: 1.1em;
+            font-style: italic;
+            font-family: 'Georgia', serif;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: #f5eaf8;
+            border-left: 5px solid #8e44ad;
+            color: #34495e;
+            border-radius: 5px;
+        }
+        code, .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.1em;
+        }
+        .exam-tip {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d4a017;
+        }
+        #toc {
+            background: #fdf6ff;
+            border: 1px solid #f0d9ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        #toc h3 {
+            margin-top: 0;
+            color: #5b2c6f;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 10px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #7d3c98;
+            font-weight: bold;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 4: Elasticity</h1>
+
+        <div id="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#hooke-law">1. [cite_start]Hooke's Law and Stress-Strain [cite: 1356-1357]</a></li>
+                <li><a href="#elastic-moduli">2. [cite_start]Elastic Moduli [cite: 1356]</a></li>
+                <li><a href="#poisson-ratio">3. [cite_start]Poisson's Ratio [cite: 1357]</a></li>
+                <li><a href="#relations">4. [cite_start]Relation between Elastic Constants [cite: 1356]</a></li>
+                <li><a href="#work-done">5. [cite_start]Work Done in Stretching/Twisting [cite: 1357]</a></li>
+                <li><a href="#torsion">6. [cite_start]Torsion and Torsional Pendulum [cite: 1357]</a></li>
+                <li><a href="#bending">7. [cite_start]Bending of Beams and Cantilever [cite: 1358]</a></li>
+            </ul>
+        </div>
+
+        <h2 id="hooke-law">1. [cite_start]Hooke's Law and Stress-Strain [cite: 1356-1357]</h2>
+        <p><strong>Elasticity</strong> is the property of a material to regain its original shape and size after the removal of deforming forces.</p>
+        
+        [cite_start]<h3>Stress [cite: 1356]</h3>
+        <p><strong>Stress</strong> is the internal restoring force (F) per unit area (A) developed inside a deformed body. It is equal in magnitude and opposite in direction to the applied deforming force.</p>
+        <blockquote><strong>Formula:</strong> Stress = Force / Area (Units: N/m² or Pascal)</blockquote>
+        
+        [cite_start]<h3>Strain [cite: 1356]</h3>
+        <p><strong>Strain</strong> is the measure of deformation. It is the fractional change in dimension (length, volume, or shape).</p>
+        <blockquote><strong>Formula:</strong> Strain = (Change in dimension) / (Original dimension)</blockquote>
+        <p>Strain is a dimensionless quantity.</p>
+
+        [cite_start]<h3>Hooke's Law [cite: 1356]</h3>
+        <p>Hooke's Law states that, <strong>within the elastic limit</strong>, the stress applied to a body is directly proportional to the strain produced.</p>
+        <blockquote><strong>Hooke's Law:</strong> Stress ∝ Strain</blockquote>
+        <blockquote><strong>Formula:</strong> Stress = E * Strain</blockquote>
+        <p>The constant of proportionality 'E' is called the <strong>Modulus of Elasticity</strong>. Its value depends on the material and the type of deformation.</p>
+        
+        [cite_start]<h3>Stress-Strain Diagram [cite: 1356]</h3>
+        <p>A graph of stress vs. strain for a material (like a metal wire) shows its behavior:</p>
+        <ol>
+            <li><strong>Proportional Limit (A):</strong> The point up to which Stress ∝ Strain (Hooke's Law is obeyed).</li>
+            <li><strong>Elastic Limit (B):</strong> The maximum stress a material can withstand and still return to its original shape when the load is removed.</li>
+            <li><strong>Yield Point (C):</strong> The point at which the material begins to deform permanently (plastic deformation) with little or no increase in stress.</li>
+            <li><strong>Ultimate Tensile Strength (D):</strong> The maximum stress the material can withstand before starting to neck (thin) and break.</li>
+            <li><strong>Fracture Point (E):</strong> The point where the material breaks.</li>
+        </ol>
+        
+        <h2 id="elastic-moduli">2. [cite_start]Elastic Moduli [cite: 1356]</h2>
+        <p>There are three main types of elastic moduli, corresponding to three types of strain:</p>
+        
+        <h3>1. Young's Modulus (Y)</h3>
+        <p>This relates to <strong>longitudinal</strong> (length) deformation.</p>
+        <blockquote><strong>Formula:</strong> Y = (Longitudinal Stress) / (Longitudinal Strain) = (F/A) / (ΔL/L)</blockquote>
+        <p><strong>Use:</strong> Describes the "stiffness" of a material against being stretched or compressed.</p>
+
+        <h3>2. Bulk Modulus (K)</h3>
+        <p>This relates to <strong>volume</strong> deformation (e.g., an object under pressure in a fluid).</p>
+        <blockquote><strong>Formula:</strong> K = (Volume Stress) / (Volume Strain) = (-ΔP) / (ΔV/V)</blockquote>
+        <p>The negative sign is because an increase in pressure (ΔP) leads to a decrease in volume (ΔV).</p>
+        
+        <h3>3. Shear Modulus or Modulus of Rigidity (η or G)</h3>
+        <p>This relates to <strong>shear</strong> (shape) deformation. A tangential force is applied, causing layers to slide.</p>
+        <blockquote><strong>Formula:</strong> η = (Shear Stress) / (Shear Strain) = (F/A) / (θ)</blockquote>
+        <p>Where θ is the angle of shear (in radians).</p>
+
+        <h2 id="poisson-ratio">3. [cite_start]Poisson's Ratio (σ) [cite: 1357]</h2>
+        <p>When you stretch a wire (longitudinal strain), it gets thinner (lateral strain).</p>
+        <p><strong>Poisson's Ratio (σ)</strong> is the ratio of the <strong>lateral strain</strong> to the <strong>longitudinal strain</strong>, within the elastic limit.</p>
+        
+        <p>Let original length = L, change in length = ΔL. Longitudinal Strain = ΔL/L
+        <br>Let original diameter = D, change in diameter = ΔD. Lateral Strain = ΔD/D</p>
+        
+        <blockquote><strong>Formula:</strong> σ = - (Lateral Strain) / (Longitudinal Strain) = - (ΔD/D) / (ΔL/L)</blockquote>
+        <p>The negative sign is included because lateral and longitudinal strains always have opposite signs (if L increases, D decreases). This makes σ a positive number.</p>
+        
+        <h2 id="relations">4. [cite_start]Relation between Elastic Constants [cite: 1356]</h2>
+        <p>The four elastic constants (Y, K, η, σ) are not independent. For a homogeneous, isotropic material, knowing any two allows you to find the other two. The key relations are:</p>
+        
+        <blockquote>
+            <ol>
+                <li><strong>Y = 2η(1 + σ)</strong></li>
+                <li><strong>Y = 3K(1 - 2σ)</strong></li>
+                <li><strong>Y = (9Kη) / (3K + η)</strong></li>
+                <li><strong>σ = (3K - 2η) / (6K + 2η)</strong></li>
+            </ol>
+        </blockquote>
+        
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> Memorize the first two relations (in bold). You can derive the others from them. For example, from (1), σ = (Y/2η) - 1. Substitute this into (2) to get relation (3).
+        </div>
+        
+        <h2 id="work-done">5. [cite_start]Work Done in Stretching/Twisting [cite: 1357]</h2>
+        
+        [cite_start]<h3>Work Done in Stretching a Wire [cite: 1357]</h3>
+        <p>When stretching a wire of length L by an amount ΔL, the force is not constant; it increases from 0 to F = kΔL (where k = YA/L).</p>
+        <p>Work Done (dW) = Force(l) * dl = (k * l) dl</p>
+        <p>Total Work W = ∫<sub>0</sub><sup>ΔL</sup> (k l) dl = (1/2)k(ΔL)²</p>
+        <p>Since F = kΔL, we can write W = (1/2) * (kΔL) * ΔL</p>
+        <blockquote><strong>Work Done:</strong> W = (1/2) * (Final Force) * (Total Extension)</blockquote>
+        <p>The <strong>Energy Stored per Unit Volume</strong> (u) is:</p>
+        <p>u = W / Volume = [ (1/2) * F * ΔL ] / (A * L) = (1/2) * (F/A) * (ΔL/L)</p>
+        <blockquote><strong>Energy Density:</strong> u = (1/2) * Stress * Strain</blockquote>
+        
+        [cite_start]<h3>Work Done in Twisting a Wire [cite: 1357]</h3>
+        <p>Similarly, the torque (τ) required to twist a wire by an angle (θ) is proportional to the angle: τ = Cθ, where C is the torsional constant.</p>
+        <p>Work Done W = ∫<sub>0</sub><sup>θ</sup> (Cθ) dθ = (1/2)Cθ²</p>
+        <blockquote><strong>Work Done:</strong> W = (1/2) * (Final Torque) * (Total Angle of Twist)</blockquote>
+        
+        <h2 id="torsion">6. [cite_start]Torsion and Torsional Pendulum [cite: 1357]</h2>
+        
+        [cite_start]<h3>Twisting Couple (Torque) on a Cylinder [cite: 1357]</h3>
+        <p>For a solid cylinder (or wire) of length L, radius r, and modulus of rigidity η, the torque (τ) required to twist its free end by an angle θ (in radians) is:</p>
+        <blockquote><strong>Formula (Twisting Couple):</strong> τ = (πηr⁴θ) / (2L)</blockquote>
+        <p>The term <strong>C = (πηr⁴) / (2L)</strong> is the <strong>torsional constant</strong> (torque per unit twist) of the wire.</p>
+        
+        [cite_start]<h3>Torsional Pendulum [cite: 1357]</h3>
+        <p>A torsional pendulum consists of a rigid body (like a disc) suspended by a wire. When twisted and released, it oscillates with angular simple harmonic motion.</p>
+        <p>The restoring torque is τ = -Cθ (Hooke's Law for twisting).
+        <br>From Newton's second law for rotation, τ = Iα = I (d²θ/dt²).
+        <br>I (d²θ/dt²) = -Cθ  =>  d²θ/dt² + (C/I)θ = 0</p>
+        <p>This is the equation for SHM with angular frequency ω² = C/I.</p>
+        <p>The time period (T) of the oscillation is:</p>
+        <blockquote><strong>Formula:</strong> T = 2π / ω = 2π √(I / C)</blockquote>
+        <p>Where <strong>I</strong> is the moment of inertia of the suspended body and <strong>C</strong> is the torsional constant of the wire.</p>
+        
+        <h2 id="bending">7. [cite_start]Bending of Beams and Cantilever [cite: 1358]</h2>
+        
+        [cite_start]<h3>Bending of Beams [cite: 1358]</h3>
+        <p>When a beam is bent, the "outer" surface is stretched (in tension) and the "inner" surface is compressed. Somewhere in between is the <strong>neutral axis</strong>, which is neither stretched nor compressed.</p>
+        <p>The <strong>bending moment (M)</strong> of the applied forces (the total torque causing the bend) is related to the beam's properties and its <strong>radius of curvature (R)</strong>.</p>
+        <blockquote><strong>Bending Moment Formula:</strong> M = (YI<sub>g</sub>) / R</blockquote>
+        <p>Where:</p>
+        <ul>
+            <li><strong>Y</strong> = Young's Modulus of the beam material.</li>
+            <li><strong>R</strong> = Radius of curvature of the neutral axis.</li>
+            <li><strong>I<sub>g</sub></strong> = <strong>Geometric Moment of Inertia</strong> (or "second moment of area") of the beam's cross-section. This measures how the area is distributed.
+                <ul>
+                    <li>For a <strong>rectangle</strong> (breadth b, depth d): I<sub>g</sub> = (bd³) / 12</li>
+                    <li>For a <strong>circle</strong> (radius r): I<sub>g</sub> = (πr⁴) / 4</li>
+                </ul>
+            </li>
+        </ul>
+        <p>The term (YI<sub>g</sub>) is called the <strong>flexural rigidity</strong> of the beam.</p>
+        
+        [cite_start]<h3>Cantilever [cite: 1358]</h3>
+        <p>A <strong>cantilever</strong> is a beam that is fixed (clamped) at one end and free at the other.</p>
+        <p>If a load (W) is applied to the free end, the beam will bend, causing a <strong>depression (δ)</strong> at that end.</p>
+        <p>By integrating the bending moment equation, we can find the depression:</p>
+        <blockquote><strong>Formula (Cantilever Depression):</strong> δ = (WL³) / (3YI<sub>g</sub>)</blockquote>
+        <p>Where L is the length of the cantilever. This formula is widely used in engineering and for experimentally determining Young's Modulus (Y).</p>
+        </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

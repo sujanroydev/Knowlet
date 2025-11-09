@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics IDC 151 Unit 3 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Statistics IDC 151 (Index Number and Time Series Analysis), Unit 3, based on the Assam University syllabus. Introduces time series, its components, and decomposition.">
+    <meta name="keywords" content="Statistics IDC 151, Time Series Analysis, Unit 3, Assam University, Introduction to Time Series, Components of Time Series, Decomposition, Additive Model, Multiplicative Model">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f7f3f0; /* Light brown background */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #3e2723; /* Dark brown */
+        }
+        h1 {
+            color: #4e342e; /* Darker brown */
+            border-bottom: 3px solid #4e342e;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #5d4037; /* Medium brown */
+            border-bottom: 1px solid #e0e0e0;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #6d4c41;
+            padding-top: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        code {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #efebe9;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+        blockquote {
+            background-color: #f7f3f0;
+            border-left: 5px solid #5d4037;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        .formula {
+            background-color: #fdfdfd;
+            border: 1px dashed #ccc;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        .exam-tip {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            background-color: #fffbe6;
+            border: 1px solid #ffecb3;
+        }
+        .toc {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            margin-top: 0;
+            color: #5d4037;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #337ab7;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .placeholder {
+            border: 2px dashed #aaa;
+            padding: 20px;
+            text-align: center;
+            background-color: #fafafa;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        [cite_start]<h1>Unit 3: Time Series-I [cite: 2129]</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#intro">3.1 Introduction to Time Series Data</a></li>
+                <li><a href="#applications">3.2 Application of Time Series</a></li>
+                <li><a href="#components">3.3 Components of a Time Series</a></li>
+                <li><a href="#decomposition">3.4 Decomposition of Time Series</a></li>
+            </ul>
+        </div>
+        
+        [cite_start]<h2 id="intro">3.1 Introduction to Time Series Data [cite: 2130]</h2>
+        
+        <blockquote>
+            A <strong>time series</strong> is a set of statistical observations arranged in <strong>chronological (time) order</strong>.
+        </blockquote>
+        
+        <p>It's a sequence of data points, measured typically at successive, uniform time intervals (e.g., hourly, daily, monthly, quarterly, yearly).</p>
+        
+        <p><strong>Examples:</strong></p>
+        <ul>
+            <li>Monthly sales of a company for the last 5 years.</li>
+            <li>Daily closing price of a stock.</li>
+            <li>Quarterly GDP of a country.</li>
+            <li>Annual rainfall in a city.</li>
+        </ul>
+        
+        <p>The goal of <strong>Time Series Analysis</strong> is to study this past data to identify patterns (like trends or seasonality) and use them to make <strong>forecasts</strong> or predictions about the future.</p>
+        
+        
+
+        [cite_start]<h2 id="applications">3.2 Application of Time Series in Various Fields [cite: 2130]</h2>
+        <p>Time series analysis is crucial in many fields:</p>
+        <ul>
+            <li><strong>Economics & Finance:</strong> Forecasting stock prices, GDP, inflation rates, and interest rates.</li>
+            <li><strong>Business:</strong> Sales and demand forecasting (to manage inventory), financial planning, and resource allocation.</li>
+            <li><strong>Weather & Environment:</strong> Forecasting temperature, rainfall, and air pollution levels.</li>
+            <li><strong>Engineering:</strong> Analyzing signals (signal processing), and monitoring industrial processes for quality control.</li>
+            <li><strong>Health:</strong> Monitoring the spread of a disease (epidemiology), tracking patient heart rates (ECG).</li>
+        </ul>
+
+        [cite_start]<h2 id="components">3.3 Components of a Time Series [cite: 2131]</h2>
+        <p>The "classical" approach to time series assumes that the data's value (Y) at any time (t) is a combination of four distinct components:</p>
+        
+        <ol>
+            <li><strong>Secular Trend (T):</strong>
+                <ul>
+                    <li>The <strong>long-term, smooth movement</strong> of the series in one general direction (up, down, or constant).</li>
+                    <li>It represents the underlying growth or decline over many years.</li>
+                    <li><strong>Example:</strong> The general increase in a country's population over several decades.</li>
+                </ul>
+            </li>
+            <li><strong>Seasonal Variation (S):</strong>
+                <ul>
+                    <li><strong>Regular, periodic fluctuations</strong> that occur <strong>within one year</strong> and repeat each year.</li>
+                    <li>Caused by weather (e.g., ice cream sales peak in summer) or social customs (e.g., retail sales peak before festivals).</li>
+                    <li>The time period is <strong>less than one year</strong> (e.g., monthly or quarterly).</li>
+                </ul>
+            </li>
+            <li><strong>Cyclical Variation (C):</strong>
+                <ul>
+                    <li><strong>Long-term, "wave-like" oscillations</strong> or swings around the trend line.</li>
+                    <li>The time period is <strong>more than one year</strong> (often 3-10 years).</li>
+                    <li>This component is often related to the "business cycle" (boom, recession, depression, recovery).</li>
+                    <li>It is less regular and harder to predict than seasonality.</li>
+                </ul>
+            </li>
+            <li><strong>Irregular/Random Variation (I):</strong>
+                <ul>
+                    <li>The <strong>unpredictable, "noise"</strong> component. It's what's left over after the other three components are accounted for.</li>
+                    <li>Caused by random, unforeseen events like strikes, natural disasters, or wars.</li>
+                    <li>It is non-repeating and short-term.</li>
+                </ul>
+            </li>
+        </ol>
+        
+        
+
+        [cite_start]<h2 id="decomposition">3.4 Decomposition of Time Series [cite: 2131]</h2>
+        <p><strong>Decomposition</strong> is the process of breaking down an observed time series (Y) into its constituent components (T, S, C, and I).</p>
+        
+        <p>The goal is to isolate and study each component. For example, to make a good forecast, we might first find the trend (T) and then add back the seasonal effect (S).</p>
+        
+        <p>There are two main models for decomposition:</p>
+        
+        <h3>1. Additive Model</h3>
+        <div class="formula">Y = T + S + C + I</div>
+        <p>This model is used when the components are assumed to be <strong>independent</strong> of each other. The magnitude of the seasonal variation is constant, regardless of the trend level.</p>
+        
+        <ul>
+            <li><strong>Used when:</strong> The seasonal fluctuations are roughly the same size, no matter how high or low the trend is.</li>
+            <li><strong>Example:</strong> Monthly unemployment figures.</li>
+        </ul>
+
+        <h3>2. Multiplicative Model</h3>
+        <div class="formula">Y = T × S × C × I</div>
+        <p>This model is used when the components are <strong>inter-dependent</strong>. The magnitude of the seasonal variation is proportional to the trend.</p>
+        
+        <ul>
+            <li><strong>Used when:</strong> The seasonal fluctuations grow larger as the trend line increases. This is very common in business/economic data.</li>
+            <li><strong>Example:</strong> Company sales. A 10% holiday boost in a small company (low trend) is a small amount, but a 10% boost in a large company (high trend) is a very large amount.</li>
+        </ul>
+        <div class="exam-tip">
+            The multiplicative model is more common in practice. It can be "linearized" by taking the logarithm:
+            <br>
+            <strong>log(Y) = log(T) + log(S) + log(C) + log(I)</strong>
+            <br>
+            This transforms the multiplicative model into an additive one, which is often easier to work with.
+        </div>
+        
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

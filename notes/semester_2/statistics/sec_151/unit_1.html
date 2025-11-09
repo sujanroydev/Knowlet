@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics SEC 151 Unit 1 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Statistics SEC 151T (Statistical Data Analysis using R), Unit 1-5, based on the Assam University syllabus. Covers R basics, data import, visualization, descriptive statistics, correlation, and regression.">
+    <meta name="keywords" content="Statistics SEC 151, SEC 151T, Statistical Data Analysis using R, Assam University, R Programming, Data Visualization, Descriptive Statistics, R Regression">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f0f4f8; /* Light blue-gray background */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #191970; /* Midnight Blue */
+        }
+        h1 {
+            color: #004080; /* Darker Blue */
+            border-bottom: 3px solid #004080;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #005A9C; /* Medium Blue */
+            border-bottom: 1px solid #e0e0e0;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #333;
+            padding-top: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        code {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #e6f0ff;
+            padding: 2px 5px;
+            border-radius: 4px;
+            border: 1px solid #b3d1ff;
+        }
+        blockquote {
+            background-color: #f0f8ff;
+            border-left: 5px solid #005A9C;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        .formula {
+            background-color: #fdfdfd;
+            border: 1px dashed #ccc;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            text-align: left;
+            overflow-x: auto;
+        }
+        .exam-tip, .common-mistake {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .exam-tip {
+            background-color: #fffbe6;
+            border: 1px solid #ffecb3;
+        }
+        .common-mistake {
+            background-color: #ffebee;
+            border: 1px solid #ffcdd2;
+        }
+        .toc {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            margin-top: 0;
+            color: #005A9C;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #337ab7;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #005A9C;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SEC-151T: Statistical Data Analysis using R (Theory)</h1>
+        
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#unit1">Unit 1: Introduction to R</a></li>
+                <li><a href="#unit2">Unit 2: Data Visualization in R</a></li>
+                <li><a href="#unit3">Unit 3: Descriptive Statistics in R (Part 1)</a></li>
+                <li><a href="#unit4">Unit 4: Descriptive Statistics in R (Part 2)</a></li>
+                <li><a href="#unit5">Unit 5: Regression in R</a></li>
+            </ul>
+        </div>
+
+        <h2 id="unit1">Unit 1: Introduction to R</h2>
+        
+        <h3>Introduction to R and its features</h3>
+        <ul>
+            <li><strong>What is R?</strong> R is a powerful, open-source programming language and software environment used for statistical computing and graphics.</li>
+            <li><strong>Features:</strong>
+                <ul>
+                    <li><strong>Free and Open Source:</strong> Anyone can use it for free.</li>
+                    <li><strong>Cross-Platform:</strong> Works on Windows, Mac, and Linux.</li>
+                    <li><strong>Comprehensive:</strong> Has a vast collection of tools for data manipulation, analysis, and visualization.</li>
+                    <li><strong>Packages:</strong> Its main strength. R has thousands of user-contributed "packages" (like add-ons) for specialized tasks (e.g., genetics, finance, machine learning).</li>
+                    <li><strong>Vectorized Operations:</strong> R is optimized to work on entire vectors (lists of numbers) at once, making code shorter and faster.</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h3>Installing R and R-Studio</h3>
+        <ol>
+            <li><strong>Install R:</strong> First, you must install the base R system from <strong>CRAN (Comprehensive R Archive Network)</strong>. Go to `cran.r-project.org` and download the version for your operating system.</li>
+            <li><strong>Install R-Studio:</strong> R-Studio is an <strong>Integrated Development Environment (IDE)</strong> that provides a much user-friendlier interface for R. It includes a text editor, a console, plot viewers, and more. Download the free R-Studio Desktop from `rstudio.com` (now Posit).</li>
+        </ol>
+        
+        <h3>Basic R syntax and data types</h3>
+        <p>R is an object-oriented language. You create "objects" and give them names using the assignment operator <code><-</code> (or <code>=</code>).</p>
+        <div class="formula">
+            # 'x' is the object name, '<-' is the assignment operator, 10 is the value
+            <br>
+            x <- 10 
+            <br>
+            y <- "hello"
+        </div>
+        
+        <h4>Basic Data Types (Atomic Vectors)</h4>
+        <ul>
+            <li><strong>numeric:</strong> Numbers with decimals (e.g., 10.5, 55, 78.3).</li>
+            <li><strong>integer:</strong> Whole numbers (e.g., 1L, 25L, -2L). The 'L' tells R to store it as an integer.</li>
+            <li><strong>logical:</strong> Boolean values, <code>TRUE</code> or <code>FALSE</code> (or <code>T</code>/<code>F</code>).</li>
+            <li><strong>character:</strong> Text strings, enclosed in quotes (e.g., "hello", "data", "2024").</li>
+        </ul>
+        
+        <h4>Key Data Structures</h4>
+        <ul>
+            <li><strong>Vector:</strong> The most basic data structure. A 1D list of elements of the <strong>same type</strong>. Created with <code>c()</code> (combine).
+                <div class="formula">
+                v <- c(10, 20, 30, 40, 50)
+                </div>
+            </li>
+            <li><strong>Data Frame:</strong> The most important structure for statistics. A 2D table, like an Excel spreadsheet. Columns can be of <strong>different types</strong>, but all must have the same length.
+                <div class="formula">
+                df <- data.frame(
+                <br>
+                &nbsp;&nbsp;name = c("Alice", "Bob"),
+                <br>
+                &nbsp;&nbsp;age = c(25, 30),
+                <br>
+                &nbsp;&nbsp;is_student = c(TRUE, FALSE)
+                <br>
+                )
+                </div>
+            </li>
+            <li><strong>List:</strong> A very flexible container that can hold <strong>anything</strong>, including other lists or data frames.</li>
+            <li><strong>Matrix:</strong> A 2D array where all elements are of the <strong>same type</strong>.</li>
+        </ul>
+
+        <h3>Importing data into R from various file formats</h3>
+        <ul>
+            <li><strong>CSV (Comma Separated Values):</strong>
+                <div class="formula">my_data <- read.csv("file_path/my_file.csv")</div>
+            </li>
+            <li><strong>Text Files (e.g., .txt):</strong>
+                <div class="formula">my_data <- read.table("file_path/my_file.txt", header = TRUE)</div>
+            </li>
+            <li><strong>Excel Files:</strong> You must first install and load a package, like <code>readxl</code>.
+                <div class="formula">
+                install.packages("readxl")  # Do this once
+                <br>
+                library(readxl)             # Do this every session
+                <br>
+                my_data <- read_excel("file_path/my_file.xlsx", sheet = "Sheet1")
+                </div>
+            </li>
+        </ul>
+        
+        <h3>Problems faced in case of missing data</h3>
+        <p>In R, missing values are represented by the special marker <code>NA</code> (Not Available).</p>
+        <p>Most R functions will <strong>fail or return NA</strong> if their input contains an NA value.</p>
+        <div class="formula">
+        x <- c(1, 2, 3, NA, 5)
+        <br>
+        mean(x)  # This will return NA
+        </div>
+        
+        <h3>Data cleaning techniques</h3>
+        <ul>
+            <li><strong>Identifying NAs:</strong> Use the <code>is.na()</code> function to find them.
+                <div class="formula">is.na(x)  # Returns: FALSE FALSE FALSE TRUE FALSE</div>
+            </li>
+            <li><strong>Handling NAs in functions:</strong> Many functions have an argument <code>na.rm = TRUE</code> (NA remove) to tell them to ignore missing values.
+                <div class="formula">
+                mean(x, na.rm = TRUE)  # Returns 2.75
+                </div>
+            </li>
+            <li><strong>Removing NA rows:</strong> The <code>na.omit()</code> function will delete any row from a data frame that contains at least one NA value.
+                <div class="formula">
+                clean_data <- na.omit(my_data_frame)
+                </div>
+            </li>
+        </ul>
+
+        <h2 id="unit2">Unit 2: Data Visualization in R</h2>
+        
+        <h3>Introduction to data visualization in R</h3>
+        <p>R is famous for its high-quality, customizable graphics. Visualization is crucial for exploring data, identifying patterns, checking assumptions, and communicating results.</p>
+        
+        <h3>Basic plotting functions in R</h3>
+        <p>R's "base graphics" system provides powerful and quick functions for creating plots.</p>
+        
+        <h3>Creating and customizing various types of plots</h3>
+        <ul>
+            <li><strong>Histograms:</strong> For visualizing the distribution of a single continuous variable.
+                <div class="formula">hist(my_data$age)</div>
+            </li>
+            <li><strong>Bar charts:</strong> For visualizing the frequency of a single categorical variable.
+                <div class="formula">
+                gender_counts <- table(my_data$gender)
+                <br>
+                barplot(gender_counts)
+                </div>
+            </li>
+            <li><strong>Box plots (Box-and-Whisker):</strong> For visualizing the "five-number summary" (min, Q1, median, Q3, max) and identifying outliers.
+                <div class="formula">boxplot(my_data$salary)</div>
+            </li>
+            <li><strong>Pie charts:</strong> For visualizing proportions. (Note: Pie charts are generally discouraged by statisticians as bar charts are easier to read).
+                <div class="formula">pie(gender_counts)</div>
+            </li>
+            <li><strong>Frequency polygons and curves:</strong> A histogram shows bars; a frequency polygon shows the same information as a line. A frequency curve is a smoothed version (a density plot).
+                <div class="formula">
+                # For a density curve (frequency curve)
+                <br>
+                plot(density(my_data$age))
+                </div>
+            </li>
+        </ul>
+        
+        <h3>Adding labels, titles, and legends to plots</h3>
+        <p>You can add these as arguments directly inside the <code>plot()</code> command:</p>
+        <div class="formula">
+        plot(my_data$x, my_data$y,
+        <br>
+        &nbsp;&nbsp;main = "My Plot Title",        # Main title
+        <br>
+        &nbsp;&nbsp;xlab = "X-Axis Label",        # X-axis label
+        <br>
+        &nbsp;&nbsp;ylab = "Y-Axis Label",        # Y-axis label
+        <br>
+        &nbsp;&nbsp;col = "blue",                 # Color of points
+        <br>
+        &nbsp;&nbsp;pch = 19                      # Point character (19 is a solid circle)
+        <br>
+        )
+        </div>
+        <p>You can also use the <code>legend()</code> function to add a legend after the plot is created.</p>
+        
+        <h3>Saving and exporting plots</h3>
+        <p>You can save a plot to a file (like PNG, PDF, or JPEG) in two steps:</p>
+        <ol>
+            <li><strong>Open a graphics device:</strong> e.g., <code>png("my_plot.png")</code></li>
+            <li><strong>Create your plot:</strong> e.g., <code>hist(my_data$age)</code></li>
+            <li><strong>Close the device:</strong> <code>dev.off()</code> (This saves the file).</li>
+        </ol>
+        
+        <h2 id="unit3">Unit 3: Descriptive Statistics in R (Part 1)</h2>
+        
+        <h3>Measures of central tendency</h3>
+        <ul>
+            <li><strong>Mean:</strong>
+                <div class="formula">mean(my_data$salary, na.rm = TRUE)</div>
+            </li>
+            <li><strong>Median:</strong>
+                <div class="formula">median(my_data$salary, na.rm = TRUE)</div>
+            </li>
+            <li><strong>Mode:</strong> R has no built-in <code>mode()</code> function. You must find it using <code>table()</code>.
+                <div class="formula">
+                counts <- table(my_data$category)
+                <br>
+                mode_value <- names(counts)[which.max(counts)]
+                </div>
+            </li>
+        </ul>
+        
+        <h3>Weighted mean</h3>
+        <p>Used when some values are more important than others.</p>
+        <div class="formula">
+        values <- c(10, 20, 30)
+        <br>
+        weights <- c(0.5, 0.3, 0.2)  # Weights must sum to 1
+        <br>
+        weighted.mean(values, weights)
+        </div>
+        
+        <h3>Geometric mean</h3>
+        <p>Used for averaging growth rates. R has no built-in function.</p>
+        <div class="formula">
+        # Assumes x contains positive numbers
+        <br>
+        gm <- exp(mean(log(x)))
+        </div>
+
+        <h3>Measures of dispersion</h3>
+        <ul>
+            <li><strong>Range:</strong>
+                <div class="formula">range(my_data$salary) # Returns (min, max)</div>
+            </li>
+            <li><strong>Variance:</strong>
+                <div class="formula">var(my_data$salary, na.rm = TRUE)</div>
+            </li>
+            <li><strong>Standard deviation:</strong>
+                <div class="formula">sd(my_data$salary, na.rm = TRUE)</div>
+            </li>
+        </ul>
+        
+        <h3>Coefficient of variation (C.V.)</h3>
+        <p>A relative measure of dispersion, useful for comparing variability of datasets with different means. C.V. = (SD / Mean) * 100.</p>
+        <div class="formula">
+        cv <- (sd(my_data$salary) / mean(my_data$salary)) * 100
+        </div>
+        
+        <h3>Percentiles and quartiles</h3>
+        <p>The <code>quantile()</code> function is very powerful.</p>
+        <div class="formula">
+        # Get quartiles (0%, 25%, 50%, 75%, 100%)
+        <br>
+        quantile(my_data$salary)
+        <br>
+        # Get the 90th percentile
+        <br>
+        quantile(my_data$salary, probs = 0.90)
+        </div>
+        
+        <h3>Interquartile range (IQR)</h3>
+        <p>The distance between the 75th (Q3) and 25th (Q1) percentile. It's a robust measure of spread.</p>
+        <div class="formula">IQR(my_data$salary)</div>
+        
+        <h2 id="unit4">Unit 4: Descriptive Statistics in R (Part 2)</h2>
+        
+        <h3>Measures of skewness and kurtosis</h3>
+        <p>These are not in base R. You must install the <code>e1071</code> package.</p>
+        <div class="formula">
+        install.packages("e1071")
+        <br>
+        library(e1071)
+        <br>
+        # Skewness:
+        <br>
+        skewness(my_data$salary)
+        <br>
+        # Kurtosis:
+        <br>
+        kurtosis(my_data$salary)
+        </div>
+        <ul>
+            <li><strong>Skewness Interpretation:</strong>
+                <ul>
+                    <li><code>~ 0</code>: Roughly symmetric.</li>
+                    <li><code>> 0</code>: Positively (right) skewed.</li>
+                    <li><code>< 0</code>: Negatively (left) skewed.</li>
+                </ul>
+            </li>
+            <li><strong>Kurtosis Interpretation:</strong> (Note: R's <code>kurtosis()</code> function often reports "excess" kurtosis, where 0 is normal).
+                <ul>
+                    <li><code>~ 0</code>: Mesokurtic (normal peak/tails).</li>
+                    <li><code>> 0</code>: Leptokurtic (high peak, fat tails).</li>
+                    <li><code>< 0</code>: Platykurtic (flat peak, thin tails).</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h3>Introduction to bivariate analysis</h3>
+        <p>Analyzing two variables at the same time.</p>
+        
+        <ul>
+            <li><strong>Cross-tabulation:</strong> Creates a frequency table for two categorical variables.
+                <div class="formula">
+                table(my_data$gender, my_data$department)
+                </div>
+            </li>
+            <li><strong>Scatter plots:</strong> The best way to visualize the relationship between two continuous variables.
+                <div class="formula">
+                plot(x = my_data$advertising_spend, y = my_data$sales)
+                </div>
+            </li>
+        </ul>
+        
+        <h3>Pearson's and Spearman's correlation coefficient</h3>
+        <p>The <code>cor()</code> function calculates the correlation.</p>
+        <ul>
+            <li><strong>Pearson's (r):</strong> Measures the strength of the <strong>linear</strong> relationship. (Default)</li>
+            <li><strong>Spearman's (rho):</strong> Measures the strength of the <strong>monotonic</strong> relationship (non-parametric, based on ranks).</li>
+        </ul>
+        <div class="formula">
+        # Pearson correlation (default)
+        <br>
+        cor(my_data$x, my_data$y, method = "pearson")
+        <br>
+        # Spearman rank correlation
+        <br>
+        cor(my_data$x, my_data$y, method = "spearman")
+        </div>
+
+        <h2 id="unit5">Unit 5: Regression in R</h2>
+        
+        <h3>Simple linear regression</h3>
+        <p>A statistical method to model the linear relationship between one independent variable (x) and one dependent variable (y). The model is: Y = β₀ + β₁X + ε.</p>
+        
+        <h3>Fitting of regression models in R</h3>
+        <p>We use the <code>lm()</code> (linear model) function. The formula <code>y ~ x</code> is read as "y is modeled by x".</p>
+        <div class="formula">
+        # Fit the model
+        <br>model <- lm(sales ~ advertising_spend, data = my_data)
+        </div>
+        
+        <h3>Least Squares method</h3>
+        <p>The <code>lm()</code> function automatically uses the <strong>Method of Ordinary Least Squares (OLS)</strong>. This is the method that finds the line (i.e., the values for β₀ and β₁) that <strong>minimizes the sum of the squared residuals</strong> (the vertical distances from each point to the line).</p>
+        
+        <h3>Evaluating and interpreting regression results</h3>
+        <p>The <code>summary()</code> function is the most important tool for evaluating a model.</p>
+        <div class="formula">
+        summary(model)
+        </div>
+        <p>This will output:</p>
+        <ul>
+            <li><strong>Coefficients:</strong>
+                <ul>
+                    <li><code>(Intercept)</code> (β₀): The predicted value of y when x is 0.</li>
+                    <li><code>advertising_spend</code> (β₁): The <strong>slope</strong>. For every 1-unit increase in x, y is predicted to increase by this amount.</li>
+                </ul>
+            </li>
+            <li><strong>Std. Error, t value, Pr(>|t|):</strong> These are used for hypothesis testing. The <code>Pr(>|t|)</code> (or <strong>p-value</strong>) tells you if the variable is statistically significant. A p-value < 0.05 is usually considered significant.</li>
+            <li><strong>Multiple R-squared:</strong> The "Coefficient of Determination" (r²). This tells you what <strong>percentage of the variation in y</strong> is explained by x. A value of 0.75 means 75% of the variation in sales is explained by advertising spend.</li>
+        </ul>
+        
+        <h3>Prediction using fitted regression model</h3>
+        <p>You can use the <code>predict()</code> function to make predictions for new data.</p>
+        <div class="formula">
+        # 1. Create a data frame with the new x-values
+        <br>
+        new_data <- data.frame(advertising_spend = c(1000, 1500, 2000))
+        <br>
+        # 2. Use predict() to find the corresponding y-values
+        <br>
+        predicted_sales <- predict(model, newdata = new_data)
+        </div>
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>
+        

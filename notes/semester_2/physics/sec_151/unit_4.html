@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics SEC 151 Unit 4 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for PHYSEC151 (Electrical Circuits and Safety) Unit 4, covering Electric Motors, Solid State Devices, Diodes, and Rectifiers.">
+    <meta name="keywords" content="PHYSEC151, Unit 4, Electric Motors, Solid State Devices, Diode, Rectifier, Filter Circuit, LED, AC Motor, Assam University, 2nd Semester Physics">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f7f6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3, h4 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            border-bottom: 3px solid #d35400;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 2em;
+            color: #d35400;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #e67e22;
+            margin-top: 25px;
+        }
+        h4 {
+            font-size: 1.2em;
+            color: #555;
+        }
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            font-size: 1.1em;
+            font-style: italic;
+            font-family: 'Georgia', serif;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: #fef5e7;
+            border-left: 5px solid #d35400;
+            color: #34495e;
+            border-radius: 5px;
+        }
+        code, .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.1em;
+        }
+        .exam-tip {
+            background: #fcf3cf;
+            border: 1px solid #f1c40f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #a04000;
+        }
+        #toc {
+            background: #fffaf0;
+            border: 1px solid #fdebd0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        #toc h3 {
+            margin-top: 0;
+            color: #b95000;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 10px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #e67e22;
+            font-weight: bold;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 4: Electric Motors and Solid State Devices</h1>
+
+        <div id="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#motors">1. Electric Motors</a></li>
+                <li><a href="#solid-state">2. Solid State Devices</a></li>
+                <li><a href="#diode">3. Diode</a></li>
+                <li><a href="#rectifiers">4. Half-wave and Full-wave Rectifiers</a></li>
+                <li><a href="#filters">5. Filter Circuits</a></li>
+                <li><a href="#led">6. LED</a></li>
+            </ul>
+        </div>
+
+        <h2 id="motors">1. Electric Motors</h2>
+        <p>An <strong>electric motor</strong> is a device that converts electrical energy into mechanical energy (rotation). It works on the principle that a current-carrying wire in a magnetic field experiences a force (the motor effect).</p>
+        
+        <h3>Basic Design</h3>
+        <p>Most motors have two main parts:</p>
+        <ul>
+            <li><strong>Stator:</strong> The stationary outer part, which contains magnets or electromagnets to create a magnetic field.</li>
+            <li><strong>Rotor:</strong> The rotating inner part, which is a coil of wire (armature) that the current flows through.</li>
+        </ul>
+        <p>The force on the wires of the rotor creates a torque, causing it to spin.</p>
+        
+        <h3>Single-phase and Three-phase AC Motors</h3>
+        <ul>
+            <li><strong>Single-phase AC Motors:</strong>
+                <ul>
+                    <li>These run on the two-wire (live/neutral) power found in homes.</li>
+                    <li>A simple single-phase motor is *not* self-starting. The AC current creates a "pulsating" magnetic field, not a rotating one.</li>
+                    <li>They require a special starting mechanism (like a starting winding or a capacitor) to create a second, out-of-phase field to give the motor its initial spin.</li>
+                    <li><strong>Examples:</strong> Fans, refrigerators, blenders.</li>
+                </ul>
+            </li>
+            <li><strong>Three-phase AC Motors:</strong>
+                <ul>
+                    <li>These run on 3-phase power (common in industry, see Unit 2).</li>
+                    <li>The three phases, each offset in time, naturally create a <strong>rotating magnetic field (RMF)</strong> in the stator.</li>
+                    <li>This RMF "drags" the rotor around with it.</li>
+                    <li><strong>Advantages:</strong> They are self-starting, more efficient, more powerful, and run smoother than single-phase motors.</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h3>Speed & Power of AC Motor</h3>
+        <ul>
+            <li><strong>Speed:</strong> The speed of an AC motor is primarily determined by two factors:
+                <ol>
+                    <li>The <strong>frequency (f)</strong> of the AC power supply.</li>
+                    <li>The <strong>number of poles (P)</strong> (pairs of N-S magnets) built into the motor.</li>
+                </ol>
+                <p>The <strong>Synchronous Speed (N<sub>s</sub>)</strong> (the speed of the rotating field) is:</p>
+                <blockquote><strong>Formula:</strong> N<sub>s</sub> (in RPM) = (120 × f) / P</blockquote>
+                <p><strong>Example:</strong> A 4-pole motor on a 50 Hz supply has a synchronous speed of (120 × 50) / 4 = 1500 RPM.</p>
+            </li>
+            <li><strong>Power:</strong> The mechanical power output is a product of its torque (T) and rotational speed (ω). Power is measured in Watts (W) or Horsepower (HP).</li>
+        </ul>
+
+        <h2 id="solid-state">2. Solid State Devices</h2>
+        <p>These are electronic components made from <strong>semiconductor</strong> materials (like silicon), which have properties between a conductor and an insulator. They have no moving parts.</p>
+        
+        <h3>Resistors, Inductors, and Capacitors (R, L, C)</h3>
+        <p>Their response to DC and AC sources is critical:</p>
+        
+        <h4>Response with DC Sources</h4>
+        <ul>
+            <li><strong>Resistor:</strong> Obeys Ohm's Law (V=IR). The current is constant.</li>
+            <li><strong>Inductor (L):</strong> Initially, it opposes the change in current, so current starts at 0. After a short time, it acts as a <strong>short circuit</strong> (a plain wire) with 0V drop.</li>
+            <li><strong>Capacitor (C):</strong> Initially, it's empty and acts as a short circuit (current flows easily). As it charges up, the current drops to 0. When fully charged, it acts as an <strong>open circuit</strong> (blocks DC current completely).</li>
+        </ul>
+        
+        <h4>Response with AC Sources</h4>
+        <ul>
+            <li><strong>Resistor:</strong> Obeys Ohm's Law (V=IR) at all times. Current is in-phase with voltage.</li>
+            <li><strong>Inductor (L):</strong> Creates <strong>inductive reactance (X<sub>L</sub> = 2πfL)</strong>. This opposition *increases* with frequency. Current *lags* voltage by 90°.</li>
+            <li><strong>Capacitor (C):</strong> Creates <strong>capacitive reactance (X<sub>C</sub> = 1 / 2πfC)</strong>. This opposition *decreases* with frequency. Current *leads* voltage by 90°.</li>
+        </ul>
+
+        <h2 id="diode">3. Diode</h2>
+        <p>A <strong>diode</strong> is the simplest solid-state device. It's a P-N junction made of semiconductor material.</p>
+        [Image of a diode symbol with anode and cathode labeled]
+        <p><strong>Function:</strong> It acts as a <strong>one-way valve</strong> for electricity.</p>
+        <ul>
+            <li><strong>Forward-biased:</strong> When positive voltage is applied to the P-side (Anode) and negative to the N-side (Cathode), the diode "turns on" and lets current flow easily (with a small voltage drop, ~0.7V for silicon).</li>
+            <li><strong>Reverse-biased:</strong> When voltage is applied in the opposite direction (positive to N-side), the diode "turns off" and blocks current flow.</li>
+        </ul>
+
+        <h2 id="rectifiers">4. Half-wave and Full-wave Rectifiers</h2>
+        <p>A <strong>rectifier</strong> is a circuit that uses diodes to convert AC (which flows both ways) into DC (which flows one way).</p>
+        
+        <h3>Half-wave Rectifier</h3>
+        <ul>
+            <li><strong>Design:</strong> Uses a single diode.</li>
+            <li><strong>Operation:</strong>
+                <ul>
+                    <li>During the positive half-cycle of the AC input, the diode is forward-biased and lets current pass to the load.</li>
+                    <li>During the negative half-cycle, the diode is reverse-biased and blocks all current.</li>
+                </ul>
+            </li>
+            <li><strong>Result:</strong> A pulsating DC output that is "on" for half the cycle and "off" for the other half. This is very inefficient.</li>
+        </ul>
+        
+        [Image of half-wave rectifier circuit and its input/output waveforms]
+        
+        <h3>Full-wave Rectifier</h3>
+        <p>This is a more efficient design that uses the entire AC wave. The most common type is the <strong>Bridge Rectifier</strong>.</p>
+        <ul>
+            <li><strong>Design:</strong> Uses four diodes arranged in a "bridge" or "diamond" shape.</li>
+            <li><strong>Operation:</strong>
+                <ul>
+                    <li>During the positive half-cycle, one pair of diodes (e.g., D1 & D2) is forward-biased, directing current to the load.</li>
+                    <li>During the negative half-cycle, the *other* pair of diodes (e.g., D3 & D4) is forward-biased. They also direct the current to the load *in the same direction as before*.</li>
+                </ul>
+            </li>
+            <li><strong>Result:</strong> A pulsating DC output where the negative "humps" of the AC wave are flipped over to become positive. It is much smoother and more efficient.</li>
+        </ul>
+        
+        [Image of full-wave bridge rectifier circuit and its input/output waveforms]
+
+        <h2 id="filters">5. Filter Circuits</h2>
+        <p>The output from a rectifier is pulsating DC (it pulses from 0V to a peak and back). This is not useful for most electronics, which need smooth, steady DC.</p>
+        <p>A <strong>filter circuit</strong> is used to smooth out these pulses. The simplest filter is a large <strong>capacitor</strong> (called a "smoothing capacitor") connected in parallel with the load.</p>
+        
+        [Image of a full-wave rectifier with a capacitor filter]
+        
+        <p><strong>Operation:</strong></p>
+        <ol>
+            <li>As the pulsating DC voltage rises, the capacitor charges up to the peak voltage.</li>
+            <li>As the pulsating DC voltage starts to fall, the capacitor "discharges" its stored energy into the load.</li>
+            <li>This "fills in the gaps" between the pulses, resulting in a much steadier DC voltage with only a small variation called "ripple".</li>
+        </ol>
+
+        <h2 id="led">6. LED (Light Emitting Diode)</h2>
+        <p>A <strong>Light Emitting Diode (LED)</strong> is a special type of diode that is designed to emit light when it is forward-biased.</p>
+        <p><strong>Operation:</strong> When current flows through the P-N junction, electrons and "holes" (charge carriers) recombine. This recombination process releases energy in the form of photons (light).</p>
+        <p><strong>Features:</strong></p>
+        <ul>
+            <li>Very energy efficient (converts most energy to light, not heat).</li>
+            <li>Long lifespan.</li>
+            <li>Durable (solid-state).</li>
+            <li>Only works in one direction (it's still a diode).</li>
+        </ul>
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

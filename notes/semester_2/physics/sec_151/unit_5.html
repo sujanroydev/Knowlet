@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics SEC 151 Unit 5 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for PHYSEC151 (Electrical Circuits and Safety) Unit 5, covering Electrical Hazards, Safety Devices, Fuses, MCB, RCCB, and Grounding.">
+    <meta name="keywords" content="PHYSEC151, Unit 5, Electrical Hazards, Electrical Safety, Overcurrent, Fuse, MCB, RCCB, Grounding, Short Circuit, Assam University, 2nd Semester Physics">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f7f6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3, h4 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            border-bottom: 3px solid #d35400;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 2em;
+            color: #d35400;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #e67e22;
+            margin-top: 25px;
+        }
+        h4 {
+            font-size: 1.2em;
+            color: #555;
+        }
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            font-size: 1.1em;
+            font-style: italic;
+            font-family: 'Georgia', serif;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: #fef5e7;
+            border-left: 5px solid #d35400;
+            color: #34495e;
+            border-radius: 5px;
+        }
+        code, .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.1em;
+        }
+        .exam-tip {
+            background: #fcf3cf;
+            border: 1px solid #f1c40f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #a04000;
+        }
+        #toc {
+            background: #fffaf0;
+            border: 1px solid #fdebd0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        #toc h3 {
+            margin-top: 0;
+            color: #b95000;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 10px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #e67e22;
+            font-weight: bold;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 5: Electrical Hazards and Safety</h1>
+
+        <div id="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#hazards">1. Electrical Hazards</a></li>
+                <li><a href="#effects">2. Effects of Electricity on the Human Body</a></li>
+                <li><a href="#overcurrent">3. Types of Overcurrent (Overload and Fault)</a></li>
+                <li><a href="#protective">4. Protective Devices</a></li>
+                <li><a href="#grounding">5. Concept of Grounding</a></li>
+                <li><a href="#short-circuit">6. Short Circuit and its Prevention</a></li>
+            </ul>
+        </div>
+
+        <h2 id="hazards">1. [cite_start]Electrical Hazards [cite: 1873]</h2>
+        <p>Electricity is dangerous. The primary hazards include:</p>
+        <ul>
+            [cite_start]<li><strong>Electric Shock:</strong> Current passing through the human body[cite: 1873]. This can disrupt the nervous system, stop the heart, or cause muscle contractions.</li>
+            <li><strong>Electrical Burns:</strong> High-resistance contact can cause severe skin burns. High-current "arc flashes" can vaporize metal and cause extreme burns.</li>
+            <li><strong>Fire:</strong> Overheating wires (due to overcurrent) can melt insulation and ignite surrounding materials (wood, curtains).</li>
+            <li><strong>Arc Blast/Explosion:</strong> A high-current short circuit can cause a violent explosion, vaporizing metal and creating a pressure wave.</li>
+        </ul>
+
+        <h2 id="effects">2. [cite_start]Effects of Electricity on the Human Body [cite: 1873]</h2>
+        <p>The severity of an electric shock depends on <strong>Current (Amps)</strong>, <strong>Path</strong>, and <strong>Duration</strong>. Voltage is not the primary killer; current is. (High voltage is dangerous because it can push a lethal current through the skin's high resistance: I = V/R).</p>
+        
+        <p><strong>Approximate Effects (AC Current):</strong></p>
+        <ul>
+            <li><strong>1 mA (0.001 A):</strong> Threshold of perception. A faint tingle.</li>
+            <li><strong>5-10 mA (0.005 A):</strong> Painful shock. "Can't Let Go" threshold, as muscles contract uncontrollably.</li>
+            <li><strong>30-100 mA (0.03 A):</strong> Respiratory paralysis. Can be fatal if not interrupted.</li>
+            <li><strong>100-300 mA (0.1 A):</strong> <strong>Ventricular Fibrillation</strong>. The heart's rhythm is disrupted and it just "quivers" instead of pumping. This is the most common cause of death from electric shock.</li>
+            <li><strong>> 1 A (1000 mA):</strong> Severe burns and cardiac arrest.</li>
+        </ul>
+        <p>This is why <strong>RCCBs (Unit 5.4)</strong> are designed to trip at just <strong>30 mA</strong>.</p>
+
+        <h2 id="overcurrent">3. [cite_start]Types of Overcurrent (Overload and Fault) [cite: 1873]</h2>
+        <p><strong>Overcurrent</strong> is any situation where a circuit is forced to carry more current than it is rated for. This is dangerous because it generates excess heat (P = I²R).</p>
+        
+        <h3>1. [cite_start]Overload [cite: 1873]</h3>
+        <ul>
+            <li><strong>What it is:</strong> A gradual, slight-to-moderate increase in current above the rated value.</li>
+            <li><strong>Cause:</strong> Plugging too many appliances into one circuit (e.g., a heater, toaster, and microwave on one extension cord). The total current is the sum of all appliances.</li>
+            <li><strong>Danger:</strong> Causes wires to heat up slowly, which can melt insulation and start a fire over time.</li>
+        </ul>
+        
+        <h3>2. [cite_start]Fault (Short Circuit) [cite: 1873]</h3>
+        <ul>
+            <li><strong>What it is:</strong> A sudden, massive, and almost instantaneous increase in current (often 100s or 1000s of Amps).</li>
+            <li><strong>Cause:</strong> A low-resistance path is created.
+                <ul>
+                    <li><strong>Short Circuit:</strong> A "live" wire directly touches a "neutral" wire.</li>
+                    <li><strong>Ground Fault:</strong> A "live" wire touches the metal casing of an appliance (which is grounded).</li>
+                </ul>
+            </li>
+            <li><strong>Danger:</strong> Extreme heat, sparks, arc flashes, and fire. This is an immediate emergency.</li>
+        </ul>
+
+        <h2 id="protective">4. [cite_start]Protective Devices [cite: 1873]</h2>
+        <p>These devices are "sacrificial" components designed to automatically "blow" or "trip" to disconnect the power during an overcurrent, protecting the wiring and preventing fires.</p>
+        
+        [cite_start]<h3>Fuses [cite: 1873]</h3>
+        <ul>
+            <li><strong>Function:</strong> A simple, one-time-use device.</li>
+            <li><strong>Design:</strong> A thin metal wire inside a non-combustible casing.</li>
+            <li><strong>Operation:</strong> During an overcurrent, the high current melts (fuses) the thin wire, breaking the circuit.</li>
+            <li><strong>Disadvantage:</strong> Must be manually replaced.</li>
+        </ul>
+        
+        [cite_start]<h3>Circuit Breakers [cite: 1873]</h3>
+        <p>A resettable, automatic switch. It replaces a fuse and is the modern standard.</p>
+        
+        [cite_start]<h3>MCB (Miniature Circuit Breaker) [cite: 1873]</h3>
+        <ul>
+            <li><strong>Function:</strong> Replaces a fuse. Protects the *wiring* from overcurrent (both overloads and short circuits).</li>
+            <li><strong>Operation (Dual-Trip):</strong>
+                <ol>
+                    <li><strong>Thermal Trip (for Overloads):</strong> A bimetallic strip heats up slowly. If a moderate overload continues, the strip bends and trips the switch.</li>
+                    <li><strong>Magnetic Trip (for Short Circuits):</strong> An electromagnet. A sudden, massive current (short circuit) creates a strong magnetic field that instantly trips the switch.</li>
+                </ol>
+            </li>
+        </ul>
+        
+
+        [cite_start]<h3>RCCB (Residual Current Circuit Breaker) [cite: 1873]</h3>
+        <div class="exam-tip">
+            <strong>Key Concept:</strong> An MCB protects <strong>property</strong> (wires, from fire). An RCCB protects <strong>people</strong> (from shock). They do different jobs.
+        </div>
+        <ul>
+            <li><strong>Function:</strong> A life-saving device that protects against electric shock. It does <strong>not</strong> detect overloads or short circuits (it is always used *with* an MCB).</li>
+            <li><strong>Operation (Current Imbalance):</strong>
+                <ol>
+                    <li>It has a small transformer that constantly monitors the current in the <strong>Live</strong> wire and the <strong>Neutral</strong> wire.</li>
+                    <li>Normally, I<sub>Live</sub> = I<sub>Neutral</sub> (current going out = current coming back).</li>
+                    <li>If a person touches a live part, a small amount of current (e.g., 30 mA) "leaks" through their body to the ground.</li>
+                    <li>Now, I<sub>Live</sub> ≠ I<sub>Neutral</sub>. The RCCB detects this tiny imbalance and trips instantly (in ~30 milliseconds), cutting power before a fatal shock can occur.</li>
+                </ol>
+            </li>
+        </ul>
+        
+        [cite_start]<h3>DP Isolator (Double Pole Isolator) [cite: 1873]</h3>
+        <ul>
+            <li><strong>Function:</strong> A simple, manually-operated switch that disconnects *both* the Live and Neutral wires (Double Pole).</li>
+            <li><strong>Use:</strong> It is <strong>not</strong> an automatic protective device. It is used as a "Main Switch" or to manually isolate a high-power appliance (like an AC unit or water heater) so it can be safely serviced.</li>
+        </ul>
+
+        <h2 id="grounding">5. [cite_start]Concept of Grounding (Earthing) [cite: 1874]</h2>
+        <p><strong>Grounding</strong> (or "Earthing") is the most important safety feature in an electrical system. It involves connecting all non-current-carrying metal parts of an appliance (the chassis, casing) to the Earth via a dedicated "ground wire".</p>
+        <p>This is the <strong>third pin</strong> on a 3-pin plug.</p>
+        
+        
+
+[Image of 3-pin plug showing Live, Neutral, and Earth (Ground) wire connections]
+
+        
+        <h3>How it Works:</h3>
+        <ol>
+            <li><strong>Normal Operation:</strong> The ground wire does nothing. No current flows through it.</li>
+            <li><strong>Fault Condition:</strong> A live wire inside an appliance (e.g., a motor) breaks and touches the metal casing.</li>
+            <li><strong>Without Grounding:</strong> The casing is now "live" at 230V. The next person to touch it will receive a severe shock as the current flows through them to the ground.</li>
+            <li><strong>With Grounding:</strong> The instant the live wire touches the grounded casing, a massive short circuit is created. The current rushes from the live wire, through the casing, down the ground wire (a very low resistance path).</li>
+            <li><strong>Result:</strong> This huge current (a "ground fault") instantly trips the MCB or blows the fuse, disconnecting the power and making the appliance safe *before* anyone can touch it.</li>
+        </ol>
+
+        <h2 id="short-circuit">6. [cite_start]Short Circuit and its Prevention [cite: 1874]</h2>
+        [cite_start]<p>A <strong>short circuit</strong> is a fault where a very low-resistance path is created between two points of different potential (e.g., Live and Neutral, or Live and Ground)[cite: 1874].</p>
+        
+        <h3>Prevention:</h3>
+        <p>The primary method of prevention is <strong>insulation</strong>.</p>
+        <ul>
+            <li><strong>Wire Insulation:</strong> Ensuring the PVC or rubber coating on conductors is intact, not cracked, brittle, or melted.</li>
+            <li><strong>Secure Connections:</strong> Making sure all connections in plugs, sockets, and junction boxes are tight, so no stray wire strands can cause a short.</li>
+            <li><strong>Physical Protection:</strong> Using conduit or casing (Unit 2) to protect wires from being crushed, cut, or damaged.</li>
+            <li><strong>Fuses/MCBs:</strong> While these don't *prevent* the short, they prevent the *consequences* (fire) by immediately cutting the power.</li>
+        </ul>
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

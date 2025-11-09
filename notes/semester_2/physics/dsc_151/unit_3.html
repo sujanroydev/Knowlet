@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSC 151 Unit 3 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for PHYDSC151T (Electricity and Magnetism) Unit 3, covering Magnetic Field, Biot-Savart Law, Ampere's Law, and Magnetic Forces.">
+    <meta name="keywords" content="PHYDSC151T, Electricity and Magnetism, Unit 3, Magnetic Field, Biot-Savart Law, Ampere's Law, Lorentz Force, Magnetic Dipole, Assam University, 2nd Semester Physics">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3, h4 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            border-bottom: 3px solid #27ae60;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 2em;
+            color: #27ae60;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #219d55;
+            margin-top: 25px;
+        }
+        h4 {
+            font-size: 1.2em;
+            color: #555;
+        }
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            font-size: 1.1em;
+            font-style: italic;
+            font-family: 'Georgia', serif;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: #eafaf1;
+            border-left: 5px solid #27ae60;
+            color: #34495e;
+            border-radius: 5px;
+        }
+        code, .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.1em;
+        }
+        .exam-tip {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d4a017;
+        }
+        #toc {
+            background: #f0fff8;
+            border: 1px solid #cce5da;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        #toc h3 {
+            margin-top: 0;
+            color: #005623;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 10px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #219d55;
+            font-weight: bold;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 3: Magnetic Field</h1>
+
+        <div id="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#b-field">1. Magnetic Field (B) and Force</a></li>
+                <li><a href="#biot-savart">2. Biot-Savart's Law and Applications</a></li>
+                <li><a href="#dipole">3. Current Loop as a Magnetic Dipole</a></li>
+                <li><a href="#ampere">4. Ampere's Circuital Law and Applications</a></li>
+                <li><a href="#b-props">5. Properties of B (Divergence and Curl)</a></li>
+                <li><a href="#mag-force">6. Magnetic Force (Lorentz Force)</a></li>
+                <li><a href="#torque">7. Torque on a Current Loop</a></li>
+            </ul>
+        </div>
+
+        <h2 id="b-field">1. Magnetic Field (B) and Force</h2>
+        <p>A <strong>Magnetic Field (B)</strong> is a vector field created by moving electric charges (currents). It is defined by the force it exerts on other moving charges.</p>
+        
+        <h3>Magnetic Force between Current Elements</h3>
+        <p>The force on a moving charge q with velocity v is given by the <strong>Lorentz Force Law</strong>:</p>
+        <blockquote><strong>Lorentz Force:</strong> F = q(E + v × B)</blockquote>
+        <p>In this unit, we focus on the magnetic part: <strong>F<sub>mag</sub> = q(v × B)</strong>.</p>
+        <p>Since a current is a stream of moving charges, a current-carrying wire also experiences a force in a B-field. The differential force (dF) on a small segment of wire (dl) carrying current (I) is:</p>
+        <blockquote><strong>Force on wire element:</strong> dF = I(dl × B)</blockquote>
+        
+        <h2 id="biot-savart">2. Biot-Savart's Law and Applications</h2>
+        <p>The <strong>Biot-Savart Law</strong> is the fundamental law of magnetostatics. It is used to calculate the magnetic field (dB) generated at a point by a small element of a current-carrying wire (Idl).</p>
+        <blockquote><strong>Biot-Savart Law:</strong> dB = (μ<sub>0</sub>I / 4π) (dl × r̂) / r<sup>2</sup></blockquote>
+        <p>Where:</p>
+        <ul>
+            <li><strong>μ<sub>0</sub></strong> is the permeability of free space (4π × 10<sup>-7</sup> T·m/A).</li>
+            <li><strong>I</strong> is the current.</li>
+            <li><strong>dl</strong> is the vector length element of the wire.</li>
+            <li><strong>r</strong> is the distance from the element (dl) to the point.</li>
+            <li><strong>r̂</strong> is the unit vector pointing from the element to the point.</li>
+        </ul>
+        <p>To find the total B-field, one must integrate dB over the entire wire: <strong>B = ∫ dB</strong>.</p>
+
+        <h3>Simple Applications of Biot-Savart's Law</h3>
+        
+        <h4>1. B-field of a Long Straight Wire</h4>
+        <p>By integrating the Biot-Savart law for a straight wire, the B-field at a perpendicular distance 'r' from an infinitely long wire is:</p>
+        <blockquote><strong>Formula:</strong> B = μ<sub>0</sub>I / (2πr)</blockquote>
+        <p>The field lines are concentric circles around the wire (direction given by the Right-Hand Grip Rule).</p>
+
+        <h4>2. B-field of a Circular Loop (on its axis)</h4>
+        <p>For a circular loop of radius 'R' carrying current 'I', the B-field at a point 'z' along the central axis is:</p>
+        <blockquote><strong>Formula:</strong> B(z) = (μ<sub>0</sub>IR<sup>2</sup>) / (2(R<sup>2</sup> + z<sup>2</sup>)<sup>3/2</sup>)</blockquote>
+        <p><strong>At the center of the loop (z=0):</strong></p>
+        <blockquote><strong>Formula:</strong> B<sub>center</sub> = μ<sub>0</sub>I / (2R)</blockquote>
+
+        <h4>3. Helmholtz Coil</h4>
+        <p>A Helmholtz coil consists of two identical circular coils (radius R, N turns) placed parallel to each other, separated by a distance <strong>d = R</strong>. They carry the same current I in the same direction.</p>
+        <p><strong>Purpose:</strong> This specific arrangement creates a highly <strong>uniform magnetic field</strong> in the region between the coils. It is widely used in experiments (like measuring e/m of an electron) that require a known, uniform B-field.</p>
+        <h2 id="dipole">3. Current Loop as a Magnetic Dipole</h2>
+        <p>At large distances (z >> R), the B-field on the axis of a current loop becomes:</p>
+        <p>B(z) ≈ (μ<sub>0</sub>IR<sup>2</sup>) / (2z<sup>3</sup>) = (μ<sub>0</sub> / 2π) (I(πR<sup>2</sup>)) / z<sup>3</sup></p>
+        <p>This has the same 1/z<sup>3</sup> dependence as the E-field of an electric dipole.</p>
+        <p>We define the <strong>magnetic dipole moment (μ)</strong> of the current loop:</p>
+        <blockquote><strong>Formula:</strong> μ = I * A</blockquote>
+        <p>Where <strong>A</strong> is the vector area of the loop (Magnitude = Area, Direction = normal to the loop via Right-Hand Rule).</p>
+        <p>So, B(z) ≈ (μ<sub>0</sub> / 2π) (μ / z<sup>3</sup>). This shows the strong analogy between electric and magnetic dipoles.</p>
+
+        <h2 id="ampere">4. Ampere's Circuital Law and Applications</h2>
+        <p><strong>Ampere's Law</strong> relates the line integral of the magnetic field B around a closed loop (an "Amperian loop") to the total current (I<sub>enclosed</sub>) passing through that loop.</p>
+        <blockquote><strong>Ampere's Law:</strong> ∮ B ⋅ dl = μ<sub>0</sub>I<sub>enclosed</sub></blockquote>
+        
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> Ampere's Law is the magnetic equivalent of Gauss's Law. It is extremely useful for calculating B-fields in situations with high symmetry (cylindrical, toroidal). Choose an Amperian loop that matches the symmetry.
+        </div>
+        
+        <h3>Applications of Ampere's Law</h3>
+        
+        <h4>1. Ideal Solenoid</h4>
+        <p>A solenoid is a long coil of wire. For an ideal solenoid (infinite length, tightly packed), we can find the field inside.</p>
+        <p>Using a rectangular Amperian loop, we find:</p>
+        <ul>
+            <li><strong>Field Inside:</strong> B = μ<sub>0</sub>nI (Uniform)</li>
+            <li><strong>Field Outside:</strong> B = 0</li>
+        </ul>
+        <p>Where 'n' is the number of turns per unit length (n = N/L).</p>
+
+        <h4>2. Toroid</h4>
+        <p>A toroid is a solenoid bent into a donut shape. We use a circular Amperian loop of radius 'r' inside the coils.</p>
+        <p>B(2πr) = μ<sub>0</sub>(NI), where N is the total number of turns.</p>
+        <blockquote><strong>Formula (inside toroid):</strong> B = (μ<sub>0</sub>NI) / (2πr)</blockquote>
+        <p>The field is not perfectly uniform (it depends on r), but it is contained entirely within the toroid (B=0 outside).</p>
+
+        <h2 id="b-props">5. Properties of B (Divergence and Curl)</h2>
+        <p>These are two of Maxwell's Equations, which describe the behavior of B in differential form.</p>
+        
+        <h3>Divergence of B</h3>
+        <blockquote><strong>Formula:</strong> ∇ ⋅ B = 0</blockquote>
+        <p><strong>Physical Meaning:</strong> This is the mathematical statement that <strong>there are no magnetic monopoles</strong>. The divergence (∇⋅) measures the "outflow" from a point. Since ∇⋅B is always zero, there are no "sources" or "sinks" of magnetic field. Magnetic field lines always form closed loops.</p>
+
+        <h3>Curl of B</h3>
+        <blockquote><strong>Formula:</strong> ∇ × B = μ<sub>0</sub>J</blockquote>
+        <p><strong>Physical Meaning:</strong> This is Ampere's Law in differential form. The curl (∇×) measures the "circulation" or "curliness" of a field. This equation states that circulating magnetic fields are produced by current densities (J).</p>
+
+        <h2 id="mag-force">6. Magnetic Force (Lorentz Force)</h2>
+        
+        <h3>1. Force on a Point Charge</h3>
+        <p>The magnetic part of the Lorentz force:</p>
+        <blockquote><strong>Formula:</strong> F = q(v × B)</blockquote>
+        <p><strong>Key Properties:</strong></p>
+        <ul>
+            <li>The force F is always perpendicular to both v and B.</li>
+            <li>Since F is perpendicular to v, the magnetic force does <strong>no work</strong> (W = ∫ F⋅dl = 0) on a free charge.</li>
+            <li>It can change the *direction* of a particle's motion (causing it to circle), but not its *speed* or *kinetic energy*.</li>
+        </ul>
+
+        <h3>2. Force on a Current Carrying Wire</h3>
+        <p>This is the macroscopic version of the force on point charges. The total force F on a wire is the integral of the differential force dF = I(dl × B).</p>
+        <p>For a straight wire of length L in a uniform field B:</p>
+        <blockquote><strong>Formula:</strong> F = I(L × B) (Magnitude: F = ILB sin(θ))</blockquote>
+
+        <h3>3. Force between Current Elements (e.g., Two Parallel Wires)</h3>
+        <p>Wire 1 creates a field B<sub>1</sub> = μ<sub>0</sub>I<sub>1</sub> / (2πd).</p>
+        <p>Wire 2 experiences a force from this field: F<sub>2</sub> = I<sub>2</sub>(L × B<sub>1</sub>).</p>
+        <p>The force per unit length (F/L) between them is:</p>
+        <blockquote><strong>Formula:</strong> F/L = μ<sub>0</sub>I<sub>1</sub>I<sub>2</sub> / (2πd)</blockquote>
+        <ul>
+            <li><strong>Parallel currents (same direction):</strong> Attract</li>
+            <li><strong>Anti-parallel currents (opposite direction):</strong> Repel</li>
+        </ul>
+
+        <h2 id="torque">7. Torque on a Current Loop</h2>
+        <p>When a current loop (like in a motor) is placed in a uniform magnetic field B, the forces on opposite sides create a twisting force, or <strong>torque (τ)</strong>.</p>
+        <p>The torque tries to align the loop's magnetic dipole moment (μ) with the external field B.</p>
+        <blockquote><strong>Formula:</strong> τ = μ × B</blockquote>
+        <p>The magnitude is τ = μB sin(θ), where θ is the angle between μ and B.</p>
+        <p>The <strong>potential energy (U)</strong> of the dipole in the field is:</p>
+        <blockquote><strong>Potential Energy:</strong> U = -μ ⋅ B = -μB cos(θ)</blockquote>
+        <p>The energy is minimum (stable equilibrium) when θ=0 (μ aligned with B) and maximum (unstable) when θ=180° (μ anti-aligned).</p>
+        
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSM 151 Unit 3 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for PHYDSM151T (Mathematical Physics, Mechanics and Relativity) Unit 3, covering Newton's Law of Gravitation, Central Force Motion, Kepler's Laws, and Satellites.">
+    <meta name="keywords" content="PHYDSM151T, Mechanics, Unit 3, Gravitation, Newton's Law, Central Force, Kepler's Laws, Satellites, Geosynchronous, Geostationary, GPS, Weightlessness, Assam University, 2nd Semester Physics">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3, h4 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            border-bottom: 3px solid #27ae60;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 2em;
+            color: #27ae60;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #219d55;
+            margin-top: 25px;
+        }
+        h4 {
+            font-size: 1.2em;
+            color: #555;
+        }
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            font-size: 1.1em;
+            font-style: italic;
+            font-family: 'Georgia', serif;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: #eafaf1;
+            border-left: 5px solid #27ae60;
+            color: #34495e;
+            border-radius: 5px;
+        }
+        code, .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.1em;
+        }
+        .exam-tip {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d4a017;
+        }
+        #toc {
+            background: #f0fff8;
+            border: 1px solid #cce5da;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        #toc h3 {
+            margin-top: 0;
+            color: #005623;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc li {
+            margin-bottom: 10px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #219d55;
+            font-weight: bold;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 3: Gravitation</h1>
+
+        <div id="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#newton-law">1. [cite_start]Newton's Law of Gravitation [cite: 1352]</a></li>
+                <li><a href="#central-force">2. [cite_start]Motion in a Central Force Field [cite: 1352]</a></li>
+                <li><a href="#kepler-laws">3. [cite_start]Kepler's Laws [cite: 1353]</a></li>
+                <li><a href="#satellites">4. [cite_start]Satellites [cite: 1353]</a></li>
+                <li><a href="#weightlessness">5. [cite_start]Weightlessness [cite: 1353]</a></li>
+                <li><a href="#gps">6. [cite_start]Global Positioning System (GPS) [cite: 1354]</a></li>
+            </ul>
+        </div>
+
+        <h2 id="newton-law">1. [cite_start]Newton's Law of Gravitation [cite: 1352]</h2>
+        <p>Newton's Law of Universal Gravitation states that every particle in the universe attracts every other particle with a force (<strong>F</strong>) that is directly proportional to the product of their masses (m₁ and m₂) and inversely proportional to the square of the distance (r) between their centers.</p>
+        
+        <blockquote><strong>Formula (Magnitude):</strong> F = G * (m₁m₂) / r²</blockquote>
+        
+        <p>Where <strong>G</strong> is the universal gravitational constant (G ≈ 6.674 × 10<sup>-11</sup> N·m²/kg²).</p>
+        
+        <p>In vector form, the force <strong>F</strong>₁₂ (force on m₁ due to m₂) is:</p>
+        <blockquote><strong>Formula (Vector):</strong> <strong>F</strong>₁₂ = -G * (m₁m₂) / r² * <strong>r̂</strong>₁₂</blockquote>
+        <p>Where <strong>r̂</strong>₁₂ is the unit vector pointing from m₁ to m₂. The negative sign indicates that the force is attractive.</p>
+
+        <h2 id="central-force">2. [cite_start]Motion in a Central Force Field [cite: 1352]</h2>
+        <p>A <strong>central force</strong> is a force <strong>F</strong>(<strong>r</strong>) that is always directed along the line connecting the particle to a fixed center (the origin) and whose magnitude depends only on the distance |<strong>r</strong>| from the center.</p>
+        <blockquote><strong>Formula:</strong> <strong>F</strong>(<strong>r</strong>) = f(r) <strong>r̂</strong></blockquote>
+        <p>Gravitation is a perfect example of a central force, where f(r) = -G(Mm)/r².</p>
+        
+        <h3>Properties of Central Force Motion:</h3>
+        
+        [cite_start]<h4>a) Motion is in a Plane [cite: 1352]</h4>
+        <p>The torque (<strong>τ</strong>) on the particle (mass m) about the force center is:</p>
+        <p><strong>τ</strong> = <strong>r</strong> × <strong>F</strong> = <strong>r</strong> × (f(r) <strong>r̂</strong>)</p>
+        <p>Since <strong>r</strong> and <strong>r̂</strong> are parallel, <strong>r</strong> × <strong>r̂</strong> = <strong>0</strong>. Therefore, the <strong>net torque is zero</strong>.</p>
+        <p>From Newton's second law for rotation, <strong>τ</strong> = d<strong>L</strong>/dt, where <strong>L</strong> is the angular momentum.
+        <br>If <strong>τ</strong> = <strong>0</strong>, then d<strong>L</strong>/dt = <strong>0</strong>, which means <strong>L</strong> is constant.</p>
+        <p><strong>L</strong> = <strong>r</strong> × <strong>p</strong> = constant. By definition, the vector <strong>L</strong> is perpendicular to both <strong>r</strong> and <strong>p</strong> (velocity <strong>v</strong>). Since <strong>L</strong> is a constant vector (it doesn't change direction), the position <strong>r</strong> and velocity <strong>v</strong> must *always* remain in the plane that is perpendicular to <strong>L</strong>.
+        <br><strong>Conclusion:</strong> All central force motion is confined to a plane.</p>
+
+        [cite_start]<h4>b) Angular Momentum is Conserved [cite: 1352]</h4>
+        <p>As shown above, the torque <strong>τ</strong> is always zero for a central force. This directly implies that the <strong>total angular momentum L of the particle is conserved</strong> (it is constant in both magnitude and direction).</p>
+        
+        [cite_start]<h4>c) Areal Velocity is Constant [cite: 1352]</h4>
+        <p><strong>Areal velocity (dA/dt)</strong> is the rate at which the position vector <strong>r</strong> "sweeps out" an area as the particle moves.</p>
+        <p>In a small time dt, the particle moves by d<strong>r</strong> = <strong>v</strong> dt. The small area (dA) of the triangle swept out is:</p>
+        <p>dA = (1/2) |<strong>r</strong> × d<strong>r</strong>| = (1/2) |<strong>r</strong> × <strong>v</strong> dt|</p>
+        <p>So, the areal velocity is:</p>
+        <p>dA/dt = (1/2) |<strong>r</strong> × <strong>v</strong>| = (1/2) |<strong>r</strong> × (<strong>p</strong>/m)| = (1/2m) |<strong>r</strong> × <strong>p</strong>|</p>
+        <p>Since <strong>L</strong> = <strong>r</strong> × <strong>p</strong>, we get:</p>
+        <blockquote><strong>Formula:</strong> dA/dt = L / (2m)</blockquote>
+        <p>Because angular momentum (L) and mass (m) are both constant in central force motion, the <strong>areal velocity (dA/dt) is also constant</strong>. This is the content of Kepler's Second Law.</p>
+
+        <h2 id="kepler-laws">3. [cite_start]Kepler's Laws [cite: 1353]</h2>
+        <p>Kepler's three laws describe the motion of planets around the Sun.</p>
+        
+        <h3>Law 1: The Law of Orbits</h3>
+        <blockquote><strong>Statement:</strong> All planets move in <strong>elliptical orbits</strong> with the Sun at one of the two foci.</blockquote>
+        <p>A circle is just a special case of an ellipse where the two foci coincide. The shape of the orbit (circle, ellipse, parabola, hyperbola) is determined by the total energy of the planet.</p>
+        
+        <h3>Law 2: The Law of Areas</h3>
+        <blockquote><strong>Statement:</strong> A line segment joining a planet and the Sun sweeps out <strong>equal areas in equal intervals of time</strong>.</blockquote>
+        [cite_start]<p>This is a direct consequence of the <strong>conservation of angular momentum</strong> (areal velocity is constant), as proved in the section above[cite: 1352]. This means the planet moves *faster* when it is closer to the Sun (at perihelion) and *slower* when it is farther away (at aphelion).</p>
+        <h3>Law 3: The Law of Periods</h3>
+        <blockquote><strong>Statement:</strong> The square of the orbital period (T) of a planet is directly proportional to the cube of the semi-major axis (a) of its orbit.</blockquote>
+        <blockquote><strong>Formula:</strong> T² ∝ a³  or  T²/a³ = constant</blockquote>
+        <p>For a simple circular orbit of radius 'r' (where a = r) around a large mass M, we can derive this:</p>
+        <p>Gravitational Force = Centripetal Force
+        <br>G(Mm) / r² = m(v²) / r
+        <br>G M / r = v²
+        <br>Since v = (circumference) / (period) = (2πr) / T, we have v² = 4π²r² / T²
+        <br>G M / r = 4π²r² / T²
+        <br>Rearranging for T²: <strong>T² = (4π² / GM) r³</strong>
+        <br>This shows T² ∝ r³, and the constant of proportionality is 4π²/GM.</p>
+        
+        <h2 id="satellites">4. [cite_start]Satellites [cite: 1353]</h2>
+        
+        [cite_start]<h3>Satellite in Circular Orbit [cite: 1353]</h3>
+        <p>For a satellite of mass 'm' in a circular orbit of radius 'r' (from Earth's center) around Earth (mass M):</p>
+        
+        <h4>Orbital Velocity (v<sub>o</sub>)</h4>
+        <p>As derived above (G M / r = v²):</p>
+        <blockquote><strong>Formula:</strong> v<sub>o</sub> = √(GM / r)</blockquote>
+        <p>Note that orbital velocity *decreases* as the orbital radius 'r' *increases*.</p>
+        
+        [cite_start]<h3>Geosynchronous Orbits [cite: 1353]</h3>
+        <p>A <strong>geosynchronous</strong> orbit is any orbit around the Earth with an orbital period (T) of <strong>exactly 24 hours</strong> (one sidereal day, to be precise: ~23h 56m).</p>
+        <p>This means the satellite returns to the exact same point in the sky at the same time each day.</p>
+        
+        [cite_start]<h3>Geostationary Satellites [cite: 1353]</h3>
+        <p>A <strong>geostationary</strong> orbit is a *special type* of geosynchronous orbit.</p>
+        <p><strong>Conditions:</strong></p>
+        <ol>
+            <li><strong>Orbital Period:</strong> T = 24 hours.</li>
+            <li><strong>Orbital Plane:</strong> Must be in the <strong>equatorial plane</strong> (0° inclination).</li>
+            <li><strong>Direction:</strong> Must orbit in the same direction as Earth's rotation (west to east).</li>
+        </ol>
+        <p><strong>Result:</strong> A satellite in this orbit appears to be <strong>fixed</strong> at a single point in the sky. All three conditions must be met.</p>
+        
+        [cite_start]<p><strong>Applications:</strong> [cite: 1353] This is extremely useful for <strong>communications satellites</strong> and weather satellites. You can point a stationary satellite dish on Earth at the satellite, and it will never move.</p>
+        
+        <h2 id="weightlessness">5. [cite_start]Weightlessness [cite: 1353]</h2>
+        <p><strong>Weight</strong> is the force you feel (e.g., the normal force from the floor pushing up on you). "Weightlessness" is the sensation of having no weight. It is not the absence of gravity!</p>
+        <p>True weightlessness occurs during <strong>free-fall</strong>. An astronaut in a satellite orbiting the Earth is in a constant state of free-fall. The satellite (and everything in it) is "falling" around the Earth. The gravitational force (F<sub>g</sub>) is providing the *exact* centripetal force (F<sub>c</sub>) needed to stay in orbit.</p>
+        <p>Since the astronaut and the satellite are "falling" together, the astronaut does not press against the floor. The normal force is zero, and they feel "weightless."</p>
+        
+        <h2 id="gps">6. [cite_start]Global Positioning System (GPS) [cite: 1354]</h2>
+        <p>The <strong>Global Positioning System (GPS)</strong> is a satellite-based navigation system.</p>
+        [cite_start]<p><strong>Basic Idea:</strong> [cite: 1354] It consists of a constellation of ~30 satellites orbiting the Earth. Each satellite continuously broadcasts a signal containing its precise location and the precise time (from an onboard atomic clock).</p>
+        <p>A GPS receiver on Earth (like in your phone) receives these signals.</p>
+        <ol>
+            <li>The receiver gets signals from multiple satellites (at least 4).</li>
+            <li>By measuring the *time delay* for each signal to arrive, it can calculate its distance to each of those satellites (distance = speed of light × time).</li>
+            <li>Using a process called <strong>trilateration</strong>, the receiver can pinpoint its own 3D location (latitude, longitude, and altitude) on Earth.</li>
+        </ol>
+        
+        <div class="exam-tip">
+            <strong>Fun Fact:</strong> GPS satellites are *not* in geostationary orbit. They are in a medium-Earth orbit (MEO) at about 20,200 km altitude, with a period of ~12 hours. This ensures they move across the sky, allowing a receiver to see different satellites over time. The system's accuracy famously depends on correcting for both Special and General Relativity.
+        </div>
+        
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive notes for Chemistry DSC 151 (Physical/Organic), Unit 1: Atomic Structure. Covers Bohr's theory, de Broglie, Heisenberg, quantum numbers, and atomic orbitals.">
+    <meta name="keywords" content="Chemistry DSC 151, Unit 1, Atomic Structure, Bohr's Theory, de Broglie, Heisenberg Uncertainty, Quantum Numbers, Atomic Orbitals, Aufbau Principle, Pauli Exclusion, Hund's Rule, Knowlet">
+    <title>Chemistry DSM 151 Unit 1 | 2nd Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #0056b3; /* Dark blue */
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #004085; /* Deeper blue */
+        }
+        h2 {
+            font-size: 1.8em;
+            color: #007bff; /* Primary blue */
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #17a2b8; /* Info blue */
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #eef7ff;
+            border-left: 5px solid #007bff;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-size: 1.1em;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f1f3f5;
+            color: #495057;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .exam-tip {
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .exam-tip strong {
+            color: #856404;
+        }
+        nav.toc {
+            background: #fdfdfd;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 30px;
+        }
+        nav.toc h3 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #333;
+        }
+        nav.toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        nav.toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        nav.toc ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 1: Atomic Structure</h1>
+
+        <nav class="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#topic1">Bohr's Theory and its Limitations</a></li>
+                <li><a href="#topic2">Dual Behaviour of Matter and Radiation</a></li>
+                <li><a href="#topic3">Heisenberg Uncertainty Principle</a></li>
+                <li><a href="#topic4">Hydrogen Atom Spectra</a></li>
+                <li><a href="#topic5">Quantum Numbers and Significance</a></li>
+                <li><a href="#topic6">Atomic Orbitals</a></li>
+                <li><a href="#topic7">Electronic Configuration of Atoms</a></li>
+                <li><a href="#topic8">Stability of Half-filled and Completely-filled Orbitals</a></li>
+            </ul>
+        </nav>
+
+        <section id="topic1">
+            <h2>Bohr's Theory and its Limitations</h2>
+            <p>Bohr's model of the atom (1913) was a major step forward, primarily for hydrogen and hydrogen-like ions (e.g., He⁺, Li²⁺).</p>
+            <h3>Key Postulates:</h3>
+            <ol>
+                <li>Electrons revolve around the nucleus in fixed, circular paths called <strong>orbits</strong> or <strong>stationary states</strong>.</li>
+                <li>Each orbit has a definite energy. As long as an electron is in an orbit, it does not radiate energy.</li>
+                <li>The angular momentum of an electron in an orbit is <strong>quantized</strong> (can only have specific values).
+                    <blockquote>
+                        mvr = n(h / 2π)
+                    </blockquote>
+                    Where 'n' is the principal quantum number (n = 1, 2, 3...), h is Planck's constant.
+                </li>
+                <li>An electron can jump from a lower energy orbit (n_initial) to a higher energy orbit (n_final) by <strong>absorbing</strong> energy. It can jump from a higher to a lower orbit by <strong>emitting</strong> energy. This energy difference is emitted as a photon of light.
+                    <blockquote>
+                        ΔE = E_final - E_initial = hν = hc / λ
+                    </blockquote>
+                </li>
+            </ol>
+
+            <h3>Limitations of Bohr's Theory:</h3>
+            <ul>
+                <li><strong>Multi-electron atoms:</strong> It fails to explain the spectra of atoms with more than one electron.</li>
+                <li><strong>Fine structure:</strong> It could not explain the splitting of spectral lines into closely spaced lines (fine structure).</li>
+                <li><strong>Zeeman and Stark Effects:</strong> It could not explain the splitting of spectral lines in the presence of a magnetic field (Zeeman effect) or an electric field (Stark effect).</li>
+                <li><strong>Molecular shapes:</strong> It provides no information about how atoms form molecules or the 3D shapes of molecules.</li>
+                <li><strong>Violation of Uncertainty Principle:</strong> It defines a fixed path (orbit) and a definite velocity for the electron at the same time, which violates the Heisenberg Uncertainty Principle.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="topic2">
+            <h2>Dual Behaviour of Matter and Radiation</h2>
+            
+            <h3>de Broglie's Relation</h3>
+            <p>Louis de Broglie (1924) proposed that just as light (radiation) has both wave and particle properties, all moving matter (like electrons) also has wave properties.</p>
+            <p>He combined Einstein's mass-energy equation (E = mc²) and Planck's quantum equation (E = hν) to derive a relationship for the wavelength (λ) of a particle.</p>
+            <ul>
+                <li>For a photon: E = hν = hc/λ and E = pc (where p is momentum). Thus, p = h/λ.</li>
+                <li>De Broglie extended this to matter:
+                    <blockquote>
+                        λ = h / p = h / (mv)
+                    </blockquote>
+                </li>
+            </ul>
+            <p>Where: <strong>λ</strong> is the de Broglie wavelength, <strong>h</strong> is Planck's constant, <strong>p</strong> is the momentum, <strong>m</strong> is the mass, and <strong>v</strong> is the velocity of the particle.</p>
+            <p><strong>Significance:</strong> This is highly significant for microscopic particles (like electrons), where the wavelength is measurable. For macroscopic objects (like a baseball), the mass (m) is so large that the wavelength (λ) is insignificantly small, making its wave nature undetectable.</p>
+        </section>
+
+        <hr>
+
+        <section id="topic3">
+            <h2>Heisenberg Uncertainty Principle</h2>
+            <p>Werner Heisenberg (1927) stated that it is <strong>impossible to measure simultaneously and accurately both the position and the momentum (or velocity) of a microscopic particle</strong> like an electron.</p>
+            <p>The act of measuring one quantity (e.g., position) inevitably disturbs the other (e.g., momentum) in an unpredictable way.</p>
+            
+            <blockquote>
+                <strong>Mathematical Form:</strong>
+                <br>
+                (Δx) · (Δp) ≥ h / 4π
+            </blockquote>
+            <p>Where:</p>
+            <ul>
+                <li><strong>Δx</strong> = uncertainty in position</li>
+                <li><strong>Δp</strong> = uncertainty in momentum</li>
+            </ul>
+            <p><strong>Significance:</strong> This principle rules out the possibility of fixed orbits (like in Bohr's model) and introduces the concept of <strong>probability</strong> and <strong>orbitals</strong>. We can only talk about the *probability* of finding an electron in a certain region of space, not its exact path.</p>
+        </section>
+
+        <hr>
+
+        <section id="topic4">
+            <h2>Hydrogen Atom Spectra</h2>
+            <p>When hydrogen gas is excited in a discharge tube, it emits light. When passed through a prism, this light splits into specific lines (a line emission spectrum). Each line corresponds to an electron falling from a higher energy level (n_final) to a lower one (n_initial).</p>
+            <p>The wavelength (or wavenumber, ν̄ = 1/λ) of these lines is given by the <strong>Rydberg formula</strong>:</p>
+            <blockquote>
+                ν̄ = 1/λ = R_H · [ (1 / n_initial²) - (1 / n_final²) ]
+            </blockquote>
+            <p>Where <strong>R_H</strong> is the Rydberg constant (109,677 cm⁻¹).</p>
+            
+            <h3>Spectral Series:</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Series Name</th>
+                        <th>n_initial</th>
+                        <th>n_final</th>
+                        <th>Spectral Region</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Lyman</strong></td>
+                        <td>1</td>
+                        <td>2, 3, 4, ...</td>
+                        <td>Ultraviolet (UV)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Balmer</strong></td>
+                        <td>2</td>
+                        <td>3, 4, 5, ...</td>
+                        <td>Visible</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Paschen</strong></td>
+                        <td>3</td>
+                        <td>4, 5, 6, ...</td>
+                        <td>Infrared (IR)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Brackett</strong></td>
+                        <td>4</td>
+                        <td>5, 6, 7, ...</td>
+                        <td>Infrared (IR)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pfund</strong></td>
+                        <td>5</td>
+                        <td>6, 7, 8, ...</td>
+                        <td>Far-Infrared (Far-IR)</td>
+                    </tr>
+                </tbody>
+            </table>
+            </section>
+
+        <hr>
+
+        <section id="topic5">
+            <h2>Quantum Numbers and Significance</h2>
+            <p>To describe the state of an electron in an atom, we use four quantum numbers, which are solutions to the Schrödinger wave equation.</p>
+            
+            <ol>
+                <li>
+                    <strong>Principal Quantum Number (n)</strong>
+                    <ul>
+                        <li><strong>Allowed values:</strong> n = 1, 2, 3, ... (positive integers)</li>
+                        <li><strong>Significance:</strong> Determines the main <strong>energy level (shell)</strong> and the <strong>average distance</strong> of the electron from the nucleus. Higher 'n' = higher energy and larger size. (K shell n=1, L shell n=2, etc.)</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Azimuthal Quantum Number (l)</strong>
+                    <ul>
+                        <li><strong>Allowed values:</strong> l = 0, 1, 2, ... up to (n-1)</li>
+                        <li><strong>Significance:</strong> Determines the <strong>shape of the subshell (orbital)</strong>. It is also known as the orbital angular momentum quantum number.
+                            <ul>
+                                <li>l = 0 → <strong>s</strong> subshell (spherical)</li>
+                                <li>l = 1 → <strong>p</strong> subshell (dumbbell)</li>
+                                <li>l = 2 → <strong>d</strong> subshell (double dumbbell)</li>
+                                <li>l = 3 → <strong>f</strong> subshell (complex)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Magnetic Quantum Number (m_l)</strong>
+                    <ul>
+                        <li><strong>Allowed values:</strong> m_l = -l, ... 0, ... +l (all integers from -l to +l)</li>
+                        <li><strong>Significance:</strong> Determines the <strong>spatial orientation</strong> of the orbital. For a given 'l', there are (2l + 1) possible values, meaning (2l + 1) orbitals in that subshell.
+                            <ul>
+                                <li>l=0 (s): m_l=0 (1 s-orbital)</li>
+                                <li>l=1 (p): m_l=-1, 0, +1 (3 p-orbitals: p_x, p_y, p_z)</li>
+                                <li>l=2 (d): m_l=-2, -1, 0, +1, +2 (5 d-orbitals)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Spin Quantum Number (m_s)</strong>
+                    <ul>
+                        <li><strong>Allowed values:</strong> +1/2 or -1/2</li>
+                        <li><strong>Significance:</strong> Describes the intrinsic angular momentum or "spin" of the electron. An electron can spin in one of two directions ("spin up" or "spin down").</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section id="topic6">
+            <h2>Atomic Orbitals</h2>
+            <p>An <strong>atomic orbital</strong> is a 3D region of space around the nucleus where the <strong>probability of finding an electron is maximum (e.g., >90%)</strong>. The shape of these orbitals is determined by the azimuthal quantum number (l).</p>
+
+            <h3>Shapes of s, p, and d orbitals</h3>
+            <ul>
+                <li><strong>s-orbitals (l=0):</strong>
+                    <ul>
+                        <li><strong>Shape:</strong> Spherical and symmetrical around the nucleus.</li>
+                        <li><strong>Nodes:</strong> Has (n-1) radial nodes (spherical surfaces where the probability of finding e⁻ is zero). 1s has 0 nodes, 2s has 1 node, etc.</li>
+                    </ul>
+                    </li>
+                <li><strong>p-orbitals (l=1):</strong>
+                    <ul>
+                        <li><strong>Shape:</strong> Dumbbell-shaped, with two lobes on opposite sides of the nucleus.</li>
+                        <li><strong>Nodes:</strong> Has one <strong>angular node</strong> (a nodal plane) at the nucleus.</li>
+                        <li><strong>Orientation:</strong> There are three p-orbitals (p_x, p_y, p_z) oriented along the x, y, and z axes.</li>
+                    </ul>
+                    </li>
+                <li><strong>d-orbitals (l=2):</strong>
+                    <ul>
+                        <li><strong>Shape:</strong> Most have a "double dumbbell" or cloverleaf shape.</li>
+                        <li><strong>Orientation:</strong> There are five d-orbitals:
+                            <ul>
+                                <li><strong>d_xy, d_yz, d_xz:</strong> Lobes lie *between* the axes.</li>
+                                <li><strong>d_x²-y²:</strong> Lobes lie *on* the x and y axes.</li>
+                                <li><strong>d_z²:</strong> Two lobes on the z-axis and a "doughnut" ring in the xy-plane.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    </li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="topic7">
+            <h2>Electronic Configuration of Atoms</h2>
+            <p>This is the distribution of electrons of an atom in its atomic orbitals, governed by three main rules.</p>
+            
+            <h3>1. Aufbau Principle (Building-up Principle)</h3>
+            <p>Electrons fill orbitals starting at the lowest available energy levels before filling higher levels.</p>
+            <p><strong>Order of filling (Madelung Rule):</strong> Electrons fill orbitals in order of increasing <strong>(n+l)</strong> value. If two orbitals have the same (n+l) value, the one with the lower 'n' value is filled first.</p>
+            <blockquote>
+                <strong>Filling Order:</strong> 1s < 2s < 2p < 3s < 3p < <strong>4s</strong> < <strong>3d</strong> < 4p < 5s < 4d ...
+            </blockquote>
+            <p><em>Example:</em> 4s (n+l = 4+0 = 4) is filled before 3d (n+l = 3+2 = 5).</p>
+            <h3>2. Pauli Exclusion Principle</h3>
+            <p><strong>"No two electrons in an atom can have the same set of all four quantum numbers."</strong></p>
+            <p>This implies that if two electrons are in the same orbital (same n, l, m_l), they must have opposite spins (one +1/2, one -1/2). Therefore, an orbital can hold a <strong>maximum of two electrons</strong>, and they must be spin-paired.</p>
+
+            <h3>3. Hund's Rule of Maximum Multiplicity</h3>
+            <p><strong>"For a set of degenerate orbitals (orbitals of the same energy, like the three p-orbitals), pairing of electrons will not occur until each orbital is first singly occupied (half-filled)."</strong></p>
+            <p>Furthermore, all singly occupied orbitals will have the same spin (parallel spins).</p>
+            <p><strong>Example:</strong> Nitrogen (Z=7)
+            <br>Configuration: 1s² 2s² 2p³
+            <br>The 2p orbitals are filled as: [↑] [↑] [↑] (on 2p_x, 2p_y, 2p_z)
+            <br><strong>NOT</strong> as: [↑↓] [↑] [ ]</p>
+        </section>
+
+        <hr>
+
+        <section id="topic8">
+            <h2>Stability of Half-filled and Completely-filled Orbitals</h2>
+            <p>Subshells that are exactly half-filled (e.g., p³, d⁵, f⁷) or completely-filled (e.g., p⁶, d¹⁰, f¹⁴) are <strong>exceptionally stable</strong>.</p>
+            
+            <h3>Reasons for Stability:</h3>
+            <ol>
+                <li><strong>Symmetry:</strong> A half-filled or completely-filled set of degenerate orbitals has a perfectly symmetrical distribution of electron density, which leads to greater stability.</li>
+                <li><strong>Exchange Energy:</strong> Electrons with the same spin (parallel spins) in degenerate orbitals can exchange their positions. Each such exchange releases energy, called exchange energy. The more parallel spins there are, the greater the exchange energy, and the greater the stability. A half-filled d⁵ subshell (5 parallel spins) has the maximum possible exchange energy.</li>
+            </ol>
+            
+            <h3>Anomalous Electronic Configurations:</h3>
+            <p>This stability explains the anomalous configurations of Chromium (Cr) and Copper (Cu).</p>
+            <ul>
+                <li><strong>Chromium (Cr, Z=24)</strong>
+                    <ul>
+                        <li>Expected: [Ar] 4s² 3d⁴</li>
+                        <li><strong>Actual: [Ar] 4s¹ 3d⁵</strong></li>
+                        <li><strong>Reason:</strong> An electron moves from 4s to 3d to achieve the highly stable half-filled d⁵ configuration.</li>
+                    </ul>
+                </li>
+                <li><strong>Copper (Cu, Z=29)</strong>
+                    <ul>
+                        <li>Expected: [Ar] 4s² 3d⁹</li>
+                        <li><strong>Actual: [Ar] 4s¹ 3d¹⁰</strong></li>
+                        <li><strong>Reason:</strong> An electron moves from 4s to 3d to achieve the highly stable completely-filled d¹⁰ configuration.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

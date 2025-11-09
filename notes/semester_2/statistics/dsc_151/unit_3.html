@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics DSC 151 Unit 3 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Statistics DSC 151 (Probability Distributions), Unit 3, based on the Assam University syllabus. Covers Moments, Cumulants, MGF, CGF, Characteristic Functions, and Conditional Expectation.">
+    <meta name="keywords" content="Statistics DSC 151, Probability Distributions, Unit 3, Assam University, Moments, Cumulants, Moment Generating Function, MGF, Cumulant Generating Function, Characteristic Function, Conditional Expectation, Conditional Variance">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        h1 {
+            color: #0d47a1;
+            border-bottom: 3px solid #0d47a1;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1565c0;
+            border-bottom: 1px solid #e0e0e0;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #333;
+            padding-top: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        code {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #eef;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+        blockquote {
+            background-color: #e3f2fd;
+            border-left: 5px solid #0d47a1;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        .formula {
+            background-color: #fdfdfd;
+            border: 1px dashed #ccc;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        .exam-tip, .common-mistake {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .exam-tip {
+            background-color: #fffbe6;
+            border: 1px solid #ffecb3;
+        }
+        .common-mistake {
+            background-color: #ffebee;
+            border: 1px solid #ffcdd2;
+        }
+        .toc {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            margin-top: 0;
+            color: #1565c0;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #337ab7;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 3: Generating Functions and Conditional Moments</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#moments_cumulants">3.1 Moments and Cumulants</a></li>
+                <li><a href="#mgf">3.2 Moment Generating Function (M.G.F.)</a></li>
+                <li><a href="#cgf">3.3 Cumulant Generating Function (C.G.F.)</a></li>
+                <li><a href="#cf">3.4 Characteristic Function</a></li>
+                <li><a href="#theorems">3.5 Uniqueness and Inversion Theorems</a></li>
+                <li><a href="#conditional">3.6 Conditional Expectation and Variance</a></li>
+            </ul>
+        </div>
+
+        <h2 id="moments_cumulants">3.1 Moments and Cumulants</h2>
+        
+        <h3>Moments</h3>
+        <p>Moments are expectations of powers of a random variable. They describe the shape of a distribution (central tendency, dispersion, skewness, kurtosis).</p>
+        
+        <ul>
+            <li><strong>Raw Moments (Moments about the origin):</strong> Denoted μ<sub>r</sub>' (mu-r-prime).</li>
+            <div class="formula">μ<sub>r</sub>' = E[X<sup>r</sup>]</div>
+            <ul>
+                <li>μ<sub>1</sub>' = E[X¹] = <strong>Mean (μ)</strong></li>
+                <li>μ<sub>2</sub>' = E[X²] (Used to calculate variance)</li>
+            </ul>
+        
+            <li><strong>Central Moments (Moments about the mean):</strong> Denoted μ<sub>r</sub>.</li>
+            <div class="formula">μ<sub>r</sub> = E[ (X - μ)<sup>r</sup> ]</div>
+            <ul>
+                <li>μ<sub>1</sub> = E[X - μ] = E[X] - E[μ] = μ - μ = <strong>0</strong> (always)</li>
+                <li>μ<sub>2</sub> = E[(X - μ)²] = <strong>Variance (σ²)</strong></li>
+                <li>μ<sub>3</sub> = E[(X - μ)³] (Used to measure <strong>skewness</strong> - asymmetry)</li>
+                <li>μ<sub>4</sub> = E[(X - μ)⁴] (Used to measure <strong>kurtosis</strong> - "tailedness" or "peakedness")</li>
+            </ul>
+        </ul>
+        
+        <p><strong>Relationship:</strong> μ₂ = E[X²] - (E[X])² = μ₂' - (μ₁')²</p>
+
+        <h3>Cumulants</h3>
+        <p>Cumulants, denoted κ<sub>r</sub> (kappa-r), are another set of descriptive constants. Their key property is <strong>additivity for independent variables</strong>: if X and Y are independent, the r-th cumulant of (X+Y) is κ<sub>r</sub>(X) + κ<sub>r</sub>(Y).</p>
+        
+        <ul>
+            <li>κ₁ = μ₁' = Mean</li>
+            <li>κ₂ = μ₂ = Variance (σ²)</li>
+            <li>κ₃ = μ₃ (Skewness measure)</li>
+            <li>κ₄ = μ₄ - 3(μ₂)² (Kurtosis measure)</li>
+        </ul>
+        <p>Cumulants are generated by the Cumulant Generating Function (C.G.F.).</p>
+
+        <h2 id="mgf">3.2 Moment Generating Function (M.G.F.)</h2>
+        <p>The <strong>Moment Generating Function (M.G.F.)</strong> is a function M<sub>X</sub>(t) that, if it exists, can be used to easily generate all the raw moments of a distribution.</p>
+        
+        <h3>Definition</h3>
+        <ul>
+            <li><strong>For a Discrete RV (X):</strong></li>
+            <div class="formula">M<sub>X</sub>(t) = E[e<sup>tX</sup>] = Σ<sub>x</sub> e<sup>tx</sup> * p(x)</div>
+            <li><strong>For a Continuous RV (X):</strong></li>
+            <div class="formula">M<sub>X</sub>(t) = E[e<sup>tX</sup>] = ∫<sub>-∞</sub><sup>+∞</sup> e<sup>tx</sup> * f(x) dx</div>
+        </ul>
+        <p>The M.G.F. is defined only for values of 't' for which this expectation exists (i.e., the sum/integral converges).</p>
+        
+        <h3>How it Generates Moments</h3>
+        <p>The r-th raw moment (μ<sub>r</sub>') is the r-th derivative of the M.G.F. with respect to 't', evaluated at t=0.</p>
+        <div class="formula">μ<sub>r</sub>' = E[X<sup>r</sup>] = (d<sup>r</sup> / dt<sup>r</sup>) M<sub>X</sub>(t) |<sub>t=0</sub></div>
+        
+        <ul>
+            <li>E[X] = M<sub>X</sub>'(0)</li>
+            <li>E[X²] = M<sub>X</sub>''(0)</li>
+            <li>...and so on.</li>
+        </ul>
+        <p><strong>Why does this work?</strong> If you expand e<sup>tX</sup> using a Taylor series:</p>
+        <p>e<sup>tX</sup> = 1 + tX + (t²X²)/2! + (t³X³)/3! + ...</p>
+        <p>E[e<sup>tX</sup>] = E[1 + tX + (t²X²)/2! + ...] = 1 + t*E[X] + (t²/2!)*E[X²] + ...</p>
+        <p>This is a power series in 't'. If you differentiate once w.r.t 't' and set t=0, only the coefficient of 't' (which is E[X]) remains. Differentiate twice, you get E[X²].</p>
+
+        <h3>Properties of M.G.F.</h3>
+        <ol>
+            <li><strong>Effect of Linear Transformation (aX + b):</strong></li>
+            <div class="formula">M<sub>aX+b</sub>(t) = E[e<sup>t(aX+b)</sup>] = E[e<sup>atX</sup> * e<sup>bt</sup>] = e<sup>bt</sup> * E[e<sup>(at)X</sup>] = e<sup>bt</sup> * M<sub>X</sub>(at)</div>
+            
+            <li><strong>Sum of Independent Variables (X + Y):</strong> If X and Y are independent:</li>
+            <div class="formula">M<sub>X+Y</sub>(t) = E[e<sup>t(X+Y)</sup>] = E[e<sup>tX</sup> * e<sup>tY</sup>] = E[e<sup>tX</sup>] * E[e<sup>tY</sup>] = M<sub>X</sub>(t) * M<sub>Y</sub>(t)</div>
+            <p>The M.G.F. of a sum of independent variables is the <strong>product</strong> of their individual M.G.F.s.</p>
+        </ol>
+        
+        <h2 id="cgf">3.3 Cumulant Generating Function (C.G.F.)</h2>
+        <p>The <strong>Cumulant Generating Function (C.G.F.)</strong> is simply the natural logarithm of the M.G.F. It is used to generate cumulants.</p>
+        
+        <div class="formula">K<sub>X</sub>(t) = log( M<sub>X</sub>(t) )</div>
+        
+        <h3>How it Generates Cumulants</h3>
+        <p>The r-th cumulant (κ<sub>r</sub>) is the r-th derivative of the C.G.F. with respect to 't', evaluated at t=0.</p>
+        <div class="formula">κ<sub>r</sub> = (d<sup>r</sup> / dt<sup>r</sup>) K<sub>X</sub>(t) |<sub>t=0</sub></div>
+        
+        <ul>
+            <li>κ₁ = K<sub>X</sub>'(0) = Mean</li>
+            <li>κ₂ = K<sub>X</sub>''(0) = Variance</li>
+        </ul>
+        
+        <h3>Property of C.G.F.</h3>
+        <p>If X and Y are independent, K<sub>X+Y</sub>(t) = log(M<sub>X+Y</sub>(t)) = log(M<sub>X</sub>(t) * M<sub>Y</sub>(t)) = log(M<sub>X</sub>(t)) + log(M<sub>Y</sub>(t)) = K<sub>X</sub>(t) + K<sub>Y</sub>(t).</p>
+        <p>The C.G.F. of a sum of independent variables is the <strong>sum</strong> of their individual C.G.F.s. This is the <strong>additivity property</strong> of cumulants.</p>
+
+        <h2 id="cf">3.4 Characteristic Function</h2>
+        <p>The M.G.F. has a major drawback: it doesn't exist for all distributions (e.g., the Cauchy distribution). The <strong>Characteristic Function (C.F.)</strong> solves this problem. It *always* exists for *every* distribution.</p>
+        
+        <p>It is defined using the complex number <code>i = sqrt(-1)</code>.</p>
+        
+        <div class="formula">φ<sub>X</sub>(t) = E[e<sup>itX</sup>] = E[cos(tX) + i * sin(tX)]</div>
+        
+        <ul>
+            <li><strong>Discrete:</strong> φ<sub>X</sub>(t) = Σ<sub>x</sub> e<sup>itx</sup> * p(x)</li>
+            <li><strong>Continuous:</strong> φ<sub>X</sub>(t) = ∫<sub>-∞</sub><sup>+∞</sup> e<sup>itx</sup> * f(x) dx</li>
+        </ul>
+        
+        <p>The C.F. has the same properties as the M.G.F. (e.g., for sums of independent variables, C.F.s multiply). It can also be used to find moments: <strong>E[X<sup>r</sup>] = (1/i<sup>r</sup>) * φ<sub>X</sub><sup>(r)</sup>(0)</strong>.</p>
+        
+        <h2 id="theorems">3.5 Uniqueness and Inversion Theorems (Without Proof)</h2>
+        <p>These theorems are the reason generating functions are so important. The syllabus states they are <strong>without proof</strong>, so you only need to understand their application.</p>
+        
+        <h3>Uniqueness Theorem</h3>
+        <blockquote>
+            <strong>Theorem:</strong> If two random variables X and Y have M.G.F.s M<sub>X</sub>(t) and M<sub>Y</sub>(t) that are equal (i.e., M<sub>X</sub>(t) = M<sub>Y</sub>(t) for all t in an open interval around 0), then X and Y have the <strong>same probability distribution</strong>.
+        </blockquote>
+        <p>The same theorem holds for Characteristic Functions, and it's more powerful because the C.F. always exists.</p>
+        
+        <div class="exam-tip">
+            <strong>Application (How to use this in an exam):</strong>
+            <ol>
+                <li>You are asked to find the distribution of Y = X₁ + X₂.</li>
+                <li>You know X₁ and X₂ are independent and from a known distribution (e.g., Normal or Poisson).</li>
+                <li>Find the M.G.F.s M<sub>X₁</sub>(t) and M<sub>X₂</sub>(t).</li>
+                <li>Find the M.G.F. of Y: M<sub>Y</sub>(t) = M<sub>X₁</sub>(t) * M<sub>X₂</sub>(t).</li>
+                <li>Simplify the resulting function, M<sub>Y</sub>(t).</li>
+                <li><strong>Recognize</strong> this new M.G.F. as the M.G.F. of another known distribution.</li>
+                <li>By the <strong>Uniqueness Theorem</strong>, Y *must* follow that distribution.</li>
+            </ol>
+            <p><strong>Example:</strong> If X ~ Normal(μ₁, σ₁²) and Y ~ Normal(μ₂, σ₂²) are independent, their MGFs multiply. The resulting MGF is recognizable as a Normal MGF with mean (μ₁+μ₂) and variance (σ₁²+σ₂²). Therefore, (X+Y) is also normally distributed.</p>
+        </div>
+        
+        <h3>Inversion Theorem</h3>
+        <blockquote>
+            <strong>Theorem:</strong> Given a Characteristic Function φ<sub>X</sub>(t), there is a unique corresponding p.d.f./p.m.f. f(x).
+        </blockquote>
+        <p>This means the C.F. contains all the information about the distribution. The "inversion formula" (which you don't need) is a way to retrieve the p.d.f. from the C.F. using an integral. The key takeaway is that the C.F. uniquely defines the distribution.</p>
+        
+        <h2 id="conditional">3.6 Conditional Expectation and Variance</h2>
+        
+        <h3>Conditional Expectation</h3>
+        <p><strong>Conditional Expectation</strong>, E[Y | X=x], is the expected value (mean) of Y, calculated using the conditional distribution f(y|x). It represents our best guess for Y, *given that we know* X has taken the value x.</p>
+        
+        <div class="formula">E[Y | X=x] = ∫<sub>-∞</sub><sup>+∞</sup> y * f(y | x) dy</div>
+        
+        <p><strong>Important:</strong> E[Y | X=x] is a <strong>function of x</strong>. If we let 'x' be random again, we get E[Y | X], which is a <strong>random variable</strong> (its value depends on X).</p>
+
+        <div class="exam-tip">
+            <strong>Law of Total Expectation (or Tower Property):</strong>
+            <p>This law connects conditional expectation back to the marginal expectation. It states that the overall average (E[Y]) is the average of the conditional averages (E[Y|X]).</p>
+            <div class="formula">E[Y] = E<sub>X</sub>[ E[Y | X] ]</div>
+            <p><strong>In practice:</strong> You find E[Y|X=x], which is a function of x. Then you take the expectation of that function with respect to the distribution of X. <br>E[Y] = ∫ (E[Y | X=x]) * f<sub>X</sub>(x) dx.</p>
+        </div>
+
+        <h3>Conditional Variance</h3>
+        <p><strong>Conditional Variance</strong>, Var(Y | X=x), is the variance of Y, calculated using the conditional distribution f(y|x). It measures the "spread" or "uncertainty" of Y, *given that we know* X=x.</p>
+        
+        <div class="formula">Var(Y | X=x) = E[ (Y - E[Y|x])² | X=x ]</div>
+        <p><strong>Computational Formula:</strong></p>
+        <div class="formula">Var(Y | X=x) = E[Y² | X=x] - ( E[Y | X=x] )²</div>
+        
+        <p>Like conditional expectation, Var(Y | X) is a random variable (a function of X).</p>
+        
+        <div class="exam-tip">
+            <strong>Law of Total Variance (or EVE's Law):</strong>
+            <p>This law decomposes the total variance of Y into two parts: the "explained" variance and the "unexplained" variance.</p>
+            <div class="formula">Var(Y) = E[ Var(Y | X) ] + Var( E[Y | X] )</div>
+            <ul>
+                <li><strong>E[ Var(Y | X) ]:</strong> The "Mean of the Conditional Variances." This is the part of the variance that remains *even after* we know X (the average "unexplained" variance).</li>
+                <li><strong>Var( E[Y | X] ):</strong> The "Variance of the Conditional Means." This is the part of the variance that is *explained* by X (how much the conditional mean of Y changes as X changes).</li>
+            </ul>
+        </div>
+        
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

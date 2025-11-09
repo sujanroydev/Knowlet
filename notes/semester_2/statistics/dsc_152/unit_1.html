@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics DSC 152 Unit 1 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Statistics DSC 152 LAB (Descriptive Statistics and Probability Distributions), based on the Assam University syllabus. Covers all practicals, objectives, and outcomes.">
+    <meta name="keywords" content="Statistics DSC 152, DSC 152 LAB, Descriptive Statistics, Probability Distributions, Assam University, Statistics Practical, Curve Fitting, Correlation, Binomial Fitting, Poisson Fitting, Normal Fitting">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        h1 {
+            color: #d32f2f; /* Red tone for DSC 152 */
+            border-bottom: 3px solid #d32f2f;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #e53935;
+            border-bottom: 1px solid #e0e0e0;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #333;
+            padding-top: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #fce4ec;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+        blockquote {
+            background-color: #fbe9e7;
+            border-left: 5px solid #d32f2f;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        .formula {
+            background-color: #fdfdfd;
+            border: 1px dashed #ccc;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            text-align: center;
+            overflow-x: auto;
+        }
+        .exam-tip, .procedure-note {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .exam-tip {
+            background-color: #fffbe6;
+            border: 1px solid #ffecb3;
+        }
+        .procedure-note {
+            background-color: #e3f2fd;
+            border: 1px solid #bbdefb;
+        }
+        .toc {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            margin-top: 0;
+            color: #e53935;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #337ab7;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .placeholder {
+            border: 2px dashed #aaa;
+            padding: 20px;
+            text-align: center;
+            background-color: #fafafa;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #e53935;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DSC-152 LAB: Descriptive Statistics and Probability Distributions</h1>
+        
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#course_details">1. Course Details</a></li>
+                <li><a href="#learning_objectives">2. Learning Objectives</a></li>
+                <li><a href="#learning_outcomes">3. Learning Outcomes</a></li>
+                <li><a href="#list_practicals">4. List of Practicals (with Notes)</a>
+                    <ul>
+                        <li><a href="#prac_1">Practical 1: Graphical Representation</a></li>
+                        <li><a href="#prac_2">Practical 2: Measures of Central Tendency</a></li>
+                        <li><a href="#prac_3">Practical 3: Measures of Dispersion</a></li>
+                        <li><a href="#prac_4">Practical 4: Combined Mean and Variance</a></li>
+                        <li><a href="#prac_5">Practical 5: Moments, Skewness & Kurtosis</a></li>
+                        <li><a href="#prac_6">Practical 6: Fitting of Curves</a></li>
+                        <li><a href="#prac_7">Practical 7: Karl Pearson's Correlation</a></li>
+                        <li><a href="#prac_8">Practical 8: Bivariate Correlation</a></li>
+                        <li><a href="#prac_9">Practical 9: Lines of Regression</a></li>
+                        <li><a href="#prac_10">Practical 10: Spearman Rank Correlation</a></li>
+                        <li><a href="#prac_11_14">Practicals 11-14: Fitting of Discrete Distributions</a></li>
+                        <li><a href="#prac_15_16">Practicals 15-16: Applications & Fitting of Normal Distribution</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h2 id="course_details">1. Course Details</h2>
+        <ul>
+            [cite_start]<li><strong>Course Code:</strong> DSC-152 LAB [cite: 175]</li>
+            [cite_start]<li><strong>Title:</strong> Descriptive Statistics and Probability Distributions [cite: 176]</li>
+            [cite_start]<li><strong>Credits:</strong> 03 [cite: 179]</li>
+            [cite_start]<li><strong>Contact Hours:</strong> 90 Hours [cite: 179]</li>
+            [cite_start]<li><strong>Full Marks:</strong> 100 [cite: 176]
+                <ul>
+                    [cite_start]<li>End Semester Exam: 70 [cite: 176]</li>
+                    [cite_start]<li>Internal: 30 [cite: 176]</li>
+                </ul>
+            </li>
+            [cite_start]<li><strong>Pass Marks:</strong> 40 [cite: 176]
+                <ul>
+                    [cite_start]<li>End Semester Exam: 28 [cite: 176]</li>
+                    [cite_start]<li>Internal: 12 [cite: 176]</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2 id="learning_objectives">2. Learning Objectives</h2>
+        <p>The main goals of this practical course are:</p>
+        <ul>
+            [cite_start]<li>To develop skills in the graphical representation of data. [cite: 180]</li>
+            [cite_start]<li>To compute measures of central tendency, dispersion, moments, and correlation coefficients. [cite: 181]</li>
+            [cite_start]<li>To gain proficiency in fitting curves, such as polynomials and exponential curves, to data. [cite: 182]</li>
+        </ul>
+        
+        <h2 id="learning_outcomes">3. Learning Outcomes</h2>
+        <p>After successfully completing this lab course, you will be able to:</p>
+        <ul>
+            [cite_start]<li>Interpret graphs of visually represented data. [cite: 185]</li>
+            [cite_start]<li>Interpret measures of central tendency, dispersion, moments, and correlation coefficients. [cite: 186]</li>
+            [cite_start]<li>Identify the best-fitted model (curve or distribution) for a given set of data. [cite: 187]</li>
+        </ul>
+
+        <h2 id="list_practicals">4. List of Practicals (with Notes)</h2>
+        [cite_start]<p>This section details the 16 required practicals for the course. [cite: 188]</p>
+
+        [cite_start]<h3 id="prac_1">Practical 1: Graphical representation of data. [cite: 189]</h3>
+        <div class="procedure-note">
+            <p><strong>Focus:</strong> This practical involves creating various statistical graphs to visualize data distributions.</p>
+            <p><strong>Charts to Master:</strong></p>
+            <ul>
+                <li><strong>Histogram:</strong> Used for continuous frequency distributions. Bars are adjacent. Can have equal or unequal class intervals (in which case, frequency density must be plotted).</li>
+                <li><strong>Frequency Polygon:</strong> A line graph connecting the midpoints of the tops of histogram bars. Can also be drawn without a histogram.</li>
+                <li><strong>Bar Diagram (or Bar Chart):</strong> Used for discrete or categorical data. Bars are separated.</li>
+                <li><strong>Pie Chart:</strong> Shows the proportion of different categories in a circle. Calculate the angle for each component as (Component Value / Total Value) * 360°.</li>
+                <li><strong>Ogive Curves:</strong>
+                    <ul>
+                        <li><strong>Less Than Ogive:</strong> Plots cumulative frequency (less than type) against the <em>upper class boundary</em>. It is a rising curve.</li>
+                        <li><strong>More Than Ogive:</strong> Plots cumulative frequency (more than type) against the <em>lower class boundary</em>. It is a falling curve.</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="exam-tip">
+                <strong>Exam Tip:</strong> The intersection point of the "Less Than" and "More Than" Ogive curves corresponds to the <strong>Median</strong> of the distribution on the x-axis.
+            </div>
+            <div class="placeholder">
+                </div>
+        </div>
+
+        [cite_start]<h3 id="prac_2">Practical 2: Problems based on measures of central tendency. [cite: 191]</h3>
+        <div class="procedure-note">
+            <p><strong>Focus:</strong> Calculating the "center" or "average" of a dataset using different methods.</p>
+            <p><strong>Formulas to Apply:</strong></p>
+            <ul>
+                <li><strong>Arithmetic Mean (μ or x-bar):</strong>
+                    <ul>
+                        <li>Ungrouped Data: Σx / n</li>
+                        <li>Grouped Data: Σ(f * x) / N, where x = midpoint and N = Σf</li>
+                    </ul>
+                </li>
+                <li><strong>Median:</strong>
+                    <ul>
+                        <li>Ungrouped Data: The (n+1)/2-th value of the <em>sorted</em> data.</li>
+                        <li>Grouped Data: L + [ (N/2 - C) / f ] * h
+                            <ul>
+                                <li>L = Lower boundary of median class</li>
+                                <li>N = Total frequency</li>
+                                <li>C = Cumulative frequency of the class <em>before</em> the median class</li>
+                                <li>f = Frequency of the median class</li>
+                                <li>h = Class width</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>Mode:</strong>
+                    <ul>
+                        <li>Ungrouped Data: The most frequent value.</li>
+                        <li>Grouped Data: L + [ (f₁ - f₀) / (2f₁ - f₀ - f₂) ] * h
+                            <ul>
+                                <li>L = Lower boundary of modal class</li>
+                                <li>f₁ = Frequency of modal class</li>
+                                <li>f₀ = Frequency of class <em>before</em> modal class</li>
+                                <li>f₂ = Frequency of class <em>after</em> modal class</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>Geometric Mean (G.M.)</strong> and <strong>Harmonic Mean (H.M.)</strong> for ungrouped data.</li>
+            </ul>
+        </div>
+
+        [cite_start]<h3 id="prac_3">Practical 3: Problems based on measures of dispersion. [cite: 193]</h3>
+        <div class="procedure-note">
+            <p><strong>Focus:</strong> Calculating the "spread" or "variability" of a dataset.</p>
+            <p><strong>Formulas to Apply:</strong></p>
+            <ul>
+                <li><strong>Range:</strong> Highest Value - Lowest Value</li>
+                <li><strong>Quartile Deviation (Semi-Interquartile Range):</strong> (Q₃ - Q₁) / 2
+                    <ul><li>You must first calculate the first quartile (Q₁) and third quartile (Q₃) using a method similar to the median.</li></ul>
+                </li>
+                <li><strong>Mean Deviation:</strong>
+                    <ul>
+                        <li>About Mean: Σ |x - mean| / n</li>
+                        <li>About Median: Σ |x - median| / n</li>
+                    </ul>
+                </li>
+                <li><strong>Standard Deviation (σ):</strong> The square root of Variance.</li>
+                <li><strong>Variance (σ²):</strong>
+                    <ul>
+                        <li>Ungrouped Data: [ Σ(x - mean)² ] / n  OR  [ Σx² / n ] - (mean)²</li>
+                        <li>Grouped Data: [ Σf(x - mean)² ] / N  OR  [ Σ(f * x²) / N ] - (mean)²</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        [cite_start]<h3 id="prac_4">Practical 4: Problems based on combined mean and variance and coefficient of variation. [cite: 195]</h3>
+        <div class="procedure-note">
+            <p><strong>Focus:</strong> Combining statistics from two or more groups and comparing their variability.</p>
+            <p><strong>Formulas to Apply:</strong></p>
+            <ul>
+                <li><strong>Combined Mean (x-bar₁₂):</strong>
+                    <div class="formula">x-bar₁₂ = (n₁ * x-bar₁ + n₂ * x-bar₂) / (n₁ + n₂)</div>
+                </li>
+                <li><strong>Combined Variance (σ²₁₂):</strong>
+                    <div class="formula">σ²₁₂ = [ n₁(σ₁² + d₁²) + n₂(σ₂² + d₂²) ] / (n₁ + n₂)</div>
+                    <ul>
+                        <li>d₁ = x-bar₁ - x-bar₁₂</li>
+                        <li>d₂ = x-bar₂ - x-bar₁₂</li>
+                    </ul>
+                </li>
+                <li><strong>Coefficient of Variation (C.V.):</strong>
+                    <div class="formula">C.V. = (σ / |mean|) * 100</div>
+                    <ul><li>This is a <em>relative</em> measure of dispersion, expressed as a percentage. It is used to compare the variability of two datasets, even if their means are different.</li></ul>
+                </li>
+            </ul>
+            <div class="exam-tip">
+                A dataset with a <strong>lower C.V.</strong> is considered <strong>more consistent</strong> or less variable.
+            </div>
+        </div>
+
+        [cite_start]<h3 id="prac_5">Practical 5: Problems based on moments, skewness and kurtosis. [cite: 197]</h3>
+        <div class="procedure-note">
+            <p><strong>Focus:</strong> Describing the shape of the distribution.</p>
+            <p><strong>Formulas to Apply:</strong></p>
+            <ul>
+                <li><strong>Raw Moments (μ'ᵣ):</strong> (Moments about origin)
+                    <ul><li>μ'₁ = Σ(f * x) / N = Mean</li><li>μ'₂ = Σ(f * x²) / N</li></ul>
+                </li>
+                <li><strong>Central Moments (μᵣ):</strong> (Moments about mean)
+                    <ul>
+                        <li>μ₁ = 0 (always)</li>
+                        <li>μ₂ = μ'₂ - (μ'₁)² = Variance</li>
+                        <li>μ₃ = μ'₃ - 3μ'₂μ'₁ + 2(μ'₁)³</li>
+                        <li>μ₄ = μ'₄ - 4μ'₃μ'₁ + 6μ'₂(μ'₁)² - 3(μ'₁)⁴</li>
+                    </ul>
+                </li>
+                <li><strong>Karl Pearson's Coefficient of Skewness (Sk):</strong>
+                    <div class="formula">Sk = (Mean - Mode) / σ   OR   Sk = 3 * (Mean - Median) / σ</div>
+                    <ul><li>If Sk > 0, positively skewed (right tail).</li><li>If Sk < 0, negatively skewed (left tail).</li><li>If Sk = 0, symmetric.</li></ul>
+                </li>
+                <li><strong>Moment Coefficient of Skewness (β₁):</strong>
+                    <div class="formula">β₁ = μ₃² / μ₂³</div>
+                    <ul><li>β₁ = 0 for a symmetric distribution.</li></ul>
+                </li>
+                <li><strong>Moment Coefficient of Kurtosis (β₂):</strong>
+                    <div class="formula">β₂ = μ₄ / μ₂²</div>
+                    <ul>
+                        <li>If β₂ = 3, <strong>Mesokurtic</strong> (Normal curve).</li>
+                        <li>If β₂ > 3, <strong>Leptokurtic</strong> (More peaked than normal).</li>
+                        <li>If β₂ < 3, <strong>Platykurtic</strong> (Flatter than normal).</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        [cite_start]<h3 id="prac_6">Practical 6: Fitting of polynomials, exponential curves. [cite: 199]</h3>
+        <div class="procedure-note">
+            <p><strong>Focus:</strong> Using the <strong>Principle of Least Squares</strong> to find the "best fit" curve for a set of (x, y) data points.</p>
+            <p><strong>Curves to Fit:</strong></p>
+            <ul>
+                <li><strong>Straight Line (Polynomial of degree 1):</strong> y = a + bx
+                    <ul>
+                        <li><strong>Normal Equations:</strong>
+                            <br>Σy = na + bΣx
+                            <br>Σxy = aΣx + bΣx²
+                        </li>
+                        <li>Solve this 2x2 system of equations for 'a' and 'b'.</li>
+                    </ul>
+                </li>
+                <li><strong>Parabola (Polynomial of degree 2):</strong> y = a + bx + cx²
+                    <ul>
+                        <li><strong>Normal Equations:</strong>
+                            <br>Σy = na + bΣx + cΣx²
+                            <br>Σxy = aΣx + bΣx² + cΣx³
+                            <br>Σx²y = aΣx² + bΣx³ + cΣx⁴
+                        </li>
+                        <li>Solve this 3x3 system for 'a', 'b', and 'c'.</li>
+                    </ul>
+                </li>
+                <li><strong>Exponential Curve:</strong> y = abˣ
+                    <ul>
+                        <li><strong>Transform first:</strong> Take log on both sides.
+                            <br>log(y) = log(a) + x * log(b)
+                        </li>
+                        <li>Let Y = log(y), A = log(a), B = log(b).</li>
+                        <li>The equation becomes <strong>Y = A + Bx</strong>, which is a straight line.</li>
+                        <li>Fit this line using the normal equations for a straight line:
+                            <br>ΣY = nA + BΣx
+                            <br>ΣxY = AΣx + BΣx²
+                        </li>
+                        <li>Solve for A and B, then find the original parameters: <strong>a = antilog(A)</strong> and <strong>b = antilog(B)</strong>.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        [cite_start]<h3 id="prac_7">Practical 7: Karl Pearson's correlation coefficient. [cite: 201]</h3>
+        <div class="procedure-note">
+            <p><strong>Focus:</strong> Calculating the strength and direction of the <em>linear</em> relationship between two quantitative variables (x, y).</p>
+            <p><strong>Formula (r):</strong></p>
+            <div class="formula">r = Cov(x, y) / (σₓ * σᵧ)</div>
+            <p><strong>Computational Formula:</strong></p>
+            <div class="formula">r = [ nΣxy - (Σx)(Σy) ] / sqrt( [nΣx² - (Σx)²] * [nΣy² - (Σy)²] )</div>
+            <p><strong>Properties of 'r':</strong></p>
+            <ul>
+                <li>-1 ≤ r ≤ +1</li>
+                <li>r = +1: Perfect positive linear correlation.</li>
+                <li>r = -1: Perfect negative linear correlation.</li>
+                <li>r = 0: No <em>linear</em> correlation.</li>
+            </ul>
+        </div>
+
+        [cite_start]<h3 id="prac_8">Practical 8: Correlation coefficient for a bivariate frequency distribution. [cite: 203]</h3>
+        <div class="procedure-note">
+            <p><strong>Focus:</strong> Calculating Karl Pearson's 'r' when the data is given in a bivariate frequency table (a "correlation table").</p>
+            <p><strong>Formula:</strong></p>
+            <div class="formula">r = [ NΣ(f * u * v) - (Σfᵤu)(Σfᵥv) ] / sqrt( [NΣ(fᵤu²) - (Σfᵤu)²] * [NΣ(fᵥv²) - (Σfᵥv)²] )</div>
+            <ul>
+                <li>This is the same formula as Practical 7, but using coded values (u, v) and frequencies (f).</li>
+                <li>u = (x - A) / h (step-deviation for x)</li>
+                <li>v = (y - B) / k (step-deviation for y)</li>
+                <li>fᵤ and fᵥ are the marginal frequencies.</li>
+                <li>Σ(f * u * v) is the sum of the product of frequencies and their respective u,v values from the cells of the table.</li>
+            </ul>
+            <div class="exam-tip">
+                Correlation is independent of change of origin and scale. This is why we can use the (u, v) coded values to simplify calculations, and the 'r' value will be the same as for the original (x, y) data.
+            </div>
+        </div>
+
+        [cite_start]<h3 id="prac_9">Practical 9: Fitting of lines of regression. [cite: 205]</h3>
+        <div class="procedure-note">
+            <p><strong>Focus:</strong> Finding the "best fit" straight line (y = a + bx) to predict one variable from another.</p>
+            <p><strong>Two Lines of Regression:</strong></p>
+            <ol>
+                <li><strong>Regression Line of Y on X:</strong> (Used to predict Y if X is known)
+                    <div class="formula">(y - y-bar) = bᵧₓ * (x - x-bar)</div>
+                    <ul>
+                        <li><strong>bᵧₓ</strong> is the regression coefficient of Y on X.</li>
+                        <li><strong>bᵧₓ = Cov(x, y) / σₓ² = r * (σᵧ / σₓ)</strong></li>
+                    </ul>
+                </li>
+                <li><strong>Regression Line of X on Y:</strong> (Used to predict X if Y is known)
+                    <div class="formula">(x - x-bar) = bₓᵧ * (y - y-bar)</div>
+                    <ul>
+                        <li><strong>bₓᵧ</strong> is the regression coefficient of X on Y.</li>
+                        <li><strong>bₓᵧ = Cov(x, y) / σᵧ² = r * (σₓ / σᵧ)</strong></li>
+                    </ul></li>
+            </ol>
+            <div class="exam-tip">
+                <strong>Properties:</strong>
+                <ul>
+                    <li>The two lines intersect at the point (x-bar, y-bar).</li>
+                    <li>r² = bᵧₓ * bₓᵧ (The geometric mean of the coefficients is 'r').</li>
+                    <li>Both coefficients must have the same sign.</li>
+                </ul>
+            </div>
+        </div>
+
+        [cite_start]<h3 id="prac_10">Practical 10: Spearman rank correlation with and without ties. [cite: 206]</h3>
+        <div class="procedure-note">
+            <p><strong>Focus:</strong> Calculating the correlation between two variables when the data is <em>ranked</em> (ordinal). It measures the strength of a <em>monotonic</em> relationship (not just linear).</p>
+            <p><strong>Formulas:</strong></p>
+            <ul>
+                <li><strong>Case 1: No Ties in Ranks</strong>
+                    <div class="formula">R = 1 - [ (6 * Σd²) / (n³ - n) ]</div>
+                    <ul>
+                        <li>d = R₁ - R₂ (Difference between the ranks for each observation)</li>
+                        <li>n = Number of pairs</li>
+                    </ul>
+                </li>
+                <li><strong>Case 2: With Ties in Ranks</strong>
+                    <ul>
+                        <li>If a tie occurs, assign the <em>average rank</em> to all tied items.</li>
+                        <li>Calculate <strong>Correction Factors (C.F.)</strong> for each tie:
+                            <br>C.F. = (m³ - m) / 12, where 'm' is the number of items in a tie.
+                        </li>
+                        <li>Calculate Σ(C.F.ₓ) for all ties in the x-variable and Σ(C.F.ᵧ) for all ties in the y-variable.</li>
+                        <li>Use the general formula (which is just Karl Pearson's 'r' applied to ranks).</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <h3 id="prac_11_14">Practicals 11-14: Fitting of Discrete Distributions</h3>
+        [cite_start]<p><strong>(Practical 11: Binomial [cite: 207][cite_start], 12: Poisson [cite: 208][cite_start], 13: Negative Binomial [cite: 209][cite_start], 14: Suitable distribution [cite: 211])</strong></p>
+        <div class="procedure-note"><p><strong>Focus:</strong> Given an observed frequency distribution (Oᵢ), find the expected frequencies (Eᵢ) according to a theoretical distribution (e.g., Binomial, Poisson).</p>
+            <p><strong>General Procedure:</strong></p>
+            <ol>
+                <li><strong>Estimate Parameters:</strong>
+                    <ul>
+                        <li><strong>Binomial (n, p):</strong> 'n' is usually given. Estimate 'p' by setting the observed mean (x-bar) equal to the theoretical mean (np).
+                            <br>x-bar = np  =>  <strong>p = x-bar / n</strong>
+                        </li>
+                        <li><strong>Poisson (λ):</strong> Estimate 'λ' by setting the observed mean (x-bar) equal to the theoretical mean (λ).
+                            <br><strong>λ = x-bar</strong>
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>Calculate Probabilities:</strong>
+                    <ul>
+                        <li><strong>Binomial:</strong> Use the p.m.f. P(x) = C(n, x)pˣ(1-p)ⁿ⁻ˣ to find P(0), P(1), P(2), ... P(n).</li>
+                        <li><strong>Poisson:</strong> Use the p.m.f. P(x) = (e⁻ˡᵃᵐᵇᵈᵃ * λˣ) / x! to find P(0), P(1), P(2), ...</li>
+                        <li><strong>Tip for Poisson:</strong> Use the recurrence relation: <strong>P(x) = P(x-1) * (λ / x)</strong>. First, calculate P(0) = e⁻ˡᵃᵐᵇᵈᵃ, then P(1) = P(0)*(λ/1), P(2) = P(1)*(λ/2), etc.</li>
+                    </ul>
+                </li>
+                <li><strong>Calculate Expected Frequencies (Eᵢ):</strong>
+                    <div class="formula">Eᵢ = N * P(x)</div>
+                    <ul><li>Where N is the total observed frequency (N = ΣOᵢ).</li></ul>
+                </li>
+                <li><strong>Compare:</strong> Create a table of Observed Frequencies (Oᵢ) and Expected Frequencies (Eᵢ) to see how good the fit is. (Later, a Chi-Square Goodness-of-Fit test is used).</li>
+            </ol>
+            <div class="exam-tip">
+                [cite_start]"Fitting a suitable distribution" [cite: 211] means you must first <em>decide</em> which one is appropriate.
+                <ul>
+                    <li>Calculate the observed mean (x-bar) and variance (s²).</li>
+                    <li>If <strong>x-bar ≈ s²</strong>, a <strong>Poisson</strong> distribution is likely a good fit.</li>
+                    <li>If <strong>s² < x-bar</strong>, a <strong>Binomial</strong> distribution is likely a good fit.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 id="prac_15_16">Practicals 15-16: Applications & Fitting of Normal Distribution</h3>
+        [cite_start]<p><strong>(Practical 15: Applications of Normal distribution [cite: 212][cite_start], 16: Fitting of Normal distribution [cite: 213])</strong></p>
+        <div class="procedure-note">
+            <p><strong>Focus:</strong> Using the properties of the Normal curve to find probabilities and fit it to data.</p>
+            <p><strong>Practical 15: Applications</strong></p>
+            <ul><p><strong>Focus:</strong> Using the properties of the Normal curve to find probabilities and fit it to data.</p>
+            <p><strong>Practical 15: Applications</strong></p>
+            <ul>
+                <li>This involves word problems like "Given X ~ N(μ, σ²), find P(a < X < b)."</li>
+                <li><strong>Procedure:</strong>
+                    <ol>
+                        <li>Standardize the values 'a' and 'b' using the Z-formula:
+                            <br><strong>Z = (X - μ) / σ</strong>
+                        </li>
+                        <li>Z₁ = (a - μ) / σ</li>
+                        <li>Z₂ = (b - μ) / σ</li>
+                        <li>Find P(Z₁ < Z < Z₂) by looking up the areas for Z₁ and Z₂ in the Standard Normal (Z) table and subtracting them.</li>
+                    </ol>
+                </li>
+                <div class="placeholder">
+                    </div>
+            </ul>
+            <p><strong>Practical 16: Fitting</strong></p>
+            <ul>
+                <li>This is similar to fitting discrete distributions, but for continuous data.</li>
+                <li><strong>Procedure:</strong>
+                    <ol>
+                        <li>Calculate the observed mean (x-bar) and standard deviation (σ) from the given frequency distribution. These are your estimates for μ and σ.</li>
+                        <li>For each <strong>class boundary (x)</strong>, calculate the Z-score:
+                            <br><strong>Z = (x - μ) / σ</strong>
+                        </li>
+                        <li>Using the Z-table, find the cumulative area from -∞ up to each Z-score (P(Z ≤ z)).</li>
+                        <li>Find the area (probability) <em>within</em> each class interval by subtracting the cumulative areas of its boundaries.
+                            <br>P(a < X < b) = P(Z < Z₂) - P(Z < Z₁)
+                        </li>
+                        <li>Calculate the Expected Frequency for that class:
+                            <br><strong>Eᵢ = N * P(a < X < b)</strong>
+                        </li>
+                        <li>Compare the Oᵢ and Eᵢ values.</li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

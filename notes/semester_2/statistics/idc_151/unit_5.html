@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics IDC 151 Unit 5 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Statistics IDC 151 (Index Number and Time Series Analysis), Unit 5, based on the Assam University syllabus. Covers methods for estimating the Seasonal component.">
+    <meta name="keywords" content="Statistics IDC 151, Time Series Analysis, Unit 5, Assam University, Seasonal Variation, Simple Averages, Ratio to Trend, Ratio to Moving Average, Link Relatives">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f7f3f0; /* Light brown background */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #3e2723; /* Dark brown */
+        }
+        h1 {
+            color: #4e342e; /* Darker brown */
+            border-bottom: 3px solid #4e342e;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #5d4037; /* Medium brown */
+            border-bottom: 1px solid #e0e0e0;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #6d4c41;
+            padding-top: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        code {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #efebe9;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+        blockquote {
+            background-color: #f7f3f0;
+            border-left: 5px solid #5d4037;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        .formula {
+            background-color: #fdfdfd;
+            border: 1px dashed #ccc;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        .exam-tip, .common-mistake {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .exam-tip {
+            background-color: #fffbe6;
+            border: 1px solid #ffecb3;
+        }
+        .common-mistake {
+            background-color: #ffebee;
+            border: 1px solid #ffcdd2;
+        }
+        .toc {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            margin-top: 0;
+            color: #5d4037;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #337ab7;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #5d4037;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        [cite_start]<h1>Unit 5: Time Series-III (Estimation of Seasonal Component) [cite: 2135]</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#intro">5.1 Introduction to Seasonal Variation</a></li>
+                [cite_start]<li><a href="#simple_average">5.2 Method of Simple Averages [cite: 2136]</a></li>
+                [cite_start]<li><a href="#ratio_to_trend">5.3 Ratio to Trend Method [cite: 2136]</a></li>
+                [cite_start]<li><a href="#ratio_to_ma">5.4 Ratio to Moving Average Method [cite: 2136]</a></li>
+                [cite_start]<li><a href="#link_relative">5.5 Link Relative Method [cite: 2136]</a></li>
+            </ul>
+        </div>
+        
+        <h2 id="intro">5.1 Introduction to Seasonal Variation</h2>
+        <p>This unit focuses on isolating the <strong>Seasonal Component (S)</strong>. These are regular fluctuations that complete a full cycle <strong>within one year</strong> (e.g., quarterly, monthly).</p>
+        <p>The goal is to create a <strong>Seasonal Index</strong> for each period (e.g., each quarter). This index shows how much that period is, on average, above or below the general trend.</p>
+        <ul>
+            <li>A seasonal index of <strong>105% (or 1.05)</strong> for Quarter 2 (summer) means Q2 sales are, on average, 5% <strong>above</strong> the yearly trend.</li>
+            <li>A seasonal index of <strong>90% (or 0.90)</strong> for Quarter 1 (winter) means Q1 sales are, on average, 10% <strong>below</strong> the yearly trend.</li>
+        </ul>
+        <div class="exam-tip">
+            For quarterly data, the sum of the four seasonal indices should be <strong>400% (or 4)</strong>. For monthly data, the sum should be <strong>1200% (or 12)</strong>.
+        </div>
+
+        [cite_start]<h2 id="simple_average">5.2 Method of Simple Averages [cite: 2136]</h2>
+        <p>This is the easiest method, but it's only suitable if there is <strong>no significant trend (T)</strong> in the data.</p>
+        
+        <ol>
+            <li><strong>Step 1:</strong> Arrange the data by year and quarter (or month).</li>
+            <li><strong>Step 2:</strong> Calculate the <strong>total</strong> for each quarter (e.g., add all Q1 values, all Q2 values, etc.).</li>
+            <li><strong>Step 3:</strong> Calculate the <strong>average</strong> for each quarter. (e.g., Q1 Total / Number of years).</li>
+            <li><strong>Step 4:</strong> Calculate the <strong>"Grand Average"</strong> (the average of all the quarterly averages).</li>
+            <li><strong>Step 5:</strong> Calculate the Seasonal Index (SI) for each quarter:
+                <div class="formula">SI (Quarter) = (Quarterly Average / Grand Average) * 100</div>
+            </li>
+        </ol>
+        <div class="common-mistake">This method is not accurate if a trend exists, because the trend will inflate the averages of later quarters/months.</div>
+        
+        [cite_start]<h2 id="ratio_to_trend">5.3 Ratio to Trend Method [cite: 2136]</h2>
+        <p>This is a more accurate method that first <strong>removes the trend (T)</strong> and then finds the seasonal component from what's left. It assumes a <strong>Multiplicative Model (Y = T × S × C × I)</strong>.</p>
+        
+        <ol>
+            <li><strong>Step 1: Find the Trend (T).</strong> Use the <strong>Method of Least Squares</strong> from Unit 4 to get the trend equation (Y-hat = a + bX). Calculate the trend value (T) for <em>every single quarter/month</em>.</li>
+            <li><strong>Step 2: De-trend the data.</strong> For each period, express the original value (Y) as a percentage of the trend value (T).
+                <div class="formula">(Y / T) * 100  =  (S × C × I)</div>
+                <p>This step removes the trend, leaving the other components.</p>
+            </li>
+            <li><strong>Step 3: Average the percentages.</strong> Arrange these percentages by quarter/month (just like in the Simple Averages method). Find the <strong>average percentage</strong> for Q1, Q2, Q3, and Q4. (We assume this averages out the C and I components, leaving only S).</li>
+            <li><strong>Step 4: Adjust the indices.</strong> The four averages from Step 3 are our "raw" seasonal indices. Their sum may not be exactly 400. We must adjust them.
+                <div class="formula">Adjustment Factor = 400 / (Sum of raw indices)</div>
+                <div class="formula">Final Seasonal Index = Raw Index * Adjustment Factor</div>
+            </li>
+        </ol>
+        
+        [cite_start]<h2 id="ratio_to_ma">5.4 Ratio to Moving Average Method [cite: 2136]</h2>
+        <p>This is the <strong>most common and reliable</strong> method. It uses a moving average to estimate the trend, which is more flexible than a rigid straight line.</p>
+        
+        <ol>
+            <li><strong>Step 1: Estimate Trend (T).</strong> Calculate the <strong>Centered Moving Average</strong> (CMA) for each period (as seen in Unit 4). This CMA is our estimate for the <strong>T × C</strong> components.</li>
+            <li><strong>Step 2: Isolate (S × I).</strong> For each period, divide the original value (Y) by the CMA.
+                <div class="formula">(Y / CMA) * 100  =  (T × S × C × I) / (T × C)  =  S × I</div>
+                <p>This gives us the Seasonal and Irregular components, expressed as a percentage.</p>
+            </li>
+            <li><strong>Step 3: Average to find S.</strong> Arrange these (S × I) percentages by quarter/month. Calculate the <strong>average</strong> (or median) for Q1, Q2, Q3, and Q4. This averaging step is assumed to cancel out the random "I" component, leaving just the "S" component.</li>
+            <li><strong>Step 4: Adjust the indices.</strong> Same as the Ratio to Trend method. Sum the four raw indices and adjust them to total 400.
+                <div class="formula">Adjustment Factor = 400 / (Sum of raw indices)</div>
+                <div class="formula">Final Seasonal Index = Raw Index * Adjustment Factor</div>
+            </li>
+        </ol>
+        
+        <div class="exam-tip">
+            <strong>Ratio to Moving Average</strong> is generally preferred over <strong>Ratio to Trend</strong> because the moving average (CMA) is a much better, more flexible estimate of the trend+cycle than a simple straight line (Least Squares).
+        </div>
+        
+        [cite_start]<h2 id="link_relative">5.5 Link Relative Method [cite: 2136]</h2>
+        <p>This method calculates seasonality without first finding the trend. It is more complex and less common.</p>
+        
+        <ol>
+            <li><strong>Step 1: Calculate Link Relatives.</strong> For each quarter/month, express its value as a percentage of the <em>previous</em> period's value.
+                <div class="formula">Link Relative = (Current Period's Value / Previous Period's Value) * 100</div>
+            </li>
+            <li><strong>Step 2: Average the Link Relatives.</strong> Calculate the average Link Relative for each quarter/month (e.g., average of all Q1 Link Relatives, Q2 Link Relatives...).</li>
+            <li><strong>Step 3: Chain the Averages.</strong> "Chain" the averages back to a base (Q1=100) to get <strong>Chain Relatives</strong>.
+                <ul>
+                    <li>Chain Relative (Q1) = 100 (by definition)</li>
+                    <li>Chain Relative (Q2) = (Avg. Link Relative Q2 * Chain Relative Q1) / 100</li>
+                    <li>Chain Relative (Q3) = (Avg. Link Relative Q3 * Chain Relative Q2) / 100</li>
+                    <li>Chain Relative (Q4) = (Avg. Link Relative Q4 * Chain Relative Q3) / 100</li>
+                </ul>
+            </li>
+            <li><strong>Step 4: Correct for Trend.</strong> The new "Chain Relative for Q1" (calculated from Q4) will not be 100 due to the presence of a trend. The difference is the trend "error" that has accumulated. This error is then distributed among the chain relatives.</li>
+            <li><strong>Step 5: Adjust to 100.</strong> The final corrected indices are adjusted (like in other methods) to have an average of 100.</li>
+        </ol>
+        <p>This method is computationally intensive and is less intuitive than the Ratio to Moving Average method.</p>
+
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

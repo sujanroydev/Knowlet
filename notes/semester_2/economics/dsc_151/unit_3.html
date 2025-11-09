@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive notes for Economics (ECODSC-151) Unit 3: Differential Calculus - 1 (Single Variable Case), from the 2nd Semester syllabus.">
+    <meta name="keywords" content="ECODSC-151, Elementary Mathematics for Economics, Unit 3, Differential Calculus, Derivatives, Optimization, Concave, Convex, Marginal Cost, Elasticity">
+    <title>Economics DSC 151 Unit 3 | 2nd Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f4f7f6;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 1000px;
+        margin: 20px auto;
+        background-color: #ffffff;
+        border: 1px solid #d1d1d1;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+      header {
+        background-color: #0056b3; /* Economics Blue */
+        color: #ffffff;
+        padding: 20px 30px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2.5em;
+      }
+      header p {
+        margin: 5px 0 0;
+        font-size: 1.1em;
+      }
+      .content {
+        padding: 30px;
+      }
+      #toc {
+        background-color: #eef5ff;
+        border: 1px solid #b3d1ff;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 30px;
+      }
+      #toc h2 {
+        margin-top: 0;
+        border-bottom: 2px solid #0056b3;
+        padding-bottom: 10px;
+      }
+      #toc ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+      #toc li {
+        margin-bottom: 10px;
+      }
+      #toc a {
+        text-decoration: none;
+        color: #004a99;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+      #toc a:hover {
+        color: #007bff;
+        text-decoration: underline;
+      }
+      h2 {
+        color: #0056b3;
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 10px;
+        margin-top: 40px;
+      }
+      h3 {
+        color: #007bff;
+        margin-top: 30px;
+      }
+      p, li {
+        font-size: 1.05em;
+      }
+      ul, ol {
+        padding-left: 20px;
+      }
+      blockquote {
+        background-color: #f9f9f9;
+        border-left: 5px solid #007bff;
+        margin: 20px 0;
+        padding: 15px 20px;
+        font-style: italic;
+      }
+      .exam-tip, .common-mistake, .real-world {
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 8px;
+        border-left-width: 5px;
+        border-left-style: solid;
+      }
+      .exam-tip {
+        background-color: #fffbeb;
+        border-color: #fdd835; /* Yellow */
+      }
+      .common-mistake {
+        background-color: #ffebee;
+        border-color: #e53935; /* Red */
+      }
+      .real-world {
+        background-color: #e6f7ff;
+        border-color: #1890ff; /* Blue */
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+      th, td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+      th {
+        background-color: #0056b3;
+        color: white;
+      }
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      .formula {
+        font-family: "Courier New", Courier, monospace;
+        font-size: 1.1em;
+        background-color: #eee;
+        padding: 10px;
+        border-radius: 5px;
+        display: block;
+        margin: 10px 0;
+      }
+      .placeholder {
+        background-color: #fafafa;
+        border: 2px dashed #ccc;
+        padding: 20px;
+        text-align: center;
+        border-radius: 8px;
+        margin: 20px 0;
+        font-style: italic;
+        color: #777;
+      }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Unit 3: Differential Calculus - 1 (Single Variable Case)</h1>
+            <p>ECODSC-151: Elementary Mathematics for Economics | 2nd Semester Notes</p>
+        </header>
+        <div class="content">
+
+            <div id="toc">
+                <h2>Table of Contents</h2>
+                <ul>
+                    <li><a href="#rules-diff">1. Basic Rules of differentiation</a></li>
+                    <li><a href="#higher-order">2. Second and higher order derivative</a></li>
+                    <li><a href="#convex-concave">3. Convex and concave function</a></li>
+                    <li><a href="#optimization">4. Optimisation problem for function of one variable</a></li>
+                    <li><a href="#econ-apps">5. Economic application of differentiation</a></li>
+                </ul>
+            </div>
+
+            <section id="rules-diff">
+                <h2>1. Basic Rules of differentiation</h2>
+                <blockquote>
+                    <strong>Definition:</strong> The <strong>derivative</strong> of a function y = f(x), denoted as <strong>f'(x)</strong>, <strong>dy/dx</strong>, or <strong>y'</strong>, measures the <strong>instantaneous rate of change</strong> of y with respect to x.
+                    <br><br>
+                    Geometrically, the derivative at a point is the <strong>slope of the tangent line</strong> to the function's graph at that point.
+                </blockquote>
+
+                <h3>Basic Rules of Differentiation:</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rule Name</th>
+                            <th>Function</th>
+                            <th>Derivative</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Constant Rule</strong></td>
+                            <td>f(x) = c</td>
+                            <td>f'(x) = 0</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Power Rule</strong></td>
+                            <td>f(x) = x<sup>n</sup></td>
+                            <td>f'(x) = n * x<sup>(n-1)</sup></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Constant Multiple</strong></td>
+                            <td>f(x) = c * g(x)</td>
+                            <td>f'(x) = c * g'(x)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sum/Difference Rule</strong></td>
+                            <td>f(x) = g(x) ± h(x)</td>
+                            <td>f'(x) = g'(x) ± h'(x)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Natural Log Rule</strong></td>
+                            <td>f(x) = ln(x)</td>
+                            <td>f'(x) = 1/x</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Exponential Rule (e)</strong></td>
+                            <td>f(x) = e<sup>x</sup></td>
+                            <td>f'(x) = e<sup>x</sup></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Advanced Rules:</h3>
+                <ul>
+                    <li><strong>Product Rule:</strong> For f(x) = u(x) * v(x)
+                        <span class="formula">f'(x) = u'(x)v(x) + u(x)v'(x)</span>
+                        <div class="exam-tip">Mnemonic: "First d-Second, plus Second d-First" (where d- means derivative of)</div>
+                    </li>
+                    <li><strong>Quotient Rule:</strong> For f(x) = u(x) / v(x)
+                        <span class="formula">f'(x) = [ u'(x)v(x) - u(x)v'(x) ] / [ v(x) ]²</span>
+                        <div class="exam-tip">Mnemonic: "Low d-High, minus High d-Low, all over Low-squared"</div>
+                    </li>
+                    <li><strong>Chain Rule:</strong> For a composite function f(x) = g(h(x))
+                        <span class="formula">f'(x) = g'(h(x)) * h'(x)</span>
+                        <div class="exam-tip">Mnemonic: "Derivative of the outside (with the inside left alone), times the derivative of the inside."<br>
+                        <em>Example:</em> y = (x² + 1)³
+                        <br>Outside = (...)³, Inside = (x² + 1)
+                        <br>dy/dx = 3(x² + 1)² * (2x) = 6x(x² + 1)²
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="higher-order">
+                <h2>2. Second and higher order derivative</h2>
+                <p>A <strong>second derivative</strong> is simply the derivative of the first derivative. It measures the rate of change of the rate of change (i.e., acceleration).</p>
+                <ul>
+                    <li><strong>First Derivative:</strong> f'(x) or dy/dx</li>
+                    <li><strong>Second Derivative:</strong> f''(x) or d²y/dx²</li>
+                    <li><strong>Third Derivative:</strong> f'''(x) or d³y/dx³</li>
+                </ul>
+
+                <h3>What the Second Derivative Tells Us:</h3>
+                <p>The sign of the second derivative tells us about the <strong>concavity</strong> of the function's graph.</p>
+                <ul>
+                    <li>If <strong>f''(x) > 0</strong> on an interval, the graph is <strong>Concave Up</strong> (like a "U"). The slope (f') is increasing.</li>
+                    <li>If <strong>f''(x) < 0</strong> on an interval, the graph is <strong>Concave Down</strong> (like an "∩"). The slope (f') is decreasing.</li>
+                </ul>
+                <p>A <strong>Point of Inflection</strong> is a point on the graph where the concavity changes (from up to down, or down to up). This occurs when <strong>f''(x) = 0</strong> or is undefined, *and* the sign of f'' changes.</p>
+                
+                <div class="placeholder">
+                    <p><strong>[Diagram: Concavity and Inflection Point]</strong></p>
+                </div>
+            </section>
+
+            <section id="convex-concave">
+                <h2>3. Convex and concave function</h2>
+                <p>In economics, the terms "convex" and "concave" are often used in a slightly different (but related) way, especially with utility and production functions.</p>
+                <ul>
+                    <li><strong>Concave Function:</strong> A function where the line segment connecting any two points on the graph lies <em>below</em> the graph.
+                        <ul>
+                            <li><strong>Test:</strong> f''(x) ≤ 0 (Concave Down)</li>
+                            <li><strong>Economic Example:</strong> A standard Production Function (like Q = √L) is concave. This shows <strong>diminishing marginal returns</strong>. The first worker adds 10 units, the second adds 8, the third adds 6... the slope is decreasing.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Convex Function:</strong> A function where the line segment connecting any two points on the graph lies <em>above</em> the graph.
+                        <ul>
+                            <li><strong>Test:</strong> f''(x) ≥ 0 (Concave Up)</li>
+                            <li><strong>Economic Example:</strong> A standard Total Cost (TC) function (after a certain point) is convex. This shows <strong>increasing marginal costs</strong>. The cost of producing one more unit gets higher and higher as you produce more.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="common-mistake">
+                    <strong>Concave Function = Diminishing Returns!</strong>
+                    <br>Do not confuse a <strong>concave function</strong> (like y = √x, which shows diminishing returns) with a <strong>decreasing function</strong> (like y = 1/x, which just goes down). A concave function can still be increasing, but it increases at a slower and slower rate.
+                </div>
+            </section>
+            
+            <section id="optimization">
+                <h2>4. Optimisation problem for function of one variable</h2>
+                <p>Optimization is the process of finding the <strong>maximum</strong> or <strong>minimum</strong> value of a function (e.g., maximizing profit or minimizing cost).</p>
+                
+                <h3>Steps for Optimization:</h3>
+                <ol>
+                    <li>
+                        <strong>Find Critical Points:</strong>
+                        <p>These are the <em>potential</em> locations for a max or min. They occur where the tangent line is horizontal (slope is zero).</p>
+                        <blockquote>
+                            <strong>First-Order Condition (FOC):</strong> Find all values of <em>x</em> where <strong>f'(x) = 0</strong> or f'(x) is undefined.
+                        </blockquote>
+                    </li>
+                    <li>
+                        <strong>Test the Critical Points (The "Second-Order Condition"):</strong>
+                        <p>Once you have a critical point <em>c</em> (where f'(c) = 0), use the Second Derivative Test to see if it's a max, min, or neither.</p>
+                        <blockquote>
+                            <strong>Second-Order Condition (SOC):</strong>
+                            <ul>
+                                <li>If <strong>f''(c) < 0</strong> (concave down), you have a <strong>Local Maximum</strong> at x = c.</li>
+                                <li>If <strong>f''(c) > 0</strong> (concave up), you have a <strong>Local Minimum</strong> at x = c.</li>
+                                <li>If <strong>f''(c) = 0</strong>, the test is inconclusive. (It could be an inflection point).</li>
+                            </ul>
+                        </blockquote>
+                    </li>
+                </ol>
+                <div class="placeholder">
+                </div>
+            </section>
+
+            <section id="econ-apps">
+                <h2>5. Economic application of differentiation</h2>
+                <p>The single most important application of derivatives in economics is the concept of <strong>"marginal"</strong> change.</p>
+                
+                <h3>A. Marginal Concepts</h3>
+                <p>If you have a <strong>Total</strong> function, its derivative is the <strong>Marginal</strong> function.</p>
+                <ul>
+                    <li><strong>Marginal Cost (MC):</strong>
+                        <br>If TC(Q) = Total Cost, then <strong>MC(Q) = d(TC)/dQ</strong>.
+                        <br>MC is the approximate cost of producing <em>one more</em> unit.
+                    </li>
+                    <li><strong>Marginal Revenue (MR):</strong>
+                        <br>If TR(Q) = Total Revenue, then <strong>MR(Q) = d(TR)/dQ</strong>.
+                        <br>MR is the approximate revenue from selling <em>one more</em> unit.
+                    </li>
+                    <li><strong>Marginal Product (MP):</strong>
+                        <br>If TP(L) = Total Product (as a function of Labor), then <strong>MP<sub>L</sub> = d(TP)/dL</strong>.
+                        <br>MP<sub>L</sub> is the output produced by <em>one more</em> unit of labor.
+                    </li>
+                </ul>
+
+                <h3>B. Profit Maximization</h3>
+                <p>This is the central optimization problem for a firm.
+                <br>Profit (π) = Total Revenue (TR) - Total Cost (TC)
+                <br>π(Q) = TR(Q) - TC(Q)</p>
+                <p><strong>Step 1: First-Order Condition (FOC)</strong>
+                <br>To maximize profit, take the derivative with respect to Q and set it to zero.
+                <br>dπ/dQ = d(TR)/dQ - d(TC)/dQ = 0
+                <br>d(TR)/dQ = d(TC)/dQ
+                <br>
+                </p><blockquote>
+                <span class="formula"><strong>MR(Q) = MC(Q)</strong></span>
+                <p>This is the famous profit-maximization rule: A firm maximizes profit at the quantity (Q) where marginal revenue equals marginal cost.</p>
+                </blockquote>
+                
+                <p><strong>Step 2: Second-Order Condition (SOC)</strong>
+                <br>To ensure this is a <em>maximum</em> (and not a minimum), the second derivative must be negative.
+                <br>d²π/dQ² < 0
+                <br>d(MR)/dQ - d(MC)/dQ < 0
+                <br></p><blockquote>
+                <span class="formula"><strong>d(MR)/dQ < d(MC)/dQ</strong></span>
+                <p>This means that at the profit-maximizing quantity, the <strong>slope of the MC curve must be greater than the slope of the MR curve</strong>. (The MC curve must cut the MR curve from below).</p>
+                </blockquote>
+
+                <h3>C. Elasticity</h3>
+                <p>Elasticity measures the percentage change in one variable in response to a 1% change in another. The derivative is a key part of its formula.</p>
+                <p><strong>Price Elasticity of Demand (E<sub>d</sub>):</strong>
+                <br>E<sub>d</sub> = (% Change in Q) / (% Change in P)
+                <br></p><blockquote>
+                <span class="formula"><strong>E<sub>d</sub> = (dQ/dP) * (P/Q)</strong></span>
+                </blockquote>
+                <ul>
+                    <li><strong>(dQ/dP)</strong> is the derivative of the demand function Q = f(P).</li>
+                    <li><strong>(P/Q)</strong> is the ratio of price to quantity at a specific point on the curve.</li>
+                </ul>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

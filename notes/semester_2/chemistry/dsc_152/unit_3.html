@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive practical notes for Chemistry DSC 152, Section C: Physical Chemistry. Covers experiments on surface tension, viscosity, transition temperature, solubility, and refractometry.">
+    <meta name="keywords" content="Chemistry DSC 152, Practical, Physical Chemistry, Surface Tension, Stalagmometer, Viscosity, Ostwald Viscometer, Transition Temperature, Solubility, Refractive Index, Abbe Refractometer, Knowlet">
+    <title>Chemistry DSC 152 Unit 3 | 2nd Semester Notes - Knowlet</title>
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #dc3545; /* Red */
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #c82333; /* Darker red */
+        }
+        h2 {
+            font-size: 1.8em;
+            color: #dc3545; /* Primary red */
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #bd2130; /* Darker red */
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #fdeaea;
+            border-left: 5px solid #dc3545;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            font-size: 1.1em;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f1f3f5;
+            color: #495057;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .exam-tip {
+            background: #fffbeb;
+            border: 1px solid #ffeeba;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .exam-tip strong {
+            color: #856404;
+        }
+        .procedure {
+            background: #fdfdfd;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 20px;
+        }
+        nav.toc {
+            background: #fdfdfd;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 30px;
+        }
+        nav.toc h3 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #333;
+        }
+        nav.toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        nav.toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        nav.toc ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Section-C: Physical Chemistry</h1>
+        <p>This section involves performing physical chemistry experiments, recording data, performing calculations, and plotting graphs.</p>
+        <div class="exam-tip">
+            <strong>Exam Note:</strong> The syllabus states "Any two experiments out of the following can be set in examination". You must be prepared to perform any of them.
+        </div>
+
+        <nav class="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#expA">a) Surface Tension of Solutions</a></li>
+                <li><a href="#expB">b) Viscosity of Solutions</a></li>
+                <li><a href="#expC">c) Determination of Transition Temperature</a></li>
+                <li><a href="#expD">d) Determination of Solubility of a Salt</a></li>
+                <li><a href="#expE">e) Refractive Index of a Liquid</a></li>
+            </ul>
+        </nav>
+
+        <section id="expA">
+            <h2>a) To determine the surface tension of ethyl/acetic acid Solutions</h2>
+            
+            <p><strong>Principle:</strong> Surface tension (γ) is the force per unit length at the surface of a liquid. We measure it *relatively* using a <strong>stalagmometer</strong>, which allows a liquid to fall as drops from a capillary tube. The weight of a drop is balanced by the surface tension.</p>
+            <p>At the point of detachment: Weight of one drop ∝ Surface Tension</p>
+            <p>m·g = k·γ</p>
+            <p>For two different liquids (a reference, 'w' for water, and the test liquid, 'l'):
+            <br>m_w / m_l = γ_w / γ_l</p>
+            <p>Since mass (m) = volume (V) × density (ρ), and the stalagmometer delivers the *same volume* (V) for a given number of drops (n), the mass of a single drop is m = (V_total × ρ) / n.
+            <br>V_total is the volume between the two marks on the stalagmometer.</p>
+            <blockquote>
+                <strong>Working Formula:</strong>
+                <br>
+                γ_l / γ_w = (m_l / m_w) = [ (V_total · ρ_l) / n_l ] / [ (V_total · ρ_w) / n_w ]
+                <br>
+                <strong>γ_l = γ_w · (ρ_l / ρ_w) · (n_w / n_l)</strong>
+                <br>
+                Where:
+                <ul>
+                    <li><strong>γ_l, γ_w</strong> = Surface tension of liquid and water</li>
+                    <li><strong>ρ_l, ρ_w</strong> = Density of liquid and water</li>
+                    <li><strong>n_l, n_w</strong> = Number of drops for the liquid and water (for the same volume)</li>
+                </ul>
+            </blockquote>
+            
+            <h3>Procedure</h3>
+            <ol class="procedure">
+                <li>Clean the stalagmometer thoroughly with chromic acid, then water, then the test liquid.</li>
+                <li>Set up the stalagmometer vertically.</li>
+                <li>Suck up distilled water above the top mark (A).</li>
+                <li>Allow the water to fall drop by drop, and start counting when the meniscus crosses mark A and stop when it crosses mark B. Record the number of drops (n_w). Repeat for a consistent reading.</li>
+                <li>Rinse the stalagmometer with the first solution (e.g., 5% acetic acid).</li>
+                <li>Repeat step 4 for this solution to get n_l.</li>
+                <li>Repeat for all other concentrations (e.g., 10%, 15%, 20%).</li>
+                <li>(In an exam, you will likely be *given* the density values (ρ) for all solutions).</li>
+                <li>Calculate γ_l for each solution using the formula.</li>
+                <li><strong>Construction of Graph:</strong> Plot <strong>Surface Tension (γ)</strong> (y-axis) vs. <strong>Concentration (C)</strong> (x-axis).</li>
+            </ol>
+            </section>
+
+        <hr>
+
+        <section id="expB">
+            <h2>b) To determine the viscosity of glycerol/acetic acid Solutions</h2>
+            
+            <p><strong>Principle:</strong> Viscosity (η) is a liquid's resistance to flow. We measure it *relatively* using an <strong>Ostwald Viscometer</strong>. Poiseuille's equation governs the flow of a liquid through a capillary tube.</p>
+            <p>For a fixed volume (V) of liquid to flow through the capillary of length (l) and radius (r):</p>
+            <p>η = (π · P · r⁴ · t) / (8 · V · l)</p>
+            <p>The pressure (P) driving the liquid is proportional to its density (P = h·g·ρ). All other terms (π, r, V, l, h, g) are constant for the viscometer.
+            <br>So, η ∝ ρ · t</p>
+            <blockquote>
+                <strong>Working Formula:</strong>
+                <br>
+                η_l / η_w = (ρ_l · t_l) / (ρ_w · t_w)
+                <br>
+                <strong>η_l = η_w · (ρ_l / ρ_w) · (t_l / t_w)</strong>
+                <br>
+                Where:
+                <ul>
+                    <li><strong>η_l, η_w</strong> = Viscosity of liquid and water</li>
+                    <li><strong>ρ_l, ρ_w</strong> = Density of liquid and water</li>
+                    <li><strong>t_l, t_w</strong> = Time of flow for liquid and water (between the two marks)</li>
+                </ul>
+            </blockquote>
+
+            <h3>Procedure</h3>
+            <ol class="procedure">
+                <li>Clean the Ostwald viscometer thoroughly.</li>
+                <li>Pipette a precise, fixed volume of distilled water into the wider bulb.</li>
+                <li>Place the viscometer in a thermostat (water bath) at a constant temperature.</li>
+                <li>Suck the water up through the capillary bulb, above the top mark (A).</li>
+                <li>Allow the water to flow down. Start a stopwatch when the meniscus crosses mark A and stop it when it crosses mark B. Record the time (t_w). Repeat for a consistent reading.</li>
+                <li>Dry the viscometer and repeat the process with the first solution (e.g., 10% glycerol), ensuring you use the *exact same volume* as the water.</li>
+                <li>Record the flow time (t_l). Repeat for all other concentrations.</li>
+                <li>(You will be given the density (ρ) and viscosity of water (η_w) at the given temperature, and the densities of all solutions).</li>
+                <li>Calculate η_l for each solution.</li>
+                <li><strong>Construction of Graph:</strong> Plot <strong>Viscosity (η)</strong> (y-axis) vs. <strong>Concentration (C)</strong> (x-axis).</li>
+            </ol>
+            </section>
+
+        <hr>
+
+        <section id="expC">
+            <h2>c) Determination of transition temperature of a substance</h2>
+            
+            <p><strong>Principle:</strong> The <strong>transition temperature</strong> is the temperature at which one stable solid form (allotrope or hydrate) of a substance transitions into another.
+            <br>e.g., Na2SO4·10H2O (decahydrate) ⇌ Na2SO4 (anhydrous) + 10 H2O at 32.38°C.
+            <br>This transition involves an absorption or release of heat (latent heat).</p>
+            <p><strong>Thermometric Method:</strong> We measure the rate of cooling of the substance. When a substance cools, it loses heat to the surroundings, and its temperature drops.
+            <br>1. When cooling a normal liquid, the cooling curve is smooth.
+            <br>2. When a liquid freezes, it releases latent heat of fusion, and the temperature stays *constant* at the freezing point.
+            <br>3. When a salt hydrate (like Na2SO4·10H2O) cools, it will start to precipitate. At the transition temperature, the hydrate *decomposes* (an endothermic process) or *forms* (exothermic), which changes the rate of cooling. The cooling curve will show a break or plateau at this temperature.</p>
+
+            <h3>Procedure (e.g., Na2SO4·10H2O)</h3>
+            <ol class="procedure">
+                <li>Place the salt (Glauber's salt, Na2SO4·10H2O) in a test tube and heat it in a water bath until it dissolves completely in its own water of crystallization (around 35-40°C).</li>
+                <li>Place the test tube in an outer beaker (to ensure slow, uniform cooling).</li>
+                <li>Insert a sensitive thermometer (e.g., 0.1°C) and a stirrer.</li>
+                <li>Start stirring slowly and record the temperature at regular intervals (e.g., every 30 seconds).</li>
+                <li>Continue recording until the temperature is well below the transition point (e.g., 25°C).</li>
+                <li><strong>Construction of Graph:</strong> Plot <strong>Temperature (T)</strong> (y-axis) vs. <strong>Time (t)</strong> (x-axis).</li>
+                <li>The graph will show a curve. The point where the *rate of cooling changes* (the curve becomes horizontal or changes slope) is the <strong>transition temperature</strong>.</li>
+            </ol>
+            </section>
+
+        <hr>
+
+        <section id="expD">
+            <h2>d) To determine the solubility of Salt (NaCl, KCl, KNO3) at room temperature</h2>
+            
+            <p><strong>Principle:</strong> Solubility is the maximum amount of solute that can dissolve in a given amount of solvent (e.g., 100 g) at a specific temperature.
+            <br>To find this, we will prepare a <strong>saturated solution</strong> of the salt at room temperature. We will then take a known mass (or volume) of this saturated solution, evaporate the water, and weigh the dry salt left behind.</p>
+
+            <h3>Procedure</h3>
+            <ol class="procedure">
+                <li>Take about 50 mL of distilled water in a beaker. Add the given salt (e.g., KCl) while stirring continuously.</li>
+                <li>Keep adding salt until some undissolved solid remains at the bottom, even after 10-15 minutes of stirring. This is a saturated solution.</li>
+                <li>Record the temperature of the solution (room temperature).</li>
+                <li>Weigh a clean, dry evaporating dish (Mass 1, m1).</li>
+                <li>Carefully pipette a known volume (e.g., 10 mL or 20 mL) of the *clear saturated solution* into the evaporating dish. (Alternatively, weigh the dish + solution (m2)).</li>
+                <li>Gently heat the dish on a water bath or sand bath to evaporate all the water. Do not heat too strongly, or the salt may spatter and be lost.</li>
+                <li>Once completely dry, cool the dish in a desiccator and weigh it again (Mass 2, m3).</li>
+            </ol>
+            
+            <h3>Calculation</h3>
+            <ul>
+                <li><strong>Mass of dry salt (solute):</strong> m_solute = m3 - m1</li>
+                <li><strong>Mass of solution taken:</strong> m_solution = m2 - m1 (if weighed)</li>
+                <li><strong>Mass of water (solvent):</strong> m_solvent = m_solution - m_solute</li>
+            </ul>
+            <blockquote>
+                <strong>Solubility (in g per 100 g of water):</strong>
+                <br>
+                Solubility = (m_solute / m_solvent) × 100
+            </blockquote>
+            <div class="exam-tip">
+                <strong>Key Points:</strong>
+                <ul>
+                    <li>Ensure the solution is truly saturated.</li>
+                    <li>Do not suck up any solid crystals when pipetting.</li>
+                    <li>Ensure the salt is *completely* dry before the final weighing.</li>
+                </ul>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="expE">
+            <h2>e) To determine the refractive index of a given liquid</h2>
+            
+            <p><strong>Principle:</strong> Refractive index (n) is the ratio of the speed of light in a vacuum (or air) to its speed in the liquid. It's a measure of how much the liquid bends light.
+            <br> n = (sin i) / (sin r), where 'i' is the angle of incidence and 'r' is the angle of refraction.</p>
+            <p>We use an <strong>Abbe Refractometer</strong>, which measures the "critical angle" of total internal reflection, from which it directly calculates and displays the refractive index.</p>
+
+            <h3>Procedure (using Abbe Refractometer)</h3>
+            <ol class="procedure">
+                <li>Ensure the prisms of the refractometer are clean. Use a soft tissue and a drop of solvent (like ethanol or acetone).</li>
+                <li>Open the prisms and place 2-3 drops of the given liquid onto the lower prism.</li>
+                <li>Close the prisms and clamp them.</li>
+                <li>Adjust the light source (mirror) to get maximum illumination in the eyepiece.</li>
+                <li>You will see a light and a dark field in the eyepiece. The boundary may be colored (chromatic aberration).</li>
+                <li>Turn the "Dispersion Correction" knob until the boundary is a sharp, black-and-white line.</li>
+                <li>Turn the main "Refractive Index" knob until this sharp line is exactly on the crosshairs.</li>
+                <li>Read the refractive index value (n) directly from the scale.</li>
+                <li>Also, record the temperature, as refractive index is temperature-dependent.</li>
+            </ol>
+            <h3>Finding Specific and Molar Refraction</h3>
+            <p>The refractive index (n) and density (ρ) of a liquid are related by the <strong>Lorentz-Lorenz equation</strong>.</p>
+            <blockquote>
+                <strong>Specific Refraction (R_s):</strong>
+                <br>
+                R_s = [ (n² - 1) / (n² + 2) ] · (1 / ρ)
+                <br>
+                (Units: cm³/g)
+            </blockquote>
+            <blockquote>
+                <strong>Molar Refraction (R_m):</strong>
+                <br>
+                R_m = R_s × Molar Mass (M)
+                <br>
+                <strong>R_m = [ (n² - 1) / (n² + 2) ] · (M / ρ)</strong>
+                <br>
+                (Units: cm³/mol)
+            </blockquote>
+            <p><strong>To find R_s and R_m:</strong> You must also measure the density (ρ) of the liquid (e.g., using a pycnometer or specific gravity bottle) and know its molar mass (M).</p>
+        </section>
+
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

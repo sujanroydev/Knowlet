@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSC 152 Unit 1 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready lab notes for PHYDSC152P: Mechanics and Electricity. Includes theory, formulas, procedures, and precautions for all experiments.">
+    <meta name="keywords" content="PHYDSC152P, Physics Lab, Mechanics, Electricity, Assam University, 2nd Semester, Torsional Pendulum, Searle's Method, Bar Pendulum, Kater's Pendulum, Meter Bridge, Carey Foster's Bridge, Potentiometer, LCR Circuit, Network Theorems">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f7f6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3, h4 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            border-bottom: 3px solid #16a085;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 2em;
+            color: #16a085;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+        h3 {
+            font-size: 1.6em;
+            color: #1abc9c;
+            margin-top: 30px;
+            border-bottom: 1px dotted #ccc;
+        }
+        h4 {
+            font-size: 1.2em;
+            color: #555;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            font-size: 1.1em;
+            font-style: italic;
+            font-family: 'Georgia', serif;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: #e8f8f5;
+            border-left: 5px solid #16a085;
+            color: #34495e;
+            border-radius: 5px;
+        }
+        code, .formula {
+            font-family: 'Courier New', Courier, monospace;
+            background: #eee;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.1em;
+            display: inline-block;
+        }
+        .precautions {
+            background: #fef9e7;
+            border: 1px solid #f1c40f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .precautions strong {
+            color: #d35400;
+        }
+        #toc {
+            background: #ecf8ff;
+            border: 1px solid #bde0ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        #toc h3 {
+            margin-top: 0;
+            color: #0056b3;
+            border: none;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+            columns: 2;
+        }
+        #toc li {
+            margin-bottom: 10px;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PHYDSC152P: LAB: MECHANICS AND ELECTRICITY</h1>
+
+        <div id="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#part-a"><strong>Part-A: Mechanics</strong></a></li>
+                <li><a href="#exp-a1">1. Torsional Pendulum (M.I.)</a></li>
+                <li><a href="#exp-a2">2. Searle's Method (Young's Modulus)</a></li>
+                <li><a href="#exp-a3">3. Statical Method (Rigidity)</a></li>
+                <li><a href="#exp-a4">4. Bar Pendulum (g)</a></li>
+                <li><a href="#exp-a5">5. Kater's Pendulum (g)</a></li>
+                <li><a href="#exp-a6">6. Viscosity of Water</a></li>
+                <li><a href="#exp-a7">7. Motion of Spring (k, g)</a></li>
+                <li><a href="#exp-a8">8. Sextant (Height)</a></li>
+                <li><a href="#part-b"><strong>Part-B: Electricity</strong></a></li>
+                <li><a href="#exp-b1">1. Meter Bridge (Sp. Resistance)</a></li>
+                <li><a href="#exp-b2">2. Carey Foster's Bridge (Low R)</a></li>
+                <li><a href="#exp-b3">3. Potentiometer (Low R)</a></li>
+                <li><a href="#exp-b4">4. P.O. Box (Resistance Laws)</a></li>
+                <li><a href="#exp-b5">5. Deflection Magnetometer (M)</a></li>
+                <li><a href="#exp-b6">6. Galvanometer to Ammeter</a></li>
+                <li><a href="#exp-b7">7. Galvanometer Resistance (Half Defl.)</a></li>
+                <li><a href="#exp-b8">8. Tangent Galvanometer (B<sub>H</sub>)</a></li>
+                <li><a href="#exp-b9">9. Joule's Calorimeter (J)</a></li>
+                <li><a href="#exp-b10">10. Network Theorems</a></li>
+                <li><a href="#exp-b11">11. Series LCR Circuit</a></li>
+            </ul>
+        </div>
+
+        <p>This lab course introduces fundamental experimental techniques in classical mechanics and electricity. [cite_start]You will learn to use instruments, analyze data, and estimate physical parameters while reporting your results[cite: 190]. [cite_start]You must perform at least one experiment from each part[cite: 192].</p>
+
+        <hr>
+
+        <h2 id="part-a">Part-A: Mechanics</h2>
+
+        <h3 id="exp-a1">1. [cite_start]To determine the Moment of Inertia of a regular body by torsional pendulum [cite: 195]</h3>
+        <h4>Aim:</h4>
+        <p>To find the Moment of Inertia (M.I.) of a regular body (like a disc or cylinder) using the torsional pendulum method.</p>
+        <h4>Apparatus:</h4>
+        <p>Torsional pendulum (wire, chucks, circular disc), the regular body, stopwatch, vernier calipers, screw gauge, digital balance.</p>
+        <h4>Theory:</h4>
+        <p>A torsional pendulum undergoes simple harmonic motion (angular). The time period (T) is given by:</p>
+        <blockquote>T = 2π * √(I / C)  =>  T² = (4π² / C) * I</blockquote>
+        <p>Where <strong>I</strong> is the moment of inertia of the suspended system and <strong>C</strong> is the torsional constant (restoring torque per unit twist) of the wire.</p>
+        <p>Let:</p>
+        <ul>
+            <li><strong>I₀</strong> = M.I. of the disc alone (known, I₀ = M₀R₀²/2)</li>
+            <li><strong>T₀</strong> = Time period of the disc alone</li>
+            <li><strong>I₁</strong> = M.I. of the regular body (unknown)</li>
+            <li><strong>T₁</strong> = Time period of the disc <strong>+</strong> regular body</li>
+        </ul>
+        <p>We have two equations:</p>
+        <ol>
+            <li>T₀² = (4π² / C) * I₀  =>  C = 4π²I₀ / T₀²</li>
+            <li>T₁² = (4π² / C) * (I₀ + I₁)  =>  C = 4π²(I₀ + I₁) / T₁²</li>
+        </ol>
+        <p>Equating these two expressions for C:</p>
+        <p>I₀ / T₀² = (I₀ + I₁) / T₁²</p>
+        <p>I₀T₁² = I₀T₀² + I₁T₀²  =>  I₁T₀² = I₀(T₁² - T₀²)</p>
+        <blockquote><strong>Formula:</strong> I₁ = I₀ * (T₁² - T₀²) / T₀²</blockquote>
+        <h4>Procedure:</h4>
+        <ol>
+            <li>Measure the mass (M₀) and radius (R₀) of the base disc. Calculate its M.I.: I₀ = M₀R₀²/2.</li>
+            <li>Suspend the disc alone. Give it a small horizontal twist (not a swing).</li>
+            <li>Measure the time for 20 complete oscillations. Calculate the time period T₀.</li>
+            <li>Place the regular body (whose M.I. is I₁) symmetrically on top of the disc.</li>
+            <li>Measure the time for 20 oscillations of the combined system. Calculate the time period T₁.</li>
+        </ol>
+        <h4>Calculations:</h4>
+        <p>Substitute the measured values of I₀, T₀, and T₁ into the main formula to find I₁.</p>
+        <div class="precautions">
+            <strong>Precautions:</strong>
+            <ul>
+                <li>The wire should be securely clamped and free of kinks.</li>
+                <li>The amplitude of the twist should be small (less than 180°).</li>
+                <li>Ensure the system oscillates rotationally and does not swing like a simple pendulum.</li>
+                <li>The regular body must be placed concentrically with the disc.</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h3 id="exp-a2">2. [cite_start]To determine the Young's Modulus of a Wire by Searle's Method [cite: 197]</h3>
+        <h4>Aim:</h4>
+        <p>To determine Young's Modulus (Y) for the material of a given wire using Searle's apparatus.</p>
+        <h4>Apparatus:</h4>
+        <p>Searle's apparatus, two identical wires (one reference, one test), slotted weights, meter scale, screw gauge, spirit level.</p>
+        <h4>Theory:</h4>
+        <p>Young's Modulus (Y) is the ratio of longitudinal stress to longitudinal strain within the elastic limit.</p>
+        <ul>
+            <li><strong>Stress</strong> = Force / Area = (Mg) / (πr²)</li>
+            <li><strong>Strain</strong> = Extension / Original Length = l / L</li>
+        </ul>
+        <blockquote><strong>Formula:</strong> Y = Stress / Strain = (Mg / πr²) / (l / L) = (MgL) / (πr²l)</blockquote>
+        <p>Searle's apparatus uses a reference wire to compensate for thermal expansion or yielding of the support.</p>
+        <h4>Procedure:</h4>
+        <ol>
+            <li>Hang the two wires side-by-side from a rigid support. Hang the Searle's apparatus frame.</li>
+            <li>Attach a spirit level between the two frames. Hang a "dead load" (e.g., 1 kg) on both wires to make them taut. Level the spirit level using the micrometer screw.</li>
+            <li>Measure the original length (L) of the test wire from the point of support to the frame.</li>
+            <li>Measure the diameter of the test wire at several points using a screw gauge. Calculate the mean radius (r).</li>
+            <li>Add slotted weights (M) to the test wire's hanger in steps (e.g., 0.5 kg).</li>
+            <li>After adding each weight, re-level the spirit level by turning the micrometer screw. The micrometer reading gives the extension (l).</li>
+            <li>Take a set of readings while loading and another set while unloading to check for hysteresis or exceeding the elastic limit.</li>
+        </ol>
+        <h4>Calculations:</h4>
+        <p>Plot a graph of Load (M) in kg vs. Extension (l) in meters. It should be a straight line. Find the slope of this graph (Slope = l/M).</p>
+        <p>Y = (gL) / (πr² * (l/M))</p>
+        <blockquote><strong>Formula:</strong> Y = (gL) / (Slope * πr²)</blockquote>
+        <div class="precautions">
+            <strong>Precautions:</strong>
+            <ul>
+                <li>Both wires should be identical and from the same spool.</li>
+                <li>Remove kinks from the wires by applying the dead load.</li>
+                <li>Wait for a minute after adding each load before taking the micrometer reading.</li>
+                <li>The micrometer screw should be turned in the same direction to avoid backlash error.</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h3 id="exp-a3">3. [cite_start]To determine the Modulus of Rigidity of a Wire by Statical method [cite: 199]</h3>
+        <h4>Aim:</h4>
+        <p>To determine the Modulus of Rigidity (η) of a wire by applying a static torque.</p>
+        <h4>Apparatus:</h4>
+        <p>Maxwell's needle apparatus (or similar), wire, slotted weights, meter scale, screw gauge, pulley.</p>
+        <h4>Theory:</h4>
+        <p>The modulus of rigidity (η) is the ratio of shear stress to shear strain. When a cylindrical wire of length L and radius r is twisted by an angle θ (in radians) by applying a torque (τ), the relation is:</p>
+        <blockquote>τ = (πηr⁴θ) / (2L)</blockquote>
+        <p>In this experiment, the torque is applied by a mass (M) hanging from a wheel/pulley of radius (R): τ = (Mg) * R.</p>
+        <p>Equating the torques: MgR = (πηr⁴θ) / (2L)</p>
+        <blockquote><strong>Formula:</strong> η = (2LMgR) / (πr⁴θ)</blockquote>
+        <h4>Procedure:</h4>
+        <ol>
+            <li>Measure the length (L) and radius (r) of the test wire.</li>
+            <li>Set up the apparatus. The top end of the wire is fixed, and the bottom end is attached to a pulley.</li>
+            <li>Wrap a string around the pulley and pass it over a support, attaching a hanger.</li>
+            <li>Add mass (M) to the hanger in steps. This applies a torque.</li>
+            <li>Measure the angle of twist (θ) in degrees using the attached pointer and scale. Convert θ to radians (θ_rad = θ_deg * π/180).</li>
+            <li>Take readings for both loading and unloading.</li>
+        </ol>
+        <h4>Calculations:</h4>
+        <p>Plot a graph of Mass (M) vs. Angle of twist (θ in radians). Find the slope (Slope = θ/M).</p>
+        <blockquote><strong>Formula:</strong> η = (2LgR) / (πr⁴ * (θ/M)) = (2LgR) / (πr⁴ * Slope)</blockquote>
+        <div class="precautions">
+            <strong>Precautions:</strong>
+            <ul>
+                <li>The wire must be clamped firmly and be vertical.</li>
+                <li>The radius 'r' is to the fourth power, so it must be measured *very* accurately.</li>
+                <li>Ensure the string leaves the pulley tangentially.</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h3 id="exp-a4">4. [cite_start]To determine g by Bar Pendulum [cite: 201]</h3>
+        <h4>Aim:</h4>
+        <p>To determine the acceleration due to gravity (g) using a compound (bar) pendulum.</p>
+        <h4>Apparatus:</h4>
+        <p>Bar pendulum, rigid knife-edge support, stopwatch, meter scale.</p>
+        <h4>Theory:</h4>
+        <p>A bar pendulum is a physical pendulum. The time period (T) for oscillation about a pivot at a distance 'l' from the center of gravity (G) is:</p>
+        <blockquote>T = 2π * √[ (I_g + ml²) / (mgl) ]</blockquote>
+        <p>Where I_g is the M.I. about G. Let I_g = mK² (K = radius of gyration).</p>
+        <p>T = 2π * √[ (K² + l²) / (gl) ]</p>
+        <p>This equation can be rearranged to show that the length of an equivalent simple pendulum is <strong>L_eq = (K² + l²) / l</strong>.</p>
+        <p>There are four collinear points (two on each side of G) that will give the same time period. The distance between the two pivot points on *opposite* sides of G that have the same T is the equivalent length L_eq.</p>
+        <p>Once L_eq and the corresponding T are found, g can be calculated.</p>
+        <blockquote><strong>Formula:</strong> g = 4π²L_eq / T²</blockquote>
+        <h4>Procedure:</h4>
+        <ol>
+            <li>Find the center of gravity (G) of the bar by balancing it on a wedge.</li>
+            <li>Suspend the bar from the first hole. Measure its distance 'l' from G.</li>
+            <li>Allow it to oscillate with a small amplitude ( < 10°).</li>
+            <li>Measure the time for 20 oscillations. Calculate the time period T.</li>
+            <li>Repeat this for all holes on one side of G, then for all holes on the other side.</li>
+        </ol>
+        <h4>Calculations:</h4>
+        <ol>
+            <li>Plot a graph of <strong>Time Period (T)</strong> (y-axis) vs. <strong>Distance from G (l)</strong> (x-axis). You will get two curves, symmetric about G.</li>
+            <li>Draw a horizontal line (T = constant) across the graph to cut the curves.</li>
+            <li>This line intersects the curves at four points. Let the distances from G be l₁ and l₂ (on opposite sides).</li>
+            <li>The equivalent length is <strong>L_eq = l₁ + l₂</strong>.</li>
+            <li>Read the time period (T) for this line from the y-axis.</li>
+            <li>Calculate <strong>g = 4π²(l₁ + l₂) / T²</strong>.</li>
+            <li>Repeat for several horizontal lines and take the average value of g.</li>
+        </ol>
+        <div class="precautions">
+            <strong>Precautions:</strong>
+            <ul>
+                <li>The support must be rigid.</li>
+                <li>The amplitude of oscillation must be small.</li>
+                <li>Ensure the pendulum oscillates in a single vertical plane.</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h3 id="exp-a5">5. [cite_start]To determine g by Kater's Pendulum [cite: 203]</h3>
+        <h4>Aim:</h4>
+        <p>To determine the acceleration due to gravity (g) accurately using a Kater's (reversible) pendulum.</p>
+        <h4>Apparatus:</h4>
+        <p>Kater's pendulum, rigid support, stopwatch, meter scale.</p>
+        <h4>Theory:</h4>
+        <p>A Kater's pendulum is a compound pendulum with two fixed knife-edges (K₁ and K₂). It also has adjustable weights (one large, one small). The principle is to adjust the weights so that the time period of oscillation is <em>exactly the same</em> whether it is pivoted from K₁ or K₂.</p>
+        <p>Let T₁ be the time period about K₁ (at distance l₁ from G) and T₂ be the time period about K₂ (at distance l₂ from G).</p>
+        <p>When T₁ = T₂ = T, the distance between the knife-edges (L = l₁ + l₂) becomes the equivalent length of a simple pendulum.</p>
+        <blockquote><strong>Formula:</strong> g = 4π²L / T²</blockquote>
+        <h4>Procedure:</h4>
+        <ol>
+            <li>Measure the distance L between the two knife-edges accurately.</li>
+            <li>Fix the pendulum on K₁. Measure the time for 20 oscillations. Calculate T₁.</li>
+            <li>Carefully reverse the pendulum and fix it on K₂. Measure T₂.</li>
+            <li>Note the difference (T₁ - T₂). Adjust the large weight (coarse adjustment) and then the small weight (fine adjustment).</li>
+            <li>Repeat steps 2-4 until the difference (T₁ - T₂) is minimal (e.g., less than 0.01 s).</li>
+            <li>Record the final values of T₁ and T₂. The average T = (T₁ + T₂) / 2.</li>
+        </ol>
+        <h4>Calculations:</h4>
+        <p>Substitute the measured L and the final average T into the formula g = 4π²L / T².</p>
+        <div class="precautions">
+            <strong>Precautions:</strong>
+            <ul>
+                <li>This is a high-precision experiment. All measurements must be done with extreme care.</li>
+                <li>The support must be perfectly rigid and level.</li>
+                <li>The oscillations must be of very small amplitude.</li>
+                <li>Handle the pendulum carefully to avoid damaging the knife-edges.</li>
+            </ul>
+        </div>
+        
+        <hr>
+
+        <h3 id="exp-a6">6. [cite_start]To determine the co-efficient of viscosity of water [cite: 205]</h3>
+        <h4>Aim:</h4>
+        <p>To determine the coefficient of viscosity (η) of water by Poiseuille's method (flow through a capillary tube).</p>
+        <h4>Apparatus:</h4>
+        <p>Constant-head water supply, capillary tube, measuring cylinder, stopwatch, meter scale, thermometer, traveling microscope.</p>
+        <h4>Theory:</h4>
+        <p>Poiseuille's formula gives the volume of liquid (V) flowing per second (t) through a horizontal capillary tube of length L and radius r, under a constant pressure difference P.</p>
+        <blockquote><strong>Poiseuille's Formula:</strong> Q = V/t = (πPr⁴) / (8ηL)</blockquote>
+        <p>The pressure difference P is due to the height 'h' of the water level: P = hρg (where ρ is the density of water).</p>
+        <p>Rearranging for η:</p>
+        <blockquote><strong>Formula:</strong> η = (πhρgr⁴) / (8VL/t) = (πhρgr⁴) / (8QL)</blockquote>
+        <h4>Procedure:</h4>
+        <ol>
+            <li>Set up the apparatus. Ensure the capillary tube is perfectly horizontal.</li>
+            <li>Adjust the constant-head supply so that water flows out slowly in drops.</li>
+            <li>Measure the height (h) from the capillary tube to the constant water level.</li>
+            <li>Place a clean, dry measuring cylinder and collect the water for a known time (t), e.g., 5 minutes. Measure the volume V.</li>
+            <li>Measure the length (L) of the capillary tube.</li>
+            <li>Measure the internal radius (r) of the capillary tube accurately using a traveling microscope.</li>
+            <li>Record the temperature of the water to find its density (ρ).</li>
+        </ol>
+        <h4>Calculations:</h4>
+        <p>Calculate the rate of flow Q = V/t. Substitute all known values (h, ρ, g, r, Q, L) into the formula to find η.</p>
+        <div class="precautions">
+            <strong>Precautions:</strong>
+            <ul>
+                <li>The capillary tube must be horizontal and clean.</li>
+                <li>The water flow must be slow, steady, and non-turbulent (streamline flow).</li>
+                <li>The radius 'r' is to the fourth power and must be measured very accurately.</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h3 id="exp-a7">7. [cite_start]To study the motion of spring and calculate (a) spring constant (b) 'g' [cite: 207]</h3>
+        <h4>Aim:</h4>
+        <p>To study the properties of a helical spring and determine its spring constant (k) and the value of 'g'.</p>
+        <h4>Apparatus:</h4>
+        <p>Helical spring, rigid support, hanger, slotted weights, stopwatch, meter scale.</p>
+        <h4>Theory:</h4>
+        <p><strong>Part (a) Spring Constant (k):</strong> According to Hooke's Law, the force (F) required to stretch a spring is proportional to its extension (l). F = kl. The static method involves measuring 'l' for a known force 'F' (F=Mg).</p>
+        <blockquote><strong>Static Formula:</strong> k = F/l = Mg/l</blockquote>
+        <p><strong>Part (b) 'g' (Dynamic Method):</strong> A mass (M) suspended from a spring will oscillate vertically with a time period (T):</p>
+        <blockquote>T = 2π * √(M_eff / k)</blockquote>
+        <p>Where M_eff = M + m (M = attached mass, m = effective mass of the spring).
+        T² = (4π²/k) * (M + m). This is a linear relation between T² and M.</p>
+        <p>From (a), k = Mg/l. Substituting this into the dynamic equation:
+        T² = (4π² / (Mg/l)) * (M + m). If we assume m is small, T² ≈ (4π²l) / (Mg) * M = 4π²l / g.</p>
+        <blockquote><strong>Dynamic Formula:</strong> g = 4π²l / T²</blockquote>
+        <p>Where 'l' is the extension produced by mass 'M' and 'T' is the time period of oscillation for that same mass 'M'.</p>
+        <h4>Procedure:</h4>
+        <ol>
+            <li>Suspend the spring. Attach a hanger. Note the initial pointer reading.</li>
+            <li><strong>For k:</strong> Add mass (M) in steps (e.g., 50g). Record the new pointer reading and find the extension (l) for each mass. Plot M vs. l.</li>
+            <li><strong>For g:</strong> For each mass (M) added, pull the hanger down slightly and release it.</li>
+            <li>Measure the time for 20 vertical oscillations. Calculate the time period T.</li>
+        </ol>
+        <h4>Calculations:</h4>
+        <ol>
+            <li><strong>(a) Spring Constant (k):</strong> From the M vs. l graph, find the slope = M/l.
+                <p><strong>k = (M/l) * g</strong>. (Assumes 'g' is known, 9.8 m/s²).</p>
+            </li>
+            <li><strong>(b) Value of 'g':</strong> Create a table of l, T, and T². Plot a graph of <strong>l (y-axis) vs. T² (x-axis)</strong>. It should be a straight line passing through the origin.
+                <p>Find the slope = l / T².</p>
+                <p><strong>g = 4π² * (l / T²) = 4π² * Slope</strong>.</p>
+            </li>
+        </ol>
+        <div class="precautions">
+            <strong>Precautions:</strong>
+            <ul>
+                <li>The support must be rigid.</li>
+                <li>Oscillations must be purely vertical, without sideways swing.</li>
+                <li>The elastic limit of the spring should not be exceeded.</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h3 id="exp-a8">8. [cite_start]To determine the height of a building using a sextant [cite: 209]</h3>
+        <h4>Aim:</h4>
+        <p>To measure the height (H) of a tall, accessible object (like a building or pole) using a sextant.</p>
+        <h4>Apparatus:</h4>
+        <p>Sextant, measuring tape.</p>
+        <h4>Theory:</h4>
+        <p>A sextant is an instrument for measuring the angle between two objects. In this case, we measure the angle of elevation (θ) of the top of the building from a known horizontal distance (D).</p>
+        <p>From simple trigonometry:</p>
+        <blockquote>tan(θ) = Opposite / Adjacent = H / D</blockquote>
+        <p>Where H is the height of the building *above* the sextant (eye-level).</p>
+        <p>If the observer's eye-height is 'h', the total height of the building is H_total = H + h.</p>
+        <blockquote><strong>Formula:</strong> H_total = D * tan(θ) + h</blockquote>
+        <h4>Procedure:</h4>
+        <ol>
+            <li>Measure a large horizontal distance (D) from the base of the building. Mark the spot.</li>
+            <li>Measure the height 'h' of the observer's eye from the ground.</li>
+            <li>Stand at the marked spot. Hold the sextant and look at the base of the building. Adjust the index arm until the direct image (base) and reflected image (base) align. The reading should be 0°.</li>
+            <li>Now, while looking at the base (direct image), move the index arm to bring the reflected image of the *top* of the building into alignment with the base.</li>
+            <li>Read the angle of elevation (θ) from the sextant's scale and vernier.</li>
+        </ol>
+        <h4>Calculations:</h4>
+        <p>Use the formula H_total = D * tan(θ) + h to calculate the total height of the building.</p>
+        <div class="precautions">
+            <strong>Precautions:</strong>
+            <ul>
+                <li>The distance D must be measured on level ground.</li>
+                <li>The sextant must be held steady and level.</li>
+                <li>Ensure you are reading the correct scale (angles in degrees and minutes).</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2 id="part-b">Part-B: Electricity</h2>
+
+        <h3 id="exp-b1">1. [cite_start]To determine the specific resistance of the material of a given wire by meter bridge [cite: 212]</h3>
+        <h4>Aim:</h4>
+        <p>To find the resistance (S) of a given wire using a meter bridge and then calculate its specific resistance (ρ).</p>
+        <h4>Apparatus:</h4>
+        <p>Meter bridge, galvanometer, known resistance box (R), the unknown wire (S), jockey, power supply, screw gauge, meter scale.</p>
+        <h4>Theory:</h4>
+        <p>A meter bridge is a practical form of a <strong>Wheatstone bridge</strong>. The bridge is balanced when the galvanometer shows zero deflection (null point). At this point, the ratio of resistances is equal to the ratio of lengths:</p>
+        <blockquote>R / S = l₁ / l₂</blockquote>
+        <p>Where l₁ is the balancing length from the left end, and l₂ = (100 - l₁) cm.</p>
+        <blockquote><strong>Resistance Formula:</strong> S = R * (l₂ / l₁) = R * (100 - l₁) / l₁</blockquote>
+        <p><strong>Specific Resistance (Resistivity) (ρ)</strong> is given by:</p>
+        <blockquote><strong>Specific Resistance Formula:</strong> ρ = (S * A) / L = (S * πr²) / L</blockquote>
+        <p>Where L is the total length and r is the radius of the unknown wire S.</p>
+        <h4>Procedure:</h4>
+        <ol>
+            <li>Measure the total length (L) of the unknown wire.</li>
+            <li>Measure the diameter of the wire at several points using a screw gauge. Calculate the mean radius (r).</li>
+            <li>Connect the circuit as shown. R in the left gap, S in the right gap.</li>
+            <li>Take a suitable resistance R from the box (e.g., 2Ω).</li>
+            <li>Tap the jockey along the wire to find the null point (zero galvanometer deflection). Record the balancing length l₁ from the left end.</li>
+            <li>Repeat for 3-4 different values of R.</li>
+            <li>Swap the positions of R and S and take another set of readings to correct for any end error.</li>
+        </ol>
+        <h4>Calculations:</h4>
+        <p>For each set of R and l₁, calculate S. Find the average value of S. Then, use the average S, L, and r to calculate the specific resistance ρ.</p>
+        <div class="precautions">
+            <strong>Precautions:</strong>
+            <ul>
+                <li>All connections must be tight and clean.</li>
+                <li>Do not slide the jockey; tap it gently. Sliding heats the wire and changes its resistance.</li>
+                <li>The null point should ideally be between 30 cm and 70 cm for maximum sensitivity. Adjust R to achieve this.</li>
+                <li>Switch off the power supply when not taking readings.</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h3 id="exp-b2">2. [cite_start]To determine an unknown low resistance using Carey Foster's bridge [cite: 214]</h3>
+        <h4>Aim:</h4>
+        <p>To accurately measure an unknown low resistance (S) and determine the resistance per unit length (k) of the bridge wire.</p>
+        <h4>Apparatus:</h4>
+        <p>Carey Foster's bridge, galvanometer, power supply, known standard resistance (e.g., 0.1Ω), the unknown low resistance wire (S), fractional resistance box, thick copper strips.</p>
+        <h4>Theory:</h4>
+        <p>This bridge is a modification of the meter bridge, designed to minimize errors from end-resistances. It measures the *difference* between two resistances.</p>
+        <p>Let R and S be in the two inner gaps, and X and Y be in the two outer gaps. The balancing condition is:</p>
+        <p>X / Y = (R + kl₁) / (S + kl₂)  ... This is complex.</p>
+        <p>A simpler way: Let R and S be in the outer gaps, and two resistances P and Q (from boxes) be in the inner gaps.</p>
+        <p>P / Q = (R + R_end_1 + kl₁) / (S + R_end_2 + k(100-l₁))</p>
+        <p>Now, swap R and S. The new balancing length is l₂.</p>
+        <p>P / Q = (S + R_end_1 + kl₂) / (R + R_end_2 + k(100-l₂))</p>
+        <p>Subtracting these gives: <strong>R - S = k * (l₁ - l₂)</strong></p>
+        <h4>Procedure:</h4>
+        <ol>
+            <li><strong>Find k (resistance/cm):</strong>
+                <ul>
+                    <li>Place a known fractional resistance (R, e.g., 0.2Ω) in the left outer gap and a thick copper strip (S ≈ 0Ω) in the right outer gap.</li>
+                    <li>Set P=Q (e.g., 10Ω each). Find the balancing length l₁.</li>
+                    <li>Swap R and S. Find the new balancing length l₂.</li>
+                    <li><strong>k = (R - S) / (l₁ - l₂) = R / (l₁ - l₂)</strong></li>
+                </ul>
+            </li>
+            <li><strong>Find Unknown S:</strong>
+                <ul>
+                    <li>Replace R with the unknown wire (S_unknown).</li>
+                    <li>Keep the copper strip (S ≈ 0Ω) in the right gap. Find l₁.</li>
+                    <li>Swap S_unknown and the copper strip. Find l₂.</li>
+                    <li><strong>S_unknown = k * (l₁ - l₂)</strong></li>
+                </ul>
+            </li>
+        </ol>
+        <div class="precautions">
+            <strong>Precautions:</strong>
+            <ul>
+                <li>All connections MUST be extremely tight. Contact resistance is the main source of error.</li>
+                <li>Use thick copper strips to connect the low resistances.</li>
+                <li>Use a sensitive galvanometer.</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h3 id="exp-b3">3. [cite_start]To determine an unknown low resistance using potentiometer [cite: 216]</h3>
+        <h4>Aim:</h4>
+        <p>To measure an unknown low resistance (S) by comparing the potential drop across it with the potential drop across a standard known resistance (R).</p>
+        <h4>Apparatus:</h4>
+        <p>Potentiometer, power supply (driver cell), galvanometer, standard low resistance (R), unknown low resistance (S), high resistance box, two-way key, jockey.</p>
+        <h4>Theory:</h4>
+        <p>A potentiometer measures potential difference (V) by finding a balancing length (l) of its wire where V = k*l. 'k' is the potential gradient (Volt/cm) of the wire.</p>
+        <p>A steady current (I) is passed through the standard resistance (R) and the unknown resistance (S) connected in series.</p>
+        <ol>
+            <li>The potential drop across R is V_R = IR. This is balanced at length l₁: <strong>IR = kl₁</strong></li>
+            <li>The potential drop across S is V_S = IS. This is balanced at length l₂: <strong>IS = kl₂</strong></li>
+        </ol>
+        <p>Dividing the two equations:</p>
+        <blockquote>(IS) / (IR) = (kl₂) / (kl₁)  =>  S / R = l₂ / l₁</blockquote>
+        <blockquote><strong>Formula:</strong> S = R * (l₂ / l₁)</blockquote>
+        <h4>Procedure:</h4>
+        <ol>
+            <li>Set up the potentiometer (driver) circuit.</li>
+            <li>Set up the secondary circuit: A cell connected to R and S in series.</li>
+            <li>Connect the high terminals of R and S to the two-way key, and their low terminals to the galvanometer and jockey.</li>
+            <li>Include a high resistance (HR) in series with the galvanometer for protection.</li>
+            <li>Plug in the key for R. Find the balancing length l₁.</li>
+            <li>Plug in the key for S. Find the balancing length l₂.</li>
+            <li>Repeat the process to get an average l₁ and l₂.</li>
+        </ol>>
+        <h4>Calculations:</h4>
+        <p>Use the formula S = R * (l₂ / l₁) to find the unknown resistance S.</p>
+        <div class="precautions">
+            <strong>Precautions:</strong>
+            <ul>
+                <li>The driver cell EMF must be greater than the potential drop across R+S.</li>
+                <li>The current through the main potentiometer wire should be constant.</li>
+                <li>Remove the HR box only when near the null point.</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h3 id="exp-b7">7. [cite_start]To determine the resistance of a given galvanometer by half deflection method [cite: 225]</h3>
+        <h4>Aim:</h4>
+        <p>To find the resistance (G) of a galvanometer using the half-deflection method.</p>
+        <h4>Apparatus:</h4>
+        <p>Galvanometer, power supply, two resistance boxes (one high R, one low S), two one-way keys.</p>
+        <h4>Theory:</h4>
+        <p>The circuit consists of a cell (E) and a high resistance (R) in series with the galvanometer (G). The current (I_g) causing a deflection (θ) is:</p>
+        <p>I_g = E / (R + G)</p>
+        <p>Now, a low resistance "shunt" (S) is connected in parallel with the galvanometer. The value of S is adjusted so that the galvanometer deflection becomes exactly half (θ/2).</p>
+        <p>When the deflection is θ/2, the current through the galvanometer is I_g/2. This means the other half of the main circuit current (I_main) must be passing through S. If the shunt S is chosen correctly, the currents will split equally, which happens if <strong>S = G</strong>.</p>
+        <p>A more rigorous derivation shows that if R is very large (R >> G, R >> S), then:
+        <strong>G = S</strong></p>
+        <h4>Procedure:</h4>
+        <ol>
+            <li>Connect the cell, key (K₁), and high resistance box (R) in series with the galvanometer (G).</li>
+            <li>Connect the shunt resistance box (S) in parallel with G, using a second key (K₂).</li>
+            <li>Close K₁. Keep K₂ open. Adjust R (make it large, e.g., 5000-10000 Ω) until the galvanometer shows a large, even deflection (e.g., 30 divisions). Note this deflection θ.</li>
+            <li>Close K₂. The deflection will decrease.</li>
+            <li>Adjust the shunt resistance (S) until the deflection is exactly θ/2.</li>
+            <li>The value of S in the box is equal to the galvanometer resistance G.</li>
+        </ol>
+        <blockquote><strong>Formula:</strong> G = S</blockquote>
+        <div class="precautions">
+            <strong>Precautions:</strong>
+            <ul>
+                <li>The resistance R must be very high compared to G.</li>
+                <li>The EMF of the cell should be stable.</li>
+                <li>Record the value of S that gives the *exact* half-deflection.</li>
+            </ul>
+        </div><hr>
+
+        <h3 id="exp-b10">10. [cite_start]To verify Thevenin's/Norton's/maximum power transfer theorem [cite: 231]</h3>
+        <h4>Aim:</h4>
+        <p>To verify Thevenin's theorem, Norton's theorem, and the Maximum Power Transfer theorem for a simple DC circuit.</p>
+        <h4>Apparatus:</h4>
+        <p>DC power supply, breadboard, various resistors, DC voltmeter, DC ammeter (multimeter).</p>
+        <h4>Theory:</h4>
+        <ul>
+            <li><strong>Thevenin's Theorem:</strong> Any linear circuit can be replaced by an equivalent circuit with a single voltage source (V_th) in series with a single resistor (R_th).</li>
+            <li><strong>Norton's Theorem:</strong> Any linear circuit can be replaced by an equivalent circuit with a single current source (I_N) in parallel with a single resistor (R_N). (R_N = R_th).</li>
+            <li><strong>Max Power Transfer:</strong> Maximum power is delivered from a source to a load when the load resistance (R_L) equals the source's Thevenin resistance (R_th).</li>
+        </ul>
+        <h4>Procedure (for Thevenin's Theorem):</h4>
+        <ol>
+            <li>Build a simple circuit (e.g., a voltage divider with R₁, R₂). Choose a third resistor (R_L) as the "load".</li>
+            <li><strong>Theoretical Calculation:</strong>
+                <ul>
+                    <li>Calculate V_th (open-circuit voltage across load terminals): V_th = V_in * R₂ / (R₁ + R₂)</li>
+                    <li>Calculate R_th (resistance looking back with source shorted): R_th = (R₁ * R₂) / (R₁ + R₂)</li>
+                    <li>Calculate the expected load current: I_L = V_th / (R_th + R_L)</li>
+                </ul>
+            </li>
+            <li><strong>Experimental Verification:</strong>
+                <ul>
+                    <li>Connect the full original circuit. Measure the true load current (I_L_actual) with an ammeter in series with R_L.</li>
+                    <li>Disconnect R_L. Measure the open-circuit voltage with a voltmeter. This is <strong>V_th_measured</strong>.</li>
+                    <li>Remove the power supply and replace it with a wire (short). Measure the resistance across the load terminals. This is <strong>R_th_measured</strong>.</li>
+                    <li>Build the Thevenin equivalent circuit: V_th_measured in series with R_th_measured and R_L.</li>
+                    <li>Measure the current in this new circuit (I_L_thevenin).</li>
+                </ul>
+            </li>
+            <li><strong>Compare:</strong> Verify that I_L_actual is equal to I_L_thevenin.</li>
+        </ol>
+        <h4>Procedure (for Max Power Transfer):</h4>
+        <ol>
+            <li>Find the R_th of your source circuit (as above). Let's say R_th = 100 Ω.</li>
+            <li>Connect a *variable* resistor (or a resistance box) as the load R_L.</li>
+            <li>Measure the voltage across the load (V_L) and current through the load (I_L) for various values of R_L (e.g., 20Ω, 50Ω, 80Ω, 100Ω, 120Ω, 150Ω, 200Ω).</li>
+            <li>Calculate the power delivered to the load for each step: <strong>P_L = V_L * I_L</strong>.</li>
+            <li>Plot a graph of <strong>Power (P_L)</strong> vs. <strong>Load Resistance (R_L)</strong>.</li>
+            <li>Verify that the peak of the graph (maximum power) occurs when R_L is equal to R_th.</li>
+        </ol><div class="precautions">
+            <strong>Precautions:</strong>
+            <ul>
+                <li>Ensure correct polarity when connecting meters.</li>
+                <li>An ammeter is connected in <strong>series</strong>, a voltmeter in <strong>parallel</strong>.</li>
+                <li>Use resistors with appropriate power ratings.</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h3 id="exp-b11">11. [cite_start]To study response curve of a series LCR circuit [cite: 232]</h3>
+        <h4>Aim:</h4>
+        <p>To plot the frequency response (current vs. frequency) of a series LCR circuit and determine its:</p>
+        <ol>
+            <li>Resonant frequency (f_r)</li>
+            <li>Impedance at resonance (Z_r)</li>
+            <li>Quality factor (Q)</li>
+            <li>Bandwidth (BW)</li>
+        </ol>
+        <h4>Apparatus:</h4>
+        <p>AC signal generator (audio frequency oscillator), inductor (L), capacitor (C), resistor (R), AC voltmeter (or CRO), connecting wires.</p>
+        <h4>Theory:</h4>
+        <p>In a series LCR circuit, the total impedance is Z = √[R² + (X_L - X_C)²], where X_L = 2πfL and X_C = 1/(2πfC).</p>
+        <p>The current I = V / Z.</p>
+        <ul>
+            <li><strong>Resonance:</strong> Occurs when X_L = X_C. The impedance Z is minimum (Z = R) and the current I is maximum. The resonant frequency is <strong>f_r = 1 / (2π√(LC))</strong>.</li>
+            <li><strong>Bandwidth (BW):</strong> The range of frequencies (f₂ - f₁) at which the power is half its maximum value. This corresponds to the current being I_max / √2.</li>
+            <li><strong>Q Factor:</strong> A measure of the sharpness of the resonance. <strong>Q = f_r / BW</strong>. It can also be calculated as Q = (2πf_r * L) / R.</li>
+        </ul>
+        <h4>Procedure:</h4>
+        <ol>
+            <li>Connect the resistor, inductor, and capacitor in series with the signal generator.</li>
+            <li>Connect the AC voltmeter *in parallel with the resistor R*.</li>
+            <li>The voltage across the resistor (V_R) is given by V_R = IR. Since R is constant, <strong>V_R is directly proportional to the current I</strong>. We will plot V_R as a proxy for current.</li>
+            <li>Set the generator to a constant output voltage (e.g., 5V).</li>
+            <li>Vary the frequency (f) of the generator from a low value (e.g., 100 Hz) to a high value (e.g., 10 kHz).</li>
+            <li>Record the frequency (f) and the corresponding voltage across the resistor (V_R) at various steps. Take many readings near the frequency where V_R is maximum.</li>
+        </ol>
+        <h4>Calculations:</h4>
+        <ol><li>Plot a graph of <strong>V_R (y-axis) vs. Frequency (x-axis)</strong>. This is the resonance curve.</li>
+            <li><strong>(a) Resonant Frequency (f_r):</strong> Find the frequency on the graph where V_R is maximum (V_max). This is f_r.</li>
+            <li><strong>(b) Impedance at Resonance (Z_r):</strong> At resonance, Z_r = R. The value of R is known.</li>
+            <li><strong>(d) Bandwidth (BW):</strong> Find the value V_power = V_max / √2 (approx 0.707 * V_max). Draw a horizontal line at this voltage. It will cut the curve at two frequencies, f₁ (lower) and f₂ (higher).
+                <p><strong>BW = f₂ - f₁</strong></p>
+            </li>
+            <li><strong>(c) Quality Factor (Q):</strong> Calculate the Q factor from your experimental values:
+                <p><strong>Q = f_r / BW</strong></p>
+            </li>
+        </ol>
+        <div class="precautions">
+            <strong>Precautions:</strong>
+            <ul>
+                <li>The output voltage of the signal generator must be kept constant throughout the experiment.</li>
+                <li>The voltmeter must be an AC voltmeter and have a high internal resistance.</li>
+                <li>Take many readings near the resonance peak to get an accurate curve.</li>
+            </ul>
+        </div>
+
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

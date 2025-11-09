@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics DSM 151 Unit 3 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Statistics DSM 151 (Statistical Methods and Probability), Unit 3, based on the Assam University syllabus. Covers Correlation, Regression, and Curve Fitting.">
+    <meta name="keywords" content="Statistics DSM 151, Statistical Methods, Unit 3, Assam University, Bivariate Data, Correlation, Karl Pearson, Spearman Rank, Regression, Least Squares, Curve Fitting">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        h1 {
+            color: #004d40; /* Teal tone for DSM */
+            border-bottom: 3px solid #004d40;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #00695c;
+            border-bottom: 1px solid #e0e0e0;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #333;
+            padding-top: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        code {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #e0f2f1;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+        blockquote {
+            background-color: #e0f2f1;
+            border-left: 5px solid #004d40;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        .formula {
+            background-color: #fdfdfd;
+            border: 1px dashed #ccc;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            text-align: center;
+            overflow-x: auto;
+        }
+        .exam-tip, .common-mistake {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .exam-tip {
+            background-color: #fffbe6;
+            border: 1px solid #ffecb3;
+        }
+        .common-mistake {
+            background-color: #ffebee;
+            border: 1px solid #ffcdd2;
+        }
+        .toc {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            margin-top: 0;
+            color: #00695c;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #337ab7;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .placeholder {
+            border: 2px dashed #aaa;
+            padding: 20px;
+            text-align: center;
+            background-color: #fafafa;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 3: Bivariate Data, Correlation, and Regression</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#bivariate">3.1 Bivariate Data and Scatter Diagram</a></li>
+                <li><a href="#correlation">3.2 Correlation</a></li>
+                <li><a href="#pearson">3.3 Karl Pearson's Coefficient of Correlation (r)</a></li>
+                <li><a href="#spearman">3.4 Spearman's Rank Correlation Coefficient (R)</a></li>
+                <li><a href="#regression">3.5 Regression</a></li>
+                <li><a href="#lines">3.6 Lines of Regression and Properties</a></li>
+                <li><a href="#least_squares">3.7 Principle of Least-Squares and Curve Fitting</a></li>
+                <li><a href="#determination">3.8 Coefficient of Determination</a></li>
+            </ul>
+        </div>
+        
+        <h2 id="bivariate">3.1 Bivariate Data and Scatter Diagram</h2>
+        
+        <h3>Bivariate Data</h3>
+        [cite_start]<p>Data where we have <strong>two variables</strong> measured for each unit of observation[cite: 1492]. For example, (Height, Weight) for 50 students, or (Ad Spend, Sales) for 12 months.</p>
+        
+        <h3>Scatter Diagram (or Scatter Plot)</h3>
+        <p>A graph used to visualize bivariate data. [cite_start]Each (x, y) pair is plotted as a single point on a 2D graph[cite: 1492].</p>
+        <p>It is the <strong>first step</strong> in analyzing bivariate data, as it visually shows the <strong>form, direction, and strength</strong> of a relationship.</p>
+        
+        <ul>
+            <li><strong>Direction:</strong> Points trend upwards (positive) or downwards (negative).</li>
+            <li><strong>Form:</strong> Points cluster in a line (linear) or a curve (non-linear).</li>
+            <li><strong>Strength:</strong> Points are tightly packed (strong) or widely scattered (weak).</li>
+        </ul>
+
+        <h2 id="correlation">3.2 Correlation</h2>
+        <p>Correlation is a statistical measure that describes the <strong>degree and direction of the relationship</strong> between two variables. This unit focuses on <strong>linear correlation</strong>.</p>
+        
+        [cite_start]<h2 id="pearson">3.3 Karl Pearson's Coefficient of Correlation (r) [cite: 1492]</h2>
+        <p>Also called the <strong>Product-Moment Correlation Coefficient</strong>. It measures the strength and direction of the <strong>linear</strong> relationship between two <strong>quantitative</strong> variables.</p>
+        
+        <h3>Properties of 'r'</h3>
+        <ul>
+            <li><strong>Range:</strong> 'r' always lies between -1 and +1 (i.e., -1 ≤ r ≤ +1).</li>
+            <li><strong>r = +1:</strong> Perfect positive linear relationship. All points lie on a straight line with a positive slope.</li>
+            <li><strong>r = -1:</strong> Perfect negative linear relationship. All points lie on a straight line with a negative slope.</li>
+            <li><strong>r = 0:</strong> No <strong>linear</strong> relationship. (There could still be a strong non-linear relationship, like a U-shape).</li>
+            <li><strong>Unit-free:</strong> 'r' is a pure number. It is <strong>independent of change of origin and scale</strong>. This means if you multiply all x-values by 2 (change of scale) or add 10 to all y-values (change of origin), 'r' will not change.</li>
+        </ul>
+        
+        <h3>Formulas for 'r'</h3>
+        <ol>
+            <li><strong>Covariance Formula:</strong>
+                <div class="formula">r = Cov(x, y) / (σₓ * σᵧ)</div>
+                <p>Where Cov(x, y) = E[(x-μₓ)(y-μᵧ)], σₓ = std. dev. of x, σᵧ = std. dev. of y.</p>
+            </li>
+            <li><strong>Computational Formula (for raw data):</strong>
+                <div class="formula">r = [ nΣxy - (Σx)(Σy) ] / sqrt( [nΣx² - (Σx)²] * [nΣy² - (Σy)²] )</div>
+            </li>
+        </ol>
+
+        [cite_start]<h2 id="spearman">3.4 Spearman's Rank Correlation Coefficient (R or ρ) [cite: 1492]</h2>
+        <p>This is a <strong>non-parametric</strong> measure of correlation. It assesses the strength of a <strong>monotonic relationship</strong> (a relationship that is consistently increasing or decreasing, but not necessarily in a straight line).</p>
+        <p>It is used when:</p>
+        <ol>
+            <li>The data is <strong>ordinal (ranked)</strong>, e.g., "rank of 10 students in Math vs. Physics."</li>
+            <li>The data is quantitative but does not meet the assumptions of Pearson's r (e.g., it's not linear, or has extreme outliers).</li>
+        </ol>
+        
+        <h3>Procedure</h3>
+        <ol>
+            <li>Assign ranks (Rₓ) to the x-values from 1 to n.</li>
+            <li>Assign ranks (Rᵧ) to the y-values from 1 to n.</li>
+            <li>Calculate the difference in ranks for each pair: d = Rₓ - Rᵧ.</li>
+            <li>Calculate the sum of squared differences: Σd².</li>
+        </ol>
+
+        <h3>Formulas for 'R'</h3>
+        <ul>
+            <li><strong>Case 1: No Ties in Ranks</strong>
+                <div class="formula">R = 1 - [ (6 * Σd²) / (n³ - n) ]</div>
+            </li>
+            <li><strong>Case 2: Ties in Ranks Present</strong>
+                <p>If two values are tied, assign the <strong>average rank</strong> to both. (e.g., if 4th and 5th are tied, both get rank 4.5). Then, you must use the <strong>Karl Pearson's formula (from 3.3) on the ranks themselves</strong>, not the simplified formula above.</p>
+            </li>
+        </ul>
+        <p><strong>Interpretation:</strong> 'R' has the same properties as 'r' (i.e., it ranges from -1 to +1).</p>
+        
+        <h2 id="regression">3.5 Regression</h2>
+        [cite_start]<p>If correlation shows that two variables are related, regression gives us an <strong>equation to describe that relationship</strong>[cite: 1493]. This equation allows us to <strong>predict</strong> the value of one variable (Dependent Variable, Y) based on the value of another (Independent Variable, X).</p>
+
+        [cite_start]<h2 id="lines">3.6 Lines of Regression and Properties [cite: 1493]</h2>
+        <p>In linear regression, we assume the relationship is a straight line. There are <strong>two</strong> regression lines:</p>
+        
+        <h3>1. Regression Line of Y on X</h3>
+        <ul>
+            <li><strong>Purpose:</strong> Predicts Y, given X. (Y is dependent, X is independent).</li>
+            <li><strong>Equation:</strong> (y - y-bar) = bᵧₓ * (x - x-bar)</li>
+            <li><strong>bᵧₓ</strong> is the <strong>regression coefficient of Y on X</strong>. It represents the change in Y for a one-unit change in X.
+                <div class="formula">bᵧₓ = Cov(x, y) / σₓ²   =   r * (σᵧ / σₓ)</div>
+            </li>
+        </ul>
+
+        <h3>2. Regression Line of X on Y</h3>
+        <ul>
+            <li><strong>Purpose:</strong> Predicts X, given Y. (X is dependent, Y is independent).</li>
+            <li><strong>Equation:</strong> (x - x-bar) = bₓᵧ * (y - y-bar)</li>
+            <li><strong>bₓᵧ</strong> is the <strong>regression coefficient of X on Y</strong>. It represents the change in X for a one-unit change in Y.
+                <div class="formula">bₓᵧ = Cov(x, y) / σᵧ²   =   r * (σₓ / σᵧ)</div>
+            </li>
+        </ul>
+        
+        <h3>Properties of Regression Coefficients</h3>
+        <ul>
+            <li><strong>Geometric Mean:</strong> The correlation coefficient 'r' is the geometric mean of the two regression coefficients.
+                <div class="formula">r² = bᵧₓ * bₓᵧ   =>   r = ±sqrt(bᵧₓ * bₓᵧ)</div>
+            </li>
+            <li><strong>Sign:</strong> 'r', bᵧₓ, and bₓᵧ <strong>must all have the same sign</strong>. If one is positive, all three are.</li>
+            <li><strong>Magnitude:</strong> If |r| ≤ 1, then at least one of the coefficients must be ≤ 1. It is not possible for both coefficients to be greater than 1.</li>
+            <li><strong>Intersection:</strong> The two regression lines always intersect at the point of their means, <strong>(x-bar, y-bar)</strong>.</li>
+        </ul>
+
+        [cite_start]<h3>Angle Between Two Regression Lines [cite: 1493]</h3>
+        <p>If θ (theta) is the angle between the two lines, its tangent is given by:</p>
+        <div class="formula">tan(θ) = [ (1 - r²) / (r) ] * [ (σₓσᵧ) / (σₓ² + σᵧ²) ]</div>
+        <ul>
+            <li>If <strong>r = 0</strong>, tan(θ) = ∞, so <strong>θ = 90°</strong>. The lines are perpendicular (uncorrelated).</li>
+            <li>If <strong>r = ±1</strong>, tan(θ) = 0, so <strong>θ = 0°</strong>. The lines are coincident (perfect correlation).</li>
+        </ul>
+        
+        [cite_start]<h2 id="least_squares">3.7 Principle of Least-Squares and Curve Fitting [cite: 1494]</h2>
+        
+        <h3>Principle of Least-Squares</h3>
+        <p>How do we find the "best" line? The Principle of Least-Squares states that the best-fit line is the one that <strong>minimizes the sum of the squared vertical distances (residuals)</strong> between the observed data points (y) and the values predicted by the line (y-hat).</p>
+        <div class="formula">Minimize Σ(y - y-hat)²  =  Minimize Σ(y - (a + bx))²</div>
+        
+        
+        <h3>Curve Fitting</h3>
+        <p>We use this principle to find the "normal equations" to solve for the parameters of the best-fit curve.</p>
+        
+        <h4>1. Fitting a Straight Line (y = a + bx)</h4>
+        <p>The normal equations are a system of 2 linear equations for 'a' and 'b':</p>
+        <div class="formula">
+            (I)   Σy = na + b(Σx)
+            <br>
+            (II)  Σxy = a(Σx) + b(Σx²)
+        </div>
+        
+        <h4>2. Fitting a Parabola (Polynomial: y = a + bx + cx²)</h4>
+        <p>The normal equations are a system of 3 linear equations for 'a', 'b', and 'c':</p>
+        <div class="formula">
+            (I)   Σy = na + b(Σx) + c(Σx²)
+            <br>
+            (II)  Σxy = a(Σx) + b(Σx²) + c(Σx³)
+            <br>
+            (III) Σx²y = a(Σx²) + b(Σx³) + c(Σx⁴)
+        </div>
+
+        <h4>3. Fitting an Exponential Curve (y = abˣ)</h4>
+        <p>This is a non-linear model. We transform it into a linear one by taking the logarithm (log base 10 or natural log) of both sides.</p>
+        <p>log(y) = log(a) + x * log(b)</p>
+        <p>Let Y = log(y), A = log(a), and B = log(b). The model becomes:</p>
+        <p><strong>Y = A + Bx</strong></p>
+        <p>This is now a linear model. We use the normal equations for a straight line on (x, Y) data:</p>
+        <div class="formula">
+            (I)   ΣY = nA + B(Σx)
+            <br>
+            (II)  ΣxY = A(Σx) + B(Σx²)
+        </div>
+        <p>After solving for A and B, we find the original parameters by:
+        <strong>a = antilog(A)</strong> and <strong>b = antilog(B)</strong>.</p>
+        
+        [cite_start]<h2 id="determination">3.8 Coefficient of Determination (r²) [cite: 1494]</h2>
+        <p>This is simply the <strong>square of the correlation coefficient (r)</strong>. It has a very important interpretation.</p>
+        
+        <blockquote>
+            <strong>Interpretation:</strong> r² represents the <strong>proportion (or percentage) of the total variation</strong> in the dependent variable (Y) that can be <strong>explained by the linear relationship</strong> with the independent variable (X).
+        </blockquote>
+        
+        <ul>
+            <li><strong>Example:</strong> If the correlation between "Years of Education" (X) and "Income" (Y) is <strong>r = 0.8</strong>.</li>
+            <li>Then <strong>r² = (0.8)² = 0.64</strong>.</li>
+            <li><strong>Interpretation:</strong> "64% of the variation in people's incomes can be explained by their years of education. The other 36% is due to other factors (luck, skills, location, etc.)."</li>
+        </ul>
+        <p>r² is a key measure of how good a regression model is. A value near 1 is a good fit; a value near 0 is a poor fit.</p>
+
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

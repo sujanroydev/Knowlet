@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics SEC 151 Unit 2 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Statistics SEC 151L (Statistical Data Analysis using R Lab), based on the Assam University syllabus. Covers all 14 practicals with R code examples.">
+    <meta name="keywords" content="Statistics SEC 151, SEC 151L, R Lab, R Practical, Assam University, R Programming, Data Visualization, Descriptive Statistics, R Regression">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f0f4f8; /* Light blue-gray background */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #191970; /* Midnight Blue */
+        }
+        h1 {
+            color: #004080; /* Darker Blue */
+            border-bottom: 3px solid #004080;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #005A9C; /* Medium Blue */
+            border-bottom: 1px solid #e0e0e0;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #333;
+            padding-top: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #e6f0ff;
+            padding: 2px 5px;
+            border-radius: 4px;
+            border: 1px solid #b3d1ff;
+        }
+        blockquote {
+            background-color: #f0f8ff;
+            border-left: 5px solid #005A9C;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        .formula {
+            background-color: #fdfdfd;
+            border: 1px dashed #ccc;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            text-align: left;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .exam-tip {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            background-color: #fffbe6;
+            border: 1px solid #ffecb3;
+        }
+        .practical-item {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SEC-151L: Statistical Data Analysis using R (Lab)</h1>
+        
+        <p>This lab course provides hands-on practice for the concepts learned in SEC-151T. You will use R and R-Studio to perform data analysis.</p>
+
+        <h2>List of Practicals</h2>
+
+        <div class="practical-item">
+            <h3>1. Plotting simple graphs in R</h3>
+            <p><strong>Commands:</strong></p>
+            <div class="formula">
+# Sample data
+x <- rnorm(100, mean = 50, sd = 10) # 100 normal random numbers
+y_counts <- table(sample(c("A", "B", "C"), 100, replace = TRUE))
+
+# Histogram (for continuous data)
+hist(x)
+
+# Bar Diagram (for categorical/discrete data)
+barplot(y_counts)
+
+# Pie Diagram
+pie(y_counts)
+
+# Boxplot
+boxplot(x)
+
+# Stem-and-leaf plot (displays in console)
+stem(x)
+
+# Ogives (Cumulative Frequency Plot)
+# Create a cumulative frequency table
+cum_freq <- cumsum(table(cut(x, breaks=10)))
+# Plot the ogive
+plot(cum_freq, type = "b", 
+     xlab = "Class Intervals", ylab = "Cumulative Frequency")
+            </div>
+        </div>
+
+        <div class="practical-item">
+            <h3>2. Adding labels, titles, and legends to plots. Saving and exporting plots.</h3>
+            <p><strong>Commands:</strong></p>
+            <div class="formula">
+# 1. Open the file device
+png("my_beautiful_plot.png")
+
+# 2. Create the plot with all customizations
+hist(x,
+     main = "Histogram of X",
+     xlab = "Value of X",
+     ylab = "Frequency",
+     col = "lightblue",
+     border = "darkblue"
+)
+
+# Add a legend (more common on scatter plots, but for example)
+legend("topright", legend = "Sample Data", fill = "lightblue")
+
+# 3. Close the device to save the file
+dev.off() 
+            </div>
+        </div>
+        
+        <div class="practical-item">
+            <h3>3. Tabulation of raw data in R</h3>
+            <p><strong>Commands:</strong></p>
+            <div class="formula">
+# One-way frequency table
+my_vector <- c("A", "B", "A", "A", "C", "B")
+table(my_vector)
+
+# Two-way cross-tabulation
+df <- data.frame(
+  gender = c("M", "F", "M", "F", "F"),
+  smokes = c("Yes", "No", "No", "Yes", "No")
+)
+table(df$gender, df$smokes)
+            </div>
+        </div>
+        
+        <div class="practical-item">
+            <h3>4. To compute mean, median and mode for a grouped frequency data in R</h3>
+            <p><strong>Note:</strong> R works best with raw data. For grouped data, calculations are more manual or require special packages. For the mode, you must create a function.</p>
+            <div class="formula">
+# Function to find the mode
+get_mode <- function(v) {
+  uniqv <- unique(v)
+  uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+
+# Assume 'x' is your vector of raw data
+mean(x)
+median(x)
+get_mode(x)
+            </div>
+        </div>
+        
+        <div class="practical-item">
+            <h3>5. To compute Geometric mean and Harmonic mean.</h3>
+            <p><strong>Note:</strong> These are not in base R and require simple custom functions.</p>
+            <div class="formula">
+# Sample data (must be positive)
+x <- c(4, 5, 8, 10, 12)
+
+# Geometric Mean
+# G.M. = (x1 * x2 * ... * xn)^(1/n)
+# We use logs to avoid overflow: exp(mean(log(x)))
+gm <- exp(mean(log(x)))
+print(gm)
+
+# Harmonic Mean
+# H.M. = n / (1/x1 + 1/x2 + ... + 1/xn)
+hm <- length(x) / sum(1/x)
+print(hm)
+            </div>
+        </div>
+        
+        <div class="practical-item">
+            <h3>6. To compute mean, median, variance, covariance, standard deviation in R.</h3>
+            <p><strong>Commands:</strong></p>
+            <div class="formula">
+x <- c(10, 12, 15, 18, 20)
+y <- c(5, 8, 7, 12, 10)
+
+mean(x)
+median(x)
+var(x)     # Sample variance (divides by n-1)
+sd(x)      # Sample standard deviation
+cov(x, y)  # Covariance between x and y
+            </div>
+        </div>
+        
+        <div class="practical-item">
+            <h3>7. Computation of partition values, skewness and kurtosis in R.</h3>
+            <p><strong>Commands:</strong></p>
+            <div class="formula">
+# 1. Partition values (Quantiles)
+x <- rnorm(100)
+quantile(x)                 # Gives 0%, 25%, 50%, 75%, 100%
+quantile(x, probs = c(0.1, 0.9)) # Gives 10th and 90th percentiles
+
+# 2. Skewness and Kurtosis (requires 'e1071' package)
+# install.packages("e1071") # Run this once
+library(e1071)
+
+skewness(x)
+kurtosis(x)
+            </div>
+        </div>
+
+        <div class="practical-item">
+            <h3>8. To compute correlation and lines of regression in R.</h3>
+            <p><strong>Commands:</strong></p>
+            <div class="formula">
+# Assume 'x' and 'y' vectors exist
+x <- c(1, 2, 3, 4, 5)
+y <- c(2, 3, 5, 4, 6)
+
+# Correlation (Pearson is default)
+cor(x, y)
+
+# Correlation (Spearman)
+cor(x, y, method = "spearman")
+
+# Fit the regression line (y = a + bx)
+model <- lm(y ~ x)
+
+# See the coefficients (a and b)
+print(model)
+
+# See the full analysis (R-squared, p-values, etc.)
+summary(model)
+            </div>
+        </div>
+        
+        <div class="practical-item">
+            <h3>9. Random number generation from different distributions in R.</h3>
+            <p><strong>Commands:</strong> (The 'r' prefix stands for 'random')</p>
+            <div class="formula">
+# 10 random numbers from a Normal distribution
+# (mean=0, sd=1 is default)
+rnorm(10, mean = 50, sd = 10)
+
+# 10 random numbers from a Uniform distribution
+# (min=0, max=1 is default)
+runif(10, min = 1, max = 6) # Simulates a die roll (sort of)
+
+# 10 random numbers from a Binomial distribution
+# (n=trials, p=probability)
+rbinom(10, size = 5, prob = 0.5) # Simulates 10 people flipping 5 coins each
+
+# 10 random numbers from a Poisson distribution
+# (lambda=average rate)
+rpois(10, lambda = 3) # e.g., # of customers in 10 different minutes
+            </div>
+        </div>
+        
+        <div class="practical-item">
+            <h3>10. Fitting of simple linear regression in R and its interpretation.</h3>
+            <p>This involves using <code>lm()</code> and <code>summary()</code> as in practical 8.</p>
+            <div class="formula">
+# 1. Fit the model
+model <- lm(y ~ x)
+
+# 2. Get the summary for interpretation
+model_summary <- summary(model)
+print(model_summary)
+            </div>
+            <p><strong>Interpretation:</strong></p>
+            <ul>
+                <li><strong>Coefficients (Estimate):</strong> The intercept (a) and slope (b).</li>
+                <li><strong>Coefficients (Pr(>|t|)):</strong> The p-value. If < 0.05, the variable is a statistically significant predictor.</li>
+                <li><strong>Multiple R-squared:</strong> The percentage of variance in 'y' explained by 'x'.</li>
+            </ul>
+        </div>
+        
+        <div class="practical-item">
+            <h3>11. Fitting of polynomials and exponential curves in R.</h3>
+            <p><strong>Commands:</strong></p>
+            <div class="formula">
+# 1. Polynomial (e.g., y = a + b1*x + b2*x^2)
+# Use I() to treat x^2 "as is"
+poly_model <- lm(y ~ x + I(x^2))
+summary(poly_model)
+
+# 2. Exponential (y = a*e^(b*x))
+# We linearize by taking the log of y: log(y) = log(a) + b*x
+# Note: y must be positive
+exp_model <- lm(log(y) ~ x)
+summary(exp_model)
+            </div>
+        </div>
+        
+        <div class="practical-item">
+            <h3>12. Fitting of Binomial and Poisson distribution in R.</h3>
+            <p>This usually means performing a <strong>Chi-Square Goodness-of-Fit Test</strong> to see if observed data "fits" a theoretical distribution.</p>
+            <div class="formula">
+# Example: Does a die roll fit a fair uniform distribution?
+observed_counts <- c(18, 22, 19, 21, 20, 20) # Total 120 rolls
+expected_probs <- c(1/6, 1/6, 1/6, 1/6, 1/6, 1/6)
+
+chisq.test(x = observed_counts, p = expected_probs)
+
+# The p-value tells you the goodness of fit.
+# p-value > 0.05: Good fit (Do not reject null hypothesis)
+# p-value < 0.05: Poor fit (Reject null hypothesis)
+            </div>
+        </div>
+        
+        <div class="practical-item">
+            <h3>13. Problems based on selecting random sample in R (with and without replacement).</h3>
+            <p><strong>Command:</strong> <code>sample()</code></p>
+            <div class="formula">
+population <- 1:100 # A population of numbers 1 to 100
+
+# 1. Sampling WITHOUT replacement
+sample_without <- sample(population, size = 10, replace = FALSE)
+print(sample_without)
+
+# 2. Sampling WITH replacement
+sample_with <- sample(population, size = 10, replace = TRUE)
+print(sample_with)
+            </div>
+        </div>
+        
+        <div class="practical-item">
+            <h3>14. Problems based on plotting normal probability plot in R (P-P plot and Q-Q plot).</h3>
+            <p>The most common is the <strong>Q-Q (Quantile-Quantile) Plot</strong>, used to check if data is normally distributed.</p>
+            <p><strong>Commands:</strong></p>
+            <div class="formula">
+x <- rnorm(100) # Data that IS normal
+# x <- runif(100) # Data that is NOT normal
+
+# 1. Create the Q-Q plot
+qqnorm(x)
+
+# 2. Add the theoretical line
+qqline(x, col = "red")
+            </div>
+            <p><strong>Interpretation:</strong> If the points fall closely along the straight red line, the data is considered normally distributed.</p>
+        </div>
+        
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

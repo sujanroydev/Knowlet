@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics IDC 151 Unit 4 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Statistics IDC 151 (Index Number and Time Series Analysis), Unit 4, based on the Assam University syllabus. Covers methods for estimating the Trend component.">
+    <meta name="keywords" content="Statistics IDC 151, Time Series Analysis, Unit 4, Assam University, Trend Estimation, Free Hand Curve, Semi Averages, Moving Averages, Least Squares, Curve Fitting">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+   <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f7f3f0; /* Light brown background */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #3e2723; /* Dark brown */
+        }
+        h1 {
+            color: #4e342e; /* Darker brown */
+            border-bottom: 3px solid #4e342e;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #5d4037; /* Medium brown */
+            border-bottom: 1px solid #e0e0e0;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #6d4c41;
+            padding-top: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        code {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #efebe9;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+        blockquote {
+            background-color: #f7f3f0;
+            border-left: 5px solid #5d4037;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        .formula {
+            background-color: #fdfdfd;
+            border: 1px dashed #ccc;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        .exam-tip, .common-mistake {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .exam-tip {
+            background-color: #fffbe6;
+            border: 1px solid #ffecb3;
+        }
+        .common-mistake {
+            background-color: #ffebee;
+            border: 1px solid #ffcdd2;
+        }
+        .toc {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            margin-top: 0;
+            color: #5d4037;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #337ab7;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .placeholder {
+            border: 2px dashed #aaa;
+            padding: 20px;
+            text-align: center;
+            background-color: #fafafa;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #5d4037;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        [cite_start]<h1>Unit 4: Time Series-II (Estimation of Trend) [cite: 2132]</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#intro">4.1 Introduction to Trend Estimation</a></li>
+                [cite_start]<li><a href="#free_hand">4.2 Free Hand Curve Method [cite: 2133]</a></li>
+                [cite_start]<li><a href="#semi_average">4.3 Method of Semi-Averages [cite: 2133]</a></li>
+                [cite_start]<li><a href="#moving_average">4.4 Method of Moving Averages [cite: 2134]</a></li>
+                [cite_start]<li><a href="#least_squares">4.5 Method of Least Squares (Fitting Mathematical Curves) [cite: 2133]</a></li>
+            </ul>
+        </div>
+        
+        <h2 id="intro">4.1 Introduction to Trend Estimation</h2>
+        <p>The first step in classical decomposition is to isolate the <strong>Secular Trend (T)</strong>. This involves "smoothing" the data to remove the short-term fluctuations (S, C, and I). This unit covers four methods to do this.</p>
+
+        [cite_start]<h2 id="free_hand">4.2 Free Hand Curve Method [cite: 2133]</h2>
+        <p>This is the simplest and most subjective method.</p>
+        
+        <ol>
+            <li>Plot the time series data on a graph.</li>
+            <li>Draw a smooth, free-hand curve or line through the data that you feel best represents the long-term trend, ignoring the short-term "wiggles".</li>
+        </ol>
+        
+        
+        <ul>
+            <li><strong>Pros:</strong>
+                <ul>
+                    <li>Very simple and quick.</li>
+                    <li>Can be used for any type of trend (linear or non-linear).</li>
+                </ul>
+            </li>
+            <li><strong>Cons:</strong>
+                <ul>
+                    <li><strong>Highly subjective.</strong> Two different people will draw two different trend lines.</li>
+                    <li>Not mathematical; cannot be used for reliable forecasting.</li>
+                </ul>
+            </li>
+        </ul>
+
+        [cite_start]<h2 id="semi_average">4.3 Method of Semi-Averages [cite: 2133]</h2>
+        <p>This is a simple mathematical method that is more objective than the free-hand curve.</p>
+        
+        <ol>
+            <li><strong>Step 1:</strong> Divide the time series data into <strong>two equal parts</strong>.
+                <div class="common-mistake">
+                    <strong>Odd Number of Years:</strong> If there is an odd number of data points (e.g., 7 years), <strong>omit the middle value</strong> and split the remaining data in two (e.g., first 3 years, last 3 years).
+                </div>
+            </li>
+            <li><strong>Step 2:</strong> Calculate the <strong>arithmetic mean (average)</strong> for each part.</li>
+            <li><strong>Step 3:</strong> Plot these two averages on the graph at the <strong>mid-point of their respective time periods</strong>.</li>
+            <li><strong>Step 4:</strong> Draw a <strong>straight line</strong> connecting these two points. This line is the trend line.</li>
+        </ol>
+        
+        <ul>
+            <li><strong>Pros:</strong>
+                <ul>
+                    <li>More objective than the free-hand method.</li>
+                    <li>Easy to calculate.</li>
+                </ul>
+            </li>
+            <li><strong>Cons:</strong>
+                <ul>
+                    <li>Assumes the trend is <strong>linear</strong>. It cannot be used for non-linear trends.</li>
+                    <li>It is still somewhat crude, as it's only based on two points.</li>
+                </ul>
+            </li>
+        </ul>
+
+        [cite_start]<h2 id="moving_average">4.4 Method of Moving Averages [cite: 2134]</h2>
+        <p>This is a very common and effective method for smoothing a time series. It works by replacing each data point with the <strong>average of itself and its neighbors</strong>.</p>
+        <p>The "period" of the moving average (e.g., 3-year, 5-year, 4-quarter) is chosen to match the length of the seasonal/cyclical variation, as the averaging "cancels out" these fluctuations.</p>
+        
+        <h3>3-Year Moving Average (Odd Period)</h3>
+        <p>For each year (starting from the 2nd), the trend value is the average of that year, the year before, and the year after.</p>
+        <table class="data-table">
+            <thead>
+                <tr><th>Year</th><th>Value (Y)</th><th>3-Year Moving Total</th><th>3-Year Moving Average (Trend, T)</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>2018</td><td>10</td><td>-</td><td>-</td></tr>
+                <tr><td>2019</td><td>12</td><td>10 + 12 + 15 = 37</td><td>37 / 3 = 12.33</td></tr>
+                <tr><td>2020</td><td>15</td><td>12 + 15 + 13 = 40</td><td>40 / 3 = 13.33</td></tr>
+                <tr><td>2021</td><td>13</td><td>15 + 13 + 17 = 45</td><td>45 / 3 = 15.00</td></tr>
+                <tr><td>2022</td><td>17</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+        
+        <h3>4-Quarter Moving Average (Even Period)</h3>
+        <p>This is common for quarterly data and has an extra step to solve the "centering problem."</p>
+        <ol>
+            <li><strong>Step 1: Calculate 4-Quarter Moving Totals.</strong> (e.g., Q1+Q2+Q3+Q4). This value is placed <em>between</em> Q2 and Q3.</li>
+            <li><strong>Step 2: Calculate 4-Quarter Moving Averages.</strong> (Total / 4). This value is also <em>between</em> quarters.</li>
+            <li><strong>Step 3: Center the Averages.</strong> Take the average of two adjacent moving averages. This "centers" the value, aligning it with an actual quarter.</li>
+        </ol>
+        
+        
+        <ul>
+            <li><strong>Pros:</strong>
+                <ul>
+                    <li>Simple to understand and compute.</li>
+                    <li>Very flexible and can isolate the trend effectively if the period is chosen correctly.</li>
+                </ul>
+            </li>
+            <li><strong>Cons:</strong>
+                <ul>
+                    <li><strong>Data is lost at the ends</strong> (e.g., in a 3-year MA, you can't find the trend for the first or last year).</li>
+                    <li>Can be influenced by extreme random variations.</li>
+                </ul>
+            </li>
+        </ul>
+        
+        [cite_start]<h2 id="least_squares">4.5 Method of Least Squares (Fitting Mathematical Curves) [cite: 2133]</h2>
+        <p>This is the most <strong>mathematical and objective</strong> method. It finds the "line of best fit" by minimizing the sum of the squared differences between the actual data (Y) and the trend line (Y-hat).</p>
+        
+        <p>The most common trend is a <strong>straight line (linear trend)</strong>:</p>
+        <div class="formula">Y-hat = a + bX</div>
+        <p>Where Y-hat is the trend value, 'a' is the Y-intercept, 'b' is the slope (the amount of growth per time period), and 'X' is the time variable.</p>
+        
+        <h3>Time Variable (X)</h3>
+        <p>To make calculations easier, we "code" the time variable 't' (e.g., 2018, 2019...) into a new variable 'X' such that <strong>ΣX = 0</strong>.</p>
+        <ul>
+            <li><strong>Odd Number of Years (e.g., 5 years: 2018-2022):</strong>
+                <br>Code the middle year as 0.
+                <br>t = [2018, 2019, 2020, 2021, 2022]
+                <br>X = [-2,  -1,  0,  1,  2]  ->  <strong>ΣX = 0</strong>
+            </li>
+            <li><strong>Even Number of Years (e.g., 6 years: 2018-2023):</strong>
+                <br>Code the two middle years as -1 and +1, using half-units.
+                <br>t = [2018, 2019, 2020, 2021, 2022, 2023]
+                <br>X = [-5,  -3,  -1,  1,  3,  5]  ->  <strong>ΣX = 0</strong>
+            </li>
+        </ul>
+        
+        <h3>Solving for 'a' and 'b' (when ΣX = 0)</h3>
+        <p>The normal equations from Unit 3 (for regression) are:</p>
+        <p>(I)   ΣY = na + b(ΣX)
+        <br>(II)  ΣXY = a(ΣX) + b(ΣX²)</p>
+        
+        <p>But since we cleverly made <strong>ΣX = 0</strong>, they simplify to:</p>
+        <p>(I)   ΣY = na  =>  <strong>a = ΣY / n = Y-bar</strong> (The mean of Y)
+        <br>(II)  ΣXY = b(ΣX²) => <strong>b = ΣXY / ΣX²</strong></p>
+        
+        <div class="exam-tip">
+            <strong>Procedure for Exam:</strong>
+            <ol>
+                <li>Create a table with columns: Year (t), Coded Time (X), Value (Y), XY, and X².</li>
+                <li>Calculate the sums at the bottom: ΣY, ΣXY, and ΣX².</li>
+                <li>Find 'a' and 'b' using the simple formulas: <code>a = ΣY / n</code> and <code>b = ΣXY / ΣX²</code>.</li>
+                <li>Write the final trend equation: <strong>Y-hat = a + bX</strong>.</li>
+                <li>You can now find the trend value for any year by plugging in its 'X' value.</li>
+            </ol>
+        </div>
+        
+        <ul>
+            <li><strong>Pros:</strong> Mathematical, objective, and gives a unique trend line. The line can be easily extrapolated for forecasting.</li>
+            <li><strong>Cons:</strong> Assumes the trend follows a specific mathematical form (like a line). If the true trend is complex, this method will give a poor fit.</li>
+        </ul>
+        
+    </div>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics DSM 151 Unit 3 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Mathematics (MAT-DSM-151) Unit 3: Partial Differentiation, Euler's Theorem, Tangents, Normals, Subtangents, and Subnormals, based on the Assam University NEP syllabus.">
+    <meta name="keywords" content="MAT-DSM-151, Calculus, Unit 3, Partial Differentiation, Euler's Theorem, Homogeneous Functions, Tangents, Normals, Subtangent, Subnormal, Cartesian, Polar, Assam University">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #0056b3; /* Dark Blue */
+            margin-top: 24px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #003366; /* Navy Blue */
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #007bff; /* Bright Blue */
+            border-bottom: none;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code, .formula {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.05em;
+        }
+        blockquote {
+            background-color: #f1f8ff;
+            border-left: 5px solid #007bff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #fffaf0; /* Light yellow */
+            border: 1px solid #ffc107; /* Yellow border */
+            border-left-width: 5px;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d9534f; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 3: Partial Differentiation and Curve Geometry</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                [cite_start]<li><a href="#topic1">Partial Differentiation [cite: 1394]</a>
+                    <ul>
+                        <li><a href="#subtopic1_1">Definition</a></li>
+                        <li><a href="#subtopic1_2">Mixed Partial Derivatives</a></li>
+                    </ul>
+                </li>
+                [cite_start]<li><a href="#topic2">Euler's Theorem on Homogeneous Functions [cite: 1394]</a>
+                    <ul>
+                        <li><a href="#subtopic2_1">Homogeneous Functions</a></li>
+                        <li><a href="#subtopic2_2">Euler's Theorem (Statement)</a></li>
+                    </ul>
+                </li>
+                [cite_start]<li><a href="#topic3">Tangents and Normals (Cartesian) [cite: 1394]</a>
+                    <ul>
+                        <li><a href="#subtopic3_1">Equation of Tangent</a></li>
+                        <li><a href="#subtopic3_2">Equation of Normal</a></li>
+                        <li><a href="#subtopic3_3">Cartesian Subtangent and Subnormal</a></li>
+                    </ul>
+                </li>
+                [cite_start]<li><a href="#topic4">Tangents and Normals (Polar) [cite: 1394]</a>
+                    <ul>
+                        <li><a href="#subtopic4_1">Angle between Radius Vector and Tangent</a></li>
+                        <li><a href="#subtopic4_2">Polar Subtangent and Subnormal</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic5">Unit 3: Exam Quick Tips</a></li>
+            </ul>
+        </div>
+
+        [cite_start]<h2 id="topic1">Partial Differentiation [cite: 1394]</h2>
+
+        <h3 id="subtopic1_1">Definition</h3>
+        <p>When a function <code class="formula">z = f(x, y)</code> depends on more than one independent variable (e.g., x and y), we can find its derivative with respect to one variable while treating all other variables as constants. This is called a **partial derivative**.</p>
+        
+        <ul>
+            <li><strong>Partial derivative with respect to x:</strong>
+                <br><code class="formula">∂f/∂x = fₓ(x, y) = lim (h→0) [f(x + h, y) - f(x, y)] / h</code>
+                <br>(Treat 'y' as a constant and differentiate 'x' normally).
+            </li>
+            <li><strong>Partial derivative with respect to y:</strong>
+                <br><code class="formula">∂f/∂y = fᵧ(x, y) = lim (k→0) [f(x, y + k) - f(x, y)] / k</code>
+                <br>(Treat 'x' as a constant and differentiate 'y' normally).
+            </li>
+        </ul>
+        
+        <h4>Example:</h4>
+        <p>If <code class="formula">f(x, y) = 3x²y + 5y³ + sin(x)</code>
+        <br>
+        <code class="formula">∂f/∂x = 6xy + 0 + cos(x) = 6xy + cos(x)</code> (y is constant)
+        <br>
+        <code class="formula">∂f/∂y = 3x² + 15y² + 0 = 3x² + 15y²</code> (x is constant)
+        </p>
+
+        <h3 id="subtopic1_2">Mixed Partial Derivatives</h3>
+        <p>We can take partial derivatives of the partial derivatives. These are called second-order partial derivatives.</p>
+        <ul>
+            <li><code class="formula">∂²f/∂x² = fₓₓ = ∂/∂x (∂f/∂x)</code></li>
+            <li><code class="formula">∂²f/∂y² = fᵧᵧ = ∂/∂y (∂f/∂y)</code></li>
+            <li><code class="formula">∂²f/∂y∂x = fₓᵧ = ∂/∂y (∂f/∂x)</code> (Differentiate w.r.t. x first, *then* w.r.t. y)</li>
+            <li><code class="formula">∂²f/∂x∂y = fᵧₓ = ∂/∂x (∂f/∂y)</code> (Differentiate w.r.t. y first, *then* w.r.t. x)</li>
+        </ul>
+        <p><strong>Clairaut's Theorem (Symmetry of Mixed Partials):</strong> If <code class="formula">fₓᵧ</code> and <code class="formula">fᵧₓ</code> are both continuous, then they are equal: <strong><code class="formula">fₓᵧ = fᵧₓ</code></strong>. The order of differentiation does not matter.</p>
+        
+        <hr>
+
+        [cite_start]<h2 id="topic2">Euler's Theorem on Homogeneous Functions [cite: 1394]</h2>
+
+        <h3 id="subtopic2_1">Homogeneous Functions</h3>
+        <p>A function <code class="formula">f(x, y)</code> is called **homogeneous of degree n** if replacing x with <code class="formula">tx</code> and y with <code class="formula">ty</code> results in the original function multiplied by <code class="formula">tⁿ</code>.</p>
+        
+        <blockquote>
+            <strong>Definition:</strong> <code class="formula">f(tx, ty) = tⁿ f(x, y)</code>
+        </blockquote>
+        
+        <p><strong>Example:</strong> Let <code class="formula">f(x, y) = x³ + 2x²y - y³</code>
+        <br><code class="formula">f(tx, ty) = (tx)³ + 2(tx)²(ty) - (ty)³</code>
+        <br><code class="formula">= t³x³ + 2(t²x²)(ty) - t³y³</code>
+        <br><code class="formula">= t³x³ + 2t³x²y - t³y³</code>
+        <br><code class="formula">= t³ (x³ + 2x²y - y³) = t³ f(x, y)</code>
+        <br>Therefore, the function is homogeneous of degree <strong>n = 3</strong>.</p>
+        
+        <p>A homogeneous function can always be written in the form <code class="formula">f(x, y) = xⁿ F(y/x)</code> or <code class="formula">f(x, y) = yⁿ G(x/y)</code>.</p>
+        
+        <h3 id="subtopic2_2">Euler's Theorem (Statement)</h3>
+        <p>This theorem provides a beautiful relationship between a homogeneous function and its partial derivatives. [cite_start]The syllabus specifies the two-variable case[cite: 1394].</p>
+        
+        <blockquote>
+            <strong>Statement:</strong> If <code class="formula">z = f(x, y)</code> is a homogeneous function of degree <code class="formula">n</code>, then:
+            <br>
+            <strong><code class="formula">x(∂f/∂x) + y(∂f/∂y) = n·f</code></strong>
+        </blockquote>
+        
+        <p><strong>Example:</strong> For <code class="formula">f(x, y) = x³ + 2x²y - y³</code> (degree n=3)
+        <br><code class="formula">∂f/∂x = 3x² + 4xy</code>
+        <br><code class="formula">∂f/∂y = 2x² - 3y²</code>
+        <br>
+        <code class="formula">x(∂f/∂x) + y(∂f/∂y) = x(3x² + 4xy) + y(2x² - 3y²)</code>
+        <br><code class="formula">= 3x³ + 4x²y + 2x²y - 3y³</code>
+        <br><code class="formula">= 3x³ + 6x²y - 3y³</code>
+        <br><code class="formula">= 3 (x³ + 2x²y - y³) = 3·f</code>
+        <br>This verifies the theorem, as <code class="formula">n = 3</code>.</p>
+        
+        <hr>
+
+        [cite_start]<h2 id="topic3">Tangents and Normals (Cartesian) [cite: 1394]</h2>
+        <p>For a curve <code class="formula">y = f(x)</code> at a point <code class="formula">P(x₁, y₁)</code>, the slope of the tangent line is given by the derivative <code class="formula">m = dy/dx</code> evaluated at that point.</p>
+        
+        <h3 id="subtopic3_1">Equation of Tangent</h3>
+        <p>Using the point-slope form <code class="formula">Y - y₁ = m(X - x₁)</code>:</p>
+        <blockquote>
+            <strong>Equation of Tangent: <code class="formula">Y - y₁ = (dy/dx)·(X - x₁)</code></strong>
+        </blockquote>
+        
+        <h3 id="subtopic3_2">Equation of Normal</h3>
+        <p>The normal line is perpendicular to the tangent. Its slope is the negative reciprocal of the tangent's slope, <code class="formula">m_normal = -1/m = -1/(dy/dx)</code>.</p>
+        <blockquote>
+            <strong>Equation of Normal: <code class="formula">Y - y₁ = [-1 / (dy/dx)]·(X - x₁)</code></strong>
+        </blockquote>
+        
+        <h3 id="subtopic3_3">Cartesian Subtangent and Subnormal</h3>
+        <p>These are lengths measured along the x-axis.</p>
+        <ul>
+            <li><strong>Length of Tangent (PT):</strong> The segment of the tangent line from the point P to the x-axis. <code class="formula">|y₁ * sqrt(1 + (dx/dy)²)|</code></li>
+            <li><strong>Length of Normal (PN):</strong> The segment of the normal line from the point P to the x-axis. <code class="formula">|y₁ * sqrt(1 + (dy/dx)²)|</code></li>
+            <li><strong>Length of Subtangent (TM):</strong> The projection of the tangent segment PT onto the x-axis.
+                <blockquote><strong>Length of Subtangent = |y₁ / (dy/dx)| = |y₁ · (dx/dy)|</strong></blockquote>
+            </li>
+            <li><strong>Length of Subnormal (MN):</strong> The projection of the normal segment PN onto the x-axis.
+                <blockquote><strong>Length of Subnormal = |y₁ · (dy/dx)|</strong></blockquote>
+            </li>
+        </ul>
+        
+        <hr>
+
+        [cite_start]<h2 id="topic4">Tangents and Normals (Polar) [cite: 1394]</h2>
+        <p>For a polar curve <code class="formula">r = f(θ)</code>, the geometry is different. We are often interested in the angle <code class="formula">ϕ</code> (phi) between the radius vector <code class="formula">r</code> and the tangent line.</p>
+        
+        <h3 id="subtopic4_1">Angle between Radius Vector and Tangent</h3>
+        <p>The angle <code class="formula">ϕ</code> is given by the formula:</p>
+        <blockquote>
+            <strong>tan(ϕ) = r / (dr/dθ)</strong>
+        </blockquote>
+        
+        <h3 id="subtopic4_2">Polar Subtangent and Subnormal</h3>
+        <p>These are lengths on a line drawn *perpendicular* to the radius vector <code class="formula">r</code> through the pole (origin).</p>
+        <ul>
+            <li><strong>Length of Polar Subtangent:</strong>
+                <blockquote><strong>= |r² / (dr/dθ)|</strong></blockquote>
+            </li>
+            <li><strong>Length of Polar Subnormal:</strong>
+                <blockquote><strong>= |dr/dθ|</strong></blockquote>
+            </li>
+        </ul>
+        
+        <hr>
+
+        <h2 id="topic5">Unit 3: Exam Quick Tips</h2>
+        <div class="exam-tip">
+            <ul>
+                <li><strong>Euler's Theorem:</strong> This is a very common exam question.
+                    <ol>
+                        <li>You will be given a function <code class="formula">f(x, y)</code>.</li>
+                        <li>First, show it is homogeneous by finding <code class="formula">f(tx, ty)</code> and factoring out <code class="formula">tⁿ</code> to find the degree <code class="formula">n</code>.</li>
+                        <li>Second, find the partial derivatives <code class="formula">∂f/∂x</code> and <code class="formula">∂f/∂y</code>.</li>
+                        <li>Third, plug them into <code class="formula">x(∂f/∂x) + y(∂f/∂y)</code> and show that the result simplifies to <code class="formula">n·f</code>.</li>
+                    </ol>
+                </li>
+                <li><strong>Cartesian vs. Polar:</strong> Do not confuse the formulas.
+                    <ul>
+                        <li><strong>Cartesian Subnormal:</strong> <code class="formula">|y · (dy/dx)|</code></li>
+                        <li><strong>Polar Subnormal:</strong> <code class="formula">|dr/dθ|</code> (This one is very simple!)</li>
+                    </ul>
+                </li>
+                <li><strong>Polar Angle ϕ:</strong> Memorize <code class="formula">tan(ϕ) = r / (dr/dθ)</code>. This formula is the key to all other polar tangent properties.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

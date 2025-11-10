@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics SEC 151 Unit 5 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Mathematics (MAT-SEC-151) Unit 5: The 'return' statement and Arrays (one-dimensional and multi-dimensional) in C.">
+    <meta name="keywords" content="MAT-SEC-151, C Programming, Unit 5, return statement, Arrays, 1D Arrays, 2D Arrays, Multi-dimensional Arrays, C Arrays, Matrix Programming, Assam University">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #0056b3; /* Dark Blue */
+            margin-top: 24px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #003366; /* Navy Blue */
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #007bff; /* Bright Blue */
+            border-bottom: none;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code, .formula {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.05em;
+        }
+        pre {
+            background-color: #2b2b2b; /* Dark background */
+            color: #f8f8f2; /* Light text */
+            font-family: "Courier New", Courier, monospace;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto; /* Handle long lines of code */
+            border: 1px solid #444;
+        }
+        pre code {
+            background-color: transparent; /* Override the inline code style */
+            padding: 0;
+            border-radius: 0;
+            font-size: 1em;
+        }
+        .comment { color: #888; }
+        .keyword { color: #66d9ef; }
+        .function { color: #a6e22e; }
+        .string { color: #e6db74; }
+        .number { color: #ae81ff; }
+        .preprocessor { color: #f92672; }
+        
+        blockquote {
+            background-color: #f1f8ff;
+            border-left: 5px solid #007bff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #fffaf0; /* Light yellow */
+            border: 1px solid #ffc107; /* Yellow border */
+            border-left-width: 5px;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d9534f; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 5: Return Statement and Arrays</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Return Statement</a></li>
+                <li><a href="#topic2">Arrays</a>
+                    <ul>
+                        <li><a href="#subtopic2_1">One-Dimensional Arrays</a></li>
+                        <li><a href="#subtopic2_2">Multi-Dimensional Arrays (2D Arrays/Matrices)</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic3">Code Examples (from Practicals)</a>
+                    <ul>
+                        <li><a href="#ex1">Practical #8: Sorting an Array (1D)</a></li>
+                        <li><a href="#ex2">Practical #9: Matrix Addition (2D)</a></li>
+                        <li><a href="#ex3">Practical #10b: Determinant of a 3x3 Matrix (2D)</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic4">Unit 5: Exam Quick Tips</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Return Statement</h2>
+        [cite_start]<p>The <code class="keyword">return</code> statement is used inside a function to end its execution and (optionally) send a value back to the caller[cite: 1845].</p>
+        
+        <p><strong>Two Main Uses:</strong></p>
+        <ol>
+            <li><strong>Returning a value:</strong>
+                <p>In a function with a non-`void` return type (like <code class="keyword">int</code> or <code class="keyword">float</code>), <code class="keyword">return</code> sends a value back.</p>
+<pre><code class="language-c"><span class="keyword">int</span> <span class="function">add</span>(<span class="keyword">int</span> a, <span class="keyword">int</span> b) {
+    <span class="keyword">return</span> a + b; <span class="comment">// Returns the calculated sum</span>
+}
+</code></pre>
+            </li>
+            <li><strong>Terminating a `void` function:</strong>
+                <p>In a <code class="keyword">void</code> function (which returns nothing), <code class="keyword">return;</code> can be used to exit the function early.</p>
+<pre><code class="language-c"><span class="keyword">void</span> <span class="function">printNumber</span>(<span class="keyword">int</span> n) {
+    <span class="keyword">if</span> (n < <span class="number">0</span>) {
+        <span class="function">printf</span>(<span class="string">"Number is negative.\n"</span>);
+        <span class="keyword">return</span>; <span class="comment">// Exits the function here</span>
+    }
+    <span class="function">printf</span>(<span class="string">"Number is: %d\n"</span>, n);
+}
+</code></pre>
+            </li>
+        </ol>
+
+        <h2 id="topic2">Arrays</h2>
+        [cite_start]<p>An <strong>array</strong> is a collection of data items of the <strong>same data type</strong>, stored in <strong>contiguous</strong> (one after another) memory locations[cite: 1845]. This allows you to store a list of values (like 100 student scores) under a single variable name.</p>
+
+        <h3 id="subtopic2_1">One-Dimensional Arrays</h3>
+        [cite_start]<p>A 1D array is a simple list of elements[cite: 1845].</p>
+        
+        <p><strong>Declaration:</strong>
+        <br><code class="formula">data_type array_name[size];</code>
+        <br><strong>Example:</strong> <code class="keyword">int</span> scores[<span class="number">5</span>];</code> (This reserves space for 5 integers).</p>
+        
+        <p><strong>Initialization:</strong>
+        <br><code class="keyword">int</span> scores[<span class="number">5</span>] = { <span class="number">98</span>, <span class="number">87</span>, <span class="number">92</span>, <span class="number">79</span>, <span class="number">100</span> };</code></p>
+        
+        <p><strong>Accessing Elements (0-based Indexing):</strong>
+        <br>Array elements are accessed using an index in square brackets <code class="formula">[]</code>. The index <strong>always starts at 0</strong>.</p>
+        <ul>
+            <li><code class="formula">scores[0]</code> is 98</li>
+            <li><code class="formula">scores[1]</code> is 87</li>
+            <li>...</li>
+            <li><code class="formula">scores[4]</code> is 100</li>
+        </ul>
+        <p>Arrays are most powerfully used with <code class="keyword">for</code> loops to iterate over the elements.</p>
+<pre><code class="language-c"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i < <span class="number">5</span>; i++) {
+    <span class="function">printf</span>(<span class="string">"Element %d is %d\n"</span>, i, scores[i]);
+}
+</code></pre>
+
+        <h3 id="subtopic2_2">Multi-Dimensional Arrays (2D Arrays/Matrices)</h3>
+        <p>A multi-dimensional array is an "array of arrays." [cite_start]The most common is a <strong>2D array</strong>, which is perfect for representing a <strong>matrix</strong> or a grid[cite: 1845].</p>
+
+        <p><strong>Declaration:</strong>
+        <br><code class="formula">data_type array_name[rows][columns];</code>
+        <br><strong>Example:</strong> <code class="keyword">int</span> matrix[<span class="number">2</span>][<span class="number">3</span>];</code> (A matrix with 2 rows and 3 columns).</p>
+        
+        <p><strong>Initialization:</strong>
+        <br><code class="keyword">int</span> matrix[<span class="number">2</span>][<span class="number">3</span>] = {
+            { <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> },  <span class="comment">// Row 0</span>
+            { <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span> }   <span class="comment">// Row 1</span>
+        };</code></p>
+        
+        <p><strong>Accessing Elements (row, col):</strong>
+        <br>You need two indices: <code class="formula">matrix[row][col]</code>.</p>
+        <ul>
+            <li><code class="formula">matrix[0][0]</code> is 1</li>
+            <li><code class="formula">matrix[0][2]</code> is 3</li>
+            <li><code class="formula">matrix[1][1]</code> is 5</li>
+        </ul>
+        <p>2D arrays are traversed using <strong>nested <code class="keyword">for</code> loops</strong> (one for rows, one for columns).</p>
+<pre><code class="language-c"><span class="comment">// Loop through each row</span>
+<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i < <span class="number">2</span>; i++) {
+    <span class="comment">// Loop through each column in that row</span>
+    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j < <span class="number">3</span>; j++) {
+        <span class="function">printf</span>(<span class="string">"Element (%d, %d) is %d\n"</span>, i, j, matrix[i][j]);
+    }
+}
+</code></pre>
+        
+        <h2 id="topic3">Code Examples (from Practicals)</h2>
+        
+        [cite_start]<h3 id="ex1">Practical #8: Sorting an Array (Bubble Sort) [cite: 1867, 1868]</h3>
+<pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<span class="preprocessor">#define SIZE 5</span>
+
+<span class="keyword">int</span> <span class="function">main</span>() {
+    <span class="keyword">int</span> arr[SIZE] = { <span class="number">5</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">8</span> };
+    <span class="keyword">int</span> i, j, temp;
+
+    <span class="function">printf</span>(<span class="string">"Original array: "</span>);
+    <span class="keyword">for</span> (i = <span class="number">0</span>; i < SIZE; i++) <span class="function">printf</span>(<span class="string">"%d "</span>, arr[i]);
+    <span class="function">printf</span>(<span class="string">"\n"</span>);
+
+    <span class="comment">// Bubble Sort Algorithm</span>
+    <span class="keyword">for</span> (i = <span class="number">0</span>; i < SIZE - <span class="number">1</span>; i++) {
+        <span class="keyword">for</span> (j = <span class="number">0</span>; j < SIZE - i - <span class="number">1</span>; j++) {
+            <span class="keyword">if</span> (arr[j] > arr[j + <span class="number">1</span>]) { <span class="comment">// For ascending order</span>
+                <span class="comment">// Swap elements</span>
+                temp = arr[j];
+                arr[j] = arr[j + <span class="number">1</span>];
+                arr[j + <span class="number">1</span>] = temp;
+            }
+        }
+    }
+
+    <span class="function">printf</span>(<span class="string">"Sorted array: "</span>);
+    <span class="keyword">for</span> (i = <span class="number">0</span>; i < SIZE; i++) <span class="function">printf</span>(<span class="string">"%d "</span>, arr[i]);
+    <span class="function">printf</span>(<span class="string">"\n"</span>);
+
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+</code></pre>
+        
+        [cite_start]<h3 id="ex2">Practical #9: Matrix Addition (2D) [cite: 1871]</h3>
+<pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<span class="preprocessor">#define ROWS 2</span>
+<span class="preprocessor">#define COLS 3</span>
+
+<span class="keyword">int</span> <span class="function">main</span>() {
+    <span class="keyword">int</span> A[ROWS][COLS] = { {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>}, {<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>} };
+    <span class="keyword">int</span> B[ROWS][COLS] = { {<span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>}, {<span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>} };
+    <span class="keyword">int</span> C[ROWS][COLS]; <span class="comment">// Result matrix</span>
+    <span class="keyword">int</span> i, j;
+
+    <span class="comment">// Add corresponding elements</span>
+    <span class="keyword">for</span> (i = <span class="number">0</span>; i < ROWS; i++) {
+        <span class="keyword">for</span> (j = <span class="number">0</span>; j < COLS; j++) {
+            C[i][j] = A[i][j] + B[i][j];
+        }
+    }
+
+    <span class="comment">// Print the result matrix C</span>
+    <span class="function">printf</span>(<span class="string">"Resulting Matrix C (A+B):\n"</span>);
+    <span class="keyword">for</span> (i = <span class="number">0</span>; i < ROWS; i++) {
+        <span class="keyword">for</span> (j = <span class="number">0</span>; j < COLS; j++) {
+            <span class="function">printf</span>(<span class="string">"%d\t"</span>, C[i][j]);
+        }
+        <span class="function">printf</span>(<span class="string">"\n"</span>); <span class="comment">// Newline after each row</span>
+    }
+
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+</code></pre>
+
+        [cite_start]<h3 id="ex3">Practical #10b: Determinant of a 3x3 Matrix (2D) [cite: 1874]</h3>
+<pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+
+<span class="keyword">int</span> <span class="function">main</span>() {
+    <span class="keyword">int</span> A[<span class="number">3</span>][<span class="number">3</span>];
+    <span class="keyword">long</span> det;
+    <span class="keyword">int</span> i, j;
+    
+    <span class="function">printf</span>(<span class="string">"Enter the 9 elements of the 3x3 matrix:\n"</span>);
+    <span class="keyword">for</span> (i = <span class="number">0</span>; i < <span class="number">3</span>; i++) {
+        <span class="keyword">for</span> (j = <span class="number">0</span>; j < <span class="number">3</span>; j++) {
+            <span class="function">printf</span>(<span class="string">"Enter element A[%d][%d]: "</span>, i, j);
+            <span class="function">scanf</span>(<span class="string">"%d"</span>, &A[i][j]);
+        }
+    }
+
+    <span class="comment">// Calculate determinant by expanding along Row 0</span>
+    <span class="comment">// det = a(ei - fh) - b(di - fg) + c(dh - eg)</span>
+    
+    det = A[<span class="number">0</span>][<span class="number">0</span>] * (A[<span class="number">1</span>][<span class="number">1</span>] * A[<span class="number">2</span>][<span class="number">2</span>] - A[<span class="number">1</span>][<span class="number">2</span>] * A[<span class="number">2</span>][<span class="number">1</span>])
+        - A[<span class="number">0</span>][<span class="number">1</span>] * (A[<span class="number">1</span>][<span class="number">0</span>] * A[<span class="number">2</span>][<span class="number">2</span>] - A[<span class="number">1</span>][<span class="number">2</span>] * A[<span class="number">2</span>][<span class="number">0</span>])
+        + A[<span class="number">0</span>][<span class="number">2</span>] * (A[<span class="number">1</span>][<span class="number">0</span>] * A[<span class="number">2</span>][<span class="number">1</span>] - A[<span class="number">1</span>][<span class="number">1</span>] * A[<span class="number">2</span>][<span class="number">0</span>]);
+
+    <span class="function">printf</span>(<span class="string">"The determinant of the matrix is: %ld\n"</span>, det);
+
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+</code></pre>
+        
+        <h2 id="topic4">Unit 5: Exam Quick Tips</h2>
+        <div class="exam-tip">
+            <ul>
+                <li><strong>0-Based Indexing:</strong> This is the most important concept. An array of size 5, <code class="formula">arr[5]</code>, has elements <code class="formula">arr[0]</code>, <code class="formula">arr[1]</code>, <code class="formula">arr[2]</code>, <code class="formula">arr[3]</code>, and <code class="formula">arr[4]</code>. There is <strong>no such thing as <code class="formula">arr[5]</code></strong>. Accessing it is a major bug (a "buffer overflow").</li>
+                <li><strong>Loops and Arrays:</strong> The <code class="keyword">for</code> loop is the natural partner for an array.
+                <br><code class="formula">for (int i = 0; i < SIZE; i++)</code> is the standard, error-free way to loop through a 1D array.
+                </li>
+                <li><strong>2D Arrays (Matrices):</strong> Always use <strong>nested loops</strong>. The outer loop iterates the <strong>rows</strong> (index <code class="formula">i</code>). The inner loop iterates the <strong>columns</strong> (index <code class="formula">j</code>).
+                <br><code class="formula">for (i = 0; i < ROWS; i++) { for (j = 0; j < COLS; j++) { ... A[i][j] ... } }</code>
+                </li>
+                <li><strong>`return` Statement:</strong> Remember, as soon as a `return` statement is hit, the function <strong>stops</strong>. No code after it in that function will run.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

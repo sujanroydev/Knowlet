@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics SEC 151 Unit 2 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Mathematics (MAT-SEC-151) Unit 2: Logical Expressions, Statements, and Operators in C.">
+    <meta name="keywords" content="MAT-SEC-151, C Programming, Unit 2, Logical Expressions, Relational Operators, Logical Operators, C Operators, Assam University">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #0056b3; /* Dark Blue */
+            margin-top: 24px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #003366; /* Navy Blue */
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #007bff; /* Bright Blue */
+            border-bottom: none;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code, .formula {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.05em;
+        }
+        pre {
+            background-color: #2b2b2b; /* Dark background */
+            color: #f8f8f2; /* Light text */
+            font-family: "Courier New", Courier, monospace;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto; /* Handle long lines of code */
+            border: 1px solid #444;
+        }
+        pre code {
+            background-color: transparent; /* Override the inline code style */
+            padding: 0;
+            border-radius: 0;
+            font-size: 1em;
+        }
+        .comment { color: #888; }
+        .keyword { color: #66d9ef; }
+        .function { color: #a6e22e; }
+        .string { color: #e6db74; }
+        .number { color: #ae81ff; }
+        .preprocessor { color: #f92672; }
+        
+        blockquote {
+            background-color: #f1f8ff;
+            border-left: 5px solid #007bff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #fffaf0; /* Light yellow */
+            border: 1px solid #ffc107; /* Yellow border */
+            border-left-width: 5px;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d9534f; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 2: Operators and Expressions</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Simple Computer Programs</a></li>
+                <li><a href="#topic2">Relational Operators</a></li>
+                <li><a href="#topic3">Logical Operators</a></li>
+                <li><a href="#topic4">Logical Expression and Statements</a></li>
+                <li><a href="#topic5">Example Program (Unit 2)</a></li>
+                <li><a href="#topic6">Unit 2: Exam Quick Tips</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Simple Computer Programs</h2>
+        <p>A "simple computer program" in C typically follows a basic structure. [cite_start]It's the skeleton into which you place your logic[cite: 1839].</p>
+        <p>The most basic C program ("Hello, World!") is:</p>
+<pre><code class="language-c"><span class="comment">// 1. Preprocessor Directive: Includes the Standard I/O library</span>
+<span class="preprocessor">#include &lt;stdio.h&gt;</span>
+
+<span class="comment">// 2. The main function: Entry point of every C program</span>
+<span class="keyword">int</span> <span class="function">main</span>() {
+    
+    <span class="comment">// 3. Program Logic: A function call to print to screen</span>
+    <span class="function">printf</span>(<span class="string">"Hello, World!\n"</span>);
+
+    <span class="comment">// 4. Return Statement: Informs the OS that the program finished successfully</span>
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+</code></pre>
+        <p>All programs in this course will be built inside this <code class="function">main() { ... }</code> block.</p>
+
+        <h2 id="topic2">Relational Operators</h2>
+        <p>Relational operators are used to **compare** two values. [cite_start]They are the foundation of decision-making in C. The result of a comparison is always a Boolean value: <code class="number">1</code> (for true) or <code class="number">0</code> (for false)[cite: 1840].</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Operator</th>
+                    <th>Meaning</th>
+                    <th>Example</th>
+                    <th>Result (if x=5, y=10)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code class="formula">==</code></td>
+                    <td>Equal to</td>
+                    <td><code class="formula">x == y</code></td>
+                    <td>0 (false)</td>
+                </tr>
+                <tr>
+                    <td><code class="formula">!=</code></td>
+                    <td>Not equal to</td>
+                    <td><code class="formula">x != y</code></td>
+                    <td>1 (true)</td>
+                </tr>
+                <tr>
+                    <td><code class="formula"><</code></td>
+                    <td>Less than</td>
+                    <td><code class="formula">x < y</code></td>
+                    <td>1 (true)</td>
+                </tr>
+                <tr>
+                    <td><code class="formula">></code></td>
+                    <td>Greater than</td>
+                    <td><code class="formula">x > y</code></td>
+                    <td>0 (false)</td>
+                </tr>
+                <tr>
+                    <td><code class="formula"><=</code></td>
+                    <td>Less than or equal to</td>
+                    <td><code class="formula">x <= 5</code></td>
+                    <td>1 (true)</td>
+                </tr>
+                <tr>
+                    <td><code class="formula">>=</code></td>
+                    <td>Greater than or equal to</td>
+                    <td><code class="formula">x >= y</code></td>
+                    <td>0 (false)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="exam-tip">
+            <strong>CRITICAL:</strong> Do not confuse the <strong>assignment</strong> operator (<code class="formula">=</code>) with the <strong>equality</strong> operator (<code class="formula">==</code>).
+            <ul>
+                <li><code class="formula">x = 5;</code> <strong>Assigns</strong> the value 5 to x.</li>
+                <li><code class="formula">x == 5;</code> <strong>Compares</strong> x to 5, resulting in 1 (true) or 0 (false).</li>
+            </ul>
+            Writing <code class="formula">if (x = 5)</code> instead of <code class="formula">if (x == 5)</code> is a very common bug.
+        </div>
+
+        <h2 id="topic3">Logical Operators</h2>
+        <p>Logical operators are used to combine or invert the results of relational expressions. [cite_start]They are used to build complex logical statements[cite: 1840].</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Operator</th>
+                    <th>Name</th>
+                    <th>Meaning</th>
+                    <th>Example (A=1, B=0)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code class="formula">&&</code></td>
+                    <td>Logical AND</td>
+                    <td>True only if <strong>both</strong> operands are true (non-zero).</td>
+                    <td><code class="formula">A && B</code> is 0 (false)</td>
+                </tr>
+                <tr>
+                    <td><code class="formula">||</code></td>
+                    <td>Logical OR</td>
+                    <td>True if <strong>at least one</strong> operand is true (non-zero).</td>
+                    <td><code class="formula">A || B</code> is 1 (true)</td>
+                </tr>
+                <tr>
+                    <td><code class="formula">!</code></td>
+                    <td>Logical NOT</td>
+                    <td>Inverts the truth value of its operand. True becomes false, false becomes true.</td>
+                    <td><code class="formula">!A</code> is 0 (false)<br><code class="formula">!B</code> is 1 (true)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="topic4">Logical Expression and Statements</h2>
+        <p>A <strong>logical expression</strong> is any expression that evaluates to either true (1) or false (0). [cite_start]We create them by combining relational and logical operators[cite: 1840].</p>
+        <p>A <strong>logical statement</strong> is a programming construct that uses a logical expression to make a decision. The most common is the <code class="keyword">if</code> statement (covered in Unit 3).</p>
+        
+        <h4>Examples of Logical Expressions:</h4>
+        
+        <p><strong>1. Check if <code class="formula">age</code> is between 18 and 65:</strong></p>
+        <p><code class="formula">(age >= 18) && (age <= 65)</code></p>
+        
+        <p><strong>2. Check if <code class="formula">grade</code> is 'A', 'B', or 'C':</strong></p>
+        <p><code class="formula">(grade == 'A') || (grade == 'B') || (grade == 'C')</code></p>
+        
+        <p><strong>3. Check if <code class="formula">number</code> is NOT zero:</strong></p>
+        <p><code class="formula">number != 0</code>  (This is equivalent to <code class="formula">!(number == 0)</code>)</p>
+        
+        <p><strong>Short-Circuit Evaluation:</strong>
+        <br>C is efficient. When it evaluates a logical expression, it stops as soon as it knows the answer.
+        <ul>
+            <li>For <code class="formula">expr1 && expr2</code>: If <code class="formula">expr1</code> is false, C doesn't even look at <code class="formula">expr2</code>, because the whole expression must be false.</li>
+            <li>For <code class="formula">expr1 || expr2</code>: If <code class="formula">expr1</code> is true, C doesn't even look at <code class="formula">expr2</code>, because the whole expression must be true.</li>
+        </ul>
+        
+        <h2 id="topic5">Example Program (Unit 2)</h2>
+        <p>This program demonstrates relational and logical operators by checking if a number is positive and even.</p>
+<pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+
+<span class="keyword">int</span> <span class="function">main</span>() {
+    <span class="keyword">int</span> num;
+    <span class="keyword">int</span> is_positive, is_even;
+
+    <span class="function">printf</span>(<span class="string">"Enter an integer: "</span>);
+    <span class="function">scanf</span>(<span class="string">"%d"</span>, &num);
+
+    [cite_start]<span class="comment">// Relational operators [cite: 1840]</span>
+    is_positive = (num > <span class="number">0</span>);  <span class="comment">// Will be 1 (true) or 0 (false)</span>
+    is_even = (num % <span class="number">2</span> == <span class="number">0</span>); <span class="comment">// Will be 1 (true) or 0 (false)</span>
+
+    <span class="function">printf</span>(<span class="string">"Number is positive: %d\n"</span>, is_positive);
+    <span class="function">printf</span>(<span class="string">"Number is even: %d\n"</span>, is_even);
+
+    [cite_start]<span class="comment">// Logical expression [cite: 1840]</span>
+    <span class="keyword">if</span> (is_positive && is_even) {
+        <span class="function">printf</span>(<span class="string">"Result: The number is positive AND even.\n"</span>);
+    } 
+    <span class="keyword">else</span> <span class="keyword">if</span> (is_positive || is_even) {
+        <span class="function">printf</span>(<span class="string">"Result: The number is positive OR even (or both).\n"</span>);
+    } 
+    <span class="keyword">else</span> {
+        <span class="function">printf</span>(<span class="string">"Result: The number is NOT positive and NOT even.\n"</span>);
+    }
+    
+    [cite_start]<span class="comment">// Logical NOT [cite: 1840]</span>
+    <span class="keyword">if</span> (!(num == <span class="number">0</span>)) {
+         <span class="function">printf</span>(<span class="string">"The number is not zero.\n"</span>);
+    }
+
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+</code></pre>
+
+        <h2 id="topic6">Unit 2: Exam Quick Tips</h2>
+        <div class="exam-tip">
+            <ul>
+                <li><strong><code class="formula">=</code> vs <code class="formula">==</code>:</strong> This is the #1 mistake. <code class="formula">=</code> is for assignment, <code class="formula">==</code> is for comparison. Always double-check this in your <code class="keyword">if</code> statements.</li>
+                <li><strong>Truth Values:</strong> In C, <strong><code class="number">0</code> is false</strong>. <strong>Any other number</strong> (positive or negative) is <strong>true</strong>. The operators always *return* <code class="number">1</code> for true and <code class="number">0</code> for false.</li>
+                <li><strong>Operator Precedence:</strong> Relational operators (<code class="formula"><, ></code>) are evaluated *before* equality operators (<code class="formula">==, !=</code>), which are evaluated *before* logical operators (<code class="formula">&&, ||</code>).
+                <br>Example: <code class="formula">x > 5 && y == 10</code> is grouped as <code class="formula">(x > 5) && (y == 10)</code>. Use parentheses <code class="formula">( )</code> to be safe and clear.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

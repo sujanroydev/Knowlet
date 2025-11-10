@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics IDC 151 Unit 3 | 2nd Semester Notes - Knowlet</title>
+    [cite_start]<meta name="description" content="Comprehensive exam-ready notes for Mathematics (MAT-IDC-151) Unit 3: Pair of Straight Lines, including homogeneous and general equations, angles, and bisectors[cite: 2038, 2039].">
+    <meta name="keywords" content="MAT-IDC-151, Geometry, Unit 3, Pair of Straight Lines, Homogeneous Equation, General Equation of Second Degree, Angle Between Lines, Bisector of Angles, Assam University">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #0056b3; /* Dark Blue */
+            margin-top: 24px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #003366; /* Navy Blue */
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #007bff; /* Bright Blue */
+            border-bottom: none;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code, .formula {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.05em;
+        }
+        blockquote {
+            background-color: #f1f8ff;
+            border-left: 5px solid #007bff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #fffaf0; /* Light yellow */
+            border: 1px solid #ffc107; /* Yellow border */
+            border-left-width: 5px;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d9534f; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 3: Pair of Straight Lines</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                [cite_start]<li><a href="#topic1">Homogeneous Equation of 2nd Degree [cite: 2039]</a>
+                    <ul>
+                        <li><a href="#subtopic1_1">Definition and Representation</a></li>
+                        <li><a href="#subtopic1_2">Angle Between Lines</a></li>
+                        [cite_start]<li><a href="#subtopic1_3">Condition for Parallel/Coincident Lines [cite: 2038]</a></li>
+                        [cite_start]<li><a href="#subtopic1_4">Condition for Perpendicular Lines [cite: 2038]</a></li>
+                    </ul>
+                </li>
+                [cite_start]<li><a href="#topic2">Bisector of Angles Between Pair of Straight Lines [cite: 2038]</a></li>
+                [cite_start]<li><a href="#topic3">General Equation of 2nd Degree [cite: 2038]</a>
+                    <ul>
+                        <li><a href="#subtopic3_1">The General Equation</a></li>
+                        [cite_start]<li><a href="#subtopic3_2">Condition to Represent a Pair of Straight Lines [cite: 2038]</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic4">Unit 3: Exam Quick Tips</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Homogeneous Equation of 2nd Degree</h2>
+
+        <h3 id="subtopic1_1">Definition and Representation</h3>
+        [cite_start]<p>A <strong>homogeneous equation</strong> of the second degree is an equation where every term has a total degree of 2[cite: 2039].</p>
+        <blockquote>
+            <strong><code class="formula">ax² + 2hxy + by² = 0</code></strong>
+        </blockquote>
+        <p>This equation <strong>always</strong> represents a pair of straight lines passing through the <strong>origin</strong> (0, 0).</p>
+        <p>We can see this by dividing by <code class="formula">x²</code> (assuming x ≠ 0):
+        <br><code class="formula">a + 2h(y/x) + b(y/x)² = 0</code>
+        <br>This is a quadratic equation in <code class="formula">(y/x)</code>. Let <code class="formula">m = y/x</code> (the slope).
+        <br><code class="formula">bm² + 2hm + a = 0</code>
+        <br>If the roots of this are <code class="formula">m₁</code> and <code class="formula">m₂</code>, then:
+        <br><code class="formula">m₁ + m₂ = -2h/b</code>
+        <br><code class="formula">m₁m₂ = a/b</code>
+        <br>The two lines are <code class="formula">y/x = m₁</code> and <code class="formula">y/x = m₂</code>, or <strong><code class="formula">y = m₁x</code></strong> and <strong><code class="formula">y = m₂x</code></strong>.</p>
+        
+        <h3 id="subtopic1_2">Angle Between Lines</h3>
+        <p>If <code class="formula">θ</code> is the angle between the two lines <code class="formula">y = m₁x</code> and <code class="formula">y = m₂x</code>, we know from Unit 2 that <code class="formula">tan(θ) = |(m₁ - m₂) / (1 + m₁m₂)|</code>.</p>
+        <p>We can write <code class="formula">(m₁ - m₂)² = (m₁ + m₂)² - 4m₁m₂</code>
+        <br><code class="formula">(m₁ - m₂)² = (-2h/b)² - 4(a/b) = (4h² - 4ab) / b²</code>
+        <br><code class="formula">|m₁ - m₂| = sqrt(4h² - 4ab) / |b| = 2*sqrt(h² - ab) / |b|</code>
+        <br>And <code class="formula">1 + m₁m₂ = 1 + a/b = (a + b) / b</code>
+        <br>
+        Substituting these in:</p>
+        <blockquote>
+            <strong>tan(θ) = | 2 * sqrt(h² - ab) / (a + b) |</strong>
+        </blockquote>
+        <p>This formula gives the angle between the lines represented by <code class="formula">ax² + 2hxy + by² = 0</code>.</p>
+        
+        <h3 id="subtopic1_3">Condition for Parallel/Coincident Lines</h3>
+        <p>The lines are parallel or coincident if the angle <code class="formula">θ = 0</code>, which means <code class="formula">tan(θ) = 0</code>. [cite_start]This happens when the numerator is zero[cite: 2038].</p>
+        <blockquote>
+            <strong>Condition: h² - ab = 0</strong>  or  <strong>h² = ab</strong>
+        </blockquote>
+        <p>This means the quadratic for <code class="formula">m</code> has equal roots, so <code class="formula">m₁ = m₂</code>.</p>
+
+        <h3 id="subtopic1_4">Condition for Perpendicular Lines</h3>
+        <p>The lines are perpendicular if the angle <code class="formula">θ = 90°</code>, which means <code class="formula">tan(θ)</code> is undefined. [cite_start]This happens when the denominator is zero[cite: 2038].</p>
+        <blockquote>
+            <strong>Condition: a + b = 0</strong>
+            <br>
+            (i.e., Coefficient of x² + Coefficient of y² = 0)
+        </blockquote>
+        <p>This corresponds to <code class="formula">m₁m₂ = a/b = -b/b = -1</code>.</p>
+
+        [cite_start]<h2 id="topic2">Bisector of Angles Between Pair of Straight Lines</h2> [cite: 2038]
+        <p>The combined equation of the two lines (which are also perpendicular to each other) that bisect the angles between <code class="formula">ax² + 2hxy + by² = 0</code> is given by a standard formula:</p>
+        
+        
+
+        <blockquote>
+            <strong>Equation of Angle Bisectors: (x² - y²) / (a - b) = xy / h</strong>
+        </blockquote>
+        <div class="exam-tip">
+            <strong>Derivation (Sketch):</strong>
+            <ol>
+                <li>Let the two lines be <code class="formula">y - m₁x = 0</code> and <code class="formula">y - m₂x = 0</code>.</li>
+                <li>The locus of a point (x, y) on an angle bisector is where the perpendicular distance to both lines is equal.</li>
+                <li><code class="formula">| (y - m₁x) / sqrt(1 + m₁²) | = | (y - m₂x) / sqrt(1 + m₂²) |</code></li>
+                <li>This gives two equations (one for each bisector):
+                    <br><code class="formula">(y - m₁x) / sqrt(1 + m₁²) = + (y - m₂x) / sqrt(1 + m₂²)</code>
+                    <br><code class="formula">(y - m₁x) / sqrt(1 + m₁²) = - (y - m₂x) / sqrt(1 + m₂²)</code></li>
+                <li>Multiplying these two equations together and simplifying using the relations <code class="formula">m₁ + m₂ = -2h/b</code> and <code class="formula">m₁m₂ = a/b</code> eventually leads to the formula <code class="formula">(x² - y²) / (a - b) = xy / h</code>.</li>
+            </ol>
+        </div>
+
+        [cite_start]<h2 id="topic3">General Equation of 2nd Degree</h2> [cite: 2038]
+
+        <h3 id="subtopic3_1">The General Equation</h3>
+        <p>The most general form of a second-degree equation is:</p>
+        <blockquote>
+            [cite_start]<strong><code class="formula">ax² + 2hxy + by² + 2gx + 2fy + c = 0</code></strong> [cite: 2038]
+        </blockquote>
+        <p>This equation can represent a circle, a parabola, an ellipse, a hyperbola, or, in a "degenerate" case, a pair of straight lines.</p>
+
+        <h3 id="subtopic3_2">Condition to Represent a Pair of Straight Lines</h3>
+        <p>This general equation represents a pair of straight lines if a specific condition is met. This condition is the most important part of this unit.</p>
+        
+        <p>The condition can be expressed in two ways:</p>
+        
+        <p><strong>1. The "long" formula:</strong></p>
+        <blockquote>
+            [cite_start]<strong>abc + 2fgh - af² - bg² - ch² = 0</strong> [cite: 2038]
+        </blockquote>
+
+        <p><strong>2. The determinant form (Δ):</strong></p>
+        <p>The determinant <code class="formula">Δ</code> (delta) must be zero.</p>
+        <blockquote>
+            Δ = 
+            <table>
+                <tr>
+                    <td>a</td>
+                    <td>h</td>
+                    <td>g</td>
+                </tr>
+                <tr>
+                    <td>h</td>
+                    <td>b</td>
+                    <td>f</td>
+                </tr>
+                <tr>
+                    <td>g</td>
+                    <td>f</td>
+                    <td>c</td>
+                </tr>
+            </table>
+            <strong>= 0</strong>
+        </blockquote>
+        
+        <div class="exam-tip">
+            <strong>How to memorize the determinant:</strong> A common mnemonic is:
+            <br>"<strong>A</strong> <strong>H</strong>ungry <strong>G</strong>irl
+            <br><strong>H</strong>ad <strong>B</strong>ig <strong>F</strong>ries
+            <br><strong>G</strong>o <strong>F</strong>or <strong>C</strong>hocolate"
+        </div>
+        
+        <p><strong>Note:</strong> If this condition is met, the angle <code class="formula">θ</code> between the two lines is still given by the same formula as the homogeneous case:
+        <br><code class="formula">tan(θ) = | 2 * sqrt(h² - ab) / (a + b) |</code>
+        <br>
+        This is because the first-degree terms (<code class="formula">2gx + 2fy + c</code>) only *translate* the lines away from the origin, they do not *rotate* them, so the angle between them remains the same.
+        </p>
+
+        <h2 id="topic4">Unit 3: Exam Quick Tips</h2>
+        <div class="exam-tip">
+            <ul>
+                <li><strong>Homogeneous Eq:</strong> <code class="formula">ax² + 2hxy + by² = 0</code>. Always two lines through the <strong>origin</strong>.</li>
+                <li><strong>General Eq:</strong> <code class="formula">ax² + 2hxy + ... + c = 0</code>. Represents lines *only if* the big determinant <code class="formula">Δ = 0</code>.</li>
+                <li><strong>Angle Formula:</strong> <code class="formula">tan(θ) = | 2*sqrt(h² - ab) / (a + b) |</code>. Works for <strong>both</strong> homogeneous and general equations.</li>
+                <li><strong>Perpendicular Condition:</strong> <code class="formula">a + b = 0</code>. (Sum of x² and y² coefficients is 0).</li>
+                <li><strong>Parallel/Coincident Condition:</strong> <code class="formula">h² = ab</code>.</li>
+                <li><strong>Bisector Equation:</strong> <code class="formula">(x² - y²) / (a - b) = xy / h</code>. This is a <strong>must-know</strong> formula.</li>
+                <li><strong>The Big Determinant:</strong> <code class="formula">abc + 2fgh - af² - bg² - ch² = 0</code>. You <strong>must</strong> memorize this to test if the general equation represents lines.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

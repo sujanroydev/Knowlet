@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics DSC 151 Unit 3 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Mathematics (MAT-DSC-151) Unit 3: Pole and Polar, and Polar Equation of a Conic, based on the Assam University NEP syllabus.">
+    <meta name="keywords" content="MAT-DSC-151, Analytical Geometry, Unit 3, Pole and Polar, Polar Equation of Conic, Equation of Chord, Equation of Tangent, Assam University, NEP Syllabus, Mathematics Notes">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #0056b3; /* Dark Blue */
+            margin-top: 24px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #003366; /* Navy Blue */
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #007bff; /* Bright Blue */
+            border-bottom: none;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code, .formula {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.05em;
+        }
+        blockquote {
+            background-color: #f1f8ff;
+            border-left: 5px solid #007bff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #fffaf0; /* Light yellow */
+            border: 1px solid #ffc107; /* Yellow border */
+            border-left-width: 5px;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d9534f; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 3: Pole, Polar, and Polar Coordinates</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Definition of Pole and Polar</a></li>
+                <li><a href="#topic2">Equation of the Polar of a Point</a></li>
+                <li><a href="#topic3">Determination of the Pole of a Straight Line</a></li>
+                <li><a href="#topic4">Polar Equation of a Conic</a>
+                    <ul>
+                        <li><a href="#subtopic4_1">Definition and Standard Form</a></li>
+                        <li><a href="#subtopic4_2">Equation of a Chord</a></li>
+                        <li><a href="#subtopic4_3">Equation of a Tangent</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic5">Unit 3: Exam Quick Tips</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Definition of Pole and Polar</h2>
+        <p>The concept of pole and polar relates a point to a line with respect to a given conic.</p>
+        
+        <ul>
+            <li><strong>Polar:</strong> The **polar** of a point P with respect to a conic is the locus of the points of intersection of tangents drawn at the extremities (ends) of all possible chords of the conic that pass through P. This locus is always a straight line.</li>
+            <li><strong>Pole:</strong> The point P is called the **pole** of that straight line (the polar).</li>
+        </ul>
+        <p><strong>Property:</strong> If the polar of point P passes through point Q, then the polar of point Q passes through point P. Such points are called <strong>conjugate points</strong>, and their polars are called <strong>conjugate lines</strong>.</p>
+
+        <h2 id="topic2">Equation of the Polar of a Point</h2>
+        <p>The equation of the polar of a point <code class="formula">P(x₁, y₁)</code> with respect to any second-degree conic is given by the "tangent equation" <code class="formula">T = 0</code>.</p>
+        
+        <p>The rule for finding <code class="formula">T = 0</code> is to make the following substitutions in the conic's equation:</p>
+        <ul>
+            <li><code class="formula">x²</code> → <code class="formula">x·x₁</code></li>
+            <li><code class="formula">y²</code> → <code class="formula">y·y₁</code></li>
+            <li><code class="formula">2xy</code> → <code class="formula">x·y₁ + y·x₁</code></li>
+            <li><code class="formula">2x</code> → <code class="formula">x + x₁</code></li>
+            <li><code class="formula">2y</code> → <code class="formula">y + y₁</code></li>
+            <li><code class="formula">c</code> → <code class="formula">c</code> (no change)</li>
+        </ul>
+
+        <div class="exam-tip">
+            <strong>Important Note:</strong>
+            <ul>
+                <li>If the point <code class="formula">P(x₁, y₁)</code> is <strong>ON</strong> the conic, the equation <code class="formula">T = 0</code> gives the <strong>TANGENT</strong> at that point.</li>
+                <li>If the point <code class="formula">P(x₁, y₁)</code> is <strong>OUTSIDE</strong> the conic, the equation <code class="formula">T = 0</code> gives the <strong>CHORD OF CONTACT</strong> of tangents drawn from P.</li>
+                <li>For any point P, <code class="formula">T = 0</code> gives the <strong>POLAR</strong> of P.</li>
+            </ul>
+        </div>
+
+        <p><strong>Table of Polar Equations for Pole (x₁, y₁):</strong></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Conic</th>
+                    <th>Equation</th>
+                    <th>Equation of Polar (T = 0)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Circle</strong></td>
+                    <td><code class="formula">x² + y² = a²</code></td>
+                    <td><code class="formula">x·x₁ + y·y₁ = a²</code></td>
+                </tr>
+                <tr>
+                    <td><strong>Parabola</strong></td>
+                    <td><code class="formula">y² = 4ax</code></td>
+                    <td><code class="formula">y·y₁ = 2a(x + x₁)</code></td>
+                </tr>
+                <tr>
+                    <td><strong>Ellipse</strong></td>
+                    <td><code class="formula">x²/a² + y²/b² = 1</code></td>
+                    <td><code class="formula">x·x₁/a² + y·y₁/b² = 1</code></td>
+                </tr>
+                <tr>
+                    <td><strong>Hyperbola</strong></td>
+                    <td><code class="formula">x²/a² - y²/b² = 1</code></td>
+                    <td><code class="formula">x·x₁/a² - y·y₁/b² = 1</code></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="topic3">Determination of the Pole of a Straight Line</h2>
+        <p>This is the reverse problem: given a line, find its pole.</p>
+        <p><strong>Method:</strong>
+        <br>
+        Let the given conic be (for example) the ellipse <code class="formula">x²/a² + y²/b² = 1</code>.
+        <br>
+        Let the given line be <code class="formula">Lx + My + N = 0</code>.
+        <br>
+        We want to find the pole <code class="formula">P(x₁, y₁)</code>.</p>
+        <ol>
+            <li><strong>Assume the pole is <code class="formula">(x₁, y₁)</code>.</strong></li>
+            <li><strong>Write the equation of its polar:</strong>
+                <br><code class="formula">x·x₁/a² + y·y₁/b² - 1 = 0</code>
+            </li>
+            <li><strong>Compare this polar with the given line.</strong> Since they represent the same line, their coefficients must be proportional.
+                <br><code class="formula">(x₁/a²) / L = (y₁/b²) / M = (-1) / N</code>
+            </li>
+            <li><strong>Solve for <code class="formula">x₁</code> and <code class="formula">y₁</code>:</strong>
+                <ul>
+                    <li><code class="formula">(x₁/a²) / L = -1 / N</code>  =>  <code class="formula">x₁ = -a²L / N</code></li>
+                    <li><code class="formula">(y₁/b²) / M = -1 / N</code>  =>  <code class="formula">y₁ = -b²M / N</code></li>
+                </ul>
+            </li>
+        </ol>
+        <p>So, the pole is <code class="formula">(-a²L/N, -b²M/N)</code>.</p>
+        
+        <h4>Example:</h4>
+        <p><strong>Question:</strong> Find the pole of the line <code class="formula">x + 2y + 3 = 0</code> w.r.t. the parabola <code class="formula">y² = 4x</code>.</p>
+        <p><strong>Solution:</strong>
+        <br>
+        Here <code class="formula">a = 1</code>. The parabola is <code class="formula">y² = 4x</code>.
+        <br>
+        1. Let the pole be <code class="formula">(x₁, y₁)</code>.
+        <br>
+        2. The polar is <code class="formula">y·y₁ = 2a(x + x₁)</code> => <code class="formula">y·y₁ = 2(x + x₁)</code>
+        <br>
+        Rearranging: <code class="formula">2x - y·y₁ + 2x₁ = 0</code>
+        <br>
+        3. The given line is <code class="formula">x + 2y + 3 = 0</code>.
+        <br>
+        4. Compare coefficients:
+        <br>
+        <code class="formula">2 / 1 = (-y₁) / 2 = (2x₁) / 3</code>
+        <br>
+        5. Solve:
+        <br>
+        <code class="formula">2 / 1 = (-y₁) / 2</code>  =>  <code class="formula">4 = -y₁</code>  =>  <code class="formula">y₁ = -4</code>
+        <br>
+        <code class="formula">2 / 1 = (2x₁) / 3</code>  =>  <code class="formula">6 = 2x₁</code>  =>  <code class="formula">x₁ = 3</code>
+        <br>
+        The pole is <code class="formula">(3, -4)</code>.
+        </p>
+
+        <h2 id="topic4">Polar Equation of a Conic</h2>
+        
+        <h3 id="subtopic4_1">Definition and Standard Form</h3>
+        <p>A conic section can be defined as the locus of a point P moving in a plane such that the ratio of its distance from a fixed point S (the <strong>focus</strong>) to its perpendicular distance from a fixed straight line (the <strong>directrix</strong>) is a constant <code class="formula">e</code> (the <strong>eccentricity</strong>).</p>
+        
+        <p>To get the polar equation, we place the focus S at the pole (origin). We let the directrix be a line perpendicular to the polar axis (the x-axis) at a distance <code class="formula">p</code> from the pole.</p>
+        
+        <p>The standard form of a conic, with the focus at the pole and the directrix perpendicular to the initial line, is:</p>
+        <blockquote>
+            <strong>l/r = 1 + e cos(θ)</strong>
+        </blockquote>
+        <p>Where:</p>
+        <ul>
+            <li><code class="formula">r, θ</code> are the polar coordinates of a point on the conic.</li>
+            <li><code class="formula">e</code> is the <strong>eccentricity</strong>.
+                <ul>
+                    <li>If <code class="formula">e = 1</code>, it's a <strong>Parabola</strong>.</li>
+                    <li>If <code class="formula">e < 1</code>, it's an <strong>Ellipse</strong>.</li>
+                    <li>If <code class="formula">e > 1</code>, it's a <strong>Hyperbola</strong>.</li>
+                </ul>
+            </li>
+            <li><code class="formula">l</code> is the <strong>semi-latus rectum</strong> (the focal chord perpendicular to the axis, halved).</li>
+        </ul>
+        <p><strong>Variations of the equation:</strong></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Equation</th>
+                    <th>Directrix</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code class="formula">l/r = 1 + e cos(θ)</code></td>
+                    <td>To the <em>left</em> of the focus (e.g., <code class="formula">x = -p</code>)</td>
+                </tr>
+                <tr>
+                    <td><code class="formula">l/r = 1 - e cos(θ)</code></td>
+                    <td>To the <em>right</em> of the focus (e.g., <code class="formula">x = p</code>)</td>
+                </tr>
+                <tr>
+                    <td><code class="formula">l/r = 1 + e sin(θ)</code></td>
+                    <td><em>Below</em> the focus (e.g., <code class="formula">y = -p</code>)</td>
+                </tr>
+                <tr>
+                    <td><code class="formula">l/r = 1 - e sin(θ)</code></td>
+                    <td><em>Above</em> the focus (e.g., <code class="formula">y = p</code>)</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h3 id="subtopic4_2">Equation of a Chord</h3>
+        <p>Let the conic be <code class="formula">l/r = 1 + e cos(θ)</code>.</p>
+        <p>The equation of the chord joining two points on the conic with vectorial angles <code class="formula">α</code> and <code class="formula">β</code> is:</p>
+        <blockquote>
+            <strong>l/r = e cos(θ) + sec((β - α)/2) * cos(θ - (α + β)/2)</strong>
+        </blockquote>
+        <p>A simpler form, often used, is for a chord joining points with angles <code class="formula">(α - β)</code> and <code class="formula">(α + β)</code>:</p>
+        <blockquote>
+            <strong>l/r = e cos(θ) + sec(β) * cos(θ - α)</strong>
+        </blockquote>
+
+        <h3 id="subtopic4_3">Equation of a Tangent</h3>
+        <p>To find the equation of the tangent at a point with vectorial angle <code class="formula">α</code>, we take the chord equation and let the two points approach each other (i.e., set <code class="formula">β = 0</code> in the second form).</p>
+        <p>The equation of the tangent at the point with vectorial angle <code class="formula">α</code> on the conic <code class="formula">l/r = 1 + e cos(θ)</code> is:</p>
+        <blockquote>
+            <strong>l/r = e cos(θ) + cos(θ - α)</strong>
+        </blockquote>
+
+        <h2 id="topic5">Unit 3: Exam Quick Tips</h2>
+        <div class="exam-tip">
+            <ul>
+                <li><strong>The T=0 Rule is Universal:</strong> Memorize the substitution rule (<code class="formula">x² → x·x₁</code>, etc.). It gives the <strong>Tangent</strong> (if point is on conic) and the <strong>Polar</strong> (for any point).</li>
+                <li><strong>Finding the Pole:</strong> Always use the "compare coefficients" method. It's systematic and works for all conics.</li>
+                <li><strong>Polar Conic Equation:</strong> <code class="formula">l/r = 1 + e cos(θ)</code>. Know this form.
+                    <ul>
+                        <li><code class="formula">e = 1</code> is Parabola.</li>
+                        <li><code class="formula">e < 1</code> is Ellipse.</li>
+                        <li><code class="formula">e > 1</code> is Hyperbola.</li>
+                    </ul>
+                </li>
+                <li><strong>Polar Tangent Equation:</strong> <code class="formula">l/r = e cos(θ) + cos(θ - α)</code>. This is a very common formula to state or use.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

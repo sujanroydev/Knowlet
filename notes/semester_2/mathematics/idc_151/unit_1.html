@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics IDC 151 Unit 1 | 2nd Semester Notes - Knowlet</title>
+    [cite_start]<meta name="description" content="Comprehensive exam-ready notes for Mathematics (MAT-IDC-151) Unit 1: Coordinates, Distance Formula, Section Formula, Area, and Polar Coordinates[cite: 2034], based on the Assam University NEP syllabus.">
+    <meta name="keywords" content="MAT-IDC-151, Geometry, Unit 1, Coordinates, Distance Formula, Section Formula, Area of Triangle, Polar Coordinates, Assam University, NEP Syllabus, Mathematics Notes">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #0056b3; /* Dark Blue */
+            margin-top: 24px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #003366; /* Navy Blue */
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #007bff; /* Bright Blue */
+            border-bottom: none;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code, .formula {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.05em;
+        }
+        blockquote {
+            background-color: #f1f8ff;
+            border-left: 5px solid #007bff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #fffaf0; /* Light yellow */
+            border: 1px solid #ffc107; /* Yellow border */
+            border-left-width: 5px;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d9534f; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 1: Coordinate Systems and Basic Formulae</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Coordinates</a></li>
+                [cite_start]<li><a href="#topic2">Distance Between Two Points [cite: 2034]</a></li>
+                [cite_start]<li><a href="#topic3">Section Formula [cite: 2034]</a>
+                    <ul>
+                        <li><a href="#subtopic3_1">Internal Division</a></li>
+                        <li><a href="#subtopic3_2">External Division</a></li>
+                        <li><a href="#subtopic3_3">Mid-Point Formula</a></li>
+                    </ul>
+                </li>
+                [cite_start]<li><a href="#topic4">Area of Triangle and Quadrilateral [cite: 2034]</a>
+                    <ul>
+                        <li><a href="#subtopic4_1">Area of a Triangle (Determinant Form)</a></li>
+                        <li><a href="#subtopic4_2">Area of a Quadrilateral</a></li>
+                    </ul>
+                </li>
+                [cite_start]<li><a href="#topic5">Polar Coordinates [cite: 2034]</a>
+                    <ul>
+                        <li><a href="#subtopic5_1">Definition</a></li>
+                        <li><a href="#subtopic5_2">Conversion: Cartesian to Polar</a></li>
+                        <li><a href="#subtopic5_3">Conversion: Polar to Cartesian</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic6">Unit 1: Exam Quick Tips</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Coordinates</h2>
+        <p>A <strong>Cartesian coordinate system</strong> in a plane consists of two perpendicular number lines, the <strong>x-axis</strong> (horizontal) and the <strong>y-axis</strong> (vertical), which intersect at the <strong>origin</strong> (0, 0).</p>
+        <p>Any point P in the plane can be uniquely identified by an ordered pair of numbers <code class="formula">(x, y)</code>, called its coordinates. The value 'x' is the perpendicular distance from the y-axis, and 'y' is the perpendicular distance from the x-axis.</p>
+        
+        
+
+        <h2 id="topic2">Distance Between Two Points</h2>
+        <p>The distance <code class="formula">d</code> between two points <code class="formula">P(x₁, y₁)</code> and <code class="formula">Q(x₂, y₂)</code> is found using the Pythagorean theorem.</p>
+        
+        
+
+        <blockquote>
+            [cite_start]<strong>Distance Formula: d = sqrt( (x₂ - x₁)² + (y₂ - y₁)² )</strong> [cite: 2034]
+        </blockquote>
+
+        <h4>Example:</h4>
+        <p>Find the distance between A(2, 3) and B(5, -1).</p>
+        <p><strong>Solution:</strong>
+        <br><code class="formula">d = sqrt( (5 - 2)² + (-1 - 3)² )</code>
+        <br><code class="formula">d = sqrt( (3)² + (-4)² )</code>
+        <br><code class="formula">d = sqrt( 9 + 16 ) = sqrt(25) = 5</code> units.
+        </p>
+
+        <h2 id="topic3">Section Formula</h2>
+        [cite_start]<p>This formula finds the coordinates of a point <code class="formula">R(x, y)</code> that divides the line segment joining <code class="formula">P(x₁, y₁)</code> and <code class="formula">Q(x₂, y₂)</code> in a specific ratio, <code class="formula">m : n</code>[cite: 2034].</p>
+
+        <h3 id="subtopic3_1">Internal Division</h3>
+        <p>The point R lies *between* P and Q.</p>
+        
+        <blockquote>
+            [cite_start]<strong>R(x, y) = ( (mx₂ + nx₁) / (m + n) , (my₂ + ny₁) / (m + n) )</strong> [cite: 2034]
+        </blockquote>
+
+        <h3 id="subtopic3_2">External Division</h3>
+        <p>The point R lies *outside* the line segment PQ (on the line extended).</p>
+        
+        <blockquote>
+            [cite_start]<strong>R(x, y) = ( (mx₂ - nx₁) / (m - n) , (my₂ - ny₁) / (m - n) )</strong> [cite: 2034]
+        </blockquote>
+        <div class="exam-tip">
+            <strong>Mnemonic:</strong> For internal division, think "cross-multiply and add". For external division, just replace the '+' signs with '-' signs.
+        </div>
+
+        <h3 id="subtopic3_3">Mid-Point Formula</h3>
+        <p>This is a special case of internal division where the ratio is <code class="formula">1 : 1</code> (so m=1, n=1).</p>
+        <blockquote>
+            <strong>Mid-Point = ( (x₁ + x₂) / 2 , (y₁ + y₂) / 2 )</strong>
+        </blockquote>
+
+        <h2 id="topic4">Area of Triangle and Quadrilateral</h2>
+
+        <h3 id="subtopic4_1">Area of a Triangle (Determinant Form)</h3>
+        [cite_start]<p>If the vertices of a triangle are <code class="formula">A(x₁, y₁)</code>, <code class="formula">B(x₂, y₂)</code>, and <code class="formula">C(x₃, y₃)</code>, its area is given by the absolute value of[cite: 2034]:</p>
+        
+        <blockquote>
+            <strong>Area = (1/2) | x₁(y₂ - y₃) + x₂(y₃ - y₁) + x₃(y₁ - y₂) |</strong>
+        </blockquote>
+        <p>This can be more easily remembered using the determinant "Shoelace Formula":</p>
+        <blockquote>
+            <strong>Area = (1/2) | (x₁y₂ + x₂y₃ + x₃y₁) - (y₁x₂ + y₂x₃ + y₃x₁) |</strong>
+        </blockquote>
+        <p><strong>Condition for Collinearity:</strong> Three points are collinear (lie on the same straight line) if the area of the triangle they form is zero.</p>
+        
+        <h3 id="subtopic4_2">Area of a Quadrilateral</h3>
+        [cite_start]<p>To find the area of a quadrilateral with vertices <code class="formula">A(x₁, y₁)</code>, <code class="formula">B(x₂, y₂)</code>, <code class="formula">C(x₃, y₃)</code>, and <code class="formula">D(x₄, y₄)</code> in order[cite: 2034]:</p>
+        <ol>
+            <li>Draw a diagonal, for example, AC.</li>
+            <li>This divides the quadrilateral into two triangles: ΔABC and ΔADC.</li>
+            <li>Calculate the area of ΔABC and the area of ΔADC using the formula above.</li>
+            <li>Add the two areas together.</li>
+        </ol>
+        <p><strong>Note:</strong> Be sure to take the vertices in order (clockwise or counter-clockwise) when applying the shoelace formula directly to the quadrilateral.</p>
+        
+        <h2 id="topic5">Polar Coordinates</h2>
+
+        <h3 id="subtopic5_1">Definition</h3>
+        <p>This is an alternative system for locating points in a plane. [cite_start]A point is defined by <code class="formula">(r, θ)</code> [cite: 2034] where:</p>
+        <ul>
+            <li><code class="formula">r</code> = The <strong>radius vector</strong>, or the directed distance from the origin (called the <strong>pole</strong>) to the point.</li>
+            <li><code class="formula">θ</code> = The <strong>vectorial angle</strong>, or the angle measured counter-clockwise from the initial line (which is the positive x-axis) to the radius vector.</li>
+        </ul>
+        
+        
+
+        <h3 id="subtopic5_2">Conversion: Cartesian to Polar</h3>
+        [cite_start]<p>Given a point <code class="formula">(x, y)</code>, we can find <code class="formula">(r, θ)</code> using the relationships from the Pythagorean theorem[cite: 2034].</p>
+        <blockquote>
+            <strong>r = sqrt(x² + y²)</strong>
+            <br>
+            <strong>θ = tan⁻¹(y / x)</strong>
+        </blockquote>
+        <div class="exam-tip">
+            <strong>Warning:</strong> When finding θ, you must be careful about the <strong>quadrant</strong>. The <code class="formula">tan⁻¹</code> function on a calculator will only give answers in Quadrant I or IV. You may need to add or subtract 180° (or π) based on the signs of x and y. For example, (-1, -1) is in Q3, but tan⁻¹(-1/-1) = tan⁻¹(1) = 45°, which is in Q1. The correct angle is 45° + 180° = 225°.
+        </div>
+
+        <h3 id="subtopic5_3">Conversion: Polar to Cartesian</h3>
+        [cite_start]<p>Given a point <code class="formula">(r, θ)</code>, we can find <code class="formula">(x, y)</code> using basic trigonometry[cite: 2034].</p>
+        <blockquote>
+            <strong>x = r cos(θ)</strong>
+            <br>
+            <strong>y = r sin(θ)</strong>
+        </blockquote>
+        
+        <h4>Example:</h4>
+        <p>Convert the polar point (4, 30°) to Cartesian.</p>
+        <p><strong>Solution:</strong>
+        <br><code class="formula">x = 4 cos(30°) = 4 (sqrt(3) / 2) = 2*sqrt(3)</code>
+        <br><code class="formula">y = 4 sin(30°) = 4 (1 / 2) = 2</code>
+        <br>The Cartesian point is <code class="formula">(2*sqrt(3), 2)</code>.
+        </p>
+
+        <h2 id="topic6">Unit 1: Exam Quick Tips</h2>
+        <div class="exam-tip">
+            <ul>
+                <li><strong>Distance Formula:</strong> <code class="formula">d = sqrt(Δx² + Δy²)</code>.</li>
+                <li><strong>Section Formula:</strong> <code class="formula">(mx₂ + nx₁) / (m + n)</code>. For <strong>external</strong>, just change all '+' to '-'.</li>
+                <li><strong>Mid-point:</strong> Average of x's, average of y's. <code class="formula">(x₁ + x₂) / 2</code>.</li>
+                <li><strong>Area of Triangle:</strong> Use the shoelace/determinant method. It's faster and less prone to sign errors.</li>
+                <li><strong>Collinearity:</strong> Just show the <strong>Area = 0</strong>.</li>
+                <li><strong>Polar Conversion:</strong>
+                    <ul>
+                        <li><code class="formula">x = r cos(θ)</code></li>
+                        <li><code class="formula">y = r sin(θ)</code></li>
+                        <li><code class="formula">r² = x² + y²</code></li>
+                    </ul>
+                    These three identities are all you need to convert both points and equations between systems.
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

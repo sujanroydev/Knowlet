@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics DSC 152 Unit 3 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Mathematics (MAT-DSC-152) Unit 3: Applications of Integration - Rectification, Surface Area of Revolution, and Volume of Revolution.">
+    <meta name="keywords" content="MAT-DSC-152, Integral Calculus, Unit 3, Rectification, Arc Length, Surface of Revolution, Volume of Revolution, Cartesian Curves, Parametric Curves, Assam University">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #0056b3; /* Dark Blue */
+            margin-top: 24px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #003366; /* Navy Blue */
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #007bff; /* Bright Blue */
+            border-bottom: none;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code, .formula {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.05em;
+        }
+        blockquote {
+            background-color: #f1f8ff;
+            border-left: 5px solid #007bff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #fffaf0; /* Light yellow */
+            border: 1px solid #ffc107; /* Yellow border */
+            border-left-width: 5px;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d9534f; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 3: Geometrical Applications of Integration</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Plane Curves (Cartesian & Parametric)</a></li>
+                <li><a href="#topic2">Rectification of Plane Curves (Arc Length)</a>
+                    <ul>
+                        <li><a href="#subtopic2_1">Arc Length Element (ds)</a></li>
+                        <li><a href="#subtopic2_2">Cartesian Formula</a></li>
+                        <li><a href="#subtopic2_3">Parametric Formula</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic3">Areas of Surfaces of Revolution</a>
+                    <ul>
+                        <li><a href="#subtopic3_1">Revolution about the x-axis</a></li>
+                        <li><a href="#subtopic3_2">Revolution about the y-axis</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic4">Volumes of Solids of Revolution</a>
+                    <ul>
+                        <li><a href="#subtopic4_1">Disk Method (about x-axis)</a></li>
+                        <li><a href="#subtopic4_2">Disk Method (about y-axis)</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic5">Unit 3: Exam Quick Tips</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Plane Curves (Cartesian & Parametric)</h2>
+        <p>This unit applies integration to curves defined in two primary ways:</p>
+        <ol>
+            <li><strong>Cartesian Equation:</strong> The relationship between x and y is given directly, usually as <code class="formula">y = f(x)</code> or <code class="formula">x = g(y)</code>.
+                <br><em>Example:</em> The parabola <code class="formula">y = x²</code>.
+            </li>
+            <li><strong>Parametric Equation:</strong> Both x and y are defined as separate functions of a third variable (a parameter), usually <code class="formula">t</code> or <code class="formula">θ</code>.
+                <br><code class="formula">x = f(t)</code>, <code class="formula">y = g(t)</code>
+                <br><em>Example:</em> The circle <code class="formula">x = a cos(t)</code>, <code class="formula">y = a sin(t)</code>.
+            </li>
+        </ol>
+        <p>For parametric equations, we often need the derivative <code class="formula">dy/dx</code>, which is found using the chain rule:</p>
+        <blockquote>
+            <strong>dy/dx = (dy/dt) / (dx/dt)</strong>
+        </blockquote>
+
+        <h2 id="topic2">Rectification of Plane Curves (Arc Length)</h2>
+        <p><strong>Rectification</strong> is the process of finding the length of a curve, also known as its **arc length**.</p>
+        
+        <h3 id="subtopic2_1">Arc Length Element (ds)</h3>
+        <p>We start by finding the length of an infinitesimally small segment of the curve, <code class="formula">ds</code>. By the Pythagorean theorem:</p>
+        <blockquote>
+            <strong>ds² = dx² + dy²</strong>
+        </blockquote>
+        <p>We can factor this in different ways:</p>
+        <ul>
+            <li><code class="formula">ds = sqrt(dx² + dy²)</code></li>
+            <li><code class="formula">ds = sqrt(1 + (dy/dx)²) dx</code></li>
+            <li><code class="formula">ds = sqrt((dx/dy)² + 1) dy</code></li>
+            <li><code class="formula">ds = sqrt((dx/dt)² + (dy/dt)²) dt</code> (for parametric)</li>
+        </ul>
+        <p>To find the total arc length <code class="formula">L</code>, we integrate this <code class="formula">ds</code> element over the desired interval.</p>
+        
+        
+
+        <h3 id="subtopic2_2">Cartesian Formula</h3>
+        <p>To find the arc length of <code class="formula">y = f(x)</code> from <code class="formula">x = a</code> to <code class="formula">x = b</code>:</p>
+        <blockquote>
+            <strong>L = ∫ [from a to b] sqrt(1 + (dy/dx)²) dx</strong>
+        </blockquote>
+        <p>To find the arc length of <code class="formula">x = g(y)</code> from <code class="formula">y = c</code> to <code class="formula">y = d</code>:</p>
+        <blockquote>
+            <strong>L = ∫ [from c to d] sqrt(1 + (dx/dy)²) dy</strong>
+        </blockquote>
+
+        <h3 id="subtopic2_3">Parametric Formula</h3>
+        <p>To find the arc length of <code class="formula">x = f(t), y = g(t)</code> from <code class="formula">t = t₁</code> to <code class="formula">t = t₂</code>:</p>
+        <blockquote>
+            <strong>L = ∫ [from t₁ to t₂] sqrt((dx/dt)² + (dy/dt)²) dt</strong>
+        </blockquote>
+
+        <h4>Example: Find the circumference of a circle <code class="formula">x = a cos(t), y = a sin(t)</code> from <code class="formula">t = 0</code> to <code class="formula">t = 2π</code>.</h4>
+        <ol>
+            <li>Find derivatives:
+                <br><code class="formula">dx/dt = -a sin(t)</code>
+                <br><code class="formula">dy/dt = a cos(t)</code>
+            </li>
+            <li>Square and add:
+                <br><code class="formula">(dx/dt)² + (dy/dt)² = (-a sin(t))² + (a cos(t))²</code>
+                <br><code class="formula">= a²sin²(t) + a²cos²(t) = a²(sin²(t) + cos²(t)) = a²</code>
+            </li>
+            <li>Set up the integral:
+                <br><code class="formula">L = ∫ [from 0 to 2π] sqrt(a²) dt = ∫ [from 0 to 2π] a dt</code>
+            </li>
+            <li>Evaluate:
+                <br><code class="formula">L = a [t] from 0 to 2π = a(2π - 0) = 2πa</code>.
+            </li>
+        </ol>
+
+        <h2 id="topic3">Areas of Surfaces of Revolution</h2>
+        <p>This is the area of the 3D surface created when a plane curve is rotated around an axis. The general formula involves integrating the circumference of a small "strip" (<code class="formula">2π * radius</code>) along the arc length (<code class="formula">ds</code>).</p>
+        
+        <blockquote>
+            <strong>Area = ∫ 2π · (radius) · ds</strong>
+        </blockquote>
+
+        <h3 id="subtopic3_1">Revolution about the x-axis</h3>
+        <p>When rotating around the x-axis, the radius of rotation for any point <code class="formula">(x, y)</code> is its y-coordinate.</p>
+        <ul>
+            <li><strong>Cartesian:</strong> <code class="formula">Aₓ = ∫ [from a to b] 2πy ds = <strong>∫ [from a to b] 2πy · sqrt(1 + (dy/dx)²) dx</strong></code></li>
+            <li><strong>Parametric:</strong> <code class="formula">Aₓ = ∫ [from t₁ to t₂] 2πy(t) · sqrt((dx/dt)² + (dy/dt)²) dt</code></li>
+        </ul>
+
+        <h3 id="subtopic3_2">Revolution about the y-axis</h3>
+        <p>When rotating around the y-axis, the radius of rotation for any point <code class="formula">(x, y)</code> is its x-coordinate.</p>
+        <ul>
+            <li><strong>Cartesian:</strong> <code class="formula">Aᵧ = ∫ 2πx ds = <strong>∫ [from a to b] 2πx · sqrt(1 + (dy/dx)²) dx</strong></code></li>
+            <li><strong>Parametric:</strong> <code class="formula">Aᵧ = ∫ [from t₁ to t₂] 2πx(t) · sqrt((dx/dt)² + (dy/dt)²) dt</code></li>
+        </ul>
+
+        <h2 id="topic4">Volumes of Solids of Revolution</h2>
+        <p>This is the volume of the 3D solid created when a 2D <em>area</em> (under a curve) is rotated around an axis.</p>
+        
+        <h3 id="subtopic4_1">Disk Method (about x-axis)</h3>
+        <p>We find the volume by summing an infinite number of thin "disks" (cylinders) of radius <code class="formula">y</code> and thickness <code class="formula">dx</code>. The volume of each disk is <code class="formula">dV = (Area of base) · (height) = (πy²) · dx</code>.</p>
+        
+        <blockquote>
+            <strong>Vₓ = ∫ [from a to b] πy² dx = ∫ [from a to b] π[f(x)]² dx</strong>
+        </blockquote>
+        <p><strong>Parametric:</strong> <code class="formula">Vₓ = ∫ [from t₁ to t₂] π[y(t)]² · (dx/dt) dt</code></p>
+        
+        <h3 id="subtopic4_2">Disk Method (about y-axis)</h3>
+        <p>Similarly, when rotating around the y-axis, the disks have radius <code class="formula">x</code> and thickness <code class="formula">dy</code>. The volume of each disk is <code class="formula">dV = (πx²) · dy</code>.</p>
+        <blockquote>
+            <strong>Vᵧ = ∫ [from c to d] πx² dy = ∫ [from c to d] π[g(y)]² dy</strong>
+        </blockquote>
+        <p><strong>Parametric:</strong> <code class="formula">Vᵧ = ∫ [from t₁ to t₂] π[x(t)]² · (dy/dt) dt</code></p>
+
+        <h4>Example: Find the volume of a sphere of radius <code class="formula">r</code>.</h4>
+        <ol>
+            <li>We can rotate the semi-circle <code class="formula">y = sqrt(r² - x²)</code> around the x-axis, from <code class="formula">x = -r</code> to <code class="formula">x = r</code>.</li>
+            <li>Use the Disk Method: <code class="formula">Vₓ = ∫ [from -r to r] πy² dx</code></li>
+            <li>Substitute <code class="formula">y² = r² - x²</code>:
+                <br><code class="formula">V = ∫ [from -r to r] π(r² - x²) dx</code>
+            </li>
+            <li>Since <code class="formula">(r² - x²)</code> is an even function, we can use Property P-7:
+                <br><code class="formula">V = 2π ∫ [from 0 to r] (r² - x²) dx</code>
+            </li>
+            <li>Integrate:
+                <br><code class="formula">V = 2π [r²x - x³/3] from 0 to r</code>
+                <br><code class="formula">V = 2π [(r³ - r³/3) - (0 - 0)]</code>
+                <br><code class="formula">V = 2π [2r³/3] = (4/3)πr³</code>.
+            </li>
+        </ol>
+
+        <h2 id="topic5">Unit 3: Exam Quick Tips</h2>
+        <div class="exam-tip">
+            <p><strong>Do NOT confuse the formulas!</strong> This is the most common mistake.
+            <table>
+                <thead>
+                    <tr>
+                        <th>Application</th>
+                        <th>Core Formula (about x-axis)</th>
+                        <th>Key Element</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Arc Length (L)</strong></td>
+                        <td><code class="formula">∫ ds</code></td>
+                        <td><code class="formula">ds = sqrt(1 + (y')²) dx</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Surface Area (A)</strong></td>
+                        <td><code class="formula">∫ 2πy ds</code></td>
+                        <td><code class="formula">2πy · sqrt(1 + (y')²) dx</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Volume (V)</strong></td>
+                        <td><code class="formula">∫ πy² dx</code></td>
+                        <td><code class="formula">πy² · dx</code></td>
+                    </tr>
+                </tbody>
+            </table>
+            </p>
+            <ul>
+                <li><strong>Arc Length & Surface Area</strong> both use the arc length element <code class="formula">ds</code>.</li>
+                <li><strong>Volume</strong> uses the simple <code class="formula">dx</code> (or <code class="formula">dy</code>).</li>
+                <li><strong>Parametric is easy:</strong> Always find <code class="formula">ds/dt = sqrt((dx/dt)² + (dy/dt)²)</code> first. Then the formulas are <code class="formula">L = ∫ (ds/dt) dt</code>, <code class="formula">Aₓ = ∫ 2πy(t) (ds/dt) dt</code>, etc.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

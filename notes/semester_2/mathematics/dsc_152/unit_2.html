@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics DSC 152 Unit 2 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Mathematics (MAT-DSC-152) Unit 2: Derivation and application of reduction formulae for trigonometric, logarithmic, and combined functions.">
+    <meta name="keywords" content="MAT-DSC-152, Integral Calculus, Unit 2, Reduction Formulae, sin^n(x), cos^n(x), tan^n(x), sec^n(x), sin^m(x)cos^n(x), Wallis' Formula, Assam University">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #0056b3; /* Dark Blue */
+            margin-top: 24px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #003366; /* Navy Blue */
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #007bff; /* Bright Blue */
+            border-bottom: none;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code, .formula {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.05em;
+        }
+        blockquote {
+            background-color: #f1f8ff;
+            border-left: 5px solid #007bff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #fffaf0; /* Light yellow */
+            border: 1px solid #ffc107; /* Yellow border */
+            border-left-width: 5px;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d9534f; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 2: Reduction Formulae</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Introduction to Reduction Formulae</a></li>
+                <li><a href="#topic2">Derivation for ∫ sinⁿ(x) dx</a></li>
+                <li><a href="#topic3">Derivation for ∫ cosⁿ(x) dx</a></li>
+                <li><a href="#topic4">Derivation for ∫ tanⁿ(x) dx</a></li>
+                <li><a href="#topic5">Derivation for ∫ secⁿ(x) dx</a></li>
+                <li><a href="#topic6">Derivation for ∫ (log x)ⁿ dx</a></li>
+                <li><a href="#topic7">Derivation for ∫ sinᵐ(x) cosⁿ(x) dx</a></li>
+                <li><a href="#topic8">Derivation for ∫ sinᵐ(x) cos(nx) dx</a></li>
+                <li><a href="#topic9">Wallis' Formula (for definite integrals)</a></li>
+                <li><a href="#topic10">Unit 2: Exam Quick Tips</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Introduction to Reduction Formulae</h2>
+        <p>A reduction formula is a recursive formula that expresses an integral <code class="formula">Iₙ</code> (involving a parameter <code class="formula">n</code>) in terms of a similar integral with a lower parameter, like <code class="formula">Iₙ₋₁</code> or <code class="formula">Iₙ₋₂</code>.</p>
+        <p>The primary tool used to derive most reduction formulae is <strong>Integration by Parts (IBP)</strong>:</p>
+        <blockquote>
+            <strong>∫ u dv = uv - ∫ v du</strong>
+        </blockquote>
+
+        <h2 id="topic2">Derivation for Iₙ = ∫ sinⁿ(x) dx</h2>
+        <ol>
+            <li>Split the integrand: <code class="formula">Iₙ = ∫ sinⁿ⁻¹(x) · sin(x) dx</code></li>
+            <li>Apply IBP:
+                <ul>
+                    <li>Let <code class="formula">u = sinⁿ⁻¹(x)</code> → <code class="formula">du = (n-1)sinⁿ⁻²(x)·cos(x) dx</code></li>
+                    <li>Let <code class="formula">dv = sin(x) dx</code> → <code class="formula">v = -cos(x)</code></li>
+                </ul>
+            </li>
+            <li><code class="formula">Iₙ = uv - ∫ v du</code>
+                <br><code class="formula">Iₙ = -sinⁿ⁻¹(x)cos(x) - ∫ -cos(x) · (n-1)sinⁿ⁻²(x)cos(x) dx</code>
+            </li>
+            <li><code class="formula">Iₙ = -sinⁿ⁻¹(x)cos(x) + (n-1) ∫ sinⁿ⁻²(x)cos²(x) dx</code></li>
+            <li>Use identity <code class="formula">cos²(x) = 1 - sin²(x)</code>:
+                <br><code class="formula">Iₙ = -sinⁿ⁻¹(x)cos(x) + (n-1) ∫ sinⁿ⁻²(x)(1 - sin²(x)) dx</code>
+            </li>
+            <li><code class="formula">Iₙ = -sinⁿ⁻¹(x)cos(x) + (n-1) [∫ sinⁿ⁻²(x) dx - ∫ sinⁿ(x) dx]</code></li>
+            <li>Replace integrals with <code class="formula">Iₙ₋₂</code> and <code class="formula">Iₙ</code>:
+                <br><code class="formula">Iₙ = -sinⁿ⁻¹(x)cos(x) + (n-1)Iₙ₋₂ - (n-1)Iₙ</code>
+            </li>
+            <li>Solve for <code class="formula">Iₙ</code>:
+                <br><code class="formula">Iₙ + (n-1)Iₙ = -sinⁿ⁻¹(x)cos(x) + (n-1)Iₙ₋₂</code>
+                <br><code class="formula">n·Iₙ = -sinⁿ⁻¹(x)cos(x) + (n-1)Iₙ₋₂</code>
+            </li>
+        </ol>
+        <blockquote>
+            <strong>Iₙ = - (sinⁿ⁻¹(x) cos(x)) / n + (n-1)/n · Iₙ₋₂</strong>
+        </blockquote>
+
+        <h2 id="topic3">Derivation for Iₙ = ∫ cosⁿ(x) dx</h2>
+        <p>The derivation is perfectly analogous to <code class="formula">sinⁿ(x)</code>. Split into <code class="formula">cosⁿ⁻¹(x)·cos(x)</code> and use IBP.</p>
+        <blockquote>
+            <strong>Iₙ = (cosⁿ⁻¹(x) sin(x)) / n + (n-1)/n · Iₙ₋₂</strong>
+        </blockquote>
+
+        <h2 id="topic4">Derivation for Iₙ = ∫ tanⁿ(x) dx</h2>
+        <p>This derivation uses a trick, not IBP.</p>
+        <ol>
+            <li>Split the integrand: <code class="formula">Iₙ = ∫ tanⁿ⁻²(x) · tan²(x) dx</code></li>
+            <li>Use identity <code class="formula">tan²(x) = sec²(x) - 1</code>:
+                <br><code class="formula">Iₙ = ∫ tanⁿ⁻²(x) · (sec²(x) - 1) dx</code>
+            </li>
+            <li>Distribute: <code class="formula">Iₙ = ∫ tanⁿ⁻²(x)sec²(x) dx - ∫ tanⁿ⁻²(x) dx</code></li>
+            <li>The second integral is <code class="formula">Iₙ₋₂</code>.</li>
+            <li>The first integral is a standard u-substitution: let <code class="formula">u = tan(x)</code>, so <code class="formula">du = sec²(x) dx</code>. The integral becomes <code class="formula">∫ uⁿ⁻² du = uⁿ⁻¹ / (n-1) = tanⁿ⁻¹(x) / (n-1)</code>.</li>
+        </ol>
+        <blockquote>
+            <strong>Iₙ = tanⁿ⁻¹(x) / (n-1) - Iₙ₋₂</strong>
+        </blockquote>
+
+        <h2 id="topic5">Derivation for Iₙ = ∫ secⁿ(x) dx</h2>
+        <p>This derivation uses IBP.</p>
+        <ol>
+            <li>Split the integrand: <code class="formula">Iₙ = ∫ secⁿ⁻²(x) · sec²(x) dx</code></li>
+            <li>Apply IBP:
+                <ul>
+                    <li>Let <code class="formula">u = secⁿ⁻²(x)</code> → <code class="formula">du = (n-2)secⁿ⁻³(x)·sec(x)tan(x) dx = (n-2)secⁿ⁻²(x)tan(x) dx</code></li>
+                    <li>Let <code class="formula">dv = sec²(x) dx</code> → <code class="formula">v = tan(x)</code></li>
+                </ul>
+            </li>
+            <li><code class="formula">Iₙ = secⁿ⁻²(x)tan(x) - ∫ tan(x) · (n-2)secⁿ⁻²(x)tan(x) dx</code></li>
+            <li><code class="formula">Iₙ = secⁿ⁻²(x)tan(x) - (n-2) ∫ secⁿ⁻²(x)tan²(x) dx</code></li>
+            <li>Use identity <code class="formula">tan²(x) = sec²(x) - 1</code>:
+                <br><code class="formula">Iₙ = secⁿ⁻²(x)tan(x) - (n-2) ∫ secⁿ⁻²(x)(sec²(x) - 1) dx</code>
+            </li>
+            <li><code class="formula">Iₙ = secⁿ⁻²(x)tan(x) - (n-2) [∫ secⁿ(x) dx - ∫ secⁿ⁻²(x) dx]</code></li>
+            <li><code class="formula">Iₙ = secⁿ⁻²(x)tan(x) - (n-2)Iₙ + (n-2)Iₙ₋₂</code></li>
+            <li>Solve for <code class="formula">Iₙ</code>:
+                <br><code class="formula">Iₙ + (n-2)Iₙ = secⁿ⁻²(x)tan(x) + (n-2)Iₙ₋₂</code>
+                <br><code class="formula">(n-1)Iₙ = secⁿ⁻²(x)tan(x) + (n-2)Iₙ₋₂</code>
+            </li>
+        </ol>
+        <blockquote>
+            <strong>Iₙ = (secⁿ⁻²(x) tan(x)) / (n-1) + (n-2)/(n-1) · Iₙ₋₂</strong>
+        </blockquote>
+
+        <h2 id="topic6">Derivation for Iₙ = ∫ (log x)ⁿ dx</h2>
+        <p>This is a straightforward IBP.</p>
+        <ol>
+            <li>Split the integrand: <code class="formula">Iₙ = ∫ (log x)ⁿ · 1 dx</code></li>
+            <li>Apply IBP:
+                <ul>
+                    <li>Let <code class="formula">u = (log x)ⁿ</code> → <code class="formula">du = n(log x)ⁿ⁻¹ · (1/x) dx</code></li>
+                    <li>Let <code class="formula">dv = 1 dx</code> → <code class="formula">v = x</code></li>
+                </ul>
+            </li>
+            <li><code class="formula">Iₙ = uv - ∫ v du</code>
+                <br><code class="formula">Iₙ = x(log x)ⁿ - ∫ x · n(log x)ⁿ⁻¹ (1/x) dx</code>
+            </li>
+            <li><code class="formula">Iₙ = x(log x)ⁿ - n ∫ (log x)ⁿ⁻¹ dx</code></li>
+        </ol>
+        <blockquote>
+            <strong>Iₙ = x(log x)ⁿ - n · Iₙ₋₁</strong>
+        </blockquote>
+
+        <h2 id="topic7">Derivation for Iₘ,ₙ = ∫ sinᵐ(x) cosⁿ(x) dx</h2>
+        <p>This is the most complex reduction, with multiple possible formulas connecting <code class="formula">Iₘ,ₙ</code> to <code class="formula">Iₘ₋₂,ₙ</code>, <code class="formula">Iₘ,ₙ₋₂</code>, etc. We will derive one (connecting to <code class="formula">Iₘ₋₂,ₙ</code>).</p>
+        <ol>
+            <li>Apply IBP:
+                <ul>
+                    <li>Let <code class="formula">u = sinᵐ⁻¹(x)</code></li>
+                    <li>Let <code class="formula">dv = sin(x)cosⁿ(x) dx</code> → <code class="formula">v = -cosⁿ⁺¹(x) / (n+1)</code></li>
+                </ul>
+            </li>
+            <li><code class="formula">Iₘ,ₙ = - (sinᵐ⁻¹(x)cosⁿ⁺¹(x)) / (n+1) - ∫ - (cosⁿ⁺¹(x))/(n+1) · (m-1)sinᵐ⁻²(x)cos(x) dx</code></li>
+            <li><code class="formula">Iₘ,ₙ = - (sinᵐ⁻¹(x)cosⁿ⁺¹(x)) / (n+1) + (m-1)/(n+1) ∫ sinᵐ⁻²(x)cosⁿ⁺²(x) dx</code></li>
+            <li>Use identity <code class="formula">cos²(x) = 1 - sin²(x)</code>:
+                <br><code class="formula">... + (m-1)/(n+1) ∫ sinᵐ⁻²(x)cosⁿ(x)(1 - sin²(x)) dx</code>
+            </li>
+            <li><code class="formula">... + (m-1)/(n+1) [∫ sinᵐ⁻²(x)cosⁿ(x) dx - ∫ sinᵐ(x)cosⁿ(x) dx]</code></li>
+            <li><code class="formula">Iₘ,ₙ = - (sinᵐ⁻¹(x)cosⁿ⁺¹(x)) / (n+1) + (m-1)/(n+1) [Iₘ₋₂,ₙ - Iₘ,ₙ]</code></li>
+            <li>Solve for <code class="formula">Iₘ,ₙ</code> (This is complex. A more common derivation links all terms).</li>
+        </ol>
+        <p>A more standard and useful relation is found by letting <code class="formula">u = sinᵐ⁺¹(x)cosⁿ⁺¹(x)</code> and differentiating. The most common reduction formulas are:</p>
+        <blockquote>
+            <strong>Iₘ,ₙ = - (sinᵐ⁻¹(x) cosⁿ⁺¹(x)) / (m+n) + (m-1)/(m+n) · Iₘ₋₂,ₙ</strong> (connects m)
+            <br><br>
+            <strong>Iₘ,ₙ = (sinᵐ⁺¹(x) cosⁿ⁻¹(x)) / (m+n) + (n-1)/(m+n) · Iₘ,ₙ₋₂</strong> (connects n)
+        </blockquote>
+
+        <h2 id="topic8">Derivation for Iₘ,ₙ = ∫ sinᵐ(x) cos(nx) dx</h2>
+        <p>This is a known, though advanced, reduction formula derived using IBP twice.</p>
+        <p>Applying IBP with <code class="formula">u = sinᵐ(x)</code> and <code class="formula">dv = cos(nx) dx</code> gives:
+        <br><code class="formula">Iₘ,ₙ = (sinᵐ(x)sin(nx))/n - (m/n) ∫ sinᵐ⁻¹(x)cos(x)sin(nx) dx</code></p>
+        <p>Applying IBP *again* to the new integral (with <code class="formula">u = sinᵐ⁻¹(x)cos(x)</code>) and rearranging all terms eventually leads to a formula connecting <code class="formula">Iₘ,ₙ</code> with <code class="formula">Iₘ₋₂,ₙ</code>.</p>
+        <blockquote>
+            <strong>(n² - m²)Iₘ,ₙ = -m sinᵐ⁻¹(x)[m sin(x)cos(nx) + n cos(x)sin(nx)] + m(m-1)Iₘ₋₂,ₙ</strong>
+        </blockquote>
+        <p>This is a very complex reduction and is typically only studied in advanced calculus.</p>
+
+
+        <h2 id="topic9">Wallis' Formula (for definite integrals)</h2>
+        <p>A major application of reduction formulae for <code class="formula">sinⁿ(x)</code> and <code class="formula">cosⁿ(x)</code> is evaluating definite integrals from 0 to π/2.</p>
+        
+        <h3>∫ [from 0 to π/2] sinⁿ(x) dx = ∫ [from 0 to π/2] cosⁿ(x) dx</h3>
+        
+        <ul>
+            <li><strong>If n is ODD (n = 3, 5, 7, ...):</strong>
+                <blockquote><code class="formula">((n-1)/n) · ((n-3)/(n-2)) · ... · (4/5) · (2/3)</code></blockquote>
+            </li>
+            <li><strong>If n is EVEN (n = 2, 4, 6, ...):</strong>
+                <blockquote><code class="formula">((n-1)/n) · ((n-3)/(n-2)) · ... · (3/4) · (1/2) · (π/2)</code></blockquote>
+            </li>
+        </ul>
+        <p><strong>Example (n=5, odd):</strong> <code class="formula">∫[0, π/2] sin⁵(x) dx = (4/5)·(2/3) = 8/15</code>
+        <br>
+        <strong>Example (n=6, even):</strong> <code class="formula">∫[0, π/2] cos⁶(x) dx = (5/6)·(3/4)·(1/2)·(π/2) = 5π/32</code></p>
+
+        <h3>∫ [from 0 to π/2] sinᵐ(x) cosⁿ(x) dx</h3>
+        <p>Let <code class="formula">m!!</code> (double factorial) be <code class="formula">m·(m-2)·(m-4)...</code></p>
+        <blockquote>
+            <strong>Iₘ,ₙ = ((m-1)!! · (n-1)!!) / ((m+n)!!) · k</strong>
+        </blockquote>
+        Where:
+        <ul>
+            <li><code class="formula">k = π/2</code> if <strong>both m and n are EVEN</strong>.</li>
+            <li><code class="formula">k = 1</code> in all other cases (if m is odd, or n is odd, or both are odd).</li>
+        </ul>
+        <p><strong>Example (m=4, n=6, both even):</strong>
+        <br><code class="formula">I₄,₆ = [(3·1)(5·3·1)] / [10·8·6·4·2] · (π/2) = (15 / 3840) · (π/2) = 3π/512</code></p>
+        <p><strong>Example (m=5, n=3, both odd):</strong>
+        <br><code class="formula">I₅,₃ = [(4·2)(2)] / [8·6·4·2] · 1 = 16 / 384 = 1/24</code></p>
+
+        <h2 id="topic10">Unit 2: Exam Quick Tips</h2>
+        <div class="exam-tip">
+            <ul>
+                <li><strong>IBP is Key:</strong> For <code class="formula">sinⁿ, cosⁿ, secⁿ, (log x)ⁿ</code>, Integration by Parts is the main method.</li>
+                <li><strong>Trick for tanⁿ, cotⁿ:</strong> For <code class="formula">tanⁿ(x)</code>, split as <code class="formula">tanⁿ⁻²(x)·tan²(x)</code> and use <code class="formula">tan²(x) = sec²(x) - 1</code>.</li>
+                <li><strong>Wallis' Formula:</strong> This is a <strong>guaranteed</strong> exam question. Memorize the two cases (n-even, n-odd) and the factor <code class="formula">π/2</code>. Remember it <strong>only</strong> applies to integrals from 0 to π/2.</li>
+                <li>For <code class="formula">∫ sinᵐ(x) cosⁿ(x) dx</code>, remember the <code class="formula">π/2</code> factor only appears if <strong>BOTH m AND n are even</strong>.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

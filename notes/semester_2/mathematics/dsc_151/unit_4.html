@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics DSC 151 Unit 4 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Mathematics (MAT-DSC-151) Unit 4: 3D Geometry, Shortest Distance between lines, Equation of a Sphere, Great Circle, and Tangent Plane.">
+    <meta name="keywords" content="MAT-DSC-151, Analytical Geometry, Unit 4, Shortest Distance, Skew Lines, Equation of Sphere, Great Circle, Tangent Plane to Sphere, Assam University, NEP Syllabus">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #0056b3; /* Dark Blue */
+            margin-top: 24px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #003366; /* Navy Blue */
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #007bff; /* Bright Blue */
+            border-bottom: none;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code, .formula {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.05em;
+        }
+        blockquote {
+            background-color: #f1f8ff;
+            border-left: 5px solid #007bff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #fffaf0; /* Light yellow */
+            border: 1px solid #ffc107; /* Yellow border */
+            border-left-width: 5px;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d9534f; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 4: 3D Geometry - Lines and Spheres</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Shortest Distance Between Two Lines</a>
+                    <ul>
+                        <li><a href="#subtopic1_1">Skew Lines</a></li>
+                        <li><a href="#subtopic1_2">Shortest Distance Formula (Cartesian)</a></li>
+                        <li><a href="#subtopic1_3">Equation of the Shortest Distance Line</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic2">The Sphere</a>
+                    <ul>
+                        <li><a href="#subtopic2_1">General Equation of a Sphere</a></li>
+                        <li><a href="#subtopic2_2">Sphere through Origin with Intercepts</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic3">Properties and Intersections of Spheres</a>
+                    <ul>
+                        <li><a href="#subtopic3_1">Section of a Sphere by a Plane</a></li>
+                        <li><a href="#subtopic3_2">Great Circle</a></li>
+                        <li><a href="#subtopic3_3">Sphere Through a Given Circle</a></li>
+                        <li><a href="#subtopic3_4">Intersection of Two Spheres</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic4">Tangent Plane to a Sphere</a>
+                    <ul>
+                        <li><a href="#subtopic4_1">Tangent Plane at a Point</a></li>
+                        <li><a href="#subtopic4_2">Condition of Tangency for a Plane</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic5">Unit 4: Exam Quick Tips</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Shortest Distance Between Two Lines</h2>
+        
+        <h3 id="subtopic1_1">Skew Lines</h3>
+        <p>In 3D geometry, two lines that are neither parallel nor intersecting are called **skew lines**. The shortest distance between them is the length of the line segment that is perpendicular to both lines.</p>
+        
+        <h3 id="subtopic1_2">Shortest Distance Formula (Cartesian)</h3>
+        <p>Let the two skew lines L₁ and L₂ be given by:</p>
+        <p>L₁: <code class="formula">(x - x₁)/l₁ = (y - y₁)/m₁ = (z - z₁)/n₁</code>
+        <br>
+        L₂: <code class="formula">(x - x₂)/l₂ = (y - y₂)/m₂ = (z - z₂)/n₂</code>
+        </p>
+        <p>The shortest distance (S.D.) between L₁ and L₂ is the projection of the line segment joining <code class="formula">(x₁, y₁, z₁)</code> and <code class="formula">(x₂, y₂, z₂)</code> onto the line of shortest distance.</p>
+        
+        <p>The direction cosines (l, m, n) of the shortest distance line are proportional to <code class="formula">(m₁n₂ - m₂n₁), (n₁l₂ - n₂l₁), (l₁m₂ - l₂m₁)</code>.</p>
+        
+        <p>The formula for the shortest distance is:</p>
+        <blockquote>
+            <strong>S.D. = | (x₂ - x₁)l + (y₂ - y₁)m + (z₂ - z₁)n |</strong>
+        </blockquote>
+        <p>where <code class="formula">l, m, n</code> are the <em>actual direction cosines</em> (not ratios) of the S.D. line.</p>
+        
+        <p>A more direct formula using a determinant is:</p>
+        <blockquote>
+            <strong>S.D. = | Determinant | / sqrt(Σ(m₁n₂ - m₂n₁)² )</strong>
+            <br>
+            where Determinant = 
+            <table>
+                <tr>
+                    <td>x₂ - x₁</td>
+                    <td>y₂ - y₁</td>
+                    <td>z₂ - z₁</td>
+                </tr>
+                <tr>
+                    <td>l₁</td>
+                    <td>m₁</td>
+                    <td>n₁</td>
+                </tr>
+                <tr>
+                    <td>l₂</td>
+                    <td>m₂</td>
+                    <td>n₂</td>
+                </tr>
+            </table>
+        </blockquote>
+        <p>The denominator <code class="formula">sqrt(Σ(m₁n₂ - m₂n₁)²)</code> is the magnitude of the cross product of the direction vectors, which is <code class="formula">sqrt((m₁n₂ - m₂n₁)² + (n₁l₂ - n₂l₁)² + (l₁m₂ - l₂m₁)²).</code></p>
+        <p>If S.D. = 0, the lines are <strong>coplanar</strong> (either intersecting or parallel).</p>
+
+        <h3 id="subtopic1_3">Equation of the Shortest Distance Line</h3>
+        <p>The line of shortest distance is defined as the intersection of two planes:</p>
+        <ol>
+            <li><strong>Plane 1:</strong> The plane containing line L₁ and the shortest distance line.</li>
+            <li><strong>Plane 2:</strong> The plane containing line L₂ and the shortest distance line.</li>
+        </ol>
+        <p>The equation of Plane 1 is given by the determinant:</p>
+        <blockquote>
+            <table>
+                <tr>
+                    <td>x - x₁</td>
+                    <td>y - y₁</td>
+                    <td>z - z₁</td>
+                </tr>
+                <tr>
+                    <td>l₁</td>
+                    <td>m₁</td>
+                    <td>n₁</td>
+                </tr>
+                <tr>
+                    <td>l</td>
+                    <td>m</td>
+                    <td>n</td>
+                </tr>
+            </table>
+            <strong>= 0</strong>
+        </blockquote>
+        <p>The equation of Plane 2 is given by the determinant:</p>
+        <blockquote>
+            <table>
+                <tr>
+                    <td>x - x₂</td>
+                    <td>y - y₂</td>
+                    <td>z - z₂</td>
+                </tr>
+                <tr>
+                    <td>l₂</td>
+                    <td>m₂</td>
+                    <td>n₂</td>
+                </tr>
+                <tr>
+                    <td>l</td>
+                    <td>m</td>
+                    <td>n</td>
+                </tr>
+            </table>
+            <strong>= 0</strong>
+        </blockquote>
+        <p>where <code class="formula">(l, m, n)</code> are the direction ratios of the S.D. line, found by <code class="formula">l = m₁n₂ - m₂n₁</code>, etc.</p>
+
+        <h2 id="topic2">The Sphere</h2>
+        
+        <h3 id="subtopic2_1">General Equation of a Sphere</h3>
+        <p>A sphere is the locus of a point in 3D space that is at a constant distance (the radius) from a fixed point (the center).</p>
+        <ul>
+            <li><strong>Center-Radius Form:</strong>
+                <br>If the center is <code class="formula">(a, b, c)</code> and the radius is <code class="formula">r</code>, the equation is:
+                <blockquote><code class="formula">(x - a)² + (y - b)² + (z - c)² = r²</code></blockquote>
+            </li>
+            <li><strong>General Equation:</strong>
+                <br>Expanding the form above, we get the general equation:
+                <blockquote><code class="formula">x² + y² + z² + 2ux + 2vy + 2wz + d = 0</code></blockquote>
+            </li>
+        </ul>
+        <p>For the general equation:</p>
+        <ul>
+            <li><strong>Center:</strong> <code class="formula">(-u, -v, -w)</code></li>
+            <li><strong>Radius:</strong> <code class="formula">r = sqrt(u² + v² + w² - d)</code></li>
+        </ul>
+        <div class="exam-tip">
+            <strong>Identifying a Sphere:</strong> An equation represents a sphere if:
+            <ol>
+                <li>It is a second-degree equation in x, y, z.</li>
+                <li>The coefficients of <code class="formula">x²</code>, <code class="formula">y²</code>, and <code class="formula">z²</code> are equal (usually 1).</li>
+                <li>There are no product terms (like <code class="formula">xy</code>, <code class="formula">yz</code>, <code class="formula">zx</code>).</li>
+            </ol>
+        </div>
+
+        <h3 id="subtopic2_2">Sphere through Origin with Intercepts</h3>
+        <p>This is a sphere that passes through the origin <code class="formula">(0, 0, 0)</code> and makes intercepts <code class="formula">a</code>, <code class="formula">b</code>, and <code class="formula">c</code> on the x, y, and z axes, respectively.</p>
+        <p>This means the sphere passes through the four points:
+        <code class="formula">(0, 0, 0)</code>, <code class="formula">(a, 0, 0)</code>, <code class="formula">(0, b, 0)</code>, and <code class="formula">(0, 0, c)</code>.</p>
+        <p>Substituting these points into the general equation gives <code class="formula">d=0</code>, <code class="formula">u=-a/2</code>, <code class="formula">v=-b/2</code>, and <code class="formula">w=-c/2</code>.</p>
+        <p>The equation of such a sphere is:</p>
+        <blockquote>
+            <strong>x² + y² + z² - ax - by - cz = 0</strong>
+        </blockquote>
+        <p>Its center is <code class="formula">(a/2, b/2, c/2)</code>.</p>
+        
+        <h2 id="topic3">Properties and Intersections of Spheres</h2>
+
+        <h3 id="subtopic3_1">Section of a Sphere by a Plane</h3>
+        <p>The intersection of a sphere and a plane is always a **circle**.</p>
+        
+        <p>Let the sphere have center C and radius R. Let the plane be at a perpendicular distance <code class="formula">p</code> from C.</p>
+        <ul>
+            <li>The center of the circular section is the foot of the perpendicular from C to the plane.</li>
+            <li>The radius <code class="formula">r</code> of the circle is given by Pythagoras' theorem:
+                <blockquote><code class="formula">r² = R² - p²</code></blockquote>
+            </li>
+        </ul>
+        
+        <h3 id="subtopic3_2">Great Circle</h3>
+        <p>A **great circle** is the largest possible circle that can be drawn on a sphere. It is the section of the sphere by a plane that passes *through the center* of the sphere.</p>
+        <p>For a great circle, the perpendicular distance <code class="formula">p = 0</code>, so its radius <code class="formula">r = R</code> (the radius of the sphere).</p>
+
+        <h3 id="subtopic3_3">Sphere Through a Given Circle</h3>
+        <p>A circle in 3D is not defined by a single equation. It is defined by the intersection of two surfaces, usually a sphere and a plane.</p>
+        <p>Let the circle be defined by:
+        <br>
+        Sphere: <code class="formula">S ≡ x² + y² + z² + 2ux + 2vy + 2wz + d = 0</code>
+        <br>
+        Plane: <code class="formula">P ≡ Lx + My + Nz + Q = 0</code>
+        </p>
+        <p>The equation of *any* sphere passing through this circle is:</p>
+        <blockquote>
+            <strong>S + kP = 0</strong>
+        </blockquote>
+        <p>where <code class="formula">k</code> is a parameter. By changing <code class="formula">k</code>, we get different spheres all containing that same circle.</p>
+
+        <h3 id="subtopic3_4">Intersection of Two Spheres</h3>
+        <p>The curve of intersection of two spheres, <code class="formula">S₁ = 0</code> and <code class="formula">S₂ = 0</code>, is also a circle.</p>
+        <p>This circle lies on a plane called the **radical plane**, whose equation is:</p>
+        <blockquote>
+            <strong>P ≡ S₁ - S₂ = 0</strong>
+        </blockquote>
+        <p>(Note: The x², y², z² terms will cancel, leaving a linear equation, which is a plane).</p>
+        <p>So, the intersection circle is defined by the system: <code class="formula">S₁ = 0</code> and <code class="formula">S₁ - S₂ = 0</code> (or <code class="formula">S₂ = 0</code> and <code class="formula">S₁ - S₂ = 0</code>).</p>
+
+        <h2 id="topic4">Tangent Plane to a Sphere</h2>
+
+        <h3 id="subtopic4_1">Tangent Plane at a Point</h3>
+        <p>The equation of the tangent plane to the sphere <code class="formula">S = x² + y² + z² + 2ux + 2vy + 2wz + d = 0</code> at a point <code class="formula">(x₁, y₁, z₁)</code> on its surface is given by the <code class="formula">T = 0</code> rule:</p>
+        
+        <p>The rule involves substitutions:</p>
+        <ul>
+            <li><code class="formula">x²</code> → <code class="formula">x·x₁</code></li>
+            <li><code class="formula">y²</code> → <code class="formula">y·y₁</code></li>
+            <li><code class="formula">z²</code> → <code class="formula">z·z₁</code></li>
+            <li><code class="formula">2x</code> → <code class="formula">x + x₁</code></li>
+            <li><code class="formula">2y</code> → <code class="formula">y + y₁</code></li>
+            <li><code class="formula">2z</code> → <code class="formula">z + z₁</code></li>
+        </ul>
+        <p>This gives the equation of the tangent plane:</p>
+        <blockquote>
+            <strong>x·x₁ + y·y₁ + z·z₁ + u(x + x₁) + v(y + y₁) + w(z + z₁) + d = 0</strong>
+        </blockquote>
+
+        <h3 id="subtopic4_2">Condition of Tangency for a Plane</h3>
+        <p>A given plane <code class="formula">Lx + My + Nz + P = 0</code> will be a tangent plane (i.e., just touch) a given sphere if and only if:</p>
+        <p><strong>The perpendicular distance from the center of the sphere to the plane is equal to the radius of the sphere.</strong></p>
+        
+        <p>Let the sphere be <code class="formula">x² + y² + z² + 2ux + 2vy + 2wz + d = 0</code>.
+        <br>Center <code class="formula">C = (-u, -v, -w)</code>
+        <br>Radius <code class="formula">r = sqrt(u² + v² + w² - d)</code>
+        </p>
+        <p>Perpendicular distance <code class="formula">p</code> from C to the plane is:</p>
+        <p><code class="formula">p = | L(-u) + M(-v) + N(-w) + P | / sqrt(L² + M² + N²)</code></p>
+        
+        <p>The **condition of tangency** is:</p>
+        <blockquote>
+            <strong>p = r</strong><br>
+            <strong>( | -Lu - Mv - Nw + P | / sqrt(L² + M² + N²) )² = u² + v² + w² - d</strong>
+        </blockquote>
+
+        <h2 id="topic5">Unit 4: Exam Quick Tips</h2>
+        <div class="exam-tip">
+            <ul>
+                <li><strong>Shortest Distance:</strong> Remember the determinant formula. If the determinant is 0, the lines are coplanar.</li>
+                <li><strong>General Sphere Eq:</strong> <code class="formula">x² + y² + z² + 2ux + 2vy + 2wz + d = 0</code>
+                    <ul>
+                        <li>Center: <code class="formula">(-u, -v, -w)</code></li>
+                        <li>Radius: <code class="formula">sqrt(u² + v² + w² - d)</code></li>
+                    </ul>
+                </li>
+                <li><strong>Plane Section:</strong> Always a circle.</li>
+                <li><strong>Great Circle:</strong> Plane passes through the center of the sphere.</li>
+                <li><strong>Sphere through Circle (S=0, P=0):</strong> <code class="formula">S + kP = 0</code></li>
+                <li><strong>Intersection of Spheres (S₁=0, S₂=0):</strong> The intersection plane is the radical plane <code class="formula">S₁ - S₂ = 0</code>.</li>
+                <li><strong>Tangent Plane:</strong> The condition is always <strong>(Perpendicular distance from center) = (Radius)</strong>. This is more fundamental than memorizing the long formula.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

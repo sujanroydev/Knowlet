@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics SEC 151 Unit 4 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Mathematics (MAT-SEC-151) Unit 4: Functions in C, including definition, prototypes, argument passing (pass by value vs. reference), and recursion.">
+    <meta name="keywords" content="MAT-SEC-151, C Programming, Unit 4, Functions, Function Definition, Function Prototype, Pass by Value, Pass by Reference, Recursion, C Functions, Assam University">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #0056b3; /* Dark Blue */
+            margin-top: 24px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #003366; /* Navy Blue */
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #007bff; /* Bright Blue */
+            border-bottom: none;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code, .formula {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.05em;
+        }
+        pre {
+            background-color: #2b2b2b; /* Dark background */
+            color: #f8f8f2; /* Light text */
+            font-family: "Courier New", Courier, monospace;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto; /* Handle long lines of code */
+            border: 1px solid #444;
+        }
+        pre code {
+            background-color: transparent; /* Override the inline code style */
+            padding: 0;
+            border-radius: 0;
+            font-size: 1em;
+        }
+        .comment { color: #888; }
+        .keyword { color: #66d9ef; }
+        .function { color: #a6e22e; }
+        .string { color: #e6db74; }
+        .number { color: #ae81ff; }
+        .preprocessor { color: #f92672; }
+        
+        blockquote {
+            background-color: #f1f8ff;
+            border-left: 5px solid #007bff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #fffaf0; /* Light yellow */
+            border: 1px solid #ffc107; /* Yellow border */
+            border-left-width: 5px;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d9534f; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 4: Functions</h1>
+        <p>A <strong>function</strong> is a self-contained block of code that performs a specific task. [cite_start]Functions are the building blocks of C programs, allowing for modularity (breaking code into small pieces) and reusability (using the same code multiple times)[cite: 1843].</p>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Defining a Function</a>
+                    <ul>
+                        <li><a href="#subtopic1_1">Function Components</a></li>
+                        <li><a href="#subtopic1_2">Function Definition</a></li>
+                        <li><a href="#subtopic1_3">Function Call</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic2">Function Prototypes</a></li>
+                <li><a href="#topic3">Passing Arguments to a Function</a>
+                    <ul>
+                        <li><a href="#subtopic3_1">Pass by Value (The Default)</a></li>
+                        <li><a href="#subtopic3_2">Pass by Reference (Simulated with Pointers)</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic4">Code Examples (from Practicals)</a>
+                    <ul>
+                        <li><a href="#ex1">Pass by Value vs. Pass by Reference</a></li>
+                        <li><a href="#ex2">Practical #5b: Factorial using a Recursive Function</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic5">Unit 4: Exam Quick Tips</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Defining a Function</h2>
+        
+        <h3 id="subtopic1_1">Function Components</h3>
+        [cite_start]<p>A function definition has four main parts[cite: 1843]:</p>
+        <ol>
+            <li><strong>Return Type:</strong> The data type of the value the function sends back (e.g., <code class="keyword">int</code>, <code class="keyword">float</code>, or <code class="keyword">void</code> if it returns nothing).</li>
+            <li><strong>Function Name:</strong> A unique name to identify the function (e.g., <code class="function">addNumbers</code>).</li>
+            <li><strong>Parameters (or Arguments):</strong> A list of variables that receive values when the function is called. This is how you pass data *into* the function.</li>
+            <li><strong>Function Body:</strong> The block of code <code class="formula">{ ... }</code> that performs the function's task.</li>
+        </ol>
+        
+        <h3 id="subtopic1_2">Function Definition</h3>
+        <p>This is the full implementation of the function.</p>
+        <p><strong>Syntax:</strong></p>
+<pre><code class="language-c"><span class="keyword">return_type</span> <span class="function">function_name</span>(<span class="keyword">type</span> param1, <span class="keyword">type</span> param2) {
+    <span class="comment">// Code block (body)</span>
+    <span class="keyword">return</span> value; <span class="comment">// 'value' must match the return_type</span>
+}
+</code></pre>
+        <p><strong>Example:</strong></p>
+<pre><code class="language-c"><span class="keyword">int</span> <span class="function">add</span>(<span class="keyword">int</span> a, <span class="keyword">int</span> b) {
+    <span class="keyword">int</span> sum = a + b;
+    <span class="keyword">return</span> sum; <span class="comment">// Returns an integer value</span>
+}
+</code></pre>
+
+        <h3 id="subtopic1_3">Function Call</h3>
+        <p>To execute a function, you "call" it from <code class="function">main()</code> or another function.</p>
+<pre><code class="language-c"><span class="keyword">int</span> <span class="function">main</span>() {
+    <span class="keyword">int</span> result;
+    result = <span class="function">add</span>(<span class="number">10</span>, <span class="number">5</span>); <span class="comment">// Function call</span>
+    <span class="function">printf</span>(<span class="string">"The result is %d\n"</span>, result); <span class="comment">// Prints "The result is 15"</span>
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+</code></pre>
+
+        <h2 id="topic2">Function Prototypes</h2>
+        <p>A function prototype (or declaration) is a single line that tells the compiler about a function *before* it is defined. [cite_start]It must appear before the function is first called (usually at the top of the file, before <code class="function">main()</code>)[cite: 1843].</p>
+        <p><strong>Why?</strong> The C compiler reads code from top to bottom. If you call a function before it's defined, the compiler doesn't know what it is and gives an error.</p>
+        <p><strong>Syntax:</strong> <code class="formula">return_type function_name(data_type1, data_type2, ...);</code>
+        <br>(Note the semicolon at the end and the lack of variable names, though names are optional).</p>
+        
+<pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+
+[cite_start]<span class="comment">// Function Prototype [cite: 1843]</span>
+<span class="keyword">int</span> <span class="function">add</span>(<span class="keyword">int</span>, <span class="keyword">int</span>);
+
+<span class="keyword">int</span> <span class="function">main</span>() {
+    <span class="comment">// Now the compiler knows what 'add' is, so this call is valid.</span>
+    <span class="keyword">int</span> result = <span class="function">add</span>(<span class="number">10</span>, <span class="number">5</span>); 
+    <span class="function">printf</span>(<span class="string">"Result: %d\n"</span>, result);
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+
+[cite_start]<span class="comment">// Function Definition (can now be placed after main) [cite: 1843]</span>
+<span class="keyword">int</span> <span class="function">add</span>(<span class="keyword">int</span> a, <span class="keyword">int</span> b) {
+    <span class="keyword">return</span> a + b;
+}
+</code></pre>
+
+        <h2 id="topic3">Passing Arguments to a Function</h2>
+        [cite_start]<p>This describes how data is sent *into* a function[cite: 1843]. C has two methods:</p>
+
+        <h3 id="subtopic3_1">Pass by Value (The Default)</h3>
+        <p>This is the default method in C. A <strong>copy</strong> of the argument's value is passed to the function.
+        <br><strong>Consequence:</strong> The function can modify its local copy, but it <strong>cannot change the original variable</strong> in the calling function (e.g., in <code class="function">main()</code>).</p>
+        
+        <h3 id="subtopic3_2">Pass by Reference (Simulated with Pointers)</h3>
+        <p>C does not technically have "pass by reference," but it can be simulated by passing <strong>pointers</strong> (memory addresses) as arguments.
+        <br><strong>Consequence:</strong> The function receives the *actual memory address* of the original variable. By "dereferencing" this pointer, the function <strong>can change the original variable</strong>.</p>
+        
+        <h2 id="topic4">Code Examples (from Practicals)</h2>
+        
+        <h3 id="ex1">Pass by Value vs. Pass by Reference</h3>
+        <p>This code clearly demonstrates the difference by trying to swap two numbers.</p>
+<pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+
+<span class="comment">// Prototype for pass-by-value</span>
+<span class="keyword">void</span> <span class="function">swap_by_value</span>(<span class="keyword">int</span> a, <span class="keyword">int</span> b);
+<span class="comment">// Prototype for pass-by-reference (using pointers)</span>
+<span class="keyword">void</span> <span class="function">swap_by_reference</span>(<span class="keyword">int</span> *a, <span class="keyword">int</span> *b);
+
+<span class="keyword">int</span> <span class="function">main</span>() {
+    <span class="keyword">int</span> x = <span class="number">10</span>, y = <span class="number">20</span>;
+    
+    <span class="function">printf</span>(<span class="string">"Original: x = %d, y = %d\n"</span>, x, y);
+    
+    <span class="comment">// 1. Pass by Value (fails to swap)</span>
+    <span class="function">swap_by_value</span>(x, y);
+    <span class="function">printf</span>(<span class="string">"After swap_by_value: x = %d, y = %d\n"</span>, x, y);
+
+    <span class="comment">// 2. Pass by Reference (succeeds)</span>
+    <span class="function">swap_by_reference</span>(&x, &y); <span class="comment">// Pass the addresses of x and y</span>
+    <span class="function">printf</span>(<span class="string">"After swap_by_reference: x = %d, y = %d\n"</span>, x, y);
+
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+
+<span class="comment">// This function gets COPIES of x and y.</span>
+<span class="keyword">void</span> <span class="function">swap_by_value</span>(<span class="keyword">int</span> a, <span class="keyword">int</span> b) {
+    <span class="keyword">int</span> temp = a;
+    a = b;
+    b = temp;
+    <span class="comment">// a and b are swapped here, but x and y in main() are unchanged.</span>
+}
+
+<span class="comment">// This function gets the MEMORY ADDRESSES of x and y.</span>
+<span class="keyword">void</span> <span class="function">swap_by_reference</span>(<span class="keyword">int</span> *a, <span class="keyword">int</span> *b) {
+    <span class="comment">// *a means "the value at the address a"</span>
+    <span class="keyword">int</span> temp = *a;
+    *a = *b;
+    *b = temp;
+    <span class="comment">// This swaps the original values in main().</span>
+}
+</code></pre>
+        <p><strong>Expected Output:</strong>
+        <br><code class="formula">Original: x = 10, y = 20</code>
+        <br><code class="formula">After swap_by_value: x = 10, y = 20</code> (Failed)
+        <br><code class="formula">After swap_by_reference: x = 20, y = 10</code> (Succeeded)
+        </p>
+        
+        [cite_start]<h3 id="ex2">Practical #5b: Factorial using a Recursive Function [cite: 1863]</h3>
+        <p><strong>Recursion</strong> is a special case of a function call where a function calls *itself*. It must have a <strong>base case</strong> to stop the recursion.</p>
+<pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+
+<span class="comment">// Prototype for recursive factorial</span>
+<span class="keyword">long</span> <span class="keyword">long</span> <span class="function">factorial</span>(<span class="keyword">int</span> n);
+
+<span class="keyword">int</span> <span class="function">main</span>() {
+    <span class="keyword">int</span> num = <span class="number">5</span>;
+    <span class="keyword">long</span> <span class="keyword">long</span> fact = <span class="function">factorial</span>(num);
+    <span class="function">printf</span>(<span class="string">"Factorial of %d is %lld\n"</span>, num, fact);
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+
+<span class="comment">// Recursive function definition</span>
+<span class="keyword">long</span> <span class="keyword">long</span> <span class="function">factorial</span>(<span class="keyword">int</span> n) {
+    <span class="comment">// Base Case: Stops the recursion</span>
+    <span class="keyword">if</span> (n == <span class="number">0</span> || n == <span class="number">1</span>) {
+        <span class="keyword">return</span> <span class="number">1</span>;
+    } 
+    <span class="comment">// Recursive Step: Calls itself with a smaller problem</span>
+    <span class="keyword">else</span> {
+        <span class="keyword">return</span> n * <span class="function">factorial</span>(n - <span class="number">1</span>);
+    }
+}
+<span class="comment">// How it works for factorial(4):</span>
+<span class="comment">// 4 * factorial(3)</span>
+<span class="comment">// 4 * (3 * factorial(2))</span>
+<span class="comment">// 4 * (3 * (2 * factorial(1)))</span>
+<span class="comment">// 4 * (3 * (2 * 1)) = 24</span>
+</code></pre>
+        
+        <h2 id="topic5">Unit 4: Exam Quick Tips</h2>
+        <div class="exam-tip">
+            <ul>
+                <li><strong>Prototype vs. Definition:</strong> A <strong>prototype</strong> is a declaration ending in a semicolon (`;`). A <strong>definition</strong> has the function body in curly braces (`{}`).</li>
+                <li><strong>Pass by Value:</strong> The default. Passes a <strong>copy</strong>. The original variable is safe.</li>
+                <li><strong>Pass by Reference:</strong> The C way. Pass a <strong>pointer</strong> (e.g., <code class="formula">&x</code>) and modify the value using the asterisk (e.g., <code class="formula">*x = 10;</code>). This <strong>does</strong> change the original variable.</li>
+                <li><strong>Recursion:</strong> Every recursive function must have two parts:
+                    <ol>
+                        <li>A <strong>Base Case</strong> (an <code class="keyword">if</code> statement) that stops the function.</li>
+                        <li>A <strong>Recursive Step</strong> that calls itself with a simpler/smaller argument.</li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics DSM 151 Unit 1 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Mathematics (MAT-DSM-151) Unit 1: Limit, Continuity, Differentiability, and Successive Differentiation, based on the Assam University NEP syllabus.">
+    <meta name="keywords" content="MAT-DSM-151, Calculus, Unit 1, Limit, Continuity, Differentiability, Successive Differentiation, Leibnitz's Theorem, Assam University, NEP Syllabus, Mathematics Notes">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #0056b3; /* Dark Blue */
+            margin-top: 24px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #003366; /* Navy Blue */
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #007bff; /* Bright Blue */
+            border-bottom: none;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code, .formula {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.05em;
+        }
+        blockquote {
+            background-color: #f1f8ff;
+            border-left: 5px solid #007bff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #fffaf0; /* Light yellow */
+            border: 1px solid #ffc107; /* Yellow border */
+            border-left-width: 5px;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d9534f; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 1: Limit, Continuity, and Differentiability</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Limit of a Function</a>
+                    <ul>
+                        [cite_start]<li><a href="#subtopic1_1">Epsilon-Delta (ε-δ) Definition [cite: 1380]</a></li>
+                        [cite_start]<li><a href="#subtopic1_2">Cauchy's Criterion for Existence of Limit [cite: 1380]</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic2">Continuity</a>
+                    <ul>
+                        [cite_start]<li><a href="#subtopic2_1">Epsilon-Delta (ε-δ) Definition [cite: 1381]</a></li>
+                        [cite_start]<li><a href="#subtopic2_2">Types of Discontinuities [cite: 1381]</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic3">Differentiability</a>
+                    <ul>
+                        [cite_start]<li><a href="#subtopic3_1">Definition of a Derivative [cite: 1382]</a></li>
+                        [cite_start]<li><a href="#subtopic3_2">Relation between Continuity and Differentiability [cite: 1382]</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic4">Successive Differentiation</a>
+                    <ul>
+                        <li><a href="#subtopic4_1">n-th Derivatives of Standard Functions</a></li>
+                        [cite_start]<li><a href="#subtopic4_2">Leibnitz's Theorem [cite: 1382]</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic5">Unit 1: Exam Quick Tips</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Limit of a Function</h2>
+
+        [cite_start]<h3 id="subtopic1_1">Epsilon-Delta (ε-δ) Definition [cite: 1380]</h3>
+        <p>The formal definition of a limit is a cornerstone of calculus. It gives a precise meaning to the statement "the limit of f(x) as x approaches 'a' is L".</p>
+        
+        <blockquote>
+            <strong>Definition:</strong> We say <code class="formula">lim (x→a) f(x) = L</code> if for any given number <code class="formula">ε > 0</code> (no matter how small), there exists a corresponding number <code class="formula">δ > 0</code> such that:
+            <br>
+            <strong><code class="formula">|f(x) - L| < ε</code></strong> whenever <strong><code class="formula">0 < |x - a| < δ</code></strong>
+        </blockquote>
+
+        <ul>
+            <li><code class="formula">|f(x) - L| < ε</code> means "the distance between f(x) and L is less than ε". This is the output tolerance.</li>
+            <li><code class="formula">|x - a| < δ</code> means "the distance between x and 'a' is less than δ". This is the input tolerance.</li>
+            <li>The <code class="formula">0 < ...</code> part just means that <code class="formula">x ≠ a</code>. We don't care what happens *at* x = a, only *near* it.</li>
+        </ul>
+        <p>In simple terms: "You can make f(x) as close as you want (ε) to L, just by making x close enough (δ) to 'a'."</p>
+
+        [cite_start]<h3 id="subtopic1_2">Cauchy's Criterion for Existence of Limit [cite: 1380]</h3>
+        <p>This is a theoretical tool that lets us prove a limit *exists* without knowing what the limit's value (L) is.</p>
+        <p><strong>Statement (without proof):</strong> A function f(x) has a finite limit as x approaches 'a' if and only if for every <code class="formula">ε > 0</code>, there exists a <code class="formula">δ > 0</code> such that:
+        <br>
+        <code class="formula">|f(x₁) - f(x₂)| < ε</code> whenever <code class="formula">0 < |x₁ - a| < δ</code> and <code class="formula">0 < |x₂ - a| < δ</code>.
+        </p>
+        <p>In simple terms: "If x is close to 'a', the function's values f(x) must be close to each other."</p>
+
+        <hr>
+
+        <h2 id="topic2">Continuity</h2>
+
+        [cite_start]<h3 id="subtopic2_1">Epsilon-Delta (ε-δ) Definition [cite: 1381]</h3>
+        <p>Continuity is a more strict condition than just having a limit. A function is continuous at a point if the limit *exists*, the function is *defined* at that point, and the *limit equals the function's value*.</p>
+        
+        <blockquote>
+            <strong>Definition:</strong> A function f(x) is continuous at a point <code class="formula">x = a</code> if for any <code class="formula">ε > 0</code>, there exists a <code class="formula">δ > 0</code> such that:
+            <br>
+            <strong><code class="formula">|f(x) - f(a)| < ε</code></strong> whenever <strong><code class="formula">|x - a| < δ</code></strong>
+        </blockquote>
+        <p><strong>Note the difference from the limit definition:</strong></p>
+        <ol>
+            <li>We are comparing <code class="formula">f(x)</code> to <code class="formula">f(a)</code>, not some limit L.</li>
+            <li>We no longer have <code class="formula">0 < |x - a|</code>. This means we *include* the point <code class="formula">x = a</code> itself, which is fine since <code class="formula">|f(a) - f(a)| = 0</code>, which is always less than ε.</li>
+        </ol>
+
+        [cite_start]<h3 id="subtopic2_2">Types of Discontinuities [cite: 1381]</h3>
+        <p>If a function is not continuous at <code class="formula">x = a</code>, it is discontinuous. There are several types:</p>
+        
+        <ol>
+            <li>
+                <strong>Removable Discontinuity:</strong>
+                <ul>
+                    <li>The limit <code class="formula">lim (x→a) f(x) = L</code> exists.</li>
+                    <li>But *either* <code class="formula">f(a)</code> is not defined, *or* <code class="formula">f(a) ≠ L</code>.</li>
+                    <li><strong>Example:</strong> <code class="formula">f(x) = (x² - 1) / (x - 1)</code> at <code class="formula">x = 1</code>. The limit is 2, but <code class="formula">f(1)</code> is undefined. It's a "hole" in the graph that can be "removed" by defining <code class="formula">f(1) = 2</code>.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Jump Discontinuity (or Discontinuity of the First Kind):</strong>
+                <ul>
+                    <li>The left-hand limit <code class="formula">lim (x→a⁻) f(x)</code> and the right-hand limit <code class="formula">lim (x→a⁺) f(x)</code> both exist, but they are *not equal*.</li>
+                    <li><strong>Example:</strong> The greatest integer function <code class="formula">f(x) = [x]</code> at <code class="formula">x = 2</code>. The left limit is 1, and the right limit is 2. The graph "jumps".</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Discontinuity of the Second Kind (or Essential Discontinuity):</strong>
+                <ul>
+                    <li>At least one of the one-sided limits (left or right) does not exist.</li>
+                    <li><strong>Example (Infinite Discontinuity):</strong> <code class="formula">f(x) = 1/x</code> at <code class="formula">x = 0</code>. The limits go to +∞ and -∞.</li>
+                    <li><strong>Example (Oscillating Discontinuity):</strong> <code class="formula">f(x) = sin(1/x)</code> at <code class="formula">x = 0</code>. The function oscillates infinitely near 0, so no limit exists.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <hr>
+
+        <h2 id="topic3">Differentiability</h2>
+
+        [cite_start]<h3 id="subtopic3_1">Definition of a Derivative [cite: 1382]</h3>
+        <p>A function f(x) is **differentiable** at a point <code class="formula">x = a</code> if its derivative exists at that point. The derivative, <code class="formula">f'(a)</code>, represents the instantaneous rate of change, or the slope of the tangent line to the graph at that point.</p>
+        
+        <blockquote>
+            <strong>Definition (First Principle):</strong>
+            <br>
+            <code class="formula">f'(a) = lim (h→0) [f(a + h) - f(a)] / h</code>
+        </blockquote>
+        <p>This limit must exist (and be a finite number).</p>
+
+        [cite_start]<h3 id="subtopic3_2">Relation between Continuity and Differentiability [cite: 1382]</h3>
+        <p>This is a fundamental theorem in calculus.</p>
+        
+        <blockquote>
+            <strong>Theorem: Differentiability implies Continuity.</strong>
+            <br>
+            If a function <code class="formula">f(x)</code> is differentiable at <code class="formula">x = a</code>, then it *must* be continuous at <code class="formula">x = a</code>.
+        </blockquote>
+        
+        <div class="exam-tip">
+            <strong>The converse is NOT true.</strong> A function can be continuous but not differentiable.
+            <br>
+            <strong>Classic Example:</strong> The absolute value function <code class="formula">f(x) = |x|</code> at <code class="formula">x = 0</code>.
+            <ul>
+                <li>It is <strong>continuous</strong> at x=0 (the graph is connected).</li>
+                <li>It is <strong>not differentiable</strong> at x=0 because the left-hand derivative (-1) does not equal the right-hand derivative (+1). This results in a "sharp corner" or "cusp" in the graph.</li>
+            </ul>
+        </div>
+        
+        <hr>
+
+        [cite_start]<h2 id="topic4">Successive Differentiation [cite: 1382]</h2>
+        <p>This is the process of differentiating a function multiple times. The result of the first derivative is the *first derivative*, differentiating that gives the *second derivative*, and so on.</p>
+        <ul>
+            <li>First Derivative: <code class="formula">y'</code> or <code class="formula">f'(x)</code> or <code class="formula">dy/dx</code></li>
+            <li>Second Derivative: <code class="formula">y''</code> or <code class="formula">f''(x)</code> or <code class="formula">d²y/dx²</code></li>
+            <li>n-th Derivative: <code class="formula">y⁽ⁿ⁾</code> or <code class="formula">f⁽ⁿ⁾(x)</code> or <code class="formula">dⁿy/dxⁿ</code></li>
+        </ul>
+        
+        <h3 id="subtopic4_1">n-th Derivatives of Standard Functions</h3>
+        <p>Finding a pattern for the n-th derivative is a common problem.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Function f(x)</th>
+                    <th>n-th Derivative f⁽ⁿ⁾(x)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code class="formula">eᵃˣ</code></td>
+                    <td><code class="formula">aⁿ eᵃˣ</code></td>
+                </tr>
+                <tr>
+                    <td><code class="formula">aˣ</code></td>
+                    <td><code class="formula">(ln a)ⁿ aˣ</code></td>
+                </tr>
+                <tr>
+                    <td><code class="formula">xᵐ</code></td>
+                    <td><code class="formula">m(m-1)...(m-n+1) xᵐ⁻ⁿ = P(m, n) xᵐ⁻ⁿ</code></td>
+                </tr>
+                <tr>
+                    <td><code class="formula">sin(ax + b)</code></td>
+                    <td><code class="formula">aⁿ sin(ax + b + nπ/2)</code></td>
+                </tr>
+                <tr>
+                    <td><code class="formula">cos(ax + b)</code></td>
+                    <td><code class="formula">aⁿ cos(ax + b + nπ/2)</code></td>
+                </tr>
+                <tr>
+                    <td><code class="formula">log(x)</code></td>
+                    <td><code class="formula">(-1)ⁿ⁻¹ (n-1)! / xⁿ</code></td>
+                </tr>
+                <tr>
+                    <td><code class="formula">1 / (ax + b)</code></td>
+                    <td><code class="formula">(-1)ⁿ aⁿ n! / (ax + b)ⁿ⁺¹</code></td>
+                </tr>
+            </tbody>
+        </table>
+
+        [cite_start]<h3 id="subtopic4_2">Leibnitz's Theorem [cite: 1382]</h3>
+        <p>This theorem provides a formula for the <strong>n-th derivative of a product of two functions</strong>. It is an extension of the product rule.</p>
+        <p>If <code class="formula">y = u·v</code>, where u and v are functions of x, then the n-th derivative of y is:</p>
+        
+        <blockquote>
+            <strong>(uv)ₙ = C(n, 0)uₙv₀ + C(n, 1)uₙ₋₁v₁ + C(n, 2)uₙ₋₂v₂ + ... + C(n, r)uₙ₋ᵣvᵣ + ... + C(n, n)u₀vₙ</strong>
+        </blockquote>
+        <p>Where:</p>
+        <ul>
+            <li><code class="formula">uₙ</code> and <code class="formula">vₙ</code> represent the n-th derivatives of u and v.</li>
+            <li><code class="formula">v₀ = v</code> and <code class="formula">u₀ = u</code> (the original functions).</li>
+            <li><code class="formula">C(n, r) = n! / (r! (n-r)!)</code> is the binomial coefficient ("n choose r").</li>
+        </ul>
+        <p><strong>Example:</strong> Find the 2nd derivative of <code class="formula">y = x² sin(x)</code> using Leibnitz's theorem.
+        <br>Here <code class="formula">n = 2</code>. Let <code class="formula">u = sin(x)</code> and <code class="formula">v = x²</code> (Tip: Choose 'v' as the function that terminates to zero after a few derivatives).
+        <br>
+        <code class="formula">u = sin(x)</code>, <code class="formula">u₁ = cos(x)</code>, <code class="formula">u₂ = -sin(x)</code>
+        <br>
+        <code class="formula">v = x²</code>, <code class="formula">v₁ = 2x</code>, <code class="formula">v₂ = 2</code>
+        <br>
+        <code class="formula">y₂ = C(2, 0)u₂v₀ + C(2, 1)u₁v₁ + C(2, 2)u₀v₂</code>
+        <br>
+        <code class="formula">y₂ = (1)·(-sin(x))·(x²) + (2)·(cos(x))·(2x) + (1)·(sin(x))·(2)</code>
+        <br>
+        <code class="formula">y₂ = -x²sin(x) + 4x cos(x) + 2sin(x)</code>
+        </p>
+
+        <hr>
+
+        <h2 id="topic5">Unit 1: Exam Quick Tips</h2>
+        <div class="exam-tip">
+            <ul>
+                <li><strong>Differentiability implies Continuity:</strong> Remember this. A function *must* be continuous to be differentiable.</li>
+                <li><strong>Continuity does NOT imply Differentiability:</strong> Remember the <code class="formula">|x|</code> example. Sharp corners break differentiability.</li>
+                <li><strong>Leibnitz's Theorem:</strong> When using it, always choose the polynomial part (e.g., <code class="formula">x²</code>, <code class="formula">x³</code>) as your function 'v'. This is because its higher derivatives <code class="formula">(v₂, v₃, ...)</code_> will become zero, making the formula much shorter.</li>
+                <li><strong>n-th Derivatives:</strong> Memorize the standard formulas for <code class="formula">sin</code>, <code class="formula">cos</code>, <code class="formula">eᵃˣ</code>, and <code class="formula">1/(ax+b)</code>. They are very common.</li>
+                <li><strong>Discontinuities:</strong> Be able to sketch or identify the three main types: Removable (hole), Jump (step), and Essential (infinite/oscillating).</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

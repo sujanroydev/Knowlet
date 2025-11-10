@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecology DSC 151 Unit 1 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam notes for Unit 1: Fundamentals of environmental physics (DSC 151), covering light, matter, quantum mechanics, black body radiation, Beer-Lambert law, and thermodynamics.">
+    <meta name="keywords" content="Fundamentals of environmental physics, ecology dsc 151 notes, quantum mechanics in environment, black body radiation, Beer-Lambert law, laws of thermodynamics, environmental science notes">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 25px;
+            background-color: #ffffff;
+            border: 1px solid #d1d1d1;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        h1 {
+            color: #ffffff;
+            background-color: #0056b3;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 0;
+        }
+        h2 {
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #d9534f;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        blockquote {
+            background-color: #eef7ff;
+            border-left: 5px solid #0056b3;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        .exam-tip, .note {
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 8px;
+        }
+        .exam-tip {
+            background-color: #fff8e1;
+            border: 1px solid #ffecb3;
+            color: #6d4c00;
+        }
+        .exam-tip::before {
+            content: "💡 Exam Tip: ";
+            font-weight: bold;
+        }
+        .note {
+            background-color: #e6f7ff;
+            border: 1px solid #b3e0ff;
+            color: #004080;
+        }
+        .note::before {
+            content: "📌 Important Note: ";
+            font-weight: bold;
+        }
+        .toc {
+            background: #fdfdfd;
+            border: 1px solid #eaeaea;
+            padding: 15px 25px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .toc h3 {
+            color: #333;
+            margin-top: 0;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        .toc li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 1: Fundamentals of environmental physics</h1>
+
+        <div class="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#topic1">Basic concepts of light and matter</a></li>
+                <li><a href="#topic2">Quantum mechanics</a></li>
+                <li><a href="#topic3">Black body radiation</a></li>
+                <li><a href="#topic4">Spectroscopic concepts</a></li>
+                <li><a href="#topic5">Basic concepts of pressure, force, work and energy</a></li>
+                <li><a href="#topic6">Laws of thermodynamics</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Basic concepts of light and matter</h2>
+        <p>In environmental science, we study the interaction between energy and matter. The environment is composed of matter (atoms, molecules, soil, water, air) and is driven by energy, primarily from light (solar radiation).</p>
+        <ul>
+            <li><strong>Matter:</strong> Anything that has mass and takes up space. It exists in various states (solid, liquid, gas, plasma). In the environment, this includes chemical substances like H₂O, CO₂, N₂, O₂, and pollutants like SO₂, Pb, etc.</li>
+            <li><strong>Light (Electromagnetic Radiation - EMR):</strong> A form of energy that travels in waves. It has a dual nature, behaving as both a wave and a particle (called a <strong>photon</strong>).</li>
+        </ul>
+        <p>The entire range of EMR is called the <strong>Electromagnetic Spectrum</strong>. This includes (from high energy/short wavelength to low energy/long wavelength): gamma rays, X-rays, ultraviolet (UV), visible light, infrared (IR), microwaves, and radio waves.</p>
+        <div class="note">
+            <strong>Real-world Application:</strong> The interaction of light and matter drives everything:
+            <ul>
+                <li><strong>Photosynthesis:</strong> Plants (matter) use visible light (energy) to create food.</li>
+                <li><strong>Greenhouse Effect:</strong> Atmospheric gases (matter) trap infrared radiation (energy), warming the planet.</li>
+                <li><strong>Ozone Layer:</strong> Ozone (matter) absorbs harmful UV radiation (energy).</li>
+            </ul>
+        </div>
+
+        <h2 id="topic2">Quantum mechanics</h2>
+        <h3 id="topic2-1">Relation between energy, wavelength and frequency</h3>
+        <p>Quantum mechanics explains that energy is not continuous but comes in discrete packets called <strong>quanta</strong> (for light, these are photons). The energy of a single photon is directly related to its frequency and inversely related to its wavelength.</p>
+        
+        <blockquote>
+            <strong>Formula 1: Planck's Equation</strong>
+            <p>E = hν</p>
+            <ul>
+                <li><strong>E</strong> = Energy of the photon (in Joules)</li>
+                <li><strong>h</strong> = Planck's constant (6.626 x 10⁻³⁴ J·s)</li>
+                <li><strong>ν</strong> (nu) = Frequency of the light (in Hertz, Hz, or s⁻¹)</li>
+            </ul>
+        </blockquote>
+        
+        <p>The frequency and wavelength of light are related by the speed of light (c).</p>
+        
+        <blockquote>
+            <strong>Formula 2: Wave Equation</strong>
+            <p>c = λν</p>
+            <ul>
+                <li><strong>c</strong> = Speed of light (3.0 x 10⁸ m/s)</li>
+                <li><strong>λ</strong> (lambda) = Wavelength (in meters)</li>
+                <li><strong>ν</strong> (nu) = Frequency (in Hz)</li>
+            </ul>
+        </blockquote>
+        
+        <p>By combining these two equations (rearranging Formula 2 as ν = c / λ and substituting into Formula 1), we get the most common form used in environmental science:</p>
+        
+        <blockquote>
+            <strong>Formula 3: Energy-Wavelength Relation</strong>
+            <p>E = hc / λ</p>
+        </blockquote>
+        
+        <div class="exam-tip">
+            <strong>Key Concept:</strong> This formula explains <em>why</em> UV radiation is dangerous while visible light is not.
+            <ul>
+                <li><strong>UV light</strong> has a short wavelength (λ), so 'E' (energy) is <strong>high</strong>. This high energy is enough to break chemical bonds, like those in DNA.</li>
+                <li><strong>Visible light</strong> has a longer wavelength (λ), so 'E' (energy) is <strong>lower</strong>. It has enough energy to be used in photosynthesis but not enough to damage DNA.</li>
+            </ul>
+        </div>
+
+        <h2 id="topic3">Black body radiation</h2>
+        <p>A <strong>black body</strong> is a theoretical, ideal object that absorbs 100% of the radiation that hits it (it doesn't reflect any) and emits radiation perfectly based on its temperature.</p>
+        <p>While no real object is a perfect black body, the <strong>Sun</strong> and the <strong>Earth</strong> are often approximated as black bodies to model the planet's energy budget.</p>
+        
+        <p>There are two key laws governing black body radiation:</p>
+        <ol>
+            <li><strong>Stefan-Boltzmann Law:</strong> Describes the <em>total amount</em> of energy an object radiates. It states that the total energy (E) radiated per unit surface area is proportional to the fourth power of its absolute temperature (T, in Kelvin).
+                <blockquote><strong>Formula:</strong> E = σT⁴ (where σ is the Stefan-Boltzmann constant)</blockquote>
+                <p><strong>Implication:</strong> A small increase in temperature leads to a <em>large</em> increase in radiated energy. This is a key factor in global warming.</p>
+            </li>
+            <li><strong>Wien's Displacement Law:</strong> Describes the <em>peak wavelength</em> (λ_max) of the emitted radiation. It states that the peak wavelength is inversely proportional to the absolute temperature (T).
+                <blockquote><strong>Formula:</strong> λ_max = b / T (where b is Wien's displacement constant)</blockquote>
+            </li>
+        </ol>
+        
+        <div class="note">
+            <strong>Application (Sun vs. Earth):</strong>
+            <ul>
+                <li><strong>The Sun:</strong> Very hot (T ≈ 5778 K). Wien's Law predicts its peak wavelength is in the visible spectrum (short-wave radiation).</li>
+                <li><strong>The Earth:</strong> Much cooler (T ≈ 288 K). Wien's Law predicts its peak wavelength is in the infrared spectrum (long-wave radiation).</li>
+            </ul>
+            This difference is the entire basis for the <strong>greenhouse effect</strong>. The atmosphere is transparent to the Sun's incoming short-wave radiation but opaque (absorbent) to the Earth's outgoing long-wave (infrared) radiation.
+        </div>
+
+        <h2 id="topic4">Spectroscopic concepts</h2>
+        <h3 id="topic4-1">Introduction to the concept of absorption and transmission of light</h3>
+        <p>When light (a photon) hits a molecule, one of three things can happen:</p>
+        <ul>
+            <li><strong>Transmission:</strong> The light passes straight through the molecule. The material is transparent.</li>
+            <li><strong>Reflection/Scattering:</strong> The light bounces off the molecule.</li>
+            <li><strong>Absorption:</strong> The molecule "catches" the photon, and its energy is transferred to the molecule, causing it to move to a higher energy state (e.g., electrons jump to a higher orbital, or the molecule vibrates/rotates faster).</li>
+        </ul>
+        <p><strong>Spectroscopy</strong> is the study of how EMR interacts with matter. In environmental chemistry, we use it to identify and quantify substances.</p>
+
+        <h3 id="topic4-2">Beer-Lambert Law</h3>
+        <p>The <strong>Beer-Lambert Law</strong> (or Beer's Law) is a fundamental principle for measuring the concentration of a substance in a solution. It states that the amount of light absorbed by a solution is directly proportional to the concentration of the absorbing substance and the path length of the light through the solution.</p>
+        
+        <blockquote>
+            <strong>Formula: Beer-Lambert Law</strong>
+            <p>A = εcl</p>
+            <ul>
+                <li><strong>A</strong> = Absorbance (unitless, measured by a spectrophotometer)</li>
+                <li><strong>ε</strong> (epsilon) = Molar absorptivity (a constant specific to the substance at a specific wavelength, in L mol⁻¹ cm⁻¹)</li>
+                <li><strong>c</strong> = Concentration of the substance (in mol L⁻¹)</li>
+                <li><strong>l</strong> = Path length of the cuvette (sample holder), usually 1 cm.</li>
+            </ul>
+        </blockquote>
+        
+        <div class="note">
+            <strong>Practical Application:</strong> This is the basis of <strong>colorimetry</strong>.
+            <ol>
+                <li>You want to measure the amount of phosphate (a pollutant) in a water sample.</li>
+                <li>Phosphate itself is colorless, so you add a reagent that reacts with phosphate to produce a <strong>blue color</strong>.</li>
+                <li>The <em>intensity</em> of the blue color is proportional to the concentration of phosphate.</li>
+                <li>You place the blue sample in a spectrophotometer, shine a light through it (at the wavelength the blue color absorbs most), and measure the <strong>Absorbance (A)</strong>.</li>
+                <li>Since you know 'ε' and 'l', you can rearrange the formula (c = A / εl) to find the <strong>concentration (c)</strong> of the phosphate.</li>
+            </ol>
+        </div>
+
+        <h2 id="topic5">Basic concepts of pressure, force, work and energy</h2>
+        <ul>
+            <li><strong>Force (F):</strong> A push or a pull on an object. Measured in Newtons (N). (F = mass × acceleration).
+                <br><em>Example:</em> The force of wind on a turbine, or the force of gravity pulling rain down.</li>
+            <li><strong>Pressure (P):</strong> The amount of force applied over a specific area (P = Force / Area). Measured in Pascals (Pa) or atmospheres (atm).
+                <br><em>Example:</em> <strong>Atmospheric pressure</strong> is the weight (force) of the entire column of air above you, pressing down on the surface (area). <strong>Hydrostatic pressure</strong> is the pressure exerted by a fluid (like water) at a certain depth.</li>
+            <li><strong>Work (W):</strong> Done when a force causes an object to move a certain distance (W = Force × Distance). Measured in Joules (J).
+                <br><em>Example:</em> A river (water) does work when it applies a force to erode sediment and move it (distance) downstream.</li>
+            <li><strong>Energy (E):</strong> The capacity or ability to do work. Measured in Joules (J).
+                <br><em>Forms:</em> <strong>Kinetic energy</strong> (energy of motion, e.g., wind, flowing water) and <strong>Potential energy</strong> (stored energy, e.g., water stored behind a dam, chemical energy stored in wood or biomass).</li>
+        </ul>
+
+        <h2 id="topic6">Laws of thermodynamics</h2>
+        <p>Thermodynamics is the study of energy, its transformations, and its relationship to matter. These laws are fundamental to understanding energy flow in ecosystems.</p>
+        
+        <h3>First Law of Thermodynamics (Law of Conservation of Energy)</h3>
+        <blockquote>
+            <p><strong>"Energy cannot be created or destroyed, only changed from one form to another."</strong></p>
+        </blockquote>
+        <p><strong>Ecological Implication:</strong> All energy in an ecosystem must be accounted for. The total energy from the sun that is captured by plants (producers) is either:
+        <ul>
+            <li>Converted into chemical energy (biomass) by the plant.</li>
+            <li>Transferred to an animal that eats the plant (herbivore).</li>
+            <li>Lost as heat during respiration.</li>
+        </ul>
+        <p>This law explains the <strong>flow of energy</strong> through a food web.</p>
+        
+        <h3>Second Law of Thermodynamics (Law of Entropy)</h3>
+        <blockquote>
+            <p><strong>"In any energy conversion, some energy is converted to a less useful form (usually heat), and the total disorder (entropy) of the system increases."</strong></p>
+        </blockquote>
+        <p>This means no energy transfer is 100% efficient.
+        <br><strong>Ecological Implication:</strong> This is the most important law in ecology. It explains:
+        <ul>
+            <li><strong>The 10% Rule:</strong> When a herbivore eats a plant, only about 10% of the plant's energy is converted into herbivore biomass. The other 90% is "lost" as heat during metabolism, movement, and waste.</li>
+            <li><strong>Ecological Pyramids:</strong> Because so much energy is lost at each step, there is progressively less energy and biomass at higher trophic levels (e.g., more grass than zebras, and more zebras than lions). This is why food chains are rarely longer than 4-5 levels.</li>
+        </ul>
+
+        <div class="exam-tip">
+            Be able to explain the <strong>10% rule</strong> and <strong>ecological pyramids</strong> using the First and Second Laws of Thermodynamics.
+            <ul>
+                <li><strong>First Law:</strong> Energy is *transferred* up the pyramid.</li>
+                <li><strong>Second Law:</strong> Energy is *lost* at each level, so the pyramid gets smaller.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

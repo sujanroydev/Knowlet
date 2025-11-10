@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics DSC 152 Unit 4 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Mathematics (MAT-DSC-152) Unit 4: Vector Algebra, including Scalar and Vector Triple Products and vector equations of lines, planes, and spheres.">
+    <meta name="keywords" content="MAT-DSC-152, Vector Algebra, Unit 4, Scalar Triple Product, Vector Triple Product, Vector Equation of Line, Vector Equation of Plane, Vector Equation of Sphere, Assam University">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #0056b3; /* Dark Blue */
+            margin-top: 24px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #003366; /* Navy Blue */
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #007bff; /* Bright Blue */
+            border-bottom: none;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code, .formula {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.05em;
+        }
+        blockquote {
+            background-color: #f1f8ff;
+            border-left: 5px solid #007bff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #fffaf0; /* Light yellow */
+            border: 1px solid #ffc107; /* Yellow border */
+            border-left-width: 5px;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d9534f; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 4: Vector Algebra and its Applications</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Scalar and Vector Triple Products</a>
+                    <ul>
+                        <li><a href="#subtopic1_1">Scalar Triple Product (STP)</a></li>
+                        <li><a href="#subtopic1_2">Vector Triple Product (VTP)</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic2">Vector Equations of Lines, Planes, and Spheres</a>
+                    <ul>
+                        <li><a href="#subtopic2_1">Vector Equation of a Line</a></li>
+                        <li><a href="#subtopic2_2">Vector Equation of a Plane</a></li>
+                        <li><a href="#subtopic2_3">Vector Equation of a Sphere</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic3">Related Problems</a></li>
+                <li><a href="#topic4">Unit 4: Exam Quick Tips</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Scalar and Vector Triple Products</h2>
+        <p>This unit combines the dot and cross products to define products involving three vectors.</p>
+
+        <h3 id="subtopic1_1">Scalar Triple Product (STP)</h3>
+        <p>The STP combines three vectors (<strong>a, b, c</strong>) to produce a **scalar** result.</p>
+        <p><strong>Definition:</strong> <code class="formula">[a b c] = a · (b × c)</code></p>
+        
+        <p><strong>Geometric Interpretation:</strong>
+        <br>The magnitude of the STP, <code class="formula">|a · (b × c)|</code>, represents the <strong>volume of the parallelepiped</strong> whose adjacent edges are the vectors <strong>a, b,</strong> and <strong>c</strong>.</p>
+        
+        
+        
+        <p><strong>Calculation (Determinant Form):</strong>
+        <br>If <code class="formula">a = a₁i + a₂j + a₃k</code>, <code class="formula">b = b₁i + b₂j + b₃k</code>, <code class="formula">c = c₁i + c₂j + c₃k</code>, then:</p>
+        <blockquote>
+            <code class="formula">[a b c] = </code>
+            <table>
+                <tr>
+                    <td>a₁</td>
+                    <td>a₂</td>
+                    <td>a₃</td>
+                </tr>
+                <tr>
+                    <td>b₁</td>
+                    <td>b₂</td>
+                    <td>b₃</td>
+                </tr>
+                <tr>
+                    <td>c₁</td>
+                    <td>c₂</td>
+                    <td>c₃</td>
+                </tr>
+            </table>
+        </blockquote>
+        
+        <p><strong>Properties of STP:</strong></p>
+        <ul>
+            <li><strong>Dot and Cross are interchangeable:</strong>
+                <br><code class="formula">a · (b × c) = (a × b) · c</code>
+            </li>
+            <li><strong>Cyclic property:</strong> The value is unchanged under a cyclic permutation (abc → bca → cab).
+                <br><code class="formula">[a b c] = [b c a] = [c a b]</code>
+            </li>
+            <li><strong>Anti-cyclic property:</strong> Swapping any two adjacent vectors negates the value.
+                <br><code class="formula">[a b c] = -[a c b]</code>
+            </li>
+            <li><strong>Condition for Coplanarity:</strong> If the STP is zero, the volume is zero. This means the three vectors lie on the same plane.
+                <blockquote><strong>[a b c] = 0</strong> ⟺ <strong>a, b, c are coplanar.</strong></blockquote>
+            </li>
+        </ul>
+
+        <h3 id="subtopic1_2">Vector Triple Product (VTP)</h3>
+        <p>The VTP combines three vectors (<strong>a, b, c</strong>) to produce a **vector** result.</p>
+        <p><strong>Definition:</strong> <code class="formula">a × (b × c)</code></p>
+
+        <p><strong>Geometric Interpretation:</strong>
+        <br>The vector <code class="formula">(b × c)</code> is perpendicular to the plane containing <strong>b</strong> and <strong>c</strong>.
+        <br>The vector <code class="formula">a × (b × c)</code> is perpendicular to <code class="formula">(b × c)</code>, which means it must lie <em>back in the plane</em> of <strong>b</strong> and <strong>c</strong>.</p>
+        
+        
+        
+        <p><strong>The "BAC-CAB" Rule:</strong>
+        <br>This identity is used to expand the VTP. It is a <strong>must-memorize</strong> formula.</p>
+        <blockquote>
+            <strong>a × (b × c) = b(a · c) - c(a · b)</strong>
+        </blockquote>
+        <p>Note: The terms in brackets, <code class="formula">(a · c)</code> and <code class="formula">(a · b)</code>, are scalars. The result is a linear combination of vectors <strong>b</strong> and <strong>c</strong>.</p>
+        
+        <p><strong>Properties of VTP:</strong></p>
+        <ul>
+            <li><strong>Not Associative:</strong> Order matters greatly.
+                <br><code class="formula">a × (b × c) ≠ (a × b) × c</code>
+            </li>
+            <li><code class="formula">(a × b) × c = -c × (a × b) = -[a(c · b) - b(c · a)] = b(a · c) - a(b · c)</code></li>
+        </ul>
+
+        <h2 id="topic2">Vector Equations of Lines, Planes, and Spheres</h2>
+        <p>We use a **position vector** <code class="formula">r = xi + yj + zk</code> to represent a general point P(x, y, z) in space.</p>
+
+        <h3 id="subtopic2_1">Vector Equation of a Line</h3>
+        <p>A line is defined by a point and a direction.</p>
+        <ul>
+            <li><strong>Form 1: Passing through point A (position vector a) and parallel to vector b.</strong>
+                <br>The vector from A to P is <code class="formula">r - a</code>. This vector must be parallel to <strong>b</strong>.
+                <br><code class="formula">r - a = t*b</code>, where <code class="formula">t</code> is a scalar parameter.
+                <blockquote><strong>r = a + t*b</strong></blockquote>
+            </li>
+            <li><strong>Form 2: Passing through two points A (vector a) and B (vector b).</strong>
+                <br>The line passes through <strong>a</strong> and is parallel to the vector <code class="formula">(b - a)</code>.
+                <br>Using Form 1:
+                <blockquote><strong>r = a + t(b - a)</strong>  or  <strong>r = (1-t)a + t*b</strong></blockquote>
+            </li>
+        </ul>
+
+        <h3 id="subtopic2_2">Vector Equation of a Plane</h3>
+        <p>A plane is defined by a point and a normal (perpendicular) vector.</p>
+        <ul>
+            <li><strong>Form 1: Passing through point A (vector a) with normal vector n.</strong>
+                <br>Any vector in the plane, like <code class="formula">r - a</code>, must be perpendicular to <strong>n</strong>.
+                <br>Their dot product must be zero.
+                <blockquote><strong>(r - a) · n = 0</strong>  or  <strong>r · n = a · n</strong></blockquote>
+                <p>If <code class="formula">d = a · n</code> (a scalar constant), the general form is <strong><code class="formula">r · n = d</code></strong>.</p>
+            </li>
+            <li><strong>Form 2: Normal Form.</strong>
+                <br>If <code class="formula">n̂</code> is the <em>unit</em> normal vector, and <code class="formula">p</code> is the perpendicular distance from the origin to the plane.
+                <blockquote><strong>r · n̂ = p</strong></blockquote>
+            </li>
+            <li><strong>Form 3: Three-Point Form (passing through a, b, c).</strong>
+                <br>The vectors <code class="formula">(b - a)</code> and <code class="formula">(c - a)</code> lie in the plane.
+                <br>The normal vector is <code class="formula">n = (b - a) × (c - a)</code>.
+                <br>The vector <code class="formula">(r - a)</code> is also in the plane, so it must be coplanar with <code class="formula">(b - a)</code> and <code class="formula">(c - a)</code>.
+                <br>Using the condition for coplanarity (STP = 0):
+                <blockquote><strong>[r - a  b - a  c - a] = 0</strong></blockquote>
+            </li>
+        </ul>
+
+        <h3 id="subtopic2_3">Vector Equation of a Sphere</h3>
+        <p>A sphere is defined by its center and radius.</p>
+        <ul>
+            <li><strong>Form 1: Center at origin (0), radius R.</strong>
+                <br>The length of the position vector <code class="formula">r</code> for any point on the sphere is R.
+                <br><code class="formula">|r| = R</code>
+                <blockquote><strong>r · r = R²</strong></blockquote>
+            </li>
+            <li><strong>Form 2: Center at C (vector c), radius R.</strong>
+                <br>The vector from the center C to any point P is <code class="formula">r - c</code>. Its length is R.
+                <br><code class="formula">|r - c| = R</code>
+                <br>Squaring both sides:
+                <blockquote><strong>(r - c) · (r - c) = R²</strong>
+                <br>or  <strong>r·r - 2r·c + c·c = R²</strong></blockquote>
+            </li>
+            <li><strong>Form 3: Diameter Form (ends of diameter at A(a) and B(b)).</strong>
+                <br>For any point P(r) on the sphere, the vectors <code class="formula">PA = (a - r)</code> and <code class="formula">PB = (b - r)</code> form a right angle.
+                <br>Their dot product is zero.
+                <blockquote><strong>(r - a) · (r - b) = 0</strong></blockquote>
+            </li>
+        </ul>
+
+        <h2 id="topic3">Related Problems</h2>
+        <p>This section involves using the above definitions to solve problems.</p>
+        <h4>Example: Find the intersection of a line and a plane.</h4>
+        <p><strong>Line:</strong> <code class="formula">r = a + t*b</code>
+        <br><strong>Plane:</strong> <code class="formula">r · n = d</code></p>
+        <p><strong>Solution:</strong> The intersection point <code class="formula">r</code> must satisfy both equations. Substitute the line equation into the plane equation:</p>
+        <ol>
+            <li><code class="formula">(a + t*b) · n = d</code></li>
+            <li>Distribute: <code class="formula">a · n + t(b · n) = d</code></li>
+            <li>Solve for the parameter <code class="formula">t</code>:
+                <br><code class="formula">t(b · n) = d - a · n</code>
+                <br><code class="formula">t = (d - a · n) / (b · n)</code>
+            </li>
+            <li>Substitute this value of <code class="formula">t</code> back into the line equation <code class="formula">r = a + t*b</code> to find the position vector of the intersection point.</li>
+        </ol>
+        <p><strong>Note:</strong> If <code class="formula">b · n = 0</code>, the vector <strong>b</strong> (line) and <strong>n</strong> (normal) are perpendicular. This means the line is parallel to the plane and will not intersect (unless <code class="formula">d - a · n = 0</code> as well, in which case the line lies *in* the plane).</p>
+        
+        <h2 id="topic4">Unit 4: Exam Quick Tips</h2>
+        <div class="exam-tip">
+            <ul>
+                <li><strong>STP [a b c]:</strong> Think <strong>Volume</strong> or <strong>Coplanar (if 0)</strong>. Calculate with a <strong>determinant</strong>.</li>
+                <li><strong>VTP a × (b × c):</strong> Think <strong>BAC-CAB rule</strong>. The result is a <strong>vector</strong>.</li>
+                <li><strong>Line Equation:</strong> <code class="formula">r = a + t*b</code> (point <strong>a</strong>, direction <strong>b</strong>).</li>
+                <li><strong>Plane Equation:</strong> <code class="formula">(r - a) · n = 0</code> (point <strong>a</strong>, normal <strong>n</strong>).</li>
+                <li><strong>Sphere Equation:</strong> <code class="formula">|r - c| = R</code> (center <strong>c</strong>, radius <strong>R</strong>).</li>
+                <li><strong>Perpendicular:</strong> Dot product is 0.</li>
+                <li><strong>Parallel:</strong> Cross product is 0.</li>
+                <li>To find the normal to a plane containing vectors <strong>u</strong> and <strong>v</strong>, always use the cross product: <code class="formula">n = u × v</code>.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

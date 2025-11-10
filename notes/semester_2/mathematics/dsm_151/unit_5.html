@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics DSM 151 Unit 5 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Mathematics (MAT-DSM-151) Unit 5: Geometrical Applications of Integration - Area, Rectification (Arc Length), and Volumes/Surfaces of Revolution, based on the Assam University NEP syllabus.">
+    <meta name="keywords" content="MAT-DSM-151, Calculus, Unit 5, Area Bounded by Curves, Rectification, Arc Length, Volume of Revolution, Surface of Revolution, Cartesian, Polar, Assam University">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #0056b3; /* Dark Blue */
+            margin-top: 24px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #003366; /* Navy Blue */
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #007bff; /* Bright Blue */
+            border-bottom: none;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code, .formula {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.05em;
+        }
+        blockquote {
+            background-color: #f1f8ff;
+            border-left: 5px solid #007bff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #fffaf0; /* Light yellow */
+            border: 1px solid #ffc107; /* Yellow border */
+            border-left-width: 5px;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d9534f; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 5: Geometrical Applications of Integration</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                [cite_start]<li><a href="#topic1">Area Bounded by Plane Curves [cite: 1400]</a>
+                    <ul>
+                        <li><a href="#subtopic1_1">Cartesian Coordinates</a></li>
+                        <li><a href="#subtopic1_2">Polar Coordinates</a></li>
+                    </ul>
+                </li>
+                [cite_start]<li><a href="#topic2">Rectification of Plane Curves (Arc Length) [cite: 1400]</a>
+                    <ul>
+                        <li><a href="#subtopic2_1">Arc Length Element (ds)</a></li>
+                        <li><a href="#subtopic2_2">Cartesian Formula</a></li>
+                        <li><a href="#subtopic2_3">Polar Formula</a></li>
+                    </ul>
+                </li>
+                [cite_start]<li><a href="#topic3">Volumes of Solids of Revolution (Cartesian) [cite: 1400]</a>
+                    <ul>
+                        <li><a href="#subtopic3_1">Disk Method (about x-axis)</a></li>
+                        <li><a href="#subtopic3_2">Disk Method (about y-axis)</a></li>
+                    </ul>
+                </li>
+                [cite_start]<li><a href="#topic4">Surfaces of Solids of Revolution (Cartesian) [cite: 1400]</a>
+                    <ul>
+                        <li><a href="#subtopic4_1">Revolution about the x-axis</a></li>
+                        <li><a href="#subtopic4_2">Revolution about the y-axis</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic5">Unit 5: Exam Quick Tips</a></li>
+            </ul>
+        </div>
+
+        [cite_start]<h2 id="topic1">Area Bounded by Plane Curves [cite: 1400]</h2>
+
+        <h3 id="subtopic1_1">Cartesian Coordinates</h3>
+        <p>To find the area of a region, we "slice" it into an infinite number of thin rectangles and sum their areas using integration.</p>
+        
+        <ul>
+            <li><strong>Area with respect to x-axis:</strong>
+                <br>For a region bounded by <code class="formula">y = f(x)</code>, the x-axis (<code class="formula">y=0</code>), <code class="formula">x = a</code>, and <code class="formula">x = b</code>.
+                <br>Area of one rectangle: <code class="formula">dA = y dx</code>
+                <blockquote><strong>Area = ∫ [from a to b] y dx = ∫ [from a to b] f(x) dx</strong></blockquote>
+            </li>
+            <li><strong>Area with respect to y-axis:</strong>
+                <br>For a region bounded by <code class="formula">x = g(y)</code>, the y-axis (<code class="formula">x=0</code>), <code class="formula">y = c</code>, and <code class="formula">y = d</code>.
+                <br>Area of one rectangle: <code class="formula">dA = x dy</code>
+                <blockquote><strong>Area = ∫ [from c to d] x dy = ∫ [from c to d] g(y) dy</strong></blockquote>
+            </li>
+            <li><strong>Area between two curves:</strong>
+                <br>For a region bounded above by <code class="formula">y = f(x)</code> and below by <code class="formula">y = g(x)</code> from <code class="formula">x = a</code> to <code class="formula">x = b</code>.
+                <br>Height of rectangle: <code class="formula">(y_upper - y_lower) = f(x) - g(x)</code>
+                <blockquote><strong>Area = ∫ [from a to b] (y_upper - y_lower) dx = ∫ [from a to b] [f(x) - g(x)] dx</strong></blockquote>
+            </li>
+        </ul>
+
+        <h3 id="subtopic1_2">Polar Coordinates</h3>
+        <p>For a polar curve <code class="formula">r = f(θ)</code>, we find the area by summing an infinite number of thin "sectors" (like pizza slices).</p>
+        
+        <p>The area of a small sector of a circle is <code class="formula">dA = (1/2)r² dθ</code>.</p>
+        <p>To find the total area swept by the radius vector from <code class="formula">θ = α</code> to <code class="formula">θ = β</code>:</p>
+        <blockquote>
+            <strong>Area = ∫ [from α to β] (1/2)r² dθ = (1/2) ∫ [from α to β] [f(θ)]² dθ</strong>
+        </blockquote>
+        
+        <hr>
+
+        [cite_start]<h2 id="topic2">Rectification of Plane Curves (Arc Length) [cite: 1400]</h2>
+        <p><strong>Rectification</strong> is the process of finding the length of a curve (its arc length).</p>
+        
+        <h3 id="subtopic2_1">Arc Length Element (ds)</h3>
+        <p>We start by finding the length of an infinitesimally small segment of the curve, <code class="formula">ds</code>. By the Pythagorean theorem:</p>
+        <blockquote>
+            <strong>ds² = dx² + dy²</strong> (Cartesian)
+            <br>
+            <strong>ds² = (dr)² + (r dθ)²</strong> (Polar)
+        </blockquote>
+        <p>We can factor these to get the element we integrate:</p>
+        <ul>
+            <li><strong>Cartesian:</strong> <code class="formula">ds = sqrt(1 + (dy/dx)²) dx</code></li>
+            <li><strong>Polar:</strong> <code class="formula">ds = sqrt(r² + (dr/dθ)²) dθ</code></li>
+        </ul>
+        
+        <h3 id="subtopic2_2">Cartesian Formula</h3>
+        <p>To find the arc length <code class="formula">L</code> of <code class="formula">y = f(x)</code> from <code class="formula">x = a</code> to <code class="formula">x = b</code>:</p>
+        <blockquote>
+            <strong>L = ∫ [from a to b] ds = ∫ [from a to b] sqrt(1 + (dy/dx)²) dx</strong>
+        </blockquote>
+        <p>If the curve is given as <code class="formula">x = g(y)</code> from <code class="formula">y = c</code> to <code class="formula">y = d</code>:</p>
+        <blockquote>
+            <strong>L = ∫ [from c to d] sqrt(1 + (dx/dy)²) dy</strong>
+        </blockquote>
+
+        <h3 id="subtopic2_3">Polar Formula</h3>
+        <p>To find the arc length <code class="formula">L</code> of <code class="formula">r = f(θ)</code> from <code class="formula">θ = α</code> to <code class="formula">θ = β</code>:</p>
+        <blockquote>
+            <strong>L = ∫ [from α to β] ds = ∫ [from α to β] sqrt(r² + (dr/dθ)²) dθ</strong>
+        </blockquote>
+
+        <hr>
+
+        [cite_start]<h2 id="topic3">Volumes of Solids of Revolution (Cartesian) [cite: 1400]</h2>
+        <p>This is the volume of the 3D solid created when a 2D <em>area</em> is rotated around an axis. [cite_start]The syllabus specifies Cartesian curves[cite: 1400].</p>
+        
+        <h3 id="subtopic3_1">Disk Method (about x-axis)</h3>
+        <p>We find the volume by summing an infinite number of thin "disks" (cylinders) of radius <code class="formula">y</code> and thickness <code class="formula">dx</code>. The volume of each disk is <code class="formula">dV = (Area of base) · (height) = (πy²) · dx</code>.</p>
+        
+        <blockquote>
+            <strong>Vₓ = ∫ [from a to b] πy² dx = ∫ [from a to b] π[f(x)]² dx</strong>
+        </blockquote>
+        
+        <h3 id="subtopic3_2">Disk Method (about y-axis)</h3>
+        <p>Similarly, when rotating around the y-axis, the disks have radius <code class="formula">x</code> and thickness <code class="formula">dy</code>. The volume of each disk is <code class="formula">dV = (πx²) · dy</code>.</p>
+        
+        <blockquote>
+            <strong>Vᵧ = ∫ [from c to d] πx² dy = ∫ [from c to d] π[g(y)]² dy</strong>
+        </blockquote>
+        
+        <hr>
+
+        [cite_start]<h2 id="topic4">Surfaces of Solids of Revolution (Cartesian) [cite: 1400]</h2>
+        <p>This is the <strong>surface area</strong> of the 3D solid created when a 2D <em>curve</em> (an arc) is rotated around an axis. The general formula involves integrating the circumference of a small "strip" (<code class="formula">2π * radius</code>) along the arc length (<code class="formula">ds</code>).</p>
+        
+        <blockquote>
+            <strong>Area = ∫ 2π · (radius) · ds</strong>
+        </blockquote>
+        
+        <h3 id="subtopic4_1">Revolution about the x-axis</h3>
+        <p>When rotating around the x-axis, the radius of rotation for any point <code class="formula">(x, y)</code> is its y-coordinate.</p>
+        <blockquote>
+            <strong>Aₓ = ∫ 2πy ds = ∫ [from a to b] 2πy · sqrt(1 + (dy/dx)²) dx</strong>
+        </blockquote>
+
+        <h3 id="subtopic4_2">Revolution about the y-axis</h3>
+        <p>When rotating around the y-axis, the radius of rotation for any point <code class="formula">(x, y)</code> is its x-coordinate.</p>
+        <blockquote>
+            <strong>Aᵧ = ∫ 2πx ds = ∫ [from a to b] 2πx · sqrt(1 + (dy/dx)²) dx</strong>
+        </blockquote>
+        
+        <hr>
+
+        <h2 id="topic5">Unit 5: Exam Quick Tips</h2>
+        <div class="exam-tip">
+            <p><strong>Do NOT confuse the formulas!</strong> This is the most common mistake.
+            <table>
+                <thead>
+                    <tr>
+                        <th>Application</th>
+                        <th>Key Element (Cartesian)</th>
+                        <th>Key Element (Polar)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Area</strong></td>
+                        <td><code class="formula">y dx</code></td>
+                        <td><code class="formula">(1/2)r² dθ</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Arc Length (L)</strong></td>
+                        <td><code class="formula">ds = sqrt(1 + (y')²) dx</code></td>
+                        <td><code class="formula">ds = sqrt(r² + (r')²) dθ</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Surface Area (Aₓ)</strong><br>(about x-axis)</td>
+                        <td><code class="formula">2πy ds</code></td>
+                        <td><code class="formula">2π(r sinθ) ds</code> (ds is polar)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Volume (Vₓ)</strong><br>(about x-axis)</td>
+                        <td><code class="formula">πy² dx</code></td>
+                        <td>(Not typically done this way)</td>
+                    </tr>
+                </tbody>
+            </table>
+            </p>
+            <ul>
+                <li><strong>Area vs. Volume:</strong> Area is <code class="formula">∫ y dx</code>. Volume is <code class="formula">∫ πy² dx</code>. Don't forget the <strong>π</strong> or the <strong>square</strong> for volume.</li>
+                <li><strong>Arc Length vs. Surface Area:</strong> Both use the arc length element <code class="formula">ds</code>. Surface Area is just <code class="formula">ds</code> multiplied by the circumference <code class="formula">2π * radius</code>.</li>
+                <li><strong>Polar Formulas:</strong> Be careful with polar coordinates.
+                    <ul>
+                        <li>Area: <code class="formula">(1/2)r² dθ</code>.</li>
+                        <li>Arc Length: <code class="formula">sqrt(r² + (dr/dθ)²) dθ</code>. They are very different.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

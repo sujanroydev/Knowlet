@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics DSC 152 Unit 1 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Mathematics (MAT-DSC-152) Unit 1: Rational Functions, Definite Integral as Limit of a Sum, and Properties of Definite Integrals.">
+    <meta name="keywords" content="MAT-DSC-152, Integral Calculus, Unit 1, Integration of Rational Functions, Limit of a Sum, Properties of Definite Integrals, Assam University, NEP Syllabus">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #0056b3; /* Dark Blue */
+            margin-top: 24px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #003366; /* Navy Blue */
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #007bff; /* Bright Blue */
+            border-bottom: none;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code, .formula {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.05em;
+        }
+        blockquote {
+            background-color: #f1f8ff;
+            border-left: 5px solid #007bff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #fffaf0; /* Light yellow */
+            border: 1px solid #ffc107; /* Yellow border */
+            border-left-width: 5px;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d9534f; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 1: Fundamental Integration Concepts</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Integration of Rational Functions</a>
+                    <ul>
+                        <li><a href="#subtopic1_1">Proper vs. Improper Fractions</a></li>
+                        <li><a href="#subtopic1_2">Partial Fraction Decomposition</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic2">Definite Integral as the Limit of a Sum</a></li>
+                <li><a href="#topic3">Properties of Definite Integrals</a></li>
+                <li><a href="#topic4">Unit 1: Exam Quick Tips</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Integration of Rational Functions</h2>
+        <p>A rational function is a function of the form <code class="formula">f(x) = P(x) / Q(x)</code>, where P(x) and Q(x) are polynomials.</p>
+
+        <h3 id="subtopic1_1">Proper vs. Improper Fractions</h3>
+        <ol>
+            <li><strong>Proper Rational Function:</strong> The degree of the numerator P(x) is <em>less than</em> the degree of the denominator Q(x).
+                <br>Example: <code class="formula">(2x + 1) / (x² + 3x - 4)</code>
+            </li>
+            <li><strong>Improper Rational Function:</strong> The degree of the numerator P(x) is <em>greater than or equal to</em> the degree of the denominator Q(x).
+                <br>Example: <code class="formula">(x³ + 2x) / (x² + 1)</code>
+            </li>
+        </ol>
+        <div class="exam-tip">
+            <strong>First Step:</strong> If a rational function is improper, you <strong>must</strong> perform polynomial long division first. This will result in a polynomial plus a proper rational function.
+            <br>
+            Example: <code class="formula">(x³ + 2x) / (x² + 1) = x + x / (x² + 1)</code>
+            <br>
+            You then integrate the parts: <code class="formula">∫ x dx + ∫ x / (x² + 1) dx</code>
+        </div>
+
+        <h3 id="subtopic1_2">Partial Fraction Decomposition</h3>
+        <p>This is the technique for integrating <strong>proper</strong> rational functions. The goal is to break down a complex fraction into a sum of simpler fractions.</p>
+
+        <h4>Case 1: Denominator has distinct linear factors.</h4>
+        <p><code class="formula">Q(x) = (x - a)(x - b)...</code></p>
+        <p>Decomposition: <code class="formula">A/(x - a) + B/(x - b) + ...</code></p>
+        <p><strong>Example:</strong> <code class="formula">∫ (x + 1) / (x² - 4) dx = ∫ (x + 1) / ((x - 2)(x + 2)) dx</code>
+        <br>
+        Set <code class="formula">(x + 1) / ((x - 2)(x + 2)) = A/(x - 2) + B/(x + 2)</code>
+        <br>
+        Multiply by the denominator: <code class="formula">x + 1 = A(x + 2) + B(x - 2)</code>
+        <br>
+        (Cover-up method)
+        <br>
+        Let <code class="formula">x = 2</code>: <code class="formula">3 = A(4) + B(0)</code> → <code class="formula">A = 3/4</code>
+        <br>
+        Let <code class="formula">x = -2</code>: <code class="formula">-1 = A(0) + B(-4)</code> → <code class="formula">B = 1/4</code>
+        <br>
+        Integral becomes: <code class="formula">∫ (3/4)/(x - 2) dx + ∫ (1/4)/(x + 2) dx</code>
+        <br>
+        Result: <code class="formula">(3/4)ln|x - 2| + (1/4)ln|x + 2| + C</code>
+        </p>
+
+        <h4>Case 2: Denominator has repeated linear factors.</h4>
+        <p><code class="formula">Q(x) = (x - a)³...</code></p>
+        <p>Decomposition: <code class="formula">A/(x - a) + B/(x - a)² + C/(x - a)³ + ...</code></p>
+        <p><strong>Example:</strong> <code class="formula">∫ (2x) / (x - 1)² dx</code>
+        <br>
+        Set <code class="formula">(2x) / (x - 1)² = A/(x - 1) + B/(x - 1)²</code>
+        <br>
+        <code class="formula">2x = A(x - 1) + B</code>
+        <br>
+        Let <code class="formula">x = 1</code>: <code class="formula">2 = A(0) + B</code> → <code class="formula">B = 2</code>
+        <br>
+        Equate coefficients of x: <code class="formula">2 = A</code> → <code class="formula">A = 2</code>
+        <br>
+        Integral becomes: <code class="formula">∫ 2/(x - 1) dx + ∫ 2/(x - 1)² dx</code>
+        <br>
+        Result: <code class="formula">2ln|x - 1| - 2/(x - 1) + C</code>
+        </p>
+
+        <h4>Case 3: Denominator has distinct irreducible quadratic factors.</h4>
+        <p><code class="formula">Q(x) = (ax² + bx + c)...</code> (where <code class="formula">b² - 4ac < 0</code>)</p>
+        <p>Decomposition: <code class="formula">(Ax + B) / (ax² + bx + c) + ...</code></p>
+        <p><strong>Example:</strong> <code class="formula">∫ (3) / (x(x² + 1)) dx</code>
+        <br>
+        Set <code class="formula">3 / (x(x² + 1)) = A/x + (Bx + C)/(x² + 1)</code>
+        <br>
+        <code class="formula">3 = A(x² + 1) + (Bx + C)x</code>
+        <br>
+        Let <code class="formula">x = 0</code>: <code class="formula">3 = A(1)</code> → <code class="formula">A = 3</code>
+        <br>
+        Equate coefficients of x²: <code class="formula">0 = A + B</code> → <code class="formula">0 = 3 + B</code> → <code class="formula">B = -3</code>
+        <br>
+        Equate coefficients of x: <code class="formula">0 = C</code>
+        <br>
+        Integral becomes: <code class="formula">∫ 3/x dx + ∫ (-3x)/(x² + 1) dx</code>
+        <br>
+        Result: <code class="formula">3ln|x| - (3/2)ln|x² + 1| + C</code>
+        </p>
+        
+        <h4>Case 4: Denominator has repeated irreducible quadratic factors.</h4>
+        <p>Decomposition: <code class="formula">(Ax + B)/(ax² + bx + c) + (Cx + D)/(ax² + bx + c)² + ...</code></p>
+        <p>(These are more complex and involve trigonometric substitution).
+        </p>
+
+        <h2 id="topic2">Definite Integral as the Limit of a Sum</h2>
+        <p>This is the fundamental definition of the definite integral. It represents the area under a curve <code class="formula">f(x)</code> from <code class="formula">x = a</code> to <code class="formula">x = b</code> by summing the areas of an infinite number of infinitesimally thin rectangles.</p>
+        
+        
+        <blockquote>
+            <strong>∫ [from a to b] f(x) dx = lim (n → ∞) Σ [from i=1 to n] h * f(a + ih)</strong>
+        </blockquote>
+        <p>Where:</p>
+        <ul>
+            <li><code class="formula">n</code> is the number of rectangles.</li>
+            <li><code class="formula">h = (b - a) / n</code> is the width of each rectangle.</li>
+            <li><code class="formula">a + ih</code> is the x-coordinate of the right-hand side of the i-th rectangle.</li>
+        </ul>
+        <p>Sometimes the sum is written from <code class="formula">i=0</code> to <code class="formula">n-1</code>, representing the left-hand sum: <code class="formula">lim (n → ∞) Σ [from i=0 to n-1] h * f(a + ih)</code>. Both definitions are equivalent for continuous functions.</p>
+
+        <p><strong>Key Summation Formulas:</strong></p>
+        <ul>
+            <li><code class="formula">Σ 1 = n</code></li>
+            <li><code class="formula">Σ i = n(n + 1) / 2</code></li>
+            <li><code class="formula">Σ i² = n(n + 1)(2n + 1) / 6</code></li>
+            <li><code class="formula">Σ i³ = [n(n + 1) / 2]²</code></li>
+            <li>Sum of a Geometric Series: <code class="formula">a + ar + ... + ar^(n-1) = a(r^n - 1) / (r - 1)</code></li>
+        </ul>
+        
+        <h4>Example: Evaluate <code class="formula">∫ [from 0 to 2] x² dx</code> as a limit of a sum.</h4>
+        <ol>
+            <li>Identify: <code class="formula">a = 0</code>, <code class="formula">b = 2</code>, <code class="formula">f(x) = x²</code>.</li>
+            <li>Find h: <code class="formula">h = (2 - 0) / n = 2/n</code>.</li>
+            <li>Find f(a + ih): <code class="formula">f(0 + i*h) = f(ih) = (ih)² = i²h²</code>.</li>
+            <li>Set up the sum: <code class="formula">lim (n → ∞) Σ [from i=1 to n] h * (i²h²)</code></li>
+            <li><code class="formula">= lim (n → ∞) Σ [from i=1 to n] h³i² = lim (n → ∞) h³ * Σ i²</code></li>
+            <li>Substitute formulas for <code class="formula">h</code> and <code class="formula">Σ i²</code>:
+                <br><code class="formula">= lim (n → ∞) (2/n)³ * [n(n + 1)(2n + 1) / 6]</code>
+            </li>
+            <li><code class="formula">= lim (n → ∞) (8/n³) * [n(n + 1)(2n + 1) / 6]</code></li>
+            <li><code class="formula">= (8/6) * lim (n → ∞) [n(n + 1)(2n + 1) / n³]</code></li>
+            <li><code class="formula">= (4/3) * lim (n → ∞) [(n/n) * ((n + 1)/n) * ((2n + 1)/n)]</code></li>
+            <li><code class="formula">= (4/3) * lim (n → ∞) [1 * (1 + 1/n) * (2 + 1/n)]</code></li>
+            <li>As <code class="formula">n → ∞</code>, <code class="formula">1/n → 0</code>.
+                <br><code class="formula">= (4/3) * [1 * (1 + 0) * (2 + 0)] = (4/3) * 2 = 8/3</code>.
+            </li>
+        </ol>
+
+        <h2 id="topic3">Properties of Definite Integrals</h2>
+        <p>These properties are essential for simplifying and evaluating definite integrals, often without finding the antiderivative.</p>
+        <ul>
+            <li><strong>P-0:</strong> <code class="formula">∫[a, b] f(x) dx = ∫[a, b] f(t) dt</code>
+                <br>(Changing the variable of integration doesn't change the value).</li>
+            <li><strong>P-1:</strong> <code class="formula">∫[a, b] f(x) dx = - ∫[b, a] f(x) dx</code>
+                <br>(Swapping the limits of integration negates the value).</li>
+            <li><strong>P-2:</strong> <code class="formula">∫[a, b] f(x) dx = ∫[a, c] f(x) dx + ∫[c, b] f(x) dx</code>
+                <br>(Splitting the interval. This is key for piecewise and modulus functions).</li>
+            <li><strong>P-3 ("King's Property"):</strong> <code class="formula">∫[a, b] f(x) dx = ∫[a, b] f(a + b - x) dx</code>
+                <br>(The most powerful property for evaluation).</li>
+            <li><strong>P-4 (Special case of P-3):</strong> <code class="formula">∫[0, a] f(x) dx = ∫[0, a] f(a - x) dx</code></li>
+            <li><strong>P-5:</strong> <code class="formula">∫[0, 2a] f(x) dx = ∫[0, a] f(x) dx + ∫[0, a] f(2a - x) dx</code></li>
+            <li><strong>P-6 (from P-5):</strong> <code class="formula">∫[0, 2a] f(x) dx =</code>
+                <br>  <code class="formula">2 * ∫[0, a] f(x) dx</code>, if <code class="formula">f(2a - x) = f(x)</code> (even symmetry about a)
+                <br>  <code class="formula">0</code>, if <code class="formula">f(2a - x) = -f(x)</code> (odd symmetry about a)
+            </li>
+            <li><strong>P-7 (Even/Odd Function Property):</strong> <code class="formula">∫[-a, a] f(x) dx =</code>
+                <br>  <code class="formula">2 * ∫[0, a] f(x) dx</code>, if <code class="formula">f(x)</code> is an <strong>even</strong> function (i.e., <code class="formula">f(-x) = f(x)</code>)
+                <br>  <code class="formula">0</code>, if <code class="formula">f(x)</code> is an <strong>odd</strong> function (i.e., <code class="formula">f(-x) = -f(x)</code>)
+            </li>
+        </ul>
+
+        <h4>Example using P-4: Evaluate <code class="formula">I = ∫[0, π/2] (sin x) / (sin x + cos x) dx</code></h4>
+        <ol>
+            <li>Apply P-4: <code class="formula">f(x) = (sin x) / (sin x + cos x)</code>. <code class="formula">a = π/2</code>.
+                <br><code class="formula">f(a - x) = f(π/2 - x) = sin(π/2 - x) / (sin(π/2 - x) + cos(π/2 - x))</code>
+                <br><code class="formula">f(π/2 - x) = (cos x) / (cos x + sin x)</code>
+            </li>
+            <li>By P-4, <code class="formula">I = ∫[0, π/2] (cos x) / (sin x + cos x) dx</code></li>
+            <li>Add the original integral and the new one:
+                <br><code class="formula">I + I = ∫[0, π/2] (sin x) / (sin x + cos x) dx + ∫[0, π/2] (cos x) / (sin x + cos x) dx</code>
+            </li>
+            <li><code class="formula">2I = ∫[0, π/2] (sin x + cos x) / (sin x + cos x) dx</code></li>
+            <li><code class="formula">2I = ∫[0, π/2] 1 dx = [x] from 0 to π/2 = π/2</code></li>
+            <li><code class="formula">I = π/4</code></li>
+        </ol>
+
+        <h2 id="topic4">Unit 1: Exam Quick Tips</h2>
+        <div class="exam-tip">
+            <ul>
+                <li><strong>Rational Functions:</strong> Always check if improper. If so, <strong>divide first</strong>. Then use the correct partial fraction case.</li>
+                <li><strong>Limit of Sum:</strong> Be very careful with algebra. The common mistake is mixing up <code class="formula">h</code> and <code class="formula">n</code>. Remember <code class="formula">h = (b-a)/n</code> and `nh = b-a`. All `n`'s in the denominator must be matched with `n`'s from the summation formulas.</li>
+                <li><strong>Properties:</strong> P-4 (King's Property) and P-7 (Even/Odd) are the most important for problem-solving. Always check for these first.</li>
+                <li>For P-7, if you see limits <code class="formula">[-π, π]</code> or <code class="formula">[-1, 1]</code>, immediately test if the function is even or odd.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

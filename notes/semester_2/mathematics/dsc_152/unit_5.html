@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics DSC 152 Unit 5 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Mathematics (MAT-DSC-152) Unit 5: Vector Calculus, including vector functions, differentiation, gradient, divergence, and curl.">
+    <meta name="keywords" content="MAT-DSC-152, Vector Calculus, Unit 5, Vector Functions, Limit, Continuity, Differentiation, Gradient, Divergence, Curl, Del Operator, Vector Identities, Assam University">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #0056b3; /* Dark Blue */
+            margin-top: 24px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #003366; /* Navy Blue */
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #007bff; /* Bright Blue */
+            border-bottom: none;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code, .formula {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.05em;
+        }
+        blockquote {
+            background-color: #f1f8ff;
+            border-left: 5px solid #007bff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #fffaf0; /* Light yellow */
+            border: 1px solid #ffc107; /* Yellow border */
+            border-left-width: 5px;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d9534f; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 5: Vector Functions and Vector Calculus</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Vector Functions</a>
+                    <ul>
+                        <li><a href="#subtopic1_1">Limit of a Vector Function</a></li>
+                        <li><a href="#subtopic1_2">Continuity of a Vector Function</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic2">Differentiation of Vector Functions</a>
+                    <ul>
+                        <li><a href="#subtopic2_1">Derivative and Tangent Vector</a></li>
+                        <li><a href="#subtopic2_2">Differentiation Rules</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic3">The Del (Nabla) Operator (∇)</a></li>
+                <li><a href="#topic4">Gradient (grad ∇f)</a></li>
+                <li><a href="#topic5">Divergence (div ∇·F)</a></li>
+                <li><a href="#topic6">Curl (curl ∇×F)</a></li>
+                <li><a href="#topic7">Vector Identities (Related Problems)</a></li>
+                <li><a href="#topic8">Unit 5: Exam Quick Tips</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Vector Functions</h2>
+        <p>A **vector-valued function** (or vector function) is a function that maps a single real variable (usually <code class="formula">t</code>, representing time) to a vector.</p>
+        <p>It describes a curve in 3D space, where the position vector of a point on the curve is given by:</p>
+        <blockquote>
+            <strong>r(t) = f(t)i + g(t)j + h(t)k</strong>
+        </blockquote>
+        <p><em>Example:</em> <code class="formula">r(t) = cos(t)i + sin(t)j + t*k</code> describes a helix (a spring shape).</p>
+
+        <h3 id="subtopic1_1">Limit of a Vector Function</h3>
+        <p>The limit of a vector function is found by taking the limit of each of its scalar component functions.</p>
+        <p>If <code class="formula">r(t) = f(t)i + g(t)j + h(t)k</code>, then:</p>
+        <blockquote>
+            <strong>lim (t→a) r(t) = [lim (t→a) f(t)]i + [lim (t→a) g(t)]j + [lim (t→a) h(t)]k</strong>
+        </blockquote>
+        <p>The limit exists only if the limits of all three components exist.</p>
+
+        <h3 id="subtopic1_2">Continuity of a Vector Function</h3>
+        <p>A vector function <code class="formula">r(t)</code> is continuous at <code class="formula">t = a</code> if:</p>
+        <ol>
+            <li><code class="formula">r(a)</code> is defined.</li>
+            <li><code class="formula">lim (t→a) r(t)</code> exists.</li>
+            <li><code class="formula">lim (t→a) r(t) = r(a)</code>.</li>
+        </ol>
+        <p>This is true if and only if the component functions <code class="formula">f(t)</code>, <code class="formula">g(t)</code>, and <code class="formula">h(t)</code> are all continuous at <code class="formula">t = a</code>.</p>
+
+        <h2 id="topic2">Differentiation of Vector Functions</h2>
+
+        <h3 id="subtopic2_1">Derivative and Tangent Vector</h3>
+        <p>The derivative of <code class="formula">r(t)</code> is defined by the same limit definition as scalar functions:</p>
+        <p><code class="formula">r'(t) = dr/dt = lim (Δt→0) [r(t + Δt) - r(t)] / Δt</code></p>
+        <p>Operationally, we just differentiate each component:</p>
+        <blockquote>
+            <strong>dr/dt = (df/dt)i + (dg/dt)j + (dh/dt)k</strong>
+        </blockquote>
+        <p><strong>Geometric Meaning:</strong> The derivative <code class="formula">r'(t)</code> is a **vector tangent to the curve** <code class="formula">r(t)</code>, pointing in the direction of increasing <code class="formula">t</code>.</p>
+        
+
+        <h3 id="subtopic2_2">Differentiation Rules</h3>
+        <p>Let <code class="formula">a(t)</code> and <code class="formula">b(t)</code> be vector functions, and <code class="formula">f(t)</code> be a scalar function.</p>
+        <ul>
+            <li><code class="formula">d/dt [a + b] = a' + b'</code> (Sum Rule)</li>
+            <li><code class="formula">d/dt [f(t) * a(t)] = f'(t)a(t) + f(t)a'(t)</code> (Scalar Product Rule)</li>
+            <li><code class="formula">d/dt [a · b] = a' · b + a · b'</code> (Dot Product Rule)</li>
+            <li><code class="formula">d/dt [a × b] = (a' × b) + (a × b')</code> (Cross Product Rule - <strong>ORDER MUST BE MAINTAINED!</strong>)</li>
+            <li><code class="formula">d/dt [a(f(t))] = a'(f(t)) * f'(t)</code> (Chain Rule)</li>
+        </ul>
+
+        <h2 id="topic3">The Del (Nabla) Operator (∇)</h2>
+        <p>Vector calculus introduces the **del (or nabla) operator**, which is a vector differential operator. It is the foundation for gradient, divergence, and curl.</p>
+        <blockquote>
+            <strong>∇ = (∂/∂x)i + (∂/∂y)j + (∂/∂z)k</strong>
+        </blockquote>
+        <p>This operator acts on scalar fields (functions <code class="formula">f(x, y, z)</code>) or vector fields (functions <code class="formula">F(x, y, z)</code>).</p>
+        
+        <h2 id="topic4">Gradient (grad ∇f)</h2>
+        <ul>
+            <li><strong>Applies to:</strong> A <strong>Scalar Field</strong> <code class="formula">f(x, y, z)</code>.</li>
+            <li><strong>Result:</strong> A <strong>Vector Field</strong>.</li>
+        </ul>
+        <p>The gradient of <code class="formula">f</code> is found by "multiplying" the scalar <code class="formula">f</code> by the vector operator <code class="formula">∇</code>.</p>
+        <blockquote>
+            <strong>grad(f) = ∇f = (∂f/∂x)i + (∂f/∂y)j + (∂f/∂z)k</strong>
+        </blockquote>
+        <p><strong>Geometric Meaning:</strong></p>
+        <ol>
+            <li>The vector <code class="formula">∇f</code> at a point <code class="formula">(x, y, z)</code> points in the direction of the <strong>fastest increase</strong> of the function <code class="formula">f</code>.</li>
+            <li>The magnitude <code class="formula">|∇f|</code> is the value of that maximum rate of change.</li>
+            <li><code class="formula">∇f</code> is always <strong>normal (perpendicular)</strong> to the level surface <code class="formula">f(x, y, z) = constant</code>.</li>
+        </ol>
+        
+        <h4>Example: Find the gradient of <code class="formula">f(x, y, z) = x²y + z³</code></h4>
+        <p><code class="formula">∇f = (∂/∂x)(x²y + z³)i + (∂/∂y)(x²y + z³)j + (∂/∂z)(x²y + z³)k</code>
+        <br>
+        <code class="formula">∇f = (2xy)i + (x²)j + (3z²)k</code></p>
+        
+        <h2 id="topic5">Divergence (div ∇·F)</h2>
+        <ul>
+            <li><strong>Applies to:</strong> A <strong>Vector Field</strong> <code class="formula">F = F₁i + F₂j + F₃k</code>.</li>
+            <li><strong>Result:</strong> A <strong>Scalar Field</strong>.</li>
+        </ul>
+        <p>The divergence of <code class="formula">F</code> is found by taking the **dot product** of <code class="formula">∇</code> with <code class="formula">F</code>.</p>
+        <blockquote>
+            <strong>div(F) = ∇ · F = (∂F₁/∂x) + (∂F₂/∂y) + (∂F₃/∂z)</strong>
+        </blockquote>
+        <p><strong>Physical Meaning:</strong> Divergence measures the rate of "outflow" or "expansion" of a vector field from a point (like a source).
+        <br>If <code class="formula">∇ · F = 0</code>, the field is called <strong>solenoidal</strong> or <strong>incompressible</strong> (it has no sources or sinks).
+        </p>
+
+        <h4>Example: Find the divergence of <code class="formula">F = (x³y)i + (yz²)j + (z³x)k</code></h4>
+        <p><code class="formula">∇ · F = (∂/∂x)(x³y) + (∂/∂y)(yz²) + (∂/∂z)(z³x)</code>
+        <br>
+        <code class="formula">∇ · F = 3x²y + z² + 3z²x</code></p>
+        
+        <h2 id="topic6">Curl (curl ∇×F)</h2>
+        <ul>
+            <li><strong>Applies to:</strong> A <strong>Vector Field</strong> <code class="formula">F = F₁i + F₂j + F₃k</code>.</li>
+            <li><strong>Result:</strong> A <strong>Vector Field</strong>.</li>
+        </ul>
+        <p>The curl of <code class="formula">F</code> is found by taking the **cross product** of <code class="formula">∇</code> with <code class="formula">F</code>. It is calculated using a determinant:</p>
+        <blockquote>
+            <code class="formula">curl(F) = ∇ × F = </code>
+            <table>
+                <tr>
+                    <td><strong>i</strong></td>
+                    <td><strong>j</strong></td>
+                    <td><strong>k</strong></td>
+                </tr>
+                <tr>
+                    <td>∂/∂x</td>
+                    <td>∂/∂y</td>
+                    <td>∂/∂z</td>
+                </tr>
+                <tr>
+                    <td>F₁</td>
+                    <td>F₂</td>
+                    <td>F₃</td>
+                </tr>
+            </table>
+        </blockquote>
+        <p><code class="formula">= (∂F₃/∂y - ∂F₂/∂z)i - (∂F₃/∂x - ∂F₁/∂z)j + (∂F₂/∂x - ∂F₁/∂y)k</code></p>
+        <p><strong>Physical Meaning:</strong> Curl measures the "rotation" or "circulation" of a vector field at a point (like a whirlpool).
+        <br>If <code class="formula">∇ × F = 0</code>, the field is called <strong>irrotational</strong> or <strong>conservative</strong>.
+        </p>
+
+        <h2 id="topic7">Vector Identities (Related Problems)</h2>
+        <p>These are fundamental identities that are often the subject of "show that" problems.</p>
+        
+        <h3>Identity 1: Curl of a Gradient is Zero</h3>
+        <p>For any scalar field <code class="formula">f</code> (with continuous second derivatives):</p>
+        <blockquote>
+            <strong>curl(grad f) = ∇ × (∇f) = 0</strong>
+        </blockquote>
+        <p><strong>Proof (sketch):</strong>
+        <br><code class="formula">∇f = (∂f/∂x)i + (∂f/∂y)j + (∂f/∂z)k</code>
+        <br><code class="formula">∇ × (∇f)</code> is the determinant:
+        <table>
+            <tr><td>i</td><td>j</td><td>k</td></tr>
+            <tr><td>∂/∂x</td><td>∂/∂y</td><td>∂/∂z</td></tr>
+            <tr><td>∂f/∂x</td><td>∂f/∂y</td><td>∂f/∂z</td></tr>
+        </table>
+        <br>The i-component is <code class="formula">(∂/∂y)(∂f/∂z) - (∂/∂z)(∂f/∂y) = (∂²f/∂y∂z) - (∂²f/∂z∂y)</code>.
+        <br>By Clairaut's theorem on mixed partials, <code class="formula">fᵧz = fzᵧ</code>, so this component is 0. The j and k components are also 0.
+        </p>
+        
+        <h3>Identity 2: Divergence of a Curl is Zero</h3>
+        <p>For any vector field <code class="formula">F</code> (with continuous second derivatives):</p>
+        <blockquote>
+            <strong>div(curl F) = ∇ · (∇ × F) = 0</strong>
+        </blockquote>
+        <p><strong>Proof (sketch):</strong>
+        <br><code class="formula">∇ · (∇ × F)</code> is the scalar triple product of <code class="formula">∇</code>, <code class="formula">∇</code>, and <code class="formula">F</code>.
+        <br><code class="formula">[∇ ∇ F]</code>
+        <br>This can be written as a determinant:
+        <table>
+            <tr><td>∂/∂x</td><td>∂/∂y</td><td>∂/∂z</td></tr>
+            <tr><td>∂/∂x</td><td>∂/∂y</td><td>∂/∂z</td></tr>
+            <tr><td>F₁</td><td>F₂</td><td>F₃</td></tr>
+        </table>
+        <br>A determinant with two identical rows is always <strong>zero</strong>.
+        </p>
+        
+        <h2 id="topic8">Unit 5: Exam Quick Tips</h2>
+        <div class="exam-tip">
+            <p><strong>Summary Table:</strong>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Operation</th>
+                        <th>Notation</th>
+                        <th>Input</th>
+                        <th>Output</th>
+                        <th>Key Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Gradient</strong></td>
+                        <td><code class="formula">∇f</code></td>
+                        <td>Scalar</td>
+                        <td>Vector</td>
+                        <td>Normal to surface, max. slope</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Divergence</strong></td>
+                        <td><code class="formula">∇ · F</code></td>
+                        <td>Vector</td>
+                        <td>Scalar</td>
+                        <td>Expansion (0 = Solenoidal)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Curl</strong></td>
+                        <td><code class="formula">∇ × F</code></td>
+                        <td>Vector</td>
+                        <td>Vector</td>
+                        <td>Rotation (0 = Irrotational)</td>
+                    </tr>
+                </tbody>
+            </table>
+            </p>
+            <ul>
+                <li><strong>Dot Product Rules:</strong> Remember the differentiation rules for <code class="formula">d/dt(a · b)</code> and <code class="formula">d/dt(a × b)</code>. The cross product rule is <strong>not</strong> commutative.</li>
+                <li><strong>Guaranteed Questions:</strong> Prove that <strong>curl(grad f) = 0</strong> and <strong>div(curl F) = 0</strong>. Memorize these proofs.</li>
+                <li>If a question asks if a field <code class="formula">F</code> is <strong>conservative</strong>, it's asking if <code class="formula">curl(F) = 0</code>.</li>
+                <li>If a question asks if a field <code class="formula">F</code> is <strong>solenoidal</strong>, it's asking if <code class="formula">div(F) = 0</code>.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics DSM 151 Unit 4 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Mathematics (MAT-DSM-151) Unit 4: Definite Integrals and Reduction Formulae, based on the Assam University NEP syllabus.">
+    <meta name="keywords" content="MAT-DSM-151, Calculus, Unit 4, Definite Integrals, Properties, Fundamental Theorem, Reduction Formulae, sin^n(x), cos^n(x), tan^n(x), sec^n(x), (log x)^n, sin^m(x)cos^n(x), Assam University">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #0056b3; /* Dark Blue */
+            margin-top: 24px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #003366; /* Navy Blue */
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #007bff; /* Bright Blue */
+            border-bottom: none;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code, .formula {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.05em;
+        }
+        blockquote {
+            background-color: #f1f8ff;
+            border-left: 5px solid #007bff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #fffaf0; /* Light yellow */
+            border: 1px solid #ffc107; /* Yellow border */
+            border-left-width: 5px;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d9534f; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 4: Definite Integrals and Reduction Formulae</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Definite Integrals</a>
+                    <ul>
+                        [cite_start]<li><a href="#subtopic1_1">Definition and Properties [cite: 1398]</a></li>
+                        [cite_start]<li><a href="#subtopic1_2">Fundamental Theorem of Calculus (Statement) [cite: 1398]</a></li>
+                    </ul>
+                </li>
+                [cite_start]<li><a href="#topic2">Reduction Formulae [cite: 1398]</a>
+                    <ul>
+                        <li><a href="#subtopic2_1">Introduction</a></li>
+                        <li><a href="#subtopic2_2">∫ sinⁿ(x) dx and ∫ cosⁿ(x) dx</a></li>
+                        <li><a href="#subtopic2_3">∫ tanⁿ(x) dx and ∫ secⁿ(x) dx</a></li>
+                        <li><a href="#subtopic2_4">∫ (log x)ⁿ dx</a></li>
+                        <li><a href="#subtopic2_5">∫ sinᵐ(x) cosⁿ(x) dx</a></li>
+                        <li><a href="#subtopic2_6">∫ sinᵐ(x) cos(nx) dx</a></li>
+                        <li><a href="#subtopic2_7">Wallis' Formula (for definite integrals)</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic3">Unit 4: Exam Quick Tips</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Definite Integrals</h2>
+
+        [cite_start]<h3 id="subtopic1_1">Definition and Properties [cite: 1398]</h3>
+        <p>A definite integral, denoted <code class="formula">∫[a, b] f(x) dx</code>, represents the signed area under the curve <code class="formula">y = f(x)</code> from <code class="formula">x = a</code> to <code class="formula">x = b</code>.</p>
+        
+        <p><strong>Key Properties:</strong></p>
+        <ol>
+            <li><strong>Change of Variable:</strong> <code class="formula">∫[a, b] f(x) dx = ∫[a, b] f(t) dt</code></li>
+            <li><strong>Reversing Limits:</strong> <code class="formula">∫[a, b] f(x) dx = - ∫[b, a] f(x) dx</code></li>
+            <li><strong>Zero Width:</strong> <code class="formula">∫[a, a] f(x) dx = 0</code></li>
+            <li><strong>Additivity:</strong> <code class="formula">∫[a, b] f(x) dx = ∫[a, c] f(x) dx + ∫[c, b] f(x) dx</code> (for any c)</li>
+            <li><strong>King's Property:</strong> <code class="formula">∫[a, b] f(x) dx = ∫[a, b] f(a + b - x) dx</code>
+                <ul>
+                    <li><strong>Special Case (0 to a):</strong> <code class="formula">∫[0, a] f(x) dx = ∫[0, a] f(a - x) dx</code></li>
+                </ul>
+            </li>
+            <li><strong>Even/Odd Functions:</strong> For a symmetric interval <code class="formula">[-a, a]</code>:
+                <ul>
+                    <li>If f(x) is <strong>Even</strong> (<code class="formula">f(-x) = f(x)</code>): <code class="formula">∫[-a, a] f(x) dx = 2 · ∫[0, a] f(x) dx</code></li>
+                    <li>If f(x) is <strong>Odd</strong> (<code class="formula">f(-x) = -f(x)</code>): <code class="formula">∫[-a, a] f(x) dx = 0</code></li>
+                </ul>
+            </li>
+        </ol>
+
+        [cite_start]<h3 id="subtopic1_2">Fundamental Theorem of Calculus (Statement) [cite: 1398]</h3>
+        <p>This theorem provides the powerful connection between differentiation and integration, giving us the method to evaluate definite integrals.</p>
+        
+        <blockquote>
+            <strong>Statement (Part 2):</strong> If <code class="formula">f(x)</code> is a continuous function on <code class="formula">[a, b]</code> and <code class="formula">F(x)</code> is any antiderivative of <code class="formula">f(x)</code> (meaning <code class="formula">F'(x) = f(x)</code>), then:
+            <br>
+            <strong><code class="formula">∫[a, b] f(x) dx = F(b) - F(a)</code></strong>
+        </blockquote>
+        <p>This is why we find the indefinite integral first, then plug in the upper and lower bounds.</p>
+        
+        <hr>
+
+        [cite_start]<h2 id="topic2">Reduction Formulae [cite: 1398]</h2>
+
+        <h3 id="subtopic2_1">Introduction</h3>
+        <p>A reduction formula is a recursive formula that expresses an integral <code class="formula">Iₙ</code> (involving a parameter <code class="formula">n</code>) in terms of a similar integral with a lower parameter, like <code class="formula">Iₙ₋₁</code> or <code class="formula">Iₙ₋₂</code>. The primary tool used to derive them is <strong>Integration by Parts (IBP)</strong>: <code class="formula">∫ u dv = uv - ∫ v du</code>.</p>
+
+        <h3 id="subtopic2_2">∫ sinⁿ(x) dx and ∫ cosⁿ(x) dx</h3>
+        <p>Let <code class="formula">Iₙ = ∫ sinⁿ(x) dx</code>. We use IBP by splitting <code class="formula">sinⁿ(x) = sinⁿ⁻¹(x) · sin(x)</code>.</p>
+        <blockquote>
+            <strong>Reduction Formula for sinⁿ(x):</strong><br>
+            <strong>Iₙ = - (sinⁿ⁻¹(x) cos(x)) / n + (n-1)/n · Iₙ₋₂</strong>
+        </blockquote>
+        <p>Similarly, for <code class="formula">Jₙ = ∫ cosⁿ(x) dx</code>:</p>
+        <blockquote>
+            <strong>Reduction Formula for cosⁿ(x):</strong><br>
+            <strong>Jₙ = (cosⁿ⁻¹(x) sin(x)) / n + (n-1)/n · Jₙ₋₂</strong>
+        </blockquote>
+
+        <h3 id="subtopic2_3">∫ tanⁿ(x) dx and ∫ secⁿ(x) dx</h3>
+        <p>Let <code class="formula">Iₙ = ∫ tanⁿ(x) dx</code>. This derivation uses a trick, not IBP.</p>
+        <p>Write <code class="formula">Iₙ = ∫ tanⁿ⁻²(x) · tan²(x) dx = ∫ tanⁿ⁻²(x) (sec²(x) - 1) dx</code></p>
+        <blockquote>
+            <strong>Reduction Formula for tanⁿ(x):</strong><br>
+            <strong>Iₙ = tanⁿ⁻¹(x) / (n-1) - Iₙ₋₂</strong>
+        </blockquote>
+        <p>Let <code class="formula">Jₙ = ∫ secⁿ(x) dx</code>. This uses IBP with <code class="formula">secⁿ(x) = secⁿ⁻²(x) · sec²(x)</code>.</p>
+        <blockquote>
+            <strong>Reduction Formula for secⁿ(x):</strong><br>
+            <strong>Jₙ = (secⁿ⁻²(x) tan(x)) / (n-1) + (n-2)/(n-1) · Jₙ₋₂</strong>
+        </blockquote>
+        
+        <h3 id="subtopic2_4">∫ (log x)ⁿ dx</h3>
+        <p>Let <code class="formula">Iₙ = ∫ (log x)ⁿ dx</code>. We use IBP with <code class="formula">u = (log x)ⁿ</code> and <code class="formula">dv = 1 dx</code>.</p>
+        <blockquote>
+            <strong>Reduction Formula for (log x)ⁿ:</strong><br>
+            <strong>Iₙ = x(log x)ⁿ - n · Iₙ₋₁</strong>
+        </blockquote>
+        
+        <h3 id="subtopic2_5">∫ sinᵐ(x) cosⁿ(x) dx</h3>
+        <p>This is a more complex reduction with multiple possible forms. A common one connects <code class="formula">Iₘ,ₙ</code> to <code class="formula">Iₘ,ₙ₋₂</code>:</p>
+        <blockquote>
+            <strong>Reduction Formula for sinᵐ(x) cosⁿ(x):</strong><br>
+            <strong>Iₘ,ₙ = (sinᵐ⁺¹(x) cosⁿ⁻¹(x)) / (m+n) + (n-1)/(m+n) · Iₘ,ₙ₋₂</strong>
+        </blockquote>
+        <p>(Another formula connects to <code class="formula">Iₘ₋₂,ₙ</code>, and is also valid).</p>
+        
+        <h3 id="subtopic2_6">∫ sinᵐ(x) cos(nx) dx</h3>
+        <p>This formula is derived using IBP twice and is more advanced.</p>
+        <p>Let <code class="formula">Iₘ,ₙ = ∫ sinᵐ(x) cos(nx) dx</code></p>
+        <blockquote>
+            <strong>Reduction Formula:</strong><br>
+            <strong>Iₘ,ₙ = (sinᵐ(x)sin(nx))/n - (m/n) ∫ sinᵐ⁻¹(x)cos(x)sin(nx) dx</strong>
+        </blockquote>
+        <p>Further reduction of the new integral is required, leading to a formula connecting <code class="formula">Iₘ,ₙ</code> with <code class="formula">Iₘ₋₂,ₙ</code>.</p>
+        
+        <h3 id="subtopic2_7">Wallis' Formula (for definite integrals)</h3>
+        <p>This is a critical shortcut for evaluating definite integrals of <code class="formula">sin</code> and <code class="formula">cos</code> from <strong>0 to π/2</strong>, derived from the reduction formulae.</p>
+        
+        <h4>Case 1: ∫ [from 0 to π/2] sinⁿ(x) dx = ∫ [from 0 to π/2] cosⁿ(x) dx</h4>
+        <ul>
+            <li><strong>If n is ODD (n = 3, 5, 7, ...):</strong>
+                <blockquote><code class="formula">((n-1)/n) · ((n-3)/(n-2)) · ... · (4/5) · (2/3)</code></blockquote>
+            </li>
+            <li><strong>If n is EVEN (n = 2, 4, 6, ...):</strong>
+                <blockquote><code class="formula">((n-1)/n) · ((n-3)/(n-2)) · ... · (3/4) · (1/2) · (π/2)</code></blockquote>
+            </li>
+        </ul>
+        <p><strong>Example (n=5, odd):</strong> <code class="formula">∫[0, π/2] sin⁵(x) dx = (4/5)·(2/3) = 8/15</code>
+        <br>
+        <strong>Example (n=6, even):</strong> <code class="formula">∫[0, π/2] cos⁶(x) dx = (5/6)·(3/4)·(1/2)·(π/2) = 5π/32</code></p>
+
+        <h4>Case 2: ∫ [from 0 to π/2] sinᵐ(x) cosⁿ(x) dx</h4>
+        <p>Let <code class="formula">m!!</code> (double factorial) be <code class="formula">m·(m-2)·(m-4)...</code></p>
+        <blockquote>
+            <strong>Iₘ,ₙ = [ ((m-1)!! · (n-1)!!) / ((m+n)!!) ] · k</strong>
+        </blockquote>
+        <p>Where:</p>
+        <ul>
+            <li><code class="formula">k = π/2</code> if <strong>both m and n are EVEN</strong>.</li>
+            <li><code class="formula">k = 1</code> in all other cases (if m is odd, or n is odd, or both are odd).</li>
+        </ul>
+        <p><strong>Example (m=4, n=6, both even):</strong>
+        <br><code class="formula">I₄,₆ = [(3·1)(5·3·1)] / [10·8·6·4·2] · (π/2) = (15 / 3840) · (π/2) = 3π/512</code></p>
+        <p><strong>Example (m=5, n=3, both odd):</strong>
+        <br><code class="formula">I₅,₃ = [(4·2)(2)] / [8·6·4·2] · 1 = 16 / 384 = 1/24</code></p>
+        
+        <hr>
+
+        <h2 id="topic3">Unit 4: Exam Quick Tips</h2>
+        <div class="exam-tip">
+            <ul>
+                <li><strong>IBP is Key:</strong> For <code class="formula">sinⁿ, cosⁿ, secⁿ, (log x)ⁿ</code>, Integration by Parts is the main method for deriving the reduction formulae.</li>
+                <li><strong>Trick for tanⁿ, cotⁿ:</strong> For <code class="formula">tanⁿ(x)</code>, split as <code class="formula">tanⁿ⁻²(x)·tan²(x)</code> and use <code class="formula">tan²(x) = sec²(x) - 1</code>. This is much faster than IBP.</li>
+                <li><strong>Wallis' Formula:</strong> This is a <strong>guaranteed</strong> exam question. Memorize the two cases (n-even, n-odd) and the factor <code class="formula">π/2</code>. Remember it <strong>only</strong> applies to integrals from 0 to π/2.</li>
+                <li>For <code class="formula">∫ sinᵐ(x) cosⁿ(x) dx</code> from 0 to π/2, remember the <code class="formula">π/2</code> factor only appears if <strong>BOTH m AND n are even</strong>.</li>
+                <li><strong>Definite Integral Properties:</strong> P-5 (King's Property) and P-7 (Even/Odd) are the most important for problem-solving. Always check for these first, especially <code class="formula">∫[0, a] f(x) dx = ∫[0, a] f(a - x) dx</code>.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

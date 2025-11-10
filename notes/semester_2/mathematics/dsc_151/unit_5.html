@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics DSC 151 Unit 5 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Mathematics (MAT-DSC-151) Unit 5: 3D Geometry, Cone, Right Circular Cone, and Cylinder.">
+    <meta name="keywords" content="MAT-DSC-151, Analytical Geometry, Unit 5, Cone, Right Circular Cone, Cylinder, Right Circular Cylinder, Assam University, NEP Syllabus, Mathematics Notes">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #0056b3; /* Dark Blue */
+            margin-top: 24px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #003366; /* Navy Blue */
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #007bff; /* Bright Blue */
+            border-bottom: none;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code, .formula {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.05em;
+        }
+        blockquote {
+            background-color: #f1f8ff;
+            border-left: 5px solid #007bff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #fffaf0; /* Light yellow */
+            border: 1px solid #ffc107; /* Yellow border */
+            border-left-width: 5px;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d9534f; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 5: The Cone and The Cylinder</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">The Cone</a>
+                    <ul>
+                        <li><a href="#subtopic1_1">Definition</a></li>
+                        <li><a href="#subtopic1_2">Equation of a Cone with Given Vertex and Base</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic2">Right Circular Cone</a>
+                    <ul>
+                        <li><a href="#subtopic2_1">Definition</a></li>
+                        <li><a href="#subtopic2_2">Equation of a Right Circular Cone</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic3">The Cylinder</a>
+                    <ul>
+                        <li><a href="#subtopic3_1">Definition</a></li>
+                        <li><a href="#subtopic3_2">Equation of a Cylinder</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic4">Right Circular Cylinder</a>
+                    <ul>
+                        <li><a href="#subtopic4_1">Definition</a></li>
+                        <li><a href="#subtopic4_2">Equation of a Right Circular Cylinder</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic5">Unit 5: Exam Quick Tips</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">The Cone</h2>
+
+        <h3 id="subtopic1_1">Definition</h3>
+        <p>A **cone** is a 3D surface generated by a moving straight line (called the **generator**) that always passes through a fixed point (the **vertex**) and intersects a given curve (the **guiding curve** or **base**).</p>
+        
+        <h3 id="subtopic1_2">Equation of a Cone with Given Vertex and Base</h3>
+        <p>This is a standard problem of finding the locus. We use the method of elimination.</p>
+        <p><strong>Method:</strong></p>
+        <ol>
+            <li>Let the vertex be <code class="formula">V(α, β, γ)</code>.</li>
+            <li>Let the guiding curve (base) be given by <code class="formula">f(x, y) = 0</code> in the plane <code class="formula">z = 0</code>. (Example: <code class="formula">x² + y² = a²</code>, <code class="formula">z = 0</code>).</li>
+            <li>Take any generator line. Since it passes through the vertex, its equations are:
+                <br><code class="formula">(x - α)/l = (y - β)/m = (z - γ)/n</code>
+            </li>
+            <li>This generator must intersect the base. Find the point where it intersects the plane <code class="formula">z = 0</code>.
+                <br>Set <code class="formula">z = 0</code> in the line equations:
+                <br><code class="formula">(x - α)/l = (y - β)/m = (0 - γ)/n</code>
+                <br>Solve for x and y:
+                <ul>
+                    <li><code class="formula">x = α - lγ/n</code></li>
+                    <li><code class="formula">y = β - mγ/n</code></li>
+                </ul>
+            </li>
+            <li>This intersection point <code class="formula">(x, y, 0)</code> must lie on the guiding curve <code class="formula">f(x, y) = 0</code>.
+                <br><code class="formula">f(α - lγ/n, β - mγ/n) = 0</code>
+            </li>
+            <li>This is the condition for the line to be a generator. Now, we eliminate the unknowns <code class="formula">l, m, n</code> using the original line equations (step 3).
+                <br>From (3): <code class="formula">l/n = (x - α)/(z - γ)</code> and <code class="formula">m/n = (y - β)/(z - γ)</code>
+            </li>
+            <li>Substitute these into the condition from step 5:
+                <blockquote>
+                    <strong>f( α - (x - α)γ/(z - γ),  β - (y - β)γ/(z - γ) ) = 0</strong>
+                </blockquote>
+            </li>
+            <li>Simplifying the terms inside:
+                <ul>
+                    <li><code class="formula">α - (x - α)γ/(z - γ) = (αz - αγ - xγ + αγ)/(z - γ) = (αz - xγ)/(z - γ)</code></li>
+                    <li><code class="formula">β - (y - β)γ/(z - γ) = (βz - βγ - yγ + βγ)/(z - γ) = (βz - yγ)/(z - γ)</code></li>
+                </ul>
+            </li>
+        </ol>
+        <p>The final equation of the cone is:</p>
+        <blockquote>
+            <strong>f( (αz - γx)/(z - γ), (βz - γy)/(z - γ) ) = 0</strong>
+        </blockquote>
+        
+        <h4>Example:</h4>
+        <p><strong>Question:</strong> Find the equation of the cone with vertex <code class="formula">(α, β, γ)</code> and base <code class="formula">ax² + by² = 1, z = 0</code>.</p>
+        <p><strong>Solution:</strong>
+        <br>Here <code class="formula">f(x, y) = ax² + by² - 1 = 0</code>.
+        <br>Substituting the derived terms into <code class="formula">f(..., ...) = 0</code>:
+        <br><code class="formula">a[ (αz - γx)/(z - γ) ]² + b[ (βz - γy)/(z - γ) ]² - 1 = 0</code>
+        <br>
+        <blockquote><code class="formula">a(αz - γx)² + b(βz - γy)² = (z - γ)²</code></blockquote>
+        This is the required equation.
+        </p>
+
+        <h2 id="topic2">Right Circular Cone</h2>
+
+        <h3 id="subtopic2_1">Definition</h3>
+        <p>A **right circular cone** is a special type of cone where:</p>
+        <ol>
+            <li>The guiding curve (base) is a circle.</li>
+            <li>The vertex lies on the line (the **axis**) that passes through the center of the circle and is perpendicular to the plane of the circle.</li>
+        </ol>
+        <p>All generators make a constant angle <code class="formula">θ</code> with the axis. This angle <code class="formula">θ</code> is called the **semi-vertical angle**.</p>
+        
+        <h3 id="subtopic2_2">Equation of a Right Circular Cone</h3>
+        <p>The equation is derived from the constant angle property.
+        <br>Let the cone have:
+        <ul>
+            <li>Vertex: <code class="formula">V(α, β, γ)</code></li>
+            <li>Axis direction cosines: <code class="formula">(l, m, n)</code> (Note: <code class="formula">l² + m² + n² = 1</code>)</li>
+            <li>Semi-vertical angle: <code class="formula">θ</code></li>
+        </ul>
+        <p>Let <code class="formula">P(x, y, z)</code> be any point on the cone. The line segment VP is a generator.
+        <br>The direction ratios of the generator VP are <code class="formula">(x - α, y - β, z - γ)</code>.
+        <br>The angle between the generator VP and the axis must be <code class="formula">θ</code>.
+        </p>
+        <p>Using the angle formula <code class="formula">cos(θ) = (a₁a₂ + b₁b₂ + c₁c₂) / (sqrt(a₁² + ...) * sqrt(a₂² + ...))</code>:</p>
+        <blockquote>
+            <strong>cos(θ) = [ l(x - α) + m(y - β) + n(z - γ) ] / [ sqrt(l²+m²+n²) * sqrt((x-α)² + (y-β)² + (z-γ)²) ]</strong>
+        </blockquote>
+        <p>Since <code class="formula">sqrt(l²+m²+n²) = 1</code>, we can square both sides to get the final equation:</p>
+        <blockquote>
+            <strong>[ l(x - α) + m(y - β) + n(z - γ) ]² = cos²(θ) * [ (x - α)² + (y - β)² + (z - γ)² ]</strong>
+        </blockquote>
+        
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> If the vertex is at the origin <code class="formula">(0,0,0)</code> and the z-axis is the axis <code class="formula">(l=0, m=0, n=1)</code>, the equation simplifies greatly:
+            <br><code class="formula">[ 1(z) ]² = cos²(θ) * [ x² + y² + z² ]</code>
+            <br><code class="formula">z² = cos²(θ) * (x² + y² + z²)</code>
+            <br><code class="formula">z²(1 - cos²(θ)) = cos²(θ) * (x² + y²)</code>
+            <br><code class="formula">z² sin²(θ) = cos²(θ) * (x² + y²)</code>
+            <br><code class="formula">x² + y² = z² tan²(θ)</code>
+        </div>
+        
+        <h2 id="topic3">The Cylinder</h2>
+
+        <h3 id="subtopic3_1">Definition</h3>
+        <p>A **cylinder** is a 3D surface generated by a moving straight line (the **generator**) which remains parallel to a fixed line and intersects a given curve (the **guiding curve** or **base**).</p>
+        
+        <h3 id="subtopic3_2">Equation of a Cylinder</h3>
+        <p>The method is similar to the cone, but the generator equations are different.</p>
+        <p><strong>Method:</strong></p>
+        <ol>
+            <li>Let the generators be parallel to the fixed line <code class="formula">x/l = y/m = z/n</code>.</li>
+            <li>Let the guiding curve (base) be <code class="formula">f(x, y) = 0</code> in the plane <code class="formula">z = 0</code>.</li>
+            <li>Let <code class="formula">P(x₁, y₁, z₁)</code> be *any* point on the cylinder.</li>
+            <li>The generator passing through P has equations:
+                <br><code class="formula">(x - x₁)/l = (y - y₁)/m = (z - z₁)/n</code>
+            </li>
+            <li>This generator must intersect the base. Find the point where it intersects <code class="formula">z = 0</code>.
+                <br>Set <code class="formula">z = 0</code>:
+                <br><code class="formula">(x - x₁)/l = (y - y₁)/m = (0 - z₁)/n</code>
+                <br>Solve for x and y:
+                <ul>
+                    <li><code class="formula">x = x₁ - lz₁/n</code></li>
+                    <li><code class="formula">y = y₁ - mz₁/n</code></li>
+                </ul>
+            </li>
+            <li>This intersection point <code class="formula">(x, y, 0)</code> must lie on the guiding curve <code class="formula">f(x, y) = 0</code>.
+                <br><code class="formula">f(x₁ - lz₁/n, y₁ - mz₁/n) = 0</code>
+            </li>
+            <li>This is the condition for <code class="formula">(x₁, y₁, z₁)</code> to be on the cylinder. To get the locus, replace <code class="formula">(x₁, y₁, z₁)</code> with <code class="formula">(x, y, z)</code>.
+            </li>
+        </ol>
+        <p>The final equation of the cylinder is:</p>
+        <blockquote>
+            <strong>f( x - lz/n, y - mz/n ) = 0</strong>
+            <br>or
+            <br><strong>f( (nx - lz)/n, (ny - mz)/n ) = 0</strong>
+        </blockquote>
+
+        <h4>Example:</h4>
+        <p><strong>Question:</strong> Find the equation of the cylinder whose generators are parallel to <code class="formula">x = y = z</code> and whose base is the ellipse <code class="formula">x² + 2y² = 1, z = 0</code>.</p>
+        <p><strong>Solution:</strong>
+        <br>1. The fixed line is <code class="formula">x/1 = y/1 = z/1</code>. So, <code class="formula">l=1, m=1, n=1</code>.
+        <br>2. The base is <code class="formula">f(x, y) = x² + 2y² - 1 = 0</code>.
+        <br>3. The locus is <code class="formula">f(x - lz/n, y - mz/n) = 0</code>.
+        <br>4. Substitute values: <code class="formula">f(x - 1z/1, y - 1z/1) = 0</code> => <code class="formula">f(x - z, y - z) = 0</code>.
+        <br>5. Apply this to <code class="formula">f</code>:
+        <br><blockquote><code class="formula">(x - z)² + 2(y - z)² = 1</code></blockquote>
+        This is the required equation.
+        </p>
+
+        <h2 id="topic4">Right Circular Cylinder</h2>
+
+        <h3 id="subtopic4_1">Definition</h3>
+        <p>A **right circular cylinder** is a cylinder where the guiding curve is a circle and the generators are perpendicular to the plane of the circle. The fixed line to which all generators are parallel is called the **axis** of the cylinder.</p>
+        
+        <p>Alternatively, a right circular cylinder is the locus of a point in 3D space that is at a constant distance (the **radius**) from a fixed line (the **axis**).</p>
+
+        <h3 id="subtopic4_2">Equation of a Right Circular Cylinder</h3>
+        <p>This locus definition gives the easiest way to find the equation.</p>
+        <p>Let the cylinder have:
+        <ul>
+            <li>Axis: The line passing through <code class="formula">A(α, β, γ)</code> with direction cosines <code class="formula">(l, m, n)</code>.</li>
+            <li>Radius: <code class="formula">r</code></li>
+        </ul>
+        <p>Let <code class="formula">P(x, y, z)</code> be any point on the cylinder. The perpendicular distance from P to the axis must be equal to <code class="formula">r</code>.</p>
+        
+        <p>We use a formula from 3D geometry: The perpendicular distance <code class="formula">d</code> from a point P to a line through A with d.c.s (l,m,n) is given by:</p>
+        <p><code class="formula">d² = (AP)² - (Projection of AP on the line)²</code></p>
+        <ul>
+            <li><code class="formula">(AP)² = (x - α)² + (y - β)² + (z - γ)²</code></li>
+            <li>Projection of AP = <code class="formula">l(x - α) + m(y - β) + n(z - γ)</code></li>
+        </ul>
+        <p>Setting <code class="formula">d² = r²</code>, we get the equation of the cylinder:</p>
+        <blockquote>
+            <strong>r² = [ (x - α)² + (y - β)² + (z - γ)² ] - [ l(x - α) + m(y - β) + n(z - γ) ]²</strong>
+        </blockquote>
+
+        <h2 id="topic5">Unit 5: Exam Quick Tips</h2>
+        <div class="exam-tip">
+            <ul>
+                <li><strong>Cone vs. Cylinder:</strong>
+                    <ul>
+                        <li><strong>Cone:</strong> Generators pass through a fixed **point** (vertex). The equation is made <strong>homogeneous</strong> by introducing <code class="formula">(z - γ)</code>.</li>
+                        <li><strong>Cylinder:</strong> Generators are parallel to a fixed **line**. The equation is found by <strong>substituting</strong> <code class="formula">(x - lz/n)</code> and <code class="formula">(y - mz/n)</code>.</li>
+                    </ul>
+                </li>
+                <li><strong>Right Circular Cone:</strong> Defined by <strong>Vertex</strong>, <strong>Axis</strong>, and <strong>Semi-Vertical Angle (θ)</strong>. Use the <code class="formula">cos(θ)</code> formula.</li>
+                <li><strong>Right Circular Cylinder:</strong> Defined by <strong>Axis</strong> and <strong>Radius (r)</strong>. Use the "perpendicular distance = r" formula.</li>
+                <li>The "locus" or "elimination" method is the key to solving all problems in this unit. Understand the process, not just the final formulas.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

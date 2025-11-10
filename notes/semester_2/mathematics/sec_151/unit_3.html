@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics SEC 151 Unit 3 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Mathematics (MAT-SEC-151) Unit 3: Decision Control Structures and Loops in C, including if-else, switch, for, while, do-while, break, and continue.">
+    <meta name="keywords" content="MAT-SEC-151, C Programming, Unit 3, if, if-else, for loop, while loop, do-while loop, switch, break, continue, goto, C Loops, Control Structures, Assam University">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #0056b3; /* Dark Blue */
+            margin-top: 24px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #003366; /* Navy Blue */
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #007bff; /* Bright Blue */
+            border-bottom: none;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code, .formula {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.05em;
+        }
+        pre {
+            background-color: #2b2b2b; /* Dark background */
+            color: #f8f8f2; /* Light text */
+            font-family: "Courier New", Courier, monospace;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto; /* Handle long lines of code */
+            border: 1px solid #444;
+        }
+        pre code {
+            background-color: transparent; /* Override the inline code style */
+            padding: 0;
+            border-radius: 0;
+            font-size: 1em;
+        }
+        .comment { color: #888; }
+        .keyword { color: #66d9ef; }
+        .function { color: #a6e22e; }
+        .string { color: #e6db74; }
+        .number { color: #ae81ff; }
+        .preprocessor { color: #f92672; }
+        
+        blockquote {
+            background-color: #f1f8ff;
+            border-left: 5px solid #007bff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #fffaf0; /* Light yellow */
+            border: 1px solid #ffc107; /* Yellow border */
+            border-left-width: 5px;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d9534f; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 3: Decision Control and Loops</h1>
+        [cite_start]<p>This unit covers the core logic of C programming: how to make decisions and how to repeat actions[cite: 1841].</p>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Decision Control Structures</a>
+                    <ul>
+                        <li><a href="#subtopic1_1">if Statement</a></li>
+                        <li><a href="#subtopic1_2">if-else Statement</a></li>
+                        <li><a href="#subtopic1_3">switch Statement</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic2">Loop Structures</a>
+                    <ul>
+                        <li><a href="#subtopic2_1">for Loop</a></li>
+                        <li><a href="#subtopic2_2">while Loop</a></li>
+                        <li><a href="#subtopic2_3">do-while Loop</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic3">Loop and Switch Control</a>
+                    <ul>
+                        <li><a href="#subtopic3_1">break Statement</a></li>
+                        <li><a href="#subtopic3_2">continue Statement</a></li>
+                        <li><a href="#subtopic3_3">goto Statement</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic4">Code Examples (from Practicals)</a>
+                    <ul>
+                        <li><a href="#ex1">Practical #2: Leap Year (if-else)</a></li>
+                        <li><a href="#ex2">Practical #4: Prime Number (for loop)</a></li>
+                        <li><a href="#ex3">Practical #5: Factorial (while loop)</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic5">Unit 3: Exam Quick Tips</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Decision Control Structures</h2>
+
+        <h3 id="subtopic1_1">if Statement</h3>
+        [cite_start]<p>The <code class="keyword">if</code> statement executes a block of code *only if* a given condition is true (non-zero)[cite: 1841].</p>
+        <p><strong>Syntax:</strong></p>
+<pre><code class="language-c"><span class="keyword">if</span> (condition) {
+    <span class="comment">// Code to execute if condition is true</span>
+}
+</code></pre>
+        <p>If there is only one statement, the braces <code class="formula">{ }</code> are optional, but it is good practice to always use them.</p>
+
+        <h3 id="subtopic1_2">if-else Statement</h3>
+        [cite_start]<p>The <code class="keyword">if-else</code> statement provides an alternative block of code to execute if the condition is false (zero)[cite: 1841].</p>
+        <p><strong>Syntax:</strong></p>
+<pre><code class="language-c"><span class="keyword">if</span> (condition) {
+    <span class="comment">// Code to execute if condition is true</span>
+} <span class="keyword">else</span> {
+    <span class="comment">// Code to execute if condition is false</span>
+}
+</code></pre>
+        <p>This can be extended into an <strong>if-else-if ladder</strong> to check multiple conditions:</p>
+<pre><code class="language-c"><span class="keyword">if</span> (condition1) {
+    <span class="comment">// ...</span>
+} <span class="keyword">else</span> <span class="keyword">if</span> (condition2) {
+    <span class="comment">// ...</span>
+} <span class="keyword">else</span> {
+    <span class="comment">// ... if all else fails</span>
+}
+</code></pre>
+        
+        <h3 id="subtopic1_3">switch Statement</h3>
+        <p>The <code class="keyword">switch</code> statement is an alternative to a long if-else-if ladder. [cite_start]It checks a single integer or character variable against a list of constant values (cases)[cite: 1841].</p>
+        <p><strong>Syntax:</strong></p>
+<pre><code class="language-c"><span class="keyword">switch</span> (variable) {
+    <span class="keyword">case</span> value1:
+        <span class="comment">// Code for value1</span>
+        <span class="keyword">break</span>; <span class="comment">// IMPORTANT!</span>
+
+    <span class="keyword">case</span> value2:
+        <span class="comment">// Code for value2</span>
+        <span class="keyword">break</span>;
+
+    <span class="keyword">default</span>:
+        <span class="comment">// Code if no other case matches</span>
+        <span class="keyword">break</span>;
+}
+</code></pre>
+        <div class="exam-tip">
+            <strong>"Fall-through" and `break`:</strong> If you forget the <code class="keyword">break</code> statement, the code will "fall through" and execute the code for the *next* case as well. This is a common bug.
+        </div>
+        
+        <h2 id="topic2">Loop Structures</h2>
+        <p>Loops are used to repeat a block of code multiple times.</p>
+
+        <h3 id="subtopic2_1">for Loop</h3>
+        [cite_start]<p>The <code class="keyword">for</code> loop is ideal when you know exactly how many times you want to loop (e.g., 10 times, or 'n' times)[cite: 1841].</p>
+        <p><strong>Syntax:</strong></p>
+<pre><code class="language-c"><span class="comment">//   (1. Initialization; 2. Condition; 4. Update)</span>
+<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;         i < <span class="number">10</span>;      i++) {
+    <span class="comment">// 3. Loop Body (executes if condition is true)</span>
+}
+</code></pre>
+        <p><strong>Execution Order:</strong> 1 → 2 → 3 → 4 → 2 → 3 → 4 ... until 2 is false.</p>
+
+        <h3 id="subtopic2_2">while Loop</h3>
+        <p>The <code class="keyword">while</code> loop is an <strong>entry-controlled</strong> loop. [cite_start]It is ideal when you don't know how many times you need to loop, but you know the condition to *stop*[cite: 1841].</p>
+        <p>The condition is checked *before* the loop body executes.</p>
+        <p><strong>Syntax:</strong></p>
+<pre><code class="language-c"><span class="keyword">int</span> i = <span class="number">0</span>; <span class="comment">// 1. Initialization</span>
+<span class="keyword">while</span> (i < <span class="number">10</span>) { <span class="comment">// 2. Condition</span>
+    <span class="comment">// 3. Loop Body</span>
+    i++; <span class="comment">// 4. Update</span>
+}
+</code></pre>
+        <p>If the condition is false the first time, the loop body <strong>never runs</strong>.</p>
+        
+        <h3 id="subtopic2_3">do-while Loop</h3>
+        <p>The <code class="keyword">do-while</code> loop is an <strong>exit-controlled</strong> loop. [cite_start]It is the only loop in C that is guaranteed to execute at least once[cite: 1841].</p>
+        <p>The condition is checked *after* the loop body executes.</p>
+        <p><strong>Syntax:</strong></p>
+<pre><code class="language-c"><span class="keyword">int</span> i = <span class="number">0</span>; <span class="comment">// 1. Initialization</span>
+<span class="keyword">do</span> {
+    <span class="comment">// 2. Loop Body</span>
+    i++; <span class="comment">// 3. Update</span>
+} <span class="keyword">while</span> (i < <span class="number">10</span>); <span class="comment">// 4. Condition (note the semicolon!)</span>
+</code></pre>
+        
+        <h2 id="topic3">Loop and Switch Control</h2>
+
+        <h3 id="subtopic3_1">break Statement</h3>
+        [cite_start]<p>The <code class="keyword">break</code> statement has two uses[cite: 1841]:</p>
+        <ol>
+            <li>Inside a <code class="keyword">switch</code> block, it stops execution and exits the block.</li>
+            <li>Inside a loop (<code class="keyword">for</code>, <code class="keyword">while</code>, <code class="keyword">do-while</code>), it immediately terminates the loop and execution continues at the next statement *after* the loop.</li>
+        </ol>
+
+        <h3 id="subtopic3_2">continue Statement</h3>
+        [cite_start]<p>The <code class="keyword">continue</code> statement is used only inside loops[cite: 1841].</p>
+        <p>It immediately stops the *current iteration* and sends execution back to the top of the loop to start the next iteration.</p>
+        <ul>
+            <li>In a <code class="keyword">for</code> loop, it jumps to the *update* statement (e.g., <code class="formula">i++</code>).</li>
+            <li>In a <code class="keyword">while</code> loop, it jumps to the *condition* check.</li>
+        </ul>
+        <p><strong>Example:</strong> Print only odd numbers from 1 to 10.</p>
+<pre><code class="language-c"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i <= <span class="number">10</span>; i++) {
+    <span class="keyword">if</span> (i % <span class="number">2</span> == <span class="number">0</span>) {
+        <span class="keyword">continue</span>; <span class="comment">// Skip this iteration if 'i' is even</span>
+    }
+    <span class="function">printf</span>(<span class="string">"%d "</span>, i); <span class="comment">// This line is skipped for even numbers</span>
+}
+<span class="comment">// Output: 1 3 5 7 9</span>
+</code></pre>
+        
+        <h3 id="subtopic3_3">goto Statement</h3>
+        [cite_start]<p>The <code class="keyword">goto</code> statement provides an unconditional jump to a labeled statement elsewhere in the *same function*[cite: 1841].</p>
+        <p><strong>Syntax:</strong></p>
+<pre><code class="language-c"><span class="keyword">if</span> (x < <span class="number">0</span>) {
+    <span class="keyword">goto</span> error_handler;
+}
+<span class="comment">// ... more code ...</span>
+
+error_handler:
+    <span class="function">printf</span>(<span class="string">"An error occurred.\n"</span>);
+</code></pre>
+        <div class="exam-tip">
+            <strong>Warning:</strong> The <code class="keyword">goto</code> statement is almost <strong>never</strong> necessary. It makes code very difficult to read, debug, and maintain (this is called "spaghetti code"). It is considered <strong>bad programming practice</strong> and should be avoided. Any <code class="keyword">goto</code> can be rewritten with structured loops (<code class="keyword">for</code>, <code class="keyword">while</code>) and <code class="keyword">if</code> statements.
+        </div>
+        
+        <h2 id="topic4">Code Examples (from Practicals)</h2>
+        
+        [cite_start]<h3 id="ex1">Practical #2: Leap Year (if-else) [cite: 1859]</h3>
+<pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<span class="keyword">int</span> <span class="function">main</span>() {
+    <span class="keyword">int</span> year;
+    <span class="function">printf</span>(<span class="string">"Enter a year: "</span>);
+    <span class="function">scanf</span>(<span class="string">"%d"</span>, &year);
+
+    <span class="comment">// A year is a leap year if it's divisible by 4,
+</span>    <span class="comment">// UNLESS it's divisible by 100 but NOT by 400.</span>
+    <span class="keyword">if</span> ((year % <span class="number">4</span> == <span class="number">0</span> && year % <span class="number">100</span> != <span class="number">0</span>) || (year % <span class="number">400</span> == <span class="number">0</span>)) {
+        <span class="function">printf</span>(<span class="string">"%d is a leap year.\n"</span>, year);
+    } <span class="keyword">else</span> {
+        <span class="function">printf</span>(<span class="string">"%d is not a leap year.\n"</span>, year);
+    }
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+</code></pre>
+
+        [cite_start]<h3 id="ex2">Practical #4: Prime Number (for loop) [cite: 1861]</h3>
+<pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<span class="keyword">int</span> <span class="function">main</span>() {
+    <span class="keyword">int</span> n, i, is_prime = <span class="number">1</span>; <span class="comment">// 1 means true</span>
+
+    <span class="function">printf</span>(<span class="string">"Enter a positive integer: "</span>);
+    <span class="function">scanf</span>(<span class="string">"%d"</span>, &n);
+
+    <span class="keyword">if</span> (n <= <span class="number">1</span>) {
+        is_prime = <span class="number">0</span>; <span class="comment">// 0 and 1 are not prime</span>
+    }
+
+    <span class="comment">// Check for factors from 2 up to n/2</span>
+    <span class="keyword">for</span> (i = <span class="number">2</span>; i <= n / <span class="number">2</span>; i++) {
+        <span class="keyword">if</span> (n % i == <span class="number">0</span>) {
+            is_prime = <span class="number">0</span>; <span class="comment">// Found a factor, not prime</span>
+            <span class="keyword">break</span>;       <span class="comment">// Exit the loop early</span>
+        }
+    }
+
+    <span class="keyword">if</span> (is_prime == <span class="number">1</span>) {
+        <span class="function">printf</span>(<span class="string">"%d is a prime number.\n"</span>, n);
+    } <span class="keyword">else</span> {
+        <span class="function">printf</span>(<span class="string">"%d is not a prime number.\n"</span>, n);
+    }
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+</code></pre>
+        
+        [cite_start]<h3 id="ex3">Practical #5: Factorial (while loop) [cite: 1862]</h3>
+<pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<span class="keyword">int</span> <span class="function">main</span>() {
+    <span class="keyword">int</span> n;
+    <span class="keyword">long</span> <span class="keyword">long</span> factorial = <span class="number">1</span>; <span class="comment">// Use long long for larger numbers</span>
+    <span class="keyword">int</span> i;
+
+    <span class="function">printf</span>(<span class="string">"Enter a positive integer: "</span>);
+    <span class="function">scanf</span>(<span class="string">"%d"</span>, &n);
+
+    i = n; <span class="comment">// Initialization</span>
+    <span class="keyword">while</span> (i > <span class="number">1</span>) { <span class="comment">// Condition</span>
+        factorial = factorial * i;
+        i--; <span class="comment">// Update</span>
+    }
+
+    <span class="function">printf</span>(<span class="string">"Factorial of %d = %lld\n"</span>, n, factorial);
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+</code></pre>
+
+        <h2 id="topic5">Unit 3: Exam Quick Tips</h2>
+        <div class="exam-tip">
+            <ul>
+                <li><strong>`for` vs `while` vs `do-while`:</strong>
+                    <ul>
+                        <li><strong>`for`</strong>: Use when you know the number of iterations (e.g., "10 times", "n times").</li>
+                        <li><strong>`while`</strong>: Use when the number of iterations is unknown, based on a condition (e.g., "while num != -1"). Checks *before* running.</li>
+                        <li><strong>`do-while`</strong>: Use when you *must* run the loop body at least once (e.g., "Enter your password (try again if wrong)"). Checks *after* running.</li>
+                    </ul>
+                </li>
+                <li><strong>`switch` vs `if`:** A `switch` is just a cleaner `if-else-if` ladder, but it *only* works for checking a variable against `int` or `char` constants. It *cannot* check ranges (e.g., `case > 10` is illegal).</li>
+                <li><strong>`break` vs `continue`:</strong>
+                    <ul>
+                        <li><strong>`break`</strong>: "Breaks out" of the loop completely.</li>
+                        <li><strong>`continue`</strong>: "Continues" to the next iteration, skipping the rest of the current one.</li>
+                    </ul>
+                </li>
+                <li><strong>Avoid `goto`:** Do not use `goto` in an exam unless the question specifically asks for it. It is bad practice.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

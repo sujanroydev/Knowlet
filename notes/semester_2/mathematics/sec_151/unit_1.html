@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics SEC 151 Unit 1 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Mathematics (MAT-SEC-151) Unit 1: Introduction to C Language, Constants, Variables, and I/O Statements.">
+    <meta name="keywords" content="MAT-SEC-151, C Programming, Unit 1, C Characters, Constants, Variables, Arithmetic Expressions, printf, scanf, Assignment, Declaration, Assam University">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #0056b3; /* Dark Blue */
+            margin-top: 24px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #003366; /* Navy Blue */
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #007bff; /* Bright Blue */
+            border-bottom: none;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code, .formula {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.05em;
+        }
+        pre {
+            background-color: #2b2b2b; /* Dark background */
+            color: #f8f8f2; /* Light text */
+            font-family: "Courier New", Courier, monospace;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto; /* Handle long lines of code */
+            border: 1px solid #444;
+        }
+        pre code {
+            background-color: transparent; /* Override the inline code style */
+            padding: 0;
+            border-radius: 0;
+            font-size: 1em;
+        }
+        .comment { color: #888; }
+        .keyword { color: #66d9ef; }
+        .function { color: #a6e22e; }
+        .string { color: #e6db74; }
+        .number { color: #ae81ff; }
+        .preprocessor { color: #f92672; }
+        
+        blockquote {
+            background-color: #f1f8ff;
+            border-left: 5px solid #007bff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #fffaf0; /* Light yellow */
+            border: 1px solid #ffc107; /* Yellow border */
+            border-left-width: 5px;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d9534f; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 1: Introduction to C Language and Basic Statements</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Introduction to C Language</a></li>
+                <li><a href="#topic2">C Characters</a></li>
+                <li><a href="#topic3">Constants and Variables</a></li>
+                <li><a href="#topic4">Declaration Statement</a></li>
+                <li><a href="#topic5">Arithmetic Expression and Statement</a></li>
+                <li><a href="#topic6">Assignment Statement</a></li>
+                <li><a href="#topic7">Input-Output (I/O) Statements</a>
+                    <ul>
+                        <li><a href="#subtopic7_1">printf() - Formatted Output</a></li>
+                        <li><a href="#subtopic7_2">scanf() - Formatted Input</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic8">Example Program (Unit 1)</a></li>
+                <li><a href="#topic9">Unit 1: Exam Quick Tips</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Introduction to C Language</h2>
+        [cite_start]<p>The C language is a powerful, general-purpose, procedural programming language developed in the 1970s by Dennis Ritchie at Bell Labs[cite: 1833, 1836, 1847]. It is called a "middle-level" language because it combines the features of high-level languages (like Python or Java) with the low-level control of assembly language.</p>
+        <p><strong>Key Features:</strong></p>
+        <ul>
+            <li><strong>Structured:</strong> Code can be broken down into blocks and functions.</li>
+            <li><strong>Compiled:</strong> C code is translated into machine code by a compiler, making it very fast.</li>
+            <li><strong>Portable:</strong> Code written on one machine can be compiled and run on another with minimal changes.</li>
+            <li><strong>Case-Sensitive:</strong> <code class="formula">main</code> and <code class="formula">Main</code> are treated as two different names.</li>
+        </ul>
+
+        <h2 id="topic2">C Characters</h2>
+        [cite_start]<p>The C character set is the set of valid characters that can be used to write C programs[cite: 1836].</p>
+        <ul>
+            <li><strong>Alphabets:</strong> A-Z, a-z</li>
+            <li><strong>Digits:</strong> 0-9</li>
+            <li><strong>Special Characters:</strong> `+ - * / % = ( ) { } [ ] < > . , ; : ' " # ! & | ~ ^ _ \ ? $`</li>
+            <li><strong>Whitespace:</strong> Blank space, newline, tab, etc.</li>
+        </ul>
+
+        <h2 id="topic3">Constants and Variables</h2>
+        [cite_start]<p><strong>Variables:</strong> A variable is a named location in memory used to store data. In C, every variable must be declared with a specific data type before it can be used[cite: 1836, 1837].</p>
+        [cite_start]<p><strong>Constants:</strong> Constants are fixed values that do not change during program execution[cite: 1836].</p>
+        <p>There are two main types of constants:</p>
+        <ul>
+            <li><strong>Literal Constants:</strong> The value itself, e.g., <code class="formula">5</code>, <code class="formula">3.14</code>, <code class="formula">'A'</code>, <code class="formula">"Hello"</code>.</li>
+            <li><strong>Symbolic Constants:</strong> A name given to a literal constant.
+                <ul>
+                    <li>Using `const` keyword: <code class="formula">const float PI = 3.14159;</code></li>
+                    <li>Using `#define` preprocessor: <code class="formula">#define PI 3.14159</code></li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2 id="topic4">Declaration Statement</h2>
+        <p>A declaration statement introduces a variable to the compiler. [cite_start]It specifies the variable's <strong>data type</strong> and its <strong>name</strong>[cite: 1837].</p>
+        
+        <p><strong>Syntax:</strong> <code class="formula">data_type variable_name;</code></p>
+        <p><strong>Common Data Types:</strong></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Data Type</th>
+                    <th>Keyword</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Integer</td>
+                    <td><code class="keyword">int</code></td>
+                    <td>Whole numbers</td>
+                    <td><code class="formula">int age = 25;</code></td>
+                </tr>
+                <tr>
+                    <td>Floating-point</td>
+                    <td><code class="keyword">float</code></td>
+                    <td>Single-precision decimal numbers</td>
+                    <td><code class="formula">float price = 19.99;</code></td>
+                </tr>
+                <tr>
+                    <td>Double</td>
+                    <td><code class="keyword">double</code></td>
+                    <td>Double-precision decimal numbers</td>
+                    <td><code class="formula">double pi = 3.14159265;</code></td>
+                </tr>
+                <tr>
+                    <td>Character</td>
+                    <td><code class="keyword">char</code></td>
+                    <td>A single character</td>
+                    <td><code class="formula">char grade = 'A';</code></td>
+                </tr>
+            </tbody>
+        </table>
+        <p>You can declare multiple variables: <code class="formula">int a, b, c;</code></p>
+        <p>You can also initialize at declaration: <code class="formula">int count = 0;</code></p>
+
+        <h2 id="topic5">Arithmetic Expression and Statement</h2>
+        [cite_start]<p>An **expression** is a combination of variables, constants, and operators that evaluates to a single value[cite: 1836].</p>
+        <p>A **statement** is a complete instruction to the computer, usually ending in a semicolon (`;`).</p>
+        
+        <p><strong>Arithmetic Operators:</strong></p>
+        <ul>
+            <li><code class="formula">+</code> (Addition)</li>
+            <li><code class="formula">-</code> (Subtraction)</li>
+            <li><code class="formula">*</code> (Multiplication)</li>
+            <li><code class="formula">/</code> (Division) - Note: Integer division truncates the decimal (e.g., <code class="formula">5 / 2</code> is <code class="formula">2</code>).</li>
+            <li><code class="formula">%</code> (Modulus) - Gives the remainder of a division (e.g., <code class="formula">5 % 2</code> is <code class="formula">1</code>).</li>
+        </ul>
+        <p><strong>Example Expression:</strong> <code class="formula">(a + b) * 10</code>
+        <br>
+        <strong>Example Statement:</strong> <code class="formula">area = 0.5 * base * height;</code></p>
+
+        <h2 id="topic6">Assignment Statement</h2>
+        [cite_start]<p>The assignment statement uses the assignment operator (<code class="formula">=</code>) to store the value of an expression into a variable[cite: 1837].</p>
+        <p><strong>Syntax:</strong> <code class="formula">variable_name = expression;</code></p>
+        <ul>
+            <li>The expression on the right is evaluated first.</li>
+            <li>The resulting value is then stored in the variable on the left.</li>
+        </ul>
+        <p><strong>Examples:</strong>
+        <br><code class="formula">int x;</code>
+        <br><code class="formula">x = 10;</code><span class="comment"> // Assigns 10 to x</span>
+        <br><code class="formula">x = x + 5;</code><span class="comment"> // Assigns 15 to x</span>
+        </p>
+
+        <h2 id="topic7">Input-Output (I/O) Statements</h2>
+        <p>To perform I/O, you must first include the standard input/output library: <code class="preprocessor">#include <stdio.h></code></p>
+
+        <h3 id="subtopic7_1">printf() - Formatted Output</h3>
+        [cite_start]<p>The <code class="function">printf()</code> function is used to print formatted text and variable values to the console[cite: 1837].</p>
+        <p><strong>Syntax:</strong> <code class="formula">printf("format_string", argument1, argument2, ...);</code></p>
+        <p>The <strong>format string</strong> contains plain text and <strong>format specifiers</strong>. Each specifier is a placeholder for an argument.</p>
+        <ul>
+            <li><code class="formula">%d</code> or <code class="formula">%i</code>: for integers (<code class="keyword">int</code>)</li>
+            <li><code class="formula">%f</code>: for <code class="keyword">float</code></li>
+            <li><code class="formula">%lf</code>: for <code class="keyword">double</code> (long float)</li>
+            <li><code class="formula">%c</code>: for <code class="keyword">char</code></li>
+            <li><code class="formula">%s</code>: for strings (character arrays)</li>
+            <li><code class="formula">\n</code>: special character for a newline.</li>
+        </ul>
+        <p><strong>Example:</strong>
+        <br><code class="formula">int age = 20; float height = 5.8;</code>
+        <br><code class="formula">printf("Age: %d, Height: %.1f\n", age, height);</code>
+        <br><strong>Output:</strong> <code class="formula">Age: 20, Height: 5.8</code>
+        </p>
+
+        <h3 id="subtopic7_2">scanf() - Formatted Input</h3>
+        [cite_start]<p>The <code class="function">scanf()</code> function is used to read formatted data from the user via the keyboard[cite: 1837].</p>
+        <p><strong>Syntax:</strong> <code class="formula">scanf("format_string", &variable1, &variable2, ...);</code></p>
+        
+        <div class="exam-tip">
+            <strong>CRITICAL:</strong> You <strong>must</strong> use the ampersand <code class="formula">&</code> (the "address-of" operator) before each variable name (except for strings). This tells <code class="function">scanf()</code> *where in memory* to store the input value. Forgetting the <code class="formula">&</code> is the most common beginner error.
+        </div>
+        
+        <p><strong>Example:</strong>
+        <br><code class="formula">int number;</code>
+        <br><code class="formula">printf("Enter a number: ");</code>
+        <br><code class="formula">scanf("%d", &number);</code>
+        </p>
+
+        <h2 id="topic8">Example Program (Unit 1)</h2>
+        [cite_start]<p>This program demonstrates all concepts from Unit 1 by implementing <strong>Practical #1b</strong> (Area of a rectangle)[cite: 1857].</p>
+
+[cite_start]<pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>  <span class="comment">// For printf() and scanf() [cite: 1837]</span>
+
+<span class="keyword">int</span> <span class="function">main</span>() {
+    [cite_start]<span class="comment">// Declaration Statements [cite: 1837]</span>
+    <span class="keyword">float</span> length, width;
+    <span class="keyword">float</span> area;
+
+    [cite_start]<span class="comment">// Input Statement (printf for prompt) [cite: 1837]</span>
+    <span class="function">printf</span>(<span class="string">"Enter the length of the rectangle: "</span>);
+    
+    [cite_start]<span class="comment">// Input Statement (scanf to read data) [cite: 1837]</span>
+    <span class="function">scanf</span>(<span class="string">"%f"</span>, &length);
+
+    <span class="function">printf</span>(<span class="string">"Enter the width of the rectangle: "</span>);
+    <span class="function">scanf</span>(<span class="string">"%f"</span>, &width);
+
+    [cite_start]<span class="comment">// Arithmetic Expression and Assignment Statement [cite: 1836, 1837]</span>
+    area = length * width;
+
+    [cite_start]<span class="comment">// Output Statement [cite: 1837]</span>
+    <span class="function">printf</span>(<span class="string">"The area of the rectangle is: %.2f\n"</span>, area);
+
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+</code></pre>
+
+        <h2 id="topic9">Unit 1: Exam Quick Tips</h2>
+        <div class="exam-tip">
+            <ul>
+                <li><strong>The <code class="formula">&</code> in `scanf`:** This is the most critical point. <code class="function">scanf("%d", &num)</code> is correct. <code class="function">scanf("%d", num)</code> is <strong>wrong</strong> and will crash your program.</li>
+                <li><strong>Format Specifiers:</strong> You must match the specifier to the data type. Use <code class="formula">%d</code> for <code class="keyword">int</code>, <code class="formula">%f</code> for <code class="keyword">float</code>, <code class="formula">%lf</code> for <code class="keyword">double</code>, and <code class="formula">%c</code> for <code class="keyword">char</code>.</li>
+                <li><strong>Semicolons:</strong> Every C statement (declarations, assignments, function calls) must end with a semicolon (`;`).</li>
+                <li><strong>Integer Division:</strong> Be careful! <code class="formula">5 / 2</code> is <code class="formula">2</code>. If you want <code class="formula">2.5</code>, you must use floats: <code class="formula">5.0 / 2.0</code>.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

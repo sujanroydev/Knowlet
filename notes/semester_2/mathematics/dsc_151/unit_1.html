@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics DSC 151 Unit 1 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Mathematics (MAT-DSC-151) Unit 1: Transformation of Coordinates and Pair of Straight Lines, based on the Assam University NEP syllabus.">
+    <meta name="keywords" content="MAT-DSC-151, Analytical Geometry, Unit 1, Transformation of Coordinates, Change of Origin, Orthogonal Transformation, Invariants, Pair of Straight Lines, Bisector of Angles, Assam University, NEP Syllabus, Mathematics Notes">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #0056b3; /* Dark Blue */
+            margin-top: 24px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #003366; /* Navy Blue */
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #007bff; /* Bright Blue */
+            border-bottom: none;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code, .formula {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.05em;
+        }
+        blockquote {
+            background-color: #f1f8ff;
+            border-left: 5px solid #007bff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #fffaf0; /* Light yellow */
+            border: 1px solid #ffc107; /* Yellow border */
+            border-left-width: 5px;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d9534f; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 1: Transformation of Coordinates and Pair of Straight Lines</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Transformation of Coordinates</a>
+                    <ul>
+                        <li><a href="#subtopic1_1">Change of Origin (Translation of Axes)</a></li>
+                        <li><a href="#subtopic1_2">Rotation of Axes (Orthogonal Transformation)</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic2">Invariants in Orthogonal Transformation</a></li>
+                <li><a href="#topic3">Pair of Straight Lines</a>
+                    <ul>
+                        <li><a href="#subtopic3_1">Homogeneous Equation of Second Degree</a></li>
+                        <li><a href="#subtopic3_2">Angle Between the Lines</a></li>
+                        <li><a href="#subtopic3_3">General Equation of Second Degree</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic4">Bisector of Angles Between Pair of Straight Lines</a></li>
+                <li><a href="#topic5">Unit 1: Exam Quick Tips</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Transformation of Coordinates</h2>
+        <p>Transformation of coordinates involves changing the coordinate system (the axes and/or origin) to simplify the equation of a curve.</p>
+
+        <h3 id="subtopic1_1">Change of Origin (Translation of Axes)</h3>
+        <p>This transformation involves shifting the origin <code>(0, 0)</code> to a new point <code class="formula">(h, k)</code> without changing the direction (orientation) of the axes. The new axes remain parallel to the old axes.</p>
+        
+        <p>Let <code class="formula">(x, y)</code> be the coordinates of a point P with respect to the old axes (OX, OY), and let <code class="formula">(x', y')</code> be the coordinates of the same point P with respect to the new axes (O'X', O'Y').</p>
+        
+        <p>The transformation formulas are:</p>
+        <blockquote>
+            <strong>x = x' + h</strong><br>
+            <strong>y = y' + k</strong>
+        </blockquote>
+        <p>Or, rearranging for the new coordinates:</p>
+        <blockquote>
+            <strong>x' = x - h</strong><br>
+            <strong>y' = y - k</strong>
+        </blockquote>
+
+        <h4>Example:</h4>
+        <p><strong>Question:</strong> Transform the equation <code class="formula">x² + y² - 4x + 6y - 3 = 0</code> by shifting the origin to the point <code class="formula">(2, -3)</code>.</p>
+        <p><strong>Solution:</strong><br>
+        Here, <code class="formula">h = 2</code> and <code class="formula">k = -3</code>.<br>
+        Substitute <code class="formula">x = x' + 2</code> and <code class="formula">y = y' - 3</code> into the equation:</p>
+        <p><code class="formula">(x' + 2)² + (y' - 3)² - 4(x' + 2) + 6(y' - 3) - 3 = 0</code><br>
+        <code class="formula">(x'² + 4x' + 4) + (y'² - 6y' + 9) - 4x' - 8 + 6y' - 18 - 3 = 0</code><br>
+        <p>Now, group the terms:</p>
+        <code class="formula">x'² + y'² + (4x' - 4x') + (-6y' + 6y') + (4 + 9 - 8 - 18 - 3) = 0</code><br>
+        <code class="formula">x'² + y'² - 16 = 0</code><br>
+        <code class="formula">x'² + y'² = 16</code></p>
+        <p>The new, simplified equation is a circle centered at the new origin.</p>
+
+        <h3 id="subtopic1_2">Rotation of Axes (Orthogonal Transformation)</h3>
+        <p>This transformation involves rotating the axes (OX, OY) by an angle <code class="formula">θ</code> about the origin, without changing the origin itself. This is an **orthogonal transformation** because it preserves distances and angles.</p>
+
+        <p>Let <code class="formula">(x, y)</code> be the coordinates of a point P w.r.t. the old axes and <code class="formula">(x', y')</code> be the coordinates w.r.t. the new axes.</p>
+        <p>The transformation formulas are:</p>
+        <blockquote>
+            <strong>x = x' cos(θ) - y' sin(θ)</strong><br>
+            <strong>y = x' sin(θ) + y' cos(θ)</strong>
+        </blockquote>
+        <p>These can be remembered using the following table:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>x'</th>
+                    <th>y'</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>x</strong></td>
+                    <td>cos(θ)</td>
+                    <td>-sin(θ)</td>
+                </tr>
+                <tr>
+                    <td><strong>y</strong></td>
+                    <td>sin(θ)</td>
+                    <td>cos(θ)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="topic2">Invariants in Orthogonal Transformation</h2>
+        <p>Invariants are quantities in an equation that do not change their value after an orthogonal transformation (like rotation). This is a very useful concept for identifying conics.</p>
+        <p>Consider the general equation of the second degree: <code class="formula">ax² + 2hxy + by² + 2gx + 2fy + c = 0</code>.</p>
+        <p>After rotating the axes by an angle <code class="formula">θ</code>, the equation becomes <code class="formula">a'x'² + 2h'x'y' + b'y'² + 2g'x' + 2f'y' + c' = 0</code>.</p>
+        <p>The following quantities are **invariants**:</p>
+        <ol>
+            <li><strong>The degree of the equation:</strong> A second-degree equation remains second-degree.</li>
+            <li><strong>The constant term (if origin is unchanged):</strong> <code class="formula">c = c'</code> (Note: The syllabus mentions orthogonal transformation, which is typically rotation. Translation *will* change the constant term).</li>
+            <li><strong>The sum of the coefficients of x² and y²:</strong>
+                <blockquote><code class="formula">a + b = a' + b'</code></blockquote>
+            </li>
+            <li><strong>The expression (ab - h²):</strong>
+                <blockquote><code class="formula">ab - h² = a'b' - h'²</code></blockquote>
+            </li>
+        </ol>
+
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> The most frequently asked invariants are <code class="formula">a + b</code> and <code class="formula">ab - h²</code>. Remember these two, as they help determine the nature of the conic.
+        </div>
+
+        <h2 id="topic3">Pair of Straight Lines</h2>
+        <p>A second-degree equation can sometimes represent two straight lines. We study two cases.</p>
+
+        <h3 id="subtopic3_1">Homogeneous Equation of Second Degree</h3>
+        <p>A homogeneous equation of the second degree is of the form:</p>
+        <blockquote><code class="formula">ax² + 2hxy + by² = 0</code></blockquote>
+        <p>This equation *always* represents a pair of straight lines passing through the **origin** <code class="formula">(0, 0)</code>.</p>
+        <p>The two lines can be found by factoring the equation. If we divide by <code class="formula">x²</code>, we get a quadratic in <code class="formula">(y/x)</code>: <code class="formula">b(y/x)² + 2h(y/x) + a = 0</code>.
+        If <code class="formula">m₁</code> and <code class="formula">m₂</code> are the roots (slopes) of this equation, the two lines are <code class="formula">y = m₁x</code> and <code class="formula">y = m₂x</code>.</p>
+        
+        <h3 id="subtopic3_2">Angle Between the Lines</h3>
+        <p>The angle <code class="formula">θ</code> between the two lines <code class="formula">ax² + 2hxy + by² = 0</code> is given by the formula:</p>
+        <blockquote>
+            <strong>tan(θ) = | 2 * sqrt(h² - ab) / (a + b) |</strong>
+        </blockquote>
+        <p>From this formula, we can determine the nature of the lines:</p>
+        <ul>
+            <li><strong>Real and distinct lines:</strong> if <code class="formula">h² > ab</code></li>
+            <li><strong>Real and coincident lines (one line):</strong> if <code class="formula">h² = ab</code></li>
+            <li><strong>Imaginary lines (intersecting only at origin):</strong> if <code class="formula">h² < ab</code></li>
+        </ul>
+        <p><strong>Special Cases:</strong></p>
+        <ul>
+            <li><strong>Perpendicular Lines (θ = 90°):</strong> The denominator must be zero.
+                <blockquote>Condition: <code class="formula">a + b = 0</code></blockquote>
+                (i.e., Coefficient of x² + Coefficient of y² = 0)
+            </li>
+            <li><strong>Parallel/Coincident Lines (θ = 0°):</strong> The numerator must be zero.
+                <blockquote>Condition: <code class="formula">h² - ab = 0</code> or <code class="formula">h² = ab</code></blockquote>
+            </li>
+        </ul>
+
+        <h3 id="subtopic3_3">General Equation of Second Degree</h3>
+        <p>The full general equation is:</p>
+        <blockquote><code class="formula">S = ax² + 2hxy + by² + 2gx + 2fy + c = 0</code></blockquote>
+        <p>This equation represents a pair of straight lines (which may be parallel) if and only if a specific condition is met. This condition can be expressed in two ways:</p>
+        
+        <p><strong>Condition 1 (The "long" formula):</strong></p>
+        <blockquote>
+            <strong>abc + 2fgh - af² - bg² - ch² = 0</strong>
+        </blockquote>
+
+        <p><strong>Condition 2 (The determinant form):</strong></p>
+        <p>The determinant <code class="formula">Δ</code> (delta) must be zero.</p>
+        <blockquote>
+            Δ = 
+            <table>
+                <tr>
+                    <td>a</td>
+                    <td>h</td>
+                    <td>g</td>
+                </tr>
+                <tr>
+                    <td>h</td>
+                    <td>b</td>
+                    <td>f</td>
+                </tr>
+                <tr>
+                    <td>g</td>
+                    <td>f</td>
+                    <td>c</td>
+                </tr>
+            </table>
+            <strong>Δ = a(bc - f²) - h(hc - fg) + g(hf - bg) = 0</strong>
+        </blockquote>
+
+        <div class="exam-tip">
+            <strong>How to memorize the determinant:</strong> A common mnemonic is "<strong>A</strong> <strong>H</strong>ungry <strong>G</strong>irl <strong>H</strong>ad <strong>B</strong>ig <strong>F</strong>ries, <strong>G</strong>o <strong>F</strong>or <strong>C</strong>hocolate".
+        </div>
+
+        <h2 id="topic4">Bisector of Angles Between Pair of Straight Lines</h2>
+        <p>Given the pair of lines <code class="formula">ax² + 2hxy + by² = 0</code>, the combined equation of the two lines that bisect the angles between them is:</p>
+        
+        <blockquote>
+            <strong>(x² - y²) / (a - b) = xy / h</strong>
+        </blockquote>
+        <p>If <code class="formula">a = b</code>, the equation becomes <code class="formula">x² - y² = 0</code>, or <code class="formula">(x - y)(x + y) = 0</code>, meaning the bisectors are <code class="formula">y = x</code> and <code class="formula">y = -x</code>.</p>
+        <p>If <code class="formula">h = 0</code>, the equation becomes <code class="formula">xy = 0</code>, meaning the bisectors are the axes <code class="formula">x = 0</code> and <code class="formula">y = 0</code>.</p>
+        <p><strong>Important Note:</strong> The two angle bisectors are always perpendicular to each other. We can check this using the condition <code class="formula">A + B = 0</code>.
+        Rearranging the bisector equation: <code class="formula">h(x² - y²) = (a - b)xy</code>
+        <code class="formula">hx² - (a - b)xy - hy² = 0</code>
+        Here, <code class="formula">A = h</code> and <code class="formula">B = -h</code>.
+        <code class="formula">A + B = h + (-h) = 0</code>. Thus, they are always perpendicular.</p>
+
+        <h2 id="topic5">Unit 1: Exam Quick Tips</h2>
+        <div class="exam-tip">
+            <ul>
+                <li><strong>Translation:</strong> <code class="formula">x = x' + h, y = y' + k</code>. Used to remove first-degree terms.</li>
+                <li><strong>Rotation:</strong> <code class="formula">x = x'cos(θ) - y'sin(θ), y = x'sin(θ) + y'cos(θ)</code>. Used to remove the <code class="formula">xy</code> term.</li>
+                <li><strong>Invariants (Rotation):</strong> <code class="formula">a + b</code> and <code class="formula">ab - h²</code> are constant.</li>
+                <li><strong>Angle between lines (ax² + 2hxy + by² = 0):</strong> <code class="formula">tan(θ) = |2*sqrt(h² - ab) / (a + b)|</code></li>
+                <li><strong>Perpendicular condition:</strong> <code class="formula">a + b = 0</code></li>
+                <li><strong>Parallel/Coincident condition:</strong> <code class="formula">h² = ab</code></li>
+                <li><strong>General Eq. (ax² + ... + c = 0) is a pair of lines if:</strong> <code class="formula">abc + 2fgh - af² - bg² - ch² = 0</code>. This is a <strong>MUST-KNOW</strong> formula.</li>
+                <li><strong>Bisector Equation:</strong> <code class="formula">(x² - y²) / (a - b) = xy / h</code>. This is also a <strong>MUST-KNOW</strong> formula.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

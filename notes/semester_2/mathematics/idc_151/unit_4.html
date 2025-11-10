@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics IDC 151 Unit 4 | 2nd Semester Notes - Knowlet</title>
+    [cite_start]<meta name="description" content="Comprehensive exam-ready notes for Mathematics (MAT-IDC-151) Unit 4: The Circle, including various forms of its equation, general equation, tangent, and normal[cite: 2041].">
+    <meta name="keywords" content="MAT-IDC-151, Geometry, Unit 4, Circle, Equation of a Circle, Center-Radius Form, General Form, Tangent to Circle, Normal to Circle, Assam University">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #0056b3; /* Dark Blue */
+            margin-top: 24px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #003366; /* Navy Blue */
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #007bff; /* Bright Blue */
+            border-bottom: none;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code, .formula {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.05em;
+        }
+        blockquote {
+            background-color: #f1f8ff;
+            border-left: 5px solid #007bff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #fffaf0; /* Light yellow */
+            border: 1px solid #ffc107; /* Yellow border */
+            border-left-width: 5px;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d9534f; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 4: The Circle</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                [cite_start]<li><a href="#topic1">Definition and Various Forms of Equation of a Circle [cite: 2041]</a>
+                    <ul>
+                        <li><a href="#subtopic1_1">Center-Radius Form</a></li>
+                        <li><a href="#subtopic1_2">Standard Form</a></li>
+                        <li><a href="#subtopic1_3">Diameter Form</a></li>
+                        <li><a href="#subtopic1_4">Three-Point Form</a></li>
+                    </ul>
+                </li>
+                [cite_start]<li><a href="#topic2">General Equation of a Circle [cite: 2041]</a>
+                    <ul>
+                        <li><a href="#subtopic2_1">The General Equation</a></li>
+                        <li><a href="#subtopic2_2">Condition that General 2nd Degree Equation is a Circle</a></li>
+                    </ul>
+                </li>
+                [cite_start]<li><a href="#topic3">Tangent and Normal to a Circle [cite: 2041]</a>
+                    <ul>
+                        <li><a href="#subtopic3_1">Equation of Tangent at (x₁, y₁)</a></li>
+                        <li><a href="#subtopic3_2">Equation of Normal at (x₁, y₁)</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic4">Unit 4: Exam Quick Tips</a></li>
+            </ul>
+        </div>
+
+        [cite_start]<h2 id="topic1">Definition and Various Forms of Equation of a Circle</h2> [cite: 2041]
+        <p>A <strong>circle</strong> is the locus (set) of all points in a plane that are equidistant (a constant distance) from a fixed point.
+        <ul>
+            <li>The fixed point is called the <strong>center</strong>.</li>
+            <li>The constant distance is called the <strong>radius</strong> (r).</li>
+        </ul>
+        
+        
+
+        <h3 id="subtopic1_1">Center-Radius Form</h3>
+        <p>This is the most direct translation of the definition.</p>
+        <p>If the center is <code class="formula">C(h, k)</code> and the radius is <code class="formula">r</code>, then by the distance formula, any point <code class="formula">P(x, y)</code> on the circle must satisfy:</p>
+        <p><code class="formula">sqrt( (x - h)² + (y - k)² ) = r</code></p>
+        <p>Squaring both sides gives the standard form:</p>
+        <blockquote>
+            <strong><code class="formula">(x - h)² + (y - k)² = r²</code></strong>
+        </blockquote>
+        
+        <h3 id="subtopic1_2">Standard Form</h3>
+        <p>This is a special case of the Center-Radius form where the center is at the origin (0, 0).</p>
+        <blockquote>
+            <strong><code class="formula">x² + y² = r²</code></strong>
+        </blockquote>
+
+        <h3 id="subtopic1_3">Diameter Form</h3>
+        <p>This form is used when the endpoints of a diameter are known, say <code class="formula">A(x₁, y₁)</code> and <code class="formula">B(x₂, y₂)</code>.</p>
+        <p>A key property of circles is that the angle subtended by a diameter at any point on the circumference is 90°.
+        <br>So, if <code class="formula">P(x, y)</code> is any point on the circle, the line segment PA is perpendicular to the line segment PB.
+        <br>(Slope of PA) × (Slope of PB) = -1
+        <br><code class="formula">[ (y - y₁) / (x - x₁) ] · [ (y - y₂) / (x - x₂) ] = -1</code>
+        <br><code class="formula">(y - y₁)(y - y₂) = -(x - x₁)(x - x₂)</code>
+        </p>
+        <blockquote>
+            <strong><code class="formula">(x - x₁)(x - x₂) + (y - y₁)(y - y₂) = 0</code></strong>
+        </blockquote>
+
+        <h3 id="subtopic1_4">Three-Point Form</h3>
+        <p>Any three non-collinear points uniquely define a circle. To find its equation:
+        <br>Let the three points be <code class="formula">(x₁, y₁)</code>, <code class="formula">(x₂, y₂)</code>, and <code class="formula">(x₃, y₃)</code>.
+        <br>Let the circle's equation be the general form <code class="formula">x² + y² + 2gx + 2fy + c = 0</code> (see next section).
+        </p>
+        <ol>
+            <li>Substitute the first point: <code class="formula">x₁² + y₁² + 2gx₁ + 2fy₁ + c = 0</code></li>
+            <li>Substitute the second point: <code class="formula">x₂² + y₂² + 2gx₂ + 2fy₂ + c = 0</code></li>
+            <li>Substitute the third point: <code class="formula">x₃² + y₃² + 2gx₃ + 2fy₃ + c = 0</code></li>
+        </ol>
+        <p>You now have a system of three linear equations for the three unknowns (g, f, and c). Solve this system to find the values of g, f, and c, then plug them back into the general equation.</p>
+
+        [cite_start]<h2 id="topic2">General Equation of a Circle</h2> [cite: 2041]
+
+        <h3 id="subtopic2_1">The General Equation</h3>
+        <p>If we expand the Center-Radius form <code class="formula">(x - h)² + (y - k)² = r²</code>:</p>
+        <p><code class="formula">(x² - 2hx + h²) + (y² - 2ky + k²) = r²</code>
+        <br><code class="formula">x² + y² - 2hx - 2ky + (h² + k² - r²) = 0</code></p>
+        <p>This is of the form:
+        <blockquote>
+            <strong><code class="formula">x² + y² + 2gx + 2fy + c = 0</code></strong>
+        </blockquote>
+        This is the <strong>general equation of a circle</strong>.
+        <br>By comparing the two equations, we can find the center and radius:
+        <ul>
+            <li><code class="formula">-2h = 2g</code>  →  <code class="formula">h = -g</code></li>
+            <li><code class="formula">-2k = 2f</code>  →  <code class="formula">k = -f</code></li>
+            <li><code class="formula">c = h² + k² - r²</code> → <code class="formula">r² = h² + k² - c = (-g)² + (-f)² - c</code></li>
+        </ul>
+        <p>For a circle given in general form:</p>
+        <ul>
+            <li><strong>Center = <code class="formula">(-g, -f)</code></strong></li>
+            <li><strong>Radius = <code class="formula">sqrt(g² + f² - c)</code></strong></li>
+        </ul>
+        <div class="exam-tip">
+            <strong>Finding Center/Radius:</strong>
+            <p>To find the center and radius from <code class="formula">x² + y² + 2gx + 2fy + c = 0</code>:</p>
+            <ol>
+                <li>Center: (-(half the coeff. of x), -(half the coeff. of y))</li>
+                <li>Radius: <code class="formula">sqrt(g² + f² - c)</code></li>
+            </ol>
+            <p><strong>Note:</strong>
+            <ul>
+                <li>If <code class="formula">g² + f² - c > 0</code>, it is a <strong>real circle</strong>.</li>
+                <li>If <code class="formula">g² + f² - c = 0</code>, it is a <strong>point circle</strong> (radius is 0).</li>
+                <li>If <code class="formula">g² + f² - c < 0</code>, it is an <strong>imaginary circle</strong> (no real locus).</li>
+            </ul>
+            </p>
+        </div>
+        
+        <h3 id="subtopic2_2">Condition that General 2nd Degree Equation is a Circle</h3>
+        <p>The full general equation of a 2nd degree conic is <code class="formula">ax² + 2hxy + by² + 2gx + 2fy + c = 0</code>.</p>
+        <p>For this to represent a circle, it must match the form <code class="formula">x² + y² + 2gx + 2fy + c = 0</code> (or a multiple of it).</p>
+        <p>The two necessary conditions are:</p>
+        <ol>
+            <li>The coefficient of x² must be equal to the coefficient of y².
+                <blockquote><strong>a = b</strong></blockquote>
+            </li>
+            <li>There must be no 'xy' term.
+                <blockquote><strong>h = 0</strong></blockquote>
+            </li>
+        </ol>
+        
+        [cite_start]<h2 id="topic3">Tangent and Normal to a Circle</h2> [cite: 2041]
+        <p>A <strong>tangent</strong> is a line that touches the circle at exactly one point, the "point of tangency".</p>
+        <p>A <strong>normal</strong> is a line perpendicular to the tangent at the point of tangency. For a circle, the normal <strong>always passes through the center</strong>.</p>
+        
+        
+
+        <h3 id="subtopic3_1">Equation of Tangent at (x₁, y₁)</h3>
+        <p>The equation of the tangent to a circle at a point <code class="formula">(x₁, y₁)</code> on the circle can be found using the "T = 0" rule. We replace:</p>
+        <ul>
+            <li><code class="formula">x²</code> → <code class="formula">x·x₁</code></li>
+            <li><code class="formula">y²</code> → <code class="formula">y·y₁</code></li>
+            <li><code class="formula">2x</code> → <code class="formula">x + x₁</code></li>
+            <li><code class="formula">2y</code> → <code class="formula">y + y₁</code></li>
+            <li><code class="formula">c</code> → <code class="formula">c</code></li>
+        </ul>
+        
+        <p><strong>For circle <code class="formula">x² + y² = r²</code>:</strong></pre>
+        <blockquote><strong><code class="formula">x·x₁ + y·y₁ = r²</code></strong></blockquote>
+        
+        <p><strong>For circle <code class="formula">x² + y² + 2gx + 2fy + c = 0</code>:</strong></p>
+        <p><code class="formula">x·x₁ + y·y₁ + g(x + x₁) + f(y + y₁) + c = 0</code></p>
+        <blockquote><strong><code class="formula">xx₁ + yy₁ + g(x + x₁) + f(y + y₁) + c = 0</code></strong></blockquote>
+        
+        <h3 id="subtopic3_2">Equation of Normal at (x₁, y₁)</h3>
+        <p>The normal passes through <code class="formula">(x₁, y₁)</code> and the center <code class="formula">(-g, -f)</code>. We can just use the two-point form of a line.</p>
+        <p>Slope of normal <code class="formula">m = (y₁ - (-f)) / (x₁ - (-g)) = (y₁ + f) / (x₁ + g)</code>.</p>
+        <p>Using the point-slope form <code class="formula">Y - y₁ = m(X - x₁)</code>:</p>
+        <blockquote>
+            <strong><code class="formula">Y - y₁ = [ (y₁ + f) / (x₁ + g) ] · (X - x₁)</code></strong>
+        </blockquote>
+        <p>A simpler form is often <code class="formula">(Y - y₁)(x₁ + g) = (X - x₁)(y₁ + f)</code>.</p>
+        
+        <p><strong>For the simple circle <code class="formula">x² + y² = r²</code>:</strong>
+        <br>The center is (0, 0). The slope of the normal is <code class="formula">(y₁ - 0) / (x₁ - 0) = y₁/x₁</code>.
+        <br>Equation: <code class="formula">Y - y₁ = (y₁/x₁) (X - x₁)</code>
+        <br><code class="formula">x₁(Y - y₁) = y₁(X - x₁)</code>  →  <code class="formula">x₁Y - x₁y₁ = y₁X - x₁y₁</code>  →  <strong><code class="formula">x₁Y = y₁X</code></strong> or <strong><code class="formula">y = (y₁/x₁)x</code></strong>.
+        </p>
+        
+        <h2 id="topic4">Unit 4: Exam Quick Tips</h2>
+        <div class="exam-tip">
+            <ul>
+                <li><strong>General Equation:</strong> <code class="formula">x² + y² + 2gx + 2fy + c = 0</code>.
+                    <ul>
+                        <li><strong>Center:</strong> <code class="formula">(-g, -f)</code>. (Just halve the coefficients of x and y, and flip the signs).</li>
+                        <li><strong>Radius:</strong> <code class="formula">sqrt(g² + f² - c)</code>.</li>
+                    </ul>
+                </li>
+                <li><strong>Conditions for a Circle:</strong> 1. <code class="formula">Coeff(x²) = Coeff(y²)</code>. 2. <code class="formula">Coeff(xy) = 0</code>.</li>
+                <li><strong>Diameter Form:</strong> <code class="formula">(x - x₁)(x - x₂) + (y - y₁)(y - y₂) = 0</code>. Very fast if you are given two endpoints.</li>
+                <li><strong>Tangent at (x₁, y₁):</strong> Always use the <code class="formula">T = 0</code> replacement rule.
+                    <ul>
+                        <li><code class="formula">x² → xx₁</code></li>
+                        <li><code class="formula">2x → (x + x₁)</code></li>
+                    </ul>
+                    Example: <code class="formula">x² + y² + 4x = 0</code> → <code class="formula">xx₁ + yy₁ + 2(x + x₁) = 0</code>.
+                </li>
+                <li><strong>Normal:</strong> The normal *always* passes through the center. Just find the center <code class="formula">(-g, -f)</code> and the point <code class="formula">(x₁, y₁)</code> and write the equation of the line passing through them.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

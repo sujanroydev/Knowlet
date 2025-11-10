@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics DSC 151 Unit 2 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Mathematics (MAT-DSC-151) Unit 2: Orthogonal Circles, Radical Axis, and Condition of Tangency for conics, based on the Assam University NEP syllabus.">
+    <meta name="keywords" content="MAT-DSC-151, Analytical Geometry, Unit 2, Orthogonal Circles, Radical Axis, Radical Centre, Coaxial Circles, Condition of Tangency, Parabola, Ellipse, Hyperbola, Assam University, NEP Syllabus">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #0056b3; /* Dark Blue */
+            margin-top: 24px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #003366; /* Navy Blue */
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #007bff; /* Bright Blue */
+            border-bottom: none;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code, .formula {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.05em;
+        }
+        blockquote {
+            background-color: #f1f8ff;
+            border-left: 5px solid #007bff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #fffaf0; /* Light yellow */
+            border: 1px solid #ffc107; /* Yellow border */
+            border-left-width: 5px;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d9534f; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 2: Circles and Conics - Properties and Tangency</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Orthogonal Circles</a></li>
+                <li><a href="#topic2">Radical Axis</a></li>
+                <li><a href="#topic3">Radical Centre</a></li>
+                <li><a href="#topic4">Circles Through Intersection</a>
+                    <ul>
+                        <li><a href="#subtopic4_1">Intersection of Two Circles</a></li>
+                        <li><a href="#subtopic4_2">Intersection of a Circle and a Straight Line</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic5">Condition of Tangency</a>
+                    <ul>
+                        <li><a href="#subtopic5_1">Circle</a></li>
+                        <li><a href="#subtopic5_2">Parabola</a></li>
+                        <li><a href="#subtopic5_3">Ellipse</a></li>
+                        <li><a href="#subtopic5_4">Hyperbola</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic6">Unit 2: Exam Quick Tips</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Orthogonal Circles</h2>
+        <p>Two circles are said to be **orthogonal** if they intersect at a right angle (90°). This means that at their point of intersection, the tangents to the two circles are perpendicular.</p>
+        
+        <p>Let the two circles be:
+        <br>
+        <code class="formula">S₁ ≡ x² + y² + 2g₁x + 2f₁y + c₁ = 0</code>
+        <br>
+        <code class="formula">S₂ ≡ x² + y² + 2g₂x + 2f₂y + c₂ = 0</code>
+        </p>
+        <p>Their centers are <code class="formula">C₁(-g₁, -f₁)</code> and <code class="formula">C₂(-g₂, -f₂)</code>, and their radii are <code class="formula">r₁ = sqrt(g₁² + f₁² - c₁)</code> and <code class="formula">r₂ = sqrt(g₂² + f₂² - c₂)</code>.</p>
+        <p>If the circles intersect orthogonally, the triangle formed by the two centers and an intersection point P is a right-angled triangle. By the Pythagorean theorem, <code class="formula">(C₁C₂)² = r₁² + r₂²</code>.</p>
+
+        <p>This leads to the **condition for orthogonality**:</p>
+        <blockquote>
+            <strong>2g₁g₂ + 2f₁f₂ = c₁ + c₂</strong>
+        </blockquote>
+
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> This is a very common 2-mark question. You will be given two circle equations and asked to check if they are orthogonal. Simply identify <code class="formula">g₁, f₁, c₁</code> and <code class="formula">g₂, f₂, c₂</code> and plug them into the condition.
+        </div>
+
+        <h2 id="topic2">Radical Axis</h2>
+        <p>The **radical axis** of two circles is the locus of a point from which the lengths of the tangents drawn to the two circles are equal.</p>
+        <p>Let the two circles be <code class="formula">S₁ = 0</code> and <code class="formula">S₂ = 0</code> (where coefficients of x² and y² are 1).</p>
+        
+        <p>The equation of the radical axis is:</p>
+        <blockquote>
+            <strong>S₁ - S₂ = 0</strong>
+        </blockquote>
+        <p><strong>Example:</strong>
+        <br>
+        <code class="formula">S₁ ≡ x² + y² + 4x + 6 = 0</code>
+        <br>
+        <code class="formula">S₂ ≡ x² + y² - 2x + 1 = 0</code>
+        <br>
+        Radical Axis: <code class="formula">S₁ - S₂ = (x² + y² + 4x + 6) - (x² + y² - 2x + 1) = 0</code>
+        <br>
+        <code class="formula">4x + 6 - (-2x + 1) = 0</code>
+        <br>
+        <code class="formula">6x + 5 = 0</code> (This is a straight line).
+        </p>
+        <p><strong>Properties of the Radical Axis:</strong></p>
+        <ul>
+            <li>It is always a straight line.</li>
+            <li>It is perpendicular to the line joining the centers of the two circles.</li>
+            <li>If the two circles intersect, the radical axis is their common chord.</li>
+            <li>If the two circles touch, the radical axis is their common tangent.</li>
+        </ul>
+
+        <h2 id="topic3">Radical Centre</h2>
+        <p>The **radical centre** of three circles is the single point from which the lengths of tangents drawn to all three circles are equal.</p>
+        <p>It is found by taking the three circles in pairs and finding their radical axes. The point of intersection of these three radical axes is the radical centre.</p>
+        <p>Given circles <code class="formula">S₁ = 0</code>, <code class="formula">S₂ = 0</code>, and <code class="formula">S₃ = 0</code>:</p>
+        <ol>
+            <li>Find the equation of Radical Axis 1: <code class="formula">L₁₂ ≡ S₁ - S₂ = 0</code></li>
+            <li>Find the equation of Radical Axis 2: <code class="formula">L₂₃ ≡ S₂ - S₃ = 0</code></li>
+            <li>Solve the two linear equations <code class="formula">L₁₂ = 0</code> and <code class="formula">L₂₃ = 0</code> simultaneously.</li>
+        </ol>
+        <p>The resulting point <code class="formula">(x, y)</code> is the radical centre. (The third radical axis <code class="formula">L₁₃ ≡ S₁ - S₃ = 0</code> will automatically pass through this point).</p>
+
+        <h2 id="topic4">Circles Through Intersection</h2>
+
+        <h3 id="subtopic4_1">Intersection of Two Circles</h3>
+        <p>Let <code class="formula">S₁ = 0</code> and <code class="formula">S₂ = 0</code> be two intersecting circles.</p>
+        <p>The equation of *any* circle passing through the intersection points of <code class="formula">S₁</code> and <code class="formula">S₂</code> is given by:</p>
+        <blockquote>
+            <strong>S₁ + kS₂ = 0</strong>   (where k is a parameter and k ≠ -1)
+        </blockquote>
+        <p>If <code class="formula">k = -1</code>, the equation becomes <code class="formula">S₁ - S₂ = 0</code>, which is the equation of the radical axis (their common chord).</p>
+
+        <h3 id="subtopic4_2">Intersection of a Circle and a Straight Line</h3>
+        <p>Let <code class="formula">S = 0</code> be a circle and <code class="formula">L = 0</code> be a straight line.</p>
+        <p>The equation of *any* circle passing through the intersection points of <code class="formula">S</code> and <code class="formula">L</code> is given by:</p>
+        <blockquote>
+            <strong>S + kL = 0</strong>   (where k is a parameter)
+        </blockquote>
+
+        <h2 id="topic5">Condition of Tangency</h2>
+        <p>This is a crucial topic. We want to find the condition for a straight line <code class="formula">y = mx + c</code> to just touch (be tangent to) a given conic section.</p>
+        <p>The method is to substitute <code class="formula">y = mx + c</code> into the conic's equation. This will result in a quadratic equation in <code class="formula">x</code>. For the line to be a tangent, the two intersection points must be coincident, meaning the quadratic equation must have equal roots.</p>
+        <p>The condition for equal roots of <code class="formula">Ax² + Bx + C = 0</code> is <strong><code class="formula">B² - 4AC = 0</code></strong>.</p>
+        <p>Applying this method gives the following standard conditions:</p>
+
+        <h3 id="subtopic5_1">Circle: x² + y² = a²</h3>
+        <blockquote>
+            Condition: <strong>c² = a²(1 + m²)</strong><br>
+            Equation of tangent: <code class="formula">y = mx ± a * sqrt(1 + m²)</code>
+        </blockquote>
+
+        <h3 id="subtopic5_2">Parabola: y² = 4ax</h3>
+        <blockquote>
+            Condition: <strong>c = a/m</strong><br>
+            Equation of tangent: <code class="formula">y = mx + a/m</code>
+        </blockquote>
+
+        <h3 id="subtopic5_3">Ellipse: x²/a² + y²/b² = 1</h3>
+        <blockquote>
+            Condition: <strong>c² = a²m² + b²</strong><br>
+            Equation of tangent: <code class="formula">y = mx ± sqrt(a²m² + b²)</code>
+        </blockquote>
+
+        <h3 id="subtopic5_4">Hyperbola: x²/a² - y²/b² = 1</h3>
+        <blockquote>
+            Condition: <strong>c² = a²m² - b²</strong><br>
+            Equation of tangent: <code class="formula">y = mx ± sqrt(a²m² - b²)</code>
+        </blockquote>
+
+        <h2 id="topic6">Unit 2: Exam Quick Tips</h2>
+        <div class="exam-tip">
+            <p><strong>MEMORIZE THIS TABLE.</strong> It is the most important part of this unit.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Conic</th>
+                        <th>Equation</th>
+                        <th>Line</th>
+                        <th>Condition of Tangency</th>
+                        <th>Equation of Tangent</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Circle</strong></td>
+                        <td><code class="formula">x² + y² = a²</code></td>
+                        <td><code class="formula">y = mx + c</code></td>
+                        <td><code class="formula">c² = a²(1 + m²)</code></td>
+                        <td><code class="formula">y = mx ± a*sqrt(1+m²)</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Parabola</strong></td>
+                        <td><code class="formula">y² = 4ax</code></td>
+                        <td><code class="formula">y = mx + c</code></td>
+                        <td><code class="formula">c = a/m</code></td>
+                        <td><code class="formula">y = mx + a/m</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ellipse</strong></td>
+                        <td><code class="formula">x²/a² + y²/b² = 1</code></td>
+                        <td><code class="formula">y = mx + c</code></td>
+                        <td><code class="formula">c² = a²m² + b²</code></td>
+                        <td><code class="formula">y = mx ± sqrt(a²m² + b²)</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hyperbola</strong></td>
+                        <td><code class="formula">x²/a² - y²/b² = 1</code></td>
+                        <td><code class="formula">y = mx + c</code></td>
+                        <td><code class="formula">c² = a²m² - b²</code></td>
+                        <td><code class="formula">y = mx ± sqrt(a²m² - b²)</code></td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul>
+                <li><strong>Orthogonality:</strong> <code class="formula">2g₁g₂ + 2f₁f₂ = c₁ + c₂</code></li>
+                <li><strong>Radical Axis:</strong> <code class="formula">S₁ - S₂ = 0</code></li>
+                <li><strong>Circle through intersection (S=0, L=0):</strong> <code class="formula">S + kL = 0</code></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

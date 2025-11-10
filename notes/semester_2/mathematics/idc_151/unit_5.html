@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics IDC 151 Unit 5 | 2nd Semester Notes - Knowlet</title>
+    [cite_start]<meta name="description" content="Comprehensive exam-ready notes for Mathematics (MAT-IDC-151) Unit 5: Conic Sections, including Parabola, Ellipse, and Hyperbola in various forms[cite: 2043].">
+    <meta name="keywords" content="MAT-IDC-151, Geometry, Unit 5, Conic Sections, Parabola, Ellipse, Hyperbola, Standard Equations, Assam University">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #0056b3; /* Dark Blue */
+            margin-top: 24px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #003366; /* Navy Blue */
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #007bff; /* Bright Blue */
+            border-bottom: none;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code, .formula {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.05em;
+        }
+        blockquote {
+            background-color: #f1f8ff;
+            border-left: 5px solid #007bff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #fffaf0; /* Light yellow */
+            border: 1px solid #ffc107; /* Yellow border */
+            border-left-width: 5px;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d9534f; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 5: Conic Sections</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Introduction to Conic Sections</a></li>
+                [cite_start]<li><a href="#topic2">The Parabola [cite: 2043]</a>
+                    <ul>
+                        <li><a href="#subtopic2_1">Definition (e=1)</a></li>
+                        <li><a href="#subtopic2_2">Standard Forms and Properties</a></li>
+                    </ul>
+                </li>
+                [cite_start]<li><a href="#topic3">The Ellipse [cite: 2043]</a>
+                    <ul>
+                        <li><a href="#subtopic3_1">Definition (e<1)</a></li>
+                        <li><a href="#subtopic3_2">Standard Forms and Properties</a></li>
+                    </ul>
+                </li>
+                [cite_start]<li><a href="#topic4">The Hyperbola [cite: 2043]</a>
+                    <ul>
+                        <li><a href="#subtopic4_1">Definition (e>1)</a></li>
+                        <li><a href="#subtopic4_2">Standard Forms and Properties</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic5">Unit 5: Exam Quick Tips</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Introduction to Conic Sections</h2>
+        <p>A <strong>conic section</strong> (or conic) is a curve obtained by intersecting a plane with a double-napped cone. The shape of the curve depends on the angle of the plane.</p>
+        
+        
+
+        <p>A conic can also be defined in 2D as the locus of a point P that moves so that the ratio of its distance from a fixed point (the <strong>focus</strong>) to its perpendicular distance from a fixed line (the <strong>directrix</strong>) is a constant value <code class="formula">e</code>, called the <strong>eccentricity</strong>.</p>
+        <blockquote>
+            <strong><code class="formula">Distance from Focus / Distance from Directrix = e</code></strong>
+        </blockquote>
+        <ul>
+            <li>If <code class="formula">e = 1</code>, the conic is a <strong>Parabola</strong>.</li>
+            <li>If <code class="formula">e < 1</code>, the conic is an <strong>Ellipse</strong>.</li>
+            <li>If <code class="formula">e > 1</code>, the conic is a <strong>Hyperbola</strong>.</li>
+            <li>If <code class="formula">e = 0</code>, it is a <strong>Circle</strong> (a special case of an ellipse).</li>
+        </ul>
+
+        [cite_start]<h2 id="topic2">The Parabola</h2> [cite: 2043]
+
+        <h3 id="subtopic2_1">Definition (e=1)</h3>
+        <p>A parabola is the set of all points in a plane that are equidistant from a fixed point (the focus) and a fixed line (the directrix).</p>
+        
+        
+
+[Image of a parabola, showing the focus, directrix, vertex, and axis of symmetry]
+
+
+        <h3 id="subtopic2_2">Standard Forms and Properties</h3>
+        <p>The "various forms" refer to the four standard orientations of a parabola with its vertex at the origin (0, 0).</p>
+        
+        <table style="text-align: center;">
+            <thead>
+                <tr>
+                    <th>Property</th>
+                    <th><code class="formula">y² = 4ax</code><br>(Opens Right)</th>
+                    <th><code class="formula">y² = -4ax</code><br>(Opens Left)</th>
+                    <th><code class="formula">x² = 4ay</code><br>(Opens Up)</th>
+                    <th><code class="formula">x² = -4ay</code><br>(Opens Down)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Vertex</strong></td>
+                    <td>(0, 0)</td>
+                    <td>(0, 0)</td>
+                    <td>(0, 0)</td>
+                    <td>(0, 0)</td>
+                </tr>
+                <tr>
+                    <td><strong>Focus</strong></td>
+                    <td>(a, 0)</td>
+                    <td>(-a, 0)</td>
+                    <td>(0, a)</td>
+                    <td>(0, -a)</td>
+                </tr>
+                <tr>
+                    <td><strong>Directrix</strong></td>
+                    <td>x = -a</td>
+                    <td>x = a</td>
+                    <td>y = -a</td>
+                    <td>y = a</td>
+                </tr>
+                <tr>
+                    <td><strong>Axis</strong></td>
+                    <td>y = 0 (x-axis)</td>
+                    <td>y = 0 (x-axis)</td>
+                    <td>x = 0 (y-axis)</td>
+                    <td>x = 0 (y-axis)</td>
+                </tr>
+                <tr>
+                    <td><strong>Latus Rectum</strong></td>
+                    <td>4a</td>
+                    <td>4a</td>
+                    <td>4a</td>
+                    <td>4a</td>
+                </tr>
+            </tbody>
+        </table>
+        <ul>
+            <li><strong>Vertex:</strong> The "tip" of the parabola, midway between the focus and directrix.</li>
+            <li><strong>Latus Rectum:</strong> The chord through the focus perpendicular to the axis. Its length is always <code class="formula">4a</code>.</li>
+        </ul>
+
+        [cite_start]<h2 id="topic3">The Ellipse</h2> [cite: 2043]
+
+        <h3 id="subtopic3_1">Definition (e < 1)</h3>
+        <p>An ellipse is the set of all points P such that the sum of the distances from P to two fixed points (the <strong>foci</strong>, F₁ and F₂) is a constant (2a).</p>
+        
+        
+
+        <h3 id="subtopic3_2">Standard Forms and Properties</h3>
+        <p>The standard forms have the center at the origin (0, 0).</p>
+        <p><strong>Relationship between a, b, and e:</strong> <code class="formula">b² = a²(1 - e²)</code>  and  <code class="formula">e² = (a² - b²) / a²</code></p>
+        
+        <table style="text-align: center;">
+            <thead>
+                <tr>
+                    <th>Property</th>
+                    <th><code class="formula">x²/a² + y²/b² = 1</code><br>(Horizontal, a > b)</th>
+                    <th><code class="formula">x²/b² + y²/a² = 1</code><br>(Vertical, a > b)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Center</strong></td>
+                    <td>(0, 0)</td>
+                    <td>(0, 0)</td>
+                </tr>
+                <tr>
+                    <td><strong>Major Axis</strong></td>
+                    <td>Horizontal, length 2a</td>
+                    <td>Vertical, length 2a</td>
+                </tr>
+                <tr>
+                    <td><strong>Minor Axis</strong></td>
+                    <td>Vertical, length 2b</td>
+                    <td>Horizontal, length 2b</td>
+                </tr>
+                <tr>
+                    <td><strong>Vertices</strong></td>
+                    <td>(±a, 0)</td>
+                    <td>(0, ±a)</td>
+                </tr>
+                <tr>
+                    <td><strong>Foci</strong></td>
+                    <td>(±ae, 0) or (±c, 0)</td>
+                    <td>(0, ±ae) or (0, ±c)</td>
+                </tr>
+                <tr>
+                    <td><strong>Eccentricity</strong></td>
+                    <td><code class="formula">e = c/a < 1</code></td>
+                    <td><code class="formula">e = c/a < 1</code></td>
+                </tr>
+                <tr>
+                    <td><strong>Latus Rectum</strong></td>
+                    <td>2b²/a</td>
+                    <td>2b²/a</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="exam-tip">
+            <strong>Key to Ellipse:</strong> 'a' is *always* the larger semi-axis. If <code class="formula">a²</code> is under <code class="formula">x²</code>, it's a horizontal ellipse. If <code class="formula">a²</code> is under <code class="formula">y²</code>, it's a vertical ellipse.
+        </div>
+
+        [cite_start]<h2 id="topic4">The Hyperbola</h2> [cite: 2043]
+
+        <h3 id="subtopic4_1">Definition (e > 1)</h3>
+        <p>A hyperbola is the set of all points P such that the *difference* of the distances from P to two fixed points (the <strong>foci</strong>, F₁ and F₂) is a constant (2a).</p>
+
+        
+        
+        <h3 id="subtopic4_2">Standard Forms and Properties</h3>
+        <p>The standard forms have the center at the origin (0, 0).</p>
+        <p><strong>Relationship between a, b, and e:</strong> <code class="formula">b² = a²(e² - 1)</code>  and  <code class="formula">e² = (a² + b²) / a²</code></p>
+        
+        <table style="text-align: center;">
+            <thead>
+                <tr>
+                    <th>Property</th>
+                    <th><code class="formula">x²/a² - y²/b² = 1</code><br>(Horizontal)</th>
+                    <th><code class="formula">y²/a² - x²/b² = 1</code><br>(Vertical)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Center</strong></td>
+                    <td>(0, 0)</td>
+                    <td>(0, 0)</td>
+                </tr>
+                <tr>
+                    <td><strong>Transverse Axis</strong></td>
+                    <td>Horizontal, length 2a</td>
+                    <td>Vertical, length 2a</td>
+                </tr>
+                <tr>
+                    <td><strong>Conjugate Axis</strong></td>
+                    <td>Vertical, length 2b</td>
+                    <td>Horizontal, length 2b</td>
+                </tr>
+                <tr>
+                    <td><strong>Vertices</strong></td>
+                    <td>(±a, 0)</td>
+                    <td>(0, ±a)</td>
+                </tr>
+                <tr>
+                    <td><strong>Foci</strong></td>
+                    <td>(±ae, 0) or (±c, 0)</td>
+                    <td>(0, ±ae) or (0, ±c)</td>
+                </tr>
+                <tr>
+                    <td><strong>Eccentricity</strong></td>
+                    <td><code class="formula">e = c/a > 1</code></td>
+                    <td><code class="formula">e = c/a > 1</code></td>
+                </tr>
+                 <tr>
+                    <td><strong>Latus Rectum</strong></td>
+                    <td>2b²/a</td>
+                    <td>2b²/a</td>
+                </tr>
+                <tr>
+                    <td><strong>Asymptotes</strong></td>
+                    <td>y = ±(b/a)x</td>
+                    <td>y = ±(a/b)x</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="exam-tip">
+            <strong>Key to Hyperbola:</strong> 'a' is *always* associated with the <strong>positive</strong> term. If <code class="formula">x²</code> is positive, it's a horizontal hyperbola. If <code class="formula">y²</code> is positive, it's a vertical hyperbola.
+        </div>
+        
+        <h2 id="topic5">Unit 5: Exam Quick Tips</h2>
+        <div class="exam-tip">
+            <ul>
+                <li><strong>Eccentricity (e) is everything:</strong>
+                    <ul>
+                        <li><code class="formula">e = 1</code> → <strong>Parabola</strong> (distance to focus = distance to directrix)</li>
+                        <li><code class="formula">e < 1</code> → <strong>Ellipse</strong> (distance to focus < distance to directrix)</li>
+                        <li><code class="formula">e > 1</code> → <strong>Hyperbola</strong> (distance to focus > distance to directrix)</li>
+                    </ul>
+                </li>
+                <li><strong>Parabola:</strong> Memorize the 4 standard forms. The key is identifying the focus (a, 0) and directrix (x = -a) for <code class="formula">y² = 4ax</code>. All others are variations.</li>
+                <li><strong>Ellipse vs. Hyperbola:</strong>
+                    <ul>
+                        <li><strong>Ellipse:</strong> <code class="formula">x²/a² + y²/b² = 1</code> (a 'plus' sign). 'a' is always the <strong>larger</strong> denominator.</li>
+                        <li><strong>Hyperbola:</strong> <code class="formula">x²/a² - y²/b² = 1</code> (a 'minus' sign). 'a' is always with the <strong>positive</strong> term.</li>
+                    </ul>
+                </li>
+                <li><strong>Relationship 'c':</strong> 'c' is the distance from the center to the focus (c = ae).
+                    <ul>
+                        <li><strong>Ellipse:</strong> 'a' is the hypotenuse. <code class="formula">a² = b² + c²</code>.</li>
+                        <li><strong>Hyperbola:</strong> 'c' is the hypotenuse. <code class="formula">c² = a² + b²</code>.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics DSM 151 Unit 2 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Mathematics (MAT-DSM-151) Unit 2: Mean Value Theorems, Taylor's Theorem, Maxima/Minima, and Indeterminate Forms, based on the Assam University NEP syllabus.">
+    <meta name="keywords" content="MAT-DSM-151, Calculus, Unit 2, Rolle's Theorem, Lagrange's MVT, Cauchy's MVT, Taylor's Theorem, Maclaurin's Series, Maxima, Minima, Indeterminate Forms, L'Hopital's Rule, Assam University">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #0056b3; /* Dark Blue */
+            margin-top: 24px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            color: #003366; /* Navy Blue */
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #007bff; /* Bright Blue */
+            border-bottom: none;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code, .formula {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 1.05em;
+        }
+        blockquote {
+            background-color: #f1f8ff;
+            border-left: 5px solid #007bff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #fffaf0; /* Light yellow */
+            border: 1px solid #ffc107; /* Yellow border */
+            border-left-width: 5px;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #d9534f; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 2: Mean Value Theorems, Expansions, and Extrema</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Mean Value Theorems</a>
+                    <ul>
+                        [cite_start]<li><a href="#subtopic1_1">Rolle's Theorem [cite: 1384]</a></li>
+                        [cite_start]<li><a href="#subtopic1_2">Lagrange's Mean Value Theorem (MVT) [cite: 1384]</a></li>
+                        [cite_start]<li><a href="#subtopic1_3">Cauchy's Mean Value Theorem (CMVT) [cite: 1384]</a></li>
+                    </ul>
+                </li>
+                [cite_start]<li><a href="#topic2">Taylor's and Maclaurin's Theorems [cite: 1385]</a>
+                    <ul>
+                        <li><a href="#subtopic2_1">Taylor's Theorem (Statement)</a></li>
+                        <li><a href="#subtopic2_2">Maclaurin's Theorem and Series</a></li>
+                        [cite_start]<li><a href="#subtopic2_3">Standard Expansions [cite: 1385]</a></li>
+                    </ul>
+                </li>
+                [cite_start]<li><a href="#topic3">Maxima and Minima [cite: 1386]</a>
+                    <ul>
+                        [cite_start]<li><a href="#subtopic3_1">Necessary and Sufficient Conditions [cite: 1387]</a></li>
+                    </ul>
+                </li>
+                [cite_start]<li><a href="#topic4">Indeterminate Forms [cite: 1387, 1390, 1391, 1392]</a>
+                    <ul>
+                        <li><a href="#subtopic4_1">L'Hôpital's Rule (0/0 and ∞/∞ forms)</a></li>
+                        <li><a href="#subtopic4_2">Other Forms (0×∞, ∞ - ∞, 0⁰, 1⁰⁰, ∞⁰)</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic5">Unit 2: Exam Quick Tips</a></li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Mean Value Theorems</h2>
+        <p>Mean Value Theorems are fundamental results in calculus that connect the local behavior of a function (its derivative) to its global behavior (its values at the endpoints of an interval).</p>
+
+        [cite_start]<h3 id="subtopic1_1">Rolle's Theorem [cite: 1384]</h3>
+        <p>This is the simplest of the mean value theorems and serves as a basis for the others.</p>
+        
+        <blockquote>
+            <strong>Statement:</strong> Let <code class="formula">f(x)</code> be a function that satisfies three conditions:
+            <ol>
+                <li><code class="formula">f(x)</code> is <strong>continuous</strong> on the closed interval <code class="formula">[a, b]</code>.</li>
+                <li><code class="formula">f(x)</code> is <strong>differentiable</strong> on the open interval <code class="formula">(a, b)</code>.</li>
+                <li><code class="formula">f(a) = f(b)</code> (the values at the endpoints are equal).</li>
+            </ol>
+            Then, there exists at least one point <code class="formula">c</code> in the open interval <code class="formula">(a, b)</code> such that <strong><code class="formula">f'(c) = 0</code></strong>.
+        </blockquote>
+        <p><strong>Geometrical Meaning:</strong> If a smooth, continuous curve starts and ends at the same height, there must be at least one point between them where the tangent line is horizontal.</p>
+
+        [cite_start]<h3 id="subtopic1_2">Lagrange's Mean Value Theorem (MVT) [cite: 1384]</h3>
+        <p>This is a generalization of Rolle's Theorem. It removes the condition that <code class="formula">f(a) = f(b)</code>.</p>
+        
+        <blockquote>
+            <strong>Statement:</strong> Let <code class="formula">f(x)</code> be a function that satisfies two conditions:
+            <ol>
+                <li><code class="formula">f(x)</code> is <strong>continuous</strong> on the closed interval <code class="formula">[a, b]</code>.</li>
+                <li><code class="formula">f(x)</code> is <strong>differentiable</strong> on the open interval <code class="formula">(a, b)</code>.</li>
+            </ol>
+            Then, there exists at least one point <code class="formula">c</code> in the open interval <code class="formula">(a, b)</code> such that:
+            <br>
+            <strong><code class="formula">f'(c) = [f(b) - f(a)] / [b - a]</code></strong>
+        </blockquote>
+        <p><strong>Geometrical Meaning:</strong> The term on the right, <code class="formula">[f(b) - f(a)] / [b - a]</code>, is the slope of the **secant line** connecting the endpoints <code class="formula">(a, f(a))</code> and <code class="formula">(b, f(b))</code>. The theorem states that there must be at least one point <code class="formula">c</code> where the **tangent line** is parallel to this secant line.</p>
+
+        [cite_start]<h3 id="subtopic1_3">Cauchy's Mean Value Theorem (CMVT) [cite: 1384]</h3>
+        <p>This is a further generalization, also known as the "Extended MVT". It deals with two functions simultaneously and is used to prove L'Hôpital's Rule.</p>
+        
+        <blockquote>
+            <strong>Statement:</strong> Let <code class="formula">f(x)</code> and <code class="formula">g(x)</code> be two functions that satisfy:
+            <ol>
+                <li><code class="formula">f(x)</code> and <code class="formula">g(x)</code> are <strong>continuous</strong> on <code class="formula">[a, b]</code>.</li>
+                <li><code class="formula">f(x)</code> and <code class="formula">g(x)</code> are <strong>differentiable</strong> on <code class="formula">(a, b)</code>.</li>
+                <li><code class="formula">g'(x) ≠ 0</code> for any <code class="formula">x</code> in <code class="formula">(a, b)</code>.</li>
+            </ol>
+            Then, there exists at least one point <code class="formula">c</code> in <code class="formula">(a, b)</code> such that:
+            <br>
+            <strong><code class="formula">[f'(c)] / [g'(c)] = [f(b) - f(a)] / [g(b) - g(a)]</code></strong>
+        </blockquote>
+        <p><strong>Note:</strong> If you let <code class="formula">g(x) = x</code>, then <code class="formula">g'(x) = 1</code> and <code class="formula">g(b) - g(a) = b - a</code>. This reduces CMVT directly to Lagrange's MVT.</p>
+        
+        <hr>
+
+        [cite_start]<h2 id="topic2">Taylor's and Maclaurin's Theorems [cite: 1385]</h2>
+        <p>These theorems provide a way to approximate a complex, differentiable function near a point using a simpler polynomial.</p>
+        
+        <h3 id="subtopic2_1">Taylor's Theorem (Statement)</h3>
+        <p><strong>Statement:</strong> If a function <code class="formula">f(x)</code> is n-times differentiable at a point <code class="formula">a</code>, it can be approximated by a polynomial of degree n.</p>
+        <p>The **Taylor series expansion** of <code class="formula">f(x)</code> about the point <code class="formula">x = a</code> is:</p>
+        <blockquote>
+            <code class="formula">f(x) = f(a) + f'(a)(x-a) + [f''(a)/2!](x-a)² + [f'''(a)/3!](x-a)³ + ... + [f⁽ⁿ⁾(a)/n!](x-a)ⁿ + ...</code>
+        </blockquote>
+        <p>This is an infinite series. [cite_start]The syllabus also mentions "Taylor's theorem," which often refers to the finite form with a remainder term, but the series expansion is the primary application[cite: 1385].</p>
+
+        <h3 id="subtopic2_2">Maclaurin's Theorem and Series</h3>
+        <p>A **Maclaurin series** is just a special case of the Taylor series where the expansion is centered at the point <strong><code class="formula">a = 0</code></strong>.</p>
+        <blockquote>
+            <code class="formula">f(x) = f(0) + f'(0)x + [f''(0)/2!]x² + [f'''(0)/3!]x³ + ... + [f⁽ⁿ⁾(0)/n!]xⁿ + ...</code>
+        </blockquote>
+
+        [cite_start]<h3 id="subtopic2_3">Standard Expansions [cite: 1385]</h3>
+        <p>These are derived by applying the Maclaurin series formula and are essential to memorize.</p>
+        <ul>
+            <li><code class="formula">eˣ = 1 + x + x²/2! + x³/3! + ...</code> (for all x)</li>
+            <li><code class="formula">sin(x) = x - x³/3! + x⁵/5! - x⁷/7! + ...</code> (for all x)</li>
+            <li><code class="formula">cos(x) = 1 - x²/2! + x⁴/4! - x⁶/6! + ...</code> (for all x)</li>
+            <li><code class="formula">log(1 + x) = x - x²/2 + x³/3 - x⁴/4 + ...</code> (for -1 < x ≤ 1)</li>
+        </ul>
+        
+        <hr>
+
+        [cite_start]<h2 id="topic3">Maxima and Minima [cite: 1386]</h2>
+        <p>This is the process of finding the local "peaks" (maxima) and "valleys" (minima) of a function <code class="formula">f(x)</code> using derivatives.</p>
+        
+        [cite_start]<h3 id="subtopic3_1">Necessary and Sufficient Conditions [cite: 1387]</h3>
+        
+        <h4>Step 1: Find Critical Points (Necessary Condition)</h4>
+        <p>A <strong>critical point</strong> is a point <code class="formula">x = c</code> where the function *could* have a max or min. This occurs where the tangent is horizontal.</p>
+        <ul>
+            <li>Find the first derivative: <code class="formula">f'(x)</code>.</li>
+            <li>Set it to zero and solve for x: <strong><code class="formula">f'(x) = 0</code></strong>.</li>
+        </ul>
+        <p>The solutions <code class="formula">x = c₁, c₂, ...</code> are the critical points.</p>
+        
+        <h4>Step 2: Test the Critical Points (Sufficient Conditions)</h4>
+        <p>There are two tests to determine if a critical point <code class="formula">c</code> is a maximum, minimum, or neither.</p>
+        
+        <p><strong>A) The First Derivative Test</strong></p>
+        <ol>
+            <li>Check the sign of <code class="formula">f'(x)</code> just *before* <code class="formula">c</code> (at <code class="formula">c - h</code>) and just *after* <code class="formula">c</code> (at <code class="formula">c + h</code>).</li>
+            <li>If the sign changes from <strong>(+) to (-)</strong>: The function was increasing, then decreasing. This is a <strong>Local Maximum</strong>.</li>
+            <li>If the sign changes from <strong>(-) to (+)</strong>: The function was decreasing, then increasing. This is a <strong>Local Minimum</strong>.</li>
+            <li>If there is <strong>no sign change</strong>: It is a <strong>point of inflection</strong> (e.g., <code class="formula">f(x) = x³</code> at <code class="formula">x = 0</code>).</li>
+        </ol>
+        
+        <p><strong>B) The Second Derivative Test</strong> (Often easier)</p>
+        <ol>
+            <li>Find the second derivative: <code class="formula">f''(x)</code>.</li>
+            <li>Evaluate <code class="formula">f''(x)</code> *at* the critical point <code class="formula">c</code>.</li>
+            <li>If <strong><code class="formula">f''(c) < 0</code></strong> (Negative): The function is "concave down" (like a frown). This is a <strong>Local Maximum</strong>.</li>
+            <li>If <strong><code class="formula">f''(c) > 0</code></strong> (Positive): The function is "concave up" (like a smile). This is a <strong>Local Minimum</strong>.</li>
+            <li>If <strong><code class="formula">f''(c) = 0</code></strong>: The test is <strong>inconclusive</strong>. You must go back and use the First Derivative Test.</li>
+        </ol>
+
+        <hr>
+
+        [cite_start]<h2 id="topic4">Indeterminate Forms [cite: 1387, 1390, 1391, 1392]</h2>
+        <p>These are limits that cannot be determined by simple substitution, as they result in ambiguous forms like 0/0 or ∞/∞.</p>
+
+        <h3 id="subtopic4_1">L'Hôpital's Rule (0/0 and ∞/∞ forms)</h3>
+        <blockquote>
+            <strong>Rule:</strong> If <code class="formula">lim (x→a) f(x) / g(x)</code> results in the form <strong>0/0</strong> or <strong>∞/∞</strong>,
+            <br>
+            Then, <strong><code class="formula">lim (x→a) f(x) / g(x) = lim (x→a) f'(x) / g'(x)</code></strong>
+            <br>
+            ...provided the second limit exists.
+        </blockquote>
+        <p><strong>Example (0/0):</strong> <code class="formula">lim (x→0) sin(x) / x</code>
+        <br>
+        = <code class="formula">lim (x→0) cos(x) / 1</code> (by L'Hôpital's)
+        <br>
+        = <code class="formula">cos(0) / 1 = 1</code>
+        </p>
+
+        <h3 id="subtopic4_2">Other Forms (0×∞, ∞ - ∞, 0⁰, 1⁰⁰, ∞⁰)</h3>
+        <p>The key is to <strong>algebraically convert</strong> these forms into 0/0 or ∞/∞ so you can use L'Hôpital's Rule.</p>
+        
+        <p><strong>Form 0 × ∞:</strong> <code class="formula">lim f(x)g(x)</code> where f→0, g→∞</p>
+        <ul>
+            <li><strong>Method:</strong> Rewrite <code class="formula">f·g</code> as <code class="formula">f / (1/g)</code> (now 0/0) or <code class="formula">g / (1/f)</code> (now ∞/∞).</li>
+            <li><strong>Example:</strong> <code class="formula">lim (x→0⁺) x log(x)</code> (0 × -∞)
+            <br>= <code class="formula">lim (x→0⁺) log(x) / (1/x)</code> (now -∞/∞)
+            <br>= <code class="formula">lim (x→0⁺) (1/x) / (-1/x²)</code> (by L'Hôpital's)
+            <br>= <code class="formula">lim (x→0⁺) -x = 0</code></li>
+        </ul>
+        
+        <p><strong>Form ∞ - ∞:</strong></p>
+        <ul>
+            <li><strong>Method:</strong> Find a common denominator or use rationalization to combine the terms into a single fraction.</li>
+            <li><strong>Example:</strong> <code class="formula">lim (x→0) (1/x - 1/sin(x))</code> (∞ - ∞)
+            <br>= <code class="formula">lim (x→0) (sin(x) - x) / (x sin(x))</code> (now 0/0)
+            <br>...then apply L'Hôpital's Rule (multiple times).</li>
+        </ul>
+
+        <p><strong>Exponential Forms (0⁰, 1⁰⁰, ∞⁰):</strong></p>
+        <ul>
+            <li><strong>Method:</strong> Let <code class="formula">L</code> be the limit. Take the natural logarithm (ln) of both sides.</li>
+            <li>Let <code class="formula">y = f(x)ᵍ⁽ˣ⁾</code>. Then <code class="formula">ln(y) = g(x) ln(f(x))</code>.</li>
+            <li>This turns the limit into a <strong>0 × ∞</strong> form.</li>
+            <li><strong>Example:</strong> <code class="formula">L = lim (x→0⁺) xˣ</code> (0⁰ form)
+            <br>Let <code class="formula">y = xˣ</code>, so <code class="formula">ln(y) = x log(x)</code>
+            <br>We need to find <code class="formula">lim (x→0⁺) ln(y) = lim (x→0⁺) x log(x)</code>
+            <br>From the example above, we know this limit is <strong>0</strong>.
+            <br>So, <code class="formula">ln(L) = 0</code>.
+            <br>To find L, we exponentiate: <code class="formula">L = e⁰ = 1</code>.</li>
+        </ul>
+
+        <hr>
+
+        <h2 id="topic5">Unit 2: Exam Quick Tips</h2>
+        <div class="exam-tip">
+            <ul>
+                <li><strong>MVT Conditions:</strong> Be precise. Rolle's and Lagrange's require <strong>continuous on [a, b]</strong> (closed) and <strong>differentiable on (a, b)</strong> (open). This is a common place to lose marks.</li>
+                <li><strong>L'Hôpital's Rule:</strong> Only works for <strong>0/0</strong> and <strong>∞/∞</strong>. You *must* convert all other forms first.</li>
+                <li><strong>Exponential Limits (1⁰⁰, etc.):</strong> The method is *always*: 1. Let <code class="formula">y = f(x)ᵍ⁽ˣ⁾</code>, 2. Take <code class="formula">ln</code>, 3. Find <code class="formula">lim ln(y)</code> (which will be 0×∞ form), 4. Solve that limit (call it L*), 5. The final answer is <code class="formula">e^(L*)</code>. Do not forget the last step!</li>
+                <li><strong>Maxima/Minima:</strong> The 2nd Derivative test is fastest. <code class="formula">f'' < 0</code> (frown) is Max. <code class="formula">f'' > 0</code> (smile) is Min. If <code class="formula">f'' = 0</code>, the test fails, and you must use the 1st Derivative Test.</li>
+                <li><strong>Maclaurin Series:</strong> Memorize the expansions for <code class="formula">eˣ</code>, <code class="formula">sin(x)</code>, <code class="formula">cos(x)</code>, and <code class="formula">log(1+x)</code>.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

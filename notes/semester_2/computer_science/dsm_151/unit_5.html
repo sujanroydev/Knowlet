@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    [cite_start]<meta name="description" content="Comprehensive exam-ready notes for CSCDSM151 Programming with C, Unit 5: Input/Output, Files, and Low-Level Programming. Based on Assam University (Silchar) NEP syllabus. [cite: 229-232]">
+    <meta name="description" content="Comprehensive exam-ready notes for CSCDSM151 Programming with C, Unit 5: Input/Output, Files, and Low-Level Programming. Based on Assam University (Silchar) NEP syllabus. [cite: 229-232]">
     <meta name="keywords" content="CSCDSM151, Programming with C, Unit 5, C File Handling, fopen, fread, Bitwise Operators, Bit Fields, C Macros, Assam University, Knowlet">
     <title>Computer Science DSM 151 Unit 5 | 2nd Semester Notes - Knowlet</title>
     <link rel="stylesheet" href="../../../../assets/styles/units.css">
@@ -134,20 +134,20 @@
         <div class="toc">
             <h2>Table of Contents</h2>
             <ul>
-                <li><a href="#spap_5_1">1. [cite_start]Standard Input and Output [cite: 229, 230]</a>
+                <li><a href="#spap_5_1">1. Standard Input and Output </a>
                     <ul>
                         <li><a href="#spap_5_1_1">Formatted Output (printf)</a></li>
                         <li><a href="#spap_5_1_2">Formatted Input (scanf)</a></li>
                     </ul>
                 </li>
-                <li><a href="#spap_5_2">2. [cite_start]Data Files [cite: 231]</a>
+                <li><a href="#spap_5_2">2. Data Files </a>
                     <ul>
                         <li><a href="#spap_5_2_1">Opening and Closing Files (fopen, fclose)</a></li>
                         <li><a href="#spap_5_2_2">Processing Files (Formatted vs. Unformatted)</a></li>
                         <li><a href="#spap_5_2_3">Miscellaneous Functions</a></li>
                     </ul>
                 </li>
-                <li><a href="#spap_5_3">3. [cite_start]Low-Level Programming [cite: 232]</a>
+                <li><a href="#spap_5_3">3. Low-Level Programming </a>
                     <ul>
                         <li><a href="#spap_5_3_1">Register Variables</a></li>
                         <li><a href="#spap_5_3_2">Bitwise Operations</a></li>
@@ -155,7 +155,7 @@
                         <li><a href="#spap_5_3_4">Enumeration (enum)</a></li>
                     </ul>
                 </li>
-                <li><a href="#spap_5_4">4. [cite_start]Other Topics [cite: 232]</a>
+                <li><a href="#spap_5_4">4. Other Topics </a>
                     <ul>
                         <li><a href="#spap_5_4_1">Command Line Arguments</a></li>
                         <li><a href="#spap_5_4_2">Library Functions & Preprocessor</a></li>
@@ -164,10 +164,10 @@
             </ul>
         </div>
 
-        <h2 id="spap_5_1"><span id="spap_5_1_span">1. [cite_start]Standard Input and Output [cite: 229, 230]</span></h2>
+        <h2 id="spap_5_1"><span id="spap_5_1_span">1. Standard Input and Output </span></h2>
         <p><span id="spap_5_1_p1">This refers to I/O operations from the console (keyboard and screen), which are represented by <code>stdin</code> and <code>stdout</code>.</span></p>
         
-        [cite_start]<h3 id="spap_5_1_1"><span id="spap_5_1_1_span">Formatted Output (printf) [cite: 229]</span></h3>
+        <h3 id="spap_5_1_1"><span id="spap_5_1_1_span">Formatted Output (printf) </span></h3>
         <p><span id="spap_5_1_1_p1"><code>printf</code> ("print formatted") is used to print data to the screen. It uses <strong>format specifiers</strong> (like <code>%d</code>) to indicate how to print a variable.</span></p>
         <ul>
             <li><span id="spap_5_1_1_l1"><code>%d</code> or <code>%i</code>: Integer</span></li>
@@ -176,9 +176,9 @@
             <li><span id="spap_5_1_1_l4"><code>%s</code>: String (char array)</span></li>
             <li><span id="spap_5_1_1_l5"><code>%p</code>: Pointer (address)</span></li>
         </ul>
-        <p><span id="spap_5_1_1_p2"><code>printf</code> is a <strong>variable length argument</strong> function, meaning it can take a different number of arguments each time it's called. [cite_start]This is made possible by the <code>...</code> (ellipsis) syntax, handled by the <code><stdarg.h></code> library. [cite: 229]</span></p>
+        <p><span id="spap_5_1_1_p2"><code>printf</code> is a <strong>variable length argument</strong> function, meaning it can take a different number of arguments each time it's called. This is made possible by the <code>...</code> (ellipsis) syntax, handled by the <code><stdarg.h></code> library. </span></p>
 
-        [cite_start]<h3 id="spap_5_1_2"><span id="spap_5_1_2_span">Formatted Input (scanf) [cite: 230]</span></h3>
+        <h3 id="spap_5_1_2"><span id="spap_5_1_2_span">Formatted Input (scanf) </span></h3>
         <p><span id="spap_5_1_2_p1"><code>scanf</code> ("scan formatted") is used to read data from the keyboard. It uses the same format specifiers as <code>printf</code>.</span></p>
         <div class="common-mistake">
             <span id="spap_5_1_2_mistake1">You <strong>must</strong> pass the <strong>address</strong> (using <code>&</code>) of the variable you want to fill.
@@ -191,10 +191,10 @@ scanf("%s", name); // Correct</pre>
             </span>
         </div>
 
-        <h2 id="spap_5_2"><span id="spap_5_2_span">2. [cite_start]Data Files [cite: 231]</span></h2>
+        <h2 id="spap_5_2"><span id="spap_5_2_span">2. Data Files </span></h2>
         <p><span id="spap_5_2_p1">File handling allows your program to read from and write to files on the disk, making data persistent. All file operations use a special pointer: <code>FILE *fp;</code>.</span></p>
 
-        [cite_start]<h3 id="spap_5_2_1"><span id="spap_5_2_1_span">Opening and Closing Files (fopen, fclose) [cite: 231]</span></h3>
+        <h3 id="spap_5_2_1"><span id="spap_5_2_1_span">Opening and Closing Files (fopen, fclose) </span></h3>
         <p><span id="spap_5_2_1_p1">You must open a file before you can use it. <code>fopen()</code> returns a <code>FILE</code> pointer, or <code>NULL</code> if it fails.</span></p>
 <pre>
 FILE *fp = NULL;
@@ -218,7 +218,7 @@ fclose(fp);
             <li><span id="spap_5_2_1_l4"><code>"rb"</code>, <code>"wb"</code>, <code>"ab"</code>: Same, but for <strong>binary</strong> files.</span></li>
         </ul>
 
-        [cite_start]<h3 id="spap_5_2_2"><span id="spap_5_2_2_span">Processing Files (Formatted vs. Unformatted) [cite: 231]</span></h3>
+        <h3 id="spap_5_2_2"><span id="spap_5_2_2_span">Processing Files (Formatted vs. Unformatted) </span></h3>
         <ul>
             <li><span id="spap_5_2_2_l1"><strong>Formatted (Text) Files:</strong> Use <code>fscanf()</code> and <code>fprintf()</code>. These are just like <code>scanf</code>/<code>printf</code>, but the first argument is the <code>FILE</code> pointer.
 <pre>fprintf(fp, "Name: %s, Age: %d\n", "Ravi", 25);
@@ -237,20 +237,20 @@ fread(&s2, sizeof(struct Student), 1, fp);</pre>
             </span></li>
         </ul>
 
-        [cite_start]<h3 id="spap_5_2_3"><span id="spap_5_2_3_span">Miscellaneous Functions [cite: 231]</span></h3>
+        <h3 id="spap_5_2_3"><span id="spap_5_2_3_span">Miscellaneous Functions </span></h3>
         <ul>
             <li><span id="spap_5_2_3_l1"><code>fseek(fp, offset, whence)</code>: Moves the file pointer to a specific location.</span></li>
             <li><span id="spap_5_2_3_l2"><code>ftell(fp)</code>: Returns the current position of the file pointer.</span></li>
             <li><span id="spap_5_2_3_l3"><code>rewind(fp)</code>: Moves the file pointer back to the beginning of the file.</span></li>
         </ul>
 
-        <h2 id="spap_5_3"><span id="spap_5_3_span">3. [cite_start]Low-Level Programming [cite: 232]</span></h2>
+        <h2 id="spap_5_3"><span id="spap_5_3_span">3. Low-Level Programming </span></h2>
         <p><span id="spap_5_3_p1">This involves operations that are closer to the hardware, often manipulating individual bits.</span></p>
 
-        [cite_start]<h3 id="spap_5_3_1"><span id="spap_5_3_1_span">Register Variables [cite: 232]</span></h3>
-        <p><span id="spap_5_3_1_p1">This is a repeat from Unit 2. The <code>register</code> keyword suggests to the compiler that a variable should be stored in a CPU register for faster access. [cite_start]It's often used for loop counters, but modern compilers are smart enough to do this automatically. [cite: 232]</span></p>
+        <h3 id="spap_5_3_1"><span id="spap_5_3_1_span">Register Variables </span></h3>
+        <p><span id="spap_5_3_1_p1">This is a repeat from Unit 2. The <code>register</code> keyword suggests to the compiler that a variable should be stored in a CPU register for faster access. It's often used for loop counters, but modern compilers are smart enough to do this automatically. </span></p>
 
-        [cite_start]<h3 id="spap_5_3_2"><span id="spap_5_3_2_span">Bitwise Operations [cite: 232]</span></h3>
+        <h3 id="spap_5_3_2"><span id="spap_5_3_2_span">Bitwise Operations </span></h3>
         <p><span id="spap_5_3_2_p1">These operators work on the binary (bit) representation of integers.</span></p>
         <table>
             <tr><th>Operator</th><th>Name</th><th>Example (a=5, b=3)</th><th>Result</th></tr>
@@ -295,7 +295,7 @@ fread(&s2, sizeof(struct Student), 1, fp);</pre>
             <span id="spap_5_3_2_tip1"><strong>Uses:</strong> Setting/checking a specific bit (e.g., flags), high-speed multiplication/division by 2, encryption.</span>
         </div>
 
-        [cite_start]<h3 id="spap_5_3_3"><span id="spap_5_3_3_span">Bit Fields [cite: 232]</span></h3>
+        <h3 id="spap_5_3_3"><span id="spap_5_3_3_span">Bit Fields </span></h3>
         <p><span id="spap_5_3_3_p1">Bit fields allow you to define structure members that are only a specific number of <strong>bits</strong> wide. This is used to pack data tightly, often for hardware programming.</span></p>
 <pre>
 // This structure packs a date into 16 bits (2 bytes)
@@ -306,7 +306,7 @@ struct Date {
 };
 </pre>
 
-        [cite_start]<h3 id="spap_5_3_4"><span id="spap_5_3_4_span">Enumeration (enum) [cite: 232]</span></h3>
+        <h3 id="spap_5_3_4"><span id="spap_5_3_4_span">Enumeration (enum) </span></h3>
         <p><span id="spap_5_3_4_p1">An enumeration is a user-defined type that consists of a set of named integer constants. It makes code more readable.</span></p>
 <pre>
 // Define an enum for days of the week
@@ -326,16 +326,16 @@ int main() {
 }
 </pre>
 
-        <h2 id="spap_5_4"><span id="spap_5_4_span">4. [cite_start]Other Topics [cite: 232]</span></h2>
+        <h2 id="spap_5_4"><span id="spap_5_4_span">4. Other Topics </span></h2>
         <p><span id="spap_5_4_p1">This unit re-lists several topics from previous units, likely for reinforcement.</span></p>
         
-        [cite_start]<h3 id="spap_5_4_1"><span id="spap_5_4_1_span">Command Line Arguments [cite: 232]</span></h3>
-        <p><span id="spap_5_4_1_p1">See Unit 3 notes. [cite_start]This refers to <code>int main(int argc, char *argv[])</code> for receiving arguments when the program is executed. [cite: 232]</span></p>
+        <h3 id="spap_5_4_1"><span id="spap_5_4_1_span">Command Line Arguments </span></h3>
+        <p><span id="spap_5_4_1_p1">See Unit 3 notes. This refers to <code>int main(int argc, char *argv[])</code> for receiving arguments when the program is executed. </span></p>
 
-        [cite_start]<h3 id="spap_5_4_2"><span id="spap_5_4_2_span">Library Functions & Preprocessor [cite: 232]</span></h3>
+        <h3 id="spap_5_4_2"><span id="spap_5_4_2_span">Library Functions & Preprocessor </span></h3>
         <ul>
-            [cite_start]<li><span id="spap_5_4_2_l1"><strong>Library Functions:</strong> These are pre-written functions (like <code>printf</code>, <code>strcpy</code>, <code>fopen</code>) available in C's standard library. [cite: 232]</span></li>
-            <li><span id="spap_5_4_2_l2"><strong>Macros / The C Preprocessor:</strong> See Unit 2 notes. [cite_start]This refers to <code>#include</code> and <code>#define</code>. [cite: 232]</span></li>
+            <li><span id="spap_5_4_2_l1"><strong>Library Functions:</strong> These are pre-written functions (like <code>printf</code>, <code>strcpy</code>, <code>fopen</code>) available in C's standard library. </span></li>
+            <li><span id="spap_5_4_2_l2"><strong>Macros / The C Preprocessor:</strong> See Unit 2 notes. This refers to <code>#include</code> and <code>#define</code>. </span></li>
         </ul>
     </div>
     <script src="../../../../assets/scripts/units.js"></script>

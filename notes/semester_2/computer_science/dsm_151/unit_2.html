@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Comprehensive exam-ready notes for CSCDSM151 Programming with C, Unit 2: Functions, Program Structure, and Recursion. [cite_start]Based on Assam University (Silchar) NEP syllabus. [cite: 217-220]">
+    <meta name="description" content="Comprehensive exam-ready notes for CSCDSM151 Programming with C, Unit 2: Functions, Program Structure, and Recursion. Based on Assam University (Silchar) NEP syllabus. [cite: 217-220]">
     <meta name="keywords" content="CSCDSM151, Programming with C, Unit 2, C Functions, Storage Classes, Scope Rules, Recursion, C Preprocessor, Assam University, Knowlet">
     <title>Computer Science DSM 151 Unit 2 | 2nd Semester Notes - Knowlet</title>
     <link rel="stylesheet" href="../../../../assets/styles/units.css">
@@ -134,21 +134,21 @@
         <div class="toc">
             <h2>Table of Contents</h2>
             <ul>
-                <li><a href="#spap_2_1">1. [cite_start]Functions and Program Structure [cite: 218]</a>
+                <li><a href="#spap_2_1">1. Functions and Program Structure </a>
                     <ul>
                         <li><a href="#spap_2_1_1">Defining and Accessing Functions</a></li>
                         <li><a href="#spap_2_1_2">Function Prototypes</a></li>
                         <li><a href="#spap_2_1_3">Passing Arguments (Pass by Value)</a></li>
                     </ul>
                 </li>
-                <li><a href="#spap_2_2">2. [cite_start]Storage Classes [cite: 219]</a></li>
-                <li><a href="#spap_2_3">3. [cite_start]Scope Rules and Block Structure [cite: 219]</a></li>
-                <li><a href="#spap_2_4">4. [cite_start]Recursion in C [cite: 220]</a></li>
-                <li><a href="#spap_2_5">5. [cite_start]The C Preprocessor [cite: 220]</a></li>
+                <li><a href="#spap_2_2">2. Storage Classes </a></li>
+                <li><a href="#spap_2_3">3. Scope Rules and Block Structure </a></li>
+                <li><a href="#spap_2_4">4. Recursion in C </a></li>
+                <li><a href="#spap_2_5">5. The C Preprocessor </a></li>
             </ul>
         </div>
 
-        <h2 id="spap_2_1"><span id="spap_2_1_span">1. [cite_start]Functions and Program Structure [cite: 218]</span></h2>
+        <h2 id="spap_2_1"><span id="spap_2_1_span">1. Functions and Program Structure </span></h2>
         <p><span id="spap_2_1_p1">A function is a self-contained block of code that performs a specific task. Using functions makes code modular, reusable, and easier to debug.</span></p>
 
         <h3 id="spap_2_1_1"><span id="spap_2_1_1_span">Defining and Accessing Functions</span></h3>
@@ -176,8 +176,8 @@ int main() {
             <li><span id="spap_2_1_1_l3"><strong>Function Declaration (Prototype):</strong> See below.</span></li>
         </ul>
 
-        [cite_start]<h3 id="spap_2_1_2"><span id="spap_2_1_2_span">Function Prototypes [cite: 219]</span></h3>
-        [cite_start]<p><span id="spap_2_1_2_p1">A function prototype is a declaration that tells the compiler the function's name, return type, and the data types of its parameters. [cite: 219]</span></p>
+        <h3 id="spap_2_1_2"><span id="spap_2_1_2_span">Function Prototypes </span></h3>
+        <p><span id="spap_2_1_2_p1">A function prototype is a declaration that tells the compiler the function's name, return type, and the data types of its parameters. </span></p>
         <p><span id="spap_2_1_2_p2"><strong>Why?</strong> If you define a function *after* <code>main()</code>, the compiler won't know it exists when <code>main()</code> tries to call it. A prototype at the top of the file solves this.</span></p>
 <pre>
 #include <stdio.h>
@@ -196,10 +196,10 @@ int add(int a, int b) {
     return a + b;
 }
 </pre>
-        <p><span id="spap_2_1_2_p3">The syllabus also mentions <strong>functions returning non-integers</strong>, which is standard. [cite_start]A function can return <code>float</code>, <code>char</code>, <code>double</code>, or even <code>struct</code> and <code>void</code> (which returns nothing). [cite: 219]</span></p>
+        <p><span id="spap_2_1_2_p3">The syllabus also mentions <strong>functions returning non-integers</strong>, which is standard. A function can return <code>float</code>, <code>char</code>, <code>double</code>, or even <code>struct</code> and <code>void</code> (which returns nothing). </span></p>
 
         <h3 id="spap_2_1_3"><span id="spap_2_1_3_span">Passing Arguments (Pass by Value)</span></h3>
-        <p><span id="spap_2_1_3_p1">By default, C uses <strong>"pass by value"</strong> when passing arguments. This means a *copy* of the variable's value is sent to the function. [cite_start]The original variable in <code>main()</code> is not affected. [cite: 218]</span></p>
+        <p><span id="spap_2_1_3_p1">By default, C uses <strong>"pass by value"</strong> when passing arguments. This means a *copy* of the variable's value is sent to the function. The original variable in <code>main()</code> is not affected. </span></p>
 <pre>
 void increment(int x) {
     x = x + 1; // 'x' is a copy
@@ -217,7 +217,7 @@ int main() {
             <span id="spap_2_1_3_tip1">To modify the original variable, you must pass a <strong>pointer</strong> to it (which is covered in Unit 3).</span>
         </div>
 
-        <h2 id="spap_2_2"><span id="spap_2_2_span">2. [cite_start]Storage Classes [cite: 219]</span></h2>
+        <h2 id="spap_2_2"><span id="spap_2_2_span">2. Storage Classes </span></h2>
         <p><span id="spap_2_2_p1">Storage classes define the <strong>scope</strong> (visibility), <strong>lifetime</strong> (how long it exists), and <strong>storage location</strong> (e.g., memory, CPU register) of a variable.</span></p>
         <table>
             <tr>
@@ -268,16 +268,16 @@ int main() {
             <li><span id="spap_2_2_l4"><strong><code>register</code>:</strong> A *request* to the compiler to store the variable in a fast CPU register. The compiler can ignore this. You cannot take the address (<code>&</code>) of a register variable.</span></li>
         </ul>
 
-        <h2 id="spap_2_3"><span id="spap_2_3_span">3. [cite_start]Scope Rules and Block Structure [cite: 219]</span></h2>
+        <h2 id="spap_2_3"><span id="spap_2_3_span">3. Scope Rules and Block Structure </span></h2>
         <p><span id="spap_2_3_p1"><strong>Scope</strong> defines where a variable can be accessed.</span></p>
         <ul>
             <li><span id="spap_2_3_l1"><strong>Block Scope:</strong> A variable declared inside a block <code>{ ... }</code> is only visible within that block. This includes function bodies and inner blocks.</span></li>
             <li><span id="spap_2_3_l2"><strong>Function Scope:</strong> Only used for <code>goto</code> labels.</span></li>
             <li><span id="spap_2_3_l3"><strong>File Scope (Global):</strong> A variable declared outside of any function is global and visible to all functions in the file from the point of declaration.</span></li>
         </ul>
-        [cite_start]<p><span id="spap_2_3_p2"><strong>Header files</strong> (e.g., <code>#include <stdio.h></code>) are files containing function prototypes and definitions that are textually included in your program by the preprocessor. [cite: 219]</span></p>
+        <p><span id="spap_2_3_p2"><strong>Header files</strong> (e.g., <code>#include <stdio.h></code>) are files containing function prototypes and definitions that are textually included in your program by the preprocessor. </span></p>
 
-        <h2 id="spap_2_4"><span id="spap_2_4_span">4. [cite_start]Recursion in C [cite: 220]</span></h2>
+        <h2 id="spap_2_4"><span id="spap_2_4_span">4. Recursion in C </span></h2>
         <p><span id="spap_2_4_p1"><strong>Recursion</strong> is a process where a function calls itself. A recursive function must have two parts:</span></p>
         <ol>
             <li><span id="spap_2_4_l1"><strong>Base Case:</strong> A condition that stops the recursion (to prevent an infinite loop).</span></li>
@@ -285,7 +285,7 @@ int main() {
         </ol>
         <p><span id="spap_2_4_p2"><strong>Example: Factorial (n!)</strong></span></p>
 <pre>
-[cite_start]// Problem solving with recursion [cite: 220]
+// Problem solving with recursion 
 long factorial(int n) {
     // Base Case
     if (n == 0 || n == 1) {
@@ -301,7 +301,7 @@ long factorial(int n) {
             <strong>Common Mistake:</strong> Forgetting the base case. This will cause the function to call itself forever, leading to a <strong>"Stack Overflow"</strong> error as the program runs out of memory for function calls.
         </div>
 
-        <h2 id="spap_2_5"><span id="spap_2_5_span">5. [cite_start]The C Preprocessor [cite: 220]</span></h2>
+        <h2 id="spap_2_5"><span id="spap_2_5_span">5. The C Preprocessor </span></h2>
         <p><span id="spap_2_5_p1">The preprocessor is a program that runs *before* the compiler. It modifies the source code based on directives (commands) that start with <code>#</code>.</span></p>
         <ul>
             <li><span id="spap_2_5_l1"><strong><code>#include</code>:</strong> Pastes the content of another file (a header file) into your code.

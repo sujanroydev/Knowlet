@@ -169,7 +169,7 @@
         </div>
 
         <h2 id="topic1">Introduction to C Language</h2>
-        [cite_start]<p>The C language is a powerful, general-purpose, procedural programming language developed in the 1970s by Dennis Ritchie at Bell Labs[cite: 1833, 1836, 1847]. It is called a "middle-level" language because it combines the features of high-level languages (like Python or Java) with the low-level control of assembly language.</p>
+        <p>The C language is a powerful, general-purpose, procedural programming language developed in the 1970s by Dennis Ritchie at Bell Labs. It is called a "middle-level" language because it combines the features of high-level languages (like Python or Java) with the low-level control of assembly language.</p>
         <p><strong>Key Features:</strong></p>
         <ul>
             <li><strong>Structured:</strong> Code can be broken down into blocks and functions.</li>
@@ -179,7 +179,7 @@
         </ul>
 
         <h2 id="topic2">C Characters</h2>
-        [cite_start]<p>The C character set is the set of valid characters that can be used to write C programs[cite: 1836].</p>
+        <p>The C character set is the set of valid characters that can be used to write C programs.</p>
         <ul>
             <li><strong>Alphabets:</strong> A-Z, a-z</li>
             <li><strong>Digits:</strong> 0-9</li>
@@ -188,8 +188,8 @@
         </ul>
 
         <h2 id="topic3">Constants and Variables</h2>
-        [cite_start]<p><strong>Variables:</strong> A variable is a named location in memory used to store data. In C, every variable must be declared with a specific data type before it can be used[cite: 1836, 1837].</p>
-        [cite_start]<p><strong>Constants:</strong> Constants are fixed values that do not change during program execution[cite: 1836].</p>
+        <p><strong>Variables:</strong> A variable is a named location in memory used to store data. In C, every variable must be declared with a specific data type before it can be used.</p>
+        <p><strong>Constants:</strong> Constants are fixed values that do not change during program execution.</p>
         <p>There are two main types of constants:</p>
         <ul>
             <li><strong>Literal Constants:</strong> The value itself, e.g., <code class="formula">5</code>, <code class="formula">3.14</code>, <code class="formula">'A'</code>, <code class="formula">"Hello"</code>.</li>
@@ -202,7 +202,7 @@
         </ul>
 
         <h2 id="topic4">Declaration Statement</h2>
-        <p>A declaration statement introduces a variable to the compiler. [cite_start]It specifies the variable's <strong>data type</strong> and its <strong>name</strong>[cite: 1837].</p>
+        <p>A declaration statement introduces a variable to the compiler. It specifies the variable's <strong>data type</strong> and its <strong>name</strong>.</p>
         
         <p><strong>Syntax:</strong> <code class="formula">data_type variable_name;</code></p>
         <p><strong>Common Data Types:</strong></p>
@@ -246,7 +246,7 @@
         <p>You can also initialize at declaration: <code class="formula">int count = 0;</code></p>
 
         <h2 id="topic5">Arithmetic Expression and Statement</h2>
-        [cite_start]<p>An **expression** is a combination of variables, constants, and operators that evaluates to a single value[cite: 1836].</p>
+        <p>An **expression** is a combination of variables, constants, and operators that evaluates to a single value.</p>
         <p>A **statement** is a complete instruction to the computer, usually ending in a semicolon (`;`).</p>
         
         <p><strong>Arithmetic Operators:</strong></p>
@@ -262,7 +262,7 @@
         <strong>Example Statement:</strong> <code class="formula">area = 0.5 * base * height;</code></p>
 
         <h2 id="topic6">Assignment Statement</h2>
-        [cite_start]<p>The assignment statement uses the assignment operator (<code class="formula">=</code>) to store the value of an expression into a variable[cite: 1837].</p>
+        <p>The assignment statement uses the assignment operator (<code class="formula">=</code>) to store the value of an expression into a variable.</p>
         <p><strong>Syntax:</strong> <code class="formula">variable_name = expression;</code></p>
         <ul>
             <li>The expression on the right is evaluated first.</li>
@@ -278,7 +278,7 @@
         <p>To perform I/O, you must first include the standard input/output library: <code class="preprocessor">#include <stdio.h></code></p>
 
         <h3 id="subtopic7_1">printf() - Formatted Output</h3>
-        [cite_start]<p>The <code class="function">printf()</code> function is used to print formatted text and variable values to the console[cite: 1837].</p>
+        <p>The <code class="function">printf()</code> function is used to print formatted text and variable values to the console.</p>
         <p><strong>Syntax:</strong> <code class="formula">printf("format_string", argument1, argument2, ...);</code></p>
         <p>The <strong>format string</strong> contains plain text and <strong>format specifiers</strong>. Each specifier is a placeholder for an argument.</p>
         <ul>
@@ -296,7 +296,7 @@
         </p>
 
         <h3 id="subtopic7_2">scanf() - Formatted Input</h3>
-        [cite_start]<p>The <code class="function">scanf()</code> function is used to read formatted data from the user via the keyboard[cite: 1837].</p>
+        <p>The <code class="function">scanf()</code> function is used to read formatted data from the user via the keyboard.</p>
         <p><strong>Syntax:</strong> <code class="formula">scanf("format_string", &variable1, &variable2, ...);</code></p>
         
         <div class="exam-tip">
@@ -310,28 +310,28 @@
         </p>
 
         <h2 id="topic8">Example Program (Unit 1)</h2>
-        [cite_start]<p>This program demonstrates all concepts from Unit 1 by implementing <strong>Practical #1b</strong> (Area of a rectangle)[cite: 1857].</p>
+        <p>This program demonstrates all concepts from Unit 1 by implementing <strong>Practical #1b</strong> (Area of a rectangle).</p>
 
-[cite_start]<pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>  <span class="comment">// For printf() and scanf() [cite: 1837]</span>
+<pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>  <span class="comment">// For printf() and scanf() </span>
 
 <span class="keyword">int</span> <span class="function">main</span>() {
-    [cite_start]<span class="comment">// Declaration Statements [cite: 1837]</span>
+    <span class="comment">// Declaration Statements </span>
     <span class="keyword">float</span> length, width;
     <span class="keyword">float</span> area;
 
-    [cite_start]<span class="comment">// Input Statement (printf for prompt) [cite: 1837]</span>
+    <span class="comment">// Input Statement (printf for prompt) </span>
     <span class="function">printf</span>(<span class="string">"Enter the length of the rectangle: "</span>);
     
-    [cite_start]<span class="comment">// Input Statement (scanf to read data) [cite: 1837]</span>
+    <span class="comment">// Input Statement (scanf to read data) </span>
     <span class="function">scanf</span>(<span class="string">"%f"</span>, &length);
 
     <span class="function">printf</span>(<span class="string">"Enter the width of the rectangle: "</span>);
     <span class="function">scanf</span>(<span class="string">"%f"</span>, &width);
 
-    [cite_start]<span class="comment">// Arithmetic Expression and Assignment Statement [cite: 1836, 1837]</span>
+    <span class="comment">// Arithmetic Expression and Assignment Statement </span>
     area = length * width;
 
-    [cite_start]<span class="comment">// Output Statement [cite: 1837]</span>
+    <span class="comment">// Output Statement </span>
     <span class="function">printf</span>(<span class="string">"The area of the rectangle is: %.2f\n"</span>, area);
 
     <span class="keyword">return</span> <span class="number">0</span>;

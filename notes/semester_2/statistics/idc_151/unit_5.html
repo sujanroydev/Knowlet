@@ -130,16 +130,16 @@
 </head>
 <body>
     <div class="container">
-        [cite_start]<h1>Unit 5: Time Series-III (Estimation of Seasonal Component) [cite: 2135]</h1>
+        <h1>Unit 5: Time Series-III (Estimation of Seasonal Component) </h1>
 
         <div class="toc">
             <h2>Table of Contents</h2>
             <ul>
                 <li><a href="#intro">5.1 Introduction to Seasonal Variation</a></li>
-                [cite_start]<li><a href="#simple_average">5.2 Method of Simple Averages [cite: 2136]</a></li>
-                [cite_start]<li><a href="#ratio_to_trend">5.3 Ratio to Trend Method [cite: 2136]</a></li>
-                [cite_start]<li><a href="#ratio_to_ma">5.4 Ratio to Moving Average Method [cite: 2136]</a></li>
-                [cite_start]<li><a href="#link_relative">5.5 Link Relative Method [cite: 2136]</a></li>
+                <li><a href="#simple_average">5.2 Method of Simple Averages </a></li>
+                <li><a href="#ratio_to_trend">5.3 Ratio to Trend Method </a></li>
+                <li><a href="#ratio_to_ma">5.4 Ratio to Moving Average Method </a></li>
+                <li><a href="#link_relative">5.5 Link Relative Method </a></li>
             </ul>
         </div>
         
@@ -154,7 +154,7 @@
             For quarterly data, the sum of the four seasonal indices should be <strong>400% (or 4)</strong>. For monthly data, the sum should be <strong>1200% (or 12)</strong>.
         </div>
 
-        [cite_start]<h2 id="simple_average">5.2 Method of Simple Averages [cite: 2136]</h2>
+        <h2 id="simple_average">5.2 Method of Simple Averages </h2>
         <p>This is the easiest method, but it's only suitable if there is <strong>no significant trend (T)</strong> in the data.</p>
         
         <ol>
@@ -168,7 +168,7 @@
         </ol>
         <div class="common-mistake">This method is not accurate if a trend exists, because the trend will inflate the averages of later quarters/months.</div>
         
-        [cite_start]<h2 id="ratio_to_trend">5.3 Ratio to Trend Method [cite: 2136]</h2>
+        <h2 id="ratio_to_trend">5.3 Ratio to Trend Method </h2>
         <p>This is a more accurate method that first <strong>removes the trend (T)</strong> and then finds the seasonal component from what's left. It assumes a <strong>Multiplicative Model (Y = T × S × C × I)</strong>.</p>
         
         <ol>
@@ -184,7 +184,7 @@
             </li>
         </ol>
         
-        [cite_start]<h2 id="ratio_to_ma">5.4 Ratio to Moving Average Method [cite: 2136]</h2>
+        <h2 id="ratio_to_ma">5.4 Ratio to Moving Average Method </h2>
         <p>This is the <strong>most common and reliable</strong> method. It uses a moving average to estimate the trend, which is more flexible than a rigid straight line.</p>
         
         <ol>
@@ -204,7 +204,7 @@
             <strong>Ratio to Moving Average</strong> is generally preferred over <strong>Ratio to Trend</strong> because the moving average (CMA) is a much better, more flexible estimate of the trend+cycle than a simple straight line (Least Squares).
         </div>
         
-        [cite_start]<h2 id="link_relative">5.5 Link Relative Method [cite: 2136]</h2>
+        <h2 id="link_relative">5.5 Link Relative Method </h2>
         <p>This method calculates seasonality without first finding the trend. It is more complex and less common.</p>
         
         <ol>

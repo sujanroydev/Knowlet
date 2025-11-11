@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    [cite_start]<meta name="description" content="Comprehensive exam-ready notes for CSCDSM151 Programming with C, Unit 3: Arrays and Pointers. Based on Assam University (Silchar) NEP syllabus. [cite: 221-225]">
+    <meta name="description" content="Comprehensive exam-ready notes for CSCDSM151 Programming with C, Unit 3: Arrays and Pointers. Based on Assam University (Silchar) NEP syllabus. [cite: 221-225]">
     <meta name="keywords" content="CSCDSM151, Programming with C, Unit 3, C Arrays, C Pointers, Address Arithmetic, Pointers to Functions, Command Line Arguments, Assam University, Knowlet">
     <title>Computer Science DSM 151 Unit 3 | 2nd Semester Notes - Knowlet</title>
     <link rel="stylesheet" href="../../../../assets/styles/units.css">
@@ -134,33 +134,33 @@
         <div class="toc">
             <h2>Table of Contents</h2>
             <ul>
-                <li><a href="#spap_3_1">1. [cite_start]Arrays [cite: 222]</a>
+                <li><a href="#spap_3_1">1. Arrays </a>
                     <ul>
                         <li><a href="#spap_3_1_1">One-dimensional and Multi-dimensional Arrays</a></li>
                         <li><a href="#spap_3_1_2">Passing Arrays to Functions</a></li>
                         <li><a href="#spap_3_1_3">Arrays and Strings</a></li>
                     </ul>
                 </li>
-                <li><a href="#spap_3_2">2. [cite_start]Pointers: Introduction [cite: 223]</a>
+                <li><a href="#spap_3_2">2. Pointers: Introduction </a>
                     <ul>
                         <li><a href="#spap_3_2_1">Pointer Declaration</a></li>
                         <li><a href="#spap_3_2_2">Pointers and Function Arguments</a></li>
                     </ul>
                 </li>
-                <li><a href="#spap_3_3">3. [cite_start]Pointers and Arrays [cite: 224]</a>
+                <li><a href="#spap_3_3">3. Pointers and Arrays </a>
                     <ul>
                         <li><a href="#spap_3_3_1">Address Arithmetic</a></li>
                         <li><a href="#spap_3_3_2">Character Pointers and Functions</a></li>
                     </ul>
                 </li>
-                <li><a href="#spap_3_4">4. [cite_start]Advanced Pointers [cite: 224-225]</a>
+                <li><a href="#spap_3_4">4. Advanced Pointers [cite: 224-225]</a>
                     <ul>
                         <li><a href="#spap_3_4_1">Pointer Arrays (Arrays of Pointers)</a></li>
                         <li><a href="#spap_3_4_2">Pointers to Pointers</a></li>
                         <li><a href="#spap_3_4_3">Pointers and Multi-dimensional Arrays</a></li>
                     </ul>
                 </li>
-                <li><a href="#spap_3_5">5. [cite_start]Special Topics [cite: 225]</a>
+                <li><a href="#spap_3_5">5. Special Topics </a>
                     <ul>
                         <li><a href="#spap_3_5_1">Command Line Arguments</a></li>
                         <li><a href="#spap_3_5_2">Pointers to Functions</a></li>
@@ -169,7 +169,7 @@
             </ul>
         </div>
 
-        <h2 id="spap_3_1"><span id="spap_3_1_span">1. [cite_start]Arrays [cite: 222]</span></h2>
+        <h2 id="spap_3_1"><span id="spap_3_1_span">1. Arrays </span></h2>
         <p><span id="spap_3_1_p1">An array is a fixed-size, sequential collection of elements of the <strong>same data type</strong>. Elements are stored in contiguous memory locations.</span></p>
 
         <h3 id="spap_3_1_1"><span id="spap_3_1_1_span">One-dimensional and Multi-dimensional Arrays</span></h3>
@@ -187,7 +187,7 @@ matrix[1][2] = 5; // Access row 1, column 2</pre>
         </ul>
 
         <h3 id="spap_3_1_2"><span id="spap_3_1_2_span">Passing Arrays to Functions</span></h3>
-        <p><span id="spap_3_1_2_p1">When you pass an array to a function, you are actually passing a <strong>pointer</strong> to its first element. [cite_start]The function can modify the original array. [cite: 222]</span></p>
+        <p><span id="spap_3_1_2_p1">When you pass an array to a function, you are actually passing a <strong>pointer</strong> to its first element. The function can modify the original array. </span></p>
 <pre>
 // Both function prototypes are identical:
 void printArray(int arr[], int size);
@@ -206,14 +206,14 @@ int main() {
 </pre>
 
         <h3 id="spap_3_1_3"><span id="spap_3_1_3_span">Arrays and Strings</span></h3>
-        [cite_start]<p><span id="spap_3_1_3_p1">In C, a string is simply a <strong>one-dimensional array of <code>char</code></strong> that is terminated by a special <strong>null character (<code>'\0'</code>)</strong>. [cite: 222]</span></p>
+        <p><span id="spap_3_1_3_p1">In C, a string is simply a <strong>one-dimensional array of <code>char</code></strong> that is terminated by a special <strong>null character (<code>'\0'</code>)</strong>. </span></p>
 <pre>
 char name[] = "Hello"; // 6 bytes: 'H','e','l','l','o','\0'
 char str[10]; // Can hold a string of up to 9 chars + null
 </pre>
 
-        <h2 id="spap_3_2"><span id="spap_3_2_span">2. [cite_start]Pointers: Introduction [cite: 223]</span></h2>
-        [cite_start]<p><span id="spap_3_2_p1">A <strong>pointer</strong> is a variable whose value is the <strong>memory address</strong> of another variable. [cite: 223]</span></p>
+        <h2 id="spap_3_2"><span id="spap_3_2_span">2. Pointers: Introduction </span></h2>
+        <p><span id="spap_3_2_p1">A <strong>pointer</strong> is a variable whose value is the <strong>memory address</strong> of another variable. </span></p>
         <p><span id="spap_3_2_p2">Two key operators:</span></p>
         <ul>
             <li><span id="spap_3_2_l1"><strong><code>&</code> (Address-of operator):</strong> Gets the memory address of a variable.</span></li>
@@ -231,14 +231,14 @@ printf("%d\n", x);    // Prints 20
 </pre>
 
         <h3 id="spap_3_2_1"><span id="spap_3_2_1_span">Pointer Declaration</span></h3>
-        [cite_start]<p><span id="spap_3_2_1_p1">The data type of the pointer must match the data type of the variable it points to. [cite: 223]</span></p>
+        <p><span id="spap_3_2_1_p1">The data type of the pointer must match the data type of the variable it points to. </span></p>
 <pre>
 int *i_ptr;     // Pointer to an int
 char *c_ptr;    // Pointer to a char
 float *f_ptr;   // Pointer to a float
 </pre>
 
-        [cite_start]<h3 id="spap_3_2_2"><span id="spap_3_2_2_span">Pointers and Function Arguments [cite: 223]</span></h3>
+        <h3 id="spap_3_2_2"><span id="spap_3_2_2_span">Pointers and Function Arguments </span></h3>
         <p><span id="spap_3_2_2_p1">To modify a variable from <code>main()</code> inside another function, you must pass a pointer to it. This is called <strong>"pass by reference."</strong></span></p>
 <pre>
 // 'x_ptr' holds the address of 'num'
@@ -254,7 +254,7 @@ int main() {
 }
 </pre>
 
-        <h2 id="spap_3_3"><span id="spap_3_3_span">3. [cite_start]Pointers and Arrays [cite: 224]</span></h2>
+        <h2 id="spap_3_3"><span id="spap_3_3_span">3. Pointers and Arrays </span></h2>
         <p><span id="spap_3_3_p1">In C, pointers and arrays are very closely related. The name of an array "decays" to a pointer to its first element.</span></p>
         <blockquote><span id="spap_3_3_p2"><code>arr</code> is equivalent to <code>&arr[0]</code><br>
         <code>arr[i]</code> is equivalent to <code>*(arr + i)</code></span></blockquote>
@@ -268,11 +268,11 @@ printf("%d\n", ptr[2]); // Prints 30
 printf("%d\n", *(ptr + 2)); // Prints 30
 </pre>
 
-        [cite_start]<h3 id="spap_3_3_1"><span id="spap_3_3_1_span">Address Arithmetic [cite: 224]</span></h3>
+        <h3 id="spap_3_3_1"><span id="spap_3_3_1_span">Address Arithmetic </span></h3>
         <p><span id="spap_3_3_1_p1">When you add an integer <code>n</code> to a pointer <code>ptr</code>, the address is not incremented by <code>n</code>. It is incremented by <code>n * sizeof(*ptr)</code>.</span></p>
         <p><span id="spap_3_3_1_p2">This is why <code>ptr + 1</code> automatically points to the *next element* in an array, regardless of whether it's an <code>int</code> (4 bytes) or <code>char</code> (1 byte).</span></p>
         
-        [cite_start]<h3 id="spap_3_3_2"><span id="spap_3_3_2_span">Character Pointers and Functions [cite: 224]</span></h3>
+        <h3 id="spap_3_3_2"><span id="spap_3_3_2_span">Character Pointers and Functions </span></h3>
         <p><span id="spap_3_3_2_p1">A pointer to a <code>char</code> is often used to work with strings.</span></p>
 <pre>
 char *str = "Hello World"; // Points to a string literal
@@ -289,9 +289,9 @@ int str_length(char *s) {
 }
 </pre>
 
-        <h2 id="spap_3_4"><span id="spap_3_4_span">4. [cite_start]Advanced Pointers [cite: 224-225]</span></h2>
+        <h2 id="spap_3_4"><span id="spap_3_4_span">4. Advanced Pointers [cite: 224-225]</span></h2>
 
-        [cite_start]<h3 id="spap_3_4_1"><span id="spap_3_4_1_span">Pointer Arrays (Arrays of Pointers) [cite: 224]</span></h3>
+        <h3 id="spap_3_4_1"><span id="spap_3_4_1_span">Pointer Arrays (Arrays of Pointers) </span></h3>
         <p><span id="spap_3_4_1_p1">This is an array where each element is a pointer. This is often used to store a list of strings.</span></p>
 <pre>
 // 'names' is an array of 3 pointers to char
@@ -303,7 +303,7 @@ char *names[3] = {
 printf("%s\n", names[1]); // Prints "Bob"
 </pre>
 
-        [cite_start]<h3 id="spap_3_4_2"><span id="spap_3_4_2_span">Pointers to Pointers [cite: 224]</span></h3>
+        <h3 id="spap_3_4_2"><span id="spap_3_4_2_span">Pointers to Pointers </span></h3>
         <p><span id="spap_3_4_2_p1">A "double pointer" stores the address of *another pointer*.</span></p>
 <pre>
 int x = 10;
@@ -314,7 +314,7 @@ printf("%d\n", **pp); // Prints 10 (dereference twice)
 </pre>
         <p><span id="spap_3_4_2_p2">This is used for functions that need to modify a pointer (e.g., in dynamic memory allocation) and for <code>argv</code> in <code>main()</code>.</span></p>
 
-        [cite_start]<h3 id="spap_3_4_3"><span id="spap_3_4_3_span">Pointers and Multi-dimensional Arrays [cite: 224]</span></h3>
+        <h3 id="spap_3_4_3"><span id="spap_3_4_3_span">Pointers and Multi-dimensional Arrays </span></h3>
         <p><span id="spap_3_4_3_p1">The name of a 2D array <code>matrix</code> decays to a pointer to its first *row*. This is a "pointer to an array," not a "pointer to a pointer."</span></p>
 <pre>
 int matrix[2][3] = {{1,2,3}, {4,5,6}};
@@ -328,9 +328,9 @@ printf("%d\n", *(*(p + 1) + 2)); // Prints 6 (matrix[1][2])
             <span id="spap_3_4_3_tip1"><code>int *p[3]</code> (array of 3 pointers to int) is <strong>very different</strong> from <code>int (*p)[3]</code> (pointer to one array of 3 ints). This is a common exam question.</span>
         </div>
 
-        <h2 id="spap_3_5"><span id="spap_3_5_span">5. [cite_start]Special Topics [cite: 225]</span></h2>
+        <h2 id="spap_3_5"><span id="spap_3_5_span">5. Special Topics </span></h2>
 
-        [cite_start]<h3 id="spap_3_5_1"><span id="spap_3_5_1_span">Command Line Arguments [cite: 225]</span></h3>
+        <h3 id="spap_3_5_1"><span id="spap_3_5_1_span">Command Line Arguments </span></h3>
         <p><span id="spap_3_5_1_p1">C programs can receive arguments from the command line when executed (e.g., <code>./myprog file.txt</code>). This is handled by <code>main()</code>'s parameters.</span></p>
 <pre>
 // argc: Argument Count (number of strings)
@@ -348,7 +348,7 @@ int main(int argc, char *argv[]) {
 }
 </pre>
 
-        [cite_start]<h3 id="spap_3_5_2"><span id="spap_3_5_2_span">Pointers to Functions [cite: 225]</span></h3>
+        <h3 id="spap_3_5_2"><span id="spap_3_5_2_span">Pointers to Functions </span></h3>
         <p><span id="spap_3_5_2_p1">Just as pointers can store addresses of variables, they can also store the address of a function. This allows you to treat functions as arguments to other functions.</span></p>
 <pre>
 int add(int a, int b) { return a + b; }

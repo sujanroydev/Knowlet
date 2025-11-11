@@ -161,7 +161,7 @@
         </div>
 
         <h2 id="topic1">Simple Computer Programs</h2>
-        <p>A "simple computer program" in C typically follows a basic structure. [cite_start]It's the skeleton into which you place your logic[cite: 1839].</p>
+        <p>A "simple computer program" in C typically follows a basic structure. It's the skeleton into which you place your logic.</p>
         <p>The most basic C program ("Hello, World!") is:</p>
 <pre><code class="language-c"><span class="comment">// 1. Preprocessor Directive: Includes the Standard I/O library</span>
 <span class="preprocessor">#include &lt;stdio.h&gt;</span>
@@ -179,7 +179,7 @@
         <p>All programs in this course will be built inside this <code class="function">main() { ... }</code> block.</p>
 
         <h2 id="topic2">Relational Operators</h2>
-        <p>Relational operators are used to **compare** two values. [cite_start]They are the foundation of decision-making in C. The result of a comparison is always a Boolean value: <code class="number">1</code> (for true) or <code class="number">0</code> (for false)[cite: 1840].</p>
+        <p>Relational operators are used to **compare** two values. They are the foundation of decision-making in C. The result of a comparison is always a Boolean value: <code class="number">1</code> (for true) or <code class="number">0</code> (for false).</p>
         
         <table>
             <thead>
@@ -240,7 +240,7 @@
         </div>
 
         <h2 id="topic3">Logical Operators</h2>
-        <p>Logical operators are used to combine or invert the results of relational expressions. [cite_start]They are used to build complex logical statements[cite: 1840].</p>
+        <p>Logical operators are used to combine or invert the results of relational expressions. They are used to build complex logical statements.</p>
 
         <table>
             <thead>
@@ -274,7 +274,7 @@
         </table>
 
         <h2 id="topic4">Logical Expression and Statements</h2>
-        <p>A <strong>logical expression</strong> is any expression that evaluates to either true (1) or false (0). [cite_start]We create them by combining relational and logical operators[cite: 1840].</p>
+        <p>A <strong>logical expression</strong> is any expression that evaluates to either true (1) or false (0). We create them by combining relational and logical operators.</p>
         <p>A <strong>logical statement</strong> is a programming construct that uses a logical expression to make a decision. The most common is the <code class="keyword">if</code> statement (covered in Unit 3).</p>
         
         <h4>Examples of Logical Expressions:</h4>
@@ -306,14 +306,14 @@
     <span class="function">printf</span>(<span class="string">"Enter an integer: "</span>);
     <span class="function">scanf</span>(<span class="string">"%d"</span>, &num);
 
-    [cite_start]<span class="comment">// Relational operators [cite: 1840]</span>
+    <span class="comment">// Relational operators </span>
     is_positive = (num > <span class="number">0</span>);  <span class="comment">// Will be 1 (true) or 0 (false)</span>
     is_even = (num % <span class="number">2</span> == <span class="number">0</span>); <span class="comment">// Will be 1 (true) or 0 (false)</span>
 
     <span class="function">printf</span>(<span class="string">"Number is positive: %d\n"</span>, is_positive);
     <span class="function">printf</span>(<span class="string">"Number is even: %d\n"</span>, is_even);
 
-    [cite_start]<span class="comment">// Logical expression [cite: 1840]</span>
+    <span class="comment">// Logical expression </span>
     <span class="keyword">if</span> (is_positive && is_even) {
         <span class="function">printf</span>(<span class="string">"Result: The number is positive AND even.\n"</span>);
     } 
@@ -324,7 +324,7 @@
         <span class="function">printf</span>(<span class="string">"Result: The number is NOT positive and NOT even.\n"</span>);
     }
     
-    [cite_start]<span class="comment">// Logical NOT [cite: 1840]</span>
+    <span class="comment">// Logical NOT </span>
     <span class="keyword">if</span> (!(num == <span class="number">0</span>)) {
          <span class="function">printf</span>(<span class="string">"The number is not zero.\n"</span>);
     }

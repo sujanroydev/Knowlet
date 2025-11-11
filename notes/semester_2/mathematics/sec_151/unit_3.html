@@ -147,7 +147,7 @@
 <body>
     <div class="container">
         <h1>Unit 3: Decision Control and Loops</h1>
-        [cite_start]<p>This unit covers the core logic of C programming: how to make decisions and how to repeat actions[cite: 1841].</p>
+        <p>This unit covers the core logic of C programming: how to make decisions and how to repeat actions.</p>
 
         <div class="toc">
             <h2>Table of Contents</h2>
@@ -187,7 +187,7 @@
         <h2 id="topic1">Decision Control Structures</h2>
 
         <h3 id="subtopic1_1">if Statement</h3>
-        [cite_start]<p>The <code class="keyword">if</code> statement executes a block of code *only if* a given condition is true (non-zero)[cite: 1841].</p>
+        <p>The <code class="keyword">if</code> statement executes a block of code *only if* a given condition is true (non-zero).</p>
         <p><strong>Syntax:</strong></p>
 <pre><code class="language-c"><span class="keyword">if</span> (condition) {
     <span class="comment">// Code to execute if condition is true</span>
@@ -196,7 +196,7 @@
         <p>If there is only one statement, the braces <code class="formula">{ }</code> are optional, but it is good practice to always use them.</p>
 
         <h3 id="subtopic1_2">if-else Statement</h3>
-        [cite_start]<p>The <code class="keyword">if-else</code> statement provides an alternative block of code to execute if the condition is false (zero)[cite: 1841].</p>
+        <p>The <code class="keyword">if-else</code> statement provides an alternative block of code to execute if the condition is false (zero).</p>
         <p><strong>Syntax:</strong></p>
 <pre><code class="language-c"><span class="keyword">if</span> (condition) {
     <span class="comment">// Code to execute if condition is true</span>
@@ -215,7 +215,7 @@
 </code></pre>
         
         <h3 id="subtopic1_3">switch Statement</h3>
-        <p>The <code class="keyword">switch</code> statement is an alternative to a long if-else-if ladder. [cite_start]It checks a single integer or character variable against a list of constant values (cases)[cite: 1841].</p>
+        <p>The <code class="keyword">switch</code> statement is an alternative to a long if-else-if ladder. It checks a single integer or character variable against a list of constant values (cases).</p>
         <p><strong>Syntax:</strong></p>
 <pre><code class="language-c"><span class="keyword">switch</span> (variable) {
     <span class="keyword">case</span> value1:
@@ -239,7 +239,7 @@
         <p>Loops are used to repeat a block of code multiple times.</p>
 
         <h3 id="subtopic2_1">for Loop</h3>
-        [cite_start]<p>The <code class="keyword">for</code> loop is ideal when you know exactly how many times you want to loop (e.g., 10 times, or 'n' times)[cite: 1841].</p>
+        <p>The <code class="keyword">for</code> loop is ideal when you know exactly how many times you want to loop (e.g., 10 times, or 'n' times).</p>
         <p><strong>Syntax:</strong></p>
 <pre><code class="language-c"><span class="comment">//   (1. Initialization; 2. Condition; 4. Update)</span>
 <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;         i < <span class="number">10</span>;      i++) {
@@ -249,7 +249,7 @@
         <p><strong>Execution Order:</strong> 1 → 2 → 3 → 4 → 2 → 3 → 4 ... until 2 is false.</p>
 
         <h3 id="subtopic2_2">while Loop</h3>
-        <p>The <code class="keyword">while</code> loop is an <strong>entry-controlled</strong> loop. [cite_start]It is ideal when you don't know how many times you need to loop, but you know the condition to *stop*[cite: 1841].</p>
+        <p>The <code class="keyword">while</code> loop is an <strong>entry-controlled</strong> loop. It is ideal when you don't know how many times you need to loop, but you know the condition to *stop*.</p>
         <p>The condition is checked *before* the loop body executes.</p>
         <p><strong>Syntax:</strong></p>
 <pre><code class="language-c"><span class="keyword">int</span> i = <span class="number">0</span>; <span class="comment">// 1. Initialization</span>
@@ -261,7 +261,7 @@
         <p>If the condition is false the first time, the loop body <strong>never runs</strong>.</p>
         
         <h3 id="subtopic2_3">do-while Loop</h3>
-        <p>The <code class="keyword">do-while</code> loop is an <strong>exit-controlled</strong> loop. [cite_start]It is the only loop in C that is guaranteed to execute at least once[cite: 1841].</p>
+        <p>The <code class="keyword">do-while</code> loop is an <strong>exit-controlled</strong> loop. It is the only loop in C that is guaranteed to execute at least once.</p>
         <p>The condition is checked *after* the loop body executes.</p>
         <p><strong>Syntax:</strong></p>
 <pre><code class="language-c"><span class="keyword">int</span> i = <span class="number">0</span>; <span class="comment">// 1. Initialization</span>
@@ -274,14 +274,14 @@
         <h2 id="topic3">Loop and Switch Control</h2>
 
         <h3 id="subtopic3_1">break Statement</h3>
-        [cite_start]<p>The <code class="keyword">break</code> statement has two uses[cite: 1841]:</p>
+        <p>The <code class="keyword">break</code> statement has two uses:</p>
         <ol>
             <li>Inside a <code class="keyword">switch</code> block, it stops execution and exits the block.</li>
             <li>Inside a loop (<code class="keyword">for</code>, <code class="keyword">while</code>, <code class="keyword">do-while</code>), it immediately terminates the loop and execution continues at the next statement *after* the loop.</li>
         </ol>
 
         <h3 id="subtopic3_2">continue Statement</h3>
-        [cite_start]<p>The <code class="keyword">continue</code> statement is used only inside loops[cite: 1841].</p>
+        <p>The <code class="keyword">continue</code> statement is used only inside loops.</p>
         <p>It immediately stops the *current iteration* and sends execution back to the top of the loop to start the next iteration.</p>
         <ul>
             <li>In a <code class="keyword">for</code> loop, it jumps to the *update* statement (e.g., <code class="formula">i++</code>).</li>
@@ -298,7 +298,7 @@
 </code></pre>
         
         <h3 id="subtopic3_3">goto Statement</h3>
-        [cite_start]<p>The <code class="keyword">goto</code> statement provides an unconditional jump to a labeled statement elsewhere in the *same function*[cite: 1841].</p>
+        <p>The <code class="keyword">goto</code> statement provides an unconditional jump to a labeled statement elsewhere in the *same function*.</p>
         <p><strong>Syntax:</strong></p>
 <pre><code class="language-c"><span class="keyword">if</span> (x < <span class="number">0</span>) {
     <span class="keyword">goto</span> error_handler;
@@ -314,7 +314,7 @@ error_handler:
         
         <h2 id="topic4">Code Examples (from Practicals)</h2>
         
-        [cite_start]<h3 id="ex1">Practical #2: Leap Year (if-else) [cite: 1859]</h3>
+        <h3 id="ex1">Practical #2: Leap Year (if-else) </h3>
 <pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
 <span class="keyword">int</span> <span class="function">main</span>() {
     <span class="keyword">int</span> year;
@@ -332,7 +332,7 @@ error_handler:
 }
 </code></pre>
 
-        [cite_start]<h3 id="ex2">Practical #4: Prime Number (for loop) [cite: 1861]</h3>
+        <h3 id="ex2">Practical #4: Prime Number (for loop) </h3>
 <pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
 <span class="keyword">int</span> <span class="function">main</span>() {
     <span class="keyword">int</span> n, i, is_prime = <span class="number">1</span>; <span class="comment">// 1 means true</span>
@@ -361,7 +361,7 @@ error_handler:
 }
 </code></pre>
         
-        [cite_start]<h3 id="ex3">Practical #5: Factorial (while loop) [cite: 1862]</h3>
+        <h3 id="ex3">Practical #5: Factorial (while loop) </h3>
 <pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
 <span class="keyword">int</span> <span class="function">main</span>() {
     <span class="keyword">int</span> n;

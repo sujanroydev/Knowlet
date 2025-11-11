@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    [cite_start]<meta name="description" content="Comprehensive exam-ready notes for CSCIDC151 Programming Fundamentals with C, Unit 5: Arrays, Functions, and Pointers. Based on Assam University (Silchar) NEP syllabus. [cite: 459-461]">
+    <meta name="description" content="Comprehensive exam-ready notes for CSCIDC151 Programming Fundamentals with C, Unit 5: Arrays, Functions, and Pointers. Based on Assam University (Silchar) NEP syllabus. [cite: 459-461]">
     <meta name="keywords" content="CSCIDC151, Programming Fundamentals with C, Unit 5, C Arrays, C Functions, Recursion, C Pointers, Assam University, Knowlet">
     <title>Computer Science IDC 151 Unit 5 | 2nd Semester Notes - Knowlet</title>
     <link rel="stylesheet" href="../../../../assets/styles/units.css">
@@ -134,39 +134,39 @@
         <div class="toc">
             <h2>Table of Contents</h2>
             <ul>
-                <li><a href="#spap_5_1">1. [cite_start]Arrays [cite: 459]</a>
+                <li><a href="#spap_5_1">1. Arrays </a>
                     <ul>
-                        [cite_start]<li><a href="#spap_5_1_1">One-dimensional Arrays (Declaration, Initialization) [cite: 459]</a></li>
+                        <li><a href="#spap_5_1_1">One-dimensional Arrays (Declaration, Initialization) </a></li>
                     </ul>
                 </li>
-                <li><a href="#spap_5_2">2. [cite_start]User-defined Functions [cite: 460]</a>
+                <li><a href="#spap_5_2">2. User-defined Functions </a>
                     <ul>
-                        [cite_start]<li><a href="#spap_5_2_1">Need for Functions [cite: 460]</a></li>
-                        [cite_start]<li><a href="#spap_5_2_2">Elements of User-defined Functions [cite: 460]</a></li>
-                        [cite_start]<li><a href="#spap_5_2_3">Return Values and their Types [cite: 460]</a></li>
-                        [cite_start]<li><a href="#spap_5_2_4">Category of Functions [cite: 460]</a></li>
-                        [cite_start]<li><a href="#spap_5_2_5">Passing Arrays to Functions [cite: 460]</a></li>
-                        [cite_start]<li><a href="#spap_5_2_6">Recursion [cite: 460]</a></li>
+                        <li><a href="#spap_5_2_1">Need for Functions </a></li>
+                        <li><a href="#spap_5_2_2">Elements of User-defined Functions </a></li>
+                        <li><a href="#spap_5_2_3">Return Values and their Types </a></li>
+                        <li><a href="#spap_5_2_4">Category of Functions </a></li>
+                        <li><a href="#spap_5_2_5">Passing Arrays to Functions </a></li>
+                        <li><a href="#spap_5_2_6">Recursion </a></li>
                     </ul>
                 </li>
-                <li><a href="#spap_5_3">3. [cite_start]Pointers [cite: 461]</a>
+                <li><a href="#spap_5_3">3. Pointers </a>
                     <ul>
-                        [cite_start]<li><a href="#spap_5_3_1">Introduction to pointers in C (Basic Concepts) [cite: 461]</a></li>
+                        <li><a href="#spap_5_3_1">Introduction to pointers in C (Basic Concepts) </a></li>
                     </ul>
                 </li>
             </ul>
         </div>
 
-        <h2 id="spap_5_1"><span id="spap_5_1_span">1. [cite_start]Arrays [cite: 459]</span></h2>
+        <h2 id="spap_5_1"><span id="spap_5_1_span">1. Arrays </span></h2>
         <p><span id="spap_5_1_p1">An <strong>array</strong> is a fixed-size, sequential collection of elements of the <strong>same data type</strong>. Elements are stored in contiguous memory locations and are accessed using an index.</span></p>
 
-        [cite_start]<h3 id="spap_5_1_1"><span id="spap_5_1_1_span">One-dimensional Arrays [cite: 459]</span></h3>
+        <h3 id="spap_5_1_1"><span id="spap_5_1_1_span">One-dimensional Arrays </span></h3>
         <ul>
-            [cite_start]<li><span id="spap_5_1_1_l1"><strong>Declaration of One-dimensional Arrays:</strong> You must specify the type and size[cite: 459].
+            <li><span id="spap_5_1_1_l1"><strong>Declaration of One-dimensional Arrays:</strong> You must specify the type and size.
 <pre>int marks[30];  // Declares an array named 'marks' that can hold 30 integers
 float prices[10]; // Declares an array to hold 10 floats</pre>
             </span></li>
-            [cite_start]<li><span id="spap_5_1_1_l2"><strong>Initialization of One-dimensional Arrays:</strong> You can assign values at declaration[cite: 459].
+            <li><span id="spap_5_1_1_l2"><strong>Initialization of One-dimensional Arrays:</strong> You can assign values at declaration.
 <pre>// Size is explicitly given
 int numbers[5] = {10, 20, 30, 40, 50};
 
@@ -182,23 +182,23 @@ numbers[2] = 35;      // Changes the third element to 35</pre>
             <strong>Common Mistake:</strong> Accessing an array "out of bounds." If an array is <code>int arr[5]</code>, the valid indices are <code>0, 1, 2, 3, 4</code>. Accessing <code>arr[5]</code> is an error that C will not stop, and it will corrupt your program's memory.
         </div>
         
-        <h2 id="spap_5_2"><span id="spap_5_2_span">2. [cite_start]User-defined Functions [cite: 460]</span></h2>
+        <h2 id="spap_5_2"><span id="spap_5_2_span">2. User-defined Functions </span></h2>
         <p><span id="spap_5_2_p1">A function is a self-contained block of code that performs a specific task. You have used built-in functions like <code>printf</code>; C also lets you create your own.</span></p>
 
-        [cite_start]<h3 id="spap_5_2_1"><span id="spap_5_2_1_span">Need for Functions [cite: 460]</span></h3>
+        <h3 id="spap_5_2_1"><span id="spap_5_2_1_span">Need for Functions </span></h3>
         <ul>
             <li><span id="spap_5_2_1_l1"><strong>Modularity:</strong> Breaks a large, complex program into smaller, manageable pieces.</span></li>
             <li><span id="spap_5_2_1_l2"><strong>Reusability:</strong> You can write a function once (e.g., <code>calculateAverage()</code>) and call it many times from different places.</span></li>
             <li><span id="spap_5_2_1_l3"><strong>Readability & Debugging:</strong> Makes code easier to read and understand. It's easier to fix a bug inside one small function than in one giant <code>main()</code>.</span></li>
         </ul>
 
-        [cite_start]<h3 id="spap_5_2_2"><span id="spap_5_2_2_span">Elements of User-defined Functions [cite: 460]</span></h3>
+        <h3 id="spap_5_2_2"><span id="spap_5_2_2_span">Elements of User-defined Functions </span></h3>
         <p><span id="spap_5_2_2_p1">A function has three parts:</span></p>
         <ol>
-            [cite_start]<li><span id="spap_5_2_2_l1"><strong>Function Declaration (Prototype):</strong> [cite: 460] Tells the compiler the function's name, return type, and parameters. It's placed at the top of the file.
+            <li><span id="spap_5_2_2_l1"><strong>Function Declaration (Prototype):</strong>  Tells the compiler the function's name, return type, and parameters. It's placed at the top of the file.
 <pre>int add(int a, int b); // This is a function prototype</pre>
             </span></li>
-            [cite_start]<li><span id="spap_5_2_2_l2"><strong>Function Definition:</strong> [cite: 460] This is the actual code for the function.
+            <li><span id="spap_5_2_2_l2"><strong>Function Definition:</strong>  This is the actual code for the function.
 <pre>
 int add(int a, int b) { // Function header
     // Function body
@@ -206,7 +206,7 @@ int add(int a, int b) { // Function header
     return sum;
 }</pre>
             </span></li>
-            [cite_start]<li><span id="spap_5_2_2_l3"><strong>Function Call:</strong> [cite: 460] This is how you execute the function from <code>main()</code> or another function.
+            <li><span id="spap_5_2_2_l3"><strong>Function Call:</strong>  This is how you execute the function from <code>main()</code> or another function.
 <pre>
 int main() {
     int result = add(5, 10); // This is a function call
@@ -215,32 +215,32 @@ int main() {
             </span></li>
         </ol>
 
-        [cite_start]<h3 id="spap_5_2_3"><span id="spap_5_2_3_span">Return Values and their Types [cite: 460]</span></h3>
-        [cite_start]<p><span id="spap_5_2_3_p1">A function can send a single value back to the code that called it using the <code>return</code> keyword[cite: 460].</span></p>
+        <h3 id="spap_5_2_3"><span id="spap_5_2_3_span">Return Values and their Types </span></h3>
+        <p><span id="spap_5_2_3_p1">A function can send a single value back to the code that called it using the <code>return</code> keyword.</span></p>
         <ul>
             <li><span id="spap_5_2_3_l1">The <code>return type</code> (e.g., <code>int</code>, <code>float</code>) must match the value being returned.</span></li>
-            [cite_start]<li><span id="spap_5_2_3_l2">A function with a <code>void</code> return type does not return any value[cite: 460].</span></li>
+            <li><span id="spap_5_2_3_l2">A function with a <code>void</code> return type does not return any value.</span></li>
         </ul>
 
-        [cite_start]<h3 id="spap_5_2_4"><span id="spap_5_2_4_span">Category of Functions [cite: 460]</span></h3>
+        <h3 id="spap_5_2_4"><span id="spap_5_2_4_span">Category of Functions </span></h3>
         <p><span id="spap_5_2_4_p1">Functions can be categorized based on whether they take arguments (input) or return a value (output).</span></p>
         <ol>
-            [cite_start]<li><span id="spap_5_2_4_l1"><strong>No Arguments and No Return Values:</strong> [cite: 460] Good for printing menus or fixed messages.
+            <li><span id="spap_5_2_4_l1"><strong>No Arguments and No Return Values:</strong>  Good for printing menus or fixed messages.
 <pre>void printHello() {
     printf("Hello!");
 }</pre>
             </span></li>
-            [cite_start]<li><span id="spap_5_2_4_l2"><strong>Arguments but No Return Values:</strong> [cite: 460] Takes data in but doesn't send a result back.
+            <li><span id="spap_5_2_4_l2"><strong>Arguments but No Return Values:</strong>  Takes data in but doesn't send a result back.
 <pre>void printNumber(int n) {
     printf("The number is %d", n);
 }</pre>
             </span></li>
-            [cite_start]<li><span id="spap_5_2_4_l3"><strong>Arguments with Return Values:</strong> [cite: 460] The most common type. Takes data, processes it, and returns the result.
+            <li><span id="spap_5_2_4_l3"><strong>Arguments with Return Values:</strong>  The most common type. Takes data, processes it, and returns the result.
 <pre>int add(int a, int b) {
     return a + b;
 }</pre>
             </span></li>
-            [cite_start]<li><span id="spap_5_2_4_l4"><strong>No Arguments but Returns a Value:</strong> [cite: 460] Good for getting input from the user.
+            <li><span id="spap_5_2_4_l4"><strong>No Arguments but Returns a Value:</strong>  Good for getting input from the user.
 <pre>int getAge() {
     int age;
     printf("Enter age: ");
@@ -250,7 +250,7 @@ int main() {
             </span></li>
         </ol>
 
-        [cite_start]<h3 id="spap_5_2_5"><span id="spap_5_2_5_span">Passing Arrays to Functions [cite: 460]</span></h3>
+        <h3 id="spap_5_2_5"><span id="spap_5_2_5_span">Passing Arrays to Functions </span></h3>
         <p><span id="spap_5_2_5_p1">When you pass an array to a function, C does <strong>not</strong> create a copy. Instead, it passes a <strong>pointer</strong> (the address) to the first element.</span></p>
         <p><span id="spap_5_2_5_p2"><strong>This means the function can modify the original array in <code>main()</code>.</strong></span></p>
 <pre>
@@ -269,8 +269,8 @@ int main() {
 }
 </pre>
 
-        [cite_start]<h3 id="spap_5_2_6"><span id="spap_5_2_6_span">Recursion [cite: 460]</span></h3>
-        [cite_start]<p><span id="spap_5_2_6_p1"><strong>Recursion</strong> is a process where a function calls itself, either directly or indirectly[cite: 460]. It's a powerful alternative to loops for solving problems that can be broken into smaller, similar sub-problems.</span></p>
+        <h3 id="spap_5_2_6"><span id="spap_5_2_6_span">Recursion </span></h3>
+        <p><span id="spap_5_2_6_p1"><strong>Recursion</strong> is a process where a function calls itself, either directly or indirectly. It's a powerful alternative to loops for solving problems that can be broken into smaller, similar sub-problems.</span></p>
         <p><span id="spap_5_2_6_p2">A recursive function must have:</span></p>
         <ol>
             <li><span id="spap_5_2_6_l1"><strong>Base Case:</strong> A condition that stops the recursion.</span></li>
@@ -290,10 +290,10 @@ long factorial(int n) {
             <strong>Common Mistake:</strong> Forgetting the base case. This will cause the function to call itself forever, leading to a <strong>"Stack Overflow"</strong> error as the program runs out of memory.
         </div>
         
-        <h2 id="spap_5_3"><span id="spap_5_3_span">3. [cite_start]Pointers [cite: 461]</span></h2>
+        <h2 id="spap_5_3"><span id="spap_5_3_span">3. Pointers </span></h2>
 
-        [cite_start]<h3 id="spap_5_3_1"><span id="spap_5_3_1_span">Introduction to pointers in C (Basic Concepts) [cite: 461]</span></h3>
-        [cite_start]<p><span id="spap_5_3_1_p1">A <strong>pointer</strong> is a special variable that stores the <strong>memory address</strong> of another variable[cite: 461].</span></p>
+        <h3 id="spap_5_3_1"><span id="spap_5_3_1_span">Introduction to pointers in C (Basic Concepts) </span></h3>
+        <p><span id="spap_5_3_1_p1">A <strong>pointer</strong> is a special variable that stores the <strong>memory address</strong> of another variable.</span></p>
         
         <p><span id="spap_5_3_1_p2">There are two key pointer operators:</span></p>
         <ul>

@@ -147,7 +147,7 @@
 <body>
     <div class="container">
         <h1>Unit 4: Functions</h1>
-        <p>A <strong>function</strong> is a self-contained block of code that performs a specific task. [cite_start]Functions are the building blocks of C programs, allowing for modularity (breaking code into small pieces) and reusability (using the same code multiple times)[cite: 1843].</p>
+        <p>A <strong>function</strong> is a self-contained block of code that performs a specific task. Functions are the building blocks of C programs, allowing for modularity (breaking code into small pieces) and reusability (using the same code multiple times).</p>
 
         <div class="toc">
             <h2>Table of Contents</h2>
@@ -179,7 +179,7 @@
         <h2 id="topic1">Defining a Function</h2>
         
         <h3 id="subtopic1_1">Function Components</h3>
-        [cite_start]<p>A function definition has four main parts[cite: 1843]:</p>
+        <p>A function definition has four main parts:</p>
         <ol>
             <li><strong>Return Type:</strong> The data type of the value the function sends back (e.g., <code class="keyword">int</code>, <code class="keyword">float</code>, or <code class="keyword">void</code> if it returns nothing).</li>
             <li><strong>Function Name:</strong> A unique name to identify the function (e.g., <code class="function">addNumbers</code>).</li>
@@ -213,14 +213,14 @@
 </code></pre>
 
         <h2 id="topic2">Function Prototypes</h2>
-        <p>A function prototype (or declaration) is a single line that tells the compiler about a function *before* it is defined. [cite_start]It must appear before the function is first called (usually at the top of the file, before <code class="function">main()</code>)[cite: 1843].</p>
+        <p>A function prototype (or declaration) is a single line that tells the compiler about a function *before* it is defined. It must appear before the function is first called (usually at the top of the file, before <code class="function">main()</code>).</p>
         <p><strong>Why?</strong> The C compiler reads code from top to bottom. If you call a function before it's defined, the compiler doesn't know what it is and gives an error.</p>
         <p><strong>Syntax:</strong> <code class="formula">return_type function_name(data_type1, data_type2, ...);</code>
         <br>(Note the semicolon at the end and the lack of variable names, though names are optional).</p>
         
 <pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
 
-[cite_start]<span class="comment">// Function Prototype [cite: 1843]</span>
+<span class="comment">// Function Prototype </span>
 <span class="keyword">int</span> <span class="function">add</span>(<span class="keyword">int</span>, <span class="keyword">int</span>);
 
 <span class="keyword">int</span> <span class="function">main</span>() {
@@ -230,14 +230,14 @@
     <span class="keyword">return</span> <span class="number">0</span>;
 }
 
-[cite_start]<span class="comment">// Function Definition (can now be placed after main) [cite: 1843]</span>
+<span class="comment">// Function Definition (can now be placed after main) </span>
 <span class="keyword">int</span> <span class="function">add</span>(<span class="keyword">int</span> a, <span class="keyword">int</span> b) {
     <span class="keyword">return</span> a + b;
 }
 </code></pre>
 
         <h2 id="topic3">Passing Arguments to a Function</h2>
-        [cite_start]<p>This describes how data is sent *into* a function[cite: 1843]. C has two methods:</p>
+        <p>This describes how data is sent *into* a function. C has two methods:</p>
 
         <h3 id="subtopic3_1">Pass by Value (The Default)</h3>
         <p>This is the default method in C. A <strong>copy</strong> of the argument's value is passed to the function.
@@ -297,7 +297,7 @@
         <br><code class="formula">After swap_by_reference: x = 20, y = 10</code> (Succeeded)
         </p>
         
-        [cite_start]<h3 id="ex2">Practical #5b: Factorial using a Recursive Function [cite: 1863]</h3>
+        <h3 id="ex2">Practical #5b: Factorial using a Recursive Function </h3>
         <p><strong>Recursion</strong> is a special case of a function call where a function calls *itself*. It must have a <strong>base case</strong> to stop the recursion.</p>
 <pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
 

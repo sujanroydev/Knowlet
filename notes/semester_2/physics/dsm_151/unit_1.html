@@ -124,16 +124,16 @@
         <div id="toc">
             <h3>Table of Contents</h3>
             <ul>
-                <li><a href="#vectors">1. [cite_start]Vectors [cite: 1344]</a></li>
-                <li><a href="#vector-calc">2. [cite_start]Introduction to Vector Calculus [cite: 1345]</a></li>
-                <li><a href="#vector-int">3. [cite_start]Vector Integration [cite: 1345]</a></li>
-                <li><a href="#ode">4. [cite_start]Ordinary Differential Equations (ODE) [cite: 1346]</a></li>
+                <li><a href="#vectors">1. Vectors </a></li>
+                <li><a href="#vector-calc">2. Introduction to Vector Calculus </a></li>
+                <li><a href="#vector-int">3. Vector Integration </a></li>
+                <li><a href="#ode">4. Ordinary Differential Equations (ODE) </a></li>
             </ul>
         </div>
 
-        <h2 id="vectors">1. [cite_start]Vectors [cite: 1344]</h2>
+        <h2 id="vectors">1. Vectors </h2>
         
-        [cite_start]<h3>Dot (Scalar) Product [cite: 1344]</h3>
+        <h3>Dot (Scalar) Product </h3>
         <p>The dot product of two vectors <strong>A</strong> and <strong>B</strong> is a scalar quantity. It is defined as:</p>
         <blockquote><strong>Definition:</strong> <strong>A</strong> ⋅ <strong>B</strong> = |A| |B| cos(θ)</blockquote>
         <p>Where |A| and |B| are the magnitudes of the vectors and θ is the angle between them.</p>
@@ -142,7 +142,7 @@
         
         <h4>Properties:</h4>
         <ul>
-            [cite_start]<li><strong>Commutative:</strong> <strong>A</strong> ⋅ <strong>B</strong> = <strong>B</strong> ⋅ <strong>A</strong> [cite: 1344]</li>
+            <li><strong>Commutative:</strong> <strong>A</strong> ⋅ <strong>B</strong> = <strong>B</strong> ⋅ <strong>A</strong> </li>
             <li><strong>Distributive:</strong> <strong>A</strong> ⋅ (<strong>B</strong> + <strong>C</strong>) = <strong>A</strong> ⋅ <strong>B</strong> + <strong>A</strong> ⋅ <strong>C</strong></li>
             <li>If <strong>A</strong> ⊥ <strong>B</strong> (orthogonal), then θ = 90° and <strong>A</strong> ⋅ <strong>B</strong> = 0.</li>
             <li>If <strong>A</strong> || <strong>B</strong> (parallel), then θ = 0° and <strong>A</strong> ⋅ <strong>B</strong> = |A| |B|.</li>
@@ -150,7 +150,7 @@
         </ul>
         <p><strong>Physical Example:</strong> Work done (W) by a constant force <strong>F</strong> over a displacement <strong>d</strong> is W = <strong>F</strong> ⋅ <strong>d</strong>.</p>
 
-        [cite_start]<h3>Cross (Vector) Product [cite: 1344]</h3>
+        <h3>Cross (Vector) Product </h3>
         <p>The cross product of two vectors <strong>A</strong> and <strong>B</strong> is a new vector that is perpendicular to both <strong>A</strong> and <strong>B</strong>.</p>
         <p>Its magnitude is:</p>
         <blockquote><strong>Magnitude:</strong> |<strong>A</strong> × <strong>B</strong>| = |A| |B| sin(θ)</blockquote>
@@ -165,14 +165,14 @@
         
         <h4>Properties:</h4>
         <ul>
-            [cite_start]<li><strong>Anti-commutative:</strong> <strong>A</strong> × <strong>B</strong> = - (<strong>B</strong> × <strong>A</strong>) [cite: 1344]</li>
+            <li><strong>Anti-commutative:</strong> <strong>A</strong> × <strong>B</strong> = - (<strong>B</strong> × <strong>A</strong>) </li>
             <li><strong>Distributive:</strong> <strong>A</strong> × (<strong>B</strong> + <strong>C</strong>) = <strong>A</strong> × <strong>B</strong> + <strong>A</strong> × <strong>C</strong></li>
             <li>If <strong>A</strong> || <strong>B</strong> (parallel), then θ = 0° and <strong>A</strong> × <strong>B</strong> = <strong>0</strong>.</li>
             <li><strong>Self-product:</strong> <strong>A</strong> × <strong>A</strong> = <strong>0</strong>.</li>
         </ul>
         <p><strong>Physical Example:</strong> Torque (<strong>τ</strong>) due to a force <strong>F</strong> applied at a position <strong>r</strong> from the pivot is <strong>τ</strong> = <strong>r</strong> × <strong>F</strong>.</p>
 
-        [cite_start]<h3>Scalar and Vector Triple Products [cite: 1344]</h3>
+        <h3>Scalar and Vector Triple Products </h3>
         
         <h4>1. Scalar Triple Product</h4>
         <p>This product results in a scalar. It is defined as:</p>
@@ -200,25 +200,25 @@
             <p>(<strong>A</strong> × <strong>B</strong>) × <strong>C</strong> = -<strong>C</strong> × (<strong>A</strong> × <strong>B</strong>) = -[<strong>A</strong>(<strong>C</strong> ⋅ <strong>B</strong>) - <strong>B</strong>(<strong>C</strong> ⋅ <strong>A</strong>)] = <strong>B</strong>(<strong>A</strong> ⋅ <strong>C</strong>) - <strong>A</strong>(<strong>B</strong> ⋅ <strong>C</strong>)</p>
         </div>
         
-        <h2 id="vector-calc">2. [cite_start]Introduction to Vector Calculus [cite: 1345]</h2>
+        <h2 id="vector-calc">2. Introduction to Vector Calculus </h2>
         <p>We introduce the vector differential operator <strong>Del (∇)</strong>:</p>
         <blockquote><strong>Del Operator:</strong> ∇ = <strong>i</strong>(∂/∂x) + <strong>j</strong>(∂/∂y) + <strong>k</strong>(∂/∂z)</blockquote>
         <p>This operator can act on scalar fields (like temperature, T(x,y,z)) and vector fields (like electric field, <strong>E</strong>(x,y,z)).</p>
 
-        [cite_start]<h3>Gradient (grad) [cite: 1345]</h3>
+        <h3>Gradient (grad) </h3>
         <p>The gradient acts on a <strong>scalar field (f)</strong> and produces a <strong>vector field</strong>.</p>
         <blockquote><strong>Definition:</strong> grad(f) = ∇f = <strong>i</strong>(∂f/∂x) + <strong>j</strong>(∂f/∂y) + <strong>k</strong>(∂f/∂z)</blockquote>
-        [cite_start]<p><strong>Physical Significance:</strong> [cite: 1345]</p>
+        <p><strong>Physical Significance:</strong> </p>
         <ul>
             <li>The vector ∇f points in the direction of the <strong>steepest increase</strong> of the scalar f.</li>
             <li>The magnitude |∇f| is the rate of that maximum increase.</li>
             <li><strong>Example:</strong> If T(x,y,z) is a temperature field, ∇T is a vector pointing towards the hottest direction. The electrostatic field is the negative gradient of the electric potential: <strong>E</strong> = -∇V.</li>
         </ul>
 
-        [cite_start]<h3>Divergence (div) [cite: 1345]</h3>
+        <h3>Divergence (div) </h3>
         <p>The divergence acts on a <strong>vector field (V)</strong> and produces a <strong>scalar field</strong>. It is the dot product of ∇ and <strong>V</strong>.</p>
         <blockquote><strong>Definition:</strong> div(<strong>V</strong>) = ∇ ⋅ <strong>V</strong> = (∂V<sub>x</sub>/∂x) + (∂V<sub>y</sub>/∂y) + (∂V<sub>z</sub>/∂z)</blockquote>
-        [cite_start]<p><strong>Physical Significance:</strong> [cite: 1345]</p>
+        <p><strong>Physical Significance:</strong> </p>
         <ul>
             <li>Divergence measures how much a vector field is "spreading out" or "diverging" from a point.</li>
             <li>If ∇ ⋅ <strong>V</strong> > 0, the point is a <strong>source</strong>.</li>
@@ -227,7 +227,7 @@
             <li><strong>Example:</strong> In fluid flow, ∇ ⋅ <strong>v</strong> (where <strong>v</strong> is velocity) measures the rate at which fluid is expanding from a point.</li>
         </ul>
         
-        [cite_start]<h3>Curl (curl) [cite: 1345]</h3>
+        <h3>Curl (curl) </h3>
         <p>The curl acts on a <strong>vector field (V)</strong> and produces another <strong>vector field</strong>. It is the cross product of ∇ and <strong>V</strong>.</p>
         <blockquote>
             <strong>Definition:</strong> curl(<strong>V</strong>) = ∇ × <strong>V</strong> = 
@@ -235,16 +235,16 @@
             | ∂/∂x &nbsp;&nbsp;&nbsp; ∂/∂y &nbsp;&nbsp;&nbsp; ∂/∂z | <br>
             | V<sub>x</sub> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; V<sub>y</sub> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; V<sub>z</sub> |
         </blockquote>
-        [cite_start]<p><strong>Physical Significance:</strong> [cite: 1345]</p>
+        <p><strong>Physical Significance:</strong> </p>
         <ul>
             <li>Curl measures the "circulation" or "rotation" of a vector field at a point.</li>
             <li>If ∇ × <strong>V</strong> = <strong>0</strong>, the field is <strong>irrotational</strong> or <strong>conservative</strong> (like an electrostatic field, ∇ × <strong>E</strong> = 0).</li>
             <li><strong>Example:</strong> In fluid flow, ∇ × <strong>v</strong> represents the vorticity (how a paddlewheel would spin at that point). A magnetic field curls around a current: ∇ × <strong>B</strong> = μ₀<strong>J</strong>.</li>
         </ul>
         
-        <h2 id="vector-int">3. [cite_start]Vector Integration [cite: 1345]</h2>
+        <h2 id="vector-int">3. Vector Integration </h2>
         
-        [cite_start]<h3>Line, Surface, and Volume Integrals [cite: 1345]</h3>
+        <h3>Line, Surface, and Volume Integrals </h3>
         <ul>
             <li><strong>Line Integral:</strong> Integrates a vector field <strong>V</strong> along a path <em>C</em>.
                 <p><strong>Formula:</strong> ∫<sub>C</sub> <strong>V</strong> ⋅ d<strong>l</strong></p>
@@ -260,21 +260,21 @@
             </li>
         </ul>
         
-        [cite_start]<h3>Gauss-Divergence Theorem (Statement Only) [cite: 1345]</h3>
+        <h3>Gauss-Divergence Theorem (Statement Only) </h3>
         <p>This theorem relates a <strong>volume integral</strong> of the divergence of a vector field to a <strong>closed surface integral</strong> of the flux of that field.</p>
         <blockquote><strong>Theorem Statement:</strong> The flux of a vector field <strong>V</strong> through a closed surface <em>S</em> is equal to the volume integral of the divergence of <strong>V</strong> over the volume <em>τ</em> enclosed by that surface.
         <p><strong>Formula:</strong> ∮∮<sub>S</sub> <strong>V</strong> ⋅ d<strong>S</strong> = ∫∫∫<sub>τ</sub> (∇ ⋅ <strong>V</strong>) dτ</p>
         </blockquote>
         <p><strong>Physical Meaning:</strong> The total "stuff" flowing out of a closed surface (left side) is equal to the sum of all the "sources" inside that volume (right side).</p>
-        [cite_start]<h3>Stoke's Theorem (Statement Only) [cite: 1345]</h3>
+        <h3>Stoke's Theorem (Statement Only) </h3>
         <p>This theorem relates an <strong>open surface integral</strong> of the curl of a vector field to a <strong>closed line integral</strong> of that field around the boundary of the surface.</p>
         <blockquote><strong>Theorem Statement:</strong> The line integral (circulation) of a vector field <strong>V</strong> around a closed loop <em>C</em> is equal to the surface integral of the curl of <strong>V</strong> over any open surface <em>S</em> bounded by that loop.
         <p><strong>Formula:</strong> ∮<sub>C</sub> <strong>V</strong> ⋅ d<strong>l</strong> = ∫∫<sub>S</sub> (∇ × <strong>V</strong>) ⋅ d<strong>S</strong></p>
         </blockquote>
         <p><strong>Physical Meaning:</strong> The total "rotation" of a field over a surface (right side) is equal to the "circulation" of the field around the edge of that surface (left side).</p>
-        <h2 id="ode">4. [cite_start]Ordinary Differential Equations (ODE) [cite: 1346]</h2>
+        <h2 id="ode">4. Ordinary Differential Equations (ODE) </h2>
         
-        [cite_start]<h3>1st Order Homogeneous Differential Equations [cite: 1346]</h3>
+        <h3>1st Order Homogeneous Differential Equations </h3>
         <p>A homogeneous ODE of the first order can be written in the form:</p>
         <p>dy/dx = f(y/x)</p>
         <p><strong>How to Solve (Separation of Variables):</strong></p>
@@ -288,7 +288,7 @@
             <li>Solve the integral for v, and then substitute back <strong>v = y/x</strong> to get the final solution for y.</li>
         </ol>
         
-        [cite_start]<h3>2nd Order Homogeneous Differential Equations with Constant Coefficients [cite: 1346]</h3>
+        <h3>2nd Order Homogeneous Differential Equations with Constant Coefficients </h3>
         <p>This is a very common type of equation in physics (e.g., in Simple Harmonic Motion). The general form is:</p>
         <blockquote><strong>General Form:</strong> a(d²y/dx²) + b(dy/dx) + cy = 0</blockquote>
         <p>Where a, b, and c are constants.</p>

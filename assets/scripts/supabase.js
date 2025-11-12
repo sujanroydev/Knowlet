@@ -13,16 +13,17 @@ function buildUI() {
         <!-- Rating row -->
         <div style="margin:14px 0;" class="card">
           <div class="row" style="justify-content:space-between;">
-            <div>
-              <div class="muted">Your rating</div>
-              <div class="rating-widget" style="margin-top:8px;">
+            
+            <div class="rating-widget" style="margin-top:8px; flex-direction:column; align-items:flex-start;">
+              <div style="display:flex; gap:6px; align-items:center;">
                 <div id="star-input" class="stars" aria-label="Rate 1 to 5 stars" role="radiogroup">
                   <!-- stars added by JS -->
                 </div>
-    
-                <button id="submit-rating-btn" class="btn" style="margin-left:6px;">Submit</button>
-                <button id="clear-rating" class="btn ghost" style="margin-left:6px;">Clear</button>
+                <button id="submit-rating-btn" class="btn">Submit</button>
+                <button id="clear-rating" class="btn ghost">Clear</button>
               </div>
+            
+              <textarea id="rating-message" placeholder="Write a message (optional)..." style="margin-top:10px; width:95%; min-height:60px; padding:10px; border-radius:8px; border:1px solid var(--border); font-size:14px;"></textarea>
             </div>
     
             <div style="text-align:right;">
@@ -76,10 +77,8 @@ const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 let selectedRating = 0;    // user's chosen star (1..5)
 let hoverRating = 0;       // hover preview
 
-//const pageId = window.location.pathname;
-const pageId = window.location.href + ''
-//const pageId = 'pageId'
-//alert(pageId)
+const pageId = (window.location.href + '').replace('.html', '')
+console.log(pageId)
 
 const STAR_SVG = `
   <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -315,7 +314,8 @@ async function submitRating() {
     alert("Choose 1–5 stars first.");
     return;
   }
-  const msg = ""; // optionally can prompt for message, currently left blank
+  //const msg = ""; // optionally can prompt for message, currently left blank
+  const msg = document.getElementById("rating-message").value.trim();
   try {
     const { error } = await supabase.from("ratings").insert({
       page_id: pageId,
@@ -331,6 +331,7 @@ async function submitRating() {
     // reset selection and refresh
     selectedRating = 0; hoverRating = 0;
     updateStarVis();
+    document.getElementById("rating-message").value = "";
     await loadRatings();
   } catch (e) {
     console.error(e);

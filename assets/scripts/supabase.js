@@ -2,16 +2,16 @@ function buildUI() {
   const app = document.getElementById("app");
 
   app.innerHTML = `
-    <div class="container">
-      <div class="card">
-        <h1>Comments & Ratings</h1>
-        <h2>Star Rating, Average, and Clean UI</h2>
+    <div class="supcontainer">
+      <div class="supcard">
+        <h1 style='font-size:20px; margin:0 0 8px;'>Comments & Ratings</h1>
+        <h2 id='h3' style='font-size:16px; margin:0 0 14px; color:69707a;'>Star Rating, Average, and Clean UI</h2>
     
         <!-- Hidden page id (change value if embedding) -->
         <input type="hidden" id="page-id" value="simple_test_page">
     
         <!-- Rating row -->
-        <div style="margin:14px 0;" class="card">
+        <div style="margin:14px 0;" class="supcard">
           <div class="row" style="justify-content:space-between;">
             
             <div class="rating-widget" style="margin-top:8px; flex-direction:column; align-items:flex-start;">
@@ -40,7 +40,7 @@ function buildUI() {
         </div>
     
         <!-- Add comment -->
-        <div class="card comment-area">
+        <div class="supcard comment-area">
           <div class="muted">Post a comment</div>
           <textarea id="comment-input" placeholder="Write a comment..."></textarea>
           <div style="margin-top:10px; display:flex; gap:10px; justify-content:flex-end">
@@ -49,14 +49,14 @@ function buildUI() {
         </div>
     
         <!-- Ratings list -->
-        <div class="card">
-          <h2 style="margin-bottom:8px;">Ratings</h2>
+        <div class="supcard">
+          <h2 id='h3' style="margin-bottom:8px; font-size:16px; margin:0 0 14px; color:69707a;">Ratings</h2>
           <div id="ratings-box"></div>
         </div>
     
         <!-- Comments list -->
-        <div class="card">
-          <h2 style="margin-bottom:8px;">Comments</h2>
+        <div class="supcard">
+          <h2 id='h3' style="margin-bottom:8px; font-size:16px; margin:0 0 14px; color:69707a;">Comments</h2>
           <div id="comments-box"></div>
         </div>
       </div>

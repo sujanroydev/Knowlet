@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botany DSC 202 Unit 1 | 3rd Semester Notes - Knowlet</title>
+    <meta name="description" content="Detailed notes for Botany DSC 202: Genetics, Molecular Biology and Plant Breeding, Unit 1: Mendelian Genetics and Extra Chromosomal Inheritance. Covers Mendel's laws, epistasis, polygenic inheritance, kappa particles, and chloroplast mutations for Assam University NEP syllabus.">
+    <meta name="keywords" content="Botany DSC 202, Unit 1, Mendelian Genetics, Extra Chromosomal Inheritance, Epistasis, Polygenic Inheritance, Kappa Particles, Plastid Inheritance, rII Locus, Assam University, NEP Syllabus">
+    
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <link rel="stylesheet" href="../../../../assets/styles/supabase.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #16a085;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #16a085;
+            margin-top: 30px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 20px;
+        }
+        p, ul, ol {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            padding-left: 30px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        strong {
+            color: #c0392b; /* Emphasize key terms */
+        }
+        em {
+            color: #2980b9;
+            font-style: italic;
+        }
+        blockquote {
+            background: #ecf0f1;
+            border-left: 5px solid #16a085;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #555;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #16a085;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background: #ecf9f7;
+            border: 1px solid #b2dfd7;
+            padding: 15px 25px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            border-bottom: none;
+            color: #117a65;
+            margin-top: 0;
+        }
+        .toc ul {
+            padding-left: 20px;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .exam-tip strong {
+            color: #d46b08;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DSC 202: Genetics, Molecular Biology and Plant Breeding - Unit 1: Mendelian Genetics and Extra Chromosomal Inheritance</h1>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#topic1">Mendelism: History and Principles of Inheritance</a>
+                    <ul>
+                        <li><a href="#sub1_1">Law of Dominance</a></li>
+                        <li><a href="#sub1_2">Law of Segregation</a></li>
+                        <li><a href="#sub1_3">Law of Independent Assortment</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic2">Probability and Pedigree Analysis</a></li>
+                <li><a href="#topic3">Extensions of Mendelian Genetics (Non-Mendelian Inheritance)</a>
+                    <ul>
+                        <li><a href="#sub3_1">Incomplete Dominance and Co-dominance</a></li>
+                        <li><a href="#sub3_2">Multiple Alleles</a></li>
+                        <li><a href="#sub3_3">Lethal Alleles</a></li>
+                        <li><a href="#sub3_4">Epistasis</a></li>
+                        <li><a href="#sub3_5">Pleiotropy</a></li>
+                        <li><a href="#sub3_6">Penetrance and Expressivity</a></li>
+                        <li><a href="#sub3_7">Polygenic Inheritance</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic4">Numericals (Problem Solving)</a></li>
+                <li><a href="#topic5">Concept of the Gene</a>
+                    <ul>
+                        <li><a href="#sub5_1">Classical vs. Molecular Concept</a></li>
+                        <li><a href="#sub5_2">Structure of Phage T4, rII Locus</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic6">Extra Chromosomal Inheritance (Cytoplasmic Inheritance)</a>
+                    <ul>
+                        <li><a href="#sub6_1">Chloroplast Mutation (Plastid Inheritance)</a></li>
+                        <li><a href="#sub6_2">Mitochondrial Mutations in Yeast</a></li>
+                        <li><a href="#sub6_3">Kappa Particles in <i>Paramecium</i></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h2 id="topic1">Mendelism: History and Principles of Inheritance</h2>
+        <p><strong>History:</strong> Gregor Mendel, an Augustinian monk, conducted breeding experiments on garden peas (<i>Pisum sativum</i>) in the mid-19th century. He published his work "Experiments on Plant Hybridization" in 1866, but it was ignored until 1900, when it was rediscovered by Hugo de Vries, Carl Correns, and Erich von Tschermak. Mendel's work laid the foundation for the science of genetics.</p>
+        
+        <p>Mendel's success was due to his choice of organism (pea plants), his focus on 7 distinct, contrasting traits, his quantitative approach (counting progeny), and his formulation of testable hypotheses.</p>
+
+        <h3>Mendel's Principles of Inheritance:</h3>
+        
+        <h3 id="sub1_1">1. Law of Dominance</h3>
+        <ul>
+            <li>When two homozygous individuals with contrasting traits are crossed (e.g., Tall, TT x Dwarf, tt), the offspring in the F1 generation will be heterozygous (Tt) and will express only one of the traits.</li>
+            <li>The trait that is expressed (Tall) is called <strong>dominant</strong>.</li>
+            <li>The trait that is suppressed (dwarf) is called <strong>recessive</strong>.</li>
+        </ul>
+
+        <h3 id="sub1_2">2. Law of Segregation</h3>
+        <ul>
+            <li>This is Mendel's first law. It states that during gamete formation (meiosis), the two alleles for a heritable character (e.g., T and t) <strong>segregate</strong> (separate) from each other, so that each gamete ends up with only one allele.</li>
+            <li>This law explains the <strong>3:1 phenotypic ratio</strong> seen in the F2 generation of a monohybrid cross.</li>
+            <li>(TT x tt) -> F1 (Tt) -> F2 (1 TT : 2 Tt : 1 tt) -> Phenotype: 3 Tall : 1 Dwarf</li>
+        </ul>
+
+        <h3 id="sub1_3">3. Law of Independent Assortment</h3>
+        <ul>
+            <li>This is Mendel's second law. It states that alleles of two (or more) different genes get sorted into gametes <strong>independently</strong> of one another.</li>
+            <li>In other words, the allele a gamete receives for one gene (e.g., seed shape) does not influence the allele it receives for another gene (e.g., seed color).</li>
+            <li>This law applies to genes on different chromosomes (or far apart on the same chromosome).</li>
+            <li>It explains the <strong>9:3:3:1 phenotypic ratio</strong> seen in the F2 generation of a dihybrid cross.</li>
+        </ul>
+
+        <h2 id="topic2">Probability and Pedigree Analysis</h2>
+        <h3>Probability</h3>
+        <p>Mendelian genetics follows the rules of probability.</p>
+        <ul>
+            <li><strong>Rule of Multiplication (Product Rule):</strong> The probability of two or more independent events occurring together is the product of their individual probabilities.
+                <ul><li><em>Example:</em> In a Tt x Tt cross, the probability of getting TT offspring is P(T) * P(T) = (1/2) * (1/2) = 1/4.</li></ul>
+            </li>
+            <li><strong>Rule of Addition (Sum Rule):</strong> The probability of any one of two or more mutually exclusive events occurring is the sum of their individual probabilities.
+                <ul><li><em>Example:</em> In a Tt x Tt cross, the probability of getting a heterozygous (Tt) offspring is P(T from father AND t from mother) + P(t from father AND T from mother) = (1/4) + (1/4) = 1/2.</li></ul>
+            </li>
+        </ul>
+
+        <h3>Pedigree Analysis</h3>
+        <p>A <strong>pedigree</strong> is a family tree diagram that shows the inheritance of a trait over several generations. It is used to study human genetics, as humans cannot be experimentally crossed.</p>
+        <ul>
+            <li><strong>Symbols:</strong> Squares = males, Circles = females. Shaded = affected, Unshaded = unaffected.</li>
+            <li><strong>Patterns of Inheritance:</strong>
+                <ul>
+                    <li><strong>Autosomal Dominant:</strong> Trait appears in every generation; affected individuals transmit to ~50% of children.</li>
+                    <li><strong>Autosomal Recessive:</strong> Trait can "skip" generations; affected individuals can be born to unaffected (heterozygous) parents.</li>
+                    <li><strong>X-Linked Recessive:</strong> Far more common in males. Affected sons are usually born to unaffected mothers (carriers).</li>
+                </ul>
+            </li>
+        </ul>
+        <h2 id="topic3">Extensions of Mendelian Genetics (Non-Mendelian Inheritance)</h2>
+        <p>These are inheritance patterns that modify or "break" Mendel's simple ratios.</p>
+
+        <h3 id="sub3_1">1. Incomplete Dominance and Co-dominance</h3>
+        <ul>
+            <li><strong>Incomplete Dominance:</strong> The heterozygous phenotype is an <strong>intermediate</strong> (or blend) of the two homozygous phenotypes.
+                <ul><li><em>Example:</em> Snapdragon flowers. (RR) Red x (rr) White -> F1 (Rr) <strong>Pink</strong>.</li></ul>
+            </li>
+            <li><strong>Co-dominance:</strong> Both alleles are <strong>equally and fully expressed</strong> in the heterozygote.
+                <ul><li><em>Example:</em> Human ABO blood group. Alleles $I^A$ and $I^B$ are co-dominant. A person with genotype $I^A I^B$ has type AB blood, expressing both A and B antigens.</li></ul>
+            </li>
+        </ul>
+
+        <h3 id="sub3_2">2. Multiple Alleles</h3>
+        <p>When a gene exists in more than two allelic forms in a population (e.g., $I^A$, $I^B$, and $i$ for the ABO blood group). Any individual still only has two alleles, but there are many more possible combinations in the population.</p>
+
+        <h3 id="sub3_3">3. Lethal Alleles</h3>
+        <p>An allele that causes the death of the organism, often in early development. This modifies the phenotypic ratios.</p>
+        <ul>
+            <li><em>Example:</em> Manx cats (tailless). The Manx allele (M) is dominant for taillessness but recessive for lethality. (Mm) Manx x (Mm) Manx -> 1 (MM) Embryonic lethal : 2 (Mm) Manx : 1 (mm) Tailed. The observed ratio among live births is <strong>2 Manx : 1 Tailed</strong>.</li>
+        </ul>
+
+        <h3 id="sub3_4">4. Epistasis</h3>
+        <p>When the expression of one gene is masked or modified by the expression of one or more other genes (at a different locus).</p>
+        <ul>
+            <li><em>Example:</em> Coat color in Labrador retrievers. One gene (B/b) controls pigment color (Black > brown). Another gene (E/e) controls pigment deposition. If a dog is <strong>ee</strong> (recessive epistasis), it will be <strong>yellow</strong> regardless of its B/b genotype, as no pigment can be deposited. This gives a <strong>9 Black : 3 Brown : 4 Yellow</strong> ratio.</li>
+        </ul>
+
+        <h3 id="sub3_5">5. Pleiotropy</h3>
+        <p>When a <strong>single gene</strong> influences <strong>multiple, seemingly unrelated phenotypic traits</strong>.</p>
+        <ul>
+            <li><em>Example:</em> Phenylketonuria (PKU). A single gene defect in an enzyme leads to mental retardation, light skin, and eczema, all at the same time.</li>
+        </ul>
+
+        <h3 id="sub3_6">6. Penetrance and Expressivity</h3>
+        <ul>
+            <li><strong>Penetrance:</strong> The percentage of individuals in a population with a given genotype who actually express the corresponding phenotype. If 10% of people with a dominant "disease" allele show no symptoms, the penetrance is 90%.</li>
+            <li><strong>Expressivity:</strong> The <em>degree</em> to which a genotype is expressed as a phenotype. Individuals with the same genotype can show a range of phenotypes, from mild to severe.</li>
+        </ul>
+
+        <h3 id="sub3_7">7. Polygenic Inheritance</h3>
+        <p>When a single trait (like human height, skin color, or crop yield) is controlled by <strong>multiple genes</strong>, each with a small, additive effect. This results in a <strong>continuous variation</strong> (a bell-shaped curve) rather than distinct categories.</p>
+
+        <h2 id="topic4">Numericals (Problem Solving)</h2>
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> Be prepared to solve problems involving monohybrid, dihybrid, and test crosses, as well as problems on epistasis (which often result in modified 9:3:3:1 ratios like 9:7, 9:3:4, 12:3:1, etc.).
+            <ul>
+                <li><strong>Monohybrid Cross (3:1):</strong> Tt x Tt</li>
+                <li><strong>Dihybrid Cross (9:3:3:1):</strong> YyRr x YyRr</li>
+                <li><strong>Test Cross:</strong> Crossing an unknown dominant phenotype (e.g., T_) with a homozygous recessive (tt) to determine the unknown genotype.
+                    <ul>
+                        <li>If T_ is TT: TT x tt -> All Tt (All Tall)</li>
+                        <li>If T_ is Tt: Tt x tt -> 1 Tt : 1 tt (1 Tall : 1 Dwarf)</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h2 id="topic5">Concept of the Gene</h2>
+        
+        <h3 id="sub5_1">Classical vs. Molecular Concept</h3>
+        <ul>
+            <li><strong>Classical Concept (Mendel):</strong> A gene is a "particulate factor" or "unit of inheritance" that controls a single trait. It is an abstract entity, defined by its phenotypic effect.</li>
+            <li><strong>Molecular Concept:</strong> A gene is a specific <strong>sequence of nucleotides (DNA)</strong> that codes for a functional product, either a polypeptide (protein) or a functional RNA molecule (like tRNA or rRNA).</li>
+        </ul>
+        
+        <h3 id="sub5_2">Structure of Phage T4, rII Locus</h3>
+        <p>This experiment, by Seymour Benzer, was critical for bridging the classical and molecular concepts. It showed that the "gene" was not an indivisible "bead on a string" but a linear, subdivisible structure.</p>
+        <ul>
+            <li><strong>Organism:</strong> Bacteriophage T4, a virus that infects *E. coli*.</li>
+            <li><strong>Locus:</strong> The <strong>rII locus</strong>, a region of the phage's DNA. Mutations in this region (rII mutants) can infect *E. coli* B but <em>cannot</em> infect *E. coli* K. Wild-type (rII+) can infect both.</li>
+            <li><strong>Benzer's Experiment:</strong>
+                <ol>
+                    <li>He collected thousands of rII mutants.</li>
+                    <li>He performed <strong>complementation tests</strong> by co-infecting *E. coli* K with two different rII mutants. If the bacteria lysed (died), it meant the two mutants "complemented" each other and were in different genes (cistrons). He found the rII locus consisted of two cistrons: <strong>rIIA</strong> and <strong>rIIB</strong>.</li>
+                    <li>He then performed <strong>recombination tests</strong> by co-infecting *E. coli* B (permissive host) with two mutants from the <em>same</em> cistron, and then plating the progeny on *E. coli* K (non-permissive host). Only wild-type recombinants could grow.</li>
+                    <li>By counting the rare recombinants, he was able to <strong>map the fine structure</strong> of the rII locus, showing that mutations (<strong>mutons</strong>) were point locations on a linear map, and recombination (<strong>recons</strong>) could occur <em>within</em> a single gene (cistron).</li>
+                </ol>
+            </li>
+            <li><strong>Conclusion:</strong> The gene (cistron) is a unit of function, but the units of mutation (muton) and recombination (recon) are smaller, potentially as small as a single nucleotide pair.</li>
+        </ul>
+
+        <h2 id="topic6">Extra Chromosomal Inheritance (Cytoplasmic Inheritance)</h2>
+        <p>This is inheritance controlled by genes located <em>outside</em> the nucleus, in the cytoplasm. The primary sources are <strong>mitochondria</strong> and <strong>chloroplasts</strong>, which have their own small, circular DNA (cpDNA and mtDNA).</p>
+        
+        <p><strong>Key Feature:</strong> This type of inheritance is almost always <strong>uniparental</strong> and <strong>maternal</strong>. This is because the zygote receives the vast majority of its cytoplasm (including all its mitochondria and chloroplasts) from the <strong>egg cell</strong>. The sperm contributes only its nucleus.</p>
+
+        <h3 id="sub6_1">Chloroplast Mutation (Plastid Inheritance)</h3>
+        <ul>
+            <li><strong>Organism:</strong> <i>Mirabilis jalapa</i> (Four o'clock plant) or *Primula* (Primrose).</li>
+            <li><strong>Phenotype:</strong> Leaf variegation (patches of green, white, and variegated).
+                <ul>
+                    <li>Green branches have normal chloroplasts.</li>
+                    <li>White branches have mutant (leucoplast) chloroplasts, unable to photosynthesize.</li>
+                    <li>Variegated branches have a mix of both.</li>
+                </ul>
+            </li>
+            <li><strong>Inheritance:</strong> The phenotype of the offspring is determined <strong>solely by the branch from which the egg (ovule) came</strong>, and not by the pollen.
+                <ul>
+                    <li>Flower on Green branch (egg) x Pollen from White branch -> Offspring are <strong>all Green</strong>.</li>
+                    <li>Flower on White branch (egg) x Pollen from Green branch -> Offspring are <strong>all White</strong> (and die).</li>
+                    <li>Flower on Variegated branch (egg) -> Offspring are a mix of Green, White, and Variegated.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3 id="sub6_2">Mitochondrial Mutations in Yeast</h3>
+        <ul>
+            <li><strong>Organism:</strong> <i>Saccharomyces cerevisiae</i> (Yeast).</li>
+            <li><strong>Phenotype:</strong> "Petite" mutants. These grow as small colonies because their mitochondria are defective, and they cannot perform aerobic respiration (they rely on less efficient fermentation).</li>
+            <li><strong>Inheritance:</strong> When a normal yeast (Grande) is crossed with a petite mutant, the inheritance pattern depends on the <em>type</em> of petite:
+                <ul>
+                    <li><strong>Segregational Petite:</strong> Caused by a <em>nuclear</em> gene mutation. Follows Mendel's laws (2 Grande : 2 Petite after meiosis).</li>
+                    <li><strong>Neutral Petite:</strong> Caused by a <em>mitochondrial</em> DNA (mtDNA) mutation. When crossed with Grande, the resulting offspring are <strong>all Grande</strong>. The normal mitochondria from the Grande parent "take over" the cytoplasm.</li>
+                    <li><strong>Suppressive Petite:</strong> A different mtDNA mutation. When crossed with Grande, <strong>all offspring are Petite</strong>. The mutant mtDNA is "suppressive" and dominates the normal mitochondria.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3 id="sub6_3">Kappa Particles in <i>Paramecium</i></h3>
+        <ul>
+            <li><strong>Organism:</strong> <i>Paramecium aurelia</i>.</li>
+            <li><strong>Phenotype:</strong> "Killer" vs. "Sensitive" strains. Killer strains release a toxin (paramecin) that kills sensitive strains.</li>
+            <li><strong>Mechanism:</strong> The Killer phenotype requires two things:
+                <ol>
+                    <li>A dominant <strong>nuclear gene (K)</strong>.</li>
+                    <li>The presence of <strong>Kappa particles</strong> in the cytoplasm. (Kappa particles are now known to be symbiotic bacteria).</li>
+                </ol>
+            </li>
+            <li><strong>Inheritance:</strong>
+                <ul>
+                    <li>A (KK) Killer strain has the K gene and Kappa particles.</li>
+                    <li>A (kk) Sensitive strain has the k gene and no Kappa particles.</li>
+                </ul>
+            </li>
+            <li><strong>During Conjugation (brief exchange of nuclei):</strong> Both ex-conjugants become (Kk), but the sensitive cell remains sensitive because it did t receive any cytoplasm (and thus no Kappa particles). The nuclear gene (K) is necessary, but not sufficient.</li>
+            <li><strong>During Conjugation (with cytoplasmic bridge):</strong> If cytoplasm is exchanged, the sensitive (kk) cell becomes (Kk) and also receives Kappa particles, transforming it into a Killer. This shows that the phenotype is dependent on a cytoplasmic factor.</li>
+        </ul>
+
+    </div>
+    <div id="app"></div>
+    <script src="../../../../assets/scripts/units.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/supabase.js"></script>
+</body>
+</html>

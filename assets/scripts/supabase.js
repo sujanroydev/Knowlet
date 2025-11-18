@@ -25,7 +25,7 @@ function buildUI() {
             
               <textarea id="rating-message" placeholder="Write a message (optional)..." style="margin-top:10px; width:95%; min-height:60px; padding:10px; border-radius:8px; border:1px solid var(--border); font-size:14px;"></textarea>
             </div>
-    
+            
             <div style="text-align:right;">
               <div class="muted">Average rating</div>
               <div style="margin-top:8px;" class="rating-summary">

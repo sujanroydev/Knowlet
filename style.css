@@ -316,3 +316,94 @@ section {
     0% { transform: translateX(0); }
     100% { transform: translateX(-100%); }
 }
+/* ------------------------------
+   FAQ Section
+------------------------------ */
+#faq {
+  background: #ffffff;
+  padding: 3rem 1rem;
+}
+
+#faq h2 {
+  text-align: center;
+  color: #1e3a8a;
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.faq-item {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  margin: 0.8rem auto;
+  max-width: 800px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faq-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 5px 12px rgba(0,0,0,0.10);
+}
+
+.faq-item h3 {
+  font-size: 1.1rem;
+  color: #1e3a8a;
+  margin-bottom: 0.3rem;
+}
+
+.faq-item p {
+  color: #444;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+/* ------------------------------
+   Contact CTA Section
+------------------------------ */
+#contact-cta {
+  background: #eef3fc;
+  text-align: center;
+  padding: 3rem 1rem;
+  border-top: 1px solid #d6e1f7;
+}
+
+#contact-cta h2 {
+  color: #1e3a8a;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+#contact-cta p {
+  max-width: 650px;
+  margin: 0 auto 1.5rem;
+  color: #444;
+  font-size: 0.98rem;
+}
+
+.cta-button {
+  display: inline-block;
+  background: #3b82f6;
+  color: #fff;
+  padding: 0.8rem 1.6rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.3s ease, box-shadow 0.2s ease;
+}
+
+.cta-button:hover {
+  background: #1e40af;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .faq-item {
+    padding: 1rem 1rem;
+  }
+  
+  #contact-cta h2 {
+    font-size: 1.3rem;
+  }
+}

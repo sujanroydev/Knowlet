@@ -266,26 +266,13 @@
         <h3>Creating and customizing various types of plots</h3>
         <ul>
             <li><strong>Histograms:</strong> For visualizing the distribution of a single continuous variable.
-                <div class="formula">hist(my_data$age)</div>
-            </li>
-            <li><strong>Bar charts:</strong> For visualizing the frequency of a single categorical variable.
-                <div class="formula">
-                gender_counts <- table(my_data$gender)
+                <div class="formula">hist(my_dataage)</div> </li> <li><strong>Bar charts:</strong> For visualizing the frequency of a single categorical variable. <div class="formula"> gender<sub>c</sub>ounts <- table(my<sub>d</sub>atagender)
                 <br>
                 barplot(gender_counts)
                 </div>
             </li>
             <li><strong>Box plots (Box-and-Whisker):</strong> For visualizing the "five-number summary" (min, Q1, median, Q3, max) and identifying outliers.
-                <div class="formula">boxplot(my_data$salary)</div>
-            </li>
-            <li><strong>Pie charts:</strong> For visualizing proportions. (Note: Pie charts are generally discouraged by statisticians as bar charts are easier to read).
-                <div class="formula">pie(gender_counts)</div>
-            </li>
-            <li><strong>Frequency polygons and curves:</strong> A histogram shows bars; a frequency polygon shows the same information as a line. A frequency curve is a smoothed version (a density plot).
-                <div class="formula">
-                # For a density curve (frequency curve)
-                <br>
-                plot(density(my_data$age))
+                <div class="formula">boxplot(my_datasalary)</div> </li> <li><strong>Pie charts:</strong> For visualizing proportions. (Note: Pie charts are generally discouraged by statisticians as bar charts are easier to read). <div class="formula">pie(gender<sub>c</sub>ounts)</div> </li> <li><strong>Frequency polygons and curves:</strong> A histogram shows bars; a frequency polygon shows the same information as a line. A frequency curve is a smoothed version (a density plot). <div class="formula"> # For a density curve (frequency curve) <br> plot(density(my<sub>d</sub>ataage))
                 </div>
             </li>
         </ul>
@@ -293,7 +280,7 @@
         <h3>Adding labels, titles, and legends to plots</h3>
         <p>You can add these as arguments directly inside the <code>plot()</code> command:</p>
         <div class="formula">
-        plot(my_data$x, my_data$y,
+        plot(my_datax, my<sub>d</sub>atay,
         <br>
         &nbsp;&nbsp;main = "My Plot Title",        # Main title
         <br>
@@ -313,23 +300,10 @@
         <p>You can save a plot to a file (like PNG, PDF, or JPEG) in two steps:</p>
         <ol>
             <li><strong>Open a graphics device:</strong> e.g., <code>png("my_plot.png")</code></li>
-            <li><strong>Create your plot:</strong> e.g., <code>hist(my_data$age)</code></li>
-            <li><strong>Close the device:</strong> <code>dev.off()</code> (This saves the file).</li>
-        </ol>
-        
-        <h2 id="unit3">Unit 3: Descriptive Statistics in R (Part 1)</h2>
-        
-        <h3>Measures of central tendency</h3>
-        <ul>
-            <li><strong>Mean:</strong>
-                <div class="formula">mean(my_data$salary, na.rm = TRUE)</div>
+            <li><strong>Create your plot:</strong> e.g., <code>hist(my_dataage)</code></li> <li><strong>Close the device:</strong> <code>dev.off()</code> (This saves the file).</li> </ol> <h2 id="unit3">Unit 3: Descriptive Statistics in R (Part 1)</h2> <h3>Measures of central tendency</h3> <ul> <li><strong>Mean:</strong> <div class="formula">mean(my<sub>d</sub>atasalary, na.rm = TRUE)</div>
             </li>
             <li><strong>Median:</strong>
-                <div class="formula">median(my_data$salary, na.rm = TRUE)</div>
-            </li>
-            <li><strong>Mode:</strong> R has no built-in <code>mode()</code> function. You must find it using <code>table()</code>.
-                <div class="formula">
-                counts <- table(my_data$category)
+                <div class="formula">median(my_datasalary, na.rm = TRUE)</div> </li> <li><strong>Mode:</strong> R has no built-in <code>mode()</code> function. You must find it using <code>table()</code>. <div class="formula"> counts <- table(my<sub>d</sub>atacategory)
                 <br>
                 mode_value <- names(counts)[which.max(counts)]
                 </div>
@@ -357,37 +331,14 @@
         <h3>Measures of dispersion</h3>
         <ul>
             <li><strong>Range:</strong>
-                <div class="formula">range(my_data$salary) # Returns (min, max)</div>
-            </li>
-            <li><strong>Variance:</strong>
-                <div class="formula">var(my_data$salary, na.rm = TRUE)</div>
+                <div class="formula">range(my_datasalary) # Returns (min, max)</div> </li> <li><strong>Variance:</strong> <div class="formula">var(my<sub>d</sub>atasalary, na.rm = TRUE)</div>
             </li>
             <li><strong>Standard deviation:</strong>
-                <div class="formula">sd(my_data$salary, na.rm = TRUE)</div>
-            </li>
-        </ul>
-        
-        <h3>Coefficient of variation (C.V.)</h3>
-        <p>A relative measure of dispersion, useful for comparing variability of datasets with different means. C.V. = (SD / Mean) * 100.</p>
-        <div class="formula">
-        cv <- (sd(my_data$salary) / mean(my_data$salary)) * 100
-        </div>
-        
-        <h3>Percentiles and quartiles</h3>
-        <p>The <code>quantile()</code> function is very powerful.</p>
-        <div class="formula">
-        # Get quartiles (0%, 25%, 50%, 75%, 100%)
-        <br>
-        quantile(my_data$salary)
+                <div class="formula">sd(my_datasalary, na.rm = TRUE)</div> </li> </ul> <h3>Coefficient of variation (C.V.)</h3> <p>A relative measure of dispersion, useful for comparing variability of datasets with different means. C.V. = (SD / Mean) * 100.</p> <div class="formula"> cv <- (sd(my<sub>d</sub>atasalary) / mean(my_datasalary)) * 100 </div> <h3>Percentiles and quartiles</h3> <p>The <code>quantile()</code> function is very powerful.</p> <div class="formula"> # Get quartiles (0%, 25%, 50%, 75%, 100%) <br> quantile(my<sub>d</sub>atasalary)
         <br>
         # Get the 90th percentile
         <br>
-        quantile(my_data$salary, probs = 0.90)
-        </div>
-        
-        <h3>Interquartile range (IQR)</h3>
-        <p>The distance between the 75th (Q3) and 25th (Q1) percentile. It's a robust measure of spread.</p>
-        <div class="formula">IQR(my_data$salary)</div>
+        quantile(my_datasalary, probs = 0.90) </div> <h3>Interquartile range (IQR)</h3> <p>The distance between the 75th (Q3) and 25th (Q1) percentile. It's a robust measure of spread.</p> <div class="formula">IQR(my<sub>d</sub>atasalary)</div>
         
         <h2 id="unit4">Unit 4: Descriptive Statistics in R (Part 2)</h2>
         
@@ -400,11 +351,7 @@
         <br>
         # Skewness:
         <br>
-        skewness(my_data$salary)
-        <br>
-        # Kurtosis:
-        <br>
-        kurtosis(my_data$salary)
+        skewness(my_datasalary) <br> # Kurtosis: <br> kurtosis(my<sub>d</sub>atasalary)
         </div>
         <ul>
             <li><strong>Skewness Interpretation:</strong>
@@ -429,12 +376,12 @@
         <ul>
             <li><strong>Cross-tabulation:</strong> Creates a frequency table for two categorical variables.
                 <div class="formula">
-                table(my_data$gender, my_data$department)
+                table(my_datagender, my<sub>d</sub>atadepartment)
                 </div>
             </li>
             <li><strong>Scatter plots:</strong> The best way to visualize the relationship between two continuous variables.
                 <div class="formula">
-                plot(x = my_data$advertising_spend, y = my_data$sales)
+                plot(x = my_dataadvertising<sub>s</sub>pend, y = my<sub>d</sub>atasales)
                 </div>
             </li>
         </ul>
@@ -448,11 +395,11 @@
         <div class="formula">
         # Pearson correlation (default)
         <br>
-        cor(my_data$x, my_data$y, method = "pearson")
+        cor(my_datax, my<sub>d</sub>atay, method = "pearson")
         <br>
         # Spearman rank correlation
         <br>
-        cor(my_data$x, my_data$y, method = "spearman")
+        cor(my_datax, my<sub>d</sub>atay, method = "spearman")
         </div>
 
         <h2 id="unit5">Unit 5: Regression in R</h2>

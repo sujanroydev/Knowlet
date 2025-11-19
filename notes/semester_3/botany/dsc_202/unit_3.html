@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botany DSC 202 Unit 3 | 3rd Semester Notes - Knowlet</title>
+    <meta name="description" content="Notes on DNA Discovery, Structure of DNA (A, B, Z forms), Cot Curves, and Nucleosome model for DSC 202.">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+        
+    <link rel="stylesheet" href="../../../../assets/styles/supabase.css">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background-color: #f9f9f9; margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 30px; border-radius: 8px; }
+        h1 { color: #145a32; border-bottom: 3px solid #27ae60; padding-bottom: 10px; }
+        h2 { color: #27ae60; margin-top: 30px; border-left: 5px solid #145a32; padding-left: 10px; }
+        ul { margin-bottom: 15px; }
+        .toc { background: #f4f6f6; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+        .toc a { text-decoration: none; color: #2980b9; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 3: Nucleic Acids & DNA Structure</h1>
+    
+    <div class="toc">
+        <h3>Table of Contents</h3>
+        <ul>
+            <li><a href="#discovery">1. Discovery of DNA as Genetic Material</a></li>
+            <li><a href="#structure">2. Structure of DNA</a></li>
+            <li><a href="#forms">3. Forms of DNA (A, B, Z)</a></li>
+            <li><a href="#organization">4. DNA Organization (Nucleosome)</a></li>
+        </ul>
+    </div>
+
+    <p><strong>Syllabus Reference:</strong> Discovery of DNA (Griffith, Hershey-Chase, etc.); DNA Structure, cot curves; Organization (Prokaryotes vs Eukaryotes). Nucleosome; [cite_start]Chromatin [cite: 511-514].</p>
+
+    <h2 id="discovery">1. Discovery of DNA as Genetic Material</h2>
+    <ul>
+        <li><strong>Griffith's Experiment (1928):</strong> "Transformation Principle". Heat-killed S-strain (virulent) bacteria transformed live R-strain (non-virulent) into virulent ones in mice.</li>
+        <li><strong>Avery, MacLeod & McCarty (1944):</strong> Proved the transforming principle was DNA. DNase enzyme stopped transformation; Protease/RNase did not.</li>
+        <li><strong>Hershey & Chase (1952):</strong> "Blender Experiment". Used radioactive Phosphorus (<sup>32</sup>P for DNA) and Sulfur (<sup>35</sup>S for Protein) in Bacteriophages. Only <sup>32</sup>P entered bacteria, proving DNA is the genetic material.</li>
+    </ul>
+
+    <h2 id="structure">2. Structure of DNA</h2>
+    <p><strong>Watson & Crick Model (1953):</strong></p>
+    <ul>
+        <li><strong>Double Helix:</strong> Two polynucleotide chains coiled around a central axis.</li>
+        <li><strong>Anti-parallel:</strong> One strand runs 5' &rarr; 3', the other 3' &rarr; 5'.</li>
+        <li><strong>Base Pairing (Chargaff's Rule):</strong> Adenine binds to Thymine (A=T) with 2 H-bonds. Guanine binds to Cytosine (G≡C) with 3 H-bonds.</li>
+        <li><strong>Backbone:</strong> Sugar-Phosphate backbone is on the outside; bases are inside.</li>
+    </ul>
+    
+    <h3>Cot Curves</h3>
+    <p><strong>Cot analysis</strong> measures DNA renaturation kinetics. It helps estimate the genome size and complexity (amount of repetitive vs unique DNA sequences).</p>
+
+    <h2 id="forms">3. Forms of DNA</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Feature</th>
+                <th>B-DNA (Common)</th>
+                <th>A-DNA</th>
+                <th>Z-DNA</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Helix Handedness</strong></td>
+                <td>Right-handed</td>
+                <td>Right-handed</td>
+                <td>Left-handed (Zig-zag)</td>
+            </tr>
+            <tr>
+                <td><strong>Base pairs per turn</strong></td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td><strong>Diameter</strong></td>
+                <td>20 Å</td>
+                <td>23 Å</td>
+                <td>18 Å</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 id="organization">4. DNA Organization (The Nucleosome)</h2>
+    <p>In Eukaryotes, huge DNA molecules must fit into a tiny nucleus.</p>
+    <ul>
+        <li><strong>Nucleosome (Beads-on-string):</strong> The fundamental unit of packaging.
+            <br>Consists of a <strong>Histone Octamer</strong> (2 copies each of H2A, H2B, H3, H4) wrapped by approx 146 bp of DNA.
+            <br><strong>H1 Histone</strong> acts as a linker.
+        </li>
+        <li><strong>Chromatin Types:</strong>
+            <br><em>Euchromatin:</em> Loosely packed, transcriptionally active, stains light.
+            <br><em>Heterochromatin:</em> Tightly packed, transcriptionally inactive, stains dark.
+        </li>
+    </ul>
+    
+    <div class="diagram-box" style="border: 2px dashed #aaa; background: #f0f0f0; padding: 20px; text-align: center; color: #666;">
+        
+
+[Image of Nucleosome Structure]
+
+    </div>
+
+</div>
+
+    <div id="app"></div>
+        
+    <script src="../../../../assets/scripts/units.js"></script>
+        
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        
+    <script src="../../../../assets/scripts/supabase.js"></script>
+        
+</body>
+</html>

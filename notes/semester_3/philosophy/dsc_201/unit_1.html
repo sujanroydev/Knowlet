@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philosophy DSC 201 Unit 1 | 3rd Semester Notes - Knowlet</title>
+    <meta name="description" content="Exam notes for Philosophy DSC 201 Logic I, Unit 1: Arguments, Deductive and Inductive Reasoning, and Laws of Thought.">
+    <meta name="keywords" content="DSC 201 Logic I, Structure of Arguments, Deductive Reasoning, Inductive Reasoning, Laws of Thought, Philosophy notes">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+        
+    <link rel="stylesheet" href="../../../../assets/styles/supabase.css">
+    <style>
+        body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; background-color: #f4f7f6; margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
+        h1, h2, h3 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; margin-top: 25px; }
+        h1 { font-size: 2.2em; border-color: #e74c3c; }
+        h2 { font-size: 1.8em; color: #3498db; border-color: #bdc3c7; }
+        h3 { font-size: 1.4em; color: #2ecc71; border: none; border-left: 5px solid #2ecc71; padding-left: 10px; }
+        p { margin-bottom: 15px; }
+        ul, ol { margin-bottom: 15px; padding-left: 30px; }
+        li { margin-bottom: 8px; }
+        strong { color: #c0392b; }
+        em { color: #f39c12; font-style: normal; }
+        blockquote { border-left: 5px solid #3498db; padding: 10px 20px; margin: 20px 0; background-color: #ecf0f1; border-radius: 5px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #34495e; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .exam-tip { border: 1px dashed #e74c3c; padding: 15px; margin: 20px 0; background-color: #fdeaea; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PHI-DSC-201 (Logic I): Unit 1: Arguments, Reasoning, and Laws of Thought</h1>
+        <p><strong>Contact Hours:</strong> 60 | <strong>Full Marks:</strong> 100 (ESE=70/CCA=30)</p>
+        
+        <h2>Table of Contents</h2>
+        <ol>
+            <li><a href="#toc_1_1">Understanding the Structure of Arguments</a></li>
+            <li><a href="#toc_1_2">Deductive and Inductive Reasoning</a></li>
+            <li><a href="#toc_1_3">Laws of Thought</a></li>
+        </ol>
+
+        <hr>
+
+        <h2 id="toc_1_1">Understanding the Structure of Arguments</h2>
+        <p>An <span id="spap_1_1_argument"><strong>argument</strong> is a group of propositions (statements) where one proposition, the <strong>conclusion</strong>, is claimed to follow from the others, the <strong>premises</strong></span>. Logic is primarily concerned with the relationship between these premises and the conclusion—specifically, whether the premises genuinely support the conclusion.</p>
+        
+        <h3>Premises and Conclusion</h3>
+        <ul>
+            <li><strong>Premises:</strong> These are the propositions that provide the *evidence* or *reasons* for accepting the conclusion. They are the assumptions or facts from which the conclusion is drawn.</li>
+            <li><strong>Conclusion:</strong> This is the proposition that is affirmed on the basis of the other propositions (the premises). It is the main point the argument is trying to establish.</li>
+        </ul>
+        <p class="exam-tip"><strong>Exam Tip: Identifying Components</strong></p>
+        <p>In the exam, look for <strong>Conclusion Indicators</strong> (e.g., *therefore*, *thus*, *hence*, *so*) and <strong>Premise Indicators</strong> (e.g., *because*, *since*, *for*, *as shown by*) to quickly identify the structure of a given passage.</p>
+        
+        <blockquote>
+            <p><strong>Example:</strong> "All mammals are warm-blooded. The dog is a mammal. <strong>Therefore</strong>, the dog is warm-blooded."</p>
+            <p><strong>Premise 1:</strong> All mammals are warm-blooded.</p>
+            <p><strong>Premise 2:</strong> The dog is a mammal.</p>
+            <p><strong>Conclusion:</strong> The dog is warm-blooded.</p>
+        </blockquote>
+        
+        <h2 id="toc_1_2">Deductive and Inductive Reasoning</h2>
+        <p><span id="spap_1_2_reasoning_types">The two primary types of reasoning are distinguished by the kind of support the premises intend to give to the conclusion</span>.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Deductive Reasoning (or Argument)</th>
+                    <th>Inductive Reasoning (or Argument)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Purpose of Claim</strong></td>
+                    <td>The premises claim to provide <strong>conclusive</strong> support for the conclusion. The conclusion *must* follow.</td>
+                    <td>The premises claim to provide only <strong>probable</strong> support for the conclusion. The conclusion *is likely* but not certain.</td>
+                </tr>
+                <tr>
+                    <td><strong>Form/Evaluation</strong></td>
+                    <td>Evaluated as **Valid** or **Invalid**. If valid and premises are true, it's <strong>Sound</strong>.</td>
+                    <td>Evaluated as **Strong** or **Weak**. If strong and premises are true, it's <strong>Cogent</strong>.</td>
+                </tr>
+                <tr>
+                    <td><strong>Direction</strong></td>
+                    <td>Generally moves from <em>General</em> (Universal) statements to <em>Specific</em> (Particular) statements.</td>
+                    <td>Generally moves from <em>Specific</em> (Particular observations) to <em>General</em> (Universal principles).</td>
+                </tr>
+                <tr>
+                    <td><strong>Real-World Application</strong></td>
+                    <td>Mathematics, establishing laws, formal logic systems.</td>
+                    <td>Scientific hypothesis generation, predictions, empirical generalizations.</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p class="exam-tip"><strong>Common Exam Pitfall: Truth vs. Validity</strong></p>
+        <p>A deductively <strong>Valid</strong> argument can have a false conclusion if the premises are false. Validity is about the <strong>form/structure</strong> of the argument, not the factual **truth** of its components. Only a **Sound** argument (Valid + True Premises) guarantees a true conclusion.</p>
+        
+        <h2 id="toc_1_3">Laws of Thought</h2>
+        <p><span id="spap_1_3_laws_of_thought">These are fundamental principles of reasoning that are often considered self-evident and necessary for all logical thinking</span>. They underpin the structure and coherence of both thought and language.</p>
+        
+        <h3>The Three Classical Laws</h3>
+        <ol>
+            <li>
+                <strong>Law of Identity (A is A):</strong>
+                <p>A thing is identical to itself. If a statement is true, then it is true. This law establishes consistency. It is expressed by the formula: <span id="spap_1_3_law_identity_formula">A = A</span>.</p>
+                <ul>
+                    <li><em>Real-World Context:</em> Ensures that a term maintains the same meaning throughout an argument. Violating this leads to the <strong>Fallacy of Equivocation</strong>.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Law of Non-Contradiction (A is not non-A):</strong>
+                <p>A proposition and its contradictory cannot both be true at the same time and in the same respect. Nothing can both be A and not-A simultaneously. This establishes mutual exclusivity between opposing ideas. The formula is: <span id="spap_1_3_law_non_contradiction_formula">A ≠ ¬A (A is not not-A)</span>.</p>
+                <ul>
+                    <li><em>Exam Tip:</em> This is the <strong>most fundamental</strong> law. Logic aims to avoid contradictions.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Law of Excluded Middle (Either A or non-A):</strong>
+                <p>For any proposition, it must either be true or false. There is no middle ground or third possibility. This establishes completeness and exhaustiveness. The formula is: <span id="spap_1_3_law_excluded_middle_formula">A ∨ ¬A (Either A or not-A)</span>.</p>
+                <ul>
+                    <li><em>Note:</em> This law is crucial for techniques like <strong>Indirect Proof (Reductio ad Absurdum)</strong>, as denying the law's necessity breaks the possibility of assuming the negation and deriving a contradiction.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <p class="exam-tip"><strong>Exam Focus: Defining and Explaining</strong></p>
+        <p>You must be ready to <strong>define</strong> each Law precisely and provide a clear <strong>illustration</strong> for each. Ensure you use the phrase "at the same time and in the same respect" when defining the Law of Non-Contradiction.</p>
+        
+        <hr>
+        <div class="exam-tip">
+            <h3>Key Takeaway for Unit 1:</h3>
+            <p>Unit 1 is the <strong>Foundation</strong>. Master the distinction between deductive and inductive arguments and the concept of Validity (form) vs. Truth (content). The Laws of Thought are the basic, unquestionable assumptions that make logic possible.</p>
+        </div>
+    </div>
+    <div id="app"></div>
+        
+    <script src="../../../../assets/scripts/units.js"></script>
+        
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        
+    <script src="../../../../assets/scripts/supabase.js"></script>
+        
+</body>
+</html>

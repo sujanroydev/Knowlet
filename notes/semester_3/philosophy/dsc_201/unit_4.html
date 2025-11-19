@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philosophy DSC 201 Unit 4 | 3rd Semester Notes - Knowlet</title>
+    <meta name="description" content="Exam notes for Philosophy DSC 201 Logic I, Unit 4: Disjunctive, Hypothetical Syllogism, and Dilemmas.">
+    <meta name="keywords" content="DSC 201 Logic I, Disjunctive Syllogism, Hypothetical Syllogism, Dilemma Testing, Modus Ponens, Modus Tollens">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+        
+    <link rel="stylesheet" href="../../../../assets/styles/supabase.css">
+    <style>
+        /* CSS styling as in Unit 1 */
+        body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; background-color: #f4f7f6; margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
+        h1, h2, h3 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; margin-top: 25px; }
+        h1 { font-size: 2.2em; border-color: #e74c3c; }
+        h2 { font-size: 1.8em; color: #3498db; border-color: #bdc3c7; }
+        h3 { font-size: 1.4em; color: #2ecc71; border: none; border-left: 5px solid #2ecc71; padding-left: 10px; }
+        p { margin-bottom: 15px; }
+        ul, ol { margin-bottom: 15px; padding-left: 30px; }
+        li { margin-bottom: 8px; }
+        strong { color: #c0392b; }
+        em { color: #f39c12; font-style: normal; }
+        blockquote { border-left: 5px solid #3498db; padding: 10px 20px; margin: 20px 0; background-color: #ecf0f1; border-radius: 5px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #34495e; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .exam-tip { border: 1px dashed #e74c3c; padding: 15px; margin: 20px 0; background-color: #fdeaea; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PHI-DSC-201 (Logic I): Unit 4: Syllogisms and Dilemmas</h1>
+        <p><strong>Contact Hours:</strong> 60 | <strong>Full Marks:</strong> 100 (ESE=70/CCA=30)</p>
+        
+        <h2>Table of Contents</h2>
+        <ol>
+            <li><a href="#toc_4_1">Disjunctive Syllogism</a></li>
+            <li><a href="#toc_4_2">Hypothetical Syllogism</a></li>
+            <li><a href="#toc_4_3">Dilemmas and their Testing</a></li>
+        </ol>
+
+        <hr>
+
+        <h2 id="toc_4_1">Disjunctive Syllogism</h2>
+        <p><span id="spap_4_1_disjunctive_syllogism">A **Disjunctive Syllogism** (DS) is a valid deductive argument form whose major premise is a **disjunction** (an 'either-or' statement) and whose minor premise is the negation of one of the disjuncts, and whose conclusion is the affirmation of the other disjunct</span>.</p>
+        
+        <h3>Structure and Formula</h3>
+        <ul>
+            <li><strong>Major Premise (Disjunction):</strong> P or Q (P ∨ Q)</li>
+            <li><strong>Minor Premise (Negation):</strong> Not P (¬P)</li>
+            <li><strong>Conclusion (Affirmation):</strong> Therefore, Q (∴ Q)</li>
+        </ul>
+        
+        <blockquote>
+            <p><strong>Example:</strong> "Either the lights are on or the circuit is broken. The lights are not on. Therefore, the circuit is broken."</p>
+            <p><strong>Formula:</strong> (P ∨ Q), ¬P / ∴ Q</p>
+        </blockquote>
+        
+        <p class="exam-tip"><strong>Important Note: The Strong Sense of "Or"</strong></p>
+        <p>For the Disjunctive Syllogism to be valid, the 'or' in the major premise must be understood in the **inclusive sense** (P or Q or both) OR the **exclusive sense** (P or Q but not both). In modern logic, DS is valid even with the inclusive 'or'. However, arguments based on affirming a disjunct (e.g., P, ∴ ¬Q) are <strong>invalid</strong> (Fallacy of Affirming a Disjunct).</p>
+        
+        <h2 id="toc_4_2">Hypothetical Syllogism</h2>
+        <p><span id="spap_4_2_hypothetical_syllogism">A **Hypothetical Syllogism** (HS) is a valid deductive argument form composed of at least one **hypothetical** (conditional or 'if-then') proposition, and often links three propositions together</span>. The simplest form contains three conditional statements.</p>
+        
+        <h3>Pure Hypothetical Syllogism (PHS)</h3>
+        <p>Links two conditional statements to infer a third conditional statement.</p>
+        <ul>
+            <li><strong>Premise 1:</strong> If P, then Q (P → Q)</li>
+            <li><strong>Premise 2:</strong> If Q, then R (Q → R)</li>
+            <li><strong>Conclusion:</strong> Therefore, if P, then R (∴ P → R)</li>
+        </ul>
+        
+        <blockquote>
+            <p><strong>Example:</strong> "If it rains, the grass is wet. If the grass is wet, the sun will dry it. Therefore, if it rains, the sun will dry it."</p>
+            <p><strong>Formula:</strong> (P → Q), (Q → R) / ∴ (P → R)</p>
+        </blockquote>
+
+        <h2 id="toc_4_3">Dilemmas and their Testing</h2>
+        <p><span id="spap_4_3_dilemmas">A **Dilemma** is a powerful and often rhetorically effective argument form that contains a **disjunctive premise** (the 'horns' of the dilemma) and two or more **conditional premises**</span>. The dilemma presents a choice between two (or more) undesirable alternatives.</p>
+        
+        <h3>Types of Dilemmas</h3>
+        <p>Dilemmas are classified based on the nature of their conclusion (simple or complex) and the nature of their minor premises (constructive or destructive).</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Structure</th>
+                    <th>Form</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Simple Constructive</strong></td>
+                    <td>Two hypothetical premises, one disjunctive premise, and a simple (non-disjunctive) conclusion.</td>
+                    <td>((P → Q) ⋅ (R → Q)), (P ∨ R) / ∴ Q</td>
+                </tr>
+                <tr>
+                    <td><strong>Complex Constructive</strong></td>
+                    <td>Two hypothetical premises, one disjunctive premise, and a disjunctive conclusion.</td>
+                    <td>((P → Q) ⋅ (R → S)), (P ∨ R) / ∴ (Q ∨ S)</td>
+                </tr>
+                <tr>
+                    <td><strong>Simple Destructive</strong></td>
+                    <td>Two hypothetical premises, one disjunctive premise, and a simple (non-disjunctive) conclusion.</td>
+                    <td>((P → Q) ⋅ (P → R)), (¬Q ∨ ¬R) / ∴ ¬P</td>
+                </tr>
+                <tr>
+                    <td><strong>Complex Destructive</strong></td>
+                    <td>Two hypothetical premises, one disjunctive premise, and a disjunctive conclusion.</td>
+                    <td>((P → Q) ⋅ (R → S)), (¬Q ∨ ¬S) / ∴ (¬P ∨ ¬R)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Testing (Refuting) Dilemmas</h3>
+        <p>A dilemma is usually refuted not by proving it invalid, but by showing that its premises are false or unacceptable. There are three classic ways to rebut a dilemma:</p>
+        
+        <ol>
+            <li>
+                <strong>Taking it by the Horns (Falsifying the Disjunctive Premise):</strong>
+                <p>Reject the disjunctive premise (P ∨ R) by proving that there is a third alternative (a 'third horn') that was not considered. Prove that both P and R are false.</p>
+            </li>
+            <li>
+                <strong>Escaping between the Horns (Denying a Conditional Premise):</strong>
+                <p>Reject a conditional premise (P → Q) by showing that the consequent (Q) does not necessarily follow from the antecedent (P). Show a case where P is true but Q is false.</p>
+            </li>
+            <li>
+                <strong>Rebuttal by a Counter-Dilemma (Rhetorical Refutation):</strong>
+                <p>Construct a new dilemma whose conclusion is opposite to the original dilemma. This is a rhetorical device that proves the original argument form *may* be fallacious, but does not prove the original conclusion is false.</p>
+            </li>
+        </ol>
+
+        <p class="exam-tip"><strong>Exam Focus: Dilemma Testing</strong></p>
+        <p>Be prepared to write out an example of a dilemma and then explicitly show how it can be rebutted using <strong>all three methods</strong>. Rebuttal by a Counter-Dilemma is often a Complex Destructive form with the consequents negated and switched.</p>
+
+        <hr>
+        <div class="exam-tip">
+            <h3>Key Takeaway for Unit 4:</h3>
+            <p>Focus on the proper form of **DS** and **HS**, recognizing the two invalid forms related to conditionals (Affirming the Consequent, Denying the Antecedent). Spend most time learning the structure and the three ways to **Test (Refute) a Dilemma**.</p>
+        </div>
+    </div>
+    <div id="app"></div>
+        
+    <script src="../../../../assets/scripts/units.js"></script>
+        
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        
+    <script src="../../../../assets/scripts/supabase.js"></script>
+        
+</body>
+</html>

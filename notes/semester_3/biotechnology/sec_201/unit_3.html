@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biotechnology SEC 201 Unit 3 | 3rd Semester Notes - Knowlet</title>
+    <meta name="description" content="Exam notes for Unit 3 of BTC SEC 201 Molecular Biology: RNA Structure and Transcription in Prokaryotes and Eukaryotes (RNA Polymerase, Promoters, Enhancers).">
+    <meta name="keywords" content="Biotechnology, Molecular Biology, RNA structure, mRNA, rRNA, tRNA, Transcription in prokaryotes, RNA polymerase, Sigma factor, Promoter, Initiation, Elongation, Termination, Transcription in eukaryotes, Transcription factors, Enhancers">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+        
+    <link rel="stylesheet" href="../../../../assets/styles/supabase.css">
+    <style>
+        body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 20px; background-color: #f4f7f6; }
+        .container { max-width: 1000px; margin: auto; background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); }
+        h1, h2, h3 { color: #004d40; border-bottom: 2px solid #e0f2f1; padding-bottom: 5px; margin-top: 20px; }
+        h1 { font-size: 2em; border-bottom: 4px solid #004d40; }
+        h2 { font-size: 1.6em; border-left: 5px solid #00897b; padding-left: 10px; }
+        h3 { font-size: 1.3em; color: #00695c; border-bottom: 1px dashed #bdbdbd; padding-left: 10px; }
+        ul, ol { margin: 15px 0; padding-left: 30px; }
+        li { margin-bottom: 10px; }
+        strong { color: #d84315; }
+        em { color: #1e88e5; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #00897b; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        blockquote { border-left: 5px solid #ffb300; background-color: #fff9c4; padding: 15px; margin: 20px 0; font-style: italic; }
+        .exam-tip { border: 2px solid #e53935; padding: 15px; margin: 20px 0; background-color: #ffcdd2; border-radius: 5px; }
+        a { color: #00695c; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>UNIT 3: RNA Structure and Transcription</h1>
+        <p class="exam-tip"><strong>Exam Focus:</strong> The major difference between prokaryotic and eukaryotic transcription (single vs. multiple RNA polymerases, presence of transcription factors/enhancers in eukaryotes) is crucial. Know the specific roles of the **Sigma factor** and the TATA box/Promoter in initiating prokaryotic transcription.</p>
+        
+        <h2>Table of Contents</h2>
+        <ol>
+            <li><a href="#rna-structure">RNA: Structure and Function</a>
+                <ul>
+                    <li><a href="#mrna">mRNA (messenger RNA)</a></li>
+                    <li><a href="#rrna">rRNA (ribosomal RNA)</a></li>
+                    <li><a href="#trna">tRNA (transfer RNA)</a></li>
+                </ul>
+            </li>
+            <li><a href="#transcription-prokaryotes">Transcription in prokaryotes</a>
+                <ul>
+                    <li><a href="#prokaryotic-rna-polymerase">Prokaryotic RNA polymerase</a></li>
+                    <li><a href="#sigma-factor">Role of sigma factor</a></li>
+                    <li><a href="#promoter">Promoter</a></li>
+                    <li><a href="#initiation">Initiation, elongation and termination of RNA chains</a></li>
+                </ul>
+            </li>
+            <li><a href="#transcription-eukaryotes">Transcription in eukaryotes</a>
+                <ul>
+                    <li><a href="#eukaryotic-rna-polymerase">Eukaryotic RNA polymerase</a></li>
+                    <li><a href="#transcription-factors">Transcription factors</a></li>
+                    <li><a href="#eukaryotic-promoters">Promoters</a></li>
+                    <li><a href="#enhancers">Enhancers</a></li>
+                    <li><a href="#mechanism">Mechanism of transcription</a></li>
+                </ul>
+            </li>
+        </ol>
+
+        <h2 id="rna-structure">1. RNA: Structure and Function</h2>
+        <p>RNA (Ribonucleic Acid) is generally single-stranded, uses **ribose** sugar (instead of deoxyribose), and contains **Uracil (U)** instead of Thymine (T). </p>
+        
+        <h3 id="mrna">mRNA (messenger RNA)</h3>
+        <p>Carries the genetic information transcribed from DNA to the ribosome for protein synthesis. </p>
+        
+        <h3 id="rrna">rRNA (ribosomal RNA)</h3>
+        <p>A major component of the ribosomes, the cellular machinery that catalyzes protein synthesis (translation). </p>
+        
+        <h3 id="trna">tRNA (transfer RNA)</h3>
+        <p>Acts as an adaptor molecule, linking specific amino acids to their corresponding mRNA codons during translation. It has a characteristic clover-leaf secondary structure.  
+
+[Image of tRNA structure]
+</p>
+
+        <h2 id="transcription-prokaryotes">2. Transcription in prokaryotes</h2>
+        <p>Transcription is the synthesis of RNA from a DNA template. </p>
+        
+        <h3 id="prokaryotic-rna-polymerase">Prokaryotic RNA polymerase</h3>
+        <p>Prokaryotes (like <em>E. coli</em>) have **only one type of RNA polymerase** responsible for transcribing all three types of RNA (mRNA, tRNA, rRNA). </p>
+        <ul>
+            <li>**Holoenzyme:** Core enzyme (α<sub>2</sub> β β' ω) plus the **Sigma (σ) factor**. </li>
+            <li>**Core Enzyme:** Catalyzes the polymerization reaction. </li>
+        </ul>
+        
+        <h3 id="sigma-factor">Role of sigma factor</h3>
+        <p>The **Sigma (σ) factor** is essential for **initiation**.  It recognizes and binds specifically to the promoter region on the DNA, ensuring that the polymerase starts transcription at the correct site. </p>
+        
+        <h3 id="promoter">Promoter</h3>
+        <p>A specific DNA sequence upstream of the gene where RNA polymerase binds to initiate transcription.  In prokaryotes, key sequences include the -35 region and the -10 region (**Pribnow box**). </p>
+        
+        <h3 id="initiation">Initiation, elongation and termination of RNA chains</h3>
+        <ul>
+            <li>**Initiation:** Holoenzyme binds to the promoter. σ factor directs the unwinding of the DNA (creating the transcription bubble) and synthesis of the first few ribonucleotides. σ factor dissociates after initiation. </li>
+            <li>**Elongation:** The core enzyme moves along the DNA, synthesizing the RNA strand. </li>
+            <li>**Termination:** Transcription stops either by **Rho-dependent** (requires the Rho protein) or **Rho-independent** mechanisms (involves a hairpin loop structure in the RNA followed by a poly-U tract). </li>
+        </ul>
+
+        <h2 id="transcription-eukaryotes">3. Transcription in eukaryotes</h2>
+        <p>Eukaryotic transcription is more complex, involving multiple RNA polymerases and accessory factors. </p>
+        
+        <h3 id="eukaryotic-rna-polymerase">Eukaryotic RNA polymerase</h3>
+        <p>Eukaryotes have three main RNA polymerases, each responsible for transcribing different genes: </p>
+        <ul>
+            <li>**RNA Pol I:** Transcribes most rRNA genes. </li>
+            <li>**RNA Pol II:** Transcribes all protein-coding genes (pre-mRNA) and some small non-coding RNAs. </li>
+            <li>**RNA Pol III:** Transcribes tRNA genes and the small rRNA gene. </li>
+        </ul>
+        
+        <h3 id="transcription-factors">Transcription factors (TFs)</h3>
+        <p>Proteins required for RNA polymerase (especially Pol II) to recognize and initiate transcription at the promoter.  **General TFs** (e.g., TFII D) form the pre-initiation complex at the promoter; **Specific TFs** bind to regulatory sequences (enhancers/silencers) to control gene expression levels. </p>
+        
+        <h3 id="eukaryotic-promoters">Promoters</h3>
+        <p>Contain specific conserved sequences where TFs and RNA Pol bind. For Pol II, the common core promoter element is the **TATA box**. </p>
+        
+        <h3 id="enhancers">Enhancers</h3>
+        <p>DNA sequences, often located far away from the gene, that bind specific TFs.  When bound, enhancers greatly **increase the rate of transcription** by looping the DNA to interact with the promoter/Pol II complex. </p>
+        
+        <h3 id="mechanism">Mechanism of transcription</h3>
+        <p>Involves the assembly of the pre-initiation complex at the promoter, recruitment of RNA Pol, unwinding of DNA, and synthesis of the pre-mRNA molecule. </p>
+    </div>
+    <div id="app"></div>
+        
+    <script src="../../../../assets/scripts/units.js"></script>
+        
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        
+    <script src="../../../../assets/scripts/supabase.js"></script>
+        
+</body>
+</html>

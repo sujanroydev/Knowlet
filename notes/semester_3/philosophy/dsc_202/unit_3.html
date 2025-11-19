@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-width, initial-scale=1.0">
+    <title>Philosophy DSC 202 Unit 3 | 3rd Semester Notes - Knowlet</title>
+    <meta name="description" content="Exam notes for Philosophy DSC 202 Logic II, Unit 3: Formal Proof of Validity using the Nineteen Rules (Direct, Indirect, Conditional Proofs).">
+    <meta name="keywords" content="DSC 202 Logic II, Formal Proof of Validity, Nineteen Rules, Rules of Inference, Rules of Replacement, Conditional Proof, Indirect Proof">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+        
+    <link rel="stylesheet" href="../../../../assets/styles/supabase.css">
+    <style>
+        /* CSS styling as in Unit 1 */
+        body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; background-color: #f4f7f6; margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
+        h1, h2, h3 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; margin-top: 25px; }
+        h1 { font-size: 2.2em; border-color: #e74c3c; }
+        h2 { font-size: 1.8em; color: #3498db; border-color: #bdc3c7; }
+        h3 { font-size: 1.4em; color: #2ecc71; border: none; border-left: 5px solid #2ecc71; padding-left: 10px; }
+        p { margin-bottom: 15px; }
+        ul, ol { margin-bottom: 15px; padding-left: 30px; }
+        li { margin-bottom: 8px; }
+        strong { color: #c0392b; }
+        em { color: #f39c12; font-style: normal; }
+        blockquote { border-left: 5px solid #3498db; padding: 10px 20px; margin: 20px 0; background-color: #ecf0f1; border-radius: 5px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #34495e; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .exam-tip { border: 1px dashed #e74c3c; padding: 15px; margin: 20px 0; background-color: #fdeaea; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PHI-DSC-202 (Logic II): Unit 3: Formal Proof of Validity (Nineteen Rules)</h1>
+        <p><strong>Contact Hours:</strong> 60 | <strong>Full Marks:</strong> 100 (ESE=70/CCA=30)</p>
+        
+        <h2>Table of Contents</h2>
+        <ol>
+            <li><a href="#toc_3_1">Formal Proof of Validity (The Nineteen Rules)</a></li>
+            <li><a href="#toc_3_2">Direct Proof Construction</a></li>
+            <li><a href="#toc_3_3">Indirect Proof (Reductio Ad Absurdum)</a></li>
+            <li><a href="#toc_3_4">Conditional Proof Construction</a></li>
+        </ol>
+
+        <hr>
+
+        <h2 id="toc_3_1">Formal Proof of Validity (The Nineteen Rules)</h2>
+        <p><span id="spap_3_1_formal_proof_def">A **Formal Proof of Validity** demonstrates that the conclusion of an argument necessarily follows from its premises by constructing a step-by-step deduction, where each new line is justified by applying one of the nineteen accepted elementary argument forms (rules) to previous lines</span>.</p>
+        
+        <h3>The Nineteen Rules of Inference and Replacement</h3>
+        <p>These rules are grouped into two categories:</p>
+
+        <ol>
+            <li>
+                <strong>Nine Rules of Inference (Applied to Whole Lines ONLY):</strong>
+                <p>These are elementary valid argument forms used to deduce a conclusion from its premises.</p>
+                <ul>
+                    <li>**MP (Modus Ponens):** (P → Q), P / ∴ Q</li>
+                    <li>**MT (Modus Tollens):** (P → Q), ¬Q / ∴ ¬P</li>
+                    <li>**HS (Hypothetical Syllogism):** (P → Q), (Q → R) / ∴ (P → R)</li>
+                    <li>**DS (Disjunctive Syllogism):** (P ∨ Q), ¬P / ∴ Q</li>
+                    <li>**CD (Constructive Dilemma):** ((P → Q) ⋅ (R → S)), (P ∨ R) / ∴ (Q ∨ S)</li>
+                    <li>**Simp (Simplification):** (P ⋅ Q) / ∴ P</li>
+                    <li>**Conj (Conjunction):** P, Q / ∴ (P ⋅ Q)</li>
+                    <li>**Add (Addition):** P / ∴ (P ∨ Q)</li>
+                    <li>**DD (Destructive Dilemma):** ((P → Q) ⋅ (R → S)), (¬Q ∨ ¬S) / ∴ (¬P ∨ ¬R)</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Ten Rules of Replacement (Applied to Part or Whole of a Line):</strong>
+                <p>These rules state that equivalent logical forms can be substituted for one another.</p>
+                <ul>
+                    <li>**DM (De Morgan’s Theorems):** ¬(P ⋅ Q) ≡ (¬P ∨ ¬Q); ¬(P ∨ Q) ≡ (¬P ⋅ ¬Q)</li>
+                    <li>**Comm (Commutation):** (P ∨ Q) ≡ (Q ∨ P); (P ⋅ Q) ≡ (Q ⋅ P)</li>
+                    <li>**Assoc (Association):** ((P ∨ Q) ∨ R) ≡ (P ∨ (Q ∨ R)); ((P ⋅ Q) ⋅ R) ≡ (P ⋅ (Q ⋅ R))</li>
+                    <li>**Dist (Distribution):** (P ⋅ (Q ∨ R)) ≡ ((P ⋅ Q) ∨ (P ⋅ R)); (P ∨ (Q ⋅ R)) ≡ ((P ∨ Q) ⋅ (P ∨ R))</li>
+                    <li>**DN (Double Negation):** P ≡ ¬¬P</li>
+                    <li>**Trans (Transposition):** (P → Q) ≡ (¬Q → ¬P)</li>
+                    <li>**Impl (Material Implication):** (P → Q) ≡ (¬P ∨ Q)</li>
+                    <li>**Equiv (Material Equivalence):** (P ≡ Q) ≡ ((P → Q) ⋅ (Q → P)); (P ≡ Q) ≡ ((P ⋅ Q) ∨ (¬P ⋅ ¬Q))</li>
+                    <li>**Exp (Exportation):** ((P ⋅ Q) → R) ≡ (P → (Q → R))</li>
+                    <li>**Taut (Tautology):** P ≡ (P ∨ P); P ≡ (P ⋅ P)</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h2 id="toc_3_2">Direct Proof Construction</h2>
+        <p><span id="spap_3_2_direct_proof">A **Direct Proof** involves beginning with the premises and deriving the conclusion step-by-step by applying the Nineteen Rules of Inference and Replacement to prior lines</span>.</p>
+        
+        <ol>
+            <li>List the premises numerically.</li>
+            <li>The goal is always the conclusion.</li>
+            <li>Apply rules to the premises until the conclusion is reached.</li>
+        </ol>
+        
+        <blockquote>
+            <p><strong>Example Line (Demonstration):</strong><br>
+            1. (A → B) ⋅ (A → C) (Premise)<br>
+            2. A (Premise)<br>
+            3. A → B (1, Simp)<br>
+            4. B (3, 2, MP)</p>
+        </blockquote>
+
+        <h2 id="toc_3_3">Indirect Proof (Reductio Ad Absurdum)</h2>
+        <p><span id="spap_3_3_indirect_proof">The **Indirect Proof (IP)**, or **Reductio Ad Absurdum**, is a method where you assume the negation of the conclusion as an added premise. If this assumption leads to a contradiction (R ⋅ ¬R), then the assumption must be false, and the original conclusion must be true</span>.</p>
+        
+        <ol>
+            <li>List the premises.</li>
+            <li>Assume the negation of the conclusion (IP Assumption).</li>
+            <li>Derive a **Contradiction** (e.g., Q ⋅ ¬Q).</li>
+            <li>Conclude the original conclusion, justifying the step by the contradiction and the IP method.</li>
+        </ol>
+
+        <h2 id="toc_3_4">Conditional Proof Construction</h2>
+        <p><span id="spap_3_4_conditional_proof">The **Conditional Proof (CP)** is used specifically when the conclusion is a conditional statement (P → Q)</span>. Instead of deriving the entire conditional, you assume the antecedent (P) as an additional premise and then derive the consequent (Q).</p>
+        
+        <ol>
+            <li>List the premises.</li>
+            <li>Assume the antecedent (P) of the conclusion (CP Assumption).</li>
+            <li>Derive the consequent (Q) using the Nineteen Rules.</li>
+            <li>Conclude the full conditional (P → Q), citing all steps from the assumption to the consequent as the justification for the CP method.</li>
+        </ol>
+        
+        <p class="exam-tip"><strong>Exam Focus: Strategy Choice</strong></p>
+        <p>Use **Conditional Proof (CP)** if the conclusion is a conditional (P → Q). Use **Indirect Proof (IP)** if the conclusion is not a conditional, or if you get stuck with a Direct Proof, as IP is highly flexible.</p>
+
+        <hr>
+        <div class="exam-tip">
+            <h3>Key Takeaway for Unit 3:</h3>
+            <p>Memorize **all nineteen rules** and their application scope (whole lines vs. part of a line). Practice the structures of **IP** and **CP** rigorously, paying close attention to the indentation and citing the assumption lines correctly.</p>
+        </div>
+    </div>
+    <div id="app"></div>
+        
+    <script src="../../../../assets/scripts/units.js"></script>
+        
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        
+    <script src="../../../../assets/scripts/supabase.js"></script>
+        
+</body>
+</html>

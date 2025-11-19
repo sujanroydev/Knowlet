@@ -205,66 +205,22 @@
         <ul>
             <li><span id="spap_3_2_l1"><strong>Integer Constants:</strong> <code>10</code>, <code>-5</code>, <code>0</code></span></li>
             <li><span id="spap_3_2_l2"><strong>Floating-point Constants:</strong> <code>3.14</code>, <code>-0.005</code></span></li>
-            <li><span id="spap_3_2_l3"><strong>Character Constants:</strong> <code>'a'</code>, <code>'5'</code>, <code>'$'</code> (single quotes)</span></li>
-            <li><span id="spap_3_2_l4"><strong>String Constants:</strong> <code>"Hello"</code> (double quotes)</span></li>
-        </ul>
-
-        <h3 id="spap_3_2_1"><span id="spap_3_2_1_span">Symbolic Constants </span></h3>
-        <p><span id="spap_3_2_1_p1">You can give a name to a constant using the <code>#define</code> preprocessor directive. This makes code more readable and easier to maintain.</span></p>
+            <li><span id="spap_3_2_l3"><strong>Character Constants:</strong> <code>'a'</code>, <code>'5'</code>, <code>''</code> (single quotes)</span></li> <li><span id="spap<sub>3</sub><sub>2</sub><sub>l</sub>4"><strong>String Constants:</strong> <code>"Hello"</code> (double quotes)</span></li> </ul> <h3 id="spap<sub>3</sub><sub>2</sub><sub>1</sub>"><span id="spap<sub>3</sub><sub>2</sub><sub>1</sub><sub>s</sub>pan">Symbolic Constants </span></h3> <p><span id="spap<sub>3</sub><sub>2</sub><sub>1</sub><sub>p</sub>1">You can give a name to a constant using the <code>#define</code> preprocessor directive. This makes code more readable and easier to maintain.</span></p>
 <pre>
-#include <stdio.h>
-
-// This is a symbolic constant
-#define PI 3.14159
-
-int main() {
-    float area = PI * 5 * 5; // Compiler replaces PI with 3.14159
-    return 0;
+#include <stdio.h> // This is a symbolic constant
+#define PI 3.14159 int main() { float area = PI * 5 * 5; // Compiler replaces PI with 3.14159 return 0;
 }
-</pre>
-
-        <h2 id="spap_3_3"><span id="spap_3_3_span">3. Variables </span></h2>
-        <p><span id="spap_3_3_p1">A <strong>variable</strong> is a named location in memory used to store data. Its value can be changed during program execution.</span></p>
-
-        <h3 id="spap_3_3_1"><span id="spap_3_3_1_span">Declaration of Variables </span></h3>
-        <p><span id="spap_3_3_1_p1">You must declare a variable before using it. This tells the compiler the variable's <strong>type</strong> and <strong>name</strong>.</span></p>
+</pre> <h2 id="spap<sub>3</sub><sub>3</sub>"><span id="spap<sub>3</sub><sub>3</sub><sub>s</sub>pan">3. Variables </span></h2> <p><span id="spap<sub>3</sub><sub>3</sub><sub>p</sub>1">A <strong>variable</strong> is a named location in memory used to store data. Its value can be changed during program execution.</span></p> <h3 id="spap<sub>3</sub><sub>3</sub><sub>1</sub>"><span id="spap<sub>3</sub><sub>3</sub><sub>1</sub><sub>s</sub>pan">Declaration of Variables </span></h3> <p><span id="spap<sub>3</sub><sub>3</sub><sub>1</sub><sub>p</sub>1">You must declare a variable before using it. This tells the compiler the variable's <strong>type</strong> and <strong>name</strong>.</span></p>
 <pre>
-int age;       // Declares a variable 'age' of type int
-float marks;   // Declares a variable 'marks' of type float
-char grade;    // Declares a variable 'grade' of type char
-</pre>
-
-        <h3 id="spap_3_3_2"><span id="spap_3_3_2_span">Assigning Values to Variables </span></h3>
-        <p><span id="spap_3_3_2_p1">You assign a value using the assignment operator (<code>=</code>). This can be done at declaration (initialization) or later.</span></p>
+int age; // Declares a variable 'age' of type int
+float marks; // Declares a variable 'marks' of type float
+char grade; // Declares a variable 'grade' of type char
+</pre> <h3 id="spap<sub>3</sub><sub>3</sub><sub>2</sub>"><span id="spap<sub>3</sub><sub>3</sub><sub>2</sub><sub>s</sub>pan">Assigning Values to Variables </span></h3> <p><span id="spap<sub>3</sub><sub>3</sub><sub>2</sub><sub>p</sub>1">You assign a value using the assignment operator (<code>=</code>). This can be done at declaration (initialization) or later.</span></p>
 <pre>
 // Initialization
-int age = 20;
-
-// Assignment
+int age = 20; // Assignment
 float marks;
-marks = 95.5; 
-</pre>
-
-        <h2 id="spap_3_4"><span id="spap_3_4_span">4. Data Types </span></h2>
-        <p><span id="spap_3_4_p1">Data types define the type and size of data a variable can store.</span></p>
-        <table>
-            <tr>
-                <th>Data Type</th>
-                <th>Keyword</th>
-                <th>Typical Size (bytes)</th>
-                <th>Description</th>
-            </tr>
-            <tr>
-                <td>Integer</td>
-                <td><code>int</code></td>
-                <td>2 or 4</td>
-                <td>Stores whole numbers (e.g., 5, -10).</td>
-            </tr>
-            <tr>
-                <td>Character</td>
-                <td><code>char</code></td>
-                <td>1</td>
-                <td>Stores a single character (e.g., 'a', '$').</td>
+marks = 95.5; </pre> <h2 id="spap<sub>3</sub><sub>4</sub>"><span id="spap<sub>3</sub><sub>4</sub><sub>s</sub>pan">4. Data Types </span></h2> <p><span id="spap<sub>3</sub><sub>4</sub><sub>p</sub>1">Data types define the type and size of data a variable can store.</span></p> <table> <tr> <th>Data Type</th> <th>Keyword</th> <th>Typical Size (bytes)</th> <th>Description</th> </tr> <tr> <td>Integer</td> <td><code>int</code></td> <td>2 or 4</td> <td>Stores whole numbers (e.g., 5, -10).</td> </tr> <tr> <td>Character</td> <td><code>char</code></td> <td>1</td> <td>Stores a single character (e.g., 'a', '').</td>
             </tr>
             <tr>
                 <td>Floating Point</td>

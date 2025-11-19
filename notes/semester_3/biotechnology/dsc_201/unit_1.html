@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biotechnology DSC 201 Unit 1 | 3rd Semester Notes - Knowlet</title>
+    <meta name="description" content="Exam notes for Unit 1 of BTC DSC 201T Genetics: Introduction, Mendelian Genetics, and Allelic Interactions.">
+    <meta name="keywords" content="Biotechnology, Genetics, Mendelian Genetics, Allelic Interactions, Monohybrid Cross, Dihybrid Cross, Law of Segregation, Independent Assortment, Dominance, Recessiveness, Incomplete Dominance, Codominance, Multiple Allele">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+        
+    <link rel="stylesheet" href="../../../../assets/styles/supabase.css">
+    <style>
+        body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 20px; background-color: #f4f7f6; }
+        .container { max-width: 1000px; margin: auto; background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); }
+        h1, h2, h3 { color: #004d40; border-bottom: 2px solid #e0f2f1; padding-bottom: 5px; margin-top: 20px; }
+        h1 { font-size: 2em; border-bottom: 4px solid #004d40; }
+        h2 { font-size: 1.6em; border-left: 5px solid #00897b; padding-left: 10px; }
+        h3 { font-size: 1.3em; color: #00695c; border-bottom: 1px dashed #bdbdbd; padding-left: 10px; }
+        ul, ol { margin: 15px 0; padding-left: 30px; }
+        li { margin-bottom: 10px; }
+        strong { color: #d84315; }
+        em { color: #1e88e5; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #00897b; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        blockquote { border-left: 5px solid #ffb300; background-color: #fff9c4; padding: 15px; margin: 20px 0; font-style: italic; }
+        .exam-tip { border: 2px solid #e53935; padding: 15px; margin: 20px 0; background-color: #ffcdd2; border-radius: 5px; }
+        .application { border-left: 5px solid #43a047; background-color: #e8f5e9; padding: 10px; margin: 15px 0; }
+        a { color: #00695c; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>UNIT 1: Introduction, Mendelian Genetics, and Allelic Interactions</h1>
+        <p class="exam-tip"><strong>Exam Focus:</strong> Mendel's laws and the inheritance patterns in allelic interactions (Incomplete Dominance, Co-dominance, Multiple Alleles) are frequently tested. Practice Punnett squares for monohybrid and dihybrid crosses.</p>
+        
+        <h2>Table of Contents</h2>
+        <ol>
+            <li><a href="#intro">Introduction: Historical Developments in the Field of Genetics</a></li>
+            <li><a href="#mendelian">Mendelian Genetics</a>
+                <ul>
+                    <li><a href="#mendelian-design">Mendel's Experimental Design</a></li>
+                    <li><a href="#monohybrid">Monohybrid, Di-hybrid and Tri-hybrid Crosses</a></li>
+                    <li><a href="#laws">Law of Segregation and Principle of Independent Assortment</a></li>
+                    <li><a href="#test-back">Test and Back Cross</a></li>
+                </ul>
+            </li>
+            <li><a href="#allelic">Allelic Interactions</a>
+                <ul>
+                    <li><a href="#dominance">Concept of Dominance and Recessiveness</a></li>
+                    <li><a href="#incomplete">Incomplete Dominance</a></li>
+                    <li><a href="#codominance">Co-dominance</a></li>
+                    <li><a href="#semi">Semi-dominance</a></li>
+                    <li><a href="#pleiotropy">Pleiotropy</a></li>
+                    <li><a href="#multiple">Multiple Allele</a></li>
+                </ul>
+            </li>
+        </ol>
+
+        <h2 id="intro">1. Introduction: Historical Developments in the Field of Genetics</h2>
+        <p>Genetics is the branch of biology concerned with the study of **heredity** (how traits are passed from parents to offspring) and **variation** (differences in traits among individuals). The historical development of this field laid the groundwork for modern biotechnology.</p>
+        <ul>
+            <li><strong>Pre-Mendel (Ancient Concepts):</strong> Early ideas included Pangenesis (Hippocrates), where body parts contribute 'seeds' to form offspring, and the concept of blending inheritance, which suggested parental traits mix in the offspring, leading to a loss of variation.</li>
+            <li><strong>Gregor Mendel (Mid-19th Century):</strong> Known as the <strong>"Father of Genetics"</strong>, his work on pea plants established the fundamental principles of inheritance, including the existence of discrete hereditary units (genes/alleles).</li>
+            <li><strong>Rediscovery of Mendel's work (1900):</strong> Hugo de Vries, Carl Correns, and Erich von Tschermak independently rediscovered Mendel's laws, marking the beginning of classical genetics.</li>
+            <li><strong>Chromosomal Theory of Inheritance (Early 20th Century):</strong> Walter Sutton and Theodor Boveri proposed that Mendelian genes are located on chromosomes, which undergo segregation and independent assortment during meiosis.</li>
+            <li><strong>Molecular Genetics (Mid-20th Century):</strong> The identification of <strong>DNA</strong> as the genetic material (Avery, MacLeod, and McCarty, Hershey and Chase) and the determination of the <strong>Double Helix structure</strong> by Watson and Crick (1953) revolutionized the field.</li>
+            <li><strong>Modern Biotechnology:</strong> The development of <strong>Recombinant DNA Technology</strong> (Cohen and Boyer, 1970s) and modern tools like <strong>PCR</strong> and **CRISPR-Cas9** have allowed direct manipulation and analysis of genetic material.</li>
+        </ul>
+
+        <h2 id="mendelian">2. Mendelian Genetics</h2>
+        
+        <h3 id="mendelian-design">Mendel's Experimental Design</h3>
+        <p>Gregor Mendel conducted meticulous breeding experiments with the <strong>garden pea plant</strong> (<em>Pisum sativum</em>). He chose pea plants because: they are easy to cultivate; they have a short life cycle; they are normally self-pollinating but can be easily cross-pollinated; and they possess several sharply contrasting traits (e.g., tall/dwarf, purple/white flowers).</p>
+
+        <h3 id="monohybrid">Monohybrid, Di-hybrid and Tri-hybrid Crosses</h3>
+        <p>These crosses are categorized by the number of traits being simultaneously studied.</p>
+        
+        <ul>
+            <li><strong>Monohybrid Cross:</strong> A cross involving one pair of contrasting characters.
+                <ul>
+                    <li><strong>Example:</strong> Tall (TT) x Dwarf (tt). F2 phenotypic ratio is 3:1, and genotypic ratio is 1:2:1.</li>
+                </ul>
+            </li>
+            <li><strong>Di-hybrid Cross:</strong> A cross involving two pairs of contrasting characters.
+                <ul>
+                    <li><strong>Example:</strong> Round Yellow (RRYY) x Wrinkled Green (rryy). F2 phenotypic ratio is 9:3:3:1.</li>
+                </ul>
+            </li>
+            <li><strong>Tri-hybrid Cross:</strong> A cross involving three pairs of contrasting characters.
+                <ul>
+                    <li><strong>Example:</strong> A tri-hybrid cross (AABBCC x aabbcc) results in 2<sup>3</sup> = 8 possible gametes for the F1 generation and 3<sup>3</sup> = 27 genotypic classes and 2<sup>3</sup> = 8 phenotypic classes in the F2 generation.</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h3 id="laws">Law of Segregation and Principle of Independent Assortment</h3>
+        
+        <blockquote>
+            <strong>Law of Segregation (Mendel’s First Law)</strong>: During the formation of gametes, the two alleles for a trait segregate (separate) from each other so that each gamete carries only one allele for each trait. This law is universal and is demonstrated by the monohybrid cross.
+        </blockquote>
+        
+        <blockquote>
+            <strong>Principle of Independent Assortment (Mendel’s Second Law)</strong>: When two pairs of traits are combined in a hybrid, segregation of one pair of traits is independent of the segregation of the other pair of traits. This law is demonstrated by the di-hybrid cross.
+        </blockquote>
+        
+        <h3 id="test-back">Test and Back Cross</h3>
+        <ul>
+            <li><strong>Test Cross:</strong> A cross between an individual with an unknown genotype (exhibiting the dominant phenotype) and a **homozygous recessive** individual.
+                <ul>
+                    <li><strong>Purpose:</strong> To determine if the unknown genotype is homozygous dominant or heterozygous.</li>
+                    <li><strong>Monohybrid Example:</strong> T_ (Unknown Tall) x tt (Dwarf). If all offspring are Tall, the unknown is TT. If offspring are 1 Tall : 1 Dwarf, the unknown is Tt.</li>
+                </ul>
+            </li>
+            <li><strong>Back Cross:</strong> A cross between an F1 hybrid and **either** of its parents.
+                <ul>
+                    <li><strong>Note:</strong> A Test Cross is a specific type of Back Cross (the one crossed with the recessive parent), but not all Back Crosses are Test Crosses.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2 id="allelic">3. Allelic Interactions</h2>
+        <p>These interactions describe how alleles of the **same gene** (i.e., allelic) interact to determine the phenotype.</p>
+        
+        <h3 id="dominance">Concept of Dominance and Recessiveness</h3>
+        <ul>
+            <li><strong>Dominance:</strong> A condition where one allele (the dominant allele) completely masks the expression of the other allele (the recessive allele) in the heterozygous condition (e.g., Tt = Tall).</li>
+            <li><strong>Recessiveness:</strong> The trait that is masked in the presence of the dominant allele and is only expressed when the individual is homozygous for the recessive allele (e.g., tt = dwarf).</li>
+        </ul>
+        
+        <h3 id="incomplete">Incomplete Dominance</h3>
+        <p>In this case, the heterozygote exhibits an intermediate phenotype that is a mix or blend of the phenotypes of the two homozygotes. Neither allele is completely dominant.</p>
+        <div class="application">
+            <strong>Example:</strong> Flower color in Snapdragons (<em>Mirabilis jalapa</em>).<br>
+            Red (RR) x White (rr) -> Pink (Rr).
+            The F2 phenotypic ratio is 1 Red : 2 Pink : 1 White (same as the genotypic ratio).
+        </div>
+        
+        <h3 id="codominance">Co-dominance</h3>
+        <p>A condition where both alleles in the heterozygote are expressed fully and separately, resulting in a phenotype that includes both characteristics of the parents.</p>
+        <div class="application">
+            <strong>Example:</strong> MN Blood Group system in humans.<br>
+            A cross between a person with genotype L<sup>M</sup>L<sup>M</sup> (Type M) and a person with L<sup>N</sup>L<sup>N</sup> (Type N) results in offspring with genotype L<sup>M</sup>L<sup>N</sup> (Type MN). Both M and N antigens are present on the red blood cell surface.
+        </div>
+        
+        <h3 id="semi">Semi-dominance</h3>
+        <p>The term is often used interchangeably with <strong>Incomplete Dominance</strong>. It describes the intermediate expression of a trait in a heterozygote.</p>
+        
+        <h3 id="pleiotropy">Pleiotropy</h3>
+        <p>A phenomenon where a single gene influences <strong>multiple, seemingly unrelated phenotypic traits</strong>.</p>
+        <div class="application">
+            <strong>Example:</strong> In humans, the gene for <strong>Phenylketonuria (PKU)</strong> affects mental development (intellectual disability), skin pigmentation, and hair color. Another example is the gene responsible for <strong>Sickle Cell Anemia</strong>, which affects red blood cell shape, causes resistance to malaria, and leads to various organ damages.
+        </div>
+        
+        <h3 id="multiple">Multiple Allele</h3>
+        <p>This occurs when a single gene has <strong>three or more different alleles</strong> within a population, although any given individual can still only possess two of those alleles (one from each parent).</p>
+        <div class="application">
+            <strong>Example:</strong> The **ABO Blood Group system** in humans.<br>
+            The gene (I) controlling blood type has three alleles: I<sup>A</sup>, I<sup>B</sup>, and i.
+            <table>
+                <thead>
+                    <tr>
+                        <th>Alleles</th>
+                        <th>Genotypes</th>
+                        <th>Phenotype (Blood Group)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>I<sup>A</sup>, I<sup>B</sup>, i</td>
+                        <td>I<sup>A</sup> I<sup>A</sup> or I<sup>A</sup> i</td>
+                        <td>A</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>I<sup>B</sup> I<sup>B</sup> or I<sup>B</sup> i</td>
+                        <td>B</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>I<sup>A</sup> I<sup>B</sup></td>
+                        <td>AB (Example of Co-dominance)</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>i i</td>
+                        <td>O</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    <div id="app"></div>
+        
+    <script src="../../../../assets/scripts/units.js"></script>
+        
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        
+    <script src="../../../../assets/scripts/supabase.js"></script>
+        
+</body>
+</html>

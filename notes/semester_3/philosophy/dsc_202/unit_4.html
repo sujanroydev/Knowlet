@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philosophy DSC 202 Unit 4 | 3rd Semester Notes - Knowlet</title>
+    <meta name="description" content="Exam notes for Philosophy DSC 202 Logic II, Unit 4: Quantification, Symbolization, and Proof Construction.">
+    <meta name="keywords" content="DSC 202 Logic II, Quantification, Symbolization, Proof Construction, Predicate Logic, Universal Quantifier, Existential Quantifier">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+        
+    <link rel="stylesheet" href="../../../../assets/styles/supabase.css">
+    <style>
+        /* CSS styling as in Unit 1 */
+        body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; background-color: #f4f7f6; margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
+        h1, h2, h3 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; margin-top: 25px; }
+        h1 { font-size: 2.2em; border-color: #e74c3c; }
+        h2 { font-size: 1.8em; color: #3498db; border-color: #bdc3c7; }
+        h3 { font-size: 1.4em; color: #2ecc71; border: none; border-left: 5px solid #2ecc71; padding-left: 10px; }
+        p { margin-bottom: 15px; }
+        ul, ol { margin-bottom: 15px; padding-left: 30px; }
+        li { margin-bottom: 8px; }
+        strong { color: #c0392b; }
+        em { color: #f39c12; font-style: normal; }
+        blockquote { border-left: 5px solid #3498db; padding: 10px 20px; margin: 20px 0; background-color: #ecf0f1; border-radius: 5px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #34495e; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .exam-tip { border: 1px dashed #e74c3c; padding: 15px; margin: 20px 0; background-color: #fdeaea; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PHI-DSC-202 (Logic II): Unit 4: Quantification</h1>
+        <p><strong>Contact Hours:</strong> 60 | <strong>Full Marks:</strong> 100 (ESE=70/CCA=30)</p>
+        
+        <h2>Table of Contents</h2>
+        <ol>
+            <li><a href="#toc_4_1">Quantification: Symbolization</a></li>
+            <li><a href="#toc_4_2">Rules of Quantification</a></li>
+            <li><a href="#toc_4_3">Proof Construction in Predicate Logic</a></li>
+        </ol>
+
+        <hr>
+
+        <h2 id="toc_4_1">Quantification: Symbolization</h2>
+        <p><span id="spap_4_1_quantification_def">**Quantification** is the process of translating categorical and singular propositions into the language of Predicate Logic (or First-Order Logic), which can express internal structure not possible with Propositional Logic</span>. It uses **quantifiers** and **predicates**.</p>
+        
+        <h3>Key Symbols</h3>
+        <ul>
+            <li><strong>Predicates:</strong> Capital letters (A, B, C...) representing properties or relations (e.g., Ax = "x is an Animal").</li>
+            <li><strong>Individual Constants:</strong> Lowercase letters (a, b, c...) representing specific individuals (e.g., s = Socrates).</li>
+            <li><strong>Individual Variables:</strong> Lowercase letters (x, y, z...) representing unspecified members of the universe of discourse.</li>
+            <li><strong>Universal Quantifier (x):</strong> Means "For all x" or "Every x".</li>
+            <li><strong>Existential Quantifier (∃x):</strong> Means "There is at least one x" or "Some x".</li>
+        </ul>
+
+        <h3>Symbolizing Standard Form Propositions</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Form</th>
+                    <th>Example</th>
+                    <th>Symbolization (Formula)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>A (All S is P)</strong></td>
+                    <td>All dogs are mammals. (Dx, Mx)</td>
+                    <td><span id="spap_4_1_symbolization_a">(x) (Dx → Mx)</span></td>
+                </tr>
+                <tr>
+                    <td><strong>E (No S is P)</strong></td>
+                    <td>No fish are birds. (Fx, Bx)</td>
+                    <td><span id="spap_4_1_symbolization_e">(x) (Fx → ¬Bx)</span> (or ¬(∃x) (Fx ⋅ Bx))</td>
+                </tr>
+                <tr>
+                    <td><strong>I (Some S is P)</strong></td>
+                    <td>Some flowers are red. (Fx, Rx)</td>
+                    <td><span id="spap_4_1_symbolization_i">(∃x) (Fx ⋅ Rx)</span></td>
+                </tr>
+                <tr>
+                    <td><strong>O (Some S is not P)</strong></td>
+                    <td>Some humans are not kind. (Hx, Kx)</td>
+                    <td><span id="spap_4_1_symbolization_o">(∃x) (Hx ⋅ ¬Kx)</span></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p class="exam-tip"><strong>Symbolization Tip: A/E use the Arrow (→); I/O use the Dot (⋅)</strong></p>
+
+        <h2 id="toc_4_2">Rules of Quantification</h2>
+        <p><span id="spap_4_2_quantification_rules">In addition to the Nineteen Rules, four new rules are required for proofs involving quantifiers</span>. These rules allow moving between quantified statements and instantiated (singular) statements.</p>
+
+        <ol>
+            <li>
+                <strong>UI (Universal Instantiation):</strong>
+                <p>From a universally quantified statement, you can deduce any statement that results from replacing the variable with an **individual constant (a, b, c...)**.</p>
+                <p>Formula: <span id="spap_4_2_ui_formula">(x) (Fx) / ∴ Fa</span></p>
+            </li>
+            <li>
+                <strong>UG (Universal Generalization):</strong>
+                <p>From an instantiated statement about an **arbitrarily chosen** individual (a specific variable *y* that is not tied to any premise), you can deduce the corresponding universally quantified statement.</p>
+                <p>Formula: <span id="spap_4_2_ug_formula">Fy / ∴ (x) (Fx)</span> (Requires strict constraints on *y*)</p>
+            </li>
+            <li>
+                <strong>EI (Existential Instantiation):</strong>
+                <p>From an existentially quantified statement, you can deduce an instantiated statement using an **individual constant (a, b, c...) that has not occurred previously** in the proof.</p>
+                <p>Formula: <span id="spap_4_2_ei_formula">(∃x) (Fx) / ∴ Fg</span> (where 'g' is new)</p>
+            </li>
+            <li>
+                <strong>EG (Existential Generalization):</strong>
+                <p>From an instantiated statement about a **specific** individual, you can deduce the corresponding existentially quantified statement.</p>
+                <p>Formula: <span id="spap_4_2_eg_formula">Fa / ∴ (∃x) (Fx)</span></p>
+            </li>
+        </ol>
+
+        <h2 id="toc_4_3">Proof Construction in Predicate Logic</h2>
+        <p><span id="spap_4_3_proof_construction">Proofs in Predicate Logic combine the Nineteen Rules (for propositional steps) with the four Rules of Quantification (for handling quantifiers)</span>.</p>
+        
+        <p><strong>Steps in a Quantified Proof:</strong></p>
+        <ol>
+            <li>**Symbolize:** Translate the premises and conclusion into symbolic quantified form.</li>
+            <li>**Instantiate:** Use **UI** and **EI** to remove the quantifiers from the premises, yielding instantiated statements (propositional logic statements). **EI must be used first**, and always with a new constant.</li>
+            <li>**Deduce:** Use the Nineteen Rules (MP, MT, Simp, etc.) to manipulate the instantiated lines and derive the required intermediate instantiated conclusion.</li>
+            <li>**Generalize:** Use **UG** or **EG** to re-introduce the required quantifier to match the final conclusion.</li>
+        </ol>
+        
+        <p class="exam-tip"><strong>Common Mistake: The Instantiation Rule Constraint</strong></p>
+        <p>The biggest pitfall is violating the **EI** constraint: **The constant used in EI must be NEW.** Also, violate the **UG** constraint: You cannot generalize from a constant introduced by **EI** if that constant appears in a premise line or in the line you are trying to generalize from (if the line depends on a premise containing that constant).</p>
+
+        <hr>
+        <div class="exam-tip">
+            <h3>Key Takeaway for Unit 4:</h3>
+            <p>Master the four standard form **Symbolizations** (A, E, I, O) and the proper application constraints, particularly for **EI** (new constant) and **UG** (arbitrary individual/no reliance on existential constants).</p>
+        </div>
+    </div>
+    <div id="app"></div>
+        
+    <script src="../../../../assets/scripts/units.js"></script>
+        
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        
+    <script src="../../../../assets/scripts/supabase.js"></script>
+        
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philosophy DSC 202 Unit 5 | 3rd Semester Notes - Knowlet</title>
+    <meta name="description" content="Exam notes for Philosophy DSC 202 Logic II, Unit 5: Theories of Probability (Addition, Multiplication) and Mill's Methods of Experimental Enquiry.">
+    <meta name="keywords" content="DSC 202 Logic II, Probability Theories, Addition Rule, Multiplication Rule, Mill's Methods, Inductive Logic, Experimental Enquiry">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+        
+    <link rel="stylesheet" href="../../../../assets/styles/supabase.css">
+    <style>
+        /* CSS styling as in Unit 1 */
+        body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; background-color: #f4f7f6; margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
+        h1, h2, h3 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; margin-top: 25px; }
+        h1 { font-size: 2.2em; border-color: #e74c3c; }
+        h2 { font-size: 1.8em; color: #3498db; border-color: #bdc3c7; }
+        h3 { font-size: 1.4em; color: #2ecc71; border: none; border-left: 5px solid #2ecc71; padding-left: 10px; }
+        p { margin-bottom: 15px; }
+        ul, ol { margin-bottom: 15px; padding-left: 30px; }
+        li { margin-bottom: 8px; }
+        strong { color: #c0392b; }
+        em { color: #f39c12; font-style: normal; }
+        blockquote { border-left: 5px solid #3498db; padding: 10px 20px; margin: 20px 0; background-color: #ecf0f1; border-radius: 5px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #34495e; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .exam-tip { border: 1px dashed #e74c3c; padding: 15px; margin: 20px 0; background-color: #fdeaea; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PHI-DSC-202 (Logic II): Unit 5: Probability and Mill's Methods</h1>
+        <p><strong>Contact Hours:</strong> 60 | <strong>Full Marks:</strong> 100 (ESE=70/CCA=30)</p>
+        
+        <h2>Table of Contents</h2>
+        <ol>
+            <li><a href="#toc_5_1">Probability: The Theories</a></li>
+            <li><a href="#toc_5_2">Theories of Addition and Multiplication</a></li>
+            <li><a href="#toc_5_3">Mill's Method of Experimental Enquiry</a></li>
+        </ol>
+
+        <hr>
+
+        <h2 id="toc_5_1">Probability: The Theories</h2>
+        <p><span id="spap_5_1_probability_def">**Probability** is a concept in Inductive Logic that measures the likelihood of an event occurring, ranging from 0 (impossible) to 1 (certainty)</span>. It provides a formal framework for evaluating inductive arguments, which are inherently uncertain.</p>
+        
+        <h3>The Classical (A Priori) View</h3>
+        <ul>
+            <li>**Definition:** Probability is the ratio of the number of favorable outcomes to the total number of equally possible outcomes.</li>
+            <li>**Formula:** <span id="spap_5_1_classical_formula">P(A) = Favorable Outcomes / Total Possible Outcomes</span>.</li>
+            <li>**Limitation:** It is limited to cases where outcomes are known and are equally likely (e.g., dice, coins).</li>
+        </ul>
+
+        <h3>The Frequency (A Posteriori) View</h3>
+        <ul>
+            <li>**Definition:** Probability is the ratio of the number of times an event occurs in a series of trials to the total number of trials, as the number of trials increases indefinitely.</li>
+            <li>**Formula:** <span id="spap_5_1_frequency_formula">P(A) = Number of times A occurred / Total Number of trials</span>.</li>
+            <li>**Application:** Used for insurance, medical statistics, and long-term predictions.</li>
+        </ul>
+
+        <h2 id="toc_5_2">Theories of Addition and Multiplication</h2>
+        <p><span id="spap_5_2_probability_theories">These rules calculate the probability of complex events based on the probabilities of their simple component events</span>.</p>
+
+        <h3>1. Addition Theorem (For 'OR' events)</h3>
+        <p>This calculates the probability of *at least one* of two events occurring (P(A or B)).</p>
+        
+        <p><strong>A. Mutually Exclusive Events:</strong> Events that cannot occur at the same time (e.g., flipping heads OR tails).</p>
+        <blockquote>
+            <p><strong>Formula:</strong> <span id="spap_5_2_addition_exclusive_formula">P(A or B) = P(A) + P(B)</span></p>
+        </blockquote>
+
+        <p><strong>B. Non-Mutually Exclusive Events:</strong> Events that can occur at the same time (e.g., drawing an Ace OR a Spade from a deck).</p>
+        <blockquote>
+            <p><strong>Formula:</strong> <span id="spap_5_2_addition_inclusive_formula">P(A or B) = P(A) + P(B) - P(A and B)</span> (Subtracts the probability of the overlap)</p>
+        </blockquote>
+
+        <h3>2. Multiplication Theorem (For 'AND' events)</h3>
+        <p>This calculates the probability of two events occurring in sequence (P(A and B)).</p>
+        
+        <p><strong>A. Independent Events:</strong> The occurrence of one event does not affect the probability of the other (e.g., flipping a coin twice).</p>
+        <blockquote>
+            <p><strong>Formula:</strong> <span id="spap_5_2_multiplication_independent_formula">P(A and B) = P(A) * P(B)</span></p>
+        </blockquote>
+
+        <p><strong>B. Dependent Events:</strong> The occurrence of the first event *does* affect the probability of the second (e.g., drawing two cards without replacement).</p>
+        <blockquote>
+            <p><strong>Formula:</strong> <span id="spap_5_2_multiplication_dependent_formula">P(A and B) = P(A) * P(B | A)</span> (Where P(B | A) is the probability of B given that A has already occurred)</p>
+        </blockquote>
+        
+        <p class="exam-tip"><strong>Exam Tip: Calculate and Apply</strong></p>
+        <p>You must be able to solve numerical problems using these four formulas. The key is correctly identifying if the events are **Mutually Exclusive/Inclusive** for addition, and **Independent/Dependent** for multiplication.</p>
+
+        <h2 id="toc_5_3">Mill's Method of Experimental Enquiry</h2>
+        <p><span id="spap_5_3_mills_methods">John Stuart Mill formulated five canons (methods) to systematically determine causal relationships from observed phenomena. These methods are foundational to modern experimental induction</span>.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Principle</th>
+                    <th>Application/Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Agreement</strong></td>
+                    <td>If two or more instances of a phenomenon under investigation have only one circumstance in common, that circumstance is the cause (or effect) of the phenomenon.</td>
+                    <td>**Finding a Cause:** If several people get sick after eating only one food in common (say, a specific fish), that food is the likely cause.</td>
+                </tr>
+                <tr>
+                    <td><strong>Difference</strong></td>
+                    <td>If an instance where the phenomenon occurs and an instance where it does not occur have every circumstance in common save one, that one circumstance is the cause.</td>
+                    <td>**The Control Group:** A patient improves after taking a new drug (Difference) while a similar patient (Control) does not. The drug is the cause.</td>
+                </tr>
+                <tr>
+                    <td><strong>Joint Method</strong></td>
+                    <td>Combines Agreement and Difference. It confirms the cause by looking for the common factor present when the effect occurs (Agreement) and the common factor absent when the effect does not occur (Difference).</td>
+                    <td>Finding the common factor (Food A) in a group that got sick, and the common factor (Absence of Food A) in a similar group that did not get sick.</td>
+                </tr>
+                <tr>
+                    <td><strong>Residues</strong></td>
+                    <td>Subtract from a phenomenon that part which is known by prior induction to be the effect of certain antecedents; the residue of the phenomenon is the effect of the remaining antecedents.</td>
+                    <td>**Finding New Planets:** Observing orbital discrepancies and subtracting the pull of all known planets. The *residue* discrepancy led to the discovery of Neptune.</td>
+                </tr>
+                <tr>
+                    <td><strong>Concomitant Variations</strong></td>
+                    <td>Whatever phenomenon varies in any manner whenever another phenomenon varies in some particular manner, is either a cause or an effect of that phenomenon, or is connected to it by some fact of causation.</td>
+                    <td>**Dose-Response:** Varying the dose of fertilizer (cause) and observing a proportional variation in plant growth (effect).</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p class="exam-tip"><strong>Mnemonic:</strong> Mill's methods are **A D** Joi **R C** (Agreement, Difference, Joint, Residues, Concomitant).</p>
+
+        <hr>
+        <div class="exam-tip">
+            <h3>Key Takeaway for Unit 5:</h3>
+            <p>For Probability, know the conditions for using the **four formulas**. For Mill's Methods, be able to **define** each method and provide a **distinct real-world example** that perfectly illustrates its principle, focusing especially on the structure of Agreement and Difference.</p>
+        </div>
+    </div>
+    <div id="app"></div>
+        
+    <script src="../../../../assets/scripts/units.js"></script>
+        
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        
+    <script src="../../../../assets/scripts/supabase.js"></script>
+        
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philosophy DSC 201 Unit 5 | 3rd Semester Notes - Knowlet</title>
+    <meta name="description" content="Exam notes for Philosophy DSC 201 Logic I, Unit 5: Preliminary Set Theory.">
+    <meta name="keywords" content="DSC 201 Logic I, Preliminary Set Theory, Sets, Venn Diagrams, Union, Intersection, Complement">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+        
+    <link rel="stylesheet" href="../../../../assets/styles/supabase.css">
+    <style>
+        /* CSS styling as in Unit 1 */
+        body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; background-color: #f4f7f6; margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
+        h1, h2, h3 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; margin-top: 25px; }
+        h1 { font-size: 2.2em; border-color: #e74c3c; }
+        h2 { font-size: 1.8em; color: #3498db; border-color: #bdc3c7; }
+        h3 { font-size: 1.4em; color: #2ecc71; border: none; border-left: 5px solid #2ecc71; padding-left: 10px; }
+        p { margin-bottom: 15px; }
+        ul, ol { margin-bottom: 15px; padding-left: 30px; }
+        li { margin-bottom: 8px; }
+        strong { color: #c0392b; }
+        em { color: #f39c12; font-style: normal; }
+        blockquote { border-left: 5px solid #3498db; padding: 10px 20px; margin: 20px 0; background-color: #ecf0f1; border-radius: 5px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #34495e; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .exam-tip { border: 1px dashed #e74c3c; padding: 15px; margin: 20px 0; background-color: #fdeaea; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PHI-DSC-201 (Logic I): Unit 5: Preliminary Set Theory</h1>
+        <p><strong>Contact Hours:</strong> 60 | <strong>Full Marks:</strong> 100 (ESE=70/CCA=30)</p>
+        
+        <h2>Table of Contents</h2>
+        <ol>
+            <li><a href="#toc_5_1">Introduction to Set Theory</a></li>
+            <li><a href="#toc_5_2">Basic Set Operations</a></li>
+            <li><a href="#toc_5_3">Relationship to Logic</a></li>
+        </ol>
+
+        <hr>
+
+        <h2 id="toc_5_1">Introduction to Set Theory</h2>
+        <p><span id="spap_5_1_set_theory"><strong>Set Theory</strong> is the mathematical theory of collections of objects. In Logic, it provides a foundational language and tool for understanding classes and categorical propositions</span>.</p>
+        
+        <h3>Core Concepts</h3>
+        <ul>
+            <li>
+                <strong>Set:</strong> A well-defined collection of distinct objects, called <strong>elements</strong> or members.
+                <p><em>Notation Example:</em> A = {1, 2, 3, 4}</p>
+            </li>
+            <li>
+                <strong>Universal Set (U):</strong> The set of all elements or objects under consideration in a particular context. It is the boundary or frame of reference.
+            </li>
+            <li>
+                <strong>Empty Set (∅ or {}):</strong> The unique set containing no elements.
+            </li>
+            <li>
+                <strong>Subset (⊆):</strong> Set A is a subset of Set B if every element of A is also an element of B.
+                <p><em>Example:</em> If A = {1, 2} and B = {1, 2, 3}, then A ⊆ B.</p>
+            </li>
+        </ul>
+        
+        <blockquote>
+            <p><strong>Definition:</strong> The statement that **x is an element of set A** is written as <span id="spap_5_1_element_notation">x ∈ A</span>.</p>
+        </blockquote>
+
+        <h2 id="toc_5_2">Basic Set Operations</h2>
+        <p><span id="spap_5_2_set_operations">Set operations combine existing sets to form new sets</span>.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Operation</th>
+                    <th>Definition</th>
+                    <th>Notation (Logical Equivalent)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Union</strong></td>
+                    <td>The set containing all elements that belong to A *or* B (or both).</td>
+                    <td><span id="spap_5_2_union_notation">A ∪ B</span> (Disjunction: P ∨ Q)</td>
+                </tr>
+                <tr>
+                    <td><strong>Intersection</strong></td>
+                    <td>The set containing all elements that belong to A *and* B.</td>
+                    <td><span id="spap_5_2_intersection_notation">A ∩ B</span> (Conjunction: P ⋅ Q)</td>
+                </tr>
+                <tr>
+                    <td><strong>Complement</strong></td>
+                    <td>The set containing all elements in the Universal Set (U) that *do not* belong to A.</td>
+                    <td><span id="spap_5_2_complement_notation">A' or Ā</span> (Negation: ¬P)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Visual Representation: Venn Diagrams</h3>
+        <p>Venn Diagrams use overlapping circles within a rectangle (the Universal Set) to visualize the relationships between sets. This is crucial for testing syllogisms (Unit 2).</p>
+        
+        <ul>
+            <li><strong>Shading:</strong> Represents that a region is **empty** (it contains no members). This is the key tool for representing Universal Propositions (A and E) in the Boolean interpretation.</li>
+            <li><strong>Placing an 'x':</strong> Represents that a region is **non-empty** (it contains at least one member). This is the key tool for representing Particular Propositions (I and O).</li>
+        </ul>
+
+        <h2 id="toc_5_3">Relationship to Logic</h2>
+        <p><span id="spap_5_3_set_logic_link">Set theory provides the mathematical underpinning for the formal system of Boolean Logic</span>. George Boole showed that logical principles could be represented and calculated using algebraic methods, with sets being the primary subject matter.</p>
+        
+        <ul>
+            <li>The **subject and predicate terms** of a categorical proposition (e.g., 'S' and 'P') are viewed as **classes (sets)**.</li>
+            <li>The four standard forms (A, E, I, O) are expressed by affirming or denying that the intersection of two classes is empty.</li>
+        </ul>
+
+        <p class="exam-tip"><strong>Exam Focus: Set Notation of Categorical Propositions</strong></p>
+        <p>You must know how to translate the four standard forms into set notation (where S and P are classes):</p>
+        <ol>
+            <li><strong>A (All S is P):</strong> <span id="spap_5_3_set_notation_a">S ∩ P' = ∅</span> (The intersection of S and not-P is empty).</li>
+            <li><strong>E (No S is P):</strong> <span id="spap_5_3_set_notation_e">S ∩ P = ∅</span> (The intersection of S and P is empty).</li>
+            <li><strong>I (Some S is P):</strong> <span id="spap_5_3_set_notation_i">S ∩ P ≠ ∅</span> (The intersection of S and P is non-empty).</li>
+            <li><strong>O (Some S is not P):</strong> <span id="spap_5_3_set_notation_o">S ∩ P' ≠ ∅</span> (The intersection of S and not-P is non-empty).</li>
+        </ol>
+
+        <hr>
+        <div class="exam-tip">
+            <h3>Key Takeaway for Unit 5:</h3>
+            <p>Preliminary Set Theory gives meaning to the **Boolean Square of Opposition** (Unit 2) and the **Venn Diagram technique** (Unit 2). Focus on the definitions of the basic operations (Union, Intersection, Complement) and the **set notation equivalent** of the four categorical propositions (A, E, I, O).</p>
+        </div>
+    </div>
+    <div id="app"></div>
+        
+    <script src="../../../../assets/scripts/units.js"></script>
+        
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        
+    <script src="../../../../assets/scripts/supabase.js"></script>
+        
+</body>
+</html>

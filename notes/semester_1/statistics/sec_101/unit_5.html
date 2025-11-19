@@ -343,19 +343,7 @@
             </div>
             <ul>
                 <li><strong>lookup_value:</strong> The value you are looking for (e.g., cell <code>A2</code> in Sheet1, which contains the StudentID).</li>
-                <li><strong>table_array:</strong> The *entire* second table you are searching in (e.g., <code>Sheet2!$A:$C</code>). <strong>Important:</strong> Use dollar signs ($) to "lock" the range so it doesn't move when you copy the formula down.</li>
-                <li><strong>col_index_num:</strong> The column number in Table 2 that has the data you want to *return*. (In our example, <code>StudentName</code> is column <strong>2</strong> and <code>Region</code> is column <strong>3</strong>).</li>
-                <li><strong>[range_lookup]:</strong> Always use <strong>FALSE</strong> or <strong>0</strong>. This forces Excel to find an <strong>exact match</strong>.</li>
-            </ul>
-
-            <h3>Example:</h3>
-            <p>In cell <code>C2</code> of Sheet1 (to get the name):</p>
-            <div class="formula">
-                =VLOOKUP(A2, Sheet2!$A:$C, 2, FALSE)
-            </div>
-            <p>In cell <code>D2</code> of Sheet1 (to get the region):</p>
-            <div class="formula">
-                =VLOOKUP(A2, Sheet2!$A:$C, 3, FALSE)
+                <li><strong>table_array:</strong> The *entire* second table you are searching in (e.g., <code>Sheet2!A:C</code>). <strong>Important:</strong> Use dollar signs () to "lock" the range so it doesn't move when you copy the formula down.</li> <li><strong>col<sub>i</sub>ndex<sub>n</sub>um:</strong> The column number in Table 2 that has the data you want to *return*. (In our example, <code>StudentName</code> is column <strong>2</strong> and <code>Region</code> is column <strong>3</strong>).</li> <li><strong>[range<sub>l</sub>ookup]:</strong> Always use <strong>FALSE</strong> or <strong>0</strong>. This forces Excel to find an <strong>exact match</strong>.</li> </ul> <h3>Example:</h3> <p>In cell <code>C2</code> of Sheet1 (to get the name):</p> <div class="formula"> =VLOOKUP(A2, Sheet2!A:C, 2, FALSE) </div> <p>In cell <code>D2</code> of Sheet1 (to get the region):</p> <div class="formula"> =VLOOKUP(A2, Sheet2!A:$C, 3, FALSE)
             </div>
             <p>You can then drag these formulas down for all rows.</p>
         </section>

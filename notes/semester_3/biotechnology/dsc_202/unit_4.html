@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biotechnology DSC 202 Unit 4 | 3rd Semester Notes - Knowlet</title>
+    <meta name="description" content="Exam notes for Unit 4 of BTC DSC 202T Animal Cell Culture: Transfection and Screening & Selection Techniques.">
+    <meta name="keywords" content="Biotechnology, Animal Cell Culture, Transfection, Microinjection, Lipofection, Electroporation, Sonication, Screening, Selection Technique, HAT Selection, Selectable Markers, Gene Inactivation Technique">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+        
+    <link rel="stylesheet" href="../../../../assets/styles/supabase.css">
+    <style>
+        body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 20px; background-color: #f4f7f6; }
+        .container { max-width: 1000px; margin: auto; background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); }
+        h1, h2, h3 { color: #004d40; border-bottom: 2px solid #e0f2f1; padding-bottom: 5px; margin-top: 20px; }
+        h1 { font-size: 2em; border-bottom: 4px solid #004d40; }
+        h2 { font-size: 1.6em; border-left: 5px solid #00897b; padding-left: 10px; }
+        h3 { font-size: 1.3em; color: #00695c; border-bottom: 1px dashed #bdbdbd; padding-left: 10px; }
+        ul, ol { margin: 15px 0; padding-left: 30px; }
+        li { margin-bottom: 10px; }
+        strong { color: #d84315; }
+        em { color: #1e88e5; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #00897b; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        blockquote { border-left: 5px solid #ffb300; background-color: #fff9c4; padding: 15px; margin: 20px 0; font-style: italic; }
+        .exam-tip { border: 2px solid #e53935; padding: 15px; margin: 20px 0; background-color: #ffcdd2; border-radius: 5px; }
+        .application { border-left: 5px solid #43a047; background-color: #e8f5e9; padding: 10px; margin: 15px 0; }
+        a { color: #00695c; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>UNIT 4: Transfection, Screening and Selection Technique</h1>
+        <p class="exam-tip"><strong>Exam Focus:</strong> Transfection methods are commonly asked as short notes (Microinjection, Lipofection, Electroporation). For selection, understand the principle and utility of the **HAT selection** medium, especially in Hybridoma technology.</p>
+        
+        <h2>Table of Contents</h2>
+        <ol>
+            <li><a href="#transfection">Transfection</a>
+                <ul>
+                    <li><a href="#microinjection">Microinjection</a></li>
+                    <li><a href="#lipofection">Lipofection</a></li>
+                    <li><a href="#electroporation">Electroporation</a></li>
+                    <li><a href="#sonication">Sonication</a></li>
+                </ul>
+            </li>
+            <li><a href="#screening-selection">Screening and Selection Technique</a>
+                <ul>
+                    <li><a href="#hat-selection">HAT Selection</a></li>
+                    <li><a href="#selectable-markers">Selectable Markers</a></li>
+                    <li><a href="#gene-inactivation">Gene Inactivation Technique</a></li>
+                </ul>
+            </li>
+        </ol>
+
+        <h2 id="transfection">1. Transfection</h2>
+        <p>Transfection is the introduction of **foreign nucleic acids (DNA or RNA)** into eukaryotic cells. The various methods aim to bypass the cell membrane barrier.</p>
+        
+        <h3 id="microinjection">Microinjection</h3>
+        <p>A physical method where a fine glass needle is used to **manually inject** the DNA or RNA directly into the cell nucleus or cytoplasm.</p>
+        <ul>
+            <li>**Pros:** Highly efficient and precise.</li>
+            <li>**Cons:** Low throughput (one cell at a time).</li>
+        </ul>
+
+        <h3 id="lipofection">Lipofection</h3>
+        <p>A chemical method using **liposomes** (lipid vesicles) or **lipofection** reagents (cationic lipids) that form complexes with the negatively charged nucleic acids. These complexes fuse with the cell membrane, mediating DNA entry.</p>
+        
+        <h3 id="electroporation">Electroporation</h3>
+        <p>A physical method using a brief, high-voltage electric pulse to create **transient pores** in the cell membrane, allowing the nucleic acid in the surrounding medium to enter the cell.</p>
+        
+        <h3 id="sonication">Sonication</h3>
+        <p>A physical method using **ultrasound waves** to temporarily disrupt the cell membrane structure, facilitating the uptake of nucleic acids from the surrounding medium.</p>
+        
+        <table style="font-size: 0.9em;">
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Mechanism</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Microinjection</td>
+                    <td>Direct physical delivery via needle.</td>
+                    <td>Physical</td>
+                </tr>
+                <tr>
+                    <td>Lipofection</td>
+                    <td>Cationic lipid vesicles fuse with cell membrane.</td>
+                    <td>Chemical</td>
+                </tr>
+                <tr>
+                    <td>Electroporation</td>
+                    <td>Electric pulse creates transient membrane pores.</td>
+                    <td>Physical</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 id="screening-selection">2. Screening and Selection Technique</h2>
+        
+        <h3 id="hat-selection">HAT Selection</h3>
+        <p>A specialized **selection technique** used in Hybridoma technology to isolate the desired hybridoma cells (fused B-cell × myeloma cell).</p>
+        <ul>
+            <li>**Medium:** Contains **H**ypoxanthine, **A**minopterin (blocks *de novo* nucleotide synthesis), and **T**hymidine.</li>
+            <li>**Principle:** Aminopterin forces cells to use the salvage pathway, which requires the HGPRT enzyme (present in B-cells but absent in myeloma cells). Only the fusion product (hybridoma), which has the HGPRT from the B-cell and the immortality from the myeloma cell, survives.</li>
+        </ul>
+        
+        <h3 id="selectable-markers">Selectable Markers</h3>
+        <p>Genes encoded by the vector that confer a selective advantage (e.g., antibiotic resistance) to the host cell, allowing only successfully transfected cells to survive when grown under selective pressure.</p>
+        
+        <h3 id="gene-inactivation">Gene Inactivation Technique</h3>
+        <p>Methods used to disrupt the function of an endogenous gene.</p>
+        <ul>
+            <li>**Examples:** Using **siRNA/shRNA** (RNA interference) to degrade target mRNA, or using **CRISPR-Cas9** to induce targeted mutations (knockout) in the gene sequence.</li>
+        </ul>
+    </div>
+    <div id="app"></div>
+        
+    <script src="../../../../assets/scripts/units.js"></script>
+        
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        
+    <script src="../../../../assets/scripts/supabase.js"></script>
+        
+</body>
+</html>

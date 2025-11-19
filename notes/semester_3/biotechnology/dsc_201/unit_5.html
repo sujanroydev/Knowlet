@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biotechnology DSC 201 Unit 5 | 3rd Semester Notes - Knowlet</title>
+    <meta name="description" content="Exam notes for Unit 5 of BTC DSC 201T Genetics: Linkage, Recombination, Crossing Over, Extra-chromosomal Inheritance, and Hardy-Weinberg Principle.">
+    <meta name="keywords" content="Biotechnology, Genetics, Linkage, Recombination, Crossing Over, Extra-chromosomal Inheritance, Maternal Inheritance, Cytoplasmic Inheritance, Hardy-Weinberg Principle, Gene Pool, Allelic Frequencies">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+        
+    <link rel="stylesheet" href="../../../../assets/styles/supabase.css">
+    <style>
+        body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 20px; background-color: #f4f7f6; }
+        .container { max-width: 1000px; margin: auto; background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); }
+        h1, h2, h3 { color: #004d40; border-bottom: 2px solid #e0f2f1; padding-bottom: 5px; margin-top: 20px; }
+        h1 { font-size: 2em; border-bottom: 4px solid #004d40; }
+        h2 { font-size: 1.6em; border-left: 5px solid #00897b; padding-left: 10px; }
+        h3 { font-size: 1.3em; color: #00695c; border-bottom: 1px dashed #bdbdbd; padding-left: 10px; }
+        ul, ol { margin: 15px 0; padding-left: 30px; }
+        li { margin-bottom: 10px; }
+        strong { color: #d84315; }
+        em { color: #1e88e5; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #00897b; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        blockquote { border-left: 5px solid #ffb300; background-color: #fff9c4; padding: 15px; margin: 20px 0; font-style: italic; }
+        .exam-tip { border: 2px solid #e53935; padding: 15px; margin: 20px 0; background-color: #ffcdd2; border-radius: 5px; }
+        .application { border-left: 5px solid #43a047; background-color: #e8f5e9; padding: 10px; margin: 15px 0; }
+        a { color: #00695c; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>UNIT 5: Linkage, Recombination, Crossing Over, Extra-chromosomal Inheritance, and Hardy-Weinberg Principle</h1>
+        <p class="exam-tip"><strong>Exam Focus:</strong> The Hardy-Weinberg Principle is a critical calculation topic. Know the formulas (p<sup>2</sup> + 2pq + q<sup>2</sup> = 1 and p + q = 1). Be able to differentiate between Complete and Incomplete Linkage and the evidence for the cytological basis of crossing over (Stern's Experiment).</p>
+        
+        <h2>Table of Contents</h2>
+        <ol>
+            <li><a href="#linkage">Linkage</a>
+                <ul>
+                    <li><a href="#complete-linkage">Complete Linkage</a></li>
+                    <li><a href="#incomplete-linkage">Incomplete Linkage</a></li>
+                </ul>
+            </li>
+            <li><a href="#recombination">Recombination and Crossing Over</a>
+                <ul>
+                    <li><a href="#recombination-def">Recombination: Definition and Types</a></li>
+                    <li><a href="#crossing-over">Crossing Over: Cytological Basis (Stern's Experiment)</a></li>
+                    <li><a href="#molecular-mechanism">Molecular Mechanism of Crossing Over</a></li>
+                </ul>
+            </li>
+            <li><a href="#extra-chromosomal">Extra-chromosomal Inheritance</a>
+                <ul>
+                    <li><a href="#maternal">Maternal Inheritance</a></li>
+                    <li><a href="#cytoplasmic">Cytoplasmic Inheritance</a></li>
+                </ul>
+            </li>
+            <li><a href="#hardy-weinberg">Hardy-Weinberg Principle</a>
+                <ul>
+                    <li><a href="#hwp-prediction">Prediction</a></li>
+                    <li><a href="#gene-pool">Gene Pool and Changes in Allelic Frequencies</a></li>
+                    <li><a href="#allelic-genotype">Allelic and Genotype Frequencies</a></li>
+                </ul>
+            </li>
+        </ol>
+
+        <h2 id="linkage">1. Linkage</h2>
+        <p>Linkage is the tendency of genes or alleles located close to each other on the **same chromosome** to be inherited together during meiosis. It is an exception to Mendel's Principle of Independent Assortment.</p>
+        
+        <h3 id="complete-linkage">Complete Linkage</h3>
+        <p>Occurs when two genes are located **very close together** on the same chromosome, resulting in no recombination (crossing over) between them.</p>
+        <ul>
+            <li><strong>Outcome:</strong> Genes are always inherited together, producing only **parental types** in the F2 generation.</li>
+            <li><strong>Example:</strong> Observed in male <em>Drosophila</em> (where no crossing over occurs).</li>
+        </ul>
+        
+        <h3 id="incomplete-linkage">Incomplete Linkage</h3>
+        <p>Occurs when genes are located **far apart** on the same chromosome, allowing for some recombination (crossing over) between them.</p>
+        <ul>
+            <li><strong>Outcome:</strong> Produces both **parental and recombinant types** in the F2 generation, but the parental types appear in a higher proportion than expected by independent assortment.</li>
+            <li><strong>Recombinant Frequency:</strong> The percentage of recombinant offspring can be used to estimate the distance between genes (1% recombination = 1 map unit or 1 centiMorgan).</li>
+        </ul>
+
+        <h2 id="recombination">2. Recombination and Crossing Over</h2>
+
+        <h3 id="recombination-def">Recombination: Definition and Types</h3>
+        <p>Recombination is the process that generates new combinations of alleles on a chromosome, different from those present in the parental chromosomes.</p>
+        <ul>
+            <li><strong>Homologous Recombination:</strong> Genetic exchange between two homologous DNA molecules (e.g., crossing over during meiosis).</li>
+            <li><strong>Non-homologous Recombination:</strong> Genetic exchange between non-homologous DNA molecules (e.g., insertion of a phage DNA into a bacterial genome).</li>
+        </ul>
+        <p><strong>Crossing Over:</strong> The physical exchange of genetic material between non-sister chromatids of homologous chromosomes during the pachytene stage of meiotic prophase I.</p>
+
+        <h3 id="crossing-over">Crossing Over: Cytological Basis (Stern's Experiment)</h3>
+        <p>The cytological (physical) demonstration that crossing over involves a physical exchange between chromosomes was provided by Curt Stern in 1931 using **<em>Drosophila</em>**.</p>
+        <ul>
+            <li><strong>Method:</strong> Stern used a female <em>Drosophila</em> that had one X chromosome with a piece of the Y chromosome translocated onto it, and the other X chromosome was broken, resulting in an abnormal shape and distinctive markers (unequal homologous chromosomes).</li>
+            <li><strong>Finding:</strong> He observed that the phenotypic recombination of X-linked traits (visible phenotypes) always correlated with the physical exchange of the abnormal chromosome segments (cytological recombination).</li>
+            <li><strong>Conclusion:</strong> This experiment proved unequivocally that **genetic crossing over is accompanied by the physical exchange of chromosome segments**.</li>
+        </ul>
+        <h3 id="molecular-mechanism">Molecular Mechanism of Crossing Over</h3>
+        <p>The molecular process involves the breakage and rejoining of DNA strands.</p>
+        <ul>
+            <li><strong>Breakage and Reunion Theory:</strong> This theory (supported by experimental evidence) suggests that crossing over occurs by the physical breaking of two non-sister chromatids and the reciprocal rejoining of the broken ends.</li>
+            <li><strong>Holliday Junction Model:</strong> A detailed model describing the four-strand DNA intermediate formed during recombination.</li>
+            <li><strong>Double-Strand Break Repair Model:</strong> The currently accepted model, which proposes that recombination is initiated by a double-strand break in one DNA duplex.</li>
+        </ul>
+
+        <h2 id="extra-chromosomal">3. Extra-chromosomal Inheritance</h2>
+        <p>Also known as **Cytoplasmic Inheritance**, this refers to the inheritance of traits controlled by genes located outside the nucleus, in organelles like mitochondria and chloroplasts.</p>
+        
+        <h3 id="maternal">Maternal Inheritance</h3>
+        <p>A specific pattern of extra-chromosomal inheritance where the phenotype of the offspring is determined solely by the **maternal parent's genotype**, because the egg provides the bulk of the cytoplasm (including mitochondria and chloroplasts) to the zygote, while the sperm contributes little or none.</p>
+        
+        <h3 id="cytoplasmic">Cytoplasmic Inheritance: Definition and Characteristics</h3>
+        <ul>
+            <li><strong>Definition:</strong> Inheritance of traits determined by genes present in the DNA of cytoplasmic organelles (mitochondria or chloroplasts).</li>
+            <li><strong>Characteristics:</strong>
+                <ol>
+                    <li>**Maternal Effect:** Traits are often inherited exclusively from the mother.</li>
+                    <li>**Non-Mendelian Ratios:** Traits do not segregate according to Mendelian laws.</li>
+                    <li>**Reciprocal Crosses Differ:** The results of reciprocal crosses (Male A x Female B vs. Male B x Female A) are different.</li>
+                </ol>
+            </li>
+            <li><strong>Examples:</strong> Male sterility in corn, petite colonies in yeast (mitochondria), and variegated leaf color in <em>Mirabilis jalapa</em> (chloroplasts).</li>
+        </ul>
+
+        <h2 id="hardy-weinberg">4. Hardy-Weinberg Principle</h2>
+        <p>The Hardy-Weinberg Principle (HWP) is a null hypothesis in population genetics, stating that **allelic and genotypic frequencies in a large, randomly mating population will remain constant from generation to generation** in the absence of other evolutionary influences.</p>
+        
+        <h3 id="hwp-prediction">Hardy-Weinberg Prediction</h3>
+        <p>For a gene with two alleles, **A** and **a**, with frequencies p and q respectively:</p>
+        <blockquote>
+            <strong>Allele Frequency Equation:</strong>
+            p + q = 1
+            (where p is the frequency of the dominant allele A, and q is the frequency of the recessive allele a) .
+        </blockquote>
+        <blockquote>
+            <strong>Genotype Frequency Equation:</strong>
+            p<sup>2</sup> + 2pq + q<sup>2</sup> = 1
+            (where p<sup>2</sup> is the frequency of AA, 2pq is the frequency of Aa, and q<sup>2</sup> is the frequency of aa) .
+        </blockquote>
+        
+        <h3 id="gene-pool">Gene Pool and Changes in Allelic Frequencies</h3>
+        <ul>
+            <li><strong>Gene Pool:</strong> The total aggregate of all the alleles for all the loci in all the individuals within a population.</li>
+            <li><strong>Conditions for Equilibrium (Constant Frequencies):</strong> For the HWP to hold, the population must meet five key conditions (no change in allelic frequencies):
+                <ol>
+                    <li>No **mutation**</li>
+                    <li>No **gene flow** (migration)</li>
+                    <li>**Random mating** (no sexual selection)</li>
+                    <li>No **genetic drift** (very large population size)</li>
+                    <li>No **natural selection**</li>
+                </ol>
+            </li>
+            <li><strong>Changes in Allelic Frequencies:</strong> The violation of any of the five conditions above causes the gene pool to change (evolution). For example, mutation introduces new alleles, and selection changes the proportion of alleles over generations.</li>
+        </ul>
+        
+        <h3 id="allelic-genotype">Allelic and Genotype Frequencies</h3>
+        <p>Calculating the frequencies of alleles and genotypes in a population is the primary application of the HWP.</p>
+        <div class="application">
+            <strong>Example Calculation:</strong> If 16\% of a population suffers from a recessive genetic disorder (i.e., q<sup>2</sup> = 0.16), find the allele and genotype frequencies.
+            <ol>
+                <li><strong>Recessive Allele Frequency (q):</strong> q = √(q<sup>2</sup>) = √(0.16) = 0.4 (or 40\%).</li>
+                <li><strong>Dominant Allele Frequency (p):</strong> p = 1 - q = 1 - 0.4 = 0.6 (or 60\%).</li>
+                <li><strong>Homozygous Dominant Frequency (p<sup>2</sup>):</strong> p<sup>2</sup> = (0.6)<sup>2</sup> = 0.36 (or 36\%).</li>
+                <li><strong>Heterozygous Frequency (2pq - Carriers):</strong> 2pq = 2 × 0.6 × 0.4 = 0.48 (or 48\%).</li>
+                <li><strong>Check:</strong> 0.36 (AA) + 0.48 (Aa) + 0.16 (aa) = 1.0.</li>
+            </ol>
+        </div>
+    </div>
+    <div id="app"></div>
+        
+    <script src="../../../../assets/scripts/units.js"></script>
+        
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        
+    <script src="../../../../assets/scripts/supabase.js"></script>
+        
+</body>
+</html>

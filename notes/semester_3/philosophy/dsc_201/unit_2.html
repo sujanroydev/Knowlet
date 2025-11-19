@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philosophy DSC 201 Unit 2 | 3rd Semester Notes - Knowlet</title>
+    <meta name="description" content="Exam notes for Philosophy DSC 201 Logic I, Unit 2: Existential Import and Boolean Square of Opposition.">
+    <meta name="keywords" content="DSC 201 Logic I, Existential Import, Boolean Square of Opposition, Aristotelian Logic">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+        
+    <link rel="stylesheet" href="../../../../assets/styles/supabase.css">
+    <style>
+        /* CSS styling as in Unit 1 */
+        body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; background-color: #f4f7f6; margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
+        h1, h2, h3 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; margin-top: 25px; }
+        h1 { font-size: 2.2em; border-color: #e74c3c; }
+        h2 { font-size: 1.8em; color: #3498db; border-color: #bdc3c7; }
+        h3 { font-size: 1.4em; color: #2ecc71; border: none; border-left: 5px solid #2ecc71; padding-left: 10px; }
+        p { margin-bottom: 15px; }
+        ul, ol { margin-bottom: 15px; padding-left: 30px; }
+        li { margin-bottom: 8px; }
+        strong { color: #c0392b; }
+        em { color: #f39c12; font-style: normal; }
+        blockquote { border-left: 5px solid #3498db; padding: 10px 20px; margin: 20px 0; background-color: #ecf0f1; border-radius: 5px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #34495e; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .exam-tip { border: 1px dashed #e74c3c; padding: 15px; margin: 20px 0; background-color: #fdeaea; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PHI-DSC-201 (Logic I): Unit 2: Existential Import and Boolean Square of Opposition</h1>
+        <p><strong>Contact Hours:</strong> 60 | <strong>Full Marks:</strong> 100 (ESE=70/CCA=30)</p>
+        
+        <h2>Table of Contents</h2>
+        <ol>
+            <li><a href="#toc_2_1">Existential Import</a></li>
+            <li><a href="#toc_2_2">Boolean Square of Opposition</a></li>
+            <li><a href="#toc_2_3">Exercises based on Square of Opposition</a></li>
+        </ol>
+
+        <hr>
+
+        <h2 id="toc_2_1">Existential Import</h2>
+        <p><span id="spap_2_1_existential_import"><strong>Existential Import</strong> refers to the question of whether a categorical proposition implies the existence of members in the class or classes referred to by its subject term</span>.</p>
+        
+        <h3>Traditional (Aristotelian) vs. Modern (Boolean) View</h3>
+        <p>The concept of Existential Import is the key difference between the traditional Aristotelian logic and modern Boolean logic.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Proposition Type</th>
+                    <th>Aristotelian View (Traditional)</th>
+                    <th>Boolean View (Modern)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>A (Universal Affirmative: All S is P)</strong></td>
+                    <td>Asserts existence of S. (S exists and S is P)</td>
+                    <td><strong>Denies existence</strong> of S that is not P. (No S exists that is not P). Does <em>not</em> assert existence of S.</td>
+                </tr>
+                <tr>
+                    <td><strong>E (Universal Negative: No S is P)</strong></td>
+                    <td>Asserts existence of S. (S exists and S is not P)</td>
+                    <td><strong>Denies existence</strong> of S that is P. (No S exists that is P). Does <em>not</em> assert existence of S.</td>
+                </tr>
+                <tr>
+                    <td><strong>I (Particular Affirmative: Some S is P)</strong></td>
+                    <td>Asserts existence of S and P. (At least one S exists and is P)</td>
+                    <td><strong>Asserts existence</strong> of S that is P. (At least one S exists and is P).</td>
+                </tr>
+                <tr>
+                    <td><strong>O (Particular Negative: Some S is not P)</strong></td>
+                    <td>Asserts existence of S. (At least one S exists and is not P)</td>
+                    <td><strong>Asserts existence</strong> of S that is not P. (At least one S exists and is not P).</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p class="exam-tip"><strong>Exam Focus: The Difference</strong></p>
+        <p>In modern (Boolean) logic, <strong>Universal Propositions (A and E) DO NOT assert existence</strong>, while <strong>Particular Propositions (I and O) DO assert existence</strong>. This eliminates the logical relationships of Subalternation and leads to the **Boolean Square**.</p>
+
+        <h2 id="toc_2_2">Boolean Square of Opposition</h2>
+        <p><span id="spap_2_2_boolean_square">The Boolean interpretation, which denies existential import to universal propositions, simplifies the Square of Opposition</span>. It retains only the relationships based on logical necessity (contradiction) and eliminates those based on existence (subalternation, subcontrary, contrary).</p>
+        
+        <h3>The Only Valid Relationship: Contradiction</h3>
+        <p>In the Boolean Square, the only formally valid relation is **Contradiction**.</p>
+        
+        <ul>
+            <li><strong>A and O are Contradictories:</strong> They must have opposite truth values. If 'A' is True, 'O' is False, and vice-versa.</li>
+            <li><strong>E and I are Contradictories:</strong> They must have opposite truth values. If 'E' is True, 'I' is False, and vice-versa.</li>
+        </ul>
+        
+        <blockquote>
+            <p><strong>Simplified Inference Rule:</strong> The truth/falsity of a contradictory proposition can be immediately determined from the given proposition.</p>
+        </blockquote>
+
+        <h2 id="toc_2_3">Exercises based on Square of Opposition</h2>
+        <p><span id="spap_2_3_square_exercises">Mastery of the Square involves practicing immediate inferences to determine the truth value of related propositions</span>.</p>
+        
+        <h3>Immediate Inference Practice (Boolean)</h3>
+        <p><strong>Given: 'All Philosophers are Logicians' (A) is TRUE.</strong></p>
+        <ol>
+            <li><strong>I (Some Philosophers are Logicians):</strong> Cannot be determined (Undetermined/Unknown). Why? The truth of A does not guarantee the existence required for I.</li>
+            <li><strong>E (No Philosophers are Logicians):</strong> False (Contradictory of A).</li>
+            <li><strong>O (Some Philosophers are not Logicians):</strong> False (Contradictory of A).</li>
+        </ol>
+        
+        <p class="exam-tip"><strong>Mnemonic for Boolean Square</strong></p>
+        <p>When solving problems under the Boolean framework, remember the **No Existential Leap** rule. You <strong>cannot infer Particulars (I/O) from Universals (A/E)</strong> if the premises are true. The only safe inference is Contradiction.</p>
+
+        <hr>
+        <div class="exam-tip">
+            <h3>Key Takeaway for Unit 2:</h3>
+            <p>The core concept is the <strong>Rejection of Existential Import in Universal Propositions</strong> by modern logic. This changes the entire structure of the Square of Opposition, validating only the contradictory relations.</p>
+        </div>
+    </div>
+    <div id="app"></div>
+        
+    <script src="../../../../assets/scripts/units.js"></script>
+        
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        
+    <script src="../../../../assets/scripts/supabase.js"></script>
+        
+</body>
+</html>

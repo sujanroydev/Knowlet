@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biotechnology SEC 201 Unit 2 | 3rd Semester Notes - Knowlet</title>
+    <meta name="description" content="Exam notes for Unit 2 of BTC SEC 201 Molecular Biology: DNA Damage (Types) and DNA Repair Mechanisms (NER, BER, Mismatch, Recombinational).">
+    <meta name="keywords" content="Biotechnology, Molecular Biology, DNA Damage, Deamination, Depurination, Single Strand Breaks, Double-strand Breaks, Cross-linking, DNA methylation, DNA Repair, Photoreactivation, Base Excision Repair, Nucleotide Excision Repair, Mismatch Repair, Recombinational Repair, Homologous Recombination">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+        
+    <link rel="stylesheet" href="../../../../assets/styles/supabase.css">
+    <style>
+        body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 20px; background-color: #f4f7f6; }
+        .container { max-width: 1000px; margin: auto; background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); }
+        h1, h2, h3 { color: #004d40; border-bottom: 2px solid #e0f2f1; padding-bottom: 5px; margin-top: 20px; }
+        h1 { font-size: 2em; border-bottom: 4px solid #004d40; }
+        h2 { font-size: 1.6em; border-left: 5px solid #00897b; padding-left: 10px; }
+        h3 { font-size: 1.3em; color: #00695c; border-bottom: 1px dashed #bdbdbd; padding-left: 10px; }
+        ul, ol { margin: 15px 0; padding-left: 30px; }
+        li { margin-bottom: 10px; }
+        strong { color: #d84315; }
+        em { color: #1e88e5; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #00897b; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        blockquote { border-left: 5px solid #ffb300; background-color: #fff9c4; padding: 15px; margin: 20px 0; font-style: italic; }
+        .exam-tip { border: 2px solid #e53935; padding: 15px; margin: 20px 0; background-color: #ffcdd2; border-radius: 5px; }
+        a { color: #00695c; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>UNIT 2: DNA Damage and DNA Repair</h1>
+        <p class="exam-tip"><strong>Exam Focus:</strong> Distinguish between the types of damage (e.g., base alteration vs. strand break). Focus on the core excision repair pathways: **Base Excision Repair (BER)** and **Nucleotide Excision Repair (NER)**, outlining their step-by-step mechanism.</p>
+        
+        <h2>Table of Contents</h2>
+        <ol>
+            <li><a href="#dna-damage">DNA Damage</a>
+                <ul>
+                    <li><a href="#deamination">Deamination</a></li>
+                    <li><a href="#depurination">Depurination</a></li>
+                    <li><a href="#altered-bases">Altered bases</a></li>
+                    <li><a href="#single-strand">Single strand breaks</a></li>
+                    <li><a href="#double-strand">Double-strand breaks</a></li>
+                    <li><a href="#cross-linking">Cross-linking</a></li>
+                    <li><a href="#methylation">DNA methylaton</a></li>
+                </ul>
+            </li>
+            <li><a href="#dna-repair">DNA Repair</a>
+                <ul>
+                    <li><a href="#photoreactivation">Photoreactivation</a></li>
+                    <li><a href="#base-excision-repair">Base excision repair (BER)</a></li>
+                    <li><a href="#nucleotide-excision-repair">Nucleotide excision repair (NER)</a></li>
+                    <li><a href="#mismatch-repair">Mismatch repair</a></li>
+                    <li><a href="#translational-synthesis">Translational synthesis</a></li>
+                    <li><a href="#recombinational-repair">Recombinational repair</a></li>
+                    <li><a href="#homologous-recombination">Homologous recombination</a></li>
+                    <li><a href="#non-homologous">Non-homologous end-joining</a></li>
+                </ul>
+            </li>
+        </ol>
+
+        <h2 id="dna-damage">1. DNA Damage</h2>
+        <p>DNA damage refers to changes in the DNA structure, often caused by natural cellular processes or external mutagens. </p>
+        
+        <h3 id="deamination">Deamination</h3>
+        <p>The loss of an amino group from a base.  For example, deamination of cytosine produces uracil, which is highly mutagenic if not repaired before replication. </p>
+        
+        <h3 id="depurination">Depurination</h3>
+        <p>The cleavage of the glycosidic bond between the base and the sugar, resulting in the loss of a purine base (A or G) from the DNA backbone. </p>
+        
+        <h3 id="altered-bases">Altered bases</h3>
+        <p>Chemical modification of a base, often caused by alkylating agents, radiation, or oxidizing agents, which can lead to mispairing during replication. </p>
+        
+        <h3 id="single-strand">Single strand breaks</h3>
+        <p>Disruption in the sugar-phosphate backbone of one DNA strand. These are generally easy to repair using the intact complementary strand as a template. </p>
+        
+        <h3 id="double-strand">Double-strand breaks (DSBs)</h3>
+        <p>Breaks in the sugar-phosphate backbone of both DNA strands, a highly dangerous form of damage that can lead to chromosomal rearrangements or cell death. </p>
+        
+        <h3 id="cross-linking">Cross-linking</h3>
+        <p>Covalent bonding between bases within the same strand (intrastrand) or between opposing strands (interstrand), preventing strand separation for replication or transcription.  A common example is the formation of **thymine dimers** caused by UV radiation. </p>
+        
+        <h3 id="methylation">DNA methylaton</h3>
+        <p>The addition of a methyl group, usually to cytosine bases in CpG dinucleotides. While a key process in gene regulation, it can lead to spontaneous deamination to thymine, causing a G-T mismatch. </p>
+
+        <h2 id="dna-repair">2. DNA Repair</h2>
+        <p>Cells possess multiple enzymatic pathways to detect and repair damaged DNA, ensuring genomic stability. </p>
+        
+        <h3 id="photoreactivation">Photoreactivation</h3>
+        <p>A direct repair mechanism (mostly in prokaryotes) that reverses **thymine dimers** caused by UV light.  The enzyme **photolyase** uses energy from visible light to break the cross-links. </p>
+        
+        <h3 id="base-excision-repair">Base excision repair (BER)</h3>
+        <p>Repairs minor damage involving a single, non-helix-distorting base lesion (e.g., altered bases like uracil from deamination). </p>
+        <ol>
+            <li>**Glycosylase** recognizes and removes the damaged base, leaving an **AP (apurinic/apyrimidinic) site**. </li>
+            <li>**AP Endonuclease** cleaves the phosphodiester backbone at the AP site. </li>
+            <li>**DNA Polymerase** inserts the correct nucleotide. </li>
+            <li>**DNA Ligase** seals the nick. </li>
+        </ol>
+        
+        <h3 id="nucleotide-excision-repair">Nucleotide excision repair (NER)</h3>
+        <p>Repairs bulky, helix-distorting lesions (e.g., thymine dimers, chemically modified bases). </p>
+        <ol>
+            <li>Damage is recognized by specialized proteins. </li>
+            <li>A segment of the damaged strand, containing the lesion, is excised (removed). </li>
+            <li>**DNA Polymerase** uses the complementary strand as a template to synthesize the replacement patch. </li>
+            <li>**DNA Ligase** seals the gap. </li>
+        </ol>
+        
+
+[Image of Nucleotide Excision Repair mechanism]
+
+        
+        <h3 id="mismatch-repair">Mismatch repair</h3>
+        <p>Corrects errors (mismatched bases or small loops) incorporated during DNA replication that were missed by the polymerase proofreading function.  It identifies and excises the mismatched segment from the newly synthesized strand using methylation markers on the parental strand for strand discrimination. </p>
+        
+        <h3 id="translational-synthesis">Translational synthesis (Translesion Synthesis)</h3>
+        <p>A **bypass mechanism** used when the replication fork encounters major damage that cannot be excised quickly. A special DNA polymerase (translesion polymerase) bypasses the lesion, often introducing errors, but allowing replication to continue (error-prone). </p>
+        
+        <h3 id="recombinational-repair">Recombinational repair</h3>
+        <p>Uses homologous DNA sequences to accurately fill gaps or repair breaks in the DNA strand. </p>
+        
+        <h3 id="homologous-recombination">Homologous recombination (HR)</h3>
+        <p>A highly accurate mechanism for repairing **Double-Strand Breaks (DSBs)** by using the sister chromatid or homologous chromosome as a perfect template. </p>
+        
+        <h3 id="non-homologous">Non-homologous end-joining (NHEJ)</h3>
+        <p>An error-prone pathway for repairing DSBs by simply trimming the broken ends and ligating them together. It does not require a homologous template and is prone to loss of genetic material. </p>
+    </div>
+    <div id="app"></div>
+        
+    <script src="../../../../assets/scripts/units.js"></script>
+        
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        
+    <script src="../../../../assets/scripts/supabase.js"></script>
+        
+</body>
+</html>

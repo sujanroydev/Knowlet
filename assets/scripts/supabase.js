@@ -1,3 +1,4 @@
+//userAccount()
 function buildUI() {
   const app = document.getElementById("app");
 
@@ -18,7 +19,7 @@ function buildUI() {
               <div style="display:flex; gap:6px; align-items:center;">
                 <div id="star-input" class="stars" aria-label="Rate 1 to 5 stars" role="radiogroup">
                   <!-- stars added by JS -->
-                </div>
+                </div>K
                 <button id="submit-rating-btn" class="btn">Submit</button>
                 <button id="clear-rating" class="btn ghost">Clear</button>
               </div>
@@ -78,12 +79,37 @@ let selectedRating = 0;    // user's chosen star (1..5)
 let hoverRating = 0;       // hover preview
 
 const pageId = (window.location.href + '').replace('.html', '')
-console.log(pageId)
+let user = JSON.parse(localStorage.getItem("user"));
 
 const STAR_SVG = `
   <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M12 .587l3.668 7.431L23.5 9.75l-5.75 5.6L19.336 24 12 20.013 4.664 24l1.585-8.65L.5 9.75l7.832-1.732L12 .587z"/>
   </svg>`;
+  
+function userAccount() {
+  let user = JSON.parse(localStorage.getItem("user"));
+  if (!user) {
+    const email = prompt('Email');
+    const name = prompt('What is your name?');
+    const id = name.split(' ')[0] + "@" + parseInt(Math.random() * 9000 + 1000);
+    
+    user = {
+      id: id,
+      name: name,
+      email: email
+    };
+    
+    localStorage.setItem("user", JSON.stringify(user));
+  }
+  
+  const email = user.email;
+  const name = user.name;
+  const id = user.id;
+  
+  alert(name+'\n'+id+'\n'+email)
+  
+  
+}
 
 function renderInteractiveStars() {
   const container = document.getElementById("star-input");
@@ -226,11 +252,55 @@ async function loadRatings(){
   }
 }
 
+async function submitRating() {
+  //const pageId = pageId;
+  if (!selectedRating || selectedRating < 1 || selectedRating > 5) {
+    alert("Choose 1–5 stars first.");
+    return;
+  }
+  //const msg = ""; // optionally can prompt for message, currently left blank
+  const msg = document.getElementById("rating-message").value.trim();
+  try {
+    const { error } = await supabase.from("ratings").insert({
+      page_id: pageId,
+      user_id: user.id,
+      page_ratings: selectedRating,
+      page_likes: 0,
+      ratings_message: msg
+    });
+    if (error) {
+      console.error(error);
+      alert("Error submitting rating");
+      return;
+    }
+    // reset selection and refresh
+    selectedRating = 0; hoverRating = 0;
+    updateStarVis();
+    document.getElementById("rating-message").value = "";
+    await loadRatings();
+  } catch (e) {
+    console.error(e);
+  }
+}
+
 async function likeRating(id, oldLikes){
   try {
     const { error } = await supabase
       .from("ratings")
       .update({ page_likes: (Number(oldLikes) || 0) + 1 })
+      .eq("id", id);
+    if (error) console.error(error);
+    await loadRatings();
+  } catch(e){ console.error(e) }
+}
+
+//Like page
+
+async function likePage(id, oldLikes){
+  try {
+    const { error } = await supabase
+      .from("ratings")
+      .update({ page_likes: oldLikes === 0 ? 1 : 0}) //(Number(oldLikes) || 0) + 1 })
       .eq("id", id);
     if (error) console.error(error);
     await loadRatings();
@@ -300,42 +370,12 @@ async function submitComment(){
 
 async function likeComment(id, oldLikes){
   try {
-    await supabase.from("comments").update({ likes: (Number(oldLikes)||0)+1 }).eq("id", id);
+    await supabase
+      .from("comments")
+      .update({ likes: (Number(oldLikes)||0)+1 })
+      .eq("id", id);
     await loadComments();
   } catch(e){ console.error(e) }
-}
-
-
-//Submit rating (uses selectedRating)
-
-async function submitRating() {
-  //const pageId = pageId;
-  if (!selectedRating || selectedRating < 1 || selectedRating > 5) {
-    alert("Choose 1–5 stars first.");
-    return;
-  }
-  //const msg = ""; // optionally can prompt for message, currently left blank
-  const msg = document.getElementById("rating-message").value.trim();
-  try {
-    const { error } = await supabase.from("ratings").insert({
-      page_id: pageId,
-      page_ratings: selectedRating,
-      page_likes: 0,
-      ratings_message: msg
-    });
-    if (error) {
-      console.error(error);
-      alert("Error submitting rating");
-      return;
-    }
-    // reset selection and refresh
-    selectedRating = 0; hoverRating = 0;
-    updateStarVis();
-    document.getElementById("rating-message").value = "";
-    await loadRatings();
-  } catch (e) {
-    console.error(e);
-  }
 }
 
 //Small helpers

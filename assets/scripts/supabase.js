@@ -19,7 +19,7 @@ function buildUI() {
               <div style="display:flex; gap:6px; align-items:center;">
                 <div id="star-input" class="stars" aria-label="Rate 1 to 5 stars" role="radiogroup">
                   <!-- stars added by JS -->
-                </div>K
+                </div>
                 <button id="submit-rating-btn" class="btn">Submit</button>
                 <button id="clear-rating" class="btn ghost">Clear</button>
               </div>
@@ -263,7 +263,7 @@ async function submitRating() {
   try {
     const { error } = await supabase.from("ratings").insert({
       page_id: pageId,
-      user_id: user.id,
+      //user_id: user.id,
       page_ratings: selectedRating,
       page_likes: 0,
       ratings_message: msg

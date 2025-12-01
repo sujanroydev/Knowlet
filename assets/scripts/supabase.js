@@ -239,7 +239,7 @@ async function submitUserInfo() {
 
 //Page Info
 
-async Function isLikedOrRated() {
+/*async function isLikedOrRated() {
   try {
     const { data,  error } = await supabase
         .from("ratings")

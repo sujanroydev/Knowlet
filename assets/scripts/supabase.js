@@ -77,6 +77,8 @@ let selectedRating = 0;    // user's chosen star (1..5)
 let hoverRating = 0;       // hover preview
 
 const pageId = (window.location.href + '').replace('.html', '')
+//const pageId = "https://knowlet.netlify.app/notes/semester_1/biotechnology/dsc_101/unit_1"
+
 let btnLike = document.getElementById("btnLike");
 const topBar = document.getElementsByClassName("unit-top-bar")[0];
   
@@ -288,27 +290,11 @@ async function loadRatings(){
       return;
     }
 
-    /*const count = data.length;
-    const sum = data.reduce((acc,r)=> acc + (Number(r.page_ratings) || 0), 0);
-    const avg = count ? (sum / count) : 0;
-
-    // update average UI
-    document.getElementById("avg-number").textContent = count ? avg.toFixed(2) + " / 5" : "—";
-    document.getElementById("total-count").textContent = `${count} rating${count !== 1 ? "s" : ""}`;
-    renderAverageStars(avg);
-
-    // show list
-    if (!count) {
-      box.innerHTML = `<div class="muted">No ratings yet</div>`;
-      return;
-    }*/
-    const count = 0;
-    const sum = 0;
+    let count = 0;
+    let sum = 0; 
     
     data.forEach(r => {
-      if (r.page_ratings) { 
-        return;
-      }
+      if (!r.page_ratings) return;
       count += 1;
       sum += r.page_ratings;
       
@@ -325,9 +311,10 @@ async function loadRatings(){
           </div>
         </div>
       `;
+      
       const avg = count ? (sum / count) : 0;
       
-          // update average UI
+      // update average UI
       document.getElementById("avg-number").textContent = count ? avg.toFixed(2) + " / 5" : "—";
       document.getElementById("total-count").textContent = `${count} rating${count !== 1 ? "s" : ""}`;
       renderAverageStars(avg);
@@ -566,11 +553,3 @@ renderInteractiveStars();
 
 loadRatings();
 loadComments();
-
-
-// Optional: keyboard accessibility for star widget (Left/Right)
-const starInputEl = document.getElementById("star-input");
-starInputEl.addEventListener("keydown", (e)=>{
-  if (e.key === "ArrowRight") { selectedRating = Math.min(5, selectedRating + 1); updateStarVis(); e.preventDefault(); }
-  if (e.key === "ArrowLeft")  { selectedRating = Math.max(0, selectedRating - 1); updateStarVis(); e.preventDefault(); }
-});

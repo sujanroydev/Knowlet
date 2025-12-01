@@ -50,13 +50,15 @@ function buildUI() {
         <!-- Ratings list -->
         <div class="supcard">
           <h2 id='h3' style="margin-bottom:8px; font-size:16px; margin:0 0 14px; color:69707a;">Ratings</h2>
-          <div id="ratings-box"></div>
+          <button id="btn-toggle-ratings" class="btn" onclick="toggleRatings()" style="margin-bottom: 5px">See Ratings</button>
+          <div id="ratings-box" style="display:none"></div>
         </div>
     
         <!-- Comments list -->
         <div class="supcard">
           <h2 id='h3' style="margin-bottom:8px; font-size:16px; margin:0 0 14px; color:69707a;">Comments</h2>
-          <div id="comments-box"></div>
+          <button id="btn-toggle-comments" class="btn" onclick="toggleComments()" style="margin-bottom: 5px">See Comments</button>
+          <div id="comments-box" style="display:none"></div>
         </div>
       </div>
     </div>    
@@ -81,16 +83,46 @@ const pageId = (window.location.href + '').replace('.html', '')
 
 let btnLike = document.getElementById("btnLike");
 const topBar = document.getElementsByClassName("unit-top-bar")[0];
-  
+const ratingsBox = document.getElementById("ratings-box");
+const commentsBox = document.getElementById("comments-box");
+const btnToggleRatings = document.getElementById("btn-toggle-ratings");
+const btnToggleComments = document.getElementById("btn-toggle-comments");
+
 let user = JSON.parse(localStorage.getItem("knowletUser"));
 
 let isLiked = false;
 let isRated = false;
+let isCommentHidden = true;
+let isRatingHidden = true;
 
 const STAR_SVG = `
   <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M12 .587l3.668 7.431L23.5 9.75l-5.75 5.6L19.336 24 12 20.013 4.664 24l1.585-8.65L.5 9.75l7.832-1.732L12 .587z"/>
   </svg>`;
+
+function toggleComments() {
+  if (isCommentHidden) {
+    commentsBox.style.display = 'block';
+    btnToggleComments.textContent = "Hide Comments";
+    isCommentHidden = false;
+  } else {
+    commentsBox.style.display = 'none'
+    btnToggleComments.textContent = "Show Comments";
+    isCommentHidden = true;
+  }
+}
+
+function toggleRatings() {
+  if (isRatingHidden) {
+    ratingsBox.style.display = 'block';
+    btnToggleRatings.textContent = "Hide Ratings";
+    isRatingHidden = false;
+  } else {
+    ratingsBox.style.display = 'none'
+    btnToggleRatings.textContent = "Show Ratings";
+    isRatingHidden = true;
+  }
+}
 
 function renderInteractiveStars() {
   const container = document.getElementById("star-input");
@@ -177,17 +209,20 @@ function renderAverageStars(avg) {
 
 //User Functions 
 
-function userAccount() {
+function AboutUser() {
   if (!user) {
     const name = prompt('Enter your name: (eg. Sneha Kumari Patel)');
-    const id = name.split(' ')[0] + "@" + parseInt(Math.random() * 9000 + 1000);
-    
-    user = {
-      id: id,
-      name: name
-    };
-    
-    localStorage.setItem("knowletUser", JSON.stringify(user));
+    if (name) {
+      const id = name.split(' ')[0] + "@" + parseInt(Math.random() * 9000 + 1000);
+      
+      user = {
+        id: id,
+        name: name
+      };
+      
+      localStorage.setItem("knowletUser", JSON.stringify(user));
+      submitUserInfo();
+    }
   } 
 }
 
@@ -226,11 +261,7 @@ async function submitUserInfo() {
   try {
     const { error } = await supabase.from("user").insert({
       id: user.id,
-      name: user.name//,
-      //email: user.email,
-      //age: 19,
-      //class: user.vlass,
-      //fv_subject: user.fv_subject
+      name: user.name
     });
     if (error) {
       console.error(error);
@@ -541,7 +572,7 @@ document.getElementById("submit-rating-btn").addEventListener("click", submitRat
 document.getElementById("clear-rating").addEventListener("click", ()=>{ selectedRating=0; hoverRating=0; updateStarVis(); });
 
 //Load User Info 
-userAccount();
+AboutUser();
 loadUserInfo();
 isLikedOrRated();
 loadPageLikes();

@@ -133,6 +133,12 @@
   screenBtn.id = "keep-screen-on-btn";
   screenBtn.title = "Keep Screen On";
   topBar.appendChild(screenBtn);
+  
+  // --- 5. Like Button 
+  const btnLike = `<button id="btnLike" class="btn ghost">👍 0</button>`
+  topBar.insertAdjacentHTML('beforeend', btnLike);
+
+  // --- Functions 
 
   let wakeLock = null;
 

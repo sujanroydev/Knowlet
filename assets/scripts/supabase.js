@@ -1,6 +1,5 @@
 function buildUI() {
   const app = document.getElementById("app");
-
   app.innerHTML = `
     <div class="supcontainer">
       <div class="supcard">
@@ -78,7 +77,11 @@ let selectedRating = 0;    // user's chosen star (1..5)
 let hoverRating = 0;       // hover preview
 
 const pageId = "https://knowlet.netlify.app/notes/semester_1/biotechnology/dsc_101/unit_1" //(window.location.href + '').replace('.html', '')
+let btnLike = document.getElementById("btnLike");
+const topBar = document.getElementsByClassName("unit-top-bar")[0];
+  
 let user = JSON.parse(localStorage.getItem("knowletUser"));
+
 let isLiked = false;
 let isRated = false;
 
@@ -237,14 +240,32 @@ async function submitUserInfo() {
   }
 }
 
-//Page Info
+//Is Liked Or Rated
 
-/*async function isLikedOrRated() {
+async function isLikedOrRated() {
   try {
     const { data,  error } = await supabase
         .from("ratings")
         .select("*")
-        .eq()
+        .eq("page_id", pageId)
+        .eq("user_id", user.id);
+    
+    r = data[0];
+    //alert(r)
+    if (r) {
+      if (r.page_likes !== 0) {
+        isLiked = true;
+      } else {
+        isLiked = false;
+      }
+      if (r.page_ratings !== 0) {
+        isRated = true;
+      } else {
+        isRated = false;
+      }
+    } 
+  } catch(e) {
+    console.log(e);
   }
 }
 
@@ -300,12 +321,6 @@ async function loadRatings(){
       `;
       box.appendChild(div);
     });
-    //alert(totalLikes);
-    const topBar = document.getElementsByClassName("unit-top-bar")[0];
-    const btnLike = `<button class="btn ghost" onclick="likePage(${totalLikes})">👍 ${totalLikes || 0}</button>`
-    topBar.insertAdjacentHTML('beforeend', btnLike)
-
-
   } catch (e) {
     console.error(e);
   }
@@ -320,13 +335,15 @@ async function submitRating() {
   //const msg = ""; // optionally can prompt for message, currently left blank
   const msg = document.getElementById("rating-message").value.trim();
   try {
-    const { error } = await supabase.from("ratings").insert({
-      page_id: pageId,
-      page_ratings: selectedRating,
-      page_likes: 0,
-      ratings_message: msg,
-      user_id: user.id
-    });
+    const { error } = await supabase
+        .from("ratings")
+        .insert({
+          page_id: pageId,
+          page_ratings: selectedRating,
+          page_likes: 0,
+          ratings_message: msg,
+          user_id: user.id
+        });
     if (error) {
       console.error(error);
       alert("Error submitting rating");
@@ -357,24 +374,76 @@ async function likeRating(oldLikes){
 //Like page
 
 async function likePage(oldLikes){
-  alert('Liked')
+  //alert('Liked')
   try {
-    const { error } = await supabase
+    const { data, error } = await supabase
       .from("ratings")
-      .update({ page_likes: oldLikes === 0 ? 1 : 0 })
+      .select("page_likes")
       .eq("user_id", user.id)
       .eq("page_id", pageId);
     if (error) console.error(error);
-    await loadRatings();
-  } catch(e){ console.error(e) }
+    
+    r = data[0];
+    if (r) {
+      const { error } = await supabase
+        .from("ratings")
+        .update({ page_likes: isLiked ? 0 : 1 })
+        .eq("user_id", user.id)
+        .eq("page_id", pageId);
+        
+      if (error) {
+        console.error(error);
+        alert("Error updating likes")
+      }
+      await loadPageLikes();
+      await isLikedOrRated();
+      //alert(isLiked + '\n' + isRated)
+      //alert(error)
+    } else {
+      //alert('not found')
+      try {
+        const { error } = await supabase
+            .from("ratings")
+            .insert({
+              page_id: pageId,
+              page_likes: 1,
+              user_id: user.id
+            });
+        if (error) {
+          console.error(error);
+          alert("Error submitting Like");
+          return;
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    }
+  } catch(e){
+    console.error(e)
+    alert(e)
+  }
 }
 
 async function loadPageLikes() {
-  
-  const topBar = document.getElementsByClassName("unit-top-bar")[0];
-  const btnLike = `<button class="btn ghost" onclick="likePage(${r.id}, ${r.page_likes})">👍 ${r.page_likes || 0}</button>`
-  topBar.insertAdjacentHTML('beforeend', btnLike)
+  try {
+    const { data, error } = await supabase
+        .from("ratings")
+        .select("page_likes")
+        .eq("page_id", pageId)
+        
+    totalLikes = 0;
+    data.forEach(r => {
+      totalLikes += r.page_likes;
+    })
+    btnLike.remove()
+    const btnLikeHtml = `<button id="btnLike" class="btn ghost" onclick="likePage(${totalLikes})">👍 ${totalLikes}</button>`
+    topBar.insertAdjacentHTML('beforeend', btnLikeHtml)
+    btnLike = document.getElementById("btnLike");
+  } catch(e) {
+    console.log(e);
+  }
 }
+
 //loadPageLikes()
 
 //Comments functions
@@ -466,9 +535,10 @@ document.getElementById("submit-rating-btn").addEventListener("click", submitRat
 document.getElementById("clear-rating").addEventListener("click", ()=>{ selectedRating=0; hoverRating=0; updateStarVis(); });
 
 //Load User Info 
-userAccount()
-loadUserInfo()
-
+userAccount();
+loadUserInfo();
+isLikedOrRated();
+loadPageLikes();
 // Render interactive stars and load data
 renderInteractiveStars();
 

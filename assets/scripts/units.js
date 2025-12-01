@@ -27,8 +27,7 @@
   if (match) {
     const base = match[1];
     const currentNum = parseInt(match[2]);
-    console.log(base);
-    console.log(currentNum);
+    
     // Previous
     if (currentNum > 1) {
       prev.href = currentUrl.replace(/\/unit_\d+/i, `${base}${currentNum - 1}`);
@@ -123,8 +122,6 @@
       
       // Save the updated history back to localStorage
       localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
-      
-      console.log(`History updated. Current history size: ${history.length}`);
   }
           
   // Run the history update function immediately upon page load

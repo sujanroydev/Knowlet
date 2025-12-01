@@ -1,4 +1,3 @@
-//userAccount()
 function buildUI() {
   const app = document.getElementById("app");
 
@@ -78,38 +77,15 @@ const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 let selectedRating = 0;    // user's chosen star (1..5)
 let hoverRating = 0;       // hover preview
 
-const pageId = (window.location.href + '').replace('.html', '')
-let user = JSON.parse(localStorage.getItem("user"));
+const pageId = "https://knowlet.netlify.app/notes/semester_1/biotechnology/dsc_101/unit_1" //(window.location.href + '').replace('.html', '')
+let user = JSON.parse(localStorage.getItem("knowletUser"));
+let isLiked = false;
+let isRated = false;
 
 const STAR_SVG = `
   <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M12 .587l3.668 7.431L23.5 9.75l-5.75 5.6L19.336 24 12 20.013 4.664 24l1.585-8.65L.5 9.75l7.832-1.732L12 .587z"/>
   </svg>`;
-  
-function userAccount() {
-  let user = JSON.parse(localStorage.getItem("user"));
-  if (!user) {
-    const email = prompt('Email');
-    const name = prompt('What is your name?');
-    const id = name.split(' ')[0] + "@" + parseInt(Math.random() * 9000 + 1000);
-    
-    user = {
-      id: id,
-      name: name,
-      email: email
-    };
-    
-    localStorage.setItem("user", JSON.stringify(user));
-  }
-  
-  const email = user.email;
-  const name = user.name;
-  const id = user.id;
-  
-  alert(name+'\n'+id+'\n'+email)
-  
-  
-}
 
 function renderInteractiveStars() {
   const container = document.getElementById("star-input");
@@ -194,10 +170,87 @@ function renderAverageStars(avg) {
   wrapper.setAttribute("aria-label", `Average rating ${avg.toFixed(2)} out of 5`);
 }
 
-//Load ratings (calc avg + list)
+//User Functions 
+
+function userAccount() {
+  if (!user) {
+    const name = prompt('What is your name?');
+    const id = name.split(' ')[0] + "@" + parseInt(Math.random() * 9000 + 1000);
+    
+    user = {
+      id: id,
+      name: name
+    };
+    
+    localStorage.setItem("knowletUser", JSON.stringify(user));
+  } 
+}
+
+async function loadUserInfo() {
+  try {
+    const { data, error } = await supabase
+      .from("user")
+      .select("*")
+      .eq("id", user.id)
+
+    if (error) {
+      alert("Error loading your data")
+      console.error(error);
+      return;
+    }
+    if (data[0]) {
+      r = data[0];
+      /*alert(`
+        Name: ${r.name}
+        ID: ${r.id}
+        Email: ${r.email}
+        Age: ${r.age}
+        Create At: ${r.created_at}
+        Class: ${r.class}
+        Fv Sub: ${r.fv_subject}
+      `)*/
+    } else {
+      await submitUserInfo();
+    }
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+async function submitUserInfo() {
+  try {
+    const { error } = await supabase.from("user").insert({
+      id: user.id,
+      name: user.name//,
+      //email: user.email,
+      //age: 19,
+      //class: user.vlass,
+      //fv_subject: user.fv_subject
+    });
+    if (error) {
+      console.error(error);
+      alert("Error submitting rating");
+      return;
+    }
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+//Page Info
+
+async Function isLikedOrRated() {
+  try {
+    const { data,  error } = await supabase
+        .from("ratings")
+        .select("*")
+        .eq()
+  }
+}
+
+//Rating Functions 
 
 async function loadRatings(){
-  //const pageId = pageId;
   try {
     const { data, error } = await supabase
       .from("ratings")
@@ -229,7 +282,9 @@ async function loadRatings(){
       return;
     }
 
+    totalLikes = 0;
     data.forEach(r => {
+      totalLikes += r.page_likes;
       const div = document.createElement("div");
       div.className = "rating-item";
       div.innerHTML = `
@@ -240,12 +295,16 @@ async function loadRatings(){
           </div>
           <div style="text-align:right">
             <div style="margin-bottom:6px">${escapeHtml(r.ratings_message || "")}</div>
-            <button class="btn ghost" onclick="likeRating(${r.id}, ${r.page_likes})">👍 ${r.page_likes || 0}</button>
           </div>
         </div>
       `;
       box.appendChild(div);
     });
+    //alert(totalLikes);
+    const topBar = document.getElementsByClassName("unit-top-bar")[0];
+    const btnLike = `<button class="btn ghost" onclick="likePage(${totalLikes})">👍 ${totalLikes || 0}</button>`
+    topBar.insertAdjacentHTML('beforeend', btnLike)
+
 
   } catch (e) {
     console.error(e);
@@ -263,10 +322,10 @@ async function submitRating() {
   try {
     const { error } = await supabase.from("ratings").insert({
       page_id: pageId,
-      //user_id: user.id,
       page_ratings: selectedRating,
       page_likes: 0,
-      ratings_message: msg
+      ratings_message: msg,
+      user_id: user.id
     });
     if (error) {
       console.error(error);
@@ -283,29 +342,40 @@ async function submitRating() {
   }
 }
 
-async function likeRating(id, oldLikes){
-  try {
+async function likeRating(oldLikes){
+  alert('Liked')
+  /*try {
     const { error } = await supabase
       .from("ratings")
       .update({ page_likes: (Number(oldLikes) || 0) + 1 })
       .eq("id", id);
     if (error) console.error(error);
     await loadRatings();
-  } catch(e){ console.error(e) }
+  } catch(e){ console.error(e) }*/
 }
 
 //Like page
 
-async function likePage(id, oldLikes){
+async function likePage(oldLikes){
+  alert('Liked')
   try {
     const { error } = await supabase
       .from("ratings")
-      .update({ page_likes: oldLikes === 0 ? 1 : 0}) //(Number(oldLikes) || 0) + 1 })
-      .eq("id", id);
+      .update({ page_likes: oldLikes === 0 ? 1 : 0 })
+      .eq("user_id", user.id)
+      .eq("page_id", pageId);
     if (error) console.error(error);
     await loadRatings();
   } catch(e){ console.error(e) }
 }
+
+async function loadPageLikes() {
+  
+  const topBar = document.getElementsByClassName("unit-top-bar")[0];
+  const btnLike = `<button class="btn ghost" onclick="likePage(${r.id}, ${r.page_likes})">👍 ${r.page_likes || 0}</button>`
+  topBar.insertAdjacentHTML('beforeend', btnLike)
+}
+//loadPageLikes()
 
 //Comments functions
 
@@ -395,11 +465,19 @@ function escapeHtml(text) {
 document.getElementById("submit-rating-btn").addEventListener("click", submitRating);
 document.getElementById("clear-rating").addEventListener("click", ()=>{ selectedRating=0; hoverRating=0; updateStarVis(); });
 
+//Load User Info 
+userAccount()
+loadUserInfo()
+
 // Render interactive stars and load data
 renderInteractiveStars();
+
 // initial loads
+//submitUserInfo();
+
 loadRatings();
 loadComments();
+
 
 // Optional: keyboard accessibility for star widget (Left/Right)
 const starInputEl = document.getElementById("star-input");

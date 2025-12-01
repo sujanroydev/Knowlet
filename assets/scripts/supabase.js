@@ -76,7 +76,7 @@ const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 let selectedRating = 0;    // user's chosen star (1..5)
 let hoverRating = 0;       // hover preview
 
-const pageId = "https://knowlet.netlify.app/notes/semester_1/biotechnology/dsc_101/unit_1" //(window.location.href + '').replace('.html', '')
+const pageId = (window.location.href + '').replace('.html', '')
 let btnLike = document.getElementById("btnLike");
 const topBar = document.getElementsByClassName("unit-top-bar")[0];
   

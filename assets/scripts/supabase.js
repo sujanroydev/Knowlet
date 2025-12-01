@@ -288,7 +288,7 @@ async function loadRatings(){
       return;
     }
 
-    const count = data.length;
+    /*const count = data.length;
     const sum = data.reduce((acc,r)=> acc + (Number(r.page_ratings) || 0), 0);
     const avg = count ? (sum / count) : 0;
 
@@ -301,11 +301,17 @@ async function loadRatings(){
     if (!count) {
       box.innerHTML = `<div class="muted">No ratings yet</div>`;
       return;
-    }
-
-    totalLikes = 0;
+    }*/
+    const count = 0;
+    const sum = 0;
+    
     data.forEach(r => {
-      totalLikes += r.page_likes;
+      if (r.page_ratings) { 
+        return;
+      }
+      count += 1;
+      sum += r.page_ratings;
+      
       const div = document.createElement("div");
       div.className = "rating-item";
       div.innerHTML = `
@@ -319,6 +325,18 @@ async function loadRatings(){
           </div>
         </div>
       `;
+      const avg = count ? (sum / count) : 0;
+      
+          // update average UI
+      document.getElementById("avg-number").textContent = count ? avg.toFixed(2) + " / 5" : "—";
+      document.getElementById("total-count").textContent = `${count} rating${count !== 1 ? "s" : ""}`;
+      renderAverageStars(avg);
+      
+      // show list
+      if (!count) {
+        box.innerHTML = `<div class="muted">No ratings yet</div>`;
+        return;
+      }
       box.appendChild(div);
     });
   } catch (e) {
@@ -397,8 +415,6 @@ async function likePage(oldLikes){
       }
       await loadPageLikes();
       await isLikedOrRated();
-      //alert(isLiked + '\n' + isRated)
-      //alert(error)
     } else {
       //alert('not found')
       try {
@@ -409,11 +425,14 @@ async function likePage(oldLikes){
               page_likes: 1,
               user_id: user.id
             });
+        
         if (error) {
           console.error(error);
           alert("Error submitting Like");
           return;
         }
+        await loadPageLikes();
+        await isLikedOrRated();
       } catch (e) {
         console.error(e);
       }

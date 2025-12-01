@@ -179,7 +179,7 @@ function renderAverageStars(avg) {
 
 function userAccount() {
   if (!user) {
-    const name = prompt('What is your name?');
+    const name = prompt('Enter your name: (eg. Sneha Kumari Patel)');
     const id = name.split(' ')[0] + "@" + parseInt(Math.random() * 9000 + 1000);
     
     user = {

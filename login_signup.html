@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Login / Signup</title>
+  <style>
+    body {
+      font-family: system-ui, Arial;
+      background: #f4f4f4;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      width: 320px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #2b67f6;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .switch {
+      text-align: center;
+      margin-top: 12px;
+      font-size: 14px;
+      color: #333;
+      cursor: pointer;
+    }
+
+    .switch span {
+      color: #2b67f6;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card" id="container">
+
+  <!-- Login -->
+  <div id="loginBox">
+    <h2>Login</h2>
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button>Login</button>
+    <div class="switch" onclick="showSignup()">
+      New here? <span>Create an account</span>
+    </div>
+  </div>
+
+  <!-- Signup -->
+  <div id="signupBox" style="display:none;">
+    <h2>Sign Up</h2>
+    <input type="text" placeholder="Full Name">
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button>Sign Up</button>
+    <div class="switch" onclick="showLogin()">
+      Already have an account? <span>Login</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function showSignup() {
+    document.getElementById('loginBox').style.display = 'none';
+    document.getElementById('signupBox').style.display = 'block';
+  }
+
+  function showLogin() {
+    document.getElementById('signupBox').style.display = 'none';
+    document.getElementById('loginBox').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>

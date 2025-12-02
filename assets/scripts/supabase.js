@@ -18,7 +18,7 @@ function buildUI() {
                 <div id="star-input" class="stars" aria-label="Rate 1 to 5 stars" role="radiogroup">
                   <!-- stars added by JS -->
                 </div>
-                <button id="submit-rating-btn" class="btn">Submit</button>
+                <button id="btn-submit-rating" class="btn">Submit</button>
                 <button id="clear-rating" class="btn ghost">Clear</button>
               </div>
             
@@ -43,7 +43,7 @@ function buildUI() {
           <div class="muted">Post a comment</div>
           <textarea id="comment-input" placeholder="Write a comment..."></textarea>
           <div style="margin-top:10px; display:flex; gap:10px; justify-content:flex-end">
-            <button class="btn" onclick="submitComment()">Post Comment</button>
+            <button id="btn-post-comment" class="btn" onclick="submitComment()">Post</button>
           </div>
         </div>
     
@@ -87,6 +87,8 @@ const ratingsBox = document.getElementById("ratings-box");
 const commentsBox = document.getElementById("comments-box");
 const btnToggleRatings = document.getElementById("btn-toggle-ratings");
 const btnToggleComments = document.getElementById("btn-toggle-comments");
+const btnSubmitRating = document.getElementById("btn-submit-rating");
+const btnPostComment = document.getElementById("btn-post-comment");
 
 let user = JSON.parse(localStorage.getItem("knowletUser"));
 
@@ -175,7 +177,7 @@ function updateStarVis() {
   });
 
   // Enable/disable submit button based on selection
-  document.getElementById("submit-rating-btn").disabled = selectedRating === 0;
+  document.getElementById("btn-submit-rating").disabled = selectedRating === 0;
 }
 
 //Average star visual (fractional filling)
@@ -283,11 +285,11 @@ async function isLikedOrRated() {
         isLiked = false;
       }
       if (r.page_ratings !== 0) {
-        const btnSubmitRating = document.getElementById("submit-rating-btn");
         btnSubmitRating.textContent = "Submitted";
         btnSubmitRating.disabled = true;
         
         selectedRating = r.page_ratings;
+        hoverRating = r.page_ratings;
         isRated = true;
         updateStarVis();
       } else {
@@ -385,7 +387,8 @@ async function submitRating() {
       alert("Error submitting rating");
       return;
     }
-    alert("Rating Submitted")
+    //alert("Rating Submitted");
+    btnSubmitRating.textContent = "Submitted";
     // reset selection and refresh
     //selectedRating = 0; hoverRating = 0;
     updateStarVis();
@@ -531,6 +534,8 @@ async function submitComment(){
       alert("Error posting comment");
       return;
     }
+    //alert("Posted");
+    btnPostComment.textContent = "Posted"
     document.getElementById("comment-input").value = "";
     await loadComments();
   } catch(e){ console.error(e) }
@@ -560,7 +565,7 @@ function escapeHtml(text) {
 
 //Wire up UI and init
 
-document.getElementById("submit-rating-btn").addEventListener("click", submitRating);
+document.getElementById("btn-submit-rating").addEventListener("click", submitRating);
 document.getElementById("clear-rating").addEventListener("click", ()=>{ selectedRating=0; hoverRating=0; updateStarVis(); });
 
 //Load User Info 

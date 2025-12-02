@@ -94,30 +94,30 @@
             <strong>Critical:</strong> <code>scanf()</code> requires the <strong>address</strong> of the variable, using the <code>&</code> (address-of) operator.
         </div>
         <pre><code>int age;
-    printf("Enter your age: ");
-    scanf("%d", &age);</code></pre>
+printf("Enter your age: ");
+scanf("%d", &age);</code></pre>
     
         <span id="span_7"><h2 id="simple-programs">1.3 Writing Simple C Programs</span></h2>
         <p>A basic C program structure:</p>
         <pre><code>// 1. Preprocessor Directive
-    #include &lt;stdio.h&gt;
-    
-    // 2. Main function (entry point of the program)
-    int main() {
-        // 3. Variable declaration
-        int num1 = 10;
-        int num2 = 20;
-        int sum;
-    
-        // 4. Logic
-        sum = num1 + num2;
-    
-        // 5. Output
-        printf("The sum of %d and %d is %d\n", num1, num2, sum);
-    
-        // 6. Return statement
-        return 0;
-    }</code></pre>
+#include &lt;stdio.h&gt;
+
+// 2. Main function (entry point of the program)
+int main() {
+    // 3. Variable declaration
+    int num1 = 10;
+    int num2 = 20;
+    int sum;
+
+    // 4. Logic
+    sum = num1 + num2;
+
+    // 5. Output
+    printf("The sum of %d and %d is %d\n", num1, num2, sum);
+
+    // 6. Return statement
+    return 0;
+}</code></pre>
     
         <span id="span_8"><h2 id="control-structures">1.4 Control Structures</span></h2>
         <p>These control the flow of program execution.</p>
@@ -126,23 +126,23 @@
         <ul>
             <li><strong><code>if-else</code>:</strong> Used for conditional branching.
                 <pre><code>if (score >= 50) {
-        printf("Pass\n");
-    } else {
-        printf("Fail\n");
-    }</code></pre>
+    printf("Pass\n");
+} else {
+    printf("Fail\n");
+}</code></pre>
             </li>
             <li><strong><code>switch</code>:</strong> Used to select one of many code blocks to be executed.
                 <span id="span_9"><div class="exam-tip"><strong>Common Mistake:</strong> Forgetting the <code>break;</code> statement in a <code>switch</code> case, which causes "fall-through."</span></div>
                 <pre><code>switch (grade) {
-        case 'A':
-            printf("Excellent\n");
-            break;
-        case 'B':
-            printf("Good\n");
-            break;
-        default:
-            printf("Try harder\n");
-    }</code></pre>
+    case 'A':
+        printf("Excellent\n");
+        break;
+    case 'B':
+        printf("Good\n");
+        break;
+    default:
+        printf("Try harder\n");
+}</code></pre>
             </li>
         </ul>
     
@@ -150,17 +150,17 @@
         <ul>
             <span id="span_10"><li><strong><code>while</code> loop (Entry-controlled):</strong> Executes as long as the condition is true.</span>
                 <pre><code>int i = 1;
-    while (i <= 5) {
-        printf("%d ", i);
-        i++;
-    }</code></pre>
+while (i <= 5) {
+    printf("%d ", i);
+    i++;
+}</code></pre>
             </li>
             <span id="span_11"><li><strong><code>do-while</code> loop (Exit-controlled):</strong> Always executes at least once.</span>
                 <pre><code>int i = 1;
-    do {
-        printf("%d ", i);
-        i++;
-    } while (i <= 5);</code></pre>
+do {
+    printf("%d ", i);
+    i++;
+} while (i <= 5);</code></pre>
             </li>
             <span id="span_12"><li><strong><code>for</code> loop:</strong> The most common loop for a known number of iterations.</span>
                 <pre><code>for (int i = 1; i <= 5; i++) {
@@ -183,22 +183,22 @@
         <p>Using the above structures to solve problems from mathematics and statistics.</p>
         <h4>Example: Find the factorial of a number (Mathematics)</h4>
         <pre><code>int n = 5;
-    long factorial = 1;
-    for (int i = 1; i <= n; i++) {
-        factorial = factorial * i;
-    }
-    printf("Factorial of %d = %ld\n", n, factorial);</code></pre>
-        
-        <h4>Example: Calculate the average of 5 numbers (Statistics)</h4>
-        <pre><code>int count = 5;
-    float sum = 0;
-    float num;
-    printf("Enter %d numbers:\n", count);
-    for (int i = 0; i < count; i++) {
-        scanf("%f", &num);
-        sum += num;
-    }
-    printf("Average = %.2f\n", sum / count);</code></pre>
+long factorial = 1;
+for (int i = 1; i <= n; i++) {
+    factorial = factorial * i;
+}
+printf("Factorial of %d = %ld\n", n, factorial);</code></pre>
+    
+    <h4>Example: Calculate the average of 5 numbers (Statistics)</h4>
+    <pre><code>int count = 5;
+float sum = 0;
+float num;
+printf("Enter %d numbers:\n", count);
+for (int i = 0; i < count; i++) {
+    scanf("%f", &num);
+    sum += num;
+}
+printf("Average = %.2f\n", sum / count);</code></pre>
     </div>
 
     <script src="../../../../assets/scripts/units.js"></script>

@@ -52,18 +52,18 @@
     
         <h3>Defining and Accessing Functions</h3>
         <pre><code>// Function Definition
-    float calculateAverage(int a, int b) {
-        float avg = (a + b) / 2.0;
-        return avg;
-    }
-    
-    int main() {
-        int x = 10, y = 5;
-        // Function Access (Call)
-        float result = calculateAverage(x, y); 
-        printf("Average: %.2f\n", result);
-        return 0;
-    }</code></pre>
+float calculateAverage(int a, int b) {
+    float avg = (a + b) / 2.0;
+    return avg;
+}
+
+int main() {
+    int x = 10, y = 5;
+    // Function Access (Call)
+    float result = calculateAverage(x, y); 
+    printf("Average: %.2f\n", result);
+    return 0;
+}</code></pre>
         
         <h3>Passing Arguments to a Function</h3>
         <p>In C, arguments are passed by <strong>Pass-by-Value</strong> by default. This means the function receives a <strong>copy</strong> of the argument's value, and the original variable in the calling function is not changed. (We will see how to change this with pointers in Unit 3).</p>
@@ -74,19 +74,19 @@
         <p>A function prototype is a declaration of a function that tells the compiler about its name, return type, and parameters. It is crucial if you define the function <em>after</em> <code>main()</code>.</p>
         <pre><code>#include &lt;stdio.h&gt;
     
-    // Function Prototype
-    float calculateAverage(int a, int b);
-    
-    int main() {
-        float result = calculateAverage(10, 5); // Compiler already knows what this is
-        printf("Result: %.2f\n", result);
-        return 0;
-    }
-    
-    // Function Definition
-    float calculateAverage(int a, int b) {
-        return (a + b) / 2.0;
-    }</code></pre>
+// Function Prototype
+float calculateAverage(int a, int b);
+
+int main() {
+    float result = calculateAverage(10, 5); // Compiler already knows what this is
+    printf("Result: %.2f\n", result);
+    return 0;
+}
+
+// Function Definition
+float calculateAverage(int a, int b) {
+    return (a + b) / 2.0;
+}</code></pre>
         
         <span id="span_21"><h3>Functions Returning Non-Integers</span></h3>
         <p>Functions can return any data type, such as <code>float</code>, <code>double</code>, <code>char</code>, or even pointers (Unit 3) and structures (Unit 4). The <code>calculateAverage</code> function above is an example of a function returning a <code>float</code>.</p>
@@ -148,15 +148,15 @@
         
         <h4>Problem Solving: Factorial</h4>
         <pre><code>long factorial(int n) {
-        // 1. Base Case
-        if (n == 0 || n == 1) {
-            return 1;
-        }
-        // 2. Recursive Step
-        else {
-            return n * factorial(n - 1);
-        }
-    }</code></pre>
+    // 1. Base Case
+    if (n == 0 || n == 1) {
+        return 1;
+    }
+    // 2. Recursive Step
+    else {
+        return n * factorial(n - 1);
+    }
+}</code></pre>
         <div class="exam-tip"><strong>Risk:</strong> If you forget the base case or never reach it, you will get a <strong>stack overflow</strong> error.</div>
     
         <span id="span_26"><h2 id="preprocessor">2.5 The C Preprocessor</span></h2>

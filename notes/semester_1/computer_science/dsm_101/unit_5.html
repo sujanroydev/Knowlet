@@ -52,9 +52,9 @@
         <h3>Formatted Output (<code>printf</code>)</h3>
         <p>Provides fine-grained control over output format.</p>
         <pre><code>printf("Item: %-10s Price: %7.2f\n", "Apple", 1.2);
-    // %-10s: Left-justify string in a 10-char-wide field
-    // %7.2f: Right-justify float in a 7-char-wide field with 2 decimal places
-    </code></pre>
+// %-10s: Left-justify string in a 10-char-wide field
+// %7.2f: Right-justify float in a 7-char-wide field with 2 decimal places
+</code></pre>
         
         <h3>Formatted Input (<code>scanf</code>)</h3>
         <p>Reads formatted input. Its return value is the number of items successfully read.</p>
@@ -76,13 +76,13 @@
             <tr><td><code>"r+"</code>, <code>"w+"</code>, <code>"a+"</code></td><td>Read and Write modes.</td></tr>
         </table>
         <pre><code>FILE *fp;
-    fp = fopen("data.txt", "w");
-    if (fp == NULL) {
-        printf("Error opening file!\n");
-        return 1; // Exit
-    }
-    // ... do file operations ...
-    fclose(fp); // Always close the file</code></pre>
+fp = fopen("data.txt", "w");
+if (fp == NULL) {
+    printf("Error opening file!\n");
+    return 1; // Exit
+}
+// ... do file operations ...
+fclose(fp); // Always close the file</code></pre>
     
         <h3>Processing a Data File (Formatted)</h3>
         <p>These functions work just like <code>printf/scanf</code> but for files.</p>
@@ -125,18 +125,18 @@
         <h3>Bit Fields</h3>
         <p>Allow you to pack data into a structure to save memory, specifying the exact number of bits for each member.</p>
         <pre><code>struct Flags {
-        unsigned int isActive : 1;  // Use only 1 bit
-        unsigned int isDirty : 1;   // Use only 1 bit
-        unsigned int mode : 2;      // Use only 2 bits
-    };</code></pre>
+    unsigned int isActive : 1;  // Use only 1 bit
+    unsigned int isDirty : 1;   // Use only 1 bit
+    unsigned int mode : 2;      // Use only 2 bits
+};</code></pre>
     
         <h3>Enumeration (<code>enum</code>)</h3>
         <p>A user-defined type consisting of a set of named integer constants. Improves code readability.</p>
         <pre><code>enum Day { MON = 1, TUE, WED, THU, FRI, SAT, SUN };
-    enum Day today = WED;
-    if (today == 3) { // true
-        printf("It's Wednesday!\n");
-    }</code></pre>
+enum Day today = WED;
+if (today == 3) { // true
+    printf("It's Wednesday!\n");
+}</code></pre>
     
         <span id="span_57"><h2 id="advanced">5.4 Advanced Topics (Macros, Library)</span></h2>
         
@@ -154,10 +154,10 @@
         <h3>Macros (The C Preprocessor)</h3>
         <span id="span_59"><p>This topic is also listed in Unit 2</span>. <code>#define</code> is used to create constants and function-like macros. The preprocessor also supports <strong>conditional compilation</strong>:</p>
         <pre><code>#define DEBUG
-    ...
-    #ifdef DEBUG
-        printf("Debug message: x = %d\n", x);
-    #endif</code></pre>
+...
+#ifdef DEBUG
+    printf("Debug message: x = %d\n", x);
+#endif</code></pre>
     </div>
 
     <script src="../../../../assets/scripts/units.js"></script>

@@ -32,123 +32,123 @@
  </head>
 <body>
 
-<div class="container">
-    <h1>Unit 2: Number Systems & Boolean Algebra</h1>
-
-    <div class="toc">
-        <h2>Table of Contents</h2>
+    <div class="container">
+        <h1>Unit 2: Number Systems & Boolean Algebra</h1>
+    
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#number-system">2.1 Number System</a></li>
+                <li><a href="#boolean-algebra">2.2 Boolean Algebra and Logic Gates</a></li>
+                <li><a href="#simplification">2.3 Simplification of Boolean Functions - Map Method</a></li>
+                <li><a href="#pos">2.4 Product of Sums (POS) Simplification</a></li>
+                <li><a href="#nand-nor">2.5 NAND and NOR Implementation</a></li>
+                <li><a href="#dont-care">2.6 Don't Care Condition</a></li>
+                <li><a href="#tabulation">2.7 The Tabulation Method (Quine-McCluskey)</a></li>
+            </ul>
+        </div>
+    
+        <h2 id="number-system">2.1 Number System</h2>
+        <p>Digital computers represent all kinds of data, including numbers, letters, and symbols, in binary numbers. A number system defines a set of values to represent quantity. The base or radix of a number system is the total number of unique digits used in that system.</p>
         <ul>
-            <li><a href="#number-system">2.1 Number System</a></li>
-            <li><a href="#boolean-algebra">2.2 Boolean Algebra and Logic Gates</a></li>
-            <li><a href="#simplification">2.3 Simplification of Boolean Functions - Map Method</a></li>
-            <li><a href="#pos">2.4 Product of Sums (POS) Simplification</a></li>
-            <li><a href="#nand-nor">2.5 NAND and NOR Implementation</a></li>
-            <li><a href="#dont-care">2.6 Don't Care Condition</a></li>
-            <li><a href="#tabulation">2.7 The Tabulation Method (Quine-McCluskey)</a></li>
+            <li><strong>Decimal (Base-10):</strong> Uses 10 digits (0-9). This is the system we use in daily life.</li>
+            <li><strong>Binary (Base-2):</strong> Uses 2 digits (0 and 1). This is the language of computers.</li>
+            <li><strong>Octal (Base-8):</strong> Uses 8 digits (0-7).</li>
+            <li><strong>Hexadecimal (Base-16):</strong> Uses 16 symbols (0-9 and A-F, where A=10, B=11, ..., F=15).</li>
         </ul>
-    </div>
-
-    <h2 id="number-system">2.1 Number System</h2>
-    <p>Digital computers represent all kinds of data, including numbers, letters, and symbols, in binary numbers. A number system defines a set of values to represent quantity. The base or radix of a number system is the total number of unique digits used in that system.</p>
-    <ul>
-        <li><strong>Decimal (Base-10):</strong> Uses 10 digits (0-9). This is the system we use in daily life.</li>
-        <li><strong>Binary (Base-2):</strong> Uses 2 digits (0 and 1). This is the language of computers.</li>
-        <li><strong>Octal (Base-8):</strong> Uses 8 digits (0-7).</li>
-        <li><strong>Hexadecimal (Base-16):</strong> Uses 16 symbols (0-9 and A-F, where A=10, B=11, ..., F=15).</li>
-    </ul>
-
-    <h2 id="boolean-algebra">2.2 Boolean Algebra and Logic Gates</h2>
-    <h3>Boolean Algebra</h3>
-    <p>Boolean Algebra, developed by George Boole, is a branch of algebra in which the values of the variables are the truth values <strong>true (1)</strong> and <strong>false (0)</strong>. It is fundamental to the design of digital circuits.</p>
     
-    <h3>Logic Gates</h3>
-    <p>A logic gate is an electronic circuit that performs a basic Boolean function, resulting in a single binary output. The fundamental logic gates are:</p>
-    <ul>
-        <li><strong>AND Gate:</strong> Output is 1 only if <strong>all</strong> inputs are 1. Expression: <code>Y = A . B</code></li>
-        <li><strong>OR Gate:</strong> Output is 1 if <strong>at least one</strong> input is 1. Expression: <code>Y = A + B</code></li>
-        <li><strong>NOT Gate (Inverter):</strong> Output is the <strong>complement</strong> of the input. Expression: <code>Y = A'</code> or <code>Y = Ā</code></li>
-    </ul>
-    <p>Other important gates include:</p>
-    <ul>
-        <li><strong>NAND Gate:</strong> AND followed by NOT. It is a <strong>universal gate</strong>.</li>
-        <li><strong>NOR Gate:</strong> OR followed by NOT. It is also a <strong>universal gate</strong>.</li>
-        <li><strong>XOR Gate (Exclusive OR):</strong> Output is 1 if the inputs are <strong>different</strong>.</li>
-        <li><strong>XNOR Gate (Exclusive NOR):</strong> Output is 1 if the inputs are the <strong>same</strong>.</li>
-    </ul>
-    <h2 id="simplification">2.3 Simplification of Boolean Functions - Map Method</h2>
-    <p>The Karnaugh Map (K-Map) is a graphical method used to simplify Boolean algebra expressions. It helps to minimize the number of logic gates required in a digital circuit.</p>
+        <h2 id="boolean-algebra">2.2 Boolean Algebra and Logic Gates</h2>
+        <h3>Boolean Algebra</h3>
+        <p>Boolean Algebra, developed by George Boole, is a branch of algebra in which the values of the variables are the truth values <strong>true (1)</strong> and <strong>false (0)</strong>. It is fundamental to the design of digital circuits.</p>
+        
+        <h3>Logic Gates</h3>
+        <p>A logic gate is an electronic circuit that performs a basic Boolean function, resulting in a single binary output. The fundamental logic gates are:</p>
+        <ul>
+            <li><strong>AND Gate:</strong> Output is 1 only if <strong>all</strong> inputs are 1. Expression: <code>Y = A . B</code></li>
+            <li><strong>OR Gate:</strong> Output is 1 if <strong>at least one</strong> input is 1. Expression: <code>Y = A + B</code></li>
+            <li><strong>NOT Gate (Inverter):</strong> Output is the <strong>complement</strong> of the input. Expression: <code>Y = A'</code> or <code>Y = Ā</code></li>
+        </ul>
+        <p>Other important gates include:</p>
+        <ul>
+            <li><strong>NAND Gate:</strong> AND followed by NOT. It is a <strong>universal gate</strong>.</li>
+            <li><strong>NOR Gate:</strong> OR followed by NOT. It is also a <strong>universal gate</strong>.</li>
+            <li><strong>XOR Gate (Exclusive OR):</strong> Output is 1 if the inputs are <strong>different</strong>.</li>
+            <li><strong>XNOR Gate (Exclusive NOR):</strong> Output is 1 if the inputs are the <strong>same</strong>.</li>
+        </ul>
+        <h2 id="simplification">2.3 Simplification of Boolean Functions - Map Method</h2>
+        <p>The Karnaugh Map (K-Map) is a graphical method used to simplify Boolean algebra expressions. It helps to minimize the number of logic gates required in a digital circuit.</p>
+        
+        <h3>Two-Variable Map</h3>
+        <p>A 2-variable K-map has 2<sup>2</sup> = 4 cells. The map is used to simplify functions of two variables, say A and B.</p>
+        <p><strong>Example:</strong> Simplify F(A,B) = Σm(1, 2, 3)</p>
+        <ol>
+            <li>Draw the 2-variable K-map.</li>
+            <li>Place 1s in the cells corresponding to the minterms (1, 2, 3).</li>
+            <li>Group adjacent 1s. We can form two groups of two.</li>
+            <li>The simplified expression is the sum of the terms for each group: <strong>F = A + B</strong>.</li>
+        </ol>
+        
+        <h3>Three-Variable Map</h3>
+        <p>A 3-variable K-map has 2<sup>3</sup> = 8 cells. Remember the Gray code sequence (00, 01, 11, 10) for the column headers to ensure only one bit changes between adjacent cells.</p>
+        <div class="exam-tip">
+            <strong>Common Mistake:</strong> Using a binary sequence (00, 01, 10, 11) for K-map headers instead of Gray code (00, 01, 11, 10). This breaks the adjacency rule.
+        </div>
     
-    <h3>Two-Variable Map</h3>
-    <p>A 2-variable K-map has 2<sup>2</sup> = 4 cells. The map is used to simplify functions of two variables, say A and B.</p>
-    <p><strong>Example:</strong> Simplify F(A,B) = Σm(1, 2, 3)</p>
-    <ol>
-        <li>Draw the 2-variable K-map.</li>
-        <li>Place 1s in the cells corresponding to the minterms (1, 2, 3).</li>
-        <li>Group adjacent 1s. We can form two groups of two.</li>
-        <li>The simplified expression is the sum of the terms for each group: <strong>F = A + B</strong>.</li>
-    </ol>
+        <h2 id="pos">2.4 Product of Sums (POS) Simplification</h2>
+        <p>So far, we have discussed Sum of Products (SOP) by grouping 1s. We can also simplify expressions in Product of Sums (POS) form by grouping the <strong>zeros (0s)</strong> in the K-map.</p>
+        <blockquote>
+            <strong>SOP (Sum of Products):</strong> Grouping 1s to get a minimal sum of product terms. (e.g., AB + C'D)
+            <strong>POS (Product of Sums):</strong> Grouping 0s to get a minimal product of sum terms. (e.g., (A+B) . (C'+D))
+        </blockquote>
+        <p>To get the POS form from a K-map:</p>
+        <ol>
+            <li>Group the 0s.</li>
+            <li>Write the sum term for each group (remember to complement the variables compared to SOP).</li>
+            <li>The final expression is the product of these sum terms.</li>
+        </ol>
     
-    <h3>Three-Variable Map</h3>
-    <p>A 3-variable K-map has 2<sup>3</sup> = 8 cells. Remember the Gray code sequence (00, 01, 11, 10) for the column headers to ensure only one bit changes between adjacent cells.</p>
-    <div class="exam-tip">
-        <strong>Common Mistake:</strong> Using a binary sequence (00, 01, 10, 11) for K-map headers instead of Gray code (00, 01, 11, 10). This breaks the adjacency rule.
-    </div>
-
-    <h2 id="pos">2.4 Product of Sums (POS) Simplification</h2>
-    <p>So far, we have discussed Sum of Products (SOP) by grouping 1s. We can also simplify expressions in Product of Sums (POS) form by grouping the <strong>zeros (0s)</strong> in the K-map.</p>
-    <blockquote>
-        <strong>SOP (Sum of Products):</strong> Grouping 1s to get a minimal sum of product terms. (e.g., AB + C'D)
-        <strong>POS (Product of Sums):</strong> Grouping 0s to get a minimal product of sum terms. (e.g., (A+B) . (C'+D))
-    </blockquote>
-    <p>To get the POS form from a K-map:</p>
-    <ol>
-        <li>Group the 0s.</li>
-        <li>Write the sum term for each group (remember to complement the variables compared to SOP).</li>
-        <li>The final expression is the product of these sum terms.</li>
-    </ol>
-
-    <h2 id="nand-nor">2.5 NAND and NOR Implementation</h2>
-    <p>NAND and NOR gates are known as <strong>universal gates</strong> because any Boolean function can be implemented using only NAND gates or only NOR gates.</p>
-    <ul>
-        <li><strong>NOT using NAND:</strong> Tie both inputs of a NAND gate together.</li>
-        <li><strong>AND using NAND:</strong> A NAND gate followed by a NOT gate (which is another NAND gate).</li>
-        <li><strong>OR using NAND:</strong> Invert both inputs and then feed them to a NAND gate (using De Morgan's theorem).</li>
-    </ul>
-    <div class="exam-tip">
-        To convert a SOP expression to a NAND-NAND circuit, simply replace every AND and OR gate with a NAND gate. It works because of the double inversion law.
-    </div>
-
-    <h2 id="dont-care">2.6 Don't Care Condition</h2>
-    <p>In some logic circuits, there are certain input combinations for which the output value does not matter. These are called "don't care" conditions, represented by an 'X' or 'd' in the K-map.</p>
-    <blockquote>
-        <strong>Benefit:</strong> Don't care conditions can be treated as either 0 or 1, whichever helps in forming a larger group of 1s, leading to a more simplified expression.
-    </blockquote>
-    <p><strong>Rule:</strong> Use a don't care ('X') to form a larger group if possible, but you don't have to group all the 'X's.</p>
-
-    <h2 id="tabulation">2.7 The Tabulation Method (Quine-McCluskey)</h2>
-    <p>The Quine-McCluskey (QM) method is a tabular method of simplification that is more suitable for programming than the K-map method, especially for functions with a large number of variables.</p>
+        <h2 id="nand-nor">2.5 NAND and NOR Implementation</h2>
+        <p>NAND and NOR gates are known as <strong>universal gates</strong> because any Boolean function can be implemented using only NAND gates or only NOR gates.</p>
+        <ul>
+            <li><strong>NOT using NAND:</strong> Tie both inputs of a NAND gate together.</li>
+            <li><strong>AND using NAND:</strong> A NAND gate followed by a NOT gate (which is another NAND gate).</li>
+            <li><strong>OR using NAND:</strong> Invert both inputs and then feed them to a NAND gate (using De Morgan's theorem).</li>
+        </ul>
+        <div class="exam-tip">
+            To convert a SOP expression to a NAND-NAND circuit, simply replace every AND and OR gate with a NAND gate. It works because of the double inversion law.
+        </div>
     
-    <h3>Step 1: Determination of Prime Implicants</h3>
-    <ol>
-        <li>List all minterms in binary form.</li>
-        <li>Group the minterms based on the number of 1s in their binary representation.</li>
-        <li>Compare each minterm with minterms in the next group. If they differ by only one bit, they can be combined. The differing bit is replaced with a dash (-).</li>
-        <li>Repeat this process until no more combinations can be made.</li>
-        <li>The terms that could not be combined further are the <strong>Prime Implicants (PIs)</strong>.</li>
-    </ol>
-
-    <h3>Step 2: Selection of Essential Prime Implicants</h3>
-    <ol>
-        <li>Create a Prime Implicant chart with PIs as rows and the original minterms as columns.</li>
-        <li>Place an 'X' in a cell if the PI covers that minterm.</li>
-        <li>Find columns with only one 'X'. The PIs corresponding to these rows are <strong>Essential Prime Implicants (EPIs)</strong>. They must be part of the final solution.</li>
-        <li>Select the EPIs and cover all the minterms they account for.</li>
-        <li>If any minterms remain uncovered, select a minimum number of other PIs to cover them.</li>
-    </ol>
-    <div class="exam-tip">
-        The Tabulation method is guaranteed to find the most simplified expression, whereas a visual mistake in K-map grouping can lead to a non-minimal solution. It is more systematic but can be tedious for manual calculation.
+        <h2 id="dont-care">2.6 Don't Care Condition</h2>
+        <p>In some logic circuits, there are certain input combinations for which the output value does not matter. These are called "don't care" conditions, represented by an 'X' or 'd' in the K-map.</p>
+        <blockquote>
+            <strong>Benefit:</strong> Don't care conditions can be treated as either 0 or 1, whichever helps in forming a larger group of 1s, leading to a more simplified expression.
+        </blockquote>
+        <p><strong>Rule:</strong> Use a don't care ('X') to form a larger group if possible, but you don't have to group all the 'X's.</p>
+    
+        <h2 id="tabulation">2.7 The Tabulation Method (Quine-McCluskey)</h2>
+        <p>The Quine-McCluskey (QM) method is a tabular method of simplification that is more suitable for programming than the K-map method, especially for functions with a large number of variables.</p>
+        
+        <h3>Step 1: Determination of Prime Implicants</h3>
+        <ol>
+            <li>List all minterms in binary form.</li>
+            <li>Group the minterms based on the number of 1s in their binary representation.</li>
+            <li>Compare each minterm with minterms in the next group. If they differ by only one bit, they can be combined. The differing bit is replaced with a dash (-).</li>
+            <li>Repeat this process until no more combinations can be made.</li>
+            <li>The terms that could not be combined further are the <strong>Prime Implicants (PIs)</strong>.</li>
+        </ol>
+    
+        <h3>Step 2: Selection of Essential Prime Implicants</h3>
+        <ol>
+            <li>Create a Prime Implicant chart with PIs as rows and the original minterms as columns.</li>
+            <li>Place an 'X' in a cell if the PI covers that minterm.</li>
+            <li>Find columns with only one 'X'. The PIs corresponding to these rows are <strong>Essential Prime Implicants (EPIs)</strong>. They must be part of the final solution.</li>
+            <li>Select the EPIs and cover all the minterms they account for.</li>
+            <li>If any minterms remain uncovered, select a minimum number of other PIs to cover them.</li>
+        </ol>
+        <div class="exam-tip">
+            The Tabulation method is guaranteed to find the most simplified expression, whereas a visual mistake in K-map grouping can lead to a non-minimal solution. It is more systematic but can be tedious for manual calculation.
+        </div>
     </div>
-</div>
 
     <script src="../../../../assets/scripts/units.js"></script>
     <div id="app"></div>

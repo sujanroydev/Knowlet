@@ -29,93 +29,93 @@
  </head>
 <body>
 
-<div class="container">
-    <h1>Unit 4: Trees</h1>
-
-    <div class="toc">
-        <h2>Table of Contents</h2>
-        <ul>
-            <li><a href="#basic-concepts">4.1 Basic Concepts of Tree</a></li>
-            <li><a href="#properties">4.2 Properties of Trees</a></li>
-            <li><a href="#pendant">4.3 Pendant Vertices in a Tree</a></li>
-            <li><a href="#centre">4.4 Centre of a Tree</a></li>
-            <li><a href="#rooted-binary">4.5 Rooted Binary Trees</a></li>
-            <li><a href="#complete-extended">4.6 Complete and Extended Binary Trees</a></li>
-        </ul>
-    </div>
-
-    <span id="span_22"><h2 id="basic-concepts">4.1 Basic Concepts of Tree</span></h2>
-    <p>A <strong>graph</strong> G = (V, E) consists of a set of vertices V and a set of edges E.</p>
-    <blockquote>
-        A <strong>tree</strong> is a <strong>connected, undirected graph with no cycles</strong>. A graph with no cycles is called <strong>acyclic</strong>.
-    </blockquote>
-    <ul>
-        <li>A <strong>forest</strong> is an undirected graph with no cycles (i.e., a collection of disjoint trees).</li>
-        <li><strong>Spanning Tree:</strong> A subgraph of a connected graph G that is a tree and includes all the vertices of G.</li>
-    </ul>
-    <span id="span_23"><h2 id="properties">4.2 Properties of Trees</span></h2>
-    <p>Let T be a graph with n vertices. The following are equivalent properties of a tree:</p>
-    <ul>
-        <li>T is connected and has no cycles.</li>
-        <li>T has no cycles and has exactly n-1 edges.</li>
-        <li>T is connected and has exactly n-1 edges.</li>
-        <li>There is exactly one unique path between any two vertices in T.</li>
-        <li>T is minimally connected (removing any edge disconnects it).</li>
-    </ul>
-
-    <span id="span_24"><h2 id="pendant">4.3 Pendant Vertices in a Tree</span></h2>
-    <blockquote>
-        A <strong>pendant vertex</strong> (or <strong>leaf</strong>) is a vertex with a degree of <strong>1</strong>.
-    </blockquote>
-    <ul>
-        <li>An <strong>internal vertex</strong> is a vertex with a degree greater than 1.</li>
-        <li><strong>Theorem:</strong> Every tree with two or more vertices has at least two pendant vertices.</li>
-    </ul>
-
-    <span id="span_25"><h2 id="centre">4.4 Centre of a Tree</span></h2>
-    <p>The <strong>eccentricity</strong> e(v) of a vertex v is the length of the longest path from v to any other vertex in the tree.</p>
-    <p>The <strong>radius</strong> r(T) of a tree is the minimum eccentricity of all vertices.</p>
-    <p>The <strong>diameter</strong> d(T) of a tree is the maximum eccentricity of all vertices (the longest path in the tree).</p>
-    <blockquote>
-        The <strong>centre</strong> of a tree T is the set of all vertices with the minimum eccentricity (i.e., all vertices v where e(v) = r(T)).
-    </blockquote>
-    <p><strong>Finding the Centre:</strong> Repeatedly remove all pendant vertices from the tree simultaneously. The vertex or two vertices remaining at the end form the centre. A tree has either one central vertex or two central vertices (which must be adjacent).</p>
-    <span id="span_26"><h2 id="rooted-binary">4.5 Rooted Binary Trees</span></h2>
-    <p>A <strong>rooted tree</strong> is a tree in which one vertex has been designated as the <strong>root</strong>. This imposes a parent-child hierarchy.</p>
-    <ul>
-        <li><strong>Parent:</strong> The vertex directly above a given vertex.</li>
-        <li><strong>Child:</strong> A vertex directly below a given vertex.</li>
-        <li><strong>Siblings:</strong> Vertices with the same parent.</li>
-        <li><strong>Leaf:</strong> A vertex with no children (same as pendant vertex, except for a root-only tree).</li>
-        <li><strong>Level:</strong> The length of the path from the root (Root is at level 0).</li>
-        <li><strong>Height:</strong> The maximum level of any leaf in the tree.</li>
-    </ul>
-    <blockquote>
-        A <strong>binary tree</strong> is a rooted tree where each internal vertex has at most <strong>two</strong> children, designated as a <strong>left child</strong> and a <strong>right child</strong>. An empty tree is also a binary tree.
-    </blockquote>
-
-    <span id="span_27"><h2 id="complete-extended">4.6 Complete and Extended Binary Trees</span></h2>
-    <h3>Extended Binary Tree (or Full Binary Tree)</h3>
-    <p>A binary tree where every vertex has either <strong>0 or 2 children</strong>. The leaves are the 0-child vertices, and the internal nodes are the 2-child vertices.</p>
+    <div class="container">
+        <h1>Unit 4: Trees</h1>
     
-    <h3>Complete Binary Tree</h3>
-    <p>A binary tree in which every level, <strong>except possibly the last</strong>, is completely filled, and all vertices on the last level are as far <strong>left</strong> as possible.</p>
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#basic-concepts">4.1 Basic Concepts of Tree</a></li>
+                <li><a href="#properties">4.2 Properties of Trees</a></li>
+                <li><a href="#pendant">4.3 Pendant Vertices in a Tree</a></li>
+                <li><a href="#centre">4.4 Centre of a Tree</a></li>
+                <li><a href="#rooted-binary">4.5 Rooted Binary Trees</a></li>
+                <li><a href="#complete-extended">4.6 Complete and Extended Binary Trees</a></li>
+            </ul>
+        </div>
     
-    <div class="exam-tip">
-        <strong>Key Difference:</strong>
+        <span id="span_22"><h2 id="basic-concepts">4.1 Basic Concepts of Tree</span></h2>
+        <p>A <strong>graph</strong> G = (V, E) consists of a set of vertices V and a set of edges E.</p>
+        <blockquote>
+            A <strong>tree</strong> is a <strong>connected, undirected graph with no cycles</strong>. A graph with no cycles is called <strong>acyclic</strong>.
+        </blockquote>
         <ul>
-            <li><strong>Full/Extended:</strong> Focuses on the number of children (0 or 2). A "lonely" parent with one child is not allowed.</li>
-            <li><strong>Complete:</strong> Focuses on the "shape" and filling order. It must be perfectly balanced and filled from left to right.</li>
+            <li>A <strong>forest</strong> is an undirected graph with no cycles (i.e., a collection of disjoint trees).</li>
+            <li><strong>Spanning Tree:</strong> A subgraph of a connected graph G that is a tree and includes all the vertices of G.</li>
         </ul>
-        A tree can be full but not complete, and complete but not full (e.g., if it has a node with one child on the last level).
-    </div>
-    </div>
-
-    <script src="../../../../assets/scripts/units.js"></script>
-    <div id="app"></div>
-
-    <!-- Supabase client -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="../../../../assets/scripts/supabase.js"></script>
-</body>
-</html>
+        <span id="span_23"><h2 id="properties">4.2 Properties of Trees</span></h2>
+        <p>Let T be a graph with n vertices. The following are equivalent properties of a tree:</p>
+        <ul>
+            <li>T is connected and has no cycles.</li>
+            <li>T has no cycles and has exactly n-1 edges.</li>
+            <li>T is connected and has exactly n-1 edges.</li>
+            <li>There is exactly one unique path between any two vertices in T.</li>
+            <li>T is minimally connected (removing any edge disconnects it).</li>
+        </ul>
+    
+        <span id="span_24"><h2 id="pendant">4.3 Pendant Vertices in a Tree</span></h2>
+        <blockquote>
+            A <strong>pendant vertex</strong> (or <strong>leaf</strong>) is a vertex with a degree of <strong>1</strong>.
+        </blockquote>
+        <ul>
+            <li>An <strong>internal vertex</strong> is a vertex with a degree greater than 1.</li>
+            <li><strong>Theorem:</strong> Every tree with two or more vertices has at least two pendant vertices.</li>
+        </ul>
+    
+        <span id="span_25"><h2 id="centre">4.4 Centre of a Tree</span></h2>
+        <p>The <strong>eccentricity</strong> e(v) of a vertex v is the length of the longest path from v to any other vertex in the tree.</p>
+        <p>The <strong>radius</strong> r(T) of a tree is the minimum eccentricity of all vertices.</p>
+        <p>The <strong>diameter</strong> d(T) of a tree is the maximum eccentricity of all vertices (the longest path in the tree).</p>
+        <blockquote>
+            The <strong>centre</strong> of a tree T is the set of all vertices with the minimum eccentricity (i.e., all vertices v where e(v) = r(T)).
+        </blockquote>
+        <p><strong>Finding the Centre:</strong> Repeatedly remove all pendant vertices from the tree simultaneously. The vertex or two vertices remaining at the end form the centre. A tree has either one central vertex or two central vertices (which must be adjacent).</p>
+        <span id="span_26"><h2 id="rooted-binary">4.5 Rooted Binary Trees</span></h2>
+        <p>A <strong>rooted tree</strong> is a tree in which one vertex has been designated as the <strong>root</strong>. This imposes a parent-child hierarchy.</p>
+        <ul>
+            <li><strong>Parent:</strong> The vertex directly above a given vertex.</li>
+            <li><strong>Child:</strong> A vertex directly below a given vertex.</li>
+            <li><strong>Siblings:</strong> Vertices with the same parent.</li>
+            <li><strong>Leaf:</strong> A vertex with no children (same as pendant vertex, except for a root-only tree).</li>
+            <li><strong>Level:</strong> The length of the path from the root (Root is at level 0).</li>
+            <li><strong>Height:</strong> The maximum level of any leaf in the tree.</li>
+        </ul>
+        <blockquote>
+            A <strong>binary tree</strong> is a rooted tree where each internal vertex has at most <strong>two</strong> children, designated as a <strong>left child</strong> and a <strong>right child</strong>. An empty tree is also a binary tree.
+        </blockquote>
+    
+        <span id="span_27"><h2 id="complete-extended">4.6 Complete and Extended Binary Trees</span></h2>
+        <h3>Extended Binary Tree (or Full Binary Tree)</h3>
+        <p>A binary tree where every vertex has either <strong>0 or 2 children</strong>. The leaves are the 0-child vertices, and the internal nodes are the 2-child vertices.</p>
+        
+        <h3>Complete Binary Tree</h3>
+        <p>A binary tree in which every level, <strong>except possibly the last</strong>, is completely filled, and all vertices on the last level are as far <strong>left</strong> as possible.</p>
+        
+        <div class="exam-tip">
+            <strong>Key Difference:</strong>
+            <ul>
+                <li><strong>Full/Extended:</strong> Focuses on the number of children (0 or 2). A "lonely" parent with one child is not allowed.</li>
+                <li><strong>Complete:</strong> Focuses on the "shape" and filling order. It must be perfectly balanced and filled from left to right.</li>
+            </ul>
+            A tree can be full but not complete, and complete but not full (e.g., if it has a node with one child on the last level).
+        </div>
+        </div>
+    
+        <script src="../../../../assets/scripts/units.js"></script>
+        <div id="app"></div>
+    
+        <!-- Supabase client -->
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="../../../../assets/scripts/supabase.js"></script>
+    </body>
+    </html>

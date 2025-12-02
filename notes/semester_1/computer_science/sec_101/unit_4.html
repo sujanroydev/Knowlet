@@ -33,132 +33,132 @@
  </head>
 <body>
 
-<div class="container">
-    <h1>Unit 4: Structures and Unions</h1>
-
-    <div class="toc">
-        <h2>Table of Contents</h2>
-        <ul>
-            <span id="span_56"><li><a href="#struct-basics">4.1 Structures: Basics and Processing</a></span></li>
-            <span id="span_57"><li><a href="#struct-adv">4.2 Structures with Pointers and Functions</a></span></li>
-            <span id="span_58"><li><a href="#struct-arrays">4.3 Arrays of Structures and Self-Reference</a></span></li>
-            <span id="span_59"><li><a href="#unions">4.4 UNIONS</a></span></li>
-            <span id="span_60"><li><a href="#problem-solving">4.5 Problem Solving with Structures and Unions</a></span></li>
-        </ul>
+    <div class="container">
+        <h1>Unit 4: Structures and Unions</h1>
+    
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <span id="span_56"><li><a href="#struct-basics">4.1 Structures: Basics and Processing</a></span></li>
+                <span id="span_57"><li><a href="#struct-adv">4.2 Structures with Pointers and Functions</a></span></li>
+                <span id="span_58"><li><a href="#struct-arrays">4.3 Arrays of Structures and Self-Reference</a></span></li>
+                <span id="span_59"><li><a href="#unions">4.4 UNIONS</a></span></li>
+                <span id="span_60"><li><a href="#problem-solving">4.5 Problem Solving with Structures and Unions</a></span></li>
+            </ul>
+        </div>
+    
+        <span id="span_61"><h2 id="struct-basics">4.1 Structures: Basics and Processing</span></h2>
+        <p>A <strong>structure</strong> is a user-defined data type that groups together related variables of <strong>different data types</strong>.</p>
+        
+        <span id="span_62"><h3>Basics of Structures</span></h3>
+        <pre><code>// 1. Definition
+    struct Student {
+        char name[50];
+        int rollNumber;
+        float gpa;
+    };
+    
+    int main() {
+        // 2. Variable declaration
+        struct Student s1;
+    
+        // 3. Processing (Accessing members with dot .)
+        strcpy(s1.name, "Alex");
+        s1.rollNumber = 101;
+        s1.gpa = 8.5;
+    
+        printf("Name: %s\n", s1.name);
+        return 0;
+    }</code></pre>
+    
+        <span id="span_63"><h3>User-defined data types (<code>typedef</code>)</span></h3>
+        <p><code>typedef</code> creates an alias (a new name) for an existing data type. It simplifies structure declarations.</p>
+        <pre><code>// Using typedef with struct
+    typedef struct {
+        char name[50];
+        int rollNumber;
+        float gpa;
+    } Student; // 'Student' is now the new type name
+    
+    int main() {
+        Student s1; // Much cleaner than 'struct Student s1'
+        s1.rollNumber = 101;
+    }</code></pre>
+    
+        <span id="span_64"><h2 id="struct-adv">4.2 Structures with Pointers and Functions</span></h2>
+        
+        <span id="span_65"><h3>Structures and Pointers</span></h3>
+        <p>You can have a pointer to a structure. To access members from a structure pointer, you use the <strong>arrow operator (<code>-></code>)</strong>.</p>
+        <pre><code>Student s1;
+    Student *ptr = &s1; // ptr points to s1
+    
+    // Accessing members
+    ptr->rollNumber = 102; // Same as (*ptr).rollNumber
+    strcpy(ptr->name, "Maria");</code></pre>
+        <div class="exam-tip"><code>s.member</code> (if <code>s</code> is a structure) vs. <code>ptr->member</code> (if <code>ptr</code> is a pointer to a structure). This is a very common point of confusion.</div>
+    
+        <span id="span_66"><h3>Structures and Functions</span></h3>
+        <p>It's highly recommended to pass structures to functions using <strong>pointers</strong> to avoid the inefficiency of copying the entire structure (which is the default pass-by-value behavior).</p>
+        <pre><code>// Good practice: Pass by pointer
+    void printStudent(Student *s) {
+        printf("Name: %s\n", s->name);
+        printf("Roll: %d\n", s->rollNumber);
+    }
+    
+    int main() {
+        Student s1 = {"Alex", 101, 8.5};
+        printStudent(&s1); // Pass the address
+    }</code></pre>
+    
+        <span id="span_67"><h2 id="struct-arrays">4.3 Arrays of Structures and Self-Reference</span></h2>
+        
+        <span id="span_68"><h3>Arrays of Structures</span></h3>
+        <p>You can create an array where each element is a structure. This is perfect for storing records.</p>
+        <pre><code>Student class[60]; // An array of 60 Student structures
+    class[0].rollNumber = 101;
+    strcpy(class[0].name, "Alex");</code></pre>
+        <span id="span_69"><p>This is often used for <strong>Table Lookup</strong>, where you search the array for a record matching a key.</span></p>
+    
+        <span id="span_70"><h3>Pointers to Structures</span></h3>
+        <p>This concept (covered in 4.2) is fundamental to managing arrays of structures and self-referential structures.</p>
+        
+        <span id="span_71"><h3>Self-referential Structures</span></h3>
+        <p>A structure that contains a pointer to itself (of the same structure type). This is the fundamental building block for data structures like <strong>Linked Lists</strong> and Trees.</p>
+        <pre><code>// A node in a linked list
+    typedef struct Node {
+        int data;
+        struct Node *next; // Pointer to the next node in the list
+    } Node;</code></pre>
+    
+        <span id="span_72"><h2 id="unions">4.4 UNIONS</span></h2>
+        <p>A <strong>union</strong> is a user-defined type where all members share the <strong>same memory location</strong>. Only one member can be active and contain a value at any given time.</p>
+        <pre><code>typedef union {
+        int i;
+        float f;
+        char c;
+    } Data;
+    
+    int main() {
+        Data d;
+        d.i = 10;
+        printf("i: %d\n", d.i);   // Prints 10
+        
+        d.f = 220.5;
+        printf("f: %.1f\n", d.f); // Prints 220.5
+        
+        // Previous 'i' value is now corrupted!
+        printf("i: %d\n", d.i);   // Prints garbage/corrupted value
+    }</code></pre>
+    
+        <span id="span_73"><h2 id="problem-solving">4.5 Problem Solving with Structures and Unions</span></h2>
+        <blockquote>
+            <strong>Structure vs. Union: Key Difference</strong>
+            <ul>
+                <li><strong><code>struct</code>:</strong> Stores <strong>ALL</strong> members. Memory size is the <strong>SUM</strong> of all member sizes (plus padding). Use when you need to store multiple values together.</li>
+                <li><strong><code>union</code>:</strong> Stores only <strong>ONE</strong> member at a time. Memory size is the size of the <strong>LARGEST</strong> member. Use when you need to store one of several possible types in a single space.</li>
+            </ul>
+        </blockquote>
     </div>
-
-    <span id="span_61"><h2 id="struct-basics">4.1 Structures: Basics and Processing</span></h2>
-    <p>A <strong>structure</strong> is a user-defined data type that groups together related variables of <strong>different data types</strong>.</p>
-    
-    <span id="span_62"><h3>Basics of Structures</span></h3>
-    <pre><code>// 1. Definition
-struct Student {
-    char name[50];
-    int rollNumber;
-    float gpa;
-};
-
-int main() {
-    // 2. Variable declaration
-    struct Student s1;
-
-    // 3. Processing (Accessing members with dot .)
-    strcpy(s1.name, "Alex");
-    s1.rollNumber = 101;
-    s1.gpa = 8.5;
-
-    printf("Name: %s\n", s1.name);
-    return 0;
-}</code></pre>
-
-    <span id="span_63"><h3>User-defined data types (<code>typedef</code>)</span></h3>
-    <p><code>typedef</code> creates an alias (a new name) for an existing data type. It simplifies structure declarations.</p>
-    <pre><code>// Using typedef with struct
-typedef struct {
-    char name[50];
-    int rollNumber;
-    float gpa;
-} Student; // 'Student' is now the new type name
-
-int main() {
-    Student s1; // Much cleaner than 'struct Student s1'
-    s1.rollNumber = 101;
-}</code></pre>
-
-    <span id="span_64"><h2 id="struct-adv">4.2 Structures with Pointers and Functions</span></h2>
-    
-    <span id="span_65"><h3>Structures and Pointers</span></h3>
-    <p>You can have a pointer to a structure. To access members from a structure pointer, you use the <strong>arrow operator (<code>-></code>)</strong>.</p>
-    <pre><code>Student s1;
-Student *ptr = &s1; // ptr points to s1
-
-// Accessing members
-ptr->rollNumber = 102; // Same as (*ptr).rollNumber
-strcpy(ptr->name, "Maria");</code></pre>
-    <div class="exam-tip"><code>s.member</code> (if <code>s</code> is a structure) vs. <code>ptr->member</code> (if <code>ptr</code> is a pointer to a structure). This is a very common point of confusion.</div>
-
-    <span id="span_66"><h3>Structures and Functions</span></h3>
-    <p>It's highly recommended to pass structures to functions using <strong>pointers</strong> to avoid the inefficiency of copying the entire structure (which is the default pass-by-value behavior).</p>
-    <pre><code>// Good practice: Pass by pointer
-void printStudent(Student *s) {
-    printf("Name: %s\n", s->name);
-    printf("Roll: %d\n", s->rollNumber);
-}
-
-int main() {
-    Student s1 = {"Alex", 101, 8.5};
-    printStudent(&s1); // Pass the address
-}</code></pre>
-
-    <span id="span_67"><h2 id="struct-arrays">4.3 Arrays of Structures and Self-Reference</span></h2>
-    
-    <span id="span_68"><h3>Arrays of Structures</span></h3>
-    <p>You can create an array where each element is a structure. This is perfect for storing records.</p>
-    <pre><code>Student class[60]; // An array of 60 Student structures
-class[0].rollNumber = 101;
-strcpy(class[0].name, "Alex");</code></pre>
-    <span id="span_69"><p>This is often used for <strong>Table Lookup</strong>, where you search the array for a record matching a key.</span></p>
-
-    <span id="span_70"><h3>Pointers to Structures</span></h3>
-    <p>This concept (covered in 4.2) is fundamental to managing arrays of structures and self-referential structures.</p>
-    
-    <span id="span_71"><h3>Self-referential Structures</span></h3>
-    <p>A structure that contains a pointer to itself (of the same structure type). This is the fundamental building block for data structures like <strong>Linked Lists</strong> and Trees.</p>
-    <pre><code>// A node in a linked list
-typedef struct Node {
-    int data;
-    struct Node *next; // Pointer to the next node in the list
-} Node;</code></pre>
-
-    <span id="span_72"><h2 id="unions">4.4 UNIONS</span></h2>
-    <p>A <strong>union</strong> is a user-defined type where all members share the <strong>same memory location</strong>. Only one member can be active and contain a value at any given time.</p>
-    <pre><code>typedef union {
-    int i;
-    float f;
-    char c;
-} Data;
-
-int main() {
-    Data d;
-    d.i = 10;
-    printf("i: %d\n", d.i);   // Prints 10
-    
-    d.f = 220.5;
-    printf("f: %.1f\n", d.f); // Prints 220.5
-    
-    // Previous 'i' value is now corrupted!
-    printf("i: %d\n", d.i);   // Prints garbage/corrupted value
-}</code></pre>
-
-    <span id="span_73"><h2 id="problem-solving">4.5 Problem Solving with Structures and Unions</span></h2>
-    <blockquote>
-        <strong>Structure vs. Union: Key Difference</strong>
-        <ul>
-            <li><strong><code>struct</code>:</strong> Stores <strong>ALL</strong> members. Memory size is the <strong>SUM</strong> of all member sizes (plus padding). Use when you need to store multiple values together.</li>
-            <li><strong><code>union</code>:</strong> Stores only <strong>ONE</strong> member at a time. Memory size is the size of the <strong>LARGEST</strong> member. Use when you need to store one of several possible types in a single space.</li>
-        </ul>
-    </blockquote>
-</div>
 
     <script src="../../../../assets/scripts/units.js"></script>
     <div id="app"></div>

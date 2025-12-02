@@ -29,101 +29,101 @@
  </head>
 <body>
 
-<div class="container">
-    <h1>Unit 5: Graph Theory with Applications</h1>
-
-    <div class="toc">
-        <h2>Table of Contents</h2>
-        <ul>
-            <li><a href="#basic-concepts">5.1 Basic Concepts of Graph Theory</a></li>
-            <li><a href="#iso-homo">5.2 Isomorphism and Homomorphism</a></li>
-            <li><a href="#graph-types">5.3 Subgraphs, Union, Multigraphs, Weighted Graphs</a></li>
-            <li><a href="#planar">5.4 Planar Graphs</a></li>
-            <li><a href="#walks">5.5 Walks, Paths, and Circuits</a></li>
-            <li><a href="#connectivity">5.6 Components, Connectedness, Cut-sets, Cut-vertices</a></li>
-            <li><a href="#special-graphs">5.7 Eulerian and Hamiltonian Graphs</a></li>
-            <li><a href="#more-special-graphs">5.8 Complete, Regular, and Bipartite Graphs</a></li>
-        </ul>
-    </div>
-
-    <span id="span_28"><h2 id="basic-concepts">5.1 Basic Concepts of Graph Theory</span></h2>
-    <p>A graph G = (V, E) is a set of vertices V and a set of edges E.</p>
-    <ul>
-        <li><strong>Incidence and Degree:</strong> An edge (u, v) is <strong>incident</strong> on vertices u and v. The <strong>degree</strong> d(v) of a vertex v is the number of edges incident on it (a loop counts twice).</li>
-        <li><strong>Handshaking Lemma:</strong> The sum of the degrees of all vertices in a graph is equal to twice the number of edges (∑ d(v) = 2|E|). This implies the number of vertices with odd degree must be even.</li>
-    </ul>
-
-    <span id="span_29"><h2 id="iso-homo">5.2 Isomorphism and Homomorphism</span></h2>
-    <ul>
-        <li><strong>Isomorphism:</strong> Two graphs G<sub>1</sub> and G<sub>2</sub> are <strong>isomorphic</strong> if there is a bijective (one-to-one and onto) function f: V(G<sub>1</sub>) \to V(G<sub>2</sub>) that preserves adjacency. That is, (u, v) is an edge in G<sub>1</sub> if and only if (f(u), f(v)) is an edge in G<sub>2</sub>.
-        <br><strong>To prove non-isomorphism:</strong> Find a property they don't share (e.g., number of vertices, number of edges, degree sequence, number of cycles of a certain length).</li>
-        <li><strong>Homomorphism:</strong> A map f: V(G<sub>1</sub>) \to V(G<sub>2</sub>) is a homomorphism if (u, v) ∈ E(G<sub>1</sub>) implies (f(u), f(v)) ∈ E(G<sub>2</sub>). It's a structure-preserving map that is not necessarily bijective.</li>
-    </ul>
-
-    <span id="span_30"><h2 id="graph-types">5.3 Subgraphs, Union, Multigraphs, Weighted Graphs</span></h2>
-    <ul>
-        <li><strong>Subgraph:</strong> A graph H is a subgraph of G if V(H) ⊂eq V(G) and E(H) ⊂eq E(G).</li>
-        <li><strong>Union of graphs:</strong> G<sub>1</sub> ∪ G<sub>2</sub> = (V<sub>1</sub> ∪ V<sub>2</sub>, E<sub>1</sub> ∪ E<sub>2</sub>).</li>
-        <li><strong>Multigraph:</strong> A graph that allows multiple edges (parallel edges) between the same pair of vertices.</li>
-        <li><strong>Weighted Graph:</strong> A graph where a number (weight or cost) is assigned to each edge.</li>
-    </ul>
-
-    <span id="span_31"><h2 id="planar">5.4 Planar Graphs</span></h2>
-    <blockquote>
-        A <strong>planar graph</strong> is a graph that can be drawn on a plane in such a way that no two edges cross each other.
-    </blockquote>
-    <p><strong>Euler's Formula:</strong> For any connected planar graph, v - e + f = 2, where v is the number of vertices, e is the number of edges, and f is the number of faces (regions, including the outer region).</p>
-
-    <span id="span_32"><h2 id="walks">5.5 Walks, Paths, and Circuits</span></h2>
-    <ul>
-        <li><strong>Walk:</strong> A sequence of alternating vertices and edges, e.g., v<sub>0</sub>, e<sub>1</sub>, v<sub>1</sub>, e<sub>2</sub>, v<sub>2</sub>, ..., v<sub>k</sub>. Edges and vertices can be repeated.</li>
-        <li><strong>Path:</strong> A walk in which all vertices are distinct (and thus all edges are also distinct).</li>
-        <li><strong>Circuit (or Cycle):</strong> A closed walk (starts and ends at the same vertex) in which all vertices are distinct, except for the start/end vertex. A cycle must have length 3 or more.</li>
-    </ul>
-
-    <span id="span_33"><h2 id="connectivity">5.6 Components, Connectedness, Cut-sets, Cut-vertices</span></h2>
-    <ul>
-        <li><strong>Connectedness:</strong> A graph is <strong>connected</strong> if there is a path between every pair of distinct vertices.</li>
-        <li><strong>Components:</strong> The connected subgraphs of a disconnected graph are its components.</li>
-        <li><strong>Cut-vertex (Articulation Point):</strong> A vertex whose removal increases the number of connected components.</li>
-        <li><strong>Cut-set (or Bridge):</strong> An edge whose removal increases the number of connected components. A cut-set can be a set of edges.</li>
-    </ul>
-
-    <span id="span_34"><h2 id="special-graphs">5.7 Eulerian and Hamiltonian Graphs</span></h2>
-    <h3>Eulerian Graph</h3>
-    <ul>
-        <li>An <strong>Eulerian circuit</strong> is a circuit that traverses every <strong>edge</strong> exactly once.</li>
-        <li>An <strong>Eulerian path</strong> is a path that traverses every <strong>edge</strong> exactly once.</li>
-        <li><strong>Theorem:</strong> A connected graph has an Eulerian circuit if and only if every vertex has an <strong>even degree</strong>. It has an Eulerian path if and only if it has exactly <strong>two vertices of odd degree</strong> (the path must start at one and end at the other).</li>
-    </ul>
+    <div class="container">
+        <h1>Unit 5: Graph Theory with Applications</h1>
     
-    <h3>Hamiltonian Graph</h3>
-    <ul>
-        <li>A <strong>Hamiltonian cycle</strong> is a cycle that visits every <strong>vertex</strong> exactly once.</li>
-        <li>A <strong>Hamiltonian path</strong> is a path that visits every <strong>vertex</strong> exactly once.</li>
-        <li><strong>Note:</strong> Unlike Euler circuits, there is no simple, necessary, and sufficient condition to determine if a graph has a Hamiltonian cycle. This is a much harder problem (NP-complete).</li>
-    </ul>
-    <div class="exam-tip">
-        <strong>Common Mistake:</strong> Confusing Euler and Hamilton.
-        <ul>
-            <li><strong>Euler:</strong> All <strong>E</strong>dges. Check <strong>E</strong>ven degrees. (Easy)</li>
-            <li><strong>Hamilton:</strong> All <strong>V</strong>ertices (H is 'near' V in alphabet... sort of). No simple check. (Hard)</li>
-        </ul>
-    </div>
-
-    <span id="span_35"><h2 id="more-special-graphs">5.8 Complete, Regular, and Bipartite Graphs</span></h2>
-    <ul>
-        <li><strong>Complete Graph (K<sub>n</sub>):</strong> A simple graph with n vertices where every vertex is connected to every other vertex. It has n(n-1)/2 edges.</li>
-        <li><strong>Regular Graph:</strong> A graph where every vertex has the same degree. A graph is <strong>k-regular</strong> if d(v) = k for all v ∈ V.</li>
-        <li><strong>Bipartite Graph:</strong> A graph whose vertex set V can be partitioned into two disjoint sets, V<sub>1</sub> and V<sub>2</sub>, such that every edge connects a vertex in V<sub>1</sub> to one in V<sub>2</sub>. (No edges *within* V<sub>1</sub> or V<sub>2</sub>).
+        <div class="toc">
+            <h2>Table of Contents</h2>
             <ul>
-                <li><strong>Theorem:</strong> A graph is bipartite if and only if it contains no odd-length cycles.</li>
-                <li><strong>Complete Bipartite Graph (K<sub>m,n</sub>):</strong> A bipartite graph with |V<sub>1</sub>|=m and |V<sub>2</sub>|=n, containing all m × n possible edges between V<sub>1</sub> and V<sub>2</sub>.</li>
+                <li><a href="#basic-concepts">5.1 Basic Concepts of Graph Theory</a></li>
+                <li><a href="#iso-homo">5.2 Isomorphism and Homomorphism</a></li>
+                <li><a href="#graph-types">5.3 Subgraphs, Union, Multigraphs, Weighted Graphs</a></li>
+                <li><a href="#planar">5.4 Planar Graphs</a></li>
+                <li><a href="#walks">5.5 Walks, Paths, and Circuits</a></li>
+                <li><a href="#connectivity">5.6 Components, Connectedness, Cut-sets, Cut-vertices</a></li>
+                <li><a href="#special-graphs">5.7 Eulerian and Hamiltonian Graphs</a></li>
+                <li><a href="#more-special-graphs">5.8 Complete, Regular, and Bipartite Graphs</a></li>
             </ul>
-        </li>
-    </ul>
-
-</div>
+        </div>
+    
+        <span id="span_28"><h2 id="basic-concepts">5.1 Basic Concepts of Graph Theory</span></h2>
+        <p>A graph G = (V, E) is a set of vertices V and a set of edges E.</p>
+        <ul>
+            <li><strong>Incidence and Degree:</strong> An edge (u, v) is <strong>incident</strong> on vertices u and v. The <strong>degree</strong> d(v) of a vertex v is the number of edges incident on it (a loop counts twice).</li>
+            <li><strong>Handshaking Lemma:</strong> The sum of the degrees of all vertices in a graph is equal to twice the number of edges (∑ d(v) = 2|E|). This implies the number of vertices with odd degree must be even.</li>
+        </ul>
+    
+        <span id="span_29"><h2 id="iso-homo">5.2 Isomorphism and Homomorphism</span></h2>
+        <ul>
+            <li><strong>Isomorphism:</strong> Two graphs G<sub>1</sub> and G<sub>2</sub> are <strong>isomorphic</strong> if there is a bijective (one-to-one and onto) function f: V(G<sub>1</sub>) \to V(G<sub>2</sub>) that preserves adjacency. That is, (u, v) is an edge in G<sub>1</sub> if and only if (f(u), f(v)) is an edge in G<sub>2</sub>.
+            <br><strong>To prove non-isomorphism:</strong> Find a property they don't share (e.g., number of vertices, number of edges, degree sequence, number of cycles of a certain length).</li>
+            <li><strong>Homomorphism:</strong> A map f: V(G<sub>1</sub>) \to V(G<sub>2</sub>) is a homomorphism if (u, v) ∈ E(G<sub>1</sub>) implies (f(u), f(v)) ∈ E(G<sub>2</sub>). It's a structure-preserving map that is not necessarily bijective.</li>
+        </ul>
+    
+        <span id="span_30"><h2 id="graph-types">5.3 Subgraphs, Union, Multigraphs, Weighted Graphs</span></h2>
+        <ul>
+            <li><strong>Subgraph:</strong> A graph H is a subgraph of G if V(H) ⊂eq V(G) and E(H) ⊂eq E(G).</li>
+            <li><strong>Union of graphs:</strong> G<sub>1</sub> ∪ G<sub>2</sub> = (V<sub>1</sub> ∪ V<sub>2</sub>, E<sub>1</sub> ∪ E<sub>2</sub>).</li>
+            <li><strong>Multigraph:</strong> A graph that allows multiple edges (parallel edges) between the same pair of vertices.</li>
+            <li><strong>Weighted Graph:</strong> A graph where a number (weight or cost) is assigned to each edge.</li>
+        </ul>
+    
+        <span id="span_31"><h2 id="planar">5.4 Planar Graphs</span></h2>
+        <blockquote>
+            A <strong>planar graph</strong> is a graph that can be drawn on a plane in such a way that no two edges cross each other.
+        </blockquote>
+        <p><strong>Euler's Formula:</strong> For any connected planar graph, v - e + f = 2, where v is the number of vertices, e is the number of edges, and f is the number of faces (regions, including the outer region).</p>
+    
+        <span id="span_32"><h2 id="walks">5.5 Walks, Paths, and Circuits</span></h2>
+        <ul>
+            <li><strong>Walk:</strong> A sequence of alternating vertices and edges, e.g., v<sub>0</sub>, e<sub>1</sub>, v<sub>1</sub>, e<sub>2</sub>, v<sub>2</sub>, ..., v<sub>k</sub>. Edges and vertices can be repeated.</li>
+            <li><strong>Path:</strong> A walk in which all vertices are distinct (and thus all edges are also distinct).</li>
+            <li><strong>Circuit (or Cycle):</strong> A closed walk (starts and ends at the same vertex) in which all vertices are distinct, except for the start/end vertex. A cycle must have length 3 or more.</li>
+        </ul>
+    
+        <span id="span_33"><h2 id="connectivity">5.6 Components, Connectedness, Cut-sets, Cut-vertices</span></h2>
+        <ul>
+            <li><strong>Connectedness:</strong> A graph is <strong>connected</strong> if there is a path between every pair of distinct vertices.</li>
+            <li><strong>Components:</strong> The connected subgraphs of a disconnected graph are its components.</li>
+            <li><strong>Cut-vertex (Articulation Point):</strong> A vertex whose removal increases the number of connected components.</li>
+            <li><strong>Cut-set (or Bridge):</strong> An edge whose removal increases the number of connected components. A cut-set can be a set of edges.</li>
+        </ul>
+    
+        <span id="span_34"><h2 id="special-graphs">5.7 Eulerian and Hamiltonian Graphs</span></h2>
+        <h3>Eulerian Graph</h3>
+        <ul>
+            <li>An <strong>Eulerian circuit</strong> is a circuit that traverses every <strong>edge</strong> exactly once.</li>
+            <li>An <strong>Eulerian path</strong> is a path that traverses every <strong>edge</strong> exactly once.</li>
+            <li><strong>Theorem:</strong> A connected graph has an Eulerian circuit if and only if every vertex has an <strong>even degree</strong>. It has an Eulerian path if and only if it has exactly <strong>two vertices of odd degree</strong> (the path must start at one and end at the other).</li>
+        </ul>
+        
+        <h3>Hamiltonian Graph</h3>
+        <ul>
+            <li>A <strong>Hamiltonian cycle</strong> is a cycle that visits every <strong>vertex</strong> exactly once.</li>
+            <li>A <strong>Hamiltonian path</strong> is a path that visits every <strong>vertex</strong> exactly once.</li>
+            <li><strong>Note:</strong> Unlike Euler circuits, there is no simple, necessary, and sufficient condition to determine if a graph has a Hamiltonian cycle. This is a much harder problem (NP-complete).</li>
+        </ul>
+        <div class="exam-tip">
+            <strong>Common Mistake:</strong> Confusing Euler and Hamilton.
+            <ul>
+                <li><strong>Euler:</strong> All <strong>E</strong>dges. Check <strong>E</strong>ven degrees. (Easy)</li>
+                <li><strong>Hamilton:</strong> All <strong>V</strong>ertices (H is 'near' V in alphabet... sort of). No simple check. (Hard)</li>
+            </ul>
+        </div>
+    
+        <span id="span_35"><h2 id="more-special-graphs">5.8 Complete, Regular, and Bipartite Graphs</span></h2>
+        <ul>
+            <li><strong>Complete Graph (K<sub>n</sub>):</strong> A simple graph with n vertices where every vertex is connected to every other vertex. It has n(n-1)/2 edges.</li>
+            <li><strong>Regular Graph:</strong> A graph where every vertex has the same degree. A graph is <strong>k-regular</strong> if d(v) = k for all v ∈ V.</li>
+            <li><strong>Bipartite Graph:</strong> A graph whose vertex set V can be partitioned into two disjoint sets, V<sub>1</sub> and V<sub>2</sub>, such that every edge connects a vertex in V<sub>1</sub> to one in V<sub>2</sub>. (No edges *within* V<sub>1</sub> or V<sub>2</sub>).
+                <ul>
+                    <li><strong>Theorem:</strong> A graph is bipartite if and only if it contains no odd-length cycles.</li>
+                    <li><strong>Complete Bipartite Graph (K<sub>m,n</sub>):</strong> A bipartite graph with |V<sub>1</sub>|=m and |V<sub>2</sub>|=n, containing all m × n possible edges between V<sub>1</sub> and V<sub>2</sub>.</li>
+                </ul>
+            </li>
+        </ul>
+    
+    </div>
 
     <script src="../../../../assets/scripts/units.js"></script>
     <div id="app"></div>

@@ -33,79 +33,79 @@
  </head>
 <body>
 
-<div class="container">
-    <h1>Unit 2: Data Representation, OS, and Languages</h1>
-
-    <div class="toc">
-        <h2>Table of Contents</h2>
+    <div class="container">
+        <h1>Unit 2: Data Representation, OS, and Languages</h1>
+    
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#data-rep">2.1 Data Representation</a></li>
+                <li><a href="#os">2.2 Operating System</a></li>
+                <li><a href="#language">2.3 Computer Language</a></li>
+                <li><a href="#processors">2.4 Language Processors</a></li>
+                <li><a href="#algo-flow">2.5 Algorithm and Flowchart</a></li>
+            </ul>
+        </div>
+    
+        <h2 id="data-rep">2.1 Data Representation</h2>
+        <h3>Number Systems</h3>
+        <p>Computers store all data as binary numbers (bits). <span id="span_16">We use different number systems for convenience</span>.</p>
         <ul>
-            <li><a href="#data-rep">2.1 Data Representation</a></li>
-            <li><a href="#os">2.2 Operating System</a></li>
-            <li><a href="#language">2.3 Computer Language</a></li>
-            <li><a href="#processors">2.4 Language Processors</a></li>
-            <li><a href="#algo-flow">2.5 Algorithm and Flowchart</a></li>
+            <li><strong>Decimal (Base-10):</strong> The system we use daily (Digits 0-9).</li>
+            <li><strong>Binary (Base-2):</strong> The system computers use (Digits 0, 1).</li>
+            <li><strong>Octal (Base-8):</strong> Uses digits 0-7.</li>
+            <li><strong>Hexadecimal (Base-16):</strong> Uses digits 0-9 and letters A-F (where A=10, B=11...F=15).</li>
         </ul>
-    </div>
-
-    <h2 id="data-rep">2.1 Data Representation</h2>
-    <h3>Number Systems</h3>
-    <p>Computers store all data as binary numbers (bits). <span id="span_16">We use different number systems for convenience</span>.</p>
-    <ul>
-        <li><strong>Decimal (Base-10):</strong> The system we use daily (Digits 0-9).</li>
-        <li><strong>Binary (Base-2):</strong> The system computers use (Digits 0, 1).</li>
-        <li><strong>Octal (Base-8):</strong> Uses digits 0-7.</li>
-        <li><strong>Hexadecimal (Base-16):</strong> Uses digits 0-9 and letters A-F (where A=10, B=11...F=15).</li>
-    </ul>
-
-    <h3>Character Representation</h3>
-    <p>Computers store letters and symbols by assigning a unique number to each one. <span id="span_17">The most common standard is <strong>ASCII</strong> (American Standard Code for Information Interchange), which maps characters to numbers (e.g., 'A' is 65, 'a' is 97)</span>.</p>
-
-    <h2 id="os">2.2 Operating System</h2>
-    <h3>Basics of Operating System</h3>
-    <p>The <strong>Operating System (OS)</strong> is the most important system software. <span id="span_18">It acts as an intermediary between the user and the computer hardware, managing all resources</span>.</p>
     
-    <h3>Functions of Operating System</h3>
-    <ul>
-        <li><strong>Memory Management:</strong> Allocates and deallocates memory for programs.</li>
-        <li><strong>Process Management:</strong> Manages the CPU's time, scheduling tasks to run.</li>
-        <li><strong>File Management:</strong> Organizes files and directories on storage devices.</li>
-        <li><strong>Device Management:</strong> Controls all input and output devices.</li>
-    </ul>
-
-    <h2 id="language">2.3 Computer Language</h2>
-    <blockquote>
-        <span id="span_19">A <strong>Computer Language</strong> is a formal language used to write instructions (programs) that a computer can execute</span>.
-    </blockquote>
-    <h3>Types of Languages</h3>
-    <ul>
-        <li><strong>Machine Language (Low-Level):</strong> The binary code (0s and 1s) that the CPU understands directly.</li>
-        <li><strong>Assembly Language (Low-Level):</strong> Uses mnemonics (short codes like <code>ADD</code>, <code>MOV</code>) to represent machine instructions.</li>
-        <li><strong>High-Level Language:</strong> Uses English-like words and syntax (e.g., C, Python, Java). It is much easier for humans to read and write.</li>
-    </ul>
-
-    <h2 id="processors">2.4 Language Processors</h2>
-    <span id="span_20"><p>A program that translates source code (written by humans) into machine code (understood by the CPU)</span>.</p>
-    <ul>
-        <li><strong>Assembler:</strong> Translates Assembly Language to Machine Code.</li>
-        <li><strong>Compiler:</strong> Translates an entire High-Level Language program into Machine Code *all at once*, creating an executable file (e.g., C, C++).</li>
-        <li><strong>Interpreter:</strong> Translates and executes a High-Level Language program *one line at a time*. No executable file is created (e.g., Python, JavaScript).</li>
-        <li><strong>Linker:</strong> Combines one or more compiled object files and library files into a single executable program.</li>
-        <li><strong>Loader:</strong> A part of the OS that loads the executable file from storage into memory (RAM) to be run.</li>
-    </ul>
-
-    <h2 id="algo-flow">2.5 Algorithm and Flowchart</h2>
-    <h3>Algorithm</h3>
-    <span id="span_21"><p>An <strong>Algorithm</strong> is a finite, step-by-step set of instructions or rules to be followed to solve a specific problem</span>.</p>
+        <h3>Character Representation</h3>
+        <p>Computers store letters and symbols by assigning a unique number to each one. <span id="span_17">The most common standard is <strong>ASCII</strong> (American Standard Code for Information Interchange), which maps characters to numbers (e.g., 'A' is 65, 'a' is 97)</span>.</p>
     
-    <h3>Flowchart</h3>
-    <p>A <strong>Flowchart</strong> is a graphical representation of an algorithm. <span id="span_22">It uses standard symbols to show the sequence of operations and the flow of control</span>.</p>
-    </div>
-
-    <script src="../../../../assets/scripts/units.js"></script>
-    <div id="app"></div>
-
-    <!-- Supabase client -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="../../../../assets/scripts/supabase.js"></script>
-</body>
-</html>
+        <h2 id="os">2.2 Operating System</h2>
+        <h3>Basics of Operating System</h3>
+        <p>The <strong>Operating System (OS)</strong> is the most important system software. <span id="span_18">It acts as an intermediary between the user and the computer hardware, managing all resources</span>.</p>
+        
+        <h3>Functions of Operating System</h3>
+        <ul>
+            <li><strong>Memory Management:</strong> Allocates and deallocates memory for programs.</li>
+            <li><strong>Process Management:</strong> Manages the CPU's time, scheduling tasks to run.</li>
+            <li><strong>File Management:</strong> Organizes files and directories on storage devices.</li>
+            <li><strong>Device Management:</strong> Controls all input and output devices.</li>
+        </ul>
+    
+        <h2 id="language">2.3 Computer Language</h2>
+        <blockquote>
+            <span id="span_19">A <strong>Computer Language</strong> is a formal language used to write instructions (programs) that a computer can execute</span>.
+        </blockquote>
+        <h3>Types of Languages</h3>
+        <ul>
+            <li><strong>Machine Language (Low-Level):</strong> The binary code (0s and 1s) that the CPU understands directly.</li>
+            <li><strong>Assembly Language (Low-Level):</strong> Uses mnemonics (short codes like <code>ADD</code>, <code>MOV</code>) to represent machine instructions.</li>
+            <li><strong>High-Level Language:</strong> Uses English-like words and syntax (e.g., C, Python, Java). It is much easier for humans to read and write.</li>
+        </ul>
+    
+        <h2 id="processors">2.4 Language Processors</h2>
+        <span id="span_20"><p>A program that translates source code (written by humans) into machine code (understood by the CPU)</span>.</p>
+        <ul>
+            <li><strong>Assembler:</strong> Translates Assembly Language to Machine Code.</li>
+            <li><strong>Compiler:</strong> Translates an entire High-Level Language program into Machine Code *all at once*, creating an executable file (e.g., C, C++).</li>
+            <li><strong>Interpreter:</strong> Translates and executes a High-Level Language program *one line at a time*. No executable file is created (e.g., Python, JavaScript).</li>
+            <li><strong>Linker:</strong> Combines one or more compiled object files and library files into a single executable program.</li>
+            <li><strong>Loader:</strong> A part of the OS that loads the executable file from storage into memory (RAM) to be run.</li>
+        </ul>
+    
+        <h2 id="algo-flow">2.5 Algorithm and Flowchart</h2>
+        <h3>Algorithm</h3>
+        <span id="span_21"><p>An <strong>Algorithm</strong> is a finite, step-by-step set of instructions or rules to be followed to solve a specific problem</span>.</p>
+        
+        <h3>Flowchart</h3>
+        <p>A <strong>Flowchart</strong> is a graphical representation of an algorithm. <span id="span_22">It uses standard symbols to show the sequence of operations and the flow of control</span>.</p>
+        </div>
+    
+        <script src="../../../../assets/scripts/units.js"></script>
+        <div id="app"></div>
+    
+        <!-- Supabase client -->
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="../../../../assets/scripts/supabase.js"></script>
+    </body>
+    </html>

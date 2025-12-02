@@ -32,90 +32,90 @@
  </head>
 <body>
 
-<div class="container">
-    <h1>Unit 4: Sequential Logic Circuits</h1>
-
-    <div class="toc">
-        <h2>Table of Contents</h2>
-        <ul>
-            <li><a href="#intro">4.1 Introduction to Sequential Logic</a></li>
-            <li><a href="#flip-flops">4.2 Flip-Flops</a></li>
-            <li><a href="#analysis">4.3 Analysis of Clocked Sequential Circuits</a></li>
-            <li><a href="#state-reduction">4.4 State Reduction and Assignment</a></li>
-            <li><a href="#excitation">4.5 Flip-Flop Excitation Tables</a></li>
-            <li><a href="#design">4.6 Design Procedure for Sequential Circuits</a></li>
-        </ul>
-    </div>
-
-    <h2 id="intro">4.1 Introduction to Sequential Logic</h2>
-    <blockquote>
-        A sequential circuit is a logic circuit whose output depends on the <strong>present value of its input signals and the sequence of past inputs (the state)</strong>. This is in contrast to combinational logic, whose output is a function of only the present input. This is possible because sequential circuits have <strong>memory elements</strong>.
-    </blockquote>
-    <p>There are two types of sequential circuits:</p>
-    <ul>
-        <li><strong>Synchronous:</strong> The state of the device changes only at discrete times in response to a clock signal.</li>
-        <li><strong>Asynchronous:</strong> The state of the device can change at any time in response to changing inputs.</li>
-    </ul>
-    <h2 id="flip-flops">4.2 Flip-Flops</h2>
-    <p>A flip-flop is a fundamental memory element in sequential logic. It can store one bit of information (0 or 1). It is a bistable multivibrator, meaning it has two stable states.</p>
-
-    <h3>SR Flip-Flop</h3>
-    <p>The Set-Reset (SR) flip-flop has two inputs, S and R. S sets the output to 1, and R resets it to 0. A major drawback is the <strong>invalid state</strong> when both S and R are 1.</p>
-    <h3>D Flip-Flop</h3>
-    <p>The Data (D) flip-flop has a single data input D. The output Q simply follows the input D at the clock edge. It prevents the invalid state of the SR flip-flop.</p>
-    <h3>JK Flip-Flop</h3>
-    <p>The JK flip-flop is an improvement on the SR flip-flop. It has J and K inputs. When J=1 and K=1, the output <strong>toggles</strong> (flips to its opposite state) on the clock edge, resolving the invalid state issue.</p>
-    <h3>T Flip-Flop</h3>
-    <p>The Toggle (T) flip-flop has a single input T. If T=1, the output toggles on the clock edge. If T=0, the output holds its state. It can be made from a JK flip-flop by tying J and K inputs together.</p>
-    <h2 id="analysis">4.3 Analysis of Clocked Sequential Circuits</h2>
-    <p>The analysis of a sequential circuit involves determining its behavior from its logic diagram. This is done by deriving its state table and state diagram.</p>
-    <ol>
-        <li><strong>State Equations:</strong> Write the Boolean expressions for the flip-flop inputs and the circuit outputs.</li>
-        <li><strong>State Table:</strong> Create a table showing the relationship between the present state, inputs, next state, and outputs. The next state is determined from the state equations and the flip-flop's characteristic equation.</li>
-        <li><strong>State Diagram:</strong> Create a graphical representation of the state table. Circles represent states, and directed lines represent transitions between states, labeled with "input/output".</li>
-    </ol>
-
-    <h2 id="state-reduction">4.4 State Reduction and Assignment</h2>
-    <h3>State Reduction</h3>
-    <p>The goal is to reduce the number of states in a state table, which can lead to a simpler circuit with fewer flip-flops. Two states are considered equivalent if, for every possible input, they produce the same output and transition to the same or equivalent next states. This is a complex process often done using a partitioning method.</p>
-
-    <h3>State Assignment</h3>
-    <p>Once the state table is reduced, we must assign a unique binary code to each state. The number of bits required is `ceil(log₂(n))`, where `n` is the number of states. The choice of assignment can significantly affect the complexity of the resulting circuit. There are various assignment rules (e.g., assigning adjacent codes to adjacent states in the state diagram) to simplify the logic.</p>
-
-    <h2 id="excitation">4.5 Flip-Flop Excitation Tables</h2>
-    <p>An excitation table is crucial for the design of sequential circuits. It shows the necessary flip-flop input(s) required to transition from a present state (Q) to a desired next state (Q(t+1)).</p>
-    <div class="exam-tip">
-        You must memorize the excitation tables for all flip-flop types. They are the reverse of characteristic tables.
-    </div>
-    <table>
-        <tr><th>Present State Q(t)</th><th>Next State Q(t+1)</th><th>J</th><th>K</th><th>S</th><th>R</th><th>D</th><th>T</th></tr>
-        <tr><td>0</td><td>0</td><td>0</td><td>X</td><td>0</td><td>X</td><td>0</td><td>0</td></tr>
-        <tr><td>0</td><td>1</td><td>1</td><td>X</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
-        <tr><td>1</td><td>0</td><td>X</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
-        <tr><td>1</td><td>1</td><td>X</td><td>0</td><td>X</td><td>0</td><td>1</td><td>0</td></tr>
-    </table>
-    <p>('X' represents a don't care condition).</p>
+    <div class="container">
+        <h1>Unit 4: Sequential Logic Circuits</h1>
     
-    <h2 id="design">4.6 Design Procedure for Sequential Circuits</h2>
-    <p>This is a systematic approach to creating a sequential circuit from a specification.</p>
-    <ol>
-        <li><strong>State Diagram/Table:</strong> From the problem description, create a state diagram or state table that describes the desired behavior.</li>
-        <li><strong>State Reduction:</strong> If possible, reduce the number of states.</li>
-        <li><strong>State Assignment:</strong> Assign binary codes to the states.</li>
-        <li><strong>Choose Flip-Flop Type:</strong> Select the type of flip-flop to use (e.g., JK, D).</li>
-        <li><strong>Derive Flip-Flop Inputs and Outputs:</strong> Use the state table and the chosen flip-flop's excitation table to create a new table that includes the required flip-flop inputs for each transition.</li>
-        <li><strong>Simplify Expressions:</strong> Use K-maps to find simplified Boolean expressions for each flip-flop input and each circuit output.</li>
-        <li><strong>Draw Logic Diagram:</strong> Implement the circuit based on the simplified expressions.</li>
-    </ol>
-    <h3>Design of Counters</h3>
-    <p>A counter is a register that goes through a predetermined sequence of states. The design follows the general procedure. For example, to design a 3-bit synchronous up-counter, the states would be 000, 001, 010, ..., 111, and back to 000. We would use this sequence to create the state table and derive the logic for the flip-flop inputs.</p>
-    </div>
-
-    <script src="../../../../assets/scripts/units.js"></script>
-    <div id="app"></div>
-
-    <!-- Supabase client -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="../../../../assets/scripts/supabase.js"></script>
-</body>
-</html>
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#intro">4.1 Introduction to Sequential Logic</a></li>
+                <li><a href="#flip-flops">4.2 Flip-Flops</a></li>
+                <li><a href="#analysis">4.3 Analysis of Clocked Sequential Circuits</a></li>
+                <li><a href="#state-reduction">4.4 State Reduction and Assignment</a></li>
+                <li><a href="#excitation">4.5 Flip-Flop Excitation Tables</a></li>
+                <li><a href="#design">4.6 Design Procedure for Sequential Circuits</a></li>
+            </ul>
+        </div>
+    
+        <h2 id="intro">4.1 Introduction to Sequential Logic</h2>
+        <blockquote>
+            A sequential circuit is a logic circuit whose output depends on the <strong>present value of its input signals and the sequence of past inputs (the state)</strong>. This is in contrast to combinational logic, whose output is a function of only the present input. This is possible because sequential circuits have <strong>memory elements</strong>.
+        </blockquote>
+        <p>There are two types of sequential circuits:</p>
+        <ul>
+            <li><strong>Synchronous:</strong> The state of the device changes only at discrete times in response to a clock signal.</li>
+            <li><strong>Asynchronous:</strong> The state of the device can change at any time in response to changing inputs.</li>
+        </ul>
+        <h2 id="flip-flops">4.2 Flip-Flops</h2>
+        <p>A flip-flop is a fundamental memory element in sequential logic. It can store one bit of information (0 or 1). It is a bistable multivibrator, meaning it has two stable states.</p>
+    
+        <h3>SR Flip-Flop</h3>
+        <p>The Set-Reset (SR) flip-flop has two inputs, S and R. S sets the output to 1, and R resets it to 0. A major drawback is the <strong>invalid state</strong> when both S and R are 1.</p>
+        <h3>D Flip-Flop</h3>
+        <p>The Data (D) flip-flop has a single data input D. The output Q simply follows the input D at the clock edge. It prevents the invalid state of the SR flip-flop.</p>
+        <h3>JK Flip-Flop</h3>
+        <p>The JK flip-flop is an improvement on the SR flip-flop. It has J and K inputs. When J=1 and K=1, the output <strong>toggles</strong> (flips to its opposite state) on the clock edge, resolving the invalid state issue.</p>
+        <h3>T Flip-Flop</h3>
+        <p>The Toggle (T) flip-flop has a single input T. If T=1, the output toggles on the clock edge. If T=0, the output holds its state. It can be made from a JK flip-flop by tying J and K inputs together.</p>
+        <h2 id="analysis">4.3 Analysis of Clocked Sequential Circuits</h2>
+        <p>The analysis of a sequential circuit involves determining its behavior from its logic diagram. This is done by deriving its state table and state diagram.</p>
+        <ol>
+            <li><strong>State Equations:</strong> Write the Boolean expressions for the flip-flop inputs and the circuit outputs.</li>
+            <li><strong>State Table:</strong> Create a table showing the relationship between the present state, inputs, next state, and outputs. The next state is determined from the state equations and the flip-flop's characteristic equation.</li>
+            <li><strong>State Diagram:</strong> Create a graphical representation of the state table. Circles represent states, and directed lines represent transitions between states, labeled with "input/output".</li>
+        </ol>
+    
+        <h2 id="state-reduction">4.4 State Reduction and Assignment</h2>
+        <h3>State Reduction</h3>
+        <p>The goal is to reduce the number of states in a state table, which can lead to a simpler circuit with fewer flip-flops. Two states are considered equivalent if, for every possible input, they produce the same output and transition to the same or equivalent next states. This is a complex process often done using a partitioning method.</p>
+    
+        <h3>State Assignment</h3>
+        <p>Once the state table is reduced, we must assign a unique binary code to each state. The number of bits required is `ceil(log₂(n))`, where `n` is the number of states. The choice of assignment can significantly affect the complexity of the resulting circuit. There are various assignment rules (e.g., assigning adjacent codes to adjacent states in the state diagram) to simplify the logic.</p>
+    
+        <h2 id="excitation">4.5 Flip-Flop Excitation Tables</h2>
+        <p>An excitation table is crucial for the design of sequential circuits. It shows the necessary flip-flop input(s) required to transition from a present state (Q) to a desired next state (Q(t+1)).</p>
+        <div class="exam-tip">
+            You must memorize the excitation tables for all flip-flop types. They are the reverse of characteristic tables.
+        </div>
+        <table>
+            <tr><th>Present State Q(t)</th><th>Next State Q(t+1)</th><th>J</th><th>K</th><th>S</th><th>R</th><th>D</th><th>T</th></tr>
+            <tr><td>0</td><td>0</td><td>0</td><td>X</td><td>0</td><td>X</td><td>0</td><td>0</td></tr>
+            <tr><td>0</td><td>1</td><td>1</td><td>X</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td>1</td><td>0</td><td>X</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+            <tr><td>1</td><td>1</td><td>X</td><td>0</td><td>X</td><td>0</td><td>1</td><td>0</td></tr>
+        </table>
+        <p>('X' represents a don't care condition).</p>
+        
+        <h2 id="design">4.6 Design Procedure for Sequential Circuits</h2>
+        <p>This is a systematic approach to creating a sequential circuit from a specification.</p>
+        <ol>
+            <li><strong>State Diagram/Table:</strong> From the problem description, create a state diagram or state table that describes the desired behavior.</li>
+            <li><strong>State Reduction:</strong> If possible, reduce the number of states.</li>
+            <li><strong>State Assignment:</strong> Assign binary codes to the states.</li>
+            <li><strong>Choose Flip-Flop Type:</strong> Select the type of flip-flop to use (e.g., JK, D).</li>
+            <li><strong>Derive Flip-Flop Inputs and Outputs:</strong> Use the state table and the chosen flip-flop's excitation table to create a new table that includes the required flip-flop inputs for each transition.</li>
+            <li><strong>Simplify Expressions:</strong> Use K-maps to find simplified Boolean expressions for each flip-flop input and each circuit output.</li>
+            <li><strong>Draw Logic Diagram:</strong> Implement the circuit based on the simplified expressions.</li>
+        </ol>
+        <h3>Design of Counters</h3>
+        <p>A counter is a register that goes through a predetermined sequence of states. The design follows the general procedure. For example, to design a 3-bit synchronous up-counter, the states would be 000, 001, 010, ..., 111, and back to 000. We would use this sequence to create the state table and derive the logic for the flip-flop inputs.</p>
+        </div>
+    
+        <script src="../../../../assets/scripts/units.js"></script>
+        <div id="app"></div>
+    
+        <!-- Supabase client -->
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="../../../../assets/scripts/supabase.js"></script>
+    </body>
+    </html>

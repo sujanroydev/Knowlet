@@ -29,76 +29,76 @@
  </head>
 <body>
 
-<div class="container">
-    <h1>Unit 5: Registers, Counters, and the Memory Unit</h1>
-
-    <div class="toc">
-        <h2>Table of Contents</h2>
+    <div class="container">
+        <h1>Unit 5: Registers, Counters, and the Memory Unit</h1>
+    
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#registers">5.1 Registers and Shift Registers</a></li>
+                <li><a href="#counters">5.2 Counters: Ripple and Synchronous</a></li>
+                <li><a href="#timing">5.3 Timing Sequences</a></li>
+                <li><a href="#memory">5.4 The Memory Unit</a></li>
+            </ul>
+        </div>
+    
+        <h2 id="registers">5.1 Registers and Shift Registers</h2>
+        <h3>Registers</h3>
+        <blockquote>
+            A register is a group of flip-flops, with each flip-flop capable of storing one bit of information. An n-bit register consists of a group of n flip-flops and is capable of storing any binary information of n bits.
+        </blockquote>
+        <p>Besides storing data, registers often have combinational gates that perform certain data-processing tasks. A simple register with only flip-flops is used for temporary storage and has parallel load capability.</p>
+        <h3>Shift Registers</h3>
+        <p>A shift register is a register capable of shifting its stored bits either left or right. It consists of a chain of flip-flops in cascade, where the output of one flip-flop is connected to the input of the next flip-flop. All flip-flops are driven by a common clock.</p>
+        <p>There are four basic types:</p>
         <ul>
-            <li><a href="#registers">5.1 Registers and Shift Registers</a></li>
-            <li><a href="#counters">5.2 Counters: Ripple and Synchronous</a></li>
-            <li><a href="#timing">5.3 Timing Sequences</a></li>
-            <li><a href="#memory">5.4 The Memory Unit</a></li>
+            <li><strong>SISO (Serial-In, Serial-Out):</strong> Data is loaded and read one bit at a time.</li>
+            <li><strong>SIPO (Serial-In, Parallel-Out):</strong> Data is loaded serially, but all bits can be read simultaneously. Used for converting serial data to parallel data.</li>
+            <li><strong>PISO (Parallel-In, Serial-Out):</strong> Data is loaded simultaneously, but read out one bit at a time. Used for converting parallel data to serial data.</li>
+            <li><strong>PIPO (Parallel-In, Parallel-Out):</strong> Data is loaded and read in parallel. This is the simple register mentioned above.</li>
         </ul>
-    </div>
-
-    <h2 id="registers">5.1 Registers and Shift Registers</h2>
-    <h3>Registers</h3>
-    <blockquote>
-        A register is a group of flip-flops, with each flip-flop capable of storing one bit of information. An n-bit register consists of a group of n flip-flops and is capable of storing any binary information of n bits.
-    </blockquote>
-    <p>Besides storing data, registers often have combinational gates that perform certain data-processing tasks. A simple register with only flip-flops is used for temporary storage and has parallel load capability.</p>
-    <h3>Shift Registers</h3>
-    <p>A shift register is a register capable of shifting its stored bits either left or right. It consists of a chain of flip-flops in cascade, where the output of one flip-flop is connected to the input of the next flip-flop. All flip-flops are driven by a common clock.</p>
-    <p>There are four basic types:</p>
-    <ul>
-        <li><strong>SISO (Serial-In, Serial-Out):</strong> Data is loaded and read one bit at a time.</li>
-        <li><strong>SIPO (Serial-In, Parallel-Out):</strong> Data is loaded serially, but all bits can be read simultaneously. Used for converting serial data to parallel data.</li>
-        <li><strong>PISO (Parallel-In, Serial-Out):</strong> Data is loaded simultaneously, but read out one bit at a time. Used for converting parallel data to serial data.</li>
-        <li><strong>PIPO (Parallel-In, Parallel-Out):</strong> Data is loaded and read in parallel. This is the simple register mentioned above.</li>
-    </ul>
-    <h2 id="counters">5.2 Counters: Ripple and Synchronous</h2>
-    <p>A counter is a sequential circuit that goes through a prescribed sequence of states upon the application of input pulses. The pulses can be clock pulses.</p>
-
-    <h3>Ripple Counters (Asynchronous Counters)</h3>
-    <p>In a ripple counter, the flip-flop output transition serves as a source for triggering other flip-flops. The clock pulse is applied only to the first flip-flop (the LSB). The output of this flip-flop is connected to the clock input of the next flip-flop, and so on.</p>
-    <ul>
-        <li><strong>Advantage:</strong> Simple construction.</li>
-        <li><strong>Disadvantage:</strong> They are slow because the clock pulse has to "ripple" through the chain of flip-flops. This causes a <strong>propagation delay</strong> which limits the maximum operating frequency.</li>
-    </ul>
-    <h3>Synchronous Counters</h3>
-    <p>In a synchronous counter, the clock input of all the flip-flops is connected to a common clock signal. As a result, all flip-flops change their state simultaneously.</p>
-    <ul>
-        <li><strong>Advantage:</strong> Much faster than ripple counters as the propagation delay is minimized.</li>
-        <li><strong>Disadvantage:</strong> More complex circuitry is required to control the state transitions.</li>
-    </ul>
-    <p>The design of synchronous counters follows the general sequential circuit design procedure outlined in Unit 4.</p>
-    <div class="exam-tip">
-        <strong>Key Difference:</strong> In <strong>asynchronous</strong> counters, flip-flops are not clocked simultaneously. In <strong>synchronous</strong> counters, they are. This is a very common exam question.
-    </div>
-
-    <h2 id="timing">5.3 Timing Sequences</h2>
-    <p>The control unit in a digital computer initiates a sequence of micro-operations. The timing for these operations is controlled by a master clock generator. The clock pulses are applied to all flip-flops and registers in the system. The control unit generates control signals at specific times to perform the required operations.</p>
-    <p>A timing diagram is a graphical representation of the relationship between two or more digital signals as a function of time. It is used to analyze and visualize the operation of sequential circuits, showing the exact times at which signals change state relative to the clock.</p>
-    <h2 id="memory">5.4 The Memory Unit</h2>
-    <p>The memory unit is a collection of storage cells together with associated circuits needed to transfer information in and out of storage. Memory stores binary information in groups of bits called <strong>words</strong>. A word is an entity of bits that moves in and out of storage as a unit.</p>
-
-    <h3>Random Access Memory (RAM)</h3>
-    <p>RAM is the main memory. The "random access" part means that any memory location can be accessed directly in roughly the same amount of time, regardless of its position in memory.</p>
-    <ul>
-        <li><strong>Static RAM (SRAM):</strong> Retains its value as long as power is being supplied. It is faster but more expensive and less dense than DRAM. It is often used for cache memory. It is built using flip-flops.</li>
-        <li><strong>Dynamic RAM (DRAM):</strong> Stores each bit in a separate capacitor. Since capacitors leak charge, the information eventually fades unless the capacitor charge is refreshed periodically. It is slower but cheaper and denser than SRAM. It is used for the main system memory.</li>
-    </ul>
-
-    <h3>Memory Organization</h3>
-    <p>A memory unit is specified by the number of words it contains and the number of bits in each word. For example, a memory of 1024 words with 16 bits per word is a 1K x 16 memory. This requires 10 address lines (since 2<sup>10</sup> = 1024) and 16 data lines.</p>
-    </div>
-
-    <script src="../../../../assets/scripts/units.js"></script>
-    <div id="app"></div>
-
-    <!-- Supabase client -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="../../../../assets/scripts/supabase.js"></script>
-</body>
-</html>
+        <h2 id="counters">5.2 Counters: Ripple and Synchronous</h2>
+        <p>A counter is a sequential circuit that goes through a prescribed sequence of states upon the application of input pulses. The pulses can be clock pulses.</p>
+    
+        <h3>Ripple Counters (Asynchronous Counters)</h3>
+        <p>In a ripple counter, the flip-flop output transition serves as a source for triggering other flip-flops. The clock pulse is applied only to the first flip-flop (the LSB). The output of this flip-flop is connected to the clock input of the next flip-flop, and so on.</p>
+        <ul>
+            <li><strong>Advantage:</strong> Simple construction.</li>
+            <li><strong>Disadvantage:</strong> They are slow because the clock pulse has to "ripple" through the chain of flip-flops. This causes a <strong>propagation delay</strong> which limits the maximum operating frequency.</li>
+        </ul>
+        <h3>Synchronous Counters</h3>
+        <p>In a synchronous counter, the clock input of all the flip-flops is connected to a common clock signal. As a result, all flip-flops change their state simultaneously.</p>
+        <ul>
+            <li><strong>Advantage:</strong> Much faster than ripple counters as the propagation delay is minimized.</li>
+            <li><strong>Disadvantage:</strong> More complex circuitry is required to control the state transitions.</li>
+        </ul>
+        <p>The design of synchronous counters follows the general sequential circuit design procedure outlined in Unit 4.</p>
+        <div class="exam-tip">
+            <strong>Key Difference:</strong> In <strong>asynchronous</strong> counters, flip-flops are not clocked simultaneously. In <strong>synchronous</strong> counters, they are. This is a very common exam question.
+        </div>
+    
+        <h2 id="timing">5.3 Timing Sequences</h2>
+        <p>The control unit in a digital computer initiates a sequence of micro-operations. The timing for these operations is controlled by a master clock generator. The clock pulses are applied to all flip-flops and registers in the system. The control unit generates control signals at specific times to perform the required operations.</p>
+        <p>A timing diagram is a graphical representation of the relationship between two or more digital signals as a function of time. It is used to analyze and visualize the operation of sequential circuits, showing the exact times at which signals change state relative to the clock.</p>
+        <h2 id="memory">5.4 The Memory Unit</h2>
+        <p>The memory unit is a collection of storage cells together with associated circuits needed to transfer information in and out of storage. Memory stores binary information in groups of bits called <strong>words</strong>. A word is an entity of bits that moves in and out of storage as a unit.</p>
+    
+        <h3>Random Access Memory (RAM)</h3>
+        <p>RAM is the main memory. The "random access" part means that any memory location can be accessed directly in roughly the same amount of time, regardless of its position in memory.</p>
+        <ul>
+            <li><strong>Static RAM (SRAM):</strong> Retains its value as long as power is being supplied. It is faster but more expensive and less dense than DRAM. It is often used for cache memory. It is built using flip-flops.</li>
+            <li><strong>Dynamic RAM (DRAM):</strong> Stores each bit in a separate capacitor. Since capacitors leak charge, the information eventually fades unless the capacitor charge is refreshed periodically. It is slower but cheaper and denser than SRAM. It is used for the main system memory.</li>
+        </ul>
+    
+        <h3>Memory Organization</h3>
+        <p>A memory unit is specified by the number of words it contains and the number of bits in each word. For example, a memory of 1024 words with 16 bits per word is a 1K x 16 memory. This requires 10 address lines (since 2<sup>10</sup> = 1024) and 16 data lines.</p>
+        </div>
+    
+        <script src="../../../../assets/scripts/units.js"></script>
+        <div id="app"></div>
+    
+        <!-- Supabase client -->
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="../../../../assets/scripts/supabase.js"></script>
+    </body>
+    </html>

@@ -92,6 +92,7 @@ let user = JSON.parse(localStorage.getItem("knowletUser"));
 
 let isLiked = false;
 let isRated = false;
+let ratingValue = 0;
 let isCommentHidden = true;
 let isRatingHidden = true;
 
@@ -238,18 +239,7 @@ async function loadUserInfo() {
       console.error(error);
       return;
     }
-    if (data[0]) {
-      r = data[0];
-      /*alert(`
-        Name: ${r.name}
-        ID: ${r.id}
-        Email: ${r.email}
-        Age: ${r.age}
-        Create At: ${r.created_at}
-        Class: ${r.class}
-        Fv Sub: ${r.fv_subject}
-      `)*/
-    } else {
+    if (!data[0]) {
       await submitUserInfo();
     }
   } catch (e) {
@@ -259,14 +249,16 @@ async function loadUserInfo() {
 
 async function submitUserInfo() {
   try {
-    const { error } = await supabase.from("user").insert({
-      id: user.id,
-      name: user.name
-    });
+    const { error } = await supabase
+        .from("user")
+        .insert({
+          id: user.id,
+          name: user.name
+        });
     if (error) {
       console.error(error);
-      alert("Error submitting rating");
       return;
+      alert("Error submitting Your Name");
     }
   } catch (e) {
     console.error(e);
@@ -284,7 +276,6 @@ async function isLikedOrRated() {
         .eq("user_id", user.id);
     
     r = data[0];
-    //alert(r)
     if (r) {
       if (r.page_likes !== 0) {
         isLiked = true;
@@ -292,9 +283,16 @@ async function isLikedOrRated() {
         isLiked = false;
       }
       if (r.page_ratings !== 0) {
+        const btnSubmitRating = document.getElementById("submit-rating-btn");
+        btnSubmitRating.textContent = "Submitted";
+        btnSubmitRating.disabled = true;
+        
+        selectedRating = r.page_ratings;
         isRated = true;
+        updateStarVis();
       } else {
         isRated = false;
+        ratingValue = r.page_ratings;
       }
     } 
   } catch(e) {
@@ -305,6 +303,7 @@ async function isLikedOrRated() {
 //Rating Functions 
 
 async function loadRatings(){
+  
   try {
     const { data, error } = await supabase
       .from("ratings")
@@ -368,6 +367,7 @@ async function submitRating() {
     alert("Choose 1–5 stars first.");
     return;
   }
+  
   //const msg = ""; // optionally can prompt for message, currently left blank
   const msg = document.getElementById("rating-message").value.trim();
   try {
@@ -385,8 +385,9 @@ async function submitRating() {
       alert("Error submitting rating");
       return;
     }
+    alert("Rating Submitted")
     // reset selection and refresh
-    selectedRating = 0; hoverRating = 0;
+    //selectedRating = 0; hoverRating = 0;
     updateStarVis();
     document.getElementById("rating-message").value = "";
     await loadRatings();
@@ -395,22 +396,9 @@ async function submitRating() {
   }
 }
 
-async function likeRating(oldLikes){
-  alert('Liked')
-  /*try {
-    const { error } = await supabase
-      .from("ratings")
-      .update({ page_likes: (Number(oldLikes) || 0) + 1 })
-      .eq("id", id);
-    if (error) console.error(error);
-    await loadRatings();
-  } catch(e){ console.error(e) }*/
-}
-
 //Like page
 
 async function likePage(oldLikes){
-  //alert('Liked')
   try {
     const { data, error } = await supabase
       .from("ratings")
@@ -434,7 +422,6 @@ async function likePage(oldLikes){
       await loadPageLikes();
       await isLikedOrRated();
     } else {
-      //alert('not found')
       try {
         const { error } = await supabase
             .from("ratings")
@@ -530,10 +517,15 @@ async function loadComments() {
 async function submitComment(){
   const text = document.getElementById("comment-input").value;
   if (!text.trim()) return;
-  //const pageId = pageId;
-  const payload = { page_id: pageId, comment_text: text, likes: 0 };
   try {
-    const { error } = await supabase.from("comments").insert(payload);
+    const { error } = await supabase
+        .from("comments")
+        .insert({
+          page_id: pageId,
+          comment_text: text,
+          likes: 0,
+          user_id: user.id
+        });
     if (error) {
       console.error(error);
       alert("Error posting comment");
@@ -576,11 +568,10 @@ AboutUser();
 loadUserInfo();
 isLikedOrRated();
 loadPageLikes();
+
 // Render interactive stars and load data
 renderInteractiveStars();
 
 // initial loads
-//submitUserInfo();
-
 loadRatings();
 loadComments();

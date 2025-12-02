@@ -1,4 +1,15 @@
 // --- Knowlet Unit Navigation + Top Bar (Icon Only + Auto Hide) ---
+
+function printDiv(divClass) {
+    const printContent = document.getElementsByClassName(divClass)[0].innerHTML;
+    const originalContent = document.body.innerHTML;
+
+    document.body.innerHTML = printContent;
+    window.print();
+    //document.body.innerHTML = originalContent;
+
+}
+
 (function () {
   const currentUrl = window.location.href;
   const match = currentUrl.match(/(\/unit_)(\d+)/i);
@@ -134,10 +145,14 @@
   screenBtn.title = "Keep Screen On";
   topBar.appendChild(screenBtn);
   
-  // --- 5. Like Button 
+  // --- 5. Download button
+  btnDownload = `<button onclick="printDiv('container')" style="margin: 0; font-size: 1.9rem">⬇️</button>`;
+  topBar.insertAdjacentHTML('beforeend', btnDownload);
+  
+  // --- 6. Like Button 
   const btnLike = `<button id="btnLike" class="btn ghost">👍 0</button>`
   topBar.insertAdjacentHTML('beforeend', btnLike);
-
+  
   // --- Functions 
 
   let wakeLock = null;

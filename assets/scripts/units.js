@@ -156,7 +156,7 @@ function printDiv(divClass) {
   topBar.insertAdjacentHTML('beforeend', btnDownload);
   
   // --- 6. Like Button 
-  const btnLike = `<button id="btnLike" class="btn ghost">👍 0</button>`
+  const btnLike = `<button id="btnLike" class="btn ghost">👍🏼 0</button>`
   topBar.insertAdjacentHTML('beforeend', btnLike);
   
   // --- Functions 

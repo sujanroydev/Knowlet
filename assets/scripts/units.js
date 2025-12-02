@@ -1,13 +1,19 @@
 // --- Knowlet Unit Navigation + Top Bar (Icon Only + Auto Hide) ---
 
 function printDiv(divClass) {
-    const printContent = document.getElementsByClassName(divClass)[0].innerHTML;
+    const noteContainer = document.getElementsByClassName(divClass)[0];
+    const printContent = noteContainer.innerHTML +
+        `<p>
+            Visit:
+            <a href="https://knowlet.netlify.app" target="_blank">
+                https://knowlet.netlify.app
+            </a> (Knowlet)
+        </p>`;
+
     const originalContent = document.body.innerHTML;
 
     document.body.innerHTML = printContent;
     window.print();
-    //document.body.innerHTML = originalContent;
-
 }
 
 (function () {

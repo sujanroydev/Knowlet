@@ -274,7 +274,7 @@ async function submitUserInfo() {
 async function isLikedOrRated() {
     try {
         const { data, error } = await supabase
-                .from("ratings", "page_likes")
+                .from("ratings")
                 .select("*")
                 .eq("page_id", pageId)
                 .eq("user_id", user.id);
@@ -282,16 +282,16 @@ async function isLikedOrRated() {
         r = data[0];
         //ratingValue = r.page_ratings;
         if (r) {
-            if (r.page_likes !== 0) {
+            if (r.page_likes) {
                 isPageLiked = true;
-                btnLike.textContent = "👍 " + totalLikes'
+                btnLike.textContent = "👍 " + totalLikes;
             } else {
                 isPageLiked = false;
                 btnLike.textContent = "👍🏼 " + totalLikes
             }
-            if (r.page_ratings !== 0) {
+            if (r.page_ratings) {
                 btnSubmitRating.textContent = "Submitted";
-                btnSubmitRating.disabled = true;
+                //btnSubmitRating.disabled = true;
                 
                 isPageRated = true;
                 selectedRating = r.page_ratings;
@@ -299,6 +299,8 @@ async function isLikedOrRated() {
                 
                 updateStarVis();
             } else {
+                btnSubmitRating.textContent = "Submit";
+                
                 isPageRated = false;
                 selectedRating = r.page_ratings;
                 hoverRating = r.page_ratings;
@@ -387,7 +389,26 @@ async function submitRating() {
                 .eq("user_id", user.id)
                 .eq("page_id", pageId)
 
-        if (!data[0]) {
+        r = data[0];
+        if (r) {
+            const { error } = await supabase
+                    .from("ratings")
+                    .update({
+                        page_ratings: selectedRating,
+                        ratings_message: msg
+                    })
+                    .eq("page_id", pageId)
+                    .eq("user_id", user.id);
+            if (error) {
+                console.error(error);
+                alert("Error submitting rating");
+                return;
+            }
+            btnSubmitRating.textContent = "Updated";
+            updateStarVis();
+            document.getElementById("rating-message").value = "";
+            await loadRatings();
+        } else {
             const { error } = await supabase
                     .from("ratings")
                     .insert({
@@ -584,7 +605,7 @@ document.getElementById("clear-rating").addEventListener("click", ()=>{ selected
 AboutUser();
 loadUserInfo();
 loadPageLikes();
-/();
+//isLikedOrRated();
 
 // Render interactive stars and load data
 renderInteractiveStars();

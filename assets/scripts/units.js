@@ -6,7 +6,7 @@ function printDiv(divClass) {
 
     document.body.innerHTML = printContent;
     window.print();
-    //document.body.innerHTML = originalContent;
+    document.body.innerHTML = originalContent;
 
 }
 

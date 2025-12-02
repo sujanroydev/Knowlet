@@ -404,7 +404,11 @@ async function submitRating() {
                 alert("Error submitting rating");
                 return;
             }
-            btnSubmitRating.textContent = "Updated";
+            if (r.page_ratings) {
+                btnSubmitRating.textContent = "Updated";
+            } else {
+                btnSubmitRating.textContent = "Submitted";
+            }
             updateStarVis();
             document.getElementById("rating-message").value = "";
             await loadRatings();

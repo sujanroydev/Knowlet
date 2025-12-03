@@ -12,21 +12,37 @@ loginBtn = document.getElementById("login-btn");
 signupBtn = document.getElementById("signup-btn");
 
 loginBtn.addEventListener("click", () => {
-    //alert('login');
-    
     userId = input[0].value;
     email = input[1].value;
+    
+    if (!userId) {
+        alert("Must enter User ID");
+        return;
+    }
+    
+    if (!email) {
+        alert("Must enter Email");
+        return;
+    }
     
     login(userId, email);
 });
 
 signupBtn.addEventListener("click", () => {
-    alert('signup');
-    
     name = input[2].value;
     email = input[3].value;
     
+    if (!name) {
+        alert("Must enter Name");
+        return;
+    }
     
+    if (!email) {
+        alert("Must enter Email");
+        return;
+    }
+    
+    signup(name, email);
 });
 
 function showSignup() {
@@ -50,19 +66,22 @@ async function login(name, email) {
         const { data, error } = await supabase
             .from("user")
             .select("*")
-            .eq("id", userId);
-            //.eq("email", email)
+            .eq("id", userId)
+            .eq("email", email);
         
-        if (error) console.log(error);
-        
-        if (!data[0]) {
-            alert("No account found with your userId and email");
+        if (error) {
+            console.log(error);
+            alert(error);
         } else {
-            const user = JSON.stringify(data[0]);
-            localStorage.setItem("knowletUser", user);
+            if (!data[0]) {
+                alert("No account found with your User Id and Email");
+            } else {
+                const user = JSON.stringify(data[0]);
+                localStorage.setItem("knowletUser", user);
+                alert("Successfully Loged In");
+                window.location.href = "profile.html";
+            }
         }
-        
-        console.log(data);
         
     } catch(e) {
         console.log(e);
@@ -70,18 +89,24 @@ async function login(name, email) {
 }
 
 async function signup(name, email) {
+    user = {
+        id: lastUserId,
+        name: name,
+        email: email
+    }
     try {
         const { error } = await supabase
             .from("user")
-            .insert({
-                id: lastUserId,
-                name: name,
-                email: email
-            });
+            .insert(user);
         
-        if (error) console.log(error);
-        
-        alert("Done")
+        if (error) {
+            console.log(error);
+            alert(error);
+        } else {
+            localStorage.setItem("knowletUser", JSON.stringify(user));
+            alert("Successfully Signed Up\n" + "User ID: " + lastUserId);
+            window.location.href = "profile.html";
+        }
     } catch(e) {
         console.log(e);
     }

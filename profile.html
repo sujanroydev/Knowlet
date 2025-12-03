@@ -36,13 +36,13 @@
         
         /* BUTTONS */
         .actions button {
-            padding: 8px 16px;
-            border-radius: 6px;
+            padding: 5px 10px;
+            border-radius: 4px;
             border: 1px solid #333;
             background: #fafafa;
             cursor: pointer;
             transition: 0.2s;
-            font-size: 14px;
+            font-size: 10px;
         }
         
         .actions button:hover {
@@ -201,7 +201,7 @@
         <div class="actions">
             <button id="login-signup-btn" onclick="window.location.href='login_signup.html'">Login / Sign Up</button>
             <button id="logout-btn" style="display:none;">Logout</button>
-            <button id="login-signup-btn" onclick="window.location.href='profile_complition_form.html'">Complete Profile</button>
+            <!-- <button id="com-profile-btn" onclick="window.location.href='profile_complition_form.html'" style="display:none;">Complete Profile</button> -->
         </div>
     </div>
 
@@ -209,10 +209,11 @@
 
         <!-- PROFILE CARD -->
         <div class="card profile-header">
-            <img src="assets/demo_pp.png" id="profile-pic">
+            <img onclick="window.location.href='profile_complition_form.html'" src="assets/demo_pp.png" id="profile-pic">
 
             <div>
                 <h1 id="username">Your Name</h1>
+                <h2>FirstName@1234</h2>
                 <p id="email">yourname@example.com</p>
 
                <!--  <div class="stats-box">

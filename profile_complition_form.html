@@ -64,6 +64,36 @@
             color: ;
         }
         
+        /* CARD */
+        /* .card {
+            background: #ffffff;
+            padding: 22px;
+            border-radius: 14px;
+            margin-bottom: 28px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            transition: 0.25s;
+        }
+        
+        .card:hover {
+            box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+        } */
+        
+        /* PROFILE HEADER */
+        .profile-header {
+            /* display: flex;
+            align-items: center;
+            gap: 24px; */
+            margin: 6px;
+        }
+        
+        #profile-pic {
+            width: 100px;
+            border-radius: 50%;
+            background: linear-gradient(#ddd, #ccc);
+            object-fit: cover;
+            border: 3px solid #e5e5e5;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 <body>
@@ -72,6 +102,10 @@
     <h2>Complete Your Profile</h2>
 
     <form>
+        <div class="card profile-header">
+            <img src="assets/demo_pp.png" id="profile-pic">
+        </div>
+        
         <div class="field">
             <label>Full Name</label>
             <input style="margin-bottom: 0" class="user-input" type="text" placeholder="Enter your name" required>

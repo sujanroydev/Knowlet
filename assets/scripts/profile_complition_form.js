@@ -8,10 +8,19 @@ const inputEdu = document.getElementById("sltEdu")
 const btnSubmit = document.getElementById("submit-btn");
 
 const userId = JSON.parse(localStorage.getItem("knowletUser")).id;
-const userName = JSON.parse(localStorage.getItem("knowletUser")).name;
 
-input[0].value = userName;
-document.getElementById("user-id").textContent = "Your User ID: " + userId;
+function load() {
+    const user = JSON.parse(localStorage.getItem("knowletUser"));
+    
+    document.getElementById("user-id").textContent = "Your User ID: " + userId;
+    
+    input[0].value = user.name;
+    input[1].value = user.email;
+    input[2].value = user.age ? user.age : null;
+    input[3].value = user.fv_subject ? user.fv_subject : null;
+    input[4].value = user.stream ? user.stream : null;
+    inputEdu.value = user.standered ? user.standered : "";
+}
 
 btnSubmit.addEventListener("click", () => {
     
@@ -20,11 +29,22 @@ btnSubmit.addEventListener("click", () => {
     const age = input[2].value ? Number(input[3].value) : 0;
     const fvSubject = input[3].value;
     const stream = input[4].value;
-    const standered = inputEdu.value;
+
+    const standered = inputEdu.value
+    
+    if (!name) {
+        alert("Must enter Name");
+        return;
+    }
+    
+    if (!email) {
+        alert("Must enter Email");
+        return;
+    }
     
     const user = {
         id: userId,
-        name: name ? name : userName,
+        name: name,
         email: email,
         age: age,
         fv_subject: fvSubject,
@@ -33,14 +53,13 @@ btnSubmit.addEventListener("click", () => {
     }
 
     localStorage.setItem("knowletUser", JSON.stringify(user))
-    console.log(user)
+    console.log(user);
     
     //reset
     for (i = 0; i < input.length; i++) {
         input[i].value = null;
     }
     inputEdu.value = "";
-    //window.close;
     sync()
 });
 
@@ -53,12 +72,18 @@ async function sync() {
             .from("user")
             .update(user)
             .eq("id", userId);
-            
+        
         if (error) {
-            console.log(error);   
+            console.log(error);  
+            alert(error);
+        } else {
+            alert("Successfully Submitted");
+            window.location.href = "profile.html";
         }
     
     } catch(e) {
         console.log(e)
     }
 }
+
+load()

@@ -72,9 +72,9 @@
   <!-- Login -->
   <div id="loginBox">
     <h2>Login</h2>
-    <input type="email" placeholder="Email">
-    <input type="password" placeholder="Password">
-    <button>Login</button>
+    <input class="user-input" type="text" placeholder="User ID">
+    <input class="user-input" type="email" placeholder="Email">
+    <button id="login-btn">Login</button>
     <div class="switch" onclick="showSignup()">
       New here? <span>Create an account</span>
     </div>
@@ -83,10 +83,10 @@
   <!-- Signup -->
   <div id="signupBox" style="display:none;">
     <h2>Sign Up</h2>
-    <input type="text" placeholder="Full Name">
-    <input type="email" placeholder="Email">
-    <input type="password" placeholder="Password">
-    <button>Sign Up</button>
+    <input style="margin-bottom: 0px" class="user-input" oninput="showUserId()" type="text" placeholder="Full Name">
+    <h5 style="margin-top: 4px" id="show-user-id">Your User Id: firstname@1234</h5>
+    <input class="user-input" type="email" placeholder="Email">
+    <button id="signup-btn">Sign Up</button>
     <div class="switch" onclick="showLogin()">
       Already have an account? <span>Login</span>
     </div>
@@ -94,17 +94,7 @@
 
 </div>
 
-<script>
-  function showSignup() {
-    document.getElementById('loginBox').style.display = 'none';
-    document.getElementById('signupBox').style.display = 'block';
-  }
-
-  function showLogin() {
-    document.getElementById('signupBox').style.display = 'none';
-    document.getElementById('loginBox').style.display = 'block';
-  }
-</script>
-
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/scripts/login_signup.js"></script>
 </body>
 </html>

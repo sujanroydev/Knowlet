@@ -91,6 +91,7 @@ const btnSubmitRating = document.getElementById("btn-submit-rating");
 const btnPostComment = document.getElementById("btn-post-comment");
 
 let user = JSON.parse(localStorage.getItem("knowletUser"));
+console.log(user)
 
 let isPageLiked = false;
 let isPageRated = false;
@@ -450,6 +451,7 @@ async function likePage(oldLikes){
         if (error) console.error(error);
         
         if (data[0]) {
+            //add try catch block
             const { error } = await supabase
                 .from("ratings")
                 .update({ page_likes: isPageLiked ? 0 : 1 })

@@ -39,10 +39,14 @@
 
         input, select {
             width: 100%;
-            padding: 10px;
+            padding: 2.5%;
             border: 1px solid #d0d4db;
             border-radius: 6px;
             font-size: 14px;
+        }
+
+        input {
+            width: 95%;
         }
 
         button {
@@ -55,6 +59,11 @@
             font-size: 15px;
             cursor: pointer;
         }
+        
+        #user-id {
+            color: ;
+        }
+        
     </style>
 </head>
 <body>
@@ -65,43 +74,44 @@
     <form>
         <div class="field">
             <label>Full Name</label>
-            <input type="text" placeholder="Enter your name" required>
+            <input class="user-input" type="text" placeholder="Enter your name" required>
+            <h5 id="user-id">eg. firstname@1234</h5>
         </div>
 
         <div class="field">
             <label>Email</label>
-            <input type="email" placeholder="Enter your email" required>
-        </div>
-
-        <div class="field">
-            <label>Phone</label>
-            <input type="tel" placeholder="Enter your phone number">
+            <input class="user-input" type="email" placeholder="Enter your email" required>
         </div>
 
         <div class="field">
             <label>Age</label>
-            <input type="number" placeholder="Enter age">
+            <input class="user-input" type="number" placeholder="Enter age">
         </div>
 
         <div class="field">
-            <label>City</label>
-            <input type="text" placeholder="Enter city">
+            <label>Favourite Subject</label>
+            <input class="user-input" type="text" placeholder="Enter subject">
+        </div>
+
+        <div class="field">
+            <label>Stream</label>
+            <input class="user-input" type="text" placeholder="Enter stream">
         </div>
 
         <div class="field">
             <label>Education Level</label>
-            <select>
+            <select id="sltEdu">
                 <option value="">Select</option>
-                <option>Class 10</option>
-                <option>Class 12</option>
+                <option>Higher Secondary</option>
                 <option>Diploma</option>
                 <option>Undergraduate</option>
+                <option>Postgraduate</option>
             </select>
         </div>
-
-        <button type="submit">Submit</button>
     </form>
+    <button id="submit-btn">Submit</button>
 </div>
-
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/scripts/profile_complition_form.js"></script>
 </body>
 </html>

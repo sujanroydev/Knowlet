@@ -79,7 +79,9 @@ async function login(name, email) {
                 const user = JSON.stringify(data[0]);
                 localStorage.setItem("knowletUser", user);
                 alert("Successfully Loged In");
-                window.location.href = "profile.html";
+                redirect();
+
+                //window.location.href = "profile.html";
             }
         }
         
@@ -105,9 +107,35 @@ async function signup(name, email) {
         } else {
             localStorage.setItem("knowletUser", JSON.stringify(user));
             alert("Successfully Signed Up\n" + "User ID: " + lastUserId);
-            window.location.href = "profile.html";
+            redirect();
+            
+            //window.location.href = "profile.html";
         }
     } catch(e) {
         console.log(e);
     }
 }
+
+function redirect() {
+    const history = JSON.parse(localStorage.getItem("unit_page_history") || '[]');
+    
+    if (history.length === 0) {
+        window.location.href = "profile.html";
+        return;
+    } else {
+        if (diffFromNow(history[0].timestamp) < 60) {
+            window.location.href = history[0].url;
+        } else {
+            window.location.href = "profile.html";
+        }
+    }
+}
+
+function diffFromNow(time) {
+    const target = new Date(time);
+    const now = new Date();
+
+    const diffMs = Math.abs(target - now);
+    return Math.floor(diffMs / 1000); 
+}
+

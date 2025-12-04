@@ -213,30 +213,11 @@ function renderAverageStars(avg) {
     wrapper.setAttribute("aria-label", `Average rating ${avg.toFixed(2)} out of 5`);
 }
 
-//User Functions 
-
-// function AboutUser() {
-//     if (!user) {
-//         const name = prompt('Enter your name: (eg. Sneha Kumari Patel)');
-//         if (name) {
-//             const id = name.split(' ')[0] + "@" + parseInt(Math.random() * 9000 + 1000);
-            
-//             user = {
-//                 id: id,
-//                 name: name
-//             };
-            
-//             localStorage.setItem("knowletUser", JSON.stringify(user));
-//             submitUserInfo();
-//         }
-//     } 
-// }
-
 function AboutUser() {
     if (!user) {
         setTimeout(() => {
             window.location.href = "../../../../login_signup.html";
-        }, 5000);
+        }, 15000);
     } 
 }
 

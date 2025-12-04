@@ -44,7 +44,7 @@ function fullProfile() {
 }
 
 logoutBtn.addEventListener("click", () => {
-    localStorage.clear();
+    localStorage.removeItem("knowletUser");
     
     sync()
 });

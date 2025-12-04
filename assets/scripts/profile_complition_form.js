@@ -16,7 +16,7 @@ function load() {
     
     input[0].value = user.name;
     input[1].value = user.email;
-    input[2].value = user.age;
+    input[2].value = user.age ? user.age : null;
     input[3].value = user.fv_subject ? user.fv_subject : null;
     input[4].value = user.stream ? user.stream : null;
     inputEdu.value = user.standered ? user.standered : "";

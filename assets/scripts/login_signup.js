@@ -3,17 +3,14 @@ const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-const show = document.getElementById("show-user-id");
-
-let lastUserId = "firstname@1234"
-
-input = document.getElementsByClassName("user-input");
-loginBtn = document.getElementById("login-btn");
-signupBtn = document.getElementById("signup-btn");
+const input = document.getElementsByClassName("user-input");
+const loginBtn = document.getElementById("login-btn");
+const signupBtn = document.getElementById("signup-btn");
 
 loginBtn.addEventListener("click", () => {
-    userId = input[0].value;
-    email = input[1].value;
+    let userId = input[0].value;
+    let email = input[1].value;
+    let phone = input[2].value;
     
     if (!userId) {
         alert("Must enter User ID");
@@ -29,8 +26,9 @@ loginBtn.addEventListener("click", () => {
 });
 
 signupBtn.addEventListener("click", () => {
-    name = input[2].value;
-    email = input[3].value;
+    let name = input[3].value;
+    let email = input[4].value;
+    let phone = input[4].value;
     
     if (!name) {
         alert("Must enter Name");
@@ -55,13 +53,7 @@ function showLogin() {
     document.getElementById('loginBox').style.display = 'block';
 }
 
-function showUserId() {
-    name = input[2].value;
-    lastUserId = name.split(' ')[0] + "@" + parseInt(Math.random() * 9000 + 1000);
-    show.textContent = "Your User ID: " + lastUserId;
-}
-
-async function login(name, email) {
+async function login(userId, email) {
     try {
         const { data, error } = await supabase
             .from("user")
@@ -81,7 +73,7 @@ async function login(name, email) {
                 alert("Successfully Loged In");
                 redirect();
 
-                //window.location.href = "profile.html";
+                //window.location.href = "profile";
             }
         }
         
@@ -91,8 +83,11 @@ async function login(name, email) {
 }
 
 async function signup(name, email) {
-    user = {
-        id: lastUserId,
+    
+    let userId = name.split(' ')[0] + "@" + parseInt(Math.random() * 9000 + 1000);
+    
+    let user = {
+        id: userId,
         name: name,
         email: email
     }
@@ -106,10 +101,10 @@ async function signup(name, email) {
             alert(error);
         } else {
             localStorage.setItem("knowletUser", JSON.stringify(user));
-            alert("Successfully Signed Up\n" + "User ID: " + lastUserId);
+            alert("Successfully Signed Up\n" + "Your user ID: " + userId);
             redirect();
             
-            //window.location.href = "profile.html";
+            //window.location.href = "profile";
         }
     } catch(e) {
         console.log(e);
@@ -120,13 +115,13 @@ function redirect() {
     const history = JSON.parse(localStorage.getItem("unit_page_history") || '[]');
     
     if (history.length === 0) {
-        window.location.href = "profile.html";
+        window.location.href = "profile";
         return;
     } else {
         if (diffFromNow(history[0].timestamp) < 60) {
             window.location.href = history[0].url;
         } else {
-            window.location.href = "profile.html";
+            window.location.href = "profile";
         }
     }
 }

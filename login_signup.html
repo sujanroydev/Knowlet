@@ -72,8 +72,10 @@
   <!-- Login -->
   <div id="loginBox">
     <h2>Login</h2>
-    <input class="user-input" type="text" placeholder="User ID">
+    <input class="user-input" type="text" placeholder="User ID*">
     <input class="user-input" type="email" placeholder="Email">
+    <p style="display: none; margin: 0 auto">OR</p>
+    <input style="display: none" class="user-input" type="phone" placeholder="Phone">
     <button id="login-btn">Login</button>
     <div class="switch" onclick="showSignup()">
       New here? <span>Create an account</span>
@@ -83,9 +85,10 @@
   <!-- Signup -->
   <div id="signupBox" style="display:none;">
     <h2>Sign Up</h2>
-    <input style="margin-bottom: 0px" class="user-input" oninput="showUserId()" type="text" placeholder="Full Name">
-    <h5 style="margin-top: 4px" id="show-user-id">Your User Id: firstname@1234</h5>
+    <input class="user-input" type="text" placeholder="Full Name*">
     <input class="user-input" type="email" placeholder="Email">
+    <p style="display: none; margin: 0 auto">OR</p>
+    <input style="display: none" class="user-input" type="phone" placeholder="Phone">
     <button id="signup-btn">Sign Up</button>
     <div class="switch" onclick="showLogin()">
       Already have an account? <span>Login</span>

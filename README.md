@@ -49,7 +49,7 @@ Want to contribute? Feel free to fork the repository, make changes, and submit a
 
 ## License
 
-All notes and resources are provided free for educational use. See [Declaration](https://knowlet.netlify.app/assets/knowlet_declaration.html) for more info.
+All notes and resources are provided free for educational use. See [Declaration](https://knowlet.netlify.app/declaration.html) for more info.
 
 ---
 

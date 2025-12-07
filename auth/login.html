@@ -10,10 +10,11 @@
 
     <script>
         const supabaseUrl = "https://ampwczxrfpbqlkuawrdf.supabase.co";
-        const supabaseAnonKey = "YOUR_ANON_KEY_HERE";
+        const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFtcHdjenhyZnBicWxrdWF3cmRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI3OTk4MzYsImV4cCI6MjA3ODM3NTgzNn0.hFib9Y5x02b5VWjKuNi1XkUYvycmrp0DQhnwNkOGJEU";
 
-        const supabase = supabase.createClient(supabaseUrl, supabaseAnonKey);
+        const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
 
+        
         document.getElementById("loginBtn").addEventListener("click", async () => {
             const { error } = await supabase.auth.signInWithOAuth({
                 provider: "google",

@@ -11,16 +11,29 @@
         const supabaseUrl = "https://ampwczxrfpbqlkuawrdf.supabase.co";
         const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFtcHdjenhyZnBicWxrdWF3cmRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI3OTk4MzYsImV4cCI6MjA3ODM3NTgzNn0.hFib9Y5x02b5VWjKuNi1XkUYvycmrp0DQhnwNkOGJEU";
 
-        const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
+        const supabase = supabase.createClient(supabaseUrl, supabaseAnonKey);
 
         async function handleCallback() {
+            alert("Handling OAuth callback...");
+
+            // Get session from URL
             const { data, error } = await supabase.auth.getSessionFromUrl({ storeSession: true });
-                console.log(data)
+
             if (error) {
-                alert("Auth error:", error.message);
+                alert("Auth error:", error);
+                document.body.innerHTML += `<p style="color:red">Auth error: ${error.message}</p>`;
+                return;
+            }
+
+            if (data && data.session) {
+                const user = data.session.user;
+                alert("User info:", user);
+
+                document.body.innerHTML += `<h2>Logged in successfully!</h2>`;
+                document.body.innerHTML += `<pre>${JSON.stringify(user, null, 2)}</pre>`;
             } else {
-                alert("User info:", data.session.user);
-                document.body.innerHTML += `<pre>${JSON.stringify(data.session.user, null, 2)}</pre>`;
+                alert("No session found in URL");
+                document.body.innerHTML += `<p>No session found. Please try logging in again.</p>`;
             }
         }
 

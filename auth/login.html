@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+
+<button id="loginBtn">Login with Google</button>
+
+<!-- Supabase JS -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+<script>
+    const supabase = supabase.createClient(
+        "https://ampwczxrfpbqlkuawrdf.supabase.co",
+        "YOUR_SUPABASE_ANON_KEY"
+    );
+
+    document.getElementById("loginBtn").addEventListener("click", async () => {
+        await supabase.auth.signInWithOAuth({
+            provider: "google",
+            redirectTo: "https://knowlet.in/auth/callback.html"
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,47 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Finishing Login...</title>
+    <title>Google Login Callback</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
+    <h1>Callback Page</h1>
 
-<p>Finishing login…</p>
+    <script>
+        const supabaseUrl = "https://ampwczxrfpbqlkuawrdf.supabase.co";
+        const supabaseAnonKey = "YOUR_ANON_KEY_HERE";
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+        const supabase = supabase.createClient(supabaseUrl, supabaseAnonKey);
 
-<script>
-    const supabase = supabase.createClient(
-        "https://ampwczxrfpbqlkuawrdf.supabase.co",
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFtcHdjenhyZnBicWxrdWF3cmRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI3OTk4MzYsImV4cCI6MjA3ODM3NTgzNn0.hFib9Y5x02b5VWjKuNi1XkUYvycmrp0DQhnwNkOGJEU"
-    );
+        async function handleCallback() {
+            const { data, error } = await supabase.auth.getSessionFromUrl({ storeSession: true });
 
-    async function finishLogin() {
-        const params = new URLSearchParams(window.location.search);
-        const code = params.get("code");
-
-        if (!code) {
-            console.error("No code returned from Google");
-            return;
+            if (error) {
+                console.error("Auth error:", error.message);
+            } else {
+                console.log("User info:", data.session.user);
+                document.body.innerHTML += `<pre>${JSON.stringify(data.session.user, null, 2)}</pre>`;
+            }
         }
 
-        const { data, error } = await supabase.auth.exchangeCodeForSession({ code });
-
-        if (error) {
-            console.error("Auth error:", error);
-            return;
-        }
-
-        // Save user info (optional)
-        const user = data.user;
-        localStorage.setItem("knowletUser", JSON.stringify(user));
-
-        // Redirect to profile
-        window.location.href = "/profile.html";
-    }
-
-    finishLogin();
-</script>
-
+        handleCallback();
+    </script>
 </body>
 </html>

@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Supabase Google Login</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
+    <h1>Login with Google</h1>
+    <button id="loginBtn">Login</button>
 
-<button id="loginBtn">Login with Google</button>
+    <script>
+        const supabaseUrl = "https://ampwczxrfpbqlkuawrdf.supabase.co";
+        const supabaseAnonKey = "YOUR_ANON_KEY_HERE";
 
-<!-- Supabase JS -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+        const supabase = supabase.createClient(supabaseUrl, supabaseAnonKey);
 
-<script>
-    const supabase = supabase.createClient(
-        "https://ampwczxrfpbqlkuawrdf.supabase.co",
-        "YOUR_SUPABASE_ANON_KEY"
-    );
+        document.getElementById("loginBtn").addEventListener("click", async () => {
+            const { error } = await supabase.auth.signInWithOAuth({
+                provider: "google",
+                options: {
+                    redirectTo: window.location.origin + "/callback.html"
+                }
+            });
 
-    document.getElementById("loginBtn").addEventListener("click", async () => {
-        await supabase.auth.signInWithOAuth({
-            provider: "google",
-            redirectTo: "https://knowlet.in/auth/callback.html"
+            if (error) {
+                console.error("Login error:", error.message);
+            } else {
+                console.log("Redirecting to Google...");
+            }
         });
-    });
-</script>
-
+    </script>
 </body>
 </html>

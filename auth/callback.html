@@ -18,7 +18,13 @@
 
             // Get session from URL
             const { data, error } = await supabase.auth.getSessionFromUrl({ storeSession: true });
-
+            
+            if (error) {
+                alert("Failed to get session:", error);
+            } else {
+                alert("Session data:", data.session);
+            }
+            
             if (error) {
                 alert("Auth error:", error);
                 document.body.innerHTML += `<p style="color:red">Auth error: ${error.message}</p>`;

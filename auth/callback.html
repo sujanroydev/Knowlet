@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Signing in…</title>
+</head>
+<body>
+    <p>Finishing login…</p>
+
+    <script type="module">
+        import { createClient } from "https://esm.sh/@supabase/supabase-js";
+
+        // Initialize supabase client
+        const supabase = createClient(
+            "https://ampwczxrfpbqlkuawrdf.supabase.co",
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFtcHdjenhyZnBicWxrdWF3cmRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI3OTk4MzYsImV4cCI6MjA3ODM3NTgzNn0.hFib9Y5x02b5VWjKuNi1XkUYvycmrp0DQhnwNkOGJEU"
+        );
+
+        // This finalizes the login by capturing the token from the URL
+        async function finishLogin() {
+            const { data, error } = await supabase.auth.exchangeCodeForSession(window.location.href);
+
+            if (error) {
+                console.error("Auth error:", error);
+                document.body.innerHTML = "<p>Login failed.</p>";
+                return;
+            }
+
+            // Redirect to your main page after successful login
+            window.location.href = "/profile.html"; // change this to wherever you want
+        }
+
+        finishLogin();
+    </script>
+</body>
+</html>

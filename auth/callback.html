@@ -20,10 +20,10 @@
 
         async function handleCallback() {
             try {
-                console.log("Hash:", window.location.hash);
+                alert("Hash:", window.location.hash);
         
                 const result = await supabase.auth.getSessionFromUrl({ storeSession: true });
-                console.log("Supabase result:", result);
+                alert("Supabase result:", result);
         
                 spinner.style.display = "none";
         

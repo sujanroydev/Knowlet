@@ -20,7 +20,7 @@
 
         async function handleCallback() {
             try {
-                alert("Hash:", window.location.hash);
+                alert("Hash:", window.location.href);
         
                 const result = await supabase.auth.getSessionFromUrl({ storeSession: true });
                 alert("Supabase result:", result);

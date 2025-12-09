@@ -20,48 +20,22 @@
 
         async function handleCallback() {
             try {
-                // Log URL hash for debugging (never affects UI)
-                console.log("URL Hash:", window.location.hash);
-
-                // If URL does not contain an OAuth hash, avoid errors
-                if (!window.location.hash.includes("access_token")) {
-                    title.textContent = "Invalid OAuth Redirect ❌";
-                    msg.textContent = "No OAuth data found in URL. This page must be opened after Google login.";
-                    return;
-                }
-
-                // Process redirect and store session
-                const { data, error } = await supabase.auth.getSessionFromUrl({
-                    storeSession: true
-                });
-
-                if (error) {
-                    title.textContent = "Authentication Failed ❌";
-                    msg.textContent = error.message;
-                    console.error("OAuth Error:", error);
-                    return;
-                }
-
-                // Extract session
-                const session = data.session;
-
-                if (!session) {
-                    title.textContent = "No Session Found ❌";
-                    msg.textContent = "Supabase returned no session.";
-                    return;
-                }
-
-                title.textContent = "Login Successful! ✅";
-                msg.textContent = JSON.stringify(session, null, 2);
-                console.log("User logged in:", session.user);
-
-                // Optional redirect
-                // window.location.href = "/dashboard.html";
-
+                console.log("Hash:", window.location.hash);
+        
+                const result = await supabase.auth.getSessionFromUrl({ storeSession: true });
+                console.log("Supabase result:", result);
+        
+                spinner.style.display = "none";
+        
+                title.textContent = "Done";
+                msg.textContent = JSON.stringify(result, null, 2);
+        
             } catch (err) {
+                spinner.style.display = "none";
                 title.textContent = "Unexpected Error ❌";
-                msg.textContent = err.message || "Unknown error";
-                console.error("Unexpected Error:", err);
+        
+                msg.textContent = err?.message || String(err);
+                console.error("REAL ERROR:", err);
             }
         }
 

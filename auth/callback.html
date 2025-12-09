@@ -1,61 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Supabase Auth Callback (getSession)</title>
+    <title>Supabase OAuth Callback</title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    
 </head>
 <body>
-    <div class="spinner"></div>
-    <h1 id="status-title">Processing Login...</h1>
-    <p id="status-message">Please wait while we secure your session and redirect you.</p>
+    <h2 id="title">Processing login…</h2>
+    <pre id="msg"></pre>
 
     <script>
-        // --- Supabase Configuration ---
+        // Supabase config
         const SUPABASE_URL = "https://ampwczxrfpbqlkuawrdf.supabase.co";
         const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFtcHdjenhyZnBicWxrdWF3cmRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI3OTk4MzYsImV4cCI6MjA3ODM3NTgzNn0.hFib9Y5x02b5VWjKuNi1XkUYvycmrp0DQhnwNkOGJEU";
+
         const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-        
-        // Define your secure landing page URL
-        const SECURE_DASHBOARD_URL = "/dashboard.html"; 
-        
-        const statusTitle = document.getElementById('status-title');
-        const statusMessage = document.getElementById('status-message');
-        const spinner = document.querySelector('.spinner');
 
-        /**
-         * Checks the current session status immediately upon loading.
-         * The Supabase client handles parsing the URL hash on initialization.
-         */
-        async function handleAuthRedirect() {
-            // This reads the session from the URL hash (if present) and/or local storage.
-            const { data: { session }, error } = await supabase.auth.getSession();
-            
-            spinner.style.display = 'none';
+        const title = document.getElementById("title");
+        const msg = document.getElementById("msg");
 
-            if (error || !session) {
-                // No session found (either error, expired, or never established)
-                statusTitle.textContent = "Authentication Failed ❌";
-                statusMessage.textContent = "Session could not be established. Redirecting to login...";
-                console.error("Session Retrieval Error:", error);
+        async function handleCallback() {
+            try {
+                // Log URL hash for debugging (never affects UI)
+                console.log("URL Hash:", window.location.hash);
 
-                setTimeout(() => {
-                    window.location.href = "/login.html"; // Redirect to login
-                }, 3000);
+                // If URL does not contain an OAuth hash, avoid errors
+                if (!window.location.hash.includes("access_token")) {
+                    title.textContent = "Invalid OAuth Redirect ❌";
+                    msg.textContent = "No OAuth data found in URL. This page must be opened after Google login.";
+                    return;
+                }
 
-            } else {
-                // Session successfully established
-                statusTitle.textContent = "Authentication Complete! ✅";
-                statusMessage.textContent = JSON.stringify(session)
-                console.log("Session established. Redirecting user:", session.user);
-                
-                // Immediately redirect the user away from the callback URL
-                // window.location.href = SECURE_DASHBOARD_URL;
+                // Process redirect and store session
+                const { data, error } = await supabase.auth.getSessionFromUrl({
+                    storeSession: true
+                });
+
+                if (error) {
+                    title.textContent = "Authentication Failed ❌";
+                    msg.textContent = error.message;
+                    console.error("OAuth Error:", error);
+                    return;
+                }
+
+                // Extract session
+                const session = data.session;
+
+                if (!session) {
+                    title.textContent = "No Session Found ❌";
+                    msg.textContent = "Supabase returned no session.";
+                    return;
+                }
+
+                title.textContent = "Login Successful! ✅";
+                msg.textContent = JSON.stringify(session, null, 2);
+                console.log("User logged in:", session.user);
+
+                // Optional redirect
+                // window.location.href = "/dashboard.html";
+
+            } catch (err) {
+                title.textContent = "Unexpected Error ❌";
+                msg.textContent = err.message || "Unknown error";
+                console.error("Unexpected Error:", err);
             }
         }
 
-        // Call the function immediately on page load
-        handleAuthRedirect();
+        handleCallback();
     </script>
 </body>
 </html>

@@ -1,71 +1,88 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Supabase Auth Callback</title>
+    <title>Supabase Auth Callback (getSession)</title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <style>
-        body {
-            font-family: sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            flex-direction: column;
-            text-align: center;
-        }
-        .spinner {
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            border-left-color: #007bff; /* A nice blue color */
-            animation: spin 1s ease infinite;
-            margin-bottom: 20px;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
+    
 </head>
 <body>
     <div class="spinner"></div>
-    <h1>Processing Login...</h1>
-    <p>Please wait while we secure your session.</p>
+    <h1 id="status-title">Processing Login...</h1>
+    <p id="status-message">Please wait while we secure your session and redirect you.</p>
 
     <script>
-        // NOTE: Replace with your actual Supabase URL and Anon Key
-        const supabaseUrl = "https://ampwczxrfpbqlkuawrdf.supabase.co";
-        const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFtcHdjenhyZnBicWxrdWF3cmRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI3OTk4MzYsImV4cCI6MjA3ODM3NTgzNn0.hFib9Y5x02b5VWjKuNi1XkUYvycmrp0DQhnwNkOGJEU";
-
-        const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
+        // --- Supabase Configuration ---
+        const SUPABASE_URL = "https://ampwczxrfpbqlkuawrdf.supabase.co";
+        const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFtcHdjenhyZnBicWxrdWF3cmRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI3OTk4MzYsImV4cCI6MjA3ODM3NTgzNn0.hFib9Y5x02b5VWjKuNi1XkUYvycmrp0DQhnwNkOGJEU";
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        
+        // Define your secure landing page URL
+        const SECURE_DASHBOARD_URL = "/dashboard.html"; 
+        
+        const statusTitle = document.getElementById('status-title');
+        const statusMessage = document.getElementById('status-message');
+        const spinner = document.querySelector('.spinner');
 
         /**
-         * The callback page simply needs to listen for the session update.
-         * Supabase automatically handles the session exchange from the URL hash.
+         * Checks the current session status immediately upon loading.
+         * The Supabase client handles parsing the URL hash on initialization.
          */
-        supabase.auth.onAuthStateChange((event, session) => {
-            if (session) {
-                // User is successfully logged in. 
-                alert("Login successful! Session:", session);
-            
-                // 🎯 LOGGING THE USER DATA HERE 🎯
-                const user = session.user;
-                document.write(event + "\n\n" + JSON.stringify(user) + "\n\n\n");
-                // Redirect the user to a secure area (e.g., a dashboard page)
-                //window.location.href = "/dashboard.html"; // <-- CHANGE THIS TO YOUR DESIRED POST-LOGIN PAGE
-
-            } else if (event === 'SIGNED_OUT') {
-                // If somehow the user is signed out here, redirect to the main login page
-                alert("User signed out or error during session processing.");
-                //window.location.href = "/"; 
+        
+        
+        async function handleAuthRedirect() {
+            try {
+                // Extract OAuth tokens from URL and store the session
+                const { data, error } = await supabase.auth.getSessionFromUrl({
+                    storeSession: true
+                });
+        
+                spinner.style.display = 'none';
+        
+                if (error) {
+                    statusTitle.textContent = "Authentication Failed ❌";
+                    statusMessage.textContent = "Could not process login. Redirecting...";
+                    console.error("OAuth Error:", error);
+        
+                    setTimeout(() => {
+                        window.location.href = "/login.html";
+                    }, 3000);
+                    return;
+                }
+        
+                // If session was stored successfully, get it
+                const session = data.session;
+        
+                if (!session) {
+                    statusTitle.textContent = "No Session Found ❌";
+                    statusMessage.textContent = "Please log in again.";
+        
+                    setTimeout(() => {
+                        window.location.href = "/login.html";
+                    }, 3000);
+                    return;
+                }
+        
+                statusTitle.textContent = "Authentication Successful! ✅";
+                statusMessage.textContent = JSON.stringify(session);
+        
+                console.log("User logged in:", session.user);
+        
+                // Optional redirect
+                // window.location.href = SECURE_DASHBOARD_URL;
+        
+            } catch (err) {
+                console.error("Unexpected Error:", err);
+                statusTitle.textContent = "Unexpected Error ❌";
+                statusMessage.textContent = "Please try again.";
+        
+                setTimeout(() => {
+                    window.location.href = "/login.html";
+                }, 3000);
             }
-        });
-        
-        // Safety check: if no session listener fires, or if there's a problem, 
-        // you might want a timeout, but onAuthStateChange is generally reliable.
-        
+        }
+
+        // Call the function immediately on page load
+        handleAuthRedirect();
     </script>
 </body>
 </html>

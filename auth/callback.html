@@ -27,57 +27,30 @@
          * Checks the current session status immediately upon loading.
          * The Supabase client handles parsing the URL hash on initialization.
          */
-        
-        
         async function handleAuthRedirect() {
-            try {
-                // Extract OAuth tokens from URL and store the session
-                const { data, error } = await supabase.auth.getSessionFromUrl({
-                    storeSession: true
-                });
-        
-                spinner.style.display = 'none';
-        
-                if (error) {
-                    statusTitle.textContent = "Authentication Failed ❌";
-                    statusMessage.textContent = "Could not process login. Redirecting...";
-                    console.error("OAuth Error:", error);
-        
-                    setTimeout(() => {
-                        window.location.href = "/login.html";
-                    }, 3000);
-                    return;
-                }
-        
-                // If session was stored successfully, get it
-                const session = data.session;
-        
-                if (!session) {
-                    statusTitle.textContent = "No Session Found ❌";
-                    statusMessage.textContent = "Please log in again.";
-        
-                    setTimeout(() => {
-                        window.location.href = "/login.html";
-                    }, 3000);
-                    return;
-                }
-        
-                statusTitle.textContent = "Authentication Successful! ✅";
-                statusMessage.textContent = JSON.stringify(session);
-        
-                console.log("User logged in:", session.user);
-        
-                // Optional redirect
-                // window.location.href = SECURE_DASHBOARD_URL;
-        
-            } catch (err) {
-                console.error("Unexpected Error:", err);
-                statusTitle.textContent = "Unexpected Error ❌";
-                statusMessage.textContent = "Please try again.";
-        
+            // This reads the session from the URL hash (if present) and/or local storage.
+            const { data: { session }, error } = await supabase.auth.getSession();
+            
+            spinner.style.display = 'none';
+
+            if (error || !session) {
+                // No session found (either error, expired, or never established)
+                statusTitle.textContent = "Authentication Failed ❌";
+                statusMessage.textContent = "Session could not be established. Redirecting to login...";
+                console.error("Session Retrieval Error:", error);
+
                 setTimeout(() => {
-                    window.location.href = "/login.html";
+                    window.location.href = "/login.html"; // Redirect to login
                 }, 3000);
+
+            } else {
+                // Session successfully established
+                statusTitle.textContent = "Authentication Complete! ✅";
+                statusMessage.textContent = JSON.stringify(session)
+                console.log("Session established. Redirecting user:", session.user);
+                
+                // Immediately redirect the user away from the callback URL
+                // window.location.href = SECURE_DASHBOARD_URL;
             }
         }
 

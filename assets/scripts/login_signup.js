@@ -6,6 +6,7 @@ const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 const input = document.getElementsByClassName("user-input");
 const loginBtn = document.getElementById("login-btn");
 const signupBtn = document.getElementById("signup-btn");
+const googleSignupBtn = document.getElementById("google-signup-btn");
 
 loginBtn.addEventListener("click", () => {
     let userId = input[0].value;
@@ -28,7 +29,7 @@ loginBtn.addEventListener("click", () => {
 signupBtn.addEventListener("click", () => {
     let name = input[3].value;
     let email = input[4].value;
-    let phone = input[4].value;
+    let phone = input[5].value;
     
     if (!name) {
         alert("Must enter Name");
@@ -41,6 +42,19 @@ signupBtn.addEventListener("click", () => {
     }
     
     signup(name, email);
+});
+
+googleSignupBtn.addEventListener("click", async () => {
+    const { error } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: {
+            redirectTo: window.location.origin + "/auth/callback.html"
+        }
+    });
+    
+    if (error) {
+        alert("Login error:", error.message);
+    }
 });
 
 function showSignup() {
@@ -101,7 +115,7 @@ async function signup(name, email) {
             alert(error);
         } else {
             localStorage.setItem("knowletUser", JSON.stringify(user));
-            alert("Successfully Signed Up\n" + "Your user ID: " + userId);
+            alert("Successfully Signed Up\n" + "Note your user ID: " + userId);
             redirect();
             
             //window.location.href = "profile";

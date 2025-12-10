@@ -1,14 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Supabase OAuth Callback</title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+    body #loading {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: #f7f8fa;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        color: #333;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 22px;
+        margin-top: 20px;
+        font-weight: 600;
+    }
+
+    .spinner {
+        width: 48px;
+        height: 48px;
+        border: 5px solid #d1d1d1;
+        border-top-color: #4a90e2;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    #status-message {
+        margin-top: 10px;
+        font-size: 15px;
+        color: #666;
+    }
+</style>
 </head>
 <body>
+    <div id="loading">
     <div class="spinner"></div>
-    <h1 id="status-title">Processing Login...</h1>
+    <h1 id="status-title">Processing...</h1>
     <p id="status-message">Please wait while we secure your session and redirect you.</p>
-
+    </div>
     <script>
         //alert(window.location.hash)
         const SUPABASE_URL = "https://ampwczxrfpbqlkuawrdf.supabase.co";
@@ -73,10 +117,11 @@
                     alert(error);
                 } else {
                     localStorage.setItem("knowletUser", JSON.stringify(user));
+                    document.getElementById("loading").style.display = "none";
                     alert("Successfully Signed Up\n" + "Note your user ID: " + userId);
                     redirect();
                     
-                    //window.location.href = "profile";
+                    //window.location.href = "/../profile";
                 }
             } catch(e) {
                 console.log(e);
@@ -87,13 +132,13 @@
             const history = JSON.parse(localStorage.getItem("unit_page_history") || '[]');
             
             if (history.length === 0) {
-                window.location.href = "profile";
+                window.location.href = "/../profile";
                 return;
             } else {
                 if (diffFromNow(history[0].timestamp) < 60) {
                     window.location.href = history[0].url;
                 } else {
-                    window.location.href = "profile";
+                    window.location.href = "/../profile";
                 }
             }
         }

@@ -6,6 +6,7 @@ const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 const input = document.getElementsByClassName("user-input");
 const inputEdu = document.getElementById("sltEdu")
 const btnSubmit = document.getElementById("submit-btn");
+const profilePic = document.getElementById("profile-pic");
 
 const userId = JSON.parse(localStorage.getItem("knowletUser")).id;
 
@@ -20,6 +21,7 @@ function load() {
     input[3].value = user.fv_subject ? user.fv_subject : null;
     input[4].value = user.stream ? user.stream : null;
     inputEdu.value = user.standered ? user.standered : "";
+    profilePic.src = user.picture || "assets/demo_pp.png";
 }
 
 btnSubmit.addEventListener("click", () => {
@@ -30,7 +32,8 @@ btnSubmit.addEventListener("click", () => {
     const fvSubject = input[3].value;
     const stream = input[4].value;
 
-    const standered = inputEdu.value
+    const standered = inputEdu.value;
+    const picture = profilePic.src;
     
     if (!name) {
         alert("Must enter Name");
@@ -49,11 +52,12 @@ btnSubmit.addEventListener("click", () => {
         age: age,
         fv_subject: fvSubject,
         stream: stream,
-        standered: standered
+        standered: standered,
+        picture: picture
     }
 
     localStorage.setItem("knowletUser", JSON.stringify(user))
-    console.log(user);
+    //console.log(user);
     
     //reset
     for (i = 0; i < input.length; i++) {
@@ -66,7 +70,7 @@ btnSubmit.addEventListener("click", () => {
 async function sync() {
     
     const user = JSON.parse(localStorage.getItem("knowletUser"));
-    console.log(user);
+    //console.log(user);
     try {
         const { error } = await supabase
             .from("user")

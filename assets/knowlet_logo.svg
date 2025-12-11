@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  SVG rendition of the provided logo.
+  Colors and proportions are tuned to visually match the raster image;
+  you can scale by changing the viewBox or width/height.
+-->
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="1024"
+    height="1024"
+    viewBox="0 0 1024 1024"
+    role="img"
+    aria-label="Knowlet logo - notebook with bookmark and vertical text">
+
+    <!-- Definitions (colors / simple gradient) -->
+    <defs>
+        <linearGradient id="blueGrad" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#0b7cff"/>
+            <stop offset="1" stop-color="#2aa0ff"/>
+        </linearGradient>
+    </defs>
+
+    <!-- Background (transparent) -->
+    <rect x="0" y="0" width="1024" height="1024" fill="none"/>
+
+    <!-- Outer notebook frame (thick rounded rect) -->
+    <rect
+        x="140"
+        y="80"
+        width="664"
+        height="856"
+        rx="84"
+        ry="84"
+        fill="none"
+        stroke="#000000"
+        stroke-width="64"
+        stroke-linejoin="round"
+        stroke-linecap="round"/>
+
+    <!-- Left binder rings (four rounded circles overlapping the frame) -->
+    <g fill="#000000">
+        <circle cx="140" cy="220" r="38"/>
+        <circle cx="140" cy="364" r="38"/>
+        <circle cx="140" cy="508" r="38"/>
+        <circle cx="140" cy="652" r="38"/>
+    </g>
+
+    <!-- Inner blue page outline (rounded rectangle) -->
+    <rect
+        x="228"
+        y="164"
+        width="460"
+        height="696"
+        rx="36"
+        ry="36"
+        fill="none"
+        stroke="url(#blueGrad)"
+        stroke-width="36"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+    <!-- Inner page corner line (to mimic the nested page icon) -->
+    <path
+        d="M 228 300
+           L 228 820
+           L 652 820"
+        fill="none"
+        stroke="url(#blueGrad)"
+        stroke-width="36"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+    <!-- Blue horizontal text lines (rounded rectangles) -->
+    <g fill="url(#blueGrad)">
+        <!-- top long line -->
+        <rect x="300" y="320" width="360" height="44" rx="22" ry="22"/>
+        <!-- middle long line -->
+        <rect x="300" y="424" width="360" height="44" rx="22" ry="22"/>
+        <!-- bottom shorter line -->
+        <rect x="300" y="528" width="260" height="44" rx="22" ry="22"/>
+    </g>
+
+    <!-- Bookmark (black) attached to top-right of notebook -->
+    <g fill="#000000" stroke="none">
+        <!-- bookmark main block -->
+        <path d="
+            M 704 80
+            L 828 80
+            L 828 240
+            L 760 200
+            L 692 240
+            L 692 80
+            Z
+        " />
+    </g>
+
+    <!-- Vertical brand text "knowlet" to the right of the notebook -->
+    <!-- Rotated so it reads top-to-bottom along the right side -->
+    <text
+        x="900"
+        y="200"
+        font-family="Helvetica, Arial, sans-serif"
+        font-weight="700"
+        font-size="96"
+        fill="#0b7cff"
+        transform="rotate(90 900 200)"
+        style="letter-spacing:2px;">
+        knowlet
+    </text>
+
+</svg>

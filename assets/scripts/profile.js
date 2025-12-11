@@ -5,6 +5,7 @@ const comProfileBtn = document.getElementById("com-profile-btn");
 const userName = document.getElementById("username");
 const email = document.getElementById("email");
 const userId = document.getElementById("userid");
+const profilePic = document.getElementById("profile-pic");
 
 let isExist = false;
 
@@ -17,6 +18,7 @@ function sync() {
         userName.textContent = user.name;
         email.textContent = '' + user.email;
         userId.textContent = user.id;
+        profilePic.src = user.picture || "assets/demo_pp.png";
         
         isExist = true;
         loginSignupBtn.style.display = "none";
@@ -26,6 +28,7 @@ function sync() {
         userName.textContent = "Your Name";
         email.textContent = "yourname@example.com";
         userId.textContent = "User ID"
+        profilePic.src = "assets/demo_pp.png"
         
         isExist = false;
         loginSignupBtn.style.display = "block";
@@ -44,8 +47,8 @@ function fullProfile() {
 }
 
 logoutBtn.addEventListener("click", () => {
+    alert("Logout");
     localStorage.removeItem("knowletUser");
-    
     sync()
 });
 

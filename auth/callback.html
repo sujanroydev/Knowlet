@@ -19,13 +19,7 @@
         color: #333;
         text-align: center;
     }
-
-    h1 {
-        font-size: 22px;
-        margin-top: 20px;
-        font-weight: 600;
-    }
-
+    
     .spinner {
         width: 48px;
         height: 48px;
@@ -45,13 +39,19 @@
         font-size: 15px;
         color: #666;
     }
+
+    h1 {
+        font-size: 22px;
+        margin-top: 20px;
+        font-weight: 600;
+    }
 </style>
 </head>
 <body>
     <div id="loading">
-    <div class="spinner"></div>
-    <h1 id="status-title">Processing...</h1>
-    <p id="status-message">Please wait while we secure your session and redirect you.</p>
+        <div class="spinner"></div>
+        <h1 id="status-title">Processing...</h1>
+        <p id="status-message">Please wait while we secure your session and redirect you.</p>
     </div>
     <script>
         //alert(window.location.hash)
@@ -66,12 +66,12 @@
             const clean = hash.startsWith("#") ? hash.slice(1) : hash;
             const params = {};
             const parts = clean.split("&");
-        
+            
             for (const part of parts) {
                 const [key, value] = part.split("=");
                 params[key] = decodeURIComponent(value || "");
             }
-        
+            
             return params;
         }
         
@@ -85,7 +85,7 @@
                     Authorization: `Bearer ${providerToken}`
                 }
             });
-        
+            
             const data = await response.json();
             
             return data;
@@ -93,19 +93,20 @@
         
         fetchGoogleUserInfo(session.provider_token)
             .then(info => {
-                signup(info.name, info.email)
+                signup(info.name, info.email, info.picture)
                 //localStorage.setItem("knowletUserByGoogle", JSON.stringify(info));
             });
-
+            
         
-        async function signup(name, email) {
+        async function signup(name, email, picture) {
             
             let userId = name.split(' ')[0] + "@" + parseInt(Math.random() * 9000 + 1000);
             
             let user = {
                 id: userId,
                 name: name,
-                email: email
+                email: email,
+                picture: picture
             }
             try {
                 const { error } = await supabase
@@ -146,12 +147,10 @@
         function diffFromNow(time) {
             const target = new Date(time);
             const now = new Date();
-        
+            
             const diffMs = Math.abs(target - now);
             return Math.floor(diffMs / 1000); 
         }
-        
-
         
     </script>
 </body>

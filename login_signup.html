@@ -94,7 +94,7 @@
     
     <button id="signup-btn" style="margin-top: 5px">Sign Up</button>
     <center style="margin: 2px 0">or</center>
-    <button id="google-signup-btn" style="background: green">With Google</button>
+    <button id="google-signup-btn" style="background: green">Continue With Google</button>
     <div class="switch" onclick="showLogin()">
       Already have an account? <span>Login</span>
     </div>
@@ -106,56 +106,3 @@
 <script src="assets/scripts/login_signup.js"></script>
 </body>
 </html>
-<!-- 
-    <div class="spinner"></div>
-    <h1 id="status-title">Processing Login...</h1>
-    <p id="status-message">Please wait while we secure your session and redirect you.</p>
-
-    <script>
-        // --- Supabase Configuration ---
-        const SUPABASE_URL = "https://ampwczxrfpbqlkuawrdf.supabase.co";
-        const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFtcHdjenhyZnBicWxrdWF3cmRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI3OTk4MzYsImV4cCI6MjA3ODM3NTgzNn0.hFib9Y5x02b5VWjKuNi1XkUYvycmrp0DQhnwNkOGJEU";
-        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-        
-        // Define your secure landing page URL
-        const SECURE_DASHBOARD_URL = "/dashboard.html"; 
-        
-        const statusTitle = document.getElementById('status-title');
-        const statusMessage = document.getElementById('status-message');
-        const spinner = document.querySelector('.spinner');
-
-        /**
-         * Checks the current session status immediately upon loading.
-         * The Supabase client handles parsing the URL hash on initialization.
-         */
-        async function handleAuthRedirect() {
-            // This reads the session from the URL hash (if present) and/or local storage.
-            const { data: { session }, error } = await supabase.auth.getSession();
-            
-            spinner.style.display = 'none';
-
-            if (error || !session) {
-                // No session found (either error, expired, or never established)
-                statusTitle.textContent = "Authentication Failed ❌";
-                statusMessage.textContent = "Session could not be established. Redirecting to login...";
-                console.error("Session Retrieval Error:", error);
-
-                setTimeout(() => {
-                    window.location.href = "/login.html"; // Redirect to login
-                }, 3000);
-
-            } else {
-                // Session successfully established
-                statusTitle.textContent = "Authentication Complete! ✅";
-                statusMessage.textContent = JSON.stringify(session)
-                console.log("Session established. Redirecting user:", session.user);
-                
-                // Immediately redirect the user away from the callback URL
-                // window.location.href = SECURE_DASHBOARD_URL;
-            }
-        }
-
-        // Call the function immediately on page load
-        handleAuthRedirect();
-    </script>
- -->

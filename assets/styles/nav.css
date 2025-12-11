@@ -51,3 +51,25 @@
 body {
     padding-bottom: 60px; /* Must be equal to the bottom-nav height */
 }
+
+
+/* --- Add this to your existing CSS file --- */
+
+/* Style for the active/focused navigation item */
+.nav-item.active-nav-item {
+    color: #007bff; /* Primary color for the active state */
+    /* Optional: Add a subtle background or visual highlight */
+    /* background-color: #f0f0f0; */
+}
+
+/* Optional: Make the icon bigger or bolder on the active item */
+.nav-item.active-nav-item .icon {
+    font-size: 24px; /* Slightly larger icon */
+    color: #007bff; /* Ensure icon uses the primary color */
+}
+
+/* Optional: Emphasize the text */
+.nav-item.active-nav-item .text {
+    font-weight: 700;
+    color: #007bff;
+}

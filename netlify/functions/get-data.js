@@ -5,12 +5,22 @@ const supabase = createClient(
   process.env.SUPABASE_ANON_KEY
 );
 
-export default async () => {
-  const table = 'user';
+export default async (request) => {
+  // Handle CORS preflight
+  if (request.method === 'OPTIONS') {
+    return new Response(null, {
+      status: 204,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS'
+      }
+    });
+  }
 
   try {
     const { data, error } = await supabase
-      .from(table)
+      .from('user')
       .select('*');
 
     if (error) {
@@ -21,7 +31,10 @@ export default async () => {
         }),
         {
           status: 500,
-          headers: { 'Content-Type': 'application/json' }
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+          }
         }
       );
     }
@@ -33,7 +46,10 @@ export default async () => {
       }),
       {
         status: 200,
-        headers: { 'Content-Type': 'application/json' }
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        }
       }
     );
 
@@ -45,7 +61,10 @@ export default async () => {
       }),
       {
         status: 500,
-        headers: { 'Content-Type': 'application/json' }
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        }
       }
     );
   }

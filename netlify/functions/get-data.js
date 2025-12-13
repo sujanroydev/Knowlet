@@ -1,9 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabase = createClient(
-    process.env.SUPABASE_DATABASE_URL,
-    process.env.SUPABASE_ANON_KEY
-);
+const supabase = createClient(process.env.SUPABASE_DATABASE_URL, process.env.SUPABASE_ANON_KEY);
 
 export default async (request) => {
     
@@ -19,84 +16,45 @@ export default async (request) => {
     }
     
     const body = await request.json();
-    const { action, data } = body;
+    const { id, email } = body;
+    
     try {
-        if (action === "get") {
-            
-            const { email, id } = data;
-            
-            const { data, error } = await supabase
-                    .from('user')
-                    .select('*')
-                    .eq('id', id)
-                    .eq('email', email);
-    
-            if (error) {
-                return new Response(
-                    JSON.stringify({
-                        success: false,
-                        error: error.message
-                    }),
-                    {
-                        status: 500,
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Access-Control-Allow-Origin': '*'
-                        }
-                    }
-                );
-            }
-    
+        const { data, error } = await supabase
+                .from('user')
+                .select('*')
+                .eq('id', id)
+                .eq('email', email);
+
+        if (error) {
             return new Response(
                 JSON.stringify({
-                    success: true,
-                    data
+                    success: false,
+                    error: error.message
                 }),
                 {
-                    status: 200,
+                    status: 500,
                     headers: {
                         'Content-Type': 'application/json',
                         'Access-Control-Allow-Origin': '*'
                     }
                 }
             );
-        } else if (action === "set") {
-            
-            const { error } = await supabase
-                    .from("user")
-                    .insert(data);
-        
-                if (error) {
-                    return new Response(
-                        JSON.stringify({
-                            success: false,
-                            error: error.message
-                        }),
-                        {
-                            status: 500,
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'Access-Control-Allow-Origin': '*'
-                            }
-                        }
-                    );
-                }
-        
-                return new Response(
-                    JSON.stringify({
-                        success: true
-                    }),
-                    {
-                        status: 200,
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Access-Control-Allow-Origin': '*'
-                        }
-                    }
-                );
-            
         }
-
+        
+        return new Response(
+            JSON.stringify({
+                success: true,
+                data
+            }),
+            {
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                }
+            }
+        );
+     
     } catch (err) {
         return new Response(
             JSON.stringify({

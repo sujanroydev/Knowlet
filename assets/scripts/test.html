@@ -8,28 +8,39 @@
     <div id="container"></div>
 <script>
 const container = document.getElementById("container");
+
 async function fetchUsers() {
     try {
+        // 1. Clear container for a fresh request
+        container.textContent = "Loading...";
+
         const res = await fetch('/.netlify/functions/get-data');
 
         if (!res.ok) {
-            throw new Error(`Request failed: ${res.status}`);
+            throw new Error(`HTTP error! status: ${res.status}`);
         }
 
         const result = await res.json();
 
         if (!result.success) {
-            throw new Error(result.error);
+            // This handles errors returned by your Supabase logic
+            throw new Error(result.error || "Unknown error occurred");
         }
 
-        console.log(result.data); // Supabase rows
-        container.textContent(JSON.stringify(result));
+        console.log("Data received:", result.data);
+        
+        // 2. Fix: Use property assignment and pretty-print JSON
+        container.textContent = JSON.stringify(result.data, null, 2);
+        
         return result.data;
 
     } catch (err) {
-        container.textContent('Fetch error:', err.message);
+        console.error(err);
+        // 3. Fix: Correct string concatenation
+        container.textContent = 'Error: ' + err.message;
     }
 }
+
 </script>
 </body>
 </html>

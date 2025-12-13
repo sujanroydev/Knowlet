@@ -63,11 +63,11 @@
             try {
                 
                 const res = await fetch(
-                    'https://knowlet.in/.netlify/functions/get-data',
+                    'https://knowlet.in/.netlify/functions/set-data',
                     {
                         method: 'POST',
                         headers: {'Content-Type': 'application/json'},
-                        body: JSON.stringify({action: "set", userData: user})
+                        body: JSON.stringify(user)
                     }
                 );
                 

@@ -45,28 +45,15 @@ signupBtn.addEventListener("click", () => {
 });
 
 googleSignupBtn.addEventListener("click", async () => {
-    // new
-    try {
-        const res = await fetch(
-            'https://knowlet.in/.netlify/functions/redirect-to-oauth',
-            {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({
-                    origin: window.location.origin
-                })
-            }
-        );
-    
-        const result = await res.json();
-        
-        if (!result.success) {
-            throw new Error(result.error || "Unknown error occurred");
-            alert("Login error:", result.error);
+    const { error } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: {
+            redirectTo: window.location.origin + "/auth/callback.html"
         }
-        
-    } catch (err) {
-        console.log(err)
+    });
+    
+    if (error) {
+        alert("Login error:", error.message);
     }
 });
 

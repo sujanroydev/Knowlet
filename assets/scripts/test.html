@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Functions</title>
+</head>
+<body>
+    <button onclick="fetchUsers()">user</button>
+    <div id="container"></div>
+<script>
+const container = document.getElementById("container");
+async function fetchUsers() {
+    try {
+        const res = await fetch('/.netlify/functions/get-data');
+
+        if (!res.ok) {
+            throw new Error(`Request failed: ${res.status}`);
+        }
+
+        const result = await res.json();
+
+        if (!result.success) {
+            throw new Error(result.error);
+        }
+
+        console.log(result.data); // Supabase rows
+        container.textContent(JSON.stringify(result));
+        return result.data;
+
+    } catch (err) {
+        container.textContent('Fetch error:', err.message);
+    }
+}
+</script>
+</body>
+</html>

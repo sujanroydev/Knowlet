@@ -6,26 +6,30 @@ const supabase = createClient(
 );
 
 export default async (req, context) => {
+    // 1. Define the default table you want to query.
+    const defaultTable = 'users'; 
+
     try {
-        // Example: Read query params
-        const table = req.query.table || 'users';
-        const column = req.query.column;
-        const value = req.query.value;
+        // 2. Build the query to select all columns (*) from the default table.
+        const { data, error } = await supabase
+            .from(defaultTable)
+            .select('*');
 
-        let query = supabase.from(table).select('*');
-
-        if (column && value) {
-            query = query.eq(column, value);
-        }
-
-        const { data, error } = await query;
-
+        // 3. Handle a database error.
         if (error) {
-            return Response.json({ success: false, error: error.message }, { status: 500 });
+            console.error('Supabase error:', error.message);
+            return Response.json({ 
+                success: false, 
+                error: `Database error retrieving from ${defaultTable}: ${error.message}` 
+            }, { status: 500 });
         }
 
+        // 4. Return the retrieved data.
         return Response.json({ success: true, data });
+
     } catch (err) {
+        // 5. Handle any unexpected errors (e.g., connection issues).
+        console.error('Unexpected error:', err.message);
         return Response.json({ success: false, error: err.message }, { status: 500 });
     }
 };

@@ -4,43 +4,95 @@
     <title>Test Functions</title>
 </head>
 <body>
-    <button onclick="fetchUsers()">user</button>
+    <button onclick="getUser('Sujan@2007', 'sujanroy63836@gmail.com')">Login</button>
+    <button onclick="setUser('Sujan Roy', 'sujanroy63836@gmail.com')">Signup</button>
+    <br><br>
     <div id="container"></div>
-<script>
-const container = document.getElementById("container");
+    
+    <script>
+        const container = document.getElementById("container");
 
-async function fetchUsers() {
-    try {
-        // 1. Clear container for a fresh request
-        container.textContent = "Loading...";
-
-        const res = await fetch('/.netlify/functions/get-data');
-
-        if (!res.ok) {
-            throw new Error(`HTTP error! status: ${res.status}`);
-        }
-
-        const result = await res.json();
-
-        if (!result.success) {
-            // This handles errors returned by your Supabase logic
-            throw new Error(result.error || "Unknown error occurred");
-        }
-
-        console.log("Data received:", result.data);
+        //For login
+        async function getUser(id, email) {
+            
+            try {
+                container.textContent = "Loading...";
+                
+                const res = await fetch(
+                    'https://knowlet.in/.netlify/functions/get-data',
+                    {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({action: "get", data: { id: id, email: email }})
+                    }
+                );
+                
+                if (!res.ok) {
+                    throw new Error(`HTTP error! status: ${res.status}`);
+                }
         
-        // 2. Fix: Use property assignment and pretty-print JSON
-        container.textContent = JSON.stringify(result.data, null, 2);
+                const result = await res.json();
         
-        return result.data;
-
-    } catch (err) {
-        console.error(err);
-        // 3. Fix: Correct string concatenation
-        container.textContent = 'Error: ' + err.message;
-    }
-}
-
-</script>
+                if (!result.success) {
+                    throw new Error(result.error || "Unknown error occurred");
+                }
+        
+                console.log("Data received:", result.data);
+                
+                container.textContent = JSON.stringify(result.data, null, 2);
+                
+                return result.data;
+        
+            } catch (err) {
+                console.error(err);
+                container.textContent = 'Error: ' + err.message;
+            }
+        }
+        
+        //For Signin
+        async function setUser(name, email) {
+            
+            let userId = name.split(' ')[0] + "@" + parseInt(Math.random() * 9000 + 999);
+            
+            let user = {
+                id: userId,
+                name: name,
+                email: email
+            }
+            
+            try {
+                
+                const res = await fetch(
+                    'https://knowlet.in/.netlify/functions/get-data',
+                    {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({action: "set", data: user})
+                    }
+                );
+                
+                if (!res.ok) {
+                    throw new Error(`HTTP error! status: ${res.status}`);
+                }
+        
+                const result = await res.json();
+        
+                if (!result.success) {
+                    throw new Error(result.error || "Unknown error occurred");
+                }
+        
+                console.log("Data Added");
+                
+                container.textContent = JSON.stringify("Data Added");
+                
+                return "Data Added";
+        
+            } catch (err) {
+                console.error(err);
+                container.textContent = 'Error: ' + err.message;
+            }
+        }
+        
+    </script>
 </body>
 </html>

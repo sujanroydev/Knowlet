@@ -6,7 +6,7 @@ const supabase = createClient(
 );
 
 export default async (request) => {
-    // Handle CORS preflight
+    
     if (request.method === 'OPTIONS') {
         return new Response(null, {
             status: 204,
@@ -18,49 +18,84 @@ export default async (request) => {
         });
     }
     
-    // 1. Read JSON body
     const body = await request.json();
-    const { email, id } = body;
-    
-    // 2. Use values safely
-    let query = supabase.from('user').select('*').eq('id', id).eq('email', email);
-    
-    // if (limit) query = query.eq('id', id);
-    
-    // if (email) query = query.eq('email', email);
-
+    const { action, data } = body;
     try {
-        const { data, error } = await query;
-
-        if (error) {
+        if (action === "get") {
+            
+            const { email, id } = data;
+            
+            const { data, error } = await supabase
+                    .from('user')
+                    .select('*')
+                    .eq('id', id)
+                    .eq('email', email);
+    
+            if (error) {
+                return new Response(
+                    JSON.stringify({
+                        success: false,
+                        error: error.message
+                    }),
+                    {
+                        status: 500,
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Access-Control-Allow-Origin': '*'
+                        }
+                    }
+                );
+            }
+    
             return new Response(
                 JSON.stringify({
-                    success: false,
-                    error: error.message
+                    success: true,
+                    data
                 }),
                 {
-                    status: 500,
+                    status: 200,
                     headers: {
                         'Content-Type': 'application/json',
                         'Access-Control-Allow-Origin': '*'
                     }
                 }
             );
-        }
-
-        return new Response(
-            JSON.stringify({
-                success: true,
-                data
-            }),
-            {
-                status: 200,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
+        } else if (action === "set") {
+            
+            const { error } = await supabase
+                    .from("user")
+                    .insert(data);
+        
+                if (error) {
+                    return new Response(
+                        JSON.stringify({
+                            success: false,
+                            error: error.message
+                        }),
+                        {
+                            status: 500,
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Access-Control-Allow-Origin': '*'
+                            }
+                        }
+                    );
                 }
-            }
-        );
+        
+                return new Response(
+                    JSON.stringify({
+                        success: true
+                    }),
+                    {
+                        status: 200,
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Access-Control-Allow-Origin': '*'
+                        }
+                    }
+                );
+            
+        }
 
     } catch (err) {
         return new Response(

@@ -45,15 +45,28 @@ signupBtn.addEventListener("click", () => {
 });
 
 googleSignupBtn.addEventListener("click", async () => {
-    const { error } = await supabase.auth.signInWithOAuth({
-        provider: "google",
-        options: {
-            redirectTo: window.location.origin + "/auth/callback.html"
-        }
-    });
+    // new
+    try {
+        const res = await fetch(
+            'https://knowlet.in/.netlify/functions/redirect-to-oauth',
+            {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    origin: window.location.origin
+                })
+            }
+        );
     
-    if (error) {
-        alert("Login error:", error.message);
+        const result = await res.json();
+        
+        if (!result.success) {
+            throw new Error(result.error || "Unknown error occurred");
+            alert("Login error:", result.error);
+        }
+        
+    } catch (err) {
+        console.log(err)
     }
 });
 
@@ -69,26 +82,38 @@ function showLogin() {
 
 async function login(userId, email) {
     try {
-        const { data, error } = await supabase
-            .from("user")
-            .select("*")
-            .eq("id", userId)
-            .eq("email", email);
-        
-        if (error) {
-            console.log(error);
-            alert(error);
-        } else {
-            if (!data[0]) {
-                alert("No account found with your User Id and Email");
-            } else {
-                const user = JSON.stringify(data[0]);
-                localStorage.setItem("knowletUser", user);
-                alert("Successfully Loged In");
-                redirect();
-
-                //window.location.href = "profile";
+        // new
+        const res = await fetch(
+            'https://knowlet.in/.netlify/functions/get-data',
+            {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ id: userId, email: email })
             }
+        );
+        
+        if (!res.ok) {
+            throw new Error(`HTTP error! status: ${res.status}`);
+        }
+
+        const result = await res.json();
+
+        if (!result.success) {
+            throw new Error(result.error || "Unknown error occurred");
+        }
+        const data = result.data;
+        
+        console.log("Data received:", data);
+        
+        if (!data[0]) {
+            alert("No account found with your User Id and Email");
+        } else {
+            const user = JSON.stringify(data[0]);
+            localStorage.setItem("knowletUser", user);
+            alert("Successfully Loged In");
+            redirect();
+
+            //window.location.href = "profile";
         }
         
     } catch(e) {
@@ -106,20 +131,30 @@ async function signup(name, email) {
         email: email
     }
     try {
-        const { error } = await supabase
-            .from("user")
-            .insert(user);
+        // new
+        const res = await fetch(
+            'https://knowlet.in/.netlify/functions/set-data',
+            {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(user)
+            }
+        );
         
-        if (error) {
-            console.log(error);
-            alert(error);
-        } else {
-            localStorage.setItem("knowletUser", JSON.stringify(user));
-            alert("Successfully Signed Up\n" + "Note your user ID: " + userId);
-            redirect();
-            
-            //window.location.href = "profile";
+        if (!res.ok) {
+            throw new Error(`HTTP error! status: ${res.status}`);
         }
+
+        const result = await res.json();
+
+        if (!result.success) {
+            throw new Error(result.error || "Unknown error occurred");
+        }
+
+        localStorage.setItem("knowletUser", JSON.stringify(user));
+        alert("Successfully Signed Up\n" + "Note your user ID: " + userId);
+        redirect();
+        
     } catch(e) {
         console.log(e);
     }

@@ -73,3 +73,11 @@ body {
     font-weight: 700;
     color: #007bff;
 }
+#profile-btn {
+    width: 22px;
+    border-radius: 50%;
+    background: linear-gradient(#ddd, #ccc);
+    object-fit: cover;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}

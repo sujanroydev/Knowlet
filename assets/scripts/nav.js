@@ -5,12 +5,14 @@
 
 const navItems = document.querySelectorAll(".nav-item"); // Use querySelectorAll for better selection
 const currentPagePath = window.location.href;
+const profileBtn = document.getElementById("profile-btn");
 
 // Extract the base filename (e.g., "index", "favourites_page", "profile")
 // It handles cases like 'http://example.com/index.html' or 'http://example.com/profile'
 const pathSegments = currentPagePath.split('/');
 let currentPage = pathSegments[pathSegments.length - 1]; // Get the last part of the URL
 currentPage = currentPage.split('.')[0] || 'index'; // Remove extension, default to 'index' if empty
+profileBtn.src = JSON.parse(localStorage.getItem("knowletUser")).picture || "assets/demo_pp.png";
 
 // Map the filename to the correct index, or just use a loop for a more robust solution
 navItems.forEach((item, index) => {
@@ -35,3 +37,4 @@ function focusNav (item) {
     // 2. Add the active class to the currently focused item
     item.classList.add('active-nav-item');
 }
+

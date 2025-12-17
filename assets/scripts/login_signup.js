@@ -7,6 +7,18 @@ const input = document.getElementsByClassName("user-input");
 const loginBtn = document.getElementById("login-btn");
 const signupBtn = document.getElementById("signup-btn");
 const googleSignupBtn = document.getElementById("google-signup-btn");
+const loginBox = document.getElementById('loginBox');
+const signupBox = document.getElementById('signupBox');
+
+const params = new URLSearchParams(window.location.search);
+
+const popup = params.get("popup");
+
+if (popup === "login") {
+    showLogin();
+} else if (popup === "signup") {
+    showSignup();
+}
 
 loginBtn.addEventListener("click", () => {
     let userId = input[0].value;
@@ -58,13 +70,13 @@ googleSignupBtn.addEventListener("click", async () => {
 });
 
 function showSignup() {
-    document.getElementById('loginBox').style.display = 'none';
-    document.getElementById('signupBox').style.display = 'block';
+    loginBox.style.display = 'none';
+    signupBox.style.display = 'block';
 }
 
 function showLogin() {
-    document.getElementById('signupBox').style.display = 'none';
-    document.getElementById('loginBox').style.display = 'block';
+    loginBox.style.display = 'block';
+    signupBox.style.display = 'none';
 }
 
 async function login(userId, email) {

@@ -11,6 +11,7 @@ let loader = document.getElementById("loader");
 const searchInput = document.getElementById("searchInput");
 const searchResults = document.getElementById("searchResults");
 // JavaScript to read localStorage, populate the list, and calculate the animation width
+
 (function () {
     const HISTORY_KEY = 'unit_page_history';
     const scrollContent = document.getElementById('scroll-content');
@@ -84,6 +85,10 @@ const searchResults = document.getElementById("searchResults");
     renderScrollingHistory();
 })();
 
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js')
+    .then(() => console.log('Service Worker registered'));
+}
 
 function searchNotes(query) {
   const results = [];

@@ -1,4 +1,5 @@
-const loginSignupBtn = document.getElementById("login-signup-btn");
+const loginBtn = document.getElementById("login-btn");
+const SignupBtn = document.getElementById("signup-btn");
 const logoutBtn = document.getElementById("logout-btn");
 const comProfileBtn = document.getElementById("com-profile-btn");
 
@@ -21,7 +22,8 @@ function sync() {
         profilePic.src = user.picture || "assets/demo_pp.png";
         
         isExist = true;
-        loginSignupBtn.style.display = "none";
+        loginBtn.style.display = "none";
+        SignupBtn.style.display = "none";
         logoutBtn.style.display = "block";
         comProfileBtn.style.display = "block";
     } else {
@@ -31,7 +33,8 @@ function sync() {
         profilePic.src = "assets/demo_pp.png"
         
         isExist = false;
-        loginSignupBtn.style.display = "block";
+        loginBtn.style.display = "inline-block";
+        SignupBtn.style.display = "inline-block";
         logoutBtn.style.display = "none";
         comProfileBtn.style.display = "none";
     }

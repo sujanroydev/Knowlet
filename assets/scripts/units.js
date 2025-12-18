@@ -5,10 +5,15 @@ function printDiv(divClass) {
     const printContent = noteContainer.innerHTML +
         `<p>
             Visit:
-            <a href="https://knowlet.netlify.app" target="_blank">
-                https://knowlet.netlify.app
-            </a> (Knowlet)
-        </p>`;
+            <a href="https://knowlet.in" target="_blank">
+                 https://knowlet.in
+            </a>
+             (Knowlet) for more notes and meterials.
+        </p>
+        <p>Email:
+            <a href="mailto:knowlet.study@gmail.com">
+                 knowlet.study@gmail.com
+            </a>`;
 
     const originalContent = document.body.innerHTML;
 

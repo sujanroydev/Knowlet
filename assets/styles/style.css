@@ -1,409 +1,431 @@
 /* ------------------------------
-   Global Styles
+     Global Styles
 ------------------------------ */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f4f7fa;
-  color: #222;
-  line-height: 1.6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f7fa;
+    color: #222;
+    line-height: 1.6;
 }
 
 /* ------------------------------
-   Header
+     Header
 ------------------------------ */
 header {
-  background: linear-gradient(135deg, #3b82f6, #1e40af);
-  color: #fff;
-  text-align: center;
-  padding: 3rem 1rem;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, #3b82f6, #1e40af);
+    color: #fff;
+    text-align: center;
+    padding: 3rem 1rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
 header h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  letter-spacing: 1px;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
 }
 
 header p {
-  font-size: 1.1rem;
-  opacity: 0.9;
+    font-size: 1.1rem;
+    opacity: 0.9;
 }
 
 /* ------------------------------
-   Search Bar
+     Search Bar
 ------------------------------ */
 .search-container {
-  display: flex;
-  justify-content: center;
-  margin: 2rem 0;
-  padding: 0 1rem;
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+    padding: 0 1rem;
 }
 
 #searchInput {
-  width: 100%;
-  max-width: 450px;
-  padding: 0.8rem 1rem;
-  border: 2px solid #3b82f6;
-  border-radius: 30px;
-  outline: none;
-  font-size: 1rem;
-  transition: all 0.3s ease;
+    width: 100%;
+    max-width: 450px;
+    padding: 0.8rem 1rem;
+    border: 2px solid #3b82f6;
+    border-radius: 30px;
+    outline: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
 #searchInput:focus {
-  border-color: #1d4ed8;
-  box-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
+    border-color: #1d4ed8;
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
 }
 
 /* ------------------------------
-   Search Results
+     Search Results
 ------------------------------ */
 .search-results {
-  text-align: center;
-  margin: 0 auto;
-  max-width: 600px;
-  padding: 1rem;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 1rem;
 }
 
 /* ------------------------------
-   Section Containers
+     Section Containers
 ------------------------------ */
 section {
-  padding: 3rem 1rem;
+    padding: 3rem 1rem;
 }
 
 .container {
-  max-width: 1100px;
-  margin: auto;
+    max-width: 1100px;
+    margin: auto;
 }
 
 /* ------------------------------
-   Grid Layout for Semesters
+     Grid Layout for Semesters
 ------------------------------ */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
 }
 
 .card {
-  background: #fff;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  text-align: center;
-  padding: 1.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: center;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
 .card a {
-  display: block;
-  color: #1e3a8a;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 1.1rem;
+    display: block;
+    color: #1e3a8a;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.1rem;
 }
 
 #resources h2 {
-  text-align: center;
-  color: #1e3a8a;
-  font-size: 1.6rem;
+    text-align: center;
+    color: #1e3a8a;
+    font-size: 1.6rem;
 }
 
 /* ------------------------------
-   About Section
+     About Section
 ------------------------------ */
 #about p {
-  max-width: 800px;
-  margin: 1rem auto 0;
-  text-align: center;
-  font-size: 1rem;
-  color: #444;
+    max-width: 800px;
+    margin: 1rem auto 0;
+    text-align: center;
+    font-size: 1rem;
+    color: #444;
 }
 
 #about h2 {
-  text-align: center;
-  color: #1e3a8a;
-  font-size: 1.6rem;
+    text-align: center;
+    color: #1e3a8a;
+    font-size: 1.6rem;
 }
 
 /* ------------------------------
-   Features Section
+     Features Section
 ------------------------------ */
 #features {
-  background: #eef3fc;
+    background: #eef3fc;
 }
 
 #features h2 {
-  text-align: center;
-  color: #1e3a8a;
+    text-align: center;
+    color: #1e3a8a;
 }
 
 #features ul {
-  list-style: none;
-  max-width: 700px;
-  margin: 1.5rem auto 0;
-  padding: 0;
+    list-style: none;
+    max-width: 700px;
+    margin: 1.5rem auto 0;
+    padding: 0;
 }
 
 #features li {
-  background: #fff;
-  margin-bottom: 0.8rem;
-  padding: 1rem 1.2rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+    background: #fff;
+    margin-bottom: 0.8rem;
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 /* ------------------------------
-   Footer
+     Footer
 ------------------------------ */
 .footer {
-  background: #1e3a8a;
-  color: #fff;
-  text-align: center;
-  padding: 1.5rem;
-  font-size: 0.95rem;
+    background: #1e3a8a;
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.95rem;
 }
 
 .footer a {
-  color: #93c5fd;
-  text-decoration: none;
+    color: #93c5fd;
+    text-decoration: none;
 }
 
 .footer a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .footer p {
-  margin: 0.5rem 0;
+    margin: 0.5rem 0;
 }
 
 /* ------------------------------
-   Responsive Design
+     Responsive Design
 ------------------------------ */
 @media (max-width: 600px) {
-  header h1 {
-    font-size: 1.6rem;
-  }
-  
-  #features li {
-    font-size: 0.95rem;
-  }
-  
-  #about p {
-    font-size: 0.95rem;
-  }
+    header h1 {
+        font-size: 1.6rem;
+    }
+    
+    #features li {
+        font-size: 0.95rem;
+    }
+    
+    #about p {
+        font-size: 0.95rem;
+    }
 }
 
 /* --- STYLES FOR HORIZONTAL SCROLLING HISTORY --- */
 /* The main CSS remains mostly the same, but we remove the fixed white background 
-   and the fixed blue border color to allow the JS to inject colors.
+     and the fixed blue border color to allow the JS to inject colors.
 */
 
 #scroll h2 {
-    text-align: center;
-    font-size: 1.6em;
-    color: #2c3e50;
+        text-align: center;
+        font-size: 1.6em;
+        color: #2c3e50;
 }
 
 .history-scroll-container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 10px;
-    overflow: hidden; 
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 0 10px;
+        overflow: hidden; 
 }
 
 .history-scroll-list {
-    display: flex;
-    white-space: nowrap;
-    padding: 10px 0;
-    position: relative; 
+        display: flex;
+        white-space: nowrap;
+        padding: 10px 0;
+        position: relative; 
 }
 
 .scroll-content {
-    display: flex;
-    animation: marquee 30s linear infinite;
+        display: flex;
+        animation: marquee 30s linear infinite;
 }
 
 /* Pause the animation when the mouse hovers over the list */
 .history-scroll-list:hover .scroll-content {
-    animation-play-state: paused;
+        animation-play-state: paused;
 }
 
 .history-scroll-item {
-    /* Define card size and general styling */
-    flex: 0 0 200px; 
-    height: 100px;
-    border-radius: 6px;
-    margin-right: 15px;
-    padding: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-left: 5px solid transparent; /* Placeholder for the random color border */
-    
-    /* Ensure padding for text */
-    padding-left: 15px; 
-    
-    /* Entry Animation */
-    opacity: 0; 
-    transform: translateY(20px); 
-    animation: fadeInSlideUp 0.5s ease-out forwards;
-    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out; 
+        /* Define card size and general styling */
+        flex: 0 0 200px; 
+        height: 100px;
+        border-radius: 6px;
+        margin-right: 15px;
+        padding: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-left: 5px solid transparent; /* Placeholder for the random color border */
+        
+        /* Ensure padding for text */
+        padding-left: 15px; 
+        
+        /* Entry Animation */
+        opacity: 0; 
+        transform: translateY(20px); 
+        animation: fadeInSlideUp 0.5s ease-out forwards;
+        transition: transform 0.2s ease-out, box-shadow 0.2s ease-out; 
 }
 
 /* Hover Animation */
 .history-scroll-item:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        transform: translateY(-5px); 
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
 .history-scroll-item a {
-    white-space: normal;
-    font-weight: bold;
-    /* Default link color, can be adjusted for contrast */
-    color: #333; 
-    text-decoration: none;
-    line-height: 1.2;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2; 
-    -webkit-box-orient: vertical;
+        white-space: normal;
+        font-weight: bold;
+        /* Default link color, can be adjusted for contrast */
+        color: #333; 
+        text-decoration: none;
+        line-height: 1.2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; 
+        -webkit-box-orient: vertical;
 }
 
 .history-scroll-item .timestamp {
-    font-size: 0.75em;
-    color: #7f8c8d;
-    margin-top: 5px;
+        font-size: 0.75em;
+        color: #7f8c8d;
+        margin-top: 5px;
 }
 
 .empty-message-scroll {
-    color: #856404;
-    padding: 20px;
-    flex: 0 0 100%;
+        color: #856404;
+        padding: 20px;
+        flex: 0 0 100%;
 }
 
 /* --- KEYFRAME ANIMATIONS --- */
 
 @keyframes fadeInSlideUp {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
 }
 /* ------------------------------
-   FAQ Section
+     FAQ Section
 ------------------------------ */
 #faq {
-  background: #ffffff;
-  padding: 3rem 1rem;
+    background: #ffffff;
+    padding: 3rem 1rem;
 }
 
 #faq h2 {
-  text-align: center;
-  color: #1e3a8a;
-  font-size: 1.6rem;
-  margin-bottom: 2rem;
+    text-align: center;
+    color: #1e3a8a;
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
 }
 
 .faq-item {
-  background: #fff;
-  border-radius: 12px;
-  padding: 1.2rem 1.4rem;
-  margin: 0.8rem auto;
-  max-width: 800px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.2rem 1.4rem;
+    margin: 0.8rem auto;
+    max-width: 800px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .faq-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 5px 12px rgba(0,0,0,0.10);
+    transform: translateY(-4px);
+    box-shadow: 0 5px 12px rgba(0,0,0,0.10);
 }
 
 .faq-item h3 {
-  font-size: 1.1rem;
-  color: #1e3a8a;
-  margin-bottom: 0.3rem;
+    font-size: 1.1rem;
+    color: #1e3a8a;
+    margin-bottom: 0.3rem;
 }
 
 .faq-item p {
-  color: #444;
-  font-size: 0.98rem;
-  line-height: 1.5;
+    color: #444;
+    font-size: 0.98rem;
+    line-height: 1.5;
+}
+
+/* Download Button */
+
+#download {
+    background: #eef3fc;
+    text-align: center;
+    padding: 3rem 1rem;
+    border-top: 1px solid #d6e1f7;
+}
+
+#download h2 {
+    color: #1e3a8a;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+#download p {
+    max-width: 650px;
+    margin: 0 auto 1.5rem;
+    color: #444;
+    font-size: 0.98rem;
+}
+
+.button {
+    display: inline-block;
+    background: #3b82f6;
+    color: #fff;
+    padding: 0.8rem 1.6rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background 0.3s ease, box-shadow 0.2s ease;
+}
+
+.button:hover {
+    background: #1e40af;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
 /* ------------------------------
-   Contact CTA Section
+    Contact CTA Section
 ------------------------------ */
 #contact-cta {
-  background: #eef3fc;
-  text-align: center;
-  padding: 3rem 1rem;
-  border-top: 1px solid #d6e1f7;
+    background: #eef3fc;
+    text-align: center;
+    padding: 3rem 1rem;
+    border-top: 1px solid #d6e1f7;
 }
 
 #contact-cta h2 {
-  color: #1e3a8a;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+    color: #1e3a8a;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 #contact-cta p {
-  max-width: 650px;
-  margin: 0 auto 1.5rem;
-  color: #444;
-  font-size: 0.98rem;
-}
-
-.cta-button {
-  display: inline-block;
-  background: #3b82f6;
-  color: #fff;
-  padding: 0.8rem 1.6rem;
-  border-radius: 30px;
-  font-size: 1rem;
-  text-decoration: none;
-  transition: background 0.3s ease, box-shadow 0.2s ease;
-}
-
-.cta-button:hover {
-  background: #1e40af;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    max-width: 650px;
+    margin: 0 auto 1.5rem;
+    color: #444;
+    font-size: 0.98rem;
 }
 
 /* Responsive tweaks */
 @media (max-width: 600px) {
-  .faq-item {
-    padding: 1rem 1rem;
-  }
-  
-  #contact-cta h2 {
-    font-size: 1.3rem;
-  }
+    .faq-item {
+        padding: 1rem 1rem;
+    }
+    
+    #contact-cta h2 {
+        font-size: 1.3rem;
+    }
 }

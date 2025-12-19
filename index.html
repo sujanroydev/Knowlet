@@ -1,223 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Google site verification -->
-  <meta name="google-site-verification" content="MyH_ZXmYfE8D3u5iHa7tODNYysPhybxM7dWcc5i3nSI" />
-  
-  <!-- SEO Meta -->
-  <meta name="description" content="Free notes and study materials for college students. Download study materials for Mathematics, Physics, Computer Science, Statistics, Alternative English, Economics, Political Science, Education, Zoology, Botany, and more.">
-  <meta name="robots" content="index, follow">
-  <meta http-equiv="Content-Language" content="en">
-  <meta name="author" content="Sujan Kumar Roy">
-  <meta name="designer" content="Sujan Kumar Roy">
-  <meta name="owner" content="Sujan Kumar Roy">
-  
-  <!-- Open Graph -->
-  <meta property="og:locale" content="en_US">
-  <meta property="og:title" content="Knowlet – Free Notes & Study Materials">
-  <meta property="og:description" content="Download free study materials for Mathematics, Physics, Computer Science, Statistics, Alternative English, Economics, Political Science, Education, Zoology, Botany, and more.">
-  <meta property="og:url" content="https://knowlet.netlify.app/">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Knowlet">
-  <meta property="og:image" content="https://knowlet.netlify.app/assets/knowlet_full_icon.png">
-  <meta property="og:image:width" content="1080">
-  <meta property="og:image:height" content="564">
-  
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Knowlet – Free Notes & Study Materials">
-  <meta name="twitter:description" content="Get free notes and study materials for Mathematics, Physics, Computer Science, Statistics, Alternative English, Economics, Political Science, Education, Zoology, Botany, and more.">
-  <meta name="twitter:image" content="https://knowlet.netlify.app/assets/knowlet_full_icon.png">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google site verification -->
+    <meta name="google-site-verification" content="MyH_ZXmYfE8D3u5iHa7tODNYysPhybxM7dWcc5i3nSI" />
+    
+    <!-- SEO Meta -->
+    <meta name="description" content="Free notes and study materials for college students. Download study materials for Mathematics, Physics, Computer Science, Statistics, Alternative English, Economics, Political Science, Education, Zoology, Botany, and more.">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="author" content="Sujan Kumar Roy">
+    <meta name="designer" content="Sujan Kumar Roy">
+    <meta name="owner" content="Sujan Kumar Roy">
+    
+    <!-- Open Graph -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Knowlet – Free Notes & Study Materials">
+    <meta property="og:description" content="Download free study materials for Mathematics, Physics, Computer Science, Statistics, Alternative English, Economics, Political Science, Education, Zoology, Botany, and more.">
+    <meta property="og:url" content="https://knowlet.netlify.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Knowlet">
+    <meta property="og:image" content="https://knowlet.netlify.app/assets/knowlet_full_icon.png">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="564">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Knowlet – Free Notes & Study Materials">
+    <meta name="twitter:description" content="Get free notes and study materials for Mathematics, Physics, Computer Science, Statistics, Alternative English, Economics, Political Science, Education, Zoology, Botany, and more.">
+    <meta name="twitter:image" content="https://knowlet.netlify.app/assets/knowlet_full_icon.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
 
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
-  <!-- manifest -->
-  <link rel="manifest" href="/site.webmanifest">
-  
-  <!-- Canonical -->
-  <link rel="canonical" href="https://knowlet.netlify.app/">
-  
-  <!-- Title -->
-  <title>Knowlet – Notes & Study Materials for college Students</title>
-  
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/styles/style.css">
-  <link rel="stylesheet" href="assets/styles/nav.css">
-  
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5362217555997798" crossorigin="anonymous"></script>
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <!-- manifest -->
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://knowlet.netlify.app/">
+    
+    <!-- Title -->
+    <title>Knowlet – Notes & Study Materials for college Students</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/styles/style.css">
+    <link rel="stylesheet" href="assets/styles/nav.css">
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5362217555997798" crossorigin="anonymous"></script>
  </head>
 <body>
-  <!-- Header -->
-  <header>
-    <h1>Free Study Notes for College Students</h1>
-    <p>Search, view and download your study materials</p>
-  </header>
-  
-  <div class="search-container" onclick="window.location.href='search'" style="cursor:pointer;">
-    <input type="text" id="searchInput" placeholder="Search units, subjects or papers..." readonly>
-  </div>
-
-  <!-- Semester Grid -->
-  <section id="resources">
-    <div class="container">
-      <h2>Available Semesters</h2>
-      <div id="semesters" class="grid">
-      	<div class="card"><a href="notes/semester_1.html" >Semester 1</a></div>
-      	<div class="card"><a href="notes/semester_2.html" >Semester 2</a></div>
-      	<div class="card"><a href="notes/semester_3.html" >Semester 3</a></div>
-      	<div class="card"><a href="notes/semester_4.html" >Semester 4</a>coming soon</div>
-      	<div class="card"><a href="notes/semester_5.html" >Semester 5</a>coming soon</div>
-      	<div class="card"><a href="notes/semester_6.html" >Semester 6</a>coming soon</div>
-      	<div class="card"><a href="notes/semester_7.html" >Semester 7</a>coming soon</div>
-      	<div class="card"><a href="notes/semester_8.html" >Semester 8</a>coming soon</div>
-      </div>
+    <!-- Header -->
+    <header>
+        <h1>Free Study Notes for College Students</h1>
+        <p>Search, view and download your study materials</p>
+    </header>
+    
+    <div class="search-container" onclick="window.location.href='search'" style="cursor:pointer;">
+        <input type="text" id="searchInput" placeholder="Search units, subjects or papers..." readonly>
     </div>
-  </section>
-  
-  <section id="scroll">
-    <div class="container history-scroll-container">
-        <h2>Recently Visited</h2>
-        <div id="history-scrolling-output" class="history-scroll-list">
-            <div id="scroll-content" class="scroll-content">
-                <div class="empty-message-scroll">Loading history...</div>
+
+    <!-- Semester Grid -->
+    <section id="resources">
+        <div class="container">
+            <h2>Available Semesters</h2>
+            <div id="semesters" class="grid">
+            	<div class="card"><a href="notes/semester_1.html" >Semester 1</a></div>
+            	<div class="card"><a href="notes/semester_2.html" >Semester 2</a></div>
+            	<div class="card"><a href="notes/semester_3.html" >Semester 3</a></div>
+            	<div class="card"><a href="notes/semester_4.html" >Semester 4</a>coming soon</div>
+            	<div class="card"><a href="notes/semester_5.html" >Semester 5</a>coming soon</div>
+            	<div class="card"><a href="notes/semester_6.html" >Semester 6</a>coming soon</div>
+            	<div class="card"><a href="notes/semester_7.html" >Semester 7</a>coming soon</div>
+            	<div class="card"><a href="notes/semester_8.html" >Semester 8</a>coming soon</div>
             </div>
         </div>
-    </div>
-  </section>
-  
-  <!-- About Section -->
-  <section id="about">
-    <div class="container">
-      <h2>About Knowlet</h2>
-      <p>
-        Knowlet is a free online resource platform for college students. 
-        Here, you can access study notes, and reference materials for 
-        Mathematics, Physics, Computer Science, Statistics, Economics, Political Science, Education, History and more. 
-        Our goal is to make learning easier and more accessible.
-      </p>
-    </div>
-  </section>
+    </section>
+    
+    <section id="scroll">
+        <div class="container history-scroll-container">
+                <h2>Recently Visited</h2>
+                <div id="history-scrolling-output" class="history-scroll-list">
+                        <div id="scroll-content" class="scroll-content">
+                                <div class="empty-message-scroll">Loading history...</div>
+                        </div>
+                </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Knowlet</h2>
+            <p>
+                Knowlet is a free online resource platform for college students. 
+                Here, you can access study notes, and reference materials for 
+                Mathematics, Physics, Computer Science, Statistics, Economics, Political Science, Education, History and more. 
+                Our goal is to make learning easier and more accessible.
+            </p>
+        </div>
+    </section>
 
-  <!-- Features Section -->
-  <section id="features">
-    <div class="container">
-      <h2>Why Use knowlet?</h2>
-      <ul>
-        <li>📘 Free access to semester-wise notes and study materials</li>
-        <li>📂 Easy to view and download Notes</li>
-        <li>🔎 Easy to find the specific Notes by Knowlet search</li>
-        <li>📱 Mobile-friendly design for studying anywhere</li>
-      </ul>
-    </div>
-  </section>
-  
-  <!-- FAQ Section -->
-  <section id="faq">
-    <div class="container">
-      <h2>Frequently Asked Questions</h2>
+    <!-- Features Section -->
+    <section id="features">
+        <div class="container">
+            <h2>Why Use knowlet?</h2>
+            <ul>
+                <li>📘 Free access to semester-wise notes and study materials</li>
+                <li>📂 Easy to view and download Notes</li>
+                <li>🔎 Easy to find the specific Notes by Knowlet search</li>
+                <li>📱 Mobile-friendly design for studying anywhere</li>
+            </ul>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section id="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
 
-      <div class="faq-item">
-        <h3>Is Knowlet free to use?</h3>
-        <p>Yes. All study materials on Knowlet are completely free for students.</p>
-      </div>
+            <div class="faq-item">
+                <h3>Is Knowlet free to use?</h3>
+                <p>Yes. All study materials on Knowlet are completely free for students.</p>
+            </div>
 
-      <div class="faq-item">
-        <h3>Can I download the notes?</h3>
-        <p>Yes. You can view or download every note directly from the subject or unit page.</p>
-      </div>
+            <div class="faq-item">
+                <h3>Can I download the notes?</h3>
+                <p>Yes. You can view or download every note directly from the subject or unit page.</p>
+            </div>
 
-      <div class="faq-item">
-        <h3>How often is new content added?</h3>
-        <p>New notes are uploaded regularly. Semester 4 to 8 materials are being added.</p>
-      </div>
+            <div class="faq-item">
+                <h3>How often is new content added?</h3>
+                <p>New notes are uploaded regularly. Semester 4 to 8 materials are being added.</p>
+            </div>
 
-      <div class="faq-item">
-        <h3>Can I contribute notes?</h3>
-        <p>You can send your notes or suggestions through the contact email mentioned below.</p>
-      </div>
-    </div>
-  </section>
+            <div class="faq-item">
+                <h3>Can I contribute notes?</h3>
+                <p>You can send your notes or suggestions through the contact email mentioned below.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Download Button -->
+    <section id="download">
+        <div class="container">
+            <h2>Download the Android web app</h2>
+            <p>Compatible with Android devices only</p>
+            <a id="download-btn" class="button" href="/assets/knowlet.apk" download>Download APK</a>
+        </div>
+    </section>
 
-  <!-- Contact CTA -->
-  <section id="contact-cta">
-    <div class="container">
-      <h2>Have Suggestions or Want to Contribute?</h2>
-      <p>We’re always looking to improve. If you find any issue or want to share notes, feel free to reach out.</p>
-      <a class="cta-button" href="mailto:knowlet.study@gmail.com">Contact Us</a>
-    </div>
-  </section>
+    <!-- Contact CTA -->
+    <section id="contact-cta">
+        <div class="container">
+            <h2>Have Suggestions or Want to Contribute?</h2>
+            <p>We’re always looking to improve. If you find any issue or want to share notes, feel free to reach out.</p>
+            <a id="cta-button" class="button" href="mailto:knowlet.study@gmail.com">Contact Us</a>
+        </div>
+    </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>© 2025 Knowlet | All rights reserved</p>
-    <p>👨‍💻 Designed & Maintained by <strong>Sujan Kumar Roy</strong></p>
-    <p>
-        ✉️ <a href="mailto:knowlet.study@gmail.com">knowlet.study@gmail.com</a><br>
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 Knowlet | All rights reserved</p>
+        <p>👨‍💻 Designed & Maintained by <strong>Sujan Kumar Roy</strong></p>
+        <p>
+            ✉️ <a href="mailto:knowlet.study@gmail.com">knowlet.study@gmail.com</a><br>
 
-        📌 <a href="legal/declaration.html" target="_blank">Read our Declaration</a> |
-        🔒 <a href="legal/privacy-policy.html" target="_blank">Privacy Policy</a> |
-        📃 <a href="legal/terms-and-conditions.html" target="_blank">Terms & Conditions</a> |
-        🐞 <a href="https://github.com/SKR0411/Knowlet/issues" target="_blank">Report an Issue</a>
-    </p>
-  </footer>
-  
-  <nav class="bottom-nav">
-    <a href="index.html" class="nav-item">
-      <span class="icon">🏠</span>
-      <span class="text">Home</span>
-    </a>
-    <a href="favourites_page.html" class="nav-item">
-      <span class="icon">🌟</span>
-      <span class="text">Favourite</span>
-    </a>
-    <a href="history_page.html" class="nav-item">
-      <span class="icon">📜</span>
-      <span class="text">History</span>
-    </a>
-    <a href="profile.html" class="nav-item">
-      <span class="icon"><img id="profile-btn" src="assets/demo_pp.png"></span>
-      <span class="text">Profile</span>
-    </a>
-  </nav>
+            📌 <a href="legal/declaration.html" target="_blank">Read our Declaration</a> |
+            🔒 <a href="legal/privacy-policy.html" target="_blank">Privacy Policy</a> |
+            📃 <a href="legal/terms-and-conditions.html" target="_blank">Terms & Conditions</a> |
+            🐞 <a href="https://github.com/SKR0411/Knowlet/issues" target="_blank">Report an Issue</a>
+        </p>
+    </footer>
+    
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <span class="icon">🏠</span>
+            <span class="text">Home</span>
+        </a>
+        <a href="favourites_page.html" class="nav-item">
+            <span class="icon">🌟</span>
+            <span class="text">Favourite</span>
+        </a>
+        <a href="history_page.html" class="nav-item">
+            <span class="icon">📜</span>
+            <span class="text">History</span>
+        </a>
+        <a href="profile.html" class="nav-item">
+            <span class="icon"><img id="profile-btn" src="assets/demo_pp.png"></span>
+            <span class="text">Profile</span>
+        </a>
+    </nav>
 
-  <script src="assets/scripts/nav.js"></script>
-  <script src="assets/scripts/script.js"></script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Knowlet",
-    "url": "https://knowlet.netlify.app/",
-    "creator": {
-      "@type": "Person",
-      "name": "Sujan Kumar Roy",
-      "AlternativeName": "Sujan Roy",
-      "sortName": "SKR",
-      "dateOfBirth": "4th November 2007",
-      "image": "https://github.com/SKR0411.png",
-      "jobTitle": "Founder & Designer",
-      "email": "knowlet.study@gmail.com",
-      "sameAs": [
-        "https://github.com/SKR0411",
-        "https://linkedin.com/in/SKR0411",
-        "https://leetcode.com/u/SKR0411",
-        "https://dev.to/@SKR0411",
-        "https://facebook.com/sujanroy0411",
-        "https://instagram.com/sujanroy0411",
-        "https://peerlist.io/sujanroy63836"
-      ]
-    },
-    "description": "Free notes and study materials for college students across multiple subjects.",
-    "inLanguage": "en"
-  }
-  </script>
+    <script src="assets/scripts/nav.js"></script>
+    <script src="assets/scripts/script.js"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Knowlet",
+        "url": "https://knowlet.netlify.app/",
+        "creator": {
+            "@type": "Person",
+            "name": "Sujan Kumar Roy",
+            "AlternativeName": "Sujan Roy",
+            "sortName": "SKR",
+            "dateOfBirth": "4th November 2007",
+            "image": "https://github.com/SKR0411.png",
+            "jobTitle": "Founder & Designer",
+            "email": "knowlet.study@gmail.com",
+            "sameAs": [
+                "https://github.com/SKR0411",
+                "https://linkedin.com/in/SKR0411",
+                "https://leetcode.com/u/SKR0411",
+                "https://dev.to/@SKR0411",
+                "https://facebook.com/sujanroy0411",
+                "https://instagram.com/sujanroy0411",
+                "https://peerlist.io/sujanroy63836"
+            ]
+        },
+        "description": "Free notes and study materials for college students across multiple subjects.",
+        "inLanguage": "en"
+    }
+    </script>
 </body>
 </html>

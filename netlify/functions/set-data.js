@@ -19,7 +19,7 @@ export default async (request) => {
     const user = body;
     
     try {
-        const { error } = await supabase
+        const { error } = await supabaseClient
                 .from("user")
                 .insert(user);
 

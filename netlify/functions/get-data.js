@@ -1,6 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabase = createClient(process.env.SUPABASE_DATABASE_URL, process.env.SUPABASE_ANON_KEY);
+const supabaseClient = createClient(process.env.SUPABASE_DATABASE_URL, process.env.SUPABASE_ANON_KEY);
 
 export default async (request) => {
     
@@ -19,7 +19,7 @@ export default async (request) => {
     const { id, email } = body;
     
     try {
-        const { data, error } = await supabase
+        const { data, error } = await supabaseClient
                 .from('user')
                 .select('*')
                 .eq('id', id)

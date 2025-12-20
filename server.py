@@ -4,13 +4,12 @@ import os
 class HtmlFallbackHandler(SimpleHTTPRequestHandler):
     def do_GET(self):
         path = self.path.split("?")[0]
-        parameter = self.path.split("?")[1]
 
         if not os.path.splitext(path)[1]:
             html_path = path.rstrip("/") + ".html"
             if os.path.exists("." + html_path):
-                self.path = html_path + "?" + parameter
-
+                self.path = html_path
+                
         super().do_GET()
 
 PORT = 3000

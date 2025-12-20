@@ -6,9 +6,9 @@ backBtn.title = "Go Back";
 
 backBtn.onclick = () => {
   const currentUrl = window.location.href;
-  const match = currentUrl.match(/\/[a-z]+\/[a-z]{3}_\d+/i);
-  const backUrl = currentUrl.replace(/\/[a-z]{3}_\d+/i, '');
-  window.location.href = '/';
+  const match = currentUrl.match(/\/notes/i);
+  const backUrl = currentUrl.replace(/\/notes/i, `/index`);
+  window.location.href = backUrl;
 };
 
 document.body.appendChild(backBtn);

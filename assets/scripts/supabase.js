@@ -73,7 +73,7 @@ buildUI();
 const SUPABASE_URL = "https://ampwczxrfpbqlkuawrdf.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFtcHdjenhyZnBicWxrdWF3cmRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI3OTk4MzYsImV4cCI6MjA3ODM3NTgzNn0.hFib9Y5x02b5VWjKuNi1XkUYvycmrp0DQhnwNkOGJEU";
 
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 let selectedRating = 0;        // user's chosen star (1..5)
 let hoverRating = 0;             // hover preview
@@ -223,7 +223,7 @@ function AboutUser() {
 
 async function loadUserInfo() {
     try {
-        const { data, error } = await supabase
+        const { data, error } = await supabaseClient
             .from("user")
             .select("*")
             .eq("id", user.id)
@@ -243,7 +243,7 @@ async function loadUserInfo() {
 
 async function submitUserInfo() {
     try {
-        const { error } = await supabase
+        const { error } = await supabaseClient
                 .from("user")
                 .insert({
                     id: user.id,
@@ -263,7 +263,7 @@ async function submitUserInfo() {
 
 async function isLikedOrRated() {
     try {
-        const { data, error } = await supabase
+        const { data, error } = await supabaseClient
                 .from("ratings")
                 .select("*")
                 .eq("page_id", pageId)
@@ -306,7 +306,7 @@ async function isLikedOrRated() {
 async function loadRatings(){
     
     try {
-        const { data, error } = await supabase
+        const { data, error } = await supabaseClient
             .from("ratings")
             .select("id, page_ratings, page_likes, ratings_message, created_at")
             .eq("page_id", pageId)
@@ -373,7 +373,7 @@ async function submitRating() {
     const msg = document.getElementById("rating-message").value.trim();
     try {
         
-        const { data, error } = await supabase
+        const { data, error } = await supabaseClient
                 .from("ratings")
                 .select("*")
                 .eq("user_id", user.id)
@@ -381,7 +381,7 @@ async function submitRating() {
 
         r = data[0];
         if (r) {
-            const { error } = await supabase
+            const { error } = await supabaseClient
                     .from("ratings")
                     .update({
                         page_ratings: selectedRating,
@@ -403,7 +403,7 @@ async function submitRating() {
             document.getElementById("rating-message").value = "";
             await loadRatings();
         } else {
-            const { error } = await supabase
+            const { error } = await supabaseClient
                     .from("ratings")
                     .insert({
                         page_id: pageId,
@@ -431,7 +431,7 @@ async function submitRating() {
 
 async function likePage(oldLikes){
     try {
-        const { data, error } = await supabase
+        const { data, error } = await supabaseClient
             .from("ratings")
             .select("page_likes")
             .eq("user_id", user.id)
@@ -441,7 +441,7 @@ async function likePage(oldLikes){
         
         if (data[0]) {
             //add try catch block
-            const { error } = await supabase
+            const { error } = await supabaseClient
                 .from("ratings")
                 .update({ page_likes: isPageLiked ? 0 : 1 })
                 .eq("user_id", user.id)
@@ -455,7 +455,7 @@ async function likePage(oldLikes){
             //await isLikedOrRated();
         } else {
             try {
-                const { error } = await supabase
+                const { error } = await supabaseClient
                         .from("ratings")
                         .insert({
                             page_id: pageId,
@@ -482,7 +482,7 @@ async function likePage(oldLikes){
 
 async function loadPageLikes() {
     try {
-        const { data, error } = await supabase
+        const { data, error } = await supabaseClient
                 .from("ratings")
                 .select("page_likes")
                 .eq("page_id", pageId)
@@ -506,7 +506,7 @@ async function loadPageLikes() {
 async function loadComments() {
     //const pageId = pageId;
     try {
-        const { data, error } = await supabase
+        const { data, error } = await supabaseClient
              .from("comments")
              .select("id, comment_text, likes, created_at")
              .eq("page_id", pageId)
@@ -549,7 +549,7 @@ async function submitComment(){
     const text = document.getElementById("comment-input").value;
     if (!text.trim()) return;
     try {
-        const { error } = await supabase
+        const { error } = await supabaseClient
                 .from("comments")
                 .insert({
                     page_id: pageId,
@@ -571,7 +571,7 @@ async function submitComment(){
 
 async function likeComment(id, oldLikes){
     try {
-        await supabase
+        await supabaseClient
             .from("comments")
             .update({ likes: (Number(oldLikes)||0)+1 })
             .eq("id", id);

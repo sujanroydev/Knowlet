@@ -1,7 +1,7 @@
 const SUPABASE_URL = "https://ampwczxrfpbqlkuawrdf.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFtcHdjenhyZnBicWxrdWF3cmRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI3OTk4MzYsImV4cCI6MjA3ODM3NTgzNn0.hFib9Y5x02b5VWjKuNi1XkUYvycmrp0DQhnwNkOGJEU";
 
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 const input = document.getElementsByClassName("user-input");
 const inputEdu = document.getElementById("sltEdu")
@@ -72,7 +72,7 @@ async function sync() {
     const user = JSON.parse(localStorage.getItem("knowletUser"));
     //console.log(user);
     try {
-        const { error } = await supabase
+        const { error } = await supabaseClient
             .from("user")
             .update(user)
             .eq("id", userId);

@@ -21,7 +21,7 @@ function load() {
     input[3].value = user.fv_subject ? user.fv_subject : null;
     input[4].value = user.stream ? user.stream : null;
     inputEdu.value = user.standered ? user.standered : "";
-    profilePic.src = user.picture || "assets/demo_pp.png";
+    profilePic.src = user.picture || "assets/images/demo_pp.png";
 }
 
 btnSubmit.addEventListener("click", () => {

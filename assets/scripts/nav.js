@@ -12,7 +12,7 @@ const profileBtn = document.getElementById("profile-btn");
 const pathSegments = currentPagePath.split('/');
 let currentPage = pathSegments[pathSegments.length - 1]; // Get the last part of the URL
 currentPage = currentPage.split('.')[0] || 'index'; // Remove extension, default to 'index' if empty
-profileBtn.src = JSON.parse(localStorage.getItem("knowletUser")).picture || "assets/demo_pp.png";
+profileBtn.src = JSON.parse(localStorage.getItem("knowletUser")).picture || "assets/images/demo_pp.png";
 
 // Map the filename to the correct index, or just use a loop for a more robust solution
 navItems.forEach((item, index) => {

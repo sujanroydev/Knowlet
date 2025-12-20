@@ -19,7 +19,7 @@ function sync() {
         userName.textContent = user.name;
         email.textContent = '' + user.email;
         userId.textContent = user.id;
-        profilePic.src = user.picture || "assets/demo_pp.png";
+        profilePic.src = user.picture || "assets/images/demo_pp.png";
         
         isExist = true;
         loginBtn.style.display = "none";
@@ -30,7 +30,7 @@ function sync() {
         userName.textContent = "Your Name";
         email.textContent = "yourname@example.com";
         userId.textContent = "User ID"
-        profilePic.src = "assets/demo_pp.png"
+        profilePic.src = "assets/images/demo_pp.png"
         
         isExist = false;
         loginBtn.style.display = "inline-block";

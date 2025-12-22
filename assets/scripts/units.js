@@ -2,24 +2,75 @@
 
 function printDiv(divClass) {
     const noteContainer = document.getElementsByClassName(divClass)[0];
-    const printContent = noteContainer.innerHTML +
-        `<p>
-            Visit:
-            <a href="https://knowlet.in" target="_blank">
-                 https://knowlet.in
-            </a>
-             (Knowlet) for more notes and meterials.
+    if (!noteContainer) return;
+
+    const printedOn = new Date().toLocaleDateString();
+
+    const printContent = `
+        <style>
+            /* The Watermark Container */
+            .print-logo {
+                position: fixed;
+                top: 50%;         /* Move to vertical center */
+                left: 50%;        /* Move to horizontal center */
+                transform: translate(-50%, -50%); /* Offset by its own size to center perfectly */
+                opacity: 0.05;     /* Keep it very light so text remains readable */
+                z-index: 1000;    /* Push it far behind the content */
+                width: 80%;       /* Make it big */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .print-logo img {
+                width: 100%;      /* Image fills the 80% container */
+                max-width: 600px; /* Prevents it from getting absurdly huge on wide paper */
+                height: auto;
+            }
+
+            /* Ensure the text content stays on top and is visible */
+            .content-area {
+                position: relative;
+                z-index: 1;
+            }
+
+            @media screen {
+                .print-logo { display: none; }
+            }
+        </style>
+
+        <div class="content-area">
+            ${noteContainer.innerHTML}
+        </div>
+
+        <div class="print-logo">
+            <img 
+                src="/assets/images/android-chrome-192x192.png"
+                alt="Knowlet Watermark"
+            />
+        </div>
+
+        <hr style="margin-top: 50px;">
+        <p style="font-size: 12px; text-align: center; position: relative; z-index: 2;">
+            Visit: <a href="https://knowlet.in">https://knowlet.in</a> (Knowlet)
+            <br>
+            Email: <a href="mailto:knowlet.study@gmail.com">knowlet.study@gmail.com</a>
+            <br>
+            Printed on: ${printedOn}
         </p>
-        <p>Email:
-            <a href="mailto:knowlet.study@gmail.com">
-                 knowlet.study@gmail.com
-            </a>`;
+    `;
 
     const originalContent = document.body.innerHTML;
-
     document.body.innerHTML = printContent;
+    
     window.print();
+    
+    // Restore the original page immediately after print dialog closes
+    //document.body.innerHTML = originalContent;
+    // Tip: If restoring innerHTML breaks your JS buttons, window.location.reload() is a safer alternative.
 }
+
+
 
 (function () {
   const currentUrl = window.location.href;

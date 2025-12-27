@@ -7,6 +7,7 @@ const input = document.getElementsByClassName("user-input");
 const loginBtn = document.getElementById("login-btn");
 const signupBtn = document.getElementById("signup-btn");
 const googleSignupBtn = document.getElementById("google-signup-btn");
+const googleLoginBtn = document.getElementById("google-login-btn");
 const loginBox = document.getElementById('loginBox');
 const signupBox = document.getElementById('signupBox');
 
@@ -61,6 +62,19 @@ googleSignupBtn.addEventListener("click", async () => {
         provider: "google",
         options: {
             redirectTo: window.location.origin + "/auth/callback.html"
+        }
+    });
+    
+    if (error) {
+        alert("Signup error:", error.message);
+    }
+});
+
+googleLoginBtn.addEventListener("click", async () => {
+    const { error } = await supabaseClient.auth.signInWithOAuth({
+        provider: "google",
+        options: {
+            redirectTo: window.location.origin + "/auth/login-callback.html"
         }
     });
     

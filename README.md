@@ -31,7 +31,7 @@
 
 ## Website
 
-Visit the platform: [Knowlet](https://knowlet.netlify.app/)
+Visit the platform: [Knowlet](https://knowlet.in)
 
 ## How to Use
 

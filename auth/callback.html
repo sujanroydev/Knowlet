@@ -93,22 +93,13 @@
         
         fetchGoogleUserInfo(session.provider_token)
             .then(info => {
-                signup(info.name, info.email, info.picture)
+                sync(info.name, info.email, info.picture)
                 //localStorage.setItem("knowletUserByGoogle", JSON.stringify(info));
             }
         );
             
         
-        async function signup(name, email, picture) {
-            
-            let userId = name.split(' ')[0] + "@" + parseInt(Math.random() * 9000 + 1000);
-            
-            let user = {
-                id: userId,
-                name: name,
-                email: email,
-                picture: picture
-            }
+        async function sync(name, email, picture) {
             
             try {
                 const { data, error } = await supabaseClient
@@ -122,7 +113,37 @@
                     return;
                 }
                 
-                if (!data[0]) return
+                if (!data[0]) {
+                    
+                    let userId = name.split(' ')[0] + "@" + parseInt(Math.random() * 9000 + 1000);
+                    
+                    let user = {
+                        id: userId,
+                        name: name,
+                        email: email,
+                        picture: picture
+                    }
+                    
+                    try {
+                        const { error } = await supabaseClient
+                            .from("user")
+                            .insert(user);
+                        
+                        if (error) {
+                            console.log(error);
+                            alert(error);
+                            return;
+                        }
+                        
+                        localStorage.setItem("knowletUser", JSON.stringify(user));
+                        document.getElementById("loading").style.display = "none";
+                        alert("Successfully Signed Up\n" + "Note your user ID: " + userId);
+                        redirect();
+                        
+                    } catch(e) {
+                        console.log(e);
+                    }
+                }
                 
                 if (data[0]) {
                     localStorage.setItem("knowletUser", JSON.stringify(data[0]));
@@ -131,25 +152,6 @@
                     redirect();
                     return;
                 }
-            } catch(e) {
-                console.log(e);
-            }
-            
-            try {
-                const { error } = await supabaseClient
-                    .from("user")
-                    .insert(user);
-                
-                if (error) {
-                    console.log(error);
-                    alert(error);
-                    return;
-                }
-            
-                localStorage.setItem("knowletUser", JSON.stringify(user));
-                document.getElementById("loading").style.display = "none";
-                alert("Successfully Signed Up\n" + "Note your user ID: " + userId);
-                redirect();
                 
             } catch(e) {
                 console.log(e);

@@ -119,6 +119,7 @@
                 if (error) {
                     console.log(error);
                     alert(error);
+                    return;
                 }
                 
                 if (!data[0]) return
@@ -126,10 +127,9 @@
                 if (data[0]) {
                     localStorage.setItem("knowletUser", JSON.stringify(data[0]));
                     document.getElementById("loading").style.display = "none";
-                    alert("you alredy have an account, Successfully Logged In");
+                    alert("You Alredy Have An Account, Successfully Logged In");
                     redirect();
-                    
-                    //window.location.href = "/../profile";
+                    return;
                 }
             } catch(e) {
                 console.log(e);
@@ -143,14 +143,14 @@
                 if (error) {
                     console.log(error);
                     alert(error);
-                } else {
-                    localStorage.setItem("knowletUser", JSON.stringify(user));
-                    document.getElementById("loading").style.display = "none";
-                    alert("Successfully Signed Up\n" + "Note your user ID: " + userId);
-                    redirect();
-                    
-                    //window.location.href = "/../profile";
+                    return;
                 }
+            
+                localStorage.setItem("knowletUser", JSON.stringify(user));
+                document.getElementById("loading").style.display = "none";
+                alert("Successfully Signed Up\n" + "Note your user ID: " + userId);
+                redirect();
+                
             } catch(e) {
                 console.log(e);
             }

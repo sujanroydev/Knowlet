@@ -93,7 +93,7 @@
         
         fetchGoogleUserInfo(session.provider_token)
             .then(info => {
-                signup(info.email)
+                login(info.email)
                 //localStorage.setItem("knowletUserByGoogle", JSON.stringify(info));
             });
             

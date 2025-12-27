@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+</head>
+<body>
+    <h2>User Info</h2>
+    <img id="photo" width="100">
+    <p id="name"></p>
+    <p id="email"></p>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const user = JSON.parse(params.get("user"));
+
+        document.getElementById("photo").src = user.picture;
+        document.getElementById("name").innerText = user.name;
+        document.getElementById("email").innerText = user.email;
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google Login</title>
+</head>
+<body>
+    <h2>Login with Google</h2>
+
+    <a id="googleLogin">Continue with Google</a>
+
+    <script>
+        const clientId = "YOUR_GOOGLE_CLIENT_ID";
+        const redirectUri = "https://your-site.netlify.app/.netlify/functions/google-callback";
+
+        const scope = encodeURIComponent("openid email profile");
+
+        const authUrl =
+            `https://accounts.google.com/o/oauth2/v2/auth?` +
+            `client_id=${clientId}` +
+            `&redirect_uri=${redirectUri}` +
+            `&response_type=code` +
+            `&scope=${scope}`;
+
+        document.getElementById("googleLogin").href = authUrl;
+    </script>
+</body>
+</html>

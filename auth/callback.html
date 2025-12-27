@@ -95,7 +95,8 @@
             .then(info => {
                 signup(info.name, info.email, info.picture)
                 //localStorage.setItem("knowletUserByGoogle", JSON.stringify(info));
-            });
+            }
+        );
             
         
         async function signup(name, email, picture) {
@@ -108,6 +109,32 @@
                 email: email,
                 picture: picture
             }
+            
+            try {
+                const { data, error } = await supabaseClient
+                    .from("user")
+                    .select("*")
+                    .eq("email", email);
+                
+                if (error) {
+                    console.log(error);
+                    alert(error);
+                }
+                
+                if (!data[0]) return
+                
+                if (data[0]) {
+                    localStorage.setItem("knowletUser", JSON.stringify(data[0]));
+                    document.getElementById("loading").style.display = "none";
+                    alert("you alredy have an account, Successfully Logged In");
+                    redirect();
+                    
+                    //window.location.href = "/../profile";
+                }
+            } catch(e) {
+                console.log(e);
+            }
+            
             try {
                 const { error } = await supabaseClient
                     .from("user")

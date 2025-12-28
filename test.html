@@ -25,20 +25,36 @@ const supabaseClient = window.supabase.createClient(
 document.getElementById("upload-btn").addEventListener("click", uploadAvatar);
 
 async function uploadAvatar() {
-    const file = document.getElementById("input-image").files[0];
+    const originalFile = document.getElementById("input-image").files[0];
 
-    if (!file) {
+    if (!originalFile) {
         alert("Select an image first");
         return;
     }
-
-    const fileExt = file.name.split('.').pop();
+    
+    if (!originalFile.type.startsWith("image/")) {
+        alert("Only images allowed");
+        return;
+    }
+    
+    if (originalFile.size > 5 * 1024 * 1024) {
+        alert("Image too large");
+        return;
+    }
+    
+    const compressedFile = await compressWithCanvas(
+        originalFile,
+        0.7,   // quality
+        512    // max width/height
+    );
+    
+    const fileExt = compressedFile.name.split('.').pop();
     const fileName = `avatar-${Date.now()}.${fileExt}`;
     const filePath = `public/${fileName}`;
 
     const { error } = await supabaseClient.storage
         .from("avatars")
-        .upload(filePath, file, {
+        .upload(filePath, compressedFile, {
             cacheControl: "3600",
             upsert: false
         });
@@ -55,6 +71,34 @@ async function uploadAvatar() {
 
     document.getElementById("avatar").src = data.publicUrl;
 }
+
+function compressWithCanvas(file, quality = 0.7, maxSize = 512) {
+    return new Promise((resolve) => {
+        const img = new Image();
+        const reader = new FileReader();
+
+        reader.onload = e => {
+            img.src = e.target.result;
+        };
+
+        img.onload = () => {
+            const canvas = document.createElement("canvas");
+            const scale = Math.min(maxSize / img.width, maxSize / img.height, 1);
+
+            canvas.width = img.width * scale;
+            canvas.height = img.height * scale;
+
+            canvas.getContext("2d").drawImage(img, 0, 0, canvas.width, canvas.height);
+
+            canvas.toBlob(blob => {
+                resolve(new File([blob], file.name, { type: "image/jpeg" }));
+            }, "image/jpeg", quality);
+        };
+
+        reader.readAsDataURL(file);
+    });
+}
+
 </script>
 
 </body>

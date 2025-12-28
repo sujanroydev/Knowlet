@@ -2,6 +2,29 @@
 <html>
 <head>
     <title>Public Avatar Upload</title>
+<style>
+#crop-container {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin: 10px 0;
+    overflow: hidden;
+    touch-action: none;
+}
+
+#crop-canvas {
+    width: 100%;
+    height: 100%;
+}
+
+#crop-overlay {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 0 9999px rgba(0,0,0,0.5);
+    pointer-events: none;
+}
+</style>
 </head>
 <body>
 
@@ -9,6 +32,12 @@
 <br><br>
 
 <input type="file" id="input-image" accept="image/png,image/jpeg">
+
+<div id="crop-container">
+    <canvas id="crop-canvas"></canvas>
+    <div id="crop-overlay"></div>
+</div>
+
 <button id="upload-btn">Upload</button>
 
 <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
@@ -23,6 +52,117 @@ const supabaseClient = window.supabase.createClient(
 );
 
 document.getElementById("upload-btn").addEventListener("click", uploadAvatar);
+
+const input = document.getElementById("input-image");
+const canvas = document.getElementById("crop-canvas");
+const ctx = canvas.getContext("2d");
+
+let img = new Image();
+let scale = 1;
+let minScale = 1;
+let offsetX = 0;
+let offsetY = 0;
+
+let lastDistance = null;
+let lastCenter = null;
+
+canvas.width = 280;
+canvas.height = 280;
+
+input.addEventListener("change", e => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = ev => {
+        img.onload = () => {
+            scale = Math.max(
+                canvas.width / img.width,
+                canvas.height / img.height
+            );
+            minScale = scale;
+            offsetX = (canvas.width - img.width * scale) / 2;
+            offsetY = (canvas.height - img.height * scale) / 2;
+            draw();
+        };
+        img.src = ev.target.result;
+    };
+    reader.readAsDataURL(file);
+});
+
+canvas.addEventListener("touchmove", e => {
+    if (e.touches.length !== 2) return;
+    e.preventDefault();
+
+    const t1 = e.touches[0];
+    const t2 = e.touches[1];
+
+    const dx = t2.clientX - t1.clientX;
+    const dy = t2.clientY - t1.clientY;
+    const distance = Math.hypot(dx, dy);
+
+    const centerX = (t1.clientX + t2.clientX) / 2;
+    const centerY = (t1.clientY + t2.clientY) / 2;
+
+    if (lastDistance) {
+        const zoom = distance / lastDistance;
+        const newScale = Math.max(minScale, scale * zoom);
+
+        offsetX = centerX - (centerX - offsetX) * (newScale / scale);
+        offsetY = centerY - (centerY - offsetY) * (newScale / scale);
+
+        scale = newScale;
+        draw();
+    }
+
+    lastDistance = distance;
+    lastCenter = { x: centerX, y: centerY };
+}, { passive: false });
+
+canvas.addEventListener("touchend", () => {
+    lastDistance = null;
+});
+
+function getCroppedAvatarFile() {
+    return new Promise(resolve => {
+        const size = 512;
+        const out = document.createElement("canvas");
+        out.width = size;
+        out.height = size;
+
+        const octx = out.getContext("2d");
+
+        const sx = (canvas.width / 2 - offsetX) / scale - size / 2;
+        const sy = (canvas.height / 2 - offsetY) / scale - size / 2;
+
+        octx.drawImage(
+            img,
+            sx,
+            sy,
+            size / scale,
+            size / scale,
+            0,
+            0,
+            size,
+            size
+        );
+
+        out.toBlob(blob => {
+            resolve(new File([blob], "avatar.jpg", { type: "image/jpeg" }));
+        }, "image/jpeg", 0.85);
+    });
+}
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(
+        img,
+        offsetX,
+        offsetY,
+        img.width * scale,
+        img.height * scale
+    );
+}
 
 async function uploadAvatar() {
     const originalFile = document.getElementById("input-image").files[0];
@@ -41,12 +181,8 @@ async function uploadAvatar() {
         alert("Image too large");
         return;
     }
-    
-    const compressedFile = await compressWithCanvas(
-        originalFile,
-        0.7,   // quality
-        512    // max width/height
-    );
+   
+    const compressedFile = await getCroppedAvatarFile();
     
     const fileExt = compressedFile.name.split('.').pop();
     const fileName = `avatar-${Date.now()}.${fileExt}`;

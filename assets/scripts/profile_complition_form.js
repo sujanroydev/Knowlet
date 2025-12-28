@@ -79,7 +79,7 @@ async function sync() {
         
         if (error) {
             console.log(error);  
-            alert(error);
+            alert(JSON.stringify(error));
         } else {
             alert("Successfully Submitted");
             window.location.href = "profile.html";

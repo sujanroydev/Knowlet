@@ -5,7 +5,7 @@ exports.handler = async (event) => {
         code,
         client_id: process.env.GOOGLE_CLIENT_ID,
         client_secret: process.env.GOOGLE_CLIENT_SECRET,
-        redirect_uri: "https://your-site.netlify.app/.netlify/functions/google-callback",
+        redirect_uri: "https://knowlet.in/.netlify/functions/google-callback",
         grant_type: "authorization_code"
     });
 

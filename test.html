@@ -181,7 +181,13 @@ async function uploadAvatar() {
         alert("Image too large");
         return;
     }
-   
+    
+    /* const compressedFile = await compressWithCanvas(
+        originalFile,
+        0.7,   // quality
+        512    // max width/height
+    ); */
+    
     const compressedFile = await getCroppedAvatarFile();
     
     const fileExt = compressedFile.name.split('.').pop();

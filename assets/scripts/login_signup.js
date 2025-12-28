@@ -6,13 +6,26 @@ const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 const input = document.getElementsByClassName("user-input");
 const loginBtn = document.getElementById("login-btn");
 const signupBtn = document.getElementById("signup-btn");
-const continueWithGoogleBtn = document.getElementById("continue-with-google-btn");
+const googleLoginBtn = document.getElementById("google-login-btn");
+const googleSignupBtn = document.getElementById("google-signup-btn");
 const loginBox = document.getElementById('loginBox');
 const signupBox = document.getElementById('signupBox');
 
 const params = new URLSearchParams(window.location.search);
 
 const popup = params.get("popup");
+
+const clientId = "439522989172-180003nlibg69snhaq9kcvpskq5088d8.apps.googleusercontent.com";
+const redirectUri = "https://knowlet.in/.netlify/functions/google-callback";
+
+const scope = encodeURIComponent("openid email profile");
+
+const authUrl =
+    `https://accounts.google.com/o/oauth2/v2/auth?` +
+    `client_id=${clientId}` +
+    `&redirect_uri=${redirectUri}` +
+    `&response_type=code` +
+    `&scope=${scope}`;
 
 if (popup === "login") {
     showLogin();
@@ -56,17 +69,10 @@ signupBtn.addEventListener("click", () => {
     signup(name, email);
 });
 
-continueWithGoogleBtn.addEventListener("click", async () => {
-    const { error } = await supabaseClient.auth.signInWithOAuth({
-        provider: "google",
-        options: {
-            redirectTo: window.location.origin + "/auth/callback.html"
-        }
+[ googleLoginBtn, googleSignupBtn ].forEach(btn => {
+    btn.addEventListener("click", () => {
+        window.location.href = authUrl;
     });
-    
-    if (error) {
-        alert("Signup error:", error.message);
-    }
 });
 
 function showSignup() {

@@ -1,27 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Google Login</title>
+    <title>Public Avatar Upload</title>
 </head>
 <body>
-    <h2>Login with Google</h2>
 
-    <a id="googleLogin">Continue with Google</a>
+<img id="avatar" width="120" />
+<br><br>
 
-    <script>
-        const clientId = "439522989172-180003nlibg69snhaq9kcvpskq5088d8.apps.googleusercontent.com";
-        const redirectUri = "https://knowlet.in/.netlify/functions/google-callback";
+<input type="file" id="input-image" accept="image/png,image/jpeg">
+<button id="upload-btn">Upload</button>
 
-        const scope = encodeURIComponent("openid email profile");
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 
-        const authUrl =
-            `https://accounts.google.com/o/oauth2/v2/auth?` +
-            `client_id=${clientId}` +
-            `&redirect_uri=${redirectUri}` +
-            `&response_type=code` +
-            `&scope=${scope}`;
+<script>
+const SUPABASE_URL = "https://ampwczxrfpbqlkuawrdf.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFtcHdjenhyZnBicWxrdWF3cmRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI3OTk4MzYsImV4cCI6MjA3ODM3NTgzNn0.hFib9Y5x02b5VWjKuNi1XkUYvycmrp0DQhnwNkOGJEU";
 
-        document.getElementById("googleLogin").href = authUrl;
-    </script>
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+document.getElementById("upload-btn").addEventListener("click", uploadAvatar);
+
+async function uploadAvatar() {
+    const file = document.getElementById("input-image").files[0];
+
+    if (!file) {
+        alert("Select an image first");
+        return;
+    }
+
+    const fileExt = file.name.split('.').pop();
+    const fileName = `avatar-${Date.now()}.${fileExt}`;
+    const filePath = `public/${fileName}`;
+
+    const { error } = await supabaseClient.storage
+        .from("avatars")
+        .upload(filePath, file, {
+            cacheControl: "3600",
+            upsert: false
+        });
+
+    if (error) {
+        console.error(error);
+        alert(error.message);
+        return;
+    }
+
+    const { data } = supabaseClient.storage
+        .from("avatars")
+        .getPublicUrl(filePath);
+
+    document.getElementById("avatar").src = data.publicUrl;
+}
+</script>
+
 </body>
 </html>

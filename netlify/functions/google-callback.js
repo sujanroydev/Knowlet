@@ -34,7 +34,7 @@ exports.handler = async (event) => {
     return {
         statusCode: 302,
         headers: {
-            Location: `https://your-site.netlify.app/response.html?user=${encodeURIComponent(
+            Location: `https://knowlet.in/response.html?user=${encodeURIComponent(
                 JSON.stringify(user)
             )}`
         }

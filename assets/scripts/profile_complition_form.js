@@ -17,25 +17,10 @@ const popupOverlay = document.getElementById("popup-overlay");
 
 const userId = JSON.parse(localStorage.getItem("knowletUser")).id;
 
-function load() {
-    const user = JSON.parse(localStorage.getItem("knowletUser"));
-    
-    document.getElementById("user-id").textContent = "Your User ID: " + userId;
-    
-    input[0].value = user.name;
-    input[1].value = user.email;
-    input[2].value = user.age ? user.age : null;
-    input[3].value = user.fv_subject ? user.fv_subject : null;
-    input[4].value = user.stream ? user.stream : null;
-    inputEdu.value = user.standered ? user.standered : "";
-    profilePic.src = user.picture || "assets/images/demo_pp.png";
-}
-
 profilePic.addEventListener("click", () => {
     popupOverlay.style.display = "block";
     imgPreview.src = profilePic.src;
-    
-})
+});
 
 editBtn.addEventListener("click", () => {
     imgInput.click()
@@ -48,7 +33,6 @@ imgInput.addEventListener("change", () => {
     imgPreview.src = URL.createObjectURL(file);
     imgPreview.style.display = "block";
 });
-
 
 saveBtn.addEventListener("click", () => {
     uploadAvatar();
@@ -102,6 +86,20 @@ btnSubmit.addEventListener("click", () => {
     sync()
 });
 
+function load() {
+    const user = JSON.parse(localStorage.getItem("knowletUser"));
+    
+    document.getElementById("user-id").textContent = "Your User ID: " + userId;
+    
+    input[0].value = user.name;
+    input[1].value = user.email;
+    input[2].value = user.age ? user.age : null;
+    input[3].value = user.fv_subject ? user.fv_subject : null;
+    input[4].value = user.stream ? user.stream : null;
+    inputEdu.value = user.standered ? user.standered : "";
+    profilePic.src = user.picture || "assets/images/demo_pp.png";
+}
+
 async function sync() {
     
     const user = JSON.parse(localStorage.getItem("knowletUser"));
@@ -150,9 +148,9 @@ async function uploadAvatar() {
     );
     
     const fileExt = compressedFile.name.split('.').pop();
-    const fileName = `avatar-${Date.now()}.${fileExt}`;
-    const filePath = `public/${fileName}`;
-
+    const fileName = `${userId.replaceAll("@", "").toLowerCase()}.${fileExt}`;
+    const filePath = `users/${fileName}`;
+    
     const { error } = await supabaseClient.storage
         .from("avatars")
         .upload(filePath, compressedFile, {

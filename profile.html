@@ -5,196 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
     <link rel="stylesheet" href="assets/styles/nav.css">
-  
-    <style>
-        body {
-            margin: 0;
-            background: #f4f4f9;
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
-        }
-        
-        /* NAVBAR */
-        .navbar {
-            background: #ffffff;
-            padding: 16px 22px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #ddd;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            position: sticky;
-            top: 0;
-            z-index: 999;
-        }
-        
-        .bottom-nav {
-            line-height: 1.6;
-        }
-        
-        .logo {
-            font-size: 21px;
-            font-weight: bold;
-            letter-spacing: 0.3px;
-        }
-        
-        /* BUTTONS */
-        .actions button {
-            padding: 5px 10px;
-            border-radius: 4px;
-            border: 1px solid #333;
-            background: #fafafa;
-            cursor: pointer;
-            transition: 0.2s;
-            font-size: 10px;
-        }
-        
-        .actions button:hover {
-            background: #eaeaea;
-            transform: translateY(-1px);
-        }
-        
-        /* CONTAINER */
-        .container {
-            max-width: 950px;
-            margin: 35px auto;
-            padding: 0 18px;
-        }
-        
-        /* CARD */
-        .card {
-            background: #ffffff;
-            padding: 22px;
-            border-radius: 14px;
-            margin-bottom: 28px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-            transition: 0.25s;
-        }
-        
-        .card:hover {
-            box-shadow: 0 5px 18px rgba(0,0,0,0.12);
-        }
-        
-        /* PROFILE HEADER */
-        .profile-header {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-        }
-        
-        #profile-pic {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: linear-gradient(#ddd, #ccc);
-            object-fit: cover;
-            border: 3px solid #e5e5e5;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-        
-        /* STATS */
-        .stats-box {
-            display: flex;
-            gap: 10px;
-            margin-top: 9px;
-        }
-        
-        .stat {
-            background: #f4f7fb;
-            padding: 10px;
-            border-radius: 10px;
-            text-align: center;
-            min-width: 80px;
-            box-shadow: inset 0 0 6px rgba(0,0,0,0.04);
-        }
-        
-        .stat h3 {
-            margin: 0;
-            font-size: 20px;
-            color: #1a73e8;
-        }
-        
-        /* BADGES */
-        .badge {
-            display: inline-block;
-            padding: 7px 12px;
-            background: #e2efff;
-            color: #1a73e8;
-            border-radius: 8px;
-            font-size: 13px;
-            margin: 0 6px 6px 0;
-            border: 1px solid #cfe3ff;
-            transition: 0.2s;
-        }
-        
-        .badge:hover {
-            background: #d4e7ff;
-            cursor: default;
-        }
-        
-        /* SECTION TITLES */
-        .section-title {
-            font-size: 18px;
-            margin-bottom: 14px;
-            border-left: 5px solid #1a73e8;
-            padding-left: 10px;
-            font-weight: 600;
-        }
-        
-        /* LISTS */
-        ul {
-            padding-left: 20px;
-            margin: 0;
-        }
-        
-        li {
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-            line-height: 1.5;
-        }
-        
-        li:last-child {
-            border-bottom: none;
-        }
-        
-        /* TITLES INSIDE LIST */
-        .example-title {
-            font-size: 15px;
-            font-weight: bold;
-            color: #333;
-        }
-        
-        /* PROGRESS BAR */
-        .progress-bar {
-            width: 100%;
-            background: #e5e5e5;
-            border-radius: 12px;
-            height: 12px;
-            margin-top: 6px;
-        }
-        
-        .progress-fill {
-            height: 12px;
-            background: linear-gradient(90deg, #1a73e8, #4a9eff);
-            border-radius: 12px;
-            transition: width 0.4s ease;
-        }
-        
-        /* SETTINGS */
-        .settings-links a {
-            display: block;
-            padding: 8px 0;
-            text-decoration: none;
-            color: #1a73e8;
-            font-size: 14.5px;
-            transition: 0.2s;
-        }
-        
-        .settings-links a:hover {
-            color: #0b57d0;
-            padding-left: 4px;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/styles/profile.css">
 </head>
 
 <body>
@@ -215,7 +26,7 @@
 
         <!-- PROFILE CARD -->
         <div class="card profile-header">
-            <img onclick="fullProfile()" src="assets/images/demo_pp.png" id="profile-pic">
+            <img src="assets/images/demo_pp.png" id="profile-pic">
 
             <div>
                 <h1 id="username" style="margin-bottom: 0">Your Name</h1>
@@ -324,6 +135,7 @@
         </div> -->
 
     </div>
+
     <nav class="bottom-nav">
         <a href="index" class="nav-item">
             <span class="icon">🏠</span>
@@ -343,6 +155,7 @@
         </a>
     </nav>
     
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="assets/scripts/nav.js"></script>
     <script src="assets/scripts/profile.js"></script>
 </body>

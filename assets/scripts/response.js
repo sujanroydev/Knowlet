@@ -1,0 +1,115 @@
+const SUPABASE_URL = "https://ampwczxrfpbqlkuawrdf.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFtcHdjenhyZnBicWxrdWF3cmRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI3OTk4MzYsImV4cCI6MjA3ODM3NTgzNn0.hFib9Y5x02b5VWjKuNi1XkUYvycmrp0DQhnwNkOGJEU";
+
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+const params = new URLSearchParams(window.location.search);
+const user = JSON.parse(params.get("user"));
+
+if (!user) {
+    
+    document.getElementById("loading").style.display = "none";
+    const appContainer = document.getElementById("msg-error"); 
+
+    appContainer.innerHTML = `
+        <div class="error-container">
+            <div class="error-card">
+                <div class="icon">👤</div>
+                <h2>User not Found</h2>
+                <p>Please log in to access your dashboard.</p>
+                <button id="btn-login" class="primary-btn">Go to Login Page</button>
+            </div>
+        </div>
+    `;
+
+    document.getElementById("btn-login").addEventListener("click", () => {
+        window.location.href = "/login_signup";
+    });
+}
+
+
+if (user) {
+    sync(user.name, user.email, user.picture)
+}
+
+async function sync(name, email, picture) {
+    
+    try {
+        const { data, error } = await supabaseClient
+            .from("user")
+            .select("*")
+            .eq("email", email);
+        
+        if (error) {
+            console.log(error);
+            alert(error);
+            return;
+        }
+        
+        if (!data[0]) {
+            
+            let userId = name.split(' ')[0] + "@" + parseInt(Math.random() * 9000 + 1000);
+            
+            let user = {
+                id: userId,
+                name: name,
+                email: email,
+                picture: picture
+            }
+            
+            try {
+                const { error } = await supabaseClient
+                    .from("user")
+                    .insert(user);
+                
+                if (error) {
+                    console.log(error);
+                    alert(error);
+                    return;
+                }
+                
+                localStorage.setItem("knowletUser", JSON.stringify(user));
+                document.getElementById("loading").style.display = "none";
+                alert("Successfully Signed Up\n" + "Note your user ID: " + userId);
+                redirect();
+                
+            } catch(e) {
+                console.log(e);
+            }
+        }
+        
+        if (data[0]) {
+            localStorage.setItem("knowletUser", JSON.stringify(data[0]));
+            document.getElementById("loading").style.display = "none";
+            alert("You Alredy Have An Account, Successfully Logged In");
+            redirect();
+            return;
+        }
+        
+    } catch(e) {
+        console.log(e);
+    }
+}
+
+function redirect() {
+    const history = JSON.parse(localStorage.getItem("unit_page_history") || '[]');
+    
+    if (history.length === 0) {
+        window.location.href = "/../profile";
+        return;
+    } else {
+        if (diffFromNow(history[0].timestamp) < 60) {
+            window.location.href = history[0].url;
+        } else {
+            window.location.href = "/../profile";
+        }
+    }
+}
+
+function diffFromNow(time) {
+    const target = new Date(time);
+    const now = new Date();
+    
+    const diffMs = Math.abs(target - now);
+    return Math.floor(diffMs / 1000); 
+}

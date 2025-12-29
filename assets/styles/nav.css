@@ -74,7 +74,8 @@ body {
     color: #007bff;
 }
 #profile-btn {
-    width: 22px;
+    width: 23px;
+    height: 23px;
     border-radius: 50%;
     background: linear-gradient(#ddd, #ccc);
     object-fit: cover;

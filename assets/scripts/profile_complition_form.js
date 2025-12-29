@@ -159,7 +159,7 @@ async function uploadAvatar() {
         .from("avatars")
         .upload(filePath, compressedFile, {
             cacheControl: "3600",
-            upsert: false
+            upsert: true
         });
 
     if (error) {
@@ -172,7 +172,7 @@ async function uploadAvatar() {
         .from("avatars")
         .getPublicUrl(filePath);
 
-    profilePic.src = data.publicUrl;
+    profilePic.src = data.publicUrl + "?t=" + Date.now();
 }
 
 function compressWithCanvas(file, quality = 0.7, maxSize = 512) {
@@ -201,6 +201,5 @@ function compressWithCanvas(file, quality = 0.7, maxSize = 512) {
         reader.readAsDataURL(file);
     });
 }
-
 
 load()

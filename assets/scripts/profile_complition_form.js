@@ -15,10 +15,14 @@ const imgPreview = document.getElementById("img-preview");
 
 const popupOverlay = document.getElementById("popup-overlay");
 
+if (!localStorage.getItem("knowletUser")) {
+    alert("Login First");
+}
+
 const userId = JSON.parse(localStorage.getItem("knowletUser")).id;
 
 profilePic.addEventListener("click", () => {
-    popupOverlay.style.display = "block";
+    popupOverlay.style.display = "flex";
     imgPreview.src = profilePic.src;
 });
 
@@ -31,7 +35,7 @@ imgInput.addEventListener("change", () => {
     if (!file) return;
 
     imgPreview.src = URL.createObjectURL(file);
-    imgPreview.style.display = "block";
+    imgPreview.style.display = "";
 });
 
 saveBtn.addEventListener("click", () => {
@@ -131,8 +135,8 @@ async function uploadAvatar() {
         return;
     }
     
-    if (!originalFile.type.startsWith("image/")) {
-        alert("Only images allowed");
+    if (!originalFile.type.startsWith("image/jpeg")) {
+        alert("Only jpg allowed");
         return;
     }
     
@@ -147,7 +151,7 @@ async function uploadAvatar() {
         512    // max width/height
     );
     
-    const fileExt = compressedFile.name.split('.').pop();
+    const fileExt = "jpg" // compressedFile.name.split('.').pop();
     const fileName = `${userId.replaceAll("@", "").toLowerCase()}.${fileExt}`;
     const filePath = `users/${fileName}`;
     

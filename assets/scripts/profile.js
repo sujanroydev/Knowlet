@@ -26,25 +26,16 @@ profilePic.addEventListener("click", () => {
 logoutBtn.addEventListener("click", () => {
     alert("Logout");
     localStorage.removeItem("knowletUser");
+    document.getElementById("profile-btn").src = "assets/images/demo_pp.png";
     sync()
 });
 
-function sync() {
+async function sync() {
     
-    const user = JSON.parse(localStorage.getItem("knowletUser"));
-    // console.log(user);
+    let user = localStorage.getItem("knowletUser")
     
     if (user) {
-        userName.textContent = user.name;
-        email.textContent = '' + user.email;
-        userId.textContent = user.id;
-        profilePic.src = user.picture || "assets/images/demo_pp.png";
-        
-        isExist = true;
-        loginBtn.style.display = "none";
-        SignupBtn.style.display = "none";
-        logoutBtn.style.display = "block";
-        //comProfileBtn.style.display = "block";
+        user = JSON.parse(user);
     } else {
         userName.textContent = "Your Name";
         email.textContent = "yourname@example.com";
@@ -56,16 +47,15 @@ function sync() {
         SignupBtn.style.display = "inline-block";
         logoutBtn.style.display = "none";
         // comProfileBtn.style.display = "none";
+        return;
     }
-        
-}
-
-async function featchUser(userID, email) {
+    
+    console.log(user);
     const { data, error } = await supabaseClient
         .from("user")
         .select("*")
-        .eq("id", userID)
-        .eq("email", email);
+        .eq("id", user.id)
+        .eq("email", user.email);
     
     if (error) {
         alert(error.message);
@@ -77,10 +67,23 @@ async function featchUser(userID, email) {
         return;
     }
     
-    console.log(data);
-    localStorage.setItem("knowletUser", JSON.stringify(data));
-    sync();
-    
+    user = data[0];
+    console.log(user);
+    if (user) {
+        console.log(user);
+        localStorage.setItem("knowletUser", JSON.stringify(user));
+        
+        userName.textContent = user.name;
+        email.textContent = '' + user.email;
+        userId.textContent = user.id;
+        profilePic.src = user.picture || "assets/images/demo_pp.png";
+        
+        isExist = true;
+        loginBtn.style.display = "none";
+        SignupBtn.style.display = "none";
+        logoutBtn.style.display = "block";
+        //comProfileBtn.style.display = "block";
+    }
 }
 
 sync()

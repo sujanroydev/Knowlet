@@ -3,10 +3,17 @@ const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
+const imgInput = document.getElementById("input-image");
 const input = document.getElementsByClassName("user-input");
 const inputEdu = document.getElementById("sltEdu")
 const btnSubmit = document.getElementById("submit-btn");
 const profilePic = document.getElementById("profile-pic");
+const editBtn = document.getElementById("edit");
+const saveBtn = document.getElementById("save");
+const cancleBtn = document.getElementById("cancel");
+const imgPreview = document.getElementById("img-preview");
+
+const popupOverlay = document.getElementById("popup-overlay");
 
 const userId = JSON.parse(localStorage.getItem("knowletUser")).id;
 
@@ -23,6 +30,34 @@ function load() {
     inputEdu.value = user.standered ? user.standered : "";
     profilePic.src = user.picture || "assets/images/demo_pp.png";
 }
+
+profilePic.addEventListener("click", () => {
+    popupOverlay.style.display = "block";
+    imgPreview.src = profilePic.src;
+    
+})
+
+editBtn.addEventListener("click", () => {
+    imgInput.click()
+});
+
+imgInput.addEventListener("change", () => {
+    const file = imgInput.files[0];
+    if (!file) return;
+
+    imgPreview.src = URL.createObjectURL(file);
+    imgPreview.style.display = "block";
+});
+
+
+saveBtn.addEventListener("click", () => {
+    uploadAvatar();
+    popupOverlay.style.display = "none";
+});
+
+cancleBtn.addEventListener("click", () => {
+    popupOverlay.style.display = "none";
+});
 
 btnSubmit.addEventListener("click", () => {
     
@@ -89,5 +124,81 @@ async function sync() {
         console.log(e)
     }
 }
+
+async function uploadAvatar() {
+    const originalFile = imgInput.files[0];
+
+    if (!originalFile) {
+        alert("Select an image first");
+        return;
+    }
+    
+    if (!originalFile.type.startsWith("image/")) {
+        alert("Only images allowed");
+        return;
+    }
+    
+    if (originalFile.size > 5 * 1024 * 1024) {
+        alert("Image too large");
+        return;
+    }
+    
+    const compressedFile = await compressWithCanvas(
+        originalFile,
+        0.7,   // quality
+        512    // max width/height
+    );
+    
+    const fileExt = compressedFile.name.split('.').pop();
+    const fileName = `avatar-${Date.now()}.${fileExt}`;
+    const filePath = `public/${fileName}`;
+
+    const { error } = await supabaseClient.storage
+        .from("avatars")
+        .upload(filePath, compressedFile, {
+            cacheControl: "3600",
+            upsert: false
+        });
+
+    if (error) {
+        console.error(error);
+        alert(error.message);
+        return;
+    }
+
+    const { data } = supabaseClient.storage
+        .from("avatars")
+        .getPublicUrl(filePath);
+
+    profilePic.src = data.publicUrl;
+}
+
+function compressWithCanvas(file, quality = 0.7, maxSize = 512) {
+    return new Promise((resolve) => {
+        const img = new Image();
+        const reader = new FileReader();
+
+        reader.onload = e => {
+            img.src = e.target.result;
+        };
+
+        img.onload = () => {
+            const canvas = document.createElement("canvas");
+            const scale = Math.min(maxSize / img.width, maxSize / img.height, 1);
+
+            canvas.width = img.width * scale;
+            canvas.height = img.height * scale;
+
+            canvas.getContext("2d").drawImage(img, 0, 0, canvas.width, canvas.height);
+
+            canvas.toBlob(blob => {
+                resolve(new File([blob], file.name, { type: "image/jpeg" }));
+            }, "image/jpeg", quality);
+        };
+
+        reader.readAsDataURL(file);
+    });
+}
+
 
 load()

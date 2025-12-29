@@ -7,6 +7,7 @@
 
     <style>
         body {
+            position: relative;
             margin: 0;
             padding: 20px;
             font-family: Arial, sans-serif;
@@ -94,6 +95,33 @@
             border: 3px solid #e5e5e5;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
+        
+        #popup-overlay {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            z-index: 10;
+            opacity: 0.7;
+            width: 100vmin;
+            height: 100vh;
+            background: #203000;
+        }
+        
+        #popup {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #img-preview {
+            width: 150px;
+            border-radius: 50%;
+        }
+        
+        .edit-btn {
+            width: 100px;
+        }
     </style>
 </head>
 <body>
@@ -147,6 +175,21 @@
         </form>
         <button id="submit-btn">Submit</button>
     </div>
+    
+    <div id="popup-overlay" style="display: none">
+        <div id="popup">
+            <div>
+                <img id="img-preview" src="assets/images/demo_pp.png" />
+                <input style="display: none" type="file" id="input-image" accept="image/png,image/jpeg">
+            </div>
+            <div>
+                <button class="edit-btn" id="cancel">Cancle</button>
+                <button class="edit-btn" id="edit">Edit</button>
+                <button class="edit-btn" id="save">Save</button>
+            </div>
+        </div>
+    </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="assets/scripts/profile_complition_form.js"></script>
 </body>

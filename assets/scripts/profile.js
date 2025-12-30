@@ -12,6 +12,7 @@ const userName = document.getElementById("username");
 const email = document.getElementById("email");
 const userId = document.getElementById("userid");
 const profilePic = document.getElementById("profile-pic");
+const loader = document.getElementById("loader");
 
 let isExist = false;
 
@@ -51,24 +52,32 @@ async function sync() {
     }
     
     console.log(user);
+    loader.style.display = "flex";
+    const oldData = user;
     const { data, error } = await supabaseClient
         .from("user")
         .select("*")
         .eq("id", user.id)
         .eq("email", user.email);
     
+    loader.style.display = "none";
+    
     if (error) {
         alert(error.message);
-        return;
+        // return;
     }
     
-    if (!data) {
+    if (!data && !error) {
         alert("Your account has been deleted");
-        return;
+        // return;
     }
     
-    user = data[0];
-    console.log(user);
+    if (error || !data) {
+        user = oldData;
+    } else {
+        user = data[0];
+    }
+    
     if (user) {
         console.log(user);
         localStorage.setItem("knowletUser", JSON.stringify(user));

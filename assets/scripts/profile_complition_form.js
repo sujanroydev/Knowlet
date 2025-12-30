@@ -12,17 +12,22 @@ const editBtn = document.getElementById("edit");
 const saveBtn = document.getElementById("save");
 const cancleBtn = document.getElementById("cancel");
 const imgPreview = document.getElementById("img-preview");
+const editPopup = document.getElementById("edit-popup");
+const loginPopup = document.getElementById("login-popup");
+const loader = document.getElementById("loader");
 
-const popupOverlay = document.getElementById("popup-overlay");
+const rdtLgnBtn = document.getElementById("redirect-to-login-btn");
+
+let userId;
 
 if (!localStorage.getItem("knowletUser")) {
-    alert("Login First");
+    loginPopup.style.display = "flex";
+} else {
+    userId = JSON.parse(localStorage.getItem("knowletUser")).id;
 }
 
-const userId = JSON.parse(localStorage.getItem("knowletUser")).id;
-
 profilePic.addEventListener("click", () => {
-    popupOverlay.style.display = "flex";
+    editPopup.style.display = "flex";
     imgPreview.src = profilePic.src;
 });
 
@@ -40,11 +45,16 @@ imgInput.addEventListener("change", () => {
 
 saveBtn.addEventListener("click", () => {
     uploadAvatar();
-    popupOverlay.style.display = "none";
 });
 
 cancleBtn.addEventListener("click", () => {
-    popupOverlay.style.display = "none";
+    editPopup.style.display = "none";
+});
+
+rdtLgnBtn.addEventListener("click", () => {
+    // alert()
+    loginPopup.style.display = "none";
+    window.location.href = "/login_signup";
 });
 
 btnSubmit.addEventListener("click", () => {
@@ -80,8 +90,7 @@ btnSubmit.addEventListener("click", () => {
     }
 
     localStorage.setItem("knowletUser", JSON.stringify(user))
-    //console.log(user);
-    
+
     //reset
     for (i = 0; i < input.length; i++) {
         input[i].value = null;
@@ -107,12 +116,15 @@ function load() {
 async function sync() {
     
     const user = JSON.parse(localStorage.getItem("knowletUser"));
-    //console.log(user);
+    
     try {
+        loader.style.display = "flex";
         const { error } = await supabaseClient
             .from("user")
             .update(user)
             .eq("id", userId);
+            
+        loader.style.display = "none";
         
         if (error) {
             console.log(error);  
@@ -145,6 +157,8 @@ async function uploadAvatar() {
         return;
     }
     
+    loader.style.display = "flex";
+    
     const compressedFile = await compressWithCanvas(
         originalFile,
         0.7,   // quality
@@ -163,6 +177,7 @@ async function uploadAvatar() {
         });
 
     if (error) {
+        loader.style.display = "none";
         console.error(error);
         alert(error.message);
         return;
@@ -172,6 +187,8 @@ async function uploadAvatar() {
         .from("avatars")
         .getPublicUrl(filePath);
 
+    loader.style.display = "none";
+    editPopup.style.display = "none";
     profilePic.src = data.publicUrl + "?t=" + Date.now();
 }
 

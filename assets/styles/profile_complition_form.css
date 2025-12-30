@@ -90,7 +90,7 @@ button {
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
-#popup-overlay {
+.popup-overlay {
     position: fixed;
     inset: 0;
     z-index: 1000;
@@ -98,7 +98,9 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
+
 #popup {
     background: #ffffff;
     width: 320px;
@@ -108,9 +110,11 @@ button {
     text-align: center;
     animation: popupIn 0.25s ease;
 }
+
 #popup > div:last-child {
     margin-top: 12px;
 }
+
 @keyframes popupIn {
     from {
         transform: scale(0.92);
@@ -121,6 +125,7 @@ button {
         opacity: 1;
     }
 }
+
 #img-preview {
     width: 140px;
     height: 140px;
@@ -129,6 +134,7 @@ button {
     border: 3px solid #e5e7eb;
     margin-bottom: 16px;
 }
+
 .edit-btn {
     width: 90px;
     padding: 8px;
@@ -137,9 +143,11 @@ button {
     border-radius: 8px;
     cursor: pointer;
 }
+
 .edit-btn:hover {
     opacity: 0.9;
 }
+
 #cancel {
     background: #f1f5f9;
     color: #333;
@@ -156,4 +164,39 @@ button {
     background: #007bff;
     color: #fff;
     border: none;
+}
+
+#popup {
+    min-height: 225px
+}
+
+#login-popup p:first-of-type {
+    font-size: 40px;
+}
+
+#login-popup p:last-of-type {
+    font-size: 1.3rem;
+    color: red;
+}
+    
+#login-popup button {
+    background: green;
+    min-width: 150px;
+    max-width: 200px;
+}
+
+/* ==== Loader ==== */
+
+.loader {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #0000ff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

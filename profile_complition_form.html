@@ -58,7 +58,7 @@
         <button id="submit-btn">Submit</button>
     </div>
     
-    <div id="popup-overlay" style="display: none">
+    <div id="edit-popup" class="popup-overlay" style="display: none">
         <div id="popup">
             <div>
                 <img id="img-preview" src="assets/images/demo_pp.png" />
@@ -70,6 +70,18 @@
                 <button class="edit-btn" id="save">Save</button>
             </div>
         </div>
+    </div>
+    
+    <div id="login-popup" class="popup-overlay" style="display: none">
+        <div id="popup">
+            <p>❌</p>
+            <p>Your Account is not logged In</p>
+            <button id="redirect-to-login-btn">Go to Login Page</button>
+        </div>
+    </div>
+    
+    <div id="loader" class="popup-overlay" style="display: none">
+        <div class="loader"></div>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>

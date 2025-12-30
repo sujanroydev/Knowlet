@@ -10,6 +10,7 @@ const googleLoginBtn = document.getElementById("google-login-btn");
 const googleSignupBtn = document.getElementById("google-signup-btn");
 const loginBox = document.getElementById('loginBox');
 const signupBox = document.getElementById('signupBox');
+const loader = document.getElementById('loader');
 
 const params = new URLSearchParams(window.location.search);
 
@@ -87,7 +88,7 @@ function showLogin() {
 
 async function login(userId, email) {
     try {
-        // new
+        loader.style.display = "flex";
         const res = await fetch(
             'https://knowlet.in/.netlify/functions/get-data',
             {
@@ -96,6 +97,7 @@ async function login(userId, email) {
                 body: JSON.stringify({ id: userId, email: email })
             }
         );
+        loader.style.display = "none";
         
         if (!res.ok) {
             throw new Error(`HTTP error! status: ${res.status}`);
@@ -137,6 +139,7 @@ async function signup(name, email) {
     }
     try {
         // new
+        loader.style.display = "flex";
         const res = await fetch(
             'https://knowlet.in/.netlify/functions/set-data',
             {
@@ -145,6 +148,7 @@ async function signup(name, email) {
                 body: JSON.stringify(user)
             }
         );
+        loader.style.display = "none";
         
         if (!res.ok) {
             throw new Error(`HTTP error! status: ${res.status}`);

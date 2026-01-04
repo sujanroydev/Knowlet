@@ -25,10 +25,11 @@ profilePic.addEventListener("click", () => {
 });
 
 logoutBtn.addEventListener("click", () => {
-    alert("Logout");
-    localStorage.removeItem("knowletUser");
-    document.getElementById("profile-btn").src = "assets/images/demo_pp.png";
-    sync()
+    if (confirm("Logout?")) {
+	    localStorage.removeItem("knowletUser");
+	    document.getElementById("profile-btn").src = "assets/images/demo_pp.png";
+	    sync();
+    }
 });
 
 async function sync() {

@@ -1,0 +1,58 @@
+[
+	{
+		"name": "semester_1",
+		"subjects": [
+			{
+				name: "mathematics",
+				papers: [
+					{
+						name: "dsc_101",
+						units: [ "unit_1", "unit_2", "unit_3", "unit_4", "unit_5" ]
+					}
+				]
+			}
+		]
+	},
+	{
+		"name": "semester_2",
+		"subjects": [
+			{
+				name: "mathematics",
+				papers: [
+					{
+						name: "dsc_101",
+						units: [ "unit_1", "unit_2", "unit_3", "unit_4", "unit_5" ]
+					}
+				]
+			}
+		]
+	},
+	{
+		"name": "semester_4",
+		"subjects": [
+			{
+				name: "botany",
+				papers: [
+					{
+						name: "dsc_101",
+						units: [ "unit_1", "unit_2", "unit_3", "unit_4", "unit_5" ]
+					}
+				]
+			}
+		]
+	},
+	{
+		"name": "semester_6",
+		"subjects": [
+			{
+				name: "philosophy",
+				papers: [
+					{
+						name: "dsc_101",
+						units: [ "unit_1", "unit_2", "unit_3", "unit_4", "unit_5" ]
+					}
+				]
+			}
+		]
+	}
+]

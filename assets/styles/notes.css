@@ -7,7 +7,7 @@
   box-sizing: border-box;
 }
 
-body {
+body, #main {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f4f6f9;
   color: #222;
@@ -75,7 +75,7 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.subject-card a {
+.subject-card h4 {
   display: block;
   padding: 1.5rem;
   color: #1e3a8a;

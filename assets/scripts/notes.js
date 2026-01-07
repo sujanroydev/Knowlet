@@ -1,35 +1,56 @@
 const main = document.getElementById("main");
 
-const semesters = [ "Semester 1", "Semester 2", "Semester 3", "Semester 4", "Semester 6" ];
-const subjects = [ "Mathematics", "Physics", "Botany", "Economics", "Ecology" ];
-const paper = [ "dsc", "dsm", "sec", "idc" ];
-
 let notes = [];
+let h1= "";
+let h2 = "";
+let p = "";
+let items = "";
 
-// Load notes.json
-fetch("assets/notes-helper.json").then(console.log);
-    // .then(res => res.json())
-    // .then(data => {
-    //     notes = data;
-    // })
-    // .catch(err => console.error("Failed to load notes.json:", err));
+let indmain = 0;
 
-console.log(notes);
+let temp = "";
+let tempNotes = [];
 
-function createPage() {
-	const h1 = "Notes and Study Meterial";
-	const p = "Select a unit to view notes and study materials";
-	const h2 = "Semesters";
-	
-	let items = "";
-	
-	for (let i in semesters) {
-		console.log(semesters[i]);
-		items += `<div class="subject-card" onclick="fn('${semesters[i]}')"><h4>${semesters[i]}</h4></div>
-			`;
+let sem = "";
+let sub = "";
+let pap = "";
+let uni = "";
+
+let prevClicks = ["notes"]
+
+fetch("assets/notes.json")
+    .then(res => res.json())
+    .then(data => {
+        notes = data;
+        console.log(notes); // This works because it's inside the callback
+        createPage(); // Call a function to use the data
+    })
+    .catch(err => {console.error("Failed to load notes.json:", err);})
+
+function createPage(n = "notes") {
+	items = "";
+	for (let i in notes) {
+		let parts = notes[i].path.split("/");
+		
+		
+		
+		if (prevClicks[indmain] === parts[indmain]) {
+			let current = parts[indmain + 1];
+			tempNotes.append(notes[i])
+			// console.log(current)
+			if (current !== temp) {
+				temp = current;
+				console.log(current);
+				items += `<div class="subject-card" onclick="fn('${current}')"><h4>${current}</h4></div>
+	 			`;
+			}
+		}
 	}
-	console.log(items)
-
+	
+	h1 = "Notes and Study Meterial";
+	p = "Select a unit to view notes and study materials";
+	h2 = "Semesters";
+		
 	main.innerHTML = `
 <header class="header">
 	<button id="back-btn" title="Go Back" onclick="goBack()">←</button>
@@ -52,11 +73,13 @@ function createPage() {
 }
 
 function fn(n) {
-	alert(n);
+	// alert(n);
+	indmain += 1;
+	prevClicks[indmain] = n;
+	createPage(n)
 }
 
 function goBack() {
 	window.location.href = '/';
 }
 
-// createPage();

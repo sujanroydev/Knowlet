@@ -27,7 +27,7 @@ searchInput.addEventListener("input", () => {
     const query = searchInput.value.toLowerCase().trim();
     resultsContainer.innerHTML = "";
     resultCount.textContent = "";
-
+console.log(notes)
     if (!query) return;
 
     const queryWords = query.split(/\s+/);

@@ -1,22 +1,17 @@
 const main = document.getElementById("main");
 
-let notes = [];
 let h1= "";
 let h2 = "";
 let p = "";
 let items = "";
+let temp = "";
 
+let notes = [];
+let tempNotes = [[null], [null], [null], [null], [null]];
+let prevClicks = ["notes"];
 let indmain = 0;
 
-let temp = "";
-let tempNotes = [[null], [null], [null], [null], [null]];
-
-let sem = "";
-let sub = "";
-let pap = "";
-let uni = "";
-
-let prevClicks = ["notes"]
+const currentTitle = ["Semesters", "Subjects", "Papers", "Units"]
 
 fetch("assets/notes.json")
     .then(res => res.json())
@@ -36,7 +31,7 @@ function createPage(n = "notes") {
 		
 		if (prevClicks[indmain] === parts[indmain]) {
 			if (indmain === 4) {
-				window.location.href = tempNotes[indmain].path;
+				window.location.href = tempNotes[indmain][i].path;
 				return;
 			}
 			tempNotes[indmain + 1][x] = tempNotes[indmain][i];
@@ -44,8 +39,13 @@ function createPage(n = "notes") {
 			let current = parts[indmain + 1];
 			if (current !== temp) {
 				temp = current;
-				//console.log(current);
-				items += `<div class="subject-card" onclick="fn('${current}')"><h4>${current}</h4></div>
+				let tagName;
+				if (indmain === 2) {
+					tagName = current.replace("_", " ").replace("_", " ").toUpperCase();
+				} else {
+					tagName = current.replace("_", " ").replace(/\b\w/g, char => char.toUpperCase());
+				}
+				items += `<div class="subject-card" onclick="fn('${current}')"><h4>${tagName}</h4></div>
 	 			`;
 			}
 		}
@@ -55,13 +55,13 @@ function createPage(n = "notes") {
 	
 	h1 = "Notes and Study Meterial";
 	p = "Select a unit to view notes and study materials";
-	h2 = "Semesters";
+	h2 = currentTitle[indmain];
 	
 	main.innerHTML = `
 <header class="header">
 	<button id="back-btn" title="Go Back" onclick="goBack()">←</button>
     <h1>${h1}</h1>
-	<p>${p}</p>
+	
 </header>
 
 <main class="main">
@@ -94,4 +94,3 @@ function goBack() {
 	indmain -= 1;
 	createPage(prevClicks[indmain])
 }
-

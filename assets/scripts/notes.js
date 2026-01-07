@@ -9,7 +9,7 @@ let items = "";
 let indmain = 0;
 
 let temp = "";
-let tempNotes = [];
+let tempNotes = [[null], [null], [null], [null], [null]];
 
 let sem = "";
 let sub = "";
@@ -22,6 +22,7 @@ fetch("assets/notes.json")
     .then(res => res.json())
     .then(data => {
         notes = data;
+        tempNotes[indmain] = notes;
         console.log(notes); // This works because it's inside the callback
         createPage(); // Call a function to use the data
     })
@@ -29,28 +30,33 @@ fetch("assets/notes.json")
 
 function createPage(n = "notes") {
 	items = "";
-	for (let i in notes) {
-		let parts = notes[i].path.split("/");
-		
-		
+	let x = 0;
+	for (let i in tempNotes[indmain]) {
+		let parts = tempNotes[indmain][i].path.split("/");
 		
 		if (prevClicks[indmain] === parts[indmain]) {
+			if (indmain === 4) {
+				window.location.href = tempNotes[indmain].path;
+				return;
+			}
+			tempNotes[indmain + 1][x] = tempNotes[indmain][i];
+			x += 1;
 			let current = parts[indmain + 1];
-			tempNotes.append(notes[i])
-			// console.log(current)
 			if (current !== temp) {
 				temp = current;
-				console.log(current);
+				//console.log(current);
 				items += `<div class="subject-card" onclick="fn('${current}')"><h4>${current}</h4></div>
 	 			`;
 			}
 		}
 	}
 	
+	console.log(tempNotes)
+	
 	h1 = "Notes and Study Meterial";
 	p = "Select a unit to view notes and study materials";
 	h2 = "Semesters";
-		
+	
 	main.innerHTML = `
 <header class="header">
 	<button id="back-btn" title="Go Back" onclick="goBack()">←</button>
@@ -80,6 +86,12 @@ function fn(n) {
 }
 
 function goBack() {
-	window.location.href = '/';
+	if (indmain === 0) {
+		window.location.href = '/';
+		return;
+	}
+	prevClicks[indmain] = null;
+	indmain -= 1;
+	createPage(prevClicks[indmain])
 }
 

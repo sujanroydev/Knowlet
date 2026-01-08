@@ -76,7 +76,7 @@ function printDiv(divClass) {
     backBtn.title = "Go Back";
     backBtn.onclick = () => {
         const backUrl = currentUrl.replace(/\/unit_\d+/i, "");
-        window.location.href = backUrl;
+        window.location.href = "/notes" // backUrl;
     };
     topBar.appendChild(backBtn);
     

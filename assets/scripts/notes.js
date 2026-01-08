@@ -1,8 +1,5 @@
 const main = document.getElementById("main");
 
-let h1= "";
-let h2 = "";
-let p = "";
 let items = "";
 let temp = "";
 
@@ -19,7 +16,11 @@ fetch("assets/notes.json")
         notes = data;
         tempNotes[indmain] = notes;
         console.log(notes); // This works because it's inside the callback
-        createPage(); // Call a function to use the data
+        try {
+        	createPage(); // Call a function to use the data
+        } catch(e) {
+        	console.error(e);
+        }
     })
     .catch(err => {console.error("Failed to load notes.json:", err);})
 
@@ -53,36 +54,62 @@ function createPage(n = "notes") {
 	
 	console.log(tempNotes)
 	
-	h1 = "Notes and Study Meterial";
-	p = "Select a unit to view notes and study materials";
-	h2 = currentTitle[indmain];
+	let h1;
+	
+	if (indmain === 3) {
+		h1 = prevClicks[indmain].replace("_", " ").replace("_", " ").toUpperCase();
+	} else {
+		h1 = prevClicks[indmain].replace("_", " ").replace(/\b\w/g, char => char.toUpperCase());
+	}
+	
+	const p = "Select a unit to view notes and study materials";
+	const h2 = currentTitle[indmain];
+	let path = "";
+	
+	for (let i in prevClicks) {
+		path += `<button>${prevClicks[i]}</button>` + "/";
+	}
+	
+	path = path.replace("null/", "");
 	
 	main.innerHTML = `
-<header class="header">
-	<button id="back-btn" title="Go Back" onclick="goBack()">←</button>
-    <h1>${h1}</h1>
-	
-</header>
-
-<main class="main">
-    <section class="subjects-section">
-        <h2>${h2}</h2>
-        <div class="subjects-grid">${items}</div>
-    </section>
-</main>
-
-<footer class="footer">
-	<p>© 2025 Knowlet | All rights reserved</p>
-</footer>
-`;
-
-}
+		<header class="header">
+			<button id="back-btn" title="Go Back" onclick="goBack()">←</button>
+		    <h1>${h1}</h1>
+		    <p>${path}</p>
+		</header>
+		
+		<main class="main">
+		    <section class="subjects-section">
+		        <h2>${h2}</h2>
+		        <div class="subjects-grid">${items}</div>
+		    </section>
+		</main>
+		
+		<footer class="footer">
+			<p>© 2025 Knowlet | All rights reserved</p>
+		</footer>
+		`;
+	}
 
 function fn(n) {
 	// alert(n);
 	indmain += 1;
 	prevClicks[indmain] = n;
 	createPage(n)
+}
+
+function sw(n) {
+	const temp1 = false;
+	for (let i in indmain) {
+		if ( n === indmain[i] || temp1) {
+			temp1 = true;
+			prevClicks[indmain] = null;
+			indmain -= 1;
+		}
+	}
+	
+	createPage(prevClicks[indmain]);
 }
 
 function goBack() {
@@ -92,5 +119,5 @@ function goBack() {
 	}
 	prevClicks[indmain] = null;
 	indmain -= 1;
-	createPage(prevClicks[indmain])
+	createPage(prevClicks[indmain]);
 }

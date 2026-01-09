@@ -3,7 +3,6 @@ const main = document.getElementById("main");
 let items = "";
 let temp = "";
 
-let notes = [];
 let tempNotes = [[null], [null], [null], [null], [null]];
 let prevClicks = ["notes"];
 let indmain = 0;
@@ -13,9 +12,7 @@ const currentTitle = ["Semesters", "Subjects", "Papers", "Units"]
 fetch("assets/notes.json")
     .then(res => res.json())
     .then(data => {
-        notes = data;
-        tempNotes[indmain] = notes;
-        console.log(notes); // This works because it's inside the callback
+        tempNotes[indmain] = data;
         try {
         	createPage(); // Call a function to use the data
         } catch(e) {
@@ -40,6 +37,7 @@ function createPage(n = "notes") {
 			let current = parts[indmain + 1];
 			if (current !== temp) {
 				temp = current;
+				
 				let tagName;
 				if (indmain === 2) {
 					tagName = current.replace("_", " ").replace("_", " ").toUpperCase();
@@ -47,12 +45,10 @@ function createPage(n = "notes") {
 					tagName = current.replace("_", " ").replace(/\b\w/g, char => char.toUpperCase());
 				}
 				items += `<div class="subject-card" onclick="fn('${current}')"><h4>${tagName}</h4></div>
-	 			`;
+		        	`;
 			}
 		}
 	}
-	
-	console.log(tempNotes)
 	
 	let h1;
 	
@@ -67,10 +63,10 @@ function createPage(n = "notes") {
 	let path = "";
 	
 	for (let i in prevClicks) {
-		path += `<button>${prevClicks[i]}</button>` + "/";
+		if (prevClicks[i]) {
+			path += `<button onclick="sw('${prevClicks[i]}')">${prevClicks[i].replace("null/", "")}</button>` + "/";
+		}
 	}
-	
-	path = path.replace("null/", "");
 	
 	main.innerHTML = `
 		<header class="header">
@@ -82,7 +78,9 @@ function createPage(n = "notes") {
 		<main class="main">
 		    <section class="subjects-section">
 		        <h2>${h2}</h2>
-		        <div class="subjects-grid">${items}</div>
+		        <div class="subjects-grid">
+		        	${items}
+		        </div>
 		    </section>
 		</main>
 		
@@ -93,20 +91,21 @@ function createPage(n = "notes") {
 	}
 
 function fn(n) {
-	// alert(n);
 	indmain += 1;
 	prevClicks[indmain] = n;
 	createPage(n)
 }
 
 function sw(n) {
-	const temp1 = false;
-	for (let i in indmain) {
-		if ( n === indmain[i] || temp1) {
-			temp1 = true;
-			prevClicks[indmain] = null;
-			indmain -= 1;
+
+	for (let i in prevClicks) {
+		if (n === prevClicks[i]) {
+			indmain = i - 1;
 		}
+	}
+
+	for (let i = indmain + 1; i < prevClicks.length; i++) {
+		prevClicks.pop(i);
 	}
 	
 	createPage(prevClicks[indmain]);
@@ -117,7 +116,7 @@ function goBack() {
 		window.location.href = '/';
 		return;
 	}
-	prevClicks[indmain] = null;
+	prevClicks.pop(indmain);
 	indmain -= 1;
 	createPage(prevClicks[indmain]);
 }

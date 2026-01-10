@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSM 252 Unit 4 | 4th Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive notes for Philosophy DSM 252 Unit 4: Modern Symbolic Logic. Covers Symbolization, Truth Tables, and Shorter Truth Table methods.">
+    <meta name="keywords" content="Logic, Symbolization, Truth Table, Shorter Truth Table, Validity, Invalidity, DSM 252, Philosophy, Knowlet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+            --border-color: #dcdde1;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        h1 { color: var(--accent-color); text-align: center; border-bottom: 3px solid var(--accent-color); padding-bottom: 15px; text-transform: uppercase; }
+        h2 { color: var(--primary-color); border-left: 6px solid var(--accent-color); padding-left: 15px; margin-top: 40px; background: #eef7ff; padding: 10px; }
+        h3 { color: var(--secondary-color); margin-top: 25px; border-bottom: 1px solid var(--border-color); padding-bottom: 5px; }
+        p { margin-bottom: 15px; text-align: justify; }
+        ul, ol { margin-bottom: 20px; }
+        li { margin-bottom: 10px; }
+        blockquote { background: #fdfefe; border-left: 10px solid var(--accent-color); margin: 1.5em 10px; padding: 15px; font-style: italic; }
+        table { width: 100%; border-collapse: collapse; margin: 25px 0; background: #fff; }
+        th, td { border: 1px solid var(--border-color); padding: 12px; text-align: center; }
+        th { background-color: var(--primary-color); color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .toc { background: #f1f2f6; padding: 25px; border-radius: 8px; margin-bottom: 35px; border: 1px solid #dfe4ea; }
+        .toc h4 { margin-top: 0; color: var(--primary-color); }
+        .toc a { text-decoration: none; color: var(--secondary-color); font-weight: bold; }
+        .toc a:hover { color: var(--accent-color); }
+        .exam-box { border: 2px solid #27ae60; padding: 20px; border-radius: 8px; background: #ebf9f1; margin-top: 30px; }
+        .exam-box h4 { margin-top: 0; color: #27ae60; text-transform: uppercase; }
+        .footer { text-align: center; font-size: 0.9em; color: #7f8c8d; margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <span id="spap_unit4_header">
+        <h1>Unit 4: Modern Symbolic Logic</h1>
+    </span>
+
+    <div class="toc">
+        <h4>Table of Contents</h4>
+        <ul>
+            <li><a href="#spap_symbolization">1. Symbolization of Propositions</a></li>
+            <li><a href="#spap_truth_tables">2. Truth-Table Method for Validity</a></li>
+            <li><a href="#spap_shorter_tt">3. Shorter Truth-Table Method for Invalidity</a></li>
+            <li><a href="#spap_logical_constants">4. Logical Constants and their Truth-Functions</a></li>
+            <li><a href="#spap_exam_guide">5. Exam Focus: Practical Tips & FAQs</a></li>
+        </ul>
+    </div>
+
+    <section id="spap_symbolization">
+        <h2>Symbolization of Propositions</h2>
+        <p>Modern logic moves away from the limitations of ordinary language by using <strong>symbols</strong>. This process, called symbolization, allows us to focus strictly on the logical structure of an argument rather than its verbal content.</p>
+        <h3>Components of Symbolization</h3>
+        <ul>
+            <li><strong>Propositional Constants:</strong> Capital letters (A, B, P, Q) represent specific, simple statements.</li>
+            <li><strong>Propositional Variables:</strong> Small letters (p, q, r) serve as placeholders for any statement.</li>
+            <li><strong>Logical Connectives:</strong> Symbols that link simple propositions into compound ones.</li>
+        </ul>
+    </section>
+
+    <section id="spap_logical_constants">
+        <h2>Logical Constants and Truth-Functions</h2>
+        <p>In modern symbolic logic, the truth-value of a compound proposition is determined entirely by the truth-values of its component parts. The primary logical operators are:</p>
+        
+        
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Operator</th>
+                    <th>Symbol</th>
+                    <th>English Equivalent</th>
+                    <th>Truth-Value Condition</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Negation</strong></td>
+                    <td>~</td>
+                    <td>"Not" / "It is not the case that"</td>
+                    <td>Reverses the truth value.</td>
+                </tr>
+                <tr>
+                    <td><strong>Conjunction</strong></td>
+                    <td>&bull;</td>
+                    <td>"And" / "But" / "Also"</td>
+                    <td>True only if <strong>both</strong> are true.</td>
+                </tr>
+                <tr>
+                    <td><strong>Disjunction</strong></td>
+                    <td>v</td>
+                    <td>"Or" (Inclusive)</td>
+                    <td>False only if <strong>both</strong> are false.</td>
+                </tr>
+                <tr>
+                    <td><strong>Implication</strong></td>
+                    <td>&sup1; / &rarr;</td>
+                    <td>"If... then..."</td>
+                    <td>False only if <strong>T &rarr; F</strong>.</td>
+                </tr>
+                <tr>
+                    <td><strong>Equivalence</strong></td>
+                    <td>&ordm; / &harr;</td>
+                    <td>"If and only if"</td>
+                    <td>True if truth values match.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="spap_truth_tables">
+        <h2>Truth-Table Method for Testing Validity</h2>
+        <p>A truth table is a mechanical procedure that lists all possible combinations of truth-values for the components of an argument. It is used to determine if an argument form is <strong>Valid</strong> or <strong>Invalid</strong>.</p>
+        
+        <h3>The Procedure:</h3>
+        <ol>
+            <li>Identify the number of variables ($n$). The table will have $2^n$ rows.</li>
+            <li>Set up columns for each variable and each premise, then for the conclusion.</li>
+            <li>Fill in truth values for all possible combinations.</li>
+            <li><strong>The Test:</strong> An argument is <strong>Invalid</strong> if there is at least one row where all the premises are <strong>True (T)</strong> and the conclusion is <strong>False (F)</strong>. If no such row exists, it is <strong>Valid</strong>.</li>
+        </ol>
+
+        
+    </section>
+
+    <section id="spap_shorter_tt">
+        <h2>Shorter Truth-Table Method for Invalidity</h2>
+        <p>The shorter truth-table method is a more efficient "reductio ad absurdum" approach. Instead of drawing the whole table, we try to <strong>prove the argument invalid</strong> by force.</p>
+        
+        <h3>How to do it:</h3>
+        <ol>
+            <li><strong>Assume Invalidity:</strong> Assign <strong>F</strong> to the conclusion and <strong>T</strong> to all premises.</li>
+            <li><strong>Assign Values:</strong> Work backward to assign T or F to the individual variables to satisfy step 1.</li>
+            <li><strong>Check for Consistency:</strong> 
+                <ul>
+                    <li>If you can assign values to all variables consistently without contradiction, the argument is <strong>Proven Invalid</strong>.</li>
+                    <li>If you encounter a contradiction (e.g., a variable must be both T and F at once), the argument is <strong>Valid</strong>.</li>
+                </ul>
+            </li>
+        </ol>
+    </section>
+
+    <div class="exam-box">
+        <h4>Exam Focus: Practical Guide</h4>
+        <ul>
+            <li><strong>Exam Tip:</strong> In the Shorter Truth-Table, always start with the <strong>conclusion</strong> if it is an implication (p &sup1; q), because there is only ONE way for it to be False (T &sup1; F).</li>
+            <li><strong>Mnemonic for Implication:</strong> Remember <strong>"T-F is F"</strong>. For any other combination (T-T, F-T, F-F), the implication is always True.</li>
+            <li><strong>Common Pitfall:</strong> Do not confuse "Exclusive Or" with "Inclusive Or." Standard logic uses Inclusive Or ($v$), where "P or Q" is True even if both are True.</li>
+            <li><strong>FAQ:</strong> <em>How many rows do I need for 3 variables (P, Q, R)?</em>
+                <br>Formula: $2^3 = 8$ rows. For 4 variables, you need 16 rows.
+            </li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2026 Knowlet Academic Notes | DSM 252 Unit 4 | Philosophy of Logic</p>
+    </div>
+</div>
+
+</body>
+</html>

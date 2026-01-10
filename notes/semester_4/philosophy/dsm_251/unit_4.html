@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHI-DSM-251 Unit 4 | Logic Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for PHI-DSM-251 Unit 4. Covers Symbolization, Truth Tables, and Shorter Truth Tables for proving invalidity.">
+    <meta name="keywords" content="Logic, Symbolization, Truth Table, Shorter Truth Table, Validity, Invalidity, Philosophy, Knowlet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f7f6;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            border-left: 5px solid #2980b9;
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #d35400;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #f9f9f9;
+            border-left: 10px solid #ccc;
+            margin: 1.5em 10px;
+            padding: 0.5em 10px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .toc {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            border: 1px solid #bdc3c7;
+        }
+        .exam-tip {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-top: 50px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <span id="spap_unit4Header">
+        <h1>Unit 4: Modern Symbolic Logic</h1>
+    </span>
+
+    <div class="toc">
+        <h4>Table of Contents</h4>
+        <ul>
+            <li><a href="#spap_symbolization">Symbolization of Propositions</a></li>
+            <li><a href="#spap_truthTableMethod">Testing Validity by Truth-Table Method</a></li>
+            <li><a href="#spap_shorterTruthTable">Shorter Truth-Table Method for Proving Invalidity</a></li>
+            <li><a href="#spap_examFocus">Exam Focus: Practical Steps & FAQs</a></li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <section id="spap_symbolization">
+        <h2>Symbolization of Propositions</h2>
+        [cite_start]<p>Modern logic uses symbols to represent statements and their connections, allowing for a more precise analysis of arguments[cite: 879, 918].</p>
+        
+        <h3>Five Basic Truth-Functions</h3>
+        [cite_start]<p>In modern logic, symbols are used to connect simple statements into compound ones[cite: 899, 930]. The primary logical operators are:</p>
+        <ul>
+            <li><strong>Negation (~):</strong> "Not" (e.g., ~P means "It is not the case that P").</li>
+            <li><strong>Conjunction (&bull;):</strong> "And" (e.g., P &bull; Q).</li>
+            <li><strong>Disjunction (v):</strong> "Or" (e.g., P v Q).</li>
+            <li><strong>Implication (&sup1;):</strong> "If... then..." (e.g., P &sup1; Q).</li>
+            <li><strong>Equivalence (&ordm;):</strong> "If and only if" (e.g., P &ordm; Q).</li>
+        </ul>
+        
+        
+    </section>
+
+    <section id="spap_truthTableMethod">
+        <h2>Testing Validity by Truth-Table Method</h2>
+        [cite_start]<p>A truth table is a mechanical decision procedure used to determine the validity of an argument by exploring all possible truth values of its components[cite: 882, 899].</p>
+
+        <h3>Defining the Operators</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>P</th>
+                    <th>Q</th>
+                    <th>~P</th>
+                    <th>P &bull; Q</th>
+                    <th>P v Q</th>
+                    <th>P &sup1; Q</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>T</td>
+                    <td>T</td>
+                    <td>F</td>
+                    <td>T</td>
+                    <td>T</td>
+                    <td>T</td>
+                </tr>
+                <tr>
+                    <td>T</td>
+                    <td>F</td>
+                    <td>F</td>
+                    <td>F</td>
+                    <td>T</td>
+                    <td>F</td>
+                </tr>
+                <tr>
+                    <td>F</td>
+                    <td>T</td>
+                    <td>T</td>
+                    <td>F</td>
+                    <td>T</td>
+                    <td>T</td>
+                </tr>
+                <tr>
+                    <td>F</td>
+                    <td>F</td>
+                    <td>T</td>
+                    <td>F</td>
+                    <td>F</td>
+                    <td>T</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>The Test for Validity</h3>
+        [cite_start]<p>An argument is <strong>Invalid</strong> if there is at least one row where all premises are <strong>True (T)</strong> but the conclusion is <strong>False (F)</strong>[cite: 881, 882]. [cite_start]If no such row exists, the argument is <strong>Valid</strong>[cite: 899].</p>
+    </section>
+
+    <section id="spap_shorterTruthTable">
+        <h2>Shorter Truth-Table Method for Proving Invalidity</h2>
+        [cite_start]<p>The Shorter Truth-Table Method is a more efficient way to prove that an argument is invalid without drawing a full table[cite: 899, 930].</p>
+
+        <h3>Step-by-Step Procedure</h3>
+        <ol>
+            [cite_start]<li><strong>Assume Invalidity:</strong> Assign <strong>False (F)</strong> to the conclusion and <strong>True (T)</strong> to all premises[cite: 882, 930].</li>
+            [cite_start]<li><strong>Back-Solve:</strong> Work backward to assign truth values to the individual variables (P, Q, R) based on those assignments[cite: 930].</li>
+            [cite_start]<li><strong>Check for Consistency:</strong> If you can successfully assign truth values to all variables without creating a contradiction, the argument is proven <strong>Invalid</strong>[cite: 899].</li>
+            <li><strong>Contradiction:</strong> If you find it impossible to make the premises true while the conclusion is false, the argument is <strong>Valid</strong>.</li>
+        </ol>
+    </section>
+
+    <section id="spap_examFocus">
+        <div class="exam-tip">
+            [cite_start]<strong>Exam Tip:</strong> For the Shorter Truth-Table, always start with the <strong>conclusion</strong> if it is a conditional (P &sup1; Q), because it is only False in one case (T &sup1; F)[cite: 1290].
+        </div>
+
+        <h2>Exam Focus: FAQs</h2>
+        <ul>
+            <li><strong>Q: When is a conditional (P &sup1; Q) false?</strong><br>
+            [cite_start]A: Only when the antecedent (P) is True and the consequent (Q) is False[cite: 1290].</li>
+            <li><strong>Q: Why use the shorter method?</strong><br>
+            A: A full truth table for an argument with 4 variables requires 16 rows. [cite_start]The shorter method saves time by looking for the one specific case that proves invalidity[cite: 899, 930].</li>
+        </ul>
+    </section>
+
+    <div class="footer">
+        <p>&copy; 2026 Knowlet Academic Notes | PHI-DSM-251 | Semester IV</p>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logic Unit 1 | DSC 351 Notes - Knowlet</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --border-color: #dcdde1;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 850px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            border-top: 8px solid var(--primary-color);
+        }
+        h1 { color: var(--primary-color); text-align: center; border-bottom: 2px solid #eee; padding-bottom: 15px; }
+        h2 { color: var(--accent-color); border-left: 5px solid var(--accent-color); padding-left: 15px; margin-top: 35px; }
+        .toc { background: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 30px; border: 1px solid var(--border-color); }
+        .toc ul { list-style: none; padding: 0; }
+        .toc a { text-decoration: none; color: var(--accent-color); font-weight: bold; }
+        .definition-box { background: #e8f4fd; border-radius: 8px; padding: 20px; margin: 20px 0; border-left: 5px solid var(--accent-color); }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid var(--border-color); padding: 12px; text-align: left; }
+        th { background-color: var(--primary-color); color: white; }
+        .exam-section { background-color: #fff9db; border: 1px solid #f1c40f; padding: 20px; margin-top: 30px; border-radius: 8px; }
+        .footer { text-align: center; font-size: 0.9em; color: #7f8c8d; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 1: Introduction to Logic</h1>
+    <p style="text-align: center; font-style: italic;">The Science and Art of Correct Reasoning.</p>
+
+    <div class="toc">
+        <h4>Table of Contents</h4>
+        <ul>
+            <li><a href="#definition">1. Definition and Nature of Logic</a></li>
+            <li><a href="#scope">2. Scope of Logic: Formal vs. Material Truth</a></li>
+            <li><a href="#argument">3. The Structure of an Argument</a></li>
+            <li><a href="#deduction-induction">4. Deduction and Induction</a></li>
+            <li><a href="#laws-thought">5. The Three Fundamental Laws of Thought</a></li>
+        </ul>
+    </div>
+
+    <section id="definition">
+        <h2>1. Definition and Nature of Logic</h2>
+        <p>Logic is derived from the Greek word <strong>'Logos'</strong>, which means both "thought" and "word" (the expression of thought in language). </p>
+        <div class="definition-box">
+            <strong>Formal Definition:</strong> Logic is the study of the methods and principles used to distinguish <em>correct</em> from <em>incorrect</em> reasoning.
+        </div>
+        <p>It is often called the <strong>"Science of Sciences"</strong> because it provides the rules of reasoning that all other sciences must follow. It is also an <strong>Art</strong>, as it teaches us how to apply these rules in our daily discourse.</p>
+    </section>
+
+    <section id="scope">
+        <h2>2. Scope: Formal vs. Material Truth</h2>
+        <p>Logic is primarily concerned with <strong>Formal Truth</strong>. It doesn't care if the facts are true in the real world; it only cares if the conclusion follows logically from the premises.</p>
+        
+        <ul>
+            <li><strong>Formal Truth:</strong> Consistency. If the premises are accepted, the conclusion must follow.</li>
+            <li><strong>Material Truth:</strong> Correspondence. The statement matches the facts in the physical world.</li>
+        </ul>
+    </section>
+
+    <section id="argument">
+        <h2>3. The Structure of an Argument</h2>
+        <p>An argument is not a "disagreement." In logic, an <strong>Argument</strong> is a group of propositions where one (the conclusion) is claimed to follow from the others (the premises).</p>
+        
+        <ul>
+            <li><strong>Premise:</strong> A proposition used as evidence or reasons.</li>
+            <li><strong>Conclusion:</strong> The proposition that is proven or supported by the premises.</li>
+        </ul>
+    </section>
+
+    <section id="deduction-induction">
+        <h2>4. Deduction and Induction</h2>
+        <table>
+            <tr>
+                <th>Deductive Logic</th>
+                <th>Inductive Logic</th>
+            </tr>
+            <tr>
+                <td>Moves from <strong>General to Particular</strong>.</td>
+                <td>Moves from <strong>Particular to General</strong>.</td>
+            </tr>
+            <tr>
+                <td>Claims 100% certainty (Validity).</td>
+                <td>Claims <strong>Probability</strong>.</td>
+            </tr>
+            <tr>
+                <td>If premises are true, conclusion <em>must</em> be true.</td>
+                <td>Conclusion goes beyond what is in the premises.</td>
+            </tr>
+        </table>
+        
+    </section>
+
+    <section id="laws-thought">
+        <h2>5. The Fundamental Laws of Thought</h2>
+        <p>Logic rests on three bedrock principles established by Aristotle:</p>
+        <ol>
+            <li><strong>The Law of Identity:</strong> A thing is what it is ($A = A$).</li>
+            <li><strong>The Law of Non-Contradiction:</strong> A thing cannot be both $A$ and $not-A$ at the same time and in the same sense.</li>
+            <li><strong>The Law of Excluded Middle:</strong> A thing is either $A$ or $not-A$; there is no third middle ground.</li>
+        </ol>
+    </section>
+
+    <div class="exam-section">
+        <h4>Exam Focus</h4>
+        <ul>
+            <li><strong>Define Logic:</strong> Be ready to explain why logic is both a science and an art.</li>
+            <li><strong>Truth vs. Validity:</strong> Validity is a property of arguments; Truth is a property of propositions. An argument can be <em>valid</em> even if its premises are <em>false</em>.</li>
+            <li><strong>Laws of Thought:</strong> You will often be asked to name and explain the three laws of thought.</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>© 2026 Knowlet Academic Notes | DSC 351 | Logic</p>
+    </div>
+</div>
+
+</body>
+</html>

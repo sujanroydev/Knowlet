@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logic Unit 5 | DSC 351 Notes - Knowlet</title>
+    <style>
+        :root {
+            --primary-color: #27ae60;
+            --secondary-color: #2ecc71;
+            --accent-color: #f1f9f5;
+            --bg-color: #ffffff;
+            --text-color: #2c3e50;
+            --border-color: #d5dbdb;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: #fdfdfd;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 850px;
+            margin: auto;
+            background: var(--bg-color);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-top: 10px solid var(--primary-color);
+        }
+        h1 { color: var(--primary-color); text-align: center; margin-bottom: 20px; }
+        h2 { color: var(--secondary-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 8px; margin-top: 40px; }
+        h3 { color: var(--primary-color); margin-top: 25px; }
+        .toc { background: var(--accent-color); padding: 20px; border-radius: 8px; margin-bottom: 30px; border: 1px solid var(--border-color); }
+        .toc ul { list-style: none; padding: 0; }
+        .toc a { text-decoration: none; color: var(--primary-color); font-weight: bold; }
+        .fallacy-box { background: #fff; border: 1px solid var(--border-color); padding: 15px; margin: 15px 0; border-radius: 8px; border-left: 5px solid var(--primary-color); }
+        .fallacy-title { font-weight: bold; color: var(--primary-color); font-size: 1.1em; }
+        .example { font-style: italic; color: #7f8c8d; margin-top: 5px; }
+        .exam-section { background-color: #fff9db; border: 1px solid #f1c40f; padding: 20px; margin-top: 30px; border-radius: 8px; }
+        .footer { text-align: center; font-size: 0.9em; color: #95a5a6; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 5: Informal Fallacies</h1>
+    <p style="text-align: center; font-style: italic;">Identifying errors in reasoning that occur in everyday language.</p>
+
+    <div class="toc">
+        <h4>Table of Contents</h4>
+        <ul>
+            <li><a href="#definition">1. What is an Informal Fallacy?</a></li>
+            <li><a href="#relevance">2. Fallacies of Relevance (Socio-Psychological)</a></li>
+            <li><a href="#presumption">3. Fallacies of Presumption</a></li>
+            <li><a href="#ambiguity">4. Fallacies of Ambiguity (Linguistic)</a></li>
+            <li><a href="#exam">5. Exam Tips: How to Identify Fallacies</a></li>
+        </ul>
+    </div>
+
+    <section id="definition">
+        <h2>1. What is an Informal Fallacy?</h2>
+        <p>A <strong>fallacy</strong> is a defect in an argument that consists of something other than a false premise alone. Unlike formal fallacies, which are identified by inspecting the "shape" of the argument, <strong>informal fallacies</strong> can only be detected by examining the <em>content</em> and <em>context</em> of the argument.</p>
+        
+        
+    </section>
+
+    <section id="relevance">
+        <h2>2. Fallacies of Relevance</h2>
+        <p>In these fallacies, the premises are logically irrelevant to the conclusion, although they may seem psychologically relevant.</p>
+
+        <div class="fallacy-box">
+            <div class="fallacy-title">Argumentum ad Hominem (Against the Person)</div>
+            <p>Attacking the character or circumstances of the person making the argument instead of addressing the argument itself.</p>
+            <p class="example">Example: "You shouldn't believe his theory on climate change; he was once arrested for shoplifting."</p>
+        </div>
+
+        <div class="fallacy-box">
+            <div class="fallacy-title">Argumentum ad Populum (Appeal to People)</div>
+            <p>Claiming something is true just because many people believe it or it is popular.</p>
+            <p class="example">Example: "Everyone is using this brand of phone, so it must be the best one available."</p>
+        </div>
+
+        <div class="fallacy-box">
+            <div class="fallacy-title">Argumentum ad Baculum (Appeal to Force)</div>
+            <p>Using a threat of harm to make someone accept a conclusion.</p>
+            <p class="example">Example: "You should agree with my decision, unless you want to find yourself looking for a new job."</p>
+        </div>
+
+        <div class="fallacy-box">
+            <div class="fallacy-title">Argumentum ad Misericordiam (Appeal to Pity)</div>
+            <p>Using pity or sympathy to win support for an argument.</p>
+            <p class="example">Example: "Professor, I deserve an 'A' because my car broke down and my dog is sick."</p>
+        </div>
+
+        <div class="fallacy-box">
+            <div class="fallacy-title">Argumentum ad Ignorantiam (Appeal to Ignorance)</div>
+            <p>Arguing that something is true because it hasn't been proven false (or vice versa).</p>
+            <p class="example">Example: "No one has proven that ghosts don't exist; therefore, they must exist."</p>
+        </div>
+    </section>
+
+    <section id="presumption">
+        <h2>3. Fallacies of Presumption</h2>
+        <p>These occur because the premises presume what they are supposed to prove.</p>
+
+        <div class="fallacy-box">
+            <div class="fallacy-title">Petitio Principii (Begging the Question)</div>
+            <p>Circular reasoning where the conclusion is hidden in the premises.</p>
+            <p class="example">Example: "God exists because the Bible says so, and the Bible is true because it's the word of God."</p>
+        </div>
+
+        <div class="fallacy-box">
+            <div class="fallacy-title">Complex Question (Loaded Question)</div>
+            <p>Asking a question that has a presupposition built into it.</p>
+            <p class="example">Example: "Have you stopped cheating on exams?" (Both Yes and No imply you used to cheat).</p>
+        </div>
+    </section>
+
+    <section id="ambiguity">
+        <h2>4. Fallacies of Ambiguity</h2>
+        <p>These occur due to shifts in the meaning of words or phrases within an argument.</p>
+
+        <div class="fallacy-box">
+            <div class="fallacy-title">Equivocation</div>
+            <p>Using the same word with two different meanings in the same argument.</p>
+            <p class="example">Example: "The sign says 'Fine for Parking Here,' so since it's fine, I'll park my car."</p>
+        </div>
+
+        <div class="fallacy-box">
+            <div class="fallacy-title">Amphiboly</div>
+            <p>Occurs when a statement is awkward or poorly constructed, leading to double meanings.</p>
+            <p class="example">Example: "The professor said he would give a lecture on heart failure in the biology lab." (Is the lecture in the lab, or is the heart failure occurring in the lab?)</p>
+        </div>
+        
+        
+    </section>
+
+    <div class="exam-section" id="exam">
+        <h4>Exam Essentials</h4>
+        <ul>
+            <li><strong>Identification:</strong> You will likely be given a list of sentences and asked to name the fallacy in each. Practice identifying the "trigger" word (e.g., threats = <em>Ad Baculum</em>, pity = <em>Ad Misericordiam</em>).</li>
+            <li><strong>Latin Names:</strong> Learn the Latin names (like <em>Ad Hominem</em>) as they are usually required in the exam rather than just the English translations.</li>
+            <li><strong>Difference from Formal Fallacies:</strong> Remember, informal fallacies are about the <em>language</em>, not the <em>syllogistic structure</em>.</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>© 2026 Knowlet Academic Notes | DSC 351 | Logic</p>
+    </div>
+</div>
+
+</body>
+</html>

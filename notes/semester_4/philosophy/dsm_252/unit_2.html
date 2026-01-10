@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSM 252 Unit 2 | 4th Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready HTML notes for Philosophy Minor DSM 252 Unit 2: Immediate Inference and Square of Opposition.">
+    <meta name="keywords" content="Logic, Immediate Inference, Conversion, Obversion, Contraposition, Square of Opposition, Aristotelian, Boolean, DSM 252, Knowlet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2980b9;
+            text-align: center;
+            border-bottom: 3px solid #2980b9;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #c0392b;
+            border-left: 5px solid #c0392b;
+            padding-left: 15px;
+            margin-top: 30px;
+            background: #f9f9f9;
+        }
+        h3 {
+            color: #16a085;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #2980b9;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        blockquote {
+            background: #ecf0f1;
+            border-left: 10px solid #7f8c8d;
+            margin: 1.5em 10px;
+            padding: 10px 20px;
+            font-weight: bold;
+        }
+        .toc {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #2980b9;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        .exam-tip {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .warning {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <span id="spap_unitTitle">
+        <h1>Unit 2: Immediate Inference and Square of Opposition</h1>
+    </span>
+
+    <div class="toc">
+        <h3>Table of Contents</h3>
+        <ul>
+            <li><a href="#spap_intro">Introduction to Immediate Inference</a></li>
+            <li><a href="#spap_conversion">Conversion</a></li>
+            <li><a href="#spap_obversion">Obversion</a></li>
+            <li><a href="#spap_contraposition">Contraposition</a></li>
+            <li><a href="#spap_squareTrad">Traditional Square of Opposition</a></li>
+            <li><a href="#spap_squareMod">Aristotelian and Boolean Squares</a></li>
+            <li><a href="#spap_examEnhance">Exam Focus: Tips and FAQs</a></li>
+        </ul>
+    </div>
+
+    <section id="spap_intro">
+        <h2>Introduction to Immediate Inference</h2>
+        <p>In logic, <strong>inference</strong> is the process by which one proposition (the conclusion) is arrived at on the basis of one or more other propositions (premises). [cite: 879] <strong>Immediate inference</strong> is a type of deductive inference where the conclusion is drawn directly from a <em>single premise</em>. [cite: 925] Unlike mediate inference (syllogism), there is no middle term used to link concepts.</p>
+    </section>
+
+    <section id="spap_conversion">
+        <h2>Conversion</h2>
+        <p>Conversion is an immediate inference produced by interchanging the subject and predicate terms of a categorical proposition. [cite: 925]</p>
+        <ul>
+            <li><strong>A-Proposition (All S is P):</strong> Converts to <em>Some P is S</em>. This is called "Conversion by Limitation" because we cannot infer "All P is S" without committing a fallacy.</li>
+            <li><strong>E-Proposition (No S is P):</strong> Converts to <em>No P is S</em>. This is a simple conversion.</li>
+            <li><strong>I-Proposition (Some S is P):</strong> Converts to <em>Some P is S</em>. Also a simple conversion.</li>
+            <li><strong>O-Proposition (Some S is not P):</strong> <em>Cannot be validly converted.</em></li>
+        </ul>
+        <div class="warning">
+            <strong>Common Pitfall:</strong> Never try to convert an <strong>O</strong> proposition. For example, "Some dogs are not pets" does not mean "Some pets are not dogs."
+        </div>
+    </section>
+
+    <section id="spap_obversion">
+        <h2>Obversion</h2>
+        <p>Obversion involves changing the quality of the proposition (affirmative to negative or vice versa) and replacing the predicate term with its contradictory term (complement). [cite: 925]</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Original Proposition</th>
+                    <th>Obverse Form</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>A: All S is P</td>
+                    <td>E: No S is non-P</td>
+                </tr>
+                <tr>
+                    <td>E: No S is P</td>
+                    <td>A: All S is non-P</td>
+                </tr>
+                <tr>
+                    <td>I: Some S is P</td>
+                    <td>O: Some S is not non-P</td>
+                </tr>
+                <tr>
+                    <td>O: Some S is not P</td>
+                    <td>I: Some S is non-P</td>
+                </tr>
+            </tbody>
+        </table>
+        <blockquote>
+            Rule: The truth value of the original and the obverse remains exactly the same.
+        </blockquote>
+    </section>
+
+    <section id="spap_contraposition">
+        <h2>Contraposition</h2>
+        <p>Contraposition is a complex immediate inference where the subject is replaced by the complement of the predicate, and the predicate is replaced by the complement of the subject. [cite: 925]</p>
+        <ul>
+            <li><strong>A:</strong> Converts to <em>All non-P is non-S</em>.</li>
+            <li><strong>O:</strong> Converts to <em>Some non-P is not non-S</em>.</li>
+            <li><strong>E:</strong> Converts to <em>Some non-P is not non-S</em> (by limitation).</li>
+            <li><strong>I:</strong> <em>Invalid.</em> No valid contrapositive for I-propositions.</li>
+        </ul>
+        </section>
+
+    <section id="spap_squareTrad">
+        <h2>Traditional Square of Opposition</h2>
+        <p>The <strong>Square of Opposition</strong> describes the logical relationships between the four categorical propositions (A, E, I, O) when they share the same subject and predicate. [cite: 926]</p>
+        <ul>
+            <li><strong>Contradictories (A & O, E & I):</strong> They have opposite truth values. If one is true, the other <em>must</em> be false.</li>
+            <li><strong>Contraries (A & E):</strong> They cannot both be true, but they can both be false.</li>
+            <li><strong>Subcontraries (I & O):</strong> They cannot both be false, but they can both be true.</li>
+            <li><strong>Subalternation (A to I, E to O):</strong> If the universal is true, the particular must be true.</li>
+        </ul>
+    </section>
+
+    <section id="spap_squareMod">
+        <h2>Aristotelian and Boolean Squares</h2>
+        <p>There is a fundamental difference in how traditional and modern logic interpret the "existence" of the subject. [cite: 926]</p>
+        <h3>1. Traditional (Aristotelian) Square</h3>
+        <p>Assumes <strong>Existential Import</strong>: Universal propositions (A, E) imply that the subject actually exists in the real world. All four relationships (contrary, subcontrary, subaltern, contradictory) are considered valid. [cite: 926]</p>
+        <h3>2. Modern (Boolean) Square</h3>
+        <p>Rejects Existential Import for universals: Universal propositions are seen as hypothetical (If S exists, then P). Because of this, <strong>only the Contradictory relationship</strong> remains valid. Contraries, subcontraries, and subalternation are rejected in the Boolean interpretation. [cite: 926]</p>
+        </section>
+
+    <section id="spap_examEnhance">
+        <h2>Exam Focus: Tips and FAQs</h2>
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> In conversion, remember <strong>E</strong> and <strong>I</strong> are simple. <strong>A</strong> requires limitation. <strong>O</strong> is impossible.
+        </div>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li>Mistaking <em>contraries</em> for <em>contradictories</em>. Contraries (A/E) can both be false!</li>
+            <li>Applying Aristotelian subalternation in a Boolean context. In modern logic, "All S is P" does NOT prove "Some S is P".</li>
+        </ul>
+
+        <h3>Frequently Asked Questions</h3>
+        <p><strong>Q: Why can't O-propositions be converted?</strong><br>
+        A: Because conversion would change the distribution of the terms. In "Some S is not P", P is distributed. If converted to "Some P is not S", S would become distributed, which wasn't the case in the premise.</p>
+
+        <h3>Mnemonics</h3>
+        <p>Use <strong>"C-O-C"</strong> to remember the types of immediate inference: <strong>C</strong>onversion, <strong>O</strong>bversion, <strong>C</strong>ontraposition. [cite: 925]</p>
+    </section>
+
+    <div class="footer">
+        <p>© 2026 Knowlet Academic Notes | PHI-DSM-252 | Semester IV</p>
+    </div>
+</div>
+
+</body>
+</html>

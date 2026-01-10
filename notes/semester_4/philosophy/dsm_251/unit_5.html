@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSM 251 Unit 5 | 4th Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for Philosophy Minor (DSM 251) Unit 5: Formal Truth of Validity. Covering the Nine Rules of Inference with step-by-step explanations.">
+    <meta name="keywords" content="Logic, Formal Truth of Validity, Nine Rules of Inference, Modus Ponens, Modus Tollens, PHI-DSM-251, Knowlet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f7f6;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            border-left: 5px solid #2980b9;
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #d35400;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #f9f9f9;
+            border-left: 10px solid #ccc;
+            margin: 1.5em 10px;
+            padding: 10px 20px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .toc {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            border: 1px solid #bdc3c7;
+        }
+        .exam-tip {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .warning {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-top: 50px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <span id="spap_unit5Title">
+        <h1>Unit 5: Formal Truth of Validity</h1>
+    </span>
+
+    <div class="toc">
+        <h4>Table of Contents</h4>
+        <ul>
+            <li><a href="#spap_intro">Introduction to Formal Proof of Validity</a></li>
+            <li><a href="#spap_nineRules">The Nine Rules of Inference</a></li>
+            <li><a href="#spap_application">Application and Step-by-Step Proof Construction</a></li>
+            <li><a href="#spap_examResources">Exam Focus: Tips, Pitfalls, and FAQs</a></li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <section id="spap_intro">
+        <h2>Introduction to Formal Proof of Validity</h2>
+        <p>The <strong>Formal Truth of Validity</strong> refers to a method of proving that a deductive argument is valid by showing that its conclusion can be derived from its premises through a series of elementary valid arguments[cite: 2269, 2256]. Unlike truth tables, which can become unwieldy with many variables, this method uses a set of established <strong>Rules of Inference</strong> to construct a step-by-step proof[cite: 2269, 2300].</p>
+        
+        <blockquote>
+            A formal proof of validity is a sequence of statements, each of which is either a premise or is derived from preceding statements by a rule of inference, such that the last statement in the sequence is the conclusion of the argument.
+        </blockquote>
+    </section>
+
+    <section id="spap_nineRules">
+        <h2>The Nine Rules of Inference</h2>
+        <p>These nine rules are the "building blocks" of deductive proof. They are elementary argument forms that are always valid[cite: 2269, 2300].</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Rule Name</th>
+                    <th>Abbreviation</th>
+                    <th>Logical Form / Structure</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1. Modus Ponens</strong></td>
+                    <td>M.P.</td>
+                    <td>p &sup1; q<br>p<br>Therefore, q</td>
+                </tr>
+                <tr>
+                    <td><strong>2. Modus Tollens</strong></td>
+                    <td>M.T.</td>
+                    <td>p &sup1; q<br>~q<br>Therefore, ~p</td>
+                </tr>
+                <tr>
+                    <td><strong>3. Hypothetical Syllogism</strong></td>
+                    <td>H.S.</td>
+                    <td>p &sup1; q<br>q &sup1; r<br>Therefore, p &sup1; r</td>
+                </tr>
+                <tr>
+                    <td><strong>4. Disjunctive Syllogism</strong></td>
+                    <td>D.S.</td>
+                    <td>p v q<br>~p<br>Therefore, q</td>
+                </tr>
+                <tr>
+                    <td><strong>5. Constructive Dilemma</strong></td>
+                    <td>C.D.</td>
+                    <td>(p &sup1; q) &bull; (r &sup1; s)<br>p v r<br>Therefore, q v s</td>
+                </tr>
+                <tr>
+                    <td><strong>6. Absorption</strong></td>
+                    <td>Abs.</td>
+                    <td>p &sup1; q<br>Therefore, p &sup1; (p &bull; q)</td>
+                </tr>
+                <tr>
+                    <td><strong>7. Simplification</strong></td>
+                    <td>Simp.</td>
+                    <td>p &bull; q<br>Therefore, p</td>
+                </tr>
+                <tr>
+                    <td><strong>8. Conjunction</strong></td>
+                    <td>Conj.</td>
+                    <td>p<br>q<br>Therefore, p &bull; q</td>
+                </tr>
+                <tr>
+                    <td><strong>9. Addition</strong></td>
+                    <td>Add.</td>
+                    <td>p<br>Therefore, p v q</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    
+    <section id="spap_application">
+        <h2>Application and Step-by-Step Proof Construction</h2>
+        <p>To construct a formal proof, you list the premises, number them, and then derive intermediate steps until you reach the conclusion. Each step must cite the rule used and the previous line numbers it was applied to.</p>
+
+        <h3>Example Proof</h3>
+        <p><strong>Argument:</strong> If it rains (R), the ground is wet (W). It is raining. Therefore, the ground is wet and it is cloudy (C) or not cloudy.</p>
+        <blockquote>
+            1. R &sup1; W (Premise)<br>
+            2. R (Premise)<br>
+            3. W (From 1, 2 by M.P.)<br>
+            4. W v (C &bull; ~C) (From 3 by Addition)
+        </blockquote>
+
+        <h3>Deep Explanation of Key Rules</h3>
+        <ul>
+            <li><strong>Modus Ponens:</strong> Often called "affirming the antecedent." If the "if" part is true, the "then" part must follow.</li>
+            <li><strong>Modus Tollens:</strong> Often called "denying the consequent." If the "then" part is false, the "if" part must have been false.</li>
+            <li><strong>Simplification:</strong> Since a conjunction (AND) is only true if both parts are true, if you have "p &bull; q", you are logically allowed to extract "p".</li>
+            <li><strong>Addition:</strong> A disjunction (OR) is true if <em>at least one</em> part is true. If you know "p" is true, you can add <em>anything</em> to it with an "OR" and the statement remains true.</li>
+        </ul>
+    </section>
+
+    <section id="spap_examResources">
+        <h2>Exam Focus: Tips, Pitfalls, and FAQs</h2>
+        
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> When starting a complex proof, look at the <strong>Conclusion</strong>. Work backward to see which rules could result in that specific form. For example, if the conclusion is a conjunction (p &bull; q), you will likely need to use the Rule of Conjunction as your final step.
+        </div>
+
+        <div class="warning">
+            <strong>Common Pitfall:</strong> Do not use "Simplification" on a disjunction (v). You can only simplify a conjunction (&bull;). Example: From "p v q", you <strong>cannot</strong> conclude "p". This is a common error in exams.
+        </div>
+
+        <h3>Frequently Asked Questions</h3>
+        <p><strong>Q: Can I use these rules in any order?</strong><br>
+        A: Yes, as long as the line you are using as a premise for a rule has already been stated or derived previously in the proof.</p>
+        
+        <p><strong>Q: What is the difference between these rules and the rules for Syllogisms in Unit 3?</strong><br>
+        A: Unit 3 rules (Copi's 6 rules) are for <em>testing</em> if a categorical syllogism is valid[cite: 2265]. These 9 rules are for <em>constructing a proof</em> to show that a statement follows from others[cite: 2269, 2300].</p>
+    </section>
+
+    <div class="footer">
+        <p>&copy; 2026 Knowlet Academic Notes | Philosophy DSM 251 | Semester IV</p>
+    </div>
+</div>
+
+</body>
+</html>

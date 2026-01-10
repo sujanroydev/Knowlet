@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logic Unit 4 | DSC 351 Notes - Knowlet</title>
+    <style>
+        :root {
+            --primary-color: #d32f2f;
+            --secondary-color: #ef5350;
+            --accent-color: #fff5f5;
+            --bg-color: #ffffff;
+            --text-color: #2c3e50;
+            --border-color: #ffcdd2;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: #fcfcfc;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 850px;
+            margin: auto;
+            background: var(--bg-color);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-top: 10px solid var(--primary-color);
+        }
+        h1 { color: var(--primary-color); text-align: center; margin-bottom: 20px; }
+        h2 { color: var(--secondary-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 8px; margin-top: 40px; }
+        h3 { color: var(--primary-color); margin-top: 25px; }
+        .toc { background: var(--accent-color); padding: 20px; border-radius: 8px; margin-bottom: 30px; border: 1px solid var(--border-color); }
+        .toc ul { list-style: none; padding: 0; }
+        .toc a { text-decoration: none; color: var(--primary-color); font-weight: bold; }
+        .syllogism-box { background: #fdfdfd; border: 1px solid #ddd; padding: 20px; border-radius: 8px; margin: 20px 0; font-family: 'Courier New', Courier, monospace; }
+        .term-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .term-table th, .term-table td { border: 1px solid var(--border-color); padding: 12px; text-align: left; }
+        .term-table th { background-color: var(--primary-color); color: white; }
+        .rules-list { background: #f9f9f9; padding: 20px; border-left: 5px solid var(--primary-color); border-radius: 0 8px 8px 0; }
+        .exam-section { background-color: #fff9db; border: 1px solid #f1c40f; padding: 20px; margin-top: 30px; border-radius: 8px; }
+        .footer { text-align: center; font-size: 0.9em; color: #7f8c8d; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 4: Categorical Syllogisms</h1>
+    <p style="text-align: center; font-style: italic;">The formal analysis of deductive arguments consisting of three propositions.</p>
+
+    <div class="toc">
+        <h4>Table of Contents</h4>
+        <ul>
+            <li><a href="#structure">1. Structure of a Syllogism</a></li>
+            <li><a href="#terms">2. The Three Terms (Major, Minor, Middle)</a></li>
+            <li><a href="#figures">3. Figures and Moods of Syllogism</a></li>
+            <li><a href="#rules">4. General Rules of Validity</a></li>
+            <li><a href="#fallacies">5. Formal Fallacies</a></li>
+            <li><a href="#exam">6. Exam Tips & Key Terms</a></li>
+        </ul>
+    </div>
+
+    <section id="structure">
+        <h2>1. Structure of a Syllogism</h2>
+        <p>A categorical syllogism is a deductive argument in which a conclusion is inferred from two premises. It must contain exactly three categorical propositions (A, E, I, or O).</p>
+        <div class="syllogism-box">
+            Major Premise: All mammals are mortal.<br>
+            Minor Premise: All dogs are mammals.<br>
+            Conclusion: Therefore, all dogs are mortal.
+        </div>
+    </section>
+
+    <section id="terms">
+        <h2>2. The Three Terms</h2>
+        <p>Every valid syllogism contains exactly three terms, each occurring twice across the propositions.</p>
+        <table class="term-table">
+            <tr>
+                <th>Term Name</th>
+                <th>Definition</th>
+                <th>Location</th>
+            </tr>
+            <tr>
+                <td><strong>Major Term (P)</strong></td>
+                <td>The predicate of the conclusion.</td>
+                <td>Found in Major Premise and Conclusion.</td>
+            </tr>
+            <tr>
+                <td><strong>Minor Term (S)</strong></td>
+                <td>The subject of the conclusion.</td>
+                <td>Found in Minor Premise and Conclusion.</td>
+            </tr>
+            <tr>
+                <td><strong>Middle Term (M)</strong></td>
+                <td>The term that connects the premises.</td>
+                <td>Found in both premises, but <strong>never</strong> in the conclusion.</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="figures">
+        <h2>3. Figures and Moods</h2>
+        <p><strong>Figure:</strong> Determined by the position of the Middle Term (M) in the premises.</p>
+        
+        
+
+        <p><strong>Mood:</strong> Determined by the types of propositions (A, E, I, O) used. For example, a syllogism with two 'A' premises and an 'A' conclusion has the mood <strong>AAA</strong>.</p>
+    </section>
+
+    <section id="rules">
+        <h2>4. General Rules of Validity</h2>
+        <p>For a syllogism to be formally valid, it must obey these six fundamental rules:</p>
+        <div class="rules-list">
+            <ol>
+                <li>A syllogism must contain exactly <strong>three terms</strong> used in the same sense.</li>
+                <li>The <strong>Middle Term</strong> must be distributed at least once in the premises.</li>
+                <li>If a term is distributed in the conclusion, it <strong>must</strong> be distributed in the premise where it occurs (Rule of Illicit Process).</li>
+                <li>No conclusion can be drawn from <strong>two negative</strong> premises.</li>
+                <li>If one premise is negative, the conclusion <strong>must</strong> be negative.</li>
+                <li>From two particular premises (I or O), no conclusion can be drawn.</li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="fallacies">
+        <h2>5. Formal Fallacies</h2>
+        <p>Breaking any of the rules above results in a <strong>Formal Fallacy</strong>. Common ones include:</p>
+        <ul>
+            <li><strong>Fallacy of Four Terms (Quaternio Terminorum):</strong> Using four terms instead of three.</li>
+            <li><strong>Undistributed Middle:</strong> When the Middle Term is not distributed in either premise.</li>
+            <li><strong>Illicit Major/Minor:</strong> When a term is distributed in the conclusion but not in the premise.</li>
+            <li><strong>Fallacy of Exclusive Premises:</strong> Drawing a conclusion from two negative premises.</li>
+        </ul>
+    </section>
+
+    <div class="exam-section" id="exam">
+        <h4>Exam Essentials</h4>
+        <ul>
+            <li><strong>Identifying Terms:</strong> Always identify the conclusion first. Its subject is 'S' and its predicate is 'P'. The remaining term in the premises is 'M'.</li>
+            <li><strong>Standard Form:</strong> Ensure the Major Premise is listed first, followed by the Minor Premise, then the Conclusion.</li>
+            <li><strong>Validity Testing:</strong> Be prepared to test a given syllogism by checking all six rules. If it passes all, it is valid.</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>© 2026 Knowlet Academic Notes | DSC 351 | Logic</p>
+    </div>
+</div>
+
+</body>
+</html>

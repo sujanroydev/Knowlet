@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSM 252 Unit 5 | 4th Semester Notes - Knowlet</title>
+    <meta name="description" content="Detailed academic notes for Philosophy DSM 252 Unit 5: Formal Proof of Validity. Master the Nine Rules of Inference with step-by-step logic proof techniques.">
+    <meta name="keywords" content="Logic, Formal Proof of Validity, Nine Rules of Inference, Modus Ponens, Modus Tollens, DSM 252, Philosophy, Knowlet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #e74c3c;
+            --bg-color: #fdfdfd;
+            --text-color: #333;
+            --border-color: #bdc3c7;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-top: 8px solid var(--accent-color);
+        }
+        h1 { color: var(--accent-color); text-align: center; border-bottom: 3px solid var(--accent-color); padding-bottom: 15px; margin-bottom: 30px; }
+        h2 { color: var(--primary-color); border-left: 6px solid var(--accent-color); padding-left: 15px; margin-top: 40px; background: #fff5f5; padding: 10px; }
+        h3 { color: var(--secondary-color); margin-top: 25px; border-bottom: 1px solid var(--border-color); padding-bottom: 5px; }
+        p { margin-bottom: 15px; text-align: justify; }
+        ul, ol { margin-bottom: 20px; }
+        li { margin-bottom: 10px; }
+        blockquote { background: #f9f9f9; border-left: 10px solid var(--accent-color); margin: 1.5em 10px; padding: 15px; font-style: italic; }
+        table { width: 100%; border-collapse: collapse; margin: 25px 0; }
+        th, td { border: 1px solid var(--border-color); padding: 12px; text-align: left; }
+        th { background-color: var(--primary-color); color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .toc { background: #fefefe; padding: 25px; border-radius: 8px; margin-bottom: 35px; border: 1px solid #eee; }
+        .toc h4 { margin-top: 0; color: var(--primary-color); }
+        .toc a { text-decoration: none; color: var(--secondary-color); font-weight: bold; }
+        .toc a:hover { color: var(--accent-color); }
+        .exam-box { border: 2px dashed var(--accent-color); padding: 20px; border-radius: 8px; background: #fffaf0; margin-top: 30px; }
+        .exam-box h4 { margin-top: 0; color: var(--accent-color); text-transform: uppercase; }
+        .footer { text-align: center; font-size: 0.9em; color: #7f8c8d; margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <span id="spap_unit5_header">
+        <h1>Unit 5: Formal Proof of Validity</h1>
+    </span>
+
+    <div class="toc">
+        <h4>Table of Contents</h4>
+        <ul>
+            <li><a href="#spap_intro_proof">1. Concept of Formal Proof of Validity</a></li>
+            <li><a href="#spap_nine_rules">2. The Nine Rules of Inference</a></li>
+            <li><a href="#spap_methodology">3. Constructing a Formal Proof</a></li>
+            <li><a href="#spap_rules_explained">4. Deep Dive: Key Inference Patterns</a></li>
+            <li><a href="#spap_exam_strategy">5. Exam Focus: Strategies & Common Errors</a></li>
+        </ul>
+    </div>
+
+    <section id="spap_intro_proof">
+        <h2>Formal Proof of Validity</h2>
+        <p>A <strong>Formal Proof of Validity</strong> is a step-by-step deduction where each step follows logically from previous steps using established rules. While Truth Tables (Unit 4) are effective for small arguments, they become too complex for arguments with many variables. Formal proof offers a more elegant and direct method of demonstration.</p>
+        <blockquote>
+            A formal proof is a sequence of statements, each of which is either a premise or is derived from preceding statements by a rule of inference, ending with the conclusion.
+        </blockquote>
+    </section>
+
+    <section id="spap_nine_rules">
+        <h2>The Nine Rules of Inference</h2>
+        <p>These rules are the "logical building blocks" of any proof. Each rule represents an elementary argument form that is always valid.</p>
+        
+        
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Rule Name</th>
+                    <th>Abbreviation</th>
+                    <th>Logical Structure</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1. Modus Ponens</strong></td>
+                    <td>M.P.</td>
+                    <td>p &sup1; q, p / &there4; q</td>
+                </tr>
+                <tr>
+                    <td><strong>2. Modus Tollens</strong></td>
+                    <td>M.T.</td>
+                    <td>p &sup1; q, ~q / &there4; ~p</td>
+                </tr>
+                <tr>
+                    <td><strong>3. Hypothetical Syllogism</strong></td>
+                    <td>H.S.</td>
+                    <td>p &sup1; q, q &sup1; r / &there4; p &sup1; r</td>
+                </tr>
+                <tr>
+                    <td><strong>4. Disjunctive Syllogism</strong></td>
+                    <td>D.S.</td>
+                    <td>p v q, ~p / &there4; q</td>
+                </tr>
+                <tr>
+                    <td><strong>5. Constructive Dilemma</strong></td>
+                    <td>C.D.</td>
+                    <td>(p&sup1;q)&bull;(r&sup1;s), p v r / &there4; q v s</td>
+                </tr>
+                <tr>
+                    <td><strong>6. Absorption</strong></td>
+                    <td>Abs.</td>
+                    <td>p &sup1; q / &there4; p &sup1; (p &bull; q)</td>
+                </tr>
+                <tr>
+                    <td><strong>7. Simplification</strong></td>
+                    <td>Simp.</td>
+                    <td>p &bull; q / &there4; p</td>
+                </tr>
+                <tr>
+                    <td><strong>8. Conjunction</strong></td>
+                    <td>Conj.</td>
+                    <td>p, q / &there4; p &bull; q</td>
+                </tr>
+                <tr>
+                    <td><strong>9. Addition</strong></td>
+                    <td>Add.</td>
+                    <td>p / &there4; p v q</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="spap_methodology">
+        <h2>Constructing a Formal Proof</h2>
+        <p>To solve a problem in Unit 5, you must number each line and state the rule used. For example:</p>
+        <ol>
+            <li>$A \supset B$ (Premise)</li>
+            <li>$A$ (Premise) / $\therefore B \lor C$</li>
+            <li>$B$ (From 1, 2 by <strong>M.P.</strong>)</li>
+            <li>$B \lor C$ (From 3 by <strong>Add.</strong>) - <strong>Conclusion Reached!</strong></li>
+        </ol>
+    </section>
+
+    <section id="spap_rules_explained">
+        <h2>Deep Dive into Key Patterns</h2>
+        <h3>Modus Ponens (M.P.) vs. Modus Tollens (M.T.)</h3>
+        <p><strong>M.P.</strong> is forward-moving: if you have the "if" part (antecedent), you get the "then" part (consequent). <strong>M.T.</strong> is backward-moving: if you deny the "then" part, you must deny the "if" part.</p>
+        
+        
+        
+        <h3>Simplification (Simp.) vs. Addition (Add.)</h3>
+        <ul>
+            <li><strong>Simplification:</strong> From an "AND" statement ($p \bullet q$), you can pull out the left side. It reduces information.</li>
+            <li><strong>Addition:</strong> From any statement $p$, you can add <em>anything</em> else with an "OR" ($v$). It expands the statement while maintaining truth.</li>
+        </ul>
+    </section>
+
+    <div class="exam-box">
+        <h4>Exam Strategies: The "Proof-Hunter's" Guide</h4>
+        <ul>
+            <li><strong>Strategy 1: Start at the End.</strong> Look at the conclusion. If the conclusion is a conjunction ($X \bullet Y$), your goal is to derive $X$ and $Y$ separately and use <strong>Conj.</strong></li>
+            <li><strong>Strategy 2: Look for M.P. first.</strong> It is the most common move. If you see a conditional statement, hunt for its antecedent among the other lines.</li>
+            <li><strong>Common Error:</strong> Trying to use <strong>Simplification</strong> on a Disjunction ($p \lor q$). <strong>NEVER</strong> do this. Simplification <em>only</em> works on Conjunctions ($\bullet$).</li>
+            <li><strong>Common Error:</strong> "Affirming the Consequent." If you have $p \supset q$ and $q$, you <strong>cannot</strong> conclude $p$. This is a fallacy, not a rule.</li>
+            <li><strong>FAQ:</strong> <em>Do I have to use all premises?</em> 
+                <br>In textbooks, yes, usually every premise is needed. In real logic, an argument can be valid even if some premises are redundant.
+            </li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2026 Knowlet Academic Notes | DSM 252 Unit 5 | Formal Logic Proofs</p>
+    </div>
+</div>
+
+</body>
+</html>

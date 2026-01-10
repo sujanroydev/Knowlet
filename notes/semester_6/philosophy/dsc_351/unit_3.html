@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logic Unit 3 | DSC 351 Notes - Knowlet</title>
+    <style>
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --accent-color: #f0f3ff;
+            --bg-color: #ffffff;
+            --text-color: #2d3436;
+            --border-color: #dfe6e9;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: #f9f9fb;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 850px;
+            margin: auto;
+            background: var(--bg-color);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-top: 10px solid var(--primary-color);
+        }
+        h1 { color: var(--primary-color); text-align: center; margin-bottom: 20px; }
+        h2 { color: var(--primary-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 8px; margin-top: 40px; }
+        .toc { background: var(--accent-color); padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+        .toc ul { list-style: none; padding: 0; }
+        .toc a { text-decoration: none; color: var(--primary-color); font-weight: bold; }
+        .logic-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .logic-table th, .logic-table td { border: 1px solid var(--border-color); padding: 12px; text-align: left; }
+        .logic-table th { background-color: var(--primary-color); color: white; }
+        .square-box { text-align: center; padding: 20px; background: #fff; border: 2px solid var(--secondary-color); border-radius: 10px; margin: 20px 0; }
+        .exam-section { background-color: #e8f4fd; border: 1px solid #3498db; padding: 20px; margin-top: 30px; border-radius: 8px; }
+        .footer { text-align: center; font-size: 0.9em; color: #636e72; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 3: Immediate Inference & The Square of Opposition</h1>
+    <p style="text-align: center; font-style: italic;">How the truth or falsity of one proposition necessitates the truth or falsity of another.</p>
+
+    <div class="toc">
+        <h4>Table of Contents</h4>
+        <ul>
+            <li><a href="#inference-type">1. Immediate vs. Mediate Inference</a></li>
+            <li><a href="#square">2. The Aristotelian Square of Opposition</a></li>
+            <li><a href="#relations">3. The Four Moral Relations</a></li>
+            <li><a href="#eduction">4. Eduction: Conversion and Obversion</a></li>
+            <li><a href="#exam">5. Exam Focus & Practice Questions</a></li>
+        </ul>
+    </div>
+
+    <section id="inference-type">
+        <h2>1. Immediate vs. Mediate Inference</h2>
+        <p>In logic, <strong>Inference</strong> is the process by which a conclusion is derived from one or more premises.</p>
+        <ul>
+            <li><strong>Immediate Inference:</strong> The conclusion is drawn from <strong>one</strong> single premise (e.g., Square of Opposition, Conversion).</li>
+            <li><strong>Mediate Inference:</strong> The conclusion is drawn from <strong>two or more</strong> premises (e.g., Syllogisms).</li>
+        </ul>
+    </section>
+
+    <section id="square">
+        <h2>2. The Aristotelian Square of Opposition</h2>
+        <p>The Square of Opposition maps the logical relationship between A, E, I, and O propositions when they have the same subject and predicate.</p>
+        
+        <div class="square-box">
+            
+            <p><em>(Diagram representing Contradictories, Contraries, Subcontraries, and Subalternation)</em></p>
+        </div>
+    </section>
+
+    <section id="relations">
+        <h2>3. The Four Logical Relations</h2>
+        
+        <table class="logic-table">
+            <tr>
+                <th>Relation</th>
+                <th>Propositions</th>
+                <th>Logical Rule</th>
+            </tr>
+            <tr>
+                <td><strong>Contradictories</strong></td>
+                <td>A-O and E-I</td>
+                <td>They have <strong>opposite</strong> truth values. If one is true, the other <em>must</em> be false. They cannot both be true and cannot both be false.</td>
+            </tr>
+            <tr>
+                <td><strong>Contraries</strong></td>
+                <td>A-E</td>
+                <td>They cannot both be true, but <strong>they can both be false</strong>. If one is true, the other is false. If one is false, the other is undetermined.</td>
+            </tr>
+            <tr>
+                <td><strong>Subcontraries</strong></td>
+                <td>I-O</td>
+                <td>They cannot both be false, but <strong>they can both be true</strong>. If one is false, the other is true. If one is true, the other is undetermined.</td>
+            </tr>
+            <tr>
+                <td><strong>Subalternation</strong></td>
+                <td>A-I and E-O</td>
+                <td>If the Universal (A/E) is true, the Particular (I/O) is true. If the Particular is false, the Universal is false.</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="eduction">
+        <h2>4. Eduction: Conversion and Obversion</h2>
+        <p>Eduction is a form of immediate inference where we rephrase a proposition to see what else it implies.</p>
+        <ul>
+            <li><strong>Conversion:</strong> Interchanging the subject and predicate.
+                <br><span style="font-style:italic;">Example (E): "No cats are dogs" converts to "No dogs are cats."</span></li>
+            <li><strong>Obversion:</strong> Changing the quality and replacing the predicate with its complement.
+                <br><span style="font-style:italic;">Example (A): "All men are mortal" obverts to "No men are non-mortal."</span></li>
+        </ul>
+        
+    </section>
+
+    <div class="exam-section" id="exam">
+        <h4>Exam Essentials</h4>
+        <ul>
+            <li><strong>The Contradictory Rule:</strong> This is the strongest relation. If an exam question asks "If A is True, what is O?", the answer is always "False."</li>
+            <li><strong>Undetermined Values:</strong> In Contraries (A-E), if A is false, E is <em>undetermined</em> (it could be true or false). Many students wrongly assume it must be true.</li>
+            <li><strong>Conversion Limits:</strong> Remember that "A" propositions cannot be converted simply (e.g., "All dogs are animals" does NOT mean "All animals are dogs").</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>© 2026 Knowlet Academic Notes | DSC 351 | Logic</p>
+    </div>
+</div>
+
+</body>
+</html>

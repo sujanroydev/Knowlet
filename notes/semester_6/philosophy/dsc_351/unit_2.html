@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logic Unit 2 | DSC 351 Notes - Knowlet</title>
+    <style>
+        :root {
+            --primary-color: #1e3799;
+            --secondary-color: #4a69bd;
+            --accent-color: #f1f2f6;
+            --bg-color: #ffffff;
+            --text-color: #2f3542;
+            --border-color: #ced4da;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 850px;
+            margin: auto;
+            background: var(--bg-color);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-top: 10px solid var(--primary-color);
+        }
+        h1 { color: var(--primary-color); text-align: center; margin-bottom: 20px; }
+        h2 { color: var(--secondary-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 8px; margin-top: 40px; }
+        .toc { background: var(--accent-color); padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+        .toc ul { list-style: none; padding: 0; }
+        .toc a { text-decoration: none; color: var(--primary-color); font-weight: bold; }
+        .logic-card { border: 1px solid var(--border-color); padding: 20px; margin: 20px 0; border-radius: 8px; background: #fff; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid var(--border-color); padding: 12px; text-align: center; }
+        th { background-color: var(--primary-color); color: white; }
+        .example { font-style: italic; color: #57606f; }
+        .exam-section { background-color: #fff9db; border: 1px solid #f1c40f; padding: 20px; margin-top: 30px; border-radius: 8px; }
+        .footer { text-align: center; font-size: 0.9em; color: #747d8c; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 2: Categorical Propositions</h1>
+    <p style="text-align: center; font-style: italic;">The structure and classification of logical statements.</p>
+
+    <div class="toc">
+        <h4>Table of Contents</h4>
+        <ul>
+            <li><a href="#definition">1. Sentence vs. Proposition</a></li>
+            <li><a href="#structure">2. The Standard Form: Subject, Predicate, and Copula</a></li>
+            <li><a href="#classification">3. The Fourfold Classification (A, E, I, O)</a></li>
+            <li><a href="#distribution">4. Distribution of Terms</a></li>
+            <li><a href="#exam">5. Exam Tips & Key Terms</a></li>
+        </ul>
+    </div>
+
+    <section id="definition">
+        <h2>1. Sentence vs. Proposition</h2>
+        <p>In logic, we do not study all sentences. We only study <strong>Propositions</strong>. </p>
+        <ul>
+            <li><strong>Sentence:</strong> A grammatical unit (Questions, Commands, Exclamations, or Statements).</li>
+            <li><strong>Proposition:</strong> A sentence that is either <strong>True</strong> or <strong>False</strong>. Only "Declarative" or "Indicative" sentences are propositions.</li>
+        </ul>
+        <p class="example">Example: "Is it raining?" is a sentence, but not a proposition. "It is raining" is a proposition.</p>
+    </section>
+
+    <section id="structure">
+        <h2>2. Standard Form of a Proposition</h2>
+        <p>Every categorical proposition has three essential parts:</p>
+        <ol>
+            <li><strong>Subject (S):</strong> The term about which something is stated.</li>
+            <li><strong>Predicate (P):</strong> The term that states something about the subject.</li>
+            <li><strong>Copula:</strong> The link between S and P (always a form of the verb "to be" — <em>is, are, is not, are not</em>).</li>
+        </ol>
+        
+        <p class="example">Example: "All [humans] (S) [are] (Copula) [mortal] (P)."</p>
+    </section>
+
+    <section id="classification">
+        <h2>3. The Fourfold Classification (A, E, I, O)</h2>
+        <p>Aristotle classified propositions based on <strong>Quantity</strong> (Universal or Particular) and <strong>Quality</strong> (Affirmative or Negative).</p>
+        
+        
+
+        <table>
+            <tr>
+                <th>Symbol</th>
+                <th>Type</th>
+                <th>Standard Form</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td><strong>A</strong></td>
+                <td>Universal Affirmative</td>
+                <td>All S is P</td>
+                <td>All cats are mammals.</td>
+            </tr>
+            <tr>
+                <td><strong>E</strong></td>
+                <td>Universal Negative</td>
+                <td>No S is P</td>
+                <td>No birds are dogs.</td>
+            </tr>
+            <tr>
+                <td><strong>I</strong></td>
+                <td>Particular Affirmative</td>
+                <td>Some S is P</td>
+                <td>Some students are hardworking.</td>
+            </tr>
+            <tr>
+                <td><strong>O</strong></td>
+                <td>Particular Negative</td>
+                <td>Some S is not P</td>
+                <td>Some fruits are not sweet.</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="distribution">
+        <h2>4. Distribution of Terms</h2>
+        <p>A term is <strong>"Distributed"</strong> if the proposition tells us something about <em>every</em> member of that class. </p>
+        
+        
+
+        <ul>
+            <li><strong>A:</strong> Distributes Subject only.</li>
+            <li><strong>E:</strong> Distributes both Subject and Predicate.</li>
+            <li><strong>I:</strong> Distributes neither.</li>
+            <li><strong>O:</strong> Distributes Predicate only.</li>
+        </ul>
+        <p class="example">Mnemonic: <strong>"ASEBINOP"</strong> (A distributes Subject, E distributes Both, I distributes Neither, O distributes Predicate).</p>
+    </section>
+
+    <div class="exam-section" id="exam">
+        <h4>Exam Essentials</h4>
+        <ul>
+            <li><strong>Quantity vs. Quality:</strong> Be ready to identify these in any given sentence.</li>
+            <li><strong>Logical Form:</strong> You will often be asked to convert "ordinary" sentences into "logical form." 
+                <br><span class="example">Ordinary: "Every dog barks." → Logical (A): "All dogs are barking animals."</span></li>
+            <li><strong>Distribution Rule:</strong> Universal propositions (A, E) always distribute the Subject. Negative propositions (E, O) always distribute the Predicate.</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>© 2026 Knowlet Academic Notes | DSC 351 | Logic</p>
+    </div>
+</div>
+
+</body>
+</html>

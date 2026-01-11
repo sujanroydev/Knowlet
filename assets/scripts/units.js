@@ -63,8 +63,17 @@ function printDiv(divClass) {
 
 (function () {
     const currentUrl = window.location.href;
+    const currentRootUrl = window.location.origin;
     const match = currentUrl.match(/(\/unit_)(\d+)/i);
     const container = document.querySelector(".container");
+
+	const parts = currentUrl.replace(currentRootUrl, "").replace(".html", "").split("?")[0].split("/");
+    // console.log(parts);
+    
+    const parms = `sem=${parts[2]}&sub=${parts[3]}&ppr=${parts[4]}` //`&unit=${parts[5]}`
+	// alert(parms)
+	const backUrl = `${currentRootUrl}/${parts[1]}?${parms}`
+    // alert(backUrl)
 
     // Create top bar container
     const topBar = document.createElement("div");
@@ -75,8 +84,7 @@ function printDiv(divClass) {
     backBtn.id = "back-btn";
     backBtn.title = "Go Back";
     backBtn.onclick = () => {
-        const backUrl = currentUrl.replace(/\/unit_\d+/i, "");
-        window.location.href = "/notes" // backUrl;
+        window.location.href = backUrl;
     };
     topBar.appendChild(backBtn);
     

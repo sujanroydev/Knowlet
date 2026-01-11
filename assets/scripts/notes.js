@@ -9,12 +9,23 @@ let indmain = 0;
 
 const currentTitle = ["Semesters", "Subjects", "Papers", "Units"]
 
+// https://knowlet.in/notes?sem=semester_1&sub=mathematics&ppr=dsc_152&unit=unit_1
+const params = new URLSearchParams(window.location.search);
+
+const sem = params.get("sem");
+const sub = params.get("sub");
+const ppr = params.get("ppr");
+const unit = params.get("unit");
+
+// console.log(sem);
+
 fetch("assets/notes.json")
     .then(res => res.json())
     .then(data => {
         tempNotes[indmain] = data;
         try {
-        	createPage(); // Call a function to use the data
+        	createPage();
+        	createRequiredPage(); // Call a function to use the data
         } catch(e) {
         	console.error(e);
         }
@@ -89,6 +100,21 @@ function createPage(n = "notes") {
 		</footer>
 		`;
 	}
+	
+function createRequiredPage() {
+	if (sem) {
+		fn(sem);
+		if (sub) {
+			fn(sub);
+			if (ppr) {
+				fn(ppr);
+				if (unit) {
+					fn(unit);
+				}
+			}
+		}
+	}
+}
 
 function fn(n) {
 	indmain += 1;

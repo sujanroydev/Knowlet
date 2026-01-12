@@ -8,6 +8,7 @@ const loginBtn = document.getElementById("login-btn");
 const signupBtn = document.getElementById("signup-btn");
 const googleLoginBtn = document.getElementById("google-login-btn");
 const googleSignupBtn = document.getElementById("google-signup-btn");
+const forgotPassword = document.getElementById("forgotPassword");
 const loginBox = document.getElementById('loginBox');
 const signupBox = document.getElementById('signupBox');
 const loader = document.getElementById('loader');
@@ -43,7 +44,7 @@ loginForm.addEventListener("submit", e => {
     let email = input[0].value;
     let password = input[1].value;
     
-    if (!userId || !password) {
+    if (!email || !password) {
         alert("All fields are required");
         return;
     }
@@ -71,7 +72,7 @@ signupForm.addEventListener("submit", e => {
     signup(name, email, password);
 });
 
-[ googleLoginBtn, googleSignupBtn ].forEach(btn => {
+[ googleLoginBtn, googleSignupBtn, forgotPassword ].forEach(btn => {
     btn.addEventListener("click", () => {
         window.location.href = authUrl;
     });

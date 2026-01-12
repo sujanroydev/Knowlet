@@ -6,13 +6,60 @@
     <title>Google OAuth</title>
     <link rel="stylesheet" href="assets/styles/response.css" />
 </head>
-<body>
-    <div id="loading">
-        <div class="spinner"></div>
-        <h1 id="status-title">Processing...</h1>
-        <p id="status-message">Please wait while we secure your session and redirect you.</p>
-    </div>
+	<body>
+	<div id="loading">
+	    <div class="spinner"></div>
+	    <h1 id="status-title">Processing...</h1>
+	    <p id="status-message">Please wait while we secure your session and redirect you.</p>
+	</div>
     <div id="msg-error"></div>
+    <div style="display: none" class="card" id="container">
+    	<form id="setPasswordForm" autocomplete="on">
+		    <div id="passwordBox">
+		        <h2>Sign Up</h2>
+
+		        <input
+		            class="user-input"
+		            type="text"
+		            name="name"
+		            placeholder="Full Name*"
+		            autocomplete="name"
+		            required
+		        >
+		
+		        <input
+		            class="user-input"
+		            type="email"
+		            name="email"
+		            placeholder="Email"
+		            autocomplete="email"
+		            required
+		        >
+		
+		        <input
+		            class="user-input"
+		            type="password"
+		            name="password"
+		            placeholder="Create Password"
+		            autocomplete="new-password"
+		            required
+		        >
+		
+		        <input
+		            class="user-input"
+		            type="password"
+		            name="confirm_password"
+		            placeholder="Confirm Password"
+		            autocomplete="new-password"
+		            required
+		        >
+		
+		        <button id="signup-btn" type="submit">Sign Up</button>
+		
+		    </div>
+		</form>    
+    </div>
+    	
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="assets/scripts/response.js"></script>
 </body>

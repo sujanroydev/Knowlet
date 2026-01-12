@@ -3,12 +3,96 @@ const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
+const setPasswordForm = document.getElementById("setPasswordForm");
+const input = document.getElementsByClassName("user-input");
+const container = document.getElementById("container");
+const loader = document.getElementById("loading");
+
 const params = new URLSearchParams(window.location.search);
-const user = JSON.parse(params.get("user"));
+let isNewUser = true;
+
+let user;
+if (params.get("user")) {
+	user = JSON.parse(params.get("user"));
+}
+
+setPasswordForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    let name = input[0].value;
+    let email = input[1].value;
+    let password = input[2].value;
+    
+    if (password !== input[3].value) {
+    	alert("Unmatched Password");
+    	return;
+    }
+    
+    if (!name || !email || !password) {
+        alert("All fields are required");
+        return;
+    }
+    
+    if (isNewUser) {
+		let userId = name.split(' ')[0] + "@" + parseInt(Math.random() * 9000 + 1000);
+		
+		user = {
+		    id: userId,
+		    name: name,
+		    email: email,
+		    picture: user.picture,
+		    password: password
+		}
+		
+		try {
+			
+		    const { error } = await supabaseClient
+		        .from("user")
+		        .insert(user);
+		        
+		    if (error) {
+		        console.log(error);
+		        alert(error.message);
+		        return;
+		    }
+		    
+		    localStorage.setItem("knowletUser", JSON.stringify(user));
+		    document.getElementById("loading").style.display = "none";
+		    alert("Successfully Signed Up\n" + "Note your user ID: " + userId);
+		    redirect();
+		
+		} catch(e) {
+		    console.log(e);
+		}
+    } else {
+    	try {
+    		
+		    const { error } = await supabaseClient
+		        .from("user")
+		        .update({password: password})
+		        .eq("email", email);
+		        
+		    if (error) {
+		        console.log(error);
+		        alert(error.message);
+		        return;
+		    }
+		    
+		    localStorage.setItem("knowletUser", JSON.stringify(user));
+		    document.getElementById("loading").style.display = "none";
+		    alert("Password Updated");
+		    redirect();
+		
+		} catch(e) {
+		    console.log(e);
+		}
+    }
+
+});
 
 if (!user) {
     
-    document.getElementById("loading").style.display = "none";
+    loader.style.display = "none";
     const appContainer = document.getElementById("msg-error"); 
 
     appContainer.innerHTML = `
@@ -45,45 +129,29 @@ async function sync(name, email, picture) {
             alert(error);
             return;
         }
-        
-        if (!data[0]) {
-            
-            let userId = name.split(' ')[0] + "@" + parseInt(Math.random() * 9000 + 1000);
-            
-            let user = {
-                id: userId,
-                name: name,
-                email: email,
-                picture: picture
-            }
-            
-            try {
-                const { error } = await supabaseClient
-                    .from("user")
-                    .insert(user);
-                
-                if (error) {
-                    console.log(error);
-                    alert(error);
-                    return;
-                }
-                
-                localStorage.setItem("knowletUser", JSON.stringify(user));
-                document.getElementById("loading").style.display = "none";
-                alert("Successfully Signed Up\n" + "Note your user ID: " + userId);
-                redirect();
-                
-            } catch(e) {
-                console.log(e);
-            }
+        console.log(data)
+        if (!data[0]) {  
+        	
+            input[0].value = user.name;
+            input[1].value = user.email;
+            loader.style.display = "none";
+            container.style.display = "flex";
+            isNewUser = true;
         }
         
-        if (data[0]) {
+        if (data[0] && data[0].password) {
             localStorage.setItem("knowletUser", JSON.stringify(data[0]));
             document.getElementById("loading").style.display = "none";
             alert("You Alredy Have An Account, Successfully Logged In");
             redirect();
             return;
+        } else {         
+        	
+            input[0].value = data[0].name;
+            input[1].value = data[0].email;
+            loader.style.display = "none";
+            container.style.display = "flex";
+            isNewUser = false;
         }
         
     } catch(e) {

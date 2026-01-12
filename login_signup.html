@@ -11,20 +11,41 @@
     <div class="card" id="container">
     
         <!-- Login -->
-        <div id="loginBox">
-            <h2>Login</h2>
-            <input class="user-input" type="text" placeholder="User ID*">
-            <input class="user-input" type="email" placeholder="Email">
-            <p style="display: none; margin: 0 auto">OR</p>
-            <input style="display: none" class="user-input" type="phone" placeholder="Phone">
-            
-            <button id="login-btn">Login</button>
-            <center style="margin: 2px 0">or</center>
-            <button id="google-login-btn" style="background: green">Continue With Google</button>
-            <div class="switch" onclick="showSignup()">
-                New here? <span>Create an account</span>
-            </div>
-        </div>
+        <form id="loginForm" autocomplete="on">
+		    <div id="loginBox">
+		        <h2>Login</h2>
+
+		        <input
+		            class="user-input"
+		            type="email"
+		            name="email"
+		            placeholder="Email"
+		            autocomplete="email"
+		            required
+		        >
+		
+		        <input
+		            class="user-input"
+		            type="password"
+		            name="password"
+		            placeholder="Password"
+		            autocomplete="current-password"
+		            required
+		        >
+		
+		        <button id="login-btn" type="submit">Login</button>
+		
+		        <center style="margin: 2px 0">or</center>
+		
+		        <button type="button" id="google-login-btn" style="background: green">
+		            Continue With Google
+		        </button>
+		
+		        <div class="switch" onclick="showSignup()">
+		            New here? <span>Create an account</span>
+		        </div>
+		    </div>
+		</form>
     	
     	<!-- Signup -->
 		<form id="signupForm" autocomplete="on">

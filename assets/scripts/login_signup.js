@@ -12,11 +12,8 @@ const loginBox = document.getElementById('loginBox');
 const signupBox = document.getElementById('signupBox');
 const loader = document.getElementById('loader');
 
-const signupForm = document.getElementById("signupForm")
-
-const params = new URLSearchParams(window.location.search);
-
-const popup = params.get("popup");
+const signupForm = document.getElementById("signupForm");
+const loginForm = document.getElementById("loginForm");
 
 const clientId = "439522989172-180003nlibg69snhaq9kcvpskq5088d8.apps.googleusercontent.com";
 const redirectUri = "https://knowlet.in/.netlify/functions/google-callback";
@@ -30,25 +27,38 @@ const authUrl =
     `&response_type=code` +
     `&scope=${scope}`;
 
+const params = new URLSearchParams(window.location.search);
+
+const popup = params.get("popup");
+
 if (popup === "login") {
     showLogin();
 } else if (popup === "signup") {
     showSignup();
 }
 
-// document.getElementById("loginForm").addEventListener("submit", e => {
-//     e.preventDefault();
-//     loginBtn.click();
-// });
+loginForm.addEventListener("submit", e => {
+    e.preventDefault();
+    
+    let email = input[0].value;
+    let password = input[1].value;
+    
+    if (!userId || !password) {
+        alert("All fields are required");
+        return;
+    }
+    
+    login(email, password);
+});
 
 signupForm.addEventListener("submit", e => {
     e.preventDefault();
     
-    let name = input[3].value;
-    let email = input[4].value;
-    let password = input[5].value;
+    let name = input[2].value;
+    let email = input[3].value;
+    let password = input[4].value;
     
-    if (password !== input[6].value) {
+    if (password !== input[5].value) {
     	alert("Unmatched Password");
     	return;
     }
@@ -59,24 +69,6 @@ signupForm.addEventListener("submit", e => {
     }
     
     signup(name, email, password);
-});
-
-loginBtn.addEventListener("click", () => {
-    let userId = input[0].value;
-    let email = input[1].value;
-    let phone = input[2].value;
-    
-    if (!userId) {
-        alert("Must enter User ID");
-        return;
-    }
-    
-    if (!email) {
-        alert("Must enter Email");
-        return;
-    }
-    
-    login(userId, email);
 });
 
 [ googleLoginBtn, googleSignupBtn ].forEach(btn => {
@@ -95,17 +87,19 @@ function showLogin() {
     signupBox.style.display = 'none';
 }
 
-async function login(userId, email) {
+async function login(email, password) {
     try {
         loader.style.display = "flex";
+        
         const res = await fetch(
             'https://knowlet.in/.netlify/functions/get-data',
             {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({ id: userId, email: email })
+                body: JSON.stringify({ email: email, password: password })
             }
         );
+        
         loader.style.display = "none";
         
         if (!res.ok) {
@@ -119,7 +113,7 @@ async function login(userId, email) {
         }
         const data = result.data;
         
-        console.log("Data received:", data);
+        // console.log("Data received:", data);
         
         if (!data[0]) {
             alert("No account found with your User Id and Email");
@@ -128,8 +122,6 @@ async function login(userId, email) {
             localStorage.setItem("knowletUser", user);
             alert("Successfully Loged In");
             redirect();
-
-            //window.location.href = "profile";
         }
         
     } catch(e) {

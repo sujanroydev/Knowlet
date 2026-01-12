@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZOO: DSC 352 Unit 2 | 6th Semester Notes - Knowlet</title>
+    <meta name="description" content="Academic notes for Zoology DSC-352 Unit 2: Population Genetics. Covers Hardy-Weinberg Law, Genetic Drift, Founder Effect, and Bottleneck Effect.">
+    <meta name="keywords" content="Zoology, DSC 352, Population Genetics, Hardy-Weinberg Law, Genetic Drift, Natural Selection, Knowlet, Assam University">
+    <style>
+        :root {
+            --primary-color: #1565c0;
+            --secondary-color: #0d47a1;
+            --accent-color: #c62828;
+            --bg-color: #e3f2fd;
+            --text-color: #212121;
+            --border-color: #90caf9;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fafafa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
+        }
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 4px solid var(--secondary-color);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+        }
+        h2 {
+            color: var(--primary-color);
+            border-left: 6px solid var(--accent-color);
+            padding-left: 15px;
+            margin-top: 35px;
+            background: var(--bg-color);
+        }
+        h3 {
+            color: var(--secondary-color);
+            margin-top: 25px;
+            border-bottom: 1px dashed var(--secondary-color);
+            display: inline-block;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        blockquote {
+            background: #e1f5fe;
+            border-left: 10px solid var(--primary-color);
+            margin: 20px 0;
+            padding: 15px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f1f8e9;
+        }
+        .toc {
+            background: #e3f2fd;
+            padding: 25px;
+            border: 1px solid #90caf9;
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+        .exam-section {
+            border: 2px solid var(--secondary-color);
+            background-color: #f9fbe7;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        .exam-section h4 {
+            color: var(--secondary-color);
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 id="unit2">Unit 2: Population Genetics</h1>
+
+    <div class="toc">
+        <h4>Table of Contents</h4>
+        <ul>
+            <li><a href="#hardy-weinberg">1. Hardy-Weinberg Law: Concept and Application</a></li>
+            <li><a href="#forces">2. Evolutionary Forces: Natural Selection and Genetic Drift</a></li>
+            <li><a href="#genetic-drift-types">3. Founder Effect and Bottleneck Effect</a></li>
+            <li><a href="#exam-focus">4. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="hardy-weinberg">1. Hardy-Weinberg Law: Concept and Application</h2>
+    <p>The <strong>Hardy-Weinberg Principle</strong> is a mathematical model that describes a population that is not evolving. It provides a baseline to study evolutionary changes.</p>
+
+    <h3>The Law</h3>
+    <blockquote>
+        "Allele and genotype frequencies in a population will remain constant from generation to generation in the absence of other evolutionary influences."
+    </blockquote>
+
+    <h3>Mathematical Representation</h3>
+    <p>For a gene with two alleles (dominant $p$ and recessive $q$):</p>
+    <ul>
+        <li><strong>Allele Frequency:</strong> $p + q = 1$</li>
+        <li><strong>Genotype Frequency:</strong> $p^2 + 2pq + q^2 = 1$</li>
+    </ul>
+    <p>Where:</p>
+    <ul>
+        <li>$p^2$ = frequency of homozygous dominant individuals.</li>
+        <li>$2pq$ = frequency of heterozygous individuals.</li>
+        <li>$q^2$ = frequency of homozygous recessive individuals.</li>
+    </ul>
+
+    <h3>Assumptions of Hardy-Weinberg Equilibrium</h3>
+    <ol>
+        <li>No mutations.</li>
+        <li>Random mating.</li>
+        <li>No natural selection.</li>
+        <li>Extremely large population size.</li>
+        <li>No gene flow (immigration or emigration).</li>
+    </ol>
+
+    
+
+    <h2 id="forces">2. Evolutionary Forces: Natural Selection and Genetic Drift</h2>
+    <p>When the assumptions of Hardy-Weinberg are violated, evolution occurs. The primary drivers are Natural Selection and Genetic Drift.</p>
+
+    <h3>Natural Selection</h3>
+    <p>Natural selection is the process where individuals with favorable traits are more likely to survive and reproduce. There are three modes of selection:</p>
+    <ul>
+        <li><strong>Directional Selection:</strong> Shifts the population toward one extreme phenotype (e.g., antibiotic resistance in bacteria).</li>
+        <li><strong>Stabilizing Selection:</strong> Favors intermediate variants and acts against extreme phenotypes (e.g., human birth weight).</li>
+        <li><strong>Disruptive Selection:</strong> Favors individuals at both extremes of the phenotypic range (e.g., beak sizes in finches).</li>
+    </ul>
+
+    
+
+    <h3>Genetic Drift</h3>
+    <p><strong>Genetic Drift</strong> refers to random fluctuations in allele frequencies from one generation to the next due to chance events. It has a much more significant impact on <strong>small populations</strong>.</p>
+    <ul>
+        <li>Unlike natural selection, genetic drift is <strong>not adaptive</strong>; it can cause neutral or even harmful alleles to become fixed or lost.</li>
+    </ul>
+
+    <h2 id="genetic-drift-types">3. Founder Effect and Bottleneck Effect</h2>
+    <p>These are two specific scenarios where genetic drift significantly alters a population's genetic structure.</p>
+
+    <h3>Founder Effect</h3>
+    <p>Occurs when a few individuals become isolated from a larger population and establish a new population. The new gene pool is unlikely to represent the genetic diversity of the original population (e.g., high frequency of certain genetic disorders in isolated human communities).</p>
+
+    <h3>Bottleneck Effect</h3>
+    <p>Occurs when a sudden change in the environment (e.g., earthquake, flood, or overhunting) drastically reduces the size of a population. By chance alone, certain alleles may be overrepresented, underrepresented, or eliminated among the survivors.</p>
+
+    
+
+    <h2 id="exam-focus">4. Exam Focus Enhancements</h2>
+
+    <div class="exam-section">
+        <h4>Exam Tips</h4>
+        <ul>
+            <li><strong>Numerical Problems:</strong> Practice calculating genotype frequencies. If a question gives you the percentage of recessive individuals, that is $q^2$. Take the square root to find $q$, then $p = 1 - q$.</li>
+            <li><strong>Population Size:</strong> Always remember that <strong>Genetic Drift</strong> is inversely proportional to population size—the smaller the population, the bigger the drift.</li>
+            <li><strong>Selection vs Drift:</strong> Selection is "survival of the fittest" (deterministic); Drift is "survival of the luckiest" (stochastic/random).</li>
+        </ul>
+    </div>
+
+    <div class="exam-section">
+        <h4>Frequently Asked Questions</h4>
+        <ol>
+            <li>State the Hardy-Weinberg Law and its conditions.</li>
+            <li>Differentiate between the Founder Effect and the Bottleneck Effect with examples.</li>
+            <li>Explain how natural selection leads to changes in allele frequencies.</li>
+            <li>Why is genetic drift more prominent in small populations?</li>
+        </ol>
+    </div>
+
+    <div class="exam-section">
+        <h4>Common Mistakes</h4>
+        <ul>
+            <li>Thinking that $p$ and $q$ represent the number of individuals. They represent <strong>frequencies</strong> (decimals between 0 and 1).</li>
+            <li>Forgetting that mutation is the <em>ultimate</em> source of new variation, while selection and drift only <em>sort</em> existing variation.</li>
+        </ul>
+    </div>
+
+</div>
+
+</body>
+</html>

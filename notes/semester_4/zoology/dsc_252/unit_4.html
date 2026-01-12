@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSC 252 Unit 4 | 4th Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive notes for Zoology DSC-252 Unit 4: Enzymes and Vitamins. Covers enzyme kinetics, Km, Vmax, mechanisms of action, and vitamin classification.">
+    <meta name="keywords" content="Zoology, DSC 252, Enzymes, Vitamins, Enzyme Kinetics, Km, Vmax, Lineweaver-Burk Plot, Knowlet, Assam University">
+    <style>
+        :root {
+            --primary: #8e44ad;
+            --secondary: #9b59b6;
+            --accent: #f1c40f;
+            --bg-light: #f5eef8;
+            --text: #2c3e50;
+            --border: #d7bde2;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #fafafa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 950px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            border: 1px solid var(--border);
+        }
+        h1 {
+            color: var(--primary);
+            text-align: center;
+            border-bottom: 4px solid var(--primary);
+            padding-bottom: 15px;
+            text-transform: uppercase;
+        }
+        h2 {
+            color: var(--primary);
+            border-left: 6px solid var(--secondary);
+            padding-left: 15px;
+            margin-top: 35px;
+            background: var(--bg-light);
+        }
+        h3 {
+            color: #4a235a;
+            margin-top: 25px;
+            border-bottom: 1px dashed var(--secondary);
+            display: inline-block;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        blockquote {
+            background: #fef9e7;
+            border-left: 8px solid var(--accent);
+            margin: 20px 0;
+            padding: 15px;
+            font-weight: 500;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        th, td {
+            border: 1px solid var(--border);
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f4ecf7;
+        }
+        .toc {
+            background: #fdfefe;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .exam-section {
+            border: 2px solid #27ae60;
+            background-color: #eafaf1;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        .exam-section h4 {
+            color: #1e8449;
+            margin-top: 0;
+        }
+        .formula-box {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 4: Enzymes and Vitamins</h1>
+
+    <div class="toc">
+        <h4>Table of Contents</h4>
+        <ul>
+            <li><a href="#enz-basics">1. Nomenclature, Classification, and Properties of Enzymes</a></li>
+            <li><a href="#enz-action">2. Mechanism of Enzyme Action</a></li>
+            <li><a href="#enz-kinetics">3. Enzyme Kinetics: Km, Vmax, and L-B Plot</a></li>
+            <li><a href="#enz-factors">4. Factors Affecting Enzyme Activity</a></li>
+            <li><a href="#vitamins">5. Vitamins: Classification and Functions</a></li>
+            <li><a href="#exam-corner">6. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="enz-basics">1. Nomenclature, Classification, and Properties of Enzymes</h2>
+    <p>
+        [cite_start]Enzymes are biological catalysts that speed up chemical reactions without being consumed in the process[cite: 679]. [cite_start]They are primarily globular proteins with high specificity[cite: 679].
+    </p>
+
+    <h3>Nomenclature and Classification</h3>
+    [cite_start]<p>Enzymes are generally named by adding the suffix "-ase" to the substrate they act upon (e.g., Lactase acts on Lactose)[cite: 679]. [cite_start]The IUBMB classifies enzymes into six major classes[cite: 679]:</p>
+    <ol>
+        <li><strong>Oxidoreductases:</strong> Catalyze oxidation-reduction reactions.</li>
+        <li><strong>Transferases:</strong> Transfer functional groups (e.g., methyl or phosphate groups).</li>
+        <li><strong>Hydrolases:</strong> Catalyze the cleavage of bonds by addition of water.</li>
+        <li><strong>Lyases:</strong> Catalyze the removal of groups to form double bonds.</li>
+        <li><strong>Isomerases:</strong> Catalyze structural shifts within a molecule (isomers).</li>
+        <li><strong>Ligases:</strong> Catalyze the joining of two molecules using ATP energy.</li>
+    </ol>
+
+    <h3>General Properties</h3>
+    <ul>
+        [cite_start]<li><strong>Catalytic Power:</strong> They increase reaction rates by 10^6 to 10^12 times[cite: 679].</li>
+        [cite_start]<li><strong>Specificity:</strong> Each enzyme is highly specific to its substrate and the reaction it catalyzes[cite: 679].</li>
+        [cite_start]<li><strong>Regulation:</strong> Their activity can be controlled by inhibitors, activators, and pH/temperature changes[cite: 679, 680].</li>
+    </ul>
+
+    <h2 id="enz-action">2. Mechanism of Enzyme Action</h2>
+    <p>
+        Enzymes work by lowering the <strong>activation energy</strong> required for a reaction to proceed. [cite_start]This is achieved through the formation of an Enzyme-Substrate (ES) complex at the <strong>Active Site</strong>[cite: 679].
+    </p>
+    
+    
+
+    <h3>Models of Enzyme-Substrate Binding</h3>
+    <ul>
+        <li><strong>Lock and Key Model:</strong> Proposed by Emil Fischer; suggests the active site has a rigid shape that exactly fits the substrate.</li>
+        <li><strong>Induced Fit Model:</strong> Proposed by Koshland; suggests the active site is flexible and changes shape to fit the substrate upon binding.</li>
+    </ul>
+
+    <h2 id="enz-kinetics">3. Enzyme Kinetics: Km, Vmax, and L-B Plot</h2>
+    <p>
+        [cite_start]Enzyme kinetics studies the rate of enzyme-catalyzed reactions[cite: 679].
+    </p>
+
+    <h3>Key Concepts</h3>
+    <ul>
+        [cite_start]<li><strong>Vmax:</strong> The maximum velocity of a reaction when the enzyme is saturated with substrate[cite: 679].</li>
+        [cite_start]<li><strong>Km (Michaelis Constant):</strong> The substrate concentration at which the reaction velocity is half of Vmax[cite: 679]. [cite_start]It indicates the affinity of an enzyme for its substrate (Low Km = High affinity)[cite: 679].</li>
+    </ul>
+
+    <h3>Lineweaver-Burk (L-B) Plot</h3>
+    [cite_start]<p>Also known as the double-reciprocal plot, it is used to determine Km and Vmax more accurately by plotting 1/v against 1/[S][cite: 679].</p>
+    <div class="formula-box">
+        1/v = (Km/Vmax) * (1/[S]) + (1/Vmax)
+    </div>
+
+    
+
+    <h2 id="enz-factors">4. Factors Affecting Enzyme Activity</h2>
+    [cite_start]<p>The rate of enzyme-catalyzed reactions is influenced by several environmental factors[cite: 680]:</p>
+    <ul>
+        <li><strong>Temperature:</strong> Most enzymes have an <em>optimum temperature</em>. [cite_start]High temperatures cause denaturation[cite: 680].</li>
+        [cite_start]<li><strong>pH:</strong> Changes in pH can alter the charge of amino acids at the active site, affecting binding[cite: 680].</li>
+        [cite_start]<li><strong>Substrate Concentration:</strong> Increasing [S] increases velocity until Vmax is reached[cite: 679].</li>
+        <li><strong>Enzyme Concentration:</strong> Rate is directly proportional to enzyme concentration, provided substrate is in excess.</li>
+    </ul>
+
+    <h2 id="vitamins">5. Vitamins: Classification and Functions</h2>
+    <p>
+        [cite_start]Vitamins are organic compounds required in small amounts for normal growth and metabolic processes[cite: 681].
+    </p>
+
+    <h3>Classification of Vitamins</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Vitamins</th>
+                <th>Characteristics</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Fat-Soluble</strong></td>
+                <td>A, D, E, K</td>
+                [cite_start]<td>Stored in the liver and fatty tissues; not excreted easily[cite: 681].</td>
+            </tr>
+            <tr>
+                <td><strong>Water-Soluble</strong></td>
+                <td>B-complex, C</td>
+                [cite_start]<td>Not stored in the body; must be consumed regularly[cite: 681].</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 id="exam-corner">6. Exam Focus Enhancements</h2>
+
+    <div class="exam-section">
+        <h4>Exam Tips</h4>
+        <ul>
+            <li><strong>Km and Affinity:</strong> Remember the inverse relationship. [cite_start]A small Km value means the enzyme needs very little substrate to reach half-maximum velocity, indicating high affinity[cite: 679].</li>
+            [cite_start]<li><strong>The Six Classes:</strong> Use the mnemonic <strong>"OTH LIL"</strong> (Oxidoreductase, Transferase, Hydrolase, Lyase, Isomerase, Ligase) to remember the major enzyme classes[cite: 679].</li>
+            [cite_start]<li><strong>L-B Plot:</strong> Practice drawing this plot; the Y-intercept is always 1/Vmax and the X-intercept is -1/Km[cite: 679].</li>
+        </ul>
+    </div>
+
+    <div class="exam-section">
+        <h4>Common Mistakes</h4>
+        <ul>
+            <li>Confusing <strong>Cofactors</strong> with <strong>Coenzymes</strong>. A cofactor is a non-protein part; if it's an organic molecule, it's a coenzyme.</li>
+            <li>Assuming all enzymes work best at pH 7. Pepsin (stomach) works best at pH 2, while Trypsin (intestine) works at pH 8.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section">
+        <h4>Frequently Asked Questions</h4>
+        <ol>
+            <li>Define Vmax and Km. [cite_start]What is their significance in enzyme kinetics? [cite: 679]</li>
+            [cite_start]<li>Classify enzymes according to the IUBMB system with one example each. [cite: 679]</li>
+            [cite_start]<li>Differentiate between fat-soluble and water-soluble vitamins. [cite: 681]</li>
+        </ol>
+    </div>
+
+</div>
+
+</body>
+</html>

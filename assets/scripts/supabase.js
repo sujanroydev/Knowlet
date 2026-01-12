@@ -97,6 +97,7 @@ let isPageLiked = false;
 let isPageRated = false;
 let isCommentHidden = true;
 let isRatingHidden = true;
+let recentComments = {};
 
 //let ratingValue = 0;
 let totalLikes = 0
@@ -525,15 +526,25 @@ async function loadComments() {
             box.innerHTML = `<div class="muted">No comments yet</div>`;
             return;
         }
+        
+        console.log(recentComments);
 
         data.forEach(c => {
+        	let dskljfalk = "";
+        	if (true) {
+	        	if (recentComments[c.id] === "Liked") {
+	        		dskljfalk = `👍 ${c.likes || 0}`;
+	        	} else {
+	        		dskljfalk = `👍🏼 ${c.likes || 0}`;
+	        	}
+        	}
             const d = document.createElement("div");
             d.className = "comment-item";
             d.innerHTML = `
                 <div><div style="margin-bottom:8px">${escapeHtml(c.comment_text)}</div>
                     <div class="meta" style="display:flex; gap:12px; align-items:center;">
                         <small>${new Date(c.created_at).toLocaleString()}</small>
-                        <button class="btn ghost" onclick="likeComment(${c.id}, ${c.likes})">👍🏼 ${c.likes || 0}</button>
+                        <button class="btn ghost" onclick="likeComment(${c.id}, ${c.likes})">${dskljfalk}</button>
                     </div>
                 </div>
             `;
@@ -570,10 +581,20 @@ async function submitComment(){
 }
 
 async function likeComment(id, oldLikes){
+	let newLikes;
+	if (recentComments[id] === "Liked" && Number(oldLikes) >= 1) {
+		newLikes = (Number(oldLikes)||0)-1;
+		recentComments[id] = "Unliked";
+	}
+	else {
+		newLikes = (Number(oldLikes)||0)+1;
+		recentComments[id] = "Liked";
+	}
+
     try {
         await supabaseClient
             .from("comments")
-            .update({ likes: (Number(oldLikes)||0)+1 })
+            .update({ likes: newLikes })
             .eq("id", id);
         await loadComments();
     } catch(e){ console.error(e) }

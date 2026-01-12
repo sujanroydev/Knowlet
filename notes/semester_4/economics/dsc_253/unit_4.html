@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECODSC 253 Unit 4 | Sampling Theory and Design - Knowlet</title>
+    <meta name="description" content="Academic notes for ECODSC 253 Unit 4: Sampling Theory and Design of Sample Surveys. Covers census vs sampling, error types, and standard error concepts.">
+    <meta name="keywords" content="Knowlet, Statistics for Economics, ECODSC 253, Sampling Theory, Sample Survey, Random Sampling, Standard Error, Sampling Error">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #27ae60;
+            --accent-color: #e67e22;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-top: 40px;
+            background: #f9f9f9;
+        }
+
+        h3 {
+            color: var(--accent-color);
+            margin-top: 25px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .toc {
+            background: #f0f4f8;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            background: none;
+            font-size: 1.5em;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding-left: 10px;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table, th, td {
+            border: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        blockquote {
+            background: #fff9f0;
+            border-left: 5px solid var(--accent-color);
+            margin: 20px 0;
+            padding: 15px;
+            font-style: italic;
+        }
+
+        .exam-tip {
+            border: 2px dashed #27ae60;
+            background: #e9f7ef;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 4: Sampling Theory and Design of Sample Surveys</h1>
+    <p><strong>Course Code:</strong> ECODSC 253 (Statistics for Economics) [cite: 232]</p>
+    <p>This unit provides a necessary bridge between probability theory and statistical inference by introducing techniques used to collect and analyze survey data[cite: 238].</p>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#population-sample">1. Population and Sample Concepts</a></li>
+            <li><a href="#census-sampling">2. Census versus Sampling</a></li>
+            <li><a href="#sampling-methods">3. Types and Methods of Sampling</a></li>
+            <li><a href="#steps-laws">4. Principal Steps and Laws of Sampling</a></li>
+            <li><a href="#errors-limitations">5. Errors, Standard Error, and Limitations</a></li>
+        </ul>
+    </div>
+
+    <section id="population-sample">
+        <h2>1. Population and Sample Concepts</h2>
+        <p>Before designing a survey, it is critical to distinguish between the group being studied and the portion being measured.</p>
+        <ul>
+            <li><strong>Population</strong>: The entire group of individuals or items that are the objects of a statistical investigation[cite: 254].</li>
+            <li><strong>Sample</strong>: A finite subset of the population selected for study to derive conclusions about the population as a whole[cite: 254].</li>
+            <li><strong>Parameter</strong>: A numerical value that describes a characteristic of the entire population (e.g., population mean)[cite: 254].</li>
+            <li><strong>Statistic</strong>: A numerical value calculated from sample data used to estimate a population parameter (e.g., sample mean)[cite: 254].</li>
+        </ul>
+    </section>
+
+    <section id="census-sampling">
+        <h2>2. Census versus Sampling</h2>
+        <p>Investigators must choose between studying every member of a population or just a representative part[cite: 254].</p>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Census Method</th>
+                <th>Sampling Method</th>
+            </tr>
+            <tr>
+                <td><strong>Scope</strong></td>
+                <td>Covers every unit of the population[cite: 254].</td>
+                <td>Covers only a representative fraction[cite: 254].</td>
+            </tr>
+            <tr>
+                <td><strong>Accuracy</strong></td>
+                <td>High, as every unit is examined.</td>
+                <td>Subject to sampling errors but can be very reliable if designed well.</td>
+            </tr>
+            <tr>
+                <td><strong>Cost & Time</strong></td>
+                <td>Expensive and time-consuming.</td>
+                <td>Economical and faster.</td>
+            </tr>
+            <tr>
+                <td><strong>Feasibility</strong></td>
+                <td>Not possible if testing involves destruction of items.</td>
+                <td>Ideal for large populations or destructive testing.</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="#sampling-methods">
+        <h2>3. Types and Methods of Sampling</h2>
+        <p>Methods of selecting a sample are broadly categorized into random and non-random techniques[cite: 254].</p>
+        
+        <h3>Random Sampling</h3>
+        <p>Also known as probability sampling, where every unit has a known, non-zero chance of being selected[cite: 254].</p>
+        <ul>
+            <li><strong>Simple Random Sampling</strong>: Units are chosen such that every possible sample of a given size has an equal chance of selection[cite: 254].</li>
+            <li><strong>With Replacement (WR)</strong>: A unit is selected, recorded, and returned to the population before the next draw[cite: 254].</li>
+            <li><strong>Without Replacement (WOR)</strong>: A selected unit is not returned, meaning it cannot be selected twice[cite: 254].</li>
+        </ul>
+
+        <h3>Non-Random Sampling</h3>
+        <p>Also known as non-probability sampling, where selection is based on convenience or judgment rather than chance[cite: 254].</p>
+    </section>
+
+    <section id="steps-laws">
+        <h2>4. Principal Steps and Laws of Sampling</h2>
+        <p>A systematic survey involves several predefined stages and follows specific statistical laws[cite: 254].</p>
+        
+        <h3>Principal Steps in a Sample Survey[cite: 254]:</h3>
+        <ol>
+            <li>Statement of the objectives.</li>
+            <li>Definition of the population to be sampled.</li>
+            <li>Determination of the sampling frame and units.</li>
+            <li>Selection of the sampling design/method.</li>
+            <li>Preparation of the questionnaire or schedule.</li>
+            <li>Data collection and analysis.</li>
+        </ol>
+
+        <h3>Laws of Sampling[cite: 254]:</h3>
+        <ul>
+            <li><strong>Law of Statistical Regularity</strong>: A moderately large number of items chosen at random from a large group are almost sure on average to possess the characteristics of the large group.</li>
+            <li><strong>Law of Inertia of Large Numbers</strong>: Larger samples are more stable and less prone to fluctuations than smaller ones.</li>
+        </ul>
+    </section>
+
+    <section id="errors-limitations">
+        <h2>5. Errors, Standard Error, and Limitations</h2>
+        
+        <h3>Sampling vs. Non-Sampling Errors [cite: 254]</h3>
+        <ul>
+            <li><strong>Sampling Error</strong>: The difference between the sample statistic and the population parameter arising because only a part of the population was studied[cite: 254].</li>
+            <li><strong>Non-Sampling Error</strong>: Errors arising from faulty planning, data collection, or processing (e.g., non-response, measurement error)[cite: 254].</li>
+        </ul>
+
+        <h3>Standard Error [cite: 255]</h3>
+        <p>The <strong>Standard Error (SE)</strong> is the standard deviation of a sampling distribution[cite: 255]. It measures the extent to which a sample statistic is likely to differ from the population parameter[cite: 255].</p>
+
+        <h3>Limitations of Sampling [cite: 255]</h3>
+        <ul>
+            <li>Requires expert knowledge to design correctly[cite: 255].</li>
+            <li>Possibility of bias if the sample is not truly representative[cite: 255].</li>
+            <li>Conclusions are probabilistic, not absolute[cite: 255].</li>
+        </ul>
+    </section>
+
+    <div class="exam-tip">
+        <strong>Exam Tip:</strong> Remember that increasing the sample size reduces <strong>Sampling Error</strong> but may increase <strong>Non-Sampling Error</strong> due to the difficulty of managing a larger operation.
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2026 Knowlet Academic Notes | ECODSC 253 Unit 4 | Assam University Syllabus</p>
+    </div>
+</div>
+
+</body>
+</html>

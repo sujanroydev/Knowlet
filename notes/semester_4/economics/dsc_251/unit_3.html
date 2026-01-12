@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECODSC 251 Unit 3 | Intermediate Microeconomics - Knowlet</title>
+    <meta name="description" content="Comprehensive notes for ECODSC 251 Unit 3: Supply decision in imperfect competition. Covering Monopolistic Competition, Oligopoly models, and Game Theory.">
+    <meta name="keywords" content="Knowlet, Economics, ECODSC 251, Monopolistic Competition, Oligopoly, Cournot, Bertrand, Stackelberg, Game Theory, Kinked Demand Curve">
+    <style>
+        :root {
+            --primary-color: #2e4053;
+            --secondary-color: #21618c;
+            --accent-color: #a04000;
+            --bg-color: #fdfefe;
+            --box-bg: #f4f6f7;
+            --border-color: #d5dbdb;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1c2833;
+            background-color: #eaeded;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: var(--bg-color);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 2.4em;
+            border-bottom: 4px solid var(--secondary-color);
+            padding-bottom: 15px;
+        }
+        h2 {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--border-color);
+            margin-top: 40px;
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: var(--accent-color);
+            margin-top: 25px;
+        }
+        .toc {
+            background: var(--box-bg);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            font-size: 1.4em;
+        }
+        .toc ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        blockquote {
+            background: #fef9e7;
+            border-left: 6px solid #f1c40f;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f4f4;
+        }
+        .exam-note {
+            background-color: #eaf2f8;
+            border-left: 5px solid var(--secondary-color);
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .warning-box {
+            background-color: #fdedec;
+            border: 1px solid #e74c3c;
+            color: #943126;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 3: Supply Decision in Imperfect Competition</h1>
+    <p><strong>Paper:</strong> ECODSC 251 | Intermediate Microeconomics [cite: 171, 172]</p>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#monopolistic">1. Monopolistic Market: Price & Output Determination</a></li>
+            <li><a href="#oligopoly-intro">2. Collusive vs Non-Collusive Oligopoly</a></li>
+            <li><a href="#cournot">3. Cournot Model</a></li>
+            <li><a href="#bertrand">4. Bertrand Model</a></li>
+            <li><a href="#stackelberg">5. Stackelberg's Model</a></li>
+            <li><a href="#kinked-demand">6. Kinked Demand Curve</a></li>
+            <li><a href="#game-theory">7. Introduction to Game Theory (Duopoly)</a></li>
+        </ul>
+    </div>
+
+    <section id="monopolistic">
+        <h2>1. Monopolistic Market: Price & Output Determination</h2>
+        <p>Monopolistic competition is a market structure characterized by many firms selling differentiated products[cite: 188].</p>
+        <h3>Short-run Equilibrium</h3>
+        <p>In the short run, a firm under monopolistic competition behaves like a monopoly[cite: 188]. It produces at a level where <strong>Marginal Revenue (MR) = Marginal Cost (MC)</strong>, provided price is greater than Average Variable Cost (AVC)[cite: 188].</p>
+        <h3>Long-run Equilibrium</h3>
+        <p>Due to the free entry and exit of firms, any supernormal profits are eroded in the long run[cite: 188]. Firms only earn <strong>normal profits</strong> where the demand curve (AR) is tangent to the Long-run Average Cost (LAC) curve[cite: 188].</p>
+        
+    </section>
+
+    <section id="oligopoly-intro">
+        <h2>2. Collusive vs Non-Collusive Oligopoly</h2>
+        <p>Oligopoly is a market with a few large sellers[cite: 188]. The key feature is <strong>interdependence</strong> between firms[cite: 188].</p>
+        <ul>
+            <li><strong>Non-Collusive Oligopoly:</strong> Firms compete with each other and act independently based on their assumptions about rivals' reactions[cite: 188].</li>
+            <li><strong>Collusive Oligopoly:</strong> Firms cooperate to reduce competition, often forming a <strong>cartel</strong> to maximize joint profits[cite: 188].</li>
+        </ul>
+    </section>
+
+    <section id="cournot">
+        <h2>3. Cournot Model</h2>
+        <p>The Cournot model assumes that each firm chooses its <strong>quantity</strong> produced, assuming the rival's output remains constant[cite: 188].</p>
+        <blockquote>
+            <strong>Equilibrium Point:</strong> The intersection of the <strong>Reaction Curves</strong> of the two firms[cite: 188].
+        </blockquote>
+        <p>In a duopoly (two firms), each firm ends up producing <strong>1/3</strong> of the total market capacity, leading to a total output of 2/3 of the competitive level[cite: 188].</p>
+        
+    </section>
+
+    <section id="bertrand">
+        <h2>4. Bertrand Model</h2>
+        <p>The Bertrand model assumes that firms compete on <strong>price</strong> rather than quantity[cite: 188].</p>
+        <ul>
+            <li>Firms assume the rival will keep its price constant[cite: 188].</li>
+            <li>If products are homogeneous, a price war occurs until <strong>Price = MC</strong>[cite: 188].</li>
+            <li><strong>Outcome:</strong> Even with only two firms, the market reaches a competitive equilibrium result[cite: 188].</li>
+        </ul>
+    </section>
+
+    <section id="stackelberg">
+        <h2>5. Stackelberg's Model</h2>
+        <p>This is a "Leader-Follower" model[cite: 188]. One firm (the leader) moves first and chooses its output, anticipating how the follower will respond[cite: 188].</p>
+        <ul>
+            <li>The <strong>Leader</strong> earns higher profits than in the Cournot model[cite: 188].</li>
+            <li>The <strong>Follower</strong> earns lower profits than in the Cournot model[cite: 188].</li>
+        </ul>
+    </section>
+
+    <section id="kinked-demand">
+        <h2>6. Kinked Demand Curve</h2>
+        <p>Developed by Paul Sweezy, this explains <strong>price rigidity</strong> in oligopolies[cite: 188].</p>
+        <ul>
+            <li><strong>Assumption:</strong> If a firm increases its price, rivals will not follow. If it decreases its price, rivals will follow immediately[cite: 188].</li>
+            <li>This creates a "kink" in the demand curve at the prevailing price[cite: 188].</li>
+            <li>The MR curve becomes <strong>discontinuous</strong>, meaning MC can shift within a range without changing the equilibrium price or output[cite: 188].</li>
+        </ul>
+        
+    </section>
+
+    <section id="game-theory">
+        <h2>7. Introduction to Game Theory (Duopoly)</h2>
+        <p>Game theory provides a mathematical framework for analyzing strategic interactions[cite: 188].</p>
+        <h3>Two-Person Zero-Sum Game</h3>
+        <p>A game where the gain of one player is exactly equal to the loss of the other[cite: 188]. The sum of gains and losses is zero[cite: 188].</p>
+        <table>
+            <tr>
+                <th>Key Term</th>
+                <th>Definition</th>
+            </tr>
+            <tr>
+                <td><strong>Strategy</strong></td>
+                <td>A complete plan of action for a player[cite: 188].</td>
+            </tr>
+            <tr>
+                <td><strong>Payoff Matrix</strong></td>
+                <td>A table showing the gains/losses for each strategy combination[cite: 188].</td>
+            </tr>
+            <tr>
+                <td><strong>Nash Equilibrium</strong></td>
+                <td>A situation where no player can benefit by changing strategy unilaterally[cite: 188].</td>
+            </tr>
+        </table>
+    </section>
+
+    <div class="exam-note">
+        <h3>Exam Tips</h3>
+        <ul>
+            <li>Compare the models: <strong>Competitive Output > Bertrand > Cournot > Stackelberg > Monopoly</strong>[cite: 188].</li>
+            <li>The Kinked demand curve explains <em>why</em> prices are stable, but not how the initial price was determined[cite: 188].</li>
+        </ul>
+    </div>
+
+    <div class="warning-box">
+        <strong>Common Pitfall:</strong> Do not confuse the Cournot model (Quantity competition) with the Bertrand model (Price competition). They lead to very different market outcomes[cite: 188].
+    </div>
+
+    <div class="footer">
+        <p>Academic Notes Generator | Knowlet 2026</p>
+    </div>
+</div>
+
+</body>
+</html>

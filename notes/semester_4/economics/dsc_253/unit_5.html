@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECODSC 253 Unit 5 | Statistical Inference Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive notes for ECODSC 253 Unit 5: Theory of Estimation and Testing of Hypothesis. Covering Point/Interval estimation, Z-test, t-test, and Chi-Square.">
+    <meta name="keywords" content="Knowlet, Statistics for Economics, ECODSC 253, Statistical Inference, Hypothesis Testing, Z-test, t-test, Type I Error, Type II Error">
+    <style>
+        :root {
+            --primary-navy: #1c2833;
+            --secondary-blue: #2e86c1;
+            --accent-red: #c0392b;
+            --bg-light: #fdfefe;
+            --border-color: #d5dbdb;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.8;
+            color: #1c2833;
+            background-color: #f4f6f7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: var(--primary-navy);
+            text-align: center;
+            font-size: 2.4em;
+            border-bottom: 5px solid var(--secondary-blue);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--secondary-blue);
+            border-bottom: 2px solid var(--border-color);
+            margin-top: 40px;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--accent-red);
+            margin-top: 25px;
+        }
+
+        .toc {
+            background: #f8f9fa;
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            font-size: 1.5em;
+        }
+
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .toc li {
+            margin-bottom: 10px;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-navy);
+            font-weight: 600;
+        }
+
+        .toc a:hover {
+            color: var(--secondary-blue);
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        blockquote {
+            background: #f9fdfc;
+            border-left: 6px solid var(--secondary-blue);
+            margin: 25px 0;
+            padding: 20px;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-navy);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .exam-note {
+            background-color: #fff9e6;
+            border: 1px solid #ffeeba;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 5: Theory of Estimation and Testing of Hypothesis</h1>
+    [cite_start]<p><strong>Course:</strong> Statistics for Economics (ECODSC 253) [cite: 232]</p>
+    [cite_start]<p>This final unit acts as the culmination of the course, providing the framework for statistical inference where we use sample data to make generalized statements about whole populations[cite: 238, 239].</p>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#estimation">1. Theory of Estimation: Point vs. Interval</a></li>
+            <li><a href="#estimators">2. Characteristics of a Good Estimator</a></li>
+            <li><a href="#hypothesis-concepts">3. Concepts of Testing Hypothesis & Significance</a></li>
+            <li><a href="#errors">4. Type I and Type II Errors</a></li>
+            <li><a href="#tests">5. Statistical Tests: Z, t, Chi-Square, and F Distributions</a></li>
+        </ul>
+    </div>
+
+    <section id="estimation">
+        <h2>1. Theory of Estimation: Point vs. Interval</h2>
+        [cite_start]<p>Estimation involves using a sample statistic to predict a population parameter[cite: 256].</p>
+        <ul>
+            [cite_start]<li><strong>Point Estimation:</strong> Provides a single numerical value as the estimate of the parameter[cite: 256]. For example, using the sample mean as the single best guess for the population mean.</li>
+            [cite_start]<li><strong>Interval Estimation:</strong> Provides a range of values (confidence interval) within which the parameter is expected to lie with a certain degree of confidence[cite: 256].</li>
+        </ul>
+    </section>
+
+    <section id="estimators">
+        <h2>2. Characteristics of a Good Estimator</h2>
+        [cite_start]<p>A "good" estimator must possess certain mathematical properties to be reliable[cite: 257]:</p>
+        <ul>
+            [cite_start]<li><strong>Unbiasedness:</strong> The expected value of the estimator should equal the true population parameter[cite: 257].</li>
+            [cite_start]<li><strong>Consistency:</strong> As the sample size increases, the estimator should get closer and closer to the true population parameter[cite: 257].</li>
+            [cite_start]<li><strong>Efficiency:</strong> Among all unbiased estimators, the one with the smallest variance is the most efficient[cite: 257].</li>
+            [cite_start]<li><strong>Sufficiency:</strong> The estimator uses all the information about the parameter contained in the sample[cite: 257].</li>
+        </ul>
+    </section>
+
+    <section id="hypothesis-concepts">
+        <h2>3. Concepts of Testing Hypothesis & Significance</h2>
+        [cite_start]<p>Hypothesis testing is a formal procedure for investigating ideas about the world using statistics[cite: 257].</p>
+        <ul>
+            [cite_start]<li><strong>Null Hypothesis (H0):</strong> A statement of "no effect" or "no difference" that we seek to test against[cite: 257].</li>
+            [cite_start]<li><strong>Alternative Hypothesis (H1):</strong> The statement that we suspect is actually true and is the opposite of the null hypothesis[cite: 257].</li>
+            [cite_start]<li><strong>Level of Significance (alpha):</strong> The probability of rejecting the null hypothesis when it is actually true[cite: 257]. Common levels are 5% or 1%.</li>
+        </ul>
+        
+    </section>
+
+    <section id="errors">
+        <h2>4. Type I and Type II Errors</h2>
+        <p>Because we use samples, there is always a chance of reaching the wrong conclusion.</p>
+        <table>
+            <tr>
+                <th>Decision</th>
+                <th>H0 is True</th>
+                <th>H0 is False</th>
+            </tr>
+            <tr>
+                <td><strong>Reject H0</strong></td>
+                <td><span style="color:red;">Type I Error (False Alarm)</span></td>
+                <td>Correct Decision</td>
+            </tr>
+            <tr>
+                <td><strong>Fail to Reject H0</strong></td>
+                <td>Correct Decision</td>
+                <td><span style="color:red;">Type II Error (Missed Opportunity)</span></td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="tests">
+        <h2>5. Statistical Tests: Z, t, Chi-Square, and F Distributions</h2>
+        [cite_start]<p>The choice of test depends on the sample size and what is being compared[cite: 257].</p>
+        
+        <h3>Large Sample Tests (Z-test)</h3>
+        [cite_start]<p>Used when the sample size is large (n > 30)[cite: 257]. It follows the standard normal distribution.</p>
+
+        <h3>Small Sample Tests (t-test)</h3>
+        [cite_start]<p>Used when the sample size is small (n < 30) and the population standard deviation is unknown[cite: 257].</p>
+        [Image comparing the Z-distribution bell curve with the flatter t-distribution bell curve]
+
+        <h3>Chi-Square Test (χ²)</h3>
+        [cite_start]<p>Primarily used for testing the "Goodness of Fit" (how well observed data matches expected data) or the independence of attributes in a contingency table[cite: 257].</p>
+
+        <h3>F-Test</h3>
+        [cite_start]<p>Used to compare the variances of two different populations[cite: 257]. It is the foundation for Analysis of Variance (ANOVA).</p>
+    </section>
+
+    <div class="exam-note">
+        <h4>Exam Tip: Which Test to Choose?</h4>
+        <ul>
+            <li>If <strong>n > 30</strong> and you know the variance, always use the <strong>Z-test</strong>.</li>
+            <li>If <strong>n < 30</strong> and variance is unknown, switch to the <strong>t-test</strong>.</li>
+            <li>Use <strong>Chi-Square</strong> when dealing with frequencies or categories rather than means.</li>
+            <li>Use <strong>F-test</strong> only when the question explicitly asks to compare "variability" or "variances."</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>Knowlet Academic Notes | Statistics for Economics | ECODSC 253 Unit 5 | Assam University NEP Syllabus</p>
+    </div>
+</div>
+
+</body>
+</html>

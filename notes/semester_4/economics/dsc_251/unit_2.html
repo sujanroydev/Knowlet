@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECODSC 251 Unit 2 | Intermediate Microeconomics - Knowlet</title>
+    <meta name="description" content="Detailed academic notes on Cost and Production Functions for ECODSC 251 Unit 2. Includes Cobb-Douglas, CES functions, and cost derivations.">
+    <meta name="keywords" content="Knowlet, Economics, ECODSC 251, Production Function, Cobb-Douglas, CES, Cost Function, Expansion Path">
+    <style>
+        :root {
+            --primary-blue: #1a5276;
+            --secondary-blue: #2980b9;
+            --accent-orange: #d35400;
+            --light-bg: #f8f9f9;
+            --border-color: #d5dbdb;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background-color: #f2f4f4;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .content-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        h1 {
+            color: var(--primary-blue);
+            text-align: center;
+            font-size: 2.5em;
+            border-bottom: 4px solid var(--accent-orange);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: var(--secondary-blue);
+            border-bottom: 2px solid var(--border-color);
+            margin-top: 40px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: var(--accent-orange);
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .toc-container {
+            background: #ebf5fb;
+            border: 1px solid var(--secondary-blue);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        .toc-container h2 {
+            margin-top: 0;
+            font-size: 1.5em;
+            border: none;
+            color: var(--primary-blue);
+        }
+        .toc-container ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .toc-container li {
+            margin: 8px 0;
+        }
+        .toc-container a {
+            text-decoration: none;
+            color: var(--secondary-blue);
+            font-weight: 600;
+        }
+        .toc-container a:hover {
+            text-decoration: underline;
+        }
+        blockquote {
+            background: #fdf2e9;
+            border-left: 8px solid var(--accent-orange);
+            margin: 20px 0;
+            padding: 15px 25px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .exam-box {
+            background-color: #e8f8f5;
+            border: 2px solid #1abc9c;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        .exam-box h4 {
+            margin-top: 0;
+            color: #16a085;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content-wrapper">
+    <h1>Unit 2: Cost and Production Function</h1>
+    [cite_start]<p><strong>Subject:</strong> Economics [cite: 172] | [cite_start]<strong>Paper:</strong> ECODSC 251 Intermediate Microeconomics [cite: 171, 172]</p>
+
+    <div class="toc-container">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#homogenous-homothetic">1. Homogenous and Homothetic Production Functions</a></li>
+            <li><a href="#cobb-douglas">2. Cobb-Douglas Production Function</a></li>
+            <li><a href="#ces-function">3. C.E.S. Production Function</a></li>
+            <li><a href="#factor-substitution">4. Elasticity of Factor Substitution</a></li>
+            <li><a href="#expansion-path">5. Expansion Path</a></li>
+            <li><a href="#cost-derivation">6. Derivation of Cost Function from Production Function</a></li>
+        </ul>
+    </div>
+
+    <section id="homogenous-homothetic">
+        <h2>1. Homogenous and Homothetic Production Functions</h2>
+        <p>Production functions describe the technical relationship between inputs and outputs. [cite_start]For ECODSC 251, we focus on specific mathematical properties of these functions[cite: 185, 186].</p>
+        
+        [cite_start]<h3>Homogenous Production Function [cite: 186]</h3>
+        <p>A production function is said to be <strong>homogenous of degree 'n'</strong> if multiplying all inputs by a constant factor 'k' results in the output being multiplied by 'k' raised to the power of 'n'.</p>
+        <blockquote>
+            Formula: f(kL, kK) = k^n . f(L, K)
+        </blockquote>
+        <ul>
+            <li>If n = 1: Constant Returns to Scale (CRS).</li>
+            <li>If n > 1: Increasing Returns to Scale (IRS).</li>
+            <li>If n &lt; 1: Decreasing Returns to Scale (DRS).</li>
+        </ul>
+
+        [cite_start]<h3>Homothetic Production Function [cite: 186]</h3>
+        [cite_start]<p>A function is <strong>homothetic</strong> if it is a monotonic transformation of a homogenous function[cite: 186]. In these functions, the slope of the isoquant (Marginal Rate of Technical Substitution - MRTS) remains constant along any ray from the origin.</p>
+    </section>
+
+    <section id="cobb-douglas">
+        <h2>2. [cite_start]Cobb-Douglas Production Function [cite: 186]</h2>
+        [cite_start]<p>The Cobb-Douglas function is widely used to represent the relationship between inputs, typically Labour and Capital, and the resulting output[cite: 186].</p>
+        <blockquote>
+            Standard Formula: Q = A . L^a . K^b
+        </blockquote>
+        <p>Where:</p>
+        <ul>
+            <li><strong>Q:</strong> Total Output.</li>
+            <li><strong>L, K:</strong> Quantities of Labour and Capital.</li>
+            <li><strong>A:</strong> Efficiency parameter.</li>
+            <li><strong>a, b:</strong> Output elasticities of inputs.</li>
+        </ul>
+        <h3>Key Properties:</h3>
+        <ul>
+            <li>Returns to Scale are determined by the sum of (a + b).</li>
+            <li>The elasticity of substitution for a Cobb-Douglas function is always constant and equal to 1.</li>
+        </ul>
+    </section>
+
+    <section id="ces-function">
+        <h2>3. C.E.S. [cite_start]Production Function [cite: 186]</h2>
+        [cite_start]<p>The <strong>Constant Elasticity of Substitution (C.E.S.)</strong> production function allows the elasticity of substitution to be a constant value other than one[cite: 186].</p>
+        <blockquote>
+            Formula: Q = A [ alpha . K^(-rho) + (1 - alpha) . L^(-rho) ] ^ (-1/rho)
+        </blockquote>
+        
+        <p>In this function, the elasticity of substitution (sigma) is defined as sigma = 1 / (1 + rho).</p>
+    </section>
+
+    <section id="factor-substitution">
+        <h2>4. [cite_start]Elasticity of Factor Substitution [cite: 186]</h2>
+        [cite_start]<p>The <strong>Elasticity of Factor Substitution</strong> measures the ease with which a firm can substitute one factor for another (e.g., Labour for Capital) when relative factor prices change[cite: 186].</p>
+        <ul>
+            <li>It is defined as the percentage change in the capital-labour ratio divided by the percentage change in the MRTS.</li>
+            <li>It helps determine the curvature of the isoquant.</li>
+        </ul>
+    </section>
+
+    <section id="expansion-path">
+        <h2>5. [cite_start]Expansion Path [cite: 186]</h2>
+        [cite_start]<p>The <strong>Expansion Path</strong> is a line representing the cost-minimizing combinations of inputs for every possible level of output when input prices (wages and rental rates) are held constant[cite: 186].</p>
+        
+        <ul>
+            <li>It shows how the firm expands its production in the long run.</li>
+            <li>For homogenous functions, the expansion path is a straight line through the origin.</li>
+        </ul>
+    </section>
+
+    <section id="cost-derivation">
+        <h2>6. [cite_start]Derivation of Cost Function from Production Function [cite: 186]</h2>
+        [cite_start]<p>The cost function describes the relationship between the minimum cost of production and the level of output[cite: 186].</p>
+        <h3>Mathematical Derivation Process:</h3>
+        <ol>
+            <li>State the Production Function: Q = f(L, K).</li>
+            <li>Define the Cost Equation: C = wL + rK.</li>
+            <li>Optimize using the Lagrangian method or by equating MRTS to the factor price ratio (w/r).</li>
+            <li>Solve for optimal L and K in terms of Q, w, and r.</li>
+            <li>Substitute L* and K* back into the cost equation to obtain C(Q).</li>
+        </ol>
+    </section>
+
+    <div class="exam-box">
+        <h4>Exam Corner: Tips & Warnings</h4>
+        <ul>
+            [cite_start]<li><strong>Tip:</strong> Always remember that in a Cobb-Douglas function, if a + b = 1, it implies Constant Returns to Scale[cite: 186].</li>
+            [cite_start]<li><strong>Warning:</strong> Do not confuse a homogenous function with a homothetic one; while all homogenous functions are homothetic, the reverse is not necessarily true[cite: 186].</li>
+            [cite_start]<li><strong>FAQ:</strong> A common question involves calculating the elasticity of factor substitution for a given C.E.S. function[cite: 186].</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2026 Knowlet Academic Notes | [cite_start]Assam University Syllabus [cite: 292]</p>
+    </div>
+</div>
+
+</body>
+</html>

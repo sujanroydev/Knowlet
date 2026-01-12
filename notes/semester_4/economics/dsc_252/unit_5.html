@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECODSC 252 Unit 5 | Open Economy Models - Knowlet</title>
+    <meta name="description" content="Academic notes for ECODSC 252 Unit 5: Open Economy Models. Detailed analysis of IS-LM in open economies, BOP schedules, and the Mundell-Fleming model.">
+    <meta name="keywords" content="Knowlet, Economics, ECODSC 252, Open Economy, Mundell-Fleming Model, BOP Schedule, International Financial Markets">
+    <style>
+        :root {
+            --primary-dark: #2c3e50;
+            --ocean-blue: #2980b9;
+            --success-green: #27ae60;
+            --highlight-gold: #f1c40f;
+            --bg-color: #f4f7f6;
+            --text-color: #34495e;
+            --border-color: #bdc3c7;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: var(--primary-dark);
+            text-align: center;
+            font-size: 2.6em;
+            border-bottom: 5px solid var(--ocean-blue);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: var(--ocean-blue);
+            border-bottom: 2px solid var(--border-color);
+            margin-top: 45px;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--success-green);
+            margin-top: 30px;
+        }
+
+        .toc {
+            background: #eaf2f8;
+            border: 1px solid var(--ocean-blue);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            font-size: 1.6em;
+            color: var(--primary-dark);
+        }
+
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .toc li {
+            margin-bottom: 12px;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--ocean-blue);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .toc a:hover {
+            color: var(--primary-dark);
+            padding-left: 10px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        blockquote {
+            background: #fdf2e9;
+            border-left: 8px solid var(--highlight-gold);
+            margin: 25px 0;
+            padding: 20px;
+            font-weight: 500;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .exam-note {
+            background-color: #fef9e7;
+            border: 2px solid var(--highlight-gold);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        .exam-note h4 {
+            margin-top: 0;
+            color: #b7950b;
+            text-transform: uppercase;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            border-top: 1px solid #eee;
+            padding-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 5: Open Economy Models</h1>
+    <p><strong>Course:</strong> Intermediate Macroeconomics (ECODSC 252) [cite: 171, 201]</p>
+    <p>This unit extends the standard IS-LM framework to incorporate international trade and capital flows, examining how a country's interactions with the global economy influence its domestic policy effectiveness and income levels[cite: 206, 221].</p>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#is-lm-open">1. Open Economy Version of IS-LM</a></li>
+            <li><a href="#bop-schedule">2. Derivation of the BOP Schedule</a></li>
+            <li><a href="#mundell-fleming">3. Mundell-Fleming Model</a></li>
+            <li><a href="#monetary-bop">4. Monetary Approach to BOP</a></li>
+            <li><a href="#financial-markets">5. International Financial Markets</a></li>
+        </ul>
+    </div>
+
+    <section id="is-lm-open">
+        <h2>1. Open Economy Version of IS-LM</h2>
+        <p>In an open economy, the goods market equilibrium (IS curve) must account for exports (X) and imports (M)[cite: 221, 222].</p>
+        <blockquote>
+            Open Economy IS Formula: Y = C + I + G + (X - M)
+        </blockquote>
+        <ul>
+            <li><strong>Net Exports (NX):</strong> NX = X - M. Exports depend on foreign income and the real exchange rate, while imports depend on domestic income and the real exchange rate[cite: 221].</li>
+            <li><strong>Interest Rates:</strong> The LM curve remains largely the same, but the overall equilibrium is now constrained by the balance of payments[cite: 222].</li>
+        </ul>
+    </section>
+
+    <section id="bop-schedule">
+        <h2>2. Derivation of the BOP Schedule</h2>
+        <p>The Balance of Payments (BOP) schedule (or BP curve) represents combinations of interest rates (r) and income (Y) that result in a zero balance in the overall balance of payments[cite: 222].</p>
+        
+        <ul>
+            <li><strong>Slope:</strong> Usually upward sloping. As income (Y) rises, imports increase, creating a trade deficit. To maintain a zero BOP balance, interest rates must rise to attract capital inflows[cite: 221, 222].</li>
+            <li><strong>Capital Mobility:</strong>
+                <ul>
+                    <li><strong>Perfect Capital Mobility:</strong> The BP curve is horizontal at the world interest rate (r*).</li>
+                    <li><strong>Imperfect Capital Mobility:</strong> The BP curve is upward sloping.</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section id="mundell-fleming">
+        <h2>3. Mundell-Fleming Model</h2>
+        <p>The Mundell-Fleming model is the standard framework for analyzing monetary and fiscal policy in an open economy under different exchange rate regimes[cite: 222].</p>
+        
+        <h3>Policy Effectiveness:</h3>
+        <table>
+            <tr>
+                <th>Policy Type</th>
+                <th>Fixed Exchange Rate</th>
+                <th>Flexible Exchange Rate</th>
+            </tr>
+            <tr>
+                <td><strong>Fiscal Policy</strong></td>
+                <td>Highly Effective</td>
+                <td>Ineffective (due to exchange rate changes)</td>
+            </tr>
+            <tr>
+                <td><strong>Monetary Policy</strong></td>
+                <td>Ineffective (money supply is endogenous)</td>
+                <td>Highly Effective</td>
+            </tr>
+        </table>
+        
+    </section>
+
+    <section id="monetary-bop">
+        <h2>4. Monetary Approach to BOP</h2>
+        <p>The monetary approach views the Balance of Payments primarily as a monetary phenomenon[cite: 222].</p>
+        <ul>
+            <li>It emphasizes that any disequilibrium in the BOP reflects a disequilibrium in the domestic money market[cite: 222].</li>
+            <li>A surplus in the BOP represents an excess demand for money, while a deficit represents an excess supply of money[cite: 221, 222].</li>
+        </ul>
+    </section>
+
+    <section id="financial-markets">
+        <h2>5. International Financial Markets</h2>
+        <p>This refers to the global network of institutions that facilitate the exchange of currencies and the flow of capital between countries[cite: 222].</p>
+        <ul>
+            <li><strong>Foreign Exchange Market:</strong> Where currencies are traded and exchange rates are determined[cite: 221, 228].</li>
+            <li><strong>Capital Flows:</strong> The movement of financial assets across borders in search of higher returns or diversification[cite: 221, 222].</li>
+        </ul>
+    </section>
+
+    <div class="exam-note">
+        <h4>Exam Corner: Strategic Insights</h4>
+        <ul>
+            <li><strong>Impossible Trinity:</strong> Remember that a country cannot simultaneously have a fixed exchange rate, free capital movement, and an independent monetary policy[cite: 222, 228].</li>
+            <li><strong>BP Curve Position:</strong> A devaluation or depreciation of the domestic currency makes exports cheaper and shifts the BP curve to the right[cite: 221, 222].</li>
+            <li><strong>Comparison:</strong> Be ready to compare how a fiscal expansion differs in its impact on income between a closed economy (Unit 3) and an open economy (Unit 5)[cite: 218, 222].</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>Knowlet Academic Notes | Intermediate Macroeconomics | ECODSC 252 Unit 5 | Assam University Syllabus [cite: 201, 292]</p>
+    </div>
+</div>
+
+</body>
+</html>

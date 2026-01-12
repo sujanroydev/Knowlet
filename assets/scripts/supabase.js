@@ -309,7 +309,7 @@ async function loadRatings(){
     try {
         const { data, error } = await supabaseClient
             .from("ratings")
-            .select("id, page_ratings, page_likes, ratings_message, created_at")
+            .select("id, page_ratings, page_likes, ratings_message, created_at, user (id, name, picture)")
             .eq("page_id", pageId)
             .order("created_at", { ascending: false });
 
@@ -321,6 +321,7 @@ async function loadRatings(){
             console.error(error);
             return;
         }
+        console.log(data)
 
         let count = 0;
         let sum = 0; 
@@ -333,15 +334,28 @@ async function loadRatings(){
             const div = document.createElement("div");
             div.className = "rating-item";
             div.innerHTML = `
-                <div style="display:flex; justify-content:space-between; gap:12px; align-items:center;">
-                    <div>
-                        <strong>${r.page_ratings} / 5</strong>
-                        <div class="meta" style="margin-top:4px">${new Date(r.created_at).toLocaleString()}</div>
-                    </div>
-                    <div style="text-align:right">
-                        <div style="margin-bottom:6px">${escapeHtml(r.ratings_message || "")}</div>
-                    </div>
-                </div>
+			    <div class="rating-row">
+			        <!-- User info -->
+			        <div class="user-info">
+			            <img 
+			                src="${r.user.picture || 'default-avatar.png'}" 
+			                alt="${escapeHtml(r.user.name)}" 
+			                class="avatar"
+			            />
+			            <div>
+			                <div class="user-name">${escapeHtml(r.user.name)}</div>
+			                <div class="meta">${new Date(r.created_at).toLocaleString()}</div>
+			            </div>
+			        </div>
+			
+			        <!-- Rating + message -->
+			        <div class="rating-content">
+			            <strong class="rating-score">${r.page_ratings} / 5</strong>
+			            <div class="rating-message">
+			                ${escapeHtml(r.ratings_message || "")}
+			            </div>
+			        </div>
+			    </div>
             `;
             
             const avg = count ? (sum / count) : 0;
@@ -509,7 +523,7 @@ async function loadComments() {
     try {
         const { data, error } = await supabaseClient
              .from("comments")
-             .select("id, comment_text, likes, created_at")
+             .select("id, comment_text, likes, created_at, user (id, name, picture)")
              .eq("page_id", pageId)
              .order("created_at", { ascending: false });
 
@@ -526,27 +540,50 @@ async function loadComments() {
             box.innerHTML = `<div class="muted">No comments yet</div>`;
             return;
         }
-        
-        console.log(recentComments);
+        console.log(data)
+        // console.log(recentComments);
 
         data.forEach(c => {
-        	let dskljfalk = "";
+        	let totalCLikes = "";
         	if (true) {
 	        	if (recentComments[c.id] === "Liked") {
-	        		dskljfalk = `👍 ${c.likes || 0}`;
+	        		totalCLikes = `👍 ${c.likes || 0}`;
 	        	} else {
-	        		dskljfalk = `👍🏼 ${c.likes || 0}`;
+	        		totalCLikes = `👍🏼 ${c.likes || 0}`;
 	        	}
         	}
             const d = document.createElement("div");
             d.className = "comment-item";
             d.innerHTML = `
-                <div><div style="margin-bottom:8px">${escapeHtml(c.comment_text)}</div>
-                    <div class="meta" style="display:flex; gap:12px; align-items:center;">
-                        <small>${new Date(c.created_at).toLocaleString()}</small>
-                        <button class="btn ghost" onclick="likeComment(${c.id}, ${c.likes})">${dskljfalk}</button>
-                    </div>
-                </div>
+			    <div class="comment-row">
+			        <!-- User info -->
+			        <div class="user-info">
+			            <img
+			                src="${c.user.picture || 'default-avatar.png'}"
+			                alt="${escapeHtml(c.user.name)}"
+			                class="avatar"
+			            />
+			            <div>
+			                <div class="user-name">${escapeHtml(c.user.name)}</div>
+			                <div class="meta">${new Date(c.created_at).toLocaleString()}</div>
+			            </div>
+			        </div>
+			
+			        <!-- Comment content -->
+			        <div class="comment-content">
+			            <div class="comment-text">
+			                ${escapeHtml(c.comment_text)}
+			            </div>
+			
+			            <div class="comment-actions">
+			                <button
+			                    class="btn ghost"
+			                    onclick="likeComment(${c.id}, ${c.likes})">
+			                    ${totalCLikes}
+			                </button>
+			            </div>
+			        </div>
+			    </div>
             `;
             box.appendChild(d);
         });

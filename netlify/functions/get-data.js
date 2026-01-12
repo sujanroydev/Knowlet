@@ -16,14 +16,14 @@ export default async (request) => {
     }
     
     const body = await request.json();
-    const { id, email } = body;
+    const { email, password } = body;
     
     try {
         const { data, error } = await supabaseClient
                 .from('user')
                 .select('*')
-                .eq('id', id)
-                .eq('email', email);
+                .eq('email', email)
+                .eq('password', password);
 
         if (error) {
             return new Response(

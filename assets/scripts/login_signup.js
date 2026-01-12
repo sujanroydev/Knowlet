@@ -12,6 +12,8 @@ const loginBox = document.getElementById('loginBox');
 const signupBox = document.getElementById('signupBox');
 const loader = document.getElementById('loader');
 
+const signupForm = document.getElementById("signupForm")
+
 const params = new URLSearchParams(window.location.search);
 
 const popup = params.get("popup");
@@ -34,6 +36,31 @@ if (popup === "login") {
     showSignup();
 }
 
+// document.getElementById("loginForm").addEventListener("submit", e => {
+//     e.preventDefault();
+//     loginBtn.click();
+// });
+
+signupForm.addEventListener("submit", e => {
+    e.preventDefault();
+    
+    let name = input[3].value;
+    let email = input[4].value;
+    let password = input[5].value;
+    
+    if (password !== input[6].value) {
+    	alert("Unmatched Password");
+    	return;
+    }
+    
+    if (!name || !email || !password) {
+        alert("All fields are required");
+        return;
+    }
+    
+    signup(name, email, password);
+});
+
 loginBtn.addEventListener("click", () => {
     let userId = input[0].value;
     let email = input[1].value;
@@ -50,24 +77,6 @@ loginBtn.addEventListener("click", () => {
     }
     
     login(userId, email);
-});
-
-signupBtn.addEventListener("click", () => {
-    let name = input[3].value;
-    let email = input[4].value;
-    let phone = input[5].value;
-    
-    if (!name) {
-        alert("Must enter Name");
-        return;
-    }
-    
-    if (!email) {
-        alert("Must enter Email");
-        return;
-    }
-    
-    signup(name, email);
 });
 
 [ googleLoginBtn, googleSignupBtn ].forEach(btn => {
@@ -128,38 +137,54 @@ async function login(userId, email) {
     }
 }
 
-async function signup(name, email) {
+async function signup(name, email, password) {
     
     let userId = name.split(' ')[0] + "@" + parseInt(Math.random() * 9000 + 1000);
     
     let user = {
         id: userId,
         name: name,
-        email: email
+        email: email,
+        password: password
     }
+    
     try {
         // new
+        // loader.style.display = "flex";
+        // const res = await fetch(
+        //     'https://knowlet.in/.netlify/functions/set-data',
+        //     {
+        //         method: 'POST',
+        //         headers: {'Content-Type': 'application/json'},
+        //         body: JSON.stringify(user)
+        //     }
+        // );
+        // loader.style.display = "none";
+        
+        // if (!res.ok) {
+        //     throw new Error(`HTTP error! status: ${res.status}`);
+        // }
+
+        // const result = await res.json();
+
+        // if (!result.success) {
+        //     throw new Error(result.error || "Unknown error occurred");
+        // }
+
+        // localStorage.setItem("knowletUser", JSON.stringify(user));
+        // alert("Successfully Signed Up\n" + "Note your user ID: " + userId);
+        // redirect();
+        
         loader.style.display = "flex";
-        const res = await fetch(
-            'https://knowlet.in/.netlify/functions/set-data',
-            {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(user)
-            }
-        );
+        
+        const { error } = await supabaseClient
+        	.from("user")
+        	.insert(user);
+        
         loader.style.display = "none";
         
-        if (!res.ok) {
-            throw new Error(`HTTP error! status: ${res.status}`);
-        }
-
-        const result = await res.json();
-
-        if (!result.success) {
-            throw new Error(result.error || "Unknown error occurred");
-        }
-
+        if (error) alert(error.message);
+        
         localStorage.setItem("knowletUser", JSON.stringify(user));
         alert("Successfully Signed Up\n" + "Note your user ID: " + userId);
         redirect();

@@ -107,6 +107,52 @@ const STAR_SVG = `
         <path d="M12 .587l3.668 7.431L23.5 9.75l-5.75 5.6L19.336 24 12 20.013 4.664 24l1.585-8.65L.5 9.75l7.832-1.732L12 .587z"/>
     </svg>`;
 
+function AboutUser() {
+    if (!user) {
+        setTimeout(() => {
+            window.location.href = "../../../../login_signup.html";
+        }, 15000);
+    } 
+}
+
+async function loadUserInfo() {
+    try {
+        const { data, error } = await supabaseClient
+            .from("user")
+            .select("*")
+            .eq("id", user.id)
+
+        if (error) {
+            alert("Error loading your data")
+            console.error(error);
+            return;
+        }
+        if (!data[0]) {
+            await submitUserInfo();
+        }
+    } catch (e) {
+        console.error(e);
+    }
+}
+
+async function submitUserInfo() {
+    try {
+        const { error } = await supabaseClient
+                .from("user")
+                .insert({
+                    id: user.id,
+                    name: user.name
+                });
+        if (error) {
+            console.error(error);
+            return;
+            alert("Error submitting Your Name");
+        }
+    } catch (e) {
+        console.error(e);
+    }
+}
+
 function toggleComments() {
     if (isCommentHidden) {
         commentsBox.style.display = 'block';
@@ -129,6 +175,36 @@ function toggleRatings() {
         btnToggleRatings.textContent = "Show Ratings";
         isRatingHidden = true;
     }
+}
+
+//Average star visual (fractional filling)
+
+function renderAverageStars(avg) {
+    const count = 5;
+    const wrapper = document.getElementById("avg-stars");
+    // create back and front groups of 5 stars
+    const back = document.createElement("div");
+    back.className = "back";
+    const front = document.createElement("div");
+    front.className = "front";
+
+    for (let i=0;i<count;i++){
+        const s1 = document.createElement("div");
+        s1.innerHTML = STAR_SVG;
+        back.appendChild(s1);
+        const s2 = document.createElement("div");
+        s2.innerHTML = STAR_SVG;
+        front.appendChild(s2);
+    }
+
+    wrapper.innerHTML = "";
+    wrapper.appendChild(back);
+    wrapper.appendChild(front);
+
+    // set width of front to match avg fraction (0..100%)
+    const pct = Math.max(0, Math.min(1, avg / 5));
+    wrapper.querySelector(".front").style.width = (pct * 100) + "%";
+    wrapper.setAttribute("aria-label", `Average rating ${avg.toFixed(2)} out of 5`);
 }
 
 function renderInteractiveStars() {
@@ -182,82 +258,6 @@ function updateStarVis() {
 
     // Enable/disable submit button based on selection
     document.getElementById("btn-submit-rating").disabled = selectedRating === 0;
-}
-
-//Average star visual (fractional filling)
-
-function renderAverageStars(avg) {
-    const count = 5;
-    const wrapper = document.getElementById("avg-stars");
-    // create back and front groups of 5 stars
-    const back = document.createElement("div");
-    back.className = "back";
-    const front = document.createElement("div");
-    front.className = "front";
-
-    for (let i=0;i<count;i++){
-        const s1 = document.createElement("div");
-        s1.innerHTML = STAR_SVG;
-        back.appendChild(s1);
-        const s2 = document.createElement("div");
-        s2.innerHTML = STAR_SVG;
-        front.appendChild(s2);
-    }
-
-    wrapper.innerHTML = "";
-    wrapper.appendChild(back);
-    wrapper.appendChild(front);
-
-    // set width of front to match avg fraction (0..100%)
-    const pct = Math.max(0, Math.min(1, avg / 5));
-    wrapper.querySelector(".front").style.width = (pct * 100) + "%";
-    wrapper.setAttribute("aria-label", `Average rating ${avg.toFixed(2)} out of 5`);
-}
-
-function AboutUser() {
-    if (!user) {
-        setTimeout(() => {
-            window.location.href = "../../../../login_signup.html";
-        }, 15000);
-    } 
-}
-
-async function loadUserInfo() {
-    try {
-        const { data, error } = await supabaseClient
-            .from("user")
-            .select("*")
-            .eq("id", user.id)
-
-        if (error) {
-            alert("Error loading your data")
-            console.error(error);
-            return;
-        }
-        if (!data[0]) {
-            await submitUserInfo();
-        }
-    } catch (e) {
-        console.error(e);
-    }
-}
-
-async function submitUserInfo() {
-    try {
-        const { error } = await supabaseClient
-                .from("user")
-                .insert({
-                    id: user.id,
-                    name: user.name
-                });
-        if (error) {
-            console.error(error);
-            return;
-            alert("Error submitting Your Name");
-        }
-    } catch (e) {
-        console.error(e);
-    }
 }
 
 //Is Liked Or Rated

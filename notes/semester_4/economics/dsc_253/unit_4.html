@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECODSC 253 Unit 4 | Sampling Theory and Design - Knowlet</title>
+    <title>Economics DSC 253 Unit 4 | 4th Semester Notes - Knowlet</title>
     <meta name="description" content="Academic notes for ECODSC 253 Unit 4: Sampling Theory and Design of Sample Surveys. Covers census vs sampling, error types, and standard error concepts.">
     <meta name="keywords" content="Knowlet, Statistics for Economics, ECODSC 253, Sampling Theory, Sample Survey, Random Sampling, Standard Error, Sampling Error">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <link rel="stylesheet" href="../../../../assets/styles/supabase.css">
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -142,8 +144,8 @@
 
 <div class="container">
     <h1>Unit 4: Sampling Theory and Design of Sample Surveys</h1>
-    <p><strong>Course Code:</strong> ECODSC 253 (Statistics for Economics) [cite: 232]</p>
-    <p>This unit provides a necessary bridge between probability theory and statistical inference by introducing techniques used to collect and analyze survey data[cite: 238].</p>
+    <p><strong>Course Code:</strong> ECODSC 253 (Statistics for Economics) </p>
+    <p>This unit provides a necessary bridge between probability theory and statistical inference by introducing techniques used to collect and analyze survey data.</p>
 
     <div class="toc">
         <h2>Table of Contents</h2>
@@ -160,16 +162,16 @@
         <h2>1. Population and Sample Concepts</h2>
         <p>Before designing a survey, it is critical to distinguish between the group being studied and the portion being measured.</p>
         <ul>
-            <li><strong>Population</strong>: The entire group of individuals or items that are the objects of a statistical investigation[cite: 254].</li>
-            <li><strong>Sample</strong>: A finite subset of the population selected for study to derive conclusions about the population as a whole[cite: 254].</li>
-            <li><strong>Parameter</strong>: A numerical value that describes a characteristic of the entire population (e.g., population mean)[cite: 254].</li>
-            <li><strong>Statistic</strong>: A numerical value calculated from sample data used to estimate a population parameter (e.g., sample mean)[cite: 254].</li>
+            <li><strong>Population</strong>: The entire group of individuals or items that are the objects of a statistical investigation.</li>
+            <li><strong>Sample</strong>: A finite subset of the population selected for study to derive conclusions about the population as a whole.</li>
+            <li><strong>Parameter</strong>: A numerical value that describes a characteristic of the entire population (e.g., population mean).</li>
+            <li><strong>Statistic</strong>: A numerical value calculated from sample data used to estimate a population parameter (e.g., sample mean).</li>
         </ul>
     </section>
 
     <section id="census-sampling">
         <h2>2. Census versus Sampling</h2>
-        <p>Investigators must choose between studying every member of a population or just a representative part[cite: 254].</p>
+        <p>Investigators must choose between studying every member of a population or just a representative part.</p>
         <table>
             <tr>
                 <th>Feature</th>
@@ -178,8 +180,8 @@
             </tr>
             <tr>
                 <td><strong>Scope</strong></td>
-                <td>Covers every unit of the population[cite: 254].</td>
-                <td>Covers only a representative fraction[cite: 254].</td>
+                <td>Covers every unit of the population.</td>
+                <td>Covers only a representative fraction.</td>
             </tr>
             <tr>
                 <td><strong>Accuracy</strong></td>
@@ -201,25 +203,25 @@
 
     <section id="#sampling-methods">
         <h2>3. Types and Methods of Sampling</h2>
-        <p>Methods of selecting a sample are broadly categorized into random and non-random techniques[cite: 254].</p>
+        <p>Methods of selecting a sample are broadly categorized into random and non-random techniques.</p>
         
         <h3>Random Sampling</h3>
-        <p>Also known as probability sampling, where every unit has a known, non-zero chance of being selected[cite: 254].</p>
+        <p>Also known as probability sampling, where every unit has a known, non-zero chance of being selected.</p>
         <ul>
-            <li><strong>Simple Random Sampling</strong>: Units are chosen such that every possible sample of a given size has an equal chance of selection[cite: 254].</li>
-            <li><strong>With Replacement (WR)</strong>: A unit is selected, recorded, and returned to the population before the next draw[cite: 254].</li>
-            <li><strong>Without Replacement (WOR)</strong>: A selected unit is not returned, meaning it cannot be selected twice[cite: 254].</li>
+            <li><strong>Simple Random Sampling</strong>: Units are chosen such that every possible sample of a given size has an equal chance of selection.</li>
+            <li><strong>With Replacement (WR)</strong>: A unit is selected, recorded, and returned to the population before the next draw.</li>
+            <li><strong>Without Replacement (WOR)</strong>: A selected unit is not returned, meaning it cannot be selected twice.</li>
         </ul>
 
         <h3>Non-Random Sampling</h3>
-        <p>Also known as non-probability sampling, where selection is based on convenience or judgment rather than chance[cite: 254].</p>
+        <p>Also known as non-probability sampling, where selection is based on convenience or judgment rather than chance.</p>
     </section>
 
     <section id="steps-laws">
         <h2>4. Principal Steps and Laws of Sampling</h2>
-        <p>A systematic survey involves several predefined stages and follows specific statistical laws[cite: 254].</p>
+        <p>A systematic survey involves several predefined stages and follows specific statistical laws.</p>
         
-        <h3>Principal Steps in a Sample Survey[cite: 254]:</h3>
+        <h3>Principal Steps in a Sample Survey:</h3>
         <ol>
             <li>Statement of the objectives.</li>
             <li>Definition of the population to be sampled.</li>
@@ -229,7 +231,7 @@
             <li>Data collection and analysis.</li>
         </ol>
 
-        <h3>Laws of Sampling[cite: 254]:</h3>
+        <h3>Laws of Sampling:</h3>
         <ul>
             <li><strong>Law of Statistical Regularity</strong>: A moderately large number of items chosen at random from a large group are almost sure on average to possess the characteristics of the large group.</li>
             <li><strong>Law of Inertia of Large Numbers</strong>: Larger samples are more stable and less prone to fluctuations than smaller ones.</li>
@@ -239,20 +241,20 @@
     <section id="errors-limitations">
         <h2>5. Errors, Standard Error, and Limitations</h2>
         
-        <h3>Sampling vs. Non-Sampling Errors [cite: 254]</h3>
+        <h3>Sampling vs. Non-Sampling Errors </h3>
         <ul>
-            <li><strong>Sampling Error</strong>: The difference between the sample statistic and the population parameter arising because only a part of the population was studied[cite: 254].</li>
-            <li><strong>Non-Sampling Error</strong>: Errors arising from faulty planning, data collection, or processing (e.g., non-response, measurement error)[cite: 254].</li>
+            <li><strong>Sampling Error</strong>: The difference between the sample statistic and the population parameter arising because only a part of the population was studied.</li>
+            <li><strong>Non-Sampling Error</strong>: Errors arising from faulty planning, data collection, or processing (e.g., non-response, measurement error).</li>
         </ul>
 
-        <h3>Standard Error [cite: 255]</h3>
-        <p>The <strong>Standard Error (SE)</strong> is the standard deviation of a sampling distribution[cite: 255]. It measures the extent to which a sample statistic is likely to differ from the population parameter[cite: 255].</p>
+        <h3>Standard Error </h3>
+        <p>The <strong>Standard Error (SE)</strong> is the standard deviation of a sampling distribution. It measures the extent to which a sample statistic is likely to differ from the population parameter.</p>
 
-        <h3>Limitations of Sampling [cite: 255]</h3>
+        <h3>Limitations of Sampling </h3>
         <ul>
-            <li>Requires expert knowledge to design correctly[cite: 255].</li>
-            <li>Possibility of bias if the sample is not truly representative[cite: 255].</li>
-            <li>Conclusions are probabilistic, not absolute[cite: 255].</li>
+            <li>Requires expert knowledge to design correctly.</li>
+            <li>Possibility of bias if the sample is not truly representative.</li>
+            <li>Conclusions are probabilistic, not absolute.</li>
         </ul>
     </section>
 
@@ -265,5 +267,10 @@
     </div>
 </div>
 
+<div id="app"></div>
+    <script src="../../../../assets/scripts/units.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/supabase.js"></script>
 </body>
+
 </html>

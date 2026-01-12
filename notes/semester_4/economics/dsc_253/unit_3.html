@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECODSC 253 Unit 3 | Random Variables & Distributions - Knowlet</title>
+    <title>Economics DSC 253 Unit 3 | 4th Semester Notes - Knowlet</title>
     <meta name="description" content="Comprehensive notes for ECODSC 253 Unit 3. Covering Random Variables, PMF, PDF, Expectation, Binomial, Poisson, and Normal distributions.">
     <meta name="keywords" content="Knowlet, Statistics for Economics, ECODSC 253, Random Variables, Probability Distributions, Normal Distribution, Binomial Distribution, Poisson Distribution">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <link rel="stylesheet" href="../../../../assets/styles/supabase.css">
     <style>
         :root {
             --primary-navy: #1a2a6c;
@@ -151,8 +153,8 @@
 
 <div class="container">
     <h1>Unit 3: Random Variables and Probability Distributions</h1>
-    <p><strong>Course:</strong> Statistics for Economics (ECODSC 253) [cite: 232]</p>
-    <p>This unit develops the notion of probability distributions for discrete and continuous random variables, providing the foundation for statistical inference in economics[cite: 236].</p>
+    <p><strong>Course:</strong> Statistics for Economics (ECODSC 253) </p>
+    <p>This unit develops the notion of probability distributions for discrete and continuous random variables, providing the foundation for statistical inference in economics.</p>
 
     <div class="toc">
         <h2>Table of Contents</h2>
@@ -167,34 +169,34 @@
 
     <section id="defining-rv">
         <h2>1. Defining Random Variables</h2>
-        <p>A <strong>Random Variable (R.V.)</strong> is a rule that assigns a numerical value to each outcome in a sample space[cite: 251].</p>
+        <p>A <strong>Random Variable (R.V.)</strong> is a rule that assigns a numerical value to each outcome in a sample space.</p>
         <ul>
-            <li><strong>Discrete Random Variable:</strong> Can take only finite or countably infinite values (e.g., the number of customers entering a bank)[cite: 236].</li>
-            <li><strong>Continuous Random Variable:</strong> Can take any value within a specified range (e.g., the time it takes for an investment to mature)[cite: 236].</li>
+            <li><strong>Discrete Random Variable:</strong> Can take only finite or countably infinite values (e.g., the number of customers entering a bank).</li>
+            <li><strong>Continuous Random Variable:</strong> Can take any value within a specified range (e.g., the time it takes for an investment to mature).</li>
         </ul>
     </section>
 
     <section id="pmf-pdf">
         <h2>2. PMF, PDF, and Cumulative Probability Function</h2>
-        <p>These functions describe how probabilities are assigned to the values of a random variable[cite: 251].</p>
+        <p>These functions describe how probabilities are assigned to the values of a random variable.</p>
         
         <h3>Probability Mass Function (PMF)</h3>
-        <p>Used for <strong>discrete</strong> random variables. It gives the probability that a discrete R.V. is exactly equal to some value[cite: 251].</p>
+        <p>Used for <strong>discrete</strong> random variables. It gives the probability that a discrete R.V. is exactly equal to some value.</p>
         
         <h3>Probability Density Function (PDF)</h3>
-        <p>Used for <strong>continuous</strong> random variables. The probability of the R.V. falling within a particular range is given by the area under the PDF curve over that range[cite: 251].</p>
+        <p>Used for <strong>continuous</strong> random variables. The probability of the R.V. falling within a particular range is given by the area under the PDF curve over that range.</p>
         
         <h3>Cumulative Distribution Function (CDF)</h3>
-        <p>Gives the probability that a random variable X will take a value less than or equal to x: P(X ≤ x)[cite: 251].</p>
+        <p>Gives the probability that a random variable X will take a value less than or equal to x: P(X ≤ x).</p>
     </section>
 
     <section id="expectation">
         <h2>3. Mathematical Expectation and Theorems</h2>
-        <p>Mathematical Expectation is the "long-run average" or expected value of a random variable[cite: 251].</p>
+        <p>Mathematical Expectation is the "long-run average" or expected value of a random variable.</p>
         <blockquote>
             Formula: E(X) = Σ [x * P(x)] for discrete variables.
         </blockquote>
-        <h3>Theorems on Expectation[cite: 251]:</h3>
+        <h3>Theorems on Expectation:</h3>
         <ul>
             <li><strong>E(c) = c:</strong> The expected value of a constant is the constant itself.</li>
             <li><strong>E(aX + b) = aE(X) + b:</strong> Expectation is a linear operator.</li>
@@ -206,7 +208,7 @@
         <h2>4. Discrete Distributions: Binomial and Poisson</h2>
         
         <h3>Binomial Distribution</h3>
-        <p>Used when there are exactly two mutually exclusive outcomes of a trial (e.g., success/failure)[cite: 252].</p>
+        <p>Used when there are exactly two mutually exclusive outcomes of a trial (e.g., success/failure).</p>
         <ul>
             <li><strong>Parameters:</strong> n (number of trials) and p (probability of success).</li>
             <li><strong>Properties:</strong> Mean = np; Variance = npq.</li>
@@ -214,7 +216,7 @@
         
 
         <h3>Poisson Distribution</h3>
-        <p>Used for events that occur rarely over a fixed interval of time or space[cite: 252].</p>
+        <p>Used for events that occur rarely over a fixed interval of time or space.</p>
         <ul>
             <li><strong>Parameters:</strong> λ (average number of events in the interval).</li>
             <li><strong>Unique Property:</strong> Mean = Variance = λ.</li>
@@ -223,7 +225,7 @@
 
     <section id="continuous-dist">
         <h2>5. Continuous Distribution: Normal Distribution</h2>
-        <p>The Normal Distribution is the most important distribution in economics and statistics because many natural and economic phenomena follow it[cite: 252].</p>
+        <p>The Normal Distribution is the most important distribution in economics and statistics because many natural and economic phenomena follow it.</p>
         
         <h3>Properties:</h3>
         <ul>
@@ -236,16 +238,21 @@
     <div class="exam-note">
         <h4>Exam Tips: Calculations & Properties</h4>
         <ul>
-            <li><strong>Calculation:</strong> Remember that the total area under a PDF and the sum of all probabilities in a PMF must always equal 1[cite: 248].</li>
-            <li><strong>Distribution Choice:</strong> Use <strong>Binomial</strong> for fixed trials, <strong>Poisson</strong> for rare/random occurrences over time, and <strong>Normal</strong> for continuous large-sample data[cite: 252].</li>
+            <li><strong>Calculation:</strong> Remember that the total area under a PDF and the sum of all probabilities in a PMF must always equal 1.</li>
+            <li><strong>Distribution Choice:</strong> Use <strong>Binomial</strong> for fixed trials, <strong>Poisson</strong> for rare/random occurrences over time, and <strong>Normal</strong> for continuous large-sample data.</li>
             <li><strong>Z-Score:</strong> Learn to convert any normal distribution into a <strong>Standard Normal Distribution</strong> (mean=0, SD=1) using the formula: Z = (X - μ) / σ.</li>
         </ul>
     </div>
 
     <div class="footer">
-        <p>Knowlet Academic Notes | ECODSC 253 Unit 3 | Assam University NEP 2023-24 [cite: 292, 296]</p>
+        <p>Knowlet Academic Notes | ECODSC 253 Unit 3 | Assam University NEP 2023-24 </p>
     </div>
 </div>
 
+<div id="app"></div>
+    <script src="../../../../assets/scripts/units.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/supabase.js"></script>
 </body>
+
 </html>

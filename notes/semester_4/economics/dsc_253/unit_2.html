@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECODSC 253 Unit 2 | Probability Theory Notes - Knowlet</title>
+    <title>Economics DSC 253 Unit 2 | 4th Semester Notes - Knowlet</title>
     <meta name="description" content="Comprehensive notes for ECODSC 253 Unit 2: Elementary Probability Theory. Covers Sample Spaces, Axioms, Addition and Multiplication Theorems, and Bayes Theorem.">
     <meta name="keywords" content="Knowlet, Statistics for Economics, ECODSC 253, Probability Theory, Bayes Theorem, Addition Theorem, Conditional Probability">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <link rel="stylesheet" href="../../../../assets/styles/supabase.css">
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -141,8 +143,8 @@
 
 <div class="container">
     <h1>Unit 2: Elementary Probability Theory</h1>
-    [cite_start]<p><strong>Course:</strong> Statistics for Economics (ECODSC 253) [cite: 231, 232]</p>
-    [cite_start]<p>Probability theory provides the mathematical framework for quantifying uncertainty, which is essential for economic forecasting and decision-making under risk[cite: 235, 236].</p>
+    <p><strong>Course:</strong> Statistics for Economics (ECODSC 253) </p>
+    <p>Probability theory provides the mathematical framework for quantifying uncertainty, which is essential for economic forecasting and decision-making under risk.</p>
 
     <div class="toc">
         <h2>Table of Contents</h2>
@@ -157,30 +159,30 @@
 
     <section id="random-experiment">
         <h2>1. Random Experiment, Sample Spaces, and Events</h2>
-        [cite_start]<p>A <strong>Random Experiment</strong> is a process where the exact outcome cannot be predicted with certainty, even if the experiment is repeated under the same conditions[cite: 248].</p>
+        <p>A <strong>Random Experiment</strong> is a process where the exact outcome cannot be predicted with certainty, even if the experiment is repeated under the same conditions.</p>
         
         <h3>Sample Space (S)</h3>
-        [cite_start]<p>The set of all possible outcomes of a random experiment[cite: 248]. For example, in a coin toss, S = {Heads, Tails}.</p>
+        <p>The set of all possible outcomes of a random experiment. For example, in a coin toss, S = {Heads, Tails}.</p>
         
         <h3>Events</h3>
-        [cite_start]<p>An <strong>Event</strong> is a subset of the sample space[cite: 248].</p>
+        <p>An <strong>Event</strong> is a subset of the sample space.</p>
         <ul>
-            [cite_start]<li><strong>Simple Event:</strong> An event with only one outcome. [cite: 248]</li>
-            [cite_start]<li><strong>Compound Event:</strong> An event with more than one outcome. [cite: 248]</li>
-            [cite_start]<li><strong>Mutually Exclusive Events:</strong> Events that cannot happen at the same time. [cite: 248]</li>
+            <li><strong>Simple Event:</strong> An event with only one outcome. </li>
+            <li><strong>Compound Event:</strong> An event with more than one outcome. </li>
+            <li><strong>Mutually Exclusive Events:</strong> Events that cannot happen at the same time. </li>
         </ul>
     </section>
 
     <section id="axioms">
         <h2>2. Probability Axioms and Properties</h2>
-        [cite_start]<p>Modern probability is built on three fundamental axioms[cite: 248]:</p>
+        <p>Modern probability is built on three fundamental axioms:</p>
         <ol>
-            [cite_start]<li><strong>Non-negativity:</strong> The probability of any event A is always greater than or equal to zero (P(A) ≥ 0). [cite: 248]</li>
-            [cite_start]<li><strong>Certainty:</strong> The probability of the entire sample space S is 1 (P(S) = 1). [cite: 248]</li>
-            [cite_start]<li><strong>Additivity:</strong> For mutually exclusive events, the probability of their union is the sum of their individual probabilities. [cite: 248]</li>
+            <li><strong>Non-negativity:</strong> The probability of any event A is always greater than or equal to zero (P(A) ≥ 0). </li>
+            <li><strong>Certainty:</strong> The probability of the entire sample space S is 1 (P(S) = 1). </li>
+            <li><strong>Additivity:</strong> For mutually exclusive events, the probability of their union is the sum of their individual probabilities. </li>
         </ol>
         <blockquote>
-            [cite_start]Property: The probability of an event always lies between 0 and 1 (0 ≤ P(A) ≤ 1). [cite: 248]
+            Property: The probability of an event always lies between 0 and 1 (0 ≤ P(A) ≤ 1). 
         </blockquote>
     </section>
 
@@ -188,15 +190,15 @@
         <h2>3. Addition and Multiplication Theorems</h2>
         
         <h3>Addition Theorem</h3>
-        [cite_start]<p>Used to find the probability of at least one of two events occurring (A or B)[cite: 249].</p>
+        <p>Used to find the probability of at least one of two events occurring (A or B).</p>
         <div class="formula-box">
             P(A ∪ B) = P(A) + P(B) - P(A ∩ B)
         </div>
-        [cite_start]<p>If A and B are mutually exclusive, P(A ∩ B) = 0, so P(A ∪ B) = P(A) + P(B). [cite: 249]</p>
+        <p>If A and B are mutually exclusive, P(A ∩ B) = 0, so P(A ∪ B) = P(A) + P(B). </p>
         
 
         <h3>Multiplication Theorem</h3>
-        [cite_start]<p>Used to find the probability of two events occurring together (A and B)[cite: 249].</p>
+        <p>Used to find the probability of two events occurring together (A and B).</p>
         <div class="formula-box">
             P(A ∩ B) = P(A) * P(B|A)
         </div>
@@ -204,34 +206,34 @@
 
     <section id="conditional">
         <h2>4. Conditional Probability and Independence</h2>
-        [cite_start]<p><strong>Conditional Probability</strong> is the probability of event A occurring given that event B has already occurred[cite: 248].</p>
+        <p><strong>Conditional Probability</strong> is the probability of event A occurring given that event B has already occurred.</p>
         <div class="formula-box">
             P(A|B) = P(A ∩ B) / P(B), where P(B) > 0
         </div>
 
         <h3>Independence of Events</h3>
-        [cite_start]<p>Two events A and B are <strong>Independent</strong> if the occurrence of one does not affect the probability of the other[cite: 248].</p>
+        <p>Two events A and B are <strong>Independent</strong> if the occurrence of one does not affect the probability of the other.</p>
         <blockquote>
-            [cite_start]Condition for Independence: P(A ∩ B) = P(A) * P(B) [cite: 248]
+            Condition for Independence: P(A ∩ B) = P(A) * P(B) 
         </blockquote>
     </section>
 
     <section id="bayes">
         <h2>5. Bayes Theorem</h2>
-        [cite_start]<p>Bayes Theorem describes the probability of an event based on prior knowledge of conditions that might be related to the event[cite: 249]. It is a way to "reverse" conditional probabilities.</p>
+        <p>Bayes Theorem describes the probability of an event based on prior knowledge of conditions that might be related to the event. It is a way to "reverse" conditional probabilities.</p>
         <div class="formula-box">
             P(Ai|B) = [P(Ai) * P(B|Ai)] / [Σ P(Ak) * P(B|Ak)]
         </div>
-        [cite_start]<p>In economics, this is often used to update forecasts as new data (B) becomes available for various economic scenarios (Ai)[cite: 243, 249].</p>
+        <p>In economics, this is often used to update forecasts as new data (B) becomes available for various economic scenarios (Ai).</p>
         
     </section>
 
     <div class="exam-tip">
         <h4>Exam Corner: Common Pitfalls</h4>
         <ul>
-            <li><strong>Mutually Exclusive vs Independent:</strong> These are NOT the same. [cite_start]If events are mutually exclusive, they cannot be independent (if one happens, the other definitely won't). [cite: 248]</li>
-            [cite_start]<li><strong>Total Probability:</strong> Always check if the denominator in Bayes theorem (the total probability) sums up all possible mutually exclusive paths. [cite: 249]</li>
-            [cite_start]<li><strong>Formula Tip:</strong> P(A) + P(Not A) = 1. Using the complement is often easier than calculating complex events directly. [cite: 248]</li>
+            <li><strong>Mutually Exclusive vs Independent:</strong> These are NOT the same. If events are mutually exclusive, they cannot be independent (if one happens, the other definitely won't). </li>
+            <li><strong>Total Probability:</strong> Always check if the denominator in Bayes theorem (the total probability) sums up all possible mutually exclusive paths. </li>
+            <li><strong>Formula Tip:</strong> P(A) + P(Not A) = 1. Using the complement is often easier than calculating complex events directly. </li>
         </ul>
     </div>
 
@@ -240,5 +242,10 @@
     </div>
 </div>
 
+<div id="app"></div>
+    <script src="../../../../assets/scripts/units.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/supabase.js"></script>
 </body>
+
 </html>

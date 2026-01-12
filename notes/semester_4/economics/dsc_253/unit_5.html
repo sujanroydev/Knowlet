@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECODSC 253 Unit 5 | Statistical Inference Notes - Knowlet</title>
+    <title>Economics DSC 253 Unit 5 | 4th Semester Notes - Knowlet</title>
     <meta name="description" content="Comprehensive notes for ECODSC 253 Unit 5: Theory of Estimation and Testing of Hypothesis. Covering Point/Interval estimation, Z-test, t-test, and Chi-Square.">
     <meta name="keywords" content="Knowlet, Statistics for Economics, ECODSC 253, Statistical Inference, Hypothesis Testing, Z-test, t-test, Type I Error, Type II Error">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <link rel="stylesheet" href="../../../../assets/styles/supabase.css">
     <style>
         :root {
             --primary-navy: #1c2833;
@@ -145,8 +147,8 @@
 
 <div class="container">
     <h1>Unit 5: Theory of Estimation and Testing of Hypothesis</h1>
-    [cite_start]<p><strong>Course:</strong> Statistics for Economics (ECODSC 253) [cite: 232]</p>
-    [cite_start]<p>This final unit acts as the culmination of the course, providing the framework for statistical inference where we use sample data to make generalized statements about whole populations[cite: 238, 239].</p>
+    <p><strong>Course:</strong> Statistics for Economics (ECODSC 253) </p>
+    <p>This final unit acts as the culmination of the course, providing the framework for statistical inference where we use sample data to make generalized statements about whole populations.</p>
 
     <div class="toc">
         <h2>Table of Contents</h2>
@@ -161,31 +163,31 @@
 
     <section id="estimation">
         <h2>1. Theory of Estimation: Point vs. Interval</h2>
-        [cite_start]<p>Estimation involves using a sample statistic to predict a population parameter[cite: 256].</p>
+        <p>Estimation involves using a sample statistic to predict a population parameter.</p>
         <ul>
-            [cite_start]<li><strong>Point Estimation:</strong> Provides a single numerical value as the estimate of the parameter[cite: 256]. For example, using the sample mean as the single best guess for the population mean.</li>
-            [cite_start]<li><strong>Interval Estimation:</strong> Provides a range of values (confidence interval) within which the parameter is expected to lie with a certain degree of confidence[cite: 256].</li>
+            <li><strong>Point Estimation:</strong> Provides a single numerical value as the estimate of the parameter. For example, using the sample mean as the single best guess for the population mean.</li>
+            <li><strong>Interval Estimation:</strong> Provides a range of values (confidence interval) within which the parameter is expected to lie with a certain degree of confidence.</li>
         </ul>
     </section>
 
     <section id="estimators">
         <h2>2. Characteristics of a Good Estimator</h2>
-        [cite_start]<p>A "good" estimator must possess certain mathematical properties to be reliable[cite: 257]:</p>
+        <p>A "good" estimator must possess certain mathematical properties to be reliable:</p>
         <ul>
-            [cite_start]<li><strong>Unbiasedness:</strong> The expected value of the estimator should equal the true population parameter[cite: 257].</li>
-            [cite_start]<li><strong>Consistency:</strong> As the sample size increases, the estimator should get closer and closer to the true population parameter[cite: 257].</li>
-            [cite_start]<li><strong>Efficiency:</strong> Among all unbiased estimators, the one with the smallest variance is the most efficient[cite: 257].</li>
-            [cite_start]<li><strong>Sufficiency:</strong> The estimator uses all the information about the parameter contained in the sample[cite: 257].</li>
+            <li><strong>Unbiasedness:</strong> The expected value of the estimator should equal the true population parameter.</li>
+            <li><strong>Consistency:</strong> As the sample size increases, the estimator should get closer and closer to the true population parameter.</li>
+            <li><strong>Efficiency:</strong> Among all unbiased estimators, the one with the smallest variance is the most efficient.</li>
+            <li><strong>Sufficiency:</strong> The estimator uses all the information about the parameter contained in the sample.</li>
         </ul>
     </section>
 
     <section id="hypothesis-concepts">
         <h2>3. Concepts of Testing Hypothesis & Significance</h2>
-        [cite_start]<p>Hypothesis testing is a formal procedure for investigating ideas about the world using statistics[cite: 257].</p>
+        <p>Hypothesis testing is a formal procedure for investigating ideas about the world using statistics.</p>
         <ul>
-            [cite_start]<li><strong>Null Hypothesis (H0):</strong> A statement of "no effect" or "no difference" that we seek to test against[cite: 257].</li>
-            [cite_start]<li><strong>Alternative Hypothesis (H1):</strong> The statement that we suspect is actually true and is the opposite of the null hypothesis[cite: 257].</li>
-            [cite_start]<li><strong>Level of Significance (alpha):</strong> The probability of rejecting the null hypothesis when it is actually true[cite: 257]. Common levels are 5% or 1%.</li>
+            <li><strong>Null Hypothesis (H0):</strong> A statement of "no effect" or "no difference" that we seek to test against.</li>
+            <li><strong>Alternative Hypothesis (H1):</strong> The statement that we suspect is actually true and is the opposite of the null hypothesis.</li>
+            <li><strong>Level of Significance (alpha):</strong> The probability of rejecting the null hypothesis when it is actually true. Common levels are 5% or 1%.</li>
         </ul>
         
     </section>
@@ -214,20 +216,20 @@
 
     <section id="tests">
         <h2>5. Statistical Tests: Z, t, Chi-Square, and F Distributions</h2>
-        [cite_start]<p>The choice of test depends on the sample size and what is being compared[cite: 257].</p>
+        <p>The choice of test depends on the sample size and what is being compared.</p>
         
         <h3>Large Sample Tests (Z-test)</h3>
-        [cite_start]<p>Used when the sample size is large (n > 30)[cite: 257]. It follows the standard normal distribution.</p>
+        <p>Used when the sample size is large (n > 30). It follows the standard normal distribution.</p>
 
         <h3>Small Sample Tests (t-test)</h3>
-        [cite_start]<p>Used when the sample size is small (n < 30) and the population standard deviation is unknown[cite: 257].</p>
+        <p>Used when the sample size is small (n < 30) and the population standard deviation is unknown.</p>
         [Image comparing the Z-distribution bell curve with the flatter t-distribution bell curve]
 
         <h3>Chi-Square Test (χ²)</h3>
-        [cite_start]<p>Primarily used for testing the "Goodness of Fit" (how well observed data matches expected data) or the independence of attributes in a contingency table[cite: 257].</p>
+        <p>Primarily used for testing the "Goodness of Fit" (how well observed data matches expected data) or the independence of attributes in a contingency table.</p>
 
         <h3>F-Test</h3>
-        [cite_start]<p>Used to compare the variances of two different populations[cite: 257]. It is the foundation for Analysis of Variance (ANOVA).</p>
+        <p>Used to compare the variances of two different populations. It is the foundation for Analysis of Variance (ANOVA).</p>
     </section>
 
     <div class="exam-note">
@@ -245,5 +247,10 @@
     </div>
 </div>
 
+<div id="app"></div>
+    <script src="../../../../assets/scripts/units.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/supabase.js"></script>
 </body>
+
 </html>

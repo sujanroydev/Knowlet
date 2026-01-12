@@ -33,16 +33,17 @@ setPasswordForm.addEventListener("submit", async (e) => {
         return;
     }
     
+	user = {
+	    name: name,
+	    email: email,
+	    picture: user.picture,
+	    password: password
+	}
+    
     if (isNewUser) {
 		let userId = name.split(' ')[0] + "@" + parseInt(Math.random() * 9000 + 1000);
 		
-		user = {
-		    id: userId,
-		    name: name,
-		    email: email,
-		    picture: user.picture,
-		    password: password
-		}
+		user = { id: userId, ...user }
 		
 		try {
 			

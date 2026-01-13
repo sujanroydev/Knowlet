@@ -253,6 +253,7 @@
         <p>The curl of <code class="formula">F</code> is found by taking the **cross product** of <code class="formula">∇</code> with <code class="formula">F</code>. It is calculated using a determinant:</p>
         <blockquote>
             <code class="formula">curl(F) = ∇ × F = </code>
+            <div class="add-horizontal-scroll">
             <table>
                 <tr>
                     <td><strong>i</strong></td>
@@ -270,6 +271,7 @@
                     <td>F₃</td>
                 </tr>
             </table>
+            </div>
         </blockquote>
         <p><code class="formula">= (∂F₃/∂y - ∂F₂/∂z)i - (∂F₃/∂x - ∂F₁/∂z)j + (∂F₂/∂x - ∂F₁/∂y)k</code></p>
         <p><strong>Physical Meaning:</strong> Curl measures the "rotation" or "circulation" of a vector field at a point (like a whirlpool).
@@ -287,11 +289,13 @@
         <p><strong>Proof (sketch):</strong>
         <br><code class="formula">∇f = (∂f/∂x)i + (∂f/∂y)j + (∂f/∂z)k</code>
         <br><code class="formula">∇ × (∇f)</code> is the determinant:
+        <div class="add-horizontal-scroll">
         <table>
             <tr><td>i</td><td>j</td><td>k</td></tr>
             <tr><td>∂/∂x</td><td>∂/∂y</td><td>∂/∂z</td></tr>
             <tr><td>∂f/∂x</td><td>∂f/∂y</td><td>∂f/∂z</td></tr>
         </table>
+        </div>
         <br>The i-component is <code class="formula">(∂/∂y)(∂f/∂z) - (∂/∂z)(∂f/∂y) = (∂²f/∂y∂z) - (∂²f/∂z∂y)</code>.
         <br>By Clairaut's theorem on mixed partials, <code class="formula">fᵧz = fzᵧ</code>, so this component is 0. The j and k components are also 0.
         </p>
@@ -305,17 +309,20 @@
         <br><code class="formula">∇ · (∇ × F)</code> is the scalar triple product of <code class="formula">∇</code>, <code class="formula">∇</code>, and <code class="formula">F</code>.
         <br><code class="formula">[∇ ∇ F]</code>
         <br>This can be written as a determinant:
+        <div class="add-horizontal-scroll">
         <table>
             <tr><td>∂/∂x</td><td>∂/∂y</td><td>∂/∂z</td></tr>
             <tr><td>∂/∂x</td><td>∂/∂y</td><td>∂/∂z</td></tr>
             <tr><td>F₁</td><td>F₂</td><td>F₃</td></tr>
         </table>
+        </div>
         <br>A determinant with two identical rows is always <strong>zero</strong>.
         </p>
         
         <h2 id="topic8">Unit 5: Exam Quick Tips</h2>
         <div class="exam-tip">
             <p><strong>Summary Table:</strong>
+            <div class="add-horizontal-scroll">
             <table>
                 <thead>
                     <tr>
@@ -350,6 +357,7 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
             </p>
             <ul>
                 <li><strong>Dot Product Rules:</strong> Remember the differentiation rules for <code class="formula">d/dt(a · b)</code> and <code class="formula">d/dt(a × b)</code>. The cross product rule is <strong>not</strong> commutative.</li>

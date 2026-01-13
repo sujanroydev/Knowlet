@@ -68,6 +68,7 @@
         
         <span id="span_83"><h3>Opening and Closing a File</span></h3>
         <p>You use a <code>FILE</code> pointer. <code>fopen()</code> opens a file and <code>fclose()</code> closes it.</p>
+        <div class="add-horizontal-scroll">
         <table>
             <tr><th>Mode</th><th>Description</th></tr>
             <tr><td><code>"r"</code></td><td><strong>Read:</strong> Open an existing file for reading.</td></tr>
@@ -75,6 +76,7 @@
             <tr><td><code>"a"</code></td><td><strong>Append:</strong> Open or create a file to write at the end.</td></tr>
             <tr><td><code>"r+"</code>, <code>"w+"</code>, <code>"a+"</code></td><td>Read and Write modes.</td></tr>
         </table>
+        </div>
         <pre><code>FILE *fp;
 fp = fopen("data.txt", "w"); // Create/open "data.txt" in write mode
 if (fp == NULL) {
@@ -112,6 +114,7 @@ fclose(fp); // Always close the file</code></pre>
     
         <span id="span_89"><h3>Bitwise Operations</span></h3>
         <p>Operations that manipulate data at the individual bit level. Essential for hardware control, data compression, and encryption.</p>
+        <div class="add-horizontal-scroll">
         <table>
             <tr><th>Operator</th><th>Name</th><th>Example (a=5, b=3)</th><th>Result</th></tr>
             <tr><td><code>&</code></td><td>Bitwise AND</td><td><code>0101 & 0011</code></td><td><code>0001</code> (1)</td></tr>
@@ -121,6 +124,7 @@ fclose(fp); // Always close the file</code></pre>
             <tr><td><code><<</code></td><td>Left Shift</td><td><code>0101 << 1</code></td><td><code>1010</code> (10)</td></tr>
             <tr><td><code>>></code></td><td>Right Shift</td><td><code>0101 >> 1</code></td><td><code>0010</code> (2)</td></tr>
         </table>
+        </div>
         
         <span id="span_90"><h3>Bit Fields</span></h3>
         <p>Allow you to pack data into a structure to save memory, specifying the exact number of bits for each member.</p>

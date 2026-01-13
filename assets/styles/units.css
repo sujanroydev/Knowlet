@@ -109,6 +109,13 @@
 /* --- Page content offset --- */
 .container {
   margin-top: 70px; /* prevents content from hiding behind toolbar */
+  overflow: hidden;
+}
+
+pre, .add-horizontal-scroll {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
 #app {

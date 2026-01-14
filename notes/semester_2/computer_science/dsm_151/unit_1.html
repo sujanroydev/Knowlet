@@ -161,8 +161,7 @@
 
         <h3 id="spap_1_1_1"><span id="spap_1_1_1_span">Data Types</span></h3>
         <p><span id="spap_1_1_1_p1">Data types define the type and size of data a variable can store.</span></p>
-        <div class="add-horizontal-scroll">
-        <table>
+        <div class="add-horizontal-scroll"><table>
             <tr>
                 <th>Data Type</th>
                 <th>Keyword</th>
@@ -199,8 +198,7 @@
                 <td>N/A</td>
                 <td>Used for functions that return nothing or for generic pointers.</td>
             </tr>
-        </table>
-        </div>
+        </table></div>
         <p><span id="spap_1_1_1_p2">These can be modified with qualifiers like <code>short</code>, <code>long</code>, <code>signed</code>, and <code>unsigned</code>.</span></p>
 
         <h3 id="spap_1_1_2"><span id="spap_1_1_2_span">Expressions and Operations</span></h3>
@@ -216,13 +214,13 @@
         <p><span id="spap_1_1_3_p1">C uses standard library functions for I/O. You must <code>#include <stdio.h></code>.</span></p>
         <ul>
             <li><span id="spap_1_1_3_l1"><strong>Output:</strong> <code>printf()</code> is used to print formatted output to the console.
-<pre>printf("Hello, World!\n");
-printf("The number is: %d\n", myVariable);</pre>
+<div class="add-horizontal-scroll"><pre>printf("Hello, World!\n");
+printf("The number is: %d\n", myVariable);</pre></div>
             </span></li>
             <li><span id="spap_1_1_3_l2"><strong>Input:</strong> <code>scanf()</code> is used to read formatted input from the console.
-<pre>int age;
+<div class="add-horizontal-scroll"><pre>int age;
 printf("Enter your age: ");
-scanf("%d", &age); // & is the "address-of" operator</pre>
+scanf("%d", &age); // & is the "address-of" operator</pre></div>
             </span></li>
         </ul>
         <div class="common-mistake">
@@ -231,7 +229,7 @@ scanf("%d", &age); // & is the "address-of" operator</pre>
 
         <h2 id="spap_1_2"><span id="spap_1_2_span">2. Writing Simple C Programs </span></h2>
         <p><span id="spap_1_2_p1">A simple C program has a standard structure:</span></p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 // 1. Preprocessor Directives
 #include <stdio.h>
 
@@ -251,35 +249,35 @@ int main() {
     // 5. Return Statement
     return 0; // 0 indicates successful execution
 }
-</pre>
+</pre></div>
         <h2 id="spap_1_3"><span id="spap_1_3_span">3. Control Structures </span></h2>
         <p><span id="spap_1_3_p1">Control structures allow you to control the flow of your program's execution.</span></p>
 
         <h3 id="spap_1_3_1"><span id="spap_1_3_1_span">Decision Making (if, switch)</span></h3>
         <ul>
             <li><span id="spap_1_3_1_l1"><strong><code>if</code> Statement:</strong> Executes code if a condition is true.
-<pre>if (age >= 18) {
+<div class="add-horizontal-scroll"><pre>if (age >= 18) {
     printf("You can vote.");
-}</pre>
+}</pre></div>
             </span></li>
             <li><span id="spap_1_3_1_l2"><strong><code>if-else</code> Statement:</strong> Executes one block if true, another if false.
-<pre>if (num % 2 == 0) {
+<div class="add-horizontal-scroll"><pre>if (num % 2 == 0) {
     printf("Even");
 } else {
     printf("Odd");
-}</pre>
+}</pre></div>
             </span></li>
             <li><span id="spap_1_3_1_l3"><strong><code>else if</code> Ladder:</strong> Used for multiple exclusive conditions.
-<pre>if (marks >= 90) {
+<div class="add-horizontal-scroll"><pre>if (marks >= 90) {
     printf("Grade A");
 } else if (marks >= 80) {
     printf("Grade B");
 } else {
     printf("Grade C");
-}</pre>
+}</pre></div>
             </span></li>
             <li><span id="spap_1_3_1_l4"><strong><code>switch</code> Statement:</strong> Efficiently checks a variable against a list of constant values.
-<pre>switch (day) {
+<div class="add-horizontal-scroll"><pre>switch (day) {
     case 1:
         printf("Monday");
         break; // A break is crucial!
@@ -288,7 +286,7 @@ int main() {
         break;
     default:
         printf("Invalid day");
-}</pre>
+}</pre></div>
             </span></li>
         </ul>
         <div class="common-mistake">
@@ -298,26 +296,26 @@ int main() {
         <h3 id="spap_1_3_2"><span id="spap_1_3_2_span">Loops (while, do-while, for)</span></h3>
         <ul>
             <li><span id="spap_1_3_2_l1"><strong><code>while</code> Loop:</strong> An <strong>entry-controlled loop</strong>. The condition is checked *before* the loop body executes.
-<pre>int i = 1;
+<div class="add-horizontal-scroll"><pre>int i = 1;
 while (i <= 5) {
     printf("%d ", i);
     i++;
 }
-// Output: 1 2 3 4 5</pre>
+// Output: 1 2 3 4 5</pre></div>
             </span></li>
             <li><span id="spap_1_3_2_l2"><strong><code>do-while</code> Loop:</strong> An <strong>exit-controlled loop</strong>. The loop body *always* executes at least once.
-<pre>int i = 1;
+<div class="add-horizontal-scroll"><pre>int i = 1;
 do {
     printf("%d ", i);
     i++;
 } while (i <= 5);
-// Output: 1 2 3 4 5</pre>
+// Output: 1 2 3 4 5</pre></div>
             </span></li>
             <li><span id="spap_1_3_2_l3"><strong><code>for</code> Loop:</strong> The most common loop. It combines initialization, condition, and increment in one line.
-<pre>for (int i = 1; i <= 5; i++) {
+<div class="add-horizontal-scroll"><pre>for (int i = 1; i <= 5; i++) {
     printf("%d ", i);
 }
-// Output: 1 2 3 4 5</pre>
+// Output: 1 2 3 4 5</pre></div>
             </span></li>
         </ul>
 
@@ -326,12 +324,12 @@ do {
             <li><span id="spap_1_3_3_l1"><strong><code>break</code>:</strong> Immediately terminates the innermost loop (<code>for</code>, <code>while</code>, <code>do-while</code>) or <code>switch</code> statement. </span></li>
             <li><span id="spap_1_3_3_l2"><strong><code>continue</code>:</strong> Skips the rest of the current loop iteration and moves to the next iteration. </span></li>
             <li><span id="spap_1_3_3_l3"><strong><code>goto</code>:</strong> Unconditionally jumps to a labeled statement.
-<pre>if (error) {
+<div class="add-horizontal-scroll"><pre>if (error) {
     goto cleanup;
 }
 // ...
 cleanup:
-    printf("Cleaning up resources.");</pre>
+    printf("Cleaning up resources.");</pre></div>
                 <div class="exam-tip">
                     <strong>Exam Tip:</strong> Use <code>goto</code> sparingly. It can make code very difficult to read and debug. It's generally considered bad practice but is mentioned in the syllabus. 
                 </div>
@@ -340,7 +338,7 @@ cleanup:
 
         <h3 id="spap_1_3_4"><span id="spap_1_3_4_span">Nested Loops</span></h3>
         <p><span id="spap_1_3_4_p1">A loop inside another loop. This is commonly used for working with 2D arrays or printing patterns. </span></p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 // Prints a 3x3 square of stars
 for (int i = 0; i < 3; i++) {      // Outer loop (rows)
     for (int j = 0; j < 3; j++) {  // Inner loop (columns)
@@ -348,7 +346,7 @@ for (int i = 0; i < 3; i++) {      // Outer loop (rows)
     }
     printf("\n"); // Newline after each row
 }
-</pre>
+</pre></div>
 
         <h2 id="spap_1_4"><span id="spap_1_4_span">4. Problem Solving Applications </span></h2>
         <p><span id="spap_1_4_p1">This unit requires applying the above control structures to solve elementary problems, such as:</span></p>

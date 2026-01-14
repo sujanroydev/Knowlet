@@ -215,7 +215,7 @@
         <h2 id="spap_lab_templates">A Note on C++ Templates</h2>
         <p>Many assignments specify using <strong>templates</strong>. This allows you to write generic code that works with any data type (e.g., <code>int</code>, <code>float</code>, <code>char</code>).</p>
         <p>A template class for a Stack would start like this:</p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 template &lt;typename T&gt;
 class Stack {
 private:
@@ -230,7 +230,7 @@ public:
     }
     // ... other methods
 };
-</pre>
+</pre></div>
         <p>When you create an object, you specify the type:</p>
         <p><code>Stack&lt;int&gt; intStack;</code> (A stack for integers)<br>
         <code>Stack&lt;float&gt; floatStack;</code> (A stack for floats)</p>
@@ -382,22 +382,22 @@ public:
             <h4>Logic</h4>
             <ul>
                 <li><strong>Iterative:</strong>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 function factorial_iter(n):
     result = 1
     for i = 2 to n:
         result = result * i
     return result
-</pre>
+</pre></div>
                 </li>
                 <li><strong>Recursive:</strong>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 function factorial_recur(n):
     if n == 0 or n == 1:
         return 1  // Base Case
     else:
         return n * factorial_recur(n - 1) // Recursive Step
-</pre>
+</pre></div>
                 </li>
             </ul>
         </div>
@@ -407,7 +407,7 @@ function factorial_recur(n):
             <h4>Logic</h4>
             <ul>
                 <li><strong>Iterative (Efficient):</strong>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 function fib_iter(n):
     if n <= 1: return n
     a = 0, b = 1, c
@@ -416,16 +416,16 @@ function fib_iter(n):
         a = b
         b = c
     return b
-</pre>
+</pre></div>
                 </li>
                 <li><strong>Recursive (Inefficient):</strong>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 function fib_recur(n):
     if n <= 1:
         return n  // Base Cases (0 and 1)
     else:
         return fib_recur(n - 1) + fib_recur(n - 2)
-</pre>
+</pre></div>
                 </li>
             </ul>
         </div>
@@ -435,23 +435,23 @@ function fib_recur(n):
             <h4>Logic (using Euclidean Algorithm)</h4>
             <ul>
                 <li><strong>Iterative:</strong>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 function gcd_iter(a, b):
     while b != 0:
         temp = b
         b = a % b
         a = temp
     return a
-</pre>
+</pre></div>
                 </li>
                 <li><strong>Recursive:</strong>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 function gcd_recur(a, b):
     if b == 0:
         return a  // Base Case
     else:
         return gcd_recur(b, a % b) // Recursive Step
-</pre>
+</pre></div>
                 </li>
             </ul>
         </div>
@@ -459,13 +459,13 @@ function gcd_recur(a, b):
         <h2 id="spap_lab_linkedlist">Section 3: Linked List Assignments</h2>
         <div class="exam-tip">
             <strong>Key Structure (C++ Template):</strong> All linked list assignments will use a <code>Node</code> structure.
-<pre>template &lt;typename T&gt;
+<div class="add-horizontal-scroll"><pre>template &lt;typename T&gt;
 struct Node {
     T data;
     Node* next; // For Singly & Circular
     Node* prev; // For Doubly
 };
-</pre>
+</pre></div>
         </div>
 
         <div class="assignment-box">
@@ -547,13 +547,13 @@ struct Node {
             <h4>Logic</h4>
             <ul>
                 <li><strong>Node Structure:</strong> Each node represents one term.
-<pre>
+<div class="add-horizontal-scroll"><pre>
 struct Term {
     int coeff;  // Coefficient
     int exp;    // Exponent
     Term* next;
 };
-</pre>
+</pre></div>
                 </li>
                 <li><strong>Storage:</strong> Store the polynomial as a linked list, sorted in <strong>descending order of exponent</strong>.</li>
                 <li><strong>Addition (<code>poly1</code>, <code>poly2</code>):</strong>
@@ -696,7 +696,7 @@ struct Term {
             <ul>
                 <li><strong>Node Structure:</strong> <code>{ T data; Node *left; Node *right; }</code></li>
                 <li><strong>(a) Insertion (Recursive):</strong> 
-<pre>
+<div class="add-horizontal-scroll"><pre>
 function insert(node, key):
     if node == NULL: return new Node(key)
     if key < node->data:
@@ -704,7 +704,7 @@ function insert(node, key):
     else:
         node->right = insert(node->right, key)
     return node
-</pre>
+</pre></div>
                 </li>
                 <li><strong>(b) Deletion by Copying:</strong>  (Case 3: 2 children)
                     <ol>
@@ -742,39 +742,39 @@ function insert(node, key):
                     </ol>
                 </li>
                 <li><strong>(h) Count Leaf & Non-Leaf Nodes:</strong> 
-<pre>
+<div class="add-horizontal-scroll"><pre>
 function countLeaf(node):
     if node == NULL: return 0
     if node->left == NULL and node->right == NULL:
         return 1
     return countLeaf(node->left) + countLeaf(node->right)
 // Non-leaf is total_nodes - leaf_nodes
-</pre>
+</pre></div>
                 </li>
                 <li><strong>(i) Display Height of Tree:</strong> 
-<pre>
+<div class="add-horizontal-scroll"><pre>
 function height(node):
     if node == NULL: return -1 // or 0 for "count of nodes"
     return 1 + max(height(node->left), height(node->right))
-</pre></li>
+</pre></div></li>
                 <li><strong>(j) Create Mirror Image:</strong> 
-<pre>
+<div class="add-horizontal-scroll"><pre>
 function mirror(node):
     if node == NULL: return
     mirror(node->left)
     mirror(node->right)
     swap(node->left, node->right)
-</pre>
+</pre></div>
                 </li>
                 <li><strong>(k) Check if Two BSTs are Equal:</strong> 
-<pre>
+<div class="add-horizontal-scroll"><pre>
 function areEqual(r1, r2):
     if r1 == NULL and r2 == NULL: return true
     if r1 == NULL or r2 == NULL: return false
     return (r1->data == r2->data) and
            areEqual(r1->left, r2->left) and
            areEqual(r1->right, r2->right)
-</pre>
+</pre></div>
                 </li>
             </ul>
         </div>
@@ -785,14 +785,14 @@ function areEqual(r1, r2):
             <h4>Logic</h4>
             <ul>
                 <li><strong>Node Structure:</strong>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 struct TBTNode {
     T data;
     TBTNode *left, *right;
     bool isLeftThread;  // True if left pointer is a thread
     bool isRightThread; // True if right pointer is a thread
 };
-</pre>
+</pre></div>
                 </li>
                 <li><strong>Inorder Traversal (without stack/recursion):</strong>
                     <ol>

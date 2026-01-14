@@ -51,10 +51,10 @@
         
         <h3>Formatted Output (<code>printf</code>)</h3>
         <p>Provides fine-grained control over output format.</p>
-        <pre><code>printf("Item: %-10s Price: %7.2f\n", "Apple", 1.2);
+        <div class="add-horizontal-scroll"><pre><code>printf("Item: %-10s Price: %7.2f\n", "Apple", 1.2);
 // %-10s: Left-justify string in a 10-char-wide field
 // %7.2f: Right-justify float in a 7-char-wide field with 2 decimal places
-</code></pre>
+</code></pre></div>
         
         <h3>Formatted Input (<code>scanf</code>)</h3>
         <p>Reads formatted input. Its return value is the number of items successfully read.</p>
@@ -68,23 +68,21 @@
         
         <h3>Opening and Closing a File</h3>
         <p>You use a <code>FILE</code> pointer. <code>fopen()</code> opens a file and <code>fclose()</code> closes it.</p>
-        <div class="add-horizontal-scroll">
-        <table>
+        <div class="add-horizontal-scroll"><table>
             <tr><th>Mode</th><th>Description</th></tr>
             <tr><td><code>"r"</code></td><td><strong>Read:</strong> Open an existing file for reading.</td></tr>
             <tr><td><code>"w"</code></td><td><strong>Write:</strong> Create a new file for writing. (Overwrites existing)</td></tr>
             <tr><td><code>"a"</code></td><td><strong>Append:</strong> Open or create a file to write at the end.</td></tr>
             <tr><td><code>"r+"</code>, <code>"w+"</code>, <code>"a+"</code></td><td>Read and Write modes.</td></tr>
-        </table>
-        </div>
-        <pre><code>FILE *fp;
+        </table></div>
+        <div class="add-horizontal-scroll"><pre><code>FILE *fp;
 fp = fopen("data.txt", "w");
 if (fp == NULL) {
     printf("Error opening file!\n");
     return 1; // Exit
 }
 // ... do file operations ...
-fclose(fp); // Always close the file</code></pre>
+fclose(fp); // Always close the file</code></pre></div>
     
         <h3>Processing a Data File (Formatted)</h3>
         <p>These functions work just like <code>printf/scanf</code> but for files.</p>
@@ -114,8 +112,7 @@ fclose(fp); // Always close the file</code></pre>
     
         <h3>Bitwise Operations</h3>
         <p>Operations that manipulate data at the individual bit level. Essential for hardware control, data compression, and encryption.</p>
-        <div class="add-horizontal-scroll">
-        <table>
+        <div class="add-horizontal-scroll"><table>
             <tr><th>Operator</th><th>Name</th><th>Example (a=5, b=3)</th><th>Result</th></tr>
             <tr><td><code>&</code></td><td>Bitwise AND</td><td><code>0101 & 0011</code></td><td><code>0001</code> (1)</td></tr>
             <tr><td><code>|</code></td><td>Bitwise OR</td><td><code>0101 | 0011</code></td><td><code>0111</code> (7)</td></tr>
@@ -123,24 +120,23 @@ fclose(fp); // Always close the file</code></pre>
             <tr><td><code>~</code></td><td>Bitwise NOT</td><td><code>~0101</code></td><td><code>1010</code> (Depends on size)</td></tr>
             <tr><td><code><<</code></td><td>Left Shift</td><td><code>0101 << 1</code></td><td><code>1010</code> (10)</td></tr>
             <tr><td><code>>></code></td><td>Right Shift</td><td><code>0101 >> 1</code></td><td><code>0010</code> (2)</td></tr>
-        </table>
-        </div>
+        </table></div>
         
         <h3>Bit Fields</h3>
         <p>Allow you to pack data into a structure to save memory, specifying the exact number of bits for each member.</p>
-        <pre><code>struct Flags {
+        <div class="add-horizontal-scroll"><pre><code>struct Flags {
     unsigned int isActive : 1;  // Use only 1 bit
     unsigned int isDirty : 1;   // Use only 1 bit
     unsigned int mode : 2;      // Use only 2 bits
-};</code></pre>
+};</code></pre></div>
     
         <h3>Enumeration (<code>enum</code>)</h3>
         <p>A user-defined type consisting of a set of named integer constants. Improves code readability.</p>
-        <pre><code>enum Day { MON = 1, TUE, WED, THU, FRI, SAT, SUN };
+        <div class="add-horizontal-scroll"><pre><code>enum Day { MON = 1, TUE, WED, THU, FRI, SAT, SUN };
 enum Day today = WED;
 if (today == 3) { // true
     printf("It's Wednesday!\n");
-}</code></pre>
+}</code></pre></div>
     
         <span id="span_57"><h2 id="advanced">5.4 Advanced Topics (Macros, Library)</span></h2>
         
@@ -157,11 +153,11 @@ if (today == 3) { // true
     
         <h3>Macros (The C Preprocessor)</h3>
         <span id="span_59"><p>This topic is also listed in Unit 2</span>. <code>#define</code> is used to create constants and function-like macros. The preprocessor also supports <strong>conditional compilation</strong>:</p>
-        <pre><code>#define DEBUG
+        <div class="add-horizontal-scroll"><pre><code>#define DEBUG
 ...
 #ifdef DEBUG
     printf("Debug message: x = %d\n", x);
-#endif</code></pre>
+#endif</code></pre></div>
     </div>
 
     <script src="../../../../assets/scripts/units.js"></script>

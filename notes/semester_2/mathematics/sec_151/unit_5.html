@@ -178,21 +178,21 @@
         <ol>
             <li><strong>Returning a value:</strong>
                 <p>In a function with a non-`void` return type (like <code class="keyword">int</code> or <code class="keyword">float</code>), <code class="keyword">return</code> sends a value back.</p>
-<pre><code class="language-c"><span class="keyword">int</span> <span class="function">add</span>(<span class="keyword">int</span> a, <span class="keyword">int</span> b) {
+<div class="add-horizontal-scroll"><pre><code class="language-c"><span class="keyword">int</span> <span class="function">add</span>(<span class="keyword">int</span> a, <span class="keyword">int</span> b) {
     <span class="keyword">return</span> a + b; <span class="comment">// Returns the calculated sum</span>
 }
-</code></pre>
+</code></pre></div>
             </li>
             <li><strong>Terminating a `void` function:</strong>
                 <p>In a <code class="keyword">void</code> function (which returns nothing), <code class="keyword">return;</code> can be used to exit the function early.</p>
-<pre><code class="language-c"><span class="keyword">void</span> <span class="function">printNumber</span>(<span class="keyword">int</span> n) {
+<div class="add-horizontal-scroll"><pre><code class="language-c"><span class="keyword">void</span> <span class="function">printNumber</span>(<span class="keyword">int</span> n) {
     <span class="keyword">if</span> (n < <span class="number">0</span>) {
         <span class="function">printf</span>(<span class="string">"Number is negative.\n"</span>);
         <span class="keyword">return</span>; <span class="comment">// Exits the function here</span>
     }
     <span class="function">printf</span>(<span class="string">"Number is: %d\n"</span>, n);
 }
-</code></pre>
+</code></pre></div>
             </li>
         </ol>
 
@@ -218,10 +218,10 @@
             <li><code class="formula">scores[4]</code> is 100</li>
         </ul>
         <p>Arrays are most powerfully used with <code class="keyword">for</code> loops to iterate over the elements.</p>
-<pre><code class="language-c"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i < <span class="number">5</span>; i++) {
+<div class="add-horizontal-scroll"><pre><code class="language-c"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i < <span class="number">5</span>; i++) {
     <span class="function">printf</span>(<span class="string">"Element %d is %d\n"</span>, i, scores[i]);
 }
-</code></pre>
+</code></pre></div>
 
         <h3 id="subtopic2_2">Multi-Dimensional Arrays (2D Arrays/Matrices)</h3>
         <p>A multi-dimensional array is an "array of arrays." The most common is a <strong>2D array</strong>, which is perfect for representing a <strong>matrix</strong> or a grid.</p>
@@ -244,19 +244,19 @@
             <li><code class="formula">matrix[1][1]</code> is 5</li>
         </ul>
         <p>2D arrays are traversed using <strong>nested <code class="keyword">for</code> loops</strong> (one for rows, one for columns).</p>
-<pre><code class="language-c"><span class="comment">// Loop through each row</span>
+<div class="add-horizontal-scroll"><pre><code class="language-c"><span class="comment">// Loop through each row</span>
 <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i < <span class="number">2</span>; i++) {
     <span class="comment">// Loop through each column in that row</span>
     <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j < <span class="number">3</span>; j++) {
         <span class="function">printf</span>(<span class="string">"Element (%d, %d) is %d\n"</span>, i, j, matrix[i][j]);
     }
 }
-</code></pre>
+</code></pre></div>
         
         <h2 id="topic3">Code Examples (from Practicals)</h2>
         
         <h3 id="ex1">Practical #8: Sorting an Array (Bubble Sort) </h3>
-<pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<div class="add-horizontal-scroll"><pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
 <span class="preprocessor">#define SIZE 5</span>
 
 <span class="keyword">int</span> <span class="function">main</span>() {
@@ -285,10 +285,10 @@
 
     <span class="keyword">return</span> <span class="number">0</span>;
 }
-</code></pre>
+</code></pre></div>
         
         <h3 id="ex2">Practical #9: Matrix Addition (2D) </h3>
-<pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<div class="add-horizontal-scroll"><pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
 <span class="preprocessor">#define ROWS 2</span>
 <span class="preprocessor">#define COLS 3</span>
 
@@ -316,10 +316,10 @@
 
     <span class="keyword">return</span> <span class="number">0</span>;
 }
-</code></pre>
+</code></pre></div>
 
         <h3 id="ex3">Practical #10b: Determinant of a 3x3 Matrix (2D) </h3>
-<pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<div class="add-horizontal-scroll"><pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
 
 <span class="keyword">int</span> <span class="function">main</span>() {
     <span class="keyword">int</span> A[<span class="number">3</span>][<span class="number">3</span>];
@@ -345,7 +345,7 @@
 
     <span class="keyword">return</span> <span class="number">0</span>;
 }
-</code></pre>
+</code></pre></div>
         
         <h2 id="topic4">Unit 5: Exam Quick Tips</h2>
         <div class="exam-tip">

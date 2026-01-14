@@ -165,19 +165,19 @@
         <h3 id="spap_5_1_1"><span id="spap_5_1_1_span">One-dimensional Arrays </span></h3>
         <ul>
             <li><span id="spap_5_1_1_l1"><strong>Declaration of One-dimensional Arrays:</strong> You must specify the type and size.
-<pre>int marks[30];  // Declares an array named 'marks' that can hold 30 integers
-float prices[10]; // Declares an array to hold 10 floats</pre>
+<div class="add-horizontal-scroll"><pre>int marks[30];  // Declares an array named 'marks' that can hold 30 integers
+float prices[10]; // Declares an array to hold 10 floats</pre></div>
             </span></li>
             <li><span id="spap_5_1_1_l2"><strong>Initialization of One-dimensional Arrays:</strong> You can assign values at declaration.
-<pre>// Size is explicitly given
+<div class="add-horizontal-scroll"><pre>// Size is explicitly given
 int numbers[5] = {10, 20, 30, 40, 50};
 
 // Size is inferred from the list
-int numbers[] = {10, 20, 30}; // Compiler creates an array of size 3</pre>
+int numbers[] = {10, 20, 30}; // Compiler creates an array of size 3</pre></div>
             </span></li>
             <li><span id="spap_5_1_1_l3"><strong>Accessing Elements:</strong> Use the index in square brackets <code>[]</code>. C is <strong>0-indexed</strong>.
-<pre>int val = numbers[0]; // Accesses the first element (10)
-numbers[2] = 35;      // Changes the third element to 35</pre>
+<div class="add-horizontal-scroll"><pre>int val = numbers[0]; // Accesses the first element (10)
+numbers[2] = 35;      // Changes the third element to 35</pre></div>
             </span></li>
         </ul>
         <div class="common-mistake">
@@ -198,22 +198,22 @@ numbers[2] = 35;      // Changes the third element to 35</pre>
         <p><span id="spap_5_2_2_p1">A function has three parts:</span></p>
         <ol>
             <li><span id="spap_5_2_2_l1"><strong>Function Declaration (Prototype):</strong>  Tells the compiler the function's name, return type, and parameters. It's placed at the top of the file.
-<pre>int add(int a, int b); // This is a function prototype</pre>
+<div class="add-horizontal-scroll"><pre>int add(int a, int b); // This is a function prototype</pre></div>
             </span></li>
             <li><span id="spap_5_2_2_l2"><strong>Function Definition:</strong>  This is the actual code for the function.
-<pre>
+<div class="add-horizontal-scroll"><pre>
 int add(int a, int b) { // Function header
     // Function body
     int sum = a + b;
     return sum;
-}</pre>
+}</pre></div>
             </span></li>
             <li><span id="spap_5_2_2_l3"><strong>Function Call:</strong>  This is how you execute the function from <code>main()</code> or another function.
-<pre>
+<div class="add-horizontal-scroll"><pre>
 int main() {
     int result = add(5, 10); // This is a function call
     return 0;
-}</pre>
+}</pre></div>
             </span></li>
         </ol>
 
@@ -228,34 +228,34 @@ int main() {
         <p><span id="spap_5_2_4_p1">Functions can be categorized based on whether they take arguments (input) or return a value (output).</span></p>
         <ol>
             <li><span id="spap_5_2_4_l1"><strong>No Arguments and No Return Values:</strong>  Good for printing menus or fixed messages.
-<pre>void printHello() {
+<div class="add-horizontal-scroll"><pre>void printHello() {
     printf("Hello!");
-}</pre>
+}</pre></div>
             </span></li>
             <li><span id="spap_5_2_4_l2"><strong>Arguments but No Return Values:</strong>  Takes data in but doesn't send a result back.
-<pre>void printNumber(int n) {
+<div class="add-horizontal-scroll"><pre>void printNumber(int n) {
     printf("The number is %d", n);
-}</pre>
+}</pre></div>
             </span></li>
             <li><span id="spap_5_2_4_l3"><strong>Arguments with Return Values:</strong>  The most common type. Takes data, processes it, and returns the result.
-<pre>int add(int a, int b) {
+<div class="add-horizontal-scroll"><pre>int add(int a, int b) {
     return a + b;
-}</pre>
+}</pre></div>
             </span></li>
             <li><span id="spap_5_2_4_l4"><strong>No Arguments but Returns a Value:</strong>  Good for getting input from the user.
-<pre>int getAge() {
+<div class="add-horizontal-scroll"><pre>int getAge() {
     int age;
     printf("Enter age: ");
     scanf("%d", &age);
     return age;
-}</pre>
+}</pre></div>
             </span></li>
         </ol>
 
         <h3 id="spap_5_2_5"><span id="spap_5_2_5_span">Passing Arrays to Functions </span></h3>
         <p><span id="spap_5_2_5_p1">When you pass an array to a function, C does <strong>not</strong> create a copy. Instead, it passes a <strong>pointer</strong> (the address) to the first element.</span></p>
         <p><span id="spap_5_2_5_p2"><strong>This means the function can modify the original array in <code>main()</code>.</strong></span></p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 // 'arr' is actually a pointer (int*)
 void doubleArray(int arr[], int size) {
     for (int i = 0; i < size; i++) {
@@ -269,7 +269,7 @@ int main() {
     // myNums is now {2, 4, 6}
     return 0;
 }
-</pre>
+</pre></div>
 
         <h3 id="spap_5_2_6"><span id="spap_5_2_6_span">Recursion </span></h3>
         <p><span id="spap_5_2_6_p1"><strong>Recursion</strong> is a process where a function calls itself, either directly or indirectly. It's a powerful alternative to loops for solving problems that can be broken into smaller, similar sub-problems.</span></p>
@@ -278,7 +278,7 @@ int main() {
             <li><span id="spap_5_2_6_l1"><strong>Base Case:</strong> A condition that stops the recursion.</span></li>
             <li><span id="spap_5_2_6_l2"><strong>Recursive Step:</strong> The part that calls the function again, but with a smaller problem.</span></li>
         </ol>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 // Example: Factorial
 long factorial(int n) {
     if (n == 0) {
@@ -287,7 +287,7 @@ long factorial(int n) {
         return n * factorial(n - 1); // Recursive Step
     }
 }
-</pre>
+</pre></div>
         <div class="common-mistake">
             <strong>Common Mistake:</strong> Forgetting the base case. This will cause the function to call itself forever, leading to a <strong>"Stack Overflow"</strong> error as the program runs out of memory.
         </div>
@@ -303,7 +303,7 @@ long factorial(int n) {
             <li><span id="spap_5_3_1_l2"><strong><code>*</code> (Dereference/Indirection operator):</strong> Gets the value *at* a given memory address.</span></li>
         </ul>
         
-<pre>
+<div class="add-horizontal-scroll"><pre>
 int x = 10;   // A normal variable
 int *p;     // 'p' is a pointer to an integer
 
@@ -318,7 +318,7 @@ printf("Value at p: %d\n", *p);  // Prints 10 (goes to address, gets value)
 
 *p = 20; // Go to the address 'p' holds and change the value
 printf("New value of x: %d\n", x); // Prints 20
-</pre>
+</pre></div>
         <div class="exam-tip">
             <span id="spap_5_3_1_tip1">Pointers are the most powerful and complex part of C. They are essential for modifying variables inside functions (pass-by-reference), dynamic memory allocation, and building data structures like linked lists.</span>
         </div>

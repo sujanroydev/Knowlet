@@ -160,7 +160,7 @@
 
         <h3 id="spap_4_1_1"><span id="spap_4_1_1_span">Simple <code>IF</code> Statement </span></h3>
         <p><span id="spap_4_1_1_p1">Executes a block of code <strong>only if</strong> the condition is true. If the condition is false, the block is skipped.</span></p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 int age = 20;
 if (age >= 18) {
     printf("You are eligible to vote.\n"); // This line WILL run
@@ -168,22 +168,22 @@ if (age >= 18) {
 if (age < 18) {
     printf("You are not eligible.\n"); // This line will be SKIPPED
 }
-</pre>
+</pre></div>
 
         <h3 id="spap_4_1_2"><span id="spap_4_1_2_span"><code>IF-ELSE</code> Statement </span></h3>
         <p><span id="spap_4_1_2_p1">Provides a two-way branch. One block runs if the condition is true, and a different block runs if it is false.</span></p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 int num = 7;
 if (num % 2 == 0) {
     printf("The number is even.\n");
 } else {
     printf("The number is odd.\n"); // This line WILL run
 }
-</pre>
+</pre></div>
 
         <h3 id="spap_4_1_3"><span id="spap_4_1_3_span">Nested of <code>IF-ELSE</code> Statements </span></h3>
         <p><span id="spap_4_1_3_p1">You can place an <code>if-else</code> statement inside another <code>if</code> or <code>else</code> block to check for multiple conditions.</span></p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 int a = 10, b = 20, c = 5;
 if (a > b) {
     if (a > c) {
@@ -198,11 +198,11 @@ if (a > b) {
         printf("c is the largest.\n");
     }
 }
-</pre>
+</pre></div>
 
         <h3 id="spap_4_1_4"><span id="spap_4_1_4_span"><code>ELSE IF</code> Ladder </span></h3>
         <p><span id="spap_4_1_4_p1">This is a cleaner way to write multiple nested <code>if-else</code> statements. It is used for multi-way decisions where only one condition can be true.</span></p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 int marks = 75;
 if (marks >= 90) {
     printf("Grade A\n");
@@ -213,11 +213,11 @@ if (marks >= 90) {
 } else {
     printf("Grade F\n");
 }
-</pre>
+</pre></div>
 
         <h3 id="spap_4_1_5"><span id="spap_4_1_5_span"><code>switch</code> Statement </span></h3>
         <p><span id="spap_4_1_5_p1">The <code>switch</code> statement is an efficient alternative to an <code>else if</code> ladder when you are checking a single variable against a list of <strong>constant integer or character</strong> values.</span></p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 int day = 3;
 switch (day) {
     case 1:
@@ -232,7 +232,7 @@ switch (day) {
     default:
         printf("Invalid day\n");
 }
-</pre>
+</pre></div>
         <div class="common-mistake">
             <strong>Common Mistake:</strong> Forgetting the <code>break;</code> statement. If you forget <code>break</code> in <code>case 1</code>, the program will execute the code for <code>case 1</code> AND <code>case 2</code> (and so on) until it hits a <code>break</code>. This is called "fall-through."
         </div>
@@ -242,33 +242,33 @@ switch (day) {
 
         <h3 id="spap_4_2_1"><span id="spap_4_2_1_span"><code>while</code> Statement </span></h3>
         <p><span id="spap_4_2_1_p1">This is an <strong>entry-controlled loop</strong>. The condition is checked *before* the loop body is executed. If the condition is false the first time, the loop body will never run.</span></p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 int i = 1;
 while (i <= 5) {
     printf("%d ", i); // Prints 1 2 3 4 5
     i++;
 }
-</pre>
+</pre></div>
 
         <h3 id="spap_4_2_2"><span id="spap_4_2_2_span"><code>do-while</code> Statement </span></h3>
         <p><span id="spap_4_2_2_p1">This is an <strong>exit-controlled loop</strong>. The loop body is executed *first*, and then the condition is checked. This guarantees that the loop body will run at least once.</span></p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 int i = 100;
 do {
     printf("%d ", i); // Prints 100
     i++;
 } while (i <= 5); // Condition is false, but loop ran once
-</pre>
+</pre></div>
 
         <h3 id="spap_4_2_3"><span id="spap_4_2_3_span"><code>for</code> Statement </span></h3>
         <p><span id="spap_4_2_3_p1">The <code>for</code> loop is ideal for situations where you know how many times you want to loop. It combines initialization, condition, and increment/decrement into one line.</span></p>
         <blockquote><span id="spap_4_2_3_p2"><code>for (initialization; condition; update) { ... }</code></span></blockquote>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 // This loop runs 5 times
 for (int i = 1; i <= 5; i++) {
     printf("%d ", i); // Prints 1 2 3 4 5
 }
-</pre>
+</pre></div>
         <div class="exam-tip">
             <strong>Choosing the Right Loop:</strong>
             <ul>

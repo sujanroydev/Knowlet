@@ -184,12 +184,12 @@
         <p><span id="spap_5_1_2_p1"><code>scanf</code> ("scan formatted") is used to read data from the keyboard. It uses the same format specifiers as <code>printf</code>.</span></p>
         <div class="common-mistake">
             <span id="spap_5_1_2_mistake1">You <strong>must</strong> pass the <strong>address</strong> (using <code>&</code>) of the variable you want to fill.
-<pre>int age;
+<div class="add-horizontal-scroll"><pre>int age;
 scanf("%d", &age); // Correct
-scanf("%d", age);  // WRONG: Will crash</pre>
+scanf("%d", age);  // WRONG: Will crash</pre></div>
             The only exception is for strings (char arrays), which do not need <code>&</code> because the array name *is* an address.
-<pre>char name[50];
-scanf("%s", name); // Correct</pre>
+<div class="add-horizontal-scroll"><pre>char name[50];
+scanf("%s", name); // Correct</pre></div>
             </span>
         </div>
 
@@ -198,7 +198,7 @@ scanf("%s", name); // Correct</pre>
 
         <h3 id="spap_5_2_1"><span id="spap_5_2_1_span">Opening and Closing Files (fopen, fclose) </span></h3>
         <p><span id="spap_5_2_1_p1">You must open a file before you can use it. <code>fopen()</code> returns a <code>FILE</code> pointer, or <code>NULL</code> if it fails.</span></p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 FILE *fp = NULL;
 // Open "data.txt" for writing ("w")
 fp = fopen("data.txt", "w"); 
@@ -211,7 +211,7 @@ if (fp == NULL) {
 
 // Always close the file when done
 fclose(fp);
-</pre>
+</pre></div>
         <p><span id="spap_5_2_1_p2"><strong>Common File Modes:</strong></span></p>
         <ul>
             <li><span id="spap_5_2_1_l1"><code>"r"</code>: Read (file must exist)</span></li>
@@ -223,19 +223,19 @@ fclose(fp);
         <h3 id="spap_5_2_2"><span id="spap_5_2_2_span">Processing Files (Formatted vs. Unformatted) </span></h3>
         <ul>
             <li><span id="spap_5_2_2_l1"><strong>Formatted (Text) Files:</strong> Use <code>fscanf()</code> and <code>fprintf()</code>. These are just like <code>scanf</code>/<code>printf</code>, but the first argument is the <code>FILE</code> pointer.
-<pre>fprintf(fp, "Name: %s, Age: %d\n", "Ravi", 25);
+<div class="add-horizontal-scroll"><pre>fprintf(fp, "Name: %s, Age: %d\n", "Ravi", 25);
 int age;
-fscanf(fp, "%d", &age);</pre>
+fscanf(fp, "%d", &age);</pre></div>
             </span></li>
             <li><span id="spap_5_2_2_l2"><strong>Unformatted (Binary) Files:</strong> Use <code>fread()</code> and <code>fwrite()</code>. These read/write raw bytes of data (like a <code>struct</code>) directly. They are much faster and more precise.
-<pre>
+<div class="add-horizontal-scroll"><pre>
 struct Student s1;
 // Write the s1 object to the file
 fwrite(&s1, sizeof(struct Student), 1, fp);
 
 // Read one Student object into s2
 struct Student s2;
-fread(&s2, sizeof(struct Student), 1, fp);</pre>
+fread(&s2, sizeof(struct Student), 1, fp);</pre></div>
             </span></li>
         </ul>
 
@@ -254,8 +254,7 @@ fread(&s2, sizeof(struct Student), 1, fp);</pre>
 
         <h3 id="spap_5_3_2"><span id="spap_5_3_2_span">Bitwise Operations </span></h3>
         <p><span id="spap_5_3_2_p1">These operators work on the binary (bit) representation of integers.</span></p>
-        <div class="add-horizontal-scroll">
-        <table>
+        <div class="add-horizontal-scroll"><table>
             <tr><th>Operator</th><th>Name</th><th>Example (a=5, b=3)</th><th>Result</th></tr>
             <tr>
                 <td><code>&</code></td>
@@ -293,26 +292,25 @@ fread(&s2, sizeof(struct Student), 1, fp);</pre>
                 <td><code>0101 >> 1</code></td>
                 <td><code>0010</code> (2)</td>
             </tr>
-        </table>
-        </div>
+        </table></div>
         <div class="exam-tip">
             <span id="spap_5_3_2_tip1"><strong>Uses:</strong> Setting/checking a specific bit (e.g., flags), high-speed multiplication/division by 2, encryption.</span>
         </div>
 
         <h3 id="spap_5_3_3"><span id="spap_5_3_3_span">Bit Fields </span></h3>
         <p><span id="spap_5_3_3_p1">Bit fields allow you to define structure members that are only a specific number of <strong>bits</strong> wide. This is used to pack data tightly, often for hardware programming.</span></p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 // This structure packs a date into 16 bits (2 bytes)
 struct Date {
     unsigned int day : 5;  // 5 bits (can hold 0-31)
     unsigned int month : 4; // 4 bits (can hold 0-15)
     unsigned int year : 7;  // 7 bits (can hold 0-127)
 };
-</pre>
+</pre></div>
 
         <h3 id="spap_5_3_4"><span id="spap_5_3_4_span">Enumeration (enum) </span></h3>
         <p><span id="spap_5_3_4_p1">An enumeration is a user-defined type that consists of a set of named integer constants. It makes code more readable.</span></p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 // Define an enum for days of the week
 enum Weekday { MON, TUE, WED, THU, FRI, SAT, SUN };
 
@@ -328,7 +326,7 @@ int main() {
     }
     return 0;
 }
-</pre>
+</pre></div>
 
         <h2 id="spap_5_4"><span id="spap_5_4_span">4. Other Topics </span></h2>
         <p><span id="spap_5_4_p1">This unit re-lists several topics from previous units, likely for reinforcement.</span></p>

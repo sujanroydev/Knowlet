@@ -157,7 +157,7 @@
         <p><span id="spap_2_1_1_p1">A function has three parts:</span></p>
         <ol>
             <li><span id="spap_2_1_1_l1"><strong>Function Definition:</strong> This is the actual code for the function.
-<pre>
+<div class="add-horizontal-scroll"><pre>
 // return_type function_name(parameter_list)
 int add(int a, int b) {
     int sum = a + b;
@@ -165,15 +165,15 @@ int add(int a, int b) {
 }
 void printHello() { // void means it returns nothing
     printf("Hello");
-}</pre>
+}</pre></div>
             </span></li>
             <li><span id="spap_2_1_1_l2"><strong>Function Call:</strong> This is how you execute the function from <code>main()</code> or another function.
-<pre>
+<div class="add-horizontal-scroll"><pre>
 int main() {
     int result = add(5, 10); // Accessing 'add'
     printHello();            // Accessing 'printHello'
     return 0;
-}</pre>
+}</pre></div>
             </span></li>
             <li><span id="spap_2_1_1_l3"><strong>Function Declaration (Prototype):</strong> See below.</span></li>
         </ul>
@@ -181,7 +181,7 @@ int main() {
         <h3 id="spap_2_1_2"><span id="spap_2_1_2_span">Function Prototypes </span></h3>
         <p><span id="spap_2_1_2_p1">A function prototype is a declaration that tells the compiler the function's name, return type, and the data types of its parameters. </span></p>
         <p><span id="spap_2_1_2_p2"><strong>Why?</strong> If you define a function *after* <code>main()</code>, the compiler won't know it exists when <code>main()</code> tries to call it. A prototype at the top of the file solves this.</span></p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 #include <stdio.h>
 
 // Function Prototype
@@ -197,12 +197,12 @@ int main() {
 int add(int a, int b) {
     return a + b;
 }
-</pre>
+</pre></div>
         <p><span id="spap_2_1_2_p3">The syllabus also mentions <strong>functions returning non-integers</strong>, which is standard. A function can return <code>float</code>, <code>char</code>, <code>double</code>, or even <code>struct</code> and <code>void</code> (which returns nothing). </span></p>
 
         <h3 id="spap_2_1_3"><span id="spap_2_1_3_span">Passing Arguments (Pass by Value)</span></h3>
         <p><span id="spap_2_1_3_p1">By default, C uses <strong>"pass by value"</strong> when passing arguments. This means a *copy* of the variable's value is sent to the function. The original variable in <code>main()</code> is not affected. </span></p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 void increment(int x) {
     x = x + 1; // 'x' is a copy
     printf("Inside function: %d\n", x); // Prints 11
@@ -214,15 +214,14 @@ int main() {
     printf("Inside main: %d\n", num); // Still prints 10
     return 0;
 }
-</pre>
+</pre></div>
         <div class="exam-tip">
             <span id="spap_2_1_3_tip1">To modify the original variable, you must pass a <strong>pointer</strong> to it (which is covered in Unit 3).</span>
         </div>
 
         <h2 id="spap_2_2"><span id="spap_2_2_span">2. Storage Classes </span></h2>
         <p><span id="spap_2_2_p1">Storage classes define the <strong>scope</strong> (visibility), <strong>lifetime</strong> (how long it exists), and <strong>storage location</strong> (e.g., memory, CPU register) of a variable.</span></p>
-        <div class="add-horizontal-scroll">
-        <table>
+        <div class="add-horizontal-scroll"><table>
             <tr>
                 <th>Keyword</th>
                 <th>Storage</th>
@@ -258,8 +257,7 @@ int main() {
                 <td>Block (local)</td>
                 <td>Within the block</td>
             </tr>
-        </table>
-        </div>
+        </table></div>
         <ul>
             <li><span id="spap_2_2_l1"><strong><code>auto</code>:</strong> This is the default for all local variables. It's rarely written.</span></li>
             <li><span id="spap_2_2_l2"><strong><code>extern</code>:</strong> Used to declare a global variable that is defined in *another* file.</span></li>
@@ -288,7 +286,7 @@ int main() {
             <li><span id="spap_2_4_l2"><strong>Recursive Step:</strong> The part that calls the function again, but with a "smaller" problem that moves it closer to the base case.</span></li>
         </ol>
         <p><span id="spap_2_4_p2"><strong>Example: Factorial (n!)</strong></span></p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 // Problem solving with recursion 
 long factorial(int n) {
     // Base Case
@@ -300,7 +298,7 @@ long factorial(int n) {
         return n * factorial(n - 1);
     }
 }
-</pre>
+</pre></div>
         <div class="common-mistake">
             <strong>Common Mistake:</strong> Forgetting the base case. This will cause the function to call itself forever, leading to a <strong>"Stack Overflow"</strong> error as the program runs out of memory for function calls.
         </div>
@@ -309,11 +307,11 @@ long factorial(int n) {
         <p><span id="spap_2_5_p1">The preprocessor is a program that runs *before* the compiler. It modifies the source code based on directives (commands) that start with <code>#</code>.</span></p>
         <ul>
             <li><span id="spap_2_5_l1"><strong><code>#include</code>:</strong> Pastes the content of another file (a header file) into your code.
-<pre>#include <stdio.h> // For standard library
-#include "myheader.h" // For your own files</pre>
+<div class="add-horizontal-scroll"><pre>#include <stdio.h> // For standard library
+#include "myheader.h" // For your own files</pre></div>
             </span></li>
             <li><span id="spap_2_5_l2"><strong><code>#define</code>:</strong> Used to define <strong>macros</strong> (constants or simple functions).
-<pre>
+<div class="add-horizontal-scroll"><pre>
 // Defines a constant
 #define PI 3.14159
 
@@ -322,7 +320,7 @@ long factorial(int n) {
 
 // Usage:
 float area = PI * r * r;
-int r = SQUARE(5); // Becomes int r = ((5) * (5));</pre>
+int r = SQUARE(5); // Becomes int r = ((5) * (5));</pre></div>
                 <div class="exam-tip">
                     <span id="spap_2_5_tip1">Always wrap macro parameters in parentheses <code>(x)</code> to avoid operator precedence errors.</span>
                 </div>

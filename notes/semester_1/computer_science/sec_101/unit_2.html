@@ -51,7 +51,7 @@
         <p>A function is a self-contained block of code that performs a specific task. Using functions makes code modular, reusable, and easier to debug.</p>
     
         <h3>Defining and Accessing Functions</h3>
-        <pre><code>// Function Definition
+        <div class="add-horizontal-scroll"><pre><code>// Function Definition
 float calculateAverage(int a, int b) {
     float avg = (a + b) / 2.0;
     return avg;
@@ -63,7 +63,7 @@ int main() {
     float result = calculateAverage(x, y); 
     printf("Average: %.2f\n", result);
     return 0;
-}</code></pre>
+}</code></pre></div>
         
         <span id="span_24"><h3>Passing Arguments to a Function</span></h3>
         <p>In C, arguments are passed by <strong>Pass-by-Value</strong> by default. This means the function receives a <strong>copy</strong> of the argument's value, and the original variable in the calling function is not changed. (We will see how to change this with pointers in Unit 3).</p>
@@ -72,7 +72,7 @@ int main() {
         
         <span id="span_26"><h3>Function Prototypes</span></h3>
         <p>A function prototype is a declaration of a function that tells the compiler about its name, return type, and parameters. It is crucial if you define the function <em>after</em> <code>main()</code>.</p>
-        <pre><code>#include &lt;stdio.h&gt;
+        <div class="add-horizontal-scroll"><pre><code>#include &lt;stdio.h&gt;
     
 // Function Prototype
 float calculateAverage(int a, int b);
@@ -86,7 +86,7 @@ int main() {
 // Function Definition
 float calculateAverage(int a, int b) {
     return (a + b) / 2.0;
-}</code></pre>
+}</code></pre></div>
         
         <span id="span_27"><h3>Functions Returning Non-Integers</span></h3>
         <p>Functions can return any data type, such as <code>float</code>, <code>double</code>, <code>char</code>, or even pointers (Unit 3) and structures (Unit 4). The <code>calculateAverage</code> function above is an example of a function returning a <code>float</code>.</p>
@@ -94,8 +94,7 @@ float calculateAverage(int a, int b) {
         <span id="span_28"><h2 id="storage-classes">2.3 Storage Classes and Scope Rules</span></h2>
         <p>Storage classes determine a variable's scope, lifetime, and storage location.</p>
         
-        <div class="add-horizontal-scroll">
-        <table>
+        <div class="add-horizontal-scroll"><table>
             <tr><th>Storage Class</th><th>Keyword</th><th>Storage</th><th>Default Value</th><th>Scope</th><th>Lifetime</th></tr>
             <tr>
                 <td><strong>Automatic</strong></td>
@@ -129,8 +128,7 @@ float calculateAverage(int a, int b) {
                 <td>Block (local)</td>
                 <td>Within the block</td>
             </tr>
-        </table>
-        </div>
+        </table></div>
         
         <span id="span_29"><h3>Scope Rules</span></h3>
         <ul>
@@ -149,7 +147,7 @@ float calculateAverage(int a, int b) {
         </ol>
         
         <h4>Problem Solving: Factorial</h4>
-        <pre><code>long factorial(int n) {
+        <div class="add-horizontal-scroll"><pre><code>long factorial(int n) {
     // 1. Base Case
     if (n == 0 || n == 1) {
         return 1;
@@ -158,7 +156,7 @@ float calculateAverage(int a, int b) {
     else {
         return n * factorial(n - 1);
     }
-}</code></pre>
+}</code></pre></div>
         <div class="exam-tip"><strong>Risk:</strong> If you forget the base case or never reach it, you will get a <strong>stack overflow</strong> error.</div>
     
         <span id="span_32"><h2 id="preprocessor">2.5 The C Preprocessor</span></h2>

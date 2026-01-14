@@ -71,27 +71,23 @@
     
         <span id="span_1"><h2 id="connectives">1.2 Connectives (Logical Operators)</span></h2>
         <p>Connectives are used to combine simple propositions into compound propositions.</p>
-        <div class="add-horizontal-scroll">
-        <table>
+        <div class="add-horizontal-scroll"><table>
             <tr><th>Operator</th><th>Name</th><th>Symbol</th><th>Meaning</th></tr>
             <tr><td>Negation</td><td>NOT</td><td>¬ p (or p')</td><td>"It is not the case that p."</td></tr>
             <tr><td>Conjunction</td><td>AND</td><td>p \land q</td><td>"p and q"</td></tr>
             <tr><td>Disjunction</td><td>OR</td><td>p \lor q</td><td>"p or q" (inclusive)</td></tr>
             <tr><td>Implication</td><td>IF...THEN</td><td>p \to q</td><td>"If p, then q." (p is hypothesis, q is conclusion)</td></tr>
             <tr><td>Biconditional</td><td>IF AND ONLY IF</td><td>p ≤ftrightarrow q</td><td>"p if and only if q"</td></tr>
-        </table>
-        </div>
+        </table></div>
         
         <h3>Truth Tables for Connectives</h3>
-        <div class="add-horizontal-scroll">
-        <table>
+        <div class="add-horizontal-scroll"><table>
             <tr><th>p</th><th>q</th><th>¬ p</th><th>p \land q</th><th>p \lor q</th><th>p \to q</th><th>p ≤ftrightarrow q</th></tr>
             <tr><td>T</td><td>T</td><td>F</td><td>T</td><td>T</td><td>T</td><td>T</td></tr>
             <tr><td>T</td><td>F</td><td>F</td><td>F</td><td>T</td><td>F</td><td>F</td></tr>
             <tr><td>F</td><td>T</td><td>T</td><td>F</td><td>T</td><td>T</td><td>F</td></tr>
             <tr><td>F</td><td>F</td><td>T</td><td>F</td><td>F</td><td>T</td><td>T</td></tr>
-        </table>
-        </div>
+        </table></div>
         <div class="exam-tip">
             <strong>Common Mistake:</strong> The implication p \to q is <strong>only false</strong> when the hypothesis (p) is true and the conclusion (q) is false. If the hypothesis is false, the implication is <strong>always true</strong> ("false implies anything").
         </div>
@@ -168,8 +164,7 @@
         <p>Inference theory deals with determining the validity of an argument. An argument is a sequence of propositions (premises) that lead to another proposition (conclusion). An argument is <strong>valid</strong> if the conclusion is true whenever all the premises are true.</p>
         
         <h3>Rules of Inference for Propositional Logic</h3>
-        <div class="add-horizontal-scroll">
-        <table>
+        <div class="add-horizontal-scroll"><table>
             <tr><th>Rule Name</th><th>Premises</th><th>Conclusion</th></tr>
             <tr><td>Modus Ponens</td><td>p <br> p \to q</td><td>∴ q</td></tr>
             <tr><td>Modus Tollens</td><td>¬ q <br> p \to q</td><td>∴ ¬ p</td></tr>
@@ -177,8 +172,7 @@
             <tr><td>Disjunctive Syllogism</td><td>p \lor q <br> ¬ p</td><td>∴ q</td></tr>
             <tr><td>Addition</td><td>p</td><td>∴ p \lor q</td></tr>
             <tr><td>Simplification</td><td>p \land q</td><td>∴ p</td></tr>
-        </table>
-        </div>
+        </table></div>
     
         <h3>Inference Rules for Quantified Statements</h3>
         <ul>

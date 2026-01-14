@@ -192,27 +192,27 @@
         <h3 id="subtopic1_2">Function Definition</h3>
         <p>This is the full implementation of the function.</p>
         <p><strong>Syntax:</strong></p>
-<pre><code class="language-c"><span class="keyword">return_type</span> <span class="function">function_name</span>(<span class="keyword">type</span> param1, <span class="keyword">type</span> param2) {
+<div class="add-horizontal-scroll"><pre><code class="language-c"><span class="keyword">return_type</span> <span class="function">function_name</span>(<span class="keyword">type</span> param1, <span class="keyword">type</span> param2) {
     <span class="comment">// Code block (body)</span>
     <span class="keyword">return</span> value; <span class="comment">// 'value' must match the return_type</span>
 }
-</code></pre>
+</code></pre></div>
         <p><strong>Example:</strong></p>
-<pre><code class="language-c"><span class="keyword">int</span> <span class="function">add</span>(<span class="keyword">int</span> a, <span class="keyword">int</span> b) {
+<div class="add-horizontal-scroll"><pre><code class="language-c"><span class="keyword">int</span> <span class="function">add</span>(<span class="keyword">int</span> a, <span class="keyword">int</span> b) {
     <span class="keyword">int</span> sum = a + b;
     <span class="keyword">return</span> sum; <span class="comment">// Returns an integer value</span>
 }
-</code></pre>
+</code></pre></div>
 
         <h3 id="subtopic1_3">Function Call</h3>
         <p>To execute a function, you "call" it from <code class="function">main()</code> or another function.</p>
-<pre><code class="language-c"><span class="keyword">int</span> <span class="function">main</span>() {
+<div class="add-horizontal-scroll"><pre><code class="language-c"><span class="keyword">int</span> <span class="function">main</span>() {
     <span class="keyword">int</span> result;
     result = <span class="function">add</span>(<span class="number">10</span>, <span class="number">5</span>); <span class="comment">// Function call</span>
     <span class="function">printf</span>(<span class="string">"The result is %d\n"</span>, result); <span class="comment">// Prints "The result is 15"</span>
     <span class="keyword">return</span> <span class="number">0</span>;
 }
-</code></pre>
+</code></pre></div>
 
         <h2 id="topic2">Function Prototypes</h2>
         <p>A function prototype (or declaration) is a single line that tells the compiler about a function *before* it is defined. It must appear before the function is first called (usually at the top of the file, before <code class="function">main()</code>).</p>
@@ -220,7 +220,7 @@
         <p><strong>Syntax:</strong> <code class="formula">return_type function_name(data_type1, data_type2, ...);</code>
         <br>(Note the semicolon at the end and the lack of variable names, though names are optional).</p>
         
-<pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<div class="add-horizontal-scroll"><pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
 
 <span class="comment">// Function Prototype </span>
 <span class="keyword">int</span> <span class="function">add</span>(<span class="keyword">int</span>, <span class="keyword">int</span>);
@@ -236,7 +236,7 @@
 <span class="keyword">int</span> <span class="function">add</span>(<span class="keyword">int</span> a, <span class="keyword">int</span> b) {
     <span class="keyword">return</span> a + b;
 }
-</code></pre>
+</code></pre></div>
 
         <h2 id="topic3">Passing Arguments to a Function</h2>
         <p>This describes how data is sent *into* a function. C has two methods:</p>
@@ -253,7 +253,7 @@
         
         <h3 id="ex1">Pass by Value vs. Pass by Reference</h3>
         <p>This code clearly demonstrates the difference by trying to swap two numbers.</p>
-<pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<div class="add-horizontal-scroll"><pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
 
 <span class="comment">// Prototype for pass-by-value</span>
 <span class="keyword">void</span> <span class="function">swap_by_value</span>(<span class="keyword">int</span> a, <span class="keyword">int</span> b);
@@ -292,7 +292,7 @@
     *b = temp;
     <span class="comment">// This swaps the original values in main().</span>
 }
-</code></pre>
+</code></pre></div>
         <p><strong>Expected Output:</strong>
         <br><code class="formula">Original: x = 10, y = 20</code>
         <br><code class="formula">After swap_by_value: x = 10, y = 20</code> (Failed)
@@ -301,7 +301,7 @@
         
         <h3 id="ex2">Practical #5b: Factorial using a Recursive Function </h3>
         <p><strong>Recursion</strong> is a special case of a function call where a function calls *itself*. It must have a <strong>base case</strong> to stop the recursion.</p>
-<pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<div class="add-horizontal-scroll"><pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
 
 <span class="comment">// Prototype for recursive factorial</span>
 <span class="keyword">long</span> <span class="keyword">long</span> <span class="function">factorial</span>(<span class="keyword">int</span> n);
@@ -329,7 +329,7 @@
 <span class="comment">// 4 * (3 * factorial(2))</span>
 <span class="comment">// 4 * (3 * (2 * factorial(1)))</span>
 <span class="comment">// 4 * (3 * (2 * 1)) = 24</span>
-</code></pre>
+</code></pre></div>
         
         <h2 id="topic5">Unit 4: Exam Quick Tips</h2>
         <div class="exam-tip">

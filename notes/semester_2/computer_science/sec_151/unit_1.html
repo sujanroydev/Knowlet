@@ -175,8 +175,7 @@
 
         <h3><span id="spap_1_3">Data Types</span></h3>
         <p><span id="spap_1_3_p1">Python is dynamically-typed, meaning you don't need to declare a variable's type.</span></p>
-        <div class="add-horizontal-scroll">
-        <table>
+        <div class="add-horizontal-scroll"><table>
             <tr><th>Category</th><th>Type</th><th>Example</th><th>Mutable/Immutable?</th></tr>
             <tr>
                 <td rowspan="3">Number</td>
@@ -234,8 +233,7 @@
                 <td><code>{1, 2, 3}</code></td>
                 <td><strong>Mutable</strong></td>
             </tr>
-        </table>
-        </div>
+        </table></div>
         <ul>
             <li><span id="spap_1_3_l1"><strong>Immutable:</strong> Cannot be changed after creation (e.g., numbers, strings, tuples).</span></li>
             <li><span id="spap_1_3_l2"><strong>Mutable:</strong> Can be changed after creation (e.g., lists, dictionaries, sets).</span></li>
@@ -267,12 +265,12 @@
                     <li><code>input("Prompt: ")</code>: Accepts data from the console. <strong>Returns a string.</strong></li>
                     <li><code>print(...)</code>: Displays output to the console.</li>
                 </ul>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 name = input("Enter your name: ")
 age_str = input("Enter your age: ")
 age = int(age_str) # Explicit conversion
 print("Hello,", name, "you are", age, "years old.")
-</pre>
+</pre></div>
             </span></li>
         </ul>
 
@@ -287,32 +285,32 @@ print("Hello,", name, "you are", age, "years old.")
                     <li><code>if</code>: Executes a block if a condition is true.</li>
                     <li><code>if-else</code>: Executes one block if true, another if false.</li>
                     <li><code>if-elif-else</code>: A chain of conditions.
-<pre>
+<div class="add-horizontal-scroll"><pre>
 if x > 10:
     print("Large")
 elif x > 5:
     print("Medium")
 else:
     print("Small")
-</pre>
+</pre></div>
                     </li>
                 </ul>
             </span></li>
             <li><span id="spap_2_1_l4"><strong>Iterative (Loops):</strong>
                 <ul>
                     <li><code>for</code> loop: Iterates over a sequence (like a list, string, or <code>range()</code>).
-<pre>
+<div class="add-horizontal-scroll"><pre>
 for i in range(5):  # i will be 0, 1, 2, 3, 4
     print(i)
-</pre>
+</pre></div>
                     </li>
                     <li><code>while</code> loop: Repeats a block as long as a condition is true.
-<pre>
+<div class="add-horizontal-scroll"><pre>
 count = 0
 while count < 5:
     print(count)
     count += 1
-</pre>
+</pre></div>
                     </li>
                     <li><code>break</code>: Exits the loop immediately.</li>
                     <li><code>continue</code>: Skips the rest of the current iteration and moves to the next.</li>
@@ -329,14 +327,14 @@ while count < 5:
                     <li><code>*</code> (Repetition): <code>"Go" * 3</code> (produces <code>"GoGoGo"</code>)</li>
                     <li><code>in</code> (Membership): <code>"H" in "Hello"</code> (produces <code>True</code>)</li>
                     <li><strong>Slicing:</strong> <code>s[start:end:step]</code>. Very powerful.
-<pre>
+<div class="add-horizontal-scroll"><pre>
 s = "Python"
 s[0]    # 'P'
 s[1:4]  # 'yth'
 s[:3]   # 'Pyt'
 s[-1]   # 'n' (last character)
 s[::-1] # 'nohtyP' (reverses the string)
-</pre>
+</pre></div>
                     </li>
                 </ul>
             </span></li>
@@ -385,13 +383,13 @@ s[::-1] # 'nohtyP' (reverses the string)
                 </ul>
             </span></li>
             <li><span id="spap_3_4_l4"><strong>Traversing:</strong>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 for key in my_dict:
     print(key, my_dict[key])
 
 for key, value in my_dict.items():
     print(key, value)
-</pre>
+</pre></div>
             </span></li>
             <li><span id="spap_3_4_l5"><strong>Methods:</strong> <code>.keys()</code>, <code>.values()</code>, <code>.items()</code>, <code>.get(key)</code> (safe access, returns <code>None</code> if key not found).</span></li>
         </ul>
@@ -400,16 +398,16 @@ for key, value in my_dict.items():
         <ul>
             <li><span id="spap_3_5_l1">A module is a Python file (<code>.py</code>) containing functions and variables.</span></li>
             <li><span id="spap_3_5_l2"><code>import <module></code>: Imports the whole module. You access members with <code>module.member</code>.
-<pre>
+<div class="add-horizontal-scroll"><pre>
 import math
 print(math.pi)
-</pre>
+</pre></div>
             </span></li>
             <li><span id="spap_3_5_l3"><code>from <module> import <member></code>: Imports a specific member into your namespace.
-<pre>
+<div class="add-horizontal-scroll"><pre>
 from math import pi
 print(pi)
-</pre>
+</pre></div>
             </span></li>
         </ul>
 
@@ -418,10 +416,10 @@ print(pi)
         <h3><span id="spap_4_1">Python Functions</span></h3>
         <ul>
             <li><span id="spap_4_1_l1"><strong>Definition:</strong> A reusable block of code, defined with the <code>def</code> keyword.
-<pre>
+<div class="add-horizontal-scroll"><pre>
 def greet(name):
     print("Hello,", name)
-</pre>
+</pre></div>
             </span></li>
             <li><span id="spap_4_1_l2"><strong>Call:</strong> You execute the function by writing its name: <code>greet("Alice")</code>.</span></li>
             <li><span id="spap_4_1_l3"><strong>Arguments:</strong> Data passed into a function.
@@ -461,7 +459,7 @@ def greet(name):
         <h3><span id="spap_5_1">Python Files </span></h3>
         <p><span id="spap_5_1_p1">Used to read from and write to files on your disk.</span></p>
         <p><span id="spap_5_1_p2"><strong>Best Practice (<code>with open</code>):</strong> This automatically closes the file for you.</span></p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 # Writing to a file (overwrites)
 with open("output.txt", "w") as f:
     f.write("Hello, file!\n")
@@ -470,7 +468,7 @@ with open("output.txt", "w") as f:
 # Reading from a file
 with open("output.txt", "r") as f:
     content = f.read()print(content)
-</pre>
+</pre></div>
         <p><span id="spap_5_1_p3"><strong>Modes:</strong> <code>"r"</code> (read), <code>"w"</code> (write, overwrites), <code>"a"</code> (append), <code>"r+"</code> (read/write).</span></p>
 
         <h3><span id="spap_5_2">Exception Handling </span></h3>
@@ -480,14 +478,14 @@ with open("output.txt", "r") as f:
             <li><span id="spap_5_2_l2"><strong><code>except</code>:</strong> The block that runs *if* an error occurs. You can catch specific exceptions (e.g., <code>ZeroDivisionError</code>, <code>FileNotFoundError</code>).</span></li>
             <li><span id="spap_5_2_l3"><strong><code>finally</code>:</strong> This block runs *no matter what* (whether an error occurred or not). Used for cleanup.</span></li>
         </ul>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 try:
     x = 10 / 0
 except ZeroDivisionError:
     print("You cannot divide by zero!")
 finally:
     print("This always runs.")
-</pre>
+</pre></div>
         <ul>
             <li><span id="spap_5_2_l4"><strong>User-defined Exception:</strong> You can create your own exceptions by inheriting from the <code>Exception</code> class.</span></li>
         </ul>
@@ -496,7 +494,7 @@ finally:
         <p><span id="spap_5_3_p1">Matplotlib is a powerful library for creating static, animated, and interactive visualizations.</span></p>
         <p><span id="spap_5_3_p2"><strong>Installation:</strong> You must first install it: <code>pip install matplotlib</code></span></p>
         <p><span id="spap_5_3_p3"><strong>Basic Example (Line Plot):</strong></span></p>
-        <pre>
+        <div class="add-horizontal-scroll"><pre>
 import matplotlib.pyplot as plt
 
 x = [1, 2, 3, 4]
@@ -507,7 +505,7 @@ plt.title("Simple Line Plot")
 plt.xlabel("X-Axis")
 plt.ylabel("Y-Axis")
 plt.show() # Display the plot
-</pre>
+</pre></div>
         <p><span id="spap_5_3_p4">Other common plots include <code>plt.bar()</code> (bar chart), <code>plt.hist()</code> (histogram), and <code>plt.pie()</code> (pie chart).</span></p>
 
     </div>

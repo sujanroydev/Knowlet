@@ -172,8 +172,7 @@
         <p>A <strong>flowchart</strong> is a graphical or visual representation of an algorithm. It uses standard symbols to show the sequence of operations and the flow of logic.</p>
         
         <h3>Common Flowchart Symbols</h3>
-        <div class="add-horizontal-scroll">
-        <table>
+        <div class="add-horizontal-scroll"><table>
             <thead>
                 <tr>
                     <th>Symbol</th>
@@ -208,8 +207,7 @@
                     <td>Connect the symbols and show the direction of logic flow.</td>
                 </tr>
             </tbody>
-        </table>
-        </div>
+        </table></div>
         <h2 id="topic4">Control Structures (Decision Making)</h2>
         <p>These structures allow the algorithm to make choices and execute different paths based on certain conditions.</p>
         
@@ -219,7 +217,7 @@
 IF (condition is true) THEN
     Execute this statement
 ENDIF
-</pre>
+</pre></div>
 
         <h3>2. if-then-else</h3>
         <p>Executes one block of code if the condition is true, and a different block if it is false.</p>
@@ -229,7 +227,7 @@ IF (condition is true) THEN
 ELSE
     Execute statement_block_B
 ENDIF
-</pre>
+</pre></div>
 
         <h3>3. nested if-then-else</h3>
         <p>A multi-way decision structure, often used to check several related conditions. (Also known as an `if-elseif-else` ladder).</p>
@@ -241,7 +239,7 @@ ELSE IF (condition_2 is true) THEN
 ELSE
     Execute statement_block_C
 ENDIF
-</pre>
+</pre></div>
         
         <h2 id="topic5">Control Structures (Loops)</h2>
         <p>Loops (or iterations) allow a block of code to be executed repeatedly.</p>
@@ -252,7 +250,7 @@ ENDIF
 FOR counter = start_value TO end_value
     Execute this block of statements
 ENDFOR
-</pre>
+</pre></div>
 
         <h3>2. while loop</h3>
         <p>A **pre-test** loop. The condition is checked *before* the loop body is executed. The body will run <strong>as long as</strong> the condition is true. It might not run at all if the condition is false from the start.</p>
@@ -262,7 +260,7 @@ WHILE (condition is true) DO
     (Ensure a statement here updates the condition,
      e.g., increment a counter)
 ENDWHILE
-</pre>
+</pre></div>
 
         <h3>3. do-while loop</h3>
         <p>A **post-test** loop. The loop body is executed first, and *then* the condition is checked. This guarantees the loop body runs <strong>at least once</strong>.</p>
@@ -270,7 +268,7 @@ ENDWHILE
 DO
     Execute this block of statements
 WHILE (condition is true)
-</pre>
+</pre></div>
         <div class="exam-tip">
             <strong>Exam Tip:</strong> Be able to state the key difference between a <strong>while</strong> loop (pre-test, 0 or more executions) and a <strong>do-while</strong> loop (post-test, 1 or more executions).
         </div>
@@ -291,7 +289,7 @@ START
     Print "a is now: ", a
     Print "b is now: ", b
 END
-</pre>
+</pre></div>
 
         <h3>Algorithm: Factorial of a Number (N)</h3>
 <pre class="code-block">
@@ -308,7 +306,7 @@ START
     
     Print "Factorial of ", N, " is ", fact
 END
-</pre>
+</pre></div>
 
         <h3>Algorithm: Fibonacci Series (Print first N terms)</h3>
 <pre class="code-block">
@@ -328,7 +326,7 @@ START
         Set b = next
     ENDFOR
 END
-</pre>
+</pre></div>
 
         <h3>Algorithm: Roots of a Quadratic Equation (ax² + bx + c = 0)</h3>
 <pre class="code-block">
@@ -354,7 +352,7 @@ START
               " and ", realPart, "-i", imagPart
     ENDIF
 END
-</pre>
+</pre></div>
         <h2 id="topic7">Introduction to Arrays</h2>
         <blockquote>
             An <strong>array</strong> is a data structure that stores a collection of elements of the <strong>same data type</strong> in <strong>contiguous</strong> (one after another) memory locations.

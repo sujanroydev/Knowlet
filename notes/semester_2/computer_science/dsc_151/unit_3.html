@@ -257,13 +257,13 @@
         <h4>1. Inorder Traversal (L-P-R)</h4>
         <ul>
             <li><strong>Recursive:</strong>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 function inorder(node):
     if node == NULL: return
     inorder(node.left)
     visit(node.data)
     inorder(node.right)
-</pre>
+</pre></div>
             </li>
             <li><strong>Iterative (using a Stack):</strong>
                 <ol>
@@ -284,13 +284,13 @@ function inorder(node):
         <h4>2. Preorder Traversal (P-L-R)</h4>
         <ul>
             <li><strong>Recursive:</strong>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 function preorder(node):
     if node == NULL: return
     visit(node.data)
     preorder(node.left)
     preorder(node.right)
-</pre>
+</pre></div>
             </li>
             <li><strong>Iterative (using a Stack):</strong>
                 <ol>
@@ -308,13 +308,13 @@ function preorder(node):
         <h4>3. Postorder Traversal (L-R-P)</h4>
         <ul>
             <li><strong>Recursive:</strong>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 function postorder(node):
     if node == NULL: return
     postorder(node.left)
     postorder(node.right)
     visit(node.data)
-</pre>
+</pre></div>
             </li>
             <li><strong>Iterative (using two Stacks):</strong> This is the most complex iterative traversal. A simpler (but modified) approach uses one stack.</li>
             <li><strong>Utility:</strong> Used to delete a tree. You must delete children before you can delete the parent.</li>

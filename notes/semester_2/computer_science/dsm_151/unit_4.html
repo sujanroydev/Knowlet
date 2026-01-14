@@ -164,7 +164,7 @@
 
         <h3 id="spap_4_1_1"><span id="spap_4_1_1_span">Basics and Processing</span></h3>
         <p><span id="spap_4_1_1_p1">You define a structure using the <code>struct</code> keyword. To access its "members" (the variables inside), you use the <strong>dot operator (<code>.</code>)</strong>.</span></p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 // 1. Definition of the structure
 struct Student {
     int rollNo;
@@ -186,10 +186,10 @@ int main() {
     printf("Name: %s\n", s1.name);
     return 0;
 }
-</pre>
+</pre></div>
         <h3 id="spap_4_1_2"><span id="spap_4_1_2_span">User Defined Data Types (typedef) </span></h3>
         <p><span id="spap_4_1_2_p1">The <code>typedef</code> keyword creates an <strong>alias</strong> or a new name for an existing data type. It's most often used with structures to avoid writing <code>struct Student</code> every time.</span></p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 // Define the struct AND create a typedef
 typedef struct Student {
     int rollNo;
@@ -203,7 +203,7 @@ int main() {
     s1.rollNo = 101;
     return 0;
 }
-</pre>
+</pre></div>
 
         <h2 id="spap_4_2"><span id="spap_4_2_span">2. Structures with Pointers and Functions </span></h2>
 
@@ -211,7 +211,7 @@ int main() {
         <p><span id="spap_4_2_1_p1">You can create a pointer to a structure just like any other variable.</span></p>
         <blockquote><span id="spap_4_2_1_p2">To access members using a structure <strong>variable</strong>, use the dot operator (<code>.</code>).<br>
         To access members using a structure <strong>pointer</strong>, use the <strong>arrow operator (<code>-></code>)</strong>.</span></blockquote>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 Student_t s1;
 Student_t *ptr; // 'ptr' is a pointer to a Student_t
 
@@ -222,11 +222,11 @@ s1.rollNo = 101;
 ptr->rollNo = 101; // (*ptr).rollNo is the same
 
 printf("Roll No: %d\n", ptr->rollNo);
-</pre>
+</pre></div>
 
         <h3 id="spap_4_2_2"><span id="spap_4_2_2_span">Structures and Functions </span></h3>
         <p><span id="spap_4_2_2_p1">Passing large structures to functions by value (making a copy) is inefficient. It's almost always better to <strong>pass a pointer</strong> to the structure.</span></p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 // This function takes a POINTER to a Student_t
 void displayStudent(Student_t *s) {
     printf("Roll: %d\n", s->rollNo); // Use ->
@@ -240,13 +240,13 @@ int main() {
     displayStudent(&s1); 
     return 0;
 }
-</pre>
+</pre></div>
 
         <h2 id="spap_4_3"><span id="spap_4_3_span">3. Advanced Structures </span></h2>
 
         <h3 id="spap_4_3_1"><span id="spap_4_3_1_span">Arrays of Structures </span></h3>
         <p><span id="spap_4_3_1_p1">You can create an array where each element is a complete structure. This is perfect for storing records, like a class full of students.</span></p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 // Creates an array to hold 60 students
 Student_t cseClass[60];
 
@@ -257,22 +257,22 @@ strcpy(cseClass[5].name, "Anita");
 // Access with pointers
 Student_t *ptr = cseClass; // Points to cseClass[0]
 (ptr + 5)->rollNo = 106; // Same as above
-</pre>
+</pre></div>
 
         <h3 id="spap_4_3_2"><span id="spap_4_3_2_span">Self-referential Structures </span></h3>
         <p><span id="spap_4_3_2_p1">A self-referential structure is a structure that contains a <strong>pointer to itself</strong> (i.e., a pointer to another structure of the same type).</span></p>
         <p><span id="spap_4_3_2_p2">This concept is the fundamental building block for all dynamic data structures like <strong>Linked Lists</strong> and <strong>Trees</strong>.</span></p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 // A node in a linked list
 typedef struct Node {
     int data;
     struct Node *next; // Pointer to another 'Node'
 } Node_t;
-</pre>
+</pre></div>
 
         <h3 id="spap_4_3_3"><span id="spap_4_3_3_span">Table Lookup </span></h3>
         <p><span id="spap_4_3_3_p1">"Table lookup" is a programming technique, not a C feature. It involves searching for a value in a table (often an array of structures) to find its corresponding data.</span></p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 // Example: A table to look up error codes
 struct ErrorCode {
     int code;
@@ -294,12 +294,12 @@ char* lookup(int code) {
     }
     return "Unknown Error";
 }
-</pre>
+</pre></div>
 
         <h2 id="spap_4_4"><span id="spap_4_4_span">4. Unions (union) </span></h2>
         <p><span id="spap_4_4_p1">A <strong>union</strong> is like a structure, but all its members <strong>share the same memory location</strong>.</span></p>
         <p><span id="spap_4_4_p2">The size of a union is the size of its <strong>largest member</strong>. You can only use *one* member at a time. This is used to save memory when you know you will only need one of several possible values at any given time.</span></p>
-        <pre>
+        <div class="add-horizontal-scroll"><pre>
 typedef union Data {
     int i;
     float f;
@@ -319,7 +319,7 @@ int main() {
     // The integer value is now GONE (corrupted)
     printf("Int: %d\n", val.i); // Prints garbage
 }
-</pre>
+</pre></div>
         <div class="exam-tip">
             <span id="spap_4_4_tip1"><strong>Struct vs. Union:</strong>
             <ul>

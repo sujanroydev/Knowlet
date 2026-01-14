@@ -165,7 +165,7 @@
         <h2 id="topic1">Simple Computer Programs</h2>
         <p>A "simple computer program" in C typically follows a basic structure. It's the skeleton into which you place your logic.</p>
         <p>The most basic C program ("Hello, World!") is:</p>
-<pre><code class="language-c"><span class="comment">// 1. Preprocessor Directive: Includes the Standard I/O library</span>
+<div class="add-horizontal-scroll"><pre><code class="language-c"><span class="comment">// 1. Preprocessor Directive: Includes the Standard I/O library</span>
 <span class="preprocessor">#include &lt;stdio.h&gt;</span>
 
 <span class="comment">// 2. The main function: Entry point of every C program</span>
@@ -177,14 +177,13 @@
     <span class="comment">// 4. Return Statement: Informs the OS that the program finished successfully</span>
     <span class="keyword">return</span> <span class="number">0</span>;
 }
-</code></pre>
+</code></pre></div>
         <p>All programs in this course will be built inside this <code class="function">main() { ... }</code> block.</p>
 
         <h2 id="topic2">Relational Operators</h2>
         <p>Relational operators are used to **compare** two values. They are the foundation of decision-making in C. The result of a comparison is always a Boolean value: <code class="number">1</code> (for true) or <code class="number">0</code> (for false).</p>
         
-        <div class="add-horizontal-scroll">
-        <table>
+        <div class="add-horizontal-scroll"><table>
             <thead>
                 <tr>
                     <th>Operator</th>
@@ -231,8 +230,7 @@
                     <td>0 (false)</td>
                 </tr>
             </tbody>
-        </table>
-        </div>
+        </table></div>
 
         <div class="exam-tip">
             <strong>CRITICAL:</strong> Do not confuse the <strong>assignment</strong> operator (<code class="formula">=</code>) with the <strong>equality</strong> operator (<code class="formula">==</code>).
@@ -246,8 +244,7 @@
         <h2 id="topic3">Logical Operators</h2>
         <p>Logical operators are used to combine or invert the results of relational expressions. They are used to build complex logical statements.</p>
 
-        <div class="add-horizontal-scroll">
-        <table>
+        <div class="add-horizontal-scroll"><table>
             <thead>
                 <tr>
                     <th>Operator</th>
@@ -276,8 +273,7 @@
                     <td><code class="formula">!A</code> is 0 (false)<br><code class="formula">!B</code> is 1 (true)</td>
                 </tr>
             </tbody>
-        </table>
-        </div>
+        </table></div>
 
         <h2 id="topic4">Logical Expression and Statements</h2>
         <p>A <strong>logical expression</strong> is any expression that evaluates to either true (1) or false (0). We create them by combining relational and logical operators.</p>
@@ -303,7 +299,7 @@
         
         <h2 id="topic5">Example Program (Unit 2)</h2>
         <p>This program demonstrates relational and logical operators by checking if a number is positive and even.</p>
-<pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<div class="add-horizontal-scroll"><pre><code class="language-c"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
 
 <span class="keyword">int</span> <span class="function">main</span>() {
     <span class="keyword">int</span> num;
@@ -337,7 +333,7 @@
 
     <span class="keyword">return</span> <span class="number">0</span>;
 }
-</code></pre>
+</code></pre></div>
 
         <h2 id="topic6">Unit 2: Exam Quick Tips</h2>
         <div class="exam-tip">

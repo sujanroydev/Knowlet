@@ -99,13 +99,13 @@
             <p><strong>Task:</strong> Using a loop, print a table of Celsius/Fahrenheit equivalences from 0 to 100.</p>
             <h4><span id="spap_lab_1_logic">Logic</span></h4>
             <p><span id="spap_lab_1_p1">The formula is F = (C * 9/5) + 32.</span></p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 print("Celsius  |  Fahrenheit")
 print("-----------------------")
 for c in range(0, 101):
     f = (c * 9/5) + 32
     print(f"{c:7}  |  {f:10.1f}")
-</pre>
+</pre></div>
         </div>
         
         <div class="assignment-box">
@@ -113,7 +113,7 @@ for c in range(0, 101):
             <p><strong>Task:</strong> Using a <code>while</code> loop, produce a table of sins, cosines, and tangents for x from 0 to 10 in steps of 0.2.</p>
             <h4><span id="spap_lab_2_logic">Logic</span></h4>
             <p><span id="spap_lab_2_p1">You must import the <code>math</code> module.</span></p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 import math
 
 print("x    |  sin(x)  |  cos(x)  |  tan(x)")
@@ -125,7 +125,7 @@ while x <= 10.0:
     t = math.tan(x)
     print(f"{x:.1f}  |  {s:+.4f}  |  {c:+.4f}  |  {t:+.4f}")
     x += 0.2
-</pre>
+</pre></div>
         </div>
 
         <div class="assignment-box">
@@ -133,14 +133,14 @@ while x <= 10.0:
             <p><strong>Task:</strong> Read an integer and print "leap year" or "not a leap year".</p>
             <h4><span id="spap_lab_3_logic">Logic</span></h4>
             <p><span id="spap_lab_3_p1">A leap year is divisible by 4, except for years divisible by 100, unless they are also divisible by 400.</span></p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 year = int(input("Enter a year: "))
 
 if (year % 400 == 0) or (year % 100 != 0 and year % 4 == 0):
     print(f"{year} is a leap year.")
 else:
     print(f"{year} is not a leap year.")
-</pre>
+</pre></div>
         </div>
         
         <div class="assignment-box">
@@ -148,20 +148,20 @@ else:
             <p><strong>Task:</strong> Take a number <code>n</code> and print a pattern (e.g., a triangle of stars).</p>
             <h4><span id="spap_lab_4_5_logic">Logic</span></h4>
             <p><span id="spap_lab_4_5_p1">This uses nested loops. The outer loop controls the rows, the inner loop controls the columns.</span></p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 n = 5
 for i in range(1, n + 1):
     for j in range(i):
         print("*", end="")
     print() # Newline
-</pre>
+</pre></div>
         </div>
 
         <div class="assignment-box">
             <h3><span id="spap_lab_6">Assignment 6: Series Calculation [cite: 390-391]</span></h3>
             <p><strong>Task:</strong> Write a function that takes <code>n</code> and calculates <code>1 + 1/1! + 1/2! + ... + 1/n!</code></p>
             <h4><span id="spap_lab_6_logic">Logic</span></h4>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 import math
 
 def calculate_series(n):
@@ -171,7 +171,7 @@ def calculate_series(n):
     return total_sum
 
 print(calculate_series(5))
-</pre>
+</pre></div>
         </div>
         
         <div class="assignment-box">
@@ -179,7 +179,7 @@ print(calculate_series(5))
             <p><strong>Task 7:</strong> Write a function to calculate the factorial of an integer.</p>
             <p><strong>Task 8:</strong> Write a function to check if a string is a palindrome.</p>
             <h4><span id="spap_lab_7_8_logic">Logic</span></h4>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 def factorial(n):
     if n == 0:
         return 1
@@ -195,7 +195,7 @@ def is_palindrome(s):
 print(factorial(5))
 print(is_palindrome("racecar"))
 print(is_palindrome("hello"))
-</pre>
+</pre></div>
         </div>
 
         <div class="assignment-box">
@@ -207,13 +207,13 @@ print(is_palindrome("hello"))
                 <li><span id="spap_lab_9_14_l4"><strong>(12) Compare 3 numbers:</strong> Use <code>if/elif/else</code>.</span></li>
                 <li><span id="spap_lab_9_14_l5"><strong>(13) Factors:</strong> Loop from 1 to <code>n</code>, check <code>if n % i == 0</code>.</span></li>
                 <li><span id="spap_lab_9_14_l6"><strong>(14) GCD:</strong> Use the Euclidean algorithm.
-<pre>
+<div class="add-horizontal-scroll"><pre>
 def gcd(a, b):
     while b:
         a, b = b, a % b
     return a
 print(gcd(48, 18))
-</pre>
+</pre></div>
                 </span></li>
             </ul>
         </div>
@@ -222,7 +222,7 @@ print(gcd(48, 18))
             <h3><span id="spap_lab_15">Assignment 15: Sorting </span></h3>
             <p><strong>Task:</strong> Sort a list using Insertion, Bubble, and Selection sort.</p>
             <h4><span id="spap_lab_15_logic">Logic</span></h4>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 def bubble_sort(arr):
     n = len(arr)
     for i in range(n):
@@ -232,7 +232,7 @@ def bubble_sort(arr):
     return arr
 
 # (Implement selection_sort and insertion_sort similarly)
-</pre>
+</pre></div>
         </div>
         
         <div class="assignment-box">
@@ -240,7 +240,7 @@ def bubble_sort(arr):
             <p><strong>Task 16:</strong> Problems related to file handling and exceptions.</p>
             <p><strong>Task 17:</strong> Problems related to string manipulations.</p>
             <h4><span id="spap_lab_16_17_logic">Logic</span></h4>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 # Exception Handling
 try:
     f = open("non_existent_file.txt", "r")
@@ -255,7 +255,7 @@ s = "   Hello, World!   "
 print(s.strip())         # "Hello, World!"
 print(s.split(','))      # ['   Hello', ' World!   ']
 print(s.upper())         # "   HELLO, WORLD!   "
-</pre>
+</pre></div>
         </div>
         
         <div class="assignment-box">
@@ -263,7 +263,7 @@ print(s.upper())         # "   HELLO, WORLD!   "
             <p><strong>Task:</strong> Write a program to draw a line, bar, histogram, pie chart, etc.</p>
             <h4><span id="spap_lab_18_logic">Logic</span></h4>
             <p><span id="spap_lab_18_p1">Requires <code>matplotlib</code>. (Run <code>pip install matplotlib</code> first).</span></p>
-<pre>
+<div class="add-horizontal-scroll"><pre>
 import matplotlib.pyplot as plt
 
 # --- Bar Chart ---
@@ -278,7 +278,7 @@ sizes = [15, 30, 45, 10]
 plt.pie(sizes, labels=['Frogs', 'Hogs', 'Dogs', 'Logs'], autopct='%1.1f%%')
 plt.title("Pie Chart")
 plt.show()
-</pre>
+</pre></div>
             </div>
 
     </div>

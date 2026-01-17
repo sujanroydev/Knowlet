@@ -86,7 +86,8 @@ btnSubmit.addEventListener("click", () => {
         fv_subject: fvSubject,
         stream: stream,
         standered: standered,
-        picture: picture
+        picture: picture,
+        password: JSON.parse(localStorage.getItem("knowletUser")).password
     }
 
     localStorage.setItem("knowletUser", JSON.stringify(user))

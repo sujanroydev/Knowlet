@@ -1,8 +1,3 @@
-const SUPABASE_URL = "https://ampwczxrfpbqlkuawrdf.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFtcHdjenhyZnBicWxrdWF3cmRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI3OTk4MzYsImV4cCI6MjA3ODM3NTgzNn0.hFib9Y5x02b5VWjKuNi1XkUYvycmrp0DQhnwNkOGJEU";
-
-const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
 const loginBtn = document.getElementById("login-btn");
 const SignupBtn = document.getElementById("signup-btn");
 const logoutBtn = document.getElementById("logout-btn");
@@ -52,25 +47,35 @@ async function sync() {
         return;
     }
     
-    console.log(user);
     loader.style.display = "flex";
     const oldData = user;
-    const { data, error } = await supabaseClient
-        .from("user")
-        .select("*")
-        .eq("id", user.id)
-        .eq("email", user.email);
+    
+    const res = await fetch(
+        'https://knowlet.in/.netlify/functions/get-data',
+        {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ email: user.email, password: user.password })
+        }
+    );
     
     loader.style.display = "none";
     
-    if (error) {
-        alert(error.message);
-        // return;
+    if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
     }
+
+    const result = await res.json();
+
+    if (!result.success) {
+        throw new Error(result.error || "Unknown error occurred");
+    }
+    
+    const data = result.data;
+    const error = result.error;
     
     if (!data && !error) {
         alert("Your account has been deleted");
-        // return;
     }
     
     if (error || !data) {
@@ -80,7 +85,6 @@ async function sync() {
     }
     
     if (user) {
-        console.log(user);
         localStorage.setItem("knowletUser", JSON.stringify(user));
         
         userName.textContent = user.name;
@@ -92,7 +96,6 @@ async function sync() {
         loginBtn.style.display = "none";
         SignupBtn.style.display = "none";
         logoutBtn.style.display = "block";
-        //comProfileBtn.style.display = "block";
     }
 }
 

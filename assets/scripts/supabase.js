@@ -1,79 +1,10 @@
-function buildUI() {
-    const app = document.getElementById("app");
-    app.innerHTML = `
-        <div class="supcontainer">
-            <div class="supcard">
-                <h1 style='font-size:20px; margin:0 0 8px;'>Comments & Ratings</h1>
-                <h2 id='h3' style='font-size:16px; margin:0 0 14px; color:69707a;'>Star Rating, Average, and Clean UI</h2>
-        
-                <!-- Hidden page id (change value if embedding) -->
-                <input type="hidden" id="page-id" value="simple_test_page">
-        
-                <!-- Rating row -->
-                <div style="margin:14px 0;" class="supcard">
-                    <div class="row" style="justify-content:space-between;">
-                        
-                        <div class="rating-widget" style="margin-top:8px; flex-direction:column; align-items:flex-start;">
-                            <div style="display:flex; gap:6px; align-items:center;">
-                                <div id="star-input" class="stars" aria-label="Rate 1 to 5 stars" role="radiogroup">
-                                    <!-- stars added by JS -->
-                                </div>
-                                <button id="btn-submit-rating" class="btn">Submit</button>
-                                <button id="clear-rating" class="btn ghost">Clear</button>
-                            </div>
-                        
-                            <textarea id="rating-message" placeholder="Write a message (optional)..." style="margin-top:10px; width:95%; min-height:60px; padding:10px; border-radius:8px; border:1px solid var(--border); font-size:14px;"></textarea>
-                        </div>
-                        
-                        <div style="text-align:right;">
-                            <div class="muted">Average rating</div>
-                            <div style="margin-top:8px;" class="rating-summary">
-                                <div id="avg-stars" class="avg-stars" aria-hidden="true"></div>
-                                <div>
-                                    <div style="font-weight:700; font-size:16px;" id="avg-number">—</div>
-                                    <div class="muted" id="total-count">0 ratings</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        
-                <!-- Add comment -->
-                <div class="supcard comment-area">
-                    <div class="muted">Post a comment</div>
-                    <textarea id="comment-input" placeholder="Write a comment..."></textarea>
-                    <div style="margin-top:10px; display:flex; gap:10px; justify-content:flex-end">
-                        <button id="btn-post-comment" class="btn" onclick="submitComment()">Post</button>
-                    </div>
-                </div>
-        
-                <!-- Ratings list -->
-                <div class="supcard">
-                    <h2 id='h3' style="margin-bottom:8px; font-size:16px; margin:0 0 14px; color:69707a;">Ratings</h2>
-                    <button id="btn-toggle-ratings" class="btn" onclick="toggleRatings()" style="margin-bottom: 5px">See Ratings</button>
-                    <div id="ratings-box" style="display:none"></div>
-                </div>
-        
-                <!-- Comments list -->
-                <div class="supcard">
-                    <h2 id='h3' style="margin-bottom:8px; font-size:16px; margin:0 0 14px; color:69707a;">Comments</h2>
-                    <button id="btn-toggle-comments" class="btn" onclick="toggleComments()" style="margin-bottom: 5px">See Comments</button>
-                    <div id="comments-box" style="display:none"></div>
-                </div>
-            </div>
-        </div>        
-    `;
-
-    
-}
-
-// Create UI on load
-buildUI();
-
 const SUPABASE_URL = "https://ampwczxrfpbqlkuawrdf.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFtcHdjenhyZnBicWxrdWF3cmRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI3OTk4MzYsImV4cCI6MjA3ODM3NTgzNn0.hFib9Y5x02b5VWjKuNi1XkUYvycmrp0DQhnwNkOGJEU";
 
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+// Create UI on load v
+buildUI();
 
 let selectedRating = 0;        // user's chosen star (1..5)
 let hoverRating = 0;             // hover preview
@@ -647,6 +578,76 @@ function escapeHtml(text) {
         .replaceAll(">", "&gt;")
         .replaceAll('"', "&quot;")
         .replaceAll("'", "&#039;");
+}
+
+// build ui
+function buildUI() {
+    const app = document.getElementById("app");
+    app.innerHTML = `
+        <div class="supcontainer">
+            <div class="supcard">
+                <h1 style='font-size:20px; margin:0 0 8px;'>Comments & Ratings</h1>
+                <h2 id='h3' style='font-size:16px; margin:0 0 14px; color:69707a;'>Star Rating, Average, and Clean UI</h2>
+        
+                <!-- Hidden page id (change value if embedding) -->
+                <input type="hidden" id="page-id" value="simple_test_page">
+        
+                <!-- Rating row -->
+                <div style="margin:14px 0;" class="supcard">
+                    <div class="row" style="justify-content:space-between;">
+                        
+                        <div class="rating-widget" style="margin-top:8px; flex-direction:column; align-items:flex-start;">
+                            <div style="display:flex; gap:6px; align-items:center;">
+                                <div id="star-input" class="stars" aria-label="Rate 1 to 5 stars" role="radiogroup">
+                                    <!-- stars added by JS -->
+                                </div>
+                                <button id="btn-submit-rating" class="btn">Submit</button>
+                                <button id="clear-rating" class="btn ghost">Clear</button>
+                            </div>
+                        
+                            <textarea id="rating-message" placeholder="Write a message (optional)..." style="margin-top:10px; width:95%; min-height:60px; padding:10px; border-radius:8px; border:1px solid var(--border); font-size:14px;"></textarea>
+                        </div>
+                        
+                        <div style="text-align:right;">
+                            <div class="muted">Average rating</div>
+                            <div style="margin-top:8px;" class="rating-summary">
+                                <div id="avg-stars" class="avg-stars" aria-hidden="true"></div>
+                                <div>
+                                    <div style="font-weight:700; font-size:16px;" id="avg-number">—</div>
+                                    <div class="muted" id="total-count">0 ratings</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Add comment -->
+                <div class="supcard comment-area">
+                    <div class="muted">Post a comment</div>
+                    <textarea id="comment-input" placeholder="Write a comment..."></textarea>
+                    <div style="margin-top:10px; display:flex; gap:10px; justify-content:flex-end">
+                        <button id="btn-post-comment" class="btn" onclick="submitComment()">Post</button>
+                    </div>
+                </div>
+        
+                <!-- Ratings list -->
+                <div class="supcard">
+                    <h2 id='h3' style="margin-bottom:8px; font-size:16px; margin:0 0 14px; color:69707a;">Ratings</h2>
+                    <button id="btn-toggle-ratings" class="btn" onclick="toggleRatings()" style="margin-bottom: 5px">See Ratings</button>
+                    <div id="ratings-box" style="display:none"></div>
+                </div>
+        
+                <!-- Comments list -->
+                <div class="supcard">
+                    <h2 id='h3' style="margin-bottom:8px; font-size:16px; margin:0 0 14px; color:69707a;">Comments</h2>
+                    <button id="btn-toggle-comments" class="btn" onclick="toggleComments()" style="margin-bottom: 5px">See Comments</button>
+                    <div id="comments-box" style="display:none"></div>
+                </div>
+            </div>
+        </div>        
+    `;
+
+    
 }
 
 //Wire up UI and init

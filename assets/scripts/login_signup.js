@@ -1,8 +1,3 @@
-const SUPABASE_URL = "https://ampwczxrfpbqlkuawrdf.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFtcHdjenhyZnBicWxrdWF3cmRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI3OTk4MzYsImV4cCI6MjA3ODM3NTgzNn0.hFib9Y5x02b5VWjKuNi1XkUYvycmrp0DQhnwNkOGJEU";
-
-const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
 const input = document.getElementsByClassName("user-input");
 const loginBtn = document.getElementById("login-btn");
 const signupBtn = document.getElementById("signup-btn");
@@ -143,41 +138,27 @@ async function signup(name, email, password) {
     
     try {
         // new
-        // loader.style.display = "flex";
-        // const res = await fetch(
-        //     'https://knowlet.in/.netlify/functions/set-data',
-        //     {
-        //         method: 'POST',
-        //         headers: {'Content-Type': 'application/json'},
-        //         body: JSON.stringify(user)
-        //     }
-        // );
-        // loader.style.display = "none";
-        
-        // if (!res.ok) {
-        //     throw new Error(`HTTP error! status: ${res.status}`);
-        // }
-
-        // const result = await res.json();
-
-        // if (!result.success) {
-        //     throw new Error(result.error || "Unknown error occurred");
-        // }
-
-        // localStorage.setItem("knowletUser", JSON.stringify(user));
-        // alert("Successfully Signed Up\n" + "Note your user ID: " + userId);
-        // redirect();
-        
         loader.style.display = "flex";
-        
-        const { error } = await supabaseClient
-        	.from("user")
-        	.insert(user);
-        
+        const res = await fetch(
+            'https://knowlet.in/.netlify/functions/set-data',
+            {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(user)
+            }
+        );
         loader.style.display = "none";
         
-        if (error) alert(error.message);
-        
+        if (!res.ok) {
+            console.log(`HTTP error! status: ${res.status}`);
+        }
+
+        const result = await res.json();
+
+        if (!result.success) {
+            throw new Error(result.error || "Unknown error occurred");
+        }
+
         localStorage.setItem("knowletUser", JSON.stringify(user));
         alert("Successfully Signed Up\n" + "Note your user ID: " + userId);
         redirect();

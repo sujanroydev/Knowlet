@@ -16,9 +16,10 @@ export default async (request) => {
     }
     
     const body = await request.json();
-    const { email, password } = body;
     
     try {
+    	const { email, password } = body;
+    	
         const { data, error } = await supabaseClient
                 .from('user')
                 .select('*')

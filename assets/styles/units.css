@@ -1,62 +1,62 @@
 /* ===========================
-   Knowlet Unit Top Bar (Pinned + Fixed)
-   =========================== */
+     Knowlet Unit Top Bar (Pinned + Fixed)
+     =========================== */
 
 .unit-top-bar {
-  position: fixed;        /* Always fixed to viewport */
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px 16px;
-  background: rgba(255, 255, 255, 0.97);
-  border-bottom: 1px solid #ddd;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
-  z-index: 9999;
-  font-family: system-ui, sans-serif;
-  backdrop-filter: blur(6px); /* smooth blur for better look */
-  opacity: 1;                /* fully visible */
-  transform: translateY(0);  /* no animation offset */
+    position: fixed;                /* Always fixed to viewport */
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    z-index: 9999;
+    font-family: system-ui, sans-serif;
+    backdrop-filter: blur(6px); /* smooth blur for better look */
+    opacity: 1;                                /* fully visible */
+    transform: translateY(0);    /* no animation offset */
 }
 
 /* --- Base style for all buttons and links --- */
 .unit-top-bar button,
 .unit-top-bar a {
-  all: unset;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  background: #f5f5f5;
-  color: #333;
-  cursor: pointer;
-  font-size: 20px;
-  transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+    all: unset;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: #f5f5f5;
+    color: #333;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
 }
 
 .unit-top-bar button:hover,
 .unit-top-bar a:hover {
-  filter: brightness(1.1);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    filter: brightness(1.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .unit-top-bar button:active,
 .unit-top-bar a:active {
-  transform: scale(0.95);
+    transform: scale(0.95);
 }
 
 /* --- Disabled navigation (frozen state) --- */
 .unit-top-bar a.disabled {
-  pointer-events: none;
-  opacity: 0.5;
-  background: #ccc;
-  color: #666;
-  cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.5;
+    background: #ccc;
+    color: #666;
+    cursor: not-allowed;
 }
 
 /* --- Icons --- */
@@ -76,40 +76,46 @@
 #fav-btn.favourited { background: #d9534f; color: #fff; }
 #keep-screen-on-btn { background: #0078ff; color: #fff; }
 #keep-screen-on-btn.active {
-  background: #00b359;
-  animation: pulseGlow 2s infinite ease-in-out;
+    background: #00b359;
+    animation: pulseGlow 2s infinite ease-in-out;
 }
 
 /* --- Glow animation --- */
 @keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 6px rgba(0, 180, 90, 0.5); }
-  50% { box-shadow: 0 0 14px rgba(0, 180, 90, 0.8); }
+    0%, 100% { box-shadow: 0 0 6px rgba(0, 180, 90, 0.5); }
+    50% { box-shadow: 0 0 14px rgba(0, 180, 90, 0.8); }
 }
 
 /* --- Responsive (mobile-friendly) --- */
 @media (max-width: 600px) {
-  .unit-top-bar {
-    justify-content: center;
-    padding: 8px;
-    gap: 8px;
-  }
+    .unit-top-bar {
+        justify-content: center;
+        padding: 8px;
+        gap: 8px;
+    }
 
-  .unit-top-bar button,
-  .unit-top-bar a {
-    width: 36px;
-    height: 36px;
-    font-size: 18px;
-  }
+    .unit-top-bar button,
+    .unit-top-bar a {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+    }
 }
 
-  #btnLike{
-    width: auto;
-    padding: 0 4px;
-  }
+    #btnLike{
+        width: auto;
+        padding: 0 4px;
+    }
 /* --- Page content offset --- */
 .container {
-  margin-top: 70px; /* prevents content from hiding behind toolbar */
-  overflow: hidden;
+	max-width: 1000px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    padding: 25px;
+    margin-top: 70px; /* prevents content from hiding behind toolbar */
+    overflow: hidden;
 }
 
 pre, .add-horizontal-scroll {

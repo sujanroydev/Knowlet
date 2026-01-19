@@ -169,55 +169,33 @@ async function uploadAvatar() {
     const fileExt = "jpg" // compressedFile.name.split('.').pop();
     const fileName = `${userId.replaceAll("@", "").toLowerCase()}.${fileExt}`;
     const filePath = `users/${fileName}`;
-    
-    const { error } = await supabaseClient.storage
-        .from("avatars")
-        .upload(filePath, compressedFile, {
-            cacheControl: "3600",
-            upsert: true
-        });
 
-	// const formData = new FormData();
-	// formData.append("image", compressedFile); // <input type="file">
-	// formData.append("filePath", filePath);
+	const formData = new FormData();
+	formData.append("image", compressedFile); // <input type="file">
+	formData.append("filePath", filePath);
 
-	// const res = await fetch("https://knowlet.in/.netlify/functions/upload-image", {
-	//     method: "POST",
-	//     body: formData
-	// });
+	const res = await fetch("https://knowlet.in/.netlify/functions/upload-image", {
+	    method: "POST",
+	    body: formData
+	});
 
-	// if (!res.ok) {
-	// 	loader.style.display = "none";
-	// 	console.error(`Error code ${res.status}`);
-	// 	return;
-	// }
+	if (!res.ok) {
+		loader.style.display = "none";
+		console.error(`Error code ${res.status}`);
+		return;
+	}
 
-	// const result = res.json();
+	const result = await res.json();
 
-	// if (!result.success) {
-		// console.log(result.error);
-		// alert(error.message);
-		// return;
-	// };
+	if (!result.success) {
+		console.log(result.error);
+		alert(error.message);
+		return;
+	};
 
-	// loader.style.display = "none";
-	// editPopup.style.display = "none";
-	// profilePic.src = res.publicUrl + "?t=" + Date.now();
-
-    if (error) {
-        loader.style.display = "none";
-        console.error(error);
-        alert(error.message);
-        return;
-    }
-
-    const { data } = supabaseClient.storage
-        .from("avatars")
-        .getPublicUrl(filePath);
-
-    loader.style.display = "none";
-    editPopup.style.display = "none";
-    profilePic.src = data.publicUrl + "?t=" + Date.now();
+	loader.style.display = "none";
+	editPopup.style.display = "none";
+	profilePic.src = result.publicUrl + "?t=" + Date.now();
 }
 
 function compressWithCanvas(file, quality = 0.7, maxSize = 512) {

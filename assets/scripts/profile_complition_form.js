@@ -177,6 +177,33 @@ async function uploadAvatar() {
             upsert: true
         });
 
+	// const formData = new FormData();
+	// formData.append("image", compressedFile); // <input type="file">
+	// formData.append("filePath", filePath);
+
+	// const res = await fetch("https://knowlet.in/.netlify/functions/upload-image", {
+	//     method: "POST",
+	//     body: formData
+	// });
+
+	// if (!res.ok) {
+	// 	loader.style.display = "none";
+	// 	console.error(`Error code ${res.status}`);
+	// 	return;
+	// }
+
+	// const result = res.json();
+
+	// if (!result.success) {
+		// console.log(result.error);
+		// alert(error.message);
+		// return;
+	// };
+
+	// loader.style.display = "none";
+	// editPopup.style.display = "none";
+	// profilePic.src = res.publicUrl + "?t=" + Date.now();
+
     if (error) {
         loader.style.display = "none";
         console.error(error);

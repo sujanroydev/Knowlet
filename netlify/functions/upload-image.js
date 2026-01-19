@@ -22,7 +22,7 @@ export default async (request) => {
         const formData = await request.formData();
 
         const image = formData.get("image");   // File object
-        const name = formData.get("name");     // normal field
+        const filePath = formData.get("filePath");     // normal field
 
         if (!image) {
             return new Response(
@@ -31,14 +31,12 @@ export default async (request) => {
             );
         }
 
-        const fileExt = image.name.split(".").pop();
-        const filePath = `users/${crypto.randomUUID()}.${fileExt}`;
-
         const { error: uploadError } = await supabaseClient
             .storage
-            .from("images")
+            .from("avatars")
             .upload(filePath, image, {
-                contentType: image.type
+                cacheControl: "3600",
+				upsert: true
             });
 
         if (uploadError) {
@@ -48,23 +46,8 @@ export default async (request) => {
             );
         }
 
-        // Optional: store image path in table
-        const { error: dbError } = await supabaseClient
-            .from("user")
-            .insert({
-                name,
-                image_path: filePath
-            });
-
-        if (dbError) {
-            return new Response(
-                JSON.stringify({ success: false, error: dbError.message }),
-                { status: 500 }
-            );
-        }
-
         return new Response(
-            JSON.stringify({ success: true, path: filePath }),
+            JSON.stringify({ success: true, publicUrl: `https://ampwczxrfpbqlkuawrdf.supabase.co/storage/v1/object/public/avatars/${filePath}` }),
             {
                 status: 200,
                 headers: {

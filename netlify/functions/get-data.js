@@ -18,13 +18,25 @@ export default async (request) => {
     const body = await request.json();
     
     try {
-    	const { email, password } = body;
-    	
-        const { data, error } = await supabaseClient
+		const { email, password } = body;
+		let data, error;
+
+		if (!password) {
+			({ data, error } = await supabaseClient
                 .from('user')
                 .select('*')
                 .eq('email', email)
-                .eq('password', password);
+                .eq('is_verified', true)
+                .gt('verified_at', (Date.now() - 90000))
+            );
+		} else {
+			({ data, error } = await supabaseClient
+                .from('user')
+                .select('*')
+                .eq('email', email)
+                .eq('password', password)
+            );
+		}
 
         if (error) {
             return new Response(

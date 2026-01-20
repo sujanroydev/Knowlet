@@ -1,8 +1,3 @@
-const SUPABASE_URL = "https://ampwczxrfpbqlkuawrdf.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFtcHdjenhyZnBicWxrdWF3cmRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI3OTk4MzYsImV4cCI6MjA3ODM3NTgzNn0.hFib9Y5x02b5VWjKuNi1XkUYvycmrp0DQhnwNkOGJEU";
-
-const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
 const setPasswordForm = document.getElementById("setPasswordForm");
 const input = document.getElementsByClassName("user-input");
 const container = document.getElementById("container");
@@ -11,9 +6,36 @@ const loader = document.getElementById("loading");
 const params = new URLSearchParams(window.location.search);
 let isNewUser = true;
 
+if (params.get('error') || !params.get('user')) {
+	alert(params.get('error'));
+	return;
+}
+
 let user;
 if (params.get("user")) {
 	user = JSON.parse(params.get("user"));
+}
+
+if (!user) {
+    loader.style.display = "none";
+    const appContainer = document.getElementById("msg-error");
+
+    appContainer.innerHTML = `
+        <div class="error-container">
+            <div class="error-card">
+                <div class="icon">👤</div>
+                <h2>User not Found</h2>
+                <p>Please log in to access your dashboard.</p>
+                <button id="btn-login" class="primary-btn">Go to Login Page</button>
+            </div>
+        </div>
+    `;
+
+    document.getElementById("btn-login").addEventListener("click", () => {
+        window.location.href = "/login_signup";
+    });
+} else {
+    sync(user.name, user.email, user.picture)
 }
 
 setPasswordForm.addEventListener("submit", async (e) => {
@@ -41,19 +63,25 @@ setPasswordForm.addEventListener("submit", async (e) => {
 	}
     
     if (isNewUser) {
+    	// set data
 		let userId = name.split(' ')[0] + "@" + parseInt(Math.random() * 9000 + 1000);
 		
 		user = { id: userId, ...user }
 		
 		try {
-			
-		    const { error } = await supabaseClient
-		        .from("user")
-		        .insert(user);
-		        
-		    if (error) {
-		        console.log(error);
-		        alert(error.message);
+		    const res = await fetch('https://knowlet.in/.netlify/functions/set-data', {
+		    	method: 'POST',
+		    	header: {'content-type': 'application/json'},
+		    	body: JSON.stringify(user)
+		    });
+		    
+		    if (!res.ok) console.error(`Error code ${res.status}`);
+		    
+		    const result = await res.json();
+		    
+		    if (!result.success) {
+		        console.error(`Database error: ${result.error}`);
+		        alert(result.error);
 		        return;
 		    }
 		    
@@ -65,20 +93,26 @@ setPasswordForm.addEventListener("submit", async (e) => {
 		} catch(e) {
 		    console.log(e);
 		}
+
     } else {
+    	// reset password
     	try {
-    		
-		    const { error } = await supabaseClient
-		        .from("user")
-		        .update({password: password})
-		        .eq("email", email);
-		        
-		    if (error) {
-		        console.log(error);
-		        alert(error.message);
-		        return;
-		    }
-		    
+		    const res = await fetch('https://knowlet.in/.netlify/functions/reset-password', {
+		    	method: 'POST',
+		    	header: { 'content-type': 'application/json' },
+		    	body: JSON.stringify(user)
+		    });
+
+		    if (!res.ok) console.error(`Error status: ${res.status}`);
+
+			const result = await res.json();
+			
+			if (!result.success) {
+				console.error(`Database error: ${result.error}`);
+				alert(result.error);
+				return;
+			}
+
 		    localStorage.setItem("knowletUser", JSON.stringify(user));
 		    document.getElementById("loading").style.display = "none";
 		    alert("Password Updated");
@@ -91,48 +125,29 @@ setPasswordForm.addEventListener("submit", async (e) => {
 
 });
 
-if (!user) {
-    
-    loader.style.display = "none";
-    const appContainer = document.getElementById("msg-error"); 
-
-    appContainer.innerHTML = `
-        <div class="error-container">
-            <div class="error-card">
-                <div class="icon">👤</div>
-                <h2>User not Found</h2>
-                <p>Please log in to access your dashboard.</p>
-                <button id="btn-login" class="primary-btn">Go to Login Page</button>
-            </div>
-        </div>
-    `;
-
-    document.getElementById("btn-login").addEventListener("click", () => {
-        window.location.href = "/login_signup";
-    });
-}
-
-
-if (user) {
-    sync(user.name, user.email, user.picture)
-}
-
 async function sync(name, email, picture) {
     
     try {
-        const { data, error } = await supabaseClient
-            .from("user")
-            .select("*")
-            .eq("email", email);
+		// login if exist
+        const res = await fetch('https://knowlet.in/.netlify/functions/get-data', {
+        	method: 'POST',
+        	header: { 'content-type': 'application/json' },
+        	body: JSON.stringify({email: email})
+        })
+
+        if (!res.ok) console.error(`Error status: ${res.status}`);
+
+        const result = await res.json();
         
-        if (error) {
-            console.log(error);
-            alert(error);
-            return;
+        if (!result.success) {
+        	console.error(`Database error: ${result.error}`);
+        	alert(result.error);
+        	return;
         }
-        console.log(data)
-        if (!data[0]) {  
-        	
+        
+        const data = result.data;
+
+        if (!data[0]) {
             input[0].value = user.name;
             input[1].value = user.email;
             loader.style.display = "none";
@@ -146,8 +161,7 @@ async function sync(name, email, picture) {
             alert("You Alredy Have An Account, Successfully Logged In");
             redirect();
             return;
-        } else {         
-        	
+        } else {
             input[0].value = data[0].name;
             input[1].value = data[0].email;
             loader.style.display = "none";

@@ -1,8 +1,3 @@
-const SUPABASE_URL = "https://ampwczxrfpbqlkuawrdf.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFtcHdjenhyZnBicWxrdWF3cmRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI3OTk4MzYsImV4cCI6MjA3ODM3NTgzNn0.hFib9Y5x02b5VWjKuNi1XkUYvycmrp0DQhnwNkOGJEU";
-
-const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
 const imgInput = document.getElementById("input-image");
 const input = document.getElementsByClassName("user-input");
 const inputEdu = document.getElementById("sltEdu")
@@ -119,22 +114,31 @@ async function sync() {
     const user = JSON.parse(localStorage.getItem("knowletUser"));
     
     try {
-        loader.style.display = "flex";
-        const { error } = await supabaseClient
-            .from("user")
-            .update(user)
-            .eq("id", userId);
-            
-        loader.style.display = "none";
-        
-        if (error) {
-            console.log(error);  
-            alert(JSON.stringify(error));
-        } else {
-            alert("Successfully Submitted");
-            window.location.href = "profile.html";
-        }
-    
+        //new code
+    	loader.style.display = "flex";
+    	
+    	const res = await fetch('https://knowlet.in/.netlify/functions/update-data', {
+    		method: 'POST',
+    		headers: {'Content-Type': 'application/json'},
+    		body: JSON.stringify(user)
+    	});
+    	
+    	loader.style.display = "none";
+    	
+    	if (!res.ok) {
+    		console.error(`Error code: ${res.status}`);
+    	}
+    	
+    	const result = await res.json();
+    	
+    	if (!result.success) {
+    		console.error(`Database error: ${result.error}`);
+    		alert(result.error);
+    	} else {
+    		alert('Successfully Submitted.');
+    		window.location.href = 'profile.html';
+    	}
+    	
     } catch(e) {
         console.log(e)
     }

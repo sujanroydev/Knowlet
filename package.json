@@ -1,7 +1,15 @@
 {
-  "type": "module",
-  "dependencies": {
-    "@supabase/supabase-js": "^2.0.0",
-    "dotenv": "^17.2.3"
-  }
+    "name": "Knowlet",
+    "version": "1.5.0",
+    "description": "",
+    "type": "module",
+    "keywords": [],
+	"author": "",
+	"license": "",
+    "dependencies": {
+        "@supabase/supabase-js": "^2.0.0"
+    },
+    "devDependencies": {
+        "dotenv": "^17.2.3"
+    }
 }

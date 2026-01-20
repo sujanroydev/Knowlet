@@ -1,3 +1,7 @@
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseClient = createClient(process.env.SUPABASE_DATABASE_URL, process.env.SUPABASE_ANON_KEY);
+
 exports.handler = async (event) => {
     const code = event.queryStringParameters.code;
 
@@ -30,6 +34,51 @@ exports.handler = async (event) => {
     );
 
     const user = await userRes.json();
+
+	try {
+		const { data, error } = await supabaseClient
+			.from('user')
+			.select('id')
+			.eq('email', user.email)
+		if (error) {
+			return {
+				statusCode: 503,
+				headers: {
+					Location: `https://knowlet.in/response.html?error=${encodeURIComponent(error)}`
+				}
+			}
+		}
+		if (data) {
+			try {
+				const { error } = await supabaseClient
+					.from('user')
+					.update({ 'is_verified': user.email_verified, 'verified_at': Date.now()})
+					.eq('email', user.email);
+				if (error) {
+					return {
+						statusCode: 503,
+						headers: {
+							Location: `https://knowlet.in/response.html?error=${encodeURIComponent(error)}`
+						}
+					}
+				}
+			} catch(err) {
+				return {
+					statusCode: 500,
+					headers: {
+						Location: `https://knowlet.in/response.html?error=${encodeURIComponent(err)}`
+					}
+				}
+			}
+		}
+	} catch(err) {
+		return {
+			statusCode: 500,
+			headers: {
+				Location: `https://knowlet.in/response.html?error=${encodeURIComponent(err)}`
+			}
+		}
+	}
 
     return {
         statusCode: 302,

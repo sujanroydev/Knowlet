@@ -338,16 +338,19 @@ async function submitRating() {
             document.getElementById("rating-message").value = "";
             await loadRatings();
         } else {
-        	// new api for insert
-            const { error } = await supabaseClient
-                    .from("ratings")
-                    .insert({
-                        page_id: pageId,
-                        page_ratings: selectedRating,
-                        page_likes: 0,
-                        ratings_message: msg,
-                        user_id: user.id
-                    });
+            const res = await fetch('http://localhost:8888/.netlify/functions/set-likes-ratings', {
+			    method: 'POST',
+			    headers: { 'Content-Type': 'application/json' },
+			    body: JSON.stringify({
+			    	pageId,
+			    	userId: user.id,
+			    	action: 'rate',
+			    	pageRatingsScore: selectedRating,
+			    	pageReview: msg
+			    	
+			    })
+			});
+			const { error } = await res.json();
             if (error) {
                 console.error(error);
                 alert("Error submitting rating");
@@ -400,15 +403,16 @@ async function likePage(oldLikes){
             await loadPageLikes();
         } else {
             try {
-            	// new api copy
-                const { error } = await supabaseClient
-                        .from("ratings")
-                        .insert({
-                            page_id: pageId,
-                            page_likes: 1,
-                            user_id: user.id
-                        });
-                
+                const res = await fetch('http://localhost:8888/.netlify/functions/set-likes-ratings', {
+				    method: 'POST',
+				    headers: { 'Content-Type': 'application/json' },
+				    body: JSON.stringify({
+				    	pageId,
+				    	userId: user.id,
+				    	action: 'like'
+				    })
+				});
+				const { error } = await res.json();
                 if (error) {
                     console.error(error);
                     alert("Error submitting Like");

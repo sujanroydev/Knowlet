@@ -10,8 +10,8 @@ renderFeedbackSection();
 let selectedRating = 0;        // user's chosen star (1..5)
 let hoverRating = 0;             // hover preview
 
-// const pageId = (window.location.href + '').replace('.html', '')
-const pageId = 'https://knowlet.in/notes/semester_6/zoology/dsc_353/unit_4'
+const pageId = (window.location.href + '').replace('.html', '')
+// const pageId = 'https://knowlet.in/notes/semester_6/zoology/dsc_353/unit_4'
 let btnLike = document.getElementById("btnLike");
 const topBar = document.getElementsByClassName("unit-top-bar")[0];
 const ratingsBox = document.getElementById("ratings-box");
@@ -24,10 +24,10 @@ const btnClearRating = document.getElementById("clear-rating");
 
 let user = JSON.parse(localStorage.getItem("knowletUser"));
 
-let isPageLiked = false;
-let isPageRated = false;
-let isCommentHidden = true;
-let isRatingHidden = true;
+let pageLiked = false;
+let pageRated = false;
+let commentsHidden = true;
+let ratingsHidden = true;
 let recentComments = {};
 
 let totalLikes = 0
@@ -56,26 +56,26 @@ function AboutUser() {
 }
 
 function toggleComments() {
-    if (isCommentHidden) {
+    if (commentsHidden) {
         commentsBox.style.display = 'block';
         btnToggleComments.textContent = "Hide Comments";
-        isCommentHidden = false;
+        commentsHidden = false;
     } else {
         commentsBox.style.display = 'none'
         btnToggleComments.textContent = "Show Comments";
-        isCommentHidden = true;
+        commentsHidden = true;
     }
 }
 
 function toggleRatings() {
-    if (isRatingHidden) {
+    if (ratingsHidden) {
         ratingsBox.style.display = 'block';
         btnToggleRatings.textContent = "Hide Ratings";
-        isRatingHidden = false;
+        ratingsHidden = false;
     } else {
         ratingsBox.style.display = 'none'
         btnToggleRatings.textContent = "Show Ratings";
-        isRatingHidden = true;
+        ratingsHidden = true;
     }
 }
 
@@ -182,16 +182,16 @@ async function isLikedOrRated() {
         
         if (r) {
             if (r.page_likes) {
-                isPageLiked = true;
+                pageLiked = true;
                 btnLike.textContent = "👍 " + totalLikes;
             } else {
-                isPageLiked = false;
+                pageLiked = false;
                 btnLike.textContent = "👍🏼 " + totalLikes
             }
             if (r.page_ratings) {
                 btnSubmitRating.textContent = "Submitted";
                 
-                isPageRated = true;
+                pageRated = true;
                 selectedRating = r.page_ratings;
                 hoverRating = r.page_ratings;
                 
@@ -199,7 +199,7 @@ async function isLikedOrRated() {
             } else {
                 btnSubmitRating.textContent = "Submit";
                 
-                isPageRated = false;
+                pageRated = false;
                 selectedRating = r.page_ratings;
                 hoverRating = r.page_ratings;
             }
@@ -309,15 +309,21 @@ async function submitRating() {
         
         r = data[0];
         if (r) {
-        	// new api for update 
-            const { error } = await supabaseClient
-                    .from("ratings")
-                    .update({
-                        page_ratings: selectedRating,
-                        ratings_message: msg
-                    })
-                    .eq("page_id", pageId)
-                    .eq("user_id", user.id);
+            const res = await fetch('http://localhost:8888/.netlify/functions/update-likes-ratings', {
+			    method: 'POST',
+			    headers: { 'Content-Type': 'application/json' },
+			    body: JSON.stringify({
+			    	pageId,
+			    	userId: user.id,
+			    	action: 'rate',
+			    	pageRatingsScore: selectedRating,
+			    	pageReview: msg
+			    	
+			    })
+			});
+
+			const { error } = await res.json();
+
             if (error) {
                 console.error(error);
                 alert("Error submitting rating");
@@ -374,20 +380,24 @@ async function likePage(oldLikes){
         if (error) console.error(error);
         
         if (data[0]) {
-            //add try catch block
-            // new api copy
-            const { error } = await supabaseClient
-                .from("ratings")
-                .update({ page_likes: isPageLiked ? 0 : 1 })
-                .eq("user_id", user.id)
-                .eq("page_id", pageId);
-                
+            const res = await fetch('http://localhost:8888/.netlify/functions/update-likes-ratings', {
+			    method: 'POST',
+			    headers: { 'Content-Type': 'application/json' },
+			    body: JSON.stringify({
+			    	pageId,
+			    	userId: user.id,
+			    	action: 'like',
+			    	pageLiked: !pageLiked
+			    })
+			});
+
+			const { error } = await res.json();
+
             if (error) {
                 console.error(error);
                 alert("Error updating likes");
             }
             await loadPageLikes();
-            //await isLikedOrRated();
         } else {
             try {
             	// new api copy
@@ -922,11 +932,11 @@ function printDiv(divClass) {
 
 // Load User Info 
 AboutUser();
-loadPageLikes();
 
 // Render interactive stars and load data
 renderInteractiveStars();
 
 // initial loads
+loadPageLikes();
 loadRatings();
 loadComments();

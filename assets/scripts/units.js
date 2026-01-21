@@ -48,48 +48,11 @@ btnClearRating.addEventListener("click", () => {
 
 function AboutUser() {
     if (!user) {
+    	// disable all the interaction 
         setTimeout(() => {
             window.location.href = "../../../../login_signup.html";
         }, 15000);
     } 
-}
-
-async function loadUserInfo() {
-    try {
-        const { data, error } = await supabaseClient
-            .from("user")
-            .select("*")
-            .eq("id", user.id)
-
-        if (error) {
-            alert("Error loading your data")
-            console.error(error);
-            return;
-        }
-        if (!data[0]) {
-            await submitUserInfo();
-        }
-    } catch (e) {
-        console.error(e);
-    }
-}
-
-async function submitUserInfo() {
-    try {
-        const { error } = await supabaseClient
-                .from("user")
-                .insert({
-                    id: user.id,
-                    name: user.name
-                });
-        if (error) {
-            console.error(error);
-            return;
-            alert("Error submitting Your Name");
-        }
-    } catch (e) {
-        console.error(e);
-    }
 }
 
 function toggleComments() {
@@ -203,6 +166,7 @@ function updateStarVis() {
 
 async function isLikedOrRated() {
     try {
+    	// new api
         const { data, error } = await supabaseClient
                 .from("ratings")
                 .select("*")
@@ -246,6 +210,7 @@ async function isLikedOrRated() {
 async function loadRatings(){
     
     try {
+    	// new api copy
         const { data, error } = await supabaseClient
             .from("ratings")
             .select("id, page_ratings, page_likes, ratings_message, created_at, user (id, name, picture)")
@@ -326,7 +291,7 @@ async function submitRating() {
     //const msg = ""; // optionally can prompt for message, currently left blank
     const msg = document.getElementById("rating-message").value.trim();
     try {
-        
+        //new api copy
         const { data, error } = await supabaseClient
                 .from("ratings")
                 .select("*")
@@ -335,6 +300,7 @@ async function submitRating() {
 
         r = data[0];
         if (r) {
+        	// new api for update 
             const { error } = await supabaseClient
                     .from("ratings")
                     .update({
@@ -357,6 +323,7 @@ async function submitRating() {
             document.getElementById("rating-message").value = "";
             await loadRatings();
         } else {
+        	// new api for insert
             const { error } = await supabaseClient
                     .from("ratings")
                     .insert({
@@ -385,6 +352,7 @@ async function submitRating() {
 
 async function likePage(oldLikes){
     try {
+    	// new api copy
         const { data, error } = await supabaseClient
             .from("ratings")
             .select("page_likes")
@@ -395,6 +363,7 @@ async function likePage(oldLikes){
         
         if (data[0]) {
             //add try catch block
+            // new api copy
             const { error } = await supabaseClient
                 .from("ratings")
                 .update({ page_likes: isPageLiked ? 0 : 1 })
@@ -409,6 +378,7 @@ async function likePage(oldLikes){
             //await isLikedOrRated();
         } else {
             try {
+            	// new api copy
                 const { error } = await supabaseClient
                         .from("ratings")
                         .insert({
@@ -436,6 +406,7 @@ async function likePage(oldLikes){
 
 async function loadPageLikes() {
     try {
+    	// new api copy
         const { data, error } = await supabaseClient
                 .from("ratings")
                 .select("page_likes")
@@ -460,6 +431,7 @@ async function loadPageLikes() {
 async function loadComments() {
     //const pageId = pageId;
     try {
+    	// new api copy
         const { data, error } = await supabaseClient
              .from("comments")
              .select("id, comment_text, likes, created_at, user (id, name, picture)")
@@ -536,6 +508,7 @@ async function submitComment(){
     const text = document.getElementById("comment-input").value;
     if (!text.trim()) return;
     try {
+    	// now api for inset
         const { error } = await supabaseClient
                 .from("comments")
                 .insert({
@@ -568,6 +541,7 @@ async function likeComment(id, oldLikes){
 	}
 
     try {
+    	// new api for update
         await supabaseClient
             .from("comments")
             .update({ likes: newLikes })
@@ -930,7 +904,6 @@ function printDiv(divClass) {
 
 // Load User Info 
 AboutUser();
-loadUserInfo();
 loadPageLikes();
 
 // Render interactive stars and load data

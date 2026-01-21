@@ -10,8 +10,8 @@ renderFeedbackSection();
 let selectedRating = 0;        // user's chosen star (1..5)
 let hoverRating = 0;             // hover preview
 
-const pageId = (window.location.href + '').replace('.html', '')
-
+// const pageId = (window.location.href + '').replace('.html', '')
+const pageId = 'https://knowlet.in/notes/semester_6/zoology/dsc_353/unit_4'
 let btnLike = document.getElementById("btnLike");
 const topBar = document.getElementsByClassName("unit-top-bar")[0];
 const ratingsBox = document.getElementById("ratings-box");
@@ -166,15 +166,20 @@ function updateStarVis() {
 
 async function isLikedOrRated() {
     try {
-    	// new api
-        const { data, error } = await supabaseClient
-                .from("ratings")
-                .select("*")
-                .eq("page_id", pageId)
-                .eq("user_id", user.id);
+        const res = await fetch('http://localhost:8888/.netlify/functions/get-likes-ratings', {
+        	method: 'POST',
+        	header: { 'content-type': 'application/json' },
+        	body: JSON.stringify({ pageId: pageId, userId: user.id })
+        });
+        
+        if (!res.ok) throw new Error(`Error status: ${res.status}`);
+        
+        const { data, error } = await res.json();
+        
+        if (error) throw new Error(error);
         
         r = data[0];
-        //ratingValue = r.page_ratings;
+        
         if (r) {
             if (r.page_likes) {
                 isPageLiked = true;
@@ -185,7 +190,6 @@ async function isLikedOrRated() {
             }
             if (r.page_ratings) {
                 btnSubmitRating.textContent = "Submitted";
-                //btnSubmitRating.disabled = true;
                 
                 isPageRated = true;
                 selectedRating = r.page_ratings;
@@ -201,7 +205,7 @@ async function isLikedOrRated() {
             }
         } 
     } catch(e) {
-        console.log(e);
+        console.error(e);
     }
 }
 
@@ -210,12 +214,15 @@ async function isLikedOrRated() {
 async function loadRatings(){
     
     try {
-    	// new api copy
-        const { data, error } = await supabaseClient
-            .from("ratings")
-            .select("id, page_ratings, page_likes, ratings_message, created_at, user (id, name, picture)")
-            .eq("page_id", pageId)
-            .order("created_at", { ascending: false });
+        const res = await fetch('http://localhost:8888/.netlify/functions/get-likes-ratings', {
+        	method: 'POST',
+        	header: { 'content-type': 'application/json' },
+        	body: JSON.stringify({ pageId: pageId })
+        });
+        
+        if (!res.ok) throw new Error(`Error status: ${res.status}`);
+        
+        const { data, error } = await res.json();
 
         const box = document.getElementById("ratings-box");
         box.innerHTML = "";
@@ -225,7 +232,6 @@ async function loadRatings(){
             console.error(error);
             return;
         }
-        console.log(data)
 
         let count = 0;
         let sum = 0; 
@@ -291,13 +297,16 @@ async function submitRating() {
     //const msg = ""; // optionally can prompt for message, currently left blank
     const msg = document.getElementById("rating-message").value.trim();
     try {
-        //new api copy
-        const { data, error } = await supabaseClient
-                .from("ratings")
-                .select("*")
-                .eq("user_id", user.id)
-                .eq("page_id", pageId)
-
+		const res = await fetch('http://localhost:8888/.netlify/functions/get-likes-ratings', {
+        	method: 'POST',
+        	header: { 'content-type': 'application/json' },
+        	body: JSON.stringify({ pageId: pageId, userId: user.id })
+        });
+        
+        if (!res.ok) throw new Error(`Error status: ${res.status}`);
+        
+        const { data, error } = await res.json();
+        
         r = data[0];
         if (r) {
         	// new api for update 
@@ -352,12 +361,15 @@ async function submitRating() {
 
 async function likePage(oldLikes){
     try {
-    	// new api copy
-        const { data, error } = await supabaseClient
-            .from("ratings")
-            .select("page_likes")
-            .eq("user_id", user.id)
-            .eq("page_id", pageId);
+        const res = await fetch('http://localhost:8888/.netlify/functions/get-likes-ratings', {
+        	method: 'POST',
+        	header: { 'content-type': 'application/json' },
+        	body: JSON.stringify({ pageId: pageId, userId: user.id })
+        });
+        
+        if (!res.ok) throw new Error(`Error status: ${res.status}`);
+        
+        const { data, error } = await res.json();
 
         if (error) console.error(error);
         
@@ -406,12 +418,18 @@ async function likePage(oldLikes){
 
 async function loadPageLikes() {
     try {
-    	// new api copy
-        const { data, error } = await supabaseClient
-                .from("ratings")
-                .select("page_likes")
-                .eq("page_id", pageId)
-                
+        const res = await fetch('http://localhost:8888/.netlify/functions/get-likes-ratings', {
+        	method: 'POST',
+        	header: { 'content-type': 'application/json' },
+        	body: JSON.stringify({ pageId: pageId })
+        });
+        
+        if (!res.ok) throw new Error(`Error status: ${res.status}`);
+        
+        const { data, error } = await res.json();
+
+        if (error) console.error(error);
+        
         totalLikes = 0;
         data.forEach(r => {
             totalLikes += r.page_likes;

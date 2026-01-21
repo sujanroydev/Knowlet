@@ -1,8 +1,3 @@
-const SUPABASE_URL = "https://ampwczxrfpbqlkuawrdf.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFtcHdjenhyZnBicWxrdWF3cmRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI3OTk4MzYsImV4cCI6MjA3ODM3NTgzNn0.hFib9Y5x02b5VWjKuNi1XkUYvycmrp0DQhnwNkOGJEU";
-
-const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
 // Create UI on load
 renderNavBar();
 renderFeedbackSection();
@@ -464,12 +459,16 @@ async function loadComments() {
     //const pageId = pageId;
     try {
     	// new api copy
-        const { data, error } = await supabaseClient
-             .from("comments")
-             .select("id, comment_text, likes, created_at, user (id, name, picture)")
-             .eq("page_id", pageId)
-             .order("created_at", { ascending: false });
-
+        const res = await fetch('http://localhost:8888/.netlify/functions/get-comments', {
+        	method: 'POST',
+        	header: { 'content-type': 'application/json' },
+        	body: JSON.stringify({ pageId: pageId })
+        });
+        
+        if (!res.ok) throw new Error(`Error status: ${res.status}`);
+        
+        const { data, error } = await res.json();
+console.log(data)
         const box = document.getElementById("comments-box");
         box.innerHTML = "";
 
@@ -540,15 +539,17 @@ async function submitComment(){
     const text = document.getElementById("comment-input").value;
     if (!text.trim()) return;
     try {
-    	// now api for inset
-        const { error } = await supabaseClient
-                .from("comments")
-                .insert({
-                    page_id: pageId,
-                    comment_text: text,
-                    likes: 0,
-                    user_id: user.id
-                });
+		const res = await fetch('http://localhost:8888/.netlify/functions/set-comments', {
+		    method: 'POST',
+		    headers: { 'Content-Type': 'application/json' },
+		    body: JSON.stringify({
+		    	pageId,
+		    	userId: user.id,
+		    	action: 'comment',
+		    	commentMessage: text
+		    })
+		});
+		const { error } = await res.json();
         if (error) {
             console.error(error);
             alert("Error posting comment");
@@ -573,11 +574,19 @@ async function likeComment(id, oldLikes){
 	}
 
     try {
-    	// new api for update
-        await supabaseClient
-            .from("comments")
-            .update({ likes: newLikes })
-            .eq("id", id);
+    	const res = await fetch('http://localhost:8888/.netlify/functions/update-comments', {
+		    method: 'POST',
+		    headers: { 'Content-Type': 'application/json' },
+		    body: JSON.stringify({
+		    	pageId,
+		    	userId: user.id,
+		    	action: 'like',
+		    	pageLiked: newLikes
+		    })
+		});
+
+		const { error } = await res.json();
+
         await loadComments();
     } catch(e){ console.error(e) }
 }

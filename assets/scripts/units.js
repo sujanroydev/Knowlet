@@ -5,8 +5,8 @@ renderFeedbackSection();
 let selectedRating = 0;        // user's chosen star (1..5)
 let hoverRating = 0;             // hover preview
 
-const pageId = (window.location.href + '').replace('.html', '')
-// const pageId = 'https://knowlet.in/notes/semester_6/zoology/dsc_353/unit_4'
+// const pageId = (window.location.href + '').replace('.html', '')
+const pageId = 'https://knowlet.in/notes/semester_1/zoology/dsc_101/unit_1'
 let btnLike = document.getElementById("btnLike");
 const topBar = document.getElementsByClassName("unit-top-bar")[0];
 const ratingsBox = document.getElementById("ratings-box");
@@ -26,6 +26,8 @@ let ratingsHidden = true;
 let recentComments = {};
 
 let totalLikes = 0
+
+const HISTORY_KEY = 'unit_page_history';
 
 const STAR_SVG = `
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -228,6 +230,11 @@ async function loadRatings(){
             return;
         }
 
+        if (!data.length) {
+            box.innerHTML = `<div class="muted">No ratings yet</div>`;
+            return;
+        }
+
         let count = 0;
         let sum = 0; 
         
@@ -243,7 +250,7 @@ async function loadRatings(){
 			        <!-- User info -->
 			        <div class="user-info">
 			            <img 
-			                src="${r.user.picture || 'default-avatar.png'}" 
+			                src="${r.user.picture || '/assets/images/demo_pp.png'}" 
 			                alt="${escapeHtml(r.user.name)}" 
 			                class="avatar"
 			            />
@@ -289,7 +296,6 @@ async function submitRating() {
         return;
     }
     
-    //const msg = ""; // optionally can prompt for message, currently left blank
     const msg = document.getElementById("rating-message").value.trim();
     try {
 		const res = await fetch('http://localhost:8888/.netlify/functions/get-likes-ratings', {
@@ -468,7 +474,7 @@ async function loadComments() {
         if (!res.ok) throw new Error(`Error status: ${res.status}`);
         
         const { data, error } = await res.json();
-console.log(data)
+
         const box = document.getElementById("comments-box");
         box.innerHTML = "";
 
@@ -482,8 +488,6 @@ console.log(data)
             box.innerHTML = `<div class="muted">No comments yet</div>`;
             return;
         }
-        console.log(data)
-        // console.log(recentComments);
 
         data.forEach(c => {
         	let totalCLikes = "";
@@ -501,7 +505,7 @@ console.log(data)
 			        <!-- User info -->
 			        <div class="user-info">
 			            <img
-			                src="${c.user.picture || 'default-avatar.png'}"
+			                src="${c.user.picture || '/assets/images/demo_pp.png'}"
 			                alt="${escapeHtml(c.user.name)}"
 			                class="avatar"
 			            />
@@ -612,18 +616,14 @@ function renderNavBar() {
     const container = document.querySelector(".container");
 
 	const parts = currentUrl.replace(currentRootUrl, "").replace(".html", "").split("?")[0].split("/");
-    // console.log(parts);
     
     const parms = `sem=${parts[2]}&sub=${parts[3]}&ppr=${parts[4]}` //`&unit=${parts[5]}`
-	// alert(parms)
 	const backUrl = `${currentRootUrl}/${parts[1]}?${parms}`
-    // alert(backUrl)
 
-    // Create top bar container
     const topBar = document.createElement("div");
     topBar.className = "unit-top-bar";
 
-    // --- 1. Back Button ---
+    // --- 1. Back Button
     const backBtn = document.createElement("button");
     backBtn.id = "back-btn";
     backBtn.title = "Go Back";
@@ -632,7 +632,7 @@ function renderNavBar() {
     };
     topBar.appendChild(backBtn);
     
-    // --- 2. Previous / Next Unit Buttons (Always Visible, Disabled When Unavailable) ---
+    // --- 2. Previous / Next Unit Buttons (Always Visible, Disabled When Unavailable)
     const prev = document.createElement("a");
     prev.className = "unit-prev";
     const next = document.createElement("a");
@@ -664,7 +664,7 @@ function renderNavBar() {
     topBar.appendChild(prev);
     topBar.appendChild(next);
 
-    // --- 3. Favourite Button ---
+    // --- 3. Favourite Button
     const FAV_KEY = "unit_page_favourites";
     const favBtn = document.createElement("button");
     favBtn.id = "fav-btn";
@@ -703,46 +703,27 @@ function renderNavBar() {
     topBar.appendChild(favBtn);
     
     const pageTitle = document.title;
-    
-    // =================================================================
-    // 1. Page History Tracker
-    // =================================================================
-    
-    const HISTORY_KEY = 'unit_page_history';
-    
-    /**
-     * Updates the history in localStorage, limiting the list size.
-     */
-     
+
     function updateHistory() {
-            // Load existing history or initialize a new array
-            let history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
-            
-            // The new entry to add
-            const newEntry = { url: currentUrl, title: pageTitle, timestamp: new Date().toISOString() };
-            
-            // Filter out the current page if it's already in the history
-            history = history.filter(item => item.url !== newEntry.url); // <-- CORRECTED LINE
-            
-            // Add the current page to the top of the list
-            history.unshift(newEntry);
-                    
-            
-            // Limit the history to, say, the last 15 pages
-            const maxHistorySize = 15;
-            if (history.length > maxHistorySize) {
-                    history.length = maxHistorySize;
-            }
-            
-            // Save the updated history back to localStorage
-            localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+        let history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+        
+        const newEntry = { url: currentUrl, title: pageTitle, timestamp: new Date().toISOString() };
+
+        history = history.filter(item => item.url !== newEntry.url); // <-- CORRECTED LINE
+        history.unshift(newEntry);
+                
+        const maxHistorySize = 15;
+        
+        if (history.length > maxHistorySize) {
+                history.length = maxHistorySize;
+        }
+
+        localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
     }
-                    
-    // Run the history update function immediately upon page load
+
     updateHistory();
 
-
-    // --- 4. Keep Screen On Button ---
+    // --- 4. Keep Screen On Button
     const screenBtn = document.createElement("button");
     screenBtn.id = "keep-screen-on-btn";
     screenBtn.title = "Keep Screen On";
@@ -790,9 +771,8 @@ function renderNavBar() {
 
     screenBtn.onclick = toggleWakeLock;
 
-    // --- Add top bar to DOM ---
     document.body.insertBefore(topBar, document.body.firstChild);
-    // --- 5. Auto Hide / Show on Activity ---
+
     let hideTimeout;
 
     function showTopBar() {
@@ -803,10 +783,8 @@ function renderNavBar() {
         }, 3000); // Hide after 3s of inactivity
     }
 
-    // Show immediately on load
     showTopBar();
 
-    // Detect user activity
     ["mousemove", "scroll", "touchstart", "keydown"].forEach(event => {
         document.addEventListener(event, showTopBar, { passive: true });
     });

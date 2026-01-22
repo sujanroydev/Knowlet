@@ -7,9 +7,9 @@ let currentPage = pathSegments[pathSegments.length - 1]; // Get the last part of
 currentPage = currentPage.split('.')[0] || 'index'; // Remove extension, default to 'index' if empty
 const user = localStorage.getItem("knowletUser")
 if (user) {
-    profileBtn.src = JSON.parse(user).picture || "assets/images/demo_pp.png";
+    profileBtn.src = JSON.parse(user).picture || "assets/images/demo_pp.jpg";
 } else {
-    profileBtn.src = "assets/images/demo_pp.png"
+    profileBtn.src = "assets/images/demo_pp.jpg"
 }
 navItems.forEach((item, index) => {
     if (item.getAttribute('href').includes(currentPage)) {

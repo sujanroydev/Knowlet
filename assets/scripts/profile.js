@@ -22,7 +22,7 @@ profilePic.addEventListener("click", () => {
 logoutBtn.addEventListener("click", () => {
     if (confirm("Logout?")) {
 	    localStorage.removeItem("knowletUser");
-	    document.getElementById("profile-btn").src = "assets/images/demo_pp.png";
+	    document.getElementById("profile-btn").src = "assets/images/demo_pp.jpg";
 	    sync();
     }
 });
@@ -37,7 +37,7 @@ async function sync() {
         userName.textContent = "Your Name";
         email.textContent = "yourname@example.com";
         userId.textContent = "User ID"
-        profilePic.src = "assets/images/demo_pp.png"
+        profilePic.src = "assets/images/demo_pp.jpg"
         
         isExist = false;
         loginBtn.style.display = "inline-block";
@@ -90,7 +90,7 @@ async function sync() {
 	        userName.textContent = user.name;
 	        email.textContent = '' + user.email;
 	        userId.textContent = user.id;
-	        profilePic.src = user.picture || "assets/images/demo_pp.png";
+	        profilePic.src = user.picture || "assets/images/demo_pp.jpg";
 	        
 	        isExist = true;
 	        loginBtn.style.display = "none";

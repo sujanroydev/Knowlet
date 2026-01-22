@@ -44,7 +44,7 @@ Visit the platform: [Knowlet](https://knowlet.in)
 
 Want to contribute? Feel free to fork the repository, make changes, and submit a pull request!
 
-- **Report Issues:** [GitHub Issues](https://github.com/SKR0411/Knowlet/issues)
+- **Report Issues:** [GitHub Issues](https://github.com/KnowletHQ/Knowlet/issues)
 - **Contact:** [knowlet.study@gmail.com](mailto:knowlet.study@gmail.com)
 
 ## License

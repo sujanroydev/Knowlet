@@ -5,8 +5,7 @@ renderFeedbackSection();
 let selectedRating = 0;        // user's chosen star (1..5)
 let hoverRating = 0;             // hover preview
 
-// const pageId = (window.location.href + '').replace('.html', '')
-const pageId = 'https://knowlet.in/notes/semester_1/geology/sec_101/unit_3'
+const pageId = (window.location.href + '').replace('.html', '')
 
 let btnLike = document.getElementById("btnLike");
 const topBar = document.getElementsByClassName("unit-top-bar")[0];
@@ -191,11 +190,9 @@ function isLikedOrRated() {
     }
 }
 
-// Rating Functions 
-
 async function loadLikesAndRatings(){
     try {
-        const res = await fetch('http://localhost:8888/.netlify/functions/get-likes-ratings', {
+        const res = await fetch('https://knowlet.in/.netlify/functions/get-likes-ratings', {
         	method: 'POST',
         	header: { 'content-type': 'application/json' },
         	body: JSON.stringify({ pageId: pageId })
@@ -297,7 +294,7 @@ async function submitRating() {
     try {
         r = myLikesAndRatings
         if (r) {
-            const res = await fetch('http://localhost:8888/.netlify/functions/update-likes-ratings', {
+            const res = await fetch('https://knowlet.in/.netlify/functions/update-likes-ratings', {
 			    method: 'POST',
 			    header: { 'content-type': 'application/json' },
 			    body: JSON.stringify({
@@ -306,7 +303,6 @@ async function submitRating() {
 			    	action: 'rate',
 			    	pageRatingsScore: selectedRating,
 			    	pageReview: msg
-			    	
 			    })
 			});
 
@@ -317,16 +313,9 @@ async function submitRating() {
                 alert("Error submitting rating");
                 return;
             }
-            if (r.page_ratings) {
-                btnSubmitRating.textContent = "Updated";
-            } else {
-                btnSubmitRating.textContent = "Submitted";
-            }
-            updateStarVis();
-            document.getElementById("rating-message").value = "";
-            await loadLikesAndRatings();
+            btnSubmitRating.textContent = "Updated";
         } else {
-            const res = await fetch('http://localhost:8888/.netlify/functions/set-likes-ratings', {
+            const res = await fetch('https://knowlet.in/.netlify/functions/set-likes-ratings', {
 			    method: 'POST',
 			    header: { 'content-type': 'application/json' },
 			    body: JSON.stringify({
@@ -335,7 +324,6 @@ async function submitRating() {
 			    	action: 'rate',
 			    	pageRatingsScore: selectedRating,
 			    	pageReview: msg
-			    	
 			    })
 			});
 			const { error } = await res.json();
@@ -345,21 +333,19 @@ async function submitRating() {
                 return;
             }
             btnSubmitRating.textContent = "Submitted";
-            updateStarVis();
-            document.getElementById("rating-message").value = "";
-            await loadLikesAndRatings();
         }
+        updateStarVis();
+        document.getElementById("rating-message").value = "";
+        await loadLikesAndRatings();
     } catch (e) {
         console.error(e);
     }
 }
 
-// Like page
-
 async function likePage(oldLikes){
     try {
         if (myLikesAndRatings) {
-            const res = await fetch('http://localhost:8888/.netlify/functions/update-likes-ratings', {
+            const res = await fetch('https://knowlet.in/.netlify/functions/update-likes-ratings', {
 			    method: 'POST',
 			    header: { 'content-type': 'application/json' },
 			    body: JSON.stringify({
@@ -376,29 +362,24 @@ async function likePage(oldLikes){
                 console.error(error);
                 alert("Error updating likes");
             }
-            await loadLikesAndRatings();
         } else {
-            try {
-                const res = await fetch('http://localhost:8888/.netlify/functions/set-likes-ratings', {
-				    method: 'POST',
-				    header: { 'content-type': 'application/json' },
-				    body: JSON.stringify({
-				    	pageId,
-				    	userId: user.id,
-				    	action: 'like'
-				    })
-				});
-				const { error } = await res.json();
-                if (error) {
-                    console.error(error);
-                    alert("Error submitting Like");
-                    return;
-                }
-                await loadLikesAndRatings();
-            } catch (e) {
-                console.error(e);
+            const res = await fetch('https://knowlet.in/.netlify/functions/set-likes-ratings', {
+			    method: 'POST',
+			    header: { 'content-type': 'application/json' },
+			    body: JSON.stringify({
+			    	pageId,
+			    	userId: user.id,
+			    	actgition: 'like'
+			    })
+			});
+			const { error } = await res.json();
+            if (error) {
+                console.error(error);
+                alert("Error submitting Like");
+                return;
             }
         }
+        await loadLikesAndRatings();
     } catch(e){
         console.error(e)
         alert(e)
@@ -410,7 +391,7 @@ async function likePage(oldLikes){
 async function loadComments() {
     try {
     	// new api copy
-        const res = await fetch('http://localhost:8888/.netlify/functions/get-comments', {
+        const res = await fetch('https://knowlet.in/.netlify/functions/get-comments', {
         	method: 'POST',
         	header: { 'content-type': 'application/json' },
         	body: JSON.stringify({ pageId: pageId })
@@ -490,7 +471,7 @@ async function submitComment(){
     const text = document.getElementById("comment-input").value;
     if (!text.trim()) return;
     try {
-		const res = await fetch('http://localhost:8888/.netlify/functions/set-comments', {
+		const res = await fetch('https://knowlet.in/.netlify/functions/set-comments', {
 		    method: 'POST',
 		    header: { 'content-type': 'application/json' },
 		    body: JSON.stringify({
@@ -525,12 +506,11 @@ async function likeComment(id, oldLikes){
 	}
 
     try {
-    	const res = await fetch('http://localhost:8888/.netlify/functions/update-comments', {
+    	const res = await fetch('https://knowlet.in/.netlify/functions/update-comments', {
 		    method: 'POST',
 		    header: { 'content-type': 'application/json' },
 		    body: JSON.stringify({
-		    	pageId,
-		    	userId: user.id,
+		    	commentId: id,
 		    	action: 'like',
 		    	commentLike: newLikes
 		    })

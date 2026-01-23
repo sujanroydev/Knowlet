@@ -161,45 +161,38 @@ function updateStarVis() {
 
 // Is Liked Or Rated
 
-async function isLikedOrRated() {
-    try {
-
-        r = myLikesAndRatings;
-        
-        if (r) {
-            if (r.page_likes) {
-                pageLiked = true;
-                btnLike.textContent = "👍 " + totalLikes;
-            } else {
-                pageLiked = false;
-                btnLike.textContent = "👍🏼 " + totalLikes
-            }
-            if (r.page_ratings) {
-                btnSubmitRating.textContent = "Submitted";
-                
-                pageRated = true;
-                selectedRating = r.page_ratings;
-                hoverRating = r.page_ratings;
-                
-                updateStarVis();
-            } else {
-                btnSubmitRating.textContent = "Submit";
-                
-                pageRated = false;
-                selectedRating = r.page_ratings;
-                hoverRating = r.page_ratings;
-            }
-        } 
-    } catch(e) {
-        console.error(e);
+function isLikedOrRated() {
+    r = myLikesAndRatings;
+    
+    if (r) {
+        if (r.page_likes) {
+            pageLiked = true;
+            btnLike.textContent = "👍 " + totalLikes;
+        } else {
+            pageLiked = false;
+            btnLike.textContent = "👍🏼 " + totalLikes
+        }
+        if (r.page_ratings) {
+            btnSubmitRating.textContent = "Submitted";
+            
+            pageRated = true;
+            selectedRating = r.page_ratings;
+            hoverRating = r.page_ratings;
+            
+            updateStarVis();
+        } else {
+            btnSubmitRating.textContent = "Submit";
+            
+            pageRated = false;
+            selectedRating = r.page_ratings;
+            hoverRating = r.page_ratings;
+        }
     }
 }
 
-// Rating Functions 
-
 async function loadLikesAndRatings(){
     try {
-        const res = await fetch('http://localhost:8888/.netlify/functions/get-likes-ratings', {
+        const res = await fetch('https://knowlet.in/.netlify/functions/get-likes-ratings', {
         	method: 'POST',
         	header: { 'content-type': 'application/json' },
         	body: JSON.stringify({ pageId: pageId })
@@ -225,14 +218,20 @@ async function loadLikesAndRatings(){
 
         let count = 0;
         let sum = 0;
+        totalLikes = 0;
         
 		likesAndRatings = data;  // store likes and ratings for feature use
 
         data.forEach(r => {
+            totalLikes += r.page_likes ? 1 : 0;
+			if (r.user.id === user.id) {
+				myLikesAndRatings = r;
+			}
+			
             if (!r.page_ratings) return;
             count += 1;
             sum += r.page_ratings;
-            
+		    
             const div = document.createElement("div");
             div.className = "rating-item";
             div.innerHTML = `
@@ -274,7 +273,12 @@ async function loadLikesAndRatings(){
             }
             box.appendChild(div);
         });
-        await loadPageLikes()
+        
+		btnLike.remove()
+		const btnLikeHtml = `<button id="btnLike" class="btn ghost" onclick="likePage(${totalLikes})">👍🏼 ${totalLikes}</button>`
+		topBar.insertAdjacentHTML('beforeend', btnLikeHtml)
+		btnLike = document.getElementById("btnLike");
+		isLikedOrRated()
     } catch (e) {
         console.error(e);
     }
@@ -290,7 +294,7 @@ async function submitRating() {
     try {
         r = myLikesAndRatings
         if (r) {
-            const res = await fetch('http://localhost:8888/.netlify/functions/update-likes-ratings', {
+            const res = await fetch('https://knowlet.in/.netlify/functions/update-likes-ratings', {
 			    method: 'POST',
 			    header: { 'content-type': 'application/json' },
 			    body: JSON.stringify({
@@ -299,7 +303,6 @@ async function submitRating() {
 			    	action: 'rate',
 			    	pageRatingsScore: selectedRating,
 			    	pageReview: msg
-			    	
 			    })
 			});
 
@@ -310,16 +313,9 @@ async function submitRating() {
                 alert("Error submitting rating");
                 return;
             }
-            if (r.page_ratings) {
-                btnSubmitRating.textContent = "Updated";
-            } else {
-                btnSubmitRating.textContent = "Submitted";
-            }
-            updateStarVis();
-            document.getElementById("rating-message").value = "";
-            await loadLikesAndRatings();
+            btnSubmitRating.textContent = "Updated";
         } else {
-            const res = await fetch('http://localhost:8888/.netlify/functions/set-likes-ratings', {
+            const res = await fetch('https://knowlet.in/.netlify/functions/set-likes-ratings', {
 			    method: 'POST',
 			    header: { 'content-type': 'application/json' },
 			    body: JSON.stringify({
@@ -328,7 +324,6 @@ async function submitRating() {
 			    	action: 'rate',
 			    	pageRatingsScore: selectedRating,
 			    	pageReview: msg
-			    	
 			    })
 			});
 			const { error } = await res.json();
@@ -338,21 +333,19 @@ async function submitRating() {
                 return;
             }
             btnSubmitRating.textContent = "Submitted";
-            updateStarVis();
-            document.getElementById("rating-message").value = "";
-            await loadLikesAndRatings();
         }
+        updateStarVis();
+        document.getElementById("rating-message").value = "";
+        await loadLikesAndRatings();
     } catch (e) {
         console.error(e);
     }
 }
 
-// Like page
-
 async function likePage(oldLikes){
     try {
         if (myLikesAndRatings) {
-            const res = await fetch('http://localhost:8888/.netlify/functions/update-likes-ratings', {
+            const res = await fetch('https://knowlet.in/.netlify/functions/update-likes-ratings', {
 			    method: 'POST',
 			    header: { 'content-type': 'application/json' },
 			    body: JSON.stringify({
@@ -369,52 +362,27 @@ async function likePage(oldLikes){
                 console.error(error);
                 alert("Error updating likes");
             }
-            await loadLikesAndRatings();
         } else {
-            try {
-                const res = await fetch('http://localhost:8888/.netlify/functions/set-likes-ratings', {
-				    method: 'POST',
-				    header: { 'content-type': 'application/json' },
-				    body: JSON.stringify({
-				    	pageId,
-				    	userId: user.id,
-				    	action: 'like'
-				    })
-				});
-				const { error } = await res.json();
-                if (error) {
-                    console.error(error);
-                    alert("Error submitting Like");
-                    return;
-                }
-                await loadLikesAndRatings();
-                //await isLikedOrRated();
-            } catch (e) {
-                console.error(e);
+            const res = await fetch('https://knowlet.in/.netlify/functions/set-likes-ratings', {
+			    method: 'POST',
+			    header: { 'content-type': 'application/json' },
+			    body: JSON.stringify({
+			    	pageId,
+			    	userId: user.id,
+			    	actgition: 'like'
+			    })
+			});
+			const { error } = await res.json();
+            if (error) {
+                console.error(error);
+                alert("Error submitting Like");
+                return;
             }
         }
+        await loadLikesAndRatings();
     } catch(e){
         console.error(e)
         alert(e)
-    }
-}
-
-async function loadPageLikes() {
-    try {
-		totalLikes = 0;
-        likesAndRatings.forEach(r => {
-            totalLikes += r.page_likes;
-            if (r.user.id === user.id) {
-            	myLikesAndRatings = r;
-            }
-        })
-        btnLike.remove()
-        const btnLikeHtml = `<button id="btnLike" class="btn ghost" onclick="likePage(${totalLikes})">👍🏼 ${totalLikes}</button>`
-        topBar.insertAdjacentHTML('beforeend', btnLikeHtml)
-        btnLike = document.getElementById("btnLike");
-        isLikedOrRated()
-    } catch(e) {
-        console.log(e);
     }
 }
 
@@ -423,7 +391,7 @@ async function loadPageLikes() {
 async function loadComments() {
     try {
     	// new api copy
-        const res = await fetch('http://localhost:8888/.netlify/functions/get-comments', {
+        const res = await fetch('https://knowlet.in/.netlify/functions/get-comments', {
         	method: 'POST',
         	header: { 'content-type': 'application/json' },
         	body: JSON.stringify({ pageId: pageId })
@@ -503,7 +471,7 @@ async function submitComment(){
     const text = document.getElementById("comment-input").value;
     if (!text.trim()) return;
     try {
-		const res = await fetch('http://localhost:8888/.netlify/functions/set-comments', {
+		const res = await fetch('https://knowlet.in/.netlify/functions/set-comments', {
 		    method: 'POST',
 		    header: { 'content-type': 'application/json' },
 		    body: JSON.stringify({
@@ -538,14 +506,13 @@ async function likeComment(id, oldLikes){
 	}
 
     try {
-    	const res = await fetch('http://localhost:8888/.netlify/functions/update-comments', {
+    	const res = await fetch('https://knowlet.in/.netlify/functions/update-comments', {
 		    method: 'POST',
 		    header: { 'content-type': 'application/json' },
 		    body: JSON.stringify({
-		    	pageId,
-		    	userId: user.id,
+		    	commentId: id,
 		    	action: 'like',
-		    	pageLiked: newLikes
+		    	commentLike: newLikes
 		    })
 		});
 

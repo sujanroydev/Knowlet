@@ -15,11 +15,11 @@ export default async (request) => {
         });
     }
     
-    const { pageId, userId, action, commentLike, commentMessage } = await request.json();
+    const { commentId, action, commentLike, commentMessage } = await request.json();
     const allowedActions = ["like", "comment"];
 
     try {
-    	if (!pageId || !userId) throw new Error('PageId and userId are required');
+    	if (!commentId) throw new Error('Comment ID is required');
 		if (!allowedActions.includes(action)) {
 		    return new Response("Invalid action", { status: 400 });
 		}
@@ -28,8 +28,7 @@ export default async (request) => {
 			const { error } = await supabaseClient
 	            .from('comments')
 	            .update({ likes: commentLike })
-	            .eq('page_id', pageId)
-	            .eq('user_id', userId);
+	            .eq('id', commentId);
 	        
 	        if (error) {
 	            return new Response(
@@ -52,8 +51,7 @@ export default async (request) => {
     		const { error } = await supabaseClient
 	            .from('comments')
 	            .update({ comment_text: commentMessage })
-	            .eq('page_id', pageId)
-	            .eq('user_id', userId);
+	            .eq('id', commentId);
 	        
 	        if (error) {
 	            return new Response(

@@ -5,7 +5,8 @@ renderFeedbackSection();
 let selectedRating = 0;        // user's chosen star (1..5)
 let hoverRating = 0;             // hover preview
 
-const pageId = (window.location.href + '').replace('.html', '')
+// const pageId = (window.location.href + '').replace('.html', '')
+const pageId = 'https://knowlet.in/notes/semester_1/geology/sec_101/unit_3'
 
 let btnLike = document.getElementById("btnLike");
 const topBar = document.getElementsByClassName("unit-top-bar")[0];
@@ -161,37 +162,32 @@ function updateStarVis() {
 
 // Is Liked Or Rated
 
-async function isLikedOrRated() {
-    try {
-
-        r = myLikesAndRatings;
-        
-        if (r) {
-            if (r.page_likes) {
-                pageLiked = true;
-                btnLike.textContent = "👍 " + totalLikes;
-            } else {
-                pageLiked = false;
-                btnLike.textContent = "👍🏼 " + totalLikes
-            }
-            if (r.page_ratings) {
-                btnSubmitRating.textContent = "Submitted";
-                
-                pageRated = true;
-                selectedRating = r.page_ratings;
-                hoverRating = r.page_ratings;
-                
-                updateStarVis();
-            } else {
-                btnSubmitRating.textContent = "Submit";
-                
-                pageRated = false;
-                selectedRating = r.page_ratings;
-                hoverRating = r.page_ratings;
-            }
-        } 
-    } catch(e) {
-        console.error(e);
+function isLikedOrRated() {
+    r = myLikesAndRatings;
+    
+    if (r) {
+        if (r.page_likes) {
+            pageLiked = true;
+            btnLike.textContent = "👍 " + totalLikes;
+        } else {
+            pageLiked = false;
+            btnLike.textContent = "👍🏼 " + totalLikes
+        }
+        if (r.page_ratings) {
+            btnSubmitRating.textContent = "Submitted";
+            
+            pageRated = true;
+            selectedRating = r.page_ratings;
+            hoverRating = r.page_ratings;
+            
+            updateStarVis();
+        } else {
+            btnSubmitRating.textContent = "Submit";
+            
+            pageRated = false;
+            selectedRating = r.page_ratings;
+            hoverRating = r.page_ratings;
+        }
     }
 }
 
@@ -225,14 +221,20 @@ async function loadLikesAndRatings(){
 
         let count = 0;
         let sum = 0;
+        totalLikes = 0;
         
 		likesAndRatings = data;  // store likes and ratings for feature use
 
         data.forEach(r => {
+            totalLikes += r.page_likes ? 1 : 0;
+			if (r.user.id === user.id) {
+				myLikesAndRatings = r;
+			}
+			
             if (!r.page_ratings) return;
             count += 1;
             sum += r.page_ratings;
-            
+		    
             const div = document.createElement("div");
             div.className = "rating-item";
             div.innerHTML = `
@@ -274,7 +276,12 @@ async function loadLikesAndRatings(){
             }
             box.appendChild(div);
         });
-        await loadPageLikes()
+        
+		btnLike.remove()
+		const btnLikeHtml = `<button id="btnLike" class="btn ghost" onclick="likePage(${totalLikes})">👍🏼 ${totalLikes}</button>`
+		topBar.insertAdjacentHTML('beforeend', btnLikeHtml)
+		btnLike = document.getElementById("btnLike");
+		isLikedOrRated()
     } catch (e) {
         console.error(e);
     }
@@ -388,7 +395,6 @@ async function likePage(oldLikes){
                     return;
                 }
                 await loadLikesAndRatings();
-                //await isLikedOrRated();
             } catch (e) {
                 console.error(e);
             }
@@ -396,25 +402,6 @@ async function likePage(oldLikes){
     } catch(e){
         console.error(e)
         alert(e)
-    }
-}
-
-async function loadPageLikes() {
-    try {
-		totalLikes = 0;
-        likesAndRatings.forEach(r => {
-            totalLikes += r.page_likes;
-            if (r.user.id === user.id) {
-            	myLikesAndRatings = r;
-            }
-        })
-        btnLike.remove()
-        const btnLikeHtml = `<button id="btnLike" class="btn ghost" onclick="likePage(${totalLikes})">👍🏼 ${totalLikes}</button>`
-        topBar.insertAdjacentHTML('beforeend', btnLikeHtml)
-        btnLike = document.getElementById("btnLike");
-        isLikedOrRated()
-    } catch(e) {
-        console.log(e);
     }
 }
 
@@ -545,7 +532,7 @@ async function likeComment(id, oldLikes){
 		    	pageId,
 		    	userId: user.id,
 		    	action: 'like',
-		    	pageLiked: newLikes
+		    	commentLike: newLikes
 		    })
 		});
 

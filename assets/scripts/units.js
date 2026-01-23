@@ -5,8 +5,8 @@ renderFeedbackSection();
 let selectedRating = 0;        // user's chosen star (1..5)
 let hoverRating = 0;             // hover preview
 
-// const pageId = (window.location.href + '').replace('.html', '')
-const pageId = 'https://knowlet.in/notes/semester_1/zoology/dsc_101/unit_1'
+const pageId = (window.location.href + '').replace('.html', '')
+
 let btnLike = document.getElementById("btnLike");
 const topBar = document.getElementsByClassName("unit-top-bar")[0];
 const ratingsBox = document.getElementById("ratings-box");
@@ -25,15 +25,15 @@ let commentsHidden = true;
 let ratingsHidden = true;
 let recentComments = {};
 
-let totalLikes = 0
-
-const HISTORY_KEY = 'unit_page_history';
+let totalLikes = 0;
 
 const STAR_SVG = `
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
         <path d="M12 .587l3.668 7.431L23.5 9.75l-5.75 5.6L19.336 24 12 20.013 4.664 24l1.585-8.65L.5 9.75l7.832-1.732L12 .587z"/>
     </svg>`;
 
+let likesAndRatings, comments;
+let myLikesAndRatings, myCommenst;
 
 btnSubmitRating.addEventListener("click", submitRating);
 
@@ -163,19 +163,8 @@ function updateStarVis() {
 
 async function isLikedOrRated() {
     try {
-        const res = await fetch('http://localhost:8888/.netlify/functions/get-likes-ratings', {
-        	method: 'POST',
-        	header: { 'content-type': 'application/json' },
-        	body: JSON.stringify({ pageId: pageId, userId: user.id })
-        });
-        
-        if (!res.ok) throw new Error(`Error status: ${res.status}`);
-        
-        const { data, error } = await res.json();
-        
-        if (error) throw new Error(error);
-        
-        r = data[0];
+
+        r = myLikesAndRatings;
         
         if (r) {
             if (r.page_likes) {
@@ -208,8 +197,7 @@ async function isLikedOrRated() {
 
 // Rating Functions 
 
-async function loadRatings(){
-    
+async function loadLikesAndRatings(){
     try {
         const res = await fetch('http://localhost:8888/.netlify/functions/get-likes-ratings', {
         	method: 'POST',
@@ -236,8 +224,10 @@ async function loadRatings(){
         }
 
         let count = 0;
-        let sum = 0; 
+        let sum = 0;
         
+		likesAndRatings = data;  // store likes and ratings for feature use
+
         data.forEach(r => {
             if (!r.page_ratings) return;
             count += 1;
@@ -284,13 +274,13 @@ async function loadRatings(){
             }
             box.appendChild(div);
         });
+        await loadPageLikes()
     } catch (e) {
         console.error(e);
     }
 }
 
 async function submitRating() {
-    //const pageId = pageId;
     if (!selectedRating || selectedRating < 1 || selectedRating > 5) {
         alert("Choose 1–5 stars first.");
         return;
@@ -298,21 +288,11 @@ async function submitRating() {
     
     const msg = document.getElementById("rating-message").value.trim();
     try {
-		const res = await fetch('http://localhost:8888/.netlify/functions/get-likes-ratings', {
-        	method: 'POST',
-        	header: { 'content-type': 'application/json' },
-        	body: JSON.stringify({ pageId: pageId, userId: user.id })
-        });
-        
-        if (!res.ok) throw new Error(`Error status: ${res.status}`);
-        
-        const { data, error } = await res.json();
-        
-        r = data[0];
+        r = myLikesAndRatings
         if (r) {
             const res = await fetch('http://localhost:8888/.netlify/functions/update-likes-ratings', {
 			    method: 'POST',
-			    headers: { 'Content-Type': 'application/json' },
+			    header: { 'content-type': 'application/json' },
 			    body: JSON.stringify({
 			    	pageId,
 			    	userId: user.id,
@@ -337,11 +317,11 @@ async function submitRating() {
             }
             updateStarVis();
             document.getElementById("rating-message").value = "";
-            await loadRatings();
+            await loadLikesAndRatings();
         } else {
             const res = await fetch('http://localhost:8888/.netlify/functions/set-likes-ratings', {
 			    method: 'POST',
-			    headers: { 'Content-Type': 'application/json' },
+			    header: { 'content-type': 'application/json' },
 			    body: JSON.stringify({
 			    	pageId,
 			    	userId: user.id,
@@ -360,7 +340,7 @@ async function submitRating() {
             btnSubmitRating.textContent = "Submitted";
             updateStarVis();
             document.getElementById("rating-message").value = "";
-            await loadRatings();
+            await loadLikesAndRatings();
         }
     } catch (e) {
         console.error(e);
@@ -371,22 +351,10 @@ async function submitRating() {
 
 async function likePage(oldLikes){
     try {
-        const res = await fetch('http://localhost:8888/.netlify/functions/get-likes-ratings', {
-        	method: 'POST',
-        	header: { 'content-type': 'application/json' },
-        	body: JSON.stringify({ pageId: pageId, userId: user.id })
-        });
-        
-        if (!res.ok) throw new Error(`Error status: ${res.status}`);
-        
-        const { data, error } = await res.json();
-
-        if (error) console.error(error);
-        
-        if (data[0]) {
+        if (myLikesAndRatings) {
             const res = await fetch('http://localhost:8888/.netlify/functions/update-likes-ratings', {
 			    method: 'POST',
-			    headers: { 'Content-Type': 'application/json' },
+			    header: { 'content-type': 'application/json' },
 			    body: JSON.stringify({
 			    	pageId,
 			    	userId: user.id,
@@ -401,12 +369,12 @@ async function likePage(oldLikes){
                 console.error(error);
                 alert("Error updating likes");
             }
-            await loadPageLikes();
+            await loadLikesAndRatings();
         } else {
             try {
                 const res = await fetch('http://localhost:8888/.netlify/functions/set-likes-ratings', {
 				    method: 'POST',
-				    headers: { 'Content-Type': 'application/json' },
+				    header: { 'content-type': 'application/json' },
 				    body: JSON.stringify({
 				    	pageId,
 				    	userId: user.id,
@@ -419,7 +387,7 @@ async function likePage(oldLikes){
                     alert("Error submitting Like");
                     return;
                 }
-                await loadPageLikes();
+                await loadLikesAndRatings();
                 //await isLikedOrRated();
             } catch (e) {
                 console.error(e);
@@ -433,21 +401,12 @@ async function likePage(oldLikes){
 
 async function loadPageLikes() {
     try {
-        const res = await fetch('http://localhost:8888/.netlify/functions/get-likes-ratings', {
-        	method: 'POST',
-        	header: { 'content-type': 'application/json' },
-        	body: JSON.stringify({ pageId: pageId })
-        });
-        
-        if (!res.ok) throw new Error(`Error status: ${res.status}`);
-        
-        const { data, error } = await res.json();
-
-        if (error) console.error(error);
-        
-        totalLikes = 0;
-        data.forEach(r => {
+		totalLikes = 0;
+        likesAndRatings.forEach(r => {
             totalLikes += r.page_likes;
+            if (r.user.id === user.id) {
+            	myLikesAndRatings = r;
+            }
         })
         btnLike.remove()
         const btnLikeHtml = `<button id="btnLike" class="btn ghost" onclick="likePage(${totalLikes})">👍🏼 ${totalLikes}</button>`
@@ -462,7 +421,6 @@ async function loadPageLikes() {
 // Comments functions
 
 async function loadComments() {
-    //const pageId = pageId;
     try {
     	// new api copy
         const res = await fetch('http://localhost:8888/.netlify/functions/get-comments', {
@@ -488,6 +446,8 @@ async function loadComments() {
             box.innerHTML = `<div class="muted">No comments yet</div>`;
             return;
         }
+        
+		comments = data; // store comments for feature use
 
         data.forEach(c => {
         	let totalCLikes = "";
@@ -545,7 +505,7 @@ async function submitComment(){
     try {
 		const res = await fetch('http://localhost:8888/.netlify/functions/set-comments', {
 		    method: 'POST',
-		    headers: { 'Content-Type': 'application/json' },
+		    header: { 'content-type': 'application/json' },
 		    body: JSON.stringify({
 		    	pageId,
 		    	userId: user.id,
@@ -580,7 +540,7 @@ async function likeComment(id, oldLikes){
     try {
     	const res = await fetch('http://localhost:8888/.netlify/functions/update-comments', {
 		    method: 'POST',
-		    headers: { 'Content-Type': 'application/json' },
+		    header: { 'content-type': 'application/json' },
 		    body: JSON.stringify({
 		    	pageId,
 		    	userId: user.id,
@@ -702,6 +662,8 @@ function renderNavBar() {
     renderFavouriteState();
     topBar.appendChild(favBtn);
     
+    // trace history
+    const HISTORY_KEY = 'unit_page_history';
     const pageTitle = document.title;
 
     function updateHistory() {
@@ -928,6 +890,5 @@ AboutUser();
 renderInteractiveStars();
 
 // initial loads
-loadPageLikes();
-loadRatings();
+loadLikesAndRatings();
 loadComments();

@@ -43,25 +43,11 @@ btnClearRating.addEventListener("click", () => {
 	updateStarVis();
 });
 
-function AboutUser() {
+function isLogged() {
     if (!user) {
-    	const like = document.getElementById('btnLike');
-    	const submit = document.getElementById('btn-submit-rating');
-    	const post = document.getElementById('btn-post-comment');
-    	
-    	const disabledBtns = [like, submit, post]
-    	
-    	disabledBtns.forEach(btn => {
-    		btn.addEventListener("click", () => {
-				if (confirm('You have to Login OR Signup to download the notes or interect with the notes.\n\nClick OK to Login OR Signup.\n\nElse you will be redirect automatically.')) {
-					window.location.href = "../../../../login_signup.html";
-				}
-    		});
-    	});
-    	
         setTimeout(() => {
             window.location.href = "../../../../login_signup.html";
-        }, 45000);
+        }, 60000);
     } 
 }
 
@@ -237,7 +223,7 @@ async function loadLikesAndRatings(){
 
         data.forEach(r => {
             totalLikes += r.page_likes ? 1 : 0;
-			if (r.user.id === user ? user.id : null) {
+			if (r.user.id === (user ? user.id : null)) {
 				myLikesAndRatings = r;
 			}
 			
@@ -298,6 +284,7 @@ async function loadLikesAndRatings(){
 }
 
 async function submitRating() {
+	if (!ensureAuthenticated()) return;
     if (!selectedRating || selectedRating < 1 || selectedRating > 5) {
         alert("Choose 1–5 stars first.");
         return;
@@ -356,12 +343,7 @@ async function submitRating() {
 }
 
 async function likePage(oldLikes){
-	if (!user) {
-		if (confirm('You have to Login OR Signup to download the notes or interect with the notes.\n\nClick OK to Login OR Signup.\n\nElse you will be redirect automatically.')) {
-			window.location.href = "../../../../login_signup.html";
-		}
-		return;
-	}
+	if (!ensureAuthenticated()) return;
     try {
         if (myLikesAndRatings) {
             const res = await fetch('https://knowlet.in/.netlify/functions/update-likes-ratings', {
@@ -388,7 +370,7 @@ async function likePage(oldLikes){
 			    body: JSON.stringify({
 			    	pageId,
 			    	userId: user.id,
-			    	actgition: 'like'
+			    	action: 'like'
 			    })
 			});
 			const { error } = await res.json();
@@ -470,7 +452,7 @@ async function loadComments() {
 			
 			            <div class="comment-actions">
 			                <button
-			                    class="btn ghost like-c-btn"
+			                    class="btn ghost"
 			                    onclick="likeComment(${c.id}, ${c.likes})">
 			                    ${totalCLikes}
 			                </button>
@@ -487,6 +469,7 @@ async function loadComments() {
 }
 
 async function submitComment(){
+	if (!ensureAuthenticated()) return;
     const text = document.getElementById("comment-input").value;
     if (!text.trim()) return;
     try {
@@ -514,12 +497,7 @@ async function submitComment(){
 }
 
 async function likeComment(id, oldLikes){
-	if (!user) {
-		if (confirm('You have to Login OR Signup to download the notes or interect with the notes.\n\nClick OK to Login OR Signup.\n\nElse you will be redirect automatically.')) {
-			window.location.href = "../../../../login_signup.html";
-		}
-		return;
-	}
+	if (!ensureAuthenticated()) return;
 	let newLikes;
 	if (recentComments[id] === "Liked" && Number(oldLikes) >= 1) {
 		newLikes = (Number(oldLikes)||0)-1;
@@ -557,6 +535,17 @@ function escapeHtml(text) {
         .replaceAll(">", "&gt;")
         .replaceAll('"', "&quot;")
         .replaceAll("'", "&#039;");
+}
+
+function ensureAuthenticated() {
+    if (!user) {
+        const message = "You have to Login or Signup to download the notes or interact with them.\n\nClick OK to Login or Signup.\n\nOtherwise, you will be redirected automatically.";
+        if (confirm(message)) {
+            window.location.href = "../../../../login_signup.html";
+        }
+        return false;
+    }
+    return true;
 }
 
 // Wire up UI and init
@@ -876,7 +865,7 @@ function printDiv(divClass) {
 }
 
 // Load User Info 
-AboutUser();
+isLogged();
 
 // Render interactive stars and load data
 renderInteractiveStars();

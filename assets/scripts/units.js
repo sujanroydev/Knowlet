@@ -202,7 +202,9 @@ async function loadLikesAndRatings(){
         const { data, error } = await res.json();
 
         const box = document.getElementById("ratings-box");
+        const userBox = document.getElementById("user-ratings-box");
         box.innerHTML = "";
+        userBox.innerHTML = "";
 
         if (error) {
             box.innerHTML = `<div class="muted">Error loading ratings</div>`;
@@ -270,7 +272,11 @@ async function loadLikesAndRatings(){
                 box.innerHTML = `<div class="muted">No ratings yet</div>`;
                 return;
             }
-            box.appendChild(div);
+            if (r.user.id === (user ? user.id : null)) {
+				userBox.appendChild(div);
+			} else {
+				box.appendChild(div);
+			}
         });
         
 		btnLike.remove()
@@ -403,7 +409,9 @@ async function loadComments() {
         const { data, error } = await res.json();
 
         const box = document.getElementById("comments-box");
+        const userBox = document.getElementById("user-comments-box");
         box.innerHTML = "";
+        userBox.innerHTML = "";
 
         if (error) {
             box.innerHTML = `<div class="muted">Error loading comments</div>`;
@@ -460,7 +468,11 @@ async function loadComments() {
 			        </div>
 			    </div>
             `;
-            box.appendChild(d);
+            if (c.user.id === (user ? user.id : null)) {
+				userBox.appendChild(d);
+			} else {
+				box.appendChild(d);
+			}
         });
 
     } catch(e){
@@ -786,14 +798,16 @@ function renderFeedbackSection() {
                 <!-- Ratings list -->
                 <div class="supcard">
                     <h2 id='h3' style="margin-bottom:8px; font-size:16px; margin:0 0 14px; color:69707a;">Ratings</h2>
-                    <button id="btn-toggle-ratings" class="btn" onclick="toggleRatings()" style="margin-bottom: 5px">See Ratings</button>
+                    <div id="user-ratings-box"></div>
+                    <button id="btn-toggle-ratings" class="btn" onclick="toggleRatings()" style="margin-bottom: 5px">See More</button>
                     <div id="ratings-box" style="display:none"></div>
                 </div>
         
                 <!-- Comments list -->
                 <div class="supcard">
                     <h2 id='h3' style="margin-bottom:8px; font-size:16px; margin:0 0 14px; color:69707a;">Comments</h2>
-                    <button id="btn-toggle-comments" class="btn" onclick="toggleComments()" style="margin-bottom: 5px">See Comments</button>
+                    <div id="user-comments-box"></div>
+                    <button id="btn-toggle-comments" class="btn" onclick="toggleComments()" style="margin-bottom: 5px">See More</button>
                     <div id="comments-box" style="display:none"></div>
                 </div>
             </div>

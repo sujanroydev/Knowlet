@@ -6,14 +6,18 @@ const loader = document.getElementById("loading");
 const params = new URLSearchParams(window.location.search);
 let isNewUser = true;
 
-if (params.get('error') || !params.get('user')) {
-	alert(params.get('error'));
-	return;
+if (params.get('error') && !params.get('user')) {
+	alert('Try to login or signup in manual way.\n\nError: ' + params.get('error') + );
+	console.error(params.get('error'));
 }
 
 let user;
 if (params.get("user")) {
-	user = JSON.parse(params.get("user"));
+	try {
+		user = JSON.parse(params.get("user"));
+	} catch(e) {
+		console.error(e);
+	}
 }
 
 if (!user) {
@@ -153,6 +157,7 @@ async function sync(name, email, picture) {
             loader.style.display = "none";
             container.style.display = "flex";
             isNewUser = true;
+            return;
         }
         
         if (data[0] && data[0].password) {
@@ -167,6 +172,7 @@ async function sync(name, email, picture) {
             loader.style.display = "none";
             container.style.display = "flex";
             isNewUser = false;
+            return;
         }
         
     } catch(e) {

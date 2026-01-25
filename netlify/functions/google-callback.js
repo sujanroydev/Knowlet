@@ -48,7 +48,7 @@ exports.handler = async (event) => {
 				}
 			}
 		}
-		if (data) {
+		if (data.length) {
 			try {
 				const { error } = await supabaseClient
 					.from('user')

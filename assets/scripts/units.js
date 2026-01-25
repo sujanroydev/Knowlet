@@ -45,10 +45,30 @@ btnClearRating.addEventListener("click", () => {
 
 function AboutUser() {
     if (!user) {
-    	// disable all the interaction 
+    	const like = document.getElementById('btnLike');
+    	const submit = document.getElementById('btn-submit-rating');
+    	const post = document.getElementById('btn-post-comment');
+    	// const likeCommentBtn = document.querySelectorAll('.like-c-btn');
+    	
+    	const disabledBtns = [like, submit, post]
+    	
+    	disabledBtns.forEach(btn => {
+    		btn.addEventListener("click", () => {
+				if (confirm('You have to Login OR Signup to download the notes or interect with the notes.\n\nClick OK to Login OR Signup.\n\nElse you will be redirect automatically.')) {
+					window.location.href = "../../../../login_signup.html";
+				}
+    		});
+    	});
+    	
+		// likeCommentBtn.forEach(button => {
+		//   button.addEventListener('click', () => {
+		//     // Your code here
+		//   });
+		// });
+    	
         setTimeout(() => {
             window.location.href = "../../../../login_signup.html";
-        }, 15000);
+        }, 45000);
     } 
 }
 
@@ -451,7 +471,7 @@ async function loadComments() {
 			
 			            <div class="comment-actions">
 			                <button
-			                    class="btn ghost"
+			                    class="btn ghost like-c-btn"
 			                    onclick="likeComment(${c.id}, ${c.likes})">
 			                    ${totalCLikes}
 			                </button>

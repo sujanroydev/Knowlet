@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHYDSC253P Unit 2 | 4th Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive laboratory notes for PHYDSC253P Unit 2: Analog Electronics. Covering diode characteristics, transistor biasing, frequency response, and Op-amp applications for Knowlet.">
+    <meta name="keywords" content="Analog Electronics Lab, PHYDSC253P, Knowlet, PN Junction, Zener Diode, BJT Characteristics, RC-coupled amplifier, Op-amp 741, Physics Practical">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f4f8;
+        }
+        .main-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-top: 5px solid #3498db;
+        }
+        h1 {
+            color: #2980b9;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #2c3e50;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            margin-top: 35px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        blockquote {
+            background: #e1f5fe;
+            border-left: 10px solid #03a9f4;
+            margin: 1.5em 10px;
+            padding: 15px;
+            font-style: italic;
+        }
+        .formula-box {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            display: block;
+            margin: 20px 0;
+            border: 1px solid #bdc3c7;
+            text-align: center;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #bdc3c7;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .exam-tips {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        .exam-tips h4 {
+            color: #856404;
+            margin-top: 0;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.5em;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <h1>Unit 2: Analog Electronics (Lab: PHYDSC253P)</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#objectives">1. Laboratory Objectives</a></li>
+            <li><a href="#diodes">2. PN Junction & Zener Diode Characteristics</a></li>
+            <li><a href="#solar-cell">3. Solar Cell Analysis</a></li>
+            <li><a href="#transistor">4. Bipolar Junction Transistor (BJT) Characteristics</a></li>
+            <li><a href="#amplifier">5. RC-coupled Transistor Amplifier</a></li>
+            <li><a href="#opamp-basic">6. Operational Amplifier (Op-amp) Fundamentals</a></li>
+            <li><a href="#opamp-apps">7. Op-amp Applications: Math Operations</a></li>
+            <li><a href="#exam-corner">8. Lab Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="objectives">1. Laboratory Objectives</h2>
+    <p>
+        [cite_start]The objective of this part is to provide students with hands-on knowledge and an overview of various instruments used in analog electronics[cite: 473]. [cite_start]Students will learn to perform experiments related to semiconductor devices and report findings accurately[cite: 448].
+    </p>
+
+    <h2 id="diodes">2. PN Junction & Zener Diode Characteristics</h2>
+    <p>
+        [cite_start]These experiments involve studying the Volt-Ampere (V-I) relationship of semiconductor diodes[cite: 460, 461].
+    </p>
+    <ul>
+        [cite_start]<li><strong>PN Junction Diode:</strong> Students plot the current against the voltage in both forward and reverse bias to understand the unilateral behavior[cite: 460].</li>
+        [cite_start]<li><strong>Zener Diode:</strong> The focus is on the reverse breakdown region to understand its role as a voltage regulator[cite: 461].</li>
+    </ul>
+    
+
+    <h2 id="solar-cell">3. Solar Cell Analysis</h2>
+    <p>
+        [cite_start]The study includes plotting V-I and power curves for solar cells[cite: 462].
+    </p>
+    <blockquote>
+        [cite_start]<strong>Goal:</strong> To find the maximum power point and calculate the overall efficiency of the solar cell[cite: 462].
+    </blockquote>
+
+    <h2 id="transistor">4. Bipolar Junction Transistor (BJT) Characteristics</h2>
+    <p>
+        [cite_start]The characteristics of a BJT are studied in the <strong>Common Emitter (CE)</strong> configuration[cite: 463].
+    </p>
+    <ul>
+        [cite_start]<li><strong>Input Characteristics:</strong> Base current vs. Base-Emitter voltage for constant Collector-Emitter voltage[cite: 463].</li>
+        [cite_start]<li><strong>Output Characteristics:</strong> Collector current vs. Collector-Emitter voltage for constant Base current[cite: 463].</li>
+    </ul>
+    
+
+    <h2 id="amplifier">5. RC-coupled Transistor Amplifier</h2>
+    <p>
+        [cite_start]This practical involves designing and studying the performance of a single-stage amplifier[cite: 464, 465].
+    </p>
+    <ul>
+        [cite_start]<li><strong>Design:</strong> Using voltage divider biasing to achieve a specified mid-gain[cite: 464].</li>
+        [cite_start]<li><strong>Frequency Response:</strong> Plotting gain against frequency to determine the bandwidth[cite: 465].</li>
+    </ul>
+
+    <h2 id="opamp-basic">6. Operational Amplifier (Op-amp) Fundamentals</h2>
+    <p>
+        [cite_start]Students use IC-741 or IC-351 to design basic linear amplifier circuits[cite: 467, 470].
+    </p>
+    <ul>
+        [cite_start]<li><strong>Inverting Amplifier:</strong> The output is out of phase with the input[cite: 467].</li>
+        [cite_start]<li><strong>Non-Inverting Amplifier:</strong> The output is in phase with the input[cite: 470].</li>
+    </ul>
+    <div class="formula-box">
+        Gain (Inverting) = -Rf / Ri <br>
+        Gain (Non-Inverting) = 1 + (Rf / Ri)
+    </div>
+
+    <h2 id="opamp-apps">7. Op-amp Applications: Math Operations</h2>
+    <p>
+        [cite_start]Advanced experiments involve using the Op-amp to perform mathematical operations on electrical signals[cite: 471, 472].
+    </p>
+    <ul>
+        [cite_start]<li><strong>Integrator:</strong> The output is the time integral of the input[cite: 471].</li>
+        [cite_start]<li><strong>Differentiator:</strong> The output is the derivative of the input[cite: 471].</li>
+        [cite_start]<li><strong>Adder/Subtractor:</strong> Combining multiple input signals into a single output[cite: 472].</li>
+    </ul>
+    
+
+    <div class="exam-tips" id="exam-corner">
+        <h4>Lab Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            [cite_start]<li><strong>Why is voltage divider bias used for transistors?</strong> <br>It provides the best stability for the Q-point against variations in temperature and transistor parameters[cite: 415].</li>
+            [cite_start]<li><strong>What is 'Knee Voltage' in a diode?</strong> <br>It is the forward voltage at which the current starts to increase rapidly[cite: 1025].</li>
+        </ul>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><strong>Biasing Polarity:</strong> Connecting the Zener diode in forward bias when trying to observe regulation. [cite_start]Remember, regulation occurs in <strong>reverse breakdown</strong>[cite: 461].</li>
+            <li><strong>Clipping:</strong> In Op-amp circuits, expecting a gain that results in an output voltage higher than the supply voltage (+Vcc / -Vee). The output will saturate.</li>
+        </ul>
+
+        <h3>Lab Tips</h3>
+        <blockquote>
+            [cite_start]<strong>Tip:</strong> When plotting the frequency response of an amplifier, use <strong>semi-log graph paper</strong> (logarithmic scale for frequency) to clearly see the flat mid-band region and the roll-off at low and high frequencies[cite: 465].
+        </blockquote>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHYDSM251P Unit 1 | 4th Semester Lab Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive laboratory notes for PHYDSM251P Unit 1: Mechanics and Optics. Prepared for Knowlet to ensure exam readiness for 4th-semester physics students.">
+    <meta name="keywords" content="Mechanics Lab, Optics Lab, Physics Practicals, PHYDSM251P, Knowlet, Torsional Pendulum, Young's Modulus, Newton's Rings, Spectrometer, Prism">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #2980b9;
+            --accent-color: #e67e22;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --border-color: #bdc3c7;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            border-left: 6px solid var(--accent-color);
+            padding-left: 15px;
+            margin-top: 40px;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            margin-top: 25px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .toc {
+            background: #f9f9f9;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .toc h2 {
+            border: none;
+            padding: 0;
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc li {
+            margin-bottom: 8px;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        blockquote {
+            background: #fdf2e9;
+            border-left: 8px solid var(--accent-color);
+            margin: 20px 0;
+            padding: 15px;
+            font-style: italic;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .exam-focus {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+
+        .exam-focus h4 {
+            color: #856404;
+            margin-top: 0;
+        }
+
+        .formula {
+            display: block;
+            text-align: center;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+            padding: 15px;
+            background: #eee;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 1: Mechanics and Optics Lab (PHYDSM251P)</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#intro">1. Course Objective and Overview</a></li>
+            <li><a href="#mech-exp">2. Key Experiments in Mechanics</a></li>
+            <li><a href="#optics-exp">3. Key Experiments in Optics</a></li>
+            <li><a href="#instrumentation">4. Laboratory Instrumentation Guide</a></li>
+            <li><a href="#exam-prep">5. Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="intro">1. Course Objective and Overview</h2>
+    <p>
+        The primary objective of the <strong>PHYDSM251P</strong> lab course is to enable students to use various scientific instruments effectively to estimate physical parameters[cite: 1440]. This unit focuses on the foundational aspects of <strong>Mechanics</strong> and <strong>Optics</strong>, requiring students to perform experiments, analyze data, and report results systematically[cite: 1440].
+    </p>
+    <p>
+        According to the curriculum, two experiments are typically performed in an exam session—one from the Mechanics section and one from the Optics section[cite: 1441].
+    </p>
+
+    <h2 id="mech-exp">2. Key Experiments in Mechanics</h2>
+    <p>The mechanics portion of the lab covers the study of elasticity, rotational dynamics, and gravitational acceleration[cite: 1442].</p>
+
+    <h3>Moment of Inertia by Torsional Pendulum</h3>
+    <p>Used to determine the moment of inertia of a regular body by measuring the time period of torsional oscillations[cite: 1443].</p>
+    <div class="formula">I = (T² * C) / (4 * π²)</div>
+    <p>Where T is the time period and C is the torsional rigidity of the wire.</p>
+
+    <h3>Young’s Modulus (Searle’s Method)</h3>
+    <p>This experiment involves measuring the extension of a wire under load to calculate its Young's Modulus[cite: 1444]. It requires precise measurement of the wire's length and diameter.</p>
+
+    <h3>Determination of 'g' (Bar Pendulum)</h3>
+    <p>Students use a compound pendulum (Bar Pendulum) to determine the acceleration due to gravity (g) by observing the oscillation periods at different centers of suspension[cite: 1446].</p>
+
+    <h3>Spring Constants and Motion</h3>
+    <p>By studying the motion of a spring, students calculate the <strong>Spring Constant</strong> and verify the value of 'g' through oscillatory motion analysis[cite: 1447].</p>
+
+    <h2 id="optics-exp">3. Key Experiments in Optics</h2>
+    <p>The optics section focuses on ray optics (focal lengths, refractive index) and physical optics (interference and diffraction)[cite: 1442].</p>
+
+    <h3>Refractive Index by Spectrometer</h3>
+    <p>One of the core experiments involves determining the <strong>angle of minimum deviation (δm)</strong> for a prism to find the refractive index of its material[cite: 1452, 1453].</p>
+    
+    <div class="formula">μ = sin((A + δm) / 2) / sin(A / 2)</div>
+
+    <h3>Newton’s Rings</h3>
+    <p>This experiment is used to determine the <strong>wavelength of sodium light</strong> by observing the interference pattern formed between a plano-convex lens and a glass plate[cite: 1454, 1456].</p>
+    
+
+[Image of Newton's Rings experimental arrangement]
+
+
+    <h3>Traveling Microscope Experiments</h3>
+    <p>Used for high-precision measurement of the refractive index of liquids by observing the apparent depth of an object through the liquid[cite: 1451].</p>
+
+    <h2 id="instrumentation">4. Laboratory Instrumentation Guide</h2>
+    <table>
+        <tr>
+            <th>Instrument</th>
+            <th>Primary Application</th>
+            <th>Common Pitfalls</th>
+        </tr>
+        <tr>
+            <td><strong>Spectrometer</strong></td>
+            <td>Measuring angles of deviation and prism angles[cite: 1452].</td>
+            <td>Incomplete leveling of the prism table.</td>
+        </tr>
+        <tr>
+            <td><strong>Traveling Microscope</strong></td>
+            <td>Measuring small distances and apparent depths[cite: 1451].</td>
+            <td>Backlash error in the screw mechanism.</td>
+        </tr>
+        <tr>
+            <td><strong>Torsional Pendulum</strong></td>
+            <td>Calculating Moment of Inertia[cite: 1443].</td>
+            <td>Oscillations that are not purely torsional (wobbling).</td>
+        </tr>
+        <tr>
+            <td><strong>Optical Bench</strong></td>
+            <td>Finding focal lengths of mirrors and lenses[cite: 1448].</td>
+            <td>Parallax error when aligning pins.</td>
+        </tr>
+    </table>
+
+    <h2 id="exam-prep">5. Exam Focus Corner</h2>
+    <div class="exam-focus">
+        <h4>Exam Tips & Common Mistakes</h4>
+        <ul>
+            <li><strong>Parallax Removal:</strong> In focal length and traveling microscope experiments, ensure the image and object pin move together. If they shift relative to each other, parallax still exists[cite: 1450].</li>
+            <li><strong>Least Count:</strong> Always record the least count of your instruments (Spectrometer, Microscope, Vernier) at the beginning of the experiment to avoid calculation errors.</li>
+            <li><strong>Consistent Units:</strong> Mechanics experiments often involve mixed units (cm and mm). Convert all to SI (meters) or CGS (cm) consistently.</li>
+        </ul>
+
+        <h4>Frequently Asked Questions</h4>
+        <blockquote>
+            <strong>Q: Why do we use a sodium lamp for Newton's Rings?</strong><br>
+            A: Sodium lamps provide monochromatic light, which ensures that the interference fringes are clear and do not overlap into a spectrum.
+        </blockquote>
+        <blockquote>
+            <strong>Q: What is the 'angle of minimum deviation'?</strong><br>
+            A: It is the smallest angle by which light is bent by a prism. At this angle, the ray passes symmetrically through the prism.
+        </blockquote>
+    </div>
+</div>
+
+</body>
+</html>

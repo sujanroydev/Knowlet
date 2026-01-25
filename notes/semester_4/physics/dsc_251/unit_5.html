@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHYDSC251 Unit 5 | 4th Semester Notes - Knowlet</title>
+    <meta name="description" content="Detailed academic notes for PHYDSC251 Unit 5: Beta and Gamma Functions and Numerical Techniques. Covering properties, relations, and numerical methods for Knowlet.">
+    <meta name="keywords" content="Beta Function, Gamma Function, Numerical Techniques, Bisection Method, Newton Raphson, Simpson Rule, Newton Gregory Interpolation, Physics Notes, Knowlet, PHYDSC251">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .content-box {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-top: 5px solid #8e44ad;
+        }
+        h1 {
+            color: #4b0082;
+            text-align: center;
+            border-bottom: 2px solid #8e44ad;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #8e44ad;
+            border-left: 5px solid #9b59b6;
+            padding-left: 15px;
+            margin-top: 30px;
+            background-color: #f3e5f5;
+            padding: 10px;
+        }
+        h3 {
+            color: #2c3e50;
+            margin-top: 25px;
+            border-bottom: 1px solid #ddd;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        blockquote {
+            background: #f9f9f9;
+            border-left: 10px solid #8e44ad;
+            margin: 1.5em 10px;
+            padding: 10px;
+            font-style: italic;
+        }
+        .formula {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            display: block;
+            margin: 20px 0;
+            border: 1px solid #ccc;
+            text-align: center;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #8e44ad;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .exam-section {
+            background-color: #e8f5e9;
+            border: 1px solid #c8e6c9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        .exam-section h4 {
+            color: #2e7d32;
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+        .toc {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #8e44ad;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            background: none;
+            padding: 0;
+            border: none;
+            font-size: 1.5em;
+        }
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .toc li {
+            margin-bottom: 8px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #8e44ad;
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content-box">
+    <h1>Unit 5: Beta and Gamma Functions & Numerical Techniques</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#gamma-function">1. Gamma Function: Definition and Properties</a></li>
+            <li><a href="#beta-function">2. Beta Function: Definition and Properties</a></li>
+            <li><a href="#relation">3. Relation between Beta and Gamma Functions</a></li>
+            <li><a href="#integrals">4. Integrals in terms of Gamma Functions</a></li>
+            <li><a href="#root-finding">5. Solving Algebraic and Transcendental Equations</a></li>
+            <li><a href="#simpson">6. Simpson's Rule for Numerical Integration</a></li>
+            <li><a href="#interpolation">7. Newton-Gregory Interpolation Formulae</a></li>
+            <li><a href="#exam-focus">8. Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="gamma-function">1. Gamma Function: Definition and Properties</h2>
+    <p>
+        The <strong>Gamma function</strong>, denoted by Γ(n), is an extension of the factorial function to complex and real number arguments. [cite: 48]
+    </p>
+    <blockquote>
+        Γ(n) = Integral from 0 to infinity of [x^(n-1) * e^(-x)] dx, for n > 0.
+    </blockquote>
+    <h3>Key Properties:</h3>
+    <ul>
+        <li>Γ(n+1) = nΓ(n) [cite: 48]</li>
+        <li>Γ(n+1) = n! (if n is a positive integer) [cite: 48]</li>
+        <li>Γ(1) = 1 [cite: 48]</li>
+        <li>Γ(1/2) = √π [cite: 48]</li>
+    </ul>
+
+    <h2 id="beta-function">2. Beta Function: Definition and Properties</h2>
+    <p>
+        The <strong>Beta function</strong>, denoted as B(m, n), is a special function defined by a specific integral. [cite: 48]
+    </p>
+    <blockquote>
+        B(m, n) = Integral from 0 to 1 of [x^(m-1) * (1-x)^(n-1)] dx, for m, n > 0.
+    </blockquote>
+    <h3>Key Properties:</h3>
+    <ul>
+        <li><strong>Symmetry:</strong> B(m, n) = B(n, m) [cite: 48]</li>
+        <li><strong>Trigonometric Form:</strong> B(m, n) = 2 * Integral from 0 to π/2 of [sin^(2m-1)θ * cos^(2n-1)θ] dθ [cite: 48]</li>
+    </ul>
+
+    <h2 id="relation">3. Relation between Beta and Gamma Functions</h2>
+    <p>
+        The most important identity connecting these two functions is: [cite: 48]
+    </p>
+    <div class="formula">
+        B(m, n) = [Γ(m) * Γ(n)] / Γ(m + n)
+    </div>
+    <p>This relation allows us to evaluate complex definite integrals involving products of powers of variables. [cite: 48]</p>
+
+    <h2 id="integrals">4. Integrals in terms of Gamma Functions</h2>
+    <p>
+        Many definite integrals in physics can be simplified using Gamma functions. A common form is: [cite: 48]
+    </p>
+    <div class="formula">
+        Integral from 0 to infinity of [x^n * e^(-ax^m)] dx = [Γ((n+1)/m)] / [m * a^((n+1)/m)]
+    </div>
+
+    <h2 id="root-finding">5. Solving Algebraic and Transcendental Equations</h2>
+    <p>
+        When equations cannot be solved analytically (e.g., x = tan x), we use numerical methods to find roots. [cite: 49]
+    </p>
+
+    <h3>Bisection Method</h3>
+    <p>Based on the Intermediate Value Theorem. If f(a) and f(b) have opposite signs, a root exists between a and b. We repeatedly halve the interval. [cite: 49]</p>
+
+    <h3>Newton-Raphson Method</h3>
+    <p>A fast iterative technique that uses the derivative of the function. [cite: 49]</p>
+    <div class="formula">
+        x_(n+1) = x_n - [f(x_n) / f'(x_n)]
+    </div>
+
+    <h2 id="simpson">6. Simpson's Rule for Numerical Integration</h2>
+    <p>
+        Used for approximating the value of a definite integral by modeling the function as a series of parabolas. [cite: 49]
+    </p>
+    <h3>Simpson's 1/3rd Rule:</h3>
+    <p>Requires an even number of intervals (n). [cite: 49]</p>
+    <div class="formula">
+        Integral ≈ (h/3) * [ (y0 + yn) + 4(y1 + y3 + ...) + 2(y2 + y4 + ...) ]
+    </div>
+
+    <h2 id="interpolation">7. Newton-Gregory Interpolation Formulae</h2>
+    <p>
+        Used to find values between data points (interpolation) or outside them (extrapolation). [cite: 50]
+    </p>
+    <table>
+        <tr>
+            <th>Method</th>
+            <th>Usage Case</th>
+        </tr>
+        <tr>
+            <td><strong>Newton-Gregory Forward</strong></td>
+            <td>Interpolating near the <strong>beginning</strong> of a set of values. [cite: 50]</td>
+        </tr>
+        <tr>
+            <td><strong>Newton-Gregory Backward</strong></td>
+            <td>Interpolating near the <strong>end</strong> of a set of values. [cite: 50]</td>
+        </tr>
+    </table>
+
+    <div class="exam-section" id="exam-focus">
+        <h4>Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li><strong>Show that Γ(1/2) = √π.</strong> (This is a standard 5-mark derivation). [cite: 48]</li>
+            <li><strong>When does the Newton-Raphson method fail?</strong> When the derivative f'(x) at the point is zero (division by zero error). [cite: 49]</li>
+        </ul>
+
+        <h3>Common Pitfalls</h3>
+        <ul>
+            <li><strong>Simpson's Rule:</strong> Forgetting that the number of intervals <em>must</em> be even for the 1/3rd rule. [cite: 49]</li>
+            <li><strong>Gamma Values:</strong> Using Γ(n) = n! for non-integers. Remember Γ(n+1) = n! only for positive integers. [cite: 48]</li>
+        </ul>
+
+        <h3>Exam Tips</h3>
+        <blockquote>
+            <strong>Tip:</strong> In Numerical methods, always maintain at least 4 decimal places during calculations to avoid rounding errors in the final result. [cite: 49, 50]
+        </blockquote>
+    </div>
+</div>
+
+</body>
+</html>

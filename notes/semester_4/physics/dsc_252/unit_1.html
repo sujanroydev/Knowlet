@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHYDSC252T Unit 1 | 4th Semester Notes - Knowlet</title>
+    <meta name="description" content="Exam-ready notes for PHYDSC252T Unit 1: Semiconductor Diodes. Covering P-N junctions, rectifiers, filters, and regulation for Knowlet.">
+    <meta name="keywords" content="Semiconductor Diodes, P-N Junction, Rectifiers, Zener Diode, LED, Solar Cell, Physics Notes, PHYDSC252T, Knowlet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fdfdfd;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #eee;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 4px solid #3498db;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #2980b9;
+            border-left: 6px solid #3498db;
+            padding-left: 15px;
+            margin-top: 35px;
+        }
+        h3 {
+            color: #e67e22;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        blockquote {
+            background: #f4f7f6;
+            border-left: 10px solid #2ecc71;
+            margin: 1.5em 10px;
+            padding: 15px;
+            font-style: italic;
+        }
+        .formula-block {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            display: block;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            text-align: center;
+            font-weight: bold;
+            color: #d35400;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #bdc3c7;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .exam-focus {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+        .exam-focus h4 {
+            color: #856404;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.5em;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc li {
+            margin-bottom: 10px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: 600;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 1: Semiconductor Diodes</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#conductivity-mobility">1. Conductivity, Mobility, and Drift Velocity</a></li>
+            <li><a href="#pn-junction">2. Formation and Characteristics of P-N Junction Diode</a></li>
+            <li><a href="#biasing-mechanism">3. Current Flow Mechanism in Biasing</a></li>
+            <li><a href="#resistance-types">4. Static and Dynamic Resistance</a></li>
+            <li><a href="#rectifiers">5. Half-wave and Full-wave Rectifiers</a></li>
+            <li><a href="#filters">6. Filter Circuits (C and π-filter)</a></li>
+            <li><a href="#zener-diode">7. Zener Diode and Voltage Regulation</a></li>
+            <li><a href="#led-solar">8. LED and Solar Cell</a></li>
+            <li><a href="#exam-corner">9. Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="conductivity-mobility">1. Conductivity, Mobility, and Drift Velocity</h2>
+    <p>
+        In semiconductors, the flow of charge is determined by the behavior of electrons and holes. [cite_start]<strong>Drift Velocity</strong> is the average velocity attained by charge carriers due to an electric field[cite: 405].
+    </p>
+    <p>
+        <strong>Mobility (μ)</strong> is defined as the magnitude of drift velocity per unit electric field. [cite_start]<strong>Conductivity (σ)</strong> of a semiconductor depends on the concentration of both electrons and holes and their respective mobilities[cite: 405].
+    </p>
+
+    <h2 id="pn-junction">2. Formation and Characteristics of P-N Junction Diode</h2>
+    <p>
+        [cite_start]A <strong>P-N junction</strong> is formed by joining p-type and n-type semiconductor materials[cite: 405]. At the interface, a <strong>Depletion Region</strong> is created where mobile charge carriers are absent.
+    </p>
+    
+    <p>
+        [cite_start]The <strong>V-I Characteristics</strong> show how current varies with applied voltage[cite: 405]. In forward bias, current increases exponentially after reaching the <strong>Knee Voltage</strong>. [cite_start]In reverse bias, only a very small leakage current flows until breakdown occurs[cite: 405].
+    </p>
+
+    <h2 id="biasing-mechanism">3. Current Flow Mechanism in Biasing</h2>
+    <ul>
+        [cite_start]<li><strong>Forward Bias:</strong> The positive terminal is connected to the p-side[cite: 405]. [cite_start]This narrows the depletion region, allowing majority carriers to cross the junction easily[cite: 406].</li>
+        [cite_start]<li><strong>Reverse Bias:</strong> The positive terminal is connected to the n-side[cite: 405]. [cite_start]This widens the depletion region, preventing majority carrier flow and allowing only minority carrier drift[cite: 406].</li>
+    </ul>
+
+    <h2 id="resistance-types">4. Static and Dynamic Resistance</h2>
+    <p>
+        [cite_start]The resistance of a diode is not constant because its V-I curve is non-linear[cite: 406].
+    </p>
+    <ul>
+        <li><strong>Static (DC) Resistance:</strong> The resistance at a specific DC operating point. [cite_start]R = V / I[cite: 406].</li>
+        [cite_start]<li><strong>Dynamic (AC) Resistance:</strong> The resistance offered to a changing signal, calculated as the reciprocal of the slope of the V-I curve. r = ΔV / ΔI[cite: 406].</li>
+    </ul>
+
+    <h2 id="rectifiers">5. Half-wave and Full-wave Rectifiers</h2>
+    <p>
+        [cite_start]Rectifiers convert alternating current (AC) into pulsating direct current (DC)[cite: 407].
+    </p>
+    
+    <table>
+        <tr>
+            <th>Feature</th>
+            <th>Half-wave Rectifier</th>
+            <th>Full-wave Rectifier</th>
+        </tr>
+        <tr>
+            <td><strong>Diodes Used</strong></td>
+            <td>1</td>
+            [cite_start]<td>2 (Center-tapped) or 4 (Bridge) [cite: 407]</td>
+        </tr>
+        <tr>
+            <td><strong>Efficiency (Max)</strong></td>
+            [cite_start]<td>40.6% [cite: 407]</td>
+            [cite_start]<td>81.2% [cite: 407]</td>
+        </tr>
+        <tr>
+            <td><strong>Ripple Factor</strong></td>
+            [cite_start]<td>1.21 [cite: 407]</td>
+            [cite_start]<td>0.48 [cite: 407]</td>
+        </tr>
+    </table>
+
+    <h2 id="filters">6. Filter Circuits (C and π-filter)</h2>
+    <p>
+        [cite_start]Filters are used to remove the AC components (ripples) from the rectifier output to provide smooth DC[cite: 407].
+    </p>
+    <ul>
+        <li><strong>C-Filter (Capacitor Filter):</strong> A capacitor is connected in parallel with the load. [cite_start]It charges during the peak and discharges through the load, smoothing the voltage[cite: 407].</li>
+        [cite_start]<li><strong>π-Filter:</strong> Consists of two capacitors and an inductor (or resistor) in a 'π' shape, providing superior ripple reduction compared to a simple C-filter[cite: 407].</li>
+    </ul>
+
+    <h2 id="zener-diode">7. Zener Diode and Voltage Regulation</h2>
+    <p>
+        [cite_start]A <strong>Zener Diode</strong> is a heavily doped diode designed to operate in the reverse breakdown region without damage[cite: 408].
+    </p>
+    
+    <p>
+        <strong>Breakdown Mechanisms:</strong>
+    </p>
+    <ul>
+        [cite_start]<li><strong>Zener Breakdown:</strong> Occurs in heavily doped junctions at low voltages due to high electric fields pulling electrons from valence bands[cite: 408].</li>
+        [cite_start]<li><strong>Avalanche Breakdown:</strong> Occurs in lightly doped junctions at high voltages due to collision-induced ionization[cite: 408].</li>
+    </ul>
+    [cite_start]<p><strong>Voltage Regulation:</strong> The Zener diode maintains a constant voltage across the load even if the input voltage or load current fluctuates[cite: 408].</p>
+
+    <h2 id="led-solar">8. LED and Solar Cell</h2>
+    <ul>
+        [cite_start]<li><strong>LED (Light Emitting Diode):</strong> A forward-biased P-N junction that emits light when electrons recombine with holes, releasing energy as photons[cite: 408].</li>
+        [cite_start]<li><strong>Solar Cell:</strong> A P-N junction that converts light energy directly into electrical energy through the photovoltaic effect[cite: 408].</li>
+    </ul>
+
+    <div class="exam-focus" id="exam-corner">
+        <h4>Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            [cite_start]<li><strong>Define Ripple Factor.</strong> It is the ratio of the RMS value of the AC component to the DC component in the rectifier output[cite: 407].</li>
+            [cite_start]<li><strong>How does a Zener diode act as a regulator?</strong> In the breakdown region, the voltage across the Zener remains constant over a wide range of current[cite: 408].</li>
+        </ul>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><strong>Biasing:</strong> Confusing forward and reverse bias connections. Remember: P to Positive = Forward.</li>
+            <li><strong>Efficiency:</strong> Forgetting that full-wave efficiency is exactly double that of half-wave.</li>
+        </ul>
+
+        <h3>Exam Tips</h3>
+        <blockquote>
+            <strong>Tip:</strong> Always draw the V-I characteristics when explaining diodes. Use <strong>bold</strong> labels for the Knee Voltage and Breakdown Voltage. For rectifiers, the <strong>output waveforms</strong> are just as important as the circuit diagram.
+        </blockquote>
+    </div>
+</div>
+
+</body>
+</html>

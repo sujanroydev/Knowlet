@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHYDSC251 Unit 2 | 4th Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive study notes for PHYDSC251 Unit 2: Frobenius Method. Covering Regular and Singular points, power series solutions, and Rodrigues Formula for polynomials. Prepared for Knowlet.">
+    <meta name="keywords" content="Frobenius Method, Physics Notes, PHYDSC251, Knowlet, Differential Equations, Legendre Polynomials, Bessel Equations, Hermite Polynomials, Rodrigues Formula">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f4f8;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 4px solid #27ae60;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #27ae60;
+            border-left: 5px solid #2ecc71;
+            padding-left: 15px;
+            margin-top: 35px;
+        }
+        h3 {
+            color: #e67e22;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        blockquote {
+            background: #fdfdfd;
+            border-left: 10px solid #27ae60;
+            margin: 1.5em 10px;
+            padding: 10px 20px;
+            font-style: italic;
+            border-radius: 0 5px 5px 0;
+        }
+        .formula-block {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            display: block;
+            margin: 20px 0;
+            border: 1px solid #dcdde1;
+            text-align: center;
+            color: #2f3640;
+            font-size: 1.1em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #dcdde1;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #27ae60;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .exam-section {
+            background-color: #e8f4fd;
+            border: 1px solid #b3d7ff;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+        .exam-section h4 {
+            color: #0056b3;
+            margin-top: 0;
+            font-size: 1.3em;
+            border-bottom: 1px solid #b3d7ff;
+            padding-bottom: 5px;
+        }
+        .toc-box {
+            background-color: #fff;
+            padding: 20px;
+            border: 2px solid #27ae60;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .toc-box h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.5em;
+        }
+        .toc-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc-box li {
+            margin-bottom: 10px;
+        }
+        .toc-box a {
+            text-decoration: none;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .toc-box a:hover {
+            color: #1e8449;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 2: Frobenius Method</h1>
+
+    <div class="toc-box">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#singular-points">1. [cite_start]Regular and Singular Points</a> [cite: 362]</li>
+            <li><a href="#frobenius-intro">2. [cite_start]The Frobenius Method Concepts</a> [cite: 363]</li>
+            <li><a href="#applications">3. [cite_start]Applications to Differential Equations</a> [cite: 363]</li>
+            <li><a href="#polynomial-properties">4. [cite_start]Properties of Legendre, Hermite and Laguerre Polynomials</a> [cite: 364]</li>
+            <li><a href="#rodrigues-formula">5. [cite_start]Rodrigues Formula</a> [cite: 364]</li>
+            <li><a href="#recurrence">6. [cite_start]Simple Recurrence Relations</a> [cite: 365]</li>
+            <li><a href="#exam-tips">7. Exam Focus & FAQs</a></li>
+        </ul>
+    </div>
+
+    <h2 id="singular-points">1. Regular and Singular Points</h2>
+    <p>
+        [cite_start]For a second-order linear differential equation of the form <strong>y'' + P(x)y' + Q(x)y = 0</strong>, the nature of the solution at a point x = x0 depends on the behavior of the coefficient functions P(x) and Q(x)[cite: 362].
+    </p>
+    
+    <h3>Ordinary Point</h3>
+    <p>A point x = x0 is called an <strong>ordinary point</strong> if both P(x) and Q(x) are analytic (can be expanded in a power series) at x0.</p>
+    
+    <h3>Singular Point</h3>
+    [cite_start]<p>If either P(x) or Q(x) is not analytic at x = x0, it is a <strong>singular point</strong>[cite: 362]. Singular points are divided into two types:</p>
+    <ul>
+        [cite_start]<li><strong>Regular Singular Point:</strong> x = x0 is regular if (x - x0)P(x) and (x - x0)²Q(x) are analytic at x0[cite: 362].</li>
+        [cite_start]<li><strong>Irregular Singular Point:</strong> If the above condition is not met, the point is an irregular singular point[cite: 362].</li>
+    </ul>
+
+    <h2 id="frobenius-intro">2. The Frobenius Method Concepts</h2>
+    <p>
+        [cite_start]The <strong>Frobenius Method</strong> is a technique used to find a power series solution for a differential equation around a regular singular point[cite: 363]. It assumes a solution of the form:
+    </p>
+    <div class="formula-block">
+        y(x) = Σ [an * x^(n+k)]
+    </div>
+    [cite_start]<p>where the sum goes from n = 0 to infinity, a0 is not zero, and <strong>k</strong> is the <strong>indicial constant</strong>[cite: 363]. The method involves finding the <strong>Indicial Equation</strong> to determine the possible values of k.</p>
+
+    <h2 id="applications">3. Applications to Differential Equations</h2>
+    <p>
+        [cite_start]The Frobenius method is essential for solving several fundamental equations in physics[cite: 363]:
+    </p>
+    <ul>
+        [cite_start]<li><strong>Legendre Differential Equation:</strong> (1 - x²)y'' - 2xy' + n(n + 1)y = 0[cite: 363].</li>
+        [cite_start]<li><strong>Bessel Differential Equation:</strong> x²y'' + xy' + (x² - n²)y = 0[cite: 363].</li>
+        [cite_start]<li><strong>Hermite Differential Equation:</strong> y'' - 2xy' + 2ny = 0[cite: 363].</li>
+        [cite_start]<li><strong>Laguerre Differential Equation:</strong> xy'' + (1 - x)y' + ny = 0[cite: 363].</li>
+    </ul>
+
+    <h2 id="polynomial-properties">4. Properties of Legendre, Hermite and Laguerre Polynomials</h2>
+    <p>
+        [cite_start]These polynomials represent the solutions to their respective differential equations and possess several critical properties used in quantum mechanics and electromagnetism[cite: 364].
+    </p>
+    
+    <h3>Generating Function</h3>
+    [cite_start]<p>A generating function allows us to derive the entire set of polynomials[cite: 365]. For example, the generating function for Legendre polynomials Pn(x) is:</p>
+    <div class="formula-block">
+        (1 - 2xt + t²)^(-1/2) = Σ [Pn(x) * t^n]
+    </div>
+
+    <h3>Orthogonality</h3>
+    [cite_start]<p>The polynomials are orthogonal over specific intervals with respect to a weight function[cite: 365]. For Legendre polynomials in the range [-1, 1]:</p>
+    <div class="formula-block">
+        Integral from -1 to 1 of [Pm(x) * Pn(x)] dx = 0 (if m is not equal to n)
+    </div>
+
+    <h2 id="rodrigues-formula">5. Rodrigues Formula</h2>
+    <p>
+        [cite_start]The <strong>Rodrigues Formula</strong> provides a direct way to calculate the nth-order polynomial using differentiation[cite: 364].
+    </p>
+    
+    <h3>For Legendre Polynomials Pn(x):</h3>
+    <div class="formula-block">
+        Pn(x) = (1 / (2^n * n!)) * (d^n / dx^n) * (x² - 1)^n
+    </div>
+    
+    <h3>For Hermite Polynomials Hn(x):</h3>
+    <div class="formula-block">
+        Hn(x) = (-1)^n * exp(x²) * (d^n / dx^n) * exp(-x²)
+    </div>
+
+    <h2 id="recurrence">6. Simple Recurrence Relations</h2>
+    <p>
+        [cite_start]Recurrence relations are equations that relate a polynomial of order n to polynomials of higher or lower orders[cite: 365]. These are used to simplify complex integrations and derivations.
+    </p>
+    [cite_start]<p><strong>Example (Legendre):</strong> (n + 1)Pn+1(x) = (2n + 1)xPn(x) - nPn-1(x)[cite: 365].</p>
+
+    <div class="exam-section" id="exam-tips">
+        <h4>Exam Focus & FAQs</h4>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            [cite_start]<li><strong>When do we use Frobenius method instead of a simple power series?</strong> Use Frobenius when the expansion point is a <em>regular singular point</em>; simple power series only work at <em>ordinary points</em>[cite: 362, 363].</li>
+            <li><strong>What is the Indicial Equation?</strong> It is the equation obtained by setting the coefficient of the lowest power of x to zero. [cite_start]It determines the values of 'k'[cite: 363].</li>
+        </ul>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><strong>Incorrect Identification:</strong> Failing to distinguish between regular and irregular singular points. [cite_start]Frobenius only works for regular singular points[cite: 362, 363].</li>
+            [cite_start]<li><strong>Rodrigues Formula:</strong> Forgetting the normalization constant (like 1/(2^n * n!)) at the beginning of the formula[cite: 364].</li>
+        </ul>
+
+        <h3>Exam Tips</h3>
+        <blockquote>
+            <strong>Tip:</strong> If an exam question asks to find the first few Legendre polynomials, use the <strong>Rodrigues Formula</strong> instead of the long series method—it's much faster! Also, remember that Pn(1) = 1 for all n; this is a quick way to check your answer.
+        </blockquote>
+    </div>
+</div>
+
+</body>
+</html>

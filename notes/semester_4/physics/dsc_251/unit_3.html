@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHYDSC251 Unit 3 | 4th Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive academic notes for PHYDSC251 Unit 3: Special Functions & Partial Differential Equations. Covering Legendre and Bessel functions, and Laplace's Equation for Knowlet.">
+    <meta name="keywords" content="Legendre Polynomials, Bessel Functions, Partial Differential Equations, Laplace Equation, Separation of Variables, Physics Notes, Knowlet, PHYDSC251">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 25px;
+            background-color: #fcfcfc;
+        }
+        .main-wrapper {
+            background-color: #ffffff;
+            padding: 45px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e1e8ed;
+        }
+        h1 {
+            color: #2980b9;
+            text-align: center;
+            font-size: 2.2em;
+            border-bottom: 4px double #3498db;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+        }
+        h2 {
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 10px 15px;
+            border-radius: 5px;
+            border-left: 6px solid #2980b9;
+            margin-top: 40px;
+        }
+        h3 {
+            color: #e67e22;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        p {
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+        .toc-container {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+        .toc-container h2 {
+            margin-top: 0;
+            background: none;
+            border: none;
+            padding: 0;
+            font-size: 1.5em;
+            color: #333;
+        }
+        .toc-container ul {
+            list-style-type: square;
+            padding-left: 25px;
+        }
+        .toc-container a {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: 500;
+        }
+        .toc-container a:hover {
+            color: #e67e22;
+            text-decoration: underline;
+        }
+        blockquote {
+            background: #fff9e6;
+            border-left: 8px solid #f1c40f;
+            margin: 20px 0;
+            padding: 15px 25px;
+            font-style: italic;
+            color: #555;
+        }
+        .formula-box {
+            background-color: #f4f7f6;
+            border: 1px solid #cfd8dc;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #1a252f;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #2980b9;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .exam-focus-block {
+            background-color: #fdf2f2;
+            border: 2px solid #f5c6cb;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+        .exam-focus-block h4 {
+            color: #721c24;
+            margin-top: 0;
+            font-size: 1.4em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .tip-tag {
+            color: #155724;
+            background-color: #d4edda;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-wrapper">
+    <h1>Unit 3: Special Functions & Partial Differential Equations</h1>
+
+    <div class="toc-container">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#legendre-properties">1. Properties of Legendre Polynomials</a></li>
+            <li><a href="#legendre-expansion">2. Expansion in Legendre Series</a></li>
+            <li><a href="#bessel-functions">3. Bessel Functions of the First Kind</a></li>
+            <li><a href="#zeros-orthogonality">4. Zeros and Orthogonality of Bessel Functions</a></li>
+            <li><a href="#pde-separation">5. Partial Differential Equations: Separation of Variables</a></li>
+            <li><a href="#laplace-rectangular">6. Laplace's Equation in Rectangular Symmetry</a></li>
+            <li><a href="#exam-corner">7. Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="legendre-properties">1. Properties of Legendre Polynomials</h2>
+    <p>
+        [cite_start]<strong>Legendre polynomials</strong>, denoted as Pn(x), are a set of orthogonal polynomials that emerge as solutions to the Legendre differential equation[cite: 367]. [cite_start]In physics, they are particularly important in problems involving spherical symmetry, such as gravitation and electrostatics[cite: 367].
+    </p>
+
+    <h3>Rodrigues Formula</h3>
+    [cite_start]<p>This formula provides a systematic way to generate any Legendre polynomial by differentiating a specific function n times[cite: 367].</p>
+    <div class="formula-box">
+        Pn(x) = (1 / (2^n * n!)) * (d^n / dx^n) (x^2 - 1)^n
+    </div>
+
+    <h3>Generating Function</h3>
+    [cite_start]<p>The entire set of Legendre polynomials can be generated from the power series expansion of the following function[cite: 367]:</p>
+    <div class="formula-box">
+        (1 - 2xt + t^2)^(-1/2) = Sum (from n=0 to infinity) [Pn(x) * t^n]
+    </div>
+
+    <h3>Orthogonality</h3>
+    [cite_start]<p>Legendre polynomials are orthogonal over the interval [-1, 1][cite: 367]. [cite_start]This means the integral of the product of two different Legendre polynomials is zero[cite: 367].</p>
+    <blockquote>
+        Integral from -1 to 1 of [Pm(x) * Pn(x)] dx = 0, if m is not equal to n.
+    </blockquote>
+
+    <h3>Simple Recurrence Relations</h3>
+    [cite_start]<p>These relations connect polynomials of different orders, which is useful for simplifying complex expressions[cite: 367]:</p>
+    <ul>
+        [cite_start]<li>(n + 1)Pn+1(x) = (2n + 1)xPn(x) - nPn-1(x) [cite: 367]</li>
+        [cite_start]<li>nPn(x) = xPn'(x) - Pn-1'(x) [cite: 367]</li>
+    </ul>
+
+    <h2 id="legendre-expansion">2. Expansion in Legendre Series</h2>
+    <p>
+        [cite_start]Any piecewise continuous function f(x) defined in the interval [-1, 1] can be expressed as a series of Legendre polynomials[cite: 368]:
+    </p>
+    <div class="formula-box">
+        f(x) = Sum (from n=0 to infinity) [An * Pn(x)]
+    </div>
+    [cite_start]<p>where the coefficient <strong>An</strong> is determined by using the orthogonality property[cite: 368]:</p>
+    <div class="formula-box">
+        An = ((2n + 1) / 2) * Integral from -1 to 1 of [f(x) * Pn(x)] dx
+    </div>
+
+    <h2 id="bessel-functions">3. Bessel Functions of the First Kind</h2>
+    <p>
+        [cite_start]<strong>Bessel functions</strong>, denoted as Jn(x), arise in problems involving cylindrical or circular symmetry[cite: 368]. [cite_start]They are solutions to the Bessel differential equation[cite: 368].
+    </p>
+    
+
+    <h3>Generating Function for Jn(x)</h3>
+    [cite_start]<p>Bessel functions of the first kind can be obtained from the following expansion[cite: 368]:</p>
+    <div class="formula-box">
+        exp((x / 2) * (t - 1/t)) = Sum (from n=-infinity to infinity) [Jn(x) * t^n]
+    </div>
+
+    <h3>Recurrence Relations for Jn(x)</h3>
+    [cite_start]<p>Common relations used to calculate higher-order Bessel functions from lower-order ones[cite: 368]:</p>
+    <ul>
+        [cite_start]<li>2n Jn(x) = x [Jn-1(x) + Jn+1(x)] [cite: 368]</li>
+        [cite_start]<li>2 Jn'(x) = Jn-1(x) - Jn+1(x) [cite: 368]</li>
+    </ul>
+
+    <h2 id="zeros-orthogonality">4. Zeros and Orthogonality of Bessel Functions</h2>
+    <h3>Zeros of J0(x) and J1(x)</h3>
+    [cite_start]<p>The values of x for which Jn(x) = 0 are called the <strong>zeros</strong> of the Bessel function[cite: 369]. [cite_start]These zeros are crucial in physics for determining vibrational modes of circular membranes or electromagnetic fields in cylindrical cavities[cite: 369].</p>
+
+    <h3>Orthogonality Property</h3>
+    [cite_start]<p>Bessel functions of the same order n but with different arguments scaled by zeros are orthogonal[cite: 369].</p>
+    <blockquote>
+        Integral from 0 to a of [x * Jn(αm * x / a) * Jn(αk * x / a)] dx = 0, if m is not equal to k.
+    </blockquote>
+
+    <h2 id="pde-separation">5. Partial Differential Equations: Separation of Variables</h2>
+    <p>
+        [cite_start]The <strong>method of separation of variables</strong> is a powerful technique to solve partial differential equations (PDEs) by assuming the solution is a product of functions, each depending on only one variable[cite: 370].
+    </p>
+    <h3>The Steps:</h3>
+    <ol>
+        [cite_start]<li>Assume a product solution: e.g., Ψ(x, y) = X(x) * Y(y)[cite: 370].</li>
+        [cite_start]<li>Substitute this into the PDE[cite: 370].</li>
+        [cite_start]<li>Divide the equation such that variables are separated on different sides[cite: 370].</li>
+        [cite_start]<li>Equate each side to a separation constant[cite: 370].</li>
+        [cite_start]<li>Solve the resulting ordinary differential equations (ODEs)[cite: 370].</li>
+    </ol>
+
+    <h2 id="laplace-rectangular">6. Laplace's Equation in Rectangular Symmetry</h2>
+    <p>
+        <strong>Laplace's equation</strong> is written as:
+    </p>
+    <div class="formula-box">
+        ∇^2 Ψ = 0
+    </div>
+    [cite_start]<p>In 2D rectangular coordinates (x, y), it is[cite: 370]:</p>
+    <div class="formula-box">
+        (d^2 Ψ / dx^2) + (d^2 Ψ / dy^2) = 0
+    </div>
+    [cite_start]<p>Using separation of variables Ψ(x, y) = X(x)Y(y), we obtain[cite: 370]:</p>
+    <ul>
+        <li>d^2 X / dx^2 = -k^2 * X</li>
+        <li>d^2 Y / dy^2 = k^2 * Y</li>
+    </ul>
+    [cite_start]<p>The general solution depends on the <strong>boundary conditions</strong> of the physical problem, often involving sines, cosines, and hyperbolic functions[cite: 370].</p>
+
+    <div class="exam-focus-block" id="exam-corner">
+        <h4>Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li><strong>Explain the physical significance of orthogonality.</strong> <span class="tip-tag">Answer</span> It allows us to decompose complex functions into a sum of simpler, independent basis functions (like Pn or Jn), similar to vectors in a coordinate system.</li>
+            <li><strong>When is the method of separation of variables used?</strong> <span class="tip-tag">Answer</span> When the PDE and the boundary conditions can be split into independent coordinates.</li>
+        </ul>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><strong>Mixing Legendre and Bessel:</strong> Remember: Legendre (Pn) is for <em>spherical</em> problems; Bessel (Jn) is for <em>cylindrical</em> problems.</li>
+            <li><strong>Normalization:</strong> Forgetting the ((2n+1)/2) factor when calculating Legendre expansion coefficients.</li>
+        </ul>
+
+        <h3>Exam Tips</h3>
+        <blockquote>
+            <strong>Tip:</strong> Always memorize the first few values of Legendre Polynomials: <em>P0(x) = 1</em>, <em>P1(x) = x</em>, <em>P2(x) = (1/2)(3x^2 - 1)</em>. These are frequently needed for small problems.
+        </blockquote>
+    </div>
+</div>
+
+</body>
+</html>

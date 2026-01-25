@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHYDSC252T Unit 4 | 4th Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive notes on Boolean Algebra and Logic Gates for PHYDSC252T Unit 4. Covering Number Systems, Universal Gates, De Morgan's Theorems, and K-Maps for Knowlet.">
+    <meta name="keywords" content="Boolean Algebra, Logic Gates, Number Systems, NAND gate, NOR gate, De Morgan's Theorems, SOP, POS, K-Map, Knowlet, Physics Notes">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f2f5;
+        }
+        .main-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-top: 5px solid #27ae60;
+        }
+        h1 {
+            color: #2e7d32;
+            text-align: center;
+            border-bottom: 2px solid #27ae60;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #1b5e20;
+            border-left: 5px solid #27ae60;
+            padding-left: 15px;
+            margin-top: 35px;
+        }
+        h3 {
+            color: #1976d2;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        blockquote {
+            background: #f1f8e9;
+            border-left: 10px solid #27ae60;
+            margin: 1.5em 10px;
+            padding: 15px;
+            font-style: italic;
+        }
+        .formula-box {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            display: block;
+            margin: 20px 0;
+            border: 1px dashed #7f8c8d;
+            text-align: center;
+            font-weight: bold;
+            color: #c0392b;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #bdc3c7;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #27ae60;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .exam-tips {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        .exam-tips h4 {
+            color: #856404;
+            margin-top: 0;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.5em;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <h1>Unit 4: Boolean Algebra and Logic Gates</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#number-systems">1. Binary Number Systems and Conversions</a></li>
+            <li><a href="#basic-gates">2. Basic Logic Gates: AND, OR, NOT</a></li>
+            <li><a href="#universal-gates">3. Universal Gates: NAND and NOR</a></li>
+            <li><a href="#demorgan">4. De Morgan's Theorems and Boolean Laws</a></li>
+            <li><a href="#simplification">5. Simplification of Logic Circuits</a></li>
+            <li><a href="#sop-pos">6. Canonical Forms: SOP and POS</a></li>
+            <li><a href="#kmap">7. Karnaugh Map (K-Map)</a></li>
+            <li><a href="#exam-corner">8. Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="number-systems">1. Binary Number Systems and Conversions</h2>
+    [cite_start]<p>Digital systems operate using <strong>Binary Numbers</strong> (base-2), consisting of only 0 and 1[cite: 425].</p>
+    <ul>
+        [cite_start]<li><strong>Binary to Decimal:</strong> Each binary digit (bit) is multiplied by 2 raised to the power of its position (starting from 0 at the right)[cite: 425].</li>
+        [cite_start]<li><strong>Decimal to Binary:</strong> Repeated division of the decimal number by 2, recording the remainders[cite: 425].</li>
+        [cite_start]<li><strong>BCD (Binary Coded Decimal):</strong> A system where each decimal digit is represented by a 4-bit binary code[cite: 425].</li>
+    </ul>
+
+    <h2 id="basic-gates">2. Basic Logic Gates: AND, OR, NOT</h2>
+    [cite_start]<p>Logic gates are the building blocks of digital circuits, often realized using diodes and transistors[cite: 426].</p>
+    
+
+[Image of AND, OR, and NOT gate symbols and truth tables]
+
+    <ul>
+        [cite_start]<li><strong>AND Gate:</strong> Output is HIGH (1) only if all inputs are HIGH[cite: 426].</li>
+        [cite_start]<li><strong>OR Gate:</strong> Output is HIGH (1) if at least one input is HIGH[cite: 426].</li>
+        [cite_start]<li><strong>NOT Gate:</strong> Also known as an inverter; it outputs the opposite of the input[cite: 426].</li>
+        [cite_start]<li><strong>XOR Gate:</strong> Output is HIGH only if the inputs are different[cite: 426].</li>
+    </ul>
+
+    <h2 id="universal-gates">3. Universal Gates: NAND and NOR</h2>
+    [cite_start]<p><strong>NAND</strong> and <strong>NOR</strong> gates are called <strong>Universal Gates</strong> because any boolean function can be implemented using only one type of these gates[cite: 426].</p>
+    
+
+[Image of NAND and NOR as universal gates]
+
+    <ul>
+        [cite_start]<li><strong>NAND:</strong> NOT-AND; output is LOW only when all inputs are HIGH[cite: 426].</li>
+        [cite_start]<li><strong>NOR:</strong> NOT-OR; output is HIGH only when all inputs are LOW[cite: 426].</li>
+    </ul>
+
+    <h2 id="demorgan">4. De Morgan's Theorems and Boolean Laws</h2>
+    [cite_start]<p>These theorems are essential for simplifying complex boolean expressions[cite: 427].</p>
+    <blockquote>
+        [cite_start]<strong>First Theorem:</strong> (A + B)' = A' · B' (The complement of a sum is equal to the product of the complements)[cite: 427].<br>
+        [cite_start]<strong>Second Theorem:</strong> (A · B)' = A' + B' (The complement of a product is equal to the sum of the complements)[cite: 427].
+    </blockquote>
+    <h3>Important Boolean Laws:</h3>
+    <ul>
+        <li><strong>Commutative:</strong> A + B = B + A; [cite_start]A · B = B · A[cite: 427].</li>
+        [cite_start]<li><strong>Associative:</strong> A + (B + C) = (A + B) + C[cite: 427].</li>
+        [cite_start]<li><strong>Distributive:</strong> A · (B + C) = (A · B) + (A · C)[cite: 427].</li>
+        <li><strong>Identity:</strong> A + 0 = A; [cite_start]A · 1 = A[cite: 427].</li>
+    </ul>
+
+    <h2 id="simplification">5. Simplification of Logic Circuits</h2>
+    [cite_start]<p>Simplification involves using Boolean laws and theorems to reduce the number of gates required for a specific truth table[cite: 427]. [cite_start]This reduces cost, space, and power consumption in hardware design[cite: 427].</p>
+
+    <h2 id="sop-pos">6. Canonical Forms: SOP and POS</h2>
+    [cite_start]<p>Any logic expression can be written in two standard forms based on its truth table[cite: 427, 428].</p>
+    <ul>
+        [cite_start]<li><strong>Minterms:</strong> Product terms that represent an output of 1[cite: 427].</li>
+        [cite_start]<li><strong>Maxterms:</strong> Sum terms that represent an output of 0[cite: 427].</li>
+        [cite_start]<li><strong>SOP (Sum of Products):</strong> A group of ANDed terms (minterms) ORed together[cite: 428].</li>
+        [cite_start]<li><strong>POS (Product of Sums):</strong> A group of ORed terms (maxterms) ANDed together[cite: 428].</li>
+    </ul>
+
+    <h2 id="kmap">7. Karnaugh Map (K-Map)</h2>
+    [cite_start]<p>The <strong>Karnaugh Map</strong> is a graphical tool used to simplify Boolean expressions without using complex laws[cite: 428]. [cite_start]It organizes minterms into a grid where adjacent cells differ by only one bit, allowing for easy identification of redundant variables[cite: 428].</p>
+    
+
+    <div class="exam-tips" id="exam-corner">
+        <h4>Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            [cite_start]<li><strong>Why are NAND and NOR called universal gates?</strong> [cite: 426] Because they can be used to construct all other basic gates (AND, OR, NOT).</li>
+            [cite_start]<li><strong>State De Morgan's Theorems.</strong> [cite: 427] (Refer to section 4 above).</li>
+        </ul>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><strong>K-Map Grouping:</strong> Forgetting that groups must be in powers of 2 (1, 2, 4, 8) and must be rectangular. <em>Tip:</em> Always look for the largest possible group first.</li>
+            <li><strong>SOP vs. POS:</strong> Mixing up minterms (SOP) with maxterms (POS). Remember: SOP focuses on where the output is '1'.</li>
+        </ul>
+
+        <h3>Mnemonics</h3>
+        <p><strong>De Morgan's:</strong> "Break the bar, change the sign."</p>
+    </div>
+</div>
+
+</body>
+</html>

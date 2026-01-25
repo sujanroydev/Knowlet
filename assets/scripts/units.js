@@ -799,7 +799,7 @@ function renderFeedbackSection() {
                 <div class="supcard">
                     <h2 id='h3' style="margin-bottom:8px; font-size:16px; margin:0 0 14px; color:69707a;">Ratings</h2>
                     <div id="user-ratings-box"></div>
-                    <button id="btn-toggle-ratings" class="btn" onclick="toggleRatings()" style="margin-bottom: 5px">See More</button>
+                    <button id="btn-toggle-ratings" class="btn" onclick="toggleRatings()" style="margin-bottom: 5px">Show Ratings</button>
                     <div id="ratings-box" style="display:none"></div>
                 </div>
         
@@ -807,7 +807,7 @@ function renderFeedbackSection() {
                 <div class="supcard">
                     <h2 id='h3' style="margin-bottom:8px; font-size:16px; margin:0 0 14px; color:69707a;">Comments</h2>
                     <div id="user-comments-box"></div>
-                    <button id="btn-toggle-comments" class="btn" onclick="toggleComments()" style="margin-bottom: 5px">See More</button>
+                    <button id="btn-toggle-comments" class="btn" onclick="toggleComments()" style="margin-bottom: 5px">Show Comments</button>
                     <div id="comments-box" style="display:none"></div>
                 </div>
             </div>

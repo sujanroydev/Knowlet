@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHYDSM351T Unit 1 | 5th Semester Notes - Knowlet</title>
+    <meta name="description" content="Detailed study notes for PHYDSM351T Unit 1: Elements of Modern Physics. Covering Blackbody radiation, Photoelectric effect, Compton effect, and de Broglie waves for Knowlet.">
+    <meta name="keywords" content="Modern Physics, Planck's Law, Photoelectric Effect, Compton Effect, de Broglie Waves, Wave-Particle Duality, PHYDSM351T, Knowlet">
+    <style>
+        :root {
+            --primary: #2980b9;
+            --secondary: #2c3e50;
+            --bg-light: #f4f7f6;
+            --accent: #3498db;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--bg-light);
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 6px solid var(--primary);
+        }
+        h1 {
+            color: var(--secondary);
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        h2 {
+            color: var(--primary);
+            border-left: 5px solid var(--primary);
+            padding-left: 15px;
+            margin-top: 35px;
+            background-color: #f0f4f8;
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: #16a085;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        blockquote {
+            background: #fdfefe;
+            border-left: 10px solid var(--accent);
+            margin: 1.5em 10px;
+            padding: 15px;
+            font-style: italic;
+            border: 1px solid #eee;
+        }
+        .formula-box {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            display: block;
+            margin: 20px 0;
+            border: 1px dashed #7f8c8d;
+            text-align: center;
+            font-weight: bold;
+            color: #c0392b;
+            font-size: 1.1em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        table, th, td {
+            border: 1px solid #bdc3c7;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .exam-section {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 45px;
+        }
+        .exam-section h4 {
+            color: #856404;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.5em;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 1: Elements of Modern Physics</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#quantum-origins">1. Failure of Classical Physics & Planck's Hypothesis</a></li>
+            <li><a href="#photoelectric">2. Photoelectric Effect & Einstein's Explanation</a></li>
+            <li><a href="#compton">3. Compton Effect and X-ray Scattering</a></li>
+            <li><a href="#duality">4. Wave-Particle Duality & de Broglie Waves</a></li>
+            <li><a href="#davisson-germer">5. Davisson-Germer Experiment</a></li>
+            <li><a href="#group-phase">6. Phase Velocity and Group Velocity</a></li>
+            <li><a href="#exam-corner">7. Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="quantum-origins">1. Failure of Classical Physics & Planck's Hypothesis</h2>
+    <p>
+        By the late 19th century, classical physics could not explain the <strong>Blackbody Radiation</strong> spectrum (leading to the "Ultraviolet Catastrophe"). 
+    </p>
+    
+    <p>
+        In 1900, Max Planck proposed that energy is not continuous but exchanged in discrete packets called <strong>Quanta</strong>. 
+    </p>
+    <div class="formula-box">
+        $E = h \nu$
+    </div>
+    <p>Where $h$ is Planck's constant ($6.626 \times 10^{-34}$ J·s) and $\nu$ is the frequency.</p>
+
+    <h2 id="photoelectric">2. Photoelectric Effect</h2>
+    <p>
+        The <strong>Photoelectric Effect</strong> is the emission of electrons from a metal surface when light of a sufficient frequency shines on it. Classical theory failed because it predicted that emission should depend on intensity, not frequency.
+    </p>
+    
+    <h3>Einstein’s Photoelectric Equation:</h3>
+    <p>Einstein applied Planck's idea, suggesting light itself consists of particles called <strong>Photons</strong>.</p>
+    <div class="formula-box">
+        $h \nu = \Phi + K_{max}$
+    </div>
+    <p>Where $\Phi$ (Work Function) is the minimum energy required to liberate an electron, and $K_{max}$ is the maximum kinetic energy of the emitted electron.</p>
+
+    <h2 id="compton">3. Compton Effect</h2>
+    <p>
+        Arthur Compton observed that when X-rays are scattered by a material (like graphite), the scattered radiation has a <strong>longer wavelength</strong> than the incident radiation. This shift depends on the scattering angle.
+    </p>
+    
+    <h3>Compton Shift Formula:</h3>
+    <div class="formula-box">
+        $\Delta \lambda = \lambda' - \lambda = \frac{h}{m_0 c} (1 - \cos \theta)$
+    </div>
+    <p>This experiment proved that photons carry <strong>linear momentum</strong> and behave like particles during collisions.</p>
+
+    <h2 id="duality">4. Wave-Particle Duality & de Broglie Waves</h2>
+    <p>
+        In 1924, Louis de Broglie hypothesized that if light (a wave) can behave like a particle, then matter (particles) should also behave like waves.
+    </p>
+    <div class="formula-box">
+        $\lambda = \frac{h}{p} = \frac{h}{mv}$
+    </div>
+    <p>This is known as the <strong>de Broglie wavelength</strong>. It suggests that every moving object has an associated "matter wave."</p>
+
+    <h2 id="davisson-germer">5. Davisson-Germer Experiment</h2>
+    <p>
+        This experiment provided the first direct evidence for the wave nature of electrons. By scattering an electron beam off a Nickel crystal, they observed <strong>diffraction patterns</strong> similar to X-rays.
+    </p>
+    
+    <blockquote>
+        <strong>Key Result:</strong> The measured wavelength of the diffracted electrons perfectly matched the value predicted by de Broglie's formula.
+    </blockquote>
+
+    <h2 id="group-phase">6. Phase Velocity and Group Velocity</h2>
+    <p>
+        A matter wave is represented by a <strong>Wave Packet</strong> (a superposition of many waves with slightly different frequencies).
+    </p>
+    <ul>
+        <li><strong>Phase Velocity ($v_p$):</strong> The velocity of an individual wave component.</li>
+        <li><strong>Group Velocity ($v_g$):</strong> The velocity with which the "envelope" or the energy of the packet travels.</li>
+    </ul>
+    <div class="formula-box">
+        $v_g = \frac{d\omega}{dk}$
+    </div>
+    <p>In quantum mechanics, the group velocity of a particle's wave packet is equal to the <strong>classical velocity</strong> of the particle.</p>
+
+    <div class="exam-section" id="exam-corner">
+        <h4>Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li><strong>Why is the Compton effect not observable with visible light?</strong> Because the wavelength of visible light is much larger than the Compton shift ($\Delta \lambda$), making the change negligible and undetectable.</li>
+            <li><strong>What is 'Stopping Potential'?</strong> It is the minimum negative potential applied to the anode in a photoelectric setup that reduces the photocurrent to zero.</li>
+        </ul>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><em>Work Function Units:</em> Energy is often given in electron-Volts (eV). Remember: $1 \text{ eV} = 1.6 \times 10^{-19}$ Joules.</li>
+            <li><em>Mass in de Broglie:</em> When calculating $\lambda$ for an electron, always use its rest mass ($9.1 \times 10^{-31}$ kg) unless it's traveling at relativistic speeds.</li>
+        </ul>
+
+        <h3>Exam Tips</h3>
+        <blockquote>
+            <strong>Tip:</strong> If asked to differentiate between Photoelectric and Compton effects, remember: Photoelectric involves <strong>complete absorption</strong> of the photon, while Compton involves <strong>scattering</strong> with energy transfer.
+        </blockquote>
+    </div>
+</div>
+
+</body>
+</html>

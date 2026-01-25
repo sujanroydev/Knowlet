@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHYDSC353P Unit 5 | 6th Semester Lab Notes - Knowlet</title>
+    <meta name="description" content="Laboratory notes for PHYDSC353P Unit 5: Applied Plasma and Vacuum Techniques. Covering Vacuum Pumping Speed, Paschen's Law, and Magnetic Confinement for Knowlet.">
+    <meta name="keywords" content="Applied Plasma, Vacuum Techniques, Paschen Law, Vacuum Pump, Magnetic Mirror, PHYDSC353P, Knowlet">
+    <style>
+        :root {
+            --primary: #9b59b6;
+            --secondary: #2c3e50;
+            --bg-light: #f5eef8;
+            --accent: #8e44ad;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fdfcfd;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-top: 6px solid var(--primary);
+        }
+        h1 {
+            color: var(--secondary);
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: var(--primary);
+            border-left: 5px solid var(--primary);
+            padding-left: 15px;
+            margin-top: 35px;
+            background-color: var(--bg-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        blockquote {
+            background: #fdfaff;
+            border-left: 10px solid var(--accent);
+            margin: 1.5em 10px;
+            padding: 15px;
+            font-style: italic;
+            border: 1px solid #f2e6f5;
+        }
+        .formula-box {
+            background-color: #fcfcfc;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            display: block;
+            margin: 20px 0;
+            border: 1px dashed #bdc3c7;
+            text-align: center;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        table, th, td {
+            border: 1px solid #dee2e6;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f4fb;
+        }
+        .exam-section {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 45px;
+        }
+        .exam-section h4 {
+            color: #856404;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.5em;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc li {
+            margin-bottom: 10px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 5: Applied Plasma & Vacuum Techniques (Lab: PHYDSC353P)</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#objectives">1. Laboratory Objectives</a></li>
+            <li><a href="#vacuum-speed">2. Measurement of Pumping Speed of a Vacuum Pump</a></li>
+            <li><a href="#paschen-law">3. Verification of Paschen’s Law</a></li>
+            <li><a href="#magnetic-confinement">4. Magnetic Confinement (Magnetic Mirror)</a></li>
+            <li><a href="#plasma-etching">5. Principles of Plasma Etching and Deposition</a></li>
+            <li><a href="#exam-corner">6. Lab Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="objectives">1. Laboratory Objectives</h2>
+    <p>
+        This unit transitions from basic plasma observations to the <strong>industrial and research applications</strong> of plasma environments. You will learn to manage vacuum systems—a prerequisite for any plasma experiment—and study how plasma interacts with surfaces and external fields.
+    </p>
+
+    <h2 id="vacuum-speed">2. Measurement of Pumping Speed of a Vacuum Pump</h2>
+    <p>
+        A <strong>Vacuum Pump</strong> (Rotary or Diffusion) is characterized by its pumping speed ($S$), which is the volume of gas removed from the system per unit time.
+    </p>
+    
+    <h3>Working Principle:</h3>
+    <p>The speed is determined by observing the rate of pressure drop in a chamber of known volume ($V$).</p>
+    <div class="formula-box">
+        $S = 2.303 \cdot \frac{V}{t} \cdot \log_{10} \left( \frac{P_1}{P_2} \right)$
+    </div>
+    <p>Where $P_1$ and $P_2$ are the pressures at the beginning and end of time interval $t$. A plot of $\log(P)$ vs $t$ yields a straight line from which $S$ is calculated.</p>
+
+    <h2 id="paschen-law">3. Verification of Paschen’s Law</h2>
+    <p>
+        <strong>Paschen’s Law</strong> defines the <em>Breakdown Voltage</em> ($V_b$)—the voltage required to start a discharge or "spark" between two electrodes in a gas—as a function of the product of gas pressure ($p$) and distance between electrodes ($d$).
+    </p>
+    <div class="formula-box">
+        $V_b = f(p \cdot d)$
+    </div>
+    
+    <blockquote>
+        <strong>Key Observation:</strong> There is a unique minimum voltage ($V_{min}$) at a specific value of $p \cdot d$. Below this value, it's hard to find an electron; above it, electrons lose too much energy in collisions to cause ionization.
+    </blockquote>
+
+    <h2 id="magnetic-confinement">4. Magnetic Confinement (Magnetic Mirror)</h2>
+    <p>
+        In a plasma, charged particles gyrate around magnetic field lines. A <strong>Magnetic Mirror</strong> is a configuration where the magnetic field is stronger at the ends of a region than at the center.
+    </p>
+    
+    <h3>Physical Significance:</h3>
+    <p>
+        Particles with sufficient magnetic moment are reflected back toward the center of the region when they encounter the "stronger" field at the ends. This is a fundamental technique used in <strong>fusion research</strong> to keep high-temperature plasma away from reactor walls.
+    </p>
+
+    <h2 id="plasma-etching">5. Principles of Plasma Etching and Deposition</h2>
+    <p>
+        Plasma is used extensively in the semiconductor industry to modify surfaces at the nanometer scale.
+    </p>
+    <ul>
+        <li><strong>Plasma Etching:</strong> Reactive species in the plasma (ions and radicals) react with the surface of a wafer to remove material in a highly directional (anisotropic) manner.</li>
+        <li><strong>Sputter Deposition:</strong> Ions from the plasma strike a "target" material, knocking atoms off that then land on a substrate to form a thin film.</li>
+    </ul>
+
+    <div class="exam-section" id="exam-corner">
+        <h4>Lab Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li><strong>What is 'Outgassing'?</strong> The release of trapped gas molecules from the inner surfaces of a vacuum chamber. This often limits the ultimate pressure a pump can reach.</li>
+            <li><strong>Why does Paschen's curve have a minimum?</strong> Because at very low pressures ($p \cdot d$ is small), there are too few atoms to collide with; at high pressures, the mean free path is too short to gain sufficient energy for ionization.</li>
+        </ul>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><strong>Leaking Valves:</strong> In pumping speed experiments, even a tiny leak in the "needle valve" or gaskets will make the pumping speed appear much lower than it actually is.</li>
+            <li><strong>High Voltage Safety:</strong> Paschen's law experiments often involve voltages over 1000V. Always ensure the "HT" (High Tension) supply is turned off before touching any electrodes.</li>
+        </ul>
+
+        <h3>Practical Tips</h3>
+        <blockquote>
+            <strong>Tip:</strong> In vacuum experiments, always clean the gaskets with <strong>Isopropyl Alcohol (IPA)</strong> and apply a very thin layer of high-vacuum grease (like Apiezon) to ensure a hermetic seal.
+        </blockquote>
+    </div>
+</div>
+
+</body>
+</html>

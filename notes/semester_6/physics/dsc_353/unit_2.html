@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHYDSC353P Unit 2 | 6th Semester Lab Notes - Knowlet</title>
+    <meta name="description" content="Detailed laboratory notes for PHYDSC353P Unit 2: Statistical & Plasma Physics. Covering Boltzmann constant, Stefan's Law, and Plasma parameters for Knowlet.">
+    <meta name="keywords" content="Statistical Physics Lab, Plasma Physics Lab, PHYDSC353P, Knowlet, Boltzmann Constant, Stefan's Law, Plasma Frequency, Physics Practical">
+    <style>
+        :root {
+            --primary: #8e44ad;
+            --secondary: #2c3e50;
+            --bg-light: #f4ecf7;
+            --accent: #9b59b6;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fdfdfd;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-top: 6px solid var(--primary);
+        }
+        h1 {
+            color: var(--secondary);
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: var(--primary);
+            border-left: 5px solid var(--primary);
+            padding-left: 15px;
+            margin-top: 35px;
+            background-color: var(--bg-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        blockquote {
+            background: #fdfcfd;
+            border-left: 10px solid var(--accent);
+            margin: 1.5em 10px;
+            padding: 15px;
+            font-style: italic;
+            border: 1px solid #f2eef4;
+        }
+        .formula-box {
+            background-color: #fcfcfc;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            display: block;
+            margin: 20px 0;
+            border: 1px dashed #bdc3c7;
+            text-align: center;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        table, th, td {
+            border: 1px solid #dee2e6;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f4fb;
+        }
+        .exam-section {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 45px;
+        }
+        .exam-section h4 {
+            color: #856404;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.5em;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc li {
+            margin-bottom: 10px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 2: Statistical & Plasma Physics (Lab: PHYDSC353P)</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#objectives">1. Laboratory Objectives</a></li>
+            <li><a href="#boltzmann">2. Estimation of Boltzmann Constant</a></li>
+            <li><a href="#stefan">3. Verification of Stefan's Law</a></li>
+            <li><a href="#planck">4. Determination of Planck's Constant (Photoelectric)</a></li>
+            <li><a href="#langmuir">5. Langmuir Probe Characteristics</a></li>
+            <li><a href="#plasma-param">6. Determination of Plasma Parameters</a></li>
+            <li><a href="#glow-discharge">7. Study of Glow Discharge</a></li>
+            <li><a href="#exam-corner">8. Lab Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="objectives">1. Laboratory Objectives</h2>
+    <p>
+        The objective of this unit is to bridge theoretical concepts of <strong>Statistical Mechanics</strong> and <strong>Plasma Physics</strong> with experimental observations. You will focus on measuring fundamental constants and understanding the behavior of ionized gases.
+    </p>
+
+    <h2 id="boltzmann">2. Estimation of Boltzmann Constant</h2>
+    <p>
+        The <strong>Boltzmann constant ($k$)</strong> can be estimated using the V-I characteristics of a P-N junction diode.
+    </p>
+    
+    <div class="formula-box">
+        $I = I_0 [exp(eV/kT) - 1]$
+    </div>
+    <p>
+        By plotting $\ln(I)$ vs. $V$ in the forward bias region, the slope of the resulting straight line allows for the calculation of $k$.
+    </p>
+
+    <h2 id="stefan">3. Verification of Stefan's Law</h2>
+    <p>
+        <strong>Stefan's Law</strong> states that the total power ($P$) radiated by a blackbody is proportional to the fourth power of its absolute temperature ($T$).
+    </p>
+    <div class="formula-box">
+        $P = \sigma A (T^4 - T_0^4)$
+    </div>
+    <p>
+        In the lab, this is often verified using an electric bulb (incandescent lamp). By measuring the resistance of the filament at different voltages, the temperature can be determined, and the relation $P \propto T^4$ can be checked.
+    </p>
+
+    <h2 id="planck">4. Determination of Planck's Constant</h2>
+    <p>
+        This is typically performed using the <strong>Photoelectric Effect</strong>. By using filters of different colors (wavelengths) and measuring the <em>Stopping Potential</em> ($V_0$), Planck's constant ($h$) is determined from the slope of the $V_0$ vs. frequency ($f$) graph.
+    </p>
+    
+
+    <h2 id="langmuir">5. Langmuir Probe Characteristics</h2>
+    <p>
+        A <strong>Langmuir Probe</strong> is a small electrode inserted into a plasma. By varying the potential applied to the probe and measuring the current collected, one can determine the local properties of the plasma.
+    </p>
+    <h3>The I-V Curve:</h3>
+    <ul>
+        <li><strong>Ion Saturation Region:</strong> Probe is highly negative; collects only ions.</li>
+        <li><strong>Electron Transition Region:</strong> Probe potential increases; electrons begin to overcome the repulsion.</li>
+        <li><strong>Electron Saturation Region:</strong> Probe is positive; collects primarily electrons.</li>
+    </ul>
+
+    <h2 id="plasma-param">6. Determination of Plasma Parameters</h2>
+    <p>
+        From the Langmuir probe data, key <strong>Plasma Parameters</strong> can be calculated:
+    </p>
+    <ul>
+        <li><strong>Electron Temperature ($T_e$):</strong> Derived from the slope of the transition region in the $\ln(I_e)$ vs. $V$ plot.</li>
+        <li><strong>Electron Density ($n_e$):</strong> Calculated from the electron saturation current.</li>
+        <li><strong>Plasma Potential ($V_p$):</strong> The potential at which the probe no longer affects the plasma.</li>
+    </ul>
+
+    <h2 id="glow-discharge">7. Study of Glow Discharge</h2>
+    <p>
+        A <strong>Glow Discharge</strong> is a plasma formed by the passage of electric current through a low-pressure gas. In this experiment, you observe the distinct luminous regions:
+    </p>
+    
+    <blockquote>
+        <strong>Key Observation:</strong> As pressure decreases, the "dark spaces" expand, and the "positive column" may exhibit striations (alternating bright and dark bands).
+    </blockquote>
+
+    <div class="exam-section" id="exam-corner">
+        <h4>Lab Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li><strong>Why is a vacuum pump necessary for plasma experiments?</strong> Plasma is easily quenched by collisions with neutral molecules at atmospheric pressure; a vacuum allows the mean free path to be long enough for ionization to occur.</li>
+            <li><strong>In Stefan's law, why is the resistance of the bulb used?</strong> The resistance of a metal filament increases with temperature. By knowing the resistance at room temperature ($R_0$), we can use the temperature coefficient of resistance to find $T$.</li>
+        </ul>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><strong>Temperature Conversion:</strong> Forgetting to add 273 to Celsius values when verifying Stefan's Law. The law <em>only</em> works with Kelvin.</li>
+            <li><strong>Probe Contamination:</strong> In Langmuir probe experiments, if the probe is dirty, the work function changes, leading to errors in the I-V curve.</li>
+        </ul>
+
+        <h3>Practical Tips</h3>
+        <blockquote>
+            <strong>Tip:</strong> When plotting the Langmuir probe data, use a <strong>semi-log plot</strong> for the electron current. The linear part of this plot is the most reliable way to find the Electron Temperature ($T_e$).
+        </blockquote>
+    </div>
+</div>
+
+</body>
+</html>

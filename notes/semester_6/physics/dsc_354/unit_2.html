@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHYDSC354P Unit 2 | 6th Semester Lab Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive laboratory notes for PHYDSC354P Unit 2: Computational Physics using C and Python. Detailed coding logic and algorithms for Knowlet.">
+    <meta name="keywords" content="Computational Physics, Python, C Programming, PHYDSC354P, Knowlet, Numerical Methods, Integration, Roots of Equations">
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --bg-light: #f4f9fd;
+            --accent: #2980b9;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f7f9fa;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-top: 6px solid var(--primary);
+        }
+        h1 {
+            color: var(--secondary);
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: var(--primary);
+            border-left: 5px solid var(--primary);
+            padding-left: 15px;
+            margin-top: 35px;
+            background-color: var(--bg-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: #16a085;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        blockquote {
+            background: #f0f7ff;
+            border-left: 10px solid var(--accent);
+            margin: 1.5em 10px;
+            padding: 15px;
+            font-style: italic;
+            border: 1px solid #d0e7ff;
+        }
+        .code-block {
+            background-color: #1e1e1e;
+            color: #dcdcdc;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            display: block;
+            margin: 20px 0;
+            overflow-x: auto;
+            border: 1px solid #333;
+        }
+        .keyword { color: #569cd6; }
+        .comment { color: #6a9955; }
+        .string { color: #ce9178; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        table, th, td {
+            border: 1px solid #dee2e6;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f8fbfe;
+        }
+        .exam-section {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 45px;
+        }
+        .exam-section h4 {
+            color: #856404;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.5em;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc li {
+            margin-bottom: 10px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 2: Computer Programming (Lab: PHYDSC354P)</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#objectives">1. Laboratory Objectives</a></li>
+            <li><a href="#python-basics">2. Python for Physics: Core Concepts</a></li>
+            <li><a href="#roots-equations">3. Finding Roots of Equations (Bisection & Newton-Raphson)</a></li>
+            <li><a href="#integration">4. Numerical Integration (Trapezoidal & Simpson’s)</a></li>
+            <li><a href="#matrix">5. Matrix Operations and Linear Equations</a></li>
+            <li><a href="#plotting">6. Data Visualization with Matplotlib</a></li>
+            <li><a href="#exam-corner">7. Lab Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="objectives">1. Laboratory Objectives</h2>
+    <p>
+        The objective of this unit is to utilize <strong>C</strong> or <strong>Python</strong> to solve complex physical problems that cannot be easily addressed analytically. You will focus on algorithm development, numerical stability, and the visualization of experimental data.
+    </p>
+
+    <h2 id="python-basics">2. Python for Physics: Core Concepts</h2>
+    <p>
+        Python is widely used in physics due to its readability and powerful libraries like <strong>NumPy</strong> (for numerical arrays) and <strong>SciPy</strong> (for scientific constants and functions).
+    </p>
+    <blockquote>
+        <strong>Key Advantage:</strong> In Python, you don't need to worry about memory management or low-level variable declarations, allowing you to focus on the <strong>Physics Logic</strong>.
+    </blockquote>
+
+    <h2 id="roots-equations">3. Finding Roots of Equations</h2>
+    <p>
+        In many physics problems, we need to find the value of $x$ where $f(x) = 0$.
+    </p>
+    <h3>Newton-Raphson Method</h3>
+    <p>An iterative method that uses the derivative of a function to find its roots quickly.</p>
+    
+    <div class="code-block">
+<span class="keyword">def</span> <span class="function">newton_raphson</span>(f, df, x0, tol):
+    <span class="keyword">while</span> abs(f(x0)) > tol:
+        x0 = x0 - f(x0)/df(x0)
+    <span class="keyword">return</span> x0
+    </div>
+
+    <h2 id="integration">4. Numerical Integration</h2>
+    <p>
+        This is essential when the integral of a function has no closed-form solution.
+    </p>
+    <ul>
+        <li><strong>Trapezoidal Rule:</strong> Approximates the area under a curve as a series of trapezoids.</li>
+        <li><strong>Simpson’s 1/3 Rule:</strong> Approximates the curve using parabolas, providing higher accuracy for smooth functions.</li>
+    </ul>
+    
+
+    <h2 id="matrix">5. Matrix Operations and Linear Equations</h2>
+    <p>
+        Physics systems often lead to simultaneous linear equations. You will use <strong>Gauss-Elimination</strong> or <strong>LU Decomposition</strong> to solve these. In Python, NumPy provides the <code>numpy.linalg</code> module for this.
+    </p>
+    <div class="code-block">
+<span class="keyword">import</span> numpy <span class="keyword">as</span> np
+A = np.array([[3, 1], [1, 2]])
+B = np.array([9, 8])
+X = np.linalg.solve(A, B) <span class="comment"># Solves AX = B</span>
+    </div>
+
+    <h2 id="plotting">6. Data Visualization with Matplotlib</h2>
+    <p>
+        A critical part of any physics lab is plotting results. You will learn to create high-quality graphs with labels, legends, and grid lines.
+    </p>
+    <div class="code-block">
+<span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt
+plt.plot(time, velocity)
+plt.xlabel(<span class="string">'Time (s)'</span>)
+plt.ylabel(<span class="string">'Velocity (m/s)'</span>)
+plt.title(<span class="string">'Projectile Motion'</span>)
+plt.show()
+    </div>
+
+    <div class="exam-section" id="exam-corner">
+        <h4>Lab Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li><strong>Why is Simpson's rule generally better than the Trapezoidal rule?</strong> Because it approximates the function with a quadratic polynomial rather than a linear one, leading to a smaller error term for the same number of intervals.</li>
+            <li><strong>What is a 'convergence criterion'?</strong> It is the tolerance value (e.g., $10^{-6}$) used to stop an iterative process when the difference between successive results is small enough.</li>
+        </ul>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><strong>Indentation (Python):</strong> Python uses indentation to define code blocks. A single misplaced space will cause an <code>IndentationError</code>.</li>
+            <li><strong>Zero Division:</strong> In the Newton-Raphson method, if the derivative $f'(x)$ becomes zero at any point, the program will crash. Always include a check for this.</li>
+        </ul>
+
+        <h3>Practical Tips</h3>
+        <blockquote>
+            <strong>Tip:</strong> When writing a C program for numerical methods, always use the <strong>double</strong> data type instead of <strong>float</strong> to ensure sufficient precision for physics calculations.
+        </blockquote>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHYDSC353P Unit 1 | 6th Semester Lab Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive laboratory notes for PHYDSC353P Unit 1: Nuclear Physics. Covering G.M. Counter characteristics, inverse square law, and absorption coefficients for Knowlet.">
+    <meta name="keywords" content="Nuclear Physics Lab, PHYDSC353P, Knowlet, G.M. Counter, Geiger-Muller, Inverse Square Law, Absorption Coefficient, Physics Practical">
+    <style>
+        :root {
+            --primary: #c0392b;
+            --secondary: #2c3e50;
+            --bg-light: #fdf2f2;
+            --accent: #e74c3c;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-top: 6px solid var(--primary);
+        }
+        h1 {
+            color: var(--secondary);
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: var(--primary);
+            border-left: 5px solid var(--primary);
+            padding-left: 15px;
+            margin-top: 35px;
+            background-color: var(--bg-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        blockquote {
+            background: #fffafa;
+            border-left: 10px solid var(--accent);
+            margin: 1.5em 10px;
+            padding: 15px;
+            font-style: italic;
+            border: 1px solid #ffebeb;
+        }
+        .formula-box {
+            background-color: #fcfcfc;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            display: block;
+            margin: 20px 0;
+            border: 1px dashed #bdc3c7;
+            text-align: center;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        table, th, td {
+            border: 1px solid #dee2e6;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #fff9f9;
+        }
+        .exam-section {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 45px;
+        }
+        .exam-section h4 {
+            color: #856404;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.5em;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc li {
+            margin-bottom: 10px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 1: Nuclear Physics (Lab: PHYDSC353P)</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#objectives">1. Laboratory Objectives</a></li>
+            <li><a href="#gm-plateau">2. Characteristics of G.M. Counter (Plateau Curve)</a></li>
+            <li><a href="#inverse-square">3. Verification of Inverse Square Law</a></li>
+            <li><a href="#absorption">4. Absorption Coefficient of Gamma Rays</a></li>
+            <li><a href="#beta-absorption">5. Absorption of Beta Particles in Aluminum</a></li>
+            <li><a href="#dead-time">6. Dead Time of G.M. Counter</a></li>
+            <li><a href="#statistics">7. Statistical Fluctuation in Radioactive Decay</a></li>
+            <li><a href="#exam-corner">8. Lab Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="objectives">1. Laboratory Objectives</h2>
+    <p>
+        The objective of this practical course is to provide students with hands-on experience in <strong>Nuclear Instrumentation</strong>. You will learn to operate the <strong>Geiger-Muller (G.M.) Counter</strong>, handle radioactive sources safely, and analyze the interaction of radiation with matter.
+    </p>
+
+    <h2 id="gm-plateau">2. Characteristics of G.M. Counter (Plateau Curve)</h2>
+    <p>
+        Before performing any experiment, the <strong>Operating Voltage</strong> of the G.M. counter must be determined. This is done by plotting the <em>Counting Rate</em> vs. <em>Applied Voltage</em>.
+    </p>
+    
+    <ul>
+        <li><strong>Threshold Voltage:</strong> The minimum voltage at which counts start appearing.</li>
+        <li><strong>Plateau Region:</strong> The range of voltage where the counting rate is relatively independent of the applied voltage. </li>
+        <li><strong>Operating Voltage:</strong> Usually chosen as the midpoint of the plateau.</li>
+    </ul>
+
+    <h2 id="inverse-square">3. Verification of Inverse Square Law</h2>
+    <p>
+        Radioactive radiation from a point source spreads out equally in all directions. This experiment verifies that the intensity ($I$) of radiation is inversely proportional to the square of the distance ($d$) from the source.
+    </p>
+    <div class="formula-box">
+        $I \propto \frac{1}{d^2}$ or $I \times d^2 = \text{Constant}$
+    </div>
+    <blockquote>
+        <strong>Procedure:</strong> Record the counts for a fixed duration at varying distances. Plotting $1/\sqrt{\text{Counts}}$ vs. $d$ should yield a straight line.
+    </blockquote>
+
+    <h2 id="absorption">4. Absorption Coefficient of Gamma Rays</h2>
+    <p>
+        Gamma rays are attenuated as they pass through materials like lead or iron. The reduction in intensity follows an exponential law.
+    </p>
+    <div class="formula-box">
+        $I = I_0 e^{-\mu x}$
+    </div>
+    <p>
+        Where $I_0$ is the initial intensity, $x$ is the thickness of the absorber, and $\mu$ is the <strong>Linear Absorption Coefficient</strong>.
+    </p>
+    
+
+    <h2 id="beta-absorption">5. Absorption of Beta Particles in Aluminum</h2>
+    <p>
+        Unlike gamma rays, beta particles have a finite range. This experiment determines the <strong>Mass Absorption Coefficient</strong> and the range of beta particles in Aluminum (Al) foils. It helps in understanding the energy of the beta source.
+    </p>
+
+    <h2 id="dead-time">6. Dead Time of G.M. Counter</h2>
+    <p>
+        The <strong>Dead Time</strong> is the short interval of time after a count is recorded during which the counter is "incapable" of responding to another radiation particle.
+    </p>
+    <ul>
+        <li><strong>Two-Source Method:</strong> A common method to measure dead time by comparing counts of two sources separately and then together.</li>
+    </ul>
+
+    <h2 id="statistics">7. Statistical Fluctuation in Radioactive Decay</h2>
+    <p>
+        Radioactive decay is a random process. This experiment involves taking a large number of readings for a source with a long half-life to verify the <strong>Poisson Distribution</strong> or <strong>Gaussian Distribution</strong> of the counts.
+    </p>
+
+    <div class="exam-section" id="exam-corner">
+        <h4>Lab Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li><strong>Why do we subtract Background Radiation?</strong> Because cosmic rays and natural isotopes in the environment contribute to the count. True count = Total count - Background count.</li>
+            <li><strong>What is 'Quenching' in a G.M. tube?</strong> The process of preventing multiple discharges after a single ionizing event, usually achieved by adding a halogen gas.</li>
+        </ul>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><strong>Source Handling:</strong> Never touch a radioactive source with bare hands; use tweezers. Always return the source to its lead container immediately after use.</li>
+            <li><strong>Parallax in Distance:</strong> Ensure the distance between the source and the G.M. window is measured precisely along the central axis of the tube.</li>
+        </ul>
+
+        <h3>Practical Tips</h3>
+        <blockquote>
+            <strong>Tip:</strong> Always check the <strong>Slope of the Plateau</strong>. A good G.M. tube should have a plateau slope of less than 5% per 100V. If the slope is too steep, the tube may be near the end of its life.
+        </blockquote>
+    </div>
+</div>
+
+</body>
+</html>

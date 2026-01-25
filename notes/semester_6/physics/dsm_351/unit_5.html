@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHYDSM351T Unit 5 | 5th Semester Notes - Knowlet</title>
+    <meta name="description" content="Detailed study notes for PHYDSM351T Unit 5: Solid State Physics. Covering crystal structure, Bragg's Law, Lattice vibrations, and Superconductivity for Knowlet.">
+    <meta name="keywords" content="Solid State Physics, Crystal Structure, Bravais Lattice, Bragg's Law, Reciprocal Lattice, Superconductivity, PHYDSM351T, Knowlet">
+    <style>
+        :root {
+            --primary: #27ae60;
+            --secondary: #2c3e50;
+            --bg-light: #f1f9f5;
+            --accent: #2ecc71;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--bg-light);
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 6px solid var(--primary);
+        }
+        h1 {
+            color: var(--secondary);
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        h2 {
+            color: var(--primary);
+            border-left: 5px solid var(--primary);
+            padding-left: 15px;
+            margin-top: 35px;
+            background-color: #f8fdfa;
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        blockquote {
+            background: #f9fdfc;
+            border-left: 10px solid var(--accent);
+            margin: 1.5em 10px;
+            padding: 15px;
+            font-style: italic;
+            border: 1px solid #e8f5e9;
+        }
+        .formula-box {
+            background-color: #fcfcfc;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            display: block;
+            margin: 20px 0;
+            border: 1px dashed #bdc3c7;
+            text-align: center;
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        table, th, td {
+            border: 1px solid #bdc3c7;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9fdfa;
+        }
+        .exam-section {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 45px;
+        }
+        .exam-section h4 {
+            color: #856404;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+        .toc {
+            background-color: #fdfdfd;
+            padding: 25px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.5em;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 5: Solid State Physics</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#crystal-structure">1. Crystal Structure & Lattice Types</a></li>
+            <li><a href="#miller-indices">2. Miller Indices & Crystal Directions</a></li>
+            <li><a href="#xray-diffraction">3. X-ray Diffraction & Bragg's Law</a></li>
+            <li><a href="#lattice-vibrations">4. Lattice Vibrations & Phonons</a></li>
+            <li><a href="#band-theory">5. Free Electron & Band Theory of Solids</a></li>
+            <li><a href="#superconductivity">6. Superconductivity</a></li>
+            <li><a href="#exam-corner">7. Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="crystal-structure">1. Crystal Structure & Lattice Types</h2>
+    <p>
+        A <strong>Crystal</strong> is a solid where atoms are arranged in a periodic, repeating pattern. 
+    </p>
+    <ul>
+        <li><strong>Lattice:</strong> An infinite array of points where every point has identical surroundings.</li>
+        <li><strong>Basis:</strong> The atom or group of atoms attached to each lattice point. Crystal = Lattice + Basis.</li>
+        <li><strong>Unit Cell:</strong> The smallest building block of the lattice that, when repeated, forms the entire crystal.</li>
+    </ul>
+    
+    <p>There are **14 Bravais Lattices** in 3D, categorized into 7 crystal systems (Cubic, Tetragonal, Orthorhombic, etc.).</p>
+
+    <h2 id="miller-indices">2. Miller Indices</h2>
+    <p>
+        <strong>Miller Indices ($hkl$)</strong> are used to identify specific planes in a crystal lattice. 
+    </p>
+    <blockquote>
+        <strong>How to find them:</strong> Take the intercepts on the axes, find their reciprocals, and multiply by the least common multiple (LCM) to get integers.
+    </blockquote>
+    
+
+    <h2 id="xray-diffraction">3. X-ray Diffraction & Bragg's Law</h2>
+    <p>
+        Since the distance between atoms is comparable to the wavelength of X-rays, crystals act as diffraction gratings for X-rays. 
+    </p>
+    <div class="formula-box">
+        Bragg's Law: $2d \sin \theta = n\lambda$
+    </div>
+    <p>Where $d$ is the interplanar spacing, $\theta$ is the glancing angle, and $n$ is the order of reflection.</p>
+    
+
+    <h2 id="lattice-vibrations">4. Lattice Vibrations & Phonons</h2>
+    <p>
+        Atoms in a lattice are not static; they vibrate about their equilibrium positions.
+    </p>
+    <ul>
+        <li><strong>Phonon:</strong> A quantum of lattice vibration energy. Just as light has photons, sound/vibration has phonons.</li>
+        <li><strong>Einstein Model:</strong> Assumed all atoms vibrate with the same frequency.</li>
+        <li><strong>Debye Model:</strong> More accurate; assumed a range of frequencies, explaining the specific heat behavior at low temperatures.</li>
+    </ul>
+
+    <h2 id="band-theory">5. Free Electron & Band Theory of Solids</h2>
+    <p>
+        The overlap of atomic orbitals in a solid creates <strong>Energy Bands</strong>.
+    </p>
+    <ul>
+        <li><strong>Valence Band:</strong> The highest occupied band.</li>
+        <li><strong>Conduction Band:</strong> The lowest unoccupied band.</li>
+        <li><strong>Band Gap ($E_g$):</strong> The energy gap between these two. It determines if a material is a Conductor ($E_g=0$), Semiconductor ($E_g \approx 1$eV), or Insulator ($E_g > 3$eV).</li>
+    </ul>
+    
+
+    <h2 id="superconductivity">6. Superconductivity</h2>
+    <p>
+        Discovered by Kamerlingh Onnes, <strong>Superconductivity</strong> is the phenomenon where certain materials lose all electrical resistance when cooled below a <strong>Critical Temperature ($T_c$)</strong>.
+    </p>
+    <ul>
+        <li><strong>Meissner Effect:</strong> The total expulsion of magnetic field lines from the interior of a superconductor. A superconductor is a <em>perfect diamagnet</em>.</li>
+        <li><strong>Cooper Pairs:</strong> Electrons that pair up through phonon interaction (explained by BCS Theory).</li>
+    </ul>
+    
+
+    <div class="exam-section" id="exam-corner">
+        <h4>Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li><strong>Differentiate between Crystalline and Amorphous solids.</strong> Crystalline solids have long-range order and sharp melting points; amorphous solids (like glass) have short-range order and melt over a range.</li>
+            <li><strong>What is a Reciprocal Lattice?</strong> It is a lattice in Fourier space where each point corresponds to a set of planes in the real lattice. It simplifies the analysis of diffraction patterns.</li>
+        </ul>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><em>Miller Indices:</em> Never use commas between the numbers $(hkl)$. If an index is negative, place a bar over it $(\bar{h}kl)$.</li>
+            <li><em>Bragg's Law:</em> Ensure you use the <strong>glancing angle</strong> (angle with the plane), not the angle with the normal.</li>
+        </ul>
+
+        <h3>Exam Tips</h3>
+        <blockquote>
+            <strong>Tip:</strong> When explaining superconductivity, always mention the <strong>Meissner Effect</strong>. It is the defining property that distinguishes a superconductor from just a "very good conductor."
+        </blockquote>
+    </div>
+</div>
+
+</body>
+</html>

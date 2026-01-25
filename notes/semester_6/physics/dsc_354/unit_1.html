@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHYDSC354P Unit 1 | 6th Semester Lab Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive laboratory notes for PHYDSC354P Unit 1: Digital Electronics and Microprocessors. Covering Flip-Flops, Counters, Registers, and 8085 Programming for Knowlet.">
+    <meta name="keywords" content="Digital Electronics Lab, PHYDSC354P, Knowlet, Flip-Flops, Counters, 8085 Microprocessor, Assembly Language, Shift Registers">
+    <style>
+        :root {
+            --primary: #27ae60;
+            --secondary: #2c3e50;
+            --bg-light: #f1f8f4;
+            --accent: #2ecc71;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-top: 6px solid var(--primary);
+        }
+        h1 {
+            color: var(--secondary);
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: var(--primary);
+            border-left: 5px solid var(--primary);
+            padding-left: 15px;
+            margin-top: 35px;
+            background-color: var(--bg-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        blockquote {
+            background: #f9fdfa;
+            border-left: 10px solid var(--accent);
+            margin: 1.5em 10px;
+            padding: 15px;
+            font-style: italic;
+            border: 1px solid #e8f5e9;
+        }
+        .code-box {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            display: block;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        table, th, td {
+            border: 1px solid #dee2e6;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9fdfa;
+        }
+        .exam-section {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 45px;
+        }
+        .exam-section h4 {
+            color: #856404;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.5em;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc li {
+            margin-bottom: 10px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 1: Digital Electronics & Microprocessors (Lab: PHYDSC354P)</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#objectives">1. Laboratory Objectives</a></li>
+            <li><a href="#flip-flops">2. Study of Flip-Flops (RS, JK, D, T)</a></li>
+            <li><a href="#counters">3. Design of Counters (Asynchronous & Synchronous)</a></li>
+            <li><a href="#registers">4. Shift Registers (SISO, PIPO)</a></li>
+            <li><a href="#intro-8085">5. Introduction to 8085 Microprocessor Kit</a></li>
+            <li><a href="#8085-programs">6. Basic 8085 Assembly Language Programming</a></li>
+            <li><a href="#data-conversion">7. Data Conversion (BCD to Binary)</a></li>
+            <li><a href="#exam-corner">8. Lab Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="objectives">1. Laboratory Objectives</h2>
+    <p>
+        The objective of this practical course is to master <strong>Digital Circuit Design</strong> and <strong>Assembly Level Programming</strong>. In the first half, you will build sequential circuits using ICs, and in the second half, you will interface with the Intel 8085 Microprocessor to execute mathematical and logical operations.
+    </p>
+
+    <h2 id="flip-flops">2. Study of Flip-Flops</h2>
+    <p>
+        Flip-flops are the basic building blocks of memory. In this experiment, you verify the truth tables of various flip-flops using NAND/NOR gates or dedicated ICs (like 7474 or 7476).
+    </p>
+    <ul>
+        <li><strong>RS Flip-Flop:</strong> The simplest form; has an invalid state when R=1, S=1.</li>
+        <li><strong>JK Flip-Flop:</strong> Resolves the invalid state by "toggling" the output when J=1, K=1.</li>
+        <li><strong>D Flip-Flop:</strong> Data or Delay flip-flop; output follows the input at the clock edge.</li>
+    </ul>
+    
+
+    <h2 id="counters">3. Design of Counters</h2>
+    <p>
+        Counters are used to count clock pulses. You will typically work with <strong>MOD-N counters</strong>.
+    </p>
+    <ul>
+        <li><strong>Asynchronous (Ripple) Counter:</strong> The clock is given only to the first flip-flop; others are triggered by the previous stage's output.</li>
+        <li><strong>Synchronous Counter:</strong> All flip-flops share the same clock signal simultaneously, making it faster and avoiding "glitches".</li>
+    </ul>
+
+    <h2 id="registers">4. Shift Registers</h2>
+    <p>
+        Shift registers are used for data storage and transfer. You will study four types: 
+        <strong>SISO</strong> (Serial-In Serial-Out), 
+        <strong>SIPO</strong> (Serial-In Parallel-Out), 
+        <strong>PISO</strong>, and 
+        <strong>PIPO</strong>.
+    </p>
+    
+
+    <h2 id="intro-8085">5. Introduction to 8085 Microprocessor Kit</h2>
+    <p>
+        The 8085 is an 8-bit general-purpose microprocessor. In the lab, you use a trainer kit with a hex keypad.
+    </p>
+    <h3>Key Components:</h3>
+    <ul>
+        <li><strong>Registers:</strong> Accumulator (A), B, C, D, E, H, L.</li>
+        <li><strong>Program Counter (PC):</strong> Holds the address of the next instruction.</li>
+        <li><strong>Stack Pointer (SP):</strong> Manages the stack memory.</li>
+    </ul>
+
+    <h2 id="8085-programs">6. Basic 8085 Assembly Language Programming</h2>
+    <p>
+        You will perform basic arithmetic. Below is a sample for <strong>8-bit Addition</strong>:
+    </p>
+    <div class="code-box">
+LXI H, 2000H  ; Load address of 1st number in HL pair
+MOV A, M      ; Move 1st number to Accumulator
+INX H         ; Point to next memory location
+ADD M         ; Add 2nd number to Accumulator
+INX H         ; Point to next memory location
+MOV M, A      ; Store result in memory
+HLT           ; Halt the program
+    </div>
+
+    <h2 id="data-conversion">7. Data Conversion (BCD to Binary)</h2>
+    <p>
+        This experiment involves converting a Binary Coded Decimal (BCD) number into its binary equivalent. This requires logical shifting and addition operations within the 8085 registers.
+    </p>
+
+    <div class="exam-section" id="exam-corner">
+        <h4>Lab Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li><strong>What is the difference between a Latch and a Flip-Flop?</strong> Latches are level-triggered (asynchronous), while Flip-Flops are edge-triggered (synchronous).</li>
+            <li><strong>Explain the 'Carry Flag' in 8085.</strong> It is set to 1 if an arithmetic operation results in a carry out of the most significant bit (MSB).</li>
+            <li><strong>Why do we use HL pair for memory pointers?</strong> Because instructions like <code>MOV A, M</code> implicitly use the HL pair to find the address of 'M'.</li>
+        </ul>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><strong>Clock Pulse:</strong> In digital IC experiments, ensure you don't "double-trigger" the clock due to switch bouncing. Use a debounced switch.</li>
+            <li><strong>Hex Calculations:</strong> When writing 8085 programs, remember that <code>9 + 1 = A</code> in Hex, not 10. This is the most common cause of logic errors.</li>
+        </ul>
+
+        <h3>Practical Tips</h3>
+        <blockquote>
+            <strong>Tip:</strong> Always clear the Accumulator or registers before starting an addition/multiplication loop in 8085 to avoid garbage values affecting your result. For digital ICs, check the Vcc (Pin 14/16) and Ground (Pin 7/8) first!
+        </blockquote>
+    </div>
+</div>
+
+</body>
+</html>

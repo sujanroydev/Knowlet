@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHYDSC353P Unit 4 | 6th Semester Lab Notes - Knowlet</title>
+    <meta name="description" content="Laboratory notes for PHYDSC353P Unit 4: Advanced Nuclear and Particle Physics. Covering Scintillation Counters, Range of Alpha Particles, and Coincidence Circuits for Knowlet.">
+    <meta name="keywords" content="Advanced Nuclear Lab, Scintillation Counter, NaI(Tl), Gamma Ray Spectrometry, Coincidence Circuit, Alpha Particle Range, PHYDSC353P, Knowlet">
+    <style>
+        :root {
+            --primary: #c0392b;
+            --secondary: #2c3e50;
+            --bg-light: #fdf2f2;
+            --accent: #e74c3c;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-top: 6px solid var(--primary);
+        }
+        h1 {
+            color: var(--secondary);
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: var(--primary);
+            border-left: 5px solid var(--primary);
+            padding-left: 15px;
+            margin-top: 35px;
+            background-color: var(--bg-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        blockquote {
+            background: #fffafa;
+            border-left: 10px solid var(--accent);
+            margin: 1.5em 10px;
+            padding: 15px;
+            font-style: italic;
+            border: 1px solid #ffebeb;
+        }
+        .formula-box {
+            background-color: #fcfcfc;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            display: block;
+            margin: 20px 0;
+            border: 1px dashed #bdc3c7;
+            text-align: center;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        table, th, td {
+            border: 1px solid #dee2e6;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #fff9f9;
+        }
+        .exam-section {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 45px;
+        }
+        .exam-section h4 {
+            color: #856404;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.5em;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc li {
+            margin-bottom: 10px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 4: Advanced Nuclear & Particle Lab (Lab: PHYDSC353P)</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#objectives">1. Laboratory Objectives</a></li>
+            <li><a href="#scintillation">2. Gamma Ray Spectrometry (NaI(Tl) Detector)</a></li>
+            <li><a href="#coincidence">3. Coincidence and Anti-Coincidence Circuits</a></li>
+            <li><a href="#alpha-range">4. Range of Alpha Particles (Spark Counter)</a></li>
+            <li><a href="#feather">5. Feather Analysis (Beta Ray Maximum Energy)</a></li>
+            <li><a href="#exam-corner">6. Lab Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="objectives">1. Laboratory Objectives</h2>
+    <p>
+        Building on basic radiation detection, this unit introduces <strong>energy-sensitive detection</strong> and <strong>temporal correlation</strong>. You will move beyond simply counting pulses to analyzing the energy spectrum of gamma rays and determining the specific energies of various radioactive transitions.
+    </p>
+
+    <h2 id="scintillation">2. Gamma Ray Spectrometry (NaI(Tl) Detector)</h2>
+    <p>
+        While a G.M. counter is an "event counter," a <strong>Scintillation Detector</strong> (typically Sodium Iodide doped with Thallium) provides a pulse height proportional to the energy of the incident photon.
+    </p>
+    
+    <h3>Key Features of a Gamma Spectrum:</h3>
+    <ul>
+        <li><strong>Photopeak:</strong> Represents full absorption of the gamma-ray energy via the Photoelectric effect.</li>
+        <li><strong>Compton Edge:</strong> The maximum energy a gamma ray can transfer to an electron during Compton scattering.</li>
+        <li><strong>Backscatter Peak:</strong> Resulting from gamma rays scattering from surrounding materials back into the detector.</li>
+    </ul>
+    
+
+    <h2 id="coincidence">3. Coincidence and Anti-Coincidence Circuits</h2>
+    <p>
+        These circuits are used to detect events that occur simultaneously (or within a very short time window). This is essential for studying decay schemes where multiple particles are emitted sequentially.
+    </p>
+    <blockquote>
+        <strong>Coincidence:</strong> Outputs a pulse only if two detectors record an event at the same time. Used to map correlated gamma emissions.
+        <br>
+        <strong>Anti-Coincidence:</strong> Outputs a pulse only if one detector records an event and the other does <em>not</em>. Used to reduce background cosmic ray noise.
+    </blockquote>
+
+    <h2 id="alpha-range">4. Range of Alpha Particles</h2>
+    <p>
+        Alpha particles have a very high ionizing power but a very short range in matter. In this lab, a <strong>Spark Counter</strong> or a specialized air-filled chamber is used to find where the alpha particles stop.
+    </p>
+    <div class="formula-box">
+        $R \text{ (cm)} = 0.318 \cdot E^{3/2} \text{ (MeV)}$
+    </div>
+    <p>
+        As the distance between the source and the detector window increases, the count rate remains constant until the <strong>Mean Range</strong> is reached, at which point it drops sharply to zero.
+    </p>
+
+    <h2 id="feather">5. Feather Analysis</h2>
+    <p>
+        <strong>Feather Analysis</strong> is an empirical method to determine the maximum energy ($E_{max}$) of a beta-ray emitter. 
+    </p>
+    <p>
+        Since beta particles have a continuous energy spectrum, their absorption curve is not a simple exponential. By comparing the absorption of an unknown source with that of a standard source (like Bi-210), the range $R_p$ in Aluminum can be found, which then gives $E_{max}$ via the Feather relation.
+    </p>
+
+    <div class="exam-section" id="exam-corner">
+        <h4>Lab Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li><strong>Why is NaI(Tl) used instead of pure NaI?</strong> Pure NaI is a poor scintillator at room temperature; the Thallium "activator" creates energy levels within the band gap that allow for efficient light emission.</li>
+            <li><strong>What is 'Energy Resolution'?</strong> It is the ability of the detector to distinguish between two close-lying gamma peaks, calculated as the Full Width at Half Maximum (FWHM) divided by the peak energy.</li>
+        </ul>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><strong>Gain Drift:</strong> Scintillation detectors are sensitive to temperature and voltage changes. Always perform an <em>Energy Calibration</em> using a known source (like Cs-137) at the start of the experiment.</li>
+            <li><strong>Geometry:</strong> For coincidence experiments, the relative angle between detectors is critical. A small misalignment can significantly drop the coincidence count rate.</li>
+        </ul>
+
+        <h3>Practical Tips</h3>
+        <blockquote>
+            <strong>Tip:</strong> In Alpha range experiments, ensure the source and detector are in a <strong>dust-free environment</strong>. Dust particles can act as thick absorbers, significantly shortening the measured range.
+        </blockquote>
+    </div>
+</div>
+
+</body>
+</html>

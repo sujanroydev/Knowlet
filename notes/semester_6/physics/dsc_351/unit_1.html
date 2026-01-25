@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHYDSC351T Unit 1 | 6th Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for PHYDSC351T Unit 1: Nuclear Properties and Alpha Decay. Prepared for Knowlet, covering mass, radii, binding energy, and Gamow's theory.">
+    <meta name="keywords" content="Nuclear Physics, PHYDSC351T, Knowlet, Alpha Decay, Binding Energy, Gamow Theory, Geiger-Nuttall Law, Nuclear Properties">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f7f6;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 5px solid #2980b9;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #2980b9;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #2980b9;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            margin-top: 35px;
+        }
+        h3 {
+            color: #16a085;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        blockquote {
+            background: #eef2f3;
+            border-left: 10px solid #2980b9;
+            margin: 1.5em 10px;
+            padding: 15px;
+            font-style: italic;
+        }
+        .formula-box {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            display: block;
+            margin: 20px 0;
+            border: 1px dashed #7f8c8d;
+            text-align: center;
+            font-weight: bold;
+            color: #c0392b;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #bdc3c7;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #2980b9;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .exam-tips {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        .exam-tips h4 {
+            color: #856404;
+            margin-top: 0;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.5em;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 1: General Properties of Nuclei & Alpha Decay</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#constituents">1. Constituents and Intrinsic Properties</a></li>
+            <li><a href="#quantitative">2. Quantitative Facts: Mass, Radii, and Density</a></li>
+            <li><a href="#binding-energy">3. Binding Energy and Packing Fraction</a></li>
+            <li><a href="#nz-plot">4. The N/Z Plot and Stability</a></li>
+            <li><a href="#moments">5. Nuclear Moments, Parity, and Spin</a></li>
+            <li><a href="#alpha-decay">6. Alpha Decay: Basics and Theory</a></li>
+            <li><a href="#gamow-theory">7. Gamow's Theory of Alpha Decay</a></li>
+            <li><a href="#geiger-nuttall">8. Geiger-Nuttall Law and Spectra</a></li>
+            <li><a href="#exam-corner">9. Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="constituents">1. Constituents and Intrinsic Properties</h2>
+    <p>
+        [cite_start]The nucleus is the small, dense region at the center of an atom, consisting of <strong>nucleons</strong>: protons and neutrons[cite: 644]. 
+    </p>
+    <ul>
+        <li><strong>Proton:</strong> Carries a positive charge (+e) and has a mass approximately 1836 times that of an electron.</li>
+        <li><strong>Neutron:</strong> Electrically neutral with a mass slightly greater than that of a proton.</li>
+    </ul>
+    <p>
+        [cite_start]Intrinsic properties include <strong>mass number (A)</strong>, which is the total number of nucleons, and <strong>atomic number (Z)</strong>, the number of protons[cite: 644].
+    </p>
+
+    <h2 id="quantitative">2. Quantitative Facts: Mass, Radii, and Density</h2>
+    <h3>Nuclear Mass</h3>
+    <p>The mass of a nucleus is always less than the sum of the masses of its individual nucleons. This difference is known as the <strong>mass defect</strong>.</p>
+
+    <h3>Nuclear Radii</h3>
+    <p>The nucleus is often modeled as a sphere. The radius (R) follows the empirical relation:</p>
+    <div class="formula-box">
+        R = R0 * A^(1/3)
+    </div>
+    [cite_start]<p>Where R0 is a constant approximately equal to 1.2 to 1.5 fm (femtometers)[cite: 644].</p>
+
+    <h3>Matter and Charge Density</h3>
+    [cite_start]<p>The <strong>matter density</strong> of a nucleus is remarkably constant across different elements, implying that nuclear matter is incompressible[cite: 644]. The charge density follows a similar distribution, being roughly constant at the center and dropping off at the surface.</p>
+
+    <h2 id="binding-energy">3. Binding Energy and Packing Fraction</h2>
+    <p>
+        [cite_start]<strong>Binding Energy (B.E.)</strong> is the energy required to completely disassemble a nucleus into its constituent protons and neutrons[cite: 644].
+    </p>
+    <div class="formula-box">
+        B.E. = [Z*mp + (A-Z)*mn - M] * c^2
+    </div>
+
+    <h3>B.E. vs. Mass Number (A) Curve</h3>
+    [cite_start]<p>The plot of B.E. per nucleon (B.E./A) against A is a fundamental graph in nuclear physics[cite: 644]:</p>
+    <ul>
+        <li>The curve rises sharply for light nuclei.</li>
+        <li>It reaches a broad maximum of about 8.8 MeV/nucleon near <strong>Iron (A=56)</strong>.</li>
+        <li>It gradually drops for heavier nuclei due to increasing Coulomb repulsion.</li>
+    </ul>
+    <h3>Packing Fraction</h3>
+    [cite_start]<p>The packing fraction is defined as the mass defect per nucleon[cite: 644]. It provides a measure of nuclear stability; a lower packing fraction typically indicates a more stable nucleus.</p>
+
+    <h2 id="nz-plot">4. The N/Z Plot and Stability</h2>
+    <p>
+        [cite_start]The <strong>N/Z plot</strong> (Segre Chart) shows the relationship between the number of neutrons (N) and protons (Z) for stable nuclei[cite: 644]. 
+    </p>
+    <ul>
+        <li>For light nuclei (A < 20), N/Z is approximately 1.</li>
+        <li>As Z increases, N increases faster than Z to provide extra nuclear force to counteract the growing Coulomb repulsion between protons.</li>
+        <li>Nuclei far from the "belt of stability" undergo radioactive decay to reach a more stable state.</li>
+    </ul>
+
+    <h2 id="moments">5. Nuclear Moments, Parity, and Spin</h2>
+    <h3>Angular Momentum and Spin</h3>
+    [cite_start]<p>Total angular momentum (J) is the vector sum of the orbital and intrinsic spin angular momenta of all nucleons[cite: 644].</p>
+
+    <h3>Magnetic and Electric Moments</h3>
+    <ul>
+        [cite_start]<li><strong>Magnetic Dipole Moment:</strong> Arises from the motion of protons and the intrinsic spins of nucleons[cite: 644].</li>
+        [cite_start]<li><strong>Electric Quadrupole Moment:</strong> Measures the deviation of the nuclear charge distribution from spherical symmetry[cite: 644]. A non-zero value indicates an ellipsoidal shape.</li>
+    </ul>
+
+    <h3>Parity</h3>
+    <p>Parity describes the symmetry of the wave function under spatial inversion. [cite_start]It is an important quantum number in nuclear reactions[cite: 644].</p>
+
+    <h2 id="alpha-decay">6. Alpha Decay: Basics and Theory</h2>
+    <p>
+        [cite_start]<strong>Alpha decay</strong> is the process where an unstable nucleus emits an alpha particle (a Helium-4 nucleus)[cite: 645].
+    </p>
+    <div class="formula-box">
+        (A, Z) -> (A-4, Z-2) + (4, 2)He + Q
+    </div>
+    <p>
+        The <strong>Q-value</strong> represents the energy released in the reaction, which is shared as kinetic energy between the alpha particle and the recoil nucleus.
+    </p>
+
+    <h2 id="gamow-theory">7. Gamow's Theory of Alpha Decay</h2>
+    <p>
+        Classically, an alpha particle cannot escape the nucleus because its energy is less than the potential barrier height. [cite_start]<strong>Gamow's theory</strong> explains this using <strong>quantum tunneling</strong>[cite: 645].
+    </p>
+    <p>
+        The theory assumes the alpha particle pre-exists inside the nucleus and "tunnels" through the Coulomb barrier. [cite_start]The probability of escape (transparency of the barrier) is highly sensitive to the energy of the particle, explaining the wide range of half-lives observed[cite: 645].
+    </p>
+
+    <h2 id="geiger-nuttall">8. Geiger-Nuttall Law and Spectra</h2>
+    <p>
+        [cite_start]The <strong>Geiger-Nuttall Law</strong> provides an empirical relationship between the decay constant (λ) and the range (R) of the emitted alpha particles[cite: 645]:
+    </p>
+    <div class="formula-box">
+        log λ = A + B * log R
+    </div>
+    <p>Where A and B are constants. [cite_start]Modern versions relate log λ to the energy (E) of the alpha particle[cite: 645].</p>
+
+    <h3>Alpha-Ray Spectra</h3>
+    [cite_start]<p>Alpha particles are emitted with <strong>discrete energies</strong>, resulting in a line spectrum[cite: 645]. This provides evidence that nuclei possess discrete energy levels.</p>
+
+    <h2 id="exam-corner">9. Exam Focus Corner</h2>
+    <div class="exam-tips">
+        <h4>Frequently Asked Questions</h4>
+        <ul>
+            <li><strong>Why is the B.E. curve important?</strong> It explains why energy is released in nuclear fusion (light nuclei) and nuclear fission (heavy nuclei).</li>
+            <li><strong>What does the Quadrupole Moment tell us?</strong> It indicates if a nucleus is prolate (football-shaped), oblate (pancake-shaped), or spherical.</li>
+        </ul>
+
+        <h4>Common Pitfalls</h4>
+        <ul>
+            <li><em>Miscalculating Q-value:</em> Remember to use atomic masses and account for electron masses correctly, or use nuclear masses directly.</li>
+            <li><em>Tunneling vs. Classical:</em> Never say the alpha particle "jumps over" the barrier; it "tunnels through" it.</li>
+        </ul>
+
+        <h4>Exam Tips</h4>
+        <blockquote>
+            <strong>Tip:</strong> In diagrams of the B.E. curve, always label the position of <strong>Iron (Fe)</strong> as the most stable point. For Alpha decay, remember the Geiger-Nuttall law implies that high-energy emitters have very short half-lives.
+        </blockquote>
+    </div>
+</div>
+
+</body>
+</html>

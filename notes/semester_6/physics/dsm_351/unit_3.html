@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHYDSM351T Unit 3 | 5th Semester Notes - Knowlet</title>
+    <meta name="description" content="Study notes for PHYDSM351T Unit 3: Atomic Physics. Covering Bohr's model, Frank-Hertz experiment, Stern-Gerlach experiment, and X-ray spectra for Knowlet.">
+    <meta name="keywords" content="Atomic Physics, Bohr Model, Sommerfeld, Stern-Gerlach, Frank-Hertz, X-rays, Mosley's Law, PHYDSM351T, Knowlet">
+    <style>
+        :root {
+            --primary: #e67e22;
+            --secondary: #2c3e50;
+            --bg-light: #fef9f5;
+            --accent: #d35400;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--bg-light);
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 6px solid var(--primary);
+        }
+        h1 {
+            color: var(--secondary);
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        h2 {
+            color: var(--primary);
+            border-left: 5px solid var(--primary);
+            padding-left: 15px;
+            margin-top: 35px;
+            background-color: #fff5eb;
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        blockquote {
+            background: #fffcf9;
+            border-left: 10px solid var(--accent);
+            margin: 1.5em 10px;
+            padding: 15px;
+            font-style: italic;
+            border: 1px solid #f9ebe0;
+        }
+        .formula-box {
+            background-color: #fcfcfc;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            display: block;
+            margin: 20px 0;
+            border: 1px dashed #bdc3c7;
+            text-align: center;
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        table, th, td {
+            border: 1px solid #bdc3c7;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #fff9f5;
+        }
+        .exam-section {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 45px;
+        }
+        .exam-section h4 {
+            color: #856404;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+        .toc {
+            background-color: #fdfdfd;
+            padding: 25px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.5em;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 3: Atomic Physics</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#bohr-model">1. Bohr's Model of the Atom</a></li>
+            <li><a href="#frank-hertz">2. Frank-Hertz Experiment</a></li>
+            <li><a href="#sommerfeld">3. Sommerfeld's Elliptical Orbits</a></li>
+            <li><a href="#vector-model">4. Vector Atom Model & Quantum Numbers</a></li>
+            <li><a href="#stern-gerlach">5. Stern-Gerlach Experiment & Electron Spin</a></li>
+            <li><a href="#xray-spectra">6. X-ray Spectra and Moseley's Law</a></li>
+            <li><a href="#exam-corner">7. Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="bohr-model">1. Bohr's Model of the Atom</h2>
+    <p>
+        In 1913, Niels Bohr proposed a model for the Hydrogen atom to explain its line spectrum. He introduced the idea that electrons move in fixed, non-radiating orbits.
+    </p>
+    
+    <h3>Main Postulates:</h3>
+    <ul>
+        <li>Electrons revolve in circular orbits where the angular momentum is quantized: $L = n\hbar$.</li>
+        <li>Electrons do not radiate energy while in these stationary orbits.</li>
+        <li>Energy is emitted or absorbed only when an electron jumps from one orbit to another ($E_2 - E_1 = h\nu$).</li>
+    </ul>
+    <div class="formula-box">
+        Energy of $n^{th}$ orbit: $E_n = -\frac{13.6}{n^2} \text{ eV}$
+    </div>
+
+    <h2 id="frank-hertz">2. Frank-Hertz Experiment</h2>
+    <p>
+        This experiment provided the first direct evidence for <strong>quantized energy levels</strong> in atoms. By bombarding Mercury vapor with electrons, they observed that energy was absorbed only in specific discrete amounts.
+    </p>
+    
+    <p>
+        The periodic drops in current at specific voltages (4.9V for Mercury) confirmed that electrons lose energy only when it matches a specific transition energy of the atom.
+    </p>
+
+    <h2 id="sommerfeld">3. Sommerfeld's Elliptical Orbits</h2>
+    <p>
+        Arnold Sommerfeld extended Bohr's model by introducing elliptical orbits. This helped explain the "fine structure" of spectral lines. 
+    </p>
+    <ul>
+        <li>Introduced a second quantum number, the <strong>Azimuthal quantum number ($l$)</strong>.</li>
+        <li>Accounted for relativistic mass variations of the electron as it speeds up near the nucleus.</li>
+    </ul>
+
+    <h2 id="vector-model">4. Vector Atom Model & Quantum Numbers</h2>
+    <p>
+        The modern description of the atom uses four quantum numbers to define the state of an electron:
+    </p>
+    <table>
+        <tr>
+            <th>Quantum Number</th>
+            <th>Symbol</th>
+            <th>Defines</th>
+        </tr>
+        <tr>
+            <td>Principal</td>
+            <td>$n$</td>
+            <td>Main shell/Energy level (1, 2, 3...)</td>
+        </tr>
+        <tr>
+            <td>Azimuthal (Orbital)</td>
+            <td>$l$</td>
+            <td>Subshell shape ($0$ to $n-1$)</td>
+        </tr>
+        <tr>
+            <td>Magnetic</td>
+            <td>$m_l$</td>
+            <td>Orientation in space ($-l$ to $+l$)</td>
+        </tr>
+        <tr>
+            <td>Spin</td>
+            <td>$m_s$</td>
+            <td>Direction of spin ($+1/2$ or $-1/2$)</td>
+        </tr>
+    </table>
+
+    <h2 id="stern-gerlach">5. Stern-Gerlach Experiment & Electron Spin</h2>
+    <p>
+        This experiment proved the existence of <strong>Electron Spin</strong> and <strong>Space Quantization</strong>. By passing a beam of Silver atoms through a non-uniform magnetic field, the beam split into two distinct spots.
+    </p>
+    
+    <blockquote>
+        <strong>Conclusion:</strong> The splitting confirmed that electrons have an intrinsic magnetic moment due to spin, which can only have two orientations (up or down).
+    </blockquote>
+
+    <h2 id="xray-spectra">6. X-ray Spectra and Moseley's Law</h2>
+    <p>
+        When high-speed electrons strike a target, they produce two types of X-rays:
+    </p>
+    <ul>
+        <li><strong>Continuous X-rays (Bremsstrahlung):</strong> Produced by the deceleration of electrons.</li>
+        <li><strong>Characteristic X-rays:</strong> Produced when an inner-shell electron is ejected and an outer electron falls into its place.</li>
+    </ul>
+    
+    <h3>Moseley's Law:</h3>
+    <p>Henry Moseley discovered that the frequency of characteristic X-rays is related to the atomic number ($Z$).</p>
+    <div class="formula-box">
+        $\sqrt{\nu} = a(Z - b)$
+    </div>
+    <p>This law proved that $Z$ (Atomic Number) is more fundamental than atomic weight for organizing the Periodic Table.</p>
+
+    <div class="exam-section" id="exam-corner">
+        <h4>Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li><strong>Why did Bohr's model fail for multi-electron atoms?</strong> It didn't account for electron-electron repulsions and could not explain the relative intensities of spectral lines.</li>
+            <li><strong>What is the physical significance of the Stern-Gerlach experiment?</strong> It demonstrated that angular momentum is quantized in space (it can't point in just any direction).</li>
+        </ul>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><em>Rydberg Formula:</em> Make sure to distinguish between the wavelength ($\lambda$) and the wave number ($1/\lambda$).</li>
+            <li><em>Pauli Exclusion Principle:</em> Always remember that no two electrons in an atom can have the <strong>same set of four quantum numbers</strong>.</li>
+        </ul>
+
+        <h3>Exam Tips</h3>
+        <blockquote>
+            <strong>Tip:</strong> For the Frank-Hertz experiment, remember that the <strong>mean free path</strong> of the electron must be large enough to reach the excitation energy, which is why the experiment is conducted at low pressures.
+        </blockquote>
+    </div>
+</div>
+
+</body>
+</html>

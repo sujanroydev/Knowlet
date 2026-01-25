@@ -48,7 +48,6 @@ function AboutUser() {
     	const like = document.getElementById('btnLike');
     	const submit = document.getElementById('btn-submit-rating');
     	const post = document.getElementById('btn-post-comment');
-    	// const likeCommentBtn = document.querySelectorAll('.like-c-btn');
     	
     	const disabledBtns = [like, submit, post]
     	
@@ -59,12 +58,6 @@ function AboutUser() {
 				}
     		});
     	});
-    	
-		// likeCommentBtn.forEach(button => {
-		//   button.addEventListener('click', () => {
-		//     // Your code here
-		//   });
-		// });
     	
         setTimeout(() => {
             window.location.href = "../../../../login_signup.html";
@@ -244,7 +237,7 @@ async function loadLikesAndRatings(){
 
         data.forEach(r => {
             totalLikes += r.page_likes ? 1 : 0;
-			if (r.user.id === user.id) {
+			if (r.user.id === user ? user.id : null) {
 				myLikesAndRatings = r;
 			}
 			
@@ -363,6 +356,12 @@ async function submitRating() {
 }
 
 async function likePage(oldLikes){
+	if (!user) {
+		if (confirm('You have to Login OR Signup to download the notes or interect with the notes.\n\nClick OK to Login OR Signup.\n\nElse you will be redirect automatically.')) {
+			window.location.href = "../../../../login_signup.html";
+		}
+		return;
+	}
     try {
         if (myLikesAndRatings) {
             const res = await fetch('https://knowlet.in/.netlify/functions/update-likes-ratings', {
@@ -515,6 +514,12 @@ async function submitComment(){
 }
 
 async function likeComment(id, oldLikes){
+	if (!user) {
+		if (confirm('You have to Login OR Signup to download the notes or interect with the notes.\n\nClick OK to Login OR Signup.\n\nElse you will be redirect automatically.')) {
+			window.location.href = "../../../../login_signup.html";
+		}
+		return;
+	}
 	let newLikes;
 	if (recentComments[id] === "Liked" && Number(oldLikes) >= 1) {
 		newLikes = (Number(oldLikes)||0)-1;

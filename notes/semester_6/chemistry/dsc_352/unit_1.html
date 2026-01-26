@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHM-DSC-352 Unit 1 | 6th Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive academic notes for CHM-DSC-352 Unit 1: Introduction to Analytical Chemistry. Covering errors, precision, accuracy, and statistical data treatment.">
+    <meta name="keywords" content="Knowlet, Analytical Chemistry, Systematic Errors, Random Errors, Precision, Accuracy, Standard Deviation, Significant Figures">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 4px solid #34495e;
+            padding-bottom: 15px;
+        }
+        h2 {
+            color: #2c3e50;
+            border-left: 6px solid #34495e;
+            padding-left: 15px;
+            margin-top: 35px;
+            background: #f4f6f7;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #2980b9;
+            border-bottom: 1px solid #eee;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #34495e;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        blockquote {
+            background: #fdf9f4;
+            border-left: 5px solid #f39c12;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+        }
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border: 1px solid #e1e4e8;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .exam-tip {
+            background-color: #eef2f7;
+            border: 1px solid #d1d8e0;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 1: Introduction to Analytical Chemistry</h1>
+    <p><strong>Course Code:</strong> CHM-DSC-352</p>
+    <p><strong>Paper Name:</strong> Analytical Chemistry</p>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#definition">1. Definition and Scope of Analytical Chemistry</a></li>
+            <li><a href="#errors">2. Classification of Errors</a></li>
+            <li><a href="#accuracy-precision">3. Accuracy and Precision</a></li>
+            <li><a href="#statistical">4. Statistical Treatment of Data</a></li>
+            <li><a href="#sig-figs">5. Significant Figures and Rounding Off</a></li>
+            <li><a href="#exam-corner">6. Exam Focus: Tips and FAQs</a></li>
+        </ul>
+    </div>
+
+    <h2 id="definition">1. Definition and Scope of Analytical Chemistry</h2>
+    <p>Analytical Chemistry is the science of obtaining, processing, and communicating information about the composition and structure of matter.</p>
+    <ul>
+        <li><strong>Qualitative Analysis:</strong> Identifies "what" chemical species are present in a sample.</li>
+        <li><strong>Quantitative Analysis:</strong> Determines "how much" of a chemical species is present.</li>
+    </ul>
+
+    <h2 id="errors">2. Classification of Errors</h2>
+    <p>In chemical analysis, an error is the difference between the measured value and the true value.</p>
+    
+    <h3>Systematic (Determinate) Errors</h3>
+    <p>These errors have a definite value and an assignable cause. They lead to <strong>bias</strong> in results.</p>
+    <ul>
+        <li><strong>Instrumental Errors:</strong> Faulty calibration of equipment.</li>
+        <li><strong>Method Errors:</strong> Non-ideal chemical or physical behavior of the analytical system.</li>
+        <li><strong>Personal Errors:</strong> Carelessness or physical limitations of the analyst (e.g., color blindness in titration).</li>
+    </ul>
+
+    <h3>Random (Indeterminate) Errors</h3>
+    <p>These arise from uncontrollable variables in the measurement. They follow a <strong>Gaussian distribution</strong> (Normal Distribution Curve).</p>
+    
+
+    <h2 id="accuracy-precision">3. Accuracy and Precision</h2>
+    <p>These two terms are fundamental to evaluating the quality of analytical data.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Term</th>
+                <th>Definition</th>
+                <th>Measured By</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Accuracy</strong></td>
+                <td>Closeness of a measurement to the true or accepted value.</td>
+                <td>Relative Error / Absolute Error</td>
+            </tr>
+            <tr>
+                <td><strong>Precision</strong></td>
+                <td>Closeness of several measurements to each other (reproducibility).</td>
+                <td>Standard Deviation / Variance</td>
+            </tr>
+        </tbody>
+    </table>
+    
+
+    <h2 id="statistical">4. Statistical Treatment of Data</h2>
+    <p>To report results meaningfully, we apply statistical tools to sets of measurements.</p>
+    
+    <h3>Mean and Median</h3>
+    <ul>
+        <li><strong>Mean (Average):</strong> The sum of measurements divided by the number of measurements.</li>
+        <li><strong>Median:</strong> The middle value when data is arranged in numerical order.</li>
+    </ul>
+
+    <h3>Standard Deviation (s)</h3>
+    <p>Standard deviation describes the spread of data around the mean.</p>
+    <blockquote>
+        s = √[ Σ (xi - x̄)² / (n - 1) ]
+    </blockquote>
+    <p>A smaller standard deviation indicates higher <strong>precision</strong>.</p>
+
+    <h2 id="sig-figs">5. Significant Figures and Rounding Off</h2>
+    <p>Significant figures are the digits in a number that carry meaningful information about its precision.</p>
+    <ul>
+        <li><strong>Zero Rules:</strong> Zeros between non-zero digits are significant. Leading zeros are not. Trailing zeros are significant only if a decimal point is present.</li>
+        <li><strong>Rounding Off:</strong> If the digit to be dropped is >5, round up. If <5, stay same. If exactly 5, round to the nearest even number.</li>
+    </ul>
+
+    <h2 id="exam-corner">6. Exam Focus: Tips and FAQs</h2>
+    <div class="exam-tip">
+        <strong>Exam Tips:</strong>
+        <ul>
+            <li><strong>Accuracy vs Precision:</strong> Always remember that high precision does not guarantee high accuracy (you can be consistently wrong).</li>
+            <li><strong>Determinate Errors:</strong> These can be minimized by using blank determinations or analyzing standard samples.</li>
+            <li><strong>Significant Figures:</strong> In addition/subtraction, the answer should have the same number of decimal places as the value with the fewest decimal places.</li>
+        </ul>
+    </div>
+
+    <h3>Frequently Asked Questions</h3>
+    <p><strong>Q: What is a "Blank Determination"?</strong><br>
+    A: It is a procedure where all steps of the analysis are performed without the sample, used to detect systematic errors from reagents or vessels.</p>
+
+    <p><strong>Q: Define Absolute Error.</strong><br>
+    A: The difference between the measured value (xi) and the true value (xt). E = xi - xt.</p>
+
+    <p><strong>Q: What does the "n-1" in standard deviation signify?</strong><br>
+    A: It represents the <strong>degrees of freedom</strong>, used to provide an unbiased estimate for small sample sets.</p>
+</div>
+
+</body>
+</html>

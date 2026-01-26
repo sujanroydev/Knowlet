@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHM-DSC-251 Unit 3 | 4th Semester Notes - Knowlet</title>
+    <meta name="description" content="Academic notes for CHM-DSC-251 Unit 3: Phase Equilibrium. Covering Gibbs Phase Rule, Clausius-Clapeyron equation, and one/two/three component systems.">
+    <meta name="keywords" content="Knowlet, Phase Equilibrium, Gibbs Phase Rule, Clausius-Clapeyron Equation, Phase Diagram, Eutectic Mixture, Three Component System">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fdfdfd;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border: 1px solid #e1e4e8;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #c0392b;
+            border-left: 5px solid #c0392b;
+            padding-left: 15px;
+            margin-top: 35px;
+            background: #f9f9f9;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        blockquote {
+            background: #f4f4f4;
+            border-left: 10px solid #ccc;
+            margin: 1.5em 10px;
+            padding: 0.5em 10px;
+            quotes: "\201C""\201D""\2018""\2019";
+        }
+        .toc {
+            background: #eef2f3;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .exam-note {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 3: Phase Equilibrium</h1>
+    [cite_start]<p><strong>Course Code:</strong> CHM-DSC-251 [cite: 665]</p>
+    [cite_start]<p><strong>Paper:</strong> Physical Chemistry - II [cite: 666]</p>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#gibbs-rule">1. Gibbs Phase Rule</a></li>
+            <li><a href="#clapeyron">2. Clausius-Clapeyron Equation</a></li>
+            <li><a href="#one-component">3. One Component Systems (H2O & CO2)</a></li>
+            <li><a href="#two-component">4. Two Component Systems (Pb-Ag, Zn-Mg)</a></li>
+            <li><a href="#three-component">5. Three Component Systems</a></li>
+            <li><a href="#exam-prep">6. Exam Focus & FAQs</a></li>
+        </ul>
+    </div>
+
+    <h2 id="gibbs-rule">1. Gibbs Phase Rule</h2>
+    [cite_start]<p>The phase rule is a general relation used to determine the number of independent variables (degrees of freedom) required to define the state of a system in equilibrium[cite: 682].</p>
+    
+    <blockquote>
+        F = C - P + 2
+    </blockquote>
+    <ul>
+        [cite_start]<li><strong>P (Phases):</strong> A physically distinct, homogeneous, and mechanically separable part of a system[cite: 682, 683].</li>
+        [cite_start]<li><strong>C (Components):</strong> The minimum number of independent chemical constituents needed to express the composition of every phase[cite: 682, 683].</li>
+        [cite_start]<li><strong>F (Degrees of Freedom):</strong> The number of intensive variables (like P, T, concentration) that can be changed independently without altering the number of phases[cite: 682, 683].</li>
+    </ul>
+
+    <h2 id="clapeyron">2. Clausius-Clapeyron Equation</h2>
+    [cite_start]<p>This equation relates the temperature and pressure dependence of phase equilibria[cite: 683].</p>
+    <blockquote>
+        dP / dT = ΔH / (T * ΔV)
+    </blockquote>
+    [cite_start]<p><strong>Applications:</strong> Used to calculate the enthalpy of vaporization, sublimation, or fusion, and to predict how boiling and melting points change with pressure[cite: 683].</p>
+
+    <h3>Fugacity and Activity</h3>
+    [cite_start]<p>For non-ideal systems, pressure (P) is replaced by <strong>Fugacity (f)</strong> and concentration is replaced by <strong>Activity (a)</strong> to maintain the form of ideal thermodynamic equations[cite: 683].</p>
+
+    <h2 id="one-component">3. One Component Systems</h2>
+    [cite_start]<p>In a one-component system (C=1), the phase rule becomes F = 3 - P[cite: 683].</p>
+
+    <h3>Water (H2O) System</h3>
+    [cite_start]<p>The phase diagram of water features three areas (Liquid, Solid, Gas), three curves (Vaporization, Fusion, Sublimation), and a <strong>Triple Point</strong> where all three phases coexist (P=3, F=0)[cite: 683].</p>
+    
+
+[Image of the phase diagram of water]
+
+
+    <h3>Carbon Dioxide (CO2) System</h3>
+    [cite_start]<p>Unlike water, the fusion curve for CO2 has a positive slope, and its triple point occurs at pressures higher than atmospheric (5.11 atm), explaining why it exists as "dry ice" (solid to gas) at 1 atm[cite: 683].</p>
+
+    <h2 id="two-component">4. Two Component Systems</h2>
+    [cite_start]<p>For binary systems, pressure is often kept constant, leading to the "Reduced Phase Rule": <strong>F' = C - P + 1</strong>[cite: 684].</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>System Type</th>
+                <th>Example</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Eutectic Mixture</strong></td>
+                [cite_start]<td>Pb-Ag (Lead-Silver) [cite: 684]</td>
+                [cite_start]<td>Two components are miscible in liquid state but do not react or form compounds in solid state[cite: 684].</td>
+            </tr>
+            <tr>
+                <td><strong>Congruent Melting</strong></td>
+                [cite_start]<td>Zn-Mg (Zinc-Magnesium) [cite: 684]</td>
+                [cite_start]<td>The compound formed melts at a constant temperature to give a liquid of the same composition[cite: 684].</td>
+            </tr>
+            <tr>
+                <td><strong>Incongruent Melting</strong></td>
+                [cite_start]<td>Solid Solutions [cite: 684]</td>
+                [cite_start]<td>A solid compound decomposes into a new solid phase and a liquid of different composition[cite: 684].</td>
+            </tr>
+        </tbody>
+    </table>
+    
+
+    <h2 id="three-component">5. Three Component Systems</h2>
+    [cite_start]<p>Commonly represented using <strong>Triangular Plots</strong> (Gibbs Triangle)[cite: 685].</p>
+    [cite_start]<p><strong>Example: Water-Chloroform-Acetic Acid</strong>[cite: 685]. [cite_start]This system involves two partially miscible liquids (Water and Chloroform) and one liquid (Acetic Acid) miscible with both[cite: 685].</p>
+
+    <h2 id="exam-prep">6. Exam Focus & FAQs</h2>
+    <div class="exam-note">
+        <strong>Exam Tips:</strong>
+        <ul>
+            [cite_start]<li><strong>Derivation:</strong> Be ready to derive the Phase Rule or the Clausius-Clapeyron equation[cite: 682, 683].</li>
+            [cite_start]<li><strong>Diagrams:</strong> Practice drawing the Pb-Ag eutectic diagram and the H2O phase diagram[cite: 683, 684].</li>
+            [cite_start]<li><strong>Definitions:</strong> Clearly distinguish between congruent and incongruent melting points[cite: 684].</li>
+        </ul>
+    </div>
+
+    <h3>Frequently Asked Questions</h3>
+    <p><strong>Q: What is a Triple Point?</strong><br>
+    [cite_start]A: It is the specific Temperature and Pressure at which the solid, liquid, and gas phases of a substance coexist in equilibrium[cite: 683].</p>
+
+    <p><strong>Q: What is the degree of freedom at a eutectic point?</strong><br>
+    [cite_start]A: Since C=2 and P=3 (Liquid + Solid A + Solid B), F' = 2 - 3 + 1 = 0 (Invariant)[cite: 684].</p>
+
+    <p><strong>Q: Why is the slope of the ice-water curve negative?</strong><br>
+    [cite_start]A: Because the volume of ice is greater than the volume of liquid water (ΔV is negative), which is an anomaly[cite: 683].</p>
+</div>
+
+</body>
+</html>

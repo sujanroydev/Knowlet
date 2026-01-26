@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSC 352 Unit 1 | 6th Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for PHYDSC352T Unit 1: Foundations of Statistical Mechanics. Covering phase space, ensembles, and partition functions for Knowlet.">
+    <meta name="keywords" content="Statistical Mechanics, Microstates, Macrostates, Phase Space, Maxwell-Boltzmann, Ensembles, Partition Function, Physics Notes, Knowlet, PHYDSC352T">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f7f6;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 5px solid #16a085;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #16a085;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #16a085;
+            border-left: 5px solid #1abc9c;
+            padding-left: 15px;
+            margin-top: 35px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        blockquote {
+            background: #eef2f3;
+            border-left: 10px solid #16a085;
+            margin: 1.5em 10px;
+            padding: 15px;
+            font-style: italic;
+        }
+        .formula-box {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            display: block;
+            margin: 20px 0;
+            border: 1px dashed #7f8c8d;
+            text-align: center;
+            font-weight: bold;
+            color: #c0392b;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #bdc3c7;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #16a085;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .exam-tips {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        .exam-tips h4 {
+            color: #856404;
+            margin-top: 0;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.5em;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #16a085;
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 1: Foundations of Statistical Mechanics</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#micro-macro">1. Microstates and Macrostates</a></li>
+            <li><a href="#phase-space">2. Phase Space</a></li>
+            <li><a href="#entropy-prob">3. Entropy and Thermodynamic Probability</a></li>
+            <li><a href="#mb-law">4. Maxwell-Boltzmann Distribution Law</a></li>
+            <li><a href="#ensembles">5. Concept of Statistical Ensembles</a></li>
+            <li><a href="#partition-fn">6. Partition Function and Thermodynamical Quantities</a></li>
+            <li><a href="#exam-corner">7. Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="micro-macro">1. Microstates and Macrostates</h2>
+    <p>
+        Statistical mechanics links the microscopic properties of individual atoms and molecules to the macroscopic properties of materials.
+    </p>
+    <ul>
+        <li><strong>Macrostate:</strong> The state of a system defined by its macroscopic parameters like pressure (P), volume (V), temperature (T), and total energy (E).</li>
+        <li><strong>Microstate:</strong> A specific detailed configuration of the system's particles. For a gas, this includes the exact position and momentum of every single molecule.</li>
+    </ul>
+    <p>
+        A single macrostate can correspond to a vast number of different microstates. The central assumption of statistical mechanics is that all accessible microstates are equally probable.
+    </p>
+
+    <h2 id="phase-space">2. Phase Space</h2>
+    <p>
+        <strong>Phase Space</strong> is an imaginary multi-dimensional space where every possible state of a system is represented by a single point.
+    </p>
+    <ul>
+        <li>For a single particle in 3D, phase space has 6 dimensions: 3 for position (x, y, z) and 3 for momentum (px, py, pz).</li>
+        <li>For a system of N particles, the phase space has <strong>6N dimensions</strong>.</li>
+    </ul>
+    <p>
+        The state of the entire system at any instant is represented by a <strong>Phase Point</strong>. As the system evolves over time, this point traces a trajectory in phase space.
+    </p>
+
+    <h2 id="entropy-prob">3. Entropy and Thermodynamic Probability</h2>
+    <p>
+        The <strong>Thermodynamic Probability (W)</strong> of a macrostate is the total number of microstates that correspond to that macrostate.
+    </p>
+    <p>
+        Ludwig Boltzmann established the fundamental link between the microscopic disorder (W) and the macroscopic property of <strong>Entropy (S)</strong>:
+    </p>
+    <div class="formula-box">
+        S = k * log(W)
+    </div>
+    <p>
+        Where <strong>k</strong> is the Boltzmann constant (k = 1.38 x 10^-23 J/K). This relation shows that entropy is a measure of the statistical "randomness" or "disorder" of a system.
+    </p>
+
+    <h2 id="mb-law">4. Maxwell-Boltzmann Distribution Law</h2>
+    <p>
+        This law describes the distribution of particles among various energy states in a system of <strong>identical, distinguishable particles</strong> where there is no limit on the number of particles in a single state.
+    </p>
+    <div class="formula-box">
+        ni = gi * exp(-alpha - beta * Ei)
+    </div>
+    <p>
+        Where:<br>
+        ni = Number of particles in energy level Ei<br>
+        gi = Degeneracy (number of microstates) of the level Ei<br>
+        beta = 1 / (k * T)
+    </p>
+    
+
+    <h2 id="ensembles">5. Concept of Statistical Ensembles</h2>
+    <p>
+        An <strong>Ensemble</strong> is a collection of a large number of independent systems that are macroscopically identical but in different microstates.
+    </p>
+    <div class="add-horizontal-scroll"><table>
+        <tr>
+            <th>Ensemble Type</th>
+            <th>Fixed Parameters</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><strong>Micro-canonical</strong></td>
+            <td>N, V, E</td>
+            <td>Systems are isolated; total energy and particle number are constant.</td>
+        </tr>
+        <tr>
+            <td><strong>Canonical</strong></td>
+            <td>N, V, T</td>
+            <td>Systems can exchange energy with a heat reservoir to maintain constant temperature.</td>
+        </tr>
+        <tr>
+            <td><strong>Grand canonical</strong></td>
+            <td>V, T, mu</td>
+            <td>Systems can exchange both energy and particles with a reservoir.</td>
+        </tr>
+    </table></div>
+
+    <h2 id="partition-fn">6. Partition Function and Thermodynamical Quantities</h2>
+    <p>
+        The <strong>Partition Function (Z)</strong> is the "bridge" between statistical mechanics and thermodynamics. It is the sum over all possible states of the Boltzmann factor:
+    </p>
+    <div class="formula-box">
+        Z = Sum over i [gi * exp(-Ei / kT)]
+    </div>
+    
+    <h3>Thermodynamic Relations in terms of Z:</h3>
+    <ul>
+        <li><strong>Average Energy (U):</strong> U = kT^2 * [d/dT (log Z)]</li>
+        <li><strong>Free Energy (F):</strong> F = -kT * log(Z)</li>
+        <li><strong>Entropy (S):</strong> S = k * [log(Z) + T * (d/dT (log Z))]</li>
+        <li><strong>Pressure (P):</strong> P = kT * [d/dV (log Z)]</li>
+        <li><strong>Specific Heat (Cv):</strong> Cv = dU / dT</li>
+    </ul>
+
+    <div class="exam-tips" id="exam-corner">
+        <h4>Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li><strong>Distinguish between Microstate and Macrostate.</strong> (Refer to Section 1).</li>
+            <li><strong>Explain the physical significance of the Partition Function.</strong> It represents how the total number of particles is "partitioned" among the various available energy states.</li>
+        </ul>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><em>Phase Space Dimensions:</em> Forgetting that it's 6N dimensions, not just 3N. Momentum contributes 3 dimensions per particle just like position.</li>
+            <li><em>Ensemble Differences:</em> Swapping the fixed variables for Canonical (N, V, T) and Micro-canonical (N, V, E).</li>
+        </ul>
+
+        <h3>Exam Tips</h3>
+        <blockquote>
+            <strong>Tip:</strong> When deriving thermodynamic quantities from the partition function, always start by defining <strong>F = -kT log Z</strong>. Almost all other variables (S, P, U) can be derived directly from the derivatives of F.
+        </blockquote>
+    </div>
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

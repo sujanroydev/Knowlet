@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSM 252 Unit 2 | 4th Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive study notes for PHYDSM252T Unit 2: Electromagnetism. Covering Biot-Savart's law, Ampere's law, and magnetic properties of materials for Knowlet.">
+    <meta name="keywords" content="Electromagnetism, Biot-Savart Law, Ampere's Circuital Law, Magnetic Properties, Dia, Para, Ferro, Knowlet, Physics Notes, PHYDSM252T, Semester IV">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f4f7;
+        }
+        .main-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 5px solid #27ae60;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #27ae60;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #27ae60;
+            border-left: 5px solid #2ecc71;
+            padding-left: 15px;
+            margin-top: 35px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        blockquote {
+            background: #f9f9f9;
+            border-left: 10px solid #27ae60;
+            margin: 1.5em 10px;
+            padding: 15px;
+            font-style: italic;
+        }
+        .formula-box {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            display: block;
+            margin: 20px 0;
+            border: 1px dashed #7f8c8d;
+            text-align: center;
+            font-weight: bold;
+            color: #c0392b;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #bdc3c7;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #27ae60;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .exam-tips {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        .exam-tips h4 {
+            color: #856404;
+            margin-top: 0;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.5em;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 2: Electromagnetism (PHYDSM252T)</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#biot-savart">1. Biot-Savart's Law and Applications</a></li>
+            <li><a href="#div-curl-b">2. Divergence and Curl of Magnetic Field</a></li>
+            <li><a href="#vector-potential">3. Magnetic Vector Potential</a></li>
+            <li><a href="#ampere-law">4. Ampere's Circuital Law and Applications</a></li>
+            <li><a href="#magnetic-properties">5. Magnetic Properties of Materials</a></li>
+            <li><a href="#dia-para-ferro">6. Classification: Dia, Para, and Ferro-magnetic Materials</a></li>
+            <li><a href="#exam-corner">7. Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="biot-savart">1. Biot-Savart's Law and Applications</h2>
+    <p>
+        <strong>Biot-Savart's Law</strong> describes the magnetic field produced by a steady electric current. It relates the magnetic field dB to the magnitude, direction, length, and proximity of the electric current.
+    </p>
+    
+    <h3>Applications:</h3>
+    <ul>
+        <li><strong>Straight Conductor:</strong> Calculating the magnetic field at a point near a long straight wire carrying current.</li>
+        <li><strong>Circular Coil:</strong> Finding the magnetic field at the center or on the axis of a current-carrying circular loop.</li>
+        <li><strong>Solenoid:</strong> Determining the uniform magnetic field inside a long current-carrying solenoid.</li>
+    </ul>
+
+    <h2 id="div-curl-b">2. Divergence and Curl of Magnetic Field</h2>
+    <p>
+        The behavior of magnetic fields is mathematically described by their <strong>divergence</strong> and <strong>curl</strong>:
+    </p>
+    <ul>
+        <li><strong>Divergence (∇·B):</strong> The divergence of a magnetic field is always zero, indicating that there are no magnetic monopoles.</li>
+        <li><strong>Curl (∇×B):</strong> The curl of a magnetic field is related to the current density, which forms the basis for Ampere's law.</li>
+    </ul>
+
+    <h2 id="vector-potential">3. Magnetic Vector Potential</h2>
+    <p>
+        The <strong>Magnetic Vector Potential (A)</strong> is a vector field whose curl is equal to the magnetic field B (B = ∇×A). It is a useful tool in solving complex electromagnetic problems where the field B might be difficult to calculate directly.
+    </p>
+
+    <h2 id="ampere-law">4. Ampere's Circuital Law and Applications</h2>
+    <p>
+        <strong>Ampere's Circuital Law</strong> states that the line integral of the magnetic field B around a closed loop is equal to μ₀ times the total current passing through the loop.
+    </p>
+    
+    <h3>Applications:</h3>
+    <ul>
+        <li><strong>Solenoid:</strong> Used to derive the magnetic field B = μ₀ni inside an ideal solenoid.</li>
+        <li><strong>Toroidal Coils:</strong> Calculating the magnetic field inside the core of a toroid.</li>
+    </ul>
+
+    <h2 id="magnetic-properties">5. Magnetic Properties of Materials</h2>
+    <p>
+        When materials are placed in a magnetic field, they respond based on their internal structure. Key terms include:
+    </p>
+    <ul>
+        <li><strong>Magnetic Intensity (H):</strong> The external field applied to a material.</li>
+        <li><strong>Magnetic Induction (B):</strong> The total magnetic field within the material.</li>
+        <li><strong>Permeability (μ):</strong> The ability of a material to allow magnetic flux to pass through it.</li>
+        <li><strong>Magnetic Susceptibility (χ):</strong> A measure of how much a material will become magnetized in an applied magnetic field.</li>
+    </ul>
+
+    <h2 id="dia-para-ferro">6. Classification of Magnetic Materials</h2>
+    <p>
+        Materials are classified into three main categories based on their magnetic behavior:
+    </p>
+    <div class="add-horizontal-scroll"><table>
+        <tr>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Susceptibility (χ)</th>
+        </tr>
+        <tr>
+            <td><strong>Diamagnetic</strong></td>
+            <td>Feebly repelled by a magnetic field; atoms have no permanent dipole moment.</td>
+            <td>Small and Negative</td>
+        </tr>
+        <tr>
+            <td><strong>Paramagnetic</strong></td>
+            <td>Feebly attracted by a magnetic field; atoms have permanent dipole moments that align with the field.</td>
+            <td>Small and Positive</td>
+        </tr>
+        <tr>
+            <td><strong>Ferromagnetic</strong></td>
+            <td>Strongly attracted by a magnetic field; possess domains that align even with weak fields.</td>
+            <td>Large and Positive</td>
+        </tr>
+    </table></div>
+
+    <div class="exam-tips" id="exam-corner">
+        <h4>Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li><strong>Derive the expression for the magnetic field of a long straight conductor using Ampere's law.</strong></li>
+            <li><strong>Distinguish between Diamagnetic and Paramagnetic materials based on their susceptibility.</strong></li>
+        </ul>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><strong>Current Direction:</strong> Always use the Right-Hand Thumb Rule to determine the direction of the magnetic field B relative to current I.</li>
+            <li><strong>B vs H:</strong> Confusing Magnetic Induction (B) with Magnetic Intensity (H). Remember: B = μH.</li>
+        </ul>
+
+        <h3>Quick Mnemonics</h3>
+        <p><strong>Biot-Savart:</strong> "Big Small Law" (B is related to Current I and distance r²).</p>
+    </div>
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

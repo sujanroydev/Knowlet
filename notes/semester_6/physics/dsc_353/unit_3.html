@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSC 353 Unit 3 | 6th Semester Notes - Knowlet</title>
+    <meta name="description" content="Laboratory notes for PHYDSC353P Unit 3: Solid State Physics. Covering Band Gap, Hall Effect, and Four Probe Method for Knowlet.">
+    <meta name="keywords" content="Solid State Physics Lab, Band Gap, Hall Effect, Four Probe Method, Magnetic Susceptibility, PHYDSC353P, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary: #27ae60;
+            --secondary: #2c3e50;
+            --bg-light: #f1f9f5;
+            --accent: #2ecc71;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f7f6;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-top: 6px solid var(--primary);
+        }
+        h1 {
+            color: var(--secondary);
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: var(--primary);
+            border-left: 5px solid var(--primary);
+            padding-left: 15px;
+            margin-top: 35px;
+            background-color: var(--bg-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        blockquote {
+            background: #f9fdfa;
+            border-left: 10px solid var(--accent);
+            margin: 1.5em 10px;
+            padding: 15px;
+            font-style: italic;
+            border: 1px solid #e8f5e9;
+        }
+        .formula-box {
+            background-color: #fcfcfc;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            display: block;
+            margin: 20px 0;
+            border: 1px dashed #bdc3c7;
+            text-align: center;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        table, th, td {
+            border: 1px solid #dee2e6;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9fdfa;
+        }
+        .exam-section {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 45px;
+        }
+        .exam-section h4 {
+            color: #856404;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.5em;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc li {
+            margin-bottom: 10px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 3: Solid State Physics (Lab: PHYDSC353P)</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#objectives">1. Laboratory Objectives</a></li>
+            <li><a href="#band-gap">2. Energy Band Gap of a Semiconductor</a></li>
+            <li><a href="#hall-effect">3. Hall Effect in Semiconductors</a></li>
+            <li><a href="#four-probe">4. Resistivity by Four-Probe Method</a></li>
+            <li><a href="#susceptibility">5. Magnetic Susceptibility (Quincke’s Method)</a></li>
+            <li><a href="#exam-corner">6. Lab Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="objectives">1. Laboratory Objectives</h2>
+    <p>
+        The objective of this unit is to explore the <strong>electronic and magnetic properties of solids</strong>. You will perform measurements to identify carrier types, determine the energy required for electron excitation (band gap), and measure how materials respond to external magnetic fields.
+    </p>
+
+    <h2 id="band-gap">2. Energy Band Gap of a Semiconductor</h2>
+    <p>
+        The <strong>Energy Band Gap ($E_g$)</strong> is the energy difference between the top of the valence band and the bottom of the conduction band. In this experiment, a P-N junction diode is used as a temperature sensor.
+    </p>
+    
+    <h3>Working Principle:</h3>
+    <p>
+        In reverse bias, the saturation current ($I_s$) is primarily due to the thermally generated minority carriers. This current depends exponentially on the temperature ($T$).
+    </p>
+    <div class="formula-box">
+        $\log_{10}(I_s) = \text{Constant} - \frac{5.036 \cdot E_g \cdot 10^3}{T}$
+    </div>
+    <blockquote>
+        <strong>Procedure:</strong> The diode is placed in an oil bath and heated. The reverse current is measured as the temperature decreases. A plot of $\log(I_s)$ vs. $10^3/T$ yields a straight line, the slope of which gives $E_g$.
+    </blockquote>
+
+    <h2 id="hall-effect">3. Hall Effect in Semiconductors</h2>
+    <p>
+        When a current-carrying conductor is placed in a transverse magnetic field, an electric field (Hall field) is generated in a direction perpendicular to both the current and the magnetic field.
+    </p>
+    
+    <h3>Parameters Determined:</h3>
+    <ul>
+        <li><strong>Hall Coefficient ($R_H$):</strong> $R_H = \frac{V_H \cdot w}{I \cdot B}$ (where $w$ is thickness).</li>
+        <li><strong>Carrier Type:</strong> The sign of the Hall voltage indicates if the carriers are electrons (negative) or holes (positive).</li>
+        <li><strong>Carrier Concentration ($n$):</strong> $n = \frac{1}{R_H \cdot e}$.</li>
+    </ul>
+
+    <h2 id="four-probe">4. Resistivity by Four-Probe Method</h2>
+    <p>
+        The <strong>Four-Probe Method</strong> is an exceptionally accurate way to measure the resistivity of a semiconductor wafer. It uses four collinear probes; current is passed through the outer two, and voltage is measured across the inner two.
+    </p>
+    
+    <h3>Advantages:</h3>
+    <p>
+        By separating the current and voltage leads, the method eliminates the error caused by <strong>contact resistance</strong>, which is significant in semiconductors.
+    </p>
+    <div class="formula-box">
+        $\rho = \frac{V}{I} \cdot 2\pi S$
+    </div>
+    <p>Where $S$ is the spacing between the probes. For thin samples, a correction factor $G(W/S)$ is applied.</p>
+
+    <h2 id="susceptibility">5. Magnetic Susceptibility (Quincke’s Method)</h2>
+    <p>
+        This experiment measures the <strong>Magnetic Susceptibility ($\chi$)</strong> of a paramagnetic liquid (like Manganese Sulfate or Ferric Chloride). 
+    </p>
+    <blockquote>
+        <strong>Mechanism:</strong> The liquid is placed in a U-tube with one limb between the pole pieces of a strong electromagnet. When the field is turned on, the liquid level rises (if paramagnetic) or falls (if diamagnetic).
+    </blockquote>
+    <div class="formula-box">
+        $\chi = \frac{2(h-h_0) \rho g}{H^2}$
+    </div>
+    <p>Where $h$ is the rise in height, $\rho$ is the density, and $H$ is the magnetic field strength.</p>
+
+    <div class="exam-section" id="exam-corner">
+        <h4>Lab Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li><strong>Why is Germanium (Ge) preferred over Silicon (Si) for band gap experiments in basic labs?</strong> Ge has a smaller band gap (~0.67 eV) compared to Si (~1.1 eV), making its thermal variations easier to measure at lower temperatures.</li>
+            <li><strong>What is the unit of the Hall Coefficient?</strong> $m^3/C$ (Cubic meters per Coulomb).</li>
+        </ul>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><strong>Current Limits:</strong> In the Four-Probe method, do not pass high current as it causes <em>Joule heating</em>, which changes the resistivity you are trying to measure.</li>
+            <li><strong>Magnet Calibration:</strong> Ensure the Hall probe used to measure the magnetic field ($B$) is calibrated and held perfectly perpendicular to the field lines.</li>
+        </ul>
+
+        <h3>Practical Tips</h3>
+        <blockquote>
+            <strong>Tip:</strong> In the Band Gap experiment, always use <strong>Silicon oil</strong> in the bath rather than water to ensure electrical insulation and to reach temperatures above 100°C safely.
+        </blockquote>
+    </div>
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

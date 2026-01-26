@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSM 252 Unit 4 | 4th Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive study notes for PHYDSM252T Unit 4: Waves and Optics. Detailed coverage of Interference, Young's Double Slit, Newton's Rings, and Fraunhofer Diffraction for Knowlet.">
+    <meta name="keywords" content="Waves and Optics, Interference, Young's Double Slit Experiment, Newton's Rings, Fraunhofer Diffraction, Diffraction Grating, Physics Notes, Knowlet, PHYDSM252T">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #f8fafc;
+            margin: 0;
+            padding: 20px;
+        }
+        .content-wrapper {
+            max-width: 950px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-top: 6px solid #3498db;
+        }
+        h1 {
+            text-align: center;
+            color: #1e3a8a;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        h2 {
+            color: #2563eb;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        h3 {
+            color: #0ea5e9;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 1.2em;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 1.5em;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        blockquote {
+            background: #f1f5f9;
+            border-left: 5px solid #3498db;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        .formula {
+            display: block;
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            padding: 15px;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin: 20px 0;
+            color: #1e40af;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f1f5f9;
+        }
+        .toc-box {
+            background: #fdfefe;
+            border: 1px solid #3498db;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        .toc-box h2 {
+            margin-top: 0;
+            border: none;
+            font-size: 1.5em;
+        }
+        .toc-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .toc-box a {
+            text-decoration: none;
+            color: #2563eb;
+            font-weight: 500;
+        }
+        .toc-box a:hover {
+            text-decoration: underline;
+        }
+        .exam-section {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 50px;
+        }
+        .exam-section h4 {
+            color: #92400e;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+        .mnemonic-tag {
+            color: #059669;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 4: Waves and Optics (Interference & Diffraction)</h1>
+
+    <div class="toc-box">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#interference-concept">1. Interference of Light: Division of Wavefront & Amplitude</a></li>
+            <li><a href="#ydse">2. Young's Double Slit Experiment (YDSE)</a></li>
+            <li><a href="#newton-rings">3. Newton's Rings: Theory and Wavelength Measurement</a></li>
+            <li><a href="#diffraction-intro">4. Diffraction of Light: Fresnel vs Fraunhofer</a></li>
+            <li><a href="#single-slit">5. Fraunhofer Diffraction at a Single Slit</a></li>
+            <li><a href="#grating">6. Plane Transmission Grating</a></li>
+            <li><a href="#resolving-power">7. Resolving Power of Optical Instruments</a></li>
+            <li><a href="#exam-prep">8. Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="interference-concept">1. Interference of Light: Division of Wavefront & Amplitude</h2>
+    <p>
+        <strong>Interference</strong> is the phenomenon where two or more waves superimpose to form a resultant wave of greater, lower, or the same amplitude. To observe stable interference, light sources must be <strong>coherent</strong> (having a constant phase difference).
+    </p>
+    
+    <h3>Methods of Producing Coherent Sources</h3>
+    <ul>
+        <li><strong>Division of Wavefront:</strong> The wavefront is divided into two parts by using slits, mirrors, or prisms. Examples include <em>Young's Double Slit</em> and <em>Fresnel’s Biprism</em>.</li>
+        <li><strong>Division of Amplitude:</strong> The amplitude of a single beam is divided by partial reflection and partial refraction. Examples include <em>Newton's Rings</em> and <em>Michelson Interferometer</em>.</li>
+    </ul>
+
+    <h2 id="ydse">2. Young's Double Slit Experiment (YDSE)</h2>
+    <p>
+        YDSE demonstrates the wave nature of light. A monochromatic light source illuminates two closely spaced slits (S1 and S2), producing an interference pattern of bright and dark fringes on a distant screen.
+    </p>
+    
+
+    <h3>Fringe Width (β)</h3>
+    <p>The distance between two consecutive bright or dark fringes is constant and given by:</p>
+    <div class="formula">
+        β = (λ * D) / d
+    </div>
+    <p>Where:<br>
+    λ = Wavelength of light<br>
+    D = Distance between slits and screen<br>
+    d = Distance between the two slits</p>
+
+    <h2 id="newton-rings">3. Newton's Rings</h2>
+    <p>
+        When a plano-convex lens is placed on a flat glass plate, a thin film of air is formed between them. This film has a variable thickness. When monochromatic light is reflected from this film, circular interference fringes called <strong>Newton's Rings</strong> are observed.
+    </p>
+    
+
+    <h3>Diameter of Rings</h3>
+    <ul>
+        <li><strong>Bright Rings:</strong> The diameter Dn is proportional to √(2n-1).</li>
+        <li><strong>Dark Rings:</strong> The diameter Dn is proportional to √n.</li>
+    </ul>
+    
+    <h3>Determination of Wavelength (λ)</h3>
+    <p>Using the diameters of the nth and (n+p)th dark rings:</p>
+    <div class="formula">
+        λ = (D²n+p - D²n) / (4 * p * R)
+    </div>
+    <p>Where <strong>R</strong> is the radius of curvature of the plano-convex lens.</p>
+
+    <h2 id="diffraction-intro">4. Diffraction of Light: Fresnel vs Fraunhofer</h2>
+    <p>
+        <strong>Diffraction</strong> is the bending of light around the corners of an obstacle or aperture into the region of geometrical shadow.
+    </p>
+
+    <div class="add-horizontal-scroll"><table>
+        <tr>
+            <th>Feature</th>
+            <th>Fresnel Diffraction</th>
+            <th>Fraunhofer Diffraction</th>
+        </tr>
+        <tr>
+            <td>Source/Screen distance</td>
+            <td>Finite distance</td>
+            <td>Infinite distance (using lenses)</td>
+        </tr>
+        <tr>
+            <td>Wavefronts</td>
+            <td>Spherical or Cylindrical</td>
+            <td>Plane wavefronts</td>
+        </tr>
+        <tr>
+            <td>Mathematical complexity</td>
+            <td>Highly complex</td>
+            <td>Relatively simple</td>
+        </tr>
+    </table></div>
+
+    <h2 id="single-slit">5. Fraunhofer Diffraction at a Single Slit</h2>
+    <p>
+        When a plane wavefront is incident on a narrow slit of width 'e', the light is diffracted. A lens focuses these rays on a screen.
+    </p>
+    
+    
+    <h3>Condition for Minima</h3>
+    <div class="formula">
+        e * sin(θ) = n * λ
+    </div>
+    <p>Where n = 1, 2, 3... represents the order of the minima. The central maximum is twice as wide as the secondary maxima.</p>
+
+    <h2 id="grating">6. Plane Transmission Grating</h2>
+    <p>
+        A diffraction grating is an optical component with a periodic structure (thousands of lines per cm) that splits light into several beams travelling in different directions.
+    </p>
+    <h3>Grating Equation</h3>
+    <div class="formula">
+        (e + d) * sin(θ) = n * λ
+    </div>
+    <p>Where (e + d) is the <strong>Grating Element</strong>, θ is the angle of diffraction, and n is the order of the spectrum.</p>
+
+    <h2 id="resolving-power">7. Resolving Power of Optical Instruments</h2>
+    <p>
+        The <strong>Resolving Power</strong> is the ability of an instrument to show two closely spaced objects as separate.
+    </p>
+    <ul>
+        <li><strong>Rayleigh's Criterion:</strong> Two images are just resolved when the central maximum of one diffraction pattern falls on the first minimum of the other.</li>
+        <li><strong>Resolving Power of Grating:</strong> Defined as λ / dλ = n * N (where N is the total number of lines).</li>
+    </ul>
+
+    <div class="exam-section" id="exam-prep">
+        <h4>Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions (FAQs)</h3>
+        <ul>
+            <li><strong>Why is the center of Newton's Rings dark?</strong> <br>At the point of contact, the air film thickness is zero, but a phase change of π (180°) occurs upon reflection from the glass plate, causing destructive interference.</li>
+            <li><strong>What is a Grating Element?</strong> <br>It is the distance between the centers of two consecutive transparent slits (e + d).</li>
+        </ul>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><em>Interference vs Diffraction:</em> Interference is the result of superposition of a <strong>limited number</strong> of coherent sources; Diffraction is from an <strong>infinite number</strong> of points from the same wavefront.</li>
+            <li><em>Formula Units:</em> Always convert λ (usually in Angstroms or nm) to meters (1 Angstrom = 10^-10 m) before calculating β or d.</li>
+        </ul>
+
+        <h3>Mnemonics</h3>
+        <p><span class="mnemonic-tag">Wavefront Division:</span> "<strong>Y</strong>ou <strong>F</strong>eel <strong>B</strong>right" (<strong>Y</strong>oung's, <strong>F</strong>resnel <strong>B</strong>iprism).</p>
+        <p><span class="mnemonic-tag">Amplitude Division:</span> "<strong>N</strong>ewton <strong>M</strong>easures <strong>A</strong>mplitude" (<strong>N</strong>ewton's Rings, <strong>M</strong>ichelson).</p>
+    </div>
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

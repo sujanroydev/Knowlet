@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSC 352 Unit 4 | 6th Semester Notes - Knowlet</title>
+    <meta name="description" content="Detailed exam-ready notes for PHYDSC352T Unit 4: Fermi-Dirac Statistics. Covering FD distribution, Fermi energy, and electron gas in metals for Knowlet.">
+    <meta name="keywords" content="Fermi-Dirac Statistics, FD Distribution, Fermi Energy, Electron Gas, Specific Heat of Metals, Physics Notes, Knowlet, PHYDSC352T">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f2f5;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 6px solid #e74c3c;
+        }
+        h1 {
+            color: #c0392b;
+            text-align: center;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #e67e22;
+            border-left: 5px solid #e67e22;
+            padding-left: 15px;
+            margin-top: 40px;
+            background-color: #fffaf0;
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        blockquote {
+            background: #fdf2f2;
+            border-left: 10px solid #e74c3c;
+            margin: 1.5em 10px;
+            padding: 15px;
+            font-style: italic;
+            border: 1px solid #eee;
+        }
+        .formula-box {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            display: block;
+            margin: 20px 0;
+            border: 1px dashed #7f8c8d;
+            text-align: center;
+            font-weight: bold;
+            color: #1e293b;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        table, th, td {
+            border: 1px solid #dee2e6;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #e74c3c;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .exam-section {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 45px;
+        }
+        .exam-section h4 {
+            color: #856404;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.5em;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc li {
+            margin-bottom: 10px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #c0392b;
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 4: Fermi-Dirac Statistics</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#intro-fd">1. Introduction to Fermi-Dirac Statistics</a></li>
+            <li><a href="#fd-distribution">2. Fermi-Dirac Distribution Law</a></li>
+            <li><a href="#fermi-energy">3. Fermi Energy and Fermi Level</a></li>
+            <li><a href="#zero-temp">4. Electron Gas at T = 0 K</a></li>
+            <li><a href="#nonzero-temp">5. Electron Gas at Finite Temperatures</a></li>
+            <li><a href="#specific-heat">6. Specific Heat of Metals</a></li>
+            <li><a href="#richardson">7. Richardson-Dushman Equation (Brief)</a></li>
+            <li><a href="#exam-corner">8. Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="intro-fd">1. Introduction to Fermi-Dirac Statistics</h2>
+    <p>
+        <strong>Fermi-Dirac (FD) Statistics</strong> describes the behavior of identical, indistinguishable particles with half-integral spin (1/2, 3/2, etc.), known as <strong>Fermions</strong>. 
+    </p>
+    <blockquote>
+        <strong>Pauli Exclusion Principle:</strong> The defining feature of FD statistics is that no two fermions can occupy the same quantum state simultaneously. This leads to a unique distribution where each energy level can hold at most one particle.
+    </blockquote>
+
+    <h2 id="fd-distribution">2. Fermi-Dirac Distribution Law</h2>
+    <p>
+        The <strong>FD distribution function</strong> gives the probability that an energy level $E$ is occupied by a fermion at a given temperature $T$:
+    </p>
+    <div class="formula-box">
+        f(E) = 1 / [exp((E - Ef) / kT) + 1]
+    </div>
+    <p>
+        Where:<br>
+        <strong>Ef:</strong> Fermi Energy (or Chemical Potential at $T=0$)<br>
+        <strong>k:</strong> Boltzmann constant<br>
+        <strong>T:</strong> Absolute temperature
+    </p>
+    
+
+    <h2 id="fermi-energy">3. Fermi Energy and Fermi Level</h2>
+    <p>
+        The <strong>Fermi Energy (Ef)</strong> is the maximum energy that a fermion can have at absolute zero temperature ($T = 0$ K). 
+    </p>
+    <ul>
+        <li>At $T = 0$ K, all energy levels up to $Ef$ are completely filled (probability = 1).</li>
+        <li>All energy levels above $Ef$ are completely empty (probability = 0).</li>
+    </ul>
+
+    <h2 id="zero-temp">4. Electron Gas at T = 0 K</h2>
+    <p>
+        In metals, the valence electrons move freely and are treated as a <strong>Fermi Gas</strong>. At absolute zero, they occupy the lowest possible energy states up to the Fermi level.
+    </p>
+    <div class="formula-box">
+        Ef = (h² / 8m) * (3n / π)^(2/3)
+    </div>
+    <p>Where <strong>n</strong> is the electron density (number of electrons per unit volume). This shows that Fermi energy depends only on the density of electrons.</p>
+
+    <h2 id="nonzero-temp">5. Electron Gas at Finite Temperatures</h2>
+    <p>
+        As temperature increases ($T > 0$ K), some electrons near the Fermi level gain thermal energy ($~kT$) and move to higher energy states.
+    </p>
+    <p>
+        The "step" in the distribution function becomes "smeared" or rounded off. Only electrons within a range of roughly $kT$ around $Ef$ are affected by temperature changes.
+    </p>
+
+    <h2 id="specific-heat">6. Specific Heat of Metals</h2>
+    <p>
+        Classical physics (Drude model) predicted a specific heat of $1.5R$ for the electron gas, which was not observed experimentally. 
+    </p>
+    <p>
+        <strong>Quantum Explanation:</strong> Since only a small fraction of electrons ($T / Tf$) near the Fermi level can be thermally excited, the electronic specific heat is much smaller than the classical prediction and is <strong>linearly proportional to temperature (T)</strong>.
+    </p>
+    <div class="formula-box">
+        Cv (electronic) = γT
+    </div>
+
+    <h2 id="richardson">7. Richardson-Dushman Equation (Brief)</h2>
+    <p>
+        This equation describes <strong>Thermionic Emission</strong>—the flow of electrons from a heated metal surface. It utilizes FD statistics to calculate the number of electrons with enough energy to escape the metal's work function.
+    </p>
+
+    <div class="exam-section" id="exam-corner">
+        <h4>Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li><strong>Define Fermi Energy.</strong> It is the highest energy level occupied by an electron in a metal at $T = 0$ K.</li>
+            <li><strong>Why is the electronic specific heat of metals so small?</strong> Because the Pauli Exclusion Principle prevents most electrons from changing their energy states; only those near $Ef$ can participate.</li>
+        </ul>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><em>Graphing:</em> Forgetting that the $f(E)$ value at $E = Ef$ is <strong>always 0.5</strong> for any temperature $T > 0$ K.</li>
+            <li><em>Comparison:</em> Mixing up the $+1$ in FD statistics with the $-1$ in BE statistics. Remember: <strong>F</strong>ermions are <strong>F</strong>orbidden from sharing states (Plus sign in denominator).</li>
+        </ul>
+
+        <h3>Exam Tips</h3>
+        <blockquote>
+            <strong>Tip:</strong> If asked to derive the density of states or Fermi energy, remember that electrons have two spin states ($ms = ±1/2$), so you must multiply the spatial density of states by <strong>2</strong>.
+        </blockquote>
+    </div>
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSM 351 Unit 2 | 6th Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive study notes for PHYDSM351T Unit 2: Quantum Mechanics. Covering Heisenberg Uncertainty Principle, Schrodinger Equation, and Wave Functions for Knowlet.">
+    <meta name="keywords" content="Quantum Mechanics, Heisenberg Uncertainty Principle, Schrodinger Equation, Wave Function, Operators, Eigenvalues, PHYDSM351T, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary: #8e44ad;
+            --secondary: #2c3e50;
+            --bg-light: #f4f0f7;
+            --accent: #9b59b6;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--bg-light);
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 6px solid var(--primary);
+        }
+        h1 {
+            color: var(--secondary);
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        h2 {
+            color: var(--primary);
+            border-left: 5px solid var(--primary);
+            padding-left: 15px;
+            margin-top: 35px;
+            background-color: #f8f5fa;
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        blockquote {
+            background: #fffafa;
+            border-left: 10px solid var(--accent);
+            margin: 1.5em 10px;
+            padding: 15px;
+            font-style: italic;
+            border: 1px solid #eee;
+        }
+        .formula-box {
+            background-color: #fdfcfd;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            display: block;
+            margin: 20px 0;
+            border: 1px dashed #bdc3c7;
+            text-align: center;
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        table, th, td {
+            border: 1px solid #bdc3c7;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #fcfaff;
+        }
+        .exam-section {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 45px;
+        }
+        .exam-section h4 {
+            color: #856404;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+        .toc {
+            background-color: #fdfdfd;
+            padding: 25px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.5em;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 2: Quantum Mechanics</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#uncertainty">1. Heisenberg Uncertainty Principle</a></li>
+            <li><a href="#wavefunction">2. The Wave Function ($\psi$) and its Interpretation</a></li>
+            <li><a href="#schrodinger">3. Time-Dependent & Time-Independent Schrodinger Equation</a></li>
+            <li><a href="#operators">4. Operators, Eigenvalues, and Eigenfunctions</a></li>
+            <li><a href="#expectation">5. Expectation Values</a></li>
+            <li><a href="#particle-box">6. Particle in a One-Dimensional Box</a></li>
+            <li><a href="#exam-corner">7. Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="uncertainty">1. Heisenberg Uncertainty Principle</h2>
+    <p>
+        Proposed by Werner Heisenberg in 1927, this principle states that it is fundamentally impossible to measure simultaneously and exactly both the position and momentum of a particle.
+    </p>
+    <div class="formula-box">
+        $\Delta x \cdot \Delta p_x \ge \frac{\hbar}{2}$
+    </div>
+    <p>Where $\hbar = \frac{h}{2\pi}$. Similarly, for energy and time:</p>
+    <div class="formula-box">
+        $\Delta E \cdot \Delta t \ge \frac{\hbar}{2}$
+    </div>
+    
+    <p>
+        This principle explains why an electron cannot reside inside a nucleus—the confined space would give it such high momentum that it would immediately escape.
+    </p>
+
+    <h2 id="wavefunction">2. The Wave Function ($\psi$) and its Interpretation</h2>
+    <p>
+        In quantum mechanics, the state of a particle is completely described by a complex mathematical function called the <strong>Wave Function</strong> ($\psi$).
+    </p>
+    <blockquote>
+        <strong>Born's Interpretation:</strong> The wave function itself has no physical meaning, but its square magnitude $|\psi(x,t)|^2$ represents the <strong>Probability Density</strong> of finding the particle at a point $x$ at time $t$.
+    </blockquote>
+    <h3>Conditions for a Well-Behaved Wave Function:</h3>
+    <ul>
+        <li>$\psi$ must be continuous and single-valued.</li>
+        <li>$\frac{\partial \psi}{\partial x}$ must be continuous.</li>
+        <li>$\psi$ must be <strong>Normalized</strong>: $\int_{-\infty}^{+\infty} |\psi|^2 dx = 1$.</li>
+    </ul>
+
+    <h2 id="schrodinger">3. Schrodinger Equation</h2>
+    <p>
+        The Schrodinger equation is the fundamental equation of motion for quantum systems, analogous to $F=ma$ in classical mechanics.
+    </p>
+    <h3>Time-Dependent Schrodinger Equation (TDSE):</h3>
+    <div class="formula-box">
+        $i\hbar \frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m} \nabla^2 \psi + V\psi$
+    </div>
+    <h3>Time-Independent Schrodinger Equation (Tise):</h3>
+    <p>For systems where potential energy $V$ does not depend on time:</p>
+    <div class="formula-box">
+        $\nabla^2 \psi + \frac{2m}{\hbar^2}(E - V)\psi = 0$
+    </div>
+
+    <h2 id="operators">4. Operators, Eigenvalues, and Eigenfunctions</h2>
+    <p>
+        An <strong>Operator</strong> is a mathematical rule that transforms one function into another. In quantum mechanics, every observable physical quantity (position, momentum, energy) has a corresponding linear operator.
+    </p>
+    <div class="add-horizontal-scroll"><table>
+        <tr>
+            <th>Physical Quantity</th>
+            <th>Operator Symbol</th>
+            <th>Operation</th>
+        </tr>
+        <tr>
+            <td>Position</td>
+            <td>$\hat{x}$</td>
+            <td>Multiply by $x$</td>
+        </tr>
+        <tr>
+            <td>Momentum</td>
+            <td>$\hat{p}_x$</td>
+            <td>$-i\hbar \frac{\partial}{\partial x}$</td>
+        </tr>
+        <tr>
+            <td>Kinetic Energy</td>
+            <td>$\hat{K}$</td>
+            <td>$-\frac{\hbar^2}{2m} \frac{\partial^2}{\partial x^2}$</td>
+        </tr>
+        <tr>
+            <td>Total Energy (Hamiltonian)</td>
+            <td>$\hat{H}$</td>
+            <td>$\hat{K} + \hat{V}$</td>
+        </tr>
+    </table></div>
+    <p>If $\hat{A} \psi = a \psi$, then $\psi$ is an <strong>Eigenfunction</strong> of $\hat{A}$ and $a$ is the <strong>Eigenvalue</strong>.</p>
+
+    <h2 id="expectation">5. Expectation Values</h2>
+    <p>
+        Since quantum mechanics is probabilistic, we cannot predict the exact result of a single measurement. Instead, we calculate the <strong>Expectation Value</strong> $\langle A \rangle$, which is the average value obtained from many measurements on identical systems.
+    </p>
+    <div class="formula-box">
+        $\langle A \rangle = \int \psi^* \hat{A} \psi dx$
+    </div>
+
+    <h2 id="particle-box">6. Particle in a One-Dimensional Box</h2>
+    <p>
+        Consider a particle of mass $m$ trapped in a region of length $L$ where $V=0$ inside and $V=\infty$ outside.
+    </p>
+    
+    <h3>Key Findings:</h3>
+    <ul>
+        <li><strong>Energy is Quantized:</strong> $E_n = \frac{n^2 h^2}{8mL^2}$, where $n = 1, 2, 3 \dots$</li>
+        <li><strong>Zero-Point Energy:</strong> The lowest possible energy ($n=1$) is not zero, consistent with the Uncertainty Principle.</li>
+        <li><strong>Wave Functions:</strong> $\psi_n(x) = \sqrt{\frac{2}{L}} \sin\left(\frac{n\pi x}{L}\right)$.</li>
+    </ul>
+
+    <div class="exam-section" id="exam-corner">
+        <h4>Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li><strong>Why must a wave function be normalized?</strong> Because the particle must exist *somewhere* in space. The total probability of finding it in all of space must be exactly 1.</li>
+            <li><strong>What is the physical significance of the Hamiltonian operator?</strong> It represents the total energy of the system. Solving the eigenvalue equation $\hat{H}\psi = E\psi$ gives the allowed energy levels of the system.</li>
+        </ul>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><em>Uncertainty Units:</em> Be careful with $h$ vs $\hbar$. Standard formula uses $\hbar = h/2\pi$.</li>
+            <li><em>Normalization:</em> Forgetting to use the complex conjugate $\psi^*$ when calculating probability densities or expectation values.</li>
+        </ul>
+
+        <h3>Exam Tips</h3>
+        <blockquote>
+            <strong>Tip:</strong> For the "Particle in a Box" derivation, always remember that $\psi(0) = 0$ and $\psi(L) = 0$ due to the infinite potential walls. These <strong>Boundary Conditions</strong> are the key to finding the energy levels.
+        </blockquote>
+    </div>
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

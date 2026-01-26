@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSC 351 Unit 5 | 6th Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for PHYDSC351T Unit 5: Particle Physics. Covering fundamental interactions, particle families, conservation laws, quark model, and the standard model for Knowlet.">
+    <meta name="keywords" content="Particle Physics, Fundamental Interactions, Quarks, Standard Model, Conservation Laws, CPT Theorem, Baryon Number, Lepton Number, PHYDSC351T, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f4f8;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 5px solid #3498db;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #2980b9;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            margin-top: 35px;
+        }
+        h3 {
+            color: #e67e22;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        blockquote {
+            background: #fdfefe;
+            border-left: 10px solid #3498db;
+            margin: 1.5em 10px;
+            padding: 15px;
+            font-style: italic;
+            border: 1px solid #eee;
+        }
+        .formula-box {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            display: block;
+            margin: 20px 0;
+            border: 1px dashed #7f8c8d;
+            text-align: center;
+            font-weight: bold;
+            color: #c0392b;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #bdc3c7;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #2980b9;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .exam-section {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+        .exam-section h4 {
+            color: #856404;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.5em;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 5: Particle Physics</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#interactions">1. Fundamental Particle Interactions</a></li>
+            <li><a href="#families">2. Types of Particles and Families</a></li>
+            <li><a href="#conservation">3. Symmetries and Conservation Laws</a></li>
+            <li><a href="#quantum-numbers">4. Specific Quantum Numbers (Spin, Baryon, Lepton, etc.)</a></li>
+            <li><a href="#quark-model">5. Concept of Quark Model</a></li>
+            <li><a href="#standard-model">6. The Standard Model</a></li>
+            <li><a href="#symmetry-operators">7. Charge Conjugation, Parity, Time Reversal, and CPT</a></li>
+            <li><a href="#exam-corner">8. Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="interactions">1. Fundamental Particle Interactions</h2>
+    <p>
+        All phenomena in the universe are governed by four fundamental interactions. In particle physics, these interactions are mediated by the exchange of <strong>gauge bosons</strong>.
+    </p>
+
+    <div class="add-horizontal-scroll"><table>
+        <tr>
+            <th>Interaction</th>
+            <th>Relative Strength</th>
+            <th>Range</th>
+            <th>Mediator (Gauge Boson)</th>
+        </tr>
+        <tr>
+            <td><strong>Strong</strong></td>
+            <td>1</td>
+            <td>Short (~10^-15 m)</td>
+            <td>Gluon</td>
+        </tr>
+        <tr>
+            <td><strong>Electromagnetic</strong></td>
+            <td>10^-2</td>
+            <td>Infinite</td>
+            <td>Photon</td>
+        </tr>
+        <tr>
+            <td><strong>Weak</strong></td>
+            <td>10^-13</td>
+            <td>Very Short (~10^-18 m)</td>
+            <td>W and Z bosons</td>
+        </tr>
+        <tr>
+            <td><strong>Gravitational</strong></td>
+            <td>10^-39</td>
+            <td>Infinite</td>
+            <td>Graviton (predicted)</td>
+        </tr>
+    </table></div>
+
+    <h2 id="families">2. Types of Particles and Families</h2>
+    <p>
+        Subatomic particles are broadly classified based on their spin and the types of interactions they undergo.
+    </p>
+    <ul>
+        <li><strong>Fermions (Spin 1/2):</strong> Matter particles (Leptons and Quarks).</li>
+        <li><strong>Bosons (Integral Spin):</strong> Force-carrying particles.</li>
+    </ul>
+
+    <h3>Hadrons</h3>
+    <p>Particles that interact via the <strong>strong force</strong>. They are composed of quarks and are subdivided into:</p>
+    <ul>
+        <li><strong>Baryons:</strong> Fermions made of 3 quarks (e.g., Proton, Neutron).</li>
+        <li><strong>Mesons:</strong> Bosons made of a quark and an antiquark (e.g., Pions, Kaons).</li>
+    </ul>
+
+    <h3>Leptons</h3>
+    <p>Elementary particles that do <strong>not</strong> feel the strong force (e.g., Electron, Muon, Tau, and their corresponding Neutrinos).</p>
+
+    <h2 id="conservation">3. Symmetries and Conservation Laws</h2>
+    <p>
+        In particle physics, every symmetry in nature leads to a conservation law (Noether's Theorem).
+    </p>
+    <ul>
+        <li><strong>Exact Laws:</strong> Energy, Momentum, Charge, Baryon Number, and Lepton Number are conserved in all interactions.</li>
+        <li><strong>Approximate Laws:</strong> Parity, Strangeness, and Isospin are conserved in strong and electromagnetic interactions but can be violated in <strong>weak interactions</strong>.</li>
+    </ul>
+
+    <h2 id="quantum-numbers">4. Specific Quantum Numbers</h2>
+    <p>Particles are identified by internal quantum numbers which must balance in reactions.</p>
+    <ul>
+        <li><strong>Baryon Number (B):</strong> B = +1 for baryons, -1 for antibaryons, 0 for others.</li>
+        <li><strong>Lepton Number (L):</strong> L = +1 for leptons, -1 for antileptons. Specific flavors (Le, Lμ, Lτ) are also conserved.</li>
+        <li><strong>Strangeness (S):</strong> Associated with particles containing strange quarks. Conserved in strong/EM, violated in weak.</li>
+        <li><strong>Isospin (I):</strong> Treats protons and neutrons as two states of the same particle ("nucleon") distinguished by their orientation in isospace.</li>
+        <li><strong>Hypercharge (Y):</strong> Defined as Y = B + S.</li>
+    </ul>
+
+    <h2 id="quark-model">5. Concept of Quark Model</h2>
+    <p>
+        Proposed by Gell-Mann and Zweig, the <strong>Quark Model</strong> suggests that hadrons are not fundamental but are composed of <strong>Quarks</strong>.
+    </p>
+    
+    <ul>
+        <li>Quarks carry fractional electric charges (+2/3 or -1/3).</li>
+        <li>They have spin 1/2.</li>
+        <li>They are never found in isolation due to <strong>color confinement</strong>.</li>
+    </ul>
+
+    <h2 id="standard-model">6. The Standard Model</h2>
+    <p>
+        The <strong>Standard Model</strong> is the theoretical framework that describes the fundamental particles and three of the four forces (excluding gravity).
+    </p>
+    <ul>
+        <li><strong>12 Fermions:</strong> 6 Quarks and 6 Leptons (grouped into 3 generations).</li>
+        <li><strong>Gauge Bosons:</strong> Gluons (Strong), Photon (EM), W/Z (Weak).</li>
+        <li><strong>Higgs Boson:</strong> Responsible for giving mass to particles through the Higgs mechanism.</li>
+    </ul>
+
+    <h2 id="symmetry-operators">7. Charge Conjugation, Parity, Time Reversal, and CPT</h2>
+    <p>Fundamental discrete symmetries used to analyze interactions.</p>
+    <ul>
+        <li><strong>Charge Conjugation (C):</strong> Replaces a particle with its antiparticle.</li>
+        <li><strong>Parity (P):</strong> Spatial inversion (x -> -x). Known to be <strong>violated</strong> in weak interactions (Lee and Yang, 1956).</li>
+        <li><strong>Time Reversal (T):</strong> Reverses the direction of time (t -> -t).</li>
+        <li><strong>CPT Theorem:</strong> States that the combination of C, P, and T is an <strong>absolute symmetry</strong> of all physical laws. If CP is violated, T must also be violated to preserve CPT.</li>
+    </ul>
+
+    <div class="exam-section" id="exam-corner">
+        <h4>Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li><strong>Why can't we see isolated quarks?</strong> Due to <em>Color Confinement</em>—the strong force between quarks increases with distance, making it energetically cheaper to create new quark-antiquark pairs than to separate them.</li>
+            <li><strong>State the difference between Baryons and Mesons in terms of quark content.</strong> Baryons are qqq; Mesons are q-qbar.</li>
+        </ul>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><strong>Lepton flavor:</strong> Forgetting that an electron neutrino has Le = +1, while a muon has Lμ = +1. They are distinct lepton numbers.</li>
+            <li><strong>Weak violation:</strong> Assuming parity is always conserved. Parity violation is a hallmark of the weak interaction.</li>
+        </ul>
+
+        <h3>Exam Tips</h3>
+        <blockquote>
+            <strong>Formula Check:</strong> Use the <strong>Gell-Mann–Nishijima formula</strong> to check charges: <br>
+            Q = I3 + (B + S)/2 = I3 + Y/2
+        </blockquote>
+    </div>
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

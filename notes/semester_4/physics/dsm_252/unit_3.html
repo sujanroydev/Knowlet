@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSM 252 Unit 3 | 4th Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive study notes for PHYDSM252T Unit 3: Electromagnetic Induction and Maxwell’s Equations. Covering Faraday’s law, Lenz’s law, Self/Mutual Induction, and Maxwell’s Equations for Knowlet.">
+    <meta name="keywords" content="Electromagnetic Induction, Maxwell’s Equations, Faraday’s Law, Lenz’s Law, Displacement Current, Poynting Vector, Knowlet, Physics Notes, PHYDSM252T">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9fbfd;
+        }
+        .main-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid #8e44ad;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #8e44ad;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #8e44ad;
+            border-left: 5px solid #9b59b6;
+            padding-left: 15px;
+            margin-top: 35px;
+            background-color: #f4eef8;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        blockquote {
+            background: #fdfefe;
+            border-left: 10px solid #8e44ad;
+            margin: 1.5em 10px;
+            padding: 15px;
+            font-style: italic;
+            border: 1px solid #eee;
+        }
+        .formula-box {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            display: block;
+            margin: 20px 0;
+            border: 1px dashed #7f8c8d;
+            text-align: center;
+            font-weight: bold;
+            color: #c0392b;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #bdc3c7;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #8e44ad;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .exam-tips {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        .exam-tips h4 {
+            color: #856404;
+            margin-top: 0;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.5em;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #8e44ad;
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 3: Electromagnetic Induction & Maxwell’s Equations (PHYDSM252T)</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#faraday-law">1. Faraday’s Laws of Electromagnetic Induction</a></li>
+            <li><a href="#lenz-law">2. Lenz’s Law and Conservation of Energy</a></li>
+            <li><a href="#self-mutual">3. Self and Mutual Inductance</a></li>
+            <li><a href="#lr-cr-circuits">4. Growth and Decay of Current (LR and CR Circuits)</a></li>
+            <li><a href="#maxwell-eq">5. Maxwell’s Equations and Displacement Current</a></li>
+            <li><a href="#poynting">6. Poynting Vector and Energy Flow</a></li>
+            <li><a href="#exam-corner">7. Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="faraday-law">1. Faraday’s Laws of Electromagnetic Induction</h2>
+    <p>
+        Electromagnetic induction is the process where a conductor placed in a changing magnetic field (or a conductor moving through a stationary magnetic field) causes the production of a voltage across the conductor.
+    </p>
+    <h3>The Two Laws:</h3>
+    <ul>
+        <li><strong>First Law:</strong> Whenever the magnetic flux linked with a circuit changes, an induced electromotive force (e.m.f.) is produced in the circuit.</li>
+        <li><strong>Second Law:</strong> The magnitude of the induced e.m.f. is directly proportional to the rate of change of magnetic flux linked with the circuit.</li>
+    </ul>
+    <div class="formula-box">
+        e = - dΦ / dt
+    </div>
+
+    <h2 id="lenz-law">2. Lenz’s Law and Conservation of Energy</h2>
+    <p>
+        <strong>Lenz’s Law</strong> states that the direction of the induced current is such that it opposes the change that produced it. The negative sign in Faraday's law represents this opposition.
+    </p>
+    
+    <blockquote>
+        Lenz’s Law is a consequence of the <strong>Law of Conservation of Energy</strong>. If the induced current did not oppose the change, it would create a runaway energy gain, violating thermodynamic principles.
+    </blockquote>
+
+    <h2 id="self-mutual">3. Self and Mutual Inductance</h2>
+    <p>
+        <strong>Self-Inductance (L):</strong> The property of a coil by which it opposes any change in the current flowing through it by inducing an e.m.f. in itself.
+    </p>
+    <div class="formula-box">
+        e = - L * (di / dt)
+    </div>
+    <p>
+        <strong>Mutual Inductance (M):</strong> The property of two coils kept near each other such that a change in current in one coil (primary) induces an e.m.f. in the neighboring coil (secondary).
+    </p>
+    <div class="formula-box">
+        e2 = - M * (di1 / dt)
+    </div>
+
+    <h2 id="lr-cr-circuits">4. Growth and Decay of Current (LR and CR Circuits)</h2>
+    <p>
+        In circuits containing inductors (L) or capacitors (C) along with resistors (R), the current does not reach its maximum value or drop to zero instantaneously.
+    </p>
+    <h3>LR Circuit:</h3>
+    <ul>
+        <li><strong>Growth:</strong> i = I0 * [1 - exp(-Rt/L)]</li>
+        <li><strong>Decay:</strong> i = I0 * exp(-Rt/L)</li>
+        <li><strong>Time Constant (τ):</strong> L / R. It is the time taken for the current to grow to 63.2% of its maximum value.</li>
+    </ul>
+
+    <h2 id="maxwell-eq">5. Maxwell’s Equations and Displacement Current</h2>
+    <p>
+        James Clerk Maxwell unified electricity and magnetism into a single theory. He introduced the concept of <strong>Displacement Current</strong> to explain how magnetic fields are produced even in a vacuum (like between capacitor plates) where no conduction current flows.
+    </p>
+    <h3>Maxwell’s Equations (Differential Form):</h3>
+    <ol>
+        <li><strong>Gauss's Law for Electricity:</strong> div E = ρ / ε₀</li>
+        <li><strong>Gauss's Law for Magnetism:</strong> div B = 0</li>
+        <li><strong>Faraday’s Law:</strong> curl E = - dB / dt</li>
+        <li><strong>Ampere-Maxwell Law:</strong> curl B = μ₀(J + ε₀ * dE/dt)</li>
+    </ol>
+    
+
+    <h2 id="poynting">6. Poynting Vector and Energy Flow</h2>
+    <p>
+        The <strong>Poynting Vector (S)</strong> represents the directional energy flux (the rate of energy transfer per unit area) of an electromagnetic field.
+    </p>
+    <div class="formula-box">
+        S = E × H
+    </div>
+    <p>
+        The unit of the Poynting vector is <strong>Watts per square meter (W/m²)</strong>. It shows that electromagnetic waves carry energy in the direction of wave propagation.
+    </p>
+
+    <div class="exam-tips" id="exam-corner">
+        <h4>Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li><strong>Why is Lenz's law significant?</strong> It ensures energy conservation and determines the polarity of induced voltage.</li>
+            <li><strong>What is Displacement Current?</strong> It is the "current" that arises from a time-varying electric field, completing the Ampere-Maxwell law.</li>
+        </ul>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><strong>Time Constant Units:</strong> Forgetting that L/R and RC both have units of seconds.</li>
+            <li><strong>Vector Calculus:</strong> Confusing <em>div</em> (dot product) with <em>curl</em> (cross product) in Maxwell's equations. Remember: <strong>E</strong> and <strong>B</strong> have curls when they are time-varying.</li>
+        </ul>
+
+        <h3>Quick Mnemonics</h3>
+        <p><strong>Maxwell's Order:</strong> "Div-E, Div-B, Curl-E, Curl-B" (ρ, 0, -B-dot, J+E-dot).</p>
+    </div>
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

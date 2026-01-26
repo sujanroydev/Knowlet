@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSC 354 Unit 3 | 6th Semester Notes - Knowlet</title>
+    <meta name="description" content="Laboratory notes for PHYDSC354P Unit 3: Advanced Numerical Methods and Physical Modeling. Focuses on Differential Equations (Runge-Kutta) and Monte Carlo methods for Knowlet.">
+    <meta name="keywords" content="Computational Physics, Runge-Kutta, Euler Method, Monte Carlo, PHYDSC354P, Knowlet, Physics Programming">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary: #f39c12;
+            --secondary: #2c3e50;
+            --bg-light: #fef9e7;
+            --accent: #e67e22;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fdfdfd;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-top: 6px solid var(--primary);
+        }
+        h1 {
+            color: var(--secondary);
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: var(--primary);
+            border-left: 5px solid var(--primary);
+            padding-left: 15px;
+            margin-top: 35px;
+            background-color: var(--bg-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: #d35400;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        blockquote {
+            background: #fffef0;
+            border-left: 10px solid var(--accent);
+            margin: 1.5em 10px;
+            padding: 15px;
+            font-style: italic;
+            border: 1px solid #f9e79f;
+        }
+        .code-block {
+            background-color: #1e1e1e;
+            color: #dcdcdc;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            display: block;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        .keyword { color: #569cd6; }
+        .comment { color: #6a9955; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        table, th, td {
+            border: 1px solid #dee2e6;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #fef9e7;
+        }
+        .exam-section {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 45px;
+        }
+        .exam-section h4 {
+            color: #856404;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+        .toc {
+            background-color: #fcfcfc;
+            padding: 25px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.5em;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc li {
+            margin-bottom: 10px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 3: Advanced Numerical Methods (Lab: PHYDSC354P)</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#objectives">1. Laboratory Objectives</a></li>
+            <li><a href="#diff-eq">2. Solving Ordinary Differential Equations (ODEs)</a></li>
+            <li><a href="#euler">3. Euler and Modified Euler Methods</a></li>
+            <li><a href="#runge-kutta">4. Fourth-Order Runge-Kutta (RK4) Method</a></li>
+            <li><a href="#monte-carlo">5. Monte Carlo Simulations</a></li>
+            <li><a href="#curve-fitting">6. Curve Fitting and Least Squares Method</a></li>
+            <li><a href="#exam-corner">7. Lab Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="objectives">1. Laboratory Objectives</h2>
+    <p>
+        The objective of this final unit is to handle <strong>Dynamic Systems</strong>. You will learn to solve time-dependent physical equations, such as those describing radioactive decay, pendulum motion, or circuit transients, using advanced numerical algorithms.
+    </p>
+
+    <h2 id="diff-eq">2. Solving Ordinary Differential Equations (ODEs)</h2>
+    <p>
+        Most laws of physics are expressed as differential equations (e.g., $F = m \frac{d^2x}{dt^2}$). Numerical methods allow us to find the state of a system at any time $t$ by stepping through time in small increments ($h$).
+    </p>
+
+    <h2 id="euler">3. Euler and Modified Euler Methods</h2>
+    <p>
+        <strong>Euler's Method</strong> is the simplest numerical procedure for solving ODEs. It assumes the slope of the function is constant over the interval $h$.
+    </p>
+    <blockquote>
+        <strong>Formula:</strong> $y_{n+1} = y_n + h \cdot f(x_n, y_n)$
+    </blockquote>
+    <p>
+        <strong>Modified Euler</strong> improves accuracy by taking the average of the slopes at the beginning and the end of the interval.
+    </p>
+    
+
+    <h2 id="runge-kutta">4. Fourth-Order Runge-Kutta (RK4) Method</h2>
+    <p>
+        The <strong>RK4 method</strong> is the "gold standard" for solving ODEs in undergraduate physics. It provides high accuracy by calculating four different slopes ($k_1, k_2, k_3, k_4$) and taking their weighted average.
+    </p>
+    <div class="code-block">
+<span class="comment"># RK4 Step implementation</span>
+k1 = h * f(x, y)
+k2 = h * f(x + 0.5*h, y + 0.5*k1)
+k3 = h * f(x + 0.5*h, y + 0.5*k2)
+k4 = h * f(x + h, y + k3)
+y = y + (k1 + 2*k2 + 2*k3 + k4) / 6
+    </div>
+    
+
+    <h2 id="monte-carlo">5. Monte Carlo Simulations</h2>
+    <p>
+        <strong>Monte Carlo</strong> methods use <strong>random sampling</strong> to obtain numerical results. In physics, this is used to simulate stochastic processes or calculate complex integrals.
+    </p>
+    <ul>
+        <li><strong>Example: Estimating $\pi$:</strong> Randomly "throwing darts" at a square containing a circle and calculating the ratio of hits inside the circle.</li>
+    </ul>
+
+    <h2 id="curve-fitting">6. Curve Fitting and Least Squares Method</h2>
+    <p>
+        Experimental data points often have "noise." <strong>Least Squares Fitting</strong> finds the best-fit line (or curve) that minimizes the sum of the squares of the vertical deviations between each data point and the curve.
+    </p>
+    <div class="code-block">
+<span class="keyword">from</span> scipy.optimize <span class="keyword">import</span> curve_fit
+<span class="comment"># Finds optimal parameters for a user-defined function</span>
+popt, pcov = curve_fit(linear_func, x_data, y_data)
+    </div>
+
+    <div class="exam-section" id="exam-corner">
+        <h4>Lab Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li><strong>What is 'step size' ($h$) and how does it affect the result?</strong> A smaller step size reduces the truncation error but increases computation time and may lead to accumulated round-off errors.</li>
+            <li><strong>When would you choose RK4 over Euler?</strong> Always, if accuracy is required. Euler is only used for very simple, non-critical educational demonstrations.</li>
+        </ul>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><strong>Global Variables:</strong> In C or Python, avoid using the same variable names for "time" and "step count." This often leads to infinite loops in ODE solvers.</li>
+            <li><strong>Floating Point Errors:</strong> When checking if a time has reached a limit (e.g., <code>while t < 1.0</code>), use a small buffer like <code>while t < 0.999</code> to avoid missing the final step due to precision issues.</li>
+        </ul>
+
+        <h3>Practical Tips</h3>
+        <blockquote>
+            <strong>Tip:</strong> Always plot your numerical solution against the <strong>Analytical Solution</strong> (if it exists). This "Validation Step" is the only way to prove your code is working correctly.
+        </blockquote>
+    </div>
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

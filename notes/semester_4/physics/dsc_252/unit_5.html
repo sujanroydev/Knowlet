@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSC 252 Unit 5 | 4th Semester Notes - Knowlet</title>
+    <meta name="description" content="Academic notes for PHYDSC252T Unit 5: Arithmetic and Sequential Circuits. Covers Adders, Subtractors, Flip-Flops, and Multiplexers for Knowlet.">
+    <meta name="keywords" content="Arithmetic Circuits, Sequential Circuits, Flip-Flops, Multiplexer, SR Flip-Flop, JK Flip-Flop, Half Adder, Full Adder, Knowlet, Physics Notes">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        .main-card {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 5px solid #e74c3c;
+        }
+        h1 {
+            color: #c0392b;
+            text-align: center;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #e67e22;
+            border-left: 5px solid #e67e22;
+            padding-left: 15px;
+            margin-top: 35px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        blockquote {
+            background: #fff5f5;
+            border-left: 10px solid #e74c3c;
+            margin: 1.5em 10px;
+            padding: 15px;
+            font-style: italic;
+        }
+        .formula-text {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Consolas', monospace;
+            display: block;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            text-align: center;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #bdc3c7;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #e74c3c;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #fef5f5;
+        }
+        .exam-section {
+            background-color: #fcf3cf;
+            border: 1px solid #f1c40f;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+        .exam-section h4 {
+            color: #9c640c;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+        .toc {
+            background-color: #fdfefe;
+            padding: 20px;
+            border: 1px solid #e74c3c;
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.5em;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc li {
+            margin-bottom: 10px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 5: Arithmetic and Sequential Circuits</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#arithmetic-intro">1. Introduction to Arithmetic Circuits</a></li>
+            <li><a href="#adders">2. Binary Addition: Half Adder and Full Adder</a></li>
+            <li><a href="#subtractors">3. Binary Subtraction: Half and Full Subtractors</a></li>
+            <li><a href="#sequential-intro">4. Introduction to Sequential Circuits</a></li>
+            <li><a href="#flipflops">5. Flip-Flops: SR, JK, and MS-JK</a></li>
+            <li><a href="#race-around">6. The Race-around Condition</a></li>
+            <li><a href="#data-processing">7. Data Processing: Multiplexers and De-multiplexers</a></li>
+            <li><a href="#exam-corner">8. Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="arithmetic-intro">1. Introduction to Arithmetic Circuits</h2>
+    <p>
+        <strong>Arithmetic circuits</strong> are combinational logic circuits used to perform mathematical operations like addition and subtraction in digital systems. They use logic gates to process binary data bits. 
+    </p>
+
+    <h2 id="adders">2. Binary Addition: Half Adder and Full Adder</h2>
+    <p>
+        Addition is the most basic arithmetic operation in binary systems.
+    </p>
+    <h3>Half Adder</h3>
+    <p>
+        A <strong>Half Adder</strong> is a combinational circuit that adds two single-bit binary numbers. It produces two outputs: <strong>Sum</strong> and <strong>Carry</strong>.
+    </p>
+    
+
+[Image of Half Adder logic diagram and truth table]
+
+    <div class="formula-text">
+        Sum = A XOR B <br>
+        Carry = A AND B
+    </div>
+
+    <h3>Full Adder</h3>
+    <p>
+        A <strong>Full Adder</strong> adds three binary bits: two significant bits and an incoming <strong>carry bit</strong> from a previous stage. It is used for multi-bit binary addition.
+    </p>
+    
+
+    <h2 id="subtractors">3. Binary Subtraction: Half and Full Subtractors</h2>
+    <p>
+        Binary subtraction can be performed using dedicated circuits or by using <strong>1's complement</strong> addition.
+    </p>
+    <ul>
+        <li><strong>Half Subtractor:</strong> Subtracts one bit from another and produces two outputs: <strong>Difference</strong> and <strong>Borrow</strong>.</li>
+        <li><strong>Full Subtractor:</strong> Subtracts two bits and a borrow-in from a previous stage.</li>
+    </ul>
+
+    <h2 id="sequential-intro">4. Introduction to Sequential Circuits</h2>
+    <p>
+        Unlike combinational circuits, <strong>sequential circuits</strong> have outputs that depend not only on current inputs but also on previous states. This is achieved using <strong>memory elements</strong>.
+    </p>
+
+    <h2 id="flipflops">5. Flip-Flops: SR, JK, and MS-JK</h2>
+    <p>
+        A <strong>flip-flop</strong> is a basic memory element that can store one bit of binary data.
+    </p>
+    <ul>
+        <li><strong>SR Flip-Flop:</strong> The simplest type, with Set (S) and Reset (R) inputs. It has an invalid state when both inputs are 1.</li>
+        <li><strong>JK Flip-Flop:</strong> An improvement over the SR flip-flop that eliminates the invalid state. If J=1 and K=1, the output <strong>toggles</strong>.</li>
+        <li><strong>Master-Slave (MS) JK Flip-Flop:</strong> Designed to eliminate timing issues like the race-around condition by using two flip-flops in a master-slave configuration.</li>
+    </ul>
+    
+
+    <h2 id="race-around">6. The Race-around Condition</h2>
+    <p>
+        In a <strong>JK Flip-Flop</strong>, when J=1, K=1, and the clock pulse is too long, the output may toggle multiple times within a single clock cycle. This unpredictable behavior is called the <strong>race-around condition</strong>. It is solved using edge-triggering or Master-Slave JK flip-flops.
+    </p>
+
+    <h2 id="data-processing">7. Data Processing: Multiplexers and De-multiplexers</h2>
+    <p>
+        These circuits are used to route digital data between multiple sources and destinations.
+    </p>
+    <ul>
+        <li><strong>Multiplexer (MUX):</strong> A "data selector" that picks one of many input signals and sends it to a single output line based on <strong>select lines</strong>.</li>
+        <li><strong>De-multiplexer (DEMUX):</strong> A "data distributor" that takes a single input and routes it to one of many output lines.</li>
+    </ul>
+    [Image showing the operation of a 4-to-1 Multiplexer]
+
+    <div class="exam-section" id="exam-corner">
+        <h4>Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li><strong>What is the difference between a Half Adder and a Full Adder?</strong>  <br>A Half Adder adds two bits without considering a carry-in, while a Full Adder adds two bits plus an input carry.</li>
+            <li><strong>Explain the Race-around condition in a JK Flip-Flop.</strong>  <br>It occurs when J=1, K=1, and the clock pulse width is larger than the propagation delay, causing the output to toggle repeatedly.</li>
+        </ul>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><strong>SR Invalid State:</strong> Forgetting that S=1, R=1 is an forbidden/invalid state for a basic SR flip-flop.</li>
+            <li><strong>Complement Subtraction:</strong> When using 1's complement for subtraction, remember to add the "end-around carry" to the result.</li>
+        </ul>
+
+        <h3>Exam Tips</h3>
+        <blockquote>
+            <strong>Tip:</strong> Always draw the <strong>Truth Table</strong> first when asked to design or explain a logic circuit. For flip-flops, clearly distinguish between the "Set", "Reset", "No Change", and "Toggle" states as these are standard marks-earning keywords.
+        </blockquote>
+    </div>
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

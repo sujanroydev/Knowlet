@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSC 251 Unit 1 | 4th Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive study notes for PHYDSC251 Unit 1: Fourier Series. Covering periodic functions, Dirichlet conditions, determination of coefficients, and complex representation. Prepared for Knowlet.">
+    <meta name="keywords" content="Fourier Series, Physics Notes, PHYDSC251, Knowlet, Periodic Functions, Dirichlet Conditions, Determination of Fourier Coefficients, Even and Odd Functions, Semester 4 Physics">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f7f9;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #d35400;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #f9f9f9;
+            border-left: 10px solid #3498db;
+            margin: 1.5em 10px;
+            padding: 0.5em 10px;
+            font-style: italic;
+        }
+        .formula-block {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            display: block;
+            margin: 20px 0;
+            border: 1px dashed #7f8c8d;
+            text-align: center;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #bdc3c7;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .exam-focus {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        .exam-focus h4 {
+            color: #856404;
+            margin-top: 0;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc ul li {
+            margin-bottom: 5px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #3498db;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 1: Fourier Series</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#periodic-functions">1. Periodic Functions</a></li>
+            <li><a href="#orthogonality">2. Orthogonality of Sine and Cosine Functions</a></li>
+            <li><a href="#dirichlet-conditions">3. Dirichlet Conditions</a></li>
+            <li><a href="#coefficients">4. Expansion and Determination of Fourier Coefficients</a></li>
+            <li><a href="#infinite-series">5. Summing of Infinite Series</a></li>
+            <li><a href="#even-odd">6. Even and Odd Functions</a></li>
+            <li><a href="#complex-rep">7. Complex Representation of Fourier Series</a></li>
+            <li><a href="#arbitrary-period">8. Expansion with Arbitrary Periods</a></li>
+            <li><a href="#non-periodic">9. Expansion of Non-Periodic Functions</a></li>
+            <li><a href="#calculus">10. Differentiation and Integration of Fourier Series</a></li>
+            <li><a href="#exam-corner">Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="periodic-functions">1. Periodic Functions</h2>
+    <p>
+        A <strong>periodic function</strong> is a function that repeats its values in regular intervals or periods. Mathematically, a function f(x) is said to be periodic with a period T if:
+    </p>
+    <blockquote>
+        f(x + T) = f(x) for all x.
+    </blockquote>
+    <p>
+        Common examples in physics include the sine and cosine functions, which describe oscillations and waves. In the context of Fourier series, we often look at functions with a period of 2π, meaning f(x + 2π) = f(x).
+    </p>
+
+    <h2 id="orthogonality">2. Orthogonality of Sine and Cosine Functions</h2>
+    <p>
+        The concept of <strong>orthogonality</strong> is central to finding Fourier coefficients. Two functions are orthogonal over an interval [a, b] if the integral of their product over that interval is zero.
+    </p>
+    <p>For the set of functions {sin(nx), cos(nx)}, the following properties hold over the interval [-π, π]:</p>
+    <ul>
+        <li>Integral from -π to π of [sin(mx) * cos(nx)] dx = 0 (for all m, n)</li>
+        <li>Integral from -π to π of [sin(mx) * sin(nx)] dx = 0 (if m is not equal to n)</li>
+        <li>Integral from -π to π of [cos(mx) * cos(nx)] dx = 0 (if m is not equal to n)</li>
+    </ul>
+    <p>When m = n (and not zero):</p>
+    <ul>
+        <li>Integral from -π to π of [sin²(nx)] dx = π</li>
+        <li>Integral from -π to π of [cos²(nx)] dx = π</li>
+    </ul>
+
+    <h2 id="dirichlet-conditions">3. Dirichlet Conditions</h2>
+    <p>
+        Not every periodic function can be represented as a Fourier series. The <strong>Dirichlet Conditions</strong> are the sufficient conditions for a function f(x) to be expanded into a convergent Fourier series:
+    </p>
+    <ol>
+        <li>f(x) must be single-valued and periodic.</li>
+        <li>f(x) must be <em>piecewise continuous</em> (have a finite number of finite discontinuities) in any one period.</li>
+        <li>f(x) must have a <em>finite number of maxima and minima</em> in any one period.</li>
+        <li>The integral of |f(x)| over one period must be finite (absolutely integrable).</li>
+    </ol>
+
+    <h2 id="coefficients">4. Expansion and Determination of Fourier Coefficients</h2>
+    <p>
+        A periodic function f(x) with period 2π can be expanded as:
+    </p>
+    <div class="formula-block">
+        f(x) = a0 / 2 + Σ [an * cos(nx) + bn * sin(nx)]
+    </div>
+    <p>where the sum Σ goes from n = 1 to infinity. The <strong>Fourier Coefficients</strong> are determined using Euler's Formulas:</p>
+    
+    <h3>a0 Coefficient</h3>
+    <div class="formula-block">
+        a0 = (1 / π) * Integral from -π to π of [f(x)] dx
+    </div>
+    
+    <h3>an Coefficient</h3>
+    <div class="formula-block">
+        an = (1 / π) * Integral from -π to π of [f(x) * cos(nx)] dx
+    </div>
+    
+    <h3>bn Coefficient</h3>
+    <div class="formula-block">
+        bn = (1 / π) * Integral from -π to π of [f(x) * sin(nx)] dx
+    </div>
+
+    <h2 id="infinite-series">5. Summing of Infinite Series</h2>
+    <p>
+        One powerful application of Fourier series is the summation of numerical infinite series. By evaluating a Fourier series at a specific point (like x = 0 or x = π/2), we can often derive values for series like the Basel problem (sum of 1/n²).
+    </p>
+    <p><em>Example:</em> Expanding f(x) = x² in [-π, π] and setting x = π leads to the conclusion that Σ (1/n²) = π²/6.</p>
+
+    <h2 id="even-odd">6. Even and Odd Functions</h2>
+    <p>The symmetry of f(x) greatly simplifies the calculation of coefficients:</p>
+    <div class="add-horizontal-scroll"><table>
+        <tr>
+            <th>Function Type</th>
+            <th>Property</th>
+            <th>Resulting Coefficients</th>
+        </tr>
+        <tr>
+            <td><strong>Even Function</strong></td>
+            <td>f(-x) = f(x)</td>
+            <td>bn = 0; only a0 and an exist (Cosine Series)</td>
+        </tr>
+        <tr>
+            <td><strong>Odd Function</strong></td>
+            <td>f(-x) = -f(x)</td>
+            <td>a0 = 0, an = 0; only bn exists (Sine Series)</td>
+        </tr>
+    </table></div>
+
+    <h2 id="complex-rep">7. Complex Representation of Fourier Series</h2>
+    <p>
+        Using Euler's identity [exp(inx) = cos(nx) + i*sin(nx)], we can write the Fourier series in a more compact complex form:
+    </p>
+    <div class="formula-block">
+        f(x) = Σ [cn * exp(inx)]
+    </div>
+    <p>where n ranges from -infinity to +infinity. The complex coefficient <strong>cn</strong> is given by:</p>
+    <div class="formula-block">
+        cn = (1 / 2π) * Integral from -π to π of [f(x) * exp(-inx)] dx
+    </div>
+
+    <h2 id="arbitrary-period">8. Expansion with Arbitrary Periods</h2>
+    <p>
+        If the function has a period <strong>2L</strong> instead of 2π, we transform the variable. The series becomes:
+    </p>
+    <div class="formula-block">
+        f(x) = a0 / 2 + Σ [an * cos(nπx / L) + bn * sin(nπx / L)]
+    </div>
+    <p>The coefficients are adjusted by replacing π with L in the limits and the denominator.</p>
+
+    <h2 id="non-periodic">9. Expansion of Non-Periodic Functions</h2>
+    <p>
+        A function defined only on a finite interval [0, L] can be expanded as a Fourier series by creating a periodic extension of it. We can create:
+    </p>
+    <ul>
+        <li><strong>Half-Range Sine Series:</strong> Extend the function as an odd function.</li>
+        <li><strong>Half-Range Cosine Series:</strong> Extend the function as an even function.</li>
+    </ul>
+
+    <h2 id="calculus">10. Differentiation and Integration of Fourier Series</h2>
+    <p>
+        <strong>Term-by-term integration:</strong> This is generally safe. If f(x) is piecewise continuous, the integral of its Fourier series converges to the integral of f(x).
+    </p>
+    <p>
+        <strong>Term-by-term differentiation:</strong> This requires stricter conditions. The function f(x) must be continuous everywhere, and f(-π) must equal f(π) for the derivative of the series to converge to f'(x).
+    </p>
+
+    <div class="exam-corner" id="exam-corner">
+        <h4>Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions (FAQs)</h3>
+        <ul>
+            <li><strong>What are Dirichlet Conditions?</strong> They are the rules a function must follow to have a valid Fourier expansion (Finite discontinuities, finite extrema, periodic, absolutely integrable).</li>
+            <li><strong>What happens at a point of discontinuity?</strong> The Fourier series converges to the average value: [f(x+) + f(x-)] / 2.</li>
+        </ul>
+
+        <h3>Common Pitfalls</h3>
+        <ul>
+            <li><em>Mistake:</em> Forgetting the 1/2 in the a0/2 term. <em>Tip:</em> Using a0/2 in the series allows the formula for an to work for n=0 as well.</li>
+            <li><em>Mistake:</em> Using wrong limits for an arbitrary period L. <em>Correction:</em> Always check if the period is L or 2L.</li>
+        </ul>
+
+        <h3>Exam Tips</h3>
+        <p>
+            <strong>Check Symmetry First:</strong> Before calculating integrals, check if the function is even or odd. It will save you 50% of the work! <strong>Mnemonics:</strong> "Even is Cosine" (E-C), "Odd is Sine" (O-S).
+        </p>
+    </div>
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

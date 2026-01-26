@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemistry DSC 251 Unit 1 | 4th Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive academic notes for CHM-DSC-251 Unit 1: Chemical Thermodynamics I, covering the First Law, Thermochemistry, and state functions.">
+    <meta name="keywords" content="Knowlet, Chemistry, Chemical Thermodynamics, First Law of Thermodynamics, Thermochemistry, Kirchhoff's Equation, Enthalpy, Heat Capacity">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            margin-top: 30px;
+            background: #ecf0f1;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #e67e22;
+            border-bottom: 1px solid #eee;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        blockquote {
+            background: #fdf9f4;
+            border-left: 5px solid #f39c12;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+        }
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border: 1px solid #e1e4e8;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            background: none;
+            padding: 0;
+        }
+        .exam-tip {
+            background-color: #e8f4fd;
+            border: 1px solid #b3d7f2;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .exam-tip strong {
+            color: #0056b3;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 1: Chemical Thermodynamics I</h1>
+    <p><strong>Course Code:</strong> CHM-DSC-251 </p>
+    <p><strong>Paper Name:</strong> Physical Chemistry - II (Chemical Thermodynamics & Equilibrium) </p>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#variables">1. Thermodynamic Variables and Zeroth Law</a></li>
+            <li><a href="#first-law">2. The First Law of Thermodynamics</a></li>
+            <li><a href="#expansion">3. Expansion of Gases: Reversible and Irreversible</a></li>
+            <li><a href="#thermochemistry">4. Thermochemistry: Heats of Reaction</a></li>
+            <li><a href="#bond-energy">5. Bond Energy and Resonance Energy</a></li>
+            <li><a href="#kirchhoff">6. Temperature Dependence (Kirchhoff’s Equation)</a></li>
+            <li><a href="#exam-prep">7. Exam Focus: Tips and FAQs</a></li>
+        </ul>
+    </div>
+
+    <h2 id="variables">1. Thermodynamic Variables and Zeroth Law</h2>
+    <p>Thermodynamics deals with the study of energy transformations in macroscopic systems. Understanding the nature of variables is fundamental to defining the state of a system.</p>
+
+    <h3>Intensive and Extensive Variables</h3>
+    <div class="add-horizontal-scroll"><table>
+        <thead>
+            <tr>
+                <th>Variable Type</th>
+                <th>Definition</th>
+                <th>Examples</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Intensive</strong></td>
+                <td>Properties that are independent of the amount of substance present.</td>
+                <td>Temperature, Pressure, Density, Viscosity, Molar Volume.</td>
+            </tr>
+            <tr>
+                <td><strong>Extensive</strong></td>
+                <td>Properties that depend on the mass or size of the system.</td>
+                <td>Mass, Volume, Internal Energy, Enthalpy, Entropy.</td>
+            </tr>
+        </tbody>
+    </table></div>
+
+    <h3>State and Path Functions</h3>
+    <p>A <strong>State Function</strong> depends only on the current state of the system and is independent of the path taken to reach that state (e.g., U, H, P, V, T). A <strong>Path Function</strong> depends on the specific route taken (e.g., Heat, Work).</p>
+
+    <h3>Zeroth Law of Thermodynamics</h3>
+    <blockquote>
+        If two systems are each in thermal equilibrium with a third system, then they are in thermal equilibrium with each other.
+    </blockquote>
+    <p>This law provides the basis for the measurement of <strong>temperature</strong>.</p>
+
+    <h2 id="first-law">2. The First Law of Thermodynamics</h2>
+    <p>The First Law is essentially the <em>Law of Conservation of Energy</em> applied to thermodynamic systems.</p>
+
+    <h3>Fundamental Concepts</h3>
+    <ul>
+        <li><strong>Internal Energy (U):</strong> The total energy contained within a system. It is a state function.</li>
+        <li><strong>Heat (q):</strong> Energy transferred due to a temperature difference.</li>
+        <li><strong>Work (w):</strong> Energy transfer through mechanical means (e.g., expansion against pressure).</li>
+    </ul>
+
+    <h3>Mathematical Statement</h3>
+    <blockquote>
+        ΔU = q + w 
+    </blockquote>
+    <p>For an infinitesimal change: dU = dq + dw.</p>
+
+    <h3>Enthalpy (H)</h3>
+    <p>Enthalpy is the total heat content of a system at constant pressure.</p>
+    <blockquote>
+        H = U + PV 
+    </blockquote>
+    <p>At constant pressure, the change in enthalpy is equal to the heat absorbed: <strong>ΔH = qp</strong>.</p>
+
+    <h2 id="expansion">3. Expansion of Gases: Reversible and Irreversible</h2>
+    <p>The work done and heat exchanged depend heavily on the conditions of expansion (Isothermal vs. Adiabatic) and the nature of the process.</p>
+
+    <h3>Isothermal Expansion (Ideal Gas)</h3>
+    <p>In an isothermal process, temperature remains constant (ΔT = 0), so ΔU = 0 for an ideal gas.</p>
+    <ul>
+        <li><strong>Reversible Work:</strong> w = -nRT ln(V2/V1) or w = -2.303 nRT log(V2/V1).</li>
+        <li><strong>Irreversible Work:</strong> w = -Pext (V2 - V1).</li>
+    </ul>
+
+    <h3>Adiabatic Expansion</h3>
+    <p>In an adiabatic process, no heat enters or leaves the system (q = 0).</p>
+    <blockquote>
+        ΔU = w 
+    </blockquote>
+    <p>For an ideal gas, the relation is P V^γ = constant, where γ (gamma) is the ratio of heat capacities (Cp/Cv).</p>
+
+    <h2 id="thermochemistry">4. Thermochemistry: Heats of Reaction</h2>
+    <p>Thermochemistry studies the heat changes accompanying chemical reactions.</p>
+
+    <h3>Standard States</h3>
+    <p>The <strong>Standard State</strong> of a substance is its most stable form at 1 bar pressure and a specified temperature (usually 298 K).</p>
+
+    <h3>Key Enthalpy Changes</h3>
+    <ul>
+        <li><strong>Enthalpy of Formation (ΔHf):</strong> Heat change when 1 mole of a compound is formed from its elements in their standard states.</li>
+        <li><strong>Enthalpy of Combustion (ΔHc):</strong> Heat released when 1 mole of a substance is completely burnt in oxygen.</li>
+    </ul>
+
+    <div class="warning">
+        <strong>Note:</strong> By convention, the standard enthalpy of formation for elements in their most stable state (e.g., O2 gas, C graphite) is zero.
+    </div>
+
+    <h2 id="bond-energy">5. Bond Energy and Resonance Energy</h2>
+    <p>Thermochemical data allows us to calculate the strength of chemical bonds.</p>
+
+    <h3>Bond Dissociation Energy vs. Bond Energy</h3>
+    <ul>
+        <li><strong>Bond Dissociation Energy:</strong> The energy required to break a specific single bond in a gaseous molecule.</li>
+        <li><strong>Average Bond Energy:</strong> The average value of dissociation energies for the same type of bond in different compounds.</li>
+    </ul>
+
+    <h3>Resonance Energy</h3>
+    <p>Resonance energy is the difference between the experimental enthalpy of formation and the value calculated based on a localized structure (like the Kekulé structure for benzene).</p>
+    <blockquote>
+        Resonance Energy = ΔH (experimental) - ΔH (calculated) 
+    </blockquote>
+
+    <h2 id="kirchhoff">6. Temperature Dependence (Kirchhoff’s Equation)</h2>
+    <p>The heat of a reaction changes with temperature if the heat capacities of the reactants and products are different.</p>
+
+    <h3>Kirchhoff’s Equations</h3>
+    <p>1. For Enthalpy Change (constant pressure):</p>
+    <blockquote>
+        ΔH2 - ΔH1 = ΔCp (T2 - T1) 
+    </blockquote>
+    <p>2. For Internal Energy Change (constant volume):</p>
+    <blockquote>
+        ΔU2 - ΔU1 = ΔCv (T2 - T1) 
+    </blockquote>
+    <p>Where ΔCp = Σ Cp (products) - Σ Cp (reactants).</p>
+
+    <h2 id="exam-prep">7. Exam Focus: Tips and FAQs</h2>
+
+    <div class="exam-tip">
+        <strong>Exam Tips:</strong>
+        <ul>
+            <li>Always check units! R (gas constant) can be 8.314 J/mol·K or 0.0821 L·atm/mol·K. Use the one that matches your pressure/volume units.</li>
+            <li>In Isothermal expansion of an ideal gas, ΔU and ΔH are always 0 because they only depend on temperature.</li>
+            <li>Remember the sign convention: Work done <em>by</em> the system is negative (-), work done <em>on</em> the system is positive (+).</li>
+        </ul>
+    </div>
+
+    <h3>Common Mistakes</h3>
+    <ul>
+        <li>Confusing <strong>state functions</strong> (U, H) with <strong>path functions</strong> (q, w).</li>
+        <li>Using Celsius instead of <strong>Kelvin</strong> in thermodynamic equations. Always use T(K) = T(°C) + 273.15.</li>
+        <li>Forgetting that ΔHf for pure elements is zero when calculating ΔH of a reaction.</li>
+    </ul>
+
+    <h3>Frequently Asked Questions</h3>
+    <p><strong>Q: What is the significance of the Zeroth Law?</strong><br>
+    A: It defines the concept of temperature and allows for the creation of thermometers.</p>
+
+    <p><strong>Q: Why is Work (w) a path function?</strong><br>
+    A: Because the amount of work done depends on <em>how</em> the volume changes (e.g., in one step vs. infinite reversible steps), not just the start and end points.</p>
+
+    <p><strong>Q: Define an Intensive property with an example.</strong><br>
+    A: An intensive property is independent of the size of the system. For example, the density of water is the same whether you have a cup or a bucket of it.</p>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

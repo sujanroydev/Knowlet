@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSC 251 Unit 4 | 4th Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive academic notes for PHYDSC251 Unit 4: Orthogonal Curvilinear Coordinates. Covering transformations, Spherical & Cylindrical systems for Knowlet.">
+    <meta name="keywords" content="Orthogonal Curvilinear Coordinates, Spherical Coordinates, Cylindrical Coordinates, Gradient, Divergence, Curl, Laplacian, Physics Notes, Knowlet, PHYDSC251">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #c0392b;
+            border-left: 5px solid #e74c3c;
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #fdf2f2;
+            border-left: 10px solid #c0392b;
+            margin: 1.5em 10px;
+            padding: 0.5em 10px;
+            font-style: italic;
+        }
+        .formula-block {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            display: block;
+            margin: 20px 0;
+            border: 1px solid #bdc3c7;
+            text-align: center;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #bdc3c7;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #e74c3c;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .exam-section {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        .exam-section h4 {
+            color: #856404;
+            margin-top: 0;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #c0392b;
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 4: Orthogonal Curvilinear Coordinates</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#definition">1. Definition and Examples</a></li>
+            <li><a href="#transformation">2. Coordinate Transformations</a></li>
+            <li><a href="#elements">3. Line, Surface, and Volume Elements</a></li>
+            <li><a href="#operators">4. Vector Operators (Grad, Div, Curl, Laplacian)</a></li>
+            <li><a href="#cylindrical">5. Cylindrical Coordinate System</a></li>
+            <li><a href="#spherical">6. Spherical Coordinate System</a></li>
+            <li><a href="#exam-tips">7. Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="definition">1. Definition and Examples</h2>
+    <p>
+        <strong>Curvilinear coordinates</strong> are a coordinate system for Euclidean space in which the coordinate lines may be curved. These systems are <strong>orthogonal</strong> if the coordinate surfaces intersect at right angles at every point.
+    </p>
+    <p>Common examples used in physics include:</p>
+    <ul>
+        <li><strong>Cylindrical Coordinates:</strong> Useful for problems with axial symmetry (e.g., flow in a pipe).</li>
+        <li><strong>Spherical Coordinates:</strong> Essential for problems with central symmetry (e.g., gravitational fields, hydrogen atom).</li>
+    </ul>
+
+    <h2 id="transformation">2. Coordinate Transformations</h2>
+    <p>
+        Transformation involves converting coordinates from a Curvilinear system (u1, u2, u3) to the standard Cartesian system (x, y, z) and vice versa.
+    </p>
+    <blockquote>
+        x = x(u1, u2, u3), y = y(u1, u2, u3), z = z(u1, u2, u3) 
+    </blockquote>
+    <p>
+        The <strong>scale factors</strong> (h1, h2, h3) are critical for these transformations as they relate the differential change in a coordinate to a physical length.
+    </p>
+
+    <h2 id="elements">3. Line, Surface, and Volume Elements</h2>
+    <p>
+        In an orthogonal curvilinear system, infinitesimal elements are defined using scale factors h1, h2, and h3:
+    </p>
+    <ul>
+        <li><strong>Line Element (dl):</strong> dl² = h1²du1² + h2²du2² + h3²du3² </li>
+        <li><strong>Surface Elements (dS):</strong> dS1 = h2*h3 du2*du3, dS2 = h1*h3 du1*du3, etc.</li>
+        <li><strong>Volume Element (dV):</strong> dV = h1*h2*h3 du1*du2*du3 </li>
+    </ul>
+
+    <h2 id="operators">4. Vector Operators (Grad, Div, Curl, Laplacian)</h2>
+    <p>
+        The general expressions for vector operators in orthogonal curvilinear coordinates depend on the scale factors:
+    </p>
+    
+    <h3>Gradient (∇f)</h3>
+    <p>∇f = (1/h1)(df/du1) e1 + (1/h2)(df/du2) e2 + (1/h3)(df/du3) e3 </p>
+    
+    <h3>Divergence (∇·A)</h3>
+    <p>∇·A = [1/(h1h2h3)] * [ d/du1(A1h2h3) + d/du2(A2h1h3) + d/du3(A3h1h2) ] </p>
+
+    <h2 id="cylindrical">5. Cylindrical Coordinate System (ρ, φ, z)</h2>
+    <p>Used for systems with a central axis.</p>
+    
+    <ul>
+        <li><strong>Transformations:</strong> x = ρ cos φ, y = ρ sin φ, z = z </li>
+        <li><strong>Scale Factors:</strong> hρ = 1, hφ = ρ, hz = 1 </li>
+        <li><strong>Volume Element:</strong> dV = ρ dρ dφ dz </li>
+    </ul>
+
+    <h2 id="spherical">6. Spherical Coordinate System (r, θ, φ)</h2>
+    <p>Used for systems with a central point.</p>
+    
+    <ul>
+        <li><strong>Transformations:</strong> x = r sin θ cos φ, y = r sin θ sin φ, z = r cos θ </li>
+        <li><strong>Scale Factors:</strong> hr = 1, hθ = r, hφ = r sin θ </li>
+        <li><strong>Volume Element:</strong> dV = r² sin θ dr dθ dφ </li>
+    </ul>
+
+    <div class="exam-section" id="exam-tips">
+        <h4>Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li><strong>Derive the Laplacian in Spherical Coordinates.</strong>  <br><em>Tip:</em> Start by identifying the scale factors (1, r, r sin θ) and apply them to the general Curvilinear Laplacian formula.</li>
+            <li><strong>Why are scale factors important?</strong>  <br><em>Tip:</em> They convert unitless coordinate changes into physical distances, allowing for integration and differentiation in non-Cartesian spaces.</li>
+        </ul>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><strong>Confusing θ and φ:</strong> In Physics, θ is usually the polar angle (from the z-axis) and φ is the azimuthal angle (in the xy-plane). Math textbooks often swap these!</li>
+            <li><strong>Forgetting the ρ in Cylindrical volume:</strong> The volume element is ρ dρ dφ dz, not just dρ dφ dz.</li>
+        </ul>
+
+        <h3>Mnemonics</h3>
+        <p><strong>Scale Factors for Spherical:</strong> <em>"One, r, r-sin"</em> (1, r, r sin θ).</p>
+    </div>
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

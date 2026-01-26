@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemistry DSC 251 Unit 2 | 4th Semester Notes - Knowlet</title>
+    <meta name="description" content="Detailed academic notes for CHM-DSC-251 Unit 2: Chemical Thermodynamics II. Covering Second Law, Entropy, Free Energy, and Maxwell Relations.">
+    <meta name="keywords" content="Knowlet, Chemistry Notes, Second Law of Thermodynamics, Entropy, Gibbs Free Energy, Maxwell Relations, Clausius Inequality">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 950px;
+            margin: auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #1a3a5f;
+            text-align: center;
+            border-bottom: 4px solid #2c3e50;
+            padding-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        h2 {
+            color: #2c3e50;
+            background-color: #e9ecef;
+            padding: 10px 15px;
+            border-left: 6px solid #1a3a5f;
+            margin-top: 35px;
+        }
+        h3 {
+            color: #d35400;
+            border-bottom: 2px solid #fad7a0;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+        blockquote {
+            background: #fff9f0;
+            border-left: 5px solid #f39c12;
+            padding: 15px 25px;
+            margin: 20px 0;
+            font-weight: 500;
+            color: #7d6608;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: white;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #1a3a5f;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background: #fdfefe;
+            border: 2px solid #1a3a5f;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        .toc h2 {
+            margin: 0 0 15px 0;
+            background: none;
+            border: none;
+            color: #1a3a5f;
+            padding: 0;
+        }
+        .exam-section {
+            border: 2px dashed #27ae60;
+            background-color: #f4fff8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        .exam-header {
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 2: Chemical Thermodynamics II</h1>
+    <p><strong>Course:</strong> CHM-DSC-251 </p>
+    <p><strong>Institution:</strong> Assam University, Silchar </p>
+
+    <div class="toc" id="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#second-law">1. Second Law of Thermodynamics & Entropy</a></li>
+            <li><a href="#clausius">2. Clausius Inequality</a></li>
+            <li><a href="#free-energy">3. Free Energy Functions (Gibbs & Helmholtz)</a></li>
+            <li><a href="#spontaneity">4. Spontaneity and Equilibrium</a></li>
+            <li><a href="#maxwell">5. Maxwell Relations & Thermodynamic Equations</a></li>
+            <li><a href="#joule-thomson">6. Joule-Thomson Coefficient</a></li>
+            <li><a href="#exam-corner">7. Exam Focus Section</a></li>
+        </ul>
+    </div>
+
+    <h2 id="second-law">1. Second Law of Thermodynamics & Entropy</h2>
+    <p>While the First Law focuses on energy conservation, the <strong>Second Law</strong> determines the direction of spontaneous change.</p>
+    
+    <h3>Limitations of the First Law</h3>
+    <p>The First Law cannot explain why certain processes occur spontaneously in one direction but not the reverse (e.g., heat flowing from hot to cold).</p>
+
+    <h3>Concept of Entropy (S)</h3>
+    <p>Entropy is a measure of the molecular disorder or randomness of a system. It is a state function.</p>
+    <blockquote>
+        Mathematical expression for entropy change: dS = dq_rev / T 
+    </blockquote>
+    <p>For a reversible process, the entropy change of the universe is zero. For an irreversible (spontaneous) process, the entropy of the universe increases.</p>
+
+    <h2 id="clausius">2. Clausius Inequality</h2>
+    <p>The <strong>Clausius Inequality</strong> provides a mathematical criterion for the spontaneity of a process.</p>
+    <blockquote>
+        dS ≥ dq / T 
+    </blockquote>
+    <ul>
+        <li><strong>dS = dq_rev / T</strong>: For a reversible process.</li>
+        <li><strong>dS > dq_irrev / T</strong>: For an irreversible/spontaneous process.</li>
+    </ul>
+
+    <h2 id="free-energy">3. Free Energy Functions (Gibbs & Helmholtz)</h2>
+    <p>To predict spontaneity without checking the entire universe, we use system-specific functions: <strong>Gibbs Free Energy (G)</strong> and <strong>Helmholtz Free Energy (A)</strong>.</p>
+
+    <div class="add-horizontal-scroll"><table>
+        <thead>
+            <tr>
+                <th>Function</th>
+                <th>Definition</th>
+                <th>Condition</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Helmholtz Energy (A)</strong></td>
+                <td>A = U - TS </td>
+                <td>Constant Temperature and Volume </td>
+            </tr>
+            <tr>
+                <td><strong>Gibbs Energy (G)</strong></td>
+                <td>G = H - TS </td>
+                <td>Constant Temperature and Pressure </td>
+            </tr>
+        </tbody>
+    </table></div>
+
+    <h2 id="spontaneity">4. Spontaneity and Equilibrium</h2>
+    <p>The criteria for spontaneity based on free energy changes are vital for chemical reactions.</p>
+    <ul>
+        <li><strong>ΔG < 0</strong>: Spontaneous process.</li>
+        <li><strong>ΔG = 0</strong>: System at equilibrium.</li>
+        <li><strong>ΔG > 0</strong>: Non-spontaneous process.</li>
+    </ul>
+
+    <h3>Gibbs-Helmholtz Equation</h3>
+    <p>This equation relates the temperature dependence of Gibbs energy to enthalpy.</p>
+    <blockquote>
+        [d(G/T) / dT]_P = -H / T² 
+    </blockquote>
+
+    <h2 id="maxwell">5. Maxwell Relations & Thermodynamic Equations</h2>
+    <p>Maxwell relations allow us to relate non-measurable quantities (like entropy) to measurable ones (P, V, T).</p>
+    
+    <p>Common Maxwell Relations derived from exact differentials:</p>
+    <ol>
+        <li>(dS/dV)_T = (dP/dT)_V </li>
+        <li>(dS/dP)_T = -(dV/dT)_P </li>
+    </ol>
+
+    <h2 id="joule-thomson">6. Joule-Thomson Coefficient (μ_JT)</h2>
+    <p>The <strong>Joule-Thomson effect</strong> describes the temperature change of a real gas when it expands through a porous plug into a lower pressure region under adiabatic conditions.</p>
+    <blockquote>
+        μ_JT = (dT / dP)_H 
+    </blockquote>
+    <p>For an ideal gas, μ_JT = 0 because there are no intermolecular forces to overcome.</p>
+
+    <h2 id="exam-corner" class="exam-section">7. Exam Focus Section</h2>
+    <span class="exam-header">Exam Tips</span>
+    <ul>
+        <li><strong>Entropy Calculation:</strong> Be prepared to calculate ΔS for phase transitions (ΔS = ΔH_vap/T) and for ideal gas expansion.</li>
+        <li><strong>Signs of ΔG:</strong> Always check if the question specifies "constant P and T" before using ΔG as a spontaneity criterion.</li>
+        <li><strong>Derivations:</strong> Practice deriving Maxwell relations from the fundamental equations (dU, dH, dG, dA).</li>
+    </ul>
+
+    <span class="exam-header">Frequently Asked Questions</span>
+    <p><strong>Q: Why is the Second Law necessary if we have the First Law?</strong><br>
+    A: The First Law only tracks energy quantity. The Second Law tracks energy quality and directionality.</p>
+
+    <p><strong>Q: What is the physical significance of ΔA?</strong><br>
+    A: It represents the maximum work (reversible work) a system can perform at constant T and V.</p>
+
+    <span class="exam-header">Common Mistakes</span>
+    <ul>
+        <li>Using ΔG to predict spontaneity for processes not occurring at constant T and P.</li>
+        <li>Forgetting that entropy must increase for the <em>Universe</em> (System + Surroundings), not just the system.</li>
+    </ul>
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

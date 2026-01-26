@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSC 352 Unit 2 | 6th Semester Notes - Knowlet</title>
+    <meta name="description" content="Detailed academic notes for PHYDSC352T Unit 2: Thermal Radiation and Blackbody Radiation. Covering Kirchhoff's law, Planck's postulates, and deductions from Planck's law for Knowlet.">
+    <meta name="keywords" content="Thermal Radiation, Blackbody Radiation, Kirchhoff's law, Planck's Law, Wien's Law, Rayleigh-Jeans Law, Stefan-Boltzmann Law, Ultraviolet Catastrophe, Physics Notes, Knowlet, PHYDSC352T">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9fbfd;
+        }
+        .main-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid #e67e22;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #e67e22;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #d35400;
+            border-left: 5px solid #e67e22;
+            padding-left: 15px;
+            margin-top: 35px;
+            background-color: #fdf2e9;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        blockquote {
+            background: #fdfefe;
+            border-left: 10px solid #e67e22;
+            margin: 1.5em 10px;
+            padding: 15px;
+            font-style: italic;
+            border: 1px solid #eee;
+        }
+        .formula-box {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            display: block;
+            margin: 20px 0;
+            border: 1px dashed #7f8c8d;
+            text-align: center;
+            font-weight: bold;
+            color: #c0392b;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #bdc3c7;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #e67e22;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #fef5e7;
+        }
+        .exam-section {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 50px;
+        }
+        .exam-section h4 {
+            color: #856404;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.5em;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc li {
+            margin-bottom: 10px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #d35400;
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 2: Thermal Radiation and Blackbody Radiation</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#thermal-rad">1. Properties of Thermal Radiation</a></li>
+            <li><a href="#kirchhoff">2. Kirchhoff's Law</a></li>
+            <li><a href="#blackbody">3. Blackbody Radiation and Spectral Distribution</a></li>
+            <li><a href="#classical-laws">4. Wien's Law and Rayleigh-Jeans Law</a></li>
+            <li><a href="#ultraviolet">5. The Ultraviolet Catastrophe</a></li>
+            <li><a href="#planck-postulates">6. Planck's Quantum Postulates</a></li>
+            <li><a href="#planck-derivation">7. Planck's Law of Blackbody Radiation</a></li>
+            <li><a href="#deductions">8. Deductions from Planck's Law</a></li>
+            <li><a href="#saha">9. Saha's Ionization Formula</a></li>
+            <li><a href="#exam-corner">10. Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="thermal-rad">1. Properties of Thermal Radiation</h2>
+    <p>
+        <strong>Thermal radiation</strong> is electromagnetic radiation generated by the thermal motion of charged particles in matter. All matter with a temperature greater than absolute zero emits thermal radiation.
+    </p>
+    <h3>Key Properties:</h3>
+    <ul>
+        <li>It travels with the <strong>speed of light</strong> in vacuum.</li>
+        <li>It travels in straight lines and can be reflected, refracted, and polarized just like light.</li>
+        <li>It can travel through vacuum; it does not require a material medium for propagation.</li>
+        <li>The <strong>wavelength</strong> of emitted radiation depends on the temperature of the body.</li>
+    </ul>
+
+    <h2 id="kirchhoff">2. Kirchhoff's Law</h2>
+    <p>
+        <strong>Kirchhoff's Law of thermal radiation</strong> states that for an arbitrary body in thermal equilibrium with its surroundings, its <strong>emissivity</strong> is equal to its <strong>absorptivity</strong>.
+    </p>
+    <blockquote>
+        e_lambda / a_lambda = E_lambda (Blackbody)
+    </blockquote>
+    <p>
+        In simpler terms, good absorbers of a particular wavelength are also <strong>good emitters</strong> of that same wavelength at the same temperature.
+    </p>
+
+    <h2 id="blackbody">3. Blackbody Radiation and Spectral Distribution</h2>
+    <p>
+        A <strong>perfect blackbody</strong> is an idealized physical body that absorbs all incident electromagnetic radiation, regardless of frequency or angle of incidence.
+    </p>
+    <h3>Spectral Distribution:</h3>
+    <p>
+        When a blackbody is heated, it emits radiation. The <strong>spectral distribution</strong> of this radiation (how much energy is emitted at each wavelength) was experimentally determined by Lummer and Pringsheim.
+    </p>
+    <ul>
+        <li>As temperature increases, the total energy emitted (area under the curve) increases rapidly.</li>
+        <li>As temperature increases, the peak of the curve shifts toward <strong>shorter wavelengths</strong>.</li>
+    </ul>
+
+    <h2 id="classical-laws">4. Wien's Law and Rayleigh-Jeans Law</h2>
+    <p>
+        Classical physics attempted to explain the blackbody spectrum using two different approaches:
+    </p>
+    <h3>Wien's Distribution Law:</h3>
+    <p>
+        Derived using thermodynamics, it worked well for <strong>short wavelengths</strong> (high frequencies) but failed to match the experimental data at long wavelengths.
+    </p>
+    <div class="formula-box">
+        u_lambda = (A / lambda^5) * exp(-B / lambda*T)
+    </div>
+
+    <h3>Rayleigh-Jeans Law:</h3>
+    <p>
+        Based on the principle of <strong>equipartition of energy</strong>, it assumed radiation in a cavity consists of standing waves. It matched experimental results at <strong>long wavelengths</strong> but failed spectacularly at short wavelengths.
+    </p>
+    <div class="formula-box">
+        u_lambda = (8 * pi * k * T) / lambda^4
+    </div>
+
+    <h2 id="ultraviolet">5. The Ultraviolet Catastrophe</h2>
+    <p>
+        The <strong>Ultraviolet Catastrophe</strong> was a prediction of the Rayleigh-Jeans law that an ideal blackbody at thermal equilibrium would emit radiation with infinite power as the wavelength approaches zero (the ultraviolet range).
+    </p>
+    <p>
+        This was a major failure of classical physics because it contradicted the <strong>Law of Conservation of Energy</strong> and experimental observations, which showed that emission power actually drops to zero at very short wavelengths.
+    </p>
+
+    <h2 id="planck-postulates">6. Planck's Quantum Postulates</h2>
+    <p>
+        In 1900, Max Planck solved the blackbody radiation problem by introducing a revolutionary hypothesis:
+    </p>
+    <ol>
+        <li>The atoms in the walls of the blackbody cavity act as <strong>atomic oscillators</strong>.</li>
+        <li>These oscillators do not emit or absorb energy continuously. Instead, energy is exchanged in discrete packets called <strong>quanta</strong>.</li>
+        <li>The energy (E) of a quantum is proportional to the frequency (f) of the radiation.</li>
+    </ol>
+    <div class="formula-box">
+        E = n * h * f
+    </div>
+    <p>Where <strong>h</strong> is Planck's constant (6.626 x 10^-34 J·s) and <strong>n</strong> is an integer (1, 2, 3...).</p>
+
+    <h2 id="planck-derivation">7. Planck's Law of Blackbody Radiation</h2>
+    <p>
+        By applying statistical mechanics to these quantized oscillators, Planck derived the correct formula for the energy density of blackbody radiation:
+    </p>
+    <div class="formula-box">
+        u_lambda = (8 * pi * h * c / lambda^5) * [1 / (exp(h*c / lambda*k*T) - 1)]
+    </div>
+    <p>
+        This formula perfectly matches the experimental blackbody spectrum across <strong>all wavelengths</strong>.
+    </p>
+
+    <h2 id="deductions">8. Deductions from Planck's Law</h2>
+    <p>
+        Planck's Law is the "master equation" from which all other radiation laws can be derived:
+    </p>
+    <ul>
+        <li><strong>Wien's Distribution Law:</strong> Derived when the wavelength (lambda) is very small (h*c / lambda*k*T >> 1).</li>
+        <li><strong>Rayleigh-Jeans Law:</strong> Derived when the wavelength (lambda) is very large (h*c / lambda*k*T << 1), using the Taylor expansion of the exponential term.</li>
+        <li><strong>Stefan-Boltzmann Law:</strong> Obtained by integrating Planck's energy density over all wavelengths from 0 to infinity. It shows that total energy E is proportional to <strong>T^4</strong>.</li>
+        <li><strong>Wien's Displacement Law:</strong> Obtained by differentiating Planck's Law with respect to wavelength and finding the maximum. It proves that <strong>lambda_max * T = constant</strong>.</li>
+    </ul>
+
+    <h2 id="saha">9. Saha's Ionization Formula</h2>
+    <p>
+        Developed by Meghnad Saha, this formula relates the <strong>ionization state</strong> of a gas to its temperature and pressure.
+    </p>
+    <p>
+        It is used in astrophysics to determine the temperatures and chemical compositions of stellar atmospheres by analyzing the absorption lines in stellar spectra. It provides a qualitative idea of how <strong>thermal ionization</strong> occurs in high-temperature environments like stars.
+    </p>
+
+    <div class="exam-section" id="exam-corner">
+        <h4>Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li><strong>Explain the significance of the Ultraviolet Catastrophe.</strong> It marked the limit of classical mechanics and paved the way for <strong>Quantum Mechanics</strong>.</li>
+            <li><strong>How does Planck's Law resolve the failures of Wien's and Rayleigh-Jeans laws?</strong> It uses quantization to prevent infinite energy at short wavelengths (solving Rayleigh-Jeans) and correctly accounts for energy distribution at long wavelengths (solving Wien).</li>
+        </ul>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><em>Mislabeling Axis:</em> In the spectral distribution graph, always label the Y-axis as <strong>Energy Density (u_lambda)</strong> and the X-axis as <strong>Wavelength (lambda)</strong>.</li>
+            <li><em>Calculation Error:</em> Forgetting that temperature (T) must always be in <strong>Kelvin</strong> when using Planck's or Stefan's laws.</li>
+        </ul>
+
+        <h3>Exam Tips</h3>
+        <blockquote>
+            <strong>Tip:</strong> If asked to "deduce" Wien's or Rayleigh-Jeans from Planck's, clearly show the <strong>limit conditions</strong> (e.g., "For lambda approaching infinity..."). This is a high-scoring part of the derivation!
+        </blockquote>
+    </div>
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

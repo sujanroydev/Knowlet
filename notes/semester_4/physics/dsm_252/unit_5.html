@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSM 252 Unit 5 | 4th Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for PHYDSM252T Unit 5: Thermal Physics. Covering Laws of Thermodynamics, Entropy, Carnot Engine, and Kinetic Theory of Gases for Knowlet.">
+    <meta name="keywords" content="Thermal Physics, Laws of Thermodynamics, Entropy, Carnot Cycle, Kinetic Theory of Gases, Maxwell Boltzmann Distribution, Physics Notes, Knowlet, PHYDSM252T">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fdfdfd;
+        }
+        .main-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-top: 6px solid #e67e22;
+        }
+        h1 {
+            color: #d35400;
+            text-align: center;
+            border-bottom: 2px solid #e67e22;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #d35400;
+            border-left: 6px solid #e67e22;
+            padding-left: 15px;
+            margin-top: 40px;
+            background-color: #fffaf0;
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        blockquote {
+            background: #f9f9f9;
+            border-left: 10px solid #e67e22;
+            margin: 1.5em 10px;
+            padding: 15px;
+            font-style: italic;
+            border: 1px solid #eee;
+        }
+        .formula-block {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            display: block;
+            margin: 20px 0;
+            border: 1px dashed #7f8c8d;
+            text-align: center;
+            font-weight: bold;
+            color: #c0392b;
+            font-size: 1.1em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #bdc3c7;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #e67e22;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #fef5e7;
+        }
+        .exam-section {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 50px;
+        }
+        .exam-section h4 {
+            color: #856404;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.5em;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc li {
+            margin-bottom: 10px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #d35400;
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 5: Thermal Physics</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#zeroth-law">1. Zeroth and First Laws of Thermodynamics</a></li>
+            <li><a href="#second-law">2. Second Law of Thermodynamics</a></li>
+            <li><a href="#carnot-cycle">3. Carnot Engine and Efficiency</a></li>
+            <li><a href="#entropy">4. Concept of Entropy</a></li>
+            <li><a href="#kinetic-theory">5. Kinetic Theory of Gases</a></li>
+            <li><a href="#maxwell-dist">6. Maxwell-Boltzmann Distribution of Velocities</a></li>
+            <li><a href="#radiation">7. Black Body Radiation</a></li>
+            <li><a href="#exam-corner">8. Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="zeroth-law">1. Zeroth and First Laws of Thermodynamics</h2>
+    <p>
+        Thermodynamics is the study of heat, work, and temperature. The fundamental laws govern how energy is transferred.
+    </p>
+    <ul>
+        <li><strong>Zeroth Law:</strong> If two systems are each in thermal equilibrium with a third system, they are in thermal equilibrium with each other. This law defines <strong>Temperature</strong>.</li>
+        <li><strong>First Law:</strong> It is a statement of the conservation of energy. It states that the heat added to a system (dQ) is equal to the increase in internal energy (dU) plus the work done by the system (dW).</li>
+    </ul>
+    <div class="formula-block">
+        dQ = dU + dW
+    </div>
+
+    <h2 id="second-law">2. Second Law of Thermodynamics</h2>
+    <p>
+        While the first law asserts energy conservation, the second law dictates the <strong>direction</strong> of heat flow and the feasibility of energy conversion.
+    </p>
+    <blockquote>
+        <strong>Kelvin-Planck Statement:</strong> It is impossible to construct an engine that operates in a cycle and produces no effect other than the extraction of heat from a reservoir and the performance of an equivalent amount of work.
+    </blockquote>
+    <blockquote>
+        <strong>Clausius Statement:</strong> It is impossible to construct a device that operates in a cycle and produces no effect other than the transfer of heat from a cooler body to a hotter body.
+    </blockquote>
+
+    <h2 id="carnot-cycle">3. Carnot Engine and Efficiency</h2>
+    <p>
+        The <strong>Carnot Engine</strong> is a theoretical, ideal reversible heat engine that operates between two temperatures: a source (T1) and a sink (T2).
+    </p>
+    
+    <h3>Processes in a Carnot Cycle:</h3>
+    <ol>
+        <li>Isothermal Expansion (at T1)</li>
+        <li>Adiabatic Expansion</li>
+        <li>Isothermal Compression (at T2)</li>
+        <li>Adiabatic Compression</li>
+    </ol>
+    <div class="formula-block">
+        Efficiency (η) = 1 - (T2 / T1)
+    </div>
+
+    <h2 id="entropy">4. Concept of Entropy</h2>
+    <p>
+        <strong>Entropy (S)</strong> is a measure of the molecular disorder or randomness of a system. In a reversible process, the change in entropy is defined as:
+    </p>
+    <div class="formula-block">
+        dS = dQ / T
+    </div>
+    <p>
+        <strong>Principle of Increase of Entropy:</strong> In any natural (irreversible) process, the entropy of the universe always increases. For a reversible process, it remains constant.
+    </p>
+
+    <h2 id="kinetic-theory">5. Kinetic Theory of Gases</h2>
+    <p>
+        This theory explains the macroscopic properties of gases (pressure, temperature) by considering their molecular composition and motion.
+    </p>
+    <h3>Main Postulates:</h3>
+    <ul>
+        <li>Gases consist of large numbers of identical, tiny particles (atoms/molecules).</li>
+        <li>Molecules are in constant, random motion and collide elastically.</li>
+        <li>The volume of molecules is negligible compared to the total volume of the gas.</li>
+    </ul>
+    <div class="formula-block">
+        Pressure (P) = (1/3) * ρ * v² (r.m.s)
+    </div>
+
+    <h2 id="maxwell-dist">6. Maxwell-Boltzmann Distribution of Velocities</h2>
+    <p>
+        In a gas at a certain temperature, not all molecules move at the same speed. The <strong>Maxwell-Boltzmann Distribution</strong> describes the probability of finding a molecule with a specific velocity.
+    </p>
+    
+    <p>The peak of the curve represents the <strong>Most Probable Speed</strong>, which increases and shifts to the right as the temperature rises.</p>
+
+    <h2 id="radiation">7. Black Body Radiation</h2>
+    <p>
+        A <strong>Black Body</strong> is an idealized object that absorbs all electromagnetic radiation incident upon it. The radiation it emits depends solely on its temperature.
+    </p>
+    <ul>
+        <li><strong>Stefan-Boltzmann Law:</strong> The total energy radiated per unit surface area is proportional to the fourth power of the absolute temperature (E ∝ T⁴).</li>
+        <li><strong>Wien’s Displacement Law:</strong> The wavelength of peak emission is inversely proportional to the absolute temperature (λmax ∝ 1/T).</li>
+    </ul>
+
+    <div class="exam-section" id="exam-corner">
+        <h4>Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li><strong>Why can efficiency never be 100%?</strong> According to the Carnot theorem, efficiency depends on T1 and T2. To reach 100%, the sink T2 must be at absolute zero (0 K), which is physically unattainable.</li>
+            <li><strong>What is the physical significance of Entropy?</strong> It indicates the unavailability of energy to do work and measures the "degradation" of energy.</li>
+        </ul>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><strong>Temperature Units:</strong> Always convert Celsius to **Kelvin** (K = °C + 273.15) before using thermodynamic formulas.</li>
+            <li><strong>Isothermal vs Adiabatic:</strong> In Isothermal processes, temperature is constant (ΔU=0); in Adiabatic processes, no heat is exchanged (dQ=0).</li>
+        </ul>
+
+        <h3>Exam Tips</h3>
+        <blockquote>
+            <strong>Tip:</strong> When deriving the Carnot efficiency, clearly state the assumptions of an <em>ideal gas</em> and <em>reversible processes</em>. These are standard "keywords" that examiners look for.
+        </blockquote>
+    </div>
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

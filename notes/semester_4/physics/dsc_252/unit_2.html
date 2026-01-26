@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSC 252 Unit 2 | 4th Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive study notes for PHYDSC252T Unit 2: Bipolar Junction Transistors (BJT) and Amplifiers. Detailed coverage of biasing, stabilization, and feedback mechanisms for Knowlet.">
+    <meta name="keywords" content="Bipolar Junction Transistor, BJT, Transistor Biasing, CE Configuration, Feedback in Amplifiers, Stability Factor, Knowlet, Physics Notes, PHYDSC252T">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f7f6;
+        }
+        .main-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #f39c12;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #d35400;
+            border-left: 5px solid #f39c12;
+            padding-left: 15px;
+            margin-top: 35px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        blockquote {
+            background: #fff9f0;
+            border-left: 10px solid #f39c12;
+            margin: 1.5em 10px;
+            padding: 15px;
+            font-style: italic;
+        }
+        .formula-display {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            display: block;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            text-align: center;
+            font-weight: bold;
+            color: #c0392b;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #bdc3c7;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f39c12;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #fdf2e9;
+        }
+        .exam-section {
+            background-color: #eaf2f8;
+            border: 1px solid #a9cce3;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+        .exam-section h4 {
+            color: #1b4f72;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+        .toc {
+            background-color: #fcfcfc;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.5em;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc li {
+            margin-bottom: 10px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #d35400;
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 2: Bipolar Junction Transistors</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#bjt-working">1. Working of n-p-n and p-n-p Transistors</a></li>
+            <li><a href="#config-regions">2. Configurations and Operating Regions</a></li>
+            <li><a href="#current-gains">3. Current Gains (α and β)</a></li>
+            <li><a href="#load-line">4. DC Load Line and Q-point</a></li>
+            <li><a href="#amp-classes">5. Classification of Amplifiers (Class A, B, C)</a></li>
+            <li><a href="#biasing">6. Transistor Biasing and Stabilization</a></li>
+            <li><a href="#feedback">7. Feedback in Amplifiers</a></li>
+            <li><a href="#exam-corner">8. Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="bjt-working">1. Working of n-p-n and p-n-p Transistors</h2>
+    <p>
+        A <strong>Bipolar Junction Transistor (BJT)</strong> consists of three doped regions: Emitter (E), Base (B), and Collector (C). 
+    </p>
+    <ul>
+        <li><strong>n-p-n Transistor:</strong> A thin layer of p-type material is sandwiched between two n-type layers.  Conduction is primarily due to electrons.</li>
+        <li><strong>p-n-p Transistor:</strong> A thin layer of n-type material is sandwiched between two p-type layers.  Conduction is primarily due to holes.</li>
+    </ul>
+    
+
+    <h2 id="config-regions">2. Configurations and Operating Regions</h2>
+    <p>
+        Transistors are typically used in three main configurations: Common Base (CB), Common Emitter (CE), and Common Collector (CC). 
+    </p>
+    <h3>Operating Regions:</h3>
+    <ul>
+        <li><strong>Active Region:</strong> E-B junction is forward biased, and C-B junction is reverse biased. Used for linear amplification. </li>
+        <li><strong>Cut-off Region:</strong> Both junctions are reverse biased. The transistor acts as an open switch. </li>
+        <li><strong>Saturation Region:</strong> Both junctions are forward biased. The transistor acts as a closed switch. </li>
+    </ul>
+
+    <h2 id="current-gains">3. Current Gains (α and β)</h2>
+    <p>
+        These parameters define the amplification capability of the transistor. 
+    </p>
+    <blockquote>
+        <strong>α (Alpha):</strong> The ratio of collector current to emitter current in CB configuration. (α = Ic / Ie) 
+        <br>
+        <strong>β (Beta):</strong> The ratio of collector current to base current in CE configuration. (β = Ic / Ib) 
+    </blockquote>
+    <p><strong>Relation:</strong> β = α / (1 - α) or α = β / (1 + β).</p>
+
+    <h2 id="load-line">4. DC Load Line and Q-point</h2>
+    <p>
+        The <strong>DC Load Line</strong> is a graph of all possible values of collector current (Ic) and collector-emitter voltage (Vce) for a given circuit. 
+    </p>
+    <p>
+        The <strong>Q-point (Operating Point)</strong> is the specific point on the load line representing the DC values of Vce and Ic when no signal is applied.  For faithful amplification, the Q-point should remain stable in the center of the active region. 
+    </p>
+
+    <h2 id="amp-classes">5. Classification of Amplifiers</h2>
+    <p>
+        Amplifiers are classified based on the position of the Q-point and the duration of current flow during the input cycle. 
+    </p>
+    <div class="add-horizontal-scroll"><table>
+        <tr>
+            <th>Class</th>
+            <th>Operating Point Position</th>
+            <th>Conduction Angle</th>
+            <th>Efficiency</th>
+        </tr>
+        <tr>
+            <td><strong>Class A</strong></td>
+            <td>Center of Load Line</td>
+            <td>360°</td>
+            <td>Low (Max 25-50%)</td>
+        </tr>
+        <tr>
+            <td><strong>Class B</strong></td>
+            <td>At Cut-off</td>
+            <td>180°</td>
+            <td>Medium (Max 78.5%)</td>
+        </tr>
+        <tr>
+            <td><strong>Class C</strong></td>
+            <td>Below Cut-off</td>
+            <td>&lt; 180°</td>
+            <td>High (&gt; 80%)</td>
+        </tr>
+    </table></div>
+    
+
+    <h2 id="biasing">6. Transistor Biasing and Stabilization</h2>
+    <p>
+        <strong>Biasing</strong> is the process of providing proper DC voltages and currents to ensure the transistor stays in the active region.  <strong>Stabilization</strong> is required to keep the Q-point fixed despite variations in temperature or transistor parameters. 
+    </p>
+    <h3>Common Biasing Circuits:</h3>
+    <ul>
+        <li><strong>Fixed Bias:</strong> Simplest but provides poor stability. </li>
+        <li><strong>Voltage Divider Bias:</strong> Most widely used as it provides excellent stability of the Q-point. </li>
+    </ul>
+    <p>The <strong>Stability Factor (S)</strong> indicates how much Ic changes with temperature-related variations. </p>
+
+    <h2 id="feedback">7. Feedback in Amplifiers</h2>
+    <p>
+        Feedback involves returning a portion of the output signal to the input. 
+    </p>
+    <ul>
+        <li><strong>Positive Feedback:</strong> Feedback signal is in phase with input. Used in <em>Oscillators</em>. </li>
+        <li><strong>Negative Feedback:</strong> Feedback signal is out of phase with input. Used in <em>Amplifiers</em>. </li>
+    </ul>
+    <h3>Effects of Negative Feedback:</h3>
+    <ul>
+        <li>Reduces Gain but increases Stability. </li>
+        <li>Increases Bandwidth (BW). </li>
+        <li>Reduces Distortion and Noise. </li>
+        <li>Modifies Input and Output Impedance. </li>
+    </ul>
+
+    <div class="exam-section" id="exam-corner">
+        <h4>Exam Focus Corner</h4>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li><strong>Why is the CE configuration most commonly used?</strong> Because it provides both high voltage gain and high current gain.</li>
+            <li><strong>Define Thermal Runaway.</strong> It is the self-destruction of a transistor due to an uncontrolled increase in collector current caused by rising temperature. Biasing circuits prevent this.</li>
+        </ul>
+
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><strong>Current Gains:</strong> Thinking α can be greater than 1. (α is always slightly less than 1).</li>
+            <li><strong>Feedback:</strong> Confusing the effects of negative feedback—remember, it *decreases* gain to *increase* everything else (stability, bandwidth).</li>
+        </ul>
+
+        <h3>Mnemonics</h3>
+        <p><strong>Operating Regions:</strong> "<strong>ACS</strong>" -> <strong>A</strong>ctive (Amplifier), <strong>C</strong>ut-off (Off), <strong>S</strong>aturation (Short/On).</p>
+    </div>
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

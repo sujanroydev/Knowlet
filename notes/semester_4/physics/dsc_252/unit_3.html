@@ -137,84 +137,84 @@
     <div class="toc">
         <h2>Table of Contents</h2>
         <ul>
-            <li><a href="#h-parameters">1. [cite_start]Hybrid Parameter (h-parameter) and Equivalent Circuit</a> [cite: 419]</li>
-            <li><a href="#ce-amplifier">2. [cite_start]Analysis of CE Amplifier using h-parameters</a> [cite: 419]</li>
-            <li><a href="#rc-coupled">3. [cite_start]Frequency Response of Two-Stage R-C Coupled Amplifier</a> [cite: 420]</li>
-            <li><a href="#barkhausen">4. [cite_start]Sinusoidal Oscillators and Barkhausen's Criterion</a> [cite: 421]</li>
-            <li><a href="#rc-oscillator">5. [cite_start]RC Phase Shift Oscillator</a> [cite: 421]</li>
-            <li><a href="#opamp-intro">6. [cite_start]Operational Amplifiers (IC-741): Characteristics</a> [cite: 422]</li>
-            <li><a href="#opamp-apps">7. [cite_start]Applications of Op-Amp: Adder, Differentiator, and Integrator</a> [cite: 423]</li>
+            <li><a href="#h-parameters">1. Hybrid Parameter (h-parameter) and Equivalent Circuit</a> </li>
+            <li><a href="#ce-amplifier">2. Analysis of CE Amplifier using h-parameters</a> </li>
+            <li><a href="#rc-coupled">3. Frequency Response of Two-Stage R-C Coupled Amplifier</a> </li>
+            <li><a href="#barkhausen">4. Sinusoidal Oscillators and Barkhausen's Criterion</a> </li>
+            <li><a href="#rc-oscillator">5. RC Phase Shift Oscillator</a> </li>
+            <li><a href="#opamp-intro">6. Operational Amplifiers (IC-741): Characteristics</a> </li>
+            <li><a href="#opamp-apps">7. Applications of Op-Amp: Adder, Differentiator, and Integrator</a> </li>
             <li><a href="#exam-focus">8. Exam Focus Corner</a></li>
         </ul>
     </div>
 
     <h2 id="h-parameters">1. Hybrid Parameter (h-parameter) and Equivalent Circuit</h2>
     <p>
-        [cite_start]<strong>Hybrid parameters</strong>, or h-parameters, are used to represent a transistor as a two-port network for small-signal AC analysis[cite: 419]. [cite_start]They are called "hybrid" because they use a mixture of units (Ohms, Mhos, and unitless ratios)[cite: 419].
+        <strong>Hybrid parameters</strong>, or h-parameters, are used to represent a transistor as a two-port network for small-signal AC analysis. They are called "hybrid" because they use a mixture of units (Ohms, Mhos, and unitless ratios).
     </p>
     <p>The four h-parameters for a Common Emitter (CE) configuration are:</p>
     <ul>
-        [cite_start]<li><strong>hie:</strong> Input impedance (Ohms)[cite: 419].</li>
-        [cite_start]<li><strong>hre:</strong> Reverse voltage gain (unitless)[cite: 419].</li>
-        [cite_start]<li><strong>hfe:</strong> Forward current gain (unitless)[cite: 419].</li>
-        [cite_start]<li><strong>hoe:</strong> Output admittance (Mhos)[cite: 419].</li>
+        <li><strong>hie:</strong> Input impedance (Ohms).</li>
+        <li><strong>hre:</strong> Reverse voltage gain (unitless).</li>
+        <li><strong>hfe:</strong> Forward current gain (unitless).</li>
+        <li><strong>hoe:</strong> Output admittance (Mhos).</li>
     </ul>
     
 
     <h2 id="ce-amplifier">2. Analysis of CE Amplifier using h-parameters</h2>
     <p>
-        [cite_start]Using the h-parameter equivalent circuit, we can derive expressions for the performance of a CE amplifier[cite: 419]:
+        Using the h-parameter equivalent circuit, we can derive expressions for the performance of a CE amplifier:
     </p>
     <ul>
-        [cite_start]<li><strong>Current Gain (Ai):</strong> The ratio of output current to input current[cite: 419].</li>
-        [cite_start]<li><strong>Voltage Gain (Av):</strong> The ratio of output voltage to input voltage[cite: 419].</li>
-        [cite_start]<li><strong>Input Impedance (Zi):</strong> The resistance seen by the input signal[cite: 419].</li>
-        [cite_start]<li><strong>Output Impedance (Zo):</strong> The resistance seen looking back into the output terminals[cite: 419].</li>
+        <li><strong>Current Gain (Ai):</strong> The ratio of output current to input current.</li>
+        <li><strong>Voltage Gain (Av):</strong> The ratio of output voltage to input voltage.</li>
+        <li><strong>Input Impedance (Zi):</strong> The resistance seen by the input signal.</li>
+        <li><strong>Output Impedance (Zo):</strong> The resistance seen looking back into the output terminals.</li>
     </ul>
 
     <h2 id="rc-coupled">3. Frequency Response of Two-Stage R-C Coupled Amplifier</h2>
     <p>
-        [cite_start]In multi-stage amplifiers, stages are connected via a capacitor and a resistor (R-C coupling)[cite: 420].
+        In multi-stage amplifiers, stages are connected via a capacitor and a resistor (R-C coupling).
     </p>
     <p>
-        [cite_start]The <strong>frequency response</strong> is a plot of voltage gain versus frequency[cite: 420]. [cite_start]It remains constant over a specific range called the <strong>Bandwidth (BW)</strong>[cite: 420]. [cite_start]Gain drops at low frequencies due to coupling capacitors and at high frequencies due to internal transistor capacitances[cite: 420].
+        The <strong>frequency response</strong> is a plot of voltage gain versus frequency. It remains constant over a specific range called the <strong>Bandwidth (BW)</strong>. Gain drops at low frequencies due to coupling capacitors and at high frequencies due to internal transistor capacitances.
     </p>
     
 
     <h2 id="barkhausen">4. Sinusoidal Oscillators and Barkhausen's Criterion</h2>
     <p>
-        [cite_start]An <strong>oscillator</strong> is a circuit that produces a continuous, periodic output signal without an external input[cite: 421].
+        An <strong>oscillator</strong> is a circuit that produces a continuous, periodic output signal without an external input.
     </p>
-    [cite_start]<p>For self-sustained oscillations, the <strong>Barkhausen's Criterion</strong> must be satisfied[cite: 421]:</p>
+    <p>For self-sustained oscillations, the <strong>Barkhausen's Criterion</strong> must be satisfied:</p>
     <blockquote>
-        1. The loop gain (product of amplifier gain A and feedback fraction β) must be equal to unity: |Aβ| [cite_start]= 1[cite: 421].<br>
-        2. [cite_start]The total phase shift around the loop must be 0° or 360°[cite: 421].
+        1. The loop gain (product of amplifier gain A and feedback fraction β) must be equal to unity: |Aβ| = 1.<br>
+        2. The total phase shift around the loop must be 0° or 360°.
     </blockquote>
 
     <h2 id="rc-oscillator">5. RC Phase Shift Oscillator</h2>
     <p>
-        [cite_start]The <strong>RC Phase Shift Oscillator</strong> uses an RC network in the feedback loop to provide the required 180° phase shift[cite: 421]. [cite_start]Since the CE amplifier already provides 180°, the total loop phase shift becomes 360°[cite: 421].
+        The <strong>RC Phase Shift Oscillator</strong> uses an RC network in the feedback loop to provide the required 180° phase shift. Since the CE amplifier already provides 180°, the total loop phase shift becomes 360°.
     </p>
-    [cite_start]<p>The frequency of oscillation is determined by the R and C values in the feedback network[cite: 421].</p>
+    <p>The frequency of oscillation is determined by the R and C values in the feedback network.</p>
 
     <h2 id="opamp-intro">6. Operational Amplifiers (IC-741): Characteristics</h2>
     <p>
-        [cite_start]An <strong>Operational Amplifier (Op-Amp)</strong> is a high-gain DC-coupled electronic voltage amplifier with differential inputs[cite: 422]. [cite_start]The IC-741 is the most common practical Op-Amp[cite: 422].
+        An <strong>Operational Amplifier (Op-Amp)</strong> is a high-gain DC-coupled electronic voltage amplifier with differential inputs. The IC-741 is the most common practical Op-Amp.
     </p>
     <h3>Key Parameters:</h3>
     <ul>
-        [cite_start]<li><strong>CMRR (Common Mode Rejection Ratio):</strong> Ability to reject signals common to both inputs[cite: 422].</li>
-        [cite_start]<li><strong>Slew Rate:</strong> Maximum rate of change of output voltage per unit time[cite: 422].</li>
-        [cite_start]<li><strong>Virtual Ground:</strong> A concept where the inverting terminal is at zero potential if the non-inverting terminal is grounded, provided the open-loop gain is infinite[cite: 422].</li>
+        <li><strong>CMRR (Common Mode Rejection Ratio):</strong> Ability to reject signals common to both inputs.</li>
+        <li><strong>Slew Rate:</strong> Maximum rate of change of output voltage per unit time.</li>
+        <li><strong>Virtual Ground:</strong> A concept where the inverting terminal is at zero potential if the non-inverting terminal is grounded, provided the open-loop gain is infinite.</li>
     </ul>
 
     <h2 id="opamp-apps">7. Applications of Op-Amp</h2>
-    [cite_start]<p>By using different feedback networks, Op-Amps can perform mathematical operations[cite: 423]:</p>
+    <p>By using different feedback networks, Op-Amps can perform mathematical operations:</p>
     <ul>
-        [cite_start]<li><strong>Adder (Summing Amplifier):</strong> Produces an output proportional to the sum of input voltages[cite: 423].</li>
-        [cite_start]<li><strong>Differentiator:</strong> Produces an output proportional to the rate of change of the input voltage[cite: 423].</li>
-        [cite_start]<li><strong>Integrator:</strong> Produces an output proportional to the integral of the input voltage over time[cite: 423].</li>
-        [cite_start]<li><strong>Inverting/Non-inverting Amplifiers:</strong> Basic configurations for signal amplification[cite: 423].</li>
+        <li><strong>Adder (Summing Amplifier):</strong> Produces an output proportional to the sum of input voltages.</li>
+        <li><strong>Differentiator:</strong> Produces an output proportional to the rate of change of the input voltage.</li>
+        <li><strong>Integrator:</strong> Produces an output proportional to the integral of the input voltage over time.</li>
+        <li><strong>Inverting/Non-inverting Amplifiers:</strong> Basic configurations for signal amplification.</li>
     </ul>
     
 
@@ -223,19 +223,19 @@
         
         <h3>Frequently Asked Questions</h3>
         <ul>
-            [cite_start]<li><strong>State the ideal characteristics of an Op-Amp.</strong> [cite: 422] [cite_start]<br>Infinite gain, infinite input impedance, zero output impedance, infinite bandwidth, and infinite CMRR[cite: 422].</li>
-            [cite_start]<li><strong>Why is the RC Phase Shift Oscillator used for low frequencies?</strong> [cite: 421] [cite_start]<br>Because at high frequencies, the size of capacitors required becomes too small, making the circuit unstable[cite: 421].</li>
+            <li><strong>State the ideal characteristics of an Op-Amp.</strong>  <br>Infinite gain, infinite input impedance, zero output impedance, infinite bandwidth, and infinite CMRR.</li>
+            <li><strong>Why is the RC Phase Shift Oscillator used for low frequencies?</strong>  <br>Because at high frequencies, the size of capacitors required becomes too small, making the circuit unstable.</li>
         </ul>
 
         <h3>Common Mistakes</h3>
         <ul>
-            <li><strong>Virtual Ground:</strong> Applying the "Virtual Ground" concept to non-inverting configurations. [cite_start]It only applies to the inverting input when the non-inverting input is grounded[cite: 422].</li>
-            <li><strong>Oscillators:</strong> Confusing the phase shift of the amplifier with the phase shift of the feedback network. [cite_start]Both must sum to 360°[cite: 421].</li>
+            <li><strong>Virtual Ground:</strong> Applying the "Virtual Ground" concept to non-inverting configurations. It only applies to the inverting input when the non-inverting input is grounded.</li>
+            <li><strong>Oscillators:</strong> Confusing the phase shift of the amplifier with the phase shift of the feedback network. Both must sum to 360°.</li>
         </ul>
 
         <h3>Exam Tips</h3>
         <blockquote>
-            [cite_start]<strong>Tip:</strong> When deriving Op-Amp formulas (Adder/Integrator), always start by stating that the input current to the Op-Amp is zero due to infinite input impedance[cite: 422, 423]. [cite_start]This simplifies the Kirchhoff’s Current Law (KCL) analysis at the inverting node[cite: 423].
+            <strong>Tip:</strong> When deriving Op-Amp formulas (Adder/Integrator), always start by stating that the input current to the Op-Amp is zero due to infinite input impedance. This simplifies the Kirchhoff’s Current Law (KCL) analysis at the inverting node.
         </blockquote>
     </div>
 </div>

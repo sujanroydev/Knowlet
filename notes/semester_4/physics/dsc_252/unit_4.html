@@ -141,65 +141,65 @@
     </div>
 
     <h2 id="number-systems">1. Binary Number Systems and Conversions</h2>
-    [cite_start]<p>Digital systems operate using <strong>Binary Numbers</strong> (base-2), consisting of only 0 and 1[cite: 425].</p>
+    <p>Digital systems operate using <strong>Binary Numbers</strong> (base-2), consisting of only 0 and 1.</p>
     <ul>
-        [cite_start]<li><strong>Binary to Decimal:</strong> Each binary digit (bit) is multiplied by 2 raised to the power of its position (starting from 0 at the right)[cite: 425].</li>
-        [cite_start]<li><strong>Decimal to Binary:</strong> Repeated division of the decimal number by 2, recording the remainders[cite: 425].</li>
-        [cite_start]<li><strong>BCD (Binary Coded Decimal):</strong> A system where each decimal digit is represented by a 4-bit binary code[cite: 425].</li>
+        <li><strong>Binary to Decimal:</strong> Each binary digit (bit) is multiplied by 2 raised to the power of its position (starting from 0 at the right).</li>
+        <li><strong>Decimal to Binary:</strong> Repeated division of the decimal number by 2, recording the remainders.</li>
+        <li><strong>BCD (Binary Coded Decimal):</strong> A system where each decimal digit is represented by a 4-bit binary code.</li>
     </ul>
 
     <h2 id="basic-gates">2. Basic Logic Gates: AND, OR, NOT</h2>
-    [cite_start]<p>Logic gates are the building blocks of digital circuits, often realized using diodes and transistors[cite: 426].</p>
+    <p>Logic gates are the building blocks of digital circuits, often realized using diodes and transistors.</p>
     
 
 [Image of AND, OR, and NOT gate symbols and truth tables]
 
     <ul>
-        [cite_start]<li><strong>AND Gate:</strong> Output is HIGH (1) only if all inputs are HIGH[cite: 426].</li>
-        [cite_start]<li><strong>OR Gate:</strong> Output is HIGH (1) if at least one input is HIGH[cite: 426].</li>
-        [cite_start]<li><strong>NOT Gate:</strong> Also known as an inverter; it outputs the opposite of the input[cite: 426].</li>
-        [cite_start]<li><strong>XOR Gate:</strong> Output is HIGH only if the inputs are different[cite: 426].</li>
+        <li><strong>AND Gate:</strong> Output is HIGH (1) only if all inputs are HIGH.</li>
+        <li><strong>OR Gate:</strong> Output is HIGH (1) if at least one input is HIGH.</li>
+        <li><strong>NOT Gate:</strong> Also known as an inverter; it outputs the opposite of the input.</li>
+        <li><strong>XOR Gate:</strong> Output is HIGH only if the inputs are different.</li>
     </ul>
 
     <h2 id="universal-gates">3. Universal Gates: NAND and NOR</h2>
-    [cite_start]<p><strong>NAND</strong> and <strong>NOR</strong> gates are called <strong>Universal Gates</strong> because any boolean function can be implemented using only one type of these gates[cite: 426].</p>
+    <p><strong>NAND</strong> and <strong>NOR</strong> gates are called <strong>Universal Gates</strong> because any boolean function can be implemented using only one type of these gates.</p>
     
 
 [Image of NAND and NOR as universal gates]
 
     <ul>
-        [cite_start]<li><strong>NAND:</strong> NOT-AND; output is LOW only when all inputs are HIGH[cite: 426].</li>
-        [cite_start]<li><strong>NOR:</strong> NOT-OR; output is HIGH only when all inputs are LOW[cite: 426].</li>
+        <li><strong>NAND:</strong> NOT-AND; output is LOW only when all inputs are HIGH.</li>
+        <li><strong>NOR:</strong> NOT-OR; output is HIGH only when all inputs are LOW.</li>
     </ul>
 
     <h2 id="demorgan">4. De Morgan's Theorems and Boolean Laws</h2>
-    [cite_start]<p>These theorems are essential for simplifying complex boolean expressions[cite: 427].</p>
+    <p>These theorems are essential for simplifying complex boolean expressions.</p>
     <blockquote>
-        [cite_start]<strong>First Theorem:</strong> (A + B)' = A' · B' (The complement of a sum is equal to the product of the complements)[cite: 427].<br>
-        [cite_start]<strong>Second Theorem:</strong> (A · B)' = A' + B' (The complement of a product is equal to the sum of the complements)[cite: 427].
+        <strong>First Theorem:</strong> (A + B)' = A' · B' (The complement of a sum is equal to the product of the complements).<br>
+        <strong>Second Theorem:</strong> (A · B)' = A' + B' (The complement of a product is equal to the sum of the complements).
     </blockquote>
     <h3>Important Boolean Laws:</h3>
     <ul>
-        <li><strong>Commutative:</strong> A + B = B + A; [cite_start]A · B = B · A[cite: 427].</li>
-        [cite_start]<li><strong>Associative:</strong> A + (B + C) = (A + B) + C[cite: 427].</li>
-        [cite_start]<li><strong>Distributive:</strong> A · (B + C) = (A · B) + (A · C)[cite: 427].</li>
-        <li><strong>Identity:</strong> A + 0 = A; [cite_start]A · 1 = A[cite: 427].</li>
+        <li><strong>Commutative:</strong> A + B = B + A; A · B = B · A.</li>
+        <li><strong>Associative:</strong> A + (B + C) = (A + B) + C.</li>
+        <li><strong>Distributive:</strong> A · (B + C) = (A · B) + (A · C).</li>
+        <li><strong>Identity:</strong> A + 0 = A; A · 1 = A.</li>
     </ul>
 
     <h2 id="simplification">5. Simplification of Logic Circuits</h2>
-    [cite_start]<p>Simplification involves using Boolean laws and theorems to reduce the number of gates required for a specific truth table[cite: 427]. [cite_start]This reduces cost, space, and power consumption in hardware design[cite: 427].</p>
+    <p>Simplification involves using Boolean laws and theorems to reduce the number of gates required for a specific truth table. This reduces cost, space, and power consumption in hardware design.</p>
 
     <h2 id="sop-pos">6. Canonical Forms: SOP and POS</h2>
-    [cite_start]<p>Any logic expression can be written in two standard forms based on its truth table[cite: 427, 428].</p>
+    <p>Any logic expression can be written in two standard forms based on its truth table.</p>
     <ul>
-        [cite_start]<li><strong>Minterms:</strong> Product terms that represent an output of 1[cite: 427].</li>
-        [cite_start]<li><strong>Maxterms:</strong> Sum terms that represent an output of 0[cite: 427].</li>
-        [cite_start]<li><strong>SOP (Sum of Products):</strong> A group of ANDed terms (minterms) ORed together[cite: 428].</li>
-        [cite_start]<li><strong>POS (Product of Sums):</strong> A group of ORed terms (maxterms) ANDed together[cite: 428].</li>
+        <li><strong>Minterms:</strong> Product terms that represent an output of 1.</li>
+        <li><strong>Maxterms:</strong> Sum terms that represent an output of 0.</li>
+        <li><strong>SOP (Sum of Products):</strong> A group of ANDed terms (minterms) ORed together.</li>
+        <li><strong>POS (Product of Sums):</strong> A group of ORed terms (maxterms) ANDed together.</li>
     </ul>
 
     <h2 id="kmap">7. Karnaugh Map (K-Map)</h2>
-    [cite_start]<p>The <strong>Karnaugh Map</strong> is a graphical tool used to simplify Boolean expressions without using complex laws[cite: 428]. [cite_start]It organizes minterms into a grid where adjacent cells differ by only one bit, allowing for easy identification of redundant variables[cite: 428].</p>
+    <p>The <strong>Karnaugh Map</strong> is a graphical tool used to simplify Boolean expressions without using complex laws. It organizes minterms into a grid where adjacent cells differ by only one bit, allowing for easy identification of redundant variables.</p>
     
 
     <div class="exam-tips" id="exam-corner">
@@ -207,8 +207,8 @@
         
         <h3>Frequently Asked Questions</h3>
         <ul>
-            [cite_start]<li><strong>Why are NAND and NOR called universal gates?</strong> [cite: 426] Because they can be used to construct all other basic gates (AND, OR, NOT).</li>
-            [cite_start]<li><strong>State De Morgan's Theorems.</strong> [cite: 427] (Refer to section 4 above).</li>
+            <li><strong>Why are NAND and NOR called universal gates?</strong>  Because they can be used to construct all other basic gates (AND, OR, NOT).</li>
+            <li><strong>State De Morgan's Theorems.</strong>  (Refer to section 4 above).</li>
         </ul>
 
         <h3>Common Mistakes</h3>

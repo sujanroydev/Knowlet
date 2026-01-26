@@ -158,86 +158,86 @@
 
     <h2 id="legendre-properties">1. Properties of Legendre Polynomials</h2>
     <p>
-        [cite_start]<strong>Legendre polynomials</strong>, denoted as Pn(x), are a set of orthogonal polynomials that emerge as solutions to the Legendre differential equation[cite: 367]. [cite_start]In physics, they are particularly important in problems involving spherical symmetry, such as gravitation and electrostatics[cite: 367].
+        <strong>Legendre polynomials</strong>, denoted as Pn(x), are a set of orthogonal polynomials that emerge as solutions to the Legendre differential equation. In physics, they are particularly important in problems involving spherical symmetry, such as gravitation and electrostatics.
     </p>
 
     <h3>Rodrigues Formula</h3>
-    [cite_start]<p>This formula provides a systematic way to generate any Legendre polynomial by differentiating a specific function n times[cite: 367].</p>
+    <p>This formula provides a systematic way to generate any Legendre polynomial by differentiating a specific function n times.</p>
     <div class="formula-box">
         Pn(x) = (1 / (2^n * n!)) * (d^n / dx^n) (x^2 - 1)^n
     </div>
 
     <h3>Generating Function</h3>
-    [cite_start]<p>The entire set of Legendre polynomials can be generated from the power series expansion of the following function[cite: 367]:</p>
+    <p>The entire set of Legendre polynomials can be generated from the power series expansion of the following function:</p>
     <div class="formula-box">
         (1 - 2xt + t^2)^(-1/2) = Sum (from n=0 to infinity) [Pn(x) * t^n]
     </div>
 
     <h3>Orthogonality</h3>
-    [cite_start]<p>Legendre polynomials are orthogonal over the interval [-1, 1][cite: 367]. [cite_start]This means the integral of the product of two different Legendre polynomials is zero[cite: 367].</p>
+    <p>Legendre polynomials are orthogonal over the interval [-1, 1]. This means the integral of the product of two different Legendre polynomials is zero.</p>
     <blockquote>
         Integral from -1 to 1 of [Pm(x) * Pn(x)] dx = 0, if m is not equal to n.
     </blockquote>
 
     <h3>Simple Recurrence Relations</h3>
-    [cite_start]<p>These relations connect polynomials of different orders, which is useful for simplifying complex expressions[cite: 367]:</p>
+    <p>These relations connect polynomials of different orders, which is useful for simplifying complex expressions:</p>
     <ul>
-        [cite_start]<li>(n + 1)Pn+1(x) = (2n + 1)xPn(x) - nPn-1(x) [cite: 367]</li>
-        [cite_start]<li>nPn(x) = xPn'(x) - Pn-1'(x) [cite: 367]</li>
+        <li>(n + 1)Pn+1(x) = (2n + 1)xPn(x) - nPn-1(x) </li>
+        <li>nPn(x) = xPn'(x) - Pn-1'(x) </li>
     </ul>
 
     <h2 id="legendre-expansion">2. Expansion in Legendre Series</h2>
     <p>
-        [cite_start]Any piecewise continuous function f(x) defined in the interval [-1, 1] can be expressed as a series of Legendre polynomials[cite: 368]:
+        Any piecewise continuous function f(x) defined in the interval [-1, 1] can be expressed as a series of Legendre polynomials:
     </p>
     <div class="formula-box">
         f(x) = Sum (from n=0 to infinity) [An * Pn(x)]
     </div>
-    [cite_start]<p>where the coefficient <strong>An</strong> is determined by using the orthogonality property[cite: 368]:</p>
+    <p>where the coefficient <strong>An</strong> is determined by using the orthogonality property:</p>
     <div class="formula-box">
         An = ((2n + 1) / 2) * Integral from -1 to 1 of [f(x) * Pn(x)] dx
     </div>
 
     <h2 id="bessel-functions">3. Bessel Functions of the First Kind</h2>
     <p>
-        [cite_start]<strong>Bessel functions</strong>, denoted as Jn(x), arise in problems involving cylindrical or circular symmetry[cite: 368]. [cite_start]They are solutions to the Bessel differential equation[cite: 368].
+        <strong>Bessel functions</strong>, denoted as Jn(x), arise in problems involving cylindrical or circular symmetry. They are solutions to the Bessel differential equation.
     </p>
     
 
     <h3>Generating Function for Jn(x)</h3>
-    [cite_start]<p>Bessel functions of the first kind can be obtained from the following expansion[cite: 368]:</p>
+    <p>Bessel functions of the first kind can be obtained from the following expansion:</p>
     <div class="formula-box">
         exp((x / 2) * (t - 1/t)) = Sum (from n=-infinity to infinity) [Jn(x) * t^n]
     </div>
 
     <h3>Recurrence Relations for Jn(x)</h3>
-    [cite_start]<p>Common relations used to calculate higher-order Bessel functions from lower-order ones[cite: 368]:</p>
+    <p>Common relations used to calculate higher-order Bessel functions from lower-order ones:</p>
     <ul>
-        [cite_start]<li>2n Jn(x) = x [Jn-1(x) + Jn+1(x)] [cite: 368]</li>
-        [cite_start]<li>2 Jn'(x) = Jn-1(x) - Jn+1(x) [cite: 368]</li>
+        <li>2n Jn(x) = x [Jn-1(x) + Jn+1(x)] </li>
+        <li>2 Jn'(x) = Jn-1(x) - Jn+1(x) </li>
     </ul>
 
     <h2 id="zeros-orthogonality">4. Zeros and Orthogonality of Bessel Functions</h2>
     <h3>Zeros of J0(x) and J1(x)</h3>
-    [cite_start]<p>The values of x for which Jn(x) = 0 are called the <strong>zeros</strong> of the Bessel function[cite: 369]. [cite_start]These zeros are crucial in physics for determining vibrational modes of circular membranes or electromagnetic fields in cylindrical cavities[cite: 369].</p>
+    <p>The values of x for which Jn(x) = 0 are called the <strong>zeros</strong> of the Bessel function. These zeros are crucial in physics for determining vibrational modes of circular membranes or electromagnetic fields in cylindrical cavities.</p>
 
     <h3>Orthogonality Property</h3>
-    [cite_start]<p>Bessel functions of the same order n but with different arguments scaled by zeros are orthogonal[cite: 369].</p>
+    <p>Bessel functions of the same order n but with different arguments scaled by zeros are orthogonal.</p>
     <blockquote>
         Integral from 0 to a of [x * Jn(αm * x / a) * Jn(αk * x / a)] dx = 0, if m is not equal to k.
     </blockquote>
 
     <h2 id="pde-separation">5. Partial Differential Equations: Separation of Variables</h2>
     <p>
-        [cite_start]The <strong>method of separation of variables</strong> is a powerful technique to solve partial differential equations (PDEs) by assuming the solution is a product of functions, each depending on only one variable[cite: 370].
+        The <strong>method of separation of variables</strong> is a powerful technique to solve partial differential equations (PDEs) by assuming the solution is a product of functions, each depending on only one variable.
     </p>
     <h3>The Steps:</h3>
     <ol>
-        [cite_start]<li>Assume a product solution: e.g., Ψ(x, y) = X(x) * Y(y)[cite: 370].</li>
-        [cite_start]<li>Substitute this into the PDE[cite: 370].</li>
-        [cite_start]<li>Divide the equation such that variables are separated on different sides[cite: 370].</li>
-        [cite_start]<li>Equate each side to a separation constant[cite: 370].</li>
-        [cite_start]<li>Solve the resulting ordinary differential equations (ODEs)[cite: 370].</li>
+        <li>Assume a product solution: e.g., Ψ(x, y) = X(x) * Y(y).</li>
+        <li>Substitute this into the PDE.</li>
+        <li>Divide the equation such that variables are separated on different sides.</li>
+        <li>Equate each side to a separation constant.</li>
+        <li>Solve the resulting ordinary differential equations (ODEs).</li>
     </ol>
 
     <h2 id="laplace-rectangular">6. Laplace's Equation in Rectangular Symmetry</h2>
@@ -247,16 +247,16 @@
     <div class="formula-box">
         ∇^2 Ψ = 0
     </div>
-    [cite_start]<p>In 2D rectangular coordinates (x, y), it is[cite: 370]:</p>
+    <p>In 2D rectangular coordinates (x, y), it is:</p>
     <div class="formula-box">
         (d^2 Ψ / dx^2) + (d^2 Ψ / dy^2) = 0
     </div>
-    [cite_start]<p>Using separation of variables Ψ(x, y) = X(x)Y(y), we obtain[cite: 370]:</p>
+    <p>Using separation of variables Ψ(x, y) = X(x)Y(y), we obtain:</p>
     <ul>
         <li>d^2 X / dx^2 = -k^2 * X</li>
         <li>d^2 Y / dy^2 = k^2 * Y</li>
     </ul>
-    [cite_start]<p>The general solution depends on the <strong>boundary conditions</strong> of the physical problem, often involving sines, cosines, and hyperbolic functions[cite: 370].</p>
+    <p>The general solution depends on the <strong>boundary conditions</strong> of the physical problem, often involving sines, cosines, and hyperbolic functions.</p>
 
     <div class="exam-focus-block" id="exam-corner">
         <h4>Exam Focus Corner</h4>

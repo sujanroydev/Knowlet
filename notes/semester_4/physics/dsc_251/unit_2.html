@@ -134,71 +134,71 @@
     <div class="toc-box">
         <h2>Table of Contents</h2>
         <ul>
-            <li><a href="#singular-points">1. [cite_start]Regular and Singular Points</a> [cite: 362]</li>
-            <li><a href="#frobenius-intro">2. [cite_start]The Frobenius Method Concepts</a> [cite: 363]</li>
-            <li><a href="#applications">3. [cite_start]Applications to Differential Equations</a> [cite: 363]</li>
-            <li><a href="#polynomial-properties">4. [cite_start]Properties of Legendre, Hermite and Laguerre Polynomials</a> [cite: 364]</li>
-            <li><a href="#rodrigues-formula">5. [cite_start]Rodrigues Formula</a> [cite: 364]</li>
-            <li><a href="#recurrence">6. [cite_start]Simple Recurrence Relations</a> [cite: 365]</li>
+            <li><a href="#singular-points">1. Regular and Singular Points</a> </li>
+            <li><a href="#frobenius-intro">2. The Frobenius Method Concepts</a> </li>
+            <li><a href="#applications">3. Applications to Differential Equations</a> </li>
+            <li><a href="#polynomial-properties">4. Properties of Legendre, Hermite and Laguerre Polynomials</a> </li>
+            <li><a href="#rodrigues-formula">5. Rodrigues Formula</a> </li>
+            <li><a href="#recurrence">6. Simple Recurrence Relations</a> </li>
             <li><a href="#exam-tips">7. Exam Focus & FAQs</a></li>
         </ul>
     </div>
 
     <h2 id="singular-points">1. Regular and Singular Points</h2>
     <p>
-        [cite_start]For a second-order linear differential equation of the form <strong>y'' + P(x)y' + Q(x)y = 0</strong>, the nature of the solution at a point x = x0 depends on the behavior of the coefficient functions P(x) and Q(x)[cite: 362].
+        For a second-order linear differential equation of the form <strong>y'' + P(x)y' + Q(x)y = 0</strong>, the nature of the solution at a point x = x0 depends on the behavior of the coefficient functions P(x) and Q(x).
     </p>
     
     <h3>Ordinary Point</h3>
     <p>A point x = x0 is called an <strong>ordinary point</strong> if both P(x) and Q(x) are analytic (can be expanded in a power series) at x0.</p>
     
     <h3>Singular Point</h3>
-    [cite_start]<p>If either P(x) or Q(x) is not analytic at x = x0, it is a <strong>singular point</strong>[cite: 362]. Singular points are divided into two types:</p>
+    <p>If either P(x) or Q(x) is not analytic at x = x0, it is a <strong>singular point</strong>. Singular points are divided into two types:</p>
     <ul>
-        [cite_start]<li><strong>Regular Singular Point:</strong> x = x0 is regular if (x - x0)P(x) and (x - x0)²Q(x) are analytic at x0[cite: 362].</li>
-        [cite_start]<li><strong>Irregular Singular Point:</strong> If the above condition is not met, the point is an irregular singular point[cite: 362].</li>
+        <li><strong>Regular Singular Point:</strong> x = x0 is regular if (x - x0)P(x) and (x - x0)²Q(x) are analytic at x0.</li>
+        <li><strong>Irregular Singular Point:</strong> If the above condition is not met, the point is an irregular singular point.</li>
     </ul>
 
     <h2 id="frobenius-intro">2. The Frobenius Method Concepts</h2>
     <p>
-        [cite_start]The <strong>Frobenius Method</strong> is a technique used to find a power series solution for a differential equation around a regular singular point[cite: 363]. It assumes a solution of the form:
+        The <strong>Frobenius Method</strong> is a technique used to find a power series solution for a differential equation around a regular singular point. It assumes a solution of the form:
     </p>
     <div class="formula-block">
         y(x) = Σ [an * x^(n+k)]
     </div>
-    [cite_start]<p>where the sum goes from n = 0 to infinity, a0 is not zero, and <strong>k</strong> is the <strong>indicial constant</strong>[cite: 363]. The method involves finding the <strong>Indicial Equation</strong> to determine the possible values of k.</p>
+    <p>where the sum goes from n = 0 to infinity, a0 is not zero, and <strong>k</strong> is the <strong>indicial constant</strong>. The method involves finding the <strong>Indicial Equation</strong> to determine the possible values of k.</p>
 
     <h2 id="applications">3. Applications to Differential Equations</h2>
     <p>
-        [cite_start]The Frobenius method is essential for solving several fundamental equations in physics[cite: 363]:
+        The Frobenius method is essential for solving several fundamental equations in physics:
     </p>
     <ul>
-        [cite_start]<li><strong>Legendre Differential Equation:</strong> (1 - x²)y'' - 2xy' + n(n + 1)y = 0[cite: 363].</li>
-        [cite_start]<li><strong>Bessel Differential Equation:</strong> x²y'' + xy' + (x² - n²)y = 0[cite: 363].</li>
-        [cite_start]<li><strong>Hermite Differential Equation:</strong> y'' - 2xy' + 2ny = 0[cite: 363].</li>
-        [cite_start]<li><strong>Laguerre Differential Equation:</strong> xy'' + (1 - x)y' + ny = 0[cite: 363].</li>
+        <li><strong>Legendre Differential Equation:</strong> (1 - x²)y'' - 2xy' + n(n + 1)y = 0.</li>
+        <li><strong>Bessel Differential Equation:</strong> x²y'' + xy' + (x² - n²)y = 0.</li>
+        <li><strong>Hermite Differential Equation:</strong> y'' - 2xy' + 2ny = 0.</li>
+        <li><strong>Laguerre Differential Equation:</strong> xy'' + (1 - x)y' + ny = 0.</li>
     </ul>
 
     <h2 id="polynomial-properties">4. Properties of Legendre, Hermite and Laguerre Polynomials</h2>
     <p>
-        [cite_start]These polynomials represent the solutions to their respective differential equations and possess several critical properties used in quantum mechanics and electromagnetism[cite: 364].
+        These polynomials represent the solutions to their respective differential equations and possess several critical properties used in quantum mechanics and electromagnetism.
     </p>
     
     <h3>Generating Function</h3>
-    [cite_start]<p>A generating function allows us to derive the entire set of polynomials[cite: 365]. For example, the generating function for Legendre polynomials Pn(x) is:</p>
+    <p>A generating function allows us to derive the entire set of polynomials. For example, the generating function for Legendre polynomials Pn(x) is:</p>
     <div class="formula-block">
         (1 - 2xt + t²)^(-1/2) = Σ [Pn(x) * t^n]
     </div>
 
     <h3>Orthogonality</h3>
-    [cite_start]<p>The polynomials are orthogonal over specific intervals with respect to a weight function[cite: 365]. For Legendre polynomials in the range [-1, 1]:</p>
+    <p>The polynomials are orthogonal over specific intervals with respect to a weight function. For Legendre polynomials in the range [-1, 1]:</p>
     <div class="formula-block">
         Integral from -1 to 1 of [Pm(x) * Pn(x)] dx = 0 (if m is not equal to n)
     </div>
 
     <h2 id="rodrigues-formula">5. Rodrigues Formula</h2>
     <p>
-        [cite_start]The <strong>Rodrigues Formula</strong> provides a direct way to calculate the nth-order polynomial using differentiation[cite: 364].
+        The <strong>Rodrigues Formula</strong> provides a direct way to calculate the nth-order polynomial using differentiation.
     </p>
     
     <h3>For Legendre Polynomials Pn(x):</h3>
@@ -213,23 +213,23 @@
 
     <h2 id="recurrence">6. Simple Recurrence Relations</h2>
     <p>
-        [cite_start]Recurrence relations are equations that relate a polynomial of order n to polynomials of higher or lower orders[cite: 365]. These are used to simplify complex integrations and derivations.
+        Recurrence relations are equations that relate a polynomial of order n to polynomials of higher or lower orders. These are used to simplify complex integrations and derivations.
     </p>
-    [cite_start]<p><strong>Example (Legendre):</strong> (n + 1)Pn+1(x) = (2n + 1)xPn(x) - nPn-1(x)[cite: 365].</p>
+    <p><strong>Example (Legendre):</strong> (n + 1)Pn+1(x) = (2n + 1)xPn(x) - nPn-1(x).</p>
 
     <div class="exam-section" id="exam-tips">
         <h4>Exam Focus & FAQs</h4>
         
         <h3>Frequently Asked Questions</h3>
         <ul>
-            [cite_start]<li><strong>When do we use Frobenius method instead of a simple power series?</strong> Use Frobenius when the expansion point is a <em>regular singular point</em>; simple power series only work at <em>ordinary points</em>[cite: 362, 363].</li>
-            <li><strong>What is the Indicial Equation?</strong> It is the equation obtained by setting the coefficient of the lowest power of x to zero. [cite_start]It determines the values of 'k'[cite: 363].</li>
+            <li><strong>When do we use Frobenius method instead of a simple power series?</strong> Use Frobenius when the expansion point is a <em>regular singular point</em>; simple power series only work at <em>ordinary points</em>.</li>
+            <li><strong>What is the Indicial Equation?</strong> It is the equation obtained by setting the coefficient of the lowest power of x to zero. It determines the values of 'k'.</li>
         </ul>
 
         <h3>Common Mistakes</h3>
         <ul>
-            <li><strong>Incorrect Identification:</strong> Failing to distinguish between regular and irregular singular points. [cite_start]Frobenius only works for regular singular points[cite: 362, 363].</li>
-            [cite_start]<li><strong>Rodrigues Formula:</strong> Forgetting the normalization constant (like 1/(2^n * n!)) at the beginning of the formula[cite: 364].</li>
+            <li><strong>Incorrect Identification:</strong> Failing to distinguish between regular and irregular singular points. Frobenius only works for regular singular points.</li>
+            <li><strong>Rodrigues Formula:</strong> Forgetting the normalization constant (like 1/(2^n * n!)) at the beginning of the formula.</li>
         </ul>
 
         <h3>Exam Tips</h3>

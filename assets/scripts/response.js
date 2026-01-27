@@ -2,6 +2,7 @@ const setPasswordForm = document.getElementById("setPasswordForm");
 const input = document.getElementsByClassName("user-input");
 const container = document.getElementById("container");
 const loader = document.getElementById("loading");
+const submitBtn = document.getElementById("signup-btn");
 
 const params = new URLSearchParams(window.location.search);
 let isNewUser = true;
@@ -157,6 +158,7 @@ async function sync(name, email, picture) {
             loader.style.display = "none";
             container.style.display = "flex";
             isNewUser = true;
+            submitBtn.textContent = "Signup";
             return;
         }
         
@@ -172,6 +174,7 @@ async function sync(name, email, picture) {
             loader.style.display = "none";
             container.style.display = "flex";
             isNewUser = false;
+            submitBtn.textContent = "Update Password";
             return;
         }
         

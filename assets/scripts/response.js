@@ -6,8 +6,8 @@ const loader = document.getElementById("loading");
 const params = new URLSearchParams(window.location.search);
 let isNewUser = true;
 
-if (params.get('error') && !params.get('user')) {
-	alert('Try to login or signup in manual way.\n\nError: ' + params.get('error') + );
+if (params.get('error')) {
+	alert('Try to login or signup in manual way.\n\nError: ' + params.get('error'));
 	console.error(params.get('error'));
 }
 

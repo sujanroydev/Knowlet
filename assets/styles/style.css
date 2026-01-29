@@ -12,6 +12,8 @@ html {
 }
 
 body {
+    max-width: 700px;
+    margin: auto;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: #f4f7fa;
     color: #222;
@@ -27,6 +29,7 @@ header {
     text-align: center;
     padding: 3rem 1rem;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    border-radius: 0 0 30px 30px;
 }
 
 header h1 {
@@ -146,9 +149,6 @@ section {
 /* ------------------------------
      Features Section
 ------------------------------ */
-#features {
-    background: #eef3fc;
-}
 
 #features h2 {
     text-align: center;
@@ -320,7 +320,6 @@ section {
      FAQ Section
 ------------------------------ */
 #faq {
-    background: #ffffff;
     padding: 3rem 1rem;
 }
 
@@ -361,10 +360,8 @@ section {
 /* Download Button */
 
 #download {
-    background: #eef3fc;
     text-align: center;
     padding: 3rem 1rem;
-    border-top: 1px solid #d6e1f7;
 }
 
 #download h2 {
@@ -400,10 +397,8 @@ section {
     Contact CTA Section
 ------------------------------ */
 #contact-cta {
-    background: #eef3fc;
     text-align: center;
     padding: 3rem 1rem;
-    border-top: 1px solid #d6e1f7;
 }
 
 #contact-cta h2 {

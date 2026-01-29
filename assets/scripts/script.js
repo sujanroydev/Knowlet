@@ -85,11 +85,6 @@ const searchResults = document.getElementById("searchResults");
     renderScrollingHistory();
 })();
 
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js')
-    .then(() => console.log('Service Worker registered'));
-}
-
 function searchNotes(query) {
   const results = [];
   console.log(results);

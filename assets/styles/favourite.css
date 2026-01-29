@@ -1,62 +1,100 @@
+/* favourite.css */
+:root {
+    --fav-primary: #d97706; /* Golden Amber */
+    --fav-secondary: #92400e;
+    --bg-gradient: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    --card-bg: #ffffff;
+    --text-main: #451a03;
+    --item-bg: #fff;
+}
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
-    margin: 20px;
-    background-color: #f4f4f9;
-    color: #333;
+    margin: 0;
+    padding: 40px 20px;
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    color: var(--text-main);
 }
+
 .container {
-    max-width: 800px;
+    max-width: 700px;
     margin: auto;
-    background: #fff;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
 }
+
 h1 {
-    font-size: 2.2em;
+    font-size: 2.2rem;
     text-align: center;
-    color: #004085;
-    border-bottom: 2px solid #004085;
-    padding-bottom: 10px;
+    color: var(--fav-secondary);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
 }
+
+h1::before {
+    content: '⭐'; /* Simple icon addition */
+    font-size: 1.8rem;
+}
+
 h2 {
-    font-size: 1.8em;
-    margin-top: 30px;
-    color: #d9534f;
-    padding-bottom: 5px;
+    font-size: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--fav-primary);
+    margin-bottom: 40px;
+    font-weight: 700;
 }
+
 ul {
     list-style-type: none;
     padding: 0;
 }
+
 li {
-    background: #e9ecef;
-    margin-bottom: 8px;
-    padding: 12px;
-    border-radius: 5px;
+    background: var(--item-bg);
+    margin-bottom: 15px;
+    padding: 18px 24px;
+    border-radius: 16px;
+    border: 1px solid #fde68a;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    transition: background-color 0.3s;
 }
+
 li:hover {
-    background-color: #dee2e6;
+    transform: scale(1.02);
+    box-shadow: 0 10px 15px -3px rgba(251, 191, 36, 0.2);
+    border-color: var(--fav-primary);
+    background-color: #fffdf2;
 }
+
 a {
     text-decoration: none;
-    color: #0056b3;
-    font-weight: bold;
+    color: var(--fav-secondary);
+    font-weight: 600;
+    font-size: 1.15rem;
+    display: block;
+    width: 100%;
 }
+
 a:hover {
-    text-decoration: underline;
+    color: var(--fav-primary);
 }
+
 .empty-message {
-    padding: 20px;
-    background-color: #fff3cd;
-    border: 1px solid #ffeeba;
-    border-radius: 5px;
+    padding: 50px 30px;
+    background-color: #fff9db;
+    border: 2px dashed #fcd34d;
+    border-radius: 20px;
     text-align: center;
-    color: #856404;
+    color: #92400e;
+    font-style: italic;
 }

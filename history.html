@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recently Visited Notes History</title>
+    <link rel="stylesheet" href="assets/styles/nav.css">
+    <link rel="stylesheet" href="assets/styles/history.css"/>
+</head>
+<body>
+    <div class="container">
+        <h1>📖 Recently Visited Notes</h1>
+        <h2>Your Unit History (Last 15 Pages)</h2>
+        <ul id="history-list">
+            <li class="empty-message">Loading history...</li>
+        </ul>
+    </div>    
+    <nav class="bottom-nav">
+        <a href="index" class="nav-item">
+            <span class="icon">🏠</span>
+            <span class="text">Home</span>
+        </a>
+        <a href="favourite" class="nav-item">
+            <span class="icon">🌟</span>
+            <span class="text">Favourite</span>
+        </a>
+        <a href="history" class="nav-item">
+            <span class="icon">📜</span>
+            <span class="text">History</span>
+        </a>
+        <a href="profile" class="nav-item">
+            <span class="icon"><img id="profile-btn" src="assets/images/demo_pp.jpg"></span>
+            <span class="text">Profile</span>
+        </a>
+    </nav>
+    <script src="assets/scripts/nav.js"></script>
+    <script src="assets/scripts/history.js"></script>
+</body>
+</html>

@@ -352,6 +352,11 @@ async function likePage(oldLikes){
 	if (!ensureAuthenticated()) return;
     try {
         if (myLikesAndRatings) {
+        	if (myLikesAndRatings.page_likes) {
+	        	btnLike.textContent = "👍🏼 " + (totalLikes - 1);
+        	} else {
+        		btnLike.textContent = "👍 " + (totalLikes + 1);
+        	}
             const res = await fetch('https://knowlet.in/.netlify/functions/update-likes-ratings', {
 			    method: 'POST',
 			    header: { 'content-type': 'application/json' },
@@ -370,6 +375,7 @@ async function likePage(oldLikes){
                 alert("Error updating likes");
             }
         } else {
+        	btnLike.textContent = "👍 " + (totalLikes + 1);
             const res = await fetch('https://knowlet.in/.netlify/functions/set-likes-ratings', {
 			    method: 'POST',
 			    header: { 'content-type': 'application/json' },

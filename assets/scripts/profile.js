@@ -9,6 +9,8 @@ const userId = document.getElementById("userid");
 const profilePic = document.getElementById("profile-pic");
 const loader = document.getElementById("loader");
 
+const stat = document.getElementsByClassName("stat");
+
 let isExist = false;
 let user;
 
@@ -107,24 +109,48 @@ async function sync() {
 async function fetchCommentsLikesAndRatings() {
 	try {
 		console.log('fun called')
-		const res = await fetch('https://knowlet.in/.netlify/functions/get-likes-ratings', {
+		
+		const res1 = await fetch('http://localhost:8888/.netlify/functions/get-comments', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({ userId: user.id })
 		});
 		
-		if (!res.ok) {
-			console.error('error code ' + res.status);
+		if (!res1.ok) {
+			console.error('error code ' + res1.status);
 			return
 		} 
 		
-		console.log('data fetched');
-		const result = await res.json();
-		console.log(result);
-		const { data, error } = await res.json();
-		console.log('json parsed');
-		console.log(data)
-		console.error(error)
+		const { data: data1, error: error1 } = await res1.json();
+		
+		let commentsCount = 0;
+		let totalCommentsLikes = 0;
+		
+		data1.forEach((comments) => {
+			commentsCount += 1;
+			totalCommentsLikes += comments.likes;
+		});
+		
+		stat[0].textContent = totalCommentsLikes;
+		stat[1].textContent = commentsCount;
+		return; // incomplete code (below)
+		
+		const res2 = await fetch('http://localhost:8888/.netlify/functions/get-likes-ratings', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ userId: user.id })
+		});
+		
+		if (!res2.ok) {
+			console.error('error code ' + res2.status);
+			return;
+		} 
+		
+		const { data: data2, error: error2 } = await res2.json
+		
+		data1.forEach((comments) => {
+			
+		});
 		
 	} catch(err) {
 		console.error(err);
@@ -133,3 +159,4 @@ async function fetchCommentsLikesAndRatings() {
 }
 
 sync()
+fetchCommentsLikesAndRatings()

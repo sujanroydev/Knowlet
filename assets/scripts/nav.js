@@ -7,13 +7,15 @@ const profileBtn = document.getElementById("profile-btn");
 const pathSegments = currentPagePath.split('/');
 let currentPage = pathSegments[pathSegments.length - 1]; // Get the last part of the URL
 currentPage = currentPage.split('.')[0] || 'index'; // Remove extension, default to 'index' if empty
-const user = localStorage.getItem("knowletUser")
 
-if (user) {
-    profileBtn.src = JSON.parse(user).picture || "assets/images/demo_pp.jpg";
+const knowletUser = localStorage.getItem("knowletUser")
+
+if (knowletUser) {
+    profileBtn.src = JSON.parse(knowletUser).picture || "assets/images/demo_pp.jpg";
 } else {
     profileBtn.src = "assets/images/demo_pp.jpg"
 }
+
 navItems.forEach((item, index) => {
     if (item.getAttribute('href').includes(currentPage)) {
         focusNav(item);

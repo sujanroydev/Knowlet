@@ -10,6 +10,7 @@ const profilePic = document.getElementById("profile-pic");
 const loader = document.getElementById("loader");
 
 let isExist = false;
+let user;
 
 profilePic.addEventListener("click", () => {
     if (isExist) {
@@ -29,7 +30,7 @@ logoutBtn.addEventListener("click", () => {
 
 async function sync() {
     
-    let user = localStorage.getItem("knowletUser")
+    user = localStorage.getItem("knowletUser")
     
     if (user) {
         user = JSON.parse(user);
@@ -100,6 +101,34 @@ async function sync() {
 	} catch(e) {
 		console.log(error);
 		alert(error.message);
+	}
+}
+
+async function fetchCommentsLikesAndRatings() {
+	try {
+		console.log('fun called')
+		const res = await fetch('https://knowlet.in/.netlify/functions/get-likes-ratings', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ userId: user.id })
+		});
+		
+		if (!res.ok) {
+			console.error('error code ' + res.status);
+			return
+		} 
+		
+		console.log('data fetched');
+		const result = await res.json();
+		console.log(result);
+		const { data, error } = await res.json();
+		console.log('json parsed');
+		console.log(data)
+		console.error(error)
+		
+	} catch(err) {
+		console.error(err);
+		alert(err.message);
 	}
 }
 

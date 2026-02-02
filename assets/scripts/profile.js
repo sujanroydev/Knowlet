@@ -8,6 +8,8 @@ const email = document.getElementById("email");
 const userId = document.getElementById("userid");
 const profilePic = document.getElementById("profile-pic");
 const loader = document.getElementById("loader");
+const recentActivityView = document.getElementById("recent-activity-view");
+const recommendationView = document.getElementById("recommendation-view");
 
 const stat = document.getElementsByClassName("stat");
 
@@ -158,5 +160,27 @@ async function fetchCommentsLikesAndRatings() {
 	}
 }
 
+function recentActivity() {
+	const favs = JSON.parse(localStorage.getItem('unit_page_favourites'));
+	const histories = JSON.parse(localStorage.getItem('unit_page_history'));
+	
+	let recentActivityItems = '';
+	
+	favs.forEach((favItem) => {
+		recentActivityItems += `
+                <li>Started: ${favItem.title}</li>
+`
+	});
+	
+	histories.forEach((historyItem) => {
+		recentActivityItems += `
+                <li>Read: ${historyItem.title}</li>
+`
+	});
+	
+	recentActivityView.innerHTML = recentActivityItems;
+}
+
 sync()
 fetchCommentsLikesAndRatings()
+recentActivity();

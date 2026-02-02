@@ -15,15 +15,26 @@ export default async (request) => {
         });
     }
     
-    const { pageId } = await request.json();
+    const { pageId, userId } = await request.json();
     
     try {
-    	if (!pageId) throw new Error('Page Id is required');
+    	let data, error;
     	
-		const { data, error } = await supabaseClient
-            .from('comments')
-            .select('*, user (id, name, picture)')
-            .eq('page_id', pageId)
+    	if (!pageId && userId) {
+	    	({ data, error } = await supabaseClient
+	            .from('comments')
+	            .select('id, likes')
+	            .eq('user_id', userId)
+	        );
+    	} else if (!userId && pageId) {
+    		({ data, error } = await supabaseClient
+	            .from('comments')
+	            .select('*, user (id, name, picture)')
+	            .eq('page_id', pageId)
+	        );
+    	} else {
+    		throw new Error('invalid pageId or userId');
+    	}
 
         if (error) {
             return new Response(

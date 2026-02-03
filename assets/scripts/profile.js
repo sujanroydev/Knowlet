@@ -165,17 +165,29 @@ function recentActivity() {
 	const histories = JSON.parse(localStorage.getItem('unit_page_history'));
 	
 	let recentActivityItems = '';
+	let sortedRecentActivityItems = [];
+	let index = 0;
 	
 	[...favs, ...histories].forEach((item) => {
-		const status = 'Unknown';
-		const passTime = 'Unknown';
 		
-		recentActivityItems += `
-                <li>${status}: ${item.title} - ${passTime}</li>
-`
+		index++;
+		
+		
+		
+		
+		
+		
+		
+		
+// 		const status = 'Unknown';
+// 		const passTime = 'Unknown';
+		
+// 		recentActivityItems += `
+//                 <li>${status}: ${item.title} - ${passTime}</li>
+// `
 	});
-	
-	recentActivityView.innerHTML = recentActivityItems;
+	console.log(sortedRecentActivityItems);
+	// recentActivityView.innerHTML = recentActivityItems;
 }
 
 sync()

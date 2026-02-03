@@ -644,7 +644,7 @@ function renderNavBar() {
         if (index >= 0) {
             favs.splice(index, 1);
         } else {
-            favs.push({ url: currentUrl, title: document.title });
+            favs.push({ url: currentUrl, title: document.title, heading: document.querySelector('h1').textContent, timestamp: new Date().toISOString() });
         }
 
         localStorage.setItem(FAV_KEY, JSON.stringify(favs));
@@ -663,17 +663,16 @@ function renderNavBar() {
     
     // trace history
     const HISTORY_KEY = 'unit_page_history';
-    const pageTitle = document.title;
 
     function updateHistory() {
         let history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
         
-        const newEntry = { url: currentUrl, title: pageTitle, timestamp: new Date().toISOString() };
+        const newEntry = { url: currentUrl, title: document.title, heading: document.querySelector('h1').textContent, timestamp: new Date().toISOString() };
 
         history = history.filter(item => item.url !== newEntry.url); // <-- CORRECTED LINE
         history.unshift(newEntry);
                 
-        const maxHistorySize = 15;
+        const maxHistorySize = 50;
         
         if (history.length > maxHistorySize) {
                 history.length = maxHistorySize;

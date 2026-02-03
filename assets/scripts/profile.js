@@ -133,7 +133,6 @@ async function fetchCommentsLikesAndRatings() {
 		
 		stat[0].textContent = totalCommentsLikes;
 		stat[1].textContent = commentsCount;
-		return; // incomplete code (below)
 		
 		const res2 = await fetch('http://localhost:8888/.netlify/functions/get-likes-ratings', {
             method: 'POST',
@@ -146,19 +145,18 @@ async function fetchCommentsLikesAndRatings() {
 			return;
 		} 
 		
-		const { data: data2, error: error2 } = await res2.json
+		const { data: data2, error: error2 } = await res2.json();
 		
-		data1.forEach((comments) => {
-			
-		});
+		recentActivity(data1, data2);
 		
 	} catch(err) {
 		console.error(err);
 		alert(err.message);
+		recentActivity();
 	}
 }
 
-function recentActivity() {
+function recentActivity(comments = [], likesAndRatings = []) {
 	const favs = JSON.parse(localStorage.getItem('unit_page_favourites')).map(obj => {
 		return {
 			state: 'Started',
@@ -178,8 +176,24 @@ function recentActivity() {
 			timeMs: new Date(obj.timestamp).getTime()  || 0
 		};
 	});
+	
+	comments = comments.map(obj => {
+		return {
+			state: 'Commented',
+			url: obj.page_id,
+			timeMs: new Date(obj.created_at).getTime()
+		};
+	})
+	
+	likesAndRatings = likesAndRatings.map(obj => {
+		return {
+			state: obj.page_likes ? 'Liked' : obj.page_ratings ? 'Rated' : 'Removed',
+			url: obj.page_id,
+			timeMs: new Date(obj.created_at).getTime()
+		};
+	})
 
-	const recentActivities = [...favs, ...histories].sort((a, b) => b.timeMs - a.timeMs);
+	const recentActivities = [...favs, ...histories, ...comments, ...likesAndRatings].sort((a, b) => b.timeMs - a.timeMs);
 	
 	let recentActivityItems = '';
 
@@ -187,7 +201,7 @@ function recentActivity() {
 
 		recentActivityItems += `
                 <li>
-                    ${item.state} : <span class="example-title">${item.title}</span> - ${item.timeMs ? timeAgo(item.timeMs) : 'Unknown'}<br>
+                    ${item.state || 'Visited'} : <span class="example-title">${item.title || generateTitleFromURL(item.url)}</span> - ${item.timeMs ? timeAgo(item.timeMs) : 'Unknown'}<br>
                     <span class="example-heading">${item.heading ? item.heading : ''}</span> <a href="${item.url}">View</a>
                 </li>
 			`;
@@ -197,6 +211,45 @@ function recentActivity() {
 }
 
 // helper functions
+
+function getSemester(courseNumber) {
+    const num = parseInt(courseNumber)
+
+    if (num >= 100 && num < 150) return "1st Semester"
+    else if (num >= 150 && num < 200) return "2nd Semester"
+    else if (num >= 200 && num < 250) return "3rd Semester"
+    else if (num >= 250 && num < 300) return "4th Semester"
+    else if (num >= 300 && num < 350) return "5th Semester"
+    else if (num >= 350 && num < 400) return "6th Semester"
+    else if (num >= 400 && num < 550) return "7th Semester"
+    else if (num >= 550 && num < 600) return "8th Semester"
+    else return "Any Semester"
+}
+
+function capitalize(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1)
+}
+
+function generateTitleFromURL(url) {
+
+    let parts = url.replace(".html", "").split("/").slice(3)
+
+    let sem = parts[1].split("_").join(" ")
+    sem = capitalize(sem)
+
+    let sub = parts[2].split("_").map(capitalize).join(" ")
+
+    let paper = parts[3].split("_").join(" ").toUpperCase()
+
+    let unit = parts[4].split("_").join(" ")
+    unit = capitalize(unit)
+
+    let courseNumber = parts[3].split("_")[1]
+
+    let semester = getSemester(courseNumber)
+
+    return `${sub} ${paper} ${unit} | ${semester} Notes`
+}
 
 function timeAgo(unixMs) {
 	const now = Date.now()
@@ -215,4 +268,3 @@ function timeAgo(unixMs) {
 
 sync()
 fetchCommentsLikesAndRatings()
-recentActivity();

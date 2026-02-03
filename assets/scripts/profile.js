@@ -162,7 +162,9 @@ function recentActivity() {
 	const favs = JSON.parse(localStorage.getItem('unit_page_favourites')).map(obj => {
 		return {
 			state: 'Started',
+			url: obj.url,
 			title: obj.title,
+			heading: obj.heading,
 			timeMs: new Date(obj.timestamp).getTime()  || 0
 		};
 	});
@@ -170,7 +172,9 @@ function recentActivity() {
 	const histories = JSON.parse(localStorage.getItem('unit_page_history')).reverse().map(obj => {
 		return {
 			state: 'Read',
+			url: obj.url,
 			title: obj.title,
+			heading: obj.heading,
 			timeMs: new Date(obj.timestamp).getTime()  || 0
 		};
 	});
@@ -182,7 +186,10 @@ function recentActivity() {
 	recentActivities.forEach((item) => {
 
 		recentActivityItems += `
-                <li>${item.state}: ${item.title} - ${item.timeMs ? timeAgo(item.timeMs) : 'Unknown'}</li>
+                <li>
+                    ${item.state} : <span class="example-title">${item.title}</span> - ${item.timeMs ? timeAgo(item.timeMs) : 'Unknown'}<br>
+                    <span class="example-heading">${item.heading ? item.heading : ''}</span> <a href="${item.url}">View</a>
+                </li>
 			`;
 	});
 

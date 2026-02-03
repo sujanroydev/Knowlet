@@ -149,11 +149,15 @@ li:last-child {
     border-bottom: none;
 }
 
-/* TITLES INSIDE LIST */
+/* TITLES AND HEADING INSIDE LIST */
 .example-title {
     font-size: 15px;
     font-weight: bold;
     color: #333;
+}
+.example-heading {
+    font-size: 18px;
+    color: #060;
 }
 
 /* PROGRESS BAR */

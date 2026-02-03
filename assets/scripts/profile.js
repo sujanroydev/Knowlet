@@ -110,8 +110,6 @@ async function sync() {
 
 async function fetchCommentsLikesAndRatings() {
 	try {
-		console.log('fun called')
-		
 		const res1 = await fetch('http://localhost:8888/.netlify/functions/get-comments', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -161,33 +159,51 @@ async function fetchCommentsLikesAndRatings() {
 }
 
 function recentActivity() {
-	const favs = JSON.parse(localStorage.getItem('unit_page_favourites'));
-	const histories = JSON.parse(localStorage.getItem('unit_page_history'));
+	const favs = JSON.parse(localStorage.getItem('unit_page_favourites')).map(obj => {
+		return {
+			state: 'Started',
+			title: obj.title,
+			timeMs: new Date(obj.timestamp).getTime()  || 0
+		};
+	});
+
+	const histories = JSON.parse(localStorage.getItem('unit_page_history')).reverse().map(obj => {
+		return {
+			state: 'Read',
+			title: obj.title,
+			timeMs: new Date(obj.timestamp).getTime()  || 0
+		};
+	});
+
+	const recentActivities = [...favs, ...histories].sort((a, b) => b.timeMs - a.timeMs);
 	
 	let recentActivityItems = '';
-	let sortedRecentActivityItems = [];
-	let index = 0;
-	
-	[...favs, ...histories].forEach((item) => {
-		
-		index++;
-		
-		
-		
-		
-		
-		
-		
-		
-// 		const status = 'Unknown';
-// 		const passTime = 'Unknown';
-		
-// 		recentActivityItems += `
-//                 <li>${status}: ${item.title} - ${passTime}</li>
-// `
+
+	recentActivities.forEach((item) => {
+
+		recentActivityItems += `
+                <li>${item.state}: ${item.title} - ${item.timeMs ? timeAgo(item.timeMs) : 'Unknown'}</li>
+			`;
 	});
-	console.log(sortedRecentActivityItems);
-	// recentActivityView.innerHTML = recentActivityItems;
+
+	recentActivityView.innerHTML = recentActivityItems;
+}
+
+// helper functions
+
+function timeAgo(unixMs) {
+	const now = Date.now()
+	const diffMs = now - unixMs
+
+	const seconds = Math.floor(diffMs / 1000)
+	const minutes = Math.floor(seconds / 60)
+	const hours = Math.floor(minutes / 60)
+	const days = Math.floor(hours / 24)
+
+	if (seconds < 60) return `${seconds} seconds ago`
+	if (minutes < 60) return `${minutes} minutes ago`
+	if (hours < 24) return `${hours} hours ago`
+	return `${days} days ago`
 }
 
 sync()

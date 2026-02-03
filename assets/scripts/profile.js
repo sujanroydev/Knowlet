@@ -166,15 +166,12 @@ function recentActivity() {
 	
 	let recentActivityItems = '';
 	
-	favs.forEach((favItem) => {
+	[...favs, ...histories].forEach((item) => {
+		const status = 'Unknown';
+		const passTime = 'Unknown';
+		
 		recentActivityItems += `
-                <li>Started: ${favItem.title}</li>
-`
-	});
-	
-	histories.forEach((historyItem) => {
-		recentActivityItems += `
-                <li>Read: ${historyItem.title}</li>
+                <li>${status}: ${item.title} - ${passTime}</li>
 `
 	});
 	

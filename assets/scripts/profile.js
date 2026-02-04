@@ -110,18 +110,30 @@ async function sync() {
 
 async function fetchCommentsLikesAndRatings() {
 	try {
-		const res1 = await fetch('http://localhost:8888/.netlify/functions/get-comments', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({ userId: user.id })
-		});
+		const [res1, res2] = await Promise.all([
+            fetch('http://localhost:8888/.netlify/functions/get-comments', {
+                method: 'POST',
+                header: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ userId: user.id })
+            }),
+            fetch('http://localhost:8888/.netlify/functions/get-likes-ratings', {
+                method: 'POST',
+                header: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ userId: user.id })
+            })
+        ]);
 		
-		if (!res1.ok) {
-			console.error('error code ' + res1.status);
-			return
-		} 
+		if (!res1.ok || !res2.ok) {
+            console.error(`Fetch failed: res1: ${res1.status}, res2: ${res2.status}`);
+            return;
+        }
+        
+        const [{ data: data1 }, { data: data2 }] = await Promise.all([
+            res1.json(),
+            res2.json()
+        ]);
 		
-		const { data: data1, error: error1 } = await res1.json();
+		recentActivity(data1, data2);
 		
 		let commentsCount = 0;
 		let totalCommentsLikes = 0;
@@ -133,21 +145,6 @@ async function fetchCommentsLikesAndRatings() {
 		
 		stat[0].textContent = totalCommentsLikes;
 		stat[1].textContent = commentsCount;
-		
-		const res2 = await fetch('http://localhost:8888/.netlify/functions/get-likes-ratings', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({ userId: user.id })
-		});
-		
-		if (!res2.ok) {
-			console.error('error code ' + res2.status);
-			return;
-		} 
-		
-		const { data: data2, error: error2 } = await res2.json();
-		
-		recentActivity(data1, data2);
 		
 	} catch(err) {
 		console.error(err);

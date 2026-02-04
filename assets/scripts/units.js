@@ -1,3 +1,5 @@
+const pageId = (window.location.href + '').replace('.html', '').replace(window.location.origin, 'https://knowlet.in');
+
 // Create UI on load
 renderNavBar();
 renderFeedbackSection();
@@ -5,14 +7,10 @@ renderFeedbackSection();
 let selectedRating = 0;        // user's chosen star (1..5)
 let hoverRating = 0;             // hover preview
 
-const pageId = (window.location.href + '').replace('.html', '')
-
 let btnLike = document.getElementById("btnLike");
 const topBar = document.getElementsByClassName("unit-top-bar")[0];
 const ratingsBox = document.getElementById("ratings-box");
 const commentsBox = document.getElementById("comments-box");
-const btnToggleRatings = document.getElementById("btn-toggle-ratings");
-const btnToggleComments = document.getElementById("btn-toggle-comments");
 const btnPostComment = document.getElementById("btn-post-comment");
 const btnSubmitRating = document.getElementById("btn-submit-rating");
 const btnClearRating = document.getElementById("clear-rating");
@@ -49,30 +47,6 @@ function isLogged() {
             window.location.href = "../../../../login_signup.html";
         }, 60000);
     } 
-}
-
-function toggleComments() {
-    if (commentsHidden) {
-        commentsBox.style.display = 'block';
-        btnToggleComments.textContent = "Hide Comments";
-        commentsHidden = false;
-    } else {
-        commentsBox.style.display = 'none'
-        btnToggleComments.textContent = "Show Comments";
-        commentsHidden = true;
-    }
-}
-
-function toggleRatings() {
-    if (ratingsHidden) {
-        ratingsBox.style.display = 'block';
-        btnToggleRatings.textContent = "Hide Ratings";
-        ratingsHidden = false;
-    } else {
-        ratingsBox.style.display = 'none'
-        btnToggleRatings.textContent = "Show Ratings";
-        ratingsHidden = true;
-    }
 }
 
 // Average star visual (fractional filling)
@@ -639,12 +613,12 @@ function renderNavBar() {
 
     function toggleFavourite() {
         let favs = getFavourites();
-        const index = favs.findIndex(item => item.url === currentUrl);
+        const index = favs.findIndex(item => item.url === pageId);
 
         if (index >= 0) {
             favs.splice(index, 1);
         } else {
-            favs.push({ url: currentUrl, title: document.title });
+            favs.push({ url: pageId, title: document.title, heading: document.querySelector('h1').textContent, timestamp: new Date().toISOString() });
         }
 
         localStorage.setItem(FAV_KEY, JSON.stringify(favs));
@@ -652,7 +626,7 @@ function renderNavBar() {
     }
 
     function renderFavouriteState() {
-        const favActive = isFavourite(currentUrl);
+        const favActive = isFavourite(pageId);
         favBtn.classList.toggle("favourited", favActive);
         favBtn.title = favActive ? "Remove from Favourites" : "Add to Favourites";
     }
@@ -663,17 +637,16 @@ function renderNavBar() {
     
     // trace history
     const HISTORY_KEY = 'unit_page_history';
-    const pageTitle = document.title;
 
     function updateHistory() {
         let history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
         
-        const newEntry = { url: currentUrl, title: pageTitle, timestamp: new Date().toISOString() };
+        const newEntry = { url: pageId, title: document.title, heading: document.querySelector('h1').textContent, timestamp: new Date().toISOString() };
 
         history = history.filter(item => item.url !== newEntry.url); // <-- CORRECTED LINE
         history.unshift(newEntry);
                 
-        const maxHistorySize = 15;
+        const maxHistorySize = 50;
         
         if (history.length > maxHistorySize) {
                 history.length = maxHistorySize;
@@ -804,17 +777,20 @@ function renderFeedbackSection() {
                 <!-- Ratings list -->
                 <div class="supcard">
                     <h2 id='h3' style="margin-bottom:8px; font-size:16px; margin:0 0 14px; color:69707a;">Ratings</h2>
-                    <div id="user-ratings-box"></div>
                     <button id="btn-toggle-ratings" class="btn" onclick="toggleRatings()" style="margin-bottom: 5px">Show Ratings</button>
-                    <div id="ratings-box" style="display:none"></div>
+                    <div class="vertical-scroll">
+						<div id="user-ratings-box"></div>
+						<div id="ratings-box"></div>
+					</div>
                 </div>
         
                 <!-- Comments list -->
                 <div class="supcard">
                     <h2 id='h3' style="margin-bottom:8px; font-size:16px; margin:0 0 14px; color:69707a;">Comments</h2>
-                    <div id="user-comments-box"></div>
-                    <button id="btn-toggle-comments" class="btn" onclick="toggleComments()" style="margin-bottom: 5px">Show Comments</button>
-                    <div id="comments-box" style="display:none"></div>
+                    <div class="vertical-scroll">
+						<div id="user-comments-box"></div>
+						<div id="comments-box"></div>
+					</div>
                 </div>
             </div>
         </div>        

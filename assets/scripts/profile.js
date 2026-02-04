@@ -59,7 +59,7 @@ async function sync() {
 	        'https://knowlet.in/.netlify/functions/get-data',
 	        {
 	            method: 'POST',
-	            headers: {'Content-Type': 'application/json'},
+	            header: {'Content-Type': 'application/json'},
 	            body: JSON.stringify({ email: user.email, password: user.password })
 	        }
 	    );
@@ -133,7 +133,7 @@ async function fetchCommentsLikesAndRatings() {
             res2.json()
         ]);
 		
-		recentActivity(data1, data2);
+		renderRecentActivityAndRecommendation(data1, data2);
 		
 		let commentsCount = 0;
 		let totalCommentsLikes = 0;
@@ -149,11 +149,11 @@ async function fetchCommentsLikesAndRatings() {
 	} catch(err) {
 		console.error(err);
 		alert(err.message);
-		recentActivity();
+		renderRecentActivityAndRecommendation();
 	}
 }
 
-function recentActivity(comments = [], likesAndRatings = []) {
+function renderRecentActivityAndRecommendation(comments = [], likesAndRatings = []) {
 	const favs = JSON.parse(localStorage.getItem('unit_page_favourites')).map(obj => {
 		return {
 			state: 'Started',
@@ -193,8 +193,18 @@ function recentActivity(comments = [], likesAndRatings = []) {
 	const recentActivities = [...favs, ...histories, ...comments, ...likesAndRatings].sort((a, b) => b.timeMs - a.timeMs);
 	
 	let recentActivityItems = '';
+	let recommendedItems = '';
 
 	recentActivities.forEach((item) => {
+
+		if (item.state === 'Started' || item.state === 'Liked') {
+			recommendedItems += `
+					<li>
+						<span class="example-title">${item.title || generateTitleFromURL(item.url)}</span><br>
+						<span class="example-heading">${item.heading ? item.heading : ''}</span> <a href="${item.url}">View</a>
+					</li>
+				`;
+		}
 
 		recentActivityItems += `
                 <li>
@@ -205,6 +215,7 @@ function recentActivity(comments = [], likesAndRatings = []) {
 	});
 
 	recentActivityView.innerHTML = recentActivityItems;
+	recommendationView.innerHTML = recommendedItems;
 }
 
 // helper functions

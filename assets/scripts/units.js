@@ -595,8 +595,23 @@ function renderNavBar() {
     }
 
     topBar.appendChild(prev);
-    topBar.appendChild(next);
+        
+    // home button
+    const homeBtn = `<button id="home-btn" class="btn ghost" onclick="window.location.href='/'">🏠</button>`
+    topBar.insertAdjacentHTML('beforeend', homeBtn);
 
+    topBar.appendChild(next);
+    
+    // profile     
+    const srcUrl = localStorage.getItem('knowletUser') ? JSON.parse(localStorage.getItem('knowletUser')).picture : '/assets/images/demo_pp.jpg';
+    const btnProfilePic = `<button id='profile-btn' class="btn ghost" onclick="window.location.href='/profile'">
+    	<img id='profile-btn-img'
+    		style=''
+    		src='${srcUrl}'
+    	/>
+    </button>`;
+    topBar.insertAdjacentHTML('beforeend', btnProfilePic);
+    
     // --- 3. Favourite Button
     const FAV_KEY = "unit_page_favourites";
     const favBtn = document.createElement("button");
@@ -666,7 +681,7 @@ function renderNavBar() {
     // --- 5. Download button
     btnDownload = `<button onclick="printDiv('container')" style="margin: 0; font-size: 1.9rem">⬇️</button>`;
     topBar.insertAdjacentHTML('beforeend', btnDownload);
-    
+
     // --- 6. Like Button 
     const btnLike = `<button id="btnLike" class="btn ghost" onclick="likePage(0)">👍🏼 0</button>`
     topBar.insertAdjacentHTML('beforeend', btnLike);

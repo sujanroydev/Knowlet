@@ -305,3 +305,8 @@ small{color:var(--muted)}
         flex-direction:column;
     }
 }
+
+.vertical-scroll {
+	max-height: 400px;
+    overflow-y: auto;
+}

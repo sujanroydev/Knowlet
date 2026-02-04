@@ -223,3 +223,7 @@ li:last-child {
     overflow-y: auto;
     padding-right: 10px;
 }
+
+#recent-activity-view {
+	max-height: 350px;
+}

@@ -18,9 +18,9 @@ let user;
 
 profilePic.addEventListener("click", () => {
     if (isExist) {
-        window.location.href='profile_complition_form.html'
+        window.location.href = 'profile_complition_form.html';
     } else {
-        window.location.href='login_signup.html'
+        window.location.href = 'login_signup.html';
     }
 });
 
@@ -34,15 +34,15 @@ logoutBtn.addEventListener("click", () => {
 
 async function sync() {
     
-    user = localStorage.getItem("knowletUser")
+    user = localStorage.getItem("knowletUser");
     
     if (user) {
         user = JSON.parse(user);
     } else {
         userName.textContent = "Your Name";
         email.textContent = "yourname@example.com";
-        userId.textContent = "User ID"
-        profilePic.src = "assets/images/demo_pp.jpg"
+        userId.textContent = "User ID";
+        profilePic.src = "assets/images/demo_pp.jpg";
         
         isExist = false;
         loginBtn.style.display = "inline-block";
@@ -111,12 +111,12 @@ async function sync() {
 async function fetchCommentsLikesAndRatings() {
 	try {
 		const [res1, res2] = await Promise.all([
-            fetch('http://localhost:8888/.netlify/functions/get-comments', {
+            fetch('https://knowlet.in/.netlify/functions/get-comments', {
                 method: 'POST',
                 header: {'Content-Type': 'application/json'},
                 body: JSON.stringify({ userId: user.id })
             }),
-            fetch('http://localhost:8888/.netlify/functions/get-likes-ratings', {
+            fetch('https://knowlet.in/.netlify/functions/get-likes-ratings', {
                 method: 'POST',
                 header: {'Content-Type': 'application/json'},
                 body: JSON.stringify({ userId: user.id })
@@ -274,5 +274,5 @@ function timeAgo(unixMs) {
 	return `${days} days ago`
 }
 
-sync()
-fetchCommentsLikesAndRatings()
+sync();
+fetchCommentsLikesAndRatings();

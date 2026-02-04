@@ -38,6 +38,7 @@ async function sync() {
     
     if (user) {
         user = JSON.parse(user);
+        fetchCommentsLikesAndRatings();
     } else {
         userName.textContent = "Your Name";
         email.textContent = "yourname@example.com";
@@ -154,7 +155,7 @@ async function fetchCommentsLikesAndRatings() {
 }
 
 function renderRecentActivityAndRecommendation(comments = [], likesAndRatings = []) {
-	const favs = JSON.parse(localStorage.getItem('unit_page_favourites')).map(obj => {
+	const favs = (JSON.parse(localStorage.getItem('unit_page_favourites')) || []).map(obj => {
 		return {
 			state: 'Started',
 			url: obj.url,
@@ -164,7 +165,7 @@ function renderRecentActivityAndRecommendation(comments = [], likesAndRatings = 
 		};
 	});
 
-	const histories = JSON.parse(localStorage.getItem('unit_page_history')).reverse().map(obj => {
+	const histories = (JSON.parse(localStorage.getItem('unit_page_history')) || []).reverse().map(obj => {
 		return {
 			state: 'Read',
 			url: obj.url,
@@ -275,4 +276,3 @@ function timeAgo(unixMs) {
 }
 
 sync();
-fetchCommentsLikesAndRatings();

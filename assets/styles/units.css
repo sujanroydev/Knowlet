@@ -310,3 +310,15 @@ small{color:var(--muted)}
 	max-height: 400px;
     overflow-y: auto;
 }
+
+#profile-btn {
+	border-radius: 50%;
+}
+
+#profile-btn-img {
+	border-radius: 50%;
+	width: 35px;
+    height: 35px;
+    background: linear-gradient(#ddd, #ccc);
+    object-fit: cover
+}

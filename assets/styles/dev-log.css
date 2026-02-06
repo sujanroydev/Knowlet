@@ -19,6 +19,41 @@ body{
 	color:var(--text);
 }
 
+.repo-info{
+	background:var(--card);
+	border-radius:16px;
+	padding:20px 22px;
+	border:1px solid var(--border);
+	box-shadow:0 6px 18px rgba(0,0,0,0.05);
+	margin-bottom:28px;
+}
+
+.repo-info h2{
+	margin:0;
+	font-size:1.2rem;
+}
+
+.repo-info p{
+	margin:6px 0 14px;
+	color:var(--muted);
+	font-size:0.9rem;
+}
+
+.repo-stats{
+	display:flex;
+	flex-wrap:wrap;
+	gap:14px;
+	align-items:center;
+	font-size:0.85rem;
+}
+
+.repo-stats a{
+	margin-left:auto;
+	color:var(--primary);
+	text-decoration:none;
+	font-weight:600;
+}
+
 .container{
 	max-width:900px;
 	margin:auto;

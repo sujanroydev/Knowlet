@@ -1,6 +1,39 @@
 const GITHUB_USERNAME = 'SKR0411'
 const REPO_NAME = 'Knowlet'
 
+async function fetchRepoInfo(){
+	const box = document.getElementById('repo-info')
+
+	try{
+		const res = await fetch(
+			`https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}`
+		)
+
+		const repo = await res.json()
+
+		const updatedAgo = getTimeAgo(
+			new Date(repo.updated_at)
+		)
+
+		box.innerHTML = `
+			<h2>${repo.full_name}</h2>
+			<p>${repo.description || 'No description available'}</p>
+
+			<div class="repo-stats">
+				<span>⭐ ${repo.stargazers_count}</span>
+				<span>🍴 ${repo.forks_count}</span>
+				<span>🕒 Updated ${updatedAgo}</span>
+				<a href="${repo.html_url}" target="_blank">
+					View on GitHub
+				</a>
+			</div>
+		`
+
+	}catch(err){
+		box.innerHTML = 'Failed to load repo info'
+	}
+}
+
 async function fetchMergeCommits(){
 	const container = document.getElementById('log-container')
 
@@ -97,4 +130,5 @@ function getTimeAgo(date){
 	return 'just now'
 }
 
+fetchRepoInfo()
 fetchMergeCommits()

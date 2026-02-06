@@ -1,0 +1,143 @@
+:root{
+	--primary:#4f46e5;
+	--secondary:#22c55e;
+	--bg:#f1f5f9;
+	--card:#ffffff;
+	--text:#0f172a;
+	--muted:#64748b;
+	--border:#e5e7eb;
+}
+
+*{
+	box-sizing:border-box;
+}
+
+body{
+	margin:0;
+	font-family:system-ui, -apple-system, sans-serif;
+	background:linear-gradient(180deg,#f8fafc,#e2e8f0);
+	color:var(--text);
+}
+
+.container{
+	max-width:900px;
+	margin:auto;
+	padding:30px 16px 60px;
+}
+
+/* Header */
+
+header{
+	background:linear-gradient(135deg,#4f46e5,#6366f1);
+	color:white;
+	padding:30px;
+	border-radius:18px;
+	box-shadow:0 15px 35px rgba(79,70,229,0.25);
+	margin-bottom:35px;
+}
+
+header h1{
+	margin:0;
+	font-size:1.8rem;
+}
+
+header p{
+	margin-top:6px;
+	opacity:0.9;
+	font-size:0.95rem;
+}
+
+/* Logs */
+
+#log-container{
+	display:flex;
+	flex-direction:column;
+	gap:16px;
+}
+
+.log-entry{
+	background:var(--card);
+	border-radius:14px;
+	padding:18px 20px;
+	border:1px solid var(--border);
+	box-shadow:0 6px 18px rgba(0,0,0,0.05);
+	transition:0.25s ease;
+	position:relative;
+	overflow:hidden;
+}
+
+.log-entry::before{
+	content:'';
+	position:absolute;
+	left:0;
+	top:0;
+	width:4px;
+	height:100%;
+	background:linear-gradient(180deg,var(--primary),var(--secondary));
+}
+
+.log-entry:hover{
+	transform:translateY(-4px);
+	box-shadow:0 12px 28px rgba(0,0,0,0.1);
+}
+
+.meta{
+	display:flex;
+	align-items:center;
+	gap:10px;
+	margin-bottom:6px;
+}
+
+.date{
+	font-size:0.8rem;
+	color:var(--muted);
+	font-weight:600;
+}
+
+.hash{
+	font-family:monospace;
+	font-size:0.75rem;
+	padding:3px 8px;
+	border-radius:999px;
+	background:#eef2ff;
+	color:var(--primary);
+	font-weight:600;
+}
+
+.commit-msg{
+	font-size:1rem;
+	font-weight:600;
+	margin:6px 0 8px;
+}
+
+.author{
+	font-size:0.85rem;
+	color:var(--muted);
+}
+
+/* Loading */
+
+.loading{
+	text-align:center;
+	padding:60px;
+	font-size:1rem;
+	color:var(--muted);
+	animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+	0%{opacity:0.5}
+	50%{opacity:1}
+	100%{opacity:0.5}
+}
+
+/* Responsive */
+
+@media(max-width:600px){
+	header{
+		padding:22px;
+	}
+	.commit-msg{
+		font-size:0.95rem;
+	}
+}

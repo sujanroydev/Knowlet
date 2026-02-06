@@ -141,3 +141,25 @@ header p{
 		font-size:0.95rem;
 	}
 }
+
+.author{
+	display:flex;
+	align-items:center;
+	gap:10px;
+	font-size:0.85rem;
+	color:var(--muted);
+}
+
+.author a{
+	color:inherit;
+	text-decoration:none;
+	font-weight:600;
+}
+
+.avatar{
+	width:28px;
+	height:28px;
+	border-radius:50%;
+	object-fit:cover;
+	border:1px solid var(--border);
+}

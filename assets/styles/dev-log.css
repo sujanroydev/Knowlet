@@ -39,16 +39,39 @@ body{
 	font-size:0.9rem;
 }
 
-.repo-stats{
+.repo-owner{
 	display:flex;
-	flex-wrap:wrap;
-	gap:14px;
 	align-items:center;
+	gap:12px;
+	margin-bottom:10px;
+}
+
+.owner-avatar{
+	width:48px;
+	height:48px;
+	border-radius:50%;
+	object-fit:cover;
+	border:1px solid var(--border);
+	box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.repo-owner a{
+	font-weight:700;
+	color:var(--text);
+	text-decoration:none;
+}
+
+.repo-stats{
+	display:grid;
+	grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+	gap:12px;
 	font-size:0.85rem;
+	align-items:center;
 }
 
 .repo-stats a{
-	margin-left:auto;
+	grid-column:1/-1;
+	text-align:right;
 	color:var(--primary);
 	text-decoration:none;
 	font-weight:600;

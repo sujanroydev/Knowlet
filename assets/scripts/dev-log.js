@@ -5,32 +5,87 @@ async function fetchRepoInfo(){
 	const box = document.getElementById('repo-info')
 
 	try{
-		const res = await fetch(
+		const repoRes = await fetch(
 			`https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}`
 		)
+		const repo = await repoRes.json()
 
-		const repo = await res.json()
+		// Latest release
+		let latestRelease = 'No releases'
+		try{
+			const releaseRes = await fetch(
+				`https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/releases/latest`
+			)
+			if(releaseRes.ok){
+				const release = await releaseRes.json()
+				latestRelease = release.tag_name
+			}
+		}catch{}
 
-		const updatedAgo = getTimeAgo(
-			new Date(repo.updated_at)
+		// Recent merge count
+		const commitsRes = await fetch(
+			`https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/commits?per_page=100`
 		)
+		const commits = await commitsRes.json()
+		const mergeCount = commits.filter(
+			c => c.parents.length >= 2
+		).length
+
+		const updatedAgo = getTimeAgo(new Date(repo.updated_at))
+
+		const created = new Date(repo.created_at)
+			.toLocaleDateString('en-US',{
+				month:'short',
+				day:'numeric',
+				year:'numeric'
+			})
+
+		const ownerAvatar = repo.owner.avatar_url
+		const ownerProfile = repo.owner.html_url
+		const ownerName = repo.owner.login
 
 		box.innerHTML = `
+			<div class="repo-owner">
+				<img src="${ownerAvatar}" class="owner-avatar">
+				<a href="${ownerProfile}" target="_blank">
+					${ownerName}
+				</a>
+			</div>
+
 			<h2>${repo.full_name}</h2>
 			<p>${repo.description || 'No description available'}</p>
 
 			<div class="repo-stats">
-				<span>⭐ ${repo.stargazers_count}</span>
-				<span>🍴 ${repo.forks_count}</span>
+
+				<span>⭐ ${repo.stargazers_count} stars</span>
+				<span>👀 ${repo.watchers_count} watchers</span>
+				<span>🍴 ${repo.forks_count} forks</span>
+				<span>🐛 ${repo.open_issues_count} issues</span>
+
+				<span>🔀 ${mergeCount} recent merges</span>
+				<span>🏷 Latest release: ${latestRelease}</span>
+
+				<span>🌿 Branch: ${repo.default_branch}</span>
+				<span>📦 Size: ${(repo.size / 1024).toFixed(2)} MB</span>
+
+				<span>📅 Created: ${created}</span>
 				<span>🕒 Updated ${updatedAgo}</span>
+
+				<span>📜 License: ${repo.license?.name || 'None'}</span>
+				<span>🗄 ${repo.archived ? 'Archived' : 'Active'}</span>
+
+				${repo.homepage ? `<span>🌐 ${repo.homepage}</span>` : ''}
+
 				<a href="${repo.html_url}" target="_blank">
 					View on GitHub
 				</a>
+
 			</div>
 		`
 
 	}catch(err){
 		box.innerHTML = 'Failed to load repo info'
+		console.error(err)
 	}
 }
 

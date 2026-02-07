@@ -22,6 +22,12 @@ async function fetchRepoInfo(){
 			}
 		}catch{}
 
+		// Contributors (limit to 6)
+		const contributorsRes = await fetch(
+			`https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/contributors?per_page=6`
+		)
+		const contributors = await contributorsRes.json()
+
 		// Recent merge count
 		const commitsRes = await fetch(
 			`https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/commits?per_page=100`
@@ -43,6 +49,12 @@ async function fetchRepoInfo(){
 		const ownerAvatar = repo.owner.avatar_url
 		const ownerProfile = repo.owner.html_url
 		const ownerName = repo.owner.login
+		const contributorsHTML = contributors.map(user => `
+			<a href="${user.html_url}" target="_blank" class="contributor">
+				<img src="${user.avatar_url}" alt="${user.login}">
+				<span>${user.login}</span>
+			</a>
+		`).join('')
 
 		box.innerHTML = `
 			<div class="repo-owner">
@@ -75,6 +87,13 @@ async function fetchRepoInfo(){
 				<span>🗄 ${repo.archived ? 'Archived' : 'Active'}</span>
 
 				${repo.homepage ? `<span>🌐 ${repo.homepage}</span>` : ''}
+
+				<div class="contributors">
+					<h3>Contributors</h3>
+					<div class="contributors-list">
+						${contributorsHTML || '<span>No contributors</span>'}
+					</div>
+				</div>
 
 				<a href="${repo.html_url}" target="_blank">
 					View on GitHub

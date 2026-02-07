@@ -258,3 +258,23 @@ header p{
 	border-radius:50%;
 	object-fit:cover;
 }
+
+.actors{
+	display:flex;
+	gap:16px;
+	margin-top:6px;
+}
+
+.actor{
+	display:flex;
+	align-items:center;
+	gap:6px;
+	font-size:0.8rem;
+	color:var(--muted);
+}
+
+.role{
+	font-size:0.7rem;
+	color:var(--muted);
+	opacity:0.8;
+}

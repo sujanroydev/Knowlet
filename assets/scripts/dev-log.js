@@ -145,8 +145,13 @@ async function fetchMergeCommits(){
 			const timeAgo = getTimeAgo(commitDate)
 		
 			const authorName = item.commit.author.name
-			const avatar = item.author?.avatar_url || ''
-			const profile = item.author?.html_url || '#'
+			const authorAvatar = item.author?.avatar_url || ''
+			const authorProfile = item.author?.html_url || '#'
+
+			const mergerName = item.commit.committer?.name || 'Unknown'
+			const mergerAvatar = item.committer?.avatar_url || authorAvatar
+			const mergerProfile = item.committer?.html_url || authorProfile
+
 			const commitUrl = item.html_url
 		
 			container.innerHTML += `
@@ -163,11 +168,24 @@ async function fetchMergeCommits(){
 						${item.commit.message.split('\n')[0]}
 					</div>
 		
-					<div class="author">
-						<img src="${avatar}" class="avatar">
-						<a href="${profile}" target="_blank">
-							${authorName}
-						</a>
+					<div class="actors">
+
+						<div class="actor">
+							<img src="${authorAvatar}" class="avatar">
+							<a href="${authorProfile}" target="_blank">
+								${authorName}
+							</a>
+							<span class="role">author</span>
+						</div>
+
+						<div class="actor">
+							<img src="${mergerAvatar}" class="avatar">
+							<a href="${mergerProfile}" target="_blank">
+								${mergerName}
+							</a>
+							<span class="role">merged</span>
+						</div>
+
 					</div>
 		
 				</div>

@@ -187,3 +187,8 @@ function getTimeAgo(date){
 
 fetchRepoInfo()
 fetchMergeCommits()
+
+setInterval(() => {
+	fetchRepoInfo()
+	fetchMergeCommits()
+}, 90 * 1000)

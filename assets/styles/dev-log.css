@@ -17,6 +17,7 @@ body{
 	font-family:system-ui, -apple-system, sans-serif;
 	background:linear-gradient(180deg,#f8fafc,#e2e8f0);
 	color:var(--text);
+	min-height: 100vh;
 }
 
 .repo-info{

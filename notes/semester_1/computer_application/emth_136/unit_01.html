@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMTH136 Unit 1 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Exam-ready academic notes for EMTH136 Discrete Structures Unit 1. Covering Sets, Subsets, Venn Diagrams, and Laws of Set Theory.">
+    <meta name="keywords" content="EMTH136, Discrete Structures, Set Theory, Subsets, Power Set, Venn Diagrams, BCA, Knowlet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e67e22;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --border-color: #ddd;
+            --accent-blue: #3498db;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            margin-top: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        blockquote {
+            background: #fdf2e9;
+            border-left: 5px solid var(--secondary-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            color: var(--secondary-color);
+        }
+
+        .exam-section {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .tips { background-color: #e8f8f5; border: 1px solid #27ae60; }
+        .mistakes { background-color: #fdedec; border: 1px solid #c0392b; }
+        .faq { background-color: #ebf5fb; border: 1px solid #2980b9; }
+
+        .label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            text-decoration: underline;
+        }
+
+        strong { color: #d35400; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 1: Set Theory Fundamentals</h1>
+
+    <div class="toc">
+        <h3>Table of Contents</h3>
+        <ul>
+            <li><a href="#definition">1. Sets and Description of a Set</a> </li>
+            <li><a href="#types">2. Types of Sets</a> </li>
+            <li><a href="#subsets">3. Subsets and Power Sets</a> </li>
+            <li><a href="#venn">4. Venn Diagrams</a> </li>
+            <li><a href="#operations">5. Operations on Sets</a> </li>
+            <li><a href="#laws">6. Laws of Set Theory</a> </li>
+            <li><a href="#exam-corner">7. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="definition">1. Sets and Description of a Set</h2>
+    <p>A <strong>Set</strong> is a well-defined collection of distinct objects. The objects in a set are called its members or elements. "Well-defined" means that for any object, we can clearly determine whether it belongs to the collection or not.</p>
+    
+    <h3>Description of a Set</h3>
+    <p>There are two primary ways to represent or describe a set:</p>
+    <ul>
+        <li><strong>Roster or Tabular Method:</strong> Listing all elements within braces, separated by commas.
+            <br><em>Example:</em> V = {a, e, i, o, u}</li>
+        <li><strong>Set-Builder or Rule Method:</strong> Specifying the common property possessed by all elements of the set.
+            <br><em>Example:</em> A = {x : x is a natural number and x < 6}</li>
+    </ul>
+
+    <h2 id="types">2. Types of Sets</h2>
+    <p>Sets are categorized based on the number and nature of their elements:</p>
+    <table>
+        <tr>
+            <th>Set Type</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+        <tr>
+            <td><strong>Empty / Null Set</strong></td>
+            <td>A set containing no elements, denoted by { } or Ø.</td>
+            <td>{x : x is a person living on Mars}</td>
+        </tr>
+        <tr>
+            <td><strong>Finite Set</strong></td>
+            <td>A set with a countable number of elements.</td>
+            <td>{1, 2, 3, 4, 5}</td>
+        </tr>
+        <tr>
+            <td><strong>Infinite Set</strong></td>
+            <td>A set with uncountable elements.</td>
+            <td>The set of all points on a line.</td>
+        </tr>
+        <tr>
+            <td><strong>Equal Sets</strong></td>
+            <td>Two sets having exactly the same elements.</td>
+            <td>A={1,2}, B={2,1}</td>
+        </tr>
+        <tr>
+            <td><strong>Equivalent Sets</strong></td>
+            <td>Sets with the same number of elements (Cardinality).</td>
+            <td>A={a,b}, B={1,2}</td>
+        </tr>
+    </table>
+
+    <h2 id="subsets">3. Subsets and Power Sets</h2>
+    <h3>Subsets</h3>
+    <p>If every element of set A is also an element of set B, then A is called a <strong>Subset</strong> of B (denoted as A ⊆ B).</p>
+    <ul>
+        <li><strong>Proper Subset:</strong> If A ⊆ B and A ≠ B, then A is a proper subset of B (A ⊂ B).</li>
+        <li><strong>Improper Subset:</strong> Every set is a subset of itself; this is an improper subset.</li>
+    </ul>
+
+    <h3>Power Set</h3>
+    <blockquote>
+        <strong>Power Set:</strong> The collection of all possible subsets of a set A is called the Power Set of A, denoted as P(A).
+    </blockquote>
+    <p>If a set has <em>n</em> elements, the total number of subsets (elements in the power set) is <strong>2ⁿ</strong>.</p>
+    <p><em>Example:</em> If A = {1, 2}, then P(A) = {Ø, {1}, {2}, {1, 2}}. Total elements = 2² = 4.</p>
+
+    <h2 id="venn">4. Venn Diagrams</h2>
+    <p>Venn diagrams are graphical representations of sets using closed curves (usually circles) within a rectangle representing the <strong>Universal Set (U)</strong>.</p>
+    <p>They are essential for visualizing the relationships between different sets and verifying set identities visually.</p>
+
+    <h2 id="operations">5. Operations on Sets</h2>
+    <p>Common operations used to combine or modify sets include:</p>
+    <ul>
+        <li><strong>Union (A ∪ B):</strong> The set of all elements that are in A OR in B (or both).
+            <br><em>A ∪ B = {x : x ∈ A or x ∈ B}</em></li>
+        <li><strong>Intersection (A ∩ B):</strong> The set of elements that are common to both A AND B.
+            <br><em>A ∩ B = {x : x ∈ A and x ∈ B}</em></li>
+        <li><strong>Difference (A - B):</strong> Elements present in A but NOT in B.
+            <br><em>A - B = {x : x ∈ A and x ∉ B}</em></li>
+        <li><strong>Complement (A'):</strong> Elements in the Universal set U that are NOT in A.
+            <br><em>A' = {x : x ∈ U and x ∉ A}</em></li>
+    </ul>
+
+    <h2 id="laws">6. Laws of Set Theory</h2>
+    <p>These laws (identities) are used to simplify set expressions:</p>
+    <ul>
+        <li><strong>Commutative Laws:</strong> A ∪ B = B ∪ A ; A ∩ B = B ∩ A</li>
+        <li><strong>Associative Laws:</strong> (A ∪ B) ∪ C = A ∪ (B ∪ C)</li>
+        <li><strong>Distributive Laws:</strong> A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)</li>
+        <li><strong>De Morgan's Laws:</strong> (A ∪ B)' = A' ∩ B' ; (A ∩ B)' = A' ∪ B'</li>
+        <li><strong>Idempotent Laws:</strong> A ∪ A = A ; A ∩ A = A</li>
+        <li><strong>Identity Laws:</strong> A ∪ Ø = A ; A ∩ U = A</li>
+    </ul>
+
+    <h2 id="exam-corner">7. Exam Focus Enhancements</h2>
+
+    <div class="exam-section tips">
+        <span class="label">Exam Tips</span>
+        <ul>
+            <li><strong>Power Set Calculation:</strong> Always check the number of elements in the original set first. If n=3, ensure you list exactly 2³ = 8 subsets.</li>
+            <li><strong>Empty Set Inclusion:</strong> Remember that the empty set (Ø) is a subset of <em>every</em> set and is always the first element listed in a power set.</li>
+            <li><strong>Braces Matter:</strong> Use { } for sets. Writing elements without braces or using ( ) will lose marks in formal set notation.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section mistakes">
+        <span class="label">Common Mistakes</span>
+        <ul>
+            <li>Confusing <strong>∈ (belongs to)</strong> with <strong>⊆ (subset of)</strong>. Elements belong to sets; sets are subsets of other sets.</li>
+            <li>Miscalculating the <strong>Difference (A - B)</strong>. Remember, it is only what is left in A after removing the overlap with B.</li>
+            <li>Drawing Venn diagrams without the <strong>Universal Set rectangle</strong>. This is technically incorrect as the universal context is missing.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section faq">
+        <span class="label">Frequently Asked Questions</span>
+        <p><strong>Q: Is {0} an empty set?</strong><br>
+        A: No. It is a singleton set containing one element: zero. An empty set has zero elements and is written as { }.</p>
+        <p><strong>Q: What is a Disjoint Set?</strong><br>
+        A: Two sets A and B are disjoint if their intersection is empty (A ∩ B = Ø).</p>
+    </div>
+
+</div>
+
+</body>
+</html>

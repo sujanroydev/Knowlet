@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMTH136 Unit 3 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Detailed academic notes for EMTH136 Unit 3: Trigonometric Functions. Covers degree-radian conversion, T-ratios, identities, and graphs.">
+    <meta name="keywords" content="EMTH136, Discrete Structures, Trigonometry, Radian Measure, Trigonometric Identities, Sine Graph, Cosine Graph, Knowlet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e67e22;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --border-color: #ddd;
+            --accent-blue: #3498db;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin-top: 35px;
+            background: #fdf2e9;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            margin-top: 25px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .exam-section {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .tips { background-color: #e8f8f5; border: 1px solid #27ae60; }
+        .mistakes { background-color: #fdedec; border: 1px solid #c0392b; }
+        .faq { background-color: #ebf5fb; border: 1px solid #2980b9; }
+
+        .formula-box {
+            background-color: #f1f8ff;
+            border: 1px solid #abb2b9;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-family: "Courier New", Courier, monospace;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 3: Trigonometric Functions</h1>
+
+    <div class="toc">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#angles">1. Angles and Their Measurement</a></li>
+            <li><a href="#ratios">2. Trigonometric Ratios and Signs</a></li>
+            <li><a href="#identities">3. Fundamental Identities and Formulas</a></li>
+            <li><a href="#graphs">4. Graphs of Trigonometric Functions</a></li>
+            <li><a href="#equations">5. General Solutions of Equations</a></li>
+            <li><a href="#exam-prep">6. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="angles">1. Angles and Their Measurement</h2>
+    <p>An angle is a measure of rotation of a given ray about its initial point. Rotation can be positive (anticlockwise) or negative (clockwise).</p>
+    
+    <h3>Degree and Radian Measure</h3>
+    <ul>
+        <li><strong>Degree Measure:</strong> If a rotation from initial to terminal side is 1/360th of a revolution, the angle is 1 degree (1°).</li>
+        <li><strong>Radian Measure:</strong> The angle subtended at the center by an arc of length 1 unit in a unit circle is 1 radian (1ᶜ).</li>
+    </ul>
+
+    <div class="formula-box">
+        <strong>Conversion Rule:</strong><br>
+        π Radians = 180 Degrees<br>
+        Radian Measure = (π / 180) × Degree Measure<br>
+        Degree Measure = (180 / π) × Radian Measure
+    </div>
+
+    <h2 id="ratios">2. Trigonometric Ratios and Signs</h2>
+    <p>Trigonometric ratios are defined based on the coordinates of a point on a unit circle. Their signs depend on the quadrant in which the terminal side of the angle lies.</p>
+
+    
+
+    <table>
+        <tr>
+            <th>Quadrant</th>
+            <th>Rule (ASTC)</th>
+            <th>Positive Ratios</th>
+        </tr>
+        <tr>
+            <td><strong>I (0 - 90°)</strong></td>
+            <td><strong>A</strong>ll</td>
+            <td>All (sin, cos, tan, etc.) are positive.</td>
+        </tr>
+        <tr>
+            <td><strong>II (90 - 180°)</strong></td>
+            <td><strong>S</strong>chool</td>
+            <td>sin and cosec are positive.</td>
+        </tr>
+        <tr>
+            <td><strong>III (180 - 270°)</strong></td>
+            <td><strong>T</strong>o</td>
+            <td>tan and cot are positive.</td>
+        </tr>
+        <tr>
+            <td><strong>IV (270 - 360°)</strong></td>
+            <td><strong>C</strong>ollege</td>
+            <td>cos and sec are positive.</td>
+        </tr>
+    </table>
+
+    <h2 id="identities">3. Fundamental Identities and Formulas</h2>
+    <p>These identities are the building blocks for simplifying complex trigonometric expressions:</p>
+    
+    <div class="formula-box">
+        sin²x + cos²x = 1<br>
+        1 + tan²x = sec²x<br>
+        1 + cot²x = cosec²x
+    </div>
+
+    <h3>Sum and Difference Formulas:</h3>
+    <ul>
+        <li>sin(A ± B) = sinA cosB ± cosA sinB</li>
+        <li>cos(A ± B) = cosA cosB ∓ sinA sinB</li>
+        <li>tan(A ± B) = (tanA ± tanB) / (1 ∓ tanA tanB)</li>
+    </ul>
+
+    <h2 id="graphs">4. Graphs of Trigonometric Functions</h2>
+    <p>Trigonometric functions are periodic, meaning their values repeat after a fixed interval (Period).</p>
+
+    
+
+    <ul>
+        <li><strong>y = sin x:</strong> Period = 2π, Range = [-1, 1]. Passes through origin.</li>
+        <li><strong>y = cos x:</strong> Period = 2π, Range = [-1, 1]. Starts at (0, 1).</li>
+        <li><strong>y = tan x:</strong> Period = π, Range = R (all real numbers). Discontinuous at odd multiples of π/2.</li>
+    </ul>
+
+    <h2 id="equations">5. General Solutions of Equations</h2>
+    <p>When solving sin x = k, cos x = k, or tan x = k, we find the general solution that accounts for the periodic nature of the function.</p>
+    <ul>
+        <li>If sin x = sin α, then <strong>x = nπ + (-1)ⁿα</strong></li>
+        <li>If cos x = cos α, then <strong>x = 2nπ ± α</strong></li>
+        <li>If tan x = tan α, then <strong>x = nπ + α</strong></li>
+    </ul>
+
+    <h2 id="exam-prep">6. Exam Focus Enhancements</h2>
+
+    <div class="exam-section tips">
+        <span class="label">Exam Tips</span>
+        <ul>
+            <li><strong>The ASTC Mnemonic:</strong> "After School To College" helps you remember which functions are positive in which quadrant.</li>
+            <li><strong>π Value:</strong> In degree-radian conversions, always keep π as a symbol unless specifically asked to use 22/7 or 3.14.</li>
+            <li><strong>Graph Symmetry:</strong> Remember that sin(-x) = -sin x (Odd), while cos(-x) = cos x (Even).</li>
+        </ul>
+    </div>
+
+    <div class="exam-section mistakes">
+        <span class="label">Common Mistakes</span>
+        <ul>
+            <li><strong>Degree/Radian Confusion:</strong> Check your calculator mode before solving. <code>sin(30)</code> in radians is very different from <code>sin(30°)</code>.</li>
+            <li><strong>Signs in Quadrants:</strong> Forgetting that <code>tan</code> is negative in the 2nd quadrant is a frequent error.</li>
+            <li><strong>Undefined Tan:</strong> Be careful when x is 90° or 270°; <code>tan x</code> becomes undefined (Infinity).</li>
+        </ul>
+    </div>
+
+    <div class="exam-section faq">
+        <span class="label">Frequently Asked Questions</span>
+        <p><strong>Q: What is the relation between arc length, radius, and angle?</strong><br>
+        A: θ = l / r, where θ is the angle in <strong>radians</strong>, l is arc length, and r is the radius.</p>
+        <p><strong>Q: What is the minimum and maximum value of (sin x + cos x)?</strong><br>
+        A: The values range from -√2 to +√2.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

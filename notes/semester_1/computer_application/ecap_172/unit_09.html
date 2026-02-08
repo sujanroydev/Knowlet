@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECAP172 Unit 9 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready HTML notes for ECAP172 Unit 9: Strings. Learn string initialization, I/O, and library functions like strcpy and strlen.">
+    <meta name="keywords" content="ECAP172, C Strings, String Functions, strcat, strcpy, strcmp, strlen, strrev, Knowlet">
+    <style>
+        :root {
+            --primary-navy: #1a2a6c;
+            --accent-teal: #008080;
+            --bg-light: #f4f7f6;
+            --text-dark: #2d3436;
+            --code-bg: #2d3436;
+            --code-text: #dfe6e9;
+            --border-color: #bdc3c7;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        h1 {
+            color: var(--primary-navy);
+            text-align: center;
+            border-bottom: 4px solid var(--accent-teal);
+            padding-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: var(--accent-teal);
+            border-left: 6px solid var(--primary-navy);
+            padding: 8px 15px;
+            margin-top: 40px;
+            background: #f0fdfd;
+        }
+
+        h3 {
+            color: var(--primary-navy);
+            margin-top: 25px;
+            border-bottom: 2px solid #f1f2f6;
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .toc {
+            background: #ffffff;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-navy);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            color: var(--accent-teal);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-navy);
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        blockquote {
+            background: #eef2f7;
+            border-left: 5px solid var(--primary-navy);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        pre {
+            background: var(--code-bg);
+            color: var(--code-text);
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .exam-section {
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .tips { background-color: #e8f6f3; border: 1px solid #1abc9c; }
+        .mistakes { background-color: #fdedec; border: 1px solid #e74c3c; }
+        .faq { background-color: #ebf5fb; border: 1px solid #3498db; }
+
+        .tag {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 9: Strings</h1>
+
+    <div class="toc">
+        <h3>Table of Contents</h3>
+        <ul>
+            <li><a href="#definition">1. Defining and Initializing Strings</a></li>
+            <li><a href="#io">2. Reading and Writing Strings</a></li>
+            <li><a href="#processing">3. Processing of Strings</a></li>
+            <li><a href="#library">4. String Library Functions</a></li>
+            <li><a href="#exam-prep">5. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="definition">1. Defining and Initializing Strings</h2>
+    <p>In C programming, a <strong>string</strong> is defined as a one-dimensional array of characters terminated by a <strong>null character</strong> (\0). The null character is essential because it marks the end of the string in memory.</p>
+
+    <h3>Declaration</h3>
+    <pre>char string_name[size];</pre>
+    <p>When declaring a string, the size must be large enough to hold the characters plus the null terminator. For example, to store "HELLO", you need an array of at least 6 characters.</p>
+
+    <h3>Initialization Methods</h3>
+    <ul>
+        <li><strong>Character-by-character:</strong> <code>char str[] = {'H', 'e', 'l', 'l', 'o', '\0'};</code></li>
+        <li><strong>String Literal:</strong> <code>char str[] = "Hello";</code> (The compiler automatically adds \0 at the end).</li>
+        <li><strong>With Size:</strong> <code>char str[10] = "Hello";</code> (The remaining 4 indices are filled with null characters).</li>
+    </ul>
+
+    <h2 id="io">2. Reading and Writing Strings</h2>
+    <p>C provides several ways to perform Input and Output (I/O) operations on strings.</p>
+
+    <h3>Reading Strings</h3>
+    <ul>
+        <li><strong>scanf():</strong> <code>scanf("%s", str);</code> - Reads a string but stops at the first whitespace (space, tab, or newline).</li>
+        <li><strong>gets():</strong> <code>gets(str);</code> - Reads a full line of text including spaces until the Enter key is pressed. (Note: Be careful as it does not check for buffer overflow).</li>
+    </ul>
+
+    <h3>Writing Strings</h3>
+    <ul>
+        <li><strong>printf():</strong> <code>printf("%s", str);</code> - Displays the string on the screen.</li>
+        <li><strong>puts():</strong> <code>puts(str);</code> - Displays the string and automatically adds a newline character at the end.</li>
+    </ul>
+
+    <h2 id="processing">3. Processing of Strings</h2>
+    <p>Processing involves manipulating the characters within the string using loops or pointers. Since a string is an array, you can access individual characters using their index.</p>
+    
+    
+
+    <p><strong>Example: Counting Vowels</strong><br>
+    To process a string, you typically use a loop that runs until it encounters the <code>'\0'</code> character.</p>
+    <pre>
+for(int i = 0; str[i] != '\0'; i++) {
+    // Process each character str[i]
+}
+    </pre>
+
+    <h2 id="library">4. String Library Functions</h2>
+    <p>The <code>&lt;string.h&gt;</code> header file provides a powerful set of functions to simplify string operations.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Function</th>
+                <th>Purpose</th>
+                <th>Example Usage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>strlen()</strong></td>
+                <td>Returns the length of the string (excluding \0).</td>
+                <td>len = strlen("Hello"); // Result: 5</td>
+            </tr>
+            <tr>
+                <td><strong>strcpy()</strong></td>
+                <td>Copies one string into another.</td>
+                <td>strcpy(dest, src);</td>
+            </tr>
+            <tr>
+                <td><strong>strcat()</strong></td>
+                <td>Concatenates (joins) two strings.</td>
+                <td>strcat(s1, s2);</td>
+            </tr>
+            <tr>
+                <td><strong>strcmp()</strong></td>
+                <td>Compares two strings alphabetically.</td>
+                <td>if(strcmp(s1, s2) == 0) // Identical</td>
+            </tr>
+            <tr>
+                <td><strong>strrev()</strong></td>
+                <td>Reverses the string characters.</td>
+                <td>strrev(str);</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 id="exam-prep">5. Exam Focus Enhancements</h2>
+
+    <div class="exam-section tips">
+        <span class="tag">Exam Tips</span>
+        <ul>
+            <li><strong>The +1 Rule:</strong> Always remember to allocate space for the null terminator. If your string has 5 characters, your array size must be at least 6.</li>
+            <li><strong>Header File:</strong> Never forget to include <code>#include &lt;string.h&gt;</code> when using functions like <code>strlen</code> or <code>strcpy</code>.</li>
+            <li><strong>strcmp Return Values:</strong> 0 means equal, positive means s1 > s2, and negative means s1 < s2.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section mistakes">
+        <span class="tag">Common Mistakes</span>
+        <ul>
+            <li><strong>No Null Terminator:</strong> Treating a character array without a <code>'\0'</code> as a string. Functions like <code>printf</code> will keep reading memory until they find a zero, causing "garbage" output.</li>
+            <li><strong>scanf Limitation:</strong> Using <code>scanf("%s", name)</code> to read a name with a space (e.g., "John Doe"). It will only store "John".</li>
+            <li><strong>String Assignment:</strong> Attempting <code>str1 = str2;</code> to copy strings. In C, you must use <code>strcpy()</code> for this operation.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section faq">
+        <span class="tag">Frequently Asked Questions</span>
+        <p><strong>Q: What is the difference between 'A' and "A"?</strong><br>
+        A: 'A' is a single character (1 byte), while "A" is a string containing 'A' and '\0' (2 bytes).</p>
+        <p><strong>Q: Is the null character included in the length returned by strlen()?</strong><br>
+        A: No, <code>strlen()</code> only counts the visible characters.</p>
+        <p><strong>Q: Why is gets() considered dangerous?</strong><br>
+        A: It does not check the size of the array, so if a user enters more characters than the array can hold, it overwrites other memory (buffer overflow).</p>
+    </div>
+
+</div>
+
+</body>
+</html>

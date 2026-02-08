@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMTH136 Unit 9 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Official exam notes for EMTH136 Unit 9: Introduction to Three Dimensional Geometry. Covers octants, coordinate planes, distance, and section formulas.">
+    <meta name="keywords" content="EMTH136, Discrete Structures, 3D Geometry, Octants, Distance Formula 3D, Section Formula 3D, Knowlet">
+    <style>
+        :root {
+            --primary-navy: #1a2a6c;
+            --accent-purple: #8e44ad;
+            --bg-light: #f4f7f6;
+            --text-dark: #2c3e50;
+            --border-color: #dcdde1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        h1 {
+            color: var(--primary-navy);
+            text-align: center;
+            border-bottom: 4px solid var(--accent-purple);
+            padding-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: var(--accent-purple);
+            border-left: 6px solid var(--primary-navy);
+            padding-left: 15px;
+            margin-top: 40px;
+            background: #f4ecf7;
+        }
+
+        h3 {
+            color: var(--primary-navy);
+            margin-top: 25px;
+            border-bottom: 2px solid #f1f2f6;
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .toc {
+            background: #ffffff;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-navy);
+            font-weight: bold;
+        }
+
+        .formula-box {
+            background-color: #f8f9fa;
+            border: 1px solid var(--primary-navy);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: var(--primary-navy);
+            color: #fff;
+        }
+
+        .exam-section {
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .tips { background-color: #e8f6f3; border: 1px solid #1abc9c; }
+        .mistakes { background-color: #fdedec; border: 1px solid #e74c3c; }
+        .faq { background-color: #ebf5fb; border: 1px solid #3498db; }
+
+        .tag {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 9: Introduction to 3D Geometry</h1>
+
+    <div class="toc">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#intro">1. Coordinate Axes and Planes</a></li>
+            <li><a href="#octants">2. Coordinates and Octants</a></li>
+            <li><a href="#distance">3. Distance Between Two Points</a></li>
+            <li><a href="#section">4. Section Formula</a></li>
+            <li><a href="#exam-prep">5. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="intro">1. Coordinate Axes and Planes</h2>
+    <p>In three-dimensional space, we use three mutually perpendicular lines passing through a common origin $O$ to define position. These are the <strong>X, Y, and Z axes</strong>.</p>
+    
+    
+
+    <h3>The Coordinate Planes</h3>
+    <p>These axes taken in pairs determine three <strong>coordinate planes</strong>:</p>
+    <ul>
+        <li><strong>XY-plane:</strong> Contains X and Y axes; $z = 0$ for all points here.</li>
+        <li><strong>YZ-plane:</strong> Contains Y and Z axes; $x = 0$ for all points here.</li>
+        <li><strong>ZX-plane:</strong> Contains Z and X axes; $y = 0$ for all points here.</li>
+    </ul>
+
+    <h2 id="octants">2. Coordinates and Octants</h2>
+    <p>The three coordinate planes divide the entire space into <strong>eight parts</strong> known as <strong>Octants</strong>. The coordinates of a point $P$ are written as an ordered triple $(x, y, z)$.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Octant</th>
+                <th>I</th>
+                <th>II</th>
+                <th>III</th>
+                <th>IV</th>
+                <th>V</th>
+                <th>VI</th>
+                <th>VII</th>
+                <th>VIII</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>x</strong></td>
+                <td>+</td>
+                <td>-</td>
+                <td>-</td>
+                <td>+</td>
+                <td>+</td>
+                <td>-</td>
+                <td>-</td>
+                <td>+</td>
+            </tr>
+            <tr>
+                <td><strong>y</strong></td>
+                <td>+</td>
+                <td>+</td>
+                <td>-</td>
+                <td>-</td>
+                <td>+</td>
+                <td>+</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td><strong>z</strong></td>
+                <td>+</td>
+                <td>+</td>
+                <td>+</td>
+                <td>+</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 id="distance">3. Distance Between Two Points</h2>
+    <p>The distance between two points $P(x_1, y_1, z_1)$ and $Q(x_2, y_2, z_2)$ is an extension of the 2D distance formula.</p>
+
+    <div class="formula-box">
+        $PQ = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}$
+    </div>
+
+    <h2 id="section">4. Section Formula</h2>
+    <p>The section formula helps find the coordinates of a point $R$ that divides the line segment joining $P(x_1, y_1, z_1)$ and $Q(x_2, y_2, z_2)$ in the ratio $m : n$.</p>
+
+    
+
+    <h3>Internal Division:</h3>
+    <div class="formula-box">
+        $R = \left( \frac{mx_2 + nx_1}{m+n}, \frac{my_2 + ny_1}{m+n}, \frac{mz_2 + nz_1}{m+n} \right)$
+    </div>
+
+    <h3>External Division:</h3>
+    <div class="formula-box">
+        $R = \left( \frac{mx_2 - nx_1}{m-n}, \frac{my_2 - ny_1}{m-n}, \frac{mz_2 - nz_1}{m-n} \right)$
+    </div>
+
+    <p><strong>Mid-point Formula:</strong> If $R$ is the mid-point (ratio 1:1), then: <br>
+    $R = \left( \frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}, \frac{z_1 + z_2}{2} \right)$</p>
+
+    <h2 id="exam-prep">5. Exam Focus Enhancements</h2>
+
+    <div class="exam-section tips">
+        <span class="tag">Exam Tips</span>
+        <ul>
+            <li><strong>Centroid of a Triangle:</strong> If asked for the centroid of a triangle with vertices $(x_1, y_1, z_1)$, $(x_2, y_2, z_2)$, and $(x_3, y_3, z_3)$, the formula is: <br> $G = \left( \frac{x_1+x_2+x_3}{3}, \frac{y_1+y_2+y_3}{3}, \frac{z_1+z_2+z_3}{3} \right)$.</li>
+            <li><strong>The "k:1" Method:</strong> To find the ratio in which a point divides a line, always assume the ratio is $k : 1$. If $k$ is positive, it's internal; if negative, it's external.</li>
+            <li><strong>Points on Axes:</strong> A point on the X-axis is $(x, 0, 0)$; on the Y-axis is $(0, y, 0)$; on the Z-axis is $(0, 0, z)$.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section mistakes">
+        <span class="tag">Common Mistakes</span>
+        <ul>
+            <li><strong>Signs in Octants:</strong> Students often confuse the 4th and 8th octants. Note that $z$ is positive for the first four and negative for the last four.</li>
+            <li><strong>External Division Formula:</strong> Forgetting the minus sign in the denominator $(m-n)$ often leads to calculation errors.</li>
+            <li><strong>Coordinate Planes:</strong> Misidentifying the plane. Remember: in the <strong>XY</strong>-plane, the <strong>Z</strong>-coordinate is zero.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section faq">
+        <span class="tag">Frequently Asked Questions</span>
+        <p><strong>Q: What is the distance of point $(x, y, z)$ from the origin?</strong><br>
+        A: $d = \sqrt{x^2 + y^2 + z^2}$.</p>
+        <p><strong>Q: How many octants are there?</strong><br>
+        A: There are 8 octants, just as there are 4 quadrants in 2D geometry.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

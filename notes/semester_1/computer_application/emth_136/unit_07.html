@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMTH136 Unit 7 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Academic notes for EMTH136 Unit 7: Straight Lines. Covers slope, various forms of line equations, and distance formulas.">
+    <meta name="keywords" content="EMTH136, Discrete Structures, Straight Lines, Slope of a line, Point-slope form, Distance of a point from a line, Knowlet">
+    <style>
+        :root {
+            --primary-navy: #1a2a6c;
+            --accent-green: #27ae60;
+            --bg-light: #f4f7f6;
+            --text-dark: #2d3436;
+            --border-color: #bdc3c7;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        h1 {
+            color: var(--primary-navy);
+            text-align: center;
+            border-bottom: 4px solid var(--accent-green);
+            padding-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: var(--accent-green);
+            border-left: 6px solid var(--primary-navy);
+            padding: 8px 15px;
+            margin-top: 40px;
+            background: #f0fdf4;
+        }
+
+        h3 {
+            color: var(--primary-navy);
+            margin-top: 25px;
+            border-bottom: 2px solid #f1f2f6;
+            padding-bottom: 5px;
+        }
+
+        .toc {
+            background: #ffffff;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-navy);
+            font-weight: bold;
+        }
+
+        .formula-box {
+            background-color: #f1f8ff;
+            border: 1px solid var(--primary-navy);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .exam-section {
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .tips { background-color: #e8f6f3; border: 1px solid #1abc9c; }
+        .mistakes { background-color: #fdedec; border: 1px solid #e74c3c; }
+        .faq { background-color: #ebf5fb; border: 1px solid #3498db; }
+
+        .tag {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        strong { color: var(--accent-green); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 7: Straight Lines</h1>
+
+    <div class="toc">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#slope">1. Slope of a Line</a></li>
+            <li><a href="#angle">2. Angle Between Two Lines</a></li>
+            <li><a href="#forms">3. Various Forms of Equations of a Line</a></li>
+            <li><a href="#distance">4. Distance of a Point from a Line</a></li>
+            <li><a href="#exam-prep">5. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="slope">1. Slope of a Line</h2>
+    <p>The <strong>Slope</strong> (or gradient) of a line is a measure of its steepness and direction. It is denoted by $m$.</p>
+    
+    
+
+    <ul>
+        <li><strong>Using Inclination:</strong> If $\theta$ is the angle a line makes with the positive x-axis, then $m = \tan \theta$.</li>
+        <li><strong>Using Two Points:</strong> If a line passes through $(x_1, y_1)$ and $(x_2, y_2)$, then:
+            <div class="formula-box">$m = \frac{y_2 - y_1}{x_2 - x_1}$</div>
+        </li>
+    </ul>
+    <p><strong>Conditions:</strong> Parallel lines have equal slopes ($m_1 = m_2$). Perpendicular lines have a product of slopes equal to $-1$ ($m_1 \cdot m_2 = -1$).</p>
+
+    <h2 id="angle">2. Angle Between Two Lines</h2>
+    <p>When two lines with slopes $m_1$ and $m_2$ intersect, the acute angle $\alpha$ between them is given by:</p>
+    
+    <div class="formula-box">$\tan \alpha = \left| \frac{m_2 - m_1}{1 + m_1 m_2} \right|$</div>
+    
+    <h2 id="forms">3. Various Forms of Equations of a Line</h2>
+    <p>Depending on the information available, we use different forms to represent a straight line in the Cartesian plane.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Form Name</th>
+                <th>Equation</th>
+                <th>Given Information</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Slope-Intercept Form</strong></td>
+                <td>$y = mx + c$</td>
+                <td>Slope ($m$) and y-intercept ($c$).</td>
+            </tr>
+            <tr>
+                <td><strong>Point-Slope Form</strong></td>
+                <td>$y - y_1 = m(x - x_1)$</td>
+                <td>Slope ($m$) and a point $(x_1, y_1)$.</td>
+            </tr>
+            <tr>
+                <td><strong>Two-Point Form</strong></td>
+                <td>$y - y_1 = \frac{y_2 - y_1}{x_2 - x_1}(x - x_1)$</td>
+                <td>Two points $(x_1, y_1)$ and $(x_2, y_2)$.</td>
+            </tr>
+            <tr>
+                <td><strong>Intercept Form</strong></td>
+                <td>$\frac{x}{a} + \frac{y}{b} = 1$</td>
+                <td>x-intercept ($a$) and y-intercept ($b$).</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 id="distance">4. Distance of a Point from a Line</h2>
+    <p>The perpendicular distance $d$ from a point $(x_1, y_1)$ to a line $Ax + By + C = 0$ is calculated as:</p>
+    
+    
+
+    <div class="formula-box">$d = \frac{|Ax_1 + By_1 + C|}{\sqrt{A^2 + B^2}}$</div>
+    
+    <p><strong>Distance between two parallel lines</strong> $Ax + By + C_1 = 0$ and $Ax + By + C_2 = 0$ is:</p>
+    <div class="formula-box">$d = \frac{|C_1 - C_2|}{\sqrt{A^2 + B^2}}$</div>
+
+    <h2 id="exam-prep">5. Exam Focus Enhancements</h2>
+
+    <div class="exam-section tips">
+        <span class="tag">Exam Tips</span>
+        <ul>
+            <li><strong>The Intercept Trick:</strong> If you are asked to find the intercepts of $3x + 4y = 12$, simply divide the whole equation by $12$ to get $\frac{x}{4} + \frac{y}{3} = 1$. The intercepts are $(4, 0)$ and $(0, 3)$.</li>
+            <li><strong>Collinearity:</strong> Three points are collinear if the slope of $AB$ equals the slope of $BC$.</li>
+            <li><strong>General Form:</strong> Always try to leave your final answer in the general form $Ax + By + C = 0$.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section mistakes">
+        <span class="tag">Common Mistakes</span>
+        <ul>
+            <li><strong>Vertical Line Slope:</strong> Remember that the slope of a vertical line is <strong>undefined</strong> ($\tan 90^\circ$).</li>
+            <li><strong>Sign Errors:</strong> When using the distance formula, ensure all terms are on one side of the equation ($= 0$) before identifying $A, B,$ and $C$.</li>
+            <li><strong>Intercept Form:</strong> The intercept form must have a "$+1$" on the right side. If it's $-1$, multiply the whole equation by $-1$.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section faq">
+        <span class="tag">Frequently Asked Questions</span>
+        <p><strong>Q: How do I find the slope of a line given in general form $Ax + By + C = 0$?</strong><br>
+        A: Convert it to $y = mx + c$ form. The slope is $m = -A/B$.</p>
+        <p><strong>Q: What is the slope of the x-axis and y-axis?</strong><br>
+        A: The x-axis has a slope of $0$ ($\tan 0^\circ$). The y-axis has an <strong>undefined</strong> slope ($\tan 90^\circ$).</p>
+    </div>
+
+</div>
+
+</body>
+</html>

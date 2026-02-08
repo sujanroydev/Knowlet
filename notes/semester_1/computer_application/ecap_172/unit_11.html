@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECAP172 Unit 11 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for ECAP172 Unit 11: Pointers. Learn pointer declaration, initialization, arithmetic, and expressions for BCA.">
+    <meta name="keywords" content="ECAP172, Pointers in C, Pointer Arithmetic, Pointer Declaration, C Programming, Knowlet">
+    <style>
+        :root {
+            --primary-navy: #1a2a6c;
+            --accent-purple: #8e44ad;
+            --bg-light: #f4f7f6;
+            --text-dark: #2c3e50;
+            --border-color: #dcdde1;
+            --code-bg: #2d3436;
+            --code-text: #dfe6e9;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        h1 {
+            color: var(--primary-navy);
+            text-align: center;
+            border-bottom: 4px solid var(--accent-purple);
+            padding-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: var(--accent-purple);
+            border-left: 6px solid var(--primary-navy);
+            padding: 8px 15px;
+            margin-top: 40px;
+            background: #f4ecf7;
+        }
+
+        h3 {
+            color: var(--primary-navy);
+            margin-top: 25px;
+            border-bottom: 2px solid #f1f2f6;
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .toc {
+            background: #ffffff;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-navy);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            color: var(--accent-purple);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-navy);
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        blockquote {
+            background: #eef2f7;
+            border-left: 5px solid var(--primary-navy);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        pre {
+            background: var(--code-bg);
+            color: var(--code-text);
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .exam-section {
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .tips { background-color: #e8f6f3; border: 1px solid #1abc9c; }
+        .mistakes { background-color: #fdedec; border: 1px solid #e74c3c; }
+        .faq { background-color: #ebf5fb; border: 1px solid #3498db; }
+
+        .tag {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 11: Pointers</h1>
+
+    <div class="toc">
+        <h3>Table of Contents</h3>
+        <ul>
+            <li><a href="#intro">1. Introduction to Pointers</a></li>
+            <li><a href="#data-type">2. Pointer Data Type and Declaration</a></li>
+            <li><a href="#initialization">3. Initialization of Pointers</a></li>
+            <li><a href="#accessing">4. Accessing Values Using Pointers</a></li>
+            <li><a href="#arithmetic">5. Pointer Expressions and Arithmetic</a></li>
+            <li><a href="#operations">6. Operations on Pointers</a></li>
+            <li><a href="#exam-prep">7. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="intro">1. Introduction to Pointers</h2>
+    <p>A <strong>Pointer</strong> is a special variable that stores the <strong>memory address</strong> of another variable. Instead of holding a direct value like an integer or a character, a pointer "points" to the location where a value is stored in the computer's memory.</p>
+    
+    [Image of pointer variable pointing to a memory address of another variable]
+
+    <h2 id="data-type">2. Pointer Data Type and Declaration</h2>
+    <p>A pointer must be declared with a data type that matches the type of the variable it points to. This is because the compiler needs to know how many bytes of memory to read when accessing the value at that address.</p>
+    
+    <h3>Syntax:</h3>
+    <pre>data_type *pointer_name;</pre>
+    
+    <p><strong>Example:</strong></p>
+    <ul>
+        <li><code>int *p;</code> - A pointer to an integer variable.</li>
+        <li><code>float *fptr;</code> - A pointer to a floating-point variable.</li>
+        <li><code>char *ch;</code> - A pointer to a character variable.</li>
+    </ul>
+
+    <h2 id="initialization">3. Initialization of Pointers</h2>
+    <p>Initialization is the process of assigning a memory address to a pointer variable. This is done using the <strong>Address-of Operator (&amp;)</strong>.</p>
+    
+    <h3>Example:</h3>
+    <pre>
+int num = 10;
+int *ptr;     // Declaration
+ptr = &amp;num;   // Initialization (ptr now stores the address of num)
+    </pre>
+    <blockquote>
+        <strong>Warning:</strong> Always initialize pointers. A pointer that is declared but not initialized is called a <strong>Wild Pointer</strong> and contains a random memory address, which can lead to system crashes.
+    </blockquote>
+
+    <h2 id="accessing">4. Accessing Values Using Pointers</h2>
+    <p>You can access the actual value stored at the memory address held by a pointer using the <strong>Dereferencing Operator (*)</strong>, also known as the Indirection Operator.</p>
+    
+    <h3>Example:</h3>
+    <pre>
+int x = 25;
+int *p = &amp;x;
+printf("Value of x: %d", *p); // Output: 25
+    </pre>
+    <p>In the above code, <code>*p</code> tells the computer to "go to the address stored in <code>p</code> and get the value located there."</p>
+
+    <h2 id="arithmetic">5. Pointer Expressions and Arithmetic</h2>
+    <p>Pointer arithmetic allows you to perform addition and subtraction on pointers. However, unlike regular math, pointer arithmetic is based on the <strong>size</strong> of the data type it points to.</p>
+
+    <h3>Rules of Pointer Arithmetic:</h3>
+    <ul>
+        <li><strong>Increment (ptr++):</strong> Moves the pointer to the <em>next</em> memory location of its type. For an <code>int</code> pointer on a 4-byte system, it adds 4 to the address.</li>
+        <li><strong>Decrement (ptr--):</strong> Moves the pointer to the <em>previous</em> memory location.</li>
+        <li><strong>Addition (ptr + n):</strong> Adds <code>n * sizeof(data_type)</code> to the address.</li>
+        <li><strong>Subtraction (ptr - n):</strong> Subtracts <code>n * sizeof(data_type)</code> from the address.</li>
+    </ul>
+
+    <p><strong>Formula for Addition:</strong><br>
+    New_Address = Current_Address + (n * Size_of_Data_Type)</p>
+
+    <h2 id="operations">6. Operations on Pointers</h2>
+    <p>Beyond basic arithmetic, several other operations can be performed on pointers:</p>
+    <ul>
+        <li><strong>Subtraction of two pointers:</strong> This gives the number of elements between the two addresses. Both pointers must point to the same array.</li>
+        <li><strong>Pointer Comparison:</strong> You can compare two pointers using relational operators (==, !=, &lt;, &gt;) to see which one points to a higher or lower address in the same array.</li>
+        <li><strong>Assignment:</strong> You can assign one pointer to another if they are of the same type.</li>
+    </ul>
+
+    <h2 id="exam-prep">7. Exam Focus Enhancements</h2>
+
+    <div class="exam-section tips">
+        <span class="tag">Exam Tips</span>
+        <ul>
+            <li><strong>Operator Symbol:</strong> Don't get confused by <code>*</code>. In <em>declaration</em> (<code>int *p</code>), it means "pointer." In <em>execution</em> (<code>*p = 10</code>), it means "value at address."</li>
+            <li><strong>NULL Pointers:</strong> If you don't have an address to assign immediately, initialize it to <code>NULL</code> (e.g., <code>int *ptr = NULL;</code>). This is a safe practice.</li>
+            <li><strong>Pointer to Pointer:</strong> Sometimes exams ask about <code>int **pp;</code>. This is a pointer that stores the address of another pointer.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section mistakes">
+        <span class="tag">Common Mistakes</span>
+        <ul>
+            <li><strong>Uninitialized Pointers:</strong> Trying to dereference (<code>*p</code>) a pointer before giving it an address.</li>
+            <li><strong>Incompatible Types:</strong> Assigning a <code>float</code> address to an <code>int</code> pointer without explicit typecasting.</li>
+            <li><strong>Address of a Constant:</strong> You cannot take the address of a literal constant (e.g., <code>&amp;10</code> is invalid).</li>
+        </ul>
+    </div>
+
+    <div class="exam-section faq">
+        <span class="tag">Frequently Asked Questions</span>
+        <p><strong>Q: What is the size of a pointer variable?</strong><br>
+        A: The size of a pointer is independent of the data type it points to. It depends on the architecture of the computer (usually 4 bytes on a 32-bit system and 8 bytes on a 64-bit system).</p>
+        <p><strong>Q: Why do we use pointers?</strong><br>
+        A: Pointers allow for efficient handling of arrays, dynamic memory allocation, and the ability to return multiple values from a function via call-by-reference.</p>
+        <p><strong>Q: Can we add two pointers together?</strong><br>
+        A: No. Adding two memory addresses is logically meaningless and prohibited in C.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECAP170 Unit 3 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Exam-ready HTML notes for ECAP170 Unit 3: Processing Data. Covering Machine Cycles, Registers, The Bus, and Cache Memory for Knowlet students.">
+    <meta name="keywords" content="ECAP170, Processing Data, Machine Cycle, CPU Registers, System Bus, Cache Memory, Knowlet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --card-bg: #ffffff;
+            --border-color: #dcdde1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: var(--accent-color);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            margin-top: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .toc ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .toc li {
+            margin-bottom: 8px;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            color: var(--accent-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        blockquote {
+            background: #fff3e0;
+            border-left: 5px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        .exam-focus {
+            background-color: #e8f4fd;
+            border: 1px solid #3498db;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+
+        .exam-focus h3 {
+            color: #2980b9;
+            margin-top: 0;
+            border: none;
+        }
+
+        .tip { color: #27ae60; font-weight: bold; }
+        .warning { color: #c0392b; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 3: Processing Data</h1>
+
+    <div class="toc">
+        <h3>Table of Contents</h3>
+        <ul>
+            <li><a href="#transforming-data">1. Transforming Data into Information</a></li>
+            <li><a href="#representation">2. How Computers Represent and Process Data</a></li>
+            <li><a href="#machine-cycle">3. The Machine Cycle</a></li>
+            <li><a href="#cpu-components">4. Memory, Registers, and Cache Memory</a></li>
+            <li><a href="#system-bus">5. The System Bus</a></li>
+            <li><a href="#exam-prep">6. Exam Focus: Tips and FAQs</a></li>
+        </ul>
+    </div>
+
+    <h2 id="transforming-data">1. Transforming Data into Information</h2>
+    <p>Processing is the core function of a computer where raw <strong>data</strong> is converted into meaningful <strong>information</strong>.</p>
+    <ul>
+        <li><strong>Data:</strong> Unorganized facts, symbols, or observations (e.g., a list of numbers).</li>
+        <li><strong>Information:</strong> Data that has been processed, structured, or presented in a specific context to make it useful (e.g., a monthly sales report).</li>
+    </ul>
+
+    <h2 id="representation">2. How Computers Represent and Process Data</h2>
+    <p>Computers are digital machines that can only understand two states: <strong>On</strong> (represented by 1) and <strong>Off</strong> (represented by 0). This is known as the <strong>Binary Number System</strong>.</p>
+    
+    <h3>Data Processing Steps</h3>
+    <ol>
+        <li><strong>Input:</strong> Data is entered via input devices.</li>
+        <li><strong>Processing:</strong> The CPU performs calculations and logical comparisons.</li>
+        <li><strong>Output:</strong> The result is displayed or printed for the user.</li>
+    </ol>
+
+    <h2 id="machine-cycle">3. The Machine Cycle</h2>
+    <p>For every single instruction, the CPU goes through a series of steps called the <strong>Machine Cycle</strong>. It consists of four main stages:</p>
+    
+    <table>
+        <tr>
+            <th>Stage</th>
+            <th>Action</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><strong>Fetch</strong></td>
+            <td>Instruction Retrieval</td>
+            <td>The Control Unit gets the instruction from the main memory (RAM).</td>
+        </tr>
+        <tr>
+            <td><strong>Decode</strong></td>
+            <td>Translation</td>
+            <td>The Control Unit translates the instruction into commands the computer can understand.</td>
+        </tr>
+        <tr>
+            <td><strong>Execute</strong></td>
+            <td>Action</td>
+            <td>The Arithmetic Logic Unit (ALU) carries out the actual mathematical or logical operation.</td>
+        </tr>
+        <tr>
+            <td><strong>Store</strong></td>
+            <td>Write Back</td>
+            <td>The result of the execution is written back into the memory for later use.</td>
+        </tr>
+    </table>
+
+    <h2 id="cpu-components">4. Memory, Registers, and Cache Memory</h2>
+    
+    <h3>Memory (RAM)</h3>
+    <p>Main memory or RAM holds the instructions and data that the CPU is currently processing. It is volatile, meaning its contents are lost when power is turned off.</p>
+
+    <h3>Registers</h3>
+    <p><strong>Registers</strong> are high-speed, small-capacity storage locations directly inside the CPU. They hold data that the CPU is working on <em>at that exact moment</em> to avoid the "bottleneck" of reaching out to the slower RAM.</p>
+
+    <h3>Cache Memory</h3>
+    <p><strong>Cache Memory</strong> is a specialized, high-speed memory area located between the RAM and the CPU.</p>
+    <ul>
+        <li><strong>Purpose:</strong> It stores frequently used instructions so the CPU can access them faster than if they were in RAM.</li>
+        <li><strong>Levels:</strong> L1 (Internal to CPU), L2 (Between CPU and RAM), and L3 (Shared across processor cores).</li>
+    </ul>
+
+    <h2 id="system-bus">5. The System Bus</h2>
+    <blockquote>
+        <strong>Definition:</strong> A Bus is a set of parallel electrical wires that transmit data and signals between computer components.
+    </blockquote>
+    <p>The <strong>System Bus</strong> connects the CPU to other parts like memory and I/O devices. It includes:</p>
+    <ul>
+        <li><strong>Data Bus:</strong> Carries the actual data being processed.</li>
+        <li><strong>Address Bus:</strong> Carries information about where the data needs to go in memory.</li>
+        <li><strong>Control Bus:</strong> Carries signals that coordinate the activities of the computer.</li>
+    </ul>
+
+    <div class="exam-focus" id="exam-prep">
+        <h3>6. Exam Focus: Tips and FAQs</h3>
+        
+        <p><span class="tip">Exam Tip:</span> When asked about the "Brain" of the computer, always refer to the <strong>CPU</strong>. If asked for the <strong>Machine Cycle</strong>, remember the acronym <strong>F-D-E-S</strong> (Fetch, Decode, Execute, Store).</p>
+
+        <p><span class="warning">Common Pitfall:</span> Do not confuse <strong>Registers</strong> with <strong>Cache</strong>. Registers hold the current instruction, while Cache holds frequently used instructions for future use.</p>
+
+        <hr>
+
+        <h4>Frequently Asked Questions</h4>
+        <ul>
+            <li>
+                <strong>What is the difference between data and information?</strong>
+                <p>Data is the raw input; information is the processed, meaningful output.</p>
+            </li>
+            <li>
+                <strong>Why is cache memory important?</strong>
+                <p>It significantly speeds up the processing by reducing the time the CPU spends waiting for data from the main memory.</p>
+            </li>
+            <li>
+                <strong>How does the bus width affect performance?</strong>
+                <p>A wider bus can transmit more bits of data simultaneously, improving the overall speed of the computer.</p>
+            </li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

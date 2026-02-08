@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECAP172 Unit 6 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Master Arrays in C with ECAP172 Unit 6 notes. Covering 1D and 2D arrays, memory representation, and array operations for BCA.">
+    <meta name="keywords" content="ECAP172, Arrays in C, 1D Array, 2D Array, Array Initialization, Programming Methodology, Knowlet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #27ae60;
+            --accent-color: #e67e22;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --border-color: #bdc3c7;
+            --code-bg: #2d3436;
+            --code-text: #dfe6e9;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            margin-top: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            color: var(--secondary-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        blockquote {
+            background: #e8f8f5;
+            border-left: 5px solid var(--secondary-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        pre {
+            background: var(--code-bg);
+            color: var(--code-text);
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        .exam-section {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .tips { background-color: #fff3e0; border: 1px solid #e67e22; }
+        .mistakes { background-color: #fdedec; border: 1px solid #c0392b; }
+        .faq { background-color: #ebf5fb; border: 1px solid #2980b9; }
+
+        strong { color: #d35400; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 6: Arrays</h1>
+
+    <div class="toc">
+        <h3>Table of Contents</h3>
+        <ul>
+            <li><a href="#definition">1. What are Arrays?</a></li>
+            <li><a href="#creating-arrays">2. Creating and Declaring Arrays</a></li>
+            <li><a href="#initialization">3. Initialization of Arrays</a></li>
+            <li><a href="#accessing">4. Accessing Array Elements</a></li>
+            <li><a href="#memory-rep">5. Memory Representation of Arrays</a></li>
+            <li><a href="#multidimensional">6. Multidimensional Arrays (2D Arrays)</a></li>
+            <li><a href="#functions">7. Array-Related Functions and Operations</a></li>
+            <li><a href="#exam-prep">8. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="definition">1. What are Arrays?</h2>
+    <p>An <strong>Array</strong> is a fixed-size, sequenced collection of elements of the <em>same data type</em>. It is used to store multiple values in a single variable, rather than declaring separate variables for each value.</p>
+    
+    <blockquote>
+        <strong>Key Concept:</strong> Arrays are used when we need to handle a large amount of related data of the same type (e.g., marks of 50 students).
+    </blockquote>
+
+    <ul>
+        <li><strong>Homogeneous:</strong> All elements must be of the same type (all int, all float, etc.).</li>
+        <li><strong>Contiguous Memory:</strong> Elements are stored in adjacent memory locations.</li>
+        <li><strong>Index-Based:</strong> Each element is accessed using a unique index number, starting from 0.</li>
+    </ul>
+
+    <h2 id="creating-arrays">2. Creating and Declaring Arrays</h2>
+    <p>To declare an array in C, you specify the data type of the elements and the number of elements required by the array.</p>
+    
+    <h3>Syntax:</h3>
+    <pre>data_type array_name[array_size];</pre>
+
+    <p><strong>Example:</strong> <code>int marks[5];</code><br>
+    This tells the compiler to reserve space for 5 integers under the name 'marks'.</p>
+
+    <h2 id="initialization">3. Initialization of Arrays</h2>
+    <p>Initialization refers to assigning values to the array elements at the time of declaration.</p>
+    
+    <ul>
+        <li><strong>Static Initialization:</strong> <code>int age[5] = {20, 22, 19, 21, 23};</code></li>
+        <li><strong>Partial Initialization:</strong> <code>int num[5] = {10, 20};</code> (Remaining elements 2, 3, and 4 are automatically set to 0).</li>
+        <li><strong>Initialization without Size:</strong> <code>int score[] = {10, 20, 30};</code> (Compiler automatically sets the size to 3).</li>
+    </ul>
+
+    <h2 id="accessing">4. Accessing Array Elements</h2>
+    <p>Array elements are accessed using an <strong>index</strong> (also called a subscript). In C, array indexing always starts from <strong>0</strong> and ends at <strong>size - 1</strong>.</p>
+    
+    
+
+    <pre>
+int marks[3] = {85, 90, 78};
+printf("%d", marks[0]); // Output: 85
+printf("%d", marks[2]); // Output: 78
+    </pre>
+
+    <h2 id="memory-rep">5. Memory Representation of Arrays</h2>
+    <p>Since arrays occupy contiguous memory, the address of any element can be calculated if the base address (address of the first element) is known.</p>
+    
+    <p><strong>Formula for address calculation:</strong><br>
+    Address of A[i] = Base Address + (i * size_of_data_type)</p>
+    
+    <p><em>Example:</em> If an integer array starts at address 1000 and each integer takes 4 bytes, then marks[2] would be at:<br>
+    1000 + (2 * 4) = 1008.</p>
+
+    <h2 id="multidimensional">6. Multidimensional Arrays (2D Arrays)</h2>
+    <p>A 2D array is essentially an "array of arrays." It is commonly used to represent tables or matrices.</p>
+    
+    <h3>Syntax:</h3>
+    <pre>data_type array_name[rows][columns];</pre>
+
+    
+
+    <p><strong>Example:</strong> <code>int matrix[2][3] = { {1, 2, 3}, {4, 5, 6} };</code><br>
+    This creates a table with 2 rows and 3 columns.</p>
+
+    <h2 id="functions">7. Array-Related Functions and Operations</h2>
+    <p>Common operations performed on arrays include:</p>
+    <ul>
+        <li><strong>Traversal:</strong> Visiting each element of the array exactly once (usually using a <code>for</code> loop).</li>
+        <li><strong>Insertion:</strong> Adding a new element at a specific index.</li>
+        <li><strong>Deletion:</strong> Removing an element from a specific index.</li>
+        <li><strong>Searching:</strong> Finding the location of a specific element (e.g., Linear Search).</li>
+    </ul>
+
+    <h2 id="exam-prep">8. Exam Focus Enhancements</h2>
+
+    <div class="exam-section tips">
+        <h3>Exam Tips</h3>
+        <ul>
+            <li><strong>Zero Indexing:</strong> Never forget that the first element is <code>array[0]</code>, not <code>array[1]</code>.</li>
+            <li><strong>Looping:</strong> When traversing an array of size <em>N</em>, your loop condition should be <code>i < N</code> or <code>i <= N-1</code>.</li>
+            <li><strong>2D Arrays:</strong> In a 2D array, the first index always represents the <strong>Row</strong> and the second represents the <strong>Column</strong>.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section mistakes">
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><strong>Array Out of Bounds:</strong> Accessing <code>marks[5]</code> in an array of size 5. C does not check for boundary errors; it will simply access "garbage" memory, which can crash your program.</li>
+            <li><strong>Inconsistent Types:</strong> Trying to store a <code>float</code> in an <code>int</code> array. This will lead to data loss (truncation).</li>
+            <li><strong>Forgetting Size:</strong> You cannot declare an array as <code>int a[];</code> without immediate initialization. The compiler must know the size to allocate memory.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section faq">
+        <h3>Frequently Asked Questions</h3>
+        <p><strong>Q: Why is it called a "Static" data structure?</strong><br>
+        A: Because the size of the array is fixed at compile-time and cannot be changed during the execution of the program.</p>
+        <p><strong>Q: What is the base address?</strong><br>
+        A: The base address is the memory location of the very first element (index 0) of the array.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECAP172 Unit 13 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive academic notes for ECAP172 Unit 13: Structures and Unions. Learn about structure declaration, initialization, pointers, nested structures, and unions at Knowlet.">
+    <meta name="keywords" content="ECAP172, C Programming, Structures, Unions, Nested Structures, Self-referential structures, Knowlet">
+    <style>
+        :root {
+            --primary-navy: #1a2a6c;
+            --accent-green: #27ae60;
+            --bg-canvas: #f4f7f6;
+            --text-main: #2d3436;
+            --border-soft: #dcdde1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-canvas);
+            color: var(--text-main);
+            line-height: 1.8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 45px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: var(--primary-navy);
+            text-align: center;
+            font-size: 2.4em;
+            border-bottom: 4px solid var(--accent-green);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--accent-green);
+            border-left: 8px solid var(--primary-navy);
+            padding-left: 15px;
+            margin-top: 40px;
+            background: #f0fdf4;
+        }
+
+        h3 {
+            color: var(--primary-navy);
+            margin-top: 25px;
+            border-bottom: 1px dashed var(--border-soft);
+        }
+
+        p {
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+
+        .toc {
+            background: #f8f9fa;
+            padding: 25px;
+            border: 1px solid var(--border-soft);
+            border-radius: 10px;
+            margin-bottom: 35px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding-left: 5px;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-navy);
+            font-weight: 600;
+        }
+
+        .toc a:hover {
+            color: var(--accent-green);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-soft);
+            padding: 14px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-navy);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fbfbfb;
+        }
+
+        blockquote {
+            background: #eef2f7;
+            border-left: 5px solid var(--primary-navy);
+            padding: 15px 25px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        pre {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+        }
+
+        .exam-note {
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 10px;
+            border: 1px solid;
+        }
+
+        .tips { background-color: #d4edda; border-color: #c3e6cb; color: #155724; }
+        .mistakes { background-color: #f8d7da; border-color: #f5c6cb; color: #721c24; }
+        .faq { background-color: #d1ecf1; border-color: #bee5eb; color: #0c5460; }
+
+        .tag {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        strong { color: var(--primary-navy); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 13: Structures and Unions</h1>
+
+    <div class="toc">
+        <h3>Contents Guide</h3>
+        <ul>
+            <li><a href="#intro">1. Introduction to Structures</a></li>
+            <li><a href="#decl-init">2. Structure Declaration, Definition, and Initialization</a></li>
+            <li><a href="#access">3. Accessing Structure Members</a></li>
+            <li><a href="#func">4. Accessing Structures in Functions</a></li>
+            <li><a href="#ptr">5. Structures and Pointers</a></li>
+            <li><a href="#array-nested">6. Array of Structures and Nested Structures</a></li>
+            <li><a href="#self-union">7. Self-referential Structures and Unions</a></li>
+            <li><a href="#exam-prep">8. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="intro">1. Introduction to Structures</h2>
+    <p>A <strong>Structure</strong> is a user-defined data type in C that allows you to combine different data types under a single name. Unlike arrays, which store multiple elements of the <em>same</em> type, a structure can group variables of <em>different</em> types (int, float, char, etc.) that are logically related.</p>
+    <blockquote>
+        <strong>Example:</strong> To store information about a "Student," you might need an integer for <em>Roll No</em>, a string for <em>Name</em>, and a float for <em>Marks</em>. A structure allows you to group these into one entity.
+    </blockquote>
+
+    <h2 id="decl-init">2. Structure Declaration, Definition, and Initialization</h2>
+    <h3>Declaration</h3>
+    <p>The <code>struct</code> keyword is used to declare a structure. This creates a new data type template but does not allocate memory.</p>
+    <pre>
+struct Student {
+    int rollNo;
+    char name[50];
+    float marks;
+};
+    </pre>
+
+    <h3>Definition (Variable Creation)</h3>
+    <p>Once declared, you must define variables of that type to allocate memory.</p>
+    <pre>struct Student s1, s2;</pre>
+
+    <h3>Initialization</h3>
+    <p>Structures can be initialized at the time of definition using curly braces.</p>
+    <pre>struct Student s1 = {101, "Rahul", 85.5};</pre>
+
+    <h2 id="access">3. Accessing Structure Members</h2>
+    <p>To access individual members of a structure variable, we use the <strong>Dot Operator (.)</strong>.</p>
+    <pre>
+s1.rollNo = 102;
+printf("Name: %s", s1.name);
+    </pre>
+
+    <h2 id="func">4. Accessing Structures in Functions</h2>
+    <p>Structures can be passed to functions just like standard variables. There are two main ways:</p>
+    <ul>
+        <li><strong>Pass by Value:</strong> A complete copy of the structure is passed. Changes inside the function do not affect the original.</li>
+        <li><strong>Pass by Reference:</strong> The address of the structure is passed using pointers. This is more memory-efficient for large structures.</li>
+    </ul>
+
+    <h2 id="ptr">5. Structures and Pointers</h2>
+    <p>When using a pointer to a structure, we use the <strong>Arrow Operator (->)</strong> instead of the dot operator to access members.</p>
+    <pre>
+struct Student *ptr;
+ptr = &s1;
+printf("Roll No: %d", ptr->rollNo); // Equivalent to (*ptr).rollNo
+    </pre>
+
+    <h2 id="array-nested">6. Array of Structures and Nested Structures</h2>
+    <h3>Array of Structures</h3>
+    <p>Used to store records for multiple entities of the same category.</p>
+    <pre>struct Student classBCA[50]; // Stores info for 50 students</pre>
+
+    <h3>Nested Structures</h3>
+    <p>A structure can contain another structure as its member.</p>
+    <pre>
+struct Date {
+    int day, month, year;
+};
+struct Student {
+    int rollNo;
+    struct Date dob; // Nested structure
+};
+    </pre>
+
+    <h2 id="self-union">7. Self-referential Structures and Unions</h2>
+    <h3>Self-referential Structures</h3>
+    <p>These are structures that contain a pointer to a structure of the same type. They are the foundation of complex data structures like <strong>Linked Lists</strong> and <strong>Trees</strong>.</p>
+    <pre>
+struct Node {
+    int data;
+    struct Node *next; // Points to the next node
+};
+    </pre>
+
+    <h3>Unions</h3>
+    <p>A <strong>Union</strong> is similar to a structure, but all its members share the <strong>same memory location</strong>.</p>
+    <table>
+        <tr>
+            <th>Feature</th>
+            <th>Structure</th>
+            <th>Union</th>
+        </tr>
+        <tr>
+            <td><strong>Memory</strong></td>
+            <td>Allocates sum of all members' sizes.</td>
+            <td>Allocates size of the <strong>largest</strong> member.</td>
+        </tr>
+        <tr>
+            <td><strong>Usage</strong></td>
+            <td>All members can be used at once.</td>
+            <td>Only <strong>one</strong> member can hold a value at a time.</td>
+        </tr>
+    </table>
+
+    <h2 id="exam-prep">8. Exam Focus Enhancements</h2>
+
+    <div class="exam-note tips">
+        <span class="tag">Exam Tips</span>
+        <ul>
+            <li><strong>Structure vs. Array:</strong> This is a favorite theoretical question. Focus on "Different types" (Structure) vs. "Same type" (Array).</li>
+            <li><strong>Memory Calculation:</strong> If a struct has an <code>int</code> (4 bytes) and a <code>char[10]</code> (10 bytes), it takes 14 bytes. If it were a union, it would only take 10 bytes.</li>
+            <li><strong>Arrow Operator:</strong> Always use <code>-></code> when the left side is a pointer. Using <code>.</code> with a pointer is a common logic error.</li>
+        </ul>
+    </div>
+
+    <div class="exam-note mistakes">
+        <span class="tag">Common Mistakes</span>
+        <ul>
+            <li><strong>Missing Semicolon:</strong> Forgetting the semicolon <code>;</code> at the end of the structure closing brace <code>}</code>. This is a syntax error.</li>
+            <li><strong>Union Overwriting:</strong> Initializing two members of a union simultaneously. Remember, setting the second member overwrites the first.</li>
+            <li><strong>Nested Access:</strong> Accessing nested members requires multiple dots, e.g., <code>s1.dob.day</code>.</li>
+        </ul>
+    </div>
+
+    <div class="exam-note faq">
+        <span class="tag">Frequently Asked Questions</span>
+        <p><strong>Q: Why use unions?</strong><br>
+        A: To save memory when you know that only one piece of data from a group will be needed at any given time.</p>
+        <p><strong>Q: Can we compare two structure variables directly (s1 == s2)?</strong><br>
+        A: No. C does not allow direct comparison of structures. You must compare individual members one by one.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

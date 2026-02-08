@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECHE110 Unit 14 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Final academic notes for ECHE110 Unit 14: Environment and Human Health. Covers infectious diseases, environmental toxins, and the role of IT in health.">
+    <meta name="keywords" content="ECHE110, Environmental Health, Infectious Diseases, Toxins, GIS in Health, Bioinformatics, BCA, Knowlet">
+    <style>
+        :root {
+            --primary-green: #1b5e20;
+            --accent-blue: #0277bd;
+            --bg-light: #f1f8e9;
+            --text-dark: #263238;
+            --border-color: #cfd8dc;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #fafafa;
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-top: 8px solid var(--primary-green);
+        }
+
+        h1 {
+            color: var(--primary-green);
+            text-align: center;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: var(--primary-green);
+            border-bottom: 2px solid var(--accent-blue);
+            padding-bottom: 5px;
+            margin-top: 35px;
+        }
+
+        h3 {
+            color: #01579b;
+            margin-top: 25px;
+        }
+
+        .toc {
+            background: #e1f5fe;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+        }
+
+        .toc ul { list-style: none; padding: 0; }
+        .toc a { text-decoration: none; color: var(--accent-blue); font-weight: bold; }
+
+        .health-card {
+            background: #fff3e0;
+            border-left: 5px solid #ff9800;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th { background-color: var(--accent-blue); color: white; }
+
+        .exam-section {
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .tips { background-color: #e8f5e9; border: 1px solid #4caf50; }
+        .mistakes { background-color: #ffebee; border: 1px solid #ef5350; }
+        .faq { background-color: #e3f2fd; border: 1px solid #2196f3; }
+
+        .tag { font-weight: bold; text-transform: uppercase; font-size: 0.9em; display: block; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 14: Environment and Human Health</h1>
+
+    <div class="toc">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#link">1. The Environment-Health Connection</a></li>
+            <li><a href="#diseases">2. Environment-Related Diseases</a></li>
+            <li><a href="#toxins">3. Environmental Toxins and Toxicology</a></li>
+            <li><a href="#it-health">4. Role of IT in Health Management</a></li>
+            <li><a href="#awareness">5. Human Rights and Value Education</a></li>
+            <li><a href="#exam-prep">6. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="link">1. The Environment-Health Connection</h2>
+    <p>Human health is inextricably linked to the quality of the environment. According to the WHO, nearly 25% of all global deaths are linked to environmental factors like air, water, and soil pollution, chemical exposure, and climate change.</p>
+    
+    <div class="health-card">
+        <strong>Environmental Health:</strong> It is the branch of public health that focuses on how the physical, chemical, and biological factors in the environment affect human health and well-being.
+    </div>
+
+    <h2 id="diseases">2. Environment-Related Diseases</h2>
+    <p>Diseases can be classified based on their environmental transmission routes:</p>
+    
+    
+
+    <table>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Transmission Route</th>
+                <th>Examples</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Water-borne</strong></td>
+                <td>Ingestion of contaminated water.</td>
+                <td>Cholera, Typhoid, Dysentery.</td>
+            </tr>
+            <tr>
+                <td><strong>Air-borne</strong></td>
+                <td>Inhalation of polluted air/pathogens.</td>
+                <td>Asthma, Tuberculosis, Lung Cancer.</td>
+            </tr>
+            <tr>
+                <td><strong>Vector-borne</strong></td>
+                <td>Transmitted by carriers like mosquitoes.</td>
+                <td>Malaria, Dengue, Chikungunya.</td>
+            </tr>
+            <tr>
+                <td><strong>Lifestyle-related</strong></td>
+                <td>Urban environment/Stress.</td>
+                <td>Hypertension, Diabetes, Obesity.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 id="toxins">3. Environmental Toxins and Toxicology</h2>
+    <p><strong>Toxicology</strong> is the study of the adverse effects of chemical substances on living organisms. Many industrial pollutants enter the human body and cause long-term damage.</p>
+    <ul>
+        <li><strong>Bio-accumulation:</strong> The buildup of chemicals in an individual organism over time.</li>
+        <li><strong>Bio-magnification:</strong> The increase in concentration of a toxin as it moves up the food chain (e.g., Mercury in fish eaten by humans).</li>
+        <li><strong>Carcinogens:</strong> Substances that cause cancer (e.g., Asbestos, Benzene).</li>
+    </ul>
+
+    <h2 id="it-health">4. Role of IT in Health Management</h2>
+    <p>For BCA students, this is a critical intersection. Information Technology has revolutionized environmental health monitoring:</p>
+    
+    
+
+    <ul>
+        <li><strong>GIS (Geographic Information Systems):</strong> Used to map disease outbreaks (like COVID-19 or Malaria) and correlate them with environmental factors like stagnant water or pollution zones.</li>
+        <li><strong>Bioinformatics:</strong> Using computer algorithms to analyze biological data, helping in vaccine development and understanding genetic susceptibility to toxins.</li>
+        <li><strong>Health Information Systems (HIS):</strong> Digital databases that store patient records and environmental health indicators for rapid policy response.</li>
+    </ul>
+
+    <h2 id="awareness">5. Human Rights and Value Education</h2>
+    <p>The right to a clean and healthy environment is increasingly recognized as a fundamental <strong>Human Right</strong>. Value education plays a role by sensitizing individuals to respect nature and promote social justice.</p>
+    <ul>
+        <li><strong>Equity in Health:</strong> Ensuring marginalized communities aren't disproportionately exposed to environmental hazards (Environmental Justice).</li>
+        <li><strong>Ethics:</strong> The moral obligation to protect the health of future generations.</li>
+    </ul>
+
+    <h2 id="exam-prep">6. Exam Focus Enhancements</h2>
+
+    <div class="exam-section tips">
+        <span class="tag">Exam Tips</span>
+        <ul>
+            <li><strong>The "IT in Health" Question:</strong> Always mention <strong>GIS</strong> and <strong>Telemedicine</strong>. These are the most relevant IT tools for health management.</li>
+            <li><strong>Bio-magnification vs Accumulation:</strong> Be clear on the difference. Accumulation is in <em>one</em> organism; Magnification is across the <em>food chain</em>.</li>
+            <li><strong>Disease Classification:</strong> Memorize at least two examples for each category (Water, Air, Vector) as they are common short-answer questions.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section mistakes">
+        <span class="tag">Common Mistakes</span>
+        <ul>
+            <li><strong>Vector vs Water-borne:</strong> Don't say Malaria is water-borne. It is <strong>vector-borne</strong> (mosquitoes), though mosquitoes breed in water.</li>
+            <li><strong>Ignoring Lifestyle:</strong> Environmental health also includes the "built environment" (urban living), which contributes to non-communicable diseases.</li>
+            <li><strong>Vague IT Examples:</strong> Avoid saying "computers help doctors." Use terms like <strong>Epidemiological Mapping</strong> or <strong>Genomic Sequencing</strong>.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section faq">
+        <span class="tag">Frequently Asked Questions</span>
+        <p><strong>Q: What is the 'Right to Health' in the Indian context?</strong><br>
+        A: It is inferred under Article 21 (Right to Life) of the Constitution, which includes the right to a clean environment and medical care.</p>
+        <p><strong>Q: How does climate change affect human health?</strong><br>
+        A: By expanding the habitats of disease-carrying vectors (mosquitoes moving to higher altitudes) and increasing the frequency of heat-related illnesses.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

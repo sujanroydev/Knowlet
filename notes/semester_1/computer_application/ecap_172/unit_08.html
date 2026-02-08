@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECAP172 Unit 8 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for ECAP172 Unit 8: Array Applications. Learn Sorting, Searching, and Character Arrays for BCA.">
+    <meta name="keywords" content="ECAP172, Array Applications, Sorting, Searching, Character Arrays, Linear Search, Binary Search, Knowlet">
+    <style>
+        :root {
+            --primary-navy: #1a2a6c;
+            --accent-green: #27ae60;
+            --bg-light: #f4f7f6;
+            --text-dark: #2d3436;
+            --border-color: #bdc3c7;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        h1 {
+            color: var(--primary-navy);
+            text-align: center;
+            border-bottom: 4px solid var(--accent-green);
+            padding-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: var(--accent-green);
+            border-left: 6px solid var(--primary-navy);
+            padding-left: 15px;
+            margin-top: 40px;
+            background: #f0fdf4;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            color: var(--primary-navy);
+            margin-top: 25px;
+            border-bottom: 2px solid #f1f2f6;
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .toc {
+            background: #ffffff;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-navy);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            color: var(--accent-green);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-navy);
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        blockquote {
+            background: #eef2f7;
+            border-left: 5px solid var(--primary-navy);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        pre {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .exam-section {
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .tips { background-color: #e8f6f3; border: 1px solid #1abc9c; }
+        .mistakes { background-color: #fdedec; border: 1px solid #e74c3c; }
+        .faq { background-color: #ebf5fb; border: 1px solid #3498db; }
+
+        .tag {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 8: Array Applications</h1>
+
+    <div class="toc">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#intro">1. Introduction to Array Applications</a></li>
+            <li><a href="#searching">2. Searching Techniques</a></li>
+            <li><a href="#sorting">3. Sorting Techniques</a></li>
+            <li><a href="#char-arrays">4. Character Arrays</a></li>
+            <li><a href="#exam-prep">5. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="intro">1. Introduction to Array Applications</h2>
+    <p>Arrays are not just for storing data; they are the foundation for several fundamental algorithms in computer science. In this unit, we explore how to organize and retrieve data efficiently using <strong>Searching</strong> and <strong>Sorting</strong> algorithms, and how to handle text using <strong>Character Arrays</strong>.</p>
+
+    <h2 id="searching">2. Searching Techniques</h2>
+    <p>Searching is the process of finding the location of a specific element (target) within an array. The two most common methods are <strong>Linear Search</strong> and <strong>Binary Search</strong>.</p>
+
+    <h3>Linear Search</h3>
+    <p>This is the simplest searching technique. It involves checking each element of the array one by one until the target is found or the end of the array is reached.</p>
+    <ul>
+        <li><strong>Best Case:</strong> Target is at the first position.</li>
+        <li><strong>Worst Case:</strong> Target is at the last position or not present.</li>
+        <li><strong>Applicability:</strong> Can be used on both sorted and unsorted arrays.</li>
+    </ul>
+
+    <h3>Binary Search</h3>
+    <p>Binary search is a highly efficient algorithm, but it <strong>requires the array to be sorted</strong> beforehand. It works by repeatedly dividing the search interval in half.</p>
+    
+    <ul>
+        <li><strong>Step 1:</strong> Compare the target with the middle element.</li>
+        <li><strong>Step 2:</strong> If equal, the search is successful.</li>
+        <li><strong>Step 3:</strong> If the target is smaller, repeat the search in the left half.</li>
+        <li><strong>Step 4:</strong> If the target is larger, repeat the search in the right half.</li>
+    </ul>
+
+    <h2 id="sorting">3. Sorting Techniques</h2>
+    <p>Sorting is the process of arranging the elements of an array in a specific order (ascending or descending).</p>
+
+    <h3>Bubble Sort</h3>
+    <p>Bubble sort is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted.</p>
+    <blockquote>
+        <strong>How it works:</strong> In each pass, the largest unsorted element "bubbles up" to its correct position at the end of the array.
+    </blockquote>
+
+    <pre>
+// Pseudo-code for Bubble Sort
+For i = 0 to n-2
+    For j = 0 to n-i-2
+        If array[j] > array[j+1]
+            Swap(array[j], array[j+1])
+    </pre>
+
+    <h2 id="char-arrays">4. Character Arrays</h2>
+    <p>In C, a string is simply a one-dimensional <strong>character array</strong> that is terminated by a <strong>null character (\0)</strong>.</p>
+
+    <h3>Declaration and Initialization</h3>
+    <pre>
+char name[10]; // Declaration
+char city[] = "Delhi"; // Initialization with null terminator automatically added
+char greeting[] = {'H', 'e', 'l', 'l', 'o', '\0'}; // Manual initialization
+    </pre>
+
+    <h3>Difference between Integer and Character Arrays</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Feature</th>
+                <th>Integer Array</th>
+                <th>Character Array (String)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Termination</strong></td>
+                <td>No special terminator.</td>
+                <td>Ends with a null character (\0).</td>
+            </tr>
+            <tr>
+                <td><strong>I/O Functions</strong></td>
+                <td>scanf("%d"), printf("%d").</td>
+                <td>scanf("%s"), gets(), puts().</td>
+            </tr>
+            <tr>
+                <td><strong>Space Handling</strong></td>
+                <td>Spaces are treated as delimiters.</td>
+                <td>gets() can read strings with spaces.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 id="exam-prep">5. Exam Focus Enhancements</h2>
+
+    <div class="exam-section tips">
+        <span class="tag">Exam Tips</span>
+        <ul>
+            <li><strong>Binary Search Condition:</strong> Always state that the array <strong>must be sorted</strong> for Binary Search to work. This is a common 2-mark question.</li>
+            <li><strong>Null Terminator:</strong> When calculating the size of a character array for a string, always add <strong>+1</strong> for the '\0' character.</li>
+            <li><strong>Efficiency:</strong> If asked to compare search methods, mention that Binary Search is faster for large datasets, while Linear Search is better for small or unsorted ones.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section mistakes">
+        <span class="tag">Common Mistakes</span>
+        <ul>
+            <li><strong>Off-by-one Error:</strong> In loops for sorting or searching, ensure you don't go past the last index (N-1).</li>
+            <li><strong>Swapping Logic:</strong> Forgetting to use a <strong>temporary variable</strong> while swapping elements in a sorting algorithm.</li>
+            <li><strong>String Input:</strong> Using <code>scanf("%s", str)</code> to read a full name. This will only capture the first word. Use <code>gets(str)</code> or <code>fgets()</code> instead.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section faq">
+        <span class="tag">Frequently Asked Questions</span>
+        <p><strong>Q: What is the significance of the null character (\0) in character arrays?</strong><br>
+        A: It acts as a marker to tell the compiler and functions (like <code>printf</code>) where the string ends.</p>
+        <p><strong>Q: Why is Bubble Sort called "Bubble"?</strong><br>
+        A: Because smaller or larger elements "bubble" to the top/end of the list in each iteration.</p>
+        <p><strong>Q: When should I use Linear Search over Binary Search?</strong><br>
+        A: When the array is small or when the data is not sorted and you don't want the extra overhead of sorting it first.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

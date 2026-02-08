@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECAP170 Unit 12 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Official exam notes for ECAP170 Unit 12: Taking Protective Measures. Learn about system security, privacy protection, and data backup strategies.">
+    <meta name="keywords" content="ECAP170, Computer Security, Data Privacy, Cyber Terrorism, Spyware, Data Backup, Knowlet">
+    <style>
+        :root {
+            --primary-dark: #2c3e50;
+            --security-red: #c0392b;
+            --safe-green: #27ae60;
+            --bg-light: #f4f7f6;
+            --text-color: #333;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: var(--primary-dark);
+            text-align: center;
+            border-bottom: 3px solid var(--security-red);
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: var(--security-red);
+            border-left: 5px solid var(--primary-dark);
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: var(--primary-dark);
+            margin-top: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-dark);
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        blockquote {
+            background: #fdf2f2;
+            border-left: 5px solid var(--security-red);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            color: var(--security-red);
+        }
+
+        .exam-tips, .common-mistakes, .faq {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .exam-tips { background-color: #e8f8f5; border: 1px solid var(--safe-green); }
+        .common-mistakes { background-color: #fdedec; border: 1px solid var(--security-red); }
+        .faq { background-color: #ebf5fb; border: 1px solid #2980b9; }
+
+        strong { color: #2c3e50; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 12: Taking Protective Measures</h1>
+
+    <div class="toc">
+        <h3>Table of Contents</h3>
+        <ul>
+            <li><a href="#security-concepts">1. Basic Security Concepts and Needs</a></li>
+            <li><a href="#threats">2. Understanding Security Threats</a></li>
+            <li><a href="#protective-measures">3. Taking Protective Measures</a></li>
+            <li><a href="#privacy-management">4. Protecting Your Privacy and Data</a></li>
+            <li><a href="#backup">5. Backing Up and Safeguarding Hardware</a></li>
+            <li><a href="#exam-prep">6. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="security-concepts">1. Basic Security Concepts and Needs</h2>
+    <p>Security in Information Technology is about protecting information and systems from unauthorized access, use, disclosure, disruption, modification, or destruction[cite: 91, 93].</p>
+    <ul>
+        <li><strong>Confidentiality:</strong> Ensuring that information is accessible only to those authorized to have access[cite: 91, 93].</li>
+        <li><strong>Integrity:</strong> Safeguarding the accuracy and completeness of information and processing methods[cite: 91, 93].</li>
+        <li><strong>Availability:</strong> Ensuring that authorized users have access to information and associated assets when required[cite: 91, 93].</li>
+    </ul>
+
+    <h2 id="threats">2. Understanding Security Threats</h2>
+    <p>Threats can target different parts of an IT ecosystem, ranging from individual users to national infrastructure.</p>
+    <h3>Types of Threats:</h3>
+    <ul>
+        <li><strong>Threats to Users:</strong> Identity theft, phishing, and social engineering aimed at tricking individuals.</li>
+        <li><strong>Threats to Hardware:</strong> Physical theft, damage from power surges, or environmental factors.</li>
+        <li><strong>Threats to Data:</strong> Unauthorized deletion, modification, or data breaches where sensitive information is leaked.</li>
+        <li><strong>Cyber Terrorism:</strong> Large-scale, politically motivated attacks on information systems to cause widespread disruption or fear.</li>
+    </ul>
+
+    <h2 id="protective-measures">3. Taking Protective Measures</h2>
+    <p>Keeping a system safe requires a proactive approach involving software tools and personal discipline.</p>
+    <ul>
+        <li><strong>System Safety:</strong> Keeping software and operating systems updated to patch known vulnerabilities.</li>
+        <li><strong>Firewalls:</strong> Acting as a barrier between your computer and the internet to block unauthorized traffic.</li>
+        <li><strong>Antivirus Software:</strong> Scanning and removing malicious software like viruses, worms, and Trojans.</li>
+    </ul>
+
+    <h2 id="privacy-management">4. Protecting Your Privacy and Data</h2>
+    <p>Digital privacy is the ability to control what information you share and who can access it.</p>
+    <h3>Common Privacy Concerns:</h3>
+    <ul>
+        <li><strong>Cookies:</strong> Small files stored by websites to track user preferences; they can be managed or blocked to increase privacy.</li>
+        <li><strong>Spyware:</strong> Software that secretly monitors user activity and collects personal information.</li>
+        <li><strong>Bugs:</strong> Flaws in software that can be exploited to gain unauthorized access.</li>
+    </ul>
+
+    <h2 id="backup">5. Backing Up and Safeguarding Hardware</h2>
+    <p>Physical protection and data redundancy are the final lines of defense.</p>
+    
+    <ul>
+        <li><strong>Data Backup:</strong> Regularly creating copies of important files on external drives or cloud storage to prevent data loss from system failure or ransomware.</li>
+        <li><strong>Safeguarding Hardware:</strong> Using physical locks, surge protectors, and maintaining proper environmental conditions (temperature/humidity).</li>
+    </ul>
+
+    <h2 id="exam-prep">6. Exam Focus Enhancements</h2>
+
+    <div class="exam-tips">
+        <h3>Exam Tips</h3>
+        <ul>
+            <li><strong>The "CIA" Triad:</strong> If asked about basic security concepts, remember the acronym <strong>CIA</strong>: Confidentiality, Integrity, and Availability.</li>
+            <li><strong>Proactive vs. Reactive:</strong> Protective measures are <strong>proactive</strong> (done before an attack), while backups are <strong>reactive</strong> (used after something goes wrong).</li>
+            <li><strong>Cookie Management:</strong> Know that cookies are not always "bad"—they are used for legitimate purposes like keeping you logged in, but must be managed for privacy.</li>
+        </ul>
+    </div>
+
+    <div class="common-mistakes">
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><strong>Backup vs. Sync:</strong> Thinking "Cloud Sync" (like Google Drive) is a true backup. If you delete a file locally and it syncs, it might be deleted in the cloud too. A real <strong>Backup</strong> is a separate, static copy.</li>
+            <li><strong>Hardware Security:</strong> Forgetting that security isn't just software. A stolen laptop means all data is at risk regardless of how many antivirus programs are installed.</li>
+        </ul>
+    </div>
+
+    <div class="faq">
+        <h3>Frequently Asked Questions</h3>
+        <p><strong>Q: What is the most effective way to protect against data loss?</strong><br>
+        A: Implementing a regular <strong>Data Backup</strong> routine, preferably following the 3-2-1 rule (3 copies, 2 different media, 1 offsite).</p>
+        <p><strong>Q: How does Spyware differ from a standard Virus?</strong><br>
+        A: A virus usually aims to damage the system, while <strong>Spyware</strong> aims to remain hidden to steal information like passwords or browsing habits.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

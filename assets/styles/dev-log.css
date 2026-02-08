@@ -221,3 +221,60 @@ header p{
 	object-fit:cover;
 	border:1px solid var(--border);
 }
+
+.contributors{
+	grid-column:1/-1;
+	margin-top:8px;
+}
+
+.contributors h3{
+	margin:6px 0 8px;
+	font-size:0.9rem;
+	color:var(--text);
+}
+
+.contributors-list{
+	display:flex;
+	gap:10px;
+	flex-wrap:wrap;
+}
+
+.contributor{
+	display:flex;
+	align-items:center;
+	gap:6px;
+	padding:4px 8px;
+	border-radius:999px;
+	background:#f1f5f9;
+	border:1px solid var(--border);
+	text-decoration:none;
+	color:var(--text);
+	font-size:0.8rem;
+}
+
+.contributor img{
+	width:24px;
+	height:24px;
+	border-radius:50%;
+	object-fit:cover;
+}
+
+.actors{
+	display:flex;
+	gap:16px;
+	margin-top:6px;
+}
+
+.actor{
+	display:flex;
+	align-items:center;
+	gap:6px;
+	font-size:0.8rem;
+	color:var(--muted);
+}
+
+.role{
+	font-size:0.7rem;
+	color:var(--muted);
+	opacity:0.8;
+}

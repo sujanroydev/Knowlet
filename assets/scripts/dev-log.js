@@ -22,6 +22,12 @@ async function fetchRepoInfo(){
 			}
 		}catch{}
 
+		// Contributors (limit to 6)
+		const contributorsRes = await fetch(
+			`https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/contributors?per_page=6`
+		)
+		const contributors = await contributorsRes.json()
+
 		// Recent merge count
 		const commitsRes = await fetch(
 			`https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/commits?per_page=100`
@@ -43,6 +49,12 @@ async function fetchRepoInfo(){
 		const ownerAvatar = repo.owner.avatar_url
 		const ownerProfile = repo.owner.html_url
 		const ownerName = repo.owner.login
+		const contributorsHTML = contributors.map(user => `
+			<a href="${user.html_url}" target="_blank" class="contributor">
+				<img src="${user.avatar_url}" alt="${user.login}">
+				<span>${user.login}</span>
+			</a>
+		`).join('')
 
 		box.innerHTML = `
 			<div class="repo-owner">
@@ -76,6 +88,13 @@ async function fetchRepoInfo(){
 
 				${repo.homepage ? `<span>🌐 ${repo.homepage}</span>` : ''}
 
+				<div class="contributors">
+					<h3>Contributors</h3>
+					<div class="contributors-list">
+						${contributorsHTML || '<span>No contributors</span>'}
+					</div>
+				</div>
+
 				<a href="${repo.html_url}" target="_blank">
 					View on GitHub
 				</a>
@@ -99,13 +118,9 @@ async function fetchMergeCommits(){
 
 		const allCommits = await res.json()
 
-		const mergeCommits = allCommits.filter(
-			c => c.parents.length >= 2
-		)
-
 		container.innerHTML = ''
 
-		if(!mergeCommits.length){
+		if(!allCommits.length){
 			container.innerHTML = `
 				<div class="loading">
 					No merge commits found yet
@@ -113,48 +128,84 @@ async function fetchMergeCommits(){
 			return
 		}
 
-		mergeCommits.slice(0, 10).forEach(item => {
-		
-			const commitDate = new Date(item.commit.author.date)
-		
-			const date = commitDate.toLocaleDateString('en-US', {
-				month: 'short',
-				day: 'numeric',
-				year: 'numeric'
-			})
-		
-			const timeAgo = getTimeAgo(commitDate)
-		
-			const authorName = item.commit.author.name
-			const avatar = item.author?.avatar_url || ''
-			const profile = item.author?.html_url || '#'
-			const commitUrl = item.html_url
-		
-			container.innerHTML += `
-				<div class="log-entry">
-		
-					<div class="meta">
-						<span class="date">${date} • ${timeAgo}</span>
-						<a href="${commitUrl}" target="_blank" class="hash">
-							${item.sha.slice(0,7)}
-						</a>
-					</div>
-		
-					<div class="commit-msg">
-						${item.commit.message.split('\n')[0]}
-					</div>
-		
-					<div class="author">
-						<img src="${avatar}" class="avatar">
-						<a href="${profile}" target="_blank">
-							${authorName}
-						</a>
-					</div>
-		
-				</div>
-			`
-		})
+		for (let i = 0; i < allCommits.length; i++) {
+			let item = allCommits[i];
+			if (item.parents.length >= 2) {
 
+				const commitDate = new Date(item.commit.author.date)
+
+				const date = commitDate.toLocaleDateString('en-US', {
+					month: 'short',
+					day: 'numeric',
+					year: 'numeric'
+				})
+
+				const timeAgo = getTimeAgo(commitDate)
+
+				const authorName = item.commit.author.name
+				const authorAvatar = item.author?.avatar_url || ''
+				const authorProfile = item.author?.html_url || '#'
+	
+				let mergerName = item.commit.committer?.name || authorName
+				let mergerAvatar = item.committer?.avatar_url || authorAvatar
+				let mergerProfile = item.committer?.html_url || authorProfile
+
+				if (item.committer.login === 'web-flow') {
+					let found = false;
+					for (let j = i + 1;  !found; j++) {
+						const foundItem = allCommits[j];
+						if (item.parents[0].sha === allCommits[j].parents[0].sha) {
+							found = true;
+							mergerName = foundItem.commit.committer?.name || authorName
+							mergerAvatar = foundItem.committer?.avatar_url || authorAvatar
+							mergerProfile = foundItem.committer?.html_url || authorProfile
+						}
+						if (j >= allCommits.length - 1) {
+							found = true;
+						}
+					}
+				}
+
+				const commitUrl = item.html_url
+
+				container.innerHTML += `
+					<div class="log-entry">
+
+						<div class="meta">
+							<span class="date">${date} • ${timeAgo}</span>
+							<a href="${commitUrl}" target="_blank" class="hash">
+								${item.sha.slice(0,7)}
+							</a>
+						</div>
+
+						<div class="commit-msg">
+							${item.commit.message.split('\n')[0]}
+						</div>
+
+						<div class="actors">
+	
+							<div class="actor">
+								<img src="${authorAvatar}" class="avatar">
+								<a href="${authorProfile}" target="_blank">
+									${authorName}
+								</a>
+								<span class="role">author</span>
+							</div>
+
+							<div class="actor">
+								<img src="${mergerAvatar}" class="avatar">
+								<a href="${mergerProfile}" target="_blank">
+									${mergerName}
+								</a>
+								<span class="role">merged</span>
+							</div>
+
+						</div>
+
+					</div>
+				`
+			}
+		}
 	}catch(err){
 		container.innerHTML = `
 			<div class="loading" style="color:red;">

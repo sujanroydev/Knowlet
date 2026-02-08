@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECAP172 Unit 6 | 1st Semester Notes - Knowlet</title>
+    <title>Computer Application ECAP 172 Unit 06 | 2nd Semester Notes - Knowlet</title>
     <meta name="description" content="Master Arrays in C with ECAP172 Unit 6 notes. Covering 1D and 2D arrays, memory representation, and array operations for BCA.">
     <meta name="keywords" content="ECAP172, Arrays in C, 1D Array, 2D Array, Array Initialization, Programming Methodology, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -171,7 +172,7 @@
     <p>To declare an array in C, you specify the data type of the elements and the number of elements required by the array.</p>
     
     <h3>Syntax:</h3>
-    <pre>data_type array_name[array_size];</pre>
+    <pre>data_type array_name[array_size];</pre></div>
 
     <p><strong>Example:</strong> <code>int marks[5];</code><br>
     This tells the compiler to reserve space for 5 integers under the name 'marks'.</p>
@@ -190,11 +191,11 @@
     
     
 
-    <pre>
+    <div class="add-horizontal-scroll"><pre>
 int marks[3] = {85, 90, 78};
 printf("%d", marks[0]); // Output: 85
 printf("%d", marks[2]); // Output: 78
-    </pre>
+    </pre></div>
 
     <h2 id="memory-rep">5. Memory Representation of Arrays</h2>
     <p>Since arrays occupy contiguous memory, the address of any element can be calculated if the base address (address of the first element) is known.</p>
@@ -209,7 +210,7 @@ printf("%d", marks[2]); // Output: 78
     <p>A 2D array is essentially an "array of arrays." It is commonly used to represent tables or matrices.</p>
     
     <h3>Syntax:</h3>
-    <pre>data_type array_name[rows][columns];</pre>
+    <pre>data_type array_name[rows][columns];</pre></div>
 
     
 
@@ -255,5 +256,8 @@ printf("%d", marks[2]); // Output: 78
 
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

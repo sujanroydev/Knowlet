@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECAP172 Unit 11 | 1st Semester Notes - Knowlet</title>
+    <title>Computer Application ECAP 172 Unit 11 | 2nd Semester Notes - Knowlet</title>
     <meta name="description" content="Comprehensive exam-ready notes for ECAP172 Unit 11: Pointers. Learn pointer declaration, initialization, arithmetic, and expressions for BCA.">
     <meta name="keywords" content="ECAP172, Pointers in C, Pointer Arithmetic, Pointer Declaration, C Programming, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         :root {
             --primary-navy: #1a2a6c;
@@ -170,7 +171,7 @@
     <p>A pointer must be declared with a data type that matches the type of the variable it points to. This is because the compiler needs to know how many bytes of memory to read when accessing the value at that address.</p>
     
     <h3>Syntax:</h3>
-    <pre>data_type *pointer_name;</pre>
+    <pre>data_type *pointer_name;</pre></div>
     
     <p><strong>Example:</strong></p>
     <ul>
@@ -183,11 +184,11 @@
     <p>Initialization is the process of assigning a memory address to a pointer variable. This is done using the <strong>Address-of Operator (&amp;)</strong>.</p>
     
     <h3>Example:</h3>
-    <pre>
+    <div class="add-horizontal-scroll"><pre>
 int num = 10;
 int *ptr;     // Declaration
 ptr = &amp;num;   // Initialization (ptr now stores the address of num)
-    </pre>
+    </pre></div>
     <blockquote>
         <strong>Warning:</strong> Always initialize pointers. A pointer that is declared but not initialized is called a <strong>Wild Pointer</strong> and contains a random memory address, which can lead to system crashes.
     </blockquote>
@@ -196,11 +197,11 @@ ptr = &amp;num;   // Initialization (ptr now stores the address of num)
     <p>You can access the actual value stored at the memory address held by a pointer using the <strong>Dereferencing Operator (*)</strong>, also known as the Indirection Operator.</p>
     
     <h3>Example:</h3>
-    <pre>
+    <div class="add-horizontal-scroll"><pre>
 int x = 25;
 int *p = &amp;x;
 printf("Value of x: %d", *p); // Output: 25
-    </pre>
+    </pre></div>
     <p>In the above code, <code>*p</code> tells the computer to "go to the address stored in <code>p</code> and get the value located there."</p>
 
     <h2 id="arithmetic">5. Pointer Expressions and Arithmetic</h2>
@@ -257,5 +258,8 @@ printf("Value of x: %d", *p); // Output: 25
 
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

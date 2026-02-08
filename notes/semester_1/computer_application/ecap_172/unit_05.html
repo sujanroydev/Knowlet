@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECAP172 Unit 5 | 1st Semester Notes - Knowlet</title>
+    <title>Computer Application ECAP 172 Unit 05 | 2nd Semester Notes - Knowlet</title>
     <meta name="description" content="Comprehensive exam-ready notes for ECAP172 Unit 5: Control Structures. Learn about if-else, switch-case, and loops in C programming.">
     <meta name="keywords" content="ECAP172, Control Structures, C Loops, if-else, switch-case, for loop, while loop, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -151,21 +152,21 @@
     
     <h3>The if Statement</h3>
     <p>It is the simplest decision-making statement. It is used to decide whether a certain statement or block of statements will be executed or not.</p>
-    <pre>
+    <div class="add-horizontal-scroll"><pre>
 if (condition) {
     // block of code to be executed if the condition is true
 }
-    </pre>
+    </pre></div>
 
     <h3>The if-else Statement</h3>
     <p>The <strong>if</strong> statement alone tells us that if a condition is true it will execute a block of statements. If the condition is false, we can use <strong>else</strong> to execute a different block.</p>
-    <pre>
+    <div class="add-horizontal-scroll"><pre>
 if (condition) {
     // executes if condition is true
 } else {
     // executes if condition is false
 }
-    </pre>
+    </pre></div>
 
     <h2 id="nested-if">2. Nested if-else and if-else-if Ladder</h2>
     <h3>Nested if</h3>
@@ -178,7 +179,7 @@ if (condition) {
 
     <h3>if-else-if Ladder</h3>
     <p>Used when we have multiple conditions to check. The compiler checks conditions from top to bottom. As soon as a true condition is found, the statement associated with it is executed.</p>
-    <pre>
+    <div class="add-horizontal-scroll"><pre>
 if (condition1) {
     // code
 } else if (condition2) {
@@ -186,7 +187,7 @@ if (condition1) {
 } else {
     // code if no conditions are true
 }
-    </pre>
+    </pre></div>
 
     <h2 id="switch-case">3. Switch-Case Statement</h2>
     <p>The <strong>switch</strong> statement allows a variable to be tested for equality against a list of values. Each value is called a <strong>case</strong>, and the variable being switched on is checked for each switch case.</p>
@@ -195,7 +196,7 @@ if (condition1) {
         <strong>Rule:</strong> The expression used in a switch statement must have an integral or enumerated type (int or char).
     </blockquote>
 
-    <pre>
+    <div class="add-horizontal-scroll"><pre>
 switch (expression) {
     case value1:
         // statement
@@ -206,34 +207,34 @@ switch (expression) {
     default:
         // default statement
 }
-    </pre>
+    </pre></div>
 
     <h2 id="looping">4. Looping Statements (for, while, do-while)</h2>
     <p>Loops are used to repeat a block of code a specific number of times or until a certain condition is met.</p>
 
     <h3>The while Loop</h3>
     <p>This is an <strong>entry-controlled</strong> loop. The condition is checked <em>before</em> entering the loop body.</p>
-    <pre>
+    <div class="add-horizontal-scroll"><pre>
 while (condition) {
     // statements
 }
-    </pre>
+    </pre></div>
 
     <h3>The do-while Loop</h3>
     <p>This is an <strong>exit-controlled</strong> loop. The body of the loop is executed at least <em>once</em> before the condition is checked.</p>
-    <pre>
+    <div class="add-horizontal-scroll"><pre>
 do {
     // statements
 } while (condition);
-    </pre>
+    </pre></div>
 
     <h3>The for Loop</h3>
     <p>Used when the number of iterations is known in advance. It includes initialization, condition, and increment/decrement in one line.</p>
-    <pre>
+    <div class="add-horizontal-scroll"><pre>
 for (initialization; condition; increment/decrement) {
     // statements
 }
-    </pre>
+    </pre></div>
 
     
 
@@ -275,5 +276,8 @@ for (initialization; condition; increment/decrement) {
 
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

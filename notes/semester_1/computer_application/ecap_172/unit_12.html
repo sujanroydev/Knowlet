@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECAP172 Unit 12 | 1st Semester Notes - Knowlet</title>
+    <title>Computer Application ECAP 172 Unit 12 | 2nd Semester Notes - Knowlet</title>
     <meta name="description" content="In-depth exam-ready notes for ECAP172 Unit 12: Dynamic Memory Management. Learn about malloc, calloc, realloc, free, and the relationship between pointers and arrays.">
     <meta name="keywords" content="ECAP172, Dynamic Memory Management, malloc, calloc, realloc, free, C Programming, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         :root {
             --primary-navy: #1a2a6c;
@@ -170,7 +171,7 @@
 
     <h3>1. malloc() - Memory Allocation</h3>
     <p>The <code>malloc()</code> function allocates a single large block of contiguous memory of a specified size. It returns a <code>void pointer</code> which can be cast into any type.</p>
-    <pre>ptr = (cast_type*) malloc(byte_size);</pre>
+    <pre>ptr = (cast_type*) malloc(byte_size);</pre></div>
     <ul>
         <li><strong>Initial Value:</strong> Allocated memory contains garbage values.</li>
         <li><strong>On Failure:</strong> Returns <code>NULL</code>.</li>
@@ -178,7 +179,7 @@
 
     <h3>2. calloc() - Contiguous Allocation</h3>
     <p>The <code>calloc()</code> function allocates multiple blocks of memory, each of the same size.</p>
-    <pre>ptr = (cast_type*) calloc(n, element_size);</pre>
+    <pre>ptr = (cast_type*) calloc(n, element_size);</pre></div>
     <ul>
         <li><strong>Initial Value:</strong> Automatically initializes all bytes to <strong>zero</strong>.</li>
         <li><strong>On Failure:</strong> Returns <code>NULL</code>.</li>
@@ -186,11 +187,11 @@
 
     <h3>3. realloc() - Re-allocation</h3>
     <p>The <code>realloc()</code> function is used to change the size of previously allocated memory. It is useful when the initial allocation is insufficient or too large.</p>
-    <pre>ptr = (cast_type*) realloc(ptr, new_byte_size);</pre>
+    <pre>ptr = (cast_type*) realloc(ptr, new_byte_size);</pre></div>
 
     <h3>4. free() - De-allocation</h3>
     <p>The <code>free()</code> function is used to manually release the memory allocated by <code>malloc()</code> or <code>calloc()</code>. If memory is not freed, it leads to a <strong>Memory Leak</strong>.</p>
-    <pre>free(ptr);</pre>
+    <pre>free(ptr);</pre></div>
 
     <h2 id="pointers-arrays">3. Pointers and Arrays</h2>
     <p>There is a very close relationship between pointers and arrays in C. An array name itself acts as a constant pointer to the first element of the array.</p>
@@ -208,11 +209,11 @@
     <p>Pointers can be passed to functions as arguments, allowing the function to modify the original variable in memory. This is known as <strong>Call by Reference</strong>.</p>
 
     <h3>Passing Pointers to Functions:</h3>
-    <pre>
+    <div class="add-horizontal-scroll"><pre>
 void update(int *p) {
     *p = *p + 10; // Modifies the value at the address stored in p
 }
-    </pre>
+    </pre></div>
 
     <h3>Returning Pointers from Functions:</h3>
     <p>Functions can also return pointers. However, you should never return the address of a local variable because it is destroyed when the function finishes. Always return addresses of static variables or dynamically allocated heap memory.</p>
@@ -249,5 +250,8 @@ void update(int *p) {
 
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

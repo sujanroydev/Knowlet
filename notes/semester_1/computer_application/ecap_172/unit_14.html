@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECAP172 Unit 14 | 1st Semester Notes - Knowlet</title>
+    <title>Computer Application ECAP 172 Unit 14 | 2nd Semester Notes - Knowlet</title>
     <meta name="description" content="Final exam-ready notes for ECAP172 Unit 14: File Structure. Learn about C file handling, text vs binary files, preprocessor directives, and macros.">
     <meta name="keywords" content="ECAP172, C File Handling, Text Files, Binary Files, fopen, fclose, Preprocessor Directives, Macros, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         :root {
             --primary-navy: #1a2a6c;
@@ -161,30 +162,30 @@
     </div>
 
     <h2 id="categories">1. Categories of Files</h2>
-    <p>A file is a collection of related data stored on a secondary storage device. In C, files are treated as a stream of bytes. They are primarily categorized based on how the data is stored and accessed[cite: 117].</p>
+    <p>A file is a collection of related data stored on a secondary storage device. In C, files are treated as a stream of bytes. They are primarily categorized based on how the data is stored and accessed.</p>
     <ul>
         <li><strong>Sequential Access Files:</strong> Data must be accessed in the order it was written. To read the 10th record, you must pass through the first nine.</li>
         <li><strong>Random (Direct) Access Files:</strong> Data can be accessed from any location instantly using specific pointer manipulation functions.</li>
     </ul>
 
     <h2 id="ops">2. Opening and Closing Files</h2>
-    <p>Before performing any operation on a file, it must be opened, and after the work is done, it must be closed to free resources[cite: 117].</p>
+    <p>Before performing any operation on a file, it must be opened, and after the work is done, it must be closed to free resources.</p>
     
     <h3>FILE Pointer</h3>
     <p>In C, all file operations use a special structure called <code>FILE</code> defined in <code>stdio.h</code>. We declare a pointer of this type to track the file.</p>
-    <pre>FILE *fp;</pre>
+    <pre>FILE *fp;</pre></div>
 
     <h3>fopen() Function</h3>
     <p>Used to open a file. It returns the address of the file if successful, otherwise <code>NULL</code>.</p>
-    <pre>fp = fopen("filename.txt", "mode");</pre>
+    <pre>fp = fopen("filename.txt", "mode");</pre></div>
 
     <h3>fclose() Function</h3>
     <p>Used to close the file. It ensures all data is properly written (flushed) from the buffer to the disk.</p>
-    <pre>fclose(fp);</pre>
+    <pre>fclose(fp);</pre></div>
 
     <h2 id="modes">3. File Opening Modes</h2>
-    <p>Modes specify the purpose for which the file is being opened[cite: 117].</p>
-    <table>
+    <p>Modes specify the purpose for which the file is being opened.</p>
+    <div class="add-horizontal-scroll"><table>
         <thead>
             <tr>
                 <th>Mode</th>
@@ -219,17 +220,17 @@
                 <td>Creates a new file for both reading and writing.</td>
             </tr>
         </tbody>
-    </table>
+    </table></div>
 
     <h2 id="text-binary">4. Text vs. Binary Files</h2>
-    <p>C distinguishes between two types of file formats[cite: 117]:</p>
+    <p>C distinguishes between two types of file formats:</p>
     <ul>
         <li><strong>Text Files (.txt):</strong> Store data as a sequence of characters (ASCII). They are human-readable but less efficient for numeric data. Special characters like newline (\n) may be translated.</li>
         <li><strong>Binary Files (.dat, .bin):</strong> Store data exactly as it appears in memory (0s and 1s). They are not human-readable but are highly efficient and faster for large datasets. No character translation occurs.</li>
     </ul>
 
     <h2 id="read-write">5. Reading, Writing, and Appending</h2>
-    <p>Various functions are used to transfer data between the program and the file[cite: 117].</p>
+    <p>Various functions are used to transfer data between the program and the file.</p>
 
     <h3>Formatted I/O</h3>
     <ul>
@@ -250,14 +251,14 @@
     </ul>
 
     <h2 id="headers">6. Creating Header Files</h2>
-    <p>A header file is a file with a <code>.h</code> extension that contains C function declarations and macro definitions. It allows you to share code across multiple source files[cite: 117].</p>
+    <p>A header file is a file with a <code>.h</code> extension that contains C function declarations and macro definitions. It allows you to share code across multiple source files.</p>
     <ol>
         <li>Write your functions and definitions in a file (e.g., <code>mymath.h</code>).</li>
         <li>Include it in your main program using double quotes: <code>#include "mymath.h"</code>.</li>
     </ol>
 
     <h2 id="preprocessor">7. Preprocessor Directives and Macros</h2>
-    <p>The preprocessor is a tool that processes the source code before it is passed to the compiler. Directives start with a <code>#</code> symbol[cite: 117].</p>
+    <p>The preprocessor is a tool that processes the source code before it is passed to the compiler. Directives start with a <code>#</code> symbol.</p>
 
     <h3>Common Directives</h3>
     <ul>
@@ -305,5 +306,8 @@
 
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

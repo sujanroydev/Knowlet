@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EMTH136 Unit 2 | 1st Semester Notes - Knowlet</title>
+    <title>Computer Application EMTH 136 Unit 02 | 1st Semester Notes - Knowlet</title>
     <meta name="description" content="Academic notes for EMTH136 Discrete Structures Unit 2. Covering Cartesian Products, Relations, Functions, and special function graphs.">
     <meta name="keywords" content="EMTH136, Discrete Structures, Cartesian Product, Relations, Functions, One-One, Onto, Modulus Function, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -169,7 +170,7 @@
     <h2 id="graphs">4. Graphs of Special Functions</h2>
     <p>Visualizing functions through graphs is crucial for understanding their behavior:</p>
     
-    <table>
+    <div class="add-horizontal-scroll"><table>
         <tr>
             <th>Function Name</th>
             <th>Expression</th>
@@ -195,7 +196,7 @@
             <td>f(x) = x/|x|</td>
             <td>Returns 1 for x > 0, -1 for x < 0, and 0 for x = 0.</td>
         </tr>
-    </table>
+    </table></div>
 
     <h2 id="types">5. One-One and Onto Functions</h2>
     <p>These classifications describe how elements are mapped between sets:</p>
@@ -241,5 +242,8 @@
 
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

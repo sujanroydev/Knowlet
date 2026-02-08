@@ -161,15 +161,15 @@
 
     <h2 id="diff-eq">2. Solving Ordinary Differential Equations (ODEs)</h2>
     <p>
-        Most laws of physics are expressed as differential equations (e.g., $F = m \frac{d^2x}{dt^2}$). Numerical methods allow us to find the state of a system at any time $t$ by stepping through time in small increments ($h$).
+        Most laws of physics are expressed as differential equations (e.g., F = m (d<sup>2</sup>x) / (dt<sup>2</sup>)). Numerical methods allow us to find the state of a system at any time t by stepping through time in small increments (h).
     </p>
 
     <h2 id="euler">3. Euler and Modified Euler Methods</h2>
     <p>
-        <strong>Euler's Method</strong> is the simplest numerical procedure for solving ODEs. It assumes the slope of the function is constant over the interval $h$.
+        <strong>Euler's Method</strong> is the simplest numerical procedure for solving ODEs. It assumes the slope of the function is constant over the interval h.
     </p>
     <blockquote>
-        <strong>Formula:</strong> $y_{n+1} = y_n + h \cdot f(x_n, y_n)$
+        <strong>Formula:</strong> y<sub>n+1</sub> = y<sub>n</sub> + h · f(x<sub>n</sub>, y<sub>n</sub>)
     </blockquote>
     <p>
         <strong>Modified Euler</strong> improves accuracy by taking the average of the slopes at the beginning and the end of the interval.
@@ -178,7 +178,7 @@
 
     <h2 id="runge-kutta">4. Fourth-Order Runge-Kutta (RK4) Method</h2>
     <p>
-        The <strong>RK4 method</strong> is the "gold standard" for solving ODEs in undergraduate physics. It provides high accuracy by calculating four different slopes ($k_1, k_2, k_3, k_4$) and taking their weighted average.
+        The <strong>RK4 method</strong> is the "gold standard" for solving ODEs in undergraduate physics. It provides high accuracy by calculating four different slopes (k<sub>1</sub>, k<sub>2</sub>, k<sub>3</sub>, k<sub>4</sub>) and taking their weighted average.
     </p>
     <div class="code-block">
 <span class="comment"># RK4 Step implementation</span>
@@ -195,7 +195,7 @@ y = y + (k1 + 2*k2 + 2*k3 + k4) / 6
         <strong>Monte Carlo</strong> methods use <strong>random sampling</strong> to obtain numerical results. In physics, this is used to simulate stochastic processes or calculate complex integrals.
     </p>
     <ul>
-        <li><strong>Example: Estimating $\pi$:</strong> Randomly "throwing darts" at a square containing a circle and calculating the ratio of hits inside the circle.</li>
+        <li><strong>Example: Estimating π:</strong> Randomly "throwing darts" at a square containing a circle and calculating the ratio of hits inside the circle.</li>
     </ul>
 
     <h2 id="curve-fitting">6. Curve Fitting and Least Squares Method</h2>
@@ -213,7 +213,7 @@ popt, pcov = curve_fit(linear_func, x_data, y_data)
         
         <h3>Frequently Asked Questions</h3>
         <ul>
-            <li><strong>What is 'step size' ($h$) and how does it affect the result?</strong> A smaller step size reduces the truncation error but increases computation time and may lead to accumulated round-off errors.</li>
+            <li><strong>What is 'step size' (h) and how does it affect the result?</strong> A smaller step size reduces the truncation error but increases computation time and may lead to accumulated round-off errors.</li>
             <li><strong>When would you choose RK4 over Euler?</strong> Always, if accuracy is required. Euler is only used for very simple, non-critical educational demonstrations.</li>
         </ul>
 

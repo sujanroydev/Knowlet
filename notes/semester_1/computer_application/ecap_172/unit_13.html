@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECAP172 Unit 13 | 1st Semester Notes - Knowlet</title>
+    <title>Computer Application ECAP 172 Unit 13 | 2nd Semester Notes - Knowlet</title>
     <meta name="description" content="Comprehensive academic notes for ECAP172 Unit 13: Structures and Unions. Learn about structure declaration, initialization, pointers, nested structures, and unions at Knowlet.">
     <meta name="keywords" content="ECAP172, C Programming, Structures, Unions, Nested Structures, Self-referential structures, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         :root {
             --primary-navy: #1a2a6c;
@@ -173,28 +174,28 @@
     <h2 id="decl-init">2. Structure Declaration, Definition, and Initialization</h2>
     <h3>Declaration</h3>
     <p>The <code>struct</code> keyword is used to declare a structure. This creates a new data type template but does not allocate memory.</p>
-    <pre>
+    <div class="add-horizontal-scroll"><pre>
 struct Student {
     int rollNo;
     char name[50];
     float marks;
 };
-    </pre>
+    </pre></div>
 
     <h3>Definition (Variable Creation)</h3>
     <p>Once declared, you must define variables of that type to allocate memory.</p>
-    <pre>struct Student s1, s2;</pre>
+    <pre>struct Student s1, s2;</pre></div>
 
     <h3>Initialization</h3>
     <p>Structures can be initialized at the time of definition using curly braces.</p>
-    <pre>struct Student s1 = {101, "Rahul", 85.5};</pre>
+    <pre>struct Student s1 = {101, "Rahul", 85.5};</pre></div>
 
     <h2 id="access">3. Accessing Structure Members</h2>
     <p>To access individual members of a structure variable, we use the <strong>Dot Operator (.)</strong>.</p>
-    <pre>
+    <div class="add-horizontal-scroll"><pre>
 s1.rollNo = 102;
 printf("Name: %s", s1.name);
-    </pre>
+    </pre></div>
 
     <h2 id="func">4. Accessing Structures in Functions</h2>
     <p>Structures can be passed to functions just like standard variables. There are two main ways:</p>
@@ -205,20 +206,20 @@ printf("Name: %s", s1.name);
 
     <h2 id="ptr">5. Structures and Pointers</h2>
     <p>When using a pointer to a structure, we use the <strong>Arrow Operator (->)</strong> instead of the dot operator to access members.</p>
-    <pre>
+    <div class="add-horizontal-scroll"><pre>
 struct Student *ptr;
 ptr = &s1;
 printf("Roll No: %d", ptr->rollNo); // Equivalent to (*ptr).rollNo
-    </pre>
+    </pre></div>
 
     <h2 id="array-nested">6. Array of Structures and Nested Structures</h2>
     <h3>Array of Structures</h3>
     <p>Used to store records for multiple entities of the same category.</p>
-    <pre>struct Student classBCA[50]; // Stores info for 50 students</pre>
+    <pre>struct Student classBCA[50]; // Stores info for 50 students</pre></div>
 
     <h3>Nested Structures</h3>
     <p>A structure can contain another structure as its member.</p>
-    <pre>
+    <div class="add-horizontal-scroll"><pre>
 struct Date {
     int day, month, year;
 };
@@ -226,21 +227,21 @@ struct Student {
     int rollNo;
     struct Date dob; // Nested structure
 };
-    </pre>
+    </pre></div>
 
     <h2 id="self-union">7. Self-referential Structures and Unions</h2>
     <h3>Self-referential Structures</h3>
     <p>These are structures that contain a pointer to a structure of the same type. They are the foundation of complex data structures like <strong>Linked Lists</strong> and <strong>Trees</strong>.</p>
-    <pre>
+    <div class="add-horizontal-scroll"><pre>
 struct Node {
     int data;
     struct Node *next; // Points to the next node
 };
-    </pre>
+    </pre></div>
 
     <h3>Unions</h3>
     <p>A <strong>Union</strong> is similar to a structure, but all its members share the <strong>same memory location</strong>.</p>
-    <table>
+    <div class="add-horizontal-scroll"><table>
         <tr>
             <th>Feature</th>
             <th>Structure</th>
@@ -256,7 +257,7 @@ struct Node {
             <td>All members can be used at once.</td>
             <td>Only <strong>one</strong> member can hold a value at a time.</td>
         </tr>
-    </table>
+    </table></div>
 
     <h2 id="exam-prep">8. Exam Focus Enhancements</h2>
 
@@ -288,5 +289,8 @@ struct Node {
 
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

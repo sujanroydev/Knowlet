@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EMTH136 Unit 7 | 1st Semester Notes - Knowlet</title>
+    <title>Computer Application EMTH 136 Unit 07 | 1st Semester Notes - Knowlet</title>
     <meta name="description" content="Academic notes for EMTH136 Unit 7: Straight Lines. Covers slope, various forms of line equations, and distance formulas.">
     <meta name="keywords" content="EMTH136, Discrete Structures, Straight Lines, Slope of a line, Point-slope form, Distance of a point from a line, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         :root {
             --primary-navy: #1a2a6c;
@@ -123,27 +124,27 @@
     </div>
 
     <h2 id="slope">1. Slope of a Line</h2>
-    <p>The <strong>Slope</strong> (or gradient) of a line is a measure of its steepness and direction. It is denoted by $m$.</p>
+    <p>The <strong>Slope</strong> (or gradient) of a line is a measure of its steepness and direction. It is denoted by m.</p>
     
     
 
     <ul>
-        <li><strong>Using Inclination:</strong> If $\theta$ is the angle a line makes with the positive x-axis, then $m = \tan \theta$.</li>
-        <li><strong>Using Two Points:</strong> If a line passes through $(x_1, y_1)$ and $(x_2, y_2)$, then:
-            <div class="formula-box">$m = \frac{y_2 - y_1}{x_2 - x_1}$</div>
+        <li><strong>Using Inclination:</strong> If θ is the angle a line makes with the positive x-axis, then m = tan θ.</li>
+        <li><strong>Using Two Points:</strong> If a line passes through (x<sub>1</sub>, y<sub>1</sub>) and (x<sub>2</sub>, y<sub>2</sub>), then:
+            <div class="formula-box">m = (y<sub>2</sub> - y<sub>1</sub>) / (x<sub>2</sub> - x<sub>1</sub>)</div>
         </li>
     </ul>
-    <p><strong>Conditions:</strong> Parallel lines have equal slopes ($m_1 = m_2$). Perpendicular lines have a product of slopes equal to $-1$ ($m_1 \cdot m_2 = -1$).</p>
+    <p><strong>Conditions:</strong> Parallel lines have equal slopes (m<sub>1</sub> = m<sub>2</sub>). Perpendicular lines have a product of slopes equal to -1 (m<sub>1</sub> · m<sub>2</sub> = -1).</p>
 
     <h2 id="angle">2. Angle Between Two Lines</h2>
-    <p>When two lines with slopes $m_1$ and $m_2$ intersect, the acute angle $\alpha$ between them is given by:</p>
+    <p>When two lines with slopes m<sub>1</sub> and m<sub>2</sub> intersect, the acute angle α between them is given by:</p>
     
-    <div class="formula-box">$\tan \alpha = \left| \frac{m_2 - m_1}{1 + m_1 m_2} \right|$</div>
+    <div class="formula-box">tan α = ≤ft| (m<sub>2</sub> - m<sub>1</sub>) / (1 + m<sub>1</sub> m<sub>2</sub>) |</div>
     
     <h2 id="forms">3. Various Forms of Equations of a Line</h2>
     <p>Depending on the information available, we use different forms to represent a straight line in the Cartesian plane.</p>
 
-    <table>
+    <div class="add-horizontal-scroll"><table>
         <thead>
             <tr>
                 <th>Form Name</th>
@@ -154,66 +155,69 @@
         <tbody>
             <tr>
                 <td><strong>Slope-Intercept Form</strong></td>
-                <td>$y = mx + c$</td>
-                <td>Slope ($m$) and y-intercept ($c$).</td>
+                <td>y = mx + c</td>
+                <td>Slope (m) and y-intercept (c).</td>
             </tr>
             <tr>
                 <td><strong>Point-Slope Form</strong></td>
-                <td>$y - y_1 = m(x - x_1)$</td>
-                <td>Slope ($m$) and a point $(x_1, y_1)$.</td>
+                <td>y - y<sub>1</sub> = m(x - x<sub>1</sub>)</td>
+                <td>Slope (m) and a point (x<sub>1</sub>, y<sub>1</sub>).</td>
             </tr>
             <tr>
                 <td><strong>Two-Point Form</strong></td>
-                <td>$y - y_1 = \frac{y_2 - y_1}{x_2 - x_1}(x - x_1)$</td>
-                <td>Two points $(x_1, y_1)$ and $(x_2, y_2)$.</td>
+                <td>y - y<sub>1</sub> = (y<sub>2</sub> - y<sub>1</sub>) / (x<sub>2</sub> - x<sub>1</sub>)(x - x<sub>1</sub>)</td>
+                <td>Two points (x<sub>1</sub>, y<sub>1</sub>) and (x<sub>2</sub>, y<sub>2</sub>).</td>
             </tr>
             <tr>
                 <td><strong>Intercept Form</strong></td>
-                <td>$\frac{x}{a} + \frac{y}{b} = 1$</td>
-                <td>x-intercept ($a$) and y-intercept ($b$).</td>
+                <td>(x) / (a) + (y) / (b) = 1</td>
+                <td>x-intercept (a) and y-intercept (b).</td>
             </tr>
         </tbody>
-    </table>
+    </table></div>
 
     <h2 id="distance">4. Distance of a Point from a Line</h2>
-    <p>The perpendicular distance $d$ from a point $(x_1, y_1)$ to a line $Ax + By + C = 0$ is calculated as:</p>
+    <p>The perpendicular distance d from a point (x<sub>1</sub>, y<sub>1</sub>) to a line Ax + By + C = 0 is calculated as:</p>
     
     
 
-    <div class="formula-box">$d = \frac{|Ax_1 + By_1 + C|}{\sqrt{A^2 + B^2}}$</div>
+    <div class="formula-box">d = (|Ax<sub>1</sub> + By<sub>1</sub> + C|) / (√(A<sup>2</sup> + B<sup>2</sup>))</div>
     
-    <p><strong>Distance between two parallel lines</strong> $Ax + By + C_1 = 0$ and $Ax + By + C_2 = 0$ is:</p>
-    <div class="formula-box">$d = \frac{|C_1 - C_2|}{\sqrt{A^2 + B^2}}$</div>
+    <p><strong>Distance between two parallel lines</strong> Ax + By + C<sub>1</sub> = 0 and Ax + By + C<sub>2</sub> = 0 is:</p>
+    <div class="formula-box">d = (|C<sub>1</sub> - C<sub>2</sub>|) / (√(A<sup>2</sup> + B<sup>2</sup>))</div>
 
     <h2 id="exam-prep">5. Exam Focus Enhancements</h2>
 
     <div class="exam-section tips">
         <span class="tag">Exam Tips</span>
         <ul>
-            <li><strong>The Intercept Trick:</strong> If you are asked to find the intercepts of $3x + 4y = 12$, simply divide the whole equation by $12$ to get $\frac{x}{4} + \frac{y}{3} = 1$. The intercepts are $(4, 0)$ and $(0, 3)$.</li>
-            <li><strong>Collinearity:</strong> Three points are collinear if the slope of $AB$ equals the slope of $BC$.</li>
-            <li><strong>General Form:</strong> Always try to leave your final answer in the general form $Ax + By + C = 0$.</li>
+            <li><strong>The Intercept Trick:</strong> If you are asked to find the intercepts of 3x + 4y = 12, simply divide the whole equation by 12 to get (x) / (4) + (y) / (3) = 1. The intercepts are (4, 0) and (0, 3).</li>
+            <li><strong>Collinearity:</strong> Three points are collinear if the slope of AB equals the slope of BC.</li>
+            <li><strong>General Form:</strong> Always try to leave your final answer in the general form Ax + By + C = 0.</li>
         </ul>
     </div>
 
     <div class="exam-section mistakes">
         <span class="tag">Common Mistakes</span>
         <ul>
-            <li><strong>Vertical Line Slope:</strong> Remember that the slope of a vertical line is <strong>undefined</strong> ($\tan 90^\circ$).</li>
-            <li><strong>Sign Errors:</strong> When using the distance formula, ensure all terms are on one side of the equation ($= 0$) before identifying $A, B,$ and $C$.</li>
-            <li><strong>Intercept Form:</strong> The intercept form must have a "$+1$" on the right side. If it's $-1$, multiply the whole equation by $-1$.</li>
+            <li><strong>Vertical Line Slope:</strong> Remember that the slope of a vertical line is <strong>undefined</strong> (tan 90<sup>°</sup>).</li>
+            <li><strong>Sign Errors:</strong> When using the distance formula, ensure all terms are on one side of the equation (= 0) before identifying A, B, and C.</li>
+            <li><strong>Intercept Form:</strong> The intercept form must have a "+1" on the right side. If it's -1, multiply the whole equation by -1.</li>
         </ul>
     </div>
 
     <div class="exam-section faq">
         <span class="tag">Frequently Asked Questions</span>
-        <p><strong>Q: How do I find the slope of a line given in general form $Ax + By + C = 0$?</strong><br>
-        A: Convert it to $y = mx + c$ form. The slope is $m = -A/B$.</p>
+        <p><strong>Q: How do I find the slope of a line given in general form Ax + By + C = 0?</strong><br>
+        A: Convert it to y = mx + c form. The slope is m = -A/B.</p>
         <p><strong>Q: What is the slope of the x-axis and y-axis?</strong><br>
-        A: The x-axis has a slope of $0$ ($\tan 0^\circ$). The y-axis has an <strong>undefined</strong> slope ($\tan 90^\circ$).</p>
+        A: The x-axis has a slope of 0 (tan 0<sup>°</sup>). The y-axis has an <strong>undefined</strong> slope (tan 90<sup>°</sup>).</p>
     </div>
 
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

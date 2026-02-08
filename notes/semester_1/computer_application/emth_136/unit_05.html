@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EMTH136 Unit 5 | 1st Semester Notes - Knowlet</title>
+    <title>Computer Application EMTH 136 Unit 05 | 1st Semester Notes - Knowlet</title>
     <meta name="description" content="Academic notes for EMTH136 Unit 5: Permutations and Combinations. Includes counting principles, factorial notation, and application formulas.">
     <meta name="keywords" content="EMTH136, Discrete Structures, Permutations, Combinations, Factorial, Counting Principle, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         :root {
             --primary-navy: #1a2a6c;
@@ -125,17 +126,17 @@
     </div>
 
     <h2 id="counting">1. Fundamental Principle of Counting</h2>
-    <p>This principle forms the basis of all counting logic. It states that if one event can occur in $m$ ways and a second independent event can occur in $n$ ways, then:</p>
+    <p>This principle forms the basis of all counting logic. It states that if one event can occur in m ways and a second independent event can occur in n ways, then:</p>
     <ul>
-        <li><strong>Multiplication Principle:</strong> The total number of ways the two events can occur <strong>together</strong> is $m \times n$.</li>
-        <li><strong>Addition Principle:</strong> The number of ways <strong>either</strong> of the two events can occur is $m + n$ (provided events are mutually exclusive).</li>
+        <li><strong>Multiplication Principle:</strong> The total number of ways the two events can occur <strong>together</strong> is m × n.</li>
+        <li><strong>Addition Principle:</strong> The number of ways <strong>either</strong> of the two events can occur is m + n (provided events are mutually exclusive).</li>
     </ul>
 
     <h2 id="factorial">2. Factorial Notation</h2>
-    <p>The product of the first $n$ natural numbers is called <strong>n factorial</strong>, denoted by $n!$.</p>
+    <p>The product of the first n natural numbers is called <strong>n factorial</strong>, denoted by n!.</p>
     <div class="formula-box">
-        $n! = n \times (n-1) \times (n-2) \dots \times 3 \times 2 \times 1$ <br>
-        <strong>Note:</strong> $0! = 1$ and $1! = 1$.
+        n! = n × (n-1) × (n-2) \dots × 3 × 2 × 1 <br>
+        <strong>Note:</strong> 0! = 1 and 1! = 1.
     </div>
 
     <h2 id="permutations">3. Permutations (Arrangement)</h2>
@@ -144,12 +145,12 @@
     
 
     <div class="formula-box">
-        $^nP_r = \frac{n!}{(n-r)!}$ <br>
-        (Where $0 \le r \le n$)
+        <sup>n</sup>P<sub>r</sub> = (n!) / ((n-r)!) <br>
+        (Where 0 ≤ r ≤ n)
     </div>
     <ul>
-        <li><strong>Arrangement of $n$ distinct objects:</strong> $n!$</li>
-        <li><strong>Permutations when objects are not all distinct:</strong> $\frac{n!}{p!q!r!}$ where $p, q, r$ are counts of identical objects.</li>
+        <li><strong>Arrangement of n distinct objects:</strong> n!</li>
+        <li><strong>Permutations when objects are not all distinct:</strong> (n!) / (p!q!r!) where p, q, r are counts of identical objects.</li>
     </ul>
 
     <h2 id="combinations">4. Combinations (Selection)</h2>
@@ -158,15 +159,15 @@
     
 
     <div class="formula-box">
-        $^nC_r = \frac{n!}{r!(n-r)!}$ <br>
-        (Where $0 \le r \le n$)
+        <sup>n</sup>C<sub>r</sub> = (n!) / (r!(n-r)!) <br>
+        (Where 0 ≤ r ≤ n)
     </div>
     
     <h3>Key Properties:</h3>
     <ul>
-        <li>$^nC_r = ^nC_{n-r}$ (Symmetry property)</li>
-        <li>$^nC_0 = ^nC_n = 1$</li>
-        <li>Relationship: $^nP_r = ^nC_r \times r!$</li>
+        <li><sup>n</sup>C<sub>r</sub> = <sup>n</sup>C<sub>n-r</sub> (Symmetry property)</li>
+        <li><sup>n</sup>C<sub>0</sub> = <sup>n</sup>C<sub>n</sub> = 1</li>
+        <li>Relationship: <sup>n</sup>P<sub>r</sub> = <sup>n</sup>C<sub>r</sub> × r!</li>
     </ul>
 
     <h2 id="comparison">5. Key Differences and Applications</h2>
@@ -190,24 +191,24 @@
             <td>Arrange, Order, Rank, Digits</td>
             <td>Select, Choose, Group, Committee</td>
         </tr>
-    </table>
+    </table></div>
 
     <h2 id="exam-prep">6. Exam Focus Enhancements</h2>
 
     <div class="exam-section tips">
         <span class="tag">Exam Tips</span>
         <ul>
-            <li><strong>Logic Check:</strong> If the problem asks for a <strong>Committee</strong> or a <strong>Team</strong>, use Combinations ($^nC_r$). If it asks for <strong>Passwords</strong> or <strong>Phone numbers</strong>, use Permutations ($^nP_r$).</li>
-            <li><strong>Calculation Hack:</strong> To calculate $^nC_r$, multiply the first $r$ numbers of $n$ downwards and divide by $r!$. <br>Example: $^{10}C_3 = \frac{10 \times 9 \times 8}{3 \times 2 \times 1}$.</li>
-            <li><strong>Circular Permutations:</strong> If $n$ objects are arranged in a circle, the number of ways is $(n-1)!$.</li>
+            <li><strong>Logic Check:</strong> If the problem asks for a <strong>Committee</strong> or a <strong>Team</strong>, use Combinations (<sup>n</sup>C<sub>r</sub>). If it asks for <strong>Passwords</strong> or <strong>Phone numbers</strong>, use Permutations (<sup>n</sup>P<sub>r</sub>).</li>
+            <li><strong>Calculation Hack:</strong> To calculate <sup>n</sup>C<sub>r</sub>, multiply the first r numbers of n downwards and divide by r!. <br>Example: <sup>10</sup>C<sub>3</sub> = (10 × 9 × 8) / (3 × 2 × 1).</li>
+            <li><strong>Circular Permutations:</strong> If n objects are arranged in a circle, the number of ways is (n-1)!.</li>
         </ul>
     </div>
 
     <div class="exam-section mistakes">
         <span class="tag">Common Mistakes</span>
         <ul>
-            <li><strong>Repetition:</strong> Watch out for "repetition allowed" vs "repetition not allowed." Standard $^nP_r$ assumes no repetition. If allowed, it's $n^r$.</li>
-            <li><strong>$0!$ Value:</strong> Many students think $0! = 0$. Remember, it is always **1**.</li>
+            <li><strong>Repetition:</strong> Watch out for "repetition allowed" vs "repetition not allowed." Standard <sup>n</sup>P<sub>r</sub> assumes no repetition. If allowed, it's n<sup>r</sup>.</li>
+            <li><strong>0! Value:</strong> Many students think 0! = 0. Remember, it is always **1**.</li>
             <li><strong>Double Counting:</strong> In selection problems, don't use permutations or you will overcount identical groups in different orders.</li>
         </ul>
     </div>
@@ -217,10 +218,13 @@
         <p><strong>Q: When do I use addition instead of multiplication?</strong><br>
         A: Use <strong>multiplication</strong> when events must happen one after another (And). Use <strong>addition</strong> when you have different "cases" or options (Or).</p>
         <p><strong>Q: What is Pascal's Rule?</strong><br>
-        A: $^nC_r + ^nC_{r-1} = ^{n+1}C_r$. This is frequently used in proof-based questions.</p>
+        A: <sup>n</sup>C<sub>r</sub> + <sup>n</sup>C<sub>r-1</sub> = <sup>n+1</sup>C<sub>r</sub>. This is frequently used in proof-based questions.</p>
     </div>
 
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

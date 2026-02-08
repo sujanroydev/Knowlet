@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECAP172 Unit 3 | 1st Semester Notes - Knowlet</title>
+    <title>Computer Application ECAP 172 Unit 03 | 2nd Semester Notes - Knowlet</title>
     <meta name="description" content="Exam-ready HTML notes for ECAP172 Unit 3: Unformatted and Formatted I/O. Detailed coverage of printf, scanf, getchar, and C expressions.">
     <meta name="keywords" content="ECAP172, C programming, Formatted IO, Unformatted IO, printf, scanf, C Expressions, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -165,20 +166,20 @@
 
     <h3>printf() Function</h3>
     <p>Used to send formatted output to the standard output device (usually the screen).</p>
-    <pre>
+    <div class="add-horizontal-scroll"><pre>
 printf("format string", argument_list);
 // Example: printf("Age is %d", age);
-    </pre>
+    </pre></div>
 
     <h3>scanf() Function</h3>
     <p>Used to read formatted input from the standard input device (usually the keyboard).</p>
-    <pre>
+    <div class="add-horizontal-scroll"><pre>
 scanf("format string", &argument_list);
 // Example: scanf("%d", &age);
-    </pre>
+    </pre></div>
 
     <h3>Common Format Specifiers</h3>
-    <table>
+    <div class="add-horizontal-scroll"><table>
         <tr>
             <th>Specifier</th>
             <th>Data Type</th>
@@ -199,7 +200,7 @@ scanf("format string", &argument_list);
             <td>%s</td>
             <td>String (Character Array)</td>
         </tr>
-    </table>
+    </table></div>
 
     <h2 id="unformatted-io">3. Unformatted I/O: Character and String Functions</h2>
     <p>Unformatted I/O functions work with individual characters or strings of characters without using format specifiers.</p>
@@ -234,7 +235,7 @@ scanf("format string", &argument_list);
         <ul>
             <li><strong>The Ampersand (&):</strong> Always remember to use the address operator (&) in <code>scanf()</code> for non-string variables.</li>
             <li><strong>gets vs scanf:</strong> Use <code>gets()</code> if you need to input a string that contains spaces; <code>scanf("%s")</code> stops at the first space.</li>
-            <li><strong>Header Files:</strong> Ensure <code>#include &lt;stdio.h&gt;</code> is at the top of your program to use these functions[cite: 117, 118].</li>
+            <li><strong>Header Files:</strong> Ensure <code>#include &lt;stdio.h&gt;</code> is at the top of your program to use these functions.</li>
         </ul>
     </div>
 
@@ -257,5 +258,8 @@ scanf("format string", &argument_list);
 
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

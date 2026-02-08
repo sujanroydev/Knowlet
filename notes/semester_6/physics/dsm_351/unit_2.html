@@ -143,7 +143,7 @@
         <h2>Table of Contents</h2>
         <ul>
             <li><a href="#uncertainty">1. Heisenberg Uncertainty Principle</a></li>
-            <li><a href="#wavefunction">2. The Wave Function ($\psi$) and its Interpretation</a></li>
+            <li><a href="#wavefunction">2. The Wave Function (ψ) and its Interpretation</a></li>
             <li><a href="#schrodinger">3. Time-Dependent & Time-Independent Schrodinger Equation</a></li>
             <li><a href="#operators">4. Operators, Eigenvalues, and Eigenfunctions</a></li>
             <li><a href="#expectation">5. Expectation Values</a></li>
@@ -157,43 +157,43 @@
         Proposed by Werner Heisenberg in 1927, this principle states that it is fundamentally impossible to measure simultaneously and exactly both the position and momentum of a particle.
     </p>
     <div class="formula-box">
-        $\Delta x \cdot \Delta p_x \ge \frac{\hbar}{2}$
+        Δ x · Δ p<sub>x</sub> ≥ (\hbar) / (2)
     </div>
-    <p>Where $\hbar = \frac{h}{2\pi}$. Similarly, for energy and time:</p>
+    <p>Where \hbar = (h) / (2π). Similarly, for energy and time:</p>
     <div class="formula-box">
-        $\Delta E \cdot \Delta t \ge \frac{\hbar}{2}$
+        Δ E · Δ t ≥ (\hbar) / (2)
     </div>
     
     <p>
         This principle explains why an electron cannot reside inside a nucleus—the confined space would give it such high momentum that it would immediately escape.
     </p>
 
-    <h2 id="wavefunction">2. The Wave Function ($\psi$) and its Interpretation</h2>
+    <h2 id="wavefunction">2. The Wave Function (ψ) and its Interpretation</h2>
     <p>
-        In quantum mechanics, the state of a particle is completely described by a complex mathematical function called the <strong>Wave Function</strong> ($\psi$).
+        In quantum mechanics, the state of a particle is completely described by a complex mathematical function called the <strong>Wave Function</strong> (ψ).
     </p>
     <blockquote>
-        <strong>Born's Interpretation:</strong> The wave function itself has no physical meaning, but its square magnitude $|\psi(x,t)|^2$ represents the <strong>Probability Density</strong> of finding the particle at a point $x$ at time $t$.
+        <strong>Born's Interpretation:</strong> The wave function itself has no physical meaning, but its square magnitude |ψ(x,t)|<sup>2</sup> represents the <strong>Probability Density</strong> of finding the particle at a point x at time t.
     </blockquote>
     <h3>Conditions for a Well-Behaved Wave Function:</h3>
     <ul>
-        <li>$\psi$ must be continuous and single-valued.</li>
-        <li>$\frac{\partial \psi}{\partial x}$ must be continuous.</li>
-        <li>$\psi$ must be <strong>Normalized</strong>: $\int_{-\infty}^{+\infty} |\psi|^2 dx = 1$.</li>
+        <li>ψ must be continuous and single-valued.</li>
+        <li>(∂ ψ) / (∂ x) must be continuous.</li>
+        <li>ψ must be <strong>Normalized</strong>: ∫<sub>-∞</sub><sup>+∞</sup> |ψ|<sup>2</sup> dx = 1.</li>
     </ul>
 
     <h2 id="schrodinger">3. Schrodinger Equation</h2>
     <p>
-        The Schrodinger equation is the fundamental equation of motion for quantum systems, analogous to $F=ma$ in classical mechanics.
+        The Schrodinger equation is the fundamental equation of motion for quantum systems, analogous to F=ma in classical mechanics.
     </p>
     <h3>Time-Dependent Schrodinger Equation (TDSE):</h3>
     <div class="formula-box">
-        $i\hbar \frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m} \nabla^2 \psi + V\psi$
+        i\hbar (∂ ψ) / (∂ t) = -(\hbar<sup>2</sup>) / (2m) ∇<sup>2</sup> ψ + Vψ
     </div>
     <h3>Time-Independent Schrodinger Equation (Tise):</h3>
-    <p>For systems where potential energy $V$ does not depend on time:</p>
+    <p>For systems where potential energy V does not depend on time:</p>
     <div class="formula-box">
-        $\nabla^2 \psi + \frac{2m}{\hbar^2}(E - V)\psi = 0$
+        ∇<sup>2</sup> ψ + (2m) / (\hbar<sup>2</sup>)(E - V)ψ = 0
     </div>
 
     <h2 id="operators">4. Operators, Eigenvalues, and Eigenfunctions</h2>
@@ -208,45 +208,45 @@
         </tr>
         <tr>
             <td>Position</td>
-            <td>$\hat{x}$</td>
-            <td>Multiply by $x$</td>
+            <td><span style="text-decoration:overline;">x</span>̂</td>
+            <td>Multiply by x</td>
         </tr>
         <tr>
             <td>Momentum</td>
-            <td>$\hat{p}_x$</td>
-            <td>$-i\hbar \frac{\partial}{\partial x}$</td>
+            <td><span style="text-decoration:overline;">p</span>̂<sub>x</sub></td>
+            <td>-i\hbar (∂) / (∂ x)</td>
         </tr>
         <tr>
             <td>Kinetic Energy</td>
-            <td>$\hat{K}$</td>
-            <td>$-\frac{\hbar^2}{2m} \frac{\partial^2}{\partial x^2}$</td>
+            <td><span style="text-decoration:overline;">K</span>̂</td>
+            <td>-(\hbar<sup>2</sup>) / (2m) (∂<sup>2</sup>) / (∂ x<sup>2</sup>)</td>
         </tr>
         <tr>
             <td>Total Energy (Hamiltonian)</td>
-            <td>$\hat{H}$</td>
-            <td>$\hat{K} + \hat{V}$</td>
+            <td><span style="text-decoration:overline;">H</span>̂</td>
+            <td><span style="text-decoration:overline;">K</span>̂ + <span style="text-decoration:overline;">V</span>̂</td>
         </tr>
     </table></div>
-    <p>If $\hat{A} \psi = a \psi$, then $\psi$ is an <strong>Eigenfunction</strong> of $\hat{A}$ and $a$ is the <strong>Eigenvalue</strong>.</p>
+    <p>If <span style="text-decoration:overline;">A</span>̂ ψ = a ψ, then ψ is an <strong>Eigenfunction</strong> of <span style="text-decoration:overline;">A</span>̂ and a is the <strong>Eigenvalue</strong>.</p>
 
     <h2 id="expectation">5. Expectation Values</h2>
     <p>
-        Since quantum mechanics is probabilistic, we cannot predict the exact result of a single measurement. Instead, we calculate the <strong>Expectation Value</strong> $\langle A \rangle$, which is the average value obtained from many measurements on identical systems.
+        Since quantum mechanics is probabilistic, we cannot predict the exact result of a single measurement. Instead, we calculate the <strong>Expectation Value</strong> \langle A \rangle, which is the average value obtained from many measurements on identical systems.
     </p>
     <div class="formula-box">
-        $\langle A \rangle = \int \psi^* \hat{A} \psi dx$
+        \langle A \rangle = ∫ ψ<sup>*</sup> <span style="text-decoration:overline;">A</span>̂ ψ dx
     </div>
 
     <h2 id="particle-box">6. Particle in a One-Dimensional Box</h2>
     <p>
-        Consider a particle of mass $m$ trapped in a region of length $L$ where $V=0$ inside and $V=\infty$ outside.
+        Consider a particle of mass m trapped in a region of length L where V=0 inside and V=∞ outside.
     </p>
     
     <h3>Key Findings:</h3>
     <ul>
-        <li><strong>Energy is Quantized:</strong> $E_n = \frac{n^2 h^2}{8mL^2}$, where $n = 1, 2, 3 \dots$</li>
-        <li><strong>Zero-Point Energy:</strong> The lowest possible energy ($n=1$) is not zero, consistent with the Uncertainty Principle.</li>
-        <li><strong>Wave Functions:</strong> $\psi_n(x) = \sqrt{\frac{2}{L}} \sin\left(\frac{n\pi x}{L}\right)$.</li>
+        <li><strong>Energy is Quantized:</strong> E<sub>n</sub> = (n<sup>2</sup> h<sup>2</sup>) / (8mL<sup>2</sup>), where n = 1, 2, 3 \dots</li>
+        <li><strong>Zero-Point Energy:</strong> The lowest possible energy (n=1) is not zero, consistent with the Uncertainty Principle.</li>
+        <li><strong>Wave Functions:</strong> ψ<sub>n</sub>(x) = √((2) / (L)) sin((nπ x) / (L)).</li>
     </ul>
 
     <div class="exam-section" id="exam-corner">
@@ -255,18 +255,18 @@
         <h3>Frequently Asked Questions</h3>
         <ul>
             <li><strong>Why must a wave function be normalized?</strong> Because the particle must exist *somewhere* in space. The total probability of finding it in all of space must be exactly 1.</li>
-            <li><strong>What is the physical significance of the Hamiltonian operator?</strong> It represents the total energy of the system. Solving the eigenvalue equation $\hat{H}\psi = E\psi$ gives the allowed energy levels of the system.</li>
+            <li><strong>What is the physical significance of the Hamiltonian operator?</strong> It represents the total energy of the system. Solving the eigenvalue equation <span style="text-decoration:overline;">H</span>̂ψ = Eψ gives the allowed energy levels of the system.</li>
         </ul>
 
         <h3>Common Mistakes</h3>
         <ul>
-            <li><em>Uncertainty Units:</em> Be careful with $h$ vs $\hbar$. Standard formula uses $\hbar = h/2\pi$.</li>
-            <li><em>Normalization:</em> Forgetting to use the complex conjugate $\psi^*$ when calculating probability densities or expectation values.</li>
+            <li><em>Uncertainty Units:</em> Be careful with h vs \hbar. Standard formula uses \hbar = h/2π.</li>
+            <li><em>Normalization:</em> Forgetting to use the complex conjugate ψ<sup>*</sup> when calculating probability densities or expectation values.</li>
         </ul>
 
         <h3>Exam Tips</h3>
         <blockquote>
-            <strong>Tip:</strong> For the "Particle in a Box" derivation, always remember that $\psi(0) = 0$ and $\psi(L) = 0$ due to the infinite potential walls. These <strong>Boundary Conditions</strong> are the key to finding the energy levels.
+            <strong>Tip:</strong> For the "Particle in a Box" derivation, always remember that ψ(0) = 0 and ψ(L) = 0 due to the infinite potential walls. These <strong>Boundary Conditions</strong> are the key to finding the energy levels.
         </blockquote>
     </div>
 </div>

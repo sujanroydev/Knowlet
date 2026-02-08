@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EMTH136 Unit 4 | 1st Semester Notes - Knowlet</title>
+    <title>Computer Application EMTH 136 Unit 04 | 1st Semester Notes - Knowlet</title>
     <meta name="description" content="Official exam notes for EMTH136 Unit 4: Complex Numbers and Quadratic Equations. Covering Argand Plane, Polar Form, and Complex Roots.">
     <meta name="keywords" content="EMTH136, Discrete Structures, Complex Numbers, Argand Plane, Polar Representation, Quadratic Equations, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         :root {
             --primary-navy: #1a2a6c;
@@ -131,25 +132,25 @@
     </div>
 
     <h2 id="intro">1. Introduction to Complex Numbers</h2>
-    <p>A <strong>Complex Number</strong> is a number that can be expressed in the form $a + ib$, where $a$ and $b$ are real numbers, and $i$ (iota) is the imaginary unit.</p>
+    <p>A <strong>Complex Number</strong> is a number that can be expressed in the form a + ib, where a and b are real numbers, and i (iota) is the imaginary unit.</p>
     <ul>
-        <li><strong>Real Part:</strong> $Re(z) = a$</li>
-        <li><strong>Imaginary Part:</strong> $Im(z) = b$</li>
-        <li><strong>Need for Complex Numbers:</strong> To solve equations like $x^2 + 1 = 0$, where no real number exists as a solution.</li>
+        <li><strong>Real Part:</strong> Re(z) = a</li>
+        <li><strong>Imaginary Part:</strong> Im(z) = b</li>
+        <li><strong>Need for Complex Numbers:</strong> To solve equations like x<sup>2</sup> + 1 = 0, where no real number exists as a solution.</li>
     </ul>
 
     <div class="formula-box">
-        $i = \sqrt{-1}$ <br>
-        $i^2 = -1, \quad i^3 = -i, \quad i^4 = 1$
+        i = √(-1) <br>
+        i<sup>2</sup> = -1, \quad i<sup>3</sup> = -i, \quad i<sup>4</sup> = 1
     </div>
 
     <h2 id="algebra">2. Algebra of Complex Numbers</h2>
-    <p>Arithmetic operations on complex numbers follow standard algebraic rules, treating $i$ as a variable and replacing $i^2$ with $-1$.</p>
+    <p>Arithmetic operations on complex numbers follow standard algebraic rules, treating i as a variable and replacing i<sup>2</sup> with -1.</p>
     <ul>
-        <li><strong>Addition/Subtraction:</strong> $(a + ib) \pm (c + id) = (a \pm c) + i(b \pm d)$</li>
-        <li><strong>Multiplication:</strong> $(a + ib)(c + id) = (ac - bd) + i(ad + bc)$</li>
-        <li><strong>Conjugate:</strong> The conjugate of $z = a + ib$ is $\bar{z} = a - ib$.</li>
-        <li><strong>Modulus:</strong> The distance from origin, $|z| = \sqrt{a^2 + b^2}$.</li>
+        <li><strong>Addition/Subtraction:</strong> (a + ib) ± (c + id) = (a ± c) + i(b ± d)</li>
+        <li><strong>Multiplication:</strong> (a + ib)(c + id) = (ac - bd) + i(ad + bc)</li>
+        <li><strong>Conjugate:</strong> The conjugate of z = a + ib is <span style="text-decoration:overline;">z</span>̄ = a - ib.</li>
+        <li><strong>Modulus:</strong> The distance from origin, |z| = √(a<sup>2</sup> + b<sup>2</sup>).</li>
     </ul>
 
     <h2 id="argand">3. Argand Plane and Polar Form</h2>
@@ -158,28 +159,28 @@
     
 
     <h3>Polar Representation</h3>
-    <p>A complex number can be represented using its modulus ($r$) and the angle ($\theta$) it makes with the positive real axis.</p>
+    <p>A complex number can be represented using its modulus (r) and the angle (θ) it makes with the positive real axis.</p>
     <div class="formula-box">
-        $z = r(\cos \theta + i \sin \theta)$ <br>
-        Where $r = |z|$ and $\theta = \text{arg}(z)$ (Argument/Amplitude)
+        z = r(cos θ + i sin θ) <br>
+        Where r = |z| and θ = arg(z) (Argument/Amplitude)
     </div>
 
     <h2 id="fundamental">4. Fundamental Theorem of Algebra</h2>
-    <p>The <strong>Fundamental Theorem of Algebra</strong> states that every non-zero, single-variable, degree $n$ polynomial with complex coefficients has exactly $n$ complex roots (counting multiplicity).</p>
+    <p>The <strong>Fundamental Theorem of Algebra</strong> states that every non-zero, single-variable, degree n polynomial with complex coefficients has exactly n complex roots (counting multiplicity).</p>
     <blockquote>
         <strong>Key Takeaway:</strong> An equation of degree 2 (quadratic) will always have exactly 2 roots in the complex number system.
     </blockquote>
 
     <h2 id="quadratic">5. Complex Roots of Quadratic Equations</h2>
-    <p>For a quadratic equation $ax^2 + bx + c = 0$, we check the discriminant $D = b^2 - 4ac$.</p>
+    <p>For a quadratic equation ax<sup>2</sup> + bx + c = 0, we check the discriminant D = b<sup>2</sup> - 4ac.</p>
     <ul>
-        <li>If $D < 0$, the roots are imaginary and occur in conjugate pairs.</li>
+        <li>If D < 0, the roots are imaginary and occur in conjugate pairs.</li>
     </ul>
     
     
 
     <div class="formula-box">
-        $x = \frac{-b \pm i\sqrt{|D|}}{2a}$
+        x = (-b ± i√(|D|)) / (2a)
     </div>
 
     <h2 id="exam-prep">6. Exam Focus Enhancements</h2>
@@ -187,30 +188,33 @@
     <div class="exam-section tips">
         <span class="tag">Exam Tips</span>
         <ul>
-            <li><strong>Powers of $i$:</strong> Simplify high powers of $i$ by dividing the exponent by 4 and looking at the remainder. $i^{102} = i^2 = -1$.</li>
-            <li><strong>Conjugate Pair:</strong> If one root of a quadratic is $2 + 3i$, the other <strong>must</strong> be $2 - 3i$ (provided coefficients are real).</li>
-            <li><strong>Argument:</strong> Be careful with the quadrant when calculating $\theta = \tan^{-1}(b/a)$. Check the signs of $a$ and $b$ first.</li>
+            <li><strong>Powers of i:</strong> Simplify high powers of i by dividing the exponent by 4 and looking at the remainder. i<sup>102</sup> = i<sup>2</sup> = -1.</li>
+            <li><strong>Conjugate Pair:</strong> If one root of a quadratic is 2 + 3i, the other <strong>must</strong> be 2 - 3i (provided coefficients are real).</li>
+            <li><strong>Argument:</strong> Be careful with the quadrant when calculating θ = tan<sup>-1</sup>(b/a). Check the signs of a and b first.</li>
         </ul>
     </div>
 
     <div class="exam-section mistakes">
         <span class="tag">Common Mistakes</span>
         <ul>
-            <li><strong>$\sqrt{-a} \cdot \sqrt{-b}$:</strong> Students often write $\sqrt{ab}$. Correct result is $i\sqrt{a} \cdot i\sqrt{b} = i^2\sqrt{ab} = -\sqrt{ab}$.</li>
-            <li><strong>Modulus:</strong> Forgetting that $|z|$ is always a non-negative real number. $|3 - 4i| = \sqrt{3^2 + (-4)^2} = 5$, not $5i$.</li>
-            <li><strong>Polar Form:</strong> Forgetting that $\theta$ (the principal argument) should be in the range $(-\pi, \pi]$.</li>
+            <li><strong>√(-a) · √(-b):</strong> Students often write √(ab). Correct result is i√(a) · i√(b) = i<sup>2</sup>√(ab) = -√(ab).</li>
+            <li><strong>Modulus:</strong> Forgetting that |z| is always a non-negative real number. |3 - 4i| = √(3<sup>2</sup> + (-4)<sup>2</sup>) = 5, not 5i.</li>
+            <li><strong>Polar Form:</strong> Forgetting that θ (the principal argument) should be in the range (-π, π].</li>
         </ul>
     </div>
 
     <div class="exam-section faq">
         <span class="tag">Frequently Asked Questions</span>
         <p><strong>Q: What is a purely imaginary number?</strong><br>
-        A: A complex number where the real part is zero ($a=0$), such as $5i$.</p>
+        A: A complex number where the real part is zero (a=0), such as 5i.</p>
         <p><strong>Q: Why is the conjugate useful?</strong><br>
-        A: It is used to rationalize the denominator in complex division, turning it into a real number ($z \cdot \bar{z} = |z|^2$).</p>
+        A: It is used to rationalize the denominator in complex division, turning it into a real number (z · <span style="text-decoration:overline;">z</span>̄ = |z|<sup>2</sup>).</p>
     </div>
 
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

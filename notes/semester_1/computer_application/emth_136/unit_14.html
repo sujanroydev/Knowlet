@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EMTH136 Unit 14 | 1st Semester Notes - Knowlet</title>
+    <title>Computer Application EMTH 136 Unit 14 | 1st Semester Notes - Knowlet</title>
     <meta name="description" content="Final academic notes for EMTH136 Unit 14: Graph Theory. Learn about vertices, edges, types of graphs, and trees.">
     <meta name="keywords" content="EMTH136, Discrete Structures, Graph Theory, Vertices, Edges, Directed Graphs, Trees, BCA, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         :root {
             --primary-navy: #1a2a6c;
@@ -115,17 +116,17 @@
     </div>
 
     <h2 id="definition">1. Definition of Graphs, Vertices, and Edges</h2>
-    <p>A <strong>Graph ($G$)</strong> is a mathematical structure consisting of two sets: a set of <strong>Vertices ($V$)</strong> (also called nodes) and a set of <strong>Edges ($E$)</strong> that connect pairs of vertices.</p>
+    <p>A <strong>Graph (G)</strong> is a mathematical structure consisting of two sets: a set of <strong>Vertices (V)</strong> (also called nodes) and a set of <strong>Edges (E)</strong> that connect pairs of vertices.</p>
     
     
 
-    <p><strong>Formal Notation:</strong> $G = (V, E)$.<br>
-    Example: $V = \{v_1, v_2, v_3\}$, $E = \{(v_1, v_2), (v_2, v_3)\}$.</p>
+    <p><strong>Formal Notation:</strong> G = (V, E).<br>
+    Example: V = \{v<sub>1</sub>, v<sub>2</sub>, v<sub>3</sub>\}, E = \{(v<sub>1</sub>, v<sub>2</sub>), (v<sub>2</sub>, v<sub>3</sub>)\}.</p>
 
     <h2 id="types">2. Types of Graphs</h2>
     <p>Graphs are classified based on the nature of their edges and connections:</p>
     
-    <table>
+    <div class="add-horizontal-scroll"><table>
         <thead>
             <tr>
                 <th>Type</th>
@@ -146,18 +147,18 @@
                 <td>A graph with no self-loops and no multiple edges between the same vertices.</td>
             </tr>
             <tr>
-                <td><strong>Complete Graph ($K_n$)</strong></td>
+                <td><strong>Complete Graph (K<sub>n</sub>)</strong></td>
                 <td>A graph where every vertex is connected to every other vertex exactly once.</td>
             </tr>
         </tbody>
-    </table>
+    </table></div>
 
     <h2 id="degree">3. Degree of a Vertex</h2>
     <p>The <strong>Degree</strong> of a vertex is the number of edges incident (connected) to it. For directed graphs, we distinguish between <strong>In-degree</strong> (arrows coming in) and <strong>Out-degree</strong> (arrows going out).</p>
     
     <blockquote>
         <strong>Handshaking Lemma:</strong> The sum of the degrees of all vertices in a graph is twice the number of edges. 
-        <br>$\sum \text{deg}(v) = 2 \times |E|$
+        <br>∑ deg(v) = 2 × |E|
     </blockquote>
 
     <h2 id="paths">4. Paths and Connectivity</h2>
@@ -174,7 +175,7 @@
 
     <h3>Properties of a Tree:</h3>
     <ol>
-        <li>If a tree has $n$ vertices, it must have exactly <strong>$n-1$</strong> edges.</li>
+        <li>If a tree has n vertices, it must have exactly <strong>n-1</strong> edges.</li>
         <li>There is exactly one unique path between any two vertices.</li>
         <li>Adding any one edge to a tree creates exactly one cycle.</li>
     </ol>
@@ -193,7 +194,7 @@
     <div class="exam-section mistakes">
         <span class="tag">Common Mistakes</span>
         <ul>
-            <li><strong>Directed vs Undirected:</strong> Forgetting to use arrows when drawing a directed graph. In directed graphs, $(v_1, v_2)$ is NOT the same as $(v_2, v_1)$.</li>
+            <li><strong>Directed vs Undirected:</strong> Forgetting to use arrows when drawing a directed graph. In directed graphs, (v<sub>1</sub>, v<sub>2</sub>) is NOT the same as (v<sub>2</sub>, v<sub>1</sub>).</li>
             <li><strong>Simple Graph Rules:</strong> Including multiple edges between two vertices when asked to draw a *simple* graph.</li>
             <li><strong>Disconnected Trees:</strong> Thinking a tree can be disconnected. A disconnected graph without cycles is called a **Forest**.</li>
         </ul>
@@ -211,5 +212,8 @@
 
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EMTH136 Unit 9 | 1st Semester Notes - Knowlet</title>
+    <title>Computer Application EMTH 136 Unit 09 | 1st Semester Notes - Knowlet</title>
     <meta name="description" content="Official exam notes for EMTH136 Unit 9: Introduction to Three Dimensional Geometry. Covers octants, coordinate planes, distance, and section formulas.">
     <meta name="keywords" content="EMTH136, Discrete Structures, 3D Geometry, Octants, Distance Formula 3D, Section Formula 3D, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         :root {
             --primary-navy: #1a2a6c;
@@ -143,22 +144,22 @@
     </div>
 
     <h2 id="intro">1. Coordinate Axes and Planes</h2>
-    <p>In three-dimensional space, we use three mutually perpendicular lines passing through a common origin $O$ to define position. These are the <strong>X, Y, and Z axes</strong>.</p>
+    <p>In three-dimensional space, we use three mutually perpendicular lines passing through a common origin O to define position. These are the <strong>X, Y, and Z axes</strong>.</p>
     
     
 
     <h3>The Coordinate Planes</h3>
     <p>These axes taken in pairs determine three <strong>coordinate planes</strong>:</p>
     <ul>
-        <li><strong>XY-plane:</strong> Contains X and Y axes; $z = 0$ for all points here.</li>
-        <li><strong>YZ-plane:</strong> Contains Y and Z axes; $x = 0$ for all points here.</li>
-        <li><strong>ZX-plane:</strong> Contains Z and X axes; $y = 0$ for all points here.</li>
+        <li><strong>XY-plane:</strong> Contains X and Y axes; z = 0 for all points here.</li>
+        <li><strong>YZ-plane:</strong> Contains Y and Z axes; x = 0 for all points here.</li>
+        <li><strong>ZX-plane:</strong> Contains Z and X axes; y = 0 for all points here.</li>
     </ul>
 
     <h2 id="octants">2. Coordinates and Octants</h2>
-    <p>The three coordinate planes divide the entire space into <strong>eight parts</strong> known as <strong>Octants</strong>. The coordinates of a point $P$ are written as an ordered triple $(x, y, z)$.</p>
+    <p>The three coordinate planes divide the entire space into <strong>eight parts</strong> known as <strong>Octants</strong>. The coordinates of a point P are written as an ordered triple (x, y, z).</p>
 
-    <table>
+    <div class="add-horizontal-scroll"><table>
         <thead>
             <tr>
                 <th>Octant</th>
@@ -207,62 +208,65 @@
                 <td>-</td>
             </tr>
         </tbody>
-    </table>
+    </table></div>
 
     <h2 id="distance">3. Distance Between Two Points</h2>
-    <p>The distance between two points $P(x_1, y_1, z_1)$ and $Q(x_2, y_2, z_2)$ is an extension of the 2D distance formula.</p>
+    <p>The distance between two points P(x<sub>1</sub>, y<sub>1</sub>, z<sub>1</sub>) and Q(x<sub>2</sub>, y<sub>2</sub>, z<sub>2</sub>) is an extension of the 2D distance formula.</p>
 
     <div class="formula-box">
-        $PQ = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}$
+        PQ = √((x<sub>2</sub> - x<sub>1</sub>)<sup>2</sup> + (y<sub>2</sub> - y<sub>1</sub>)<sup>2</sup> + (z<sub>2</sub> - z<sub>1</sub>)<sup>2</sup>)
     </div>
 
     <h2 id="section">4. Section Formula</h2>
-    <p>The section formula helps find the coordinates of a point $R$ that divides the line segment joining $P(x_1, y_1, z_1)$ and $Q(x_2, y_2, z_2)$ in the ratio $m : n$.</p>
+    <p>The section formula helps find the coordinates of a point R that divides the line segment joining P(x<sub>1</sub>, y<sub>1</sub>, z<sub>1</sub>) and Q(x<sub>2</sub>, y<sub>2</sub>, z<sub>2</sub>) in the ratio m : n.</p>
 
     
 
     <h3>Internal Division:</h3>
     <div class="formula-box">
-        $R = \left( \frac{mx_2 + nx_1}{m+n}, \frac{my_2 + ny_1}{m+n}, \frac{mz_2 + nz_1}{m+n} \right)$
+        R = ( (mx<sub>2</sub> + nx<sub>1</sub>) / (m+n), (my<sub>2</sub> + ny<sub>1</sub>) / (m+n), (mz<sub>2</sub> + nz<sub>1</sub>) / (m+n) )
     </div>
 
     <h3>External Division:</h3>
     <div class="formula-box">
-        $R = \left( \frac{mx_2 - nx_1}{m-n}, \frac{my_2 - ny_1}{m-n}, \frac{mz_2 - nz_1}{m-n} \right)$
+        R = ( (mx<sub>2</sub> - nx<sub>1</sub>) / (m-n), (my<sub>2</sub> - ny<sub>1</sub>) / (m-n), (mz<sub>2</sub> - nz<sub>1</sub>) / (m-n) )
     </div>
 
-    <p><strong>Mid-point Formula:</strong> If $R$ is the mid-point (ratio 1:1), then: <br>
-    $R = \left( \frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}, \frac{z_1 + z_2}{2} \right)$</p>
+    <p><strong>Mid-point Formula:</strong> If R is the mid-point (ratio 1:1), then: <br>
+    R = ( (x<sub>1</sub> + x<sub>2</sub>) / (2), (y<sub>1</sub> + y<sub>2</sub>) / (2), (z<sub>1</sub> + z<sub>2</sub>) / (2) )</p>
 
     <h2 id="exam-prep">5. Exam Focus Enhancements</h2>
 
     <div class="exam-section tips">
         <span class="tag">Exam Tips</span>
         <ul>
-            <li><strong>Centroid of a Triangle:</strong> If asked for the centroid of a triangle with vertices $(x_1, y_1, z_1)$, $(x_2, y_2, z_2)$, and $(x_3, y_3, z_3)$, the formula is: <br> $G = \left( \frac{x_1+x_2+x_3}{3}, \frac{y_1+y_2+y_3}{3}, \frac{z_1+z_2+z_3}{3} \right)$.</li>
-            <li><strong>The "k:1" Method:</strong> To find the ratio in which a point divides a line, always assume the ratio is $k : 1$. If $k$ is positive, it's internal; if negative, it's external.</li>
-            <li><strong>Points on Axes:</strong> A point on the X-axis is $(x, 0, 0)$; on the Y-axis is $(0, y, 0)$; on the Z-axis is $(0, 0, z)$.</li>
+            <li><strong>Centroid of a Triangle:</strong> If asked for the centroid of a triangle with vertices (x<sub>1</sub>, y<sub>1</sub>, z<sub>1</sub>), (x<sub>2</sub>, y<sub>2</sub>, z<sub>2</sub>), and (x<sub>3</sub>, y<sub>3</sub>, z<sub>3</sub>), the formula is: <br> G = ( (x<sub>1</sub>+x<sub>2</sub>+x<sub>3</sub>) / (3), (y<sub>1</sub>+y<sub>2</sub>+y<sub>3</sub>) / (3), (z<sub>1</sub>+z<sub>2</sub>+z<sub>3</sub>) / (3) ).</li>
+            <li><strong>The "k:1" Method:</strong> To find the ratio in which a point divides a line, always assume the ratio is k : 1. If k is positive, it's internal; if negative, it's external.</li>
+            <li><strong>Points on Axes:</strong> A point on the X-axis is (x, 0, 0); on the Y-axis is (0, y, 0); on the Z-axis is (0, 0, z).</li>
         </ul>
     </div>
 
     <div class="exam-section mistakes">
         <span class="tag">Common Mistakes</span>
         <ul>
-            <li><strong>Signs in Octants:</strong> Students often confuse the 4th and 8th octants. Note that $z$ is positive for the first four and negative for the last four.</li>
-            <li><strong>External Division Formula:</strong> Forgetting the minus sign in the denominator $(m-n)$ often leads to calculation errors.</li>
+            <li><strong>Signs in Octants:</strong> Students often confuse the 4th and 8th octants. Note that z is positive for the first four and negative for the last four.</li>
+            <li><strong>External Division Formula:</strong> Forgetting the minus sign in the denominator (m-n) often leads to calculation errors.</li>
             <li><strong>Coordinate Planes:</strong> Misidentifying the plane. Remember: in the <strong>XY</strong>-plane, the <strong>Z</strong>-coordinate is zero.</li>
         </ul>
     </div>
 
     <div class="exam-section faq">
         <span class="tag">Frequently Asked Questions</span>
-        <p><strong>Q: What is the distance of point $(x, y, z)$ from the origin?</strong><br>
-        A: $d = \sqrt{x^2 + y^2 + z^2}$.</p>
+        <p><strong>Q: What is the distance of point (x, y, z) from the origin?</strong><br>
+        A: d = √(x<sup>2</sup> + y<sup>2</sup> + z<sup>2</sup>).</p>
         <p><strong>Q: How many octants are there?</strong><br>
         A: There are 8 octants, just as there are 4 quadrants in 2D geometry.</p>
     </div>
 
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

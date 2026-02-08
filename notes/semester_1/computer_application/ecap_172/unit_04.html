@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECAP172 Unit 4 | 1st Semester Notes - Knowlet</title>
+    <title>Computer Application ECAP 172 Unit 04 | 2nd Semester Notes - Knowlet</title>
     <meta name="description" content="Exam-ready HTML notes for ECAP172 Unit 4: Data Types & Operators. Comprehensive coverage of C operators and data ranges for Knowlet.">
     <meta name="keywords" content="ECAP172, C Data Types, C Operators, Arithmetic Operators, Logical Operators, Bitwise Operators, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         :root {
             --primary-blue: #1a5276;
@@ -157,7 +158,7 @@
     <h2 id="data-types">1. C Data Types: Range and Size</h2>
     <p>Data types in C define the type of data a variable can hold and how much space it occupies in memory.</p>
     
-    <table>
+    <div class="add-horizontal-scroll"><table>
         <thead>
             <tr>
                 <th>Data Type</th>
@@ -187,66 +188,66 @@
                 <td>1.7E-308 to 1.7E+308</td>
             </tr>
         </tbody>
-    </table>
+    </table></div>
 
     <h2 id="arithmetic">2. Arithmetic & Relational Operators</h2>
     <p>Arithmetic operators perform mathematical calculations, while relational operators compare values.</p>
 
     <h3>Arithmetic Operators</h3>
     <ul>
-        <li><strong>+ (Addition):</strong> Adds two operands[cite: 117, 120].</li>
-        <li><strong>- (Subtraction):</strong> Subtracts the second operand from the first[cite: 117, 120].</li>
-        <li><strong>* (Multiplication):</strong> Multiplies two operands[cite: 117, 120].</li>
-        <li><strong>/ (Division):</strong> Divides numerator by denominator[cite: 117, 120].</li>
-        <li><strong>% (Modulus):</strong> Returns the remainder of an integer division[cite: 117, 120].</li>
+        <li><strong>+ (Addition):</strong> Adds two operands.</li>
+        <li><strong>- (Subtraction):</strong> Subtracts the second operand from the first.</li>
+        <li><strong>* (Multiplication):</strong> Multiplies two operands.</li>
+        <li><strong>/ (Division):</strong> Divides numerator by denominator.</li>
+        <li><strong>% (Modulus):</strong> Returns the remainder of an integer division.</li>
     </ul>
 
     <h3>Relational Operators</h3>
-    <p>Used to check the relationship between two operands. Results are always true (1) or false (0)[cite: 117, 120].</p>
+    <p>Used to check the relationship between two operands. Results are always true (1) or false (0).</p>
     <ul>
-        <li><strong>== (Equal to), != (Not equal to)</strong>[cite: 117, 120].</li>
-        <li><strong>> (Greater than), < (Less than)</strong>[cite: 117, 120].</li>
-        <li><strong>>= (Greater than or equal to), <= (Less than or equal to)</strong>[cite: 117, 120].</li>
+        <li><strong>== (Equal to), != (Not equal to)</strong>.</li>
+        <li><strong>> (Greater than), < (Less than)</strong>.</li>
+        <li><strong>>= (Greater than or equal to), <= (Less than or equal to)</strong>.</li>
     </ul>
 
     <h2 id="logical">3. Logical & Conditional Operators</h2>
     
     <h3>Logical Operators</h3>
-    <p>Used to combine multiple relational expressions[cite: 117, 120].</p>
+    <p>Used to combine multiple relational expressions.</p>
     <ul>
-        <li><strong>&& (Logical AND):</strong> True only if both operands are true[cite: 117, 120].</li>
-        <li><strong>|| (Logical OR):</strong> True if at least one operand is true[cite: 117, 120].</li>
-        <li><strong>! (Logical NOT):</strong> Reverses the logical state of its operand[cite: 117, 120].</li>
+        <li><strong>&& (Logical AND):</strong> True only if both operands are true.</li>
+        <li><strong>|| (Logical OR):</strong> True if at least one operand is true.</li>
+        <li><strong>! (Logical NOT):</strong> Reverses the logical state of its operand.</li>
     </ul>
 
     <h3>Conditional (Ternary) Operator</h3>
     <blockquote>
-        <strong>Syntax:</strong> condition ? value_if_true : value_if_false; [cite: 117, 120]
+        <strong>Syntax:</strong> condition ? value_if_true : value_if_false; 
     </blockquote>
     <p>It is the only operator in C that takes three operands.</p>
 
     <h2 id="bitwise">4. Bitwise & Assignment Operators</h2>
     
     <h3>Bitwise Operators</h3>
-    <p>These operators perform operations at the bit level (binary)[cite: 117, 120].</p>
+    <p>These operators perform operations at the bit level (binary).</p>
     <ul>
-        <li><strong>& (Bitwise AND), | (Bitwise OR), ^ (Bitwise XOR)</strong>[cite: 117, 120].</li>
-        <li><strong>~ (Bitwise NOT), << (Left Shift), >> (Right Shift)</strong>[cite: 117, 120].</li>
+        <li><strong>& (Bitwise AND), | (Bitwise OR), ^ (Bitwise XOR)</strong>.</li>
+        <li><strong>~ (Bitwise NOT), << (Left Shift), >> (Right Shift)</strong>.</li>
     </ul>
 
     <h3>Assignment Operators</h3>
-    <p>Used to assign values to variables. C also supports "compound assignment"[cite: 117, 120].</p>
+    <p>Used to assign values to variables. C also supports "compound assignment".</p>
     <ul>
-        <li><strong>= (Simple Assignment)</strong>[cite: 117, 120].</li>
-        <li><strong>+=, -=, *=, /=, %= (Compound Assignments)</strong>[cite: 117, 120].</li>
+        <li><strong>= (Simple Assignment)</strong>.</li>
+        <li><strong>+=, -=, *=, /=, %= (Compound Assignments)</strong>.</li>
     </ul>
 
     <h2 id="unary-binary">5. Unary vs Binary Operators</h2>
-    <p>Operators are categorized by the number of operands they require[cite: 117, 120].</p>
+    <p>Operators are categorized by the number of operands they require.</p>
     
     <ul>
-        <li><strong>Unary Operators:</strong> Require only one operand (e.g., ++, --, -, !)[cite: 117, 120].</li>
-        <li><strong>Binary Operators:</strong> Require two operands (e.g., +, -, *, /)[cite: 117, 120].</li>
+        <li><strong>Unary Operators:</strong> Require only one operand (e.g., ++, --, -, !).</li>
+        <li><strong>Binary Operators:</strong> Require two operands (e.g., +, -, *, /).</li>
     </ul>
 
     <h2 id="exam-prep">6. Exam Focus Enhancements</h2>
@@ -254,18 +255,18 @@
     <div class="exam-section tips">
         <span class="label">Exam Tips</span>
         <ul>
-            <li><strong>Modulus Rule:</strong> The <strong>%</strong> operator only works with <strong>int</strong> data types. Using it with <strong>float</strong> will cause a compile error[cite: 128, 129].</li>
-            <li><strong>Division:</strong> Remember that integer division (e.g., 5/2) results in 2, not 2.5. To get a decimal, at least one operand must be a float[cite: 128, 129].</li>
-            <li><strong>Short-circuit:</strong> In Logical AND (&&), if the first expression is false, the second is not even checked[cite: 128, 129].</li>
+            <li><strong>Modulus Rule:</strong> The <strong>%</strong> operator only works with <strong>int</strong> data types. Using it with <strong>float</strong> will cause a compile error.</li>
+            <li><strong>Division:</strong> Remember that integer division (e.g., 5/2) results in 2, not 2.5. To get a decimal, at least one operand must be a float.</li>
+            <li><strong>Short-circuit:</strong> In Logical AND (&&), if the first expression is false, the second is not even checked.</li>
         </ul>
     </div>
 
     <div class="exam-section mistakes">
         <span class="label">Common Mistakes</span>
         <ul>
-            <li><strong>= vs ==:</strong> Confusing the assignment operator (=) with the equality comparison operator (==) in <em>if</em> statements[cite: 121].</li>
+            <li><strong>= vs ==:</strong> Confusing the assignment operator (=) with the equality comparison operator (==) in <em>if</em> statements.</li>
             <li><strong>Range Overflow:</strong> Assigning a value larger than 32,767 to a standard 16-bit <em>int</em>.</li>
-            <li><strong>Division by Zero:</strong> Always ensure the denominator is not zero before performing a division[cite: 128].</li>
+            <li><strong>Division by Zero:</strong> Always ensure the denominator is not zero before performing a division.</li>
         </ul>
     </div>
 
@@ -279,5 +280,8 @@
 
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

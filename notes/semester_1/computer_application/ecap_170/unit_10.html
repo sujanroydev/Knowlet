@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application ECAP 170 Unit 10 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="In-depth exam notes for ECAP170 Unit 10 covering Categories of Programming Languages and the SDLC.">
+    <meta name="keywords" content="ECAP170, Programming Languages, SDLC, Machine Language, Assembly Language, High Level Language, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary-navy: #1a2a6c;
+            --secondary-teal: #008080;
+            --accent-gold: #f39c12;
+            --bg-light: #f7f9f9;
+            --text-dark: #2c3e50;
+            --border-gray: #d5dbdb;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-gray);
+        }
+
+        h1 {
+            color: var(--primary-navy);
+            text-align: center;
+            border-bottom: 4px solid var(--secondary-teal);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            color: var(--secondary-teal);
+            border-left: 6px solid var(--accent-gold);
+            padding-left: 15px;
+            margin-top: 40px;
+            background: #f2fdfd;
+        }
+
+        h3 {
+            color: var(--primary-navy);
+            margin-top: 25px;
+            border-bottom: 2px solid var(--border-gray);
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .toc {
+            background: #fdfefe;
+            padding: 25px;
+            border: 1px solid var(--accent-gold);
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-navy);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            color: var(--accent-gold);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-gray);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-navy);
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        blockquote {
+            background: #fff9eb;
+            border-left: 5px solid var(--accent-gold);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        .exam-section {
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+
+        .tips { background-color: #e8f6f3; border: 1px solid #1abc9c; }
+        .mistakes { background-color: #fdedec; border: 1px solid #e74c3c; }
+        .faq { background-color: #ebf5fb; border: 1px solid #3498db; }
+
+        .label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            color: #1a2a6c;
+            text-decoration: underline;
+        }
+
+        strong { color: #d35400; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 10: Programming Languages and Programming Process</h1>
+
+    <div class="toc">
+        <h3>Table of Contents</h3>
+        <ul>
+            <li><a href="#categories">1. Categories of Programming Languages</a></li>
+            <li><a href="#low-level">2. Machine and Assembly Language</a></li>
+            <li><a href="#high-level">3. Higher Level Languages</a></li>
+            <li><a href="#web-languages">4. WWW Development Languages</a></li>
+            <li><a href="#sdlc">5. The SDLC of Programming</a></li>
+            <li><a href="#exam-prep">6. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="categories">1. Categories of Programming Languages</h2>
+    <p>Programming languages are the tools used to write instructions for computers. They are generally categorized into three generations or levels based on how close they are to the computer hardware versus human language.</p>
+    <ul>
+        <li><strong>Low-Level Languages:</strong> Closely tied to the hardware and architecture of the computer.</li>
+        <li><strong>High-Level Languages:</strong> More abstracted from hardware, easier for humans to read and write.</li>
+    </ul>
+
+    <h2 id="low-level">2. Machine and Assembly Language</h2>
+    <h3>Machine Language (First Generation)</h3>
+    <p>Machine language is the only language that a computer can understand directly. It consists entirely of binary strings (0s and 1s).</p>
+    <ul>
+        <li><strong>Execution:</strong> Very fast since no translation is needed.</li>
+        <li><strong>Difficulty:</strong> Highly difficult for humans to write, read, or debug.</li>
+        <li><strong>Portability:</strong> Machine-dependent; code written for one CPU will not run on another.</li>
+    </ul>
+
+    <h3>Assembly Language (Second Generation)</h3>
+    <p>Assembly language replaces binary codes with symbolic names called <strong>Mnemonics</strong> (e.g., ADD, SUB, MOV).</p>
+    <ul>
+        <li><strong>Translator:</strong> Requires a program called an <strong>Assembler</strong> to convert assembly code into machine code.</li>
+        <li><strong>Advantage:</strong> Easier than machine language but still allows direct hardware control.</li>
+    </ul>
+
+    <h2 id="high-level">3. Higher Level Languages</h2>
+    <p>High-level languages (HLL) use English-like words and mathematical symbols (e.g., C, C++, Java, Python).</p>
+    
+    <ul>
+        <li><strong>Portability:</strong> Machine-independent; the same code can run on different platforms with minimal changes.</li>
+        <li><strong>Translators:</strong> Use <strong>Compilers</strong> or <strong>Interpreters</strong> to convert code into machine language.</li>
+        <li><strong>Efficiency:</strong> Slightly slower execution than low-level languages but much higher programmer productivity.</li>
+    </ul>
+
+    <h2 id="web-languages">4. WWW Development Languages</h2>
+    <p>These are specialized languages used to create content and logic for the World Wide Web.</p>
+    <ul>
+        <li><strong>HTML (HyperText Markup Language):</strong> Used for structuring the layout of web pages.</li>
+        <li><strong>Client-Side Scripting:</strong> Languages like JavaScript that run in the user's browser.</li>
+        <li><strong>Server-Side Scripting:</strong> Languages like PHP or Python that run on a web server.</li>
+    </ul>
+
+    <h2 id="sdlc">5. The SDLC of Programming</h2>
+    <p>The <strong>Software Development Life Cycle (SDLC)</strong> is a systematic process used to design, develop, and test high-quality software.</p>
+    
+    <div class="add-horizontal-scroll"><table>
+        <tr>
+            <th>Phase</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><strong>Problem Analysis</strong></td>
+            <td>Understanding the user requirements and the goal of the software.</td>
+        </tr>
+        <tr>
+            <td><strong>Program Design</strong></td>
+            <td>Planning the logic using tools like algorithms and flowcharts.</td>
+        </tr>
+        <tr>
+            <td><strong>Coding</strong></td>
+            <td>Writing the actual instructions in a specific programming language.</td>
+        </tr>
+        <tr>
+            <td><strong>Testing & Debugging</strong></td>
+            <td>Finding and fixing errors (bugs) to ensure the program works correctly.</td>
+        </tr>
+        <tr>
+            <td><strong>Documentation</strong></td>
+            <td>Writing manuals and comments for future maintenance.</td>
+        </tr>
+        <tr>
+            <td><strong>Maintenance</strong></td>
+            <td>Updating the software to fix new issues or add features.</td>
+        </tr>
+    </table></div>
+
+    <h2 id="exam-prep">6. Exam Focus Enhancements</h2>
+
+    <div class="exam-section tips">
+        <span class="label">Exam Tips</span>
+        <ul>
+            <li><strong>Mnemonic:</strong> Remember the SDLC phases with the phrase: "Please Always Design If Tested Daily" (Planning, Analysis, Design, Implementation, Testing, Deployment).</li>
+            <li><strong>Portability:</strong> If asked why High-Level Languages are popular, focus on <strong>Machine Independence</strong> and <strong>Ease of Use</strong>.</li>
+            <li><strong>Translators:</strong> Be clear on the difference: Assemblers (for Assembly), Compilers/Interpreters (for HLL).</li>
+        </ul>
+    </div>
+
+    <div class="exam-section mistakes">
+        <span class="label">Common Mistakes</span>
+        <ul>
+            <li>Thinking <strong>HTML</strong> is a programming language. It is a <strong>Markup Language</strong> used for structure, not logic.</li>
+            <li>Confusion between <strong>Machine</strong> and <strong>Assembly</strong>. Remember: Machine = 1s and 0s; Assembly = Words/Mnemonics.</li>
+            <li>Skipping the <strong>Maintenance</strong> phase. In the SDLC, software is never "done"—it requires ongoing updates.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section faq">
+        <span class="label">Frequently Asked Questions</span>
+        <p><strong>Q: Why can't the computer understand High-Level Languages directly?</strong><br>
+        A: CPUs are built with digital logic circuits that only recognize binary signals (electrical pulses). HLLs must be translated into these pulses (Machine Code) to work.</p>
+        <p><strong>Q: What is the main benefit of the SDLC?</strong><br>
+        A: It provides a disciplined approach that ensures software is delivered on time, within budget, and meets user needs.</p>
+    </div>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

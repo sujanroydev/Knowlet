@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application ECAP 172 Unit 14 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Final exam-ready notes for ECAP172 Unit 14: File Structure. Learn about C file handling, text vs binary files, preprocessor directives, and macros.">
+    <meta name="keywords" content="ECAP172, C File Handling, Text Files, Binary Files, fopen, fclose, Preprocessor Directives, Macros, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary-navy: #1a2a6c;
+            --accent-red: #c0392b;
+            --bg-light: #f8f9fa;
+            --text-dark: #2d3436;
+            --border-color: #bdc3c7;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        h1 {
+            color: var(--primary-navy);
+            text-align: center;
+            border-bottom: 4px solid var(--accent-red);
+            padding-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: var(--accent-red);
+            border-left: 6px solid var(--primary-navy);
+            padding: 8px 15px;
+            margin-top: 40px;
+            background: #fff5f5;
+        }
+
+        h3 {
+            color: var(--primary-navy);
+            margin-top: 25px;
+            border-bottom: 2px solid #f1f2f6;
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .toc {
+            background: #ffffff;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-navy);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            color: var(--accent-red);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-navy);
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        blockquote {
+            background: #eef2f7;
+            border-left: 5px solid var(--primary-navy);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        pre {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .exam-section {
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .tips { background-color: #e8f6f3; border: 1px solid #1abc9c; }
+        .mistakes { background-color: #fdedec; border: 1px solid #e74c3c; }
+        .faq { background-color: #ebf5fb; border: 1px solid #3498db; }
+
+        .tag {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 14: File Structure</h1>
+
+    <div class="toc">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#categories">1. Categories of Files</a></li>
+            <li><a href="#ops">2. Opening and Closing Files</a></li>
+            <li><a href="#modes">3. File Opening Modes</a></li>
+            <li><a href="#text-binary">4. Text vs. Binary Files</a></li>
+            <li><a href="#read-write">5. Reading, Writing, and Appending</a></li>
+            <li><a href="#headers">6. Creating Header Files</a></li>
+            <li><a href="#preprocessor">7. Preprocessor Directives and Macros</a></li>
+            <li><a href="#exam-prep">8. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="categories">1. Categories of Files</h2>
+    <p>A file is a collection of related data stored on a secondary storage device. In C, files are treated as a stream of bytes. They are primarily categorized based on how the data is stored and accessed.</p>
+    <ul>
+        <li><strong>Sequential Access Files:</strong> Data must be accessed in the order it was written. To read the 10th record, you must pass through the first nine.</li>
+        <li><strong>Random (Direct) Access Files:</strong> Data can be accessed from any location instantly using specific pointer manipulation functions.</li>
+    </ul>
+
+    <h2 id="ops">2. Opening and Closing Files</h2>
+    <p>Before performing any operation on a file, it must be opened, and after the work is done, it must be closed to free resources.</p>
+    
+    <h3>FILE Pointer</h3>
+    <p>In C, all file operations use a special structure called <code>FILE</code> defined in <code>stdio.h</code>. We declare a pointer of this type to track the file.</p>
+    <pre>FILE *fp;</pre></div>
+
+    <h3>fopen() Function</h3>
+    <p>Used to open a file. It returns the address of the file if successful, otherwise <code>NULL</code>.</p>
+    <pre>fp = fopen("filename.txt", "mode");</pre></div>
+
+    <h3>fclose() Function</h3>
+    <p>Used to close the file. It ensures all data is properly written (flushed) from the buffer to the disk.</p>
+    <pre>fclose(fp);</pre></div>
+
+    <h2 id="modes">3. File Opening Modes</h2>
+    <p>Modes specify the purpose for which the file is being opened.</p>
+    <div class="add-horizontal-scroll"><table>
+        <thead>
+            <tr>
+                <th>Mode</th>
+                <th>Meaning</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>"r"</strong></td>
+                <td>Read</td>
+                <td>Opens an existing file for reading only.</td>
+            </tr>
+            <tr>
+                <td><strong>"w"</strong></td>
+                <td>Write</td>
+                <td>Creates a new file or overwrites an existing one.</td>
+            </tr>
+            <tr>
+                <td><strong>"a"</strong></td>
+                <td>Append</td>
+                <td>Adds data to the end of an existing file.</td>
+            </tr>
+            <tr>
+                <td><strong>"r+"</strong></td>
+                <td>Read/Write</td>
+                <td>Opens an existing file for both reading and writing.</td>
+            </tr>
+            <tr>
+                <td><strong>"w+"</strong></td>
+                <td>Write/Read</td>
+                <td>Creates a new file for both reading and writing.</td>
+            </tr>
+        </tbody>
+    </table></div>
+
+    <h2 id="text-binary">4. Text vs. Binary Files</h2>
+    <p>C distinguishes between two types of file formats:</p>
+    <ul>
+        <li><strong>Text Files (.txt):</strong> Store data as a sequence of characters (ASCII). They are human-readable but less efficient for numeric data. Special characters like newline (\n) may be translated.</li>
+        <li><strong>Binary Files (.dat, .bin):</strong> Store data exactly as it appears in memory (0s and 1s). They are not human-readable but are highly efficient and faster for large datasets. No character translation occurs.</li>
+    </ul>
+
+    <h2 id="read-write">5. Reading, Writing, and Appending</h2>
+    <p>Various functions are used to transfer data between the program and the file.</p>
+
+    <h3>Formatted I/O</h3>
+    <ul>
+        <li><strong>fprintf():</strong> <code>fprintf(fp, "Format", variables);</code> - Writes formatted data to a file.</li>
+        <li><strong>fscanf():</strong> <code>fscanf(fp, "Format", &variables);</code> - Reads formatted data from a file.</li>
+    </ul>
+
+    <h3>Character I/O</h3>
+    <ul>
+        <li><strong>fputc() / putc():</strong> Writes a single character to a file.</li>
+        <li><strong>fgetc() / getc():</strong> Reads a single character from a file. Returns <code>EOF</code> at the end of the file.</li>
+    </ul>
+
+    <h3>Block I/O (Binary)</h3>
+    <ul>
+        <li><strong>fwrite():</strong> Writes a block of memory (like a structure) to a file.</li>
+        <li><strong>fread():</strong> Reads a block of memory from a file.</li>
+    </ul>
+
+    <h2 id="headers">6. Creating Header Files</h2>
+    <p>A header file is a file with a <code>.h</code> extension that contains C function declarations and macro definitions. It allows you to share code across multiple source files.</p>
+    <ol>
+        <li>Write your functions and definitions in a file (e.g., <code>mymath.h</code>).</li>
+        <li>Include it in your main program using double quotes: <code>#include "mymath.h"</code>.</li>
+    </ol>
+
+    <h2 id="preprocessor">7. Preprocessor Directives and Macros</h2>
+    <p>The preprocessor is a tool that processes the source code before it is passed to the compiler. Directives start with a <code>#</code> symbol.</p>
+
+    <h3>Common Directives</h3>
+    <ul>
+        <li><strong>#include:</strong> Includes the content of a header file.</li>
+        <li><strong>#define:</strong> Used to create symbolic constants or <strong>Macros</strong>.</li>
+        <li><strong>#undef:</strong> Undefines an existing macro.</li>
+        <li><strong>#ifdef / #ifndef:</strong> Conditional compilation directives used to include or exclude code blocks.</li>
+    </ul>
+
+    <h3>Macros</h3>
+    <blockquote>
+        <strong>Definition:</strong> A macro is a fragment of code which has been given a name. Whenever the name is used, it is replaced by the contents of the macro.
+    </blockquote>
+    <p><strong>Example:</strong> <code>#define PI 3.14</code> (Object-like macro) or <code>#define SQUARE(x) ((x)*(x))</code> (Function-like macro).</p>
+
+    <h2 id="exam-prep">8. Exam Focus Enhancements</h2>
+
+    <div class="exam-section tips">
+        <span class="tag">Exam Tips</span>
+        <ul>
+            <li><strong>EOF:</strong> Always check for <code>EOF</code> (End of File) while reading character-by-character to avoid infinite loops.</li>
+            <li><strong>Error Handling:</strong> In exams, always check if <code>fp == NULL</code> after <code>fopen()</code>. This demonstrates robust coding.</li>
+            <li><strong>Append vs Write:</strong> Remember that "w" mode <strong>deletes</strong> previous content, while "a" mode <strong>preserves</strong> it.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section mistakes">
+        <span class="tag">Common Mistakes</span>
+        <ul>
+            <li><strong>Forgetting fclose():</strong> Failing to close a file can lead to data loss and "file locked" errors in the OS.</li>
+            <li><strong>Binary Mode:</strong> Forgetting to add 'b' to the mode (e.g., "rb", "wb") when working with binary files.</li>
+            <li><strong>Macro Parentheses:</strong> Forgetting parentheses in macro definitions (e.g., <code>#define MUL(a, b) a * b</code>). If you call <code>MUL(2+3, 4)</code>, it becomes <code>2 + 3 * 4 = 14</code> instead of <code>20</code>. Correct: <code>((a)*(b))</code>.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section faq">
+        <span class="tag">Frequently Asked Questions</span>
+        <p><strong>Q: What is the return value of fclose()?</strong><br>
+        A: It returns 0 on success and <code>EOF</code> if an error occurs during closing.</p>
+        <p><strong>Q: Why use binary files over text files?</strong><br>
+        A: Binary files are much faster for reading/writing complex data like structures and they take up less space on the disk.</p>
+        <p><strong>Q: What is the difference between #include &lt;file.h&gt; and #include "file.h"?</strong><br>
+        A: Angle brackets <code>&lt;&gt;</code> search in system directories; double quotes <code>""</code> search in the local project directory first.</p>
+    </div>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

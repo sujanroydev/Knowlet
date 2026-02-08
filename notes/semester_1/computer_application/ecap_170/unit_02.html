@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application ECAP 170 Unit 02 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for ECAP170 Unit 2: Memory and I/O Devices. Part of the BCA curriculum at Knowlet.">
+    <meta name="keywords" content="ECAP170, Memory Types, RAM, ROM, HDD, SSD, I/O Devices, Keyboard, Mouse, Printer, Plotter, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary-blue: #2c3e50;
+            --secondary-orange: #e67e22;
+            --light-bg: #f4f7f6;
+            --text-dark: #333;
+            --white: #ffffff;
+            --border-gray: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: var(--primary-blue);
+            text-align: center;
+            border-bottom: 4px solid var(--secondary-orange);
+            padding-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: var(--secondary-orange);
+            border-left: 6px solid var(--primary-blue);
+            padding-left: 15px;
+            margin-top: 40px;
+            background: #fdf2e9;
+            padding: 10px 15px;
+        }
+
+        h3 {
+            color: var(--primary-blue);
+            margin-top: 25px;
+            border-bottom: 2px solid var(--border-gray);
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95em;
+        }
+
+        th, td {
+            border: 1px solid var(--border-gray);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        blockquote {
+            background: #eef2f7;
+            border-left: 5px solid var(--primary-blue);
+            padding: 20px;
+            margin: 25px 0;
+            font-style: italic;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .toc {
+            background: #f8f9fa;
+            padding: 25px;
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        .toc h3 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--secondary-orange);
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc ul li {
+            margin-bottom: 8px;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .toc a:hover {
+            color: var(--secondary-orange);
+        }
+
+        .exam-section {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .tips { background-color: #e8f8f5; border: 1px solid #27ae60; }
+        .mistakes { background-color: #fdedec; border: 1px solid #e74c3c; }
+        .faq { background-color: #ebf5fb; border: 1px solid #3498db; }
+
+        .label {
+            font-weight: bold;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        strong { color: #2c3e50; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 2: Memory and I/O Devices</h1>
+
+    <div class="toc">
+        <h3>Quick Navigation</h3>
+        <ul>
+            <li><a href="#memory-basics">1. Memory: Concepts and Units</a></li>
+            <li><a href="#primary-memory">2. Primary Memory: RAM and ROM</a></li>
+            <li><a href="#secondary-storage">3. Secondary Storage Devices</a></li>
+            <li><a href="#input-devices">4. Input Devices</a></li>
+            <li><a href="#output-devices">5. Output Devices</a></li>
+            <li><a href="#latest-tech">6. Latest I/O Devices in the Market</a></li>
+            <li><a href="#exam-corner">7. Exam Focus Corner</a></li>
+        </ul>
+    </div>
+
+    <h2 id="memory-basics">1. Memory: Concepts and Units</h2>
+    <p>Computer memory is the storage space in the computer, where data is to be processed and instructions required for processing are stored. It is divided into a large number of small parts called cells.</p>
+    
+    <h3>Units of Memory</h3>
+    <p>Data in a computer is stored in binary form (0s and 1s). The following table shows the standard units used to measure memory capacity:</p>
+    <div class="add-horizontal-scroll"><table>
+        <thead>
+            <tr>
+                <th>Unit</th>
+                <th>Equivalent To</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Bit</td>
+                <td>Binary Digit (0 or 1)</td>
+            </tr>
+            <tr>
+                <td>Nibble</td>
+                <td>4 Bits</td>
+            </tr>
+            <tr>
+                <td>Byte (B)</td>
+                <td>8 Bits</td>
+            </tr>
+            <tr>
+                <td>Kilobyte (KB)</td>
+                <td>1024 Bytes</td>
+            </tr>
+            <tr>
+                <td>Megabyte (MB)</td>
+                <td>1024 KB</td>
+            </tr>
+            <tr>
+                <td>Gigabyte (GB)</td>
+                <td>1024 MB</td>
+            </tr>
+            <tr>
+                <td>Terabyte (TB)</td>
+                <td>1024 GB</td>
+            </tr>
+            <tr>
+                <td>Petabyte (PB)</td>
+                <td>1024 TB</td>
+            </tr>
+        </tbody>
+    </table></div>
+
+    <h2 id="primary-memory">2. Primary Memory: RAM and ROM</h2>
+    <p>Primary memory holds only those data and instructions on which the computer is currently working. It has a limited capacity and data is lost when power is switched off (in the case of RAM).</p>
+
+    <h3>RAM (Random Access Memory)</h3>
+    <p>RAM is the internal memory of the CPU for storing data, programs, and program results. It is a read/write memory which stores data until the machine is working.</p>
+    <ul>
+        <li><strong>Volatile:</strong> Data is lost when power is interrupted.</li>
+        <li><strong>Types:</strong> 
+            <ul>
+                <li><strong>SRAM (Static RAM):</strong> Faster and more expensive; used as cache.</li>
+                <li><strong>DRAM (Dynamic RAM):</strong> Needs to be refreshed thousands of times per second; used as main memory.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>ROM (Read Only Memory)</h3>
+    <p>ROM is memory from which we can only read but cannot write on it. This type of memory is non-volatile. The information is stored permanently in such memories during manufacture.</p>
+    <ul>
+        <li><strong>Non-volatile:</strong> Retains data even after the power is turned off.</li>
+        <li><strong>Usage:</strong> Stores the BIOS (Basic Input/Output System) to start the computer.</li>
+        <li><strong>Types:</strong> PROM (Programmable ROM), EPROM (Erasable Programmable ROM), and EEPROM (Electrically Erasable Programmable ROM).</li>
+    </ul>
+
+    <h2 id="secondary-storage">3. Secondary Storage Devices</h2>
+    <p>Secondary memory is also known as external memory or non-volatile memory. It is slower than main memory but used for storing data/information permanently.</p>
+
+    <h3>HDD (Hard Disk Drive)</h3>
+    <p>The standard main storage device for most computers. It uses magnetic storage to store and retrieve digital information using rapidly rotating disks (platters) coated with magnetic material.</p>
+
+    <h3>SSD (Solid State Drive)</h3>
+    <p>A newer, faster type of device that stores data on instantly-accessible memory chips. Unlike HDDs, SSDs have no moving parts, making them quieter and more durable.</p>
+
+    <h3>Flash Drives</h3>
+    <p>Small, portable storage devices that connect via a USB port. They use "flash" memory, which is a type of EEPROM.</p>
+
+    <h3>Optical Disks: DVD</h3>
+    <p>Digital Versatile Discs (DVD) are optical storage media that use laser technology to read and write data. They offer higher storage capacity than traditional CDs.</p>
+
+    <h2 id="input-devices">4. Input Devices</h2>
+    <p>Input devices allow the user to send data or instructions to the computer.</p>
+    <ul>
+        <li><strong>Keyboard:</strong> The most common input device used to enter text and commands.</li>
+        <li><strong>Mouse:</strong> A pointing device used to control a cursor on the screen.</li>
+        <li><strong>Scanner:</strong> A device that captures images from photographic prints, posters, magazine pages, and similar sources for computer editing and display.</li>
+    </ul>
+
+    <h2 id="output-devices">5. Output Devices</h2>
+    <p>Output devices translate the computer's processed data into a form that humans can understand.</p>
+
+    <h3>LCDs (Liquid Crystal Displays)</h3>
+    <p>The most common type of monitor used today. It uses the light-modulating properties of liquid crystals to display images.</p>
+
+    <h3>Printers</h3>
+    <p>Used to create "hard copies" of digital documents.
+        <ul>
+            <li><strong>Impact Printers:</strong> Use a striking mechanism (e.g., Dot Matrix).</li>
+            <li><strong>Non-Impact Printers:</strong> Do not hit the paper (e.g., Inkjet, Laser).</li>
+        </ul>
+    </p>
+
+    <h3>Plotters</h3>
+    <p>A specialized output device used to produce high-quality vector graphics. They are commonly used by engineers and architects for technical drawings and blueprints.</p>
+
+    <h2 id="latest-tech">6. Latest I/O Devices in the Market</h2>
+    <p>The technology market is constantly evolving with newer peripheral devices:</p>
+    <ul>
+        <li><strong>Touchscreens:</strong> Combine input and output functionality into a single interface.</li>
+        <li><strong>3D Printers:</strong> Create physical 3D objects from digital files.</li>
+        <li><strong>Biometric Sensors:</strong> Input devices for security (fingerprint scanners, iris recognition).</li>
+        <li><strong>VR Headsets:</strong> High-end output devices for immersive virtual reality environments.</li>
+    </ul>
+
+    <h2 id="exam-corner">7. Exam Focus Corner</h2>
+
+    <div class="exam-section tips">
+        <span class="label">Exam Tips</span>
+        <ul>
+            <li><strong>Comparison Questions:</strong> Expect a comparison between RAM and ROM, or HDD and SSD. Use tables for these answers.</li>
+            <li><strong>Units:</strong> Memorize the memory hierarchy (Bit to Petabyte). Questions often ask to convert or order these.</li>
+            <li><strong>I/O Definition:</strong> Clearly distinguish between input and output devices. Some devices like touchscreens act as both.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section mistakes">
+        <span class="label">Common Mistakes</span>
+        <ul>
+            <li>Confusing <strong>Volatile</strong> with <strong>Non-volatile</strong>. Remember: RAM is like a whiteboard (volatile), ROM is like a printed book (non-volatile).</li>
+            <li>Thinking SSDs and HDDs are part of "Main Memory." They are <strong>Secondary Storage</strong>.</li>
+            <li>Confusing <strong>Byte</strong> (B) with <strong>bit</strong> (b). Note that 1 Byte = 8 bits.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section faq">
+        <span class="label">Frequently Asked Questions</span>
+        <p><strong>Q: Why is RAM called 'Random Access'?</strong><br>
+        A: Because any location in the memory can be accessed directly in the same amount of time, regardless of its physical position.</p>
+        <p><strong>Q: What is the main advantage of SSD over HDD?</strong><br>
+        A: Speed. SSDs have no moving parts and can read/write data much faster than the spinning platters of an HDD.</p>
+        <p><strong>Q: Is a USB Flash Drive primary or secondary memory?</strong><br>
+        A: It is <strong>secondary storage</strong> because it stores data permanently and is external to the computer's motherboard.</p>
+    </div>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

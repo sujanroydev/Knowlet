@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application ECAP 170 Unit 11 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Detailed academic notes for ECAP170 Unit 11: Internet. Covering basic terminology, scripting, and internet applications.">
+    <meta name="keywords" content="ECAP170, Internet Terms, Web Server, HTML, Client-side Scripting, Server-side Scripting, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary-blue: #003366;
+            --secondary-teal: #1abc9c;
+            --accent-red: #e74c3c;
+            --light-gray: #f2f4f4;
+            --text-dark: #2c3e50;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f3f4;
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: var(--primary-blue);
+            text-align: center;
+            border-bottom: 4px solid var(--secondary-teal);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: var(--secondary-teal);
+            border-left: 6px solid var(--primary-blue);
+            padding-left: 15px;
+            margin-top: 35px;
+            background: #e8f8f5;
+        }
+
+        h3 {
+            color: var(--primary-blue);
+            margin-top: 25px;
+            border-bottom: 2px solid #eee;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .toc {
+            background: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            color: var(--secondary-teal);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        blockquote {
+            background: #fff5f5;
+            border-left: 5px solid var(--accent-red);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        .exam-focus {
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+            border: 1px solid;
+        }
+
+        .tips { background-color: #e8f6f3; border-color: #1abc9c; }
+        .mistakes { background-color: #fdf2f2; border-color: #e74c3c; }
+        .faq { background-color: #ebf5fb; border-color: #3498db; }
+
+        .header-tag {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            color: var(--primary-blue);
+            text-decoration: underline;
+        }
+
+        strong { color: #c0392b; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 11: Internet</h1>
+
+    <div class="toc">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#internet-terms">1. Basic Internet Terminology</a></li>
+            <li><a href="#web-environment">2. Web Browser and its Environment</a></li>
+            <li><a href="#scripting">3. Client-Side and Server-Side Scripting</a></li>
+            <li><a href="#applications">4. Internet Applications</a></li>
+            <li><a href="#exam-prep">5. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="internet-terms">1. Basic Internet Terminology</h2>
+    <p>The Internet is a global system of interconnected computer networks that use the standard Internet protocol suite (TCP/IP) to link several billion devices worldwide.</p>
+
+    <ul>
+        <li><strong>Web Page:</strong> A document, typically written in HTML, that is viewable in a web browser.</li>
+        <li><strong>Website:</strong> A collection of related web pages identified by a common domain name.</li>
+        <li><strong>Home Page:</strong> The introductory or main page of a website.</li>
+        <li><strong>URL (Uniform Resource Locator):</strong> The global address used to locate resources on the World Wide Web.</li>
+        <li><strong>ISP (Internet Service Provider):</strong> An organization that provides services for accessing and using the Internet.</li>
+        <li><strong>Hypertext:</strong> Text displayed on a computer that contains links to other text that the reader can immediately access.</li>
+    </ul>
+
+    <h2 id="web-environment">2. Web Browser and its Environment</h2>
+    <p>A <strong>Web Browser</strong> is a software application used to access information on the World Wide Web. When a user requests a web page from a particular website, the web browser retrieves the necessary content from a <strong>Web Server</strong> and then displays the page on the user's device.</p>
+
+    <h3>Common Technologies:</h3>
+    <ul>
+        <li><strong>HTML (HyperText Markup Language):</strong> The standard markup language for creating web pages.</li>
+        <li><strong>DHTML (Dynamic HTML):</strong> A collection of technologies used together to create interactive and animated websites.</li>
+        <li><strong>XML (eXtensible Markup Language):</strong> A markup language that defines a set of rules for encoding documents in a format that is both human-readable and machine-readable.</li>
+    </ul>
+
+    <h2 id="scripting">3. Client-Side and Server-Side Scripting</h2>
+    <p>Scripting languages are used to add functionality and interactivity to web pages. They are categorized based on where the code is executed.</p>
+
+    
+
+    <div class="add-horizontal-scroll"><table>
+        <thead>
+            <tr>
+                <th>Feature</th>
+                <th>Client-Side Scripting</th>
+                <th>Server-Side Scripting</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Execution</strong></td>
+                <td>Executed in the user's web browser.</td>
+                <td>Executed on the web server.</td>
+            </tr>
+            <tr>
+                <td><strong>Focus</strong></td>
+                <td>User interface and interactivity.</td>
+                <td>Database access and business logic.</td>
+            </tr>
+            <tr>
+                <td><strong>Examples</strong></td>
+                <td>JavaScript, VBScript.</td>
+                <td>PHP, Python, Ruby on Rails.</td>
+            </tr>
+        </tbody>
+    </table></div>
+
+    <h2 id="applications">4. Internet Applications</h2>
+    <p>The Internet supports a wide variety of applications that facilitate communication and information exchange.</p>
+
+    <ul>
+        <li><strong>WWW (World Wide Web):</strong> A system of interlinked hypertext documents accessed via the Internet.</li>
+        <li><strong>E-mail:</strong> A method of exchanging messages between people using electronic devices.</li>
+        <li><strong>Instant Messaging:</strong> Real-time text transmission over the Internet.</li>
+        <li><strong>Internet Telephony (VoIP):</strong> The delivery of voice communications and multimedia sessions over Internet Protocol (IP) networks.</li>
+        <li><strong>Videoconferencing:</strong> Conducting a conference between two or more participants at different sites by using computer networks to transmit audio and video data.</li>
+    </ul>
+
+    <h2 id="exam-prep">5. Exam Focus Enhancements</h2>
+
+    <div class="exam-focus tips">
+        <span class="header-tag">Exam Tips</span>
+        <ul>
+            <li><strong>URL Anatomy:</strong> Be prepared to label parts of a URL (e.g., protocol, domain, path).</li>
+            <li><strong>WWW vs. Internet:</strong> Remember that the Internet is the hardware network, while the WWW is one service that runs on it.</li>
+            <li><strong>Scripting Difference:</strong> Clearly explain that Client-side is for the "front-end" and Server-side is for the "back-end."</li>
+        </ul>
+    </div>
+
+    <div class="exam-focus mistakes">
+        <span class="header-tag">Common Mistakes</span>
+        <ul>
+            <li>Confusing <strong>Web Page</strong> with <strong>Website</strong>. A page is a single document; a site is the whole book.</li>
+            <li>Thinking <strong>ISP</strong> and <strong>Web Server</strong> are the same. Your ISP gives you a pipe to the internet; the server holds the content.</li>
+        </ul>
+    </div>
+
+    <div class="exam-focus faq">
+        <span class="header-tag">Frequently Asked Questions</span>
+        <p><strong>Q: What does a Web Server do?</strong><br>
+        A: It is a computer that stores web files and delivers them to users via the internet when requested through a browser.</p>
+        <p><strong>Q: Why is HTML called a 'Markup' language?</strong><br>
+        A: Because it uses 'tags' to 'mark up' or annotate the text so the browser knows how to display it.</p>
+    </div>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

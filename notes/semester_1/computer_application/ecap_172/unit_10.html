@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application ECAP 172 Unit 10 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Master C Storage Classes with ECAP172 Unit 10 notes. Detailed guide on Auto, Static, Extern, Register, and the Const Qualifier for BCA students.">
+    <meta name="keywords" content="ECAP172, Storage Classes, C Programming, Auto, Static, Extern, Register, Const Qualifier, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary-navy: #1a2a6c;
+            --accent-teal: #008080;
+            --bg-light: #f4f7f6;
+            --text-dark: #2d3436;
+            --code-bg: #2d3436;
+            --code-text: #dfe6e9;
+            --border-color: #bdc3c7;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        h1 {
+            color: var(--primary-navy);
+            text-align: center;
+            border-bottom: 4px solid var(--accent-teal);
+            padding-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: var(--accent-teal);
+            border-left: 6px solid var(--primary-navy);
+            padding: 8px 15px;
+            margin-top: 40px;
+            background: #f0fdfd;
+        }
+
+        h3 {
+            color: var(--primary-navy);
+            margin-top: 25px;
+            border-bottom: 2px solid #f1f2f6;
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .toc {
+            background: #ffffff;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-navy);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            color: var(--accent-teal);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-navy);
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        blockquote {
+            background: #eef2f7;
+            border-left: 5px solid var(--primary-navy);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        pre {
+            background: var(--code-bg);
+            color: var(--code-text);
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .exam-section {
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .tips { background-color: #e8f6f3; border: 1px solid #1abc9c; }
+        .mistakes { background-color: #fdedec; border: 1px solid #e74c3c; }
+        .faq { background-color: #ebf5fb; border: 1px solid #3498db; }
+
+        .tag {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 10: Storage Classes</h1>
+
+    <div class="toc">
+        <h3>Table of Contents</h3>
+        <ul>
+            <li><a href="#intro">1. Introduction to Storage Classes</a></li>
+            <li><a href="#scope">2. Scope, Visibility, and Lifetime of Variables</a></li>
+            <li><a href="#specifiers">3. Storage Class Specifiers</a></li>
+            <li><a href="#auto">4. Automatic Storage Class (auto)</a></li>
+            <li><a href="#register">5. Register Storage Class (register)</a></li>
+            <li><a href="#static">6. Static Storage Class (static)</a></li>
+            <li><a href="#extern">7. External Storage Class (extern)</a></li>
+            <li><a href="#const">8. Const Qualifier</a></li>
+            <li><a href="#exam-prep">9. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="intro">1. Introduction to Storage Classes</h2>
+    <p>In C, every variable has two attributes: a <strong>type</strong> (like int or float) and a <strong>storage class</strong>. A storage class defines the scope (visibility) and lifetime of a variable within a program.</p>
+    <blockquote>
+        <strong>Definition:</strong> Storage classes tell the compiler where to store the variable, what the initial value is, and how long the variable exists.
+    </blockquote>
+
+    <h2 id="scope">2. Scope, Visibility, and Lifetime of Variables</h2>
+    <p>Before diving into specific specifiers, it is critical to understand three key concepts:</p>
+    <ul>
+        <li><strong>Scope:</strong> The region of the program where a variable is accessible (e.g., local to a function or global to the entire file).</li>
+        <li><strong>Visibility:</strong> Whether a variable is "seen" at a particular point in the code. A local variable can "hide" a global variable of the same name.</li>
+        <li><strong>Lifetime (Extent):</strong> The duration for which a variable remains in the computer's memory during program execution.</li>
+    </ul>
+
+    <h2 id="specifiers">3. Storage Class Specifiers</h2>
+    <p>C provides four primary storage class specifiers:</p>
+    <div class="add-horizontal-scroll"><table>
+        <thead>
+            <tr>
+                <th>Specifier</th>
+                <th>Storage</th>
+                <th>Initial Value</th>
+                <th>Scope</th>
+                <th>Lifetime</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>auto</strong></td>
+                <td>Stack (Memory)</td>
+                <td>Garbage</td>
+                <td>Local</td>
+                <td>Function Block</td>
+            </tr>
+            <tr>
+                <td><strong>register</strong></td>
+                <td>CPU Register</td>
+                <td>Garbage</td>
+                <td>Local</td>
+                <td>Function Block</td>
+            </tr>
+            <tr>
+                <td><strong>static</strong></td>
+                <td>Data Segment</td>
+                <td>Zero</td>
+                <td>Local/Global</td>
+                <td>Entire Program</td>
+            </tr>
+            <tr>
+                <td><strong>extern</strong></td>
+                <td>Data Segment</td>
+                <td>Zero</td>
+                <td>Global</td>
+                <td>Entire Program</td>
+            </tr>
+        </tbody>
+    </table></div>
+
+    <h2 id="auto">4. Automatic Storage Class (auto)</h2>
+    <p>The <strong>auto</strong> storage class is the default for all local variables declared inside a function or block.</p>
+    <div class="add-horizontal-scroll"><pre>
+void function() {
+    int x; // same as "auto int x;"
+}
+    </pre></div>
+    <ul>
+        <li><strong>Storage:</strong> Main memory (Stack).</li>
+        <li><strong>Lifetime:</strong> Created when the block is entered and destroyed when the block is exited.</li>
+    </ul>
+
+    <h2 id="register">5. Register Storage Class (register)</h2>
+    <p>The <strong>register</strong> specifier suggests to the compiler that the variable be stored in a CPU register instead of RAM for faster access.</p>
+    <div class="add-horizontal-scroll"><pre>
+register int counter;
+    </pre></div>
+    <ul>
+        <li><strong>Use Case:</strong> Variables used frequently, such as loop counters.</li>
+        <li><strong>Warning:</strong> You cannot use the address operator (&) on a register variable because it does not have a memory address.</li>
+    </ul>
+
+    <h2 id="static">6. Static Storage Class (static)</h2>
+    <p>The <strong>static</strong> storage class instructs the compiler to keep a local variable in existence during the entire lifetime of the program.</p>
+    
+    
+
+    <h3>Static Local Variables</h3>
+    <p>Unlike auto variables, static local variables maintain their values between function calls.</p>
+    <div class="add-horizontal-scroll"><pre>
+void increment() {
+    static int count = 0;
+    count++;
+    printf("%d", count);
+}
+// Calling increment() thrice will print 1, 2, 3.
+    </pre></div>
+
+    <h3>Static Functions</h3>
+    <p>When a function is declared as static, its scope is restricted to the file in which it is defined. This is used for encapsulation and data hiding.</p>
+
+    <h2 id="extern">7. External Storage Class (extern)</h2>
+    <p>The <strong>extern</strong> storage class is used to give a reference to a global variable that is visible to <em>all</em> the program files.</p>
+    <div class="add-horizontal-scroll"><pre>
+// File1.c
+int count = 5; 
+
+// File2.c
+extern int count; // Declares that count is defined elsewhere
+void main() {
+    printf("%d", count);
+}
+    </pre></div>
+
+    <h2 id="const">8. Const Qualifier</h2>
+    <p>The <strong>const</strong> qualifier is used to declare variables whose value cannot be changed after initialization.</p>
+    <div class="add-horizontal-scroll"><pre>
+const float PI = 3.14;
+// PI = 3.15; // This will cause a compilation error
+    </pre></div>
+    <ul>
+        <li><strong>Purpose:</strong> To protect data from accidental modification and improve code readability.</li>
+        <li><strong>Scope:</strong> Follows the same scope rules as the storage class it is used with.</li>
+    </ul>
+
+    <h2 id="exam-prep">9. Exam Focus Enhancements</h2>
+
+    <div class="exam-section tips">
+        <span class="tag">Exam Tips</span>
+        <ul>
+            <li><strong>Initialization:</strong> Remember that <strong>static</strong> and <strong>extern</strong> variables are initialized to 0 by default, while <strong>auto</strong> and <strong>register</strong> contain garbage values.</li>
+            <li><strong>Static Local Use:</strong> Use static local variables if you need to "remember" a value across different calls to the same function (like a call counter).</li>
+            <li><strong>Global vs Extern:</strong> A global variable is defined at the top of a file. Use <code>extern</code> only when you want to access that variable in a <em>different</em> file.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section mistakes">
+        <span class="tag">Common Mistakes</span>
+        <ul>
+            <li><strong>Register Limit:</strong> Not all variables can be stored in registers. If the CPU registers are full, the compiler treats <code>register</code> like <code>auto</code>.</li>
+            <li><strong>Const Assignment:</strong> Trying to declare a <code>const</code> variable without initializing it immediately. Since you can't change it later, an uninitialized <code>const</code> is useless.</li>
+            <li><strong>Static Scope:</strong> Thinking <code>static</code> makes a variable accessible everywhere. A <code>static local</code> variable still has local scope; it just has a permanent lifetime.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section faq">
+        <span class="tag">Frequently Asked Questions</span>
+        <p><strong>Q: Can I use 'extern' inside a function?</strong><br>
+        A: Yes, it tells the function that the variable it is using is a global one defined either later in the same file or in another file.</p>
+        <p><strong>Q: What is the difference between 'static global' and 'global'?</strong><br>
+        A: A regular global variable can be accessed by other files using <code>extern</code>. A <code>static global</code> variable is hidden from other files.</p>
+        <p><strong>Q: Why use 'const' instead of '#define'?</strong><br>
+        A: <code>const</code> variables have a data type and follow scope rules, making them safer and easier to debug than <code>#define</code> macros.</p>
+    </div>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

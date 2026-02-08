@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application EMTH 136 Unit 06 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Academic notes for EMTH136 Unit 6: Sequence and Series. Covers AP, GP, Means, and Summation of Special Series.">
+    <meta name="keywords" content="EMTH136, Discrete Structures, Arithmetic Progression, Geometric Progression, AP, GP, Arithmetic Mean, Geometric Mean, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary-navy: #1a2a6c;
+            --accent-teal: #008080;
+            --bg-light: #f8f9fa;
+            --text-dark: #2c3e50;
+            --border-color: #bdc3c7;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        h1 {
+            color: var(--primary-navy);
+            text-align: center;
+            border-bottom: 4px solid var(--accent-teal);
+            padding-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: var(--accent-teal);
+            border-left: 6px solid var(--primary-navy);
+            padding: 8px 15px;
+            margin-top: 40px;
+            background: #f0fdfd;
+        }
+
+        h3 {
+            color: var(--primary-navy);
+            margin-top: 25px;
+            border-bottom: 2px solid #f1f2f6;
+            padding-bottom: 5px;
+        }
+
+        .toc {
+            background: #ffffff;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-navy);
+            font-weight: bold;
+        }
+
+        .formula-box {
+            background-color: #f1f8ff;
+            border: 1px solid var(--primary-navy);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .exam-section {
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .tips { background-color: #e8f6f3; border: 1px solid #1abc9c; }
+        .mistakes { background-color: #fdedec; border: 1px solid #e74c3c; }
+        .faq { background-color: #ebf5fb; border: 1px solid #3498db; }
+
+        .tag {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        strong { color: var(--accent-teal); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 6: Sequence and Series</h1>
+
+    <div class="toc">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#ap">1. Arithmetic Progression (A.P.)</a></li>
+            <li><a href="#gp">2. Geometric Progression (G.P.)</a></li>
+            <li><a href="#means">3. Arithmetic Mean (A.M.) and Geometric Mean (G.M.)</a></li>
+            <li><a href="#special">4. Summation of Special Series</a></li>
+            <li><a href="#exam-prep">5. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="ap">1. Arithmetic Progression (A.P.)</h2>
+    <p>A sequence is an <strong>Arithmetic Progression</strong> if the difference between any two consecutive terms is constant. This constant difference is called the <strong>Common Difference (d)</strong>.</p>
+    
+    
+
+    <div class="formula-box">
+        <strong>General Term (n<sup>th</sup> term):</strong> a<sub>n</sub> = a + (n - 1)d <br>
+        <strong>Sum of n terms (S<sub>n</sub>):</strong> S<sub>n</sub> = (n) / (2)[2a + (n - 1)d] OR S<sub>n</sub> = (n) / (2)[a + l]
+    </div>
+    <p>Where a = first term, d = common difference, n = number of terms, and l = last term.</p>
+
+    <h2 id="gp">2. Geometric Progression (G.P.)</h2>
+    <p>A sequence is a <strong>Geometric Progression</strong> if the ratio of any two consecutive terms is constant. This constant ratio is called the <strong>Common Ratio (r)</strong>.</p>
+
+    
+
+    <div class="formula-box">
+        <strong>General Term (n<sup>th</sup> term):</strong> a<sub>n</sub> = ar<sup>n-1</sup> <br>
+        <strong>Sum of n terms (S<sub>n</sub>):</strong> <br>
+        If r ≠ 1, S<sub>n</sub> = (a(r<sup>n</sup> - 1)) / (r - 1) (for r > 1) OR S<sub>n</sub> = (a(1 - r<sup>n</sup>)) / (1 - r) (for r < 1)
+    </div>
+    <p><strong>Sum of Infinite G.P.:</strong> If |r| < 1, the sum of an infinite G.P. is S<sub>∞</sub> = (a) / (1 - r).</p>
+
+    <h2 id="means">3. Arithmetic Mean (A.M.) and Geometric Mean (G.M.)</h2>
+    <p>Means are values inserted between two numbers to form a progression.</p>
+    <ul>
+        <li><strong>Single A.M. between a and b:</strong> A = (a + b) / (2)</li>
+        <li><strong>Single G.M. between a and b:</strong> G = √(ab)</li>
+    </ul>
+    <blockquote>
+        <strong>Property:</strong> For any two positive real numbers a and b, A.M. ≥q G.M.
+    </blockquote>
+
+    <h2 id="special">4. Summation of Special Series</h2>
+    <p>These standard results are used to find the sum of series that are not directly in A.P. or G.P.</p>
+
+    
+
+    <div class="formula-box">
+        <strong>Sum of first n natural numbers:</strong> ∑ n = (n(n + 1)) / (2) <br>
+        <strong>Sum of squares:</strong> ∑ n<sup>2</sup> = (n(n + 1)(2n + 1)) / (6) <br>
+        <strong>Sum of cubes:</strong> ∑ n<sup>3</sup> = ≤ft[ (n(n + 1)) / (2) ]<sup>2</sup>
+    </div>
+
+    <h2 id="exam-prep">5. Exam Focus Enhancements</h2>
+
+    <div class="exam-section tips">
+        <span class="tag">Exam Tips</span>
+        <ul>
+            <li><strong>Selection of Terms:</strong> If you need to assume 3 terms in A.P., use (a-d), a, (a+d). For G.P., use (a) / (r), a, ar. This simplifies calculations significantly.</li>
+            <li><strong>Infinite G.P.:</strong> This only works if |r| < 1. If r ≥q 1, the sum is infinite.</li>
+            <li><strong>Method of Difference:</strong> For complex series, find the n<sup>th</sup> term (T<sub>n</sub>) first, then apply the ∑ operator to find S<sub>n</sub>.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section mistakes">
+        <span class="tag">Common Mistakes</span>
+        <ul>
+            <li><strong>Confusing d and r:</strong> Ensure you subtract for A.P. (a<sub>2</sub> - a<sub>1</sub>) and divide for G.P. (a<sub>2</sub> / a<sub>1</sub>).</li>
+            <li><strong>n vs a<sub>n</sub>:</strong> n is the <em>position</em> (index), while a<sub>n</sub> is the <em>value</em> at that position.</li>
+            <li><strong>Sum of Squares Formula:</strong> Forgetting the (2n+1) part of the ∑ n<sup>2</sup> formula is a very common error.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section faq">
+        <span class="tag">Frequently Asked Questions</span>
+        <p><strong>Q: Can d or r be negative?</strong><br>
+        A: Yes. A negative d means a decreasing A.P. A negative r means the signs of the terms will alternate.</p>
+        <p><strong>Q: What is the relationship between A.M. and G.M.?</strong><br>
+        A: A.M. ≥q G.M.. They are equal only if the numbers a and b are equal.</p>
+    </div>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

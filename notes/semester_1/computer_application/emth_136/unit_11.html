@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application EMTH 136 Unit 11 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Academic exam notes for EMTH136 Unit 11: Statistics. Covers measures of dispersion, Mean Deviation, Variance, and Standard Deviation.">
+    <meta name="keywords" content="EMTH136, Discrete Structures, Statistics, Mean Deviation, Variance, Standard Deviation, BCA, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary-navy: #1a2a6c;
+            --accent-purple: #8e44ad;
+            --bg-light: #f4f7f6;
+            --text-dark: #2d3436;
+            --border-color: #bdc3c7;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        h1 {
+            color: var(--primary-navy);
+            text-align: center;
+            border-bottom: 4px solid var(--accent-purple);
+            padding-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: var(--accent-purple);
+            border-left: 6px solid var(--primary-navy);
+            padding: 8px 15px;
+            margin-top: 40px;
+            background: #f4ecf7;
+        }
+
+        h3 {
+            color: var(--primary-navy);
+            margin-top: 25px;
+            border-bottom: 2px solid #f1f2f6;
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .toc {
+            background: #ffffff;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-navy);
+            font-weight: bold;
+        }
+
+        .formula-box {
+            background-color: #f8f9fa;
+            border: 1px solid var(--primary-navy);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .exam-section {
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .tips { background-color: #e8f6f3; border: 1px solid #1abc9c; }
+        .mistakes { background-color: #fdedec; border: 1px solid #e74c3c; }
+        .faq { background-color: #ebf5fb; border: 1px solid #3498db; }
+
+        .tag {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 11: Statistics</h1>
+
+    <div class="toc">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#dispersion">1. Measures of Dispersion</a></li>
+            <li><a href="#mean-dev">2. Mean Deviation</a></li>
+            <li><a href="#variance">3. Variance and Standard Deviation</a></li>
+            <li><a href="#frequency">4. Analysis of Frequency Distributions</a></li>
+            <li><a href="#exam-prep">5. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="dispersion">1. Measures of Dispersion</h2>
+    <p>While <strong>Measures of Central Tendency</strong> (Mean, Median, Mode) tell us about the center of data, <strong>Measures of Dispersion</strong> tell us how spread out or scattered the data points are from that center.</p>
+    
+    
+
+    <ul>
+        <li><strong>Range:</strong> The difference between the maximum and minimum values in a dataset. 
+            <br><em>Range = Max Value - Min Value</em></li>
+        <li><strong>Need for Dispersion:</strong> Two datasets can have the same mean but look completely different. For example, {10, 10, 10} and {0, 10, 20} both have a mean of 10, but the second set is more "dispersed."</li>
+    </ul>
+
+    <h2 id="mean-dev">2. Mean Deviation</h2>
+    <p>Mean Deviation (M.D.) is the arithmetic mean of the absolute differences between each data point and a central value (usually the Mean or Median).</p>
+    
+    <h3>For Ungrouped Data (about Mean <span style="text-decoration:overline;">x</span>̄):</h3>
+    <div class="formula-box">
+        M.D.(<span style="text-decoration:overline;">x</span>̄) = (∑ |x<sub>i</sub> - <span style="text-decoration:overline;">x</span>̄|) / (n)
+    </div>
+
+    <h3>For Grouped Data:</h3>
+    <div class="formula-box">
+        M.D.(<span style="text-decoration:overline;">x</span>̄) = (∑ f<sub>i</sub> |x<sub>i</sub> - <span style="text-decoration:overline;">x</span>̄|) / (N), where N = ∑ f<sub>i</sub>
+    </div>
+
+    <h2 id="variance">3. Variance and Standard Deviation</h2>
+    <p><strong>Variance (σ<sup>2</sup>)</strong> is the average of the squared deviations from the mean. <strong>Standard Deviation (σ)</strong> is the positive square root of the variance. It is the most widely used measure of dispersion because it is in the same units as the data.</p>
+
+    <h3>Formula for Ungrouped Data:</h3>
+    <div class="formula-box">
+        Variance (σ<sup>2</sup>) = (∑ (x<sub>i</sub> - <span style="text-decoration:overline;">x</span>̄)<sup>2</sup>) / (n) <br>
+        Standard Deviation (σ) = √(σ<sup>2</sup>)
+    </div>
+
+    <h3>Formula for Grouped Data:</h3>
+    <div class="formula-box">
+        σ = √((∑ f<sub>i</sub>(x<sub>i</sub> - <span style="text-decoration:overline;">x))<sup>2</sup>) / (N)</span>̄
+    </div>
+
+    <h2 id="frequency">4. Analysis of Frequency Distributions</h2>
+    <p>When comparing two frequency distributions with the same mean, the one with the <strong>larger Standard Deviation</strong> is considered more variable or less stable.</p>
+    
+    
+
+    <h3>Coefficient of Variation (C.V.):</h3>
+    <p>To compare the variability of two series with different means or different units, we use the Coefficient of Variation.</p>
+    <div class="formula-box">
+        C.V. = (σ) / (<span style="text-decoration:overline;">x</span>̄) × 100
+    </div>
+    <p>The series with a <strong>higher C.V.</strong> is more variable/less consistent.</p>
+
+    <h2 id="exam-prep">5. Exam Focus Enhancements</h2>
+
+    <div class="exam-section tips">
+        <span class="tag">Exam Tips</span>
+        <ul>
+            <li><strong>Absolute Value:</strong> In Mean Deviation, always use |x<sub>i</sub> - <span style="text-decoration:overline;">x</span>̄|. This means if the difference is negative, you treat it as positive.</li>
+            <li><strong>Short-cut Method:</strong> For large numbers in Variance, use the assumed mean method (d<sub>i</sub> = x<sub>i</sub> - A) to simplify your table calculations.</li>
+            <li><strong>Units:</strong> Remember that Variance is in "units squared," while Standard Deviation is in the same units as the original data.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section mistakes">
+        <span class="tag">Common Mistakes</span>
+        <ul>
+            <li><strong>Negative Deviation:</strong> Forgetting to square the deviations or take absolute values. Summing raw deviations (x<sub>i</sub> - <span style="text-decoration:overline;">x</span>̄) will always equal <strong>zero</strong>.</li>
+            <li><strong>n vs n-1:</strong> In introductory courses, we usually divide by n. In some advanced contexts, n-1 is used for samples. Stick to n unless specified by your examiner.</li>
+            <li><strong>Frequency Check:</strong> In grouped data, always ensure you multiply the squared deviation by the frequency f<sub>i</sub> before summing.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section faq">
+        <span class="tag">Frequently Asked Questions</span>
+        <p><strong>Q: Why do we square the deviations in Variance?</strong><br>
+        A: Squaring ensures all deviations are positive (so they don't cancel out) and gives more weight to larger outliers.</p>
+        <p><strong>Q: What is the difference between Mean Deviation and Standard Deviation?</strong><br>
+        A: M.D. uses absolute values, while S.D. uses squares. S.D. is mathematically more convenient for further statistical analysis.</p>
+    </div>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

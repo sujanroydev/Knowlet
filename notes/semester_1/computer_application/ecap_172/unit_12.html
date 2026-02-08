@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application ECAP 172 Unit 12 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="In-depth exam-ready notes for ECAP172 Unit 12: Dynamic Memory Management. Learn about malloc, calloc, realloc, free, and the relationship between pointers and arrays.">
+    <meta name="keywords" content="ECAP172, Dynamic Memory Management, malloc, calloc, realloc, free, C Programming, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary-navy: #1a2a6c;
+            --accent-teal: #008080;
+            --bg-light: #f4f7f6;
+            --text-dark: #2d3436;
+            --code-bg: #2d3436;
+            --code-text: #dfe6e9;
+            --border-color: #bdc3c7;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        h1 {
+            color: var(--primary-navy);
+            text-align: center;
+            border-bottom: 4px solid var(--accent-teal);
+            padding-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: var(--accent-teal);
+            border-left: 6px solid var(--primary-navy);
+            padding: 8px 15px;
+            margin-top: 40px;
+            background: #f0fdfd;
+        }
+
+        h3 {
+            color: var(--primary-navy);
+            margin-top: 25px;
+            border-bottom: 2px solid #f1f2f6;
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .toc {
+            background: #ffffff;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-navy);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            color: var(--accent-teal);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-navy);
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        blockquote {
+            background: #eef2f7;
+            border-left: 5px solid var(--primary-navy);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        pre {
+            background: var(--code-bg);
+            color: var(--code-text);
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .exam-section {
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .tips { background-color: #e8f6f3; border: 1px solid #1abc9c; }
+        .mistakes { background-color: #fdedec; border: 1px solid #e74c3c; }
+        .faq { background-color: #ebf5fb; border: 1px solid #3498db; }
+
+        .tag {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 12: Dynamic Memory Management</h1>
+
+    <div class="toc">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#intro">1. Introduction to Dynamic Memory Management</a></li>
+            <li><a href="#functions">2. Memory Management Functions: malloc, calloc, realloc, free</a></li>
+            <li><a href="#pointers-arrays">3. Pointers and Arrays</a></li>
+            <li><a href="#pointers-functions">4. Pointers and Functions</a></li>
+            <li><a href="#exam-prep">5. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="intro">1. Introduction to Dynamic Memory Management</h2>
+    <p>Dynamic Memory Management (DMM) is a method in C programming that allows a programmer to allocate or deallocate memory during the execution (runtime) of a program. Unlike static allocation (where memory is fixed at compile time, such as in standard arrays), DMM provides flexibility in handling data whose size may change during program execution.</p>
+    <blockquote>
+        <strong>Key Difference:</strong> Static memory is allocated on the <strong>Stack</strong>, while dynamic memory is allocated on the <strong>Heap</strong>.
+    </blockquote>
+
+    <h2 id="functions">2. Memory Management Functions: malloc, calloc, realloc, free</h2>
+    <p>C provides four standard library functions for dynamic memory management, defined in the <code>&lt;stdlib.h&gt;</code> header file.</p>
+
+    <h3>1. malloc() - Memory Allocation</h3>
+    <p>The <code>malloc()</code> function allocates a single large block of contiguous memory of a specified size. It returns a <code>void pointer</code> which can be cast into any type.</p>
+    <pre>ptr = (cast_type*) malloc(byte_size);</pre></div>
+    <ul>
+        <li><strong>Initial Value:</strong> Allocated memory contains garbage values.</li>
+        <li><strong>On Failure:</strong> Returns <code>NULL</code>.</li>
+    </ul>
+
+    <h3>2. calloc() - Contiguous Allocation</h3>
+    <p>The <code>calloc()</code> function allocates multiple blocks of memory, each of the same size.</p>
+    <pre>ptr = (cast_type*) calloc(n, element_size);</pre></div>
+    <ul>
+        <li><strong>Initial Value:</strong> Automatically initializes all bytes to <strong>zero</strong>.</li>
+        <li><strong>On Failure:</strong> Returns <code>NULL</code>.</li>
+    </ul>
+
+    <h3>3. realloc() - Re-allocation</h3>
+    <p>The <code>realloc()</code> function is used to change the size of previously allocated memory. It is useful when the initial allocation is insufficient or too large.</p>
+    <pre>ptr = (cast_type*) realloc(ptr, new_byte_size);</pre></div>
+
+    <h3>4. free() - De-allocation</h3>
+    <p>The <code>free()</code> function is used to manually release the memory allocated by <code>malloc()</code> or <code>calloc()</code>. If memory is not freed, it leads to a <strong>Memory Leak</strong>.</p>
+    <pre>free(ptr);</pre></div>
+
+    <h2 id="pointers-arrays">3. Pointers and Arrays</h2>
+    <p>There is a very close relationship between pointers and arrays in C. An array name itself acts as a constant pointer to the first element of the array.</p>
+    
+    
+
+    <h3>Key Concepts:</h3>
+    <ul>
+        <li><strong>Base Address:</strong> The name of an array (e.g., <code>arr</code>) represents the address of its first element (<code>&arr[0]</code>).</li>
+        <li><strong>Accessing via Pointers:</strong> The element <code>arr[i]</code> can also be accessed using pointer notation as <code>*(arr + i)</code>.</li>
+        <li><strong>Pointer Increment:</strong> If <code>ptr = arr</code>, then <code>ptr++</code> moves to the next element in the array based on the data type's size.</li>
+    </ul>
+
+    <h2 id="pointers-functions">4. Pointers and Functions</h2>
+    <p>Pointers can be passed to functions as arguments, allowing the function to modify the original variable in memory. This is known as <strong>Call by Reference</strong>.</p>
+
+    <h3>Passing Pointers to Functions:</h3>
+    <div class="add-horizontal-scroll"><pre>
+void update(int *p) {
+    *p = *p + 10; // Modifies the value at the address stored in p
+}
+    </pre></div>
+
+    <h3>Returning Pointers from Functions:</h3>
+    <p>Functions can also return pointers. However, you should never return the address of a local variable because it is destroyed when the function finishes. Always return addresses of static variables or dynamically allocated heap memory.</p>
+
+    <h2 id="exam-prep">5. Exam Focus Enhancements</h2>
+
+    <div class="exam-section tips">
+        <span class="tag">Exam Tips</span>
+        <ul>
+            <li><strong>malloc vs calloc:</strong> This is a frequent comparison question. Remember: <code>malloc</code> takes 1 argument and leaves garbage; <code>calloc</code> takes 2 arguments and initializes memory to zero.</li>
+            <li><strong>Type Casting:</strong> Always cast the pointer returned by <code>malloc/calloc</code> (e.g., <code>(int*)malloc...</code>) to avoid compiler warnings and ensure compatibility.</li>
+            <li><strong>Check for NULL:</strong> In exams, always show a check for <code>NULL</code> after allocation to demonstrate safe programming practices.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section mistakes">
+        <span class="tag">Common Mistakes</span>
+        <ul>
+            <li><strong>Dangling Pointer:</strong> Accessing a pointer after the memory it points to has been <code>free()</code>'d. Always set the pointer to <code>NULL</code> after freeing.</li>
+            <li><strong>Memory Leak:</strong> Forgetting to call <code>free()</code>. In long-running programs, this can consume all available RAM.</li>
+            <li><strong>Invalid Pointer Arithmetic:</strong> Trying to increment a constant array name (e.g., <code>arr++</code> is illegal; <code>ptr++</code> is legal).</li>
+        </ul>
+    </div>
+
+    <div class="exam-section faq">
+        <span class="tag">Frequently Asked Questions</span>
+        <p><strong>Q: What happens if realloc() cannot find a contiguous block of the new size?</strong><br>
+        A: It will allocate a new block elsewhere, copy the existing data, free the old block, and return the new address.</p>
+        <p><strong>Q: Why is dynamic memory allocation needed?</strong><br>
+        A: It allows us to handle data structures like Linked Lists and Trees where the size isn't known until the program runs.</p>
+        <p><strong>Q: Can free() be used on a static array?</strong><br>
+        A: No. <code>free()</code> can only be used on pointers that were allocated using the dynamic allocation functions (malloc, calloc, realloc).</p>
+    </div>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

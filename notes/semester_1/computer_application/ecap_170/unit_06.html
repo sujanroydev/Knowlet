@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application ECAP 170 Unit 06 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for ECAP170 Unit 6: Networks. Covering Network Topologies, Protocols, Hardware, and Structure for BCA students at Knowlet.">
+    <meta name="keywords" content="ECAP170, Computer Networks, Network Topologies, Network Protocols, Network Hardware, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #e67e22;
+            --bg-color: #f4f4f9;
+            --text-color: #333;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: var(--accent-color);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            margin-top: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        blockquote {
+            background: #fdf2e9;
+            border-left: 5px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .toc h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            color: var(--accent-color);
+        }
+
+        .exam-section {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .exam-tips { background-color: #e8f8f5; border: 1px solid #27ae60; }
+        .common-mistakes { background-color: #fdedec; border: 1px solid #c0392b; }
+        .faq { background-color: #ebf5fb; border: 1px solid #2980b9; }
+
+        strong { color: #d35400; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 6: Networks</h1>
+
+    <div class="toc">
+        <h3>Table of Contents</h3>
+        <ul>
+            <li><a href="#sharing-data">1. Sharing Data Anytime Anywhere</a></li>
+            <li><a href="#network-uses">2. Uses of a Network</a></li>
+            <li><a href="#network-types">3. Common Types of Networks</a></li>
+            <li><a href="#hybrid-networks">4. Hybrid Networks</a></li>
+            <li><a href="#network-structure">5. How Networks are Structured</a></li>
+            <li><a href="#topologies-protocols">6. Network Topologies and Protocols</a></li>
+            <li><a href="#media-hardware">7. Network Media and Hardware</a></li>
+            <li><a href="#exam-corner">8. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="sharing-data">1. Sharing Data Anytime Anywhere</h2>
+    <p>A computer network is a collection of computers and other hardware components interconnected by communication channels that allow sharing of resources and information. In today’s world, networks provide the backbone for "sharing data anytime anywhere," ensuring that information is accessible regardless of physical location.</p>
+
+    <h2 id="network-uses">2. Uses of a Network</h2>
+    <p>Networks are implemented in various environments to achieve several key objectives:</p>
+    <ul>
+        <li><strong>Resource Sharing:</strong> Allowing multiple users to share hardware like printers, scanners, and storage devices.</li>
+        <li><strong>Information Sharing:</strong> Enabling the exchange of files, databases, and documents across different systems.</li>
+        <li><strong>Communication:</strong> Providing platforms for emails, instant messaging, and video conferencing.</li>
+        <li><strong>Data Protection:</strong> Facilitating centralized backups to ensure data can be recovered in case of local hardware failure.</li>
+    </ul>
+
+    <h2 id="network-types">3. Common Types of Networks</h2>
+    <p>Networks are classified based on their geographical scale:</p>
+    <div class="add-horizontal-scroll"><table>
+        <tr>
+            <th>Type</th>
+            <th>Full Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><strong>LAN</strong></td>
+            <td>Local Area Network</td>
+            <td>Covers a small area like a room, home, or office building.</td>
+        </tr>
+        <tr>
+            <td><strong>WAN</strong></td>
+            <td>Wide Area Network</td>
+            <td>Spans a large geographical area, such as a country or the entire world (e.g., the Internet).</td>
+        </tr>
+        <tr>
+            <td><strong>MAN</strong></td>
+            <td>Metropolitan Area Network</td>
+            <td>Connects multiple LANs across a city or a large campus.</td>
+        </tr>
+        <tr>
+            <td><strong>PAN</strong></td>
+            <td>Personal Area Network</td>
+            <td>A small network for personal devices like smartphones and laptops.</td>
+        </tr>
+    </table></div>
+
+    <h2 id="hybrid-networks">4. Hybrid Networks</h2>
+    <p>A <strong>Hybrid Network</strong> is a combination of two or more different network types or infrastructures. For example, a company might use a wired LAN for its desktop computers but connect them to a wireless network for mobile devices, all while being linked to a global WAN for internet access.</p>
+
+    <h2 id="network-structure">5. How Networks are Structured</h2>
+    <p>The structure of a network refers to how the computers are organized and interact with each other:</p>
+    <ul>
+        <li><strong>Client-Server Network:</strong> A central powerful computer (the Server) provides resources and services to smaller computers (the Clients).</li>
+        <li><strong>Peer-to-Peer (P2P) Network:</strong> All computers have equal status and share resources directly without a central server.</li>
+    </ul>
+
+    <h2 id="topologies-protocols">6. Network Topologies and Protocols</h2>
+    <h3>Network Topologies</h3>
+    <p>Topology refers to the physical or logical layout of a network—how nodes are connected to each other.</p>
+    
+    <ul>
+        <li><strong>Star Topology:</strong> All nodes are connected to a central hub or switch.</li>
+        <li><strong>Bus Topology:</strong> All nodes share a single communication line (the backbone).</li>
+        <li><strong>Ring Topology:</strong> Each node connects to exactly two other nodes, forming a continuous circular path.</li>
+        <li><strong>Mesh Topology:</strong> Every node is connected to every other node, providing high redundancy.</li>
+    </ul>
+
+    <h3>Network Protocols</h3>
+    <p>Protocols are a set of rules that govern how data is transmitted and received over a network. Common protocols include:</p>
+    <ul>
+        <li><strong>TCP/IP:</strong> The foundational protocol of the Internet.</li>
+        <li><strong>HTTP/HTTPS:</strong> Used for transferring web pages.</li>
+        <li><strong>FTP:</strong> Used for transferring files between computers.</li>
+    </ul>
+
+    <h2 id="media-hardware">7. Network Media and Hardware</h2>
+    <h3>Network Media</h3>
+    <p>This refers to the physical path used to carry signals:</p>
+    <ul>
+        <li><strong>Wired Media:</strong> Twisted-pair cables, Coaxial cables, and Fiber-optic cables.</li>
+        <li><strong>Wireless Media:</strong> Radio waves, Microwaves, and Infrared.</li>
+    </ul>
+
+    <h3>Network Hardware</h3>
+    <p>Devices required to build a network include:</p>
+    <ul>
+        <li><strong>NIC (Network Interface Card):</strong> Hardware that allows a computer to connect to a network.</li>
+        <li><strong>Hub/Switch:</strong> Connects multiple devices in a LAN.</li>
+        <li><strong>Router:</strong> Connects different networks (e.g., your home LAN to the Internet WAN).</li>
+        <li><strong>Bridge:</strong> Connects two similar network segments.</li>
+        <li><strong>Gateway:</strong> Connects two different types of networks.</li>
+    </ul>
+
+    <h2 id="exam-corner">8. Exam Focus Enhancements</h2>
+
+    <div class="exam-section exam-tips">
+        <h3>Exam Tips</h3>
+        <ul>
+            <li><strong>Star vs. Mesh:</strong> Star is common and easy to manage; Mesh is expensive but most reliable. Know this distinction for "Scenario-based" questions.</li>
+            <li><strong>Protocols:</strong> Always remember that without protocols, hardware cannot communicate. They are the "language" of the network.</li>
+            <li><strong>Topologies:</strong> Be prepared to draw the Star and Bus topologies, as they are frequently asked in diagrams.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section common-mistakes">
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><strong>Hub vs. Switch:</strong> A Hub sends data to <em>everyone</em> on the network (inefficient); a Switch sends data only to the <em>intended recipient</em>.</li>
+            <li><strong>Internet vs. WWW:</strong> The Internet is the <em>hardware infrastructure</em> (the network of networks); the WWW is a <em>service</em> that runs on the internet.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section faq">
+        <h3>Frequently Asked Questions</h3>
+        <p><strong>Q: What is the main advantage of Fiber-optic cable?</strong><br>
+        A: It uses light to transmit data, making it much faster and immune to electromagnetic interference compared to copper wires.</p>
+        <p><strong>Q: Which topology is used in most modern offices?</strong><br>
+        A: The <strong>Star Topology</strong> is the most common because if one computer fails, the rest of the network stays active.</p>
+    </div>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

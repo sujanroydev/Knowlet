@@ -39,6 +39,7 @@ Visit the platform: [Knowlet](https://knowlet.in)
 2. **Search Materials:** Use the search bar to find notes and papers by unit, subject, or keywords.
 3. **Download Notes:** Click on any subject or unit to view or download the study material.
 4. **Favorites & History:** Use the bottom navigation to access your favorite notes and recently visited pages.
+5. **Like, Rate & Comment:** Like, Comment and rate the comment for the notes.
 
 ## Contributing
 

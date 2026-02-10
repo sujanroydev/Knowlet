@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Computer Application ECAP 172 Unit 07 | 2nd Semester Notes - Knowlet</title>
+    <title>Computer Application ECAP 172 Unit 7 | 1st Semester Notes - Knowlet</title>
     <meta name="description" content="Comprehensive exam-ready notes for ECAP172 Unit 7: Arrays. Covering declaration, 1D/2D processing, and passing arrays to functions.">
     <meta name="keywords" content="ECAP172, Arrays in C, 1D Array, 2D Array, Multi-dimensional Arrays, Function Arguments, Knowlet">
     <link rel="stylesheet" href="../../../../assets/styles/units.css">
@@ -165,14 +165,14 @@
     <p>An array is a data structure that can store a fixed-size sequential collection of elements of the same type. Declaring an array tells the compiler about the type of elements and the number of elements it will hold.</p>
     
     <h3>Syntax:</h3>
-    <pre>data_type array_name[array_size];</pre></div>
+    <div class="add-horizontal-scroll"><pre>data_type array_name[array_size];</pre></div>
     <p>Example: <code>int marks[5];</code> reserves space for 5 integer values.</p>
 
     <h2 id="defining-processing-1d">2. Defining and Processing 1-Dimensional Arrays</h2>
     <p>A 1-dimensional array is the simplest form of an array where elements are stored linearly. Defining an array involves assigning initial values.</p>
     
     <h3>Initialization:</h3>
-    <pre>int numbers[5] = {10, 20, 30, 40, 50};</pre></div>
+    <div class="add-horizontal-scroll"><pre>int numbers[5] = {10, 20, 30, 40, 50};</pre></div>
     
     <h3>Processing:</h3>
     <p>Processing usually involves <strong>traversing</strong> the array using a loop to perform operations like reading, printing, or calculating sums.</p>
@@ -188,7 +188,7 @@ for(int i = 0; i < 5; i++) {
     
 
     <h3>Declaration and Initialization:</h3>
-    <pre>int matrix[2][3] = { {1, 2, 3}, {4, 5, 6} };</pre></div>
+    <div class="add-horizontal-scroll"><pre>int matrix[2][3] = { {1, 2, 3}, {4, 5, 6} };</pre></div>
     
     <h3>Processing:</h3>
     <p>Processing 2D arrays requires <strong>nested loops</strong>—the outer loop for rows and the inner loop for columns.</p>
@@ -205,17 +205,17 @@ for(int i = 0; i < 2; i++) {
     <p>In C, you can pass an entire array to a function as a parameter. However, it is important to note that arrays are passed by <strong>reference</strong> (the address of the first element is passed).</p>
     
     <h3>Syntax in Function Definition:</h3>
-    <pre>void display(int arr[], int size) { ... }</pre></div>
+    <div class="add-horizontal-scroll"><pre>void display(int arr[], int size) { ... }</pre></div>
     
     <h3>Calling the Function:</h3>
-    <pre>display(marks, 5);</pre></div>
+    <div class="add-horizontal-scroll"><pre>display(marks, 5);</pre></div>
     <p>Changes made to the array inside the function will affect the original array in the calling function.</p>
 
     <h2 id="multidimensional">5. Multi-dimensional Arrays</h2>
     <p>C supports arrays with more than two dimensions. While 3D or higher arrays are possible, they are less common and more complex to manage in memory.</p>
     
     <h3>Example (3D Array):</h3>
-    <pre>int survey[2][3][4];</pre></div>
+    <div class="add-horizontal-scroll"><pre>int survey[2][3][4];</pre></div>
     <p>This can be thought of as 2 blocks, each containing a 3x4 matrix.</p>
 
     <h2 id="exam-prep">6. Exam Focus Enhancements</h2>

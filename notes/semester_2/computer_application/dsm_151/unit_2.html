@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CADSM 151 Unit 2 | 2nd Semester Notes - Knowlet</title>
+    <title>Computer Application DSM 151 Unit 2 | 2nd Semester Notes - Knowlet</title>
     <meta name="description" content="Exam-ready HTML notes for CADSM 151 Unit 2: Functions and Program Structure. Covering function definitions, storage classes, recursion, and the C preprocessor.">
     <meta name="keywords" content="C Programming, CADSM 151, Functions, Storage Classes, Recursion, Preprocessor, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -140,12 +141,12 @@
 
     <h2 id="defining-functions">1. Defining and Accessing Functions</h2>
     <p>
-        [cite_start]Functions are the basic building blocks of a C program, allowing for modularity and code reuse[cite: 149]. A function definition specifies the task the function performs.
+        Functions are the basic building blocks of a C program, allowing for modularity and code reuse. A function definition specifies the task the function performs.
     </p>
     <ul>
-        [cite_start]<li><strong>Defining Functions:</strong> Consists of a return type, a function name, and parameters (if any)[cite: 158].</li>
-        [cite_start]<li><strong>Accessing Functions:</strong> A function is "called" by its name followed by arguments in parentheses[cite: 158].</li>
-        [cite_start]<li><strong>Passing Arguments:</strong> Data is passed to functions via arguments, and their data types must be specified[cite: 158].</li>
+        <li><strong>Defining Functions:</strong> Consists of a return type, a function name, and parameters (if any).</li>
+        <li><strong>Accessing Functions:</strong> A function is "called" by its name followed by arguments in parentheses.</li>
+        <li><strong>Passing Arguments:</strong> Data is passed to functions via arguments, and their data types must be specified.</li>
     </ul>
 
     <hr>
@@ -155,17 +156,17 @@
         Functions must be declared before they are used so the compiler knows how to call them.
     </p>
     <ul>
-        [cite_start]<li><strong>Function Prototypes:</strong> These are declarations that tell the compiler about the function's name, return type, and parameters[cite: 159].</li>
-        [cite_start]<li><strong>Non-Integer Returns:</strong> While many functions return integers, C allows functions to return any valid data type, including floats, doubles, or custom structures[cite: 159].</li>
+        <li><strong>Function Prototypes:</strong> These are declarations that tell the compiler about the function's name, return type, and parameters.</li>
+        <li><strong>Non-Integer Returns:</strong> While many functions return integers, C allows functions to return any valid data type, including floats, doubles, or custom structures.</li>
     </ul>
 
     <hr>
 
     <h2 id="storage-classes">3. Storage Classes and Scope Rules</h2>
     <p>
-        [cite_start]Storage classes define the scope (visibility) and lifetime of variables within a C program[cite: 159].
+        Storage classes define the scope (visibility) and lifetime of variables within a C program.
     </p>
-    <table>
+    <div class="add-horizontal-scroll"><table>
         <tr>
             <th>Storage Class</th>
             <th>Keyword</th>
@@ -176,45 +177,45 @@
             <td><strong>Automatic</strong></td>
             <td>auto</td>
             <td>Function execution time.</td>
-            [cite_start]<td>Local to the block. [cite: 159]</td>
+            <td>Local to the block. </td>
         </tr>
         <tr>
             <td><strong>External</strong></td>
             <td>extern</td>
             <td>Program execution time.</td>
-            [cite_start]<td>Global (across files). [cite: 159]</td>
+            <td>Global (across files). </td>
         </tr>
         <tr>
             <td><strong>Static</strong></td>
             <td>static</td>
             <td>Program execution time.</td>
-            [cite_start]<td>Local to function but retains value. [cite: 159]</td>
+            <td>Local to function but retains value. </td>
         </tr>
         <tr>
             <td><strong>Register</strong></td>
             <td>register</td>
             <td>Function execution time.</td>
-            [cite_start]<td>Local (stored in CPU register). [cite: 159]</td>
+            <td>Local (stored in CPU register). </td>
         </tr>
-    </table>
+    </table></div>
 
     <hr>
 
     <h2 id="block-structure">4. Block Structure and Header Files</h2>
     <ul>
-        [cite_start]<li><strong>Block Structure:</strong> C supports nested blocks of code defined by curly braces { }, which helps manage variable scope[cite: 159].</li>
-        [cite_start]<li><strong>Scope Rules:</strong> These rules determine where a variable is accessible based on its declaration point[cite: 159].</li>
-        [cite_start]<li><strong>Header Files:</strong> Files ending in .h that contain function prototypes and definitions shared across multiple source files[cite: 159].</li>
+        <li><strong>Block Structure:</strong> C supports nested blocks of code defined by curly braces { }, which helps manage variable scope.</li>
+        <li><strong>Scope Rules:</strong> These rules determine where a variable is accessible based on its declaration point.</li>
+        <li><strong>Header Files:</strong> Files ending in .h that contain function prototypes and definitions shared across multiple source files.</li>
     </ul>
 
     <hr>
 
     <h2 id="recursion-c">5. Recursion in C</h2>
     <p>
-        [cite_start]Recursion is a technique where a function calls itself to solve smaller instances of the same problem[cite: 160].
+        Recursion is a technique where a function calls itself to solve smaller instances of the same problem.
     </p>
     <blockquote>
-        [cite_start]Recursion is essential for solving problems that can be naturally divided into sub-problems, such as calculating factorials or traversing tree structures[cite: 160].
+        Recursion is essential for solving problems that can be naturally divided into sub-problems, such as calculating factorials or traversing tree structures.
     </blockquote>
     
 
@@ -222,31 +223,34 @@
 
     <h2 id="preprocessor">6. The C Preprocessor</h2>
     <p>
-        [cite_start]The C preprocessor is a program that processes the source code before it is passed to the compiler[cite: 160, 177].
+        The C preprocessor is a program that processes the source code before it is passed to the compiler.
     </p>
     <ul>
-        [cite_start]<li><strong>Macros:</strong> Used to define constants or short functions that are replaced by the preprocessor[cite: 177].</li>
-        [cite_start]<li><strong>Directives:</strong> Commands like #include and #define that instruct the preprocessor on how to handle the code[cite: 160, 177].</li>
+        <li><strong>Macros:</strong> Used to define constants or short functions that are replaced by the preprocessor.</li>
+        <li><strong>Directives:</strong> Commands like #include and #define that instruct the preprocessor on how to handle the code.</li>
     </ul>
 
     <div class="exam-section">
         <h4>Exam Tips</h4>
         <ul>
-            [cite_start]<li><strong>Static variables:</strong> Remember that a static variable inside a function is initialized only once and preserves its value between calls[cite: 159].</li>
-            [cite_start]<li><strong>Prototypes:</strong> Always provide a prototype before main() if the function is defined after main() to avoid compiler warnings[cite: 159].</li>
-            [cite_start]<li><strong>Base Case:</strong> In recursion, always ensure there is a base case to prevent infinite recursion and stack overflow[cite: 160].</li>
+            <li><strong>Static variables:</strong> Remember that a static variable inside a function is initialized only once and preserves its value between calls.</li>
+            <li><strong>Prototypes:</strong> Always provide a prototype before main() if the function is defined after main() to avoid compiler warnings.</li>
+            <li><strong>Base Case:</strong> In recursion, always ensure there is a base case to prevent infinite recursion and stack overflow.</li>
         </ul>
     </div>
 
     <div class="exam-section">
         <h4>Common Mistakes</h4>
         <ul>
-            [cite_start]<li>Mismatching argument types between the function call and the function definition[cite: 158].</li>
-            [cite_start]<li>Confusing local variable scope with global (external) variable scope[cite: 159].</li>
+            <li>Mismatching argument types between the function call and the function definition.</li>
+            <li>Confusing local variable scope with global (external) variable scope.</li>
         </ul>
     </div>
 
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

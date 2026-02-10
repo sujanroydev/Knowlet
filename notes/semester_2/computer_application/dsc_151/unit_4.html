@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CADSC 151 Unit 4 | 2nd Semester Notes - Knowlet</title>
+    <title>Computer Application DSC 151 Unit 4 | 2nd Semester Notes - Knowlet</title>
     <meta name="description" content="Exam-ready HTML notes for CADSC 151 Unit 4: Searching and Sorting. Comprehensive guide to Linear Search, Binary Search, Bubble Sort, Selection Sort, Insertion Sort, Merge Sort, and Quick Sort.">
     <meta name="keywords" content="Data Structure, CADSC 151, Unit 4, Searching, Sorting, Linear Search, Binary Search, Bubble Sort, Merge Sort, Quick Sort, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -153,11 +154,11 @@
 
     <h2 id="linear-search">1. Linear Search</h2>
     <p>
-        [cite_start]<strong>Linear Search</strong> is the simplest searching algorithm[cite: 27]. [cite_start]It works by sequentially checking each element of the list until a match is found or the whole list has been searched[cite: 27].
+        <strong>Linear Search</strong> is the simplest searching algorithm. It works by sequentially checking each element of the list until a match is found or the whole list has been searched.
     </p>
     <ul>
-        <li><strong>Procedure:</strong> Start from the first element and compare it with the target value. [cite_start]Move to the next element until found[cite: 27].</li>
-        [cite_start]<li><strong>Applicability:</strong> Can be used on both sorted and unsorted lists[cite: 27].</li>
+        <li><strong>Procedure:</strong> Start from the first element and compare it with the target value. Move to the next element until found.</li>
+        <li><strong>Applicability:</strong> Can be used on both sorted and unsorted lists.</li>
         <li><strong>Best Case:</strong> Target is at the first position <span class="complexity-tag">O(1)</span>.</li>
         <li><strong>Worst Case:</strong> Target is at the last position or not present <span class="complexity-tag">O(n)</span>.</li>
     </ul>
@@ -166,18 +167,18 @@
 
     <h2 id="binary-search">2. Binary Search</h2>
     <p>
-        [cite_start]<strong>Binary Search</strong> is a much faster searching algorithm but requires the list to be <strong>sorted</strong> beforehand[cite: 27].
+        <strong>Binary Search</strong> is a much faster searching algorithm but requires the list to be <strong>sorted</strong> beforehand.
     </p>
     <ul>
-        [cite_start]<li><strong>Procedure:</strong> It repeatedly divides the search interval in half[cite: 27]. [cite_start]If the target value is less than the middle element, it narrows the interval to the lower half; otherwise, it narrows it to the upper half[cite: 27].</li>
-        [cite_start]<li><strong>Complexity:</strong> <span class="complexity-tag">O(log n)</span>[cite: 33].</li>
+        <li><strong>Procedure:</strong> It repeatedly divides the search interval in half. If the target value is less than the middle element, it narrows the interval to the lower half; otherwise, it narrows it to the upper half.</li>
+        <li><strong>Complexity:</strong> <span class="complexity-tag">O(log n)</span>.</li>
     </ul>
     
     
 
     <div class="exam-focus">
         <h4>Comparison: Linear vs. Binary Search</h4>
-        <table>
+        <div class="add-horizontal-scroll"><table>
             <tr>
                 <th>Feature</th>
                 <th>Linear Search</th>
@@ -186,63 +187,63 @@
             <tr>
                 <td>Data Requirement</td>
                 <td>Unsorted or Sorted</td>
-                [cite_start]<td>Strictly Sorted [cite: 27]</td>
+                <td>Strictly Sorted </td>
             </tr>
             <tr>
                 <td>Complexity</td>
                 <td>O(n)</td>
-                [cite_start]<td>O(log n) [cite: 33]</td>
+                <td>O(log n) </td>
             </tr>
             <tr>
                 <td>Efficiency</td>
                 <td>Low (for large data)</td>
                 <td>High (for large data)</td>
             </tr>
-        </table>
+        </table></div>
     </div>
 
     <hr>
 
     <h2 id="bubble-sort">3. Bubble Sort</h2>
     <p>
-        [cite_start]<strong>Bubble Sort</strong> is a comparison-based sorting algorithm[cite: 27]. [cite_start]It works by repeatedly swapping adjacent elements if they are in the wrong order[cite: 27].
+        <strong>Bubble Sort</strong> is a comparison-based sorting algorithm. It works by repeatedly swapping adjacent elements if they are in the wrong order.
     </p>
     <ul>
-        [cite_start]<li><strong>Mechanism:</strong> Large values "bubble up" to the end of the list in each pass[cite: 27].</li>
-        [cite_start]<li><strong>Complexity:</strong> Worst and Average case <span class="complexity-tag">O(n²)</span>[cite: 33].</li>
+        <li><strong>Mechanism:</strong> Large values "bubble up" to the end of the list in each pass.</li>
+        <li><strong>Complexity:</strong> Worst and Average case <span class="complexity-tag">O(n²)</span>.</li>
     </ul>
 
     <hr>
 
     <h2 id="selection-sort">4. Selection Sort</h2>
     <p>
-        [cite_start]In <strong>Selection Sort</strong>, the list is divided into two parts: sorted and unsorted[cite: 27]. 
+        In <strong>Selection Sort</strong>, the list is divided into two parts: sorted and unsorted. 
     </p>
     <ul>
-        [cite_start]<li><strong>Mechanism:</strong> It repeatedly finds the <em>minimum</em> element from the unsorted part and puts it at the beginning[cite: 27].</li>
-        [cite_start]<li><strong>Complexity:</strong> Always <span class="complexity-tag">O(n²)</span> regardless of initial order[cite: 33].</li>
+        <li><strong>Mechanism:</strong> It repeatedly finds the <em>minimum</em> element from the unsorted part and puts it at the beginning.</li>
+        <li><strong>Complexity:</strong> Always <span class="complexity-tag">O(n²)</span> regardless of initial order.</li>
     </ul>
 
     <hr>
 
     <h2 id="insertion-sort">5. Insertion Sort</h2>
     <p>
-        [cite_start]<strong>Insertion Sort</strong> works similarly to how we sort playing cards in our hands[cite: 27].
+        <strong>Insertion Sort</strong> works similarly to how we sort playing cards in our hands.
     </p>
     <ul>
-        [cite_start]<li><strong>Mechanism:</strong> It takes one element from the unsorted part and "inserts" it into its correct position in the sorted part[cite: 27].</li>
-        <li><strong>Complexity:</strong> Best case <span class="complexity-tag">O(n)</span> (already sorted); [cite_start]Worst case <span class="complexity-tag">O(n²)</span>[cite: 33].</li>
+        <li><strong>Mechanism:</strong> It takes one element from the unsorted part and "inserts" it into its correct position in the sorted part.</li>
+        <li><strong>Complexity:</strong> Best case <span class="complexity-tag">O(n)</span> (already sorted); Worst case <span class="complexity-tag">O(n²)</span>.</li>
     </ul>
 
     <hr>
 
     <h2 id="merge-sort">6. Merge Sort</h2>
     <p>
-        [cite_start]<strong>Merge Sort</strong> is a <strong>Divide and Conquer</strong> algorithm[cite: 27]. 
+        <strong>Merge Sort</strong> is a <strong>Divide and Conquer</strong> algorithm. 
     </p>
     <ul>
-        [cite_start]<li><strong>Procedure:</strong> It divides the array into two halves, calls itself for the two halves, and then merges the two sorted halves[cite: 27].</li>
-        [cite_start]<li><strong>Complexity:</strong> <span class="complexity-tag">O(n log n)</span> in all cases[cite: 33].</li>
+        <li><strong>Procedure:</strong> It divides the array into two halves, calls itself for the two halves, and then merges the two sorted halves.</li>
+        <li><strong>Complexity:</strong> <span class="complexity-tag">O(n log n)</span> in all cases.</li>
         <li><strong>Stability:</strong> It is a stable sort (preserves order of equal elements).</li>
     </ul>
 
@@ -252,17 +253,17 @@
 
     <h2 id="quick-sort">7. Quick Sort</h2>
     <p>
-        [cite_start]<strong>Quick Sort</strong> is also a Divide and Conquer algorithm[cite: 27]. [cite_start]It picks an element as a <strong>pivot</strong> and partitions the array around the pivot[cite: 27].
+        <strong>Quick Sort</strong> is also a Divide and Conquer algorithm. It picks an element as a <strong>pivot</strong> and partitions the array around the pivot.
     </p>
     <ul>
-        [cite_start]<li><strong>Procedure:</strong> Elements smaller than the pivot go to the left, and larger elements go to the right[cite: 27].</li>
-        <li><strong>Complexity:</strong> Average case <span class="complexity-tag">O(n log n)</span>; [cite_start]Worst case <span class="complexity-tag">O(n²)</span> (if pivot selection is poor)[cite: 33].</li>
+        <li><strong>Procedure:</strong> Elements smaller than the pivot go to the left, and larger elements go to the right.</li>
+        <li><strong>Complexity:</strong> Average case <span class="complexity-tag">O(n log n)</span>; Worst case <span class="complexity-tag">O(n²)</span> (if pivot selection is poor).</li>
     </ul>
 
     <hr>
 
     <h2 id="comparisons">8. Comparisons of Sorting Techniques</h2>
-    <table>
+    <div class="add-horizontal-scroll"><table>
         <tr>
             <th>Algorithm</th>
             <th>Best Complexity</th>
@@ -299,25 +300,28 @@
             <td>O(n²)</td>
             <td>O(log n)</td>
         </tr>
-    </table>
+    </table></div>
 
     <div class="exam-focus">
         <h4>Exam Tips & Warnings</h4>
         <ul>
-            [cite_start]<li><strong>Merge Sort</strong> is preferred for linked lists but requires extra space for arrays[cite: 27].</li>
-            [cite_start]<li><strong>Quick Sort</strong> is generally the fastest in practice but has a bad worst-case performance[cite: 27].</li>
+            <li><strong>Merge Sort</strong> is preferred for linked lists but requires extra space for arrays.</li>
+            <li><strong>Quick Sort</strong> is generally the fastest in practice but has a bad worst-case performance.</li>
             <li><strong>Selection Sort</strong> minimizes the number of swaps, making it useful when memory writing is costly.</li>
         </ul>
     </div>
 
     <h3>Frequently Asked Questions</h3>
     <p><strong>Q: Why is Binary Search better than Linear Search?</strong><br>
-    Binary search drastically reduces the number of comparisons. [cite_start]For 1 million elements, Linear Search might take 1,000,000 steps, while Binary Search takes only about 20 steps[cite: 27, 33].</p>
+    Binary search drastically reduces the number of comparisons. For 1 million elements, Linear Search might take 1,000,000 steps, while Binary Search takes only about 20 steps.</p>
 
     <p><strong>Q: What is a "Pivot" in Quick Sort?</strong><br>
-    [cite_start]The pivot is a reference element used to partition the data into two subsets: those smaller than the pivot and those larger[cite: 27].</p>
+    The pivot is a reference element used to partition the data into two subsets: those smaller than the pivot and those larger.</p>
 
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CADSM101 Unit 1 | 1st Semester Notes - Knowlet</title>
+    <title>Computer Application DSM 101 Unit 1 | 1st Semester Notes - Knowlet</title>
     <meta name="description" content="Comprehensive academic notes for CADSM101 Programming with C, Unit 1. Covering data types, control structures, and basic programming logic.">
     <meta name="keywords" content="Knowlet, CADSM101, C Programming, Data Types, Control Structures, Loops, If-Else, Programming Basics">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -128,34 +129,34 @@
     </div>
 
     <h2 id="data-types">Data Types, Expressions, and Operations</h2>
-    [cite_start]<p>C is a statically typed language, meaning every variable must have a declared type that defines the kind of data it can hold[cite: 107, 133].</p>
+    <p>C is a statically typed language, meaning every variable must have a declared type that defines the kind of data it can hold.</p>
     
     <h3>Standard Data Types</h3>
     <ul>
-        [cite_start]<li><strong>int</strong>: Used for whole numbers (integers)[cite: 108].</li>
-        [cite_start]<li><strong>float</strong>: Used for single-precision floating-point numbers (decimals)[cite: 108].</li>
-        [cite_start]<li><strong>double</strong>: Used for double-precision floating-point numbers[cite: 108].</li>
-        [cite_start]<li><strong>char</strong>: Used to store a single character[cite: 108].</li>
+        <li><strong>int</strong>: Used for whole numbers (integers).</li>
+        <li><strong>float</strong>: Used for single-precision floating-point numbers (decimals).</li>
+        <li><strong>double</strong>: Used for double-precision floating-point numbers.</li>
+        <li><strong>char</strong>: Used to store a single character.</li>
     </ul>
 
     <h3>Operators in C</h3>
-    [cite_start]<p>Operators are symbols used to perform operations on variables and values[cite: 108].</p>
+    <p>Operators are symbols used to perform operations on variables and values.</p>
     <ul>
-        [cite_start]<li><strong>Arithmetic</strong>: +, -, *, /, % (modulus)[cite: 108].</li>
-        [cite_start]<li><strong>Relational</strong>: ==, !=, >, <, >=, <=[cite: 108].</li>
-        <li><strong>Logical</strong>: && (AND), || (OR), ! (NOT) [cite_start][cite: 108].</li>
-        [cite_start]<li><strong>Assignment</strong>: =[cite: 108].</li>
+        <li><strong>Arithmetic</strong>: +, -, *, /, % (modulus).</li>
+        <li><strong>Relational</strong>: ==, !=, >, <, >=, <=.</li>
+        <li><strong>Logical</strong>: && (AND), || (OR), ! (NOT) .</li>
+        <li><strong>Assignment</strong>: =.</li>
     </ul>
 
     <h2 id="input-output">Basic Input and Output</h2>
-    [cite_start]<p>Standard input and output allow a C program to interact with the user[cite: 108].</p>
+    <p>Standard input and output allow a C program to interact with the user.</p>
     <ul>
-        [cite_start]<li><strong>printf()</strong>: Function used to display data on the screen[cite: 127].</li>
-        [cite_start]<li><strong>scanf()</strong>: Function used to read data from the keyboard[cite: 127].</li>
+        <li><strong>printf()</strong>: Function used to display data on the screen.</li>
+        <li><strong>scanf()</strong>: Function used to read data from the keyboard.</li>
     </ul>
 
     <h2 id="simple-programs">Writing Simple C Programs</h2>
-    [cite_start]<p>Every C program begins execution with the <code>main()</code> function[cite: 108].</p>
+    <p>Every C program begins execution with the <code>main()</code> function.</p>
     <blockquote>
         Example Structure:<br>
         #include &lt;stdio.h&gt;<br>
@@ -166,59 +167,62 @@
     </blockquote>
 
     <h2 id="decision-making">Control Structures: Decision Making</h2>
-    [cite_start]<p>These structures allow the program to branch in different directions based on conditions[cite: 109].</p>
+    <p>These structures allow the program to branch in different directions based on conditions.</p>
     
     <h3>IF-ELSE Statement</h3>
-    [cite_start]<p>Executes one block of code if a condition is true, and another if it is false[cite: 109].</p>
+    <p>Executes one block of code if a condition is true, and another if it is false.</p>
     
 
 [Image of if-else flowchart in C programming]
 
 
     <h3>SWITCH Statement</h3>
-    [cite_start]<p>Allows a variable to be tested for equality against a list of values (cases)[cite: 109].</p>
+    <p>Allows a variable to be tested for equality against a list of values (cases).</p>
 
     <h2 id="looping">Control Structures: Looping</h2>
-    [cite_start]<p>Loops are used to repeat a block of code multiple times[cite: 109].</p>
+    <p>Loops are used to repeat a block of code multiple times.</p>
     <ul>
-        <li><strong>WHILE Loop</strong>: Repeats as long as a condition is true. [cite_start]The condition is checked <em>before</em> execution[cite: 109].</li>
-        [cite_start]<li><strong>DO-WHILE Loop</strong>: Similar to while, but the condition is checked <em>after</em> execution, ensuring the loop runs at least once[cite: 109].</li>
-        <li><strong>FOR Loop</strong>: Best used when the number of iterations is known. [cite_start]It combines initialization, condition, and increment/decrement[cite: 109].</li>
+        <li><strong>WHILE Loop</strong>: Repeats as long as a condition is true. The condition is checked <em>before</em> execution.</li>
+        <li><strong>DO-WHILE Loop</strong>: Similar to while, but the condition is checked <em>after</em> execution, ensuring the loop runs at least once.</li>
+        <li><strong>FOR Loop</strong>: Best used when the number of iterations is known. It combines initialization, condition, and increment/decrement.</li>
     </ul>
 
     <h2 id="jump-statements">Jump Statements</h2>
     <ul>
-        [cite_start]<li><strong>BREAK</strong>: Exits the current loop or switch immediately[cite: 109].</li>
-        [cite_start]<li><strong>CONTINUE</strong>: Skips the remaining code in the current iteration and jumps to the next iteration[cite: 109].</li>
-        [cite_start]<li><strong>GOTO</strong>: Transfers control to a labeled part of the program (use sparingly)[cite: 109].</li>
+        <li><strong>BREAK</strong>: Exits the current loop or switch immediately.</li>
+        <li><strong>CONTINUE</strong>: Skips the remaining code in the current iteration and jumps to the next iteration.</li>
+        <li><strong>GOTO</strong>: Transfers control to a labeled part of the program (use sparingly).</li>
     </ul>
 
     <h2 id="problem-solving">Elementary Problem Solving</h2>
-    [cite_start]<p>C is widely used to solve problems in mathematics and statistics through algorithmic logic[cite: 110].</p>
+    <p>C is widely used to solve problems in mathematics and statistics through algorithmic logic.</p>
     <ul>
-        [cite_start]<li>Finding factorials[cite: 247].</li>
-        [cite_start]<li>Evaluating algebraic expressions[cite: 249].</li>
-        [cite_start]<li>Generating series like Fibonacci or geometric progressions[cite: 250, 256].</li>
+        <li>Finding factorials.</li>
+        <li>Evaluating algebraic expressions.</li>
+        <li>Generating series like Fibonacci or geometric progressions.</li>
     </ul>
 
     <div class="exam-focus" id="exam-prep">
         <h4>Exam Focus & Tips</h4>
         <ul>
-            [cite_start]<li><strong>Exam Tip:</strong> Be prepared to write code for finding the sum of a series or checking if a number is prime using nested loops[cite: 109, 253].</li>
-            [cite_start]<li><strong>Common Mistake:</strong> Forgetting the semicolon after the <code>while</code> condition in a <code>do-while</code> loop[cite: 109].</li>
-            [cite_start]<li><strong>Practical Tip:</strong> Always initialize your variables to avoid "garbage values" during calculation[cite: 108].</li>
+            <li><strong>Exam Tip:</strong> Be prepared to write code for finding the sum of a series or checking if a number is prime using nested loops.</li>
+            <li><strong>Common Mistake:</strong> Forgetting the semicolon after the <code>while</code> condition in a <code>do-while</code> loop.</li>
+            <li><strong>Practical Tip:</strong> Always initialize your variables to avoid "garbage values" during calculation.</li>
         </ul>
         
         <hr>
         
         <h4>Frequently Asked Questions</h4>
         <p><strong>Q: What is the difference between = and ==?</strong><br>
-        A: = is for assignment; [cite_start]== is for checking equality[cite: 108].</p>
+        A: = is for assignment; == is for checking equality.</p>
         
         <p><strong>Q: When is a DO-WHILE loop preferred over a WHILE loop?</strong><br>
-        [cite_start]A: When you need the code block to execute at least once regardless of the condition[cite: 109].</p>
+        A: When you need the code block to execute at least once regardless of the condition.</p>
     </div>
 
 </div>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

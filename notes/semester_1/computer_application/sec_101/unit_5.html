@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CASEC101 Unit 5 | 1st Semester Notes - Knowlet</title>
+    <title>Computer Application SEC 101 Unit 5 | 1st Semester Notes - Knowlet</title>
     <meta name="description" content="Detailed academic notes for CASEC101 Unit 5: Input/Output and Low-Level Programming in C. Covers File Access, Bitwise operations, and Macros.">
     <meta name="keywords" content="Knowlet, CASEC101, File Handling, printf, scanf, Bitwise Operations, Macros, C Preprocessor, Low Level Programming">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -117,66 +118,69 @@
     </div>
 
     <h2 id="standard-io">Standard and Formatted I/O</h2>
-    [cite_start]<p>Input and output operations allow a program to communicate with the user and external environments[cite: 218].</p>
+    <p>Input and output operations allow a program to communicate with the user and external environments.</p>
     <ul>
-        [cite_start]<li><strong>Standard I/O:</strong> Use of standard streams for input and output[cite: 218].</li>
-        [cite_start]<li><strong>Formatted Output (printf):</strong> Allows printing variables with specific format specifiers[cite: 218].</li>
-        [cite_start]<li><strong>Variable Length Arguments:</strong> Functions that can accept an unspecified number of parameters[cite: 218].</li>
-        [cite_start]<li><strong>Formatted Input (scanf):</strong> Reads formatted data from standard input based on format specifiers[cite: 218].</li>
+        <li><strong>Standard I/O:</strong> Use of standard streams for input and output.</li>
+        <li><strong>Formatted Output (printf):</strong> Allows printing variables with specific format specifiers.</li>
+        <li><strong>Variable Length Arguments:</strong> Functions that can accept an unspecified number of parameters.</li>
+        <li><strong>Formatted Input (scanf):</strong> Reads formatted data from standard input based on format specifiers.</li>
     </ul>
 
     <h2 id="file-handling">Data Files and Access Functions</h2>
-    [cite_start]<p>File handling is used to store data permanently on disks[cite: 219].</p>
+    <p>File handling is used to store data permanently on disks.</p>
     
     
 
     <ul>
-        [cite_start]<li><strong>Opening and Closing:</strong> Files must be explicitly opened before use and closed after completion to prevent data loss[cite: 219].</li>
-        [cite_start]<li><strong>File Access:</strong> Methods for reading from and writing to data files[cite: 219].</li>
-        [cite_start]<li><strong>Unformatted Files:</strong> Direct processing of raw data files without formatting[cite: 219].</li>
-        [cite_start]<li><strong>Miscellaneous Functions:</strong> Library functions used for file positioning and error checking[cite: 219].</li>
+        <li><strong>Opening and Closing:</strong> Files must be explicitly opened before use and closed after completion to prevent data loss.</li>
+        <li><strong>File Access:</strong> Methods for reading from and writing to data files.</li>
+        <li><strong>Unformatted Files:</strong> Direct processing of raw data files without formatting.</li>
+        <li><strong>Miscellaneous Functions:</strong> Library functions used for file positioning and error checking.</li>
     </ul>
 
     <h2 id="low-level">Low Level Programming Concepts</h2>
-    [cite_start]<p>C provides features to interact closely with the computer's hardware for performance optimization[cite: 220].</p>
+    <p>C provides features to interact closely with the computer's hardware for performance optimization.</p>
     <ul>
-        [cite_start]<li><strong>Register Variables:</strong> Hints to the compiler to store frequently used variables in CPU registers for speed[cite: 220].</li>
-        [cite_start]<li><strong>Enumeration:</strong> A user-defined type consisting of a set of named integer constants[cite: 220].</li>
-        [cite_start]<li><strong>Command Line Arguments:</strong> Passing parameters to the program during execution to control behavior[cite: 220].</li>
-        [cite_start]<li><strong>Library Functions:</strong> Standard pre-built functions for system-level operations[cite: 220].</li>
+        <li><strong>Register Variables:</strong> Hints to the compiler to store frequently used variables in CPU registers for speed.</li>
+        <li><strong>Enumeration:</strong> A user-defined type consisting of a set of named integer constants.</li>
+        <li><strong>Command Line Arguments:</strong> Passing parameters to the program during execution to control behavior.</li>
+        <li><strong>Library Functions:</strong> Standard pre-built functions for system-level operations.</li>
     </ul>
 
     <h2 id="bitwise">Bitwise Operations and Bit Fields</h2>
-    [cite_start]<p>These allow manipulation of data at the smallest level: individual bits[cite: 220].</p>
+    <p>These allow manipulation of data at the smallest level: individual bits.</p>
     <ul>
-        [cite_start]<li><strong>Bitwise Operations:</strong> Operators such as AND, OR, XOR, and shifts that work on binary representations[cite: 220].</li>
-        [cite_start]<li><strong>Bit Fields:</strong> Structure members whose size is defined in bits, allowing for extremely compact data storage[cite: 220].</li>
+        <li><strong>Bitwise Operations:</strong> Operators such as AND, OR, XOR, and shifts that work on binary representations.</li>
+        <li><strong>Bit Fields:</strong> Structure members whose size is defined in bits, allowing for extremely compact data storage.</li>
     </ul>
 
     <h2 id="preprocessor">The C Preprocessor and Macros</h2>
-    [cite_start]<p>The preprocessor transforms code before actual compilation begins[cite: 220].</p>
+    <p>The preprocessor transforms code before actual compilation begins.</p>
     <ul>
-        [cite_start]<li><strong>Macros:</strong> Definitions used to create symbolic constants or small code replacements[cite: 220].</li>
-        [cite_start]<li><strong>Directives:</strong> Commands like <code>#define</code> and <code>#include</code> that guide the compilation process[cite: 220].</li>
+        <li><strong>Macros:</strong> Definitions used to create symbolic constants or small code replacements.</li>
+        <li><strong>Directives:</strong> Commands like <code>#define</code> and <code>#include</code> that guide the compilation process.</li>
     </ul>
 
     <div class="exam-focus" id="exam-prep">
         <h4>Exam Focus & Tips</h4>
         <ul>
-            [cite_start]<li><strong>Exam Tip:</strong> Be ready to write a program that copies one file to another using command line arguments[cite: 273].</li>
-            [cite_start]<li><strong>Common Mistake:</strong> Forgetting to check if a file was successfully opened before trying to read it[cite: 219].</li>
-            <li><strong>Mnemonic:</strong> <strong>"F-O-C"</strong> - <strong>F</strong>ile <strong>O</strong>pen, <strong>C</strong>lose. [cite_start]Always remember the pair! [cite: 219]</li>
+            <li><strong>Exam Tip:</strong> Be ready to write a program that copies one file to another using command line arguments.</li>
+            <li><strong>Common Mistake:</strong> Forgetting to check if a file was successfully opened before trying to read it.</li>
+            <li><strong>Mnemonic:</strong> <strong>"F-O-C"</strong> - <strong>F</strong>ile <strong>O</strong>pen, <strong>C</strong>lose. Always remember the pair! </li>
         </ul>
         
         <hr>
         
         <h4>Frequently Asked Questions</h4>
         <p><strong>Q: What is the benefit of bitwise operations?</strong><br>
-        [cite_start]A: They are essential for low-level tasks like setting hardware flags or masking specific bits of a number[cite: 274].</p>
+        A: They are essential for low-level tasks like setting hardware flags or masking specific bits of a number.</p>
         
         <p><strong>Q: How do you pass arguments to a program from the terminal?</strong><br>
-        [cite_start]A: Use command line parameters, which are handled by <code>argc</code> and <code>argv</code> in the main function[cite: 220].</p>
+        A: Use command line parameters, which are handled by <code>argc</code> and <code>argv</code> in the main function.</p>
     </div>
 </div>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

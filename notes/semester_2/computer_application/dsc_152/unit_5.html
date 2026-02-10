@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CADSC 152P Unit 5 | 2nd Semester Lab Notes - Knowlet</title>
+    <title>Computer Application DSC 152 Unit 5 | 2nd Semester Notes - Knowlet</title>
     <meta name="description" content="Final practical lab notes for CADSC 152P. Detailed coverage of Binary Search Trees (BST), AVL Trees, Threaded Binary Trees, and specialized Matrix implementations.">
     <meta name="keywords" content="Binary Search Tree, AVL Tree, Threaded Binary Tree, Matrix Implementation, CADSC 152P, Data Structures Lab, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -141,15 +142,15 @@
 
     <h2 id="bst-ops">1. Task 14: Binary Search Tree (BST) Operations</h2>
     <div class="lab-task">
-        [cite_start]<strong>Assignment:</strong> WAP to create a BST and include: Insertion (Recursive/Iterative), Deletion (by Copying/Merging), Searching, Traversals (Recursive/Iterative), Level-by-level Traversal, Mirror Image, and Tree Comparison[cite: 88, 89].
+        <strong>Assignment:</strong> WAP to create a BST and include: Insertion (Recursive/Iterative), Deletion (by Copying/Merging), Searching, Traversals (Recursive/Iterative), Level-by-level Traversal, Mirror Image, and Tree Comparison.
     </div>
 
     <h3>Implementation Requirements</h3>
     <ul>
-        [cite_start]<li><strong>Deletion by Copying:</strong> Replaces the deleted node with its predecessor or successor's value[cite: 88].</li>
-        [cite_start]<li><strong>Deletion by Merging:</strong> Attaches the right subtree of the node to the rightmost node of the left subtree[cite: 88].</li>
-        [cite_start]<li><strong>Level-order Traversal:</strong> Uses a <strong>Queue</strong> to visit nodes level by level[cite: 89].</li>
-        [cite_start]<li><strong>Height and Counting:</strong> Use recursion to count leaf nodes and determine the maximum depth[cite: 89].</li>
+        <li><strong>Deletion by Copying:</strong> Replaces the deleted node with its predecessor or successor's value.</li>
+        <li><strong>Deletion by Merging:</strong> Attaches the right subtree of the node to the rightmost node of the left subtree.</li>
+        <li><strong>Level-order Traversal:</strong> Uses a <strong>Queue</strong> to visit nodes level by level.</li>
+        <li><strong>Height and Counting:</strong> Use recursion to count leaf nodes and determine the maximum depth.</li>
     </ul>
 
     
@@ -158,14 +159,14 @@
 
     <h2 id="special-matrices">2. Tasks 18-21: Specialized Matrix Implementations</h2>
     <div class="lab-task">
-        [cite_start]<strong>Assignment:</strong> Implement Diagonal, Lower Triangular, Upper Triangular, and Symmetric Matrices using a 1D array[cite: 93, 94, 95, 100].
+        <strong>Assignment:</strong> Implement Diagonal, Lower Triangular, Upper Triangular, and Symmetric Matrices using a 1D array.
     </div>
 
     <p>
         To save memory, specialized matrices store only non-zero elements in a one-dimensional array.
     </p>
 
-    <table>
+    <div class="add-horizontal-scroll"><table>
         <tr>
             <th>Matrix Type</th>
             <th>Storage Condition (Row i, Col j)</th>
@@ -173,25 +174,25 @@
         </tr>
         <tr>
             <td><strong>Diagonal</strong></td>
-            [cite_start]<td>Only i = j stored[cite: 93].</td>
+            <td>Only i = j stored.</td>
             <td>index = i</td>
         </tr>
         <tr>
             <td><strong>Lower Triangular</strong></td>
-            [cite_start]<td>Only i >= j stored[cite: 94].</td>
+            <td>Only i >= j stored.</td>
             <td>index = [i * (i + 1) / 2] + j</td>
         </tr>
         <tr>
             <td><strong>Upper Triangular</strong></td>
-            [cite_start]<td>Only i <= j stored[cite: 95].</td>
+            <td>Only i <= j stored.</td>
             <td>index = [j * (j + 1) / 2] + i</td>
         </tr>
         <tr>
             <td><strong>Symmetric</strong></td>
-            <td>A[i][j] = A[j][i]. [cite_start]Only one triangle stored[cite: 100].</td>
+            <td>A[i][j] = A[j][i]. Only one triangle stored.</td>
             <td>Same as Lower/Upper triangular.</td>
         </tr>
-    </table>
+    </table></div>
 
     <hr>
 
@@ -199,19 +200,19 @@
     
     <h3>Threaded Binary Trees (Task 22)</h3>
     <div class="lab-task">
-        [cite_start]<strong>Assignment:</strong> Create a Threaded Binary Tree as per inorder traversal; implement finding successor/predecessor and inorder traversal[cite: 101, 102].
+        <strong>Assignment:</strong> Create a Threaded Binary Tree as per inorder traversal; implement finding successor/predecessor and inorder traversal.
     </div>
     <ul>
-        [cite_start]<li><strong>Logic:</strong> Instead of NULL pointers, use "threads" to point to the next node in the inorder sequence[cite: 101].</li>
-        [cite_start]<li><strong>Benefit:</strong> Traversal becomes iterative without needing a stack or recursion[cite: 102].</li>
+        <li><strong>Logic:</strong> Instead of NULL pointers, use "threads" to point to the next node in the inorder sequence.</li>
+        <li><strong>Benefit:</strong> Traversal becomes iterative without needing a stack or recursion.</li>
     </ul>
 
     <h3>AVL Trees (Task 23)</h3>
     <div class="lab-task">
-        [cite_start]<strong>Assignment:</strong> Implement various operations (Insertion, Deletion, Balancing) on an AVL Tree[cite: 103].
+        <strong>Assignment:</strong> Implement various operations (Insertion, Deletion, Balancing) on an AVL Tree.
     </div>
     <p>
-        [cite_start]The implementation must include <strong>Rotations</strong> (LL, RR, LR, RL) to maintain the balance factor between -1 and 1[cite: 103].
+        The implementation must include <strong>Rotations</strong> (LL, RR, LR, RL) to maintain the balance factor between -1 and 1.
     </p>
 
     
@@ -238,5 +239,8 @@
 
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

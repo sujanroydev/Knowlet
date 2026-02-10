@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CADSC 152P Unit 4 | 2nd Semester Lab Notes - Knowlet</title>
+    <title>Computer Application DSC 152 Unit 4 | 2nd Semester Notes - Knowlet</title>
     <meta name="description" content="Lab notes for CADSC 152P: Polynomials, Recursion vs Iteration, and Sparse Matrix operations. Includes logic for factorial, Fibonacci, and GCD.">
     <meta name="keywords" content="Polynomial Addition, Recursion, Iteration, Sparse Matrix, CADSC 152P, Data Structures Lab, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -130,15 +131,15 @@
 
     <h2 id="polynomials">1. Task 10: Polynomial Addition using Linked Lists</h2>
     <div class="lab-task">
-        [cite_start]<strong>Assignment:</strong> WAP to scan a polynomial using a linked list and add two polynomials[cite: 84].
+        <strong>Assignment:</strong> WAP to scan a polynomial using a linked list and add two polynomials.
     </div>
     <p>
-        [cite_start]In this program, each node of the linked list represents a term of the polynomial[cite: 84]. Each node contains:
+        In this program, each node of the linked list represents a term of the polynomial. Each node contains:
     </p>
     <ul>
-        [cite_start]<li><strong>Coefficient:</strong> The numerical factor[cite: 84].</li>
-        [cite_start]<li><strong>Exponent:</strong> The power to which the variable is raised[cite: 84].</li>
-        [cite_start]<li><strong>Next:</strong> Pointer to the next term[cite: 84].</li>
+        <li><strong>Coefficient:</strong> The numerical factor.</li>
+        <li><strong>Exponent:</strong> The power to which the variable is raised.</li>
+        <li><strong>Next:</strong> Pointer to the next term.</li>
     </ul>
     <p>
         <strong>Logic for Addition:</strong> Traverse both lists. If exponents match, add coefficients. If one exponent is higher, add that term to the result list and move only that list's pointer.
@@ -149,38 +150,38 @@
 
     <h2 id="recursion-tasks">2. Tasks 11-13: Recursion vs Iteration</h2>
     <div class="lab-task">
-        [cite_start]<strong>Assignment:</strong> Calculate Factorial, Fibonacci series, and GCD using both (i) recursion and (ii) iteration[cite: 85, 86, 87].
+        <strong>Assignment:</strong> Calculate Factorial, Fibonacci series, and GCD using both (i) recursion and (ii) iteration.
     </div>
 
     <h3>Factorial (Task 11)</h3>
     <ul>
-        [cite_start]<li><strong>Recursive:</strong> <code>fact(n) = n * fact(n-1)</code>[cite: 85].</li>
-        [cite_start]<li><strong>Iterative:</strong> Use a <code>for</code> loop from 1 to n[cite: 85].</li>
+        <li><strong>Recursive:</strong> <code>fact(n) = n * fact(n-1)</code>.</li>
+        <li><strong>Iterative:</strong> Use a <code>for</code> loop from 1 to n.</li>
     </ul>
 
     <h3>Fibonacci Series (Task 12)</h3>
     <ul>
-        [cite_start]<li><strong>Recursive:</strong> <code>fib(n) = fib(n-1) + fib(n-2)</code>[cite: 86].</li>
-        [cite_start]<li><strong>Iterative:</strong> Use a loop and three variables (a=0, b=1, c) to update the sequence[cite: 86].</li>
+        <li><strong>Recursive:</strong> <code>fib(n) = fib(n-1) + fib(n-2)</code>.</li>
+        <li><strong>Iterative:</strong> Use a loop and three variables (a=0, b=1, c) to update the sequence.</li>
     </ul>
 
     <h3>GCD - Greatest Common Divisor (Task 13)</h3>
     <ul>
-        [cite_start]<li><strong>Recursive (Euclidean):</strong> <code>gcd(a, b) = gcd(b, a % b)</code>[cite: 87].</li>
-        [cite_start]<li><strong>Iterative:</strong> Use a <code>while</code> loop with the modulo operator[cite: 87].</li>
+        <li><strong>Recursive (Euclidean):</strong> <code>gcd(a, b) = gcd(b, a % b)</code>.</li>
+        <li><strong>Iterative:</strong> Use a <code>while</code> loop with the modulo operator.</li>
     </ul>
 
     <hr>
 
     <h2 id="sparse-matrix">3. Task 15: Sparse Matrix Conversion</h2>
     <div class="lab-task">
-        [cite_start]<strong>Assignment:</strong> WAP to convert the Sparse Matrix into non-zero form and vice-versa[cite: 90].
+        <strong>Assignment:</strong> WAP to convert the Sparse Matrix into non-zero form and vice-versa.
     </div>
     <p>
-        [cite_start]A <strong>Sparse Matrix</strong> is a matrix where most elements are zero[cite: 13]. [cite_start]To save space, we store only the non-zero elements in a 3-column format: <strong>Row, Column, Value</strong>[cite: 13, 90].
+        A <strong>Sparse Matrix</strong> is a matrix where most elements are zero. To save space, we store only the non-zero elements in a 3-column format: <strong>Row, Column, Value</strong>.
     </p>
     <p><strong>Example Conversion:</strong></p>
-    <table>
+    <div class="add-horizontal-scroll"><table>
         <tr>
             <th>Original Matrix (2D)</th>
             <th>Non-Zero Form (Triplet)</th>
@@ -196,7 +197,7 @@
                 Row: 1, Col: 2, Val: 8
             </td>
         </tr>
-    </table>
+    </table></div>
 
     <hr>
 
@@ -205,18 +206,21 @@
     <div class="exam-tip">
         <strong>Comparison: Recursion vs. Iteration</strong>
         <p>
-            [cite_start]While <strong>Recursion</strong> makes the code cleaner and easier to understand for problems like Fibonacci or Trees, it uses more memory because each call is stored on the <strong>Stack</strong>[cite: 16]. [cite_start]<strong>Iteration</strong> is generally faster and more memory-efficient[cite: 16].
+            While <strong>Recursion</strong> makes the code cleaner and easier to understand for problems like Fibonacci or Trees, it uses more memory because each call is stored on the <strong>Stack</strong>. <strong>Iteration</strong> is generally faster and more memory-efficient.
         </p>
     </div>
 
     <h3>Frequently Asked Questions</h3>
     <p><strong>Q: Why use a linked list for polynomials?</strong><br>
-    [cite_start]Since we don't know the number of terms beforehand, linked lists allow dynamic storage and easy insertion of terms in descending order of exponents[cite: 84].</p>
+    Since we don't know the number of terms beforehand, linked lists allow dynamic storage and easy insertion of terms in descending order of exponents.</p>
 
     <p><strong>Q: What is the base case for GCD recursion?</strong><br>
-    [cite_start]The recursion stops when the second number becomes zero; at that point, the first number is the GCD[cite: 87].</p>
+    The recursion stops when the second number becomes zero; at that point, the first number is the GCD.</p>
 
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CADSC 152P Unit 1 | 2nd Semester Lab Notes - Knowlet</title>
+    <title>Computer Application DSC 152 Unit 1 | 2nd Semester Notes - Knowlet</title>
     <meta name="description" content="Practical lab notes for CADSC 152P: Lab on Data Structure. Focused on searching and sorting algorithms using C++ Templates.">
     <meta name="keywords" content="Data Structure Lab, CADSC 152P, Linear Search, Binary Search, Bubble Sort, Selection Sort, Insertion Sort, C++ Templates, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -147,18 +148,18 @@
 
     <h2 id="lab-objectives">1. Lab Objectives & Learning Outcomes</h2>
     <p>
-        [cite_start]The primary goal of this lab is to help students apply theoretical concepts in a practical setting through programming assignments[cite: 68, 69]. 
+        The primary goal of this lab is to help students apply theoretical concepts in a practical setting through programming assignments. 
     </p>
     <ul>
-        [cite_start]<li><strong>Skill Enhancement:</strong> Focuses on writing, debugging, and testing code for efficiency[cite: 70, 71].</li>
-        [cite_start]<li><strong>Outcome:</strong> Students will demonstrate proficiency in implementing data structures and analyzing their complexities[cite: 108, 109].</li>
+        <li><strong>Skill Enhancement:</strong> Focuses on writing, debugging, and testing code for efficiency.</li>
+        <li><strong>Outcome:</strong> Students will demonstrate proficiency in implementing data structures and analyzing their complexities.</li>
     </ul>
 
     <hr>
 
     <h2 id="templates-concept">2. Core Concept: C++ Templates</h2>
     <p>
-        [cite_start]The syllabus explicitly requires the use of <strong>Template functions</strong> for searching and sorting tasks[cite: 74, 75]. 
+        The syllabus explicitly requires the use of <strong>Template functions</strong> for searching and sorting tasks. 
     </p>
     <blockquote>
         <strong>Definition:</strong> Templates allow a function or class to work with different data types (int, float, char) without rewriting the code for each type.
@@ -178,13 +179,13 @@
 
     <h2 id="searching-lab">3. Task 1: Linear and Binary Search</h2>
     <div class="lab-task">
-        [cite_start]<strong>Assignment:</strong> Write a program to search an element from a list, giving the user the option to perform Linear or Binary search using template functions[cite: 73, 74].
+        <strong>Assignment:</strong> Write a program to search an element from a list, giving the user the option to perform Linear or Binary search using template functions.
     </div>
 
     <h3>Implementation Details</h3>
     <ul>
-        [cite_start]<li><strong>Linear Search:</strong> Scans every element[cite: 27]. Ideal for unsorted lists.</li>
-        [cite_start]<li><strong>Binary Search:</strong> Requires a <strong>sorted list</strong>[cite: 27]. Uses the divide-and-conquer approach to locate elements in O(log n) time.</li>
+        <li><strong>Linear Search:</strong> Scans every element. Ideal for unsorted lists.</li>
+        <li><strong>Binary Search:</strong> Requires a <strong>sorted list</strong>. Uses the divide-and-conquer approach to locate elements in O(log n) time.</li>
     </ul>
 
     
@@ -193,11 +194,11 @@
 
     <h2 id="sorting-lab">4. Task 2: Insertion, Bubble, and Selection Sort</h2>
     <div class="lab-task">
-        <strong>Assignment:</strong> WAP using templates to sort a list. [cite_start]Give users the option to choose between Insertion, Bubble, or Selection sort[cite: 75, 76].
+        <strong>Assignment:</strong> WAP using templates to sort a list. Give users the option to choose between Insertion, Bubble, or Selection sort.
     </div>
 
     <h3>Logic Summaries for Coding</h3>
-    <table>
+    <div class="add-horizontal-scroll"><table>
         <tr>
             <th>Algorithm</th>
             <th>Key Logic</th>
@@ -205,20 +206,20 @@
         </tr>
         <tr>
             <td><strong>Bubble Sort</strong></td>
-            [cite_start]<td>Compare adjacent elements and swap if needed[cite: 27].</td>
+            <td>Compare adjacent elements and swap if needed.</td>
             <td>Nested loops with swap().</td>
         </tr>
         <tr>
             <td><strong>Selection Sort</strong></td>
-            [cite_start]<td>Find the minimum element and swap it with the first unsorted element[cite: 27].</td>
+            <td>Find the minimum element and swap it with the first unsorted element.</td>
             <td>Tracking min_index.</td>
         </tr>
         <tr>
             <td><strong>Insertion Sort</strong></td>
-            [cite_start]<td>Build the sorted list one element at a time by inserting it into position[cite: 27].</td>
+            <td>Build the sorted list one element at a time by inserting it into position.</td>
             <td>Shifting elements.</td>
         </tr>
-    </table>
+    </table></div>
 
     <hr>
 
@@ -228,19 +229,22 @@
     </div>
 
     <ul>
-        [cite_start]<li><strong>Common Error:</strong> Forgetting to sort the array before calling the <strong>Binary Search</strong> function[cite: 27].</li>
+        <li><strong>Common Error:</strong> Forgetting to sort the array before calling the <strong>Binary Search</strong> function.</li>
         <li><strong>Debugging Tip:</strong> Use print statements inside your sorting loops to see how the array changes in each "pass."</li>
         <li><strong>Template Usage:</strong> Ensure the `template &lt;typename T&gt;` line is placed immediately above every function definition that uses it.</li>
     </ul>
 
     <h3>Frequently Asked Questions</h3>
     <p><strong>Q: Why use Templates in this lab?</strong><br>
-    [cite_start]The syllabus mandates it to ensure students can create generic and reusable code[cite: 74, 81].</p>
+    The syllabus mandates it to ensure students can create generic and reusable code.</p>
 
     <p><strong>Q: What is the benefit of a Menu-Driven program?</strong><br>
-    [cite_start]It allows the user to interactively choose algorithms, fulfilling the "option" requirement in assignments[cite: 74, 76].</p>
+    It allows the user to interactively choose algorithms, fulfilling the "option" requirement in assignments.</p>
 
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

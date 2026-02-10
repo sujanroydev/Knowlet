@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CASEC 151 Unit 5 | 2nd Semester Notes - Knowlet</title>
+    <title>Computer Application SEC 151 Unit 5 | 2nd Semester Notes - Knowlet</title>
     <meta name="description" content="Exam-ready HTML notes for CASEC 151: Python Programming, Unit 5. Covering File Operations, Exception Handling, Directories, and Graph Plotting with Matplotlib.">
     <meta name="keywords" content="Python Programming, CASEC 151, Unit 5, Python Files, Exception Handling, Matplotlib, Graph Plotting, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         :root {
             --python-blue: #3776ab;
@@ -137,37 +138,37 @@
 
     <h2 id="python-files">1. Python File Operations</h2>
     <p>
-        [cite_start]File handling is essential for storing data permanently[cite: 214]. [cite_start]Python provides built-in functions to create, read, update, and delete files[cite: 236].
+        File handling is essential for storing data permanently. Python provides built-in functions to create, read, update, and delete files.
     </p>
     <ul>
-        [cite_start]<li><strong>Opening a File:</strong> Done using the <code>open()</code> function[cite: 236].</li>
-        [cite_start]<li><strong>Reading:</strong> Methods like <code>read()</code>, <code>readline()</code>, and <code>readlines()</code> are used to retrieve data[cite: 236].</li>
-        [cite_start]<li><strong>Writing:</strong> The <code>write()</code> and <code>writelines()</code> methods allow saving data to a file[cite: 236].</li>
-        [cite_start]<li><strong>Closing:</strong> Always use <code>close()</code> to free up system resources[cite: 236].</li>
+        <li><strong>Opening a File:</strong> Done using the <code>open()</code> function.</li>
+        <li><strong>Reading:</strong> Methods like <code>read()</code>, <code>readline()</code>, and <code>readlines()</code> are used to retrieve data.</li>
+        <li><strong>Writing:</strong> The <code>write()</code> and <code>writelines()</code> methods allow saving data to a file.</li>
+        <li><strong>Closing:</strong> Always use <code>close()</code> to free up system resources.</li>
     </ul>
 
     <hr>
 
     <h2 id="python-directory">2. Python Directory Management</h2>
     <p>
-        [cite_start]Python allows programmatic interaction with the file system through directory operations[cite: 236].
+        Python allows programmatic interaction with the file system through directory operations.
     </p>
     <ul>
-        [cite_start]<li><strong>OS Module:</strong> Typically used to create, rename, and list directories[cite: 236].</li>
-        [cite_start]<li><strong>Path Management:</strong> Navigating through folders and checking file existence[cite: 236].</li>
+        <li><strong>OS Module:</strong> Typically used to create, rename, and list directories.</li>
+        <li><strong>Path Management:</strong> Navigating through folders and checking file existence.</li>
     </ul>
 
     <hr>
 
     <h2 id="exception-handling">3. Exception Handling (Try/Except)</h2>
     <p>
-        [cite_start]Exceptions are errors detected during execution that interrupt the normal flow of the program[cite: 215, 236].
+        Exceptions are errors detected during execution that interrupt the normal flow of the program.
     </p>
     <ul>
-        [cite_start]<li><strong>Try Block:</strong> Contains the code that might raise an exception[cite: 236].</li>
-        [cite_start]<li><strong>Except Block:</strong> Handles the error if one occurs in the try block[cite: 236].</li>
-        [cite_start]<li><strong>Finally Block:</strong> Contains code that will execute regardless of whether an exception was raised or not, often used for cleanup[cite: 236].</li>
-        [cite_start]<li><strong>Built-in Exceptions:</strong> Python includes standard errors like <code>ZeroDivisionError</code>, <code>FileNotFoundError</code>, and <code>ValueError</code>[cite: 236].</li>
+        <li><strong>Try Block:</strong> Contains the code that might raise an exception.</li>
+        <li><strong>Except Block:</strong> Handles the error if one occurs in the try block.</li>
+        <li><strong>Finally Block:</strong> Contains code that will execute regardless of whether an exception was raised or not, often used for cleanup.</li>
+        <li><strong>Built-in Exceptions:</strong> Python includes standard errors like <code>ZeroDivisionError</code>, <code>FileNotFoundError</code>, and <code>ValueError</code>.</li>
     </ul>
     
 
@@ -175,30 +176,30 @@
 
     <h2 id="custom-exceptions">4. User-Defined Exceptions</h2>
     <p>
-        [cite_start]Programmers can create their own exception classes to handle specific error scenarios relevant to their applications[cite: 236].
+        Programmers can create their own exception classes to handle specific error scenarios relevant to their applications.
     </p>
     <blockquote>
-        [cite_start]Utility: Improves code readability and allows for more precise error reporting in complex systems[cite: 215, 241].
+        Utility: Improves code readability and allows for more precise error reporting in complex systems.
     </blockquote>
 
     <hr>
 
     <h2 id="matplotlib">5. Graph Plotting using Matplotlib</h2>
     <p>
-        [cite_start]Matplotlib is a powerful library used for data visualization in Python[cite: 236].
+        Matplotlib is a powerful library used for data visualization in Python.
     </p>
     <ul>
-        [cite_start]<li><strong>Plotting:</strong> Creating line graphs, bar charts, and histograms to represent data visually[cite: 236, 286].</li>
-        [cite_start]<li><strong>Customization:</strong> Adding labels, titles, and legends to make graphs informative[cite: 286].</li>
+        <li><strong>Plotting:</strong> Creating line graphs, bar charts, and histograms to represent data visually.</li>
+        <li><strong>Customization:</strong> Adding labels, titles, and legends to make graphs informative.</li>
     </ul>
     
 
     <div class="exam-section">
         <h4>Exam Tips: Error Handling</h4>
         <ul>
-            [cite_start]<li><strong>Specificity:</strong> Always try to catch specific exceptions rather than a generic <code>Except:</code> block[cite: 236].</li>
-            [cite_start]<li><strong>File Safety:</strong> Use the <code>with</code> statement when opening files to ensure they are automatically closed, even if an error occurs[cite: 236].</li>
-            [cite_start]<li><strong>Plotting:</strong> Remember that <code>plt.show()</code> is required to actually display the graph in a standard script[cite: 236].</li>
+            <li><strong>Specificity:</strong> Always try to catch specific exceptions rather than a generic <code>Except:</code> block.</li>
+            <li><strong>File Safety:</strong> Use the <code>with</code> statement when opening files to ensure they are automatically closed, even if an error occurs.</li>
+            <li><strong>Plotting:</strong> Remember that <code>plt.show()</code> is required to actually display the graph in a standard script.</li>
         </ul>
     </div>
 
@@ -206,12 +207,15 @@
 
     <h3>Frequently Asked Questions</h3>
     <p><strong>Q: What is the difference between an Error and an Exception?</strong><br>
-    [cite_start]Errors (like Syntax Errors) usually cannot be recovered from, while Exceptions can be "caught" and handled by the program to prevent a crash[cite: 215].</p>
+    Errors (like Syntax Errors) usually cannot be recovered from, while Exceptions can be "caught" and handled by the program to prevent a crash.</p>
 
     <p><strong>Q: Why is the 'Finally' block useful?</strong><br>
-    [cite_start]It is perfect for closing files or database connections that must be shut down whether the program succeeded or failed[cite: 236].</p>
+    It is perfect for closing files or database connections that must be shut down whether the program succeeded or failed.</p>
 
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

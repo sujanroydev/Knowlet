@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CAIDC 151 Unit 5 | 2nd Semester Notes - Knowlet</title>
+    <title>Computer Application IDC 151 Unit 5 | 2nd Semester Notes - Knowlet</title>
     <meta name="description" content="Final exam-ready notes for CAIDC 151: Unit 5. Detailed coverage of One-dimensional Arrays, User-defined Functions, Recursion, and basic Pointer concepts in C.">
     <meta name="keywords" content="C Programming, CAIDC 151, Unit 5, Arrays, User-defined Functions, Pointers, Recursion, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -138,11 +139,11 @@
 
     <h2 id="arrays-section">1. One-dimensional Arrays</h2>
     <p>
-        [cite_start]An <strong>Array</strong> is a fixed-size, sequenced collection of elements of the same data type[cite: 311]. 
+        An <strong>Array</strong> is a fixed-size, sequenced collection of elements of the same data type. 
     </p>
     <ul>
-        [cite_start]<li><strong>Declaration:</strong> To declare an array, you must specify the data type, the array name, and the size in square brackets[cite: 311].</li>
-        [cite_start]<li><strong>Initialization:</strong> Arrays can be initialized at the time of declaration by providing a list of values enclosed in braces[cite: 311].</li>
+        <li><strong>Declaration:</strong> To declare an array, you must specify the data type, the array name, and the size in square brackets.</li>
+        <li><strong>Initialization:</strong> Arrays can be initialized at the time of declaration by providing a list of values enclosed in braces.</li>
     </ul>
     
 
@@ -150,54 +151,54 @@
 
     <h2 id="user-functions">2. User-defined Functions</h2>
     <p>
-        [cite_start]<strong>User-defined functions</strong> are subprograms created by the programmer to perform specific tasks, promoting modularity and code reuse[cite: 312].
+        <strong>User-defined functions</strong> are subprograms created by the programmer to perform specific tasks, promoting modularity and code reuse.
     </p>
     <ul>
-        [cite_start]<li><strong>Need for Functions:</strong> Functions avoid repetitive code, make debugging easier, and allow large programs to be broken into manageable parts[cite: 312].</li>
-        [cite_start]<li><strong>Elements:</strong> Every function involves three main elements: the Function Definition, the Function Call, and the Function Declaration (Prototype)[cite: 312].</li>
-        [cite_start]<li><strong>Return Values:</strong> Functions can return a single value to the calling program, and the data type of this value must be specified[cite: 312].</li>
+        <li><strong>Need for Functions:</strong> Functions avoid repetitive code, make debugging easier, and allow large programs to be broken into manageable parts.</li>
+        <li><strong>Elements:</strong> Every function involves three main elements: the Function Definition, the Function Call, and the Function Declaration (Prototype).</li>
+        <li><strong>Return Values:</strong> Functions can return a single value to the calling program, and the data type of this value must be specified.</li>
     </ul>
 
     <hr>
 
     <h2 id="function-categories">3. Categories of Functions</h2>
     <p>
-        [cite_start]Based on the presence of arguments and return values, functions are categorized into four types[cite: 312]:
+        Based on the presence of arguments and return values, functions are categorized into four types:
     </p>
-    <table>
+    <div class="add-horizontal-scroll"><table>
         <tr>
             <th>Category</th>
             <th>Description</th>
         </tr>
         <tr>
             <td><strong>No Arguments & No Return Values</strong></td>
-            [cite_start]<td>The function simply performs a task without needing input or sending output back[cite: 312].</td>
+            <td>The function simply performs a task without needing input or sending output back.</td>
         </tr>
         <tr>
             <td><strong>Arguments but No Return Values</strong></td>
-            [cite_start]<td>Data is sent to the function, but results are printed or used within the function itself[cite: 312].</td>
+            <td>Data is sent to the function, but results are printed or used within the function itself.</td>
         </tr>
         <tr>
             <td><strong>Arguments with Return Values</strong></td>
-            [cite_start]<td>The most common type; it takes input data, processes it, and returns a result[cite: 312].</td>
+            <td>The most common type; it takes input data, processes it, and returns a result.</td>
         </tr>
         <tr>
             <td><strong>No Arguments but Returns a Value</strong></td>
-            [cite_start]<td>Useful for functions that read data from a keyboard or file and return it to the caller[cite: 312].</td>
+            <td>Useful for functions that read data from a keyboard or file and return it to the caller.</td>
         </tr>
-    </table>
+    </table></div>
     <p>
-        [cite_start]<strong>Passing Arrays to Functions:</strong> Entire arrays can be passed to functions as arguments to perform operations like searching or sorting[cite: 312].
+        <strong>Passing Arrays to Functions:</strong> Entire arrays can be passed to functions as arguments to perform operations like searching or sorting.
     </p>
 
     <hr>
 
     <h2 id="recursion-section">4. Recursion</h2>
     <p>
-        [cite_start]<strong>Recursion</strong> is a programming technique where a function calls itself directly or indirectly to solve a problem[cite: 312].
+        <strong>Recursion</strong> is a programming technique where a function calls itself directly or indirectly to solve a problem.
     </p>
     <blockquote>
-        [cite_start]<strong>Essential Rule:</strong> A recursive function must have a termination condition (base case) to prevent an infinite loop[cite: 312].
+        <strong>Essential Rule:</strong> A recursive function must have a termination condition (base case) to prevent an infinite loop.
     </blockquote>
     
 
@@ -205,19 +206,19 @@
 
     <h2 id="pointers-section">5. Introduction to Pointers</h2>
     <p>
-        [cite_start]<strong>Pointers</strong> are variables that store the memory address of another variable[cite: 313]. 
+        <strong>Pointers</strong> are variables that store the memory address of another variable. 
     </p>
     <ul>
-        [cite_start]<li><strong>Basic Concepts:</strong> Pointers allow direct manipulation of memory and are essential for dynamic memory allocation and efficient data handling[cite: 313].</li>
-        [cite_start]<li><strong>Operators:</strong> The address-of operator (&) and the indirection/dereference operator (*) are the primary tools used with pointers[cite: 313].</li>
+        <li><strong>Basic Concepts:</strong> Pointers allow direct manipulation of memory and are essential for dynamic memory allocation and efficient data handling.</li>
+        <li><strong>Operators:</strong> The address-of operator (&) and the indirection/dereference operator (*) are the primary tools used with pointers.</li>
     </ul>
 
     <div class="exam-focus">
         <h4>Exam Tips</h4>
         <ul>
-            <li><strong>Array Bounds:</strong> C does not check if your index is within the array size. [cite_start]Accessing <code>arr[10]</code> for an array of size 5 will lead to garbage values or crashes[cite: 311].</li>
-            [cite_start]<li><strong>Prototypes:</strong> Always declare your functions (prototypes) before the <code>main()</code> function if the definition is written after <code>main()</code>[cite: 312].</li>
-            [cite_start]<li><strong>Pointer Initialization:</strong> Never use a pointer without initializing it to a valid address or NULL, as it can corrupt memory[cite: 313].</li>
+            <li><strong>Array Bounds:</strong> C does not check if your index is within the array size. Accessing <code>arr[10]</code> for an array of size 5 will lead to garbage values or crashes.</li>
+            <li><strong>Prototypes:</strong> Always declare your functions (prototypes) before the <code>main()</code> function if the definition is written after <code>main()</code>.</li>
+            <li><strong>Pointer Initialization:</strong> Never use a pointer without initializing it to a valid address or NULL, as it can corrupt memory.</li>
         </ul>
     </div>
 
@@ -225,12 +226,15 @@
 
     <h3>Frequently Asked Questions</h3>
     <p><strong>Q1: What is the benefit of passing an array to a function?</strong><br>
-    [cite_start]It allows the function to work on large sets of data without copying the entire data set, as only the address of the first element is usually passed[cite: 312].</p>
+    It allows the function to work on large sets of data without copying the entire data set, as only the address of the first element is usually passed.</p>
 
     <p><strong>Q2: Why is recursion sometimes slower than iteration?</strong><br>
-    [cite_start]Recursion involves repeated function calls, which add overhead to the system stack, whereas iteration (loops) generally uses less memory and processing time[cite: 312].</p>
+    Recursion involves repeated function calls, which add overhead to the system stack, whereas iteration (loops) generally uses less memory and processing time.</p>
 
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

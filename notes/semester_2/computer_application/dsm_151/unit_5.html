@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CADSM 151 Unit 5 | 2nd Semester Notes - Knowlet</title>
+    <title>Computer Application DSM 151 Unit 5 | 2nd Semester Notes - Knowlet</title>
     <meta name="description" content="Final unit notes for CADSM 151: Programming with C. Covers Standard I/O, File Handling, and Low-Level C programming including bitwise operations.">
     <meta name="keywords" content="C Programming, File Handling, Bitwise Operations, Macros, Preprocessor, CADSM 151, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -139,25 +140,25 @@
 
     <h2 id="std-io">1. Standard Input and Output</h2>
     <p>
-        [cite_start]C provides a set of standard library functions for input and output operations, primarily defined in the <strong>stdio.h</strong> header file[cite: 175].
+        C provides a set of standard library functions for input and output operations, primarily defined in the <strong>stdio.h</strong> header file.
     </p>
     <ul>
-        [cite_start]<li><strong>Formatted Output (printf):</strong> Allows printing data to the standard output device with specific formatting like field width and precision[cite: 175].</li>
-        [cite_start]<li><strong>Formatted Input (scanf):</strong> Used to read formatted data from the standard input device (usually the keyboard)[cite: 175].</li>
-        [cite_start]<li><strong>Variable Length Arguments:</strong> A mechanism (using <em>stdarg.h</em>) that allows functions to accept an undefined number of arguments, similar to how printf works[cite: 175].</li>
+        <li><strong>Formatted Output (printf):</strong> Allows printing data to the standard output device with specific formatting like field width and precision.</li>
+        <li><strong>Formatted Input (scanf):</strong> Used to read formatted data from the standard input device (usually the keyboard).</li>
+        <li><strong>Variable Length Arguments:</strong> A mechanism (using <em>stdarg.h</em>) that allows functions to accept an undefined number of arguments, similar to how printf works.</li>
     </ul>
 
     <hr>
 
     <h2 id="data-files">2. Data Files and Processing</h2>
     <p>
-        [cite_start]File handling allows programs to store data permanently on a disk[cite: 176].
+        File handling allows programs to store data permanently on a disk.
     </p>
     <ul>
-        [cite_start]<li><strong>Opening and Closing:</strong> Files must be opened using <em>fopen()</em> before access and closed using <em>fclose()</em> to ensure data integrity[cite: 176].</li>
-        [cite_start]<li><strong>File Access Modes:</strong> Includes "r" (read), "w" (write), "a" (append), and "b" (binary modes)[cite: 176].</li>
-        [cite_start]<li><strong>Unformatted Data Files:</strong> Files where data is stored in its raw binary form rather than human-readable text, often accessed via <em>fread()</em> and <em>fwrite()</em>[cite: 176].</li>
-        [cite_start]<li><strong>Miscellaneous Functions:</strong> Includes functions like <em>fseek()</em> for random access, <em>rewind()</em>, and <em>feof()</em> to check for the end of a file[cite: 176].</li>
+        <li><strong>Opening and Closing:</strong> Files must be opened using <em>fopen()</em> before access and closed using <em>fclose()</em> to ensure data integrity.</li>
+        <li><strong>File Access Modes:</strong> Includes "r" (read), "w" (write), "a" (append), and "b" (binary modes).</li>
+        <li><strong>Unformatted Data Files:</strong> Files where data is stored in its raw binary form rather than human-readable text, often accessed via <em>fread()</em> and <em>fwrite()</em>.</li>
+        <li><strong>Miscellaneous Functions:</strong> Includes functions like <em>fseek()</em> for random access, <em>rewind()</em>, and <em>feof()</em> to check for the end of a file.</li>
     </ul>
 
     
@@ -166,21 +167,21 @@
 
     <h2 id="low-level">3. Low-Level Programming</h2>
     <p>
-        [cite_start]C allows programmers to perform tasks that are typically the domain of assembly language, providing close control over hardware[cite: 177].
+        C allows programmers to perform tasks that are typically the domain of assembly language, providing close control over hardware.
     </p>
     <ul>
-        [cite_start]<li><strong>Register Variables:</strong> Using the <em>register</em> keyword suggests to the compiler that the variable be stored in a CPU register for faster access[cite: 177].</li>
-        [cite_start]<li><strong>Enumeration (enum):</strong> A user-defined data type consisting of a set of named integer constants, improving code readability[cite: 177].</li>
-        [cite_start]<li><strong>Library Functions:</strong> Standard C libraries provide low-level access to system resources and memory management[cite: 177].</li>
+        <li><strong>Register Variables:</strong> Using the <em>register</em> keyword suggests to the compiler that the variable be stored in a CPU register for faster access.</li>
+        <li><strong>Enumeration (enum):</strong> A user-defined data type consisting of a set of named integer constants, improving code readability.</li>
+        <li><strong>Library Functions:</strong> Standard C libraries provide low-level access to system resources and memory management.</li>
     </ul>
 
     <hr>
 
     <h2 id="bitwise">4. Bitwise Operations and Fields</h2>
     <p>
-        [cite_start]Bitwise operations allow for the manipulation of individual bits within a data type[cite: 177].
+        Bitwise operations allow for the manipulation of individual bits within a data type.
     </p>
-    <table>
+    <div class="add-horizontal-scroll"><table>
         <tr>
             <th>Operator</th>
             <th>Name</th>
@@ -211,40 +212,40 @@
             <td>Left Shift</td>
             <td>Shifts bits to the left, filling with zeros.</td>
         </tr>
-    </table>
+    </table></div>
     <ul>
-        [cite_start]<li><strong>Bit Fields:</strong> Allow the definition of structure members with a specific width in bits, saving memory in hardware-level structures[cite: 177].</li>
+        <li><strong>Bit Fields:</strong> Allow the definition of structure members with a specific width in bits, saving memory in hardware-level structures.</li>
     </ul>
 
     <hr>
 
     <h2 id="preprocessor">5. Preprocessor and Macros</h2>
     <p>
-        [cite_start]The <strong>C Preprocessor</strong> is a tool that examines the code before actual compilation begins[cite: 177].
+        The <strong>C Preprocessor</strong> is a tool that examines the code before actual compilation begins.
     </p>
     <blockquote>
-        [cite_start]Common Directives: #define, #include, #ifdef, #ifndef, #else, #endif[cite: 177].
+        Common Directives: #define, #include, #ifdef, #ifndef, #else, #endif.
     </blockquote>
     <ul>
-        <li><strong>Macros:</strong> Short pieces of code given a name. [cite_start]Whenever the name is used, it is replaced by the contents of the macro[cite: 177].</li>
-        [cite_start]<li><strong>Header Files:</strong> Used to include external library definitions or user-defined common code[cite: 159].</li>
+        <li><strong>Macros:</strong> Short pieces of code given a name. Whenever the name is used, it is replaced by the contents of the macro.</li>
+        <li><strong>Header Files:</strong> Used to include external library definitions or user-defined common code.</li>
     </ul>
 
     <hr>
 
     <h2 id="command-line">6. Command Line Arguments</h2>
     <p>
-        [cite_start]Command line arguments allow users to pass parameters to the <em>main()</em> function when the program is executed from the terminal[cite: 177].
+        Command line arguments allow users to pass parameters to the <em>main()</em> function when the program is executed from the terminal.
     </p>
     <ul>
-        [cite_start]<li><strong>argc:</strong> Argument count (integer)[cite: 177].</li>
-        [cite_start]<li><strong>argv:</strong> Argument vector (array of strings)[cite: 177].</li>
+        <li><strong>argc:</strong> Argument count (integer).</li>
+        <li><strong>argv:</strong> Argument vector (array of strings).</li>
     </ul>
 
     <div class="exam-focus">
         <h4>Exam Tips</h4>
         <ul>
-            [cite_start]<li><strong>File EOF:</strong> Always check for the End-of-File (EOF) when reading files to prevent infinite loops[cite: 176].</li>
+            <li><strong>File EOF:</strong> Always check for the End-of-File (EOF) when reading files to prevent infinite loops.</li>
             <li><strong>Bitwise shift:</strong> Remember that shifting left by 1 is equivalent to multiplying by 2, and shifting right by 1 is equivalent to dividing by 2 (integer division).</li>
             <li><strong>Macro Safety:</strong> Always wrap macro arguments in parentheses to avoid unexpected operator precedence issues.</li>
         </ul>
@@ -253,12 +254,15 @@
     <div class="exam-focus">
         <h4>Frequently Asked Questions</h4>
         <p><strong>Q: What is the difference between text and binary files?</strong><br>
-        [cite_start]Text files store data as sequences of characters (human-readable), while binary files store data exactly as it is represented in memory[cite: 176].</p>
+        Text files store data as sequences of characters (human-readable), while binary files store data exactly as it is represented in memory.</p>
         <p><strong>Q: Why use bit-fields?</strong><br>
-        [cite_start]They are used when memory is extremely limited or when you need to match a specific hardware register format[cite: 177].</p>
+        They are used when memory is extremely limited or when you need to match a specific hardware register format.</p>
     </div>
 
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

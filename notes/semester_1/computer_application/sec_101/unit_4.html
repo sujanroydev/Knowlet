@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CASEC101 Unit 4 | 1st Semester Notes - Knowlet</title>
+    <title>Computer Application SEC 101 Unit 4 | 1st Semester Notes - Knowlet</title>
     <meta name="description" content="Detailed academic notes for CASEC101 Unit 4: Structures and Unions. Covers user-defined data types, pointers to structures, and self-referential structures.">
     <meta name="keywords" content="Knowlet, CASEC101, Structures, Unions, typedef, Self-referential structures, C Programming">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -101,8 +102,8 @@
 
 <div class="container">
     <h1>Unit IV: Structures and Unions</h1>
-    [cite_start]<p><strong>Course:</strong> Programming with C (SEC) [cite: 193]<br>
-    [cite_start]<strong>Code:</strong> CASEC101 [cite: 191]</p>
+    <p><strong>Course:</strong> Programming with C (SEC) <br>
+    <strong>Code:</strong> CASEC101 </p>
 
     <div class="toc">
         <strong>Table of Contents</strong>
@@ -118,70 +119,73 @@
     </div>
 
     <h2 id="struct-basics">Basics of Structures and Processing</h2>
-    [cite_start]<p>A structure is a user-defined data type that allows grouping of different data types under a single name[cite: 215]. [cite_start]This is essential for representing complex entities like a "student" or "employee"[cite: 275].</p>
+    <p>A structure is a user-defined data type that allows grouping of different data types under a single name. This is essential for representing complex entities like a "student" or "employee".</p>
     
     
 
     <ul>
-        [cite_start]<li><strong>Basics of Structures:</strong> Defined using the <code>struct</code> keyword, followed by members of various types[cite: 215].</li>
-        [cite_start]<li><strong>Processing:</strong> Accessing individual members is done using the dot (.) operator for direct variables[cite: 215].</li>
+        <li><strong>Basics of Structures:</strong> Defined using the <code>struct</code> keyword, followed by members of various types.</li>
+        <li><strong>Processing:</strong> Accessing individual members is done using the dot (.) operator for direct variables.</li>
     </ul>
 
     <h2 id="typedef">User Defined Data Types (typedef)</h2>
-    [cite_start]<p>The <code>typedef</code> keyword creates an alias for existing data types, making structure declarations cleaner and easier to read[cite: 215].</p>
+    <p>The <code>typedef</code> keyword creates an alias for existing data types, making structure declarations cleaner and easier to read.</p>
     <blockquote>
-        Example: <code>typedef struct { int x; int y; [cite_start]} Point;</code> allows using <code>Point p;</code> instead of <code>struct Point p;</code>[cite: 215].
+        Example: <code>typedef struct { int x; int y; } Point;</code> allows using <code>Point p;</code> instead of <code>struct Point p;</code>.
     </blockquote>
 
     <h2 id="struct-ptr-func">Structures, Pointers, and Functions</h2>
-    [cite_start]<p>Structures can be manipulated using pointers and passed between functions for modular programming[cite: 215].</p>
+    <p>Structures can be manipulated using pointers and passed between functions for modular programming.</p>
     <ul>
-        [cite_start]<li><strong>Structures and Pointers:</strong> When accessing structure members via a pointer, the arrow (->) operator is used[cite: 215].</li>
-        [cite_start]<li><strong>Structures and Functions:</strong> Structures can be passed to functions by value or by reference (pointer)[cite: 215].</li>
-        [cite_start]<li><strong>Efficiency:</strong> Passing a pointer to a structure is generally more efficient than passing the whole structure by value[cite: 215].</li>
+        <li><strong>Structures and Pointers:</strong> When accessing structure members via a pointer, the arrow (->) operator is used.</li>
+        <li><strong>Structures and Functions:</strong> Structures can be passed to functions by value or by reference (pointer).</li>
+        <li><strong>Efficiency:</strong> Passing a pointer to a structure is generally more efficient than passing the whole structure by value.</li>
     </ul>
 
     <h2 id="advanced-struct">Arrays and Self-referential Structures</h2>
     <ul>
-        [cite_start]<li><strong>Arrays of Structures:</strong> Used to handle multiple records of the same type, such as a list of employee data[cite: 215, 275].</li>
-        [cite_start]<li><strong>Pointers to Structures:</strong> Pointers can navigate through arrays of structures effectively[cite: 215].</li>
-        [cite_start]<li><strong>Self-referential Structures:</strong> A structure that contains a pointer to an instance of itself[cite: 215]. [cite_start]This is the basis for data structures like Linked Lists[cite: 215].</li>
+        <li><strong>Arrays of Structures:</strong> Used to handle multiple records of the same type, such as a list of employee data.</li>
+        <li><strong>Pointers to Structures:</strong> Pointers can navigate through arrays of structures effectively.</li>
+        <li><strong>Self-referential Structures:</strong> A structure that contains a pointer to an instance of itself. This is the basis for data structures like Linked Lists.</li>
     </ul>
 
     <h2 id="unions">UNIONS and Table Lookup</h2>
-    [cite_start]<p>Unions provide a way to store different data types in the same memory location[cite: 215].</p>
+    <p>Unions provide a way to store different data types in the same memory location.</p>
     
     
 
     <ul>
-        [cite_start]<li><strong>UNIONS:</strong> Unlike structures, only one member of a union can be stored at any given time[cite: 215]. [cite_start]The size of the union is the size of its largest member[cite: 215].</li>
-        [cite_start]<li><strong>Table Lookup:</strong> Structures and unions are often used to implement lookup tables for efficient data retrieval[cite: 215].</li>
+        <li><strong>UNIONS:</strong> Unlike structures, only one member of a union can be stored at any given time. The size of the union is the size of its largest member.</li>
+        <li><strong>Table Lookup:</strong> Structures and unions are often used to implement lookup tables for efficient data retrieval.</li>
     </ul>
 
     <h2 id="problem-solving">Programming and Problem Solving</h2>
-    [cite_start]<p>Problem-solving in this unit involves using structures and unions to manage real-world data[cite: 216].</p>
+    <p>Problem-solving in this unit involves using structures and unions to manage real-world data.</p>
     <ul>
-        [cite_start]<li><strong>Record Management:</strong> Designing programs to handle arrays of records for workers and managers[cite: 275].</li>
-        [cite_start]<li><strong>File Export:</strong> Printing data from structures into separate files for organized storage[cite: 276].</li>
+        <li><strong>Record Management:</strong> Designing programs to handle arrays of records for workers and managers.</li>
+        <li><strong>File Export:</strong> Printing data from structures into separate files for organized storage.</li>
     </ul>
 
     <div class="exam-focus" id="exam-prep">
         <h4>Exam Focus & Tips</h4>
         <ul>
-            [cite_start]<li><strong>Exam Tip:</strong> Be ready to explain the difference between <code>struct</code> and <code>union</code> regarding memory[cite: 215].</li>
-            [cite_start]<li><strong>Common Mistake:</strong> Forgetting the semicolon after the closing brace of a structure definition[cite: 215].</li>
-            [cite_start]<li><strong>Mnemonics:</strong> <strong>"P-A-S-S"</strong> - <strong>P</strong>ointers, <strong>A</strong>rrays, <strong>S</strong>tructures, <strong>S</strong>elf-referential[cite: 215].</li>
+            <li><strong>Exam Tip:</strong> Be ready to explain the difference between <code>struct</code> and <code>union</code> regarding memory.</li>
+            <li><strong>Common Mistake:</strong> Forgetting the semicolon after the closing brace of a structure definition.</li>
+            <li><strong>Mnemonics:</strong> <strong>"P-A-S-S"</strong> - <strong>P</strong>ointers, <strong>A</strong>rrays, <strong>S</strong>tructures, <strong>S</strong>elf-referential.</li>
         </ul>
         
         <hr>
         
         <h4>Frequently Asked Questions</h4>
         <p><strong>Q: What is the primary use of a self-referential structure?</strong><br>
-        [cite_start]A: They are used to create dynamic data structures such as linked lists and trees[cite: 215].</p>
+        A: They are used to create dynamic data structures such as linked lists and trees.</p>
         
         <p><strong>Q: How do you access a member if you have a pointer to the structure?</strong><br>
-        [cite_start]A: Use the <code>-></code> (arrow) operator[cite: 215].</p>
+        A: Use the <code>-></code> (arrow) operator.</p>
     </div>
 </div>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

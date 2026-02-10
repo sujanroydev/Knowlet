@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CADSC 152P Unit 2 | 2nd Semester Lab Notes - Knowlet</title>
+    <title>Computer Application DSC 152 Unit 2 | 2nd Semester Notes - Knowlet</title>
     <meta name="description" content="Detailed practical lab notes for CADSC 152P: Linked List implementations (Singly, Doubly, and Circular) using C++ templates.">
     <meta name="keywords" content="Linked List Lab, CADSC 152P, Doubly Linked List, Circular Linked List, C++ Templates, Data Structures Lab, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -130,16 +131,16 @@
 
     <h2 id="singly-list">1. Task 3: Singly Linked List Implementation</h2>
     <div class="lab-box">
-        <strong>Lab Assignment:</strong> Implement Singly Linked List using templates. [cite_start]Include functions for insertion, deletion, search, reversing the list, and concatenation[cite: 77].
+        <strong>Lab Assignment:</strong> Implement Singly Linked List using templates. Include functions for insertion, deletion, search, reversing the list, and concatenation.
     </div>
     <p>
-        [cite_start]The implementation requires a <strong>Node class/struct</strong> that stores data of type T and a pointer to the next node[cite: 108]. Key functions to implement:
+        The implementation requires a <strong>Node class/struct</strong> that stores data of type T and a pointer to the next node. Key functions to implement:
     </p>
     <ul>
-        [cite_start]<li><strong>Insertion:</strong> At the beginning, end, or after a specific node[cite: 77].</li>
-        [cite_start]<li><strong>Deletion:</strong> Remove a node by its value[cite: 77].</li>
-        [cite_start]<li><strong>Search:</strong> Traverse the list to find a specific element[cite: 77].</li>
-        [cite_start]<li><strong>Reverse:</strong> Flip the pointers so the last node becomes the head[cite: 77].</li>
+        <li><strong>Insertion:</strong> At the beginning, end, or after a specific node.</li>
+        <li><strong>Deletion:</strong> Remove a node by its value.</li>
+        <li><strong>Search:</strong> Traverse the list to find a specific element.</li>
+        <li><strong>Reverse:</strong> Flip the pointers so the last node becomes the head.</li>
     </ul>
 
     
@@ -148,10 +149,10 @@
 
     <h2 id="doubly-list">2. Task 4: Doubly Linked List Implementation</h2>
     <div class="lab-box">
-        <strong>Lab Assignment:</strong> Implement Doubly Linked List using templates. [cite_start]Include functions for insertion, deletion, search, and reverse[cite: 78].
+        <strong>Lab Assignment:</strong> Implement Doubly Linked List using templates. Include functions for insertion, deletion, search, and reverse.
     </div>
     <p>
-        [cite_start]A <strong>Doubly Linked List (DLL)</strong> node contains two pointers: <em>prev</em> and <em>next</em>[cite: 106].
+        A <strong>Doubly Linked List (DLL)</strong> node contains two pointers: <em>prev</em> and <em>next</em>.
     </p>
     <div class="code-snippet">
         template &lt;typename T&gt;<br>
@@ -161,21 +162,21 @@
         };
     </div>
     <p>
-        [cite_start]<strong>Logic Note:</strong> When inserting or deleting in a DLL, you must update <em>four</em> pointers for middle elements to maintain the bidirectional link[cite: 108].
+        <strong>Logic Note:</strong> When inserting or deleting in a DLL, you must update <em>four</em> pointers for middle elements to maintain the bidirectional link.
     </p>
 
     <hr>
 
     <h2 id="circular-list">3. Task 5: Circular Linked List Implementation</h2>
     <div class="lab-box">
-        [cite_start]<strong>Lab Assignment:</strong> Implement Circular Linked List using templates with functions for insertion, deletion, search, and reverse[cite: 79].
+        <strong>Lab Assignment:</strong> Implement Circular Linked List using templates with functions for insertion, deletion, search, and reverse.
     </div>
     <p>
-        [cite_start]In a <strong>Circular Linked List</strong>, the last node points back to the head node instead of NULL[cite: 18, 106].
+        In a <strong>Circular Linked List</strong>, the last node points back to the head node instead of NULL.
     </p>
     <ul>
-        <li><strong>Traversal Warning:</strong> Be careful with loops. [cite_start]Use <code>do-while</code> or check if the current node returns to <code>head</code> to avoid infinite loops[cite: 108].</li>
-        [cite_start]<li><strong>Reverse Logic:</strong> Reversing is slightly more complex as you must also update the connection between the new tail and new head[cite: 79].</li>
+        <li><strong>Traversal Warning:</strong> Be careful with loops. Use <code>do-while</code> or check if the current node returns to <code>head</code> to avoid infinite loops.</li>
+        <li><strong>Reverse Logic:</strong> Reversing is slightly more complex as you must also update the connection between the new tail and new head.</li>
     </ul>
 
     
@@ -184,10 +185,10 @@
 
     <h2 id="operator-overloading">4. Special Feature: Operator Overloading (+)</h2>
     <p>
-        [cite_start]The lab syllabus requires overloading the <strong>+ operator</strong> to concatenate two linked lists[cite: 77].
+        The lab syllabus requires overloading the <strong>+ operator</strong> to concatenate two linked lists.
     </p>
     <blockquote>
-        [cite_start]<strong>Utility:</strong> <code>List3 = List1 + List2;</code> This makes the code more intuitive by treating lists like mathematical entities[cite: 72].
+        <strong>Utility:</strong> <code>List3 = List1 + List2;</code> This makes the code more intuitive by treating lists like mathematical entities.
     </blockquote>
     <div class="code-snippet">
         LinkedList&lt;T&gt; operator+(LinkedList&lt;T&gt;& other) {<br>
@@ -203,13 +204,13 @@
     
     <h3>Common Pitfalls</h3>
     <ul>
-        [cite_start]<li><strong>Memory Leaks:</strong> Always write a <em>Destructor</em> to delete all nodes when the list object goes out of scope[cite: 71, 108].</li>
-        [cite_start]<li><strong>Head Pointer:</strong> Ensure the <code>head</code> pointer is updated correctly when inserting at the 0th position[cite: 108].</li>
-        [cite_start]<li><strong>Empty List:</strong> Always test your functions (especially deletion and search) with an empty list to prevent segmentation faults[cite: 71].</li>
+        <li><strong>Memory Leaks:</strong> Always write a <em>Destructor</em> to delete all nodes when the list object goes out of scope.</li>
+        <li><strong>Head Pointer:</strong> Ensure the <code>head</code> pointer is updated correctly when inserting at the 0th position.</li>
+        <li><strong>Empty List:</strong> Always test your functions (especially deletion and search) with an empty list to prevent segmentation faults.</li>
     </ul>
 
     <h3>Complexity for Lab Viva</h3>
-    <table>
+    <div class="add-horizontal-scroll"><table>
         <tr>
             <th>Operation</th>
             <th>Singly List</th>
@@ -217,22 +218,25 @@
         </tr>
         <tr>
             <td>Search</td>
-            [cite_start]<td>O(n) [cite: 109]</td>
-            [cite_start]<td>O(n) [cite: 109]</td>
+            <td>O(n) </td>
+            <td>O(n) </td>
         </tr>
         <tr>
             <td>Insertion (at Head)</td>
-            [cite_start]<td>O(1) [cite: 109]</td>
-            [cite_start]<td>O(1) [cite: 109]</td>
+            <td>O(1) </td>
+            <td>O(1) </td>
         </tr>
         <tr>
             <td>Reverse</td>
-            [cite_start]<td>O(n) [cite: 109]</td>
-            [cite_start]<td>O(n) [cite: 109]</td>
+            <td>O(n) </td>
+            <td>O(n) </td>
         </tr>
-    </table>
+    </table></div>
 
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

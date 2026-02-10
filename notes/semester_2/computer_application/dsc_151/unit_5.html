@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CADSC 151 Unit 5 | 2nd Semester Notes - Knowlet</title>
+    <title>Computer Application DSC 151 Unit 5 | 2nd Semester Notes - Knowlet</title>
     <meta name="description" content="Exam-ready notes for CADSC 151 Unit 5: Hashing. Detailed coverage of Hash Tables, Hash Functions, Collision Resolution, and Probing Techniques.">
     <meta name="keywords" content="Data Structure, Hashing, Hash Table, Collision Resolution, Linear Probing, Double Hashing, CADSC 151, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -141,38 +142,38 @@
 
     <h2 id="intro-hashing">1. Introduction to Hashing</h2>
     <p>
-        [cite_start]<strong>Hashing</strong> is a technique used to uniquely identify a specific object from a group of similar objects[cite: 11, 29]. [cite_start]In data structures, it provides a way to store and retrieve data in <strong>O(1)</strong> time on average[cite: 33].
+        <strong>Hashing</strong> is a technique used to uniquely identify a specific object from a group of similar objects. In data structures, it provides a way to store and retrieve data in <strong>O(1)</strong> time on average.
     </p>
     <ul>
-        [cite_start]<li><strong>Hash Table:</strong> A data structure (usually an array) that stores records[cite: 29].</li>
-        [cite_start]<li><strong>Hash Key:</strong> A unique value used as input to a hash function to identify a record[cite: 29].</li>
-        [cite_start]<li><strong>Hash Function:</strong> A mathematical formula that maps a large key to a smaller integer, which serves as an index in the hash table[cite: 11, 29].</li>
+        <li><strong>Hash Table:</strong> A data structure (usually an array) that stores records.</li>
+        <li><strong>Hash Key:</strong> A unique value used as input to a hash function to identify a record.</li>
+        <li><strong>Hash Function:</strong> A mathematical formula that maps a large key to a smaller integer, which serves as an index in the hash table.</li>
     </ul>
 
     <hr>
 
     <h2 id="hash-functions">2. Hash Functions & Characteristics</h2>
-    [cite_start]<p>A good hash function is crucial for performance[cite: 29].</p>
+    <p>A good hash function is crucial for performance.</p>
     
     <h3>Characteristics of a Good Hash Function</h3>
     <ul>
-        [cite_start]<li><strong>Uniform Distribution:</strong> It should distribute keys uniformly across the table to minimize collisions[cite: 29].</li>
-        [cite_start]<li><strong>Fast Computation:</strong> It should be easy and quick to compute[cite: 29].</li>
-        [cite_start]<li><strong>Determinism:</strong> For a given input, it must always produce the same output[cite: 29].</li>
+        <li><strong>Uniform Distribution:</strong> It should distribute keys uniformly across the table to minimize collisions.</li>
+        <li><strong>Fast Computation:</strong> It should be easy and quick to compute.</li>
+        <li><strong>Determinism:</strong> For a given input, it must always produce the same output.</li>
     </ul>
 
     <h3>Types of Hash Functions</h3>
     <ol>
-        [cite_start]<li><strong>Division Method:</strong> h(k) = k mod m (where m is the table size)[cite: 29].</li>
-        [cite_start]<li><strong>Mid-Square Method:</strong> The key is squared, and the middle digits are used as the hash value[cite: 29].</li>
-        [cite_start]<li><strong>Folding Method:</strong> The key is divided into parts, which are added together to form the index[cite: 29].</li>
+        <li><strong>Division Method:</strong> h(k) = k mod m (where m is the table size).</li>
+        <li><strong>Mid-Square Method:</strong> The key is squared, and the middle digits are used as the hash value.</li>
+        <li><strong>Folding Method:</strong> The key is divided into parts, which are added together to form the index.</li>
     </ol>
 
     <hr>
 
     <h2 id="collisions">3. Collision Resolution</h2>
     <p>
-        [cite_start]A <strong>Collision</strong> occurs when two different keys produce the same hash value (index)[cite: 11, 29]. [cite_start]Since a table slot can usually hold only one record, we must resolve this conflict[cite: 29].
+        A <strong>Collision</strong> occurs when two different keys produce the same hash value (index). Since a table slot can usually hold only one record, we must resolve this conflict.
     </p>
     
     
@@ -181,34 +182,34 @@
 
     <h2 id="open-addressing">4. Open Addressing (Closed Hashing)</h2>
     <p>
-        [cite_start]In <strong>Open Addressing</strong>, all elements are stored within the hash table itself[cite: 29]. [cite_start]If a collision occurs, we search for the next available empty slot[cite: 29].
+        In <strong>Open Addressing</strong>, all elements are stored within the hash table itself. If a collision occurs, we search for the next available empty slot.
     </p>
 
     <h3>Linear Probing</h3>
-    [cite_start]<p>We search for the next slot linearly (index + 1, index + 2...)[cite: 29].</p>
+    <p>We search for the next slot linearly (index + 1, index + 2...).</p>
     <ul>
-        [cite_start]<li><strong>Problem:</strong> Primary Clustering (long sequences of occupied slots build up)[cite: 29].</li>
+        <li><strong>Problem:</strong> Primary Clustering (long sequences of occupied slots build up).</li>
     </ul>
 
     <h3>Quadratic Probing</h3>
-    [cite_start]<p>We search using a quadratic function (index + 1², index + 2², index + 3²...)[cite: 29].</p>
+    <p>We search using a quadratic function (index + 1², index + 2², index + 3²...).</p>
     <ul>
-        [cite_start]<li><strong>Benefit:</strong> Reduces primary clustering[cite: 29].</li>
+        <li><strong>Benefit:</strong> Reduces primary clustering.</li>
     </ul>
 
     <h3>Double Hashing</h3>
-    [cite_start]<p>Uses a second hash function to determine the step size for probing[cite: 29].</p>
-    [cite_start]<blockquote>Formula: index = (hash1(key) + i * hash2(key)) mod m [cite: 29]</blockquote>
+    <p>Uses a second hash function to determine the step size for probing.</p>
+    <blockquote>Formula: index = (hash1(key) + i * hash2(key)) mod m </blockquote>
 
     <hr>
 
     <h2 id="closed-addressing">5. Closed Addressing (Open Hashing / Chaining)</h2>
     <p>
-        [cite_start]In <strong>Closed Addressing</strong> (commonly known as <strong>Chaining</strong>), each slot of the hash table contains a link to a linked list[cite: 29]. 
+        In <strong>Closed Addressing</strong> (commonly known as <strong>Chaining</strong>), each slot of the hash table contains a link to a linked list. 
     </p>
     <ul>
-        [cite_start]<li>Multiple keys mapping to the same index are simply added to the list at that index[cite: 29].</li>
-        [cite_start]<li><strong>Advantage:</strong> The table never gets "full" in the traditional sense; performance just degrades as chains get longer[cite: 29].</li>
+        <li>Multiple keys mapping to the same index are simply added to the list at that index.</li>
+        <li><strong>Advantage:</strong> The table never gets "full" in the traditional sense; performance just degrades as chains get longer.</li>
     </ul>
 
     
@@ -220,25 +221,28 @@
     <div class="exam-focus">
         <h4>Exam Tips</h4>
         <ul>
-            [cite_start]<li><strong>Selection:</strong> Use <em>Chaining</em> if you don't know the number of keys in advance[cite: 29, 33].</li>
-            [cite_start]<li><strong>Performance:</strong> Double Hashing is often considered the best open addressing technique because it avoids clustering[cite: 29].</li>
-            [cite_start]<li><strong>Calculation:</strong> Be prepared to demonstrate <em>Linear Probing</em> with a simple modulo function (e.g., Table size 10, keys 12, 22, 32)[cite: 29].</li>
+            <li><strong>Selection:</strong> Use <em>Chaining</em> if you don't know the number of keys in advance.</li>
+            <li><strong>Performance:</strong> Double Hashing is often considered the best open addressing technique because it avoids clustering.</li>
+            <li><strong>Calculation:</strong> Be prepared to demonstrate <em>Linear Probing</em> with a simple modulo function (e.g., Table size 10, keys 12, 22, 32).</li>
         </ul>
     </div>
 
     <h3>Frequently Asked Questions</h3>
     <p><strong>Q: What is a Load Factor?</strong><br>
-    It is the ratio of the number of stored elements to the total table size (n/m). [cite_start]A higher load factor increases the chance of collisions[cite: 29, 33].</p>
+    It is the ratio of the number of stored elements to the total table size (n/m). A higher load factor increases the chance of collisions.</p>
 
     <p><strong>Q: Why is a prime number often used for table size (m)?</strong><br>
-    [cite_start]Using a prime number as the divisor in the Division Method helps in distributing keys more uniformly[cite: 29].</p>
+    Using a prime number as the divisor in the Division Method helps in distributing keys more uniformly.</p>
 
     <div class="exam-focus">
         <h4>Mnemonic: LCD</h4>
-        [cite_start]<p>To remember Open Addressing techniques, think <strong>LCD</strong>: <strong>L</strong>inear, <strong>C</strong>(Quadratic starts with Q, but think 'Curve'), <strong>D</strong>ouble Hashing[cite: 29].</p>
+        <p>To remember Open Addressing techniques, think <strong>LCD</strong>: <strong>L</strong>inear, <strong>C</strong>(Quadratic starts with Q, but think 'Curve'), <strong>D</strong>ouble Hashing.</p>
     </div>
 
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

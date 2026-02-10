@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CASEC101 Unit 2 | 1st Semester Notes - Knowlet</title>
+    <title>Computer Application SEC 101 Unit 2 | 1st Semester Notes - Knowlet</title>
     <meta name="description" content="Detailed academic notes for CASEC101 Unit 2: Functions and Program Structure. Covers recursion, storage classes, and preprocessors in C.">
     <meta name="keywords" content="Knowlet, C Functions, Recursion, Storage Classes, C Preprocessor, Scope Rules, CASEC101 Unit 2">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -101,8 +102,8 @@
 
 <div class="container">
     <h1>Unit II: Functions and Program Structure</h1>
-    [cite_start]<p><strong>Course:</strong> Programming with C (SEC) [cite: 193]<br>
-    [cite_start]<strong>Code:</strong> CASEC101 [cite: 191]</p>
+    <p><strong>Course:</strong> Programming with C (SEC) <br>
+    <strong>Code:</strong> CASEC101 </p>
 
     <div class="toc">
         <strong>Table of Contents</strong>
@@ -119,30 +120,30 @@
     </div>
 
     <h2 id="defining-functions">Defining and Accessing Functions</h2>
-    [cite_start]<p>Functions are the building blocks of a C program, allowing for modularity and code reuse[cite: 204, 224].</p>
+    <p>Functions are the building blocks of a C program, allowing for modularity and code reuse.</p>
     <ul>
-        [cite_start]<li><strong>Defining Functions:</strong> A function definition consists of a return type, a function name, and a set of parameters enclosed in parentheses[cite: 204].</li>
-        [cite_start]<li><strong>Accessing Functions:</strong> Functions are accessed (or called) from other functions like <code>main()</code> to perform their specific task[cite: 204].</li>
+        <li><strong>Defining Functions:</strong> A function definition consists of a return type, a function name, and a set of parameters enclosed in parentheses.</li>
+        <li><strong>Accessing Functions:</strong> Functions are accessed (or called) from other functions like <code>main()</code> to perform their specific task.</li>
     </ul>
 
     <h2 id="passing-arguments">Passing Arguments and Data Types</h2>
-    [cite_start]<p>Data is transferred to functions through arguments, which must have specified data types[cite: 204].</p>
+    <p>Data is transferred to functions through arguments, which must have specified data types.</p>
     
     <ul>
-        [cite_start]<li><strong>Argument Data Types:</strong> You must explicitly specify the data type (e.g., int, float) for each argument in the function header[cite: 204].</li>
-        [cite_start]<li><strong>Illustration with Examples:</strong> Using functions to solve specific problems, such as finding factorials or processing strings, helps clarify how data moves through a program[cite: 204, 243].</li>
+        <li><strong>Argument Data Types:</strong> You must explicitly specify the data type (e.g., int, float) for each argument in the function header.</li>
+        <li><strong>Illustration with Examples:</strong> Using functions to solve specific problems, such as finding factorials or processing strings, helps clarify how data moves through a program.</li>
     </ul>
 
     <h2 id="prototypes">Function Prototypes and Return Types</h2>
-    [cite_start]<p>Prototypes provide the compiler with necessary information about a function before it is used[cite: 205].</p>
+    <p>Prototypes provide the compiler with necessary information about a function before it is used.</p>
     <ul>
-        [cite_start]<li><strong>Function Prototypes:</strong> A declaration that tells the compiler the function's name, its return type, and the types of its parameters[cite: 205].</li>
-        [cite_start]<li><strong>Returning Non-integers:</strong> While many functions return integers, C allows functions to return other types like <code>float</code>, <code>double</code>, or <code>char</code>[cite: 205].</li>
+        <li><strong>Function Prototypes:</strong> A declaration that tells the compiler the function's name, its return type, and the types of its parameters.</li>
+        <li><strong>Returning Non-integers:</strong> While many functions return integers, C allows functions to return other types like <code>float</code>, <code>double</code>, or <code>char</code>.</li>
     </ul>
 
     <h2 id="storage-classes">Storage Classes</h2>
-    [cite_start]<p>Storage classes determine the visibility (scope) and lifetime of variables in C[cite: 205].</p>
-    <table>
+    <p>Storage classes determine the visibility (scope) and lifetime of variables in C.</p>
+    <div class="add-horizontal-scroll"><table>
         <tr>
             <th>Class</th>
             <th>Keyword</th>
@@ -152,66 +153,69 @@
         <tr>
             <td><strong>Automatic</strong></td>
             <td>auto</td>
-            [cite_start]<td>Inside the block/function[cite: 205].</td>
-            [cite_start]<td>Function execution duration[cite: 205].</td>
+            <td>Inside the block/function.</td>
+            <td>Function execution duration.</td>
         </tr>
         <tr>
             <td><strong>External</strong></td>
             <td>extern</td>
-            [cite_start]<td>Global (across files)[cite: 205].</td>
-            [cite_start]<td>Program execution duration[cite: 205].</td>
+            <td>Global (across files).</td>
+            <td>Program execution duration.</td>
         </tr>
         <tr>
             <td><strong>Static</strong></td>
             <td>static</td>
-            [cite_start]<td>Inside the block/function[cite: 205].</td>
-            [cite_start]<td>Program execution duration (value is retained)[cite: 205].</td>
+            <td>Inside the block/function.</td>
+            <td>Program execution duration (value is retained).</td>
         </tr>
         <tr>
             <td><strong>Register</strong></td>
             <td>register</td>
-            [cite_start]<td>Inside the block/function[cite: 205].</td>
-            [cite_start]<td>Function execution duration (stored in CPU register)[cite: 205].</td>
+            <td>Inside the block/function.</td>
+            <td>Function execution duration (stored in CPU register).</td>
         </tr>
-    </table>
+    </table></div>
 
     <h2 id="scope-rules">Scope Rules and Block Structure</h2>
-    [cite_start]<p>Scope rules define where a variable is accessible within the program[cite: 205].</p>
+    <p>Scope rules define where a variable is accessible within the program.</p>
     <ul>
-        [cite_start]<li><strong>Scope Rules:</strong> Local variables are only visible within their defined block, whereas global (external) variables can be seen throughout the file[cite: 205].</li>
-        [cite_start]<li><strong>Block Structure:</strong> C uses curly braces <code>{}</code> to define blocks of code, allowing for nested scopes where variables can be protected or shared[cite: 205].</li>
-        [cite_start]<li><strong>Header Files:</strong> Used to share function prototypes and global definitions across different source files (e.g., <code>stdio.h</code>)[cite: 205].</li>
+        <li><strong>Scope Rules:</strong> Local variables are only visible within their defined block, whereas global (external) variables can be seen throughout the file.</li>
+        <li><strong>Block Structure:</strong> C uses curly braces <code>{}</code> to define blocks of code, allowing for nested scopes where variables can be protected or shared.</li>
+        <li><strong>Header Files:</strong> Used to share function prototypes and global definitions across different source files (e.g., <code>stdio.h</code>).</li>
     </ul>
 
     <h2 id="recursion">Recursion in C</h2>
-    [cite_start]<p>Recursion occurs when a function calls itself to solve a smaller version of the same problem[cite: 206].</p>
+    <p>Recursion occurs when a function calls itself to solve a smaller version of the same problem.</p>
     
     <ul>
-        [cite_start]<li><strong>Recursive Programs:</strong> Useful for problems with a repetitive nature, such as the <strong>Tower of Hanoi</strong> or generating the <strong>Fibonacci sequence</strong>[cite: 206, 255, 256].</li>
-        [cite_start]<li><strong>Base Case:</strong> Every recursive function must have a termination condition to prevent infinite calls[cite: 206, 256].</li>
+        <li><strong>Recursive Programs:</strong> Useful for problems with a repetitive nature, such as the <strong>Tower of Hanoi</strong> or generating the <strong>Fibonacci sequence</strong>.</li>
+        <li><strong>Base Case:</strong> Every recursive function must have a termination condition to prevent infinite calls.</li>
     </ul>
 
     <h2 id="preprocessor">The C Preprocessor</h2>
-    [cite_start]<p>The preprocessor handles directives that begin with <code>#</code> before the actual compilation starts[cite: 206, 220].</p>
+    <p>The preprocessor handles directives that begin with <code>#</code> before the actual compilation starts.</p>
     <ul>
-        [cite_start]<li><strong>Functionality:</strong> It handles file inclusion (<code>#include</code>), macro expansion (<code>#define</code>), and conditional compilation[cite: 206, 220].</li>
+        <li><strong>Functionality:</strong> It handles file inclusion (<code>#include</code>), macro expansion (<code>#define</code>), and conditional compilation.</li>
     </ul>
 
     <div class="exam-focus" id="exam-prep">
         <h4>Exam Focus & Tips</h4>
         <ul>
-            [cite_start]<li><strong>Exam Tip:</strong> Be prepared to write a recursive function for <strong>Tower of Hanoi</strong> or <strong>Fibonacci</strong>[cite: 255, 256].</li>
-            [cite_start]<li><strong>Common Mistake:</strong> Forgetting to use the <code>static</code> keyword when a variable needs to retain its value between function calls[cite: 205].</li>
-            [cite_start]<li><strong>Mnemonic:</strong> <strong>"E-A-S-R"</strong> for Storage Classes: <strong>E</strong>xtern, <strong>A</strong>uto, <strong>S</strong>tatic, <strong>R</strong>egister[cite: 205].</li>
+            <li><strong>Exam Tip:</strong> Be prepared to write a recursive function for <strong>Tower of Hanoi</strong> or <strong>Fibonacci</strong>.</li>
+            <li><strong>Common Mistake:</strong> Forgetting to use the <code>static</code> keyword when a variable needs to retain its value between function calls.</li>
+            <li><strong>Mnemonic:</strong> <strong>"E-A-S-R"</strong> for Storage Classes: <strong>E</strong>xtern, <strong>A</strong>uto, <strong>S</strong>tatic, <strong>R</strong>egister.</li>
         </ul>
         <hr>
         <h4>Frequently Asked Questions</h4>
         <p><strong>Q: What is a recursive function?</strong><br>
-        [cite_start]A: It is a function that calls itself to solve a sub-problem[cite: 206].</p>
+        A: It is a function that calls itself to solve a sub-problem.</p>
         <p><strong>Q: Why are header files used?</strong><br>
-        [cite_start]A: To include function prototypes and declarations so that functions defined in other files can be used correctly[cite: 205].</p>
+        A: To include function prototypes and declarations so that functions defined in other files can be used correctly.</p>
     </div>
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

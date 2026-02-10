@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CADSM 151 Unit 3 | 2nd Semester Notes - Knowlet</title>
+    <title>Computer Application DSM 151 Unit 3 | 2nd Semester Notes - Knowlet</title>
     <meta name="description" content="Detailed exam-ready notes for CADSM 151 Unit 3: Arrays and Pointers in C. Covers array processing, pointer arithmetic, character pointers, and command line arguments.">
     <meta name="keywords" content="C Programming, CADSM 151, Unit 3, Arrays, Pointers, Pointer Arithmetic, Function Pointers, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -140,26 +141,26 @@
 
     <h2 id="array-processing">1. Array Processing and Strings</h2>
     <p>
-        [cite_start]An array is a collection of elements of the same type stored in contiguous memory locations[cite: 162]. 
+        An array is a collection of elements of the same type stored in contiguous memory locations. 
     </p>
     <ul>
-        [cite_start]<li><strong>Definition and Processing:</strong> Arrays are defined by specifying the data type and the number of elements[cite: 162]. [cite_start]Processing involves accessing each element using its index[cite: 162].</li>
-        [cite_start]<li><strong>Passing Arrays to Functions:</strong> When an array is passed to a function, it is typically passed by reference (the address of the first element is passed)[cite: 162].</li>
-        [cite_start]<li><strong>Multidimensional Arrays:</strong> These are "arrays of arrays," such as matrices (2D arrays) used for grid-based data storage[cite: 162].</li>
-        [cite_start]<li><strong>Arrays and Strings:</strong> In C, a string is simply a one-dimensional array of characters terminated by a null character (\0)[cite: 162].</li>
+        <li><strong>Definition and Processing:</strong> Arrays are defined by specifying the data type and the number of elements. Processing involves accessing each element using its index.</li>
+        <li><strong>Passing Arrays to Functions:</strong> When an array is passed to a function, it is typically passed by reference (the address of the first element is passed).</li>
+        <li><strong>Multidimensional Arrays:</strong> These are "arrays of arrays," such as matrices (2D arrays) used for grid-based data storage.</li>
+        <li><strong>Arrays and Strings:</strong> In C, a string is simply a one-dimensional array of characters terminated by a null character (\0).</li>
     </ul>
 
     <hr>
 
     <h2 id="pointer-basics">2. Pointer Fundamentals</h2>
     <p>
-        [cite_start]A pointer is a variable that stores the memory address of another variable[cite: 163].
+        A pointer is a variable that stores the memory address of another variable.
     </p>
     <ul>
-        [cite_start]<li><strong>Pointers and Addresses:</strong> Every variable has an address in memory; pointers allow direct manipulation of these addresses[cite: 163].</li>
-        [cite_start]<li><strong>Pointer Declaration:</strong> Pointers are declared using the * operator (e.g., int *p)[cite: 163].</li>
-        [cite_start]<li><strong>Pointers and Function Arguments:</strong> Passing pointers to functions allows the function to modify the actual variable in the calling environment (Pass by Reference)[cite: 163].</li>
-        [cite_start]<li><strong>Pointers and One-dimensional Arrays:</strong> The name of an array acts as a constant pointer to its first element[cite: 163].</li>
+        <li><strong>Pointers and Addresses:</strong> Every variable has an address in memory; pointers allow direct manipulation of these addresses.</li>
+        <li><strong>Pointer Declaration:</strong> Pointers are declared using the * operator (e.g., int *p).</li>
+        <li><strong>Pointers and Function Arguments:</strong> Passing pointers to functions allows the function to modify the actual variable in the calling environment (Pass by Reference).</li>
+        <li><strong>Pointers and One-dimensional Arrays:</strong> The name of an array acts as a constant pointer to its first element.</li>
     </ul>
 
     
@@ -168,11 +169,11 @@
 
     <h2 id="pointer-arithmetic">3. Address Arithmetic</h2>
     <p>
-        [cite_start]Address arithmetic refers to the operations that can be performed on pointers[cite: 164].
+        Address arithmetic refers to the operations that can be performed on pointers.
     </p>
     <ul>
-        [cite_start]<li><strong>Operations:</strong> You can increment (p++), decrement (p--), or add/subtract integers to a pointer to navigate through memory[cite: 164].</li>
-        [cite_start]<li><strong>Character Pointers and Functions:</strong> Character pointers (char *ptr) are frequently used to handle strings and are passed to functions for efficient string manipulation[cite: 164].</li>
+        <li><strong>Operations:</strong> You can increment (p++), decrement (p--), or add/subtract integers to a pointer to navigate through memory.</li>
+        <li><strong>Character Pointers and Functions:</strong> Character pointers (char *ptr) are frequently used to handle strings and are passed to functions for efficient string manipulation.</li>
     </ul>
 
     <blockquote>
@@ -183,25 +184,25 @@
 
     <h2 id="pointers-arrays">4. Pointers vs Multidimensional Arrays</h2>
     <p>
-        [cite_start]There is a strong relationship between pointers and multidimensional arrays in C[cite: 164].
+        There is a strong relationship between pointers and multidimensional arrays in C.
     </p>
     <ul>
-        [cite_start]<li><strong>Pointer Arrays:</strong> An array where each element is a pointer to another variable or array[cite: 164].</li>
-        [cite_start]<li><strong>Pointers to Pointers:</strong> A variable that stores the address of another pointer (declared as **p)[cite: 164].</li>
-        [cite_start]<li><strong>Initialization:</strong> Pointer arrays can be initialized with addresses of strings or other variables for flexible data structures[cite: 164].</li>
-        [cite_start]<li><strong>Pointers and Multidimensional Arrays:</strong> Accessing elements like A[i][j] can be represented using pointer notation as *(*(A+i)+j)[cite: 164].</li>
+        <li><strong>Pointer Arrays:</strong> An array where each element is a pointer to another variable or array.</li>
+        <li><strong>Pointers to Pointers:</strong> A variable that stores the address of another pointer (declared as **p).</li>
+        <li><strong>Initialization:</strong> Pointer arrays can be initialized with addresses of strings or other variables for flexible data structures.</li>
+        <li><strong>Pointers and Multidimensional Arrays:</strong> Accessing elements like A[i][j] can be represented using pointer notation as *(*(A+i)+j).</li>
     </ul>
 
     <hr>
 
     <h2 id="advanced-pointers">5. Command Line Arguments & Function Pointers</h2>
     <p>
-        [cite_start]Advanced pointer usage allows for dynamic and highly flexible programming[cite: 165].
+        Advanced pointer usage allows for dynamic and highly flexible programming.
     </p>
     <ul>
-        [cite_start]<li><strong>Command Line Arguments:</strong> These allow parameters to be passed to the program when it starts via <code>int main(int argc, char *argv[])</code>[cite: 165].</li>
-        [cite_start]<li><strong>Pointers to Functions:</strong> Pointers can store the address of a function, allowing functions to be passed as arguments to other functions[cite: 165].</li>
-        [cite_start]<li><strong>Passing Functions:</strong> This is the basis for "callback" mechanisms in C[cite: 165].</li>
+        <li><strong>Command Line Arguments:</strong> These allow parameters to be passed to the program when it starts via <code>int main(int argc, char *argv[])</code>.</li>
+        <li><strong>Pointers to Functions:</strong> Pointers can store the address of a function, allowing functions to be passed as arguments to other functions.</li>
+        <li><strong>Passing Functions:</strong> This is the basis for "callback" mechanisms in C.</li>
     </ul>
 
     <div class="exam-corner">
@@ -224,5 +225,8 @@
 
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

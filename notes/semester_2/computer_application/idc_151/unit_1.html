@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CAIDC 151 Unit 1 | 2nd Semester Notes - Knowlet</title>
+    <title>Computer Application IDC 151 Unit 1 | 2nd Semester Notes - Knowlet</title>
     <meta name="description" content="Comprehensive exam-ready notes for CAIDC 151: Programming Fundamentals with C, Unit 1. Covering programming languages, compilers, interpreters, and debugging.">
     <meta name="keywords" content="Programming Fundamentals, C Programming, CAIDC 151, Unit 1, Compiler, Interpreter, Debugging, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -138,32 +139,32 @@
 
     <h2 id="computer-programs">1. Computer Programs & Languages</h2>
     <p>
-        [cite_start]A <strong>Computer Program</strong> is a precise set of instructions given to a computer to perform a specific task[cite: 295, 296]. 
+        A <strong>Computer Program</strong> is a precise set of instructions given to a computer to perform a specific task. 
     </p>
     <ul>
-        [cite_start]<li><strong>Natural Language:</strong> Languages used by humans for communication (like English or Hindi), which are often ambiguous and flexible[cite: 296].</li>
-        [cite_start]<li><strong>Programming Language:</strong> A formal language with strict rules (syntax) used to communicate instructions to a computer[cite: 296].</li>
+        <li><strong>Natural Language:</strong> Languages used by humans for communication (like English or Hindi), which are often ambiguous and flexible.</li>
+        <li><strong>Programming Language:</strong> A formal language with strict rules (syntax) used to communicate instructions to a computer.</li>
     </ul>
 
     <hr>
 
     <h2 id="language-levels">2. Levels of Programming Languages</h2>
-    [cite_start]<p>Programming languages are categorized based on their distance from the computer hardware[cite: 296].</p>
+    <p>Programming languages are categorized based on their distance from the computer hardware.</p>
     <ul>
-        [cite_start]<li><strong>Machine Level Language:</strong> The lowest level, consisting of binary code (0s and 1s) that the CPU executes directly[cite: 296].</li>
-        [cite_start]<li><strong>Assembly Level Language:</strong> Uses mnemonic codes (like ADD, SUB) instead of binary, requiring an Assembler for translation[cite: 296].</li>
-        [cite_start]<li><strong>High-level Programming Language:</strong> Human-readable languages (like C, Python) that are independent of the computer's hardware architecture[cite: 296].</li>
+        <li><strong>Machine Level Language:</strong> The lowest level, consisting of binary code (0s and 1s) that the CPU executes directly.</li>
+        <li><strong>Assembly Level Language:</strong> Uses mnemonic codes (like ADD, SUB) instead of binary, requiring an Assembler for translation.</li>
+        <li><strong>High-level Programming Language:</strong> Human-readable languages (like C, Python) that are independent of the computer's hardware architecture.</li>
     </ul>
 
     <hr>
 
     <h2 id="translation-tools">3. Compiler and Interpreter</h2>
-    [cite_start]<p>High-level code must be translated into machine code for execution[cite: 296].</p>
-    <table>
+    <p>High-level code must be translated into machine code for execution.</p>
+    <div class="add-horizontal-scroll"><table>
         <tr>
             <th>Feature</th>
-            [cite_start]<th>Compiler [cite: 296]</th>
-            [cite_start]<th>Interpreter [cite: 296]</th>
+            <th>Compiler </th>
+            <th>Interpreter </th>
         </tr>
         <tr>
             <td>Translation</td>
@@ -180,28 +181,28 @@
             <td>Lists all errors after scanning the whole file.</td>
             <td>Stops execution at the first error found.</td>
         </tr>
-    </table>
+    </table></div>
 
     
 
     <hr>
 
     <h2 id="programming-terms">4. Core Programming Terms</h2>
-    [cite_start]<p>Essential terminology used in software development[cite: 297]:</p>
+    <p>Essential terminology used in software development:</p>
     <ul>
-        [cite_start]<li><strong>Source Code:</strong> The original code written by the programmer in a high-level language[cite: 297].</li>
-        [cite_start]<li><strong>Target Code:</strong> The output produced by the compiler, usually machine code[cite: 297].</li>
-        [cite_start]<li><strong>Compiling:</strong> The process of converting source code into machine code[cite: 297].</li>
-        [cite_start]<li><strong>Warning:</strong> A message from the compiler about potential issues that don't stop the program from running but might cause bugs[cite: 297].</li>
-        [cite_start]<li><strong>Debugging:</strong> The process of finding and fixing errors in the code[cite: 297].</li>
-        [cite_start]<li><strong>Testing:</strong> Verifying the program's output against expected results to ensure correctness[cite: 297].</li>
+        <li><strong>Source Code:</strong> The original code written by the programmer in a high-level language.</li>
+        <li><strong>Target Code:</strong> The output produced by the compiler, usually machine code.</li>
+        <li><strong>Compiling:</strong> The process of converting source code into machine code.</li>
+        <li><strong>Warning:</strong> A message from the compiler about potential issues that don't stop the program from running but might cause bugs.</li>
+        <li><strong>Debugging:</strong> The process of finding and fixing errors in the code.</li>
+        <li><strong>Testing:</strong> Verifying the program's output against expected results to ensure correctness.</li>
     </ul>
 
     <hr>
 
     <h2 id="program-errors">5. Errors in Computer Programs</h2>
-    [cite_start]<p>Errors, or "bugs," prevent a program from working correctly[cite: 298].</p>
-    [cite_start]<h3>Types of Errors[cite: 298]:</h3>
+    <p>Errors, or "bugs," prevent a program from working correctly.</p>
+    <h3>Types of Errors:</h3>
     <ul>
         <li><strong>Syntax Errors:</strong> Violations of the language's grammar rules (e.g., a missing semicolon). The compiler will catch these.</li>
         <li><strong>Logical Errors:</strong> The program runs but gives the wrong result because the underlying logic is flawed.</li>
@@ -224,9 +225,12 @@
     High-level languages are easier for humans to write, read, and maintain. Compilers take care of the translation into machine code.</p>
 
     <p><strong>Q: Does a warning stop my program from running?</strong><br>
-    [cite_start]No, a program can still run with warnings, unlike errors which prevent compilation[cite: 297]. However, it is best practice to fix warnings to avoid unpredictable behavior.</p>
+    No, a program can still run with warnings, unlike errors which prevent compilation. However, it is best practice to fix warnings to avoid unpredictable behavior.</p>
 
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

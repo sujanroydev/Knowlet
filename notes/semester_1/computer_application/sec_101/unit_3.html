@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CASEC101 Unit 3 | 1st Semester Notes - Knowlet</title>
+    <title>Computer Application SEC 101 Unit 3 | 1st Semester Notes - Knowlet</title>
     <meta name="description" content="Detailed academic notes for CASEC101 Unit 3: Arrays and Pointers. Covers multidimensional arrays, strings, pointer arithmetic, and command line arguments.">
     <meta name="keywords" content="Knowlet, CASEC101, C Programming, Arrays, Pointers, Pointer Arithmetic, Strings, Command Line Arguments">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -119,76 +120,79 @@
     </div>
 
     <h2 id="arrays">Definition and Array Processing</h2>
-    [cite_start]<p>An array is a fixed-size collection of elements of the same data type stored in contiguous memory locations[cite: 208].</p>
+    <p>An array is a fixed-size collection of elements of the same data type stored in contiguous memory locations.</p>
     <ul>
-        [cite_start]<li><strong>Definition:</strong> Arrays are defined by specifying the base type, name, and size in square brackets[cite: 208].</li>
-        [cite_start]<li><strong>Array Processing:</strong> Elements are accessed via an index, typically using loops for efficiency[cite: 208].</li>
-        [cite_start]<li><strong>Passing Arrays:</strong> When an array is passed to a function, the function receives the address of the first element[cite: 208].</li>
+        <li><strong>Definition:</strong> Arrays are defined by specifying the base type, name, and size in square brackets.</li>
+        <li><strong>Array Processing:</strong> Elements are accessed via an index, typically using loops for efficiency.</li>
+        <li><strong>Passing Arrays:</strong> When an array is passed to a function, the function receives the address of the first element.</li>
     </ul>
 
     <h2 id="strings">Multidimensional Arrays and Strings</h2>
-    [cite_start]<p>C supports complex data structures by nesting arrays or treating them as character sequences[cite: 208].</p>
+    <p>C supports complex data structures by nesting arrays or treating them as character sequences.</p>
     
     <ul>
-        [cite_start]<li><strong>Multidimensional Arrays:</strong> Commonly used for matrices; data is stored row by row (Row-major order)[cite: 208].</li>
-        [cite_start]<li><strong>Arrays and Strings:</strong> Strings are essentially character arrays terminated by a null character (\0)[cite: 208].</li>
+        <li><strong>Multidimensional Arrays:</strong> Commonly used for matrices; data is stored row by row (Row-major order).</li>
+        <li><strong>Arrays and Strings:</strong> Strings are essentially character arrays terminated by a null character (\0).</li>
     </ul>
 
     <h2 id="pointers-intro">Pointers: Addresses and Declarations</h2>
-    [cite_start]<p>Pointers are variables that store the memory address of another variable[cite: 209].</p>
+    <p>Pointers are variables that store the memory address of another variable.</p>
     <ul>
-        [cite_start]<li><strong>Pointer Declaration:</strong> Uses the asterisk (*) symbol to denote a pointer type (e.g., int *ptr)[cite: 209].</li>
-        [cite_start]<li><strong>Addresses:</strong> The address-of operator (&) is used to retrieve the memory location of a variable[cite: 209].</li>
+        <li><strong>Pointer Declaration:</strong> Uses the asterisk (*) symbol to denote a pointer type (e.g., int *ptr).</li>
+        <li><strong>Addresses:</strong> The address-of operator (&) is used to retrieve the memory location of a variable.</li>
     </ul>
 
     <h2 id="pointers-func">Pointers and Function Arguments</h2>
-    [cite_start]<p>Using pointers as arguments allows a function to modify the caller's variables directly[cite: 209].</p>
+    <p>Using pointers as arguments allows a function to modify the caller's variables directly.</p>
     <ul>
-        [cite_start]<li><strong>Passing Pointers:</strong> Also known as "Call by Reference," this avoids copying large amounts of data[cite: 209].</li>
-        [cite_start]<li><strong>Function Arguments:</strong> Enables the return of multiple values through the modified pointers[cite: 209].</li>
+        <li><strong>Passing Pointers:</strong> Also known as "Call by Reference," this avoids copying large amounts of data.</li>
+        <li><strong>Function Arguments:</strong> Enables the return of multiple values through the modified pointers.</li>
     </ul>
 
     <h2 id="arithmetic">Address Arithmetic and Pointer Arrays</h2>
-    [cite_start]<p>Pointers can be manipulated using mathematical operations to traverse memory[cite: 210].</p>
+    <p>Pointers can be manipulated using mathematical operations to traverse memory.</p>
     
     <ul>
-        [cite_start]<li><strong>Address Arithmetic:</strong> Incrementing a pointer moves it to the next valid address based on its data type[cite: 210].</li>
-        [cite_start]<li><strong>Pointers and One-dimensional Arrays:</strong> The array name itself acts as a constant pointer to the first element[cite: 209].</li>
-        [cite_start]<li><strong>Character Pointers and Functions:</strong> Frequently used for efficient string manipulation and searching[cite: 210].</li>
-        [cite_start]<li><strong>Pointer Arrays:</strong> An array where each element is itself a pointer[cite: 210].</li>
+        <li><strong>Address Arithmetic:</strong> Incrementing a pointer moves it to the next valid address based on its data type.</li>
+        <li><strong>Pointers and One-dimensional Arrays:</strong> The array name itself acts as a constant pointer to the first element.</li>
+        <li><strong>Character Pointers and Functions:</strong> Frequently used for efficient string manipulation and searching.</li>
+        <li><strong>Pointer Arrays:</strong> An array where each element is itself a pointer.</li>
     </ul>
 
     <h2 id="advanced-pointers">Pointers to Pointers and Function Pointers</h2>
-    [cite_start]<p>Advanced pointer concepts allow for dynamic and complex memory structures[cite: 210, 211].</p>
+    <p>Advanced pointer concepts allow for dynamic and complex memory structures.</p>
     <ul>
-        [cite_start]<li><strong>Pointers to Pointers:</strong> A variable that stores the address of another pointer[cite: 210].</li>
-        [cite_start]<li><strong>Initialization of Pointer Arrays:</strong> Often used for arrays of strings where each pointer points to a string literal[cite: 210].</li>
-        [cite_start]<li><strong>Pointers to Multidimensional Arrays:</strong> Specialized pointers used to navigate through matrix rows and columns[cite: 210].</li>
-        [cite_start]<li><strong>Pointers to Functions:</strong> Storing the address of a function in a variable to call it dynamically[cite: 211].</li>
+        <li><strong>Pointers to Pointers:</strong> A variable that stores the address of another pointer.</li>
+        <li><strong>Initialization of Pointer Arrays:</strong> Often used for arrays of strings where each pointer points to a string literal.</li>
+        <li><strong>Pointers to Multidimensional Arrays:</strong> Specialized pointers used to navigate through matrix rows and columns.</li>
+        <li><strong>Pointers to Functions:</strong> Storing the address of a function in a variable to call it dynamically.</li>
     </ul>
 
     <h2 id="cmd-line">Command Line Arguments</h2>
-    [cite_start]<p>Arguments can be passed to the main function at the time of program execution[cite: 211].</p>
+    <p>Arguments can be passed to the main function at the time of program execution.</p>
     <ul>
-        [cite_start]<li><strong>Mechanism:</strong> Uses parameters like argc (argument count) and argv (argument vector/array of strings)[cite: 211].</li>
-        [cite_start]<li><strong>Passing Functions:</strong> Functions can be passed to other functions as parameters using pointers[cite: 211].</li>
+        <li><strong>Mechanism:</strong> Uses parameters like argc (argument count) and argv (argument vector/array of strings).</li>
+        <li><strong>Passing Functions:</strong> Functions can be passed to other functions as parameters using pointers.</li>
     </ul>
 
     <div class="exam-focus" id="exam-prep">
         <h4>Exam Focus & Tips</h4>
         <ul>
-            [cite_start]<li><strong>Exam Tip:</strong> Understand that <code>*(arr + i)</code> is exactly the same as <code>arr[i]</code>[cite: 209, 210].</li>
-            [cite_start]<li><strong>Common Mistake:</strong> Forgetting the null terminator (\0) when defining character arrays as strings manually[cite: 208].</li>
-            [cite_start]<li><strong>Programming Task:</strong> Practice matrix addition using multidimensional arrays[cite: 257].</li>
+            <li><strong>Exam Tip:</strong> Understand that <code>*(arr + i)</code> is exactly the same as <code>arr[i]</code>.</li>
+            <li><strong>Common Mistake:</strong> Forgetting the null terminator (\0) when defining character arrays as strings manually.</li>
+            <li><strong>Programming Task:</strong> Practice matrix addition using multidimensional arrays.</li>
         </ul>
         <hr>
         <h4>Frequently Asked Questions</h4>
         <p><strong>Q: What is the difference between a pointer and an address?</strong><br>
-        [cite_start]A: An address is a specific memory location; a pointer is a variable that holds that location[cite: 209].</p>
+        A: An address is a specific memory location; a pointer is a variable that holds that location.</p>
         <p><strong>Q: Why use pointer arrays?</strong><br>
-        [cite_start]A: They are very efficient for handling arrays of strings with different lengths[cite: 210].</p>
+        A: They are very efficient for handling arrays of strings with different lengths.</p>
     </div>
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

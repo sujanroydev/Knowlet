@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CAIDC 151 Unit 3 | 2nd Semester Notes - Knowlet</title>
+    <title>Computer Application IDC 151 Unit 3 | 2nd Semester Notes - Knowlet</title>
     <meta name="description" content="Exam-ready HTML notes for CAIDC 151 Unit 3: Constants, Variables, and Operators. Detailed coverage of C tokens, data types, and arithmetic expressions.">
     <meta name="keywords" content="C Programming, CAIDC 151, C Tokens, Data Types, C Operators, Expressions, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -138,57 +139,57 @@
 
     <h2 id="character-set">1. Character Set and C Tokens</h2>
     <p>
-        [cite_start]The <strong>Character Set</strong> includes all characters that the C compiler can recognize, such as letters (A-Z, a-z), digits (0-9), and special characters[cite: 303].
+        The <strong>Character Set</strong> includes all characters that the C compiler can recognize, such as letters (A-Z, a-z), digits (0-9), and special characters.
     </p>
     <p>
-        [cite_start]<strong>C Tokens</strong> are the smallest individual units in a program[cite: 303]. These include:
+        <strong>C Tokens</strong> are the smallest individual units in a program. These include:
     </p>
     <ul>
-        [cite_start]<li><strong>Keywords:</strong> Reserved words with predefined meanings[cite: 303].</li>
-        [cite_start]<li><strong>Identifiers:</strong> Names given to program elements[cite: 303].</li>
-        [cite_start]<li><strong>Constants:</strong> Fixed values that do not change[cite: 303].</li>
-        [cite_start]<li><strong>Operators:</strong> Symbols for mathematical or logical operations[cite: 303].</li>
+        <li><strong>Keywords:</strong> Reserved words with predefined meanings.</li>
+        <li><strong>Identifiers:</strong> Names given to program elements.</li>
+        <li><strong>Constants:</strong> Fixed values that do not change.</li>
+        <li><strong>Operators:</strong> Symbols for mathematical or logical operations.</li>
     </ul>
 
     <hr>
 
     <h2 id="keywords-identifiers">2. Keywords and Identifiers</h2>
     <p>
-        [cite_start]<strong>Keywords</strong> are reserved words that have a special meaning to the compiler and cannot be used as variable names (e.g., int, float, if)[cite: 303].
+        <strong>Keywords</strong> are reserved words that have a special meaning to the compiler and cannot be used as variable names (e.g., int, float, if).
     </p>
     <p>
-        [cite_start]<strong>Identifiers</strong> are names used for variables, functions, and arrays[cite: 303].
+        <strong>Identifiers</strong> are names used for variables, functions, and arrays.
     </p>
     <ul>
-        [cite_start]<li>They must start with a letter or an underscore[cite: 303].</li>
-        [cite_start]<li>Only letters, digits, and underscores are allowed[cite: 303].</li>
-        [cite_start]<li>They are case-sensitive[cite: 303].</li>
+        <li>They must start with a letter or an underscore.</li>
+        <li>Only letters, digits, and underscores are allowed.</li>
+        <li>They are case-sensitive.</li>
     </ul>
 
     <hr>
 
     <h2 id="constants-variables">3. Constants and Variables</h2>
     <p>
-        [cite_start]<strong>Constants</strong> are values that remain unchanged during program execution[cite: 303]. [cite_start]These can be numeric (integer, real) or character constants[cite: 303].
+        <strong>Constants</strong> are values that remain unchanged during program execution. These can be numeric (integer, real) or character constants.
     </p>
     <p>
-        [cite_start]<strong>Variables</strong> are identifiers used to store data values that can change during execution[cite: 303].
+        <strong>Variables</strong> are identifiers used to store data values that can change during execution.
     </p>
     <ul>
-        [cite_start]<li><strong>Declaration:</strong> Variables must be declared before use, specifying their data type[cite: 303].</li>
-        [cite_start]<li><strong>Assigning Values:</strong> Values are assigned using the assignment operator (=)[cite: 303].</li>
-        [cite_start]<li><strong>Symbolic Constants:</strong> Defined using the <code>#define</code> preprocessor to assign a name to a constant value[cite: 303].</li>
+        <li><strong>Declaration:</strong> Variables must be declared before use, specifying their data type.</li>
+        <li><strong>Assigning Values:</strong> Values are assigned using the assignment operator (=).</li>
+        <li><strong>Symbolic Constants:</strong> Defined using the <code>#define</code> preprocessor to assign a name to a constant value.</li>
     </ul>
 
     <hr>
 
     <h2 id="data-types">4. Data Types and Declarations</h2>
     <p>
-        [cite_start]<strong>Data Types</strong> specify the type of value a variable can store[cite: 303].
+        <strong>Data Types</strong> specify the type of value a variable can store.
     </p>
     <ul>
-        [cite_start]<li><strong>Primary Data Types:</strong> int (integer), float (real), char (character), and double (double-precision real)[cite: 303].</li>
-        [cite_start]<li><strong>Declaration:</strong> All variables must be declared to inform the compiler about the storage space required[cite: 303].</li>
+        <li><strong>Primary Data Types:</strong> int (integer), float (real), char (character), and double (double-precision real).</li>
+        <li><strong>Declaration:</strong> All variables must be declared to inform the compiler about the storage space required.</li>
     </ul>
 
     
@@ -197,9 +198,9 @@
 
     <h2 id="operators">5. Operators and Expressions</h2>
     <p>
-        [cite_start]<strong>Operators</strong> are symbols that trigger an action when applied to variables and constants[cite: 304].
+        <strong>Operators</strong> are symbols that trigger an action when applied to variables and constants.
     </p>
-    <table>
+    <div class="add-horizontal-scroll"><table>
         <tr>
             <th>Operator Category</th>
             <th>Operators</th>
@@ -208,45 +209,45 @@
         <tr>
             <td><strong>Arithmetic</strong></td>
             <td>+, -, *, /, %</td>
-            [cite_start]<td>Perform basic math like addition and modulus[cite: 304].</td>
+            <td>Perform basic math like addition and modulus.</td>
         </tr>
         <tr>
             <td><strong>Relational</strong></td>
             <td>&lt;, &gt;, &lt;=, &gt;=, ==, !=</td>
-            [cite_start]<td>Compare two values for true/false results[cite: 304].</td>
+            <td>Compare two values for true/false results.</td>
         </tr>
         <tr>
             <td><strong>Logical</strong></td>
             <td>&&, ||, !</td>
-            [cite_start]<td>Combine multiple conditions[cite: 304].</td>
+            <td>Combine multiple conditions.</td>
         </tr>
         <tr>
             <td><strong>Assignment</strong></td>
             <td>=</td>
-            [cite_start]<td>Store a value in a variable[cite: 304].</td>
+            <td>Store a value in a variable.</td>
         </tr>
         <tr>
             <td><strong>Increment/Decrement</strong></td>
             <td>++, --</td>
-            [cite_start]<td>Increase or decrease a value by 1[cite: 304].</td>
+            <td>Increase or decrease a value by 1.</td>
         </tr>
         <tr>
             <td><strong>Conditional</strong></td>
             <td>? :</td>
-            [cite_start]<td>A shorthand for simple if-else statements[cite: 304].</td>
+            <td>A shorthand for simple if-else statements.</td>
         </tr>
-    </table>
+    </table></div>
 
     <p>
-        [cite_start]<strong>Arithmetic Expressions</strong> are combinations of variables, constants, and operators evaluated according to rules of precedence[cite: 304].
+        <strong>Arithmetic Expressions</strong> are combinations of variables, constants, and operators evaluated according to rules of precedence.
     </p>
 
     <div class="exam-focus">
         <h4>Exam Tips</h4>
         <ul>
-            [cite_start]<li><strong>Modulus Operator (%):</strong> Remember it only works with integers and returns the remainder[cite: 304].</li>
-            [cite_start]<li><strong>Case Sensitivity:</strong> Identifiers like 'Total' and 'total' are different in C[cite: 303].</li>
-            [cite_start]<li><strong>Symbolic Constants:</strong> Use <code>#define</code> for values like PI (3.14) to make code readable and easy to maintain[cite: 303].</li>
+            <li><strong>Modulus Operator (%):</strong> Remember it only works with integers and returns the remainder.</li>
+            <li><strong>Case Sensitivity:</strong> Identifiers like 'Total' and 'total' are different in C.</li>
+            <li><strong>Symbolic Constants:</strong> Use <code>#define</code> for values like PI (3.14) to make code readable and easy to maintain.</li>
         </ul>
     </div>
 
@@ -254,12 +255,15 @@
 
     <h3>Frequently Asked Questions</h3>
     <p><strong>Q1: What is a keyword?</strong><br>
-    [cite_start]A keyword is a word reserved by the C language for specific purposes (like <code>int</code> for integers) and cannot be used as a name for variables[cite: 303].</p>
+    A keyword is a word reserved by the C language for specific purposes (like <code>int</code> for integers) and cannot be used as a name for variables.</p>
 
     <p><strong>Q2: What is the difference between a constant and a variable?</strong><br>
-    [cite_start]A constant's value is fixed and cannot be changed during the program, whereas a variable acts as a container whose content can be modified[cite: 303].</p>
+    A constant's value is fixed and cannot be changed during the program, whereas a variable acts as a container whose content can be modified.</p>
 
 </div>
 
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

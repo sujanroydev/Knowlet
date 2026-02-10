@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CADSC102 Unit 4 | 1st Semester Notes - Knowlet</title>
+    <title>Computer Application DSC 102 Unit 4 | 1st Semester Notes - Knowlet</title>
     <meta name="description" content="Detailed academic notes for CADSC102 Unit 4: Trees. Covers tree properties, rooted binary trees, and extended binary trees for Discrete Mathematics.">
     <meta name="keywords" content="Knowlet, CADSC102, Trees, Binary Trees, Rooted Trees, Discrete Mathematics Notes, Pendant Vertices">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -126,7 +127,7 @@
     </div>
 
     <h2 id="basic-concepts">Basic Concepts of Tree</h2>
-    [cite_start]<p>In discrete mathematics, a <strong>tree</strong> is a connected graph that contains no circuits (cycles)[cite: 59, 77]. It is one of the most important structures used to represent hierarchical relationships.</p>
+    <p>In discrete mathematics, a <strong>tree</strong> is a connected graph that contains no circuits (cycles). It is one of the most important structures used to represent hierarchical relationships.</p>
     
     
 
@@ -134,60 +135,63 @@
 
 
     <ul>
-        [cite_start]<li><strong>Connectedness</strong>: There is a path between every pair of vertices[cite: 59, 77].</li>
-        [cite_start]<li><strong>Acyclic</strong>: There are no loops or closed paths in the structure[cite: 59, 77].</li>
+        <li><strong>Connectedness</strong>: There is a path between every pair of vertices.</li>
+        <li><strong>Acyclic</strong>: There are no loops or closed paths in the structure.</li>
     </ul>
 
     <h2 id="properties">Properties of Trees</h2>
-    [cite_start]<p>Trees have several mathematical properties that distinguish them from other types of graphs[cite: 59, 77]:</p>
+    <p>Trees have several mathematical properties that distinguish them from other types of graphs:</p>
     <ul>
-        [cite_start]<li><strong>Edge-Vertex Relationship</strong>: A tree with <em>n</em> vertices always has exactly <em>n - 1</em> edges[cite: 59, 77].</li>
-        [cite_start]<li><strong>Unique Path</strong>: There is exactly one unique path between any two vertices in a tree[cite: 59, 77].</li>
-        [cite_start]<li><strong>Minimally Connected</strong>: Removing any edge from a tree results in a disconnected graph (it becomes a "forest")[cite: 59, 77].</li>
+        <li><strong>Edge-Vertex Relationship</strong>: A tree with <em>n</em> vertices always has exactly <em>n - 1</em> edges.</li>
+        <li><strong>Unique Path</strong>: There is exactly one unique path between any two vertices in a tree.</li>
+        <li><strong>Minimally Connected</strong>: Removing any edge from a tree results in a disconnected graph (it becomes a "forest").</li>
     </ul>
 
     <h2 id="vertices-centre">Pendant Vertices and Centre of a Tree</h2>
-    [cite_start]<p>Special vertices in a tree help define its structure and shape[cite: 59, 77].</p>
+    <p>Special vertices in a tree help define its structure and shape.</p>
     
     <h3>Pendant Vertices</h3>
-    [cite_start]<p>A <strong>pendant vertex</strong> (also known as a leaf) is a vertex of degree 1[cite: 59, 77]. [cite_start]Every tree with more than one vertex has at least two pendant vertices[cite: 59, 77].</p>
+    <p>A <strong>pendant vertex</strong> (also known as a leaf) is a vertex of degree 1. Every tree with more than one vertex has at least two pendant vertices.</p>
 
     <h3>Centre of a Tree</h3>
-    [cite_start]<p>The <strong>centre</strong> of a tree consists of one or two vertices that have the minimum maximum distance to all other vertices in the tree[cite: 59, 77]. [cite_start]This is found by repeatedly removing all pendant vertices until only one or two remain[cite: 59, 77].</p>
+    <p>The <strong>centre</strong> of a tree consists of one or two vertices that have the minimum maximum distance to all other vertices in the tree. This is found by repeatedly removing all pendant vertices until only one or two remain.</p>
 
     <h2 id="binary-trees">Rooted Binary Trees</h2>
-    [cite_start]<p>A <strong>rooted tree</strong> is a tree in which one specific vertex is designated as the root[cite: 59, 77].</p>
+    <p>A <strong>rooted tree</strong> is a tree in which one specific vertex is designated as the root.</p>
     
     
 
     <h3>Rooted Binary Tree</h3>
-    [cite_start]<p>A <strong>binary tree</strong> is a rooted tree where every internal vertex has at most two children[cite: 59, 77]. [cite_start]Each child is typically designated as either a "left child" or a "right child"[cite: 59, 77].</p>
+    <p>A <strong>binary tree</strong> is a rooted tree where every internal vertex has at most two children. Each child is typically designated as either a "left child" or a "right child".</p>
 
     <h2 id="extended-trees">Complete and Extended Binary Trees</h2>
-    [cite_start]<p>Depending on how the nodes are filled, binary trees are categorized into specific types[cite: 59, 77]:</p>
+    <p>Depending on how the nodes are filled, binary trees are categorized into specific types:</p>
     <ul>
-        [cite_start]<li><strong>Complete Binary Tree</strong>: A binary tree in which every level, except possibly the last, is completely filled, and all nodes are as far left as possible[cite: 59, 77].</li>
-        [cite_start]<li><strong>Extended Binary Tree</strong>: Also known as a 2-tree, it is a binary tree where every node has either zero or two children[cite: 59, 77]. [cite_start]Empty spots are often represented by special "external nodes"[cite: 59, 77].</li>
+        <li><strong>Complete Binary Tree</strong>: A binary tree in which every level, except possibly the last, is completely filled, and all nodes are as far left as possible.</li>
+        <li><strong>Extended Binary Tree</strong>: Also known as a 2-tree, it is a binary tree where every node has either zero or two children. Empty spots are often represented by special "external nodes".</li>
     </ul>
 
     <div class="exam-focus" id="exam-prep">
         <h4>Exam Focus & Tips</h4>
         <ul>
-            <li><strong>Exam Tip:</strong> Remember the formula <strong>Edges = V - 1</strong>. [cite_start]If a question asks for edges in a tree with 15 vertices, the answer is 14[cite: 59, 77].</li>
-            <li><strong>Common Mistake:</strong> Confusing a general tree with a binary tree. [cite_start]A general tree can have any number of children per node, whereas a binary tree is limited to two[cite: 59, 77].</li>
-            [cite_start]<li><strong>Mnemonic:</strong> <strong>"No Cycles, No Problems"</strong> - A tree must never have a loop[cite: 59, 77].</li>
+            <li><strong>Exam Tip:</strong> Remember the formula <strong>Edges = V - 1</strong>. If a question asks for edges in a tree with 15 vertices, the answer is 14.</li>
+            <li><strong>Common Mistake:</strong> Confusing a general tree with a binary tree. A general tree can have any number of children per node, whereas a binary tree is limited to two.</li>
+            <li><strong>Mnemonic:</strong> <strong>"No Cycles, No Problems"</strong> - A tree must never have a loop.</li>
         </ul>
         
         <hr>
         
         <h4>Frequently Asked Questions</h4>
         <p><strong>Q: What is a pendant vertex?</strong><br>
-        [cite_start]A: A vertex with a degree of 1, effectively a "leaf" of the tree[cite: 59, 77].</p>
+        A: A vertex with a degree of 1, effectively a "leaf" of the tree.</p>
         
         <p><strong>Q: How many roots does a rooted tree have?</strong><br>
-        [cite_start]A: Exactly one[cite: 59, 77].</p>
+        A: Exactly one.</p>
     </div>
 
 </div>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

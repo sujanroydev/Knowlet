@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CADSC102 Unit 5 | 1st Semester Notes - Knowlet</title>
+    <title>Computer Application DSC 102 Unit 5 | 1st Semester Notes - Knowlet</title>
     <meta name="description" content="Detailed academic notes for CADSC102 Unit 5: Graph Theory with Applications. Covers Isomorphism, Planar Graphs, Eulerian/Hamiltonian graphs, and more.">
     <meta name="keywords" content="Knowlet, CADSC102, Graph Theory, Isomorphism, Eulerian Graph, Hamiltonian Graph, Planar Graphs, Discrete Mathematics">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -101,8 +102,8 @@
 
 <div class="container">
     <h1>Unit V: Graph Theory with Applications</h1>
-    [cite_start]<p><strong>Course:</strong> Discrete Mathematics [cite: 64]<br>
-    [cite_start]<strong>Code:</strong> CADSC102 [cite: 64]</p>
+    <p><strong>Course:</strong> Discrete Mathematics <br>
+    <strong>Code:</strong> CADSC102 </p>
 
     <div class="toc">
         <strong>Table of Contents</strong>
@@ -119,76 +120,79 @@
     </div>
 
     <h2 id="basic-concepts">Basic Concepts of Graph Theory</h2>
-    [cite_start]<p>A graph consists of a set of vertices (nodes) and edges that connect them[cite: 82].</p>
+    <p>A graph consists of a set of vertices (nodes) and edges that connect them.</p>
     <ul>
-        [cite_start]<li><strong>Incidence:</strong> An edge is incident to the vertices it connects[cite: 82].</li>
-        [cite_start]<li><strong>Degree:</strong> The number of edges incident to a vertex[cite: 82].</li>
-        [cite_start]<li><strong>Sub-graphs:</strong> A graph whose vertices and edges are subsets of another graph[cite: 82].</li>
-        [cite_start]<li><strong>Union of Graphs:</strong> A graph containing all vertices and edges from two or more graphs[cite: 82].</li>
+        <li><strong>Incidence:</strong> An edge is incident to the vertices it connects.</li>
+        <li><strong>Degree:</strong> The number of edges incident to a vertex.</li>
+        <li><strong>Sub-graphs:</strong> A graph whose vertices and edges are subsets of another graph.</li>
+        <li><strong>Union of Graphs:</strong> A graph containing all vertices and edges from two or more graphs.</li>
     </ul>
 
     <h2 id="iso-homo">Isomorphism and Homomorphism</h2>
     
     <ul>
-        [cite_start]<li><strong>Isomorphism:</strong> Two graphs are isomorphic if there is a one-to-one correspondence between their vertices and edges that preserves adjacency[cite: 82].</li>
-        [cite_start]<li><strong>Homomorphism:</strong> A mapping between two graphs that preserves the structure but does not necessarily require a one-to-one correspondence[cite: 82].</li>
+        <li><strong>Isomorphism:</strong> Two graphs are isomorphic if there is a one-to-one correspondence between their vertices and edges that preserves adjacency.</li>
+        <li><strong>Homomorphism:</strong> A mapping between two graphs that preserves the structure but does not necessarily require a one-to-one correspondence.</li>
     </ul>
 
     <h2 id="graph-types">Types of Graphs</h2>
-    [cite_start]<p>Graphs can be categorized by their specific properties and constraints[cite: 82]:</p>
+    <p>Graphs can be categorized by their specific properties and constraints:</p>
     <ul>
-        [cite_start]<li><strong>Multigraphs:</strong> Graphs that can have multiple edges between the same two vertices[cite: 82].</li>
-        [cite_start]<li><strong>Weighted Graphs:</strong> Graphs where each edge is assigned a numerical value or "weight"[cite: 82].</li>
-        [cite_start]<li><strong>Planar Graphs:</strong> Graphs that can be drawn in a plane such that no edges cross each other[cite: 82].</li>
+        <li><strong>Multigraphs:</strong> Graphs that can have multiple edges between the same two vertices.</li>
+        <li><strong>Weighted Graphs:</strong> Graphs where each edge is assigned a numerical value or "weight".</li>
+        <li><strong>Planar Graphs:</strong> Graphs that can be drawn in a plane such that no edges cross each other.</li>
     </ul>
 
     <h2 id="walks-paths">Walks, Paths, and Circuits</h2>
-    [cite_start]<p>These terms describe movement within a graph[cite: 82]:</p>
+    <p>These terms describe movement within a graph:</p>
     <ul>
-        [cite_start]<li><strong>Walk:</strong> A sequence of vertices and edges[cite: 82].</li>
-        [cite_start]<li><strong>Path:</strong> A walk where all vertices (and thus all edges) are distinct[cite: 82].</li>
-        [cite_start]<li><strong>Circuit:</strong> A closed walk where the start and end vertices are the same[cite: 82].</li>
-        [cite_start]<li><strong>Connectedness:</strong> A graph is connected if there is a path between every pair of vertices[cite: 82].</li>
+        <li><strong>Walk:</strong> A sequence of vertices and edges.</li>
+        <li><strong>Path:</strong> A walk where all vertices (and thus all edges) are distinct.</li>
+        <li><strong>Circuit:</strong> A closed walk where the start and end vertices are the same.</li>
+        <li><strong>Connectedness:</strong> A graph is connected if there is a path between every pair of vertices.</li>
     </ul>
 
     <h2 id="euler-hamilton">Eulerian and Hamiltonian Graphs</h2>
     
     <ul>
-        [cite_start]<li><strong>Eulerian Graph:</strong> A graph containing a circuit that uses every <strong>edge</strong> exactly once[cite: 82].</li>
-        [cite_start]<li><strong>Hamiltonian Graph:</strong> A graph containing a circuit that visits every <strong>vertex</strong> exactly once[cite: 82].</li>
+        <li><strong>Eulerian Graph:</strong> A graph containing a circuit that uses every <strong>edge</strong> exactly once.</li>
+        <li><strong>Hamiltonian Graph:</strong> A graph containing a circuit that visits every <strong>vertex</strong> exactly once.</li>
     </ul>
 
     <h2 id="special-graphs">Complete, Regular, and Bipartite Graphs</h2>
     <ul>
-        [cite_start]<li><strong>Complete Graph:</strong> A graph where every pair of distinct vertices is connected by a unique edge[cite: 82].</li>
-        [cite_start]<li><strong>Regular Graph:</strong> A graph where every vertex has the same degree[cite: 82].</li>
-        [cite_start]<li><strong>Bipartite Graph:</strong> A graph whose vertices can be divided into two disjoint sets such that no two vertices within the same set are adjacent[cite: 82].</li>
+        <li><strong>Complete Graph:</strong> A graph where every pair of distinct vertices is connected by a unique edge.</li>
+        <li><strong>Regular Graph:</strong> A graph where every vertex has the same degree.</li>
+        <li><strong>Bipartite Graph:</strong> A graph whose vertices can be divided into two disjoint sets such that no two vertices within the same set are adjacent.</li>
     </ul>
 
     <h2 id="cuts">Cut-sets and Cut-vertices</h2>
     <ul>
-        [cite_start]<li><strong>Cut-vertex:</strong> A vertex whose removal increases the number of connected components in the graph[cite: 82].</li>
-        [cite_start]<li><strong>Cut-set:</strong> A set of edges whose removal disconnects the graph[cite: 82].</li>
+        <li><strong>Cut-vertex:</strong> A vertex whose removal increases the number of connected components in the graph.</li>
+        <li><strong>Cut-set:</strong> A set of edges whose removal disconnects the graph.</li>
     </ul>
 
     <div class="exam-focus" id="exam-prep">
         <h4>Exam Focus & Tips</h4>
         <ul>
-            [cite_start]<li><strong>Exam Tip:</strong> To prove a graph is Eulerian, check if all vertices have an even degree[cite: 82].</li>
-            <li><strong>Common Mistake:</strong> Confusing Eulerian (Edges) with Hamiltonian (Vertices). [cite_start]<strong>E</strong>uler = <strong>E</strong>dges[cite: 82].</li>
-            [cite_start]<li><strong>Practical Tip:</strong> Weighted graphs are frequently used in shortest-path problems like GPS navigation[cite: 82].</li>
+            <li><strong>Exam Tip:</strong> To prove a graph is Eulerian, check if all vertices have an even degree.</li>
+            <li><strong>Common Mistake:</strong> Confusing Eulerian (Edges) with Hamiltonian (Vertices). <strong>E</strong>uler = <strong>E</strong>dges.</li>
+            <li><strong>Practical Tip:</strong> Weighted graphs are frequently used in shortest-path problems like GPS navigation.</li>
         </ul>
         
         <hr>
         
         <h4>Frequently Asked Questions</h4>
         <p><strong>Q: What makes a graph "Planar"?</strong><br>
-        [cite_start]A: It can be drawn on a flat surface without any edges intersecting[cite: 82].</p>
+        A: It can be drawn on a flat surface without any edges intersecting.</p>
         
         <p><strong>Q: What is a Bipartite graph?</strong><br>
-        [cite_start]A: A graph where vertices are split into two groups, and edges only connect vertices from different groups[cite: 82].</p>
+        A: A graph where vertices are split into two groups, and edges only connect vertices from different groups.</p>
     </div>
 
 </div>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

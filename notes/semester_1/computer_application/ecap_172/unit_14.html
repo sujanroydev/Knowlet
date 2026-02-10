@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Computer Application ECAP 172 Unit 14 | 2nd Semester Notes - Knowlet</title>
+    <title>Computer Application ECAP 172 Unit 14 | 1st Semester Notes - Knowlet</title>
     <meta name="description" content="Final exam-ready notes for ECAP172 Unit 14: File Structure. Learn about C file handling, text vs binary files, preprocessor directives, and macros.">
     <meta name="keywords" content="ECAP172, C File Handling, Text Files, Binary Files, fopen, fclose, Preprocessor Directives, Macros, Knowlet">
     <link rel="stylesheet" href="../../../../assets/styles/units.css">
@@ -173,15 +173,15 @@
     
     <h3>FILE Pointer</h3>
     <p>In C, all file operations use a special structure called <code>FILE</code> defined in <code>stdio.h</code>. We declare a pointer of this type to track the file.</p>
-    <pre>FILE *fp;</pre></div>
+    <div class="add-horizontal-scroll"><pre>FILE *fp;</pre></div>
 
     <h3>fopen() Function</h3>
     <p>Used to open a file. It returns the address of the file if successful, otherwise <code>NULL</code>.</p>
-    <pre>fp = fopen("filename.txt", "mode");</pre></div>
+    <div class="add-horizontal-scroll"><pre>fp = fopen("filename.txt", "mode");</pre></div>
 
     <h3>fclose() Function</h3>
     <p>Used to close the file. It ensures all data is properly written (flushed) from the buffer to the disk.</p>
-    <pre>fclose(fp);</pre></div>
+    <div class="add-horizontal-scroll"><pre>fclose(fp);</pre></div>
 
     <h2 id="modes">3. File Opening Modes</h2>
     <p>Modes specify the purpose for which the file is being opened.</p>

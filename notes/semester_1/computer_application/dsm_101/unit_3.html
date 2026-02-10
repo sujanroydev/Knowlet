@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CADSM101 Unit 3 | 1st Semester Notes - Knowlet</title>
+    <title>Computer Application DSM 101 Unit 3 | 1st Semester Notes - Knowlet</title>
     <meta name="description" content="Detailed academic notes for CADSM101 Unit 3: Arrays and Pointers. Comprehensive coverage of multidimensional arrays, strings, pointer arithmetic, and function arguments.">
     <meta name="keywords" content="Knowlet, C Programming, Arrays, Pointers, Pointer Arithmetic, String Processing, Multidimensional Arrays, CADSM101 Notes">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -119,55 +120,55 @@
     </div>
 
     <h2 id="arrays-basics">Array Definition and Processing</h2>
-    [cite_start]<p>An <strong>array</strong> is a collection of data items of the same type stored in contiguous memory locations[cite: 116].</p>
+    <p>An <strong>array</strong> is a collection of data items of the same type stored in contiguous memory locations.</p>
     <ul>
-        [cite_start]<li><strong>Definition</strong>: Arrays are defined by specifying the data type and the number of elements (e.g., <code>int marks[5];</code>)[cite: 116].</li>
-        [cite_start]<li><strong>Processing</strong>: Elements are accessed using an index starting from 0[cite: 116].</li>
-        [cite_start]<li><strong>Passing to Functions</strong>: Entire arrays can be passed to functions to perform operations on the data set[cite: 116].</li>
+        <li><strong>Definition</strong>: Arrays are defined by specifying the data type and the number of elements (e.g., <code>int marks[5];</code>).</li>
+        <li><strong>Processing</strong>: Elements are accessed using an index starting from 0.</li>
+        <li><strong>Passing to Functions</strong>: Entire arrays can be passed to functions to perform operations on the data set.</li>
     </ul>
 
     <h2 id="multidimensional">Multidimensional Arrays and Strings</h2>
     <ul>
-        [cite_start]<li><strong>Multidimensional Arrays</strong>: C supports arrays of arrays, commonly used for matrices (2D arrays)[cite: 116].</li>
-        [cite_start]<li><strong>Strings</strong>: In C, a string is an array of characters terminated by a null character (<code>\0</code>)[cite: 116, 208].</li>
+        <li><strong>Multidimensional Arrays</strong>: C supports arrays of arrays, commonly used for matrices (2D arrays).</li>
+        <li><strong>Strings</strong>: In C, a string is an array of characters terminated by a null character (<code>\0</code>).</li>
     </ul>
     
 
     <h2 id="pointer-basics">Pointers: Addresses and Declarations</h2>
-    [cite_start]<p>A <strong>pointer</strong> is a variable that stores the memory address of another variable[cite: 117, 209].</p>
+    <p>A <strong>pointer</strong> is a variable that stores the memory address of another variable.</p>
     <ul>
-        [cite_start]<li><strong>Declaration</strong>: Pointers are declared using the <code>*</code> operator (e.g., <code>int *ptr;</code>)[cite: 117, 209].</li>
-        [cite_start]<li><strong>Addresses</strong>: The <code>&amp;</code> operator is used to get the address of a variable[cite: 117, 209].</li>
+        <li><strong>Declaration</strong>: Pointers are declared using the <code>*</code> operator (e.g., <code>int *ptr;</code>).</li>
+        <li><strong>Addresses</strong>: The <code>&amp;</code> operator is used to get the address of a variable.</li>
     </ul>
 
     <h2 id="pointer-args">Pointers and Function Arguments</h2>
-    [cite_start]<p>Pointers allow functions to modify the original value of variables in the calling function, known as <strong>Call by Reference</strong>[cite: 117, 209].</p>
+    <p>Pointers allow functions to modify the original value of variables in the calling function, known as <strong>Call by Reference</strong>.</p>
     <ul>
-        [cite_start]<li><strong>Passing Pointers</strong>: Instead of passing a value, the address is passed to the function[cite: 117, 209].</li>
-        [cite_start]<li><strong>Utility</strong>: This is essential for returning multiple values from a function or manipulating large data structures efficiently[cite: 117, 209].</li>
+        <li><strong>Passing Pointers</strong>: Instead of passing a value, the address is passed to the function.</li>
+        <li><strong>Utility</strong>: This is essential for returning multiple values from a function or manipulating large data structures efficiently.</li>
     </ul>
 
     <h2 id="pointer-arithmetic">Address Arithmetic and Arrays</h2>
-    [cite_start]<p>C allows arithmetic operations on pointers, which is closely linked to how arrays work[cite: 118, 120, 210].</p>
+    <p>C allows arithmetic operations on pointers, which is closely linked to how arrays work.</p>
     <ul>
-        [cite_start]<li><strong>Pointer Arithmetic</strong>: Adding an integer to a pointer moves it to the next memory location of its base type[cite: 118, 120, 210].</li>
-        [cite_start]<li><strong>One-dimensional Arrays</strong>: The name of an array acts as a constant pointer to its first element[cite: 117, 209].</li>
-        [cite_start]<li><strong>Character Pointers</strong>: Often used to handle strings and dynamic text efficiently[cite: 118, 210].</li>
+        <li><strong>Pointer Arithmetic</strong>: Adding an integer to a pointer moves it to the next memory location of its base type.</li>
+        <li><strong>One-dimensional Arrays</strong>: The name of an array acts as a constant pointer to its first element.</li>
+        <li><strong>Character Pointers</strong>: Often used to handle strings and dynamic text efficiently.</li>
     </ul>
     
 
     <h2 id="pointer-advanced">Pointer Arrays and Pointers to Pointers</h2>
     <ul>
-        [cite_start]<li><strong>Pointer Arrays</strong>: An array where each element is a pointer (e.g., used for arrays of strings)[cite: 118, 210].</li>
-        [cite_start]<li><strong>Pointers to Pointers</strong>: A variable that stores the address of another pointer[cite: 118, 210].</li>
-        [cite_start]<li><strong>Initialization</strong>: Pointer arrays can be initialized with addresses of variables or string literals[cite: 118, 210].</li>
+        <li><strong>Pointer Arrays</strong>: An array where each element is a pointer (e.g., used for arrays of strings).</li>
+        <li><strong>Pointers to Pointers</strong>: A variable that stores the address of another pointer.</li>
+        <li><strong>Initialization</strong>: Pointer arrays can be initialized with addresses of variables or string literals.</li>
     </ul>
 
     <h2 id="cmd-line">Command Line Arguments and Function Pointers</h2>
     <ul>
-        [cite_start]<li><strong>Command Line Arguments</strong>: Parameters passed to the <code>main()</code> function from the terminal (<code>argc</code> and <code>argv</code>)[cite: 119, 211].</li>
-        [cite_start]<li><strong>Pointers to Functions</strong>: Variables that store the starting address of executable code[cite: 119, 211].</li>
-        [cite_start]<li><strong>Passing Functions</strong>: Function pointers can be passed as arguments to other functions, enabling callbacks[cite: 119, 211].</li>
+        <li><strong>Command Line Arguments</strong>: Parameters passed to the <code>main()</code> function from the terminal (<code>argc</code> and <code>argv</code>).</li>
+        <li><strong>Pointers to Functions</strong>: Variables that store the starting address of executable code.</li>
+        <li><strong>Passing Functions</strong>: Function pointers can be passed as arguments to other functions, enabling callbacks.</li>
     </ul>
 
     <div class="exam-focus" id="exam-prep">
@@ -185,9 +186,12 @@
         A: The size depends on the system architecture (typically 4 bytes for 32-bit and 8 bytes for 64-bit systems), regardless of the data type it points to.</p>
         
         <p><strong>Q: Why use pointers for function arguments?</strong><br>
-        [cite_start]A: It allows the function to modify the actual variable in the caller's scope and saves memory by not copying large data sets[cite: 117, 209].</p>
+        A: It allows the function to modify the actual variable in the caller's scope and saves memory by not copying large data sets.</p>
     </div>
 
 </div>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
 </body>
 </html>

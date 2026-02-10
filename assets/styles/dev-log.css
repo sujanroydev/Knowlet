@@ -153,7 +153,7 @@ header p{
 	font-weight:600;
 }
 
-.hash{
+.hash, .merge{
 	font-family:monospace;
 	font-size:0.75rem;
 	padding:3px 8px;
@@ -161,6 +161,10 @@ header p{
 	background:#eef2ff;
 	color:var(--primary);
 	font-weight:600;
+}
+
+.merge{
+	color:var(--secondary);
 }
 
 .commit-msg{

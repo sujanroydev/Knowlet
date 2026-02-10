@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application SEC 101 Unit 2 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Detailed academic notes for CASEC101 Unit 2: Functions and Program Structure. Covers recursion, storage classes, and preprocessors in C.">
+    <meta name="keywords" content="Knowlet, C Functions, Recursion, Storage Classes, C Preprocessor, Scope Rules, CASEC101 Unit 2">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #27ae60;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #27ae60;
+            border-left: 5px solid #2ecc71;
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #d35400;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #f4fff8;
+            border-left: 10px solid #27ae60;
+            margin: 1.5em 10px;
+            padding: 1em 10px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #27ae60;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background: #f0fff4;
+            padding: 20px;
+            border: 1px dashed #27ae60;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .exam-focus {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit II: Functions and Program Structure</h1>
+    <p><strong>Course:</strong> Programming with C (SEC) <br>
+    <strong>Code:</strong> CASEC101 </p>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#defining-functions">Defining and Accessing Functions</a></li>
+            <li><a href="#passing-arguments">Passing Arguments and Data Types</a></li>
+            <li><a href="#prototypes">Function Prototypes and Return Types</a></li>
+            <li><a href="#storage-classes">Storage Classes (Auto, Extern, Static, Register)</a></li>
+            <li><a href="#scope-rules">Scope Rules and Block Structure</a></li>
+            <li><a href="#recursion">Recursion in C</a></li>
+            <li><a href="#preprocessor">The C Preprocessor and Header Files</a></li>
+            <li><a href="#exam-prep">Exam Focus: Tips & FAQs</a></li>
+        </ul>
+    </div>
+
+    <h2 id="defining-functions">Defining and Accessing Functions</h2>
+    <p>Functions are the building blocks of a C program, allowing for modularity and code reuse.</p>
+    <ul>
+        <li><strong>Defining Functions:</strong> A function definition consists of a return type, a function name, and a set of parameters enclosed in parentheses.</li>
+        <li><strong>Accessing Functions:</strong> Functions are accessed (or called) from other functions like <code>main()</code> to perform their specific task.</li>
+    </ul>
+
+    <h2 id="passing-arguments">Passing Arguments and Data Types</h2>
+    <p>Data is transferred to functions through arguments, which must have specified data types.</p>
+    
+    <ul>
+        <li><strong>Argument Data Types:</strong> You must explicitly specify the data type (e.g., int, float) for each argument in the function header.</li>
+        <li><strong>Illustration with Examples:</strong> Using functions to solve specific problems, such as finding factorials or processing strings, helps clarify how data moves through a program.</li>
+    </ul>
+
+    <h2 id="prototypes">Function Prototypes and Return Types</h2>
+    <p>Prototypes provide the compiler with necessary information about a function before it is used.</p>
+    <ul>
+        <li><strong>Function Prototypes:</strong> A declaration that tells the compiler the function's name, its return type, and the types of its parameters.</li>
+        <li><strong>Returning Non-integers:</strong> While many functions return integers, C allows functions to return other types like <code>float</code>, <code>double</code>, or <code>char</code>.</li>
+    </ul>
+
+    <h2 id="storage-classes">Storage Classes</h2>
+    <p>Storage classes determine the visibility (scope) and lifetime of variables in C.</p>
+    <div class="add-horizontal-scroll"><table>
+        <tr>
+            <th>Class</th>
+            <th>Keyword</th>
+            <th>Scope</th>
+            <th>Lifetime</th>
+        </tr>
+        <tr>
+            <td><strong>Automatic</strong></td>
+            <td>auto</td>
+            <td>Inside the block/function.</td>
+            <td>Function execution duration.</td>
+        </tr>
+        <tr>
+            <td><strong>External</strong></td>
+            <td>extern</td>
+            <td>Global (across files).</td>
+            <td>Program execution duration.</td>
+        </tr>
+        <tr>
+            <td><strong>Static</strong></td>
+            <td>static</td>
+            <td>Inside the block/function.</td>
+            <td>Program execution duration (value is retained).</td>
+        </tr>
+        <tr>
+            <td><strong>Register</strong></td>
+            <td>register</td>
+            <td>Inside the block/function.</td>
+            <td>Function execution duration (stored in CPU register).</td>
+        </tr>
+    </table></div>
+
+    <h2 id="scope-rules">Scope Rules and Block Structure</h2>
+    <p>Scope rules define where a variable is accessible within the program.</p>
+    <ul>
+        <li><strong>Scope Rules:</strong> Local variables are only visible within their defined block, whereas global (external) variables can be seen throughout the file.</li>
+        <li><strong>Block Structure:</strong> C uses curly braces <code>{}</code> to define blocks of code, allowing for nested scopes where variables can be protected or shared.</li>
+        <li><strong>Header Files:</strong> Used to share function prototypes and global definitions across different source files (e.g., <code>stdio.h</code>).</li>
+    </ul>
+
+    <h2 id="recursion">Recursion in C</h2>
+    <p>Recursion occurs when a function calls itself to solve a smaller version of the same problem.</p>
+    
+    <ul>
+        <li><strong>Recursive Programs:</strong> Useful for problems with a repetitive nature, such as the <strong>Tower of Hanoi</strong> or generating the <strong>Fibonacci sequence</strong>.</li>
+        <li><strong>Base Case:</strong> Every recursive function must have a termination condition to prevent infinite calls.</li>
+    </ul>
+
+    <h2 id="preprocessor">The C Preprocessor</h2>
+    <p>The preprocessor handles directives that begin with <code>#</code> before the actual compilation starts.</p>
+    <ul>
+        <li><strong>Functionality:</strong> It handles file inclusion (<code>#include</code>), macro expansion (<code>#define</code>), and conditional compilation.</li>
+    </ul>
+
+    <div class="exam-focus" id="exam-prep">
+        <h4>Exam Focus & Tips</h4>
+        <ul>
+            <li><strong>Exam Tip:</strong> Be prepared to write a recursive function for <strong>Tower of Hanoi</strong> or <strong>Fibonacci</strong>.</li>
+            <li><strong>Common Mistake:</strong> Forgetting to use the <code>static</code> keyword when a variable needs to retain its value between function calls.</li>
+            <li><strong>Mnemonic:</strong> <strong>"E-A-S-R"</strong> for Storage Classes: <strong>E</strong>xtern, <strong>A</strong>uto, <strong>S</strong>tatic, <strong>R</strong>egister.</li>
+        </ul>
+        <hr>
+        <h4>Frequently Asked Questions</h4>
+        <p><strong>Q: What is a recursive function?</strong><br>
+        A: It is a function that calls itself to solve a sub-problem.</p>
+        <p><strong>Q: Why are header files used?</strong><br>
+        A: To include function prototypes and declarations so that functions defined in other files can be used correctly.</p>
+    </div>
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

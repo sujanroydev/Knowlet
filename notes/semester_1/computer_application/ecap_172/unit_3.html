@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application ECAP 172 Unit 3 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Exam-ready HTML notes for ECAP172 Unit 3: Unformatted and Formatted I/O. Detailed coverage of printf, scanf, getchar, and C expressions.">
+    <meta name="keywords" content="ECAP172, C programming, Formatted IO, Unformatted IO, printf, scanf, C Expressions, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #2980b9;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --code-bg: #2d3436;
+            --code-text: #dfe6e9;
+            --border-color: #dcdde1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: var(--accent-color);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            margin-top: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        blockquote {
+            background: #e1f5fe;
+            border-left: 5px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        pre {
+            background: var(--code-bg);
+            color: var(--code-text);
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            color: var(--accent-color);
+        }
+
+        .exam-section {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .tips { background-color: #e8f5e9; border: 1px solid #2e7d32; }
+        .mistakes { background-color: #ffebee; border: 1px solid #c62828; }
+        .faq { background-color: #e3f2fd; border: 1px solid #1565c0; }
+
+        strong { color: #2c3e50; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 3: Unformatted and Formatted I/O</h1>
+
+    <div class="toc">
+        <h3>Table of Contents</h3>
+        <ul>
+            <li><a href="#intro-io">1. Introduction to I/O Functions</a></li>
+            <li><a href="#formatted-io">2. Formatted I/O: printf() and scanf()</a></li>
+            <li><a href="#unformatted-io">3. Unformatted I/O: Character and String Functions</a></li>
+            <li><a href="#expressions">4. Expressions in C</a></li>
+            <li><a href="#exam-corner">5. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="intro-io">1. Introduction to I/O Functions</h2>
+    <p>Input/Output (I/O) functions are essential for interaction between the user and the computer. In C, these functions are categorized based on whether they allow the user to control the format of the data being transferred.</p>
+    <ul>
+        <li><strong>Input:</strong> Sending data into a program from a keyboard or file.</li>
+        <li><strong>Output:</strong> Displaying or storing the results of a program.</li>
+    </ul>
+
+    <h2 id="formatted-io">2. Formatted I/O: printf() and scanf()</h2>
+    <p>Formatted functions allow the programmer to specify exactly how the data should be read or displayed using format specifiers.</p>
+
+    <h3>printf() Function</h3>
+    <p>Used to send formatted output to the standard output device (usually the screen).</p>
+    <div class="add-horizontal-scroll"><pre>
+printf("format string", argument_list);
+// Example: printf("Age is %d", age);
+    </pre></div>
+
+    <h3>scanf() Function</h3>
+    <p>Used to read formatted input from the standard input device (usually the keyboard).</p>
+    <div class="add-horizontal-scroll"><pre>
+scanf("format string", &argument_list);
+// Example: scanf("%d", &age);
+    </pre></div>
+
+    <h3>Common Format Specifiers</h3>
+    <div class="add-horizontal-scroll"><table>
+        <tr>
+            <th>Specifier</th>
+            <th>Data Type</th>
+        </tr>
+        <tr>
+            <td>%d</td>
+            <td>Signed Decimal Integer</td>
+        </tr>
+        <tr>
+            <td>%f</td>
+            <td>Floating-point number</td>
+        </tr>
+        <tr>
+            <td>%c</td>
+            <td>Single Character</td>
+        </tr>
+        <tr>
+            <td>%s</td>
+            <td>String (Character Array)</td>
+        </tr>
+    </table></div>
+
+    <h2 id="unformatted-io">3. Unformatted I/O: Character and String Functions</h2>
+    <p>Unformatted I/O functions work with individual characters or strings of characters without using format specifiers.</p>
+
+    <h3>Character I/O</h3>
+    <ul>
+        <li><strong>getchar():</strong> Reads a single character from the keyboard.</li>
+        <li><strong>putchar():</strong> Displays a single character on the screen.</li>
+    </ul>
+
+    <h3>String I/O</h3>
+    <ul>
+        <li><strong>gets():</strong> Reads a string (including spaces) from the keyboard until a newline is reached.</li>
+        <li><strong>puts():</strong> Displays a string on the screen and automatically moves the cursor to a new line.</li>
+    </ul>
+
+    <h2 id="expressions">4. Expressions in C</h2>
+    <p>An expression is a combination of operators, constants, and variables arranged according to the rules of the language.</p>
+    
+    <blockquote>
+        <strong>Definition:</strong> An expression evaluates to a single value. For example, <em>a + b</em> is an arithmetic expression.
+    </blockquote>
+    <ul>
+        <li><strong>Operands:</strong> The data elements (variables or constants) on which operations are performed.</li>
+        <li><strong>Operators:</strong> Symbols that trigger specific mathematical or logical actions.</li>
+    </ul>
+
+    <h2 id="exam-corner">5. Exam Focus Enhancements</h2>
+
+    <div class="exam-section tips">
+        <h3>Exam Tips</h3>
+        <ul>
+            <li><strong>The Ampersand (&):</strong> Always remember to use the address operator (&) in <code>scanf()</code> for non-string variables.</li>
+            <li><strong>gets vs scanf:</strong> Use <code>gets()</code> if you need to input a string that contains spaces; <code>scanf("%s")</code> stops at the first space.</li>
+            <li><strong>Header Files:</strong> Ensure <code>#include &lt;stdio.h&gt;</code> is at the top of your program to use these functions.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section mistakes">
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li>Forgetting the <strong>&</strong> in <code>scanf()</code>. This will cause the program to crash or behave unpredictably.</li>
+            <li>Confusing <strong>printf</strong> with <strong>puts</strong>. <code>puts()</code> only works for strings and adds a newline, while <code>printf()</code> is versatile but requires format specifiers.</li>
+            <li>Assuming <strong>getchar()</strong> will wait for 'Enter'. It captures the very first keystroke it receives.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section faq">
+        <h3>Frequently Asked Questions</h3>
+        <p><strong>Q: What is the primary difference between formatted and unformatted I/O?</strong><br>
+        A: Formatted I/O uses format specifiers (%d, %f) to handle different data types, whereas unformatted I/O handles raw characters and strings.</p>
+        <p><strong>Q: Why do we use putchar() instead of printf()?</strong><br>
+        A: <code>putchar()</code> is faster and more efficient when you only need to output a single character.</p>
+    </div>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

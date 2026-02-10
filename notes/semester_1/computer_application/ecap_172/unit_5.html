@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application ECAP 172 Unit 5 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for ECAP172 Unit 5: Control Structures. Learn about if-else, switch-case, and loops in C programming.">
+    <meta name="keywords" content="ECAP172, Control Structures, C Loops, if-else, switch-case, for loop, while loop, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e67e22;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --border-color: #ddd;
+            --code-bg: #2d3436;
+            --code-text: #dfe6e9;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            margin-top: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            color: var(--secondary-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        blockquote {
+            background: #fdf2e9;
+            border-left: 5px solid var(--secondary-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        pre {
+            background: var(--code-bg);
+            color: var(--code-text);
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        .exam-section {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .tips { background-color: #e8f8f5; border: 1px solid #27ae60; }
+        .mistakes { background-color: #fdedec; border: 1px solid #c0392b; }
+        .faq { background-color: #ebf5fb; border: 1px solid #2980b9; }
+
+        strong { color: #d35400; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 5: Control Structures</h1>
+
+    <div class="toc">
+        <h3>Table of Contents</h3>
+        <ul>
+            <li><a href="#decision-making">1. Decision-Making Statements (if, if-else)</a></li>
+            <li><a href="#nested-if">2. Nested if-else and if-else-if Ladder</a></li>
+            <li><a href="#switch-case">3. Switch-Case Statement</a></li>
+            <li><a href="#looping">4. Looping Statements (for, while, do-while)</a></li>
+            <li><a href="#jump-statements">5. Jump Statements: break and continue</a></li>
+            <li><a href="#exam-prep">6. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="decision-making">1. Decision-Making Statements (if, if-else)</h2>
+    <p>Decision-making structures require that the programmer specify one or more conditions to be evaluated or tested by the program.</p>
+    
+    <h3>The if Statement</h3>
+    <p>It is the simplest decision-making statement. It is used to decide whether a certain statement or block of statements will be executed or not.</p>
+    <div class="add-horizontal-scroll"><pre>
+if (condition) {
+    // block of code to be executed if the condition is true
+}
+    </pre></div>
+
+    <h3>The if-else Statement</h3>
+    <p>The <strong>if</strong> statement alone tells us that if a condition is true it will execute a block of statements. If the condition is false, we can use <strong>else</strong> to execute a different block.</p>
+    <div class="add-horizontal-scroll"><pre>
+if (condition) {
+    // executes if condition is true
+} else {
+    // executes if condition is false
+}
+    </pre></div>
+
+    <h2 id="nested-if">2. Nested if-else and if-else-if Ladder</h2>
+    <h3>Nested if</h3>
+    <p>An <strong>if</strong> or <strong>else</strong> statement inside another <strong>if</strong> or <strong>else</strong> statement is called nested if.</p>
+    
+    
+
+[Image of nested if-else flowchart]
+
+
+    <h3>if-else-if Ladder</h3>
+    <p>Used when we have multiple conditions to check. The compiler checks conditions from top to bottom. As soon as a true condition is found, the statement associated with it is executed.</p>
+    <div class="add-horizontal-scroll"><pre>
+if (condition1) {
+    // code
+} else if (condition2) {
+    // code
+} else {
+    // code if no conditions are true
+}
+    </pre></div>
+
+    <h2 id="switch-case">3. Switch-Case Statement</h2>
+    <p>The <strong>switch</strong> statement allows a variable to be tested for equality against a list of values. Each value is called a <strong>case</strong>, and the variable being switched on is checked for each switch case.</p>
+    
+    <blockquote>
+        <strong>Rule:</strong> The expression used in a switch statement must have an integral or enumerated type (int or char).
+    </blockquote>
+
+    <div class="add-horizontal-scroll"><pre>
+switch (expression) {
+    case value1:
+        // statement
+        break;
+    case value2:
+        // statement
+        break;
+    default:
+        // default statement
+}
+    </pre></div>
+
+    <h2 id="looping">4. Looping Statements (for, while, do-while)</h2>
+    <p>Loops are used to repeat a block of code a specific number of times or until a certain condition is met.</p>
+
+    <h3>The while Loop</h3>
+    <p>This is an <strong>entry-controlled</strong> loop. The condition is checked <em>before</em> entering the loop body.</p>
+    <div class="add-horizontal-scroll"><pre>
+while (condition) {
+    // statements
+}
+    </pre></div>
+
+    <h3>The do-while Loop</h3>
+    <p>This is an <strong>exit-controlled</strong> loop. The body of the loop is executed at least <em>once</em> before the condition is checked.</p>
+    <div class="add-horizontal-scroll"><pre>
+do {
+    // statements
+} while (condition);
+    </pre></div>
+
+    <h3>The for Loop</h3>
+    <p>Used when the number of iterations is known in advance. It includes initialization, condition, and increment/decrement in one line.</p>
+    <div class="add-horizontal-scroll"><pre>
+for (initialization; condition; increment/decrement) {
+    // statements
+}
+    </pre></div>
+
+    
+
+    <h2 id="jump-statements">5. Jump Statements: break and continue</h2>
+    <p>These statements are used to alter the flow of a loop or switch statement.</p>
+    
+    <ul>
+        <li><strong>break:</strong> Terminates the loop or switch statement and transfers execution to the statement immediately following the loop.</li>
+        <li><strong>continue:</strong> Skips the remaining statements in the current iteration of the loop and moves to the next iteration.</li>
+    </ul>
+
+    <h2 id="exam-prep">6. Exam Focus Enhancements</h2>
+
+    <div class="exam-section tips">
+        <h3>Exam Tips</h3>
+        <ul>
+            <li><strong>Entry vs Exit Controlled:</strong> Always distinguish between while (entry) and do-while (exit). This is a common theory question.</li>
+            <li><strong>The break in Switch:</strong> If you forget <code>break;</code> in a switch case, "fall-through" occurs, executing all subsequent cases until a break or the end of the switch is found.</li>
+            <li><strong>Infinite Loops:</strong> A loop with a condition that is always true (e.g., <code>while(1)</code>) is an infinite loop. Be careful with increment/decrement steps!</li>
+        </ul>
+    </div>
+
+    <div class="exam-section mistakes">
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li><strong>Semicolon in for/if:</strong> Putting a semicolon immediately after <code>if(cond);</code> or <code>for(...);</code>. This terminates the logic prematurely.</li>
+            <li><strong>Assignment vs Equality:</strong> Using <code>if (a = 5)</code> instead of <code>if (a == 5)</code>. The first one assigns 5 to 'a' and is always treated as true.</li>
+            <li><strong>do-while semicolon:</strong> Forgetting the semicolon at the end of <code>while(condition);</code> in a do-while loop.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section faq">
+        <h3>Frequently Asked Questions</h3>
+        <p><strong>Q: Can we use float in switch case?</strong><br>
+        A: No, switch expressions must result in an integer or character constant.</p>
+        <p><strong>Q: When is a for loop better than a while loop?</strong><br>
+        A: Use a for loop when you know the exact number of iterations. Use a while loop when you need to repeat something until a specific event/condition occurs.</p>
+    </div>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

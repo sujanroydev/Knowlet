@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application SEC 151 Unit 3 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Exam-ready HTML notes for CASEC 151: Python Programming, Unit 3. Comprehensive guide to Python Data Structures (Lists, Tuples, Sets, Dictionaries) and Modules.">
+    <meta name="keywords" content="Python Programming, CASEC 151, Unit 3, Python Lists, Tuples, Sets, Dictionaries, Python Modules, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --python-blue: #3776ab;
+            --python-yellow: #ffd43b;
+            --header-bg: #2c3e50;
+            --section-bg: #f9f9f9;
+            --accent: #e67e22;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: var(--python-blue);
+            text-align: center;
+            border-bottom: 4px solid var(--python-yellow);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: var(--header-bg);
+            border-left: 5px solid var(--python-blue);
+            padding-left: 15px;
+            margin-top: 40px;
+            background: var(--section-bg);
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: var(--accent);
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #fdf2e9;
+            border-left: 10px solid var(--accent);
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        table, th, td {
+            border: 1px solid #bdc3c7;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--python-blue);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+            column-count: 2;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--python-blue);
+            font-weight: bold;
+        }
+        .exam-section {
+            background-color: #e8f4fd;
+            border: 1px solid #b8daff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-section h4 {
+            margin-top: 0;
+            color: #004085;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit III: Data Structures and Modules</h1>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#lists">1. Lists</a></li>
+            <li><a href="#tuples">2. Tuples</a></li>
+            <li><a href="#sets">3. Sets</a></li>
+            <li><a href="#dictionaries">4. Dictionaries</a></li>
+            <li><a href="#modules">5. Python Modules</a></li>
+            <li><a href="#string-manip">6. String Manipulation</a></li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 id="lists">1. Lists</h2>
+    <p>
+        A <strong>List</strong> is an ordered, mutable collection of items that can be of different data types.
+    </p>
+    <ul>
+        <li><strong>Indexing:</strong> Lists use zero-based indexing to access elements.</li>
+        <li><strong>Operations:</strong> Supports concatenation (joining lists), repetition (multiplying elements), membership (checking if item exists), and slicing (extracting parts of a list).</li>
+        <li><strong>Traversal:</strong> Lists can be traversed using loops to process each element sequentially.</li>
+        <li><strong>Nested Lists:</strong> Lists can contain other lists as elements.</li>
+        <li><strong>Built-in Methods:</strong> Python provides various methods to manipulate lists, such as append(), extend(), and insert().</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="tuples">2. Tuples</h2>
+    <p>
+        A <strong>Tuple</strong> is an ordered, immutable sequence of items. Once created, its elements cannot be changed.
+    </p>
+    <ul>
+        <li><strong>Indexing:</strong> Similar to lists, tuples use indexing to access specific items.</li>
+        <li><strong>Operations:</strong> Supports concatenation, repetition, membership, and slicing.</li>
+        <li><strong>Built-in Functions:</strong> Common functions include len(), max(), and min().</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="sets">3. Sets</h2>
+    <p>
+        A <strong>Set</strong> is an unordered collection of unique elements.
+    </p>
+    <ul>
+        <li><strong>Creation:</strong> Sets are created using curly braces {} or the set() function.</li>
+        <li><strong>Modification:</strong> Elements can be added or removed, but sets do not support indexing or slicing because they are unordered.</li>
+        <li><strong>Operations:</strong> Includes mathematical set operations like union, intersection, difference, and symmetric difference.</li>
+        <li><strong>Methods:</strong> Common methods include add(), remove(), and pop().</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="dictionaries">4. Dictionaries</h2>
+    <p>
+        A <strong>Dictionary</strong> is a mapping of unique keys to values.
+    </p>
+    <ul>
+        <li><strong>Accessing Items:</strong> Values are accessed using their associated keys rather than index numbers.</li>
+        <li><strong>Mutability:</strong> Dictionaries are mutable, allowing for adding new terms or modifying existing items.</li>
+        <li><strong>Traversal:</strong> You can traverse a dictionary to access keys, values, or key-value pairs using loops.</li>
+        <li><strong>Built-in Methods:</strong> Includes keys(), values(), and items().</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="modules">5. Python Modules</h2>
+    <p>
+        A <strong>Module</strong> is a file containing Python definitions and statements that can be reused in other programs.
+    </p>
+    <ul>
+        <li><strong>Importing:</strong> Modules are imported using the <code>import &lt;module&gt;</code> statement or the <code>from ... import ...</code> syntax.</li>
+        <li><strong>Math Module:</strong> A built-in module providing access to mathematical functions like sqrt(), sin(), and cos().</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="string-manip">6. String Manipulation</h2>
+    <p>
+        Advanced string handling techniques are vital for data processing.
+    </p>
+    <ul>
+        <li><strong>Basic Operations:</strong> Includes string concatenation and repetition.</li>
+        <li><strong>Slicing:</strong> Using range indices to extract substrings.</li>
+    </ul>
+
+    
+
+    <div class="exam-section">
+        <h4>Exam Tips: Data Structure Comparison</h4>
+        <div class="add-horizontal-scroll"><table>
+            <tr>
+                <th>Structure</th>
+                <th>Ordered?</th>
+                <th>Mutable?</th>
+                <th>Duplicates?</th>
+            </tr>
+            <tr>
+                <td>List</td>
+                <td>Yes </td>
+                <td>Yes </td>
+                <td>Allowed </td>
+            </tr>
+            <tr>
+                <td>Tuple</td>
+                <td>Yes </td>
+                <td>No </td>
+                <td>Allowed </td>
+            </tr>
+            <tr>
+                <td>Set</td>
+                <td>No </td>
+                <td>Yes </td>
+                <td>No </td>
+            </tr>
+            <tr>
+                <td>Dictionary</td>
+                <td>No (pre-3.7)</td>
+                <td>Yes </td>
+                <td>Keys must be unique </td>
+            </tr>
+        </table></div>
+    </div>
+
+    <div class="exam-section">
+        <h4>Common Mistakes</h4>
+        <ul>
+            <li>Trying to change a tuple element (Tuples are immutable!).</li>
+            <li>Using a mutable type (like a list) as a dictionary key.</li>
+            <li>Assuming sets maintain the order in which items were added.</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h3>Frequently Asked Questions</h3>
+    <p><strong>Q1: When should I use a Tuple instead of a List?</strong><br>
+    Use a tuple when you have data that should not change throughout the program (e.g., coordinates, constant settings) to ensure data integrity.</p>
+
+    <p><strong>Q2: How do I remove duplicates from a list?</strong><br>
+    The easiest way is to convert the list to a set using <code>set(my_list)</code> and then back to a list, as sets automatically handle unique elements.</p>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics EMTH 136 Unit 12 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Academic exam notes for EMTH136 Unit 12: Probability. Covers sample spaces, events, mutually exclusive events, and axiomatic probability.">
+    <meta name="keywords" content="EMTH136, Discrete Structures, Probability, Sample Space, Mutually Exclusive Events, Axiomatic Probability, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary-navy: #1a2a6c;
+            --accent-blue: #3498db;
+            --bg-light: #f4f7f6;
+            --text-dark: #2d3436;
+            --border-color: #bdc3c7;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        h1 {
+            color: var(--primary-navy);
+            text-align: center;
+            border-bottom: 4px solid var(--accent-blue);
+            padding-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: var(--accent-blue);
+            border-left: 6px solid var(--primary-navy);
+            padding: 8px 15px;
+            margin-top: 40px;
+            background: #e1f5fe;
+        }
+
+        h3 {
+            color: var(--primary-navy);
+            margin-top: 25px;
+            border-bottom: 2px solid #f1f2f6;
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .toc {
+            background: #ffffff;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-navy);
+            font-weight: bold;
+        }
+
+        .formula-box {
+            background-color: #f8f9fa;
+            border: 1px solid var(--primary-navy);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .exam-section {
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .tips { background-color: #e8f6f3; border: 1px solid #1abc9c; }
+        .mistakes { background-color: #fdedec; border: 1px solid #e74c3c; }
+        .faq { background-color: #ebf5fb; border: 1px solid #3498db; }
+
+        .tag {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 12: Probability</h1>
+
+    <div class="toc">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#experiments">1. Random Experiments and Sample Space</a></li>
+            <li><a href="#events">2. Types of Events</a></li>
+            <li><a href="#axiomatic">3. Axiomatic Approach to Probability</a></li>
+            <li><a href="#operations">4. Probability of 'And', 'Or', and 'Not' Events</a></li>
+            <li><a href="#exam-prep">5. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="experiments">1. Random Experiments and Sample Space</h2>
+    <p>A <strong>Random Experiment</strong> is an experiment whose all possible outcomes are known in advance, but the exact outcome of any specific performance cannot be predicted.</p>
+    <ul>
+        <li><strong>Outcomes:</strong> The possible results of a random experiment.</li>
+        <li><strong>Sample Space (S):</strong> The set of all possible outcomes.
+            <br><em>Example:</em> Tossing two coins, S = \{HH, HT, TH, TT\}.</li>
+        <li><strong>Sample Point:</strong> Each element of the sample space.</li>
+    </ul>
+
+    <h2 id="events">2. Types of Events</h2>
+    <p>An <strong>Event</strong> is any subset of a sample space. We say an event A has occurred if the outcome of the experiment is in set A.</p>
+    
+    
+
+    <ul>
+        <li><strong>Impossible Event:</strong> An empty set (φ), which contains no outcomes.</li>
+        <li><strong>Sure Event:</strong> The entire sample space (S).</li>
+        <li><strong>Simple Event:</strong> An event containing only one sample point.</li>
+        <li><strong>Compound Event:</strong> An event containing more than one sample point.</li>
+    </ul>
+
+    <h3>Mutually Exclusive and Exhaustive Events</h3>
+    <ul>
+        <li><strong>Mutually Exclusive Events:</strong> Two events A and B are mutually exclusive if they cannot happen at the same time (A ∩ B = φ).</li>
+        <li><strong>Exhaustive Events:</strong> Events A<sub>1</sub>, A<sub>2</sub>, \dots, A<sub>n</sub> are exhaustive if their union is the sample space (A<sub>1</sub> ∪ A<sub>2</sub> ∪ \dots ∪ A<sub>n</sub> = S).</li>
+    </ul>
+
+    <h2 id="axiomatic">3. Axiomatic Approach to Probability</h2>
+    <p>The axiomatic approach is a modern way of defining probability using three fundamental rules (axioms) for any event A in sample space S:</p>
+    <div class="formula-box">
+        1. 0 ≤ P(A) ≤ 1 <br>
+        2. P(S) = 1 <br>
+        3. If A and B are mutually exclusive, P(A ∪ B) = P(A) + P(B)
+    </div>
+
+    <h2 id="operations">4. Probability of 'And', 'Or', and 'Not' Events</h2>
+    <p>We use set theory operations to calculate the probability of complex events.</p>
+
+    
+
+    <ul>
+        <li><strong>Probability of 'Not' A (A'):</strong> The probability that event A does not occur.
+            <div class="formula-box">P(A') = 1 - P(A)</div>
+        </li>
+        <li><strong>Probability of 'A or B' (A ∪ B):</strong> Addition Theorem of Probability.
+            <div class="formula-box">P(A ∪ B) = P(A) + P(B) - P(A ∩ B)</div>
+        </li>
+        <li><strong>Probability of 'A and B' (A ∩ B):</strong> The probability that both events occur simultaneously.</li>
+    </ul>
+
+    <h2 id="exam-prep">5. Exam Focus Enhancements</h2>
+
+    <div class="exam-section tips">
+        <span class="tag">Exam Tips</span>
+        <ul>
+            <li><strong>The Sum Rule:</strong> Always remember that the sum of probabilities of all simple events in a sample space is exactly <strong>1</strong>.</li>
+            <li><strong>Mutually Exclusive Shortcut:</strong> If a question says events are "mutually exclusive," immediately set P(A ∩ B) = 0 in the addition theorem.</li>
+            <li><strong>At Least One:</strong> The phrase "probability of at least one event occurring" usually means P(A ∪ B).</li>
+        </ul>
+    </div>
+
+    <div class="exam-section mistakes">
+        <span class="tag">Common Mistakes</span>
+        <ul>
+            <li><strong>P > 1:</strong> If your calculated probability is greater than 1 or negative, there is an error in your calculation. Probability <strong>must</strong> be between 0 and 1.</li>
+            <li><strong>Confusing Mutually Exclusive vs Independent:</strong> Mutually exclusive means they can't happen together (P(A ∩ B) = 0). Independent is a different concept (where P(A ∩ B) = P(A) · P(B)).</li>
+            <li><strong>Sample Space Count:</strong> Forgetting to list all outcomes. For example, tossing 3 coins has 2<sup>3</sup> = 8 outcomes, not 6.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section faq">
+        <span class="tag">Frequently Asked Questions</span>
+        <p><strong>Q: What is the probability of an Impossible Event?</strong><br>
+        A: The probability is always 0.</p>
+        <p><strong>Q: What are 'Equally Likely' outcomes?</strong><br>
+        A: Outcomes are equally likely if none of them has a preference to occur over others (like a fair die or coin).</p>
+        <p><strong>Q: How do I find P(A ∩ B')?</strong><br>
+        A: This is the probability of "A but not B," calculated as P(A) - P(A ∩ B).</p>
+    </div>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application DSC 102 Unit 2 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Detailed academic notes for CADSC102 Discrete Mathematics, Unit 2. Covering Set Theory, Functions, Relations, and Hasse Diagrams.">
+    <meta name="keywords" content="Knowlet, CADSC102, Set Theory, Functions, Relations, Hasse Diagrams, Ordered Sets, Discrete Mathematics">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #c0392b;
+            border-left: 5px solid #e74c3c;
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #d35400;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #fdf2f2;
+            border-left: 10px solid #e74c3c;
+            margin: 1.5em 10px;
+            padding: 1em 10px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #e74c3c;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background: #fff5f5;
+            padding: 20px;
+            border: 1px dashed #e74c3c;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #c0392b;
+            font-weight: bold;
+        }
+        .exam-focus {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .diagram-placeholder {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #6c757d;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit II: Set Theory and Ordered Sets</h1>
+    <p><strong>Course:</strong> Discrete Mathematics <br>
+    <strong>Code:</strong> CADSC102 </p>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#set-concepts">Basic Concepts of Set Theory</a></li>
+            <li><a href="#set-ops">Operations with Sets</a></li>
+            <li><a href="#functions">Functions</a></li>
+            <li><a href="#relations">Relations and Properties</a></li>
+            <li><a href="#comp-closure">Composition and Closures of Relations</a></li>
+            <li><a href="#ordered-sets">Ordered Sets and Hasse Diagrams</a></li>
+            <li><a href="#exam-prep">Exam Focus: Tips & FAQs</a></li>
+        </ul>
+    </div>
+
+    <h2 id="set-concepts">Basic Concepts of Set Theory</h2>
+    <p>Set theory is the fundamental language of mathematics. A <strong>set</strong> is a well-defined collection of distinct objects.</p>
+    <ul>
+        <li><strong>Elements:</strong> The objects belonging to a set are called its members or elements.</li>
+        <li><strong>Notation:</strong> Sets are usually denoted by capital letters (A, B, C) and elements by small letters (a, b, x).</li>
+        <li><strong>Universal Set (U):</strong> The set containing all objects under consideration.</li>
+        <li><strong>Empty Set (Ø):</strong> A set with no elements.</li>
+    </ul>
+
+    <h2 id="set-ops">Operations with Sets</h2>
+    <p>Common operations used to manipulate sets include:</p>
+    
+    <ul>
+        <li><strong>Union (A ∪ B):</strong> Elements in A, or B, or both.</li>
+        <li><strong>Intersection (A ∩ B):</strong> Elements common to both A and B.</li>
+        <li><strong>Difference (A - B):</strong> Elements in A that are not in B.</li>
+        <li><strong>Complement (A'):</strong> Elements in the Universal set not in A.</li>
+        <li><strong>Cartesian Product (A × B):</strong> The set of all ordered pairs (a, b) where a is in A and b is in B.</li>
+    </ul>
+
+    <h2 id="functions">Functions</h2>
+    <p>A <strong>function</strong> is a special type of relation where every element in the domain is mapped to exactly one element in the codomain.</p>
+    <ul>
+        <li><strong>Domain:</strong> The set of all possible inputs.</li>
+        <li><strong>Range:</strong> The set of all actual outputs.</li>
+        <li><strong>One-to-One (Injective):</strong> Every element in the range has only one pre-image.</li>
+        <li><strong>Onto (Surjective):</strong> Every element in the codomain is an image of at least one element in the domain.</li>
+    </ul>
+
+    <h2 id="relations">Relations and Properties</h2>
+    <p>A relation R from set A to B is a subset of A × B.</p>
+    <h3>Properties of Relations</h3>
+    <ul>
+        <li><strong>Reflexive:</strong> (a, a) is in R for every a in A.</li>
+        <li><strong>Symmetric:</strong> If (a, b) is in R, then (b, a) must be in R.</li>
+        <li><strong>Transitive:</strong> If (a, b) and (b, c) are in R, then (a, c) must be in R.</li>
+        <li><strong>Anti-symmetric:</strong> If (a, b) and (b, a) are in R, then a = b.</li>
+    </ul>
+
+    <h2 id="comp-closure">Composition and Closures of Relations</h2>
+    <ul>
+        <li><strong>Representing Relations:</strong> Can be done via sets of pairs, matrices, or directed graphs (digraphs).</li>
+        <li><strong>Composition:</strong> If R is a relation from A to B and S is from B to C, S ∘ R is a relation from A to C.</li>
+        <li><strong>Closures:</strong> The smallest relation containing R that satisfies a specific property (Reflexive, Symmetric, or Transitive closure).</li>
+    </ul>
+
+    <h2 id="ordered-sets">Ordered Sets and Hasse Diagrams</h2>
+    <p>A set with a partial ordering relation is called a <strong>Partially Ordered Set</strong> or <strong>Poset</strong>.</p>
+    
+    <h3>Hasse Diagrams</h3>
+    <p>A Hasse diagram is a simplified graphical representation of a finite partially ordered set.</p>
+    
+    <ul>
+        <li>Eliminates reflexive loops.</li>
+        <li>Eliminates transitive edges.</li>
+        <li>Direction is understood to be upwards.</li>
+    </ul>
+
+    <div class="exam-focus" id="exam-prep">
+        <h4>Exam Focus & Tips</h4>
+        <ul>
+            <li><strong>Exam Tip:</strong> Be prepared to draw a Hasse Diagram for a given set and relation (like "divides" or "subset of").</li>
+            <li><strong>Common Mistake:</strong> Confusing "Symmetric" and "Anti-symmetric". A relation can be neither, or even both (if it's empty).</li>
+            <li><strong>Derivation:</strong> To find the Reflexive Closure, add (a, a) pairs to the existing relation until all elements are covered.</li>
+        </ul>
+        
+        <hr>
+        
+        <h4>Frequently Asked Questions</h4>
+        <p><strong>Q: What is a Power Set?</strong><br>
+        A: The set of all possible subsets of a set, including the empty set and the set itself.</p>
+        
+        <p><strong>Q: When is a relation called an Equivalence Relation?</strong><br>
+        A: When it is Reflexive, Symmetric, and Transitive.</p>
+    </div>
+
+</div>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

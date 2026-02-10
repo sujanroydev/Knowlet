@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application DSC 152 Unit 2 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Detailed practical lab notes for CADSC 152P: Linked List implementations (Singly, Doubly, and Circular) using C++ templates.">
+    <meta name="keywords" content="Linked List Lab, CADSC 152P, Doubly Linked List, Circular Linked List, C++ Templates, Data Structures Lab, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #27ae60;
+            --code-bg: #1e1e1e;
+            --code-text: #d4d4d4;
+            --bg-color: #fdfdfd;
+            --text-color: #2d3436;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 45px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border: 1px solid #ddd;
+        }
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 4px solid var(--secondary-color);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+        h2 {
+            color: var(--secondary-color);
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-top: 45px;
+            background: #f4fff8;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        .code-snippet {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Consolas', monospace;
+            margin: 20px 0;
+            line-height: 1.4;
+        }
+        .lab-box {
+            background-color: #e8f6ef;
+            border: 1px solid #c2e1d1;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        .lab-box strong {
+            color: #1e8449;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        th, td {
+            border: 1px solid #dfe6e9;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background: #fff;
+            padding: 20px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #34495e;
+            font-weight: bold;
+        }
+        .toc a:hover {
+            color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Lab on Data Structure: Practical Unit 2</h1>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#singly-list">1. Task 3: Singly Linked List Implementation</a></li>
+            <li><a href="#doubly-list">2. Task 4: Doubly Linked List Implementation</a></li>
+            <li><a href="#circular-list">3. Task 5: Circular Linked List Implementation</a></li>
+            <li><a href="#operator-overloading">4. Special Feature: Operator Overloading (+)</a></li>
+            <li><a href="#practical-tips">5. Exam-Oriented Practical Tips</a></li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 id="singly-list">1. Task 3: Singly Linked List Implementation</h2>
+    <div class="lab-box">
+        <strong>Lab Assignment:</strong> Implement Singly Linked List using templates. Include functions for insertion, deletion, search, reversing the list, and concatenation.
+    </div>
+    <p>
+        The implementation requires a <strong>Node class/struct</strong> that stores data of type T and a pointer to the next node. Key functions to implement:
+    </p>
+    <ul>
+        <li><strong>Insertion:</strong> At the beginning, end, or after a specific node.</li>
+        <li><strong>Deletion:</strong> Remove a node by its value.</li>
+        <li><strong>Search:</strong> Traverse the list to find a specific element.</li>
+        <li><strong>Reverse:</strong> Flip the pointers so the last node becomes the head.</li>
+    </ul>
+
+    
+
+    <hr>
+
+    <h2 id="doubly-list">2. Task 4: Doubly Linked List Implementation</h2>
+    <div class="lab-box">
+        <strong>Lab Assignment:</strong> Implement Doubly Linked List using templates. Include functions for insertion, deletion, search, and reverse.
+    </div>
+    <p>
+        A <strong>Doubly Linked List (DLL)</strong> node contains two pointers: <em>prev</em> and <em>next</em>.
+    </p>
+    <div class="code-snippet">
+        template &lt;typename T&gt;<br>
+        struct Node {<br>
+        &nbsp;&nbsp;T data;<br>
+        &nbsp;&nbsp;Node *next, *prev;<br>
+        };
+    </div>
+    <p>
+        <strong>Logic Note:</strong> When inserting or deleting in a DLL, you must update <em>four</em> pointers for middle elements to maintain the bidirectional link.
+    </p>
+
+    <hr>
+
+    <h2 id="circular-list">3. Task 5: Circular Linked List Implementation</h2>
+    <div class="lab-box">
+        <strong>Lab Assignment:</strong> Implement Circular Linked List using templates with functions for insertion, deletion, search, and reverse.
+    </div>
+    <p>
+        In a <strong>Circular Linked List</strong>, the last node points back to the head node instead of NULL.
+    </p>
+    <ul>
+        <li><strong>Traversal Warning:</strong> Be careful with loops. Use <code>do-while</code> or check if the current node returns to <code>head</code> to avoid infinite loops.</li>
+        <li><strong>Reverse Logic:</strong> Reversing is slightly more complex as you must also update the connection between the new tail and new head.</li>
+    </ul>
+
+    
+
+    <hr>
+
+    <h2 id="operator-overloading">4. Special Feature: Operator Overloading (+)</h2>
+    <p>
+        The lab syllabus requires overloading the <strong>+ operator</strong> to concatenate two linked lists.
+    </p>
+    <blockquote>
+        <strong>Utility:</strong> <code>List3 = List1 + List2;</code> This makes the code more intuitive by treating lists like mathematical entities.
+    </blockquote>
+    <div class="code-snippet">
+        LinkedList&lt;T&gt; operator+(LinkedList&lt;T&gt;& other) {<br>
+        &nbsp;&nbsp;LinkedList&lt;T&gt; result = *this;<br>
+        &nbsp;&nbsp;result.concatenate(other);<br>
+        &nbsp;&nbsp;return result;<br>
+        }
+    </div>
+
+    <hr>
+
+    <h2 id="practical-tips">5. Exam-Oriented Practical Tips</h2>
+    
+    <h3>Common Pitfalls</h3>
+    <ul>
+        <li><strong>Memory Leaks:</strong> Always write a <em>Destructor</em> to delete all nodes when the list object goes out of scope.</li>
+        <li><strong>Head Pointer:</strong> Ensure the <code>head</code> pointer is updated correctly when inserting at the 0th position.</li>
+        <li><strong>Empty List:</strong> Always test your functions (especially deletion and search) with an empty list to prevent segmentation faults.</li>
+    </ul>
+
+    <h3>Complexity for Lab Viva</h3>
+    <div class="add-horizontal-scroll"><table>
+        <tr>
+            <th>Operation</th>
+            <th>Singly List</th>
+            <th>Doubly List</th>
+        </tr>
+        <tr>
+            <td>Search</td>
+            <td>O(n) </td>
+            <td>O(n) </td>
+        </tr>
+        <tr>
+            <td>Insertion (at Head)</td>
+            <td>O(1) </td>
+            <td>O(1) </td>
+        </tr>
+        <tr>
+            <td>Reverse</td>
+            <td>O(n) </td>
+            <td>O(n) </td>
+        </tr>
+    </table></div>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application SEC 101 Unit 3 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Detailed academic notes for CASEC101 Unit 3: Arrays and Pointers. Covers multidimensional arrays, strings, pointer arithmetic, and command line arguments.">
+    <meta name="keywords" content="Knowlet, CASEC101, C Programming, Arrays, Pointers, Pointer Arithmetic, Strings, Command Line Arguments">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #27ae60;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #27ae60;
+            border-left: 5px solid #2ecc71;
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #d35400;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #f4fff8;
+            border-left: 10px solid #27ae60;
+            margin: 1.5em 10px;
+            padding: 1em 10px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #27ae60;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background: #f0fff4;
+            padding: 20px;
+            border: 1px dashed #27ae60;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .exam-focus {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit III: Arrays and Pointers</h1>
+    <p><strong>Course:</strong> Programming with C (SEC)<br>
+    <strong>Code:</strong> CASEC101</p>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#arrays">Definition and Array Processing</a></li>
+            <li><a href="#strings">Multidimensional Arrays and Strings</a></li>
+            <li><a href="#pointers-intro">Pointers: Addresses and Declarations</a></li>
+            <li><a href="#pointers-func">Pointers and Function Arguments</a></li>
+            <li><a href="#arithmetic">Address Arithmetic and Pointer Arrays</a></li>
+            <li><a href="#advanced-pointers">Pointers to Pointers and Function Pointers</a></li>
+            <li><a href="#cmd-line">Command Line Arguments</a></li>
+            <li><a href="#exam-prep">Exam Focus: Tips & FAQs</a></li>
+        </ul>
+    </div>
+
+    <h2 id="arrays">Definition and Array Processing</h2>
+    <p>An array is a fixed-size collection of elements of the same data type stored in contiguous memory locations.</p>
+    <ul>
+        <li><strong>Definition:</strong> Arrays are defined by specifying the base type, name, and size in square brackets.</li>
+        <li><strong>Array Processing:</strong> Elements are accessed via an index, typically using loops for efficiency.</li>
+        <li><strong>Passing Arrays:</strong> When an array is passed to a function, the function receives the address of the first element.</li>
+    </ul>
+
+    <h2 id="strings">Multidimensional Arrays and Strings</h2>
+    <p>C supports complex data structures by nesting arrays or treating them as character sequences.</p>
+    
+    <ul>
+        <li><strong>Multidimensional Arrays:</strong> Commonly used for matrices; data is stored row by row (Row-major order).</li>
+        <li><strong>Arrays and Strings:</strong> Strings are essentially character arrays terminated by a null character (\0).</li>
+    </ul>
+
+    <h2 id="pointers-intro">Pointers: Addresses and Declarations</h2>
+    <p>Pointers are variables that store the memory address of another variable.</p>
+    <ul>
+        <li><strong>Pointer Declaration:</strong> Uses the asterisk (*) symbol to denote a pointer type (e.g., int *ptr).</li>
+        <li><strong>Addresses:</strong> The address-of operator (&) is used to retrieve the memory location of a variable.</li>
+    </ul>
+
+    <h2 id="pointers-func">Pointers and Function Arguments</h2>
+    <p>Using pointers as arguments allows a function to modify the caller's variables directly.</p>
+    <ul>
+        <li><strong>Passing Pointers:</strong> Also known as "Call by Reference," this avoids copying large amounts of data.</li>
+        <li><strong>Function Arguments:</strong> Enables the return of multiple values through the modified pointers.</li>
+    </ul>
+
+    <h2 id="arithmetic">Address Arithmetic and Pointer Arrays</h2>
+    <p>Pointers can be manipulated using mathematical operations to traverse memory.</p>
+    
+    <ul>
+        <li><strong>Address Arithmetic:</strong> Incrementing a pointer moves it to the next valid address based on its data type.</li>
+        <li><strong>Pointers and One-dimensional Arrays:</strong> The array name itself acts as a constant pointer to the first element.</li>
+        <li><strong>Character Pointers and Functions:</strong> Frequently used for efficient string manipulation and searching.</li>
+        <li><strong>Pointer Arrays:</strong> An array where each element is itself a pointer.</li>
+    </ul>
+
+    <h2 id="advanced-pointers">Pointers to Pointers and Function Pointers</h2>
+    <p>Advanced pointer concepts allow for dynamic and complex memory structures.</p>
+    <ul>
+        <li><strong>Pointers to Pointers:</strong> A variable that stores the address of another pointer.</li>
+        <li><strong>Initialization of Pointer Arrays:</strong> Often used for arrays of strings where each pointer points to a string literal.</li>
+        <li><strong>Pointers to Multidimensional Arrays:</strong> Specialized pointers used to navigate through matrix rows and columns.</li>
+        <li><strong>Pointers to Functions:</strong> Storing the address of a function in a variable to call it dynamically.</li>
+    </ul>
+
+    <h2 id="cmd-line">Command Line Arguments</h2>
+    <p>Arguments can be passed to the main function at the time of program execution.</p>
+    <ul>
+        <li><strong>Mechanism:</strong> Uses parameters like argc (argument count) and argv (argument vector/array of strings).</li>
+        <li><strong>Passing Functions:</strong> Functions can be passed to other functions as parameters using pointers.</li>
+    </ul>
+
+    <div class="exam-focus" id="exam-prep">
+        <h4>Exam Focus & Tips</h4>
+        <ul>
+            <li><strong>Exam Tip:</strong> Understand that <code>*(arr + i)</code> is exactly the same as <code>arr[i]</code>.</li>
+            <li><strong>Common Mistake:</strong> Forgetting the null terminator (\0) when defining character arrays as strings manually.</li>
+            <li><strong>Programming Task:</strong> Practice matrix addition using multidimensional arrays.</li>
+        </ul>
+        <hr>
+        <h4>Frequently Asked Questions</h4>
+        <p><strong>Q: What is the difference between a pointer and an address?</strong><br>
+        A: An address is a specific memory location; a pointer is a variable that holds that location.</p>
+        <p><strong>Q: Why use pointer arrays?</strong><br>
+        A: They are very efficient for handling arrays of strings with different lengths.</p>
+    </div>
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

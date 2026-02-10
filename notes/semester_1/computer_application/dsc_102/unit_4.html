@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application DSC 102 Unit 4 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Detailed academic notes for CADSC102 Unit 4: Trees. Covers tree properties, rooted binary trees, and extended binary trees for Discrete Mathematics.">
+    <meta name="keywords" content="Knowlet, CADSC102, Trees, Binary Trees, Rooted Trees, Discrete Mathematics Notes, Pendant Vertices">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #c0392b;
+            border-left: 5px solid #e74c3c;
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #d35400;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #fdf2f2;
+            border-left: 10px solid #e74c3c;
+            margin: 1.5em 10px;
+            padding: 1em 10px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #e74c3c;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background: #fff5f5;
+            padding: 20px;
+            border: 1px dashed #e74c3c;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #c0392b;
+            font-weight: bold;
+        }
+        .exam-focus {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .diagram-placeholder {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #6c757d;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit IV: Trees</h1>
+    <p><strong>Course:</strong> Discrete Mathematics<br>
+    <strong>Code:</strong> CADSC102</p>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#basic-concepts">Basic Concepts of Tree</a></li>
+            <li><a href="#properties">Properties of Trees</a></li>
+            <li><a href="#vertices-centre">Pendant Vertices and Centre of a Tree</a></li>
+            <li><a href="#binary-trees">Rooted Binary Trees</a></li>
+            <li><a href="#extended-trees">Complete and Extended Binary Trees</a></li>
+            <li><a href="#exam-prep">Exam Focus: Tips & FAQs</a></li>
+        </ul>
+    </div>
+
+    <h2 id="basic-concepts">Basic Concepts of Tree</h2>
+    <p>In discrete mathematics, a <strong>tree</strong> is a connected graph that contains no circuits (cycles). It is one of the most important structures used to represent hierarchical relationships.</p>
+    
+    
+
+[Image of a basic tree graph structure]
+
+
+    <ul>
+        <li><strong>Connectedness</strong>: There is a path between every pair of vertices.</li>
+        <li><strong>Acyclic</strong>: There are no loops or closed paths in the structure.</li>
+    </ul>
+
+    <h2 id="properties">Properties of Trees</h2>
+    <p>Trees have several mathematical properties that distinguish them from other types of graphs:</p>
+    <ul>
+        <li><strong>Edge-Vertex Relationship</strong>: A tree with <em>n</em> vertices always has exactly <em>n - 1</em> edges.</li>
+        <li><strong>Unique Path</strong>: There is exactly one unique path between any two vertices in a tree.</li>
+        <li><strong>Minimally Connected</strong>: Removing any edge from a tree results in a disconnected graph (it becomes a "forest").</li>
+    </ul>
+
+    <h2 id="vertices-centre">Pendant Vertices and Centre of a Tree</h2>
+    <p>Special vertices in a tree help define its structure and shape.</p>
+    
+    <h3>Pendant Vertices</h3>
+    <p>A <strong>pendant vertex</strong> (also known as a leaf) is a vertex of degree 1. Every tree with more than one vertex has at least two pendant vertices.</p>
+
+    <h3>Centre of a Tree</h3>
+    <p>The <strong>centre</strong> of a tree consists of one or two vertices that have the minimum maximum distance to all other vertices in the tree. This is found by repeatedly removing all pendant vertices until only one or two remain.</p>
+
+    <h2 id="binary-trees">Rooted Binary Trees</h2>
+    <p>A <strong>rooted tree</strong> is a tree in which one specific vertex is designated as the root.</p>
+    
+    
+
+    <h3>Rooted Binary Tree</h3>
+    <p>A <strong>binary tree</strong> is a rooted tree where every internal vertex has at most two children. Each child is typically designated as either a "left child" or a "right child".</p>
+
+    <h2 id="extended-trees">Complete and Extended Binary Trees</h2>
+    <p>Depending on how the nodes are filled, binary trees are categorized into specific types:</p>
+    <ul>
+        <li><strong>Complete Binary Tree</strong>: A binary tree in which every level, except possibly the last, is completely filled, and all nodes are as far left as possible.</li>
+        <li><strong>Extended Binary Tree</strong>: Also known as a 2-tree, it is a binary tree where every node has either zero or two children. Empty spots are often represented by special "external nodes".</li>
+    </ul>
+
+    <div class="exam-focus" id="exam-prep">
+        <h4>Exam Focus & Tips</h4>
+        <ul>
+            <li><strong>Exam Tip:</strong> Remember the formula <strong>Edges = V - 1</strong>. If a question asks for edges in a tree with 15 vertices, the answer is 14.</li>
+            <li><strong>Common Mistake:</strong> Confusing a general tree with a binary tree. A general tree can have any number of children per node, whereas a binary tree is limited to two.</li>
+            <li><strong>Mnemonic:</strong> <strong>"No Cycles, No Problems"</strong> - A tree must never have a loop.</li>
+        </ul>
+        
+        <hr>
+        
+        <h4>Frequently Asked Questions</h4>
+        <p><strong>Q: What is a pendant vertex?</strong><br>
+        A: A vertex with a degree of 1, effectively a "leaf" of the tree.</p>
+        
+        <p><strong>Q: How many roots does a rooted tree have?</strong><br>
+        A: Exactly one.</p>
+    </div>
+
+</div>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

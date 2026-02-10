@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application DSC 102 Unit 3 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Detailed academic notes for CADSC102 Unit 3: Ordering Relations, Lattices, and Boolean Algebra. Exam-ready materials for Discrete Mathematics.">
+    <meta name="keywords" content="Knowlet, CADSC102, Lattices, Boolean Algebra, Boolean Functions, Equivalence Relations, Partial Ordering, Discrete Mathematics">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #c0392b;
+            border-left: 5px solid #e74c3c;
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #d35400;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #fdf2f2;
+            border-left: 10px solid #e74c3c;
+            margin: 1.5em 10px;
+            padding: 1em 10px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #e74c3c;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background: #fff5f5;
+            padding: 20px;
+            border: 1px dashed #e74c3c;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #c0392b;
+            font-weight: bold;
+        }
+        .exam-focus {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .diagram-placeholder {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #6c757d;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit III: Ordering Relations, Lattices and Boolean Algebra</h1>
+    <p><strong>Course:</strong> Discrete Mathematics <br>
+    <strong>Code:</strong> CADSC102 </p>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#ordering-relations">Partial Ordering and Equivalence Relations</a></li>
+            <li><a href="#lattices">Lattices and Their Properties</a></li>
+            <li><a href="#special-lattices">Bounded, Distributive, and Complemented Lattices</a></li>
+            <li><a href="#boolean-algebra">Introduction to Boolean Algebra</a></li>
+            <li><a href="#boolean-functions">Boolean Functions and Minimization</a></li>
+            <li><a href="#exam-prep">Exam Focus: Tips & FAQs</a></li>
+        </ul>
+    </div>
+
+    <h2 id="ordering-relations">Ordering Relations</h2>
+    <p>Ordering relations define how elements in a set are compared or ranked.</p>
+    
+    <h3>Partial Ordering Relations</h3>
+    <p>A relation R on a set A is a <strong>Partial Ordering</strong> if it is Reflexive, Anti-symmetric, and Transitive.</p>
+    <ul>
+        <li><strong>Reflexive:</strong> a R a for all a in A.</li>
+        <li><strong>Anti-symmetric:</strong> If a R b and b R a, then a = b.</li>
+        <li><strong>Transitive:</strong> If a R b and b R c, then a R c.</li>
+    </ul>
+
+    <h3>Equivalence Relations</h3>
+    <p>A relation is an <strong>Equivalence Relation</strong> if it is Reflexive, Symmetric, and Transitive. It partitions a set into disjoint equivalence classes.</p>
+
+    <h2 id="lattices">Lattices and Their Properties</h2>
+    <blockquote>
+        <strong>Definition:</strong> A Lattice is a partially ordered set in which every pair of elements has a unique Least Upper Bound (LUB or Join) and a unique Greatest Lower Bound (GLB or Meet).
+    </blockquote>
+    
+    
+
+    <h3>Lattice Operations</h3>
+    <ul>
+        <li><strong>Join (v):</strong> The Least Upper Bound (LUB).</li>
+        <li><strong>Meet (^):</strong> The Greatest Lower Bound (GLB).</li>
+    </ul>
+
+    <h2 id="special-lattices">Special Types of Lattices</h2>
+    <ul>
+        <li><strong>Bounded Lattices:</strong> A lattice that has both a greatest element (represented as 1) and a least element (represented as 0).</li>
+        <li><strong>Distributive Lattices:</strong> A lattice in which the meet and join operations distribute over each other (e.g., a ^ (b v c) = (a ^ b) v (a ^ c)).</li>
+        <li><strong>Complemented Lattices:</strong> A bounded lattice where every element has a complement (an element b such that a v b = 1 and a ^ b = 0).</li>
+    </ul>
+
+    <h2 id="boolean-algebra">Introduction to Boolean Algebra</h2>
+    <p>Boolean algebra is a complemented distributive lattice. It provides the mathematical foundation for digital logic and computer circuitry.</p>
+    
+    <h3>Properties of Boolean Algebra</h3>
+    <ul>
+        <li><strong>Identity Laws:</strong> a v 0 = a and a ^ 1 = a.</li>
+        <li><strong>Commutative Laws:</strong> a v b = b v a and a ^ b = b ^ a.</li>
+        <li><strong>Complement Laws:</strong> a v a' = 1 and a ^ a' = 0.</li>
+    </ul>
+
+    <h2 id="boolean-functions">Boolean Functions and Minimization</h2>
+    <p>Boolean functions represent logical operations on binary variables.</p>
+    
+    <h3>Representation and Minimization</h3>
+    <ul>
+        <li><strong>Representation:</strong> Boolean functions can be represented using Truth Tables or algebraic expressions.</li>
+        <li><strong>Minimization:</strong> The process of simplifying a Boolean expression to its simplest form to reduce the number of logic gates in a circuit.</li>
+    </ul>
+
+    <div class="exam-focus" id="exam-prep">
+        <h4>Exam Focus & Tips</h4>
+        <ul>
+            <li><strong>Exam Tip:</strong> Be ready to prove whether a given Hasse diagram represents a Lattice by checking if every pair has a LUB and GLB.</li>
+            <li><strong>Common Pitfall:</strong> Do not assume every Poset is a Lattice. Look for "dangling" pairs that lack a common upper or lower bound.</li>
+            <li><strong>Formula Tip:</strong> Memorize the Distributive Law as it is central to Boolean algebra proofs.</li>
+        </ul>
+        
+        <hr>
+        
+        <h4>Frequently Asked Questions</h4>
+        <p><strong>Q: What is a Complement in a Lattice?</strong><br>
+        A: It is an element that, when joined with the original, gives the top (1), and when met, gives the bottom (0).</p>
+        
+        <p><strong>Q: When is a Lattice called "Bounded"?</strong><br>
+        A: When it contains both a global maximum and a global minimum.</p>
+    </div>
+
+</div>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

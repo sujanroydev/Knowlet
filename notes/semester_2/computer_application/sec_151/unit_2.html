@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application SEC 151 Unit 2 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for CASEC 151: Python Programming, Unit 2. Covering Control Flow, Conditional Statements, Iterative Statements, and String Operations.">
+    <meta name="keywords" content="Python Programming, CASEC 151, Unit 2, Flow of Control, Loops, Python Strings, Control Structures, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary-color: #3776ab;
+            --secondary-color: #ffd43b;
+            --accent-color: #e67e22;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --border-color: #ddd;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 4px solid var(--secondary-color);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+        h2 {
+            color: var(--primary-color);
+            border-left: 6px solid var(--primary-color);
+            padding-left: 15px;
+            margin-top: 50px;
+            background: #f1f7ff;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: var(--accent-color);
+            margin-top: 30px;
+        }
+        p {
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 25px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        blockquote {
+            background: #ecf0f1;
+            border-left: 8px solid var(--primary-color);
+            margin: 25px 0;
+            padding: 20px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        table, th, td {
+            border: 1px solid var(--border-color);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background: #f8f9fa;
+            padding: 25px;
+            border: 1px solid #d1d9e6;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        .exam-focus {
+            background-color: #fff3cd;
+            border: 2px solid #ffeeba;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+        .exam-focus h4 {
+            margin-top: 0;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit II: Flow of Control and Strings</h1>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#flow-intro">1. Introduction to Flow of Control</a></li>
+            <li><a href="#conditional">2. Conditional Statements</a></li>
+            <li><a href="#iterative">3. Iterative Statements (Loops)</a></li>
+            <li><a href="#loop-control">4. Break and Continue Statements</a></li>
+            <li><a href="#strings">5. Strings: Operations and Methods</a></li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 id="flow-intro">1. Introduction to Flow of Control</h2>
+    <p>
+        <strong>Flow of Control</strong> refers to the order in which statements are executed in a program. By default, Python executes statements <strong>sequentially</strong>, from top to bottom.
+    </p>
+    <ul>
+        <li><strong>Indentation:</strong> Python uses indentation to define blocks of code. Consistent use of whitespace is mandatory for determining the structure of conditional and iterative statements.</li>
+        <li><strong>Sequential Flow:</strong> Execution of statements one after another.</li>
+        <li><strong>Conditional Flow:</strong> Execution based on whether a condition is true or false.</li>
+        <li><strong>Iterative Flow:</strong> Execution of a set of statements multiple times.</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="conditional">2. Conditional Statements</h2>
+    <p>
+        Conditional statements allow the program to make decisions and branch to different sections of code.
+    </p>
+    <ul>
+        <li><strong>if Statement:</strong> Executes a block if the condition is true.</li>
+        <li><strong>if-else Statement:</strong> Provides an alternative block if the condition is false.</li>
+        <li><strong>if-elif-else Statement:</strong> Used to check multiple conditions sequentially.</li>
+    </ul>
+    
+    <div class="exam-focus">
+        <h4>Practical Examples:</h4>
+        <ul>
+            <li>Calculating the <strong>absolute value</strong> of a number.</li>
+            <li>Sorting <strong>3 numbers</strong>.</li>
+            <li>Checking the <strong>divisibility</strong> of a number.</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 id="iterative">3. Iterative Statements (Loops)</h2>
+    <p>
+        Loops are used to repeat a block of code multiple times.
+    </p>
+    <h3>The for Loop</h3>
+    <p>
+        The <code>for</code> loop is used for iterating over a sequence (like a list, tuple, or string).
+    </p>
+    <ul>
+        <li><strong>range() function:</strong> Generates a sequence of numbers, commonly used to control the number of iterations in a for loop.</li>
+    </ul>
+    <h3>The while Loop</h3>
+    <p>
+        The <code>while</code> loop repeats a block as long as a specified condition remains true.
+    </p>
+    
+
+[Image of while loop flowchart in Python]
+
+    <div class="exam-focus">
+        <h4>Suggested Programs:</h4>
+        <ul>
+            <li><strong>Generating Patterns:</strong> Using nested loops to print geometric shapes.</li>
+            <li><strong>Summation of Series:</strong> Calculating the sum of a mathematical progression.</li>
+            <li><strong>Factorial:</strong> Finding the factorial of a positive number.</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 id="loop-control">4. Break and Continue Statements</h2>
+    <p>
+        These statements provide finer control over loop execution.
+    </p>
+    <ul>
+        <li><strong>break:</strong> Terminates the current loop and moves execution to the next statement outside the loop.</li>
+        <li><strong>continue:</strong> Skips the remaining code in the current iteration and jumps to the next iteration of the loop.</li>
+        <li><strong>Nested Loops:</strong> Loops placed inside other loops.</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="strings">5. Strings: Operations and Methods</h2>
+    <p>
+        A <strong>String</strong> is a sequence of characters.
+    </p>
+    <h3>Basic Operations:</h3>
+    <ul>
+        <li><strong>Concatenation:</strong> Joining two or more strings together using the <code>+</code> operator.</li>
+        <li><strong>Repetition:</strong> Repeating a string multiple times using the <code>*</code> operator.</li>
+        <li><strong>Membership:</strong> Checking if a substring exists in a string using <code>in</code> or <code>not in</code>.</li>
+        <li><strong>Slicing:</strong> Extracting a specific portion of a string using index ranges (e.g., <code>string[start:stop]</code>).</li>
+    </ul>
+    <h3>String Traversal and Methods:</h3>
+    <ul>
+        <li><strong>Traversing:</strong> Using loops to access each character in a string one by one.</li>
+        <li><strong>Built-in functions/methods:</strong> Python provides numerous methods like <code>.upper()</code>, <code>.lower()</code>, <code>.find()</code>, and <code>.replace()</code> to manipulate strings.</li>
+    </ul>
+
+    <div class="exam-focus">
+        <h4>Common Mistakes</h4>
+        <ul>
+            <li><strong>Indentation Errors:</strong> Mixing tabs and spaces or inconsistent levels of indentation.</li>
+            <li><strong>Infinite Loops:</strong> Forgetting to update the loop variable in a <code>while</code> loop.</li>
+            <li><strong>String Immutability:</strong> Attempting to change a character in a string directly (strings are immutable).</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h3>Frequently Asked Questions</h3>
+    <p><strong>Q: What happens if I forget the colon (:) after an 'if' statement?</strong><br>
+    Python will raise a <em>SyntaxError</em> because the colon is required to signal the start of a code block.</p>
+
+    <p><strong>Q: How does range(5) differ from range(1, 5)?</strong><br>
+    <code>range(5)</code> produces 0, 1, 2, 3, 4. <code>range(1, 5)</code> produces 1, 2, 3, 4 (it stops before the end value).</p>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

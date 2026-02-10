@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application ECAP 172 Unit 7 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for ECAP172 Unit 7: Arrays. Covering declaration, 1D/2D processing, and passing arrays to functions.">
+    <meta name="keywords" content="ECAP172, Arrays in C, 1D Array, 2D Array, Multi-dimensional Arrays, Function Arguments, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary-navy: #1a2a6c;
+            --accent-green: #27ae60;
+            --bg-light: #f4f7f6;
+            --text-dark: #2d3436;
+            --border-color: #bdc3c7;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        h1 {
+            color: var(--primary-navy);
+            text-align: center;
+            border-bottom: 4px solid var(--accent-green);
+            padding-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: var(--accent-green);
+            border-left: 6px solid var(--primary-navy);
+            padding-left: 15px;
+            margin-top: 40px;
+            background: #f0fdf4;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            color: var(--primary-navy);
+            margin-top: 25px;
+            border-bottom: 2px solid #f1f2f6;
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .toc {
+            background: #ffffff;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-navy);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            color: var(--accent-green);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-navy);
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        blockquote {
+            background: #eef2f7;
+            border-left: 5px solid var(--primary-navy);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        pre {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .exam-section {
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .tips { background-color: #e8f6f3; border: 1px solid #1abc9c; }
+        .mistakes { background-color: #fdedec; border: 1px solid #e74c3c; }
+        .faq { background-color: #ebf5fb; border: 1px solid #3498db; }
+
+        .tag {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 7: Arrays</h1>
+
+    <div class="toc">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#declaring">1. Declaring Arrays in C</a></li>
+            <li><a href="#defining-processing-1d">2. Defining and Processing 1-Dimensional Arrays</a></li>
+            <li><a href="#defining-processing-2d">3. Defining and Processing 2-Dimensional Arrays</a></li>
+            <li><a href="#passing-arguments">4. Passing Array as an Argument to Function</a></li>
+            <li><a href="#multidimensional">5. Multi-dimensional Arrays</a></li>
+            <li><a href="#exam-prep">6. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="declaring">1. Declaring Arrays in C</h2>
+    <p>An array is a data structure that can store a fixed-size sequential collection of elements of the same type. Declaring an array tells the compiler about the type of elements and the number of elements it will hold.</p>
+    
+    <h3>Syntax:</h3>
+    <div class="add-horizontal-scroll"><pre>data_type array_name[array_size];</pre></div>
+    <p>Example: <code>int marks[5];</code> reserves space for 5 integer values.</p>
+
+    <h2 id="defining-processing-1d">2. Defining and Processing 1-Dimensional Arrays</h2>
+    <p>A 1-dimensional array is the simplest form of an array where elements are stored linearly. Defining an array involves assigning initial values.</p>
+    
+    <h3>Initialization:</h3>
+    <div class="add-horizontal-scroll"><pre>int numbers[5] = {10, 20, 30, 40, 50};</pre></div>
+    
+    <h3>Processing:</h3>
+    <p>Processing usually involves <strong>traversing</strong> the array using a loop to perform operations like reading, printing, or calculating sums.</p>
+    <div class="add-horizontal-scroll"><pre>
+for(int i = 0; i < 5; i++) {
+    printf("%d ", numbers[i]);
+}
+    </pre></div>
+
+    <h2 id="defining-processing-2d">3. Defining and Processing 2-Dimensional Arrays</h2>
+    <p>A 2-dimensional array is essentially an array of arrays, often visualized as a table with rows and columns.</p>
+    
+    
+
+    <h3>Declaration and Initialization:</h3>
+    <div class="add-horizontal-scroll"><pre>int matrix[2][3] = { {1, 2, 3}, {4, 5, 6} };</pre></div>
+    
+    <h3>Processing:</h3>
+    <p>Processing 2D arrays requires <strong>nested loops</strong>—the outer loop for rows and the inner loop for columns.</p>
+    <div class="add-horizontal-scroll"><pre>
+for(int i = 0; i < 2; i++) {
+    for(int j = 0; j < 3; j++) {
+        printf("%d ", matrix[i][j]);
+    }
+    printf("\n");
+}
+    </pre></div>
+
+    <h2 id="passing-arguments">4. Passing Array as an Argument to Function</h2>
+    <p>In C, you can pass an entire array to a function as a parameter. However, it is important to note that arrays are passed by <strong>reference</strong> (the address of the first element is passed).</p>
+    
+    <h3>Syntax in Function Definition:</h3>
+    <div class="add-horizontal-scroll"><pre>void display(int arr[], int size) { ... }</pre></div>
+    
+    <h3>Calling the Function:</h3>
+    <div class="add-horizontal-scroll"><pre>display(marks, 5);</pre></div>
+    <p>Changes made to the array inside the function will affect the original array in the calling function.</p>
+
+    <h2 id="multidimensional">5. Multi-dimensional Arrays</h2>
+    <p>C supports arrays with more than two dimensions. While 3D or higher arrays are possible, they are less common and more complex to manage in memory.</p>
+    
+    <h3>Example (3D Array):</h3>
+    <div class="add-horizontal-scroll"><pre>int survey[2][3][4];</pre></div>
+    <p>This can be thought of as 2 blocks, each containing a 3x4 matrix.</p>
+
+    <h2 id="exam-prep">6. Exam Focus Enhancements</h2>
+
+    <div class="exam-section tips">
+        <span class="tag">Exam Tips</span>
+        <ul>
+            <li><strong>Index Start:</strong> Always remember that array indices start at <strong>0</strong> and end at <strong>size - 1</strong>.</li>
+            <li><strong>Memory Calculation:</strong> Total size of an array = array_size * sizeof(data_type).</li>
+            <li><strong>2D Arrays:</strong> When declaring a 2D array as a function parameter, the <strong>column size</strong> must be specified (e.g., <code>void func(int arr[][3])</code>).</li>
+        </ul>
+    </div>
+
+    <div class="exam-section mistakes">
+        <span class="tag">Common Mistakes</span>
+        <ul>
+            <li><strong>Out of Bounds:</strong> Accessing <code>arr[5]</code> in an array of size 5. This leads to garbage values or crashes.</li>
+            <li><strong>Initialization:</strong> Forgetting that partial initialization (e.g., <code>int a[5] = {1, 2};</code>) fills the remaining spots with <strong>zero</strong>.</li>
+            <li><strong>Pointer Confusion:</strong> Passing <code>&arr</code> to a function instead of just <code>arr</code> when the function expects an array pointer.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section faq">
+        <span class="tag">Frequently Asked Questions</span>
+        <p><strong>Q: Why are arrays passed by reference by default?</strong><br>
+        A: To save memory and time. Copying a large array would be inefficient.</p>
+        <p><strong>Q: Can the size of an array be changed at runtime?</strong><br>
+        A: No, standard C arrays have a <strong>static size</strong> fixed at declaration. Dynamic allocation (malloc) is needed for flexible sizes.</p>
+    </div>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

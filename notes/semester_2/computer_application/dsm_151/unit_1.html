@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application DSM 151 Unit 1 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for CADSM 151: Programming with C, Unit 1. Covering C Data Types, Expressions, Operations, and Control Structures.">
+    <meta name="keywords" content="C Programming, CADSM 151, Unit 1, Data Types, Control Structures, Loops, C Language, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e67e22;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --border-color: #ddd;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 4px solid var(--secondary-color);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+        h2 {
+            color: var(--secondary-color);
+            border-left: 6px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-top: 50px;
+            background: #f1f7ff;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: var(--accent-color);
+            margin-top: 30px;
+        }
+        p {
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 25px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        blockquote {
+            background: #ecf0f1;
+            border-left: 8px solid var(--primary-color);
+            margin: 25px 0;
+            padding: 20px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        table, th, td {
+            border: 1px solid var(--border-color);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background: #f8f9fa;
+            padding: 25px;
+            border: 1px solid #d1d9e6;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        .exam-focus {
+            background-color: #fff3cd;
+            border: 2px solid #ffeeba;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+        .exam-focus h4 {
+            margin-top: 0;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit I: Fundamentals of C Programming</h1>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#intro-c">1. Introduction to C Programming</a></li>
+            <li><a href="#data-types">2. Data Types and Expressions</a></li>
+            <li><a href="#io-operations">3. Input and Output Operations</a></li>
+            <li><a href="#control-structures">4. Control Structures</a></li>
+            <li><a href="#problem-solving">5. Problem Solving in Mathematics and Statistics</a></li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 id="intro-c">1. Introduction to C Programming</h2>
+    <p>
+        The C programming language is a foundational tool in computer science. This unit introduces the basic building blocks required to write and implement simple C programs.
+    </p>
+
+    <hr>
+
+    <h2 id="data-types">2. Data Types and Expressions</h2>
+    <p>
+        Data types define the type of data a variable can hold. 
+    </p>
+    <ul>
+        <li><strong>Basic Data Types:</strong> Include <em>int</em> (integers), <em>float</em> (floating-point numbers), <em>char</em> (characters), and <em>double</em> (double-precision floating point).</li>
+        <li><strong>Expressions:</strong> A combination of operators, constants, and variables that are evaluated to produce a value.</li>
+        <li><strong>Operations:</strong> Arithmetic (e.g., +, -), Relational (e.g., &gt;, &lt;), and Logical (e.g., &&, ||) operations form the basis of calculation.</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="io-operations">3. Input and Output Operations</h2>
+    <p>
+        To interact with a program, we use specific functions for data input and output.
+    </p>
+    <ul>
+        <li><strong>printf():</strong> Used to display formatted output to the console.</li>
+        <li><strong>scanf():</strong> Used to accept formatted input from the user.</li>
+    </ul>
+    <blockquote>
+        <strong>Utility:</strong> Input/Output operations allow the program to process dynamic data provided by the user during execution.
+    </blockquote>
+
+    <hr>
+
+    <h2 id="control-structures">4. Control Structures</h2>
+    <p>
+        Control structures manage the flow of execution within a program.
+    </p>
+
+    <h3>Selection Statements</h3>
+    <ul>
+        <li><strong>IF-ELSE:</strong> Executes a block of code if a condition is true; otherwise, it executes another block.</li>
+        <li><strong>SWITCH:</strong> A multi-way branch statement that selects one of many code blocks to be executed based on a variable's value.</li>
+    </ul>
+
+    <h3>Iterative Statements (Loops)</h3>
+    <ul>
+        <li><strong>WHILE:</strong> Repeats a block of code as long as a condition is true.</li>
+        <li><strong>DO-WHILE:</strong> Similar to while, but the block is executed at least once before the condition is checked.</li>
+        <li><strong>FOR:</strong> Used for a fixed number of iterations, often using a counter.</li>
+    </ul>
+
+    <h3>Jump Statements</h3>
+    <ul>
+        <li><strong>BREAK:</strong> Terminates the current loop or switch statement immediately.</li>
+        <li><strong>CONTINUE:</strong> Skips the remaining code in the current iteration and moves to the next loop iteration.</li>
+        <li><strong>GOTO:</strong> Transfers control to a labeled statement elsewhere in the function.</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="problem-solving">5. Problem Solving in Mathematics and Statistics</h2>
+    <p>
+        C is widely used for solving elementary programming problems in various application areas.
+    </p>
+    <ul>
+        <li><strong>Mathematics:</strong> Calculating factorials, finding prime numbers, or solving quadratic equations using control structures.</li>
+        <li><strong>Statistics:</strong> Calculating mean, variance, or processing frequency distributions through arrays and loops.</li>
+    </ul>
+
+    <div class="exam-focus">
+        <h4>Exam Tips</h4>
+        <ul>
+            <li><strong>Syntax:</strong> Always remember that C is case-sensitive. "Int" is not the same as "int".</li>
+            <li><strong>Semicolons:</strong> A very common mistake is forgetting the semicolon (;) at the end of statements.</li>
+            <li><strong>Loops:</strong> Ensure every loop has a clear exit condition to avoid "Infinite Loops".</li>
+        </ul>
+    </div>
+
+    <div class="exam-focus">
+        <h4>Mnemonic: WDF</h4>
+        <p>To remember the three main types of loops in C: <strong>W</strong>hile, <strong>D</strong>o-While, <strong>F</strong>or.</p>
+    </div>
+
+    <hr>
+
+    <h3>Frequently Asked Questions</h3>
+    <p><strong>Q1: What is the difference between WHILE and DO-WHILE?</strong><br>
+    The <em>while</em> loop checks the condition first and may never run. The <em>do-while</em> loop runs at least once because it checks the condition at the end.</p>
+
+    <p><strong>Q2: Why is the GOTO statement generally discouraged?</strong><br>
+    It makes programs harder to read, debug, and maintain by creating "spaghetti code" that jumps unpredictably.</p>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

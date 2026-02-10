@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application ECAP 172 Unit 4 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Exam-ready HTML notes for ECAP172 Unit 4: Data Types & Operators. Comprehensive coverage of C operators and data ranges for Knowlet.">
+    <meta name="keywords" content="ECAP172, C Data Types, C Operators, Arithmetic Operators, Logical Operators, Bitwise Operators, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary-blue: #1a5276;
+            --secondary-teal: #16a085;
+            --accent-gold: #f39c12;
+            --bg-light: #fdfefe;
+            --text-dark: #212f3d;
+            --border-color: #d5dbdb;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ebedef;
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: var(--bg-light);
+            padding: 45px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
+        }
+
+        h1 {
+            color: var(--primary-blue);
+            text-align: center;
+            font-size: 2.2em;
+            border-bottom: 5px double var(--secondary-teal);
+            padding-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: var(--secondary-teal);
+            border-left: 6px solid var(--primary-blue);
+            padding-left: 15px;
+            margin-top: 40px;
+            background: #e8f8f5;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            color: var(--primary-blue);
+            margin-top: 25px;
+            border-bottom: 2px solid #eee;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .toc {
+            background: #fff;
+            padding: 25px;
+            border: 2px dashed var(--secondary-teal);
+            border-radius: 10px;
+            margin-bottom: 35px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            color: var(--secondary-teal);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f4f4;
+        }
+
+        blockquote {
+            background: #fff9eb;
+            border-left: 5px solid var(--accent-gold);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        .exam-section {
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .tips { background-color: #eafaf1; border: 1px solid #27ae60; }
+        .mistakes { background-color: #fdedec; border: 1px solid #c0392b; }
+        .faq { background-color: #eaf2f8; border: 1px solid #2980b9; }
+
+        .label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            text-decoration: underline;
+        }
+
+        strong { color: #1a5276; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 4: Data Types & Operators</h1>
+
+    <div class="toc">
+        <h3>Contents Guide</h3>
+        <ul>
+            <li><a href="#data-types">1. C Data Types: Range and Size</a></li>
+            <li><a href="#arithmetic">2. Arithmetic & Relational Operators</a></li>
+            <li><a href="#logical">3. Logical & Conditional Operators</a></li>
+            <li><a href="#bitwise">4. Bitwise & Assignment Operators</a></li>
+            <li><a href="#unary-binary">5. Unary vs Binary Operators</a></li>
+            <li><a href="#exam-prep">6. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="data-types">1. C Data Types: Range and Size</h2>
+    <p>Data types in C define the type of data a variable can hold and how much space it occupies in memory.</p>
+    
+    <div class="add-horizontal-scroll"><table>
+        <thead>
+            <tr>
+                <th>Data Type</th>
+                <th>Size (typical)</th>
+                <th>Range</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>char</strong></td>
+                <td>1 Byte</td>
+                <td>-128 to 127</td>
+            </tr>
+            <tr>
+                <td><strong>int</strong></td>
+                <td>2 or 4 Bytes</td>
+                <td>-32,768 to 32,767 (for 2 bytes)</td>
+            </tr>
+            <tr>
+                <td><strong>float</strong></td>
+                <td>4 Bytes</td>
+                <td>3.4E-38 to 3.4E+38</td>
+            </tr>
+            <tr>
+                <td><strong>double</strong></td>
+                <td>8 Bytes</td>
+                <td>1.7E-308 to 1.7E+308</td>
+            </tr>
+        </tbody>
+    </table></div>
+
+    <h2 id="arithmetic">2. Arithmetic & Relational Operators</h2>
+    <p>Arithmetic operators perform mathematical calculations, while relational operators compare values.</p>
+
+    <h3>Arithmetic Operators</h3>
+    <ul>
+        <li><strong>+ (Addition):</strong> Adds two operands.</li>
+        <li><strong>- (Subtraction):</strong> Subtracts the second operand from the first.</li>
+        <li><strong>* (Multiplication):</strong> Multiplies two operands.</li>
+        <li><strong>/ (Division):</strong> Divides numerator by denominator.</li>
+        <li><strong>% (Modulus):</strong> Returns the remainder of an integer division.</li>
+    </ul>
+
+    <h3>Relational Operators</h3>
+    <p>Used to check the relationship between two operands. Results are always true (1) or false (0).</p>
+    <ul>
+        <li><strong>== (Equal to), != (Not equal to)</strong>.</li>
+        <li><strong>> (Greater than), < (Less than)</strong>.</li>
+        <li><strong>>= (Greater than or equal to), <= (Less than or equal to)</strong>.</li>
+    </ul>
+
+    <h2 id="logical">3. Logical & Conditional Operators</h2>
+    
+    <h3>Logical Operators</h3>
+    <p>Used to combine multiple relational expressions.</p>
+    <ul>
+        <li><strong>&& (Logical AND):</strong> True only if both operands are true.</li>
+        <li><strong>|| (Logical OR):</strong> True if at least one operand is true.</li>
+        <li><strong>! (Logical NOT):</strong> Reverses the logical state of its operand.</li>
+    </ul>
+
+    <h3>Conditional (Ternary) Operator</h3>
+    <blockquote>
+        <strong>Syntax:</strong> condition ? value_if_true : value_if_false; 
+    </blockquote>
+    <p>It is the only operator in C that takes three operands.</p>
+
+    <h2 id="bitwise">4. Bitwise & Assignment Operators</h2>
+    
+    <h3>Bitwise Operators</h3>
+    <p>These operators perform operations at the bit level (binary).</p>
+    <ul>
+        <li><strong>& (Bitwise AND), | (Bitwise OR), ^ (Bitwise XOR)</strong>.</li>
+        <li><strong>~ (Bitwise NOT), << (Left Shift), >> (Right Shift)</strong>.</li>
+    </ul>
+
+    <h3>Assignment Operators</h3>
+    <p>Used to assign values to variables. C also supports "compound assignment".</p>
+    <ul>
+        <li><strong>= (Simple Assignment)</strong>.</li>
+        <li><strong>+=, -=, *=, /=, %= (Compound Assignments)</strong>.</li>
+    </ul>
+
+    <h2 id="unary-binary">5. Unary vs Binary Operators</h2>
+    <p>Operators are categorized by the number of operands they require.</p>
+    
+    <ul>
+        <li><strong>Unary Operators:</strong> Require only one operand (e.g., ++, --, -, !).</li>
+        <li><strong>Binary Operators:</strong> Require two operands (e.g., +, -, *, /).</li>
+    </ul>
+
+    <h2 id="exam-prep">6. Exam Focus Enhancements</h2>
+
+    <div class="exam-section tips">
+        <span class="label">Exam Tips</span>
+        <ul>
+            <li><strong>Modulus Rule:</strong> The <strong>%</strong> operator only works with <strong>int</strong> data types. Using it with <strong>float</strong> will cause a compile error.</li>
+            <li><strong>Division:</strong> Remember that integer division (e.g., 5/2) results in 2, not 2.5. To get a decimal, at least one operand must be a float.</li>
+            <li><strong>Short-circuit:</strong> In Logical AND (&&), if the first expression is false, the second is not even checked.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section mistakes">
+        <span class="label">Common Mistakes</span>
+        <ul>
+            <li><strong>= vs ==:</strong> Confusing the assignment operator (=) with the equality comparison operator (==) in <em>if</em> statements.</li>
+            <li><strong>Range Overflow:</strong> Assigning a value larger than 32,767 to a standard 16-bit <em>int</em>.</li>
+            <li><strong>Division by Zero:</strong> Always ensure the denominator is not zero before performing a division.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section faq">
+        <span class="label">Frequently Asked Questions</span>
+        <p><strong>Q: What is the size of an int in C?</strong><br>
+        A: It is compiler-dependent, usually 2 bytes on 16-bit systems and 4 bytes on 32/64-bit systems.</p>
+        <p><strong>Q: Why do we use Bitwise operators?</strong><br>
+        A: They are used for low-level programming like device drivers or cryptography where direct bit manipulation is needed.</p>
+    </div>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application DSM 101 Unit 5 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Detailed academic notes for CADSM101 Unit 5: Input/Output, File Handling, and Low-Level Programming in C. Exam-ready materials for computer application students.">
+    <meta name="keywords" content="Knowlet, C Programming, File Handling, printf, scanf, Bitwise Operations, Macros, C Preprocessor, Low Level Programming">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #27ae60;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #27ae60;
+            border-left: 5px solid #2ecc71;
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #d35400;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #f4fff8;
+            border-left: 10px solid #27ae60;
+            margin: 1.5em 10px;
+            padding: 1em 10px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #27ae60;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .toc {
+            background: #f0fff4;
+            padding: 20px;
+            border: 1px dashed #27ae60;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .exam-focus {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit V: Input/Output and Low-Level Programming</h1>
+    <p><strong>Course:</strong> Programming with C<br>
+    <strong>Code:</strong> CADSM101</p>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#standard-io">Standard and Formatted Input/Output</a></li>
+            <li><a href="#file-handling">Data Files and File Access</a></li>
+            <li><a href="#low-level">Low-Level Programming (Bitwise, Bit fields)</a></li>
+            <li><a href="#preprocessor-advanced">The C Preprocessor and Macros</a></li>
+            <li><a href="#library-cmd">Library Functions and Command Line Arguments</a></li>
+            <li><a href="#exam-prep">Exam Focus: Tips & FAQs</a></li>
+        </ul>
+    </div>
+
+    <h2 id="standard-io">Standard and Formatted Input/Output</h2>
+    <p>C provides a set of library functions for input and output operations, primarily through the <strong>stdio.h</strong> header file.</p>
+    <ul>
+        <li><strong>Standard I/O:</strong> Includes basic character-based functions and standard stream handling.</li>
+        <li><strong>Formatted Output (printf):</strong> Allows for controlled printing of various data types using format specifiers (e.g., %d, %f, %s).</li>
+        <li><strong>Formatted Input (scanf):</strong> Used to read formatted data from the standard input (keyboard).</li>
+        <li><strong>Variable Length Arguments:</strong> Techniques that allow functions to accept a different number of arguments during different calls.</li>
+    </ul>
+
+    <h2 id="file-handling">Data Files and File Access</h2>
+    <p>File handling allows a C program to store data permanently on a storage device.</p>
+    
+    <ul>
+        <li><strong>Opening and Closing:</strong> Files must be opened using <code>fopen()</code> and closed using <code>fclose()</code> to free resources.</li>
+        <li><strong>Creating and Processing:</strong> Programs can create new files or modify existing ones by reading from or writing to them.</li>
+        <li><strong>File Access:</strong> Files can be accessed sequentially or randomly using functions like <code>fseek()</code>.</li>
+        <li><strong>Unformatted Data Files:</strong> Handling raw binary data instead of text for efficiency or specific data structures.</li>
+    </ul>
+
+    <h2 id="low-level">Low-Level Programming</h2>
+    <p>C provides unique features that allow programmers to interact closely with computer hardware.</p>
+    <ul>
+        <li><strong>Register Variables:</strong> Using the <code>register</code> keyword to suggest the compiler store a variable in a CPU register for faster access.</li>
+        <li><strong>Bitwise Operations:</strong> Operators that manipulate individual bits (AND &, OR |, XOR ^, NOT ~, Shifting << >>).</li>
+        <li><strong>Bit Fields:</strong> Allow the definition of structure members that occupy a specific number of bits, saving memory.</li>
+        <li><strong>Enumeration (enum):</strong> A user-defined data type consisting of a set of named integer constants.</li>
+    </ul>
+
+    <h2 id="preprocessor-advanced">The C Preprocessor and Macros</h2>
+    <p>The preprocessor is a tool that examines the source code before actual compilation begins.</p>
+    <ul>
+        <li><strong>Macros:</strong> Defined using <code>#define</code>, these allow for symbolic constants or short functional code snippets that are replaced by the preprocessor.</li>
+        <li><strong>Conditional Compilation:</strong> Using directives like <code>#ifdef</code> or <code>#ifndef</code> to compile specific parts of code based on certain conditions.</li>
+    </ul>
+
+    <h2 id="library-cmd">Library Functions and Command Line Arguments</h2>
+    <ul>
+        <li><strong>Library Functions:</strong> Pre-written functions provided by the C standard library to perform common tasks (e.g., string manipulation, math).</li>
+        <li><strong>Command Line Parameters:</strong> Arguments passed to the program when it is executed from the terminal, enabling dynamic behavior.</li>
+    </ul>
+
+    <div class="exam-focus" id="exam-prep">
+        <h4>Exam Focus & Tips</h4>
+        <ul>
+            <li><strong>Exam Tip:</strong> Be prepared to write a program that copies the content of one file to another using command line arguments.</li>
+            <li><strong>Common Mistake:</strong> Forgetting to check if <code>fopen()</code> returned <code>NULL</code>, which happens if a file cannot be found or opened.</li>
+            <li><strong>Mnemonic:</strong> <strong>"ROB"</strong> for bitwise - <strong>R</strong>egister, <strong>O</strong>perations (Bitwise), <strong>B</strong>it fields.</li>
+        </ul>
+        
+        <hr>
+        
+        <h4>Frequently Asked Questions</h4>
+        <p><strong>Q: What is the purpose of the <code>fclose()</code> function?</strong><br>
+        A: It closes an open file and ensures all buffered data is written to the disk correctly.</p>
+        
+        <p><strong>Q: How do Bit fields help in programming?</strong><br>
+        A: They allow a programmer to use the minimum amount of memory required for a variable by specifying its size in bits.</p>
+    </div>
+
+</div>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

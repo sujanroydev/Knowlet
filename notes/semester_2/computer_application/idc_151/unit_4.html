@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application IDC 151 Unit 4 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Exam-ready HTML notes for CAIDC 151 Unit 4: Decision Making and Looping. Detailed coverage of IF statements, Switch, While, Do-While, and For loops in C.">
+    <meta name="keywords" content="C Programming, CAIDC 151, Unit 4, Decision Making, Branching, Looping, IF-ELSE, Switch Statement, For Loop, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #2980b9;
+            --accent-color: #e67e22;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --border-color: #ddd;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 4px solid var(--secondary-color);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+        h2 {
+            color: var(--secondary-color);
+            border-left: 6px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-top: 50px;
+            background: #f1f7ff;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: var(--accent-color);
+            margin-top: 30px;
+        }
+        p {
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 25px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        blockquote {
+            background: #ecf0f1;
+            border-left: 8px solid var(--primary-color);
+            margin: 25px 0;
+            padding: 20px;
+            font-style: italic;
+            font-weight: bold;
+        }
+        .toc {
+            background: #f8f9fa;
+            padding: 25px;
+            border: 1px solid #d1d9e6;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        .exam-focus {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+        .exam-focus h4 {
+            margin-top: 0;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit IV: Decision Making and Looping</h1>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#decision-making">1. Decision Making and Branching</a></li>
+            <li><a href="#if-statements">2. The IF Family (Simple, Else, Nested, Ladder)</a></li>
+            <li><a href="#switch-statement">3. Switch Statement</a></li>
+            <li><a href="#looping">4. Looping: Introduction and Types</a></li>
+            <li><a href="#loop-types">5. While, Do-While, and For Statements</a></li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 id="decision-making">1. Decision Making and Branching</h2>
+    <p>
+        Decision making structures require that the programmer specify one or more conditions to be evaluated or tested by the program. Branching allows the program to skip or execute certain blocks of code based on the result of these tests.
+    </p>
+
+    <hr>
+
+    <h2 id="if-statements">2. The IF Family</h2>
+    <p>
+        The <code>if</code> statement is the most powerful tool for controlling the flow of execution.
+    </p>
+    <ul>
+        <li><strong>Simple IF Statement:</strong> Used to execute a single block of code if a condition is true.</li>
+        <li><strong>IF-ELSE Statement:</strong> Executes one block if the condition is true and another block if it is false.</li>
+        <li><strong>Nested IF-ELSE:</strong> An <code>if-else</code> statement inside another <code>if</code> or <code>else</code> block, used for complex multi-level decisions.</li>
+        <li><strong>ELSE IF Ladder:</strong> A chain of <code>if</code> statements where multiple conditions are checked sequentially.</li>
+    </ul>
+
+    
+
+    <hr>
+
+    <h2 id="switch-statement">3. Switch Statement</h2>
+    <p>
+        The <code>switch</code> statement is a multi-way branch statement. It provides an easy way to dispatch execution to different parts of code based on the value of an expression.
+    </p>
+    <blockquote>
+        Utility: It is often used as a cleaner alternative to a long <em>else if</em> ladder when comparing a single variable against multiple constant values.
+    </blockquote>
+
+    <hr>
+
+    <h2 id="looping">4. Looping: Introduction and Types</h2>
+    <p>
+        Looping involves repeating a set of instructions until a specific condition is met. This is essential for tasks like processing array elements or generating series.
+    </p>
+
+    <hr>
+
+    <h2 id="loop-types">5. While, Do-While, and For Statements</h2>
+    <p>
+        There are three primary looping constructs in C:
+    </p>
+    <ul>
+        <li><strong>while Statement:</strong> An entry-controlled loop that checks the condition <em>before</em> executing the loop body.</li>
+        <li><strong>do-while Statement:</strong> An exit-controlled loop that executes the body at least once <em>before</em> checking the condition.</li>
+        <li><strong>for Statement:</strong> A compact loop structure that includes initialization, condition, and increment/decrement in a single line.</li>
+    </ul>
+
+    
+
+    <div class="exam-focus">
+        <h4>Exam Tips</h4>
+        <ul>
+            <li><strong>Semicolon Warning:</strong> Never put a semicolon after the <code>if(condition)</code> or <code>for(...)</code> header, as it terminates the statement immediately without executing the block.</li>
+            <li><strong>Switch Break:</strong> Always remember to use the <code>break</code> keyword in <code>switch</code> cases; otherwise, execution will "fall through" to subsequent cases.</li>
+            <li><strong>Loop Selection:</strong> Use a <code>for</code> loop when you know the number of iterations in advance and a <code>while</code> loop when the termination depends on a condition.</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h3>Frequently Asked Questions</h3>
+    <p><strong>Q1: What is the main difference between while and do-while?</strong><br>
+    The <code>while</code> loop may never execute if the condition is false initially, whereas <code>do-while</code> guarantees at least one execution.</p>
+
+    <p><strong>Q2: When should I use an ELSE IF ladder over a Switch?</strong><br>
+    Use an <code>else if</code> ladder for range-based conditions (e.g., marks > 90) and a <code>switch</code> for specific discrete values (e.g., choice == 1).</p>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

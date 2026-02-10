@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application SEC 101 Unit 5 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Detailed academic notes for CASEC101 Unit 5: Input/Output and Low-Level Programming in C. Covers File Access, Bitwise operations, and Macros.">
+    <meta name="keywords" content="Knowlet, CASEC101, File Handling, printf, scanf, Bitwise Operations, Macros, C Preprocessor, Low Level Programming">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #27ae60;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #27ae60;
+            border-left: 5px solid #2ecc71;
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #d35400;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #f4fff8;
+            border-left: 10px solid #27ae60;
+            margin: 1.5em 10px;
+            padding: 1em 10px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #27ae60;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .toc {
+            background: #f0fff4;
+            padding: 20px;
+            border: 1px dashed #27ae60;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .exam-focus {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit V: Input/Output and Low Level Programming</h1>
+    <p><strong>Course:</strong> Programming with C (SEC)<br>
+    <strong>Code:</strong> CASEC101</p>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#standard-io">Standard and Formatted I/O</a></li>
+            <li><a href="#file-handling">Data Files and Access Functions</a></li>
+            <li><a href="#low-level">Low Level Programming Concepts</a></li>
+            <li><a href="#bitwise">Bitwise Operations and Bit Fields</a></li>
+            <li><a href="#preprocessor">The C Preprocessor and Macros</a></li>
+            <li><a href="#exam-prep">Exam Focus: Tips & FAQs</a></li>
+        </ul>
+    </div>
+
+    <h2 id="standard-io">Standard and Formatted I/O</h2>
+    <p>Input and output operations allow a program to communicate with the user and external environments.</p>
+    <ul>
+        <li><strong>Standard I/O:</strong> Use of standard streams for input and output.</li>
+        <li><strong>Formatted Output (printf):</strong> Allows printing variables with specific format specifiers.</li>
+        <li><strong>Variable Length Arguments:</strong> Functions that can accept an unspecified number of parameters.</li>
+        <li><strong>Formatted Input (scanf):</strong> Reads formatted data from standard input based on format specifiers.</li>
+    </ul>
+
+    <h2 id="file-handling">Data Files and Access Functions</h2>
+    <p>File handling is used to store data permanently on disks.</p>
+    
+    
+
+    <ul>
+        <li><strong>Opening and Closing:</strong> Files must be explicitly opened before use and closed after completion to prevent data loss.</li>
+        <li><strong>File Access:</strong> Methods for reading from and writing to data files.</li>
+        <li><strong>Unformatted Files:</strong> Direct processing of raw data files without formatting.</li>
+        <li><strong>Miscellaneous Functions:</strong> Library functions used for file positioning and error checking.</li>
+    </ul>
+
+    <h2 id="low-level">Low Level Programming Concepts</h2>
+    <p>C provides features to interact closely with the computer's hardware for performance optimization.</p>
+    <ul>
+        <li><strong>Register Variables:</strong> Hints to the compiler to store frequently used variables in CPU registers for speed.</li>
+        <li><strong>Enumeration:</strong> A user-defined type consisting of a set of named integer constants.</li>
+        <li><strong>Command Line Arguments:</strong> Passing parameters to the program during execution to control behavior.</li>
+        <li><strong>Library Functions:</strong> Standard pre-built functions for system-level operations.</li>
+    </ul>
+
+    <h2 id="bitwise">Bitwise Operations and Bit Fields</h2>
+    <p>These allow manipulation of data at the smallest level: individual bits.</p>
+    <ul>
+        <li><strong>Bitwise Operations:</strong> Operators such as AND, OR, XOR, and shifts that work on binary representations.</li>
+        <li><strong>Bit Fields:</strong> Structure members whose size is defined in bits, allowing for extremely compact data storage.</li>
+    </ul>
+
+    <h2 id="preprocessor">The C Preprocessor and Macros</h2>
+    <p>The preprocessor transforms code before actual compilation begins.</p>
+    <ul>
+        <li><strong>Macros:</strong> Definitions used to create symbolic constants or small code replacements.</li>
+        <li><strong>Directives:</strong> Commands like <code>#define</code> and <code>#include</code> that guide the compilation process.</li>
+    </ul>
+
+    <div class="exam-focus" id="exam-prep">
+        <h4>Exam Focus & Tips</h4>
+        <ul>
+            <li><strong>Exam Tip:</strong> Be ready to write a program that copies one file to another using command line arguments.</li>
+            <li><strong>Common Mistake:</strong> Forgetting to check if a file was successfully opened before trying to read it.</li>
+            <li><strong>Mnemonic:</strong> <strong>"F-O-C"</strong> - <strong>F</strong>ile <strong>O</strong>pen, <strong>C</strong>lose. Always remember the pair! </li>
+        </ul>
+        
+        <hr>
+        
+        <h4>Frequently Asked Questions</h4>
+        <p><strong>Q: What is the benefit of bitwise operations?</strong><br>
+        A: They are essential for low-level tasks like setting hardware flags or masking specific bits of a number.</p>
+        
+        <p><strong>Q: How do you pass arguments to a program from the terminal?</strong><br>
+        A: Use command line parameters, which are handled by <code>argc</code> and <code>argv</code> in the main function.</p>
+    </div>
+</div>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application DSC 152 Unit 3 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Practical lab notes for CADSC 152P: Stack and Queue implementations using Arrays and Linked Lists. Includes De-queues and Circular implementation with C++ Templates.">
+    <meta name="keywords" content="Stack Lab, Queue Lab, CADSC 152P, Circular Queue, De-queue, C++ Templates, Data Structures Practical, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --code-bg: #2d3436;
+            --code-text: #dfe6e9;
+            --bg-color: #f4f7f6;
+            --text-color: #2c3e50;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e1e8ed;
+        }
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 4px solid var(--secondary-color);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+        h2 {
+            color: var(--secondary-color);
+            border-left: 6px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-top: 45px;
+            background: #f0f7ff;
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: #2c3e50;
+            margin-top: 30px;
+            text-decoration: underline;
+        }
+        p {
+            margin-bottom: 18px;
+        }
+        ul, ol {
+            margin-bottom: 25px;
+        }
+        .code-container {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 18px;
+            border-radius: 6px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            margin: 20px 0;
+            font-size: 0.95em;
+        }
+        .lab-task-card {
+            background-color: #ffffff;
+            border: 1px solid #3498db;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 10px solid #3498db;
+            border-radius: 4px;
+        }
+        .lab-task-card strong {
+            color: #2980b9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background: #ffffff;
+            padding: 25px;
+            border: 1px solid #dcdde1;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        .exam-warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Lab on Data Structure: Practical Unit 3</h1>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#stack-linked">1. Task 6: Stack Operations via Linked List</a></li>
+            <li><a href="#stack-array">2. Task 7: Stack Operations via Array (Templates)</a></li>
+            <li><a href="#queue-circular">3. Task 8: Queues via Circular Array (Templates)</a></li>
+            <li><a href="#dequeue-linked">4. Task 9: Double-ended Queues (De-queue)</a></li>
+            <li><a href="#lab-viva">5. Practical Viva Questions</a></li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 id="stack-linked">1. Task 6: Stack Operations via Linked List</h2>
+    <div class="lab-task-card">
+        <strong>Lab Assignment:</strong> Perform Stack operations using Linked List implementation.
+    </div>
+    <p>
+        In this implementation, the <strong>Top</strong> of the stack is always represented by the <strong>Head</strong> of the linked list. This allows for O(1) Push and Pop operations without worrying about array size limits.
+    </p>
+    <ul>
+        <li><strong>Push:</strong> Insert a new node at the beginning of the list.</li>
+        <li><strong>Pop:</strong> Remove the node from the beginning of the list.</li>
+        <li><strong>Display:</strong> Traverse from the Head to the end of the list.</li>
+    </ul>
+    
+
+    <hr>
+
+    <h2 id="stack-array">2. Task 7: Stack Operations via Array (Templates)</h2>
+    <div class="lab-task-card">
+        <strong>Lab Assignment:</strong> Perform Stack operations using Array implementation. Use Templates.
+    </div>
+    <p>
+        Templates allow the stack to hold any data type (integers, floats, or objects) while using a single logic definition.
+    </p>
+    <div class="code-container">
+        template &lt;class T&gt;<br>
+        class Stack {<br>
+        &nbsp;&nbsp;T arr[MAX];<br>
+        &nbsp;&nbsp;int top;<br>
+        public:<br>
+        &nbsp;&nbsp;Stack() { top = -1; }<br>
+        &nbsp;&nbsp;void push(T val);<br>
+        &nbsp;&nbsp;T pop();<br>
+        };
+    </div>
+    <div class="exam-warning">
+        <strong>Check for Overflow/Underflow:</strong> In array-based stacks, always check if <code>top == MAX-1</code> before pushing and <code>top == -1</code> before popping.
+    </div>
+
+    <hr>
+
+    <h2 id="queue-circular">3. Task 8: Queues via Circular Array (Templates)</h2>
+    <div class="lab-task-card">
+        <strong>Lab Assignment:</strong> Perform Queues operations using Circular Array implementation. Use Templates.
+    </div>
+    <p>
+        A <strong>Circular Queue</strong> solves the limitation of a simple array queue where space at the front cannot be reused. 
+    </p>
+    <ul>
+        <li><strong>Rear Update:</strong> <code>rear = (rear + 1) % SIZE;</code> </li>
+        <li><strong>Front Update:</strong> <code>front = (front + 1) % SIZE;</code> </li>
+    </ul>
+    
+
+    <hr>
+
+    <h2 id="dequeue-linked">4. Task 9: Double-ended Queues (De-queue)</h2>
+    <div class="lab-task-card">
+        <strong>Lab Assignment:</strong> Create and perform different operations on Double-ended Queues (De-queues) using Linked List implementation.
+    </div>
+    <p>
+        A <strong>De-queue</strong> allows insertion and deletion from both the <strong>Front</strong> and the <strong>Rear</strong>. Using a Doubly Linked List is often preferred here as it provides O(1) access to the previous node at the Rear for deletion.
+    </p>
+    <div class="add-horizontal-scroll"><table>
+        <tr>
+            <th>Operation</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>insertFront()</td>
+            <td>Adds element to the start of the list.</td>
+        </tr>
+        <tr>
+            <td>insertRear()</td>
+            <td>Adds element to the end of the list.</td>
+        </tr>
+        <tr>
+            <td>deleteFront()</td>
+            <td>Removes the first element.</td>
+        </tr>
+        <tr>
+            <td>deleteRear()</td>
+            <td>Removes the last element.</td>
+        </tr>
+    </table></div>
+
+    <hr>
+
+    <h2 id="lab-viva">5. Practical Viva Questions</h2>
+    <p><strong>Q1: Why is a Linked List implementation of a Stack considered "dynamic"?</strong><br>
+    Unlike the array implementation, it does not require a predefined size; memory is allocated only when a new element is pushed.</p>
+
+    <p><strong>Q2: When is a Circular Queue "Full"?</strong><br>
+    In a typical implementation, it is full when <code>(rear + 1) % SIZE == front</code>.</p>
+
+    <p><strong>Q3: What are the two types of restricted De-queues?</strong><br>
+    1. Input-Restricted (insertion at one end, deletion at both) and 2. Output-Restricted (insertion at both ends, deletion at one).</p>
+
+    <div class="exam-warning">
+        <strong>Template Tip:</strong> When defining template methods outside the class, remember to use the syntax: <code>template &lt;typename T&gt; void Stack&lt;T&gt;::push(T val)</code>.
+    </div>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

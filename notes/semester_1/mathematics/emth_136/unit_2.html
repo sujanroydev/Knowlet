@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics EMTH 136 Unit 2 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Academic notes for EMTH136 Discrete Structures Unit 2. Covering Cartesian Products, Relations, Functions, and special function graphs.">
+    <meta name="keywords" content="EMTH136, Discrete Structures, Cartesian Product, Relations, Functions, One-One, Onto, Modulus Function, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e67e22;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --border-color: #ddd;
+            --accent-blue: #3498db;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin-top: 30px;
+            background: #fdf2e9;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            margin-top: 25px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .exam-section {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .tips { background-color: #e8f8f5; border: 1px solid #27ae60; }
+        .mistakes { background-color: #fdedec; border: 1px solid #c0392b; }
+        .faq { background-color: #ebf5fb; border: 1px solid #2980b9; }
+
+        .label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            text-decoration: underline;
+        }
+
+        code {
+            background-color: #f1f1f1;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 2: Relations and Functions</h1>
+
+    <div class="toc">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#cartesian">1. Cartesian Product of Sets</a></li>
+            <li><a href="#relations">2. Relations: Domain and Range</a></li>
+            <li><a href="#functions">3. Functions and Their Representation</a></li>
+            <li><a href="#graphs">4. Graphs of Special Functions</a></li>
+            <li><a href="#types">5. One-One and Onto Functions</a></li>
+            <li><a href="#exam-prep">6. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="cartesian">1. Cartesian Product of Sets</h2>
+    <p>The <strong>Cartesian Product</strong> of two non-empty sets A and B is the set of all ordered pairs (a, b) such that a belongs to A and b belongs to B.</p>
+    <blockquote>
+        <strong>Notation:</strong> A × B = { (a, b) : a ∈ A and b ∈ B }
+    </blockquote>
+    <ul>
+        <li>If set A has <em>p</em> elements and set B has <em>q</em> elements, then A × B has <strong>p × q</strong> elements.</li>
+        <li>Order matters: (a, b) ≠ (b, a) unless a = b.</li>
+    </ul>
+
+    <h2 id="relations">2. Relations: Domain and Range</h2>
+    <p>A <strong>Relation (R)</strong> from set A to set B is a subset of the Cartesian product A × B. It is derived by describing a relationship between the first element and the second element of the ordered pairs.</p>
+    
+    <h3>Key Terms:</h3>
+    <ul>
+        <li><strong>Domain:</strong> The set of all first elements of the ordered pairs in a relation R.</li>
+        <li><strong>Range:</strong> The set of all second elements of the ordered pairs in a relation R.</li>
+        <li><strong>Co-domain:</strong> The entire set B in a relation from A to B. (Note: Range ⊆ Co-domain).</li>
+    </ul>
+
+    <h2 id="functions">3. Functions and Their Representation</h2>
+    <p>A <strong>Function (f)</strong> from set A to set B is a special type of relation where every element of set A has <strong>one and only one</strong> image in set B.</p>
+    <p><strong>Conditions for a function:</strong></p>
+    <ol>
+        <li>Every element in the domain (Set A) must be associated with an element in the co-domain.</li>
+        <li>No element in the domain can have more than one image.</li>
+    </ol>
+
+    <h2 id="graphs">4. Graphs of Special Functions</h2>
+    <p>Visualizing functions through graphs is crucial for understanding their behavior:</p>
+    
+    <div class="add-horizontal-scroll"><table>
+        <tr>
+            <th>Function Name</th>
+            <th>Expression</th>
+            <th>Graphical Behavior</th>
+        </tr>
+        <tr>
+            <td><strong>Identity Function</strong></td>
+            <td>f(x) = x</td>
+            <td>A straight line passing through the origin at 45°.</td>
+        </tr>
+        <tr>
+            <td><strong>Modulus Function</strong></td>
+            <td>f(x) = |x|</td>
+            <td>A V-shaped graph with the vertex at (0,0).</td>
+        </tr>
+        <tr>
+            <td><strong>Greatest Integer Function</strong></td>
+            <td>f(x) = [x]</td>
+            <td>A "step" or "staircase" graph. It rounds down to the nearest integer.</td>
+        </tr>
+        <tr>
+            <td><strong>Signum Function</strong></td>
+            <td>f(x) = x/|x|</td>
+            <td>Returns 1 for x > 0, -1 for x < 0, and 0 for x = 0.</td>
+        </tr>
+    </table></div>
+
+    <h2 id="types">5. One-One and Onto Functions</h2>
+    <p>These classifications describe how elements are mapped between sets:</p>
+    
+    <h3>One-One (Injective) Function</h3>
+    <p>A function is <strong>One-One</strong> if distinct elements in the domain have distinct images in the co-domain.
+    <br><em>Mathematically:</em> if f(x₁) = f(x₂), then x₁ = x₂.</p>
+
+    <h3>Onto (Surjective) Function</h3>
+    <p>A function is <strong>Onto</strong> if every element in the co-domain is the image of at least one element in the domain.
+    <br><em>Mathematically:</em> Range = Co-domain.</p>
+
+    <h3>Bijective Function</h3>
+    <p>A function that is both One-One and Onto is called <strong>Bijective</strong>. It represents a perfect "one-to-one correspondence."</p>
+
+    <h2 id="exam-prep">6. Exam Focus Enhancements</h2>
+
+    <div class="exam-section tips">
+        <span class="label">Exam Tips</span>
+        <ul>
+            <li><strong>Vertical Line Test:</strong> To check if a graph represents a function, draw a vertical line. If it touches the graph more than once, it is NOT a function.</li>
+            <li><strong>Range vs Co-domain:</strong> Always double-check if every element in B is used. If yes, it's Onto. If no, it's Into.</li>
+            <li><strong>Modulus Steps:</strong> When graphing |x|, remember it always returns non-negative values. The graph will never go below the x-axis.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section mistakes">
+        <span class="label">Common Mistakes</span>
+        <ul>
+            <li>Confusing <strong>Relation</strong> with <strong>Function</strong>. Every function is a relation, but every relation is not necessarily a function.</li>
+            <li>In <strong>[x] (Greatest Integer Function)</strong>, students often round to the "nearest" integer. Remember: it always rounds <em>down</em> (e.g., [-1.1] = -2).</li>
+            <li>Forgeting the <strong>Codomain</strong>. Range is what comes out of the function; the Codomain is the target set provided in the definition.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section faq">
+        <span class="label">Frequently Asked Questions</span>
+        <p><strong>Q: Can a function have an empty domain?</strong><br>
+        A: Technically, an empty function exists from an empty set, but for practical exam purposes, domains are non-empty.</p>
+        <p><strong>Q: What is a Many-One function?</strong><br>
+        A: A function where two or more different elements in the domain have the same image in the co-domain (e.g., f(x) = x²).</p>
+    </div>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

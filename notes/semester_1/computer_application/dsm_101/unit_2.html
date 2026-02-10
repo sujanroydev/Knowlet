@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application DSM 101 Unit 2 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Detailed academic notes for CADSM101 Unit 2: Functions and Program Structure. Covers recursion, storage classes, and preprocessors in C.">
+    <meta name="keywords" content="Knowlet, C Functions, Recursion, Storage Classes, C Preprocessor, Scope Rules, CADSM101 Unit 2">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #27ae60;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #27ae60;
+            border-left: 5px solid #2ecc71;
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #d35400;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #f4fff8;
+            border-left: 10px solid #27ae60;
+            margin: 1.5em 10px;
+            padding: 1em 10px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #27ae60;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background: #f0fff4;
+            padding: 20px;
+            border: 1px dashed #27ae60;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .exam-focus {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit II: Functions and Program Structure</h1>
+    <p><strong>Course:</strong> Programming with C<br>
+    <strong>Code:</strong> CADSM101</p>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#defining-functions">Defining and Accessing Functions</a></li>
+            <li><a href="#arguments">Passing Arguments and Data Types</a></li>
+            <li><a href="#prototypes">Function Prototypes and Return Types</a></li>
+            <li><a href="#storage-classes">Storage Classes (Auto, Extern, Static, Register)</a></li>
+            <li><a href="#scope-rules">Scope Rules and Block Structure</a></li>
+            <li><a href="#recursion">Recursion in C</a></li>
+            <li><a href="#preprocessor">The C Preprocessor and Header Files</a></li>
+            <li><a href="#exam-prep">Exam Focus: Tips & FAQs</a></li>
+        </ul>
+    </div>
+
+    <h2 id="defining-functions">Defining and Accessing Functions</h2>
+    <p>A function is a self-contained block of code that performs a specific task. Using functions helps in modularizing code and promoting reusability.</p>
+    <ul>
+        <li><strong>Definition:</strong> Includes the function name, return type, and the body of the function.</li>
+        <li><strong>Accessing:</strong> Functions are "called" from other parts of the program, such as <code>main()</code>, to execute their tasks.</li>
+    </ul>
+
+    <h2 id="arguments">Passing Arguments and Data Types</h2>
+    <p>Functions can receive data through arguments. In C, you must specify the data type for each argument passed to a function.</p>
+    
+    <ul>
+        <li><strong>Actual Arguments:</strong> The values passed to the function during a call.</li>
+        <li><strong>Formal Arguments:</strong> The variables declared in the function definition to receive those values.</li>
+    </ul>
+
+    <h2 id="prototypes">Function Prototypes and Return Types</h2>
+    <p>A <strong>Function Prototype</strong> tells the compiler about the function's name, return type, and parameters before the actual definition is provided.</p>
+    <ul>
+        <li><strong>Non-integer returns:</strong> Functions can return types other than <code>int</code>, such as <code>float</code>, <code>double</code>, or <code>char</code>.</li>
+    </ul>
+
+    <h2 id="storage-classes">Storage Classes</h2>
+    <p>Storage classes define the scope, visibility, and lifetime of variables within a C program.</p>
+    <div class="add-horizontal-scroll"><table>
+        <tr>
+            <th>Storage Class</th>
+            <th>Keyword</th>
+            <th>Location</th>
+            <li>Lifetime</th>
+        </tr>
+        <tr>
+            <td><strong>Automatic</strong></td>
+            <td>auto</td>
+            <td>Stack (Memory)</td>
+            <td>Local to the block.</td>
+        </tr>
+        <tr>
+            <td><strong>External</strong></td>
+            <td>extern</td>
+            <td>Data Segment</td>
+            <td>Global; persists for the entire program.</td>
+        </tr>
+        <tr>
+            <td><strong>Static</strong></td>
+            <td>static</td>
+            <td>Data Segment</td>
+            <td>Value persists between function calls.</td>
+        </tr>
+        <tr>
+            <td><strong>Register</strong></td>
+            <td>register</td>
+            <td>CPU Register</td>
+            <td>Fast access; local to the block.</td>
+        </tr>
+    </table></div>
+
+    <h2 id="scope-rules">Scope Rules and Block Structure</h2>
+    <p>The <strong>scope</strong> refers to the region of the program where a variable is accessible.</p>
+    <ul>
+        <li><strong>Local Scope:</strong> Variables declared inside a block or function are only accessible within that block.</li>
+        <li><strong>Global Scope:</strong> Variables declared outside all functions are accessible everywhere.</li>
+        <li><strong>Block Structure:</strong> C supports nested blocks using curly braces <code>{}</code>, where inner blocks can access outer variables (unless shadowed).</li>
+    </ul>
+
+    <h2 id="recursion">Recursion in C</h2>
+    <p><strong>Recursion</strong> is a technique where a function calls itself to solve smaller instances of the same problem.</p>
+    
+    <blockquote>
+        Example: Factorial of n is n * Factorial(n-1).
+    </blockquote>
+    <ul>
+        <li>Must have a <strong>Base Case</strong> to prevent infinite loops.</li>
+        <li>Useful for problems like Tower of Hanoi and Fibonacci series.</li>
+    </ul>
+
+    <h2 id="preprocessor">The C Preprocessor and Header Files</h2>
+    <p>The preprocessor processes the source code before it is passed to the compiler.</p>
+    <ul>
+        <li><strong>Header Files:</strong> Files ending in <code>.h</code> (like <code>stdio.h</code>) containing function declarations and macros.</li>
+        <li><strong>Macros:</strong> Used for defining constants or small code snippets using <code>#define</code>.</li>
+    </ul>
+
+    <div class="exam-focus" id="exam-prep">
+        <h4>Exam Focus & Tips</h4>
+        <ul>
+            <li><strong>Exam Tip:</strong> Expect questions on <strong>Static variables</strong>. Remember: they retain their value even after the function finishes execution.</li>
+            <li><strong>Common Mistake:</strong> Forgetting the base case in a recursive function, which leads to a "Stack Overflow" error.</li>
+            <li><strong>Programming Task:</strong> Practice writing a recursive function for the <strong>Fibonacci sequence</strong>.</li>
+        </ul>
+        
+        <hr>
+        
+        <h4>Frequently Asked Questions</h4>
+        <p><strong>Q: What is a function prototype?</strong><br>
+        A: It is a declaration of the function that informs the compiler about the return type and arguments before the function is called.</p>
+        
+        <p><strong>Q: What is the difference between auto and static variables?</strong><br>
+        A: <code>auto</code> variables are destroyed when the function ends, while <code>static</code> variables keep their value for the next call.</p>
+    </div>
+
+</div>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application DSM 151 Unit 4 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Exam-ready notes for CADSM 151 Unit 4: Structures and Unions. Detailed coverage of typedef, self-referential structures, and pointer manipulation in C.">
+    <meta name="keywords" content="C Programming, Structures, Unions, Typedef, Self-referential structures, CADSM 151, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #27ae60;
+            --accent-color: #d35400;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --border-color: #bdc3c7;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 4px solid var(--secondary-color);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+        h2 {
+            color: var(--secondary-color);
+            border-left: 6px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-top: 50px;
+            background: #f1f9f7;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: var(--accent-color);
+            margin-top: 30px;
+        }
+        p {
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 25px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        blockquote {
+            background: #fdf2e9;
+            border-left: 8px solid var(--accent-color);
+            margin: 25px 0;
+            padding: 20px;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        table, th, td {
+            border: 1px solid var(--border-color);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background: #fff;
+            padding: 25px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+            column-count: 2;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: bold;
+        }
+        .exam-section {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit IV: Structures and Unions</h1>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#basics-struct">1. Basics of Structures</a></li>
+            <li><a href="#typedef">2. User Defined Data Types (typedef)</a></li>
+            <li><a href="#struct-pointers">3. Structures and Pointers</a></li>
+            <li><a href="#struct-functions">4. Structures and Functions</a></li>
+            <li><a href="#special-structs">5. Self-referential Structures & Table Lookup</a></li>
+            <li><a href="#unions">6. Unions</a></li>
+            <li><a href="#problem-solving">7. Problem Solving with Structures and Unions</a></li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 id="basics-struct">1. Basics of Structures</h2>
+    <p>
+        A <strong>Structure</strong> is a user-defined data type in C that allows you to group variables of different types under a single name. 
+        It is used to represent a record.
+    </p>
+    <ul>
+        <li><strong>Processing of Structures:</strong> Involves defining the structure template, declaring structure variables, and accessing members.</li>
+        <li><strong>Member Access:</strong> Members are accessed using the dot operator (.) for variable names.</li>
+        <li><strong>Arrays of Structures:</strong> You can create an array where each element is a structure, ideal for storing multiple records like student or employee data.</li>
+    </ul>
+
+    
+
+    <hr>
+
+    <h2 id="typedef">2. User Defined Data Types (typedef)</h2>
+    <p>
+        The <code>typedef</code> keyword is used to create an alias for an existing data type. 
+        In structures, it simplifies the declaration by removing the need to repeatedly use the <code>struct</code> keyword.
+    </p>
+    <blockquote>
+        Example: typedef struct { int x; int y; } Point;
+    </blockquote>
+
+    <hr>
+
+    <h2 id="struct-pointers">3. Structures and Pointers</h2>
+    <p>
+        Pointers to structures allow for efficient memory management and dynamic data structures.
+    </p>
+    <ul>
+        <li><strong>Pointers to Structures:</strong> A pointer can hold the address of a structure variable.</li>
+        <li><strong>Arrow Operator (->):</strong> When using a pointer to access structure members, the arrow operator is used instead of the dot operator.</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="struct-functions">4. Structures and Functions</h2>
+    <p>
+        Structures can be passed to functions to perform specific operations on complex data.
+    </p>
+    <ul>
+        <li><strong>Passing Structures:</strong> You can pass an entire structure, individual members, or a pointer to the structure to a function.</li>
+        <li><strong>Efficiency Note:</strong> Passing a pointer is generally more efficient as it avoids copying the entire structure.</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="special-structs">5. Self-referential Structures & Table Lookup</h2>
+    <ul>
+        <li><strong>Self-referential Structures:</strong> A structure that contains a pointer to an instance of itself. 
+            This is the foundation for Linked Lists and Trees.</li>
+        <li><strong>Table Lookup:</strong> This involves using structures to manage data in tabular formats, often used in compiler design for symbol tables.</li>
+    </ul>
+
+    
+
+    <hr>
+
+    <h2 id="unions">6. Unions</h2>
+    <p>
+        A <strong>Union</strong> is a special data type that allows storing different data types in the same memory location.
+    </p>
+    <ul>
+        <li><strong>Memory Efficiency:</strong> Unlike structures, a union only allocates enough memory for its largest member.</li>
+        <li><strong>Usage:</strong> Only one member can contain a value at any given time.</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="problem-solving">7. Problem Solving with Structures and Unions</h2>
+    <p>
+        This section focuses on writing programs to solve real-world problems using these constructs.
+    </p>
+    <ul>
+        <li>Implementing database-like records (e.g., library systems).</li>
+        <li>Managing memory-constrained systems using Unions.</li>
+    </ul>
+
+    <div class="exam-section">
+        <h4>Exam Tips</h4>
+        <ul>
+            <li><strong>Struct vs Union:</strong> Always remember that in a <code>struct</code>, all members have their own memory, but in a <code>union</code>, all members share the same memory.</li>
+            <li><strong>Pointer Access:</strong> Use <code>(*ptr).member</code> or the shorthand <code>ptr->member</code> when dealing with pointers.</li>
+            <li><strong>Size Calculation:</strong> The size of a structure is at least the sum of the sizes of its members, while the size of a union is the size of its largest member.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section">
+        <h4>Frequently Asked Questions</h4>
+        <p><strong>Q: What is a self-referential structure?</strong><br>
+        It is a structure that has a pointer to a structure of its own type. It's used to link data together in structures like linked lists.</p>
+        <p><strong>Q: Why use typedef with structures?</strong><br>
+        It makes the code cleaner and easier to read by creating shorter names for complex structure types.</p>
+    </div>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application DSC 152 Unit 1 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Practical lab notes for CADSC 152P: Lab on Data Structure. Focused on searching and sorting algorithms using C++ Templates.">
+    <meta name="keywords" content="Data Structure Lab, CADSC 152P, Linear Search, Binary Search, Bubble Sort, Selection Sort, Insertion Sort, C++ Templates, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --code-bg: #2d3436;
+            --code-text: #dfe6e9;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 4px solid var(--secondary-color);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+        h2 {
+            color: var(--secondary-color);
+            border-left: 6px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-top: 50px;
+            background: #fff5f5;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+        p {
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 25px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .code-block {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+            margin: 20px 0;
+            border-left: 5px solid var(--secondary-color);
+        }
+        blockquote {
+            background: #f9f9f9;
+            border-left: 8px solid #bdc3c7;
+            margin: 25px 0;
+            padding: 20px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .toc {
+            background: #fdfdfd;
+            padding: 25px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        .lab-task {
+            background-color: #e3f2fd;
+            border: 1px solid #bbdefb;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .lab-task strong {
+            color: #0d47a1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Lab on Data Structure: Practical Unit 1</h1>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#lab-objectives">1. Lab Objectives & Learning Outcomes</a></li>
+            <li><a href="#templates-concept">2. Core Concept: C++ Templates</a></li>
+            <li><a href="#searching-lab">3. Task 1: Linear and Binary Search</a></li>
+            <li><a href="#sorting-lab">4. Task 2: Insertion, Bubble, and Selection Sort</a></li>
+            <li><a href="#exam-tips">5. Lab Exam Tips & Troubleshooting</a></li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 id="lab-objectives">1. Lab Objectives & Learning Outcomes</h2>
+    <p>
+        The primary goal of this lab is to help students apply theoretical concepts in a practical setting through programming assignments. 
+    </p>
+    <ul>
+        <li><strong>Skill Enhancement:</strong> Focuses on writing, debugging, and testing code for efficiency.</li>
+        <li><strong>Outcome:</strong> Students will demonstrate proficiency in implementing data structures and analyzing their complexities.</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="templates-concept">2. Core Concept: C++ Templates</h2>
+    <p>
+        The syllabus explicitly requires the use of <strong>Template functions</strong> for searching and sorting tasks. 
+    </p>
+    <blockquote>
+        <strong>Definition:</strong> Templates allow a function or class to work with different data types (int, float, char) without rewriting the code for each type.
+    </blockquote>
+    <p><strong>Example Template Structure:</strong></p>
+    <div class="code-block">
+        template &lt;typename T&gt;<br>
+        int linearSearch(T arr[], int n, T key) {<br>
+        &nbsp;&nbsp;for(int i = 0; i < n; i++) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if(arr[i] == key) return i;<br>
+        &nbsp;&nbsp;}<br>
+        &nbsp;&nbsp;return -1;<br>
+        }
+    </div>
+
+    <hr>
+
+    <h2 id="searching-lab">3. Task 1: Linear and Binary Search</h2>
+    <div class="lab-task">
+        <strong>Assignment:</strong> Write a program to search an element from a list, giving the user the option to perform Linear or Binary search using template functions.
+    </div>
+
+    <h3>Implementation Details</h3>
+    <ul>
+        <li><strong>Linear Search:</strong> Scans every element. Ideal for unsorted lists.</li>
+        <li><strong>Binary Search:</strong> Requires a <strong>sorted list</strong>. Uses the divide-and-conquer approach to locate elements in O(log n) time.</li>
+    </ul>
+
+    
+
+    <hr>
+
+    <h2 id="sorting-lab">4. Task 2: Insertion, Bubble, and Selection Sort</h2>
+    <div class="lab-task">
+        <strong>Assignment:</strong> WAP using templates to sort a list. Give users the option to choose between Insertion, Bubble, or Selection sort.
+    </div>
+
+    <h3>Logic Summaries for Coding</h3>
+    <div class="add-horizontal-scroll"><table>
+        <tr>
+            <th>Algorithm</th>
+            <th>Key Logic</th>
+            <th>C++ Concept</th>
+        </tr>
+        <tr>
+            <td><strong>Bubble Sort</strong></td>
+            <td>Compare adjacent elements and swap if needed.</td>
+            <td>Nested loops with swap().</td>
+        </tr>
+        <tr>
+            <td><strong>Selection Sort</strong></td>
+            <td>Find the minimum element and swap it with the first unsorted element.</td>
+            <td>Tracking min_index.</td>
+        </tr>
+        <tr>
+            <td><strong>Insertion Sort</strong></td>
+            <td>Build the sorted list one element at a time by inserting it into position.</td>
+            <td>Shifting elements.</td>
+        </tr>
+    </table></div>
+
+    <hr>
+
+    <h2 id="exam-tips">5. Lab Exam Tips & Troubleshooting</h2>
+    <div class="lab-task">
+        <strong>Exam Focus:</strong> In practical exams, ensure your menu-driven interface is clear and handles invalid inputs gracefully.
+    </div>
+
+    <ul>
+        <li><strong>Common Error:</strong> Forgetting to sort the array before calling the <strong>Binary Search</strong> function.</li>
+        <li><strong>Debugging Tip:</strong> Use print statements inside your sorting loops to see how the array changes in each "pass."</li>
+        <li><strong>Template Usage:</strong> Ensure the `template &lt;typename T&gt;` line is placed immediately above every function definition that uses it.</li>
+    </ul>
+
+    <h3>Frequently Asked Questions</h3>
+    <p><strong>Q: Why use Templates in this lab?</strong><br>
+    The syllabus mandates it to ensure students can create generic and reusable code.</p>
+
+    <p><strong>Q: What is the benefit of a Menu-Driven program?</strong><br>
+    It allows the user to interactively choose algorithms, fulfilling the "option" requirement in assignments.</p>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

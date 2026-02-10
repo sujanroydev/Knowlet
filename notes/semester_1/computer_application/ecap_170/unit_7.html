@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application ECAP 170 Unit 7 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive academic notes for ECAP170 Unit 7: Graphics and Multimedia. Learn about file formats, graphics software, and multimedia basics at Knowlet.">
+    <meta name="keywords" content="ECAP170, Graphics, Multimedia, File Formats, Image Acquisition, BCA Notes, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary-navy: #1a2a6c;
+            --accent-purple: #9b59b6;
+            --bg-canvas: #f5f6fa;
+            --text-charcoal: #2f3640;
+            --border-soft: #dcdde1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-canvas);
+            color: var(--text-charcoal);
+            line-height: 1.8;
+            margin: 0;
+            padding: 15px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 45px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: var(--primary-navy);
+            text-align: center;
+            font-size: 2.4em;
+            border-bottom: 4px solid var(--accent-purple);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #8e44ad;
+            border-left: 8px solid var(--primary-navy);
+            padding-left: 15px;
+            margin-top: 40px;
+            background: #f9f0ff;
+        }
+
+        h3 {
+            color: var(--primary-navy);
+            margin-top: 25px;
+            border-bottom: 1px dashed var(--border-soft);
+        }
+
+        p {
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+
+        .toc {
+            background: #f8f9fa;
+            padding: 25px;
+            border: 1px solid var(--border-soft);
+            border-radius: 10px;
+            margin-bottom: 35px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding-left: 5px;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-navy);
+            font-weight: 600;
+        }
+
+        .toc a:hover {
+            color: var(--accent-purple);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-soft);
+            padding: 14px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-navy);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fbfbfb;
+        }
+
+        blockquote {
+            background: #f4ecf7;
+            border-left: 5px solid var(--accent-purple);
+            padding: 15px 25px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        .exam-note {
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 10px;
+            border: 1px solid;
+        }
+
+        .tips { background-color: #d4edda; border-color: #c3e6cb; color: #155724; }
+        .mistakes { background-color: #f8d7da; border-color: #f5c6cb; color: #721c24; }
+        .faq { background-color: #d1ecf1; border-color: #bee5eb; color: #0c5460; }
+
+        .tag {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        strong { color: #1a2a6c; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 7: Graphics and Multimedia</h1>
+
+    <div class="toc">
+        <h3>Unit Roadmap</h3>
+        <ul>
+            <li><a href="#file-formats">1. Understanding Graphics File Formats</a></li>
+            <li><a href="#image-acquisition">2. Getting Images into your Computer</a></li>
+            <li><a href="#software">3. Graphics Software</a></li>
+            <li><a href="#multimedia-basics">4. Multimedia Basics</a></li>
+            <li><a href="#exam-prep">5. Exam Focus: Tips and FAQs</a></li>
+        </ul>
+    </div>
+
+    <h2 id="file-formats">1. Understanding Graphics File Formats</h2>
+    <p>Graphics file formats are standardized means of organizing and storing digital images. These formats determine how data is compressed and rendered on a screen.</p>
+    
+    <h3>Common Image Formats</h3>
+    <div class="add-horizontal-scroll"><table>
+        <thead>
+            <tr>
+                <th>Format</th>
+                <th>Full Form</th>
+                <th>Best Used For</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>JPEG</strong></td>
+                <td>Joint Photographic Experts Group</td>
+                <td>High-quality photographs; uses lossy compression.</td>
+            </tr>
+            <tr>
+                <td><strong>PNG</strong></td>
+                <td>Portable Network Graphics</td>
+                <td>Web graphics with transparency; uses lossless compression.</td>
+            </tr>
+            <tr>
+                <td><strong>GIF</strong></td>
+                <td>Graphics Interchange Format</td>
+                <td>Small animations and simple graphics with limited colors.</td>
+            </tr>
+            <tr>
+                <td><strong>BMP</strong></td>
+                <td>Bitmap Image File</td>
+                <td>Uncompressed, large-sized files used in older Windows apps.</td>
+            </tr>
+        </tbody>
+    </table></div>
+
+    <h2 id="image-acquisition">2. Getting Images into your Computer</h2>
+    <p>Image acquisition refers to the process of converting physical visuals into digital data that a computer can process.</p>
+    
+    
+
+    <ul>
+        <li><strong>Scanners:</strong> Devices that optically scan images, printed text, or objects and convert them into digital images.</li>
+        <li><strong>Digital Cameras:</strong> Capture images through electronic sensors and store them on digital media like SD cards.</li>
+        <li><strong>Graphic Tablets:</strong> Allow artists to "draw" images directly into the computer using a stylus.</li>
+    </ul>
+
+    <h2 id="software">3. Graphics Software</h2>
+    <p>Graphics software allows users to create, edit, and manipulate visual data. These are broadly divided into two categories:</p>
+
+    <h3>1. Bitmap (Raster) Graphics Software</h3>
+    <p>Works with pixels. If you zoom in too much, the image becomes "pixelated."</p>
+    <ul>
+        <li><strong>Example:</strong> Adobe Photoshop, MS Paint.</li>
+    </ul>
+
+    <h3>2. Vector Graphics Software</h3>
+    <p>Works with mathematical paths and shapes. These can be scaled to any size without losing quality.</p>
+    <ul>
+        <li><strong>Example:</strong> Adobe Illustrator, CorelDRAW.</li>
+    </ul>
+
+    <h2 id="multimedia-basics">4. Multimedia Basics</h2>
+    <blockquote>
+        <strong>Definition:</strong> Multimedia is the integration of multiple forms of media, including text, graphics, audio, video, and animation, into a single interactive presentation.
+    </blockquote>
+
+    <h3>Components of Multimedia:</h3>
+    <ul>
+        <li><strong>Text:</strong> The basic building block used to convey information.</li>
+        <li><strong>Audio:</strong> Sound waves converted into digital format (MP3, WAV).</li>
+        <li><strong>Video:</strong> A sequence of images played at a specific speed (frames per second) to create motion.</li>
+        <li><strong>Animation:</strong> The technique of creating an illusion of motion through a rapid display of static images.</li>
+    </ul>
+
+    <h2 id="exam-prep">5. Exam Focus: Tips and FAQs</h2>
+
+    <div class="exam-note tips">
+        <span class="tag">Exam Tips</span>
+        <ul>
+            <li><strong>Format Differences:</strong> Be ready to explain the difference between <strong>Lossy</strong> (JPEG) and <strong>Lossless</strong> (PNG) compression.</li>
+            <li><strong>Vector vs. Raster:</strong> This is a very common comparison question. Remember: Raster = Pixels, Vector = Math/Paths.</li>
+            <li><strong>Multimedia Definition:</strong> Always mention that multimedia must be "interactive" to distinguish it from a simple video.</li>
+        </ul>
+    </div>
+
+    <div class="exam-note mistakes">
+        <span class="tag">Common Mistakes</span>
+        <ul>
+            <li><strong>Zooming:</strong> Assuming you can zoom into a JPEG infinitely without blur. Only <strong>Vector</strong> graphics allow infinite scaling.</li>
+            <li><strong>Complexity:</strong> Thinking "Graphics" only refers to pictures. It also includes 3D modeling and CAD drawings.</li>
+        </ul>
+    </div>
+
+    <div class="exam-note faq">
+        <span class="tag">Frequently Asked Questions</span>
+        <p><strong>Q: What is the main use of a Scanner?</strong><br>
+        A: To convert physical documents or photos into a digital format that can be stored on a computer.</p>
+        <p><strong>Q: Why is JPEG the most used format for photos?</strong><br>
+        A: Because it significantly reduces file size while maintaining a visual quality acceptable to the human eye.</p>
+    </div>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

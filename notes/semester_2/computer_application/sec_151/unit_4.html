@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application SEC 151 Unit 4 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for CASEC 151: Python Programming, Unit 4. Covering functions, arguments, recursion, scopes, and packages.">
+    <meta name="keywords" content="Python Programming, CASEC 151, Unit 4, Python Functions, Recursion, Pass by Object Reference, Python Packages, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --python-blue: #3776ab;
+            --python-yellow: #ffd43b;
+            --header-bg: #2c3e50;
+            --section-bg: #f9f9f9;
+            --accent: #e67e22;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: var(--python-blue);
+            text-align: center;
+            border-bottom: 4px solid var(--python-yellow);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: var(--header-bg);
+            border-left: 5px solid var(--python-blue);
+            padding-left: 15px;
+            margin-top: 40px;
+            background: var(--section-bg);
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: var(--accent);
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #ecf0f1;
+            border-left: 10px solid var(--python-blue);
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        table, th, td {
+            border: 1px solid #bdc3c7;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--python-blue);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+            column-count: 2;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--python-blue);
+            font-weight: bold;
+        }
+        .exam-section {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-section h4 {
+            margin-top: 0;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit IV: Python Functions and Packages</h1>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#intro-functions">1. Python Functions</a></li>
+            <li><a href="#arguments">2. Function Arguments & Parameters</a></li>
+            <li><a href="#call-mechanics">3. Pass by Value vs Object Reference</a></li>
+            <li><a href="#recursion">4. Recursion</a></li>
+            <li><a href="#scope">5. Scope and Lifetime of Variables</a></li>
+            <li><a href="#modules-packages">6. Python Modules and Packages</a></li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 id="intro-functions">1. Python Functions</h2>
+    <p>
+        Functions are sub-programs that carry out specific tasks. They help in code reusability and making complex programs easier to manage.
+    </p>
+    <ul>
+        <li><strong>Function Definition:</strong> Created using the <strong>def</strong> keyword followed by the function name and parentheses.</li>
+        <li><strong>Function Call:</strong> Executed by using the function name followed by parentheses containing any necessary arguments.</li>
+        <li><strong>Types of Functions:</strong> Includes built-in functions (like <code>print()</code>) and user-defined functions.</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="arguments">2. Function Arguments & Parameters</h2>
+    <p>
+        Arguments are values passed into a function when it is called. Parameters are the variables listed in the function definition.
+    </p>
+    <ul>
+        <li><strong>Positional Arguments:</strong> Arguments that must be passed in the correct positional order.</li>
+        <li><strong>Keyword Arguments:</strong> Arguments passed by specifying the parameter name, allowing them to be out of order.</li>
+        <li><strong>Default Arguments:</strong> Parameters that take a default value if no argument is provided during the call.</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="call-mechanics">3. Pass by Value vs Object Reference</h2>
+    <p>
+        Python uses a mechanism called <strong>Pass by Object Reference</strong> (also known as Pass by Assignment).
+    </p>
+    <ul>
+        <li><strong>Immutable Objects:</strong> When you pass immutable objects (like numbers or strings), it behaves similarly to "Pass by Value" because the original object cannot be changed.</li>
+        <li><strong>Mutable Objects:</strong> When you pass mutable objects (like lists), it behaves similarly to "Pass by Reference" because changes made inside the function affect the original object.</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="recursion">4. Recursion</h2>
+    <p>
+        Recursion is a programming technique where a function calls itself to solve a problem.
+    </p>
+    <ul>
+        <li><strong>Base Case:</strong> The condition that stops the recursion to prevent infinite loops.</li>
+        <li><strong>Recursive Case:</strong> The part where the function calls itself with a modified argument.</li>
+        <li><strong>Advantages:</strong> Can make code cleaner and more elegant for problems like factorials or tree traversals.</li>
+        <li><strong>Disadvantages:</strong> Higher memory usage and risk of stack overflow if the recursion depth is too high.</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="scope">5. Scope and Lifetime of Variables</h2>
+    <p>
+        The <strong>scope</strong> of a variable defines where in the program it can be accessed. The <strong>lifetime</strong> is the period during which the variable exists in memory.
+    </p>
+    <ul>
+        <li><strong>Local Scope:</strong> Variables declared inside a function are local to that function and exist only while it is running.</li>
+        <li><strong>Global Scope:</strong> Variables declared outside of all functions can be accessed throughout the module.</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="modules-packages">6. Python Modules and Packages</h2>
+    <p>
+        These are organizational tools for larger Python projects.
+    </p>
+    <ul>
+        <li><strong>Python Modules:</strong> A file containing Python code (functions, classes, variables) that can be imported into other scripts.</li>
+        <li><strong>Python Packages:</strong> A directory containing multiple modules and a special <code>__init__.py</code> file, allowing for a hierarchical structuring of module namespaces.</li>
+    </ul>
+
+    
+
+    <div class="exam-section">
+        <h4>Exam Tips</h4>
+        <ul>
+            <li><strong>Indentation:</strong> Remember that all code inside a function must be indented.</li>
+            <li><strong>Recursion Rule:</strong> Always ensure your recursive functions have a base case to avoid a <code>RecursionError</code>.</li>
+            <li><strong>Global Keyword:</strong> To modify a global variable inside a function, you must use the <code>global</code> keyword.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section">
+        <h4>Common Pitfalls</h4>
+        <ul>
+            <li><strong>Mutable Default Arguments:</strong> Never use mutable objects (like <code>[]</code> or <code>{}</code>) as default arguments, as they are shared across all calls.</li>
+            <li><strong>Scope Confusion:</strong> Accessing a local variable before it is defined within a function will cause an <code>UnboundLocalError</code>.</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h3>Frequently Asked Questions</h3>
+    <p><strong>Q: Is Python pass-by-value or pass-by-reference?</strong><br>
+    Neither. It is <strong>pass-by-object-reference</strong>. If the object is mutable, changes reflect outside; if immutable, they do not.</p>
+
+    <p><strong>Q: What is the difference between a module and a library?</strong><br>
+    A module is a single file. A package is a collection of modules. A library is a collection of packages that provides specific functionality.</p>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

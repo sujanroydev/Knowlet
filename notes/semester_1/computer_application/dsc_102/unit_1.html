@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application DSC 102 Unit 1 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive academic notes for CADSC102 Discrete Mathematics, Unit 1: Mathematical Logic. Covering Statements, Connectives, Normal Forms, and Predicate Calculus.">
+    <meta name="keywords" content="Knowlet, CADSC102, Discrete Mathematics, Mathematical Logic, Truth Tables, Predicate Calculus, Normal Forms, Inference Theory">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #c0392b;
+            border-left: 5px solid #e74c3c;
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #d35400;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #fdf2f2;
+            border-left: 10px solid #e74c3c;
+            margin: 1.5em 10px;
+            padding: 1em 10px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #e74c3c;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background: #fff5f5;
+            padding: 20px;
+            border: 1px dashed #e74c3c;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #c0392b;
+            font-weight: bold;
+        }
+        .exam-focus {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .diagram-placeholder {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #6c757d;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit I: Mathematical Logic</h1>
+    <p><strong>Course:</strong> Discrete Mathematics <br>
+    <strong>Code:</strong> CADSC102 </p>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#statements">Statements and Notations</a></li>
+            <li><a href="#connectives">Connectives and Truth Tables</a></li>
+            <li><a href="#equivalences">Equivalences and Normal Forms</a></li>
+            <li><a href="#predicate">Predicate Calculus and Quantifiers</a></li>
+            <li><a href="#inference">Inference Theory</a></li>
+            <li><a href="#exam-prep">Exam Focus: Tips & FAQs</a></li>
+        </ul>
+    </div>
+
+    <h2 id="statements">Statements and Notations</h2>
+    <p>Mathematical logic begins with the concept of a <strong>statement</strong> (or proposition). A statement is a declarative sentence that is either true or false, but not both.</p>
+    
+    <h3>Notations</h3>
+    <ul>
+        <li>Propositions are usually denoted by lowercase letters such as p, q, r, s.</li>
+        <li>The truth value of a statement is denoted by T (True) or F (False).</li>
+    </ul>
+
+    <h2 id="connectives">Connectives</h2>
+    <p>Connectives are used to combine simple statements into compound statements.</p>
+    
+    
+
+    <div class="add-horizontal-scroll"><table>
+        <tr>
+            <th>Connective</th>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Condition for Truth</th>
+        </tr>
+        <tr>
+            <td>NOT</td>
+            <td>~ or ¬</td>
+            <td>Negation</td>
+            <td>True if the original statement is false.</td>
+        </tr>
+        <tr>
+            <td>AND</td>
+            <td>^</td>
+            <td>Conjunction</td>
+            <td>True only if both statements are true.</td>
+        </tr>
+        <tr>
+            <td>OR</td>
+            <td>v</td>
+            <td>Disjunction</td>
+            <td>True if at least one statement is true.</td>
+        </tr>
+        <tr>
+            <td>If...then</td>
+            <td>→</td>
+            <td>Conditional</td>
+            <td>False only if the first is true and the second is false.</td>
+        </tr>
+        <li>If and only if</td>
+            <td>↔</td>
+            <td>Bi-conditional</td>
+            <td>True if both statements have the same truth value.</td>
+        </tr>
+    </table></div>
+
+    <h2 id="equivalences">Equivalences and Normal Forms</h2>
+    <h3 id="equivalences-def">Logical Equivalences</h3>
+    <p>Two statements are logically equivalent if they have the same truth value in every possible scenario. This is denoted by the symbol ≡.</p>
+
+    <h3 id="normal-forms">Normal Forms</h3>
+    <p>Normal forms are standardized ways of representing logical expressions.</p>
+    <ul>
+        <li><strong>Disjunctive Normal Form (DNF):</strong> A sum of products (e.g., (p ^ q) v (~p ^ r)).</li>
+        <li><strong>Conjunctive Normal Form (CNF):</strong> A product of sums (e.g., (p v q) ^ (~p v r)).</li>
+    </ul>
+
+    <h2 id="predicate">Predicate Calculus and Quantifiers</h2>
+    <p>Predicate calculus extends propositional logic to include variables and quantifiers.</p>
+    
+    <blockquote>
+        <strong>Predicate:</strong> A property or relation assigned to objects in a domain (e.g., P(x) where x is an integer). 
+    </blockquote>
+
+    <h3>Quantifiers</h3>
+    <ul>
+        <li><strong>Universal Quantifier (∀):</strong> Read as "For all x". It means the property is true for every element in the domain.</li>
+        <li><strong>Existential Quantifier (∃):</strong> Read as "There exists an x". It means the property is true for at least one element in the domain.</li>
+    </ul>
+
+    <h2 id="inference">Inference Theory</h2>
+    <p>Inference theory provides the rules for mathematical reasoning and for arriving at logical conclusions from given premises.</p>
+    <ul>
+        <li><strong>Modus Ponens:</strong> If p and (p → q) are true, then q is true.</li>
+        <li><strong>Modus Tollens:</strong> If ~q and (p → q) are true, then ~p is true.</li>
+    </ul>
+
+    <div class="exam-focus" id="exam-prep">
+        <h4>Exam Focus & Tips</h4>
+        <ul>
+            <li><strong>Exam Tip:</strong> Practice constructing truth tables for complex expressions like (p ^ q) → (r v ~p).</li>
+            <li><strong>Common Mistake:</strong> Confusing "Inclusive OR" (standard v) with "Exclusive OR". In logic, "p v q" is true if both are true.</li>
+            <li><strong>Mnemonic:</strong> <strong>∀</strong> looks like an upside-down "A" for <strong>A</strong>ll. <strong>∃</strong> looks like a backward "E" for <strong>E</strong>xists.</li>
+        </ul>
+        
+        <hr>
+        
+        <h4>Frequently Asked Questions</h4>
+        <p><strong>Q: What is a Tautology?</strong><br>
+        A: A compound statement that is always true, regardless of the truth values of its individual parts.</p>
+        
+        <p><strong>Q: What is a Contradiction?</strong><br>
+        A: A statement that is always false.</p>
+    </div>
+
+</div>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

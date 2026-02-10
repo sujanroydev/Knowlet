@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application ECAP 172 Unit 1 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for ECAP172 Unit 1: Introduction to Programming, Algorithms, and Flowcharts. Prepared for BCA students.">
+    <meta name="keywords" content="ECAP172, Programming Methodology, Algorithms, Flowcharts, Program Development, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary-blue: #2c3e50;
+            --accent-green: #27ae60;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --border-color: #dcdde1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: var(--primary-blue);
+            text-align: center;
+            border-bottom: 3px solid var(--accent-green);
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: var(--accent-green);
+            border-left: 5px solid var(--primary-blue);
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: var(--primary-blue);
+            margin-top: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-blue);
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        blockquote {
+            background: #e8f8f5;
+            border-left: 5px solid var(--accent-green);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            color: var(--accent-green);
+        }
+
+        .exam-section {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .tips { background-color: #fff3e0; border: 1px solid #e67e22; }
+        .mistakes { background-color: #fdedec; border: 1px solid #c0392b; }
+        .faq { background-color: #ebf5fb; border: 1px solid #3498db; }
+
+        strong { color: #2c3e50; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 1: Introduction to Programming Methodology</h1>
+
+    <div class="toc">
+        <h3>Table of Contents</h3>
+        <ul>
+            <li><a href="#intro">1. Introduction to Programming and Concepts</a></li>
+            <li><a href="#characteristics">2. Characteristics of Programming</a></li>
+            <li><a href="#stages">3. Stages in Program Development</a></li>
+            <li><a href="#algorithms">4. Algorithms and Notations</a></li>
+            <li><a href="#flowcharts">5. Flowcharts and Symbols</a></li>
+            <li><a href="#methodologies">6. Types of Programming Methodologies</a></li>
+            <li><a href="#exam-corner">7. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="intro">1. Introduction to Programming and Concepts</h2>
+    <p>Programming is the process of creating a set of instructions that tells a computer how to perform a task.</p>
+    <ul>
+        <li><strong>Program Concept:</strong> A program is a sequence of instructions written in a programming language to solve a particular problem.</li>
+        <li><strong>Software:</strong> A collection of programs that enables the hardware to perform meaningful work.</li>
+    </ul>
+
+    <h2 id="characteristics">2. Characteristics of Programming</h2>
+    <p>Efficient programming follows specific traits to ensure the software is useful and maintainable:</p>
+    <ul>
+        <li><strong>Readability:</strong> The code should be easy to understand by other programmers.</li>
+        <li><strong>Efficiency:</strong> The program should use minimum memory and CPU time to produce results.</li>
+        <li><strong>Robustness:</strong> The ability of a program to handle unexpected inputs without crashing.</li>
+        <li><strong>Maintainability:</strong> The ease with which a program can be modified to fix bugs or add features.</li>
+    </ul>
+
+    <h2 id="stages">3. Stages in Program Development</h2>
+    <p>Developing a program is a systematic process that involves several critical steps:</p>
+    <ol>
+        <li><strong>Problem Definition:</strong> Understanding the requirements and what needs to be solved.</li>
+        <li><strong>Analysis:</strong> Breaking down the problem and identifying inputs, processes, and outputs.</li>
+        <li><strong>Design:</strong> Creating the logic using algorithms and flowcharts.</li>
+        <li><strong>Coding:</strong> Translating the logic into a specific programming language (like C).</li>
+        <li><strong>Testing and Debugging:</strong> Running the program to find and fix errors.</li>
+        <li><strong>Documentation:</strong> Writing manuals and comments for future reference.</li>
+    </ol>
+
+    <h2 id="algorithms">4. Algorithms and Notations</h2>
+    <blockquote>
+        <strong>Algorithm:</strong> A step-by-step logical procedure to solve a given problem in a finite number of steps.
+    </blockquote>
+    <p><strong>Example Algorithm to add two numbers:</strong></p>
+    <ol>
+        <li>Start</li>
+        <li>Input A and B</li>
+        <li>Calculate SUM = A + B</li>
+        <li>Print SUM</li>
+        <li>Stop</li>
+    </ol>
+
+    <h2 id="flowcharts">5. Flowcharts and Symbols</h2>
+    <p>A <strong>flowchart</strong> is a visual or graphical representation of an algorithm using standard symbols.</p>
+    
+    
+
+    <div class="add-horizontal-scroll"><table>
+        <tr>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Purpose</th>
+        </tr>
+        <tr>
+            <td><strong>Oval</strong></td>
+            <td>Terminal</td>
+            <td>Indicates the Start and End of the flowchart.</td>
+        </tr>
+        <tr>
+            <td><strong>Parallelogram</strong></td>
+            <td>Input/Output</td>
+            <td>Represents data entry (Read) or display (Print).</td>
+        </tr>
+        <tr>
+            <td><strong>Rectangle</strong></td>
+            <td>Process</td>
+            <td>Represents a calculation or data manipulation.</td>
+        </tr>
+        <tr>
+            <td><strong>Diamond</strong></td>
+            <td>Decision</td>
+            <td>Used for conditions (Yes/No or True/False branches).</td>
+        </tr>
+    </table></div>
+
+    <h2 id="methodologies">6. Types of Programming Methodologies</h2>
+    <p>Different approaches are used to design and structure programs:</p>
+    <ul>
+        <li><strong>Procedural Programming:</strong> Focuses on a sequence of actions or procedures (e.g., C).</li>
+        <li><strong>Object-Oriented Programming (OOP):</strong> Focuses on "objects" that combine data and behavior (e.g., C++, Java).</li>
+        <li><strong>Top-Down Approach:</strong> Breaking a complex problem into smaller, manageable sub-problems.</li>
+        <li><strong>Bottom-Up Approach:</strong> Starting with small components and combining them to form a larger system.</li>
+    </ul>
+
+    <h2 id="exam-corner">7. Exam Focus Enhancements</h2>
+
+    <div class="exam-section tips">
+        <h3>Exam Tips</h3>
+        <ul>
+            <li><strong>Algorithm vs. Flowchart:</strong> If a question asks for a logic design, provide BOTH. Algorithms are text-based; flowcharts are graphical.</li>
+            <li><strong>Finite Steps:</strong> Always ensure your algorithm has a clear "Stop" or "End" step.</li>
+            <li><strong>Arrows:</strong> In flowcharts, ensure your "Flow Lines" (arrows) point in the correct direction of execution.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section mistakes">
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li>Using a <strong>Rectangle</strong> for a decision instead of a <strong>Diamond</strong>.</li>
+            <li>Confusing the <strong>Analysis</strong> stage with the <strong>Design</strong> stage. Analysis is "what to do"; Design is "how to do it."</li>
+            <li>Skipping the <strong>Documentation</strong> stage in the development life cycle.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section faq">
+        <h3>Frequently Asked Questions</h3>
+        <p><strong>Q: What is the difference between testing and debugging?</strong><br>
+        A: Testing is the process of finding errors; debugging is the process of locating and fixing those errors.</p>
+        <p><strong>Q: Why is a flowchart useful?</strong><br>
+        A: It provides a clear visual map of the program's logic, making it easier to communicate the design to others and spot logical flaws.</p>
+    </div>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application ECAP 170 Unit 1 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready notes for ECAP170 Fundamentals of Information Technology, Unit 1. Covering Computer Fundamentals and Data Representation.">
+    <meta name="keywords" content="ECAP170, Computer Fundamentals, Data Representation, Binary Conversion, IT Notes, BCA, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e67e22;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            margin-top: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        blockquote {
+            background: #fdf2e9;
+            border-left: 5px solid var(--secondary-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            color: var(--secondary-color);
+        }
+
+        .exam-tips, .common-mistakes, .faq {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .exam-tips {
+            background-color: #e8f8f5;
+            border: 1px solid #27ae60;
+        }
+
+        .common-mistakes {
+            background-color: #fdedec;
+            border: 1px solid #c0392b;
+        }
+
+        .faq {
+            background-color: #ebf5fb;
+            border: 1px solid #2980b9;
+        }
+
+        strong {
+            color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 1: Computer Fundamentals & Data Representation</h1>
+
+    <div class="toc">
+        <h3>Table of Contents</h3>
+        <ul>
+            <li><a href="#characteristics">1. Characteristics of Computers</a></li>
+            <li><a href="#generations">2. Generations of Computers</a></li>
+            <li><a href="#block-diagram">3. Block Diagram of a Computer</a></li>
+            <li><a href="#it-applications">4. Applications of IT in Various Sectors</a></li>
+            <li><a href="#number-systems">5. Data Representation: Number Systems</a></li>
+            <li><a href="#conversion">6. Number System Conversions</a></li>
+            <li><a href="#exam-prep">7. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="characteristics">1. Characteristics of Computers</h2>
+    <p>A computer is an electronic device designed to accept data, perform prescribed mathematical and logical operations at high speed, and display the results of these operations.</p>
+    <ul>
+        <li><strong>Speed:</strong> Computers can perform millions of calculations per second.</li>
+        <li><strong>Accuracy:</strong> Errors occur due to incorrect data or human error, not the machine itself (GIGO - Garbage In, Garbage Out).</li>
+        <li><strong>Diligence:</strong> Computers do not suffer from tiredness or lack of concentration.</li>
+        <li><strong>Versatility:</strong> Can perform completely different types of work (e.g., calculation, music, drafting).</li>
+        <li><strong>Storage:</strong> Large amounts of data can be stored and retrieved instantly.</li>
+    </ul>
+
+    <h2 id="generations">2. Generations of Computers</h2>
+    <p>Computer evolution is categorized into generations based on the major technological developments used in the hardware.</p>
+    <div class="add-horizontal-scroll"><table>
+        <tr>
+            <th>Generation</th>
+            <th>Period</th>
+            <th>Core Technology</th>
+            <th>Characteristics</th>
+        </tr>
+        <tr>
+            <td>First</td>
+            <td>1940-1956</td>
+            <td>Vacuum Tubes</td>
+            <td>Huge size, high heat, expensive, used Machine Language.</td>
+        </tr>
+        <tr>
+            <td>Second</td>
+            <td>1956-1963</td>
+            <td>Transistors</td>
+            <td>Smaller, faster, more reliable than vacuum tubes.</td>
+        </tr>
+        <tr>
+            <td>Third</td>
+            <td>1964-1971</td>
+            <td>Integrated Circuits (IC)</td>
+            <td>Increased speed and efficiency; used keyboards/monitors.</td>
+        </tr>
+        <tr>
+            <td>Fourth</td>
+            <td>1971-Present</td>
+            <td>Microprocessors (VLSI)</td>
+            <td>Handheld devices, personal computers, high networking.</td>
+        </tr>
+        <tr>
+            <td>Fifth</td>
+            <td>Present & Beyond</td>
+            <td>Artificial Intelligence (ULSI)</td>
+            <td>Robotics, Natural Language Processing, Supercomputing.</td>
+        </tr>
+    </table></div>
+
+    <h2 id="block-diagram">3. Block Diagram of a Computer</h2>
+    <p>The basic architecture of a computer consists of three main units: Input Unit, Central Processing Unit (CPU), and Output Unit.</p>
+    <h3>The Central Processing Unit (CPU)</h3>
+    <p>The CPU is known as the "brain" of the computer and consists of:</p>
+    <ul>
+        <li><strong>Control Unit (CU):</strong> Directs the flow of data and instructions.</li>
+        <li><strong>Arithmetic Logic Unit (ALU):</strong> Performs mathematical (+, -, *, /) and logical (AND, OR, NOT) operations.</li>
+        <li><strong>Memory Unit:</strong> Stores data and instructions temporarily for processing.</li>
+    </ul>
+
+    <h2 id="it-applications">4. Applications of IT in Various Sectors</h2>
+    <p>Information Technology (IT) has revolutionized various industries by automating tasks and improving efficiency.</p>
+    <ul>
+        <li><strong>Education:</strong> E-learning platforms, virtual classrooms, and digital libraries.</li>
+        <li><strong>Healthcare:</strong> Electronic Medical Records (EMR), telemedicine, and robot-assisted surgeries.</li>
+        <li><strong>Banking:</strong> Online banking, ATMs, and secure electronic fund transfers.</li>
+        <li><strong>Business:</strong> E-commerce, supply chain management, and data analytics for decision making.</li>
+        <li><strong>Defense:</strong> Radar systems, missile control, and encrypted communication.</li>
+    </ul>
+
+    <h2 id="number-systems">5. Data Representation: Number Systems</h2>
+    <p>Computers represent data using different number systems based on a fixed base or "radix".</p>
+    <blockquote>
+        <strong>Base (Radix):</strong> The total number of unique digits available in a number system.
+    </blockquote>
+    <ul>
+        <li><strong>Binary:</strong> Base 2 (Digits: 0, 1)</li>
+        <li><strong>Octal:</strong> Base 8 (Digits: 0 to 7)</li>
+        <li><strong>Decimal:</strong> Base 10 (Digits: 0 to 9)</li>
+        <li><strong>Hexadecimal:</strong> Base 16 (Digits: 0 to 9, A to F where A=10, B=11...F=15)</li>
+    </ul>
+
+    <h2 id="conversion">6. Number System Conversions</h2>
+    <h3>Decimal to Binary/Octal/Hexadecimal</h3>
+    <p>To convert from decimal to another base, <strong>repeatedly divide</strong> the number by the target base and record the remainders.</p>
+    <p><em>Example: Decimal 25 to Binary</em><br>
+    25 / 2 = 12 rem 1<br>
+    12 / 2 = 6 rem 0<br>
+    6 / 2 = 3 rem 0<br>
+    3 / 2 = 1 rem 1<br>
+    1 / 2 = 0 rem 1<br>
+    <strong>Result (Bottom to Top): 11001</strong></p>
+
+    <h3>Binary to Decimal</h3>
+    <p>Multiply each digit by 2 raised to the power of its position (starting from 0 on the right).</p>
+    <p><em>Example: Binary 1101 to Decimal</em><br>
+    (1 * 2^3) + (1 * 2^2) + (0 * 2^1) + (1 * 2^0)<br>
+    = 8 + 4 + 0 + 1 = 13</p>
+
+    <h2 id="exam-prep">7. Exam Focus Enhancements</h2>
+
+    <div class="exam-tips">
+        <h3>Exam Tips</h3>
+        <ul>
+            <li>Always mention <strong>Charles Babbage</strong> as the Father of Computing if history is asked.</li>
+            <li>In conversions, double-check the <strong>base</strong>. Forgetting to write the base (e.g., small subscript 2 or 10) can lose marks.</li>
+            <li>Draw the block diagram clearly with arrows showing the flow of control and data separately.</li>
+        </ul>
+    </div>
+
+    <div class="common-mistakes">
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li>Confusing <strong>RAM</strong> with <strong>CPU memory</strong>. RAM is storage; CPU memory (registers/cache) is inside the processor.</li>
+            <li>In Hexadecimal, forgetting that <strong>A=10</strong> and <strong>F=15</strong>.</li>
+            <li>Miscounting the positions when converting Binary to Decimal (always start at position 0).</li>
+        </ul>
+    </div>
+
+    <div class="faq">
+        <h3>Frequently Asked Questions</h3>
+        <p><strong>Q: What is the main difference between 3rd and 4th generation?</strong><br>
+        A: The 3rd generation used Integrated Circuits (ICs), while the 4th generation used Microprocessors (VLSI), allowing an entire computer to fit on a single chip.</p>
+        <p><strong>Q: Why is Hexadecimal used in computing?</strong><br>
+        A: It is a human-friendly way to represent long binary strings (1 Hex digit = 4 Binary bits).</p>
+    </div>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

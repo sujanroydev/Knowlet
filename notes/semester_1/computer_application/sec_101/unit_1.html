@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application SEC 101 Unit 1 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Exam-ready HTML notes for CASEC101 Programming with C, Unit 1. Covers data types, expressions, operations, and control structures.">
+    <meta name="keywords" content="Knowlet, CASEC101, C Programming, Data Types, Control Structures, Loops, If-Else, Programming Basics">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #27ae60;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #27ae60;
+            border-left: 5px solid #2ecc71;
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #d35400;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #f4fff8;
+            border-left: 10px solid #27ae60;
+            margin: 1.5em 10px;
+            padding: 1em 10px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #27ae60;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background: #f0fff4;
+            padding: 20px;
+            border: 1px dashed #27ae60;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .exam-focus {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .diagram-placeholder {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #6c757d;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit I: Fundamentals of Computer Programming with C</h1>
+    <p><strong>Course:</strong> Programming with C (SEC)<br>
+    <strong>Code:</strong> CASEC101</p>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#fundamentals">Fundamentals of Programming with C</a></li>
+            <li><a href="#data-types">Data Types, Expressions, and Operations</a></li>
+            <li><a href="#io">Input and Output Operations</a></li>
+            <li><a href="#simple-programs">Writing Simple C Programs</a></li>
+            <li><a href="#control-structures">Control Structures and Nested Loops</a></li>
+            <li><a href="#problem-solving">Solving Elementary Programming Problems</a></li>
+            <li><a href="#exam-prep">Exam Focus: Tips & FAQs</a></li>
+        </ul>
+    </div>
+
+    <h2 id="fundamentals">Fundamentals of Programming with C</h2>
+    <p>C is a powerful general-purpose programming language. It is efficient, fast, and provides low-level access to memory.</p>
+
+    <h2 id="data-types">Data Types, Expressions, and Operations</h2>
+    <p>Data types define the type of data a variable can hold and how much space it occupies in memory.</p>
+    
+    <h3>Primary Data Types</h3>
+    <ul>
+        <li><strong>int:</strong> Used for integer numbers.</li>
+        <li><strong>float:</strong> Used for floating-point (decimal) numbers.</li>
+        <li><strong>char:</strong> Used for single characters.</li>
+        <li><strong>double:</strong> Used for high-precision decimal numbers.</li>
+    </ul>
+
+    <h3>Expressions and Operations</h3>
+    <p>Expressions are combinations of variables, constants, and operators that evaluate to a value.</p>
+    <ul>
+        <li><strong>Arithmetic Operators:</strong> +, -, *, /, % (modulus).</li>
+        <li><strong>Relational Operators:</strong> ==, !=, >, <, >=, <=.</li>
+        <li><strong>Logical Operators:</strong> && (AND), || (OR), ! (NOT) .</li>
+    </ul>
+
+    <h2 id="io">Input and Output Operations</h2>
+    <p>C uses standard library functions to interact with the user.</p>
+    <ul>
+        <li><strong>printf():</strong> Used to output/print data to the screen.</li>
+        <li><strong>scanf():</strong> Used to read/input data from the user.</li>
+    </ul>
+
+    <h2 id="simple-programs">Writing Simple C Programs</h2>
+    <p>A simple C program structure includes the header files, the main() function, and the program logic.</p>
+    
+    <blockquote>
+        Example:<br>
+        #include &lt;stdio.h&gt;<br>
+        int main() {<br>
+        &nbsp;&nbsp;int x = 5;<br>
+        &nbsp;&nbsp;printf("Value: %d", x);<br>
+        &nbsp;&nbsp;return 0;<br>
+        }
+    </blockquote>
+
+    <h2 id="control-structures">Control Structures and Nested Loops</h2>
+    <p>Control structures determine the flow of execution based on conditions or repetitions.</p>
+    
+    
+
+    <h3>Conditional Statements</h3>
+    <ul>
+        <li><strong>IF-ELSE:</strong> Executes code based on whether a condition is true or false.</li>
+        <li><strong>SWITCH:</strong> Selects one of many code blocks to be executed based on a variable's value.</li>
+    </ul>
+
+    <h3>Looping Structures</h3>
+    <ul>
+        <li><strong>WHILE:</strong> Repeats a block while a condition is true.</li>
+        <li><strong>DO-WHILE:</strong> Executes at least once, then repeats if the condition is true.</li>
+        <li><strong>FOR:</strong> Repeats a block for a specific number of times.</li>
+        <li><strong>Nested Loops:</strong> A loop inside another loop, often used for matrix operations.</li>
+    </ul>
+
+    <h3>Jump Statements</h3>
+    <ul>
+        <li><strong>BREAK:</strong> Exits the current loop or switch.</li>
+        <li><strong>CONTINUE:</strong> Skips the rest of the current iteration and moves to the next one.</li>
+        <li><strong>GOTO:</strong> Transfers control to a labeled statement (use with caution).</li>
+    </ul>
+
+    <h2 id="problem-solving">Solving Elementary Programming Problems</h2>
+    <p>Unit I focuses on applying C logic to solve problems in mathematics and statistics.</p>
+    <ul>
+        <li>Calculating factorials.</li>
+        <li>Evaluating algebraic expressions.</li>
+        <li>Checking English capitalization rules in strings.</li>
+    </ul>
+
+    <div class="exam-focus" id="exam-prep">
+        <h4>Exam Focus & Tips</h4>
+        <ul>
+            <li><strong>Exam Tip:</strong> Be prepared to write code to find the sum of a series (e.g., 1 + 1/2 + 1/3...).</li>
+            <li><strong>Mnemonic:</strong> <strong>"F-I-S-H"</strong> for Basic I/O: <strong>F</strong>ormatted <strong>I</strong>nput (scanf) and <strong>S</strong>how <strong>H</strong>ere (printf).</li>
+            <li><strong>Common Pitfall:</strong> Forgetting the '&' (address-of operator) inside a <code>scanf()</code> call for basic data types.</li>
+        </ul>
+        <hr>
+        <h4>Frequently Asked Questions</h4>
+        <p><strong>Q: What is the difference between a WHILE and DO-WHILE loop?</strong><br>
+        A: A WHILE loop checks the condition first, whereas a DO-WHILE loop executes the body at least once before checking the condition.</p>
+        <p><strong>Q: What does the % operator do?</strong><br>
+        A: It returns the remainder of an integer division.</p>
+    </div>
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

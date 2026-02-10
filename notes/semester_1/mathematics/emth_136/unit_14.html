@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics EMTH 136 Unit 14 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Final academic notes for EMTH136 Unit 14: Graph Theory. Learn about vertices, edges, types of graphs, and trees.">
+    <meta name="keywords" content="EMTH136, Discrete Structures, Graph Theory, Vertices, Edges, Directed Graphs, Trees, BCA, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary-navy: #1a2a6c;
+            --accent-purple: #8e44ad;
+            --bg-light: #f4f7f6;
+            --text-dark: #2d3436;
+            --border-color: #bdc3c7;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        h1 {
+            color: var(--primary-navy);
+            text-align: center;
+            border-bottom: 4px solid var(--accent-purple);
+            padding-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: #8e44ad;
+            border-left: 6px solid var(--primary-navy);
+            padding: 8px 15px;
+            margin-top: 40px;
+            background: #f4ecf7;
+        }
+
+        h3 {
+            color: var(--primary-navy);
+            margin-top: 25px;
+            border-bottom: 2px solid #f1f2f6;
+            padding-bottom: 5px;
+        }
+
+        .toc {
+            background: #ffffff;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+
+        .toc ul { list-style: none; padding: 0; }
+        .toc a { text-decoration: none; color: var(--primary-navy); font-weight: bold; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th { background-color: var(--primary-navy); color: #fff; }
+
+        .exam-section {
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .tips { background-color: #e8f6f3; border: 1px solid #1abc9c; }
+        .mistakes { background-color: #fdedec; border: 1px solid #e74c3c; }
+        .faq { background-color: #ebf5fb; border: 1px solid #3498db; }
+
+        .tag { font-weight: bold; display: block; margin-bottom: 10px; text-transform: uppercase; }
+        
+        strong { color: #8e44ad; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit 14: Introduction to Graph Theory</h1>
+
+    <div class="toc">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#definition">1. Definition of Graphs, Vertices, and Edges</a></li>
+            <li><a href="#types">2. Types of Graphs</a></li>
+            <li><a href="#degree">3. Degree of a Vertex</a></li>
+            <li><a href="#paths">4. Paths and Connectivity</a></li>
+            <li><a href="#trees">5. Introduction to Trees</a></li>
+            <li><a href="#exam-prep">6. Exam Focus Enhancements</a></li>
+        </ul>
+    </div>
+
+    <h2 id="definition">1. Definition of Graphs, Vertices, and Edges</h2>
+    <p>A <strong>Graph (G)</strong> is a mathematical structure consisting of two sets: a set of <strong>Vertices (V)</strong> (also called nodes) and a set of <strong>Edges (E)</strong> that connect pairs of vertices.</p>
+    
+    
+
+    <p><strong>Formal Notation:</strong> G = (V, E).<br>
+    Example: V = \{v<sub>1</sub>, v<sub>2</sub>, v<sub>3</sub>\}, E = \{(v<sub>1</sub>, v<sub>2</sub>), (v<sub>2</sub>, v<sub>3</sub>)\}.</p>
+
+    <h2 id="types">2. Types of Graphs</h2>
+    <p>Graphs are classified based on the nature of their edges and connections:</p>
+    
+    <div class="add-horizontal-scroll"><table>
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Undirected Graph</strong></td>
+                <td>Edges have no direction (connection is two-way).</td>
+            </tr>
+            <tr>
+                <td><strong>Directed Graph (Digraph)</strong></td>
+                <td>Edges have a specific direction (represented by arrows).</td>
+            </tr>
+            <tr>
+                <td><strong>Simple Graph</strong></td>
+                <td>A graph with no self-loops and no multiple edges between the same vertices.</td>
+            </tr>
+            <tr>
+                <td><strong>Complete Graph (K<sub>n</sub>)</strong></td>
+                <td>A graph where every vertex is connected to every other vertex exactly once.</td>
+            </tr>
+        </tbody>
+    </table></div>
+
+    <h2 id="degree">3. Degree of a Vertex</h2>
+    <p>The <strong>Degree</strong> of a vertex is the number of edges incident (connected) to it. For directed graphs, we distinguish between <strong>In-degree</strong> (arrows coming in) and <strong>Out-degree</strong> (arrows going out).</p>
+    
+    <blockquote>
+        <strong>Handshaking Lemma:</strong> The sum of the degrees of all vertices in a graph is twice the number of edges. 
+        <br>∑ deg(v) = 2 × |E|
+    </blockquote>
+
+    <h2 id="paths">4. Paths and Connectivity</h2>
+    <ul>
+        <li><strong>Path:</strong> A sequence of edges that allows you to travel from one vertex to another.</li>
+        <li><strong>Cycle:</strong> A path that starts and ends at the same vertex without repeating edges or vertices (except the start/end).</li>
+        <li><strong>Connected Graph:</strong> A graph where there is a path between every pair of vertices.</li>
+    </ul>
+
+    <h2 id="trees">5. Introduction to Trees</h2>
+    <p>A <strong>Tree</strong> is a special type of connected graph that has <strong>no cycles</strong>. Trees are fundamental in computer science for organizing data (like folder structures or HTML DOM).</p>
+
+    
+
+    <h3>Properties of a Tree:</h3>
+    <ol>
+        <li>If a tree has n vertices, it must have exactly <strong>n-1</strong> edges.</li>
+        <li>There is exactly one unique path between any two vertices.</li>
+        <li>Adding any one edge to a tree creates exactly one cycle.</li>
+    </ol>
+
+    <h2 id="exam-prep">6. Exam Focus Enhancements</h2>
+
+    <div class="exam-section tips">
+        <span class="tag">Exam Tips</span>
+        <ul>
+            <li><strong>Degree Calculation:</strong> In a simple graph, a self-loop (if allowed in a multigraph) counts as <strong>two</strong> degrees for that vertex.</li>
+            <li><strong>The n-1 Rule:</strong> If an exam question asks if a connected graph with 10 vertices and 10 edges is a tree, the answer is <strong>No</strong> (it must have 9 edges).</li>
+            <li><strong>Handshaking Application:</strong> Use the Handshaking Lemma to find the number of edges if the degrees of all vertices are given.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section mistakes">
+        <span class="tag">Common Mistakes</span>
+        <ul>
+            <li><strong>Directed vs Undirected:</strong> Forgetting to use arrows when drawing a directed graph. In directed graphs, (v<sub>1</sub>, v<sub>2</sub>) is NOT the same as (v<sub>2</sub>, v<sub>1</sub>).</li>
+            <li><strong>Simple Graph Rules:</strong> Including multiple edges between two vertices when asked to draw a *simple* graph.</li>
+            <li><strong>Disconnected Trees:</strong> Thinking a tree can be disconnected. A disconnected graph without cycles is called a **Forest**.</li>
+        </ul>
+    </div>
+
+    <div class="exam-section faq">
+        <span class="tag">Frequently Asked Questions</span>
+        <p><strong>Q: What is an Isolated Vertex?</strong><br>
+        A: A vertex with a degree of 0 (no connections).</p>
+        <p><strong>Q: What is a Pendant Vertex?</strong><br>
+        A: A vertex with a degree of 1 (a "leaf" in a tree).</p>
+        <p><strong>Q: Why is Graph Theory important for BCA?</strong><br>
+        A: It is used in networking (topology), database management (relationships), and algorithm design (pathfinding).</p>
+    </div>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

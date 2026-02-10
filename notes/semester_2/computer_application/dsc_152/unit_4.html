@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application DSC 152 Unit 4 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Lab notes for CADSC 152P: Polynomials, Recursion vs Iteration, and Sparse Matrix operations. Includes logic for factorial, Fibonacci, and GCD.">
+    <meta name="keywords" content="Polynomial Addition, Recursion, Iteration, Sparse Matrix, CADSC 152P, Data Structures Lab, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #f39c12;
+            --code-bg: #2d3436;
+            --code-text: #dfe6e9;
+            --bg-color: #f4f7f6;
+            --text-color: #2c3e50;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e1e8ed;
+        }
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 4px solid var(--secondary-color);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+        h2 {
+            color: var(--secondary-color);
+            border-left: 6px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-top: 45px;
+            background: #fff9f0;
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: #d35400;
+            margin-top: 30px;
+        }
+        .lab-task {
+            background-color: #fdf2e9;
+            border: 1px solid #f5c060;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 6px;
+        }
+        .code-snippet {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Consolas', monospace;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background: #fff;
+            padding: 25px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: bold;
+        }
+        .exam-tip {
+            background-color: #d1ecf1;
+            color: #0c5460;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #17a2b8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Lab on Data Structure: Practical Unit 4</h1>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#polynomials">1. Task 10: Polynomial Addition using Linked Lists</a></li>
+            <li><a href="#recursion-tasks">2. Tasks 11-13: Recursion vs Iteration (Factorial, Fibonacci, GCD)</a></li>
+            <li><a href="#sparse-matrix">3. Task 15: Sparse Matrix Conversion</a></li>
+            <li><a href="#viva-focus">4. Viva and Logic Comparison</a></li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 id="polynomials">1. Task 10: Polynomial Addition using Linked Lists</h2>
+    <div class="lab-task">
+        <strong>Assignment:</strong> WAP to scan a polynomial using a linked list and add two polynomials.
+    </div>
+    <p>
+        In this program, each node of the linked list represents a term of the polynomial. Each node contains:
+    </p>
+    <ul>
+        <li><strong>Coefficient:</strong> The numerical factor.</li>
+        <li><strong>Exponent:</strong> The power to which the variable is raised.</li>
+        <li><strong>Next:</strong> Pointer to the next term.</li>
+    </ul>
+    <p>
+        <strong>Logic for Addition:</strong> Traverse both lists. If exponents match, add coefficients. If one exponent is higher, add that term to the result list and move only that list's pointer.
+    </p>
+    
+
+    <hr>
+
+    <h2 id="recursion-tasks">2. Tasks 11-13: Recursion vs Iteration</h2>
+    <div class="lab-task">
+        <strong>Assignment:</strong> Calculate Factorial, Fibonacci series, and GCD using both (i) recursion and (ii) iteration.
+    </div>
+
+    <h3>Factorial (Task 11)</h3>
+    <ul>
+        <li><strong>Recursive:</strong> <code>fact(n) = n * fact(n-1)</code>.</li>
+        <li><strong>Iterative:</strong> Use a <code>for</code> loop from 1 to n.</li>
+    </ul>
+
+    <h3>Fibonacci Series (Task 12)</h3>
+    <ul>
+        <li><strong>Recursive:</strong> <code>fib(n) = fib(n-1) + fib(n-2)</code>.</li>
+        <li><strong>Iterative:</strong> Use a loop and three variables (a=0, b=1, c) to update the sequence.</li>
+    </ul>
+
+    <h3>GCD - Greatest Common Divisor (Task 13)</h3>
+    <ul>
+        <li><strong>Recursive (Euclidean):</strong> <code>gcd(a, b) = gcd(b, a % b)</code>.</li>
+        <li><strong>Iterative:</strong> Use a <code>while</code> loop with the modulo operator.</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="sparse-matrix">3. Task 15: Sparse Matrix Conversion</h2>
+    <div class="lab-task">
+        <strong>Assignment:</strong> WAP to convert the Sparse Matrix into non-zero form and vice-versa.
+    </div>
+    <p>
+        A <strong>Sparse Matrix</strong> is a matrix where most elements are zero. To save space, we store only the non-zero elements in a 3-column format: <strong>Row, Column, Value</strong>.
+    </p>
+    <p><strong>Example Conversion:</strong></p>
+    <div class="add-horizontal-scroll"><table>
+        <tr>
+            <th>Original Matrix (2D)</th>
+            <th>Non-Zero Form (Triplet)</th>
+        </tr>
+        <tr>
+            <td>
+                0 5 0<br>
+                0 0 8<br>
+                0 0 0
+            </td>
+            <td>
+                Row: 0, Col: 1, Val: 5<br>
+                Row: 1, Col: 2, Val: 8
+            </td>
+        </tr>
+    </table></div>
+
+    <hr>
+
+    <h2 id="viva-focus">4. Viva and Logic Comparison</h2>
+    
+    <div class="exam-tip">
+        <strong>Comparison: Recursion vs. Iteration</strong>
+        <p>
+            While <strong>Recursion</strong> makes the code cleaner and easier to understand for problems like Fibonacci or Trees, it uses more memory because each call is stored on the <strong>Stack</strong>. <strong>Iteration</strong> is generally faster and more memory-efficient.
+        </p>
+    </div>
+
+    <h3>Frequently Asked Questions</h3>
+    <p><strong>Q: Why use a linked list for polynomials?</strong><br>
+    Since we don't know the number of terms beforehand, linked lists allow dynamic storage and easy insertion of terms in descending order of exponents.</p>
+
+    <p><strong>Q: What is the base case for GCD recursion?</strong><br>
+    The recursion stops when the second number becomes zero; at that point, the first number is the GCD.</p>
+
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

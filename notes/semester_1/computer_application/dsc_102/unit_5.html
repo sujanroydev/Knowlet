@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application DSC 102 Unit 5 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Detailed academic notes for CADSC102 Unit 5: Graph Theory with Applications. Covers Isomorphism, Planar Graphs, Eulerian/Hamiltonian graphs, and more.">
+    <meta name="keywords" content="Knowlet, CADSC102, Graph Theory, Isomorphism, Eulerian Graph, Hamiltonian Graph, Planar Graphs, Discrete Mathematics">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #c0392b;
+            border-left: 5px solid #e74c3c;
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #d35400;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #fdf2f2;
+            border-left: 10px solid #e74c3c;
+            margin: 1.5em 10px;
+            padding: 1em 10px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #e74c3c;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background: #fff5f5;
+            padding: 20px;
+            border: 1px dashed #e74c3c;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #c0392b;
+            font-weight: bold;
+        }
+        .exam-focus {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit V: Graph Theory with Applications</h1>
+    <p><strong>Course:</strong> Discrete Mathematics <br>
+    <strong>Code:</strong> CADSC102 </p>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#basic-concepts">Basic Concepts of Graph Theory</a></li>
+            <li><a href="#iso-homo">Isomorphism and Homomorphism</a></li>
+            <li><a href="#graph-types">Types of Graphs (Multigraphs, Weighted, Planar)</a></li>
+            <li><a href="#walks-paths">Walks, Paths, and Circuits</a></li>
+            <li><a href="#euler-hamilton">Eulerian and Hamiltonian Graphs</a></li>
+            <li><a href="#special-graphs">Complete, Regular, and Bipartite Graphs</a></li>
+            <li><a href="#cuts">Cut-sets and Cut-vertices</a></li>
+            <li><a href="#exam-prep">Exam Focus: Tips & FAQs</a></li>
+        </ul>
+    </div>
+
+    <h2 id="basic-concepts">Basic Concepts of Graph Theory</h2>
+    <p>A graph consists of a set of vertices (nodes) and edges that connect them.</p>
+    <ul>
+        <li><strong>Incidence:</strong> An edge is incident to the vertices it connects.</li>
+        <li><strong>Degree:</strong> The number of edges incident to a vertex.</li>
+        <li><strong>Sub-graphs:</strong> A graph whose vertices and edges are subsets of another graph.</li>
+        <li><strong>Union of Graphs:</strong> A graph containing all vertices and edges from two or more graphs.</li>
+    </ul>
+
+    <h2 id="iso-homo">Isomorphism and Homomorphism</h2>
+    
+    <ul>
+        <li><strong>Isomorphism:</strong> Two graphs are isomorphic if there is a one-to-one correspondence between their vertices and edges that preserves adjacency.</li>
+        <li><strong>Homomorphism:</strong> A mapping between two graphs that preserves the structure but does not necessarily require a one-to-one correspondence.</li>
+    </ul>
+
+    <h2 id="graph-types">Types of Graphs</h2>
+    <p>Graphs can be categorized by their specific properties and constraints:</p>
+    <ul>
+        <li><strong>Multigraphs:</strong> Graphs that can have multiple edges between the same two vertices.</li>
+        <li><strong>Weighted Graphs:</strong> Graphs where each edge is assigned a numerical value or "weight".</li>
+        <li><strong>Planar Graphs:</strong> Graphs that can be drawn in a plane such that no edges cross each other.</li>
+    </ul>
+
+    <h2 id="walks-paths">Walks, Paths, and Circuits</h2>
+    <p>These terms describe movement within a graph:</p>
+    <ul>
+        <li><strong>Walk:</strong> A sequence of vertices and edges.</li>
+        <li><strong>Path:</strong> A walk where all vertices (and thus all edges) are distinct.</li>
+        <li><strong>Circuit:</strong> A closed walk where the start and end vertices are the same.</li>
+        <li><strong>Connectedness:</strong> A graph is connected if there is a path between every pair of vertices.</li>
+    </ul>
+
+    <h2 id="euler-hamilton">Eulerian and Hamiltonian Graphs</h2>
+    
+    <ul>
+        <li><strong>Eulerian Graph:</strong> A graph containing a circuit that uses every <strong>edge</strong> exactly once.</li>
+        <li><strong>Hamiltonian Graph:</strong> A graph containing a circuit that visits every <strong>vertex</strong> exactly once.</li>
+    </ul>
+
+    <h2 id="special-graphs">Complete, Regular, and Bipartite Graphs</h2>
+    <ul>
+        <li><strong>Complete Graph:</strong> A graph where every pair of distinct vertices is connected by a unique edge.</li>
+        <li><strong>Regular Graph:</strong> A graph where every vertex has the same degree.</li>
+        <li><strong>Bipartite Graph:</strong> A graph whose vertices can be divided into two disjoint sets such that no two vertices within the same set are adjacent.</li>
+    </ul>
+
+    <h2 id="cuts">Cut-sets and Cut-vertices</h2>
+    <ul>
+        <li><strong>Cut-vertex:</strong> A vertex whose removal increases the number of connected components in the graph.</li>
+        <li><strong>Cut-set:</strong> A set of edges whose removal disconnects the graph.</li>
+    </ul>
+
+    <div class="exam-focus" id="exam-prep">
+        <h4>Exam Focus & Tips</h4>
+        <ul>
+            <li><strong>Exam Tip:</strong> To prove a graph is Eulerian, check if all vertices have an even degree.</li>
+            <li><strong>Common Mistake:</strong> Confusing Eulerian (Edges) with Hamiltonian (Vertices). <strong>E</strong>uler = <strong>E</strong>dges.</li>
+            <li><strong>Practical Tip:</strong> Weighted graphs are frequently used in shortest-path problems like GPS navigation.</li>
+        </ul>
+        
+        <hr>
+        
+        <h4>Frequently Asked Questions</h4>
+        <p><strong>Q: What makes a graph "Planar"?</strong><br>
+        A: It can be drawn on a flat surface without any edges intersecting.</p>
+        
+        <p><strong>Q: What is a Bipartite graph?</strong><br>
+        A: A graph where vertices are split into two groups, and edges only connect vertices from different groups.</p>
+    </div>
+
+</div>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

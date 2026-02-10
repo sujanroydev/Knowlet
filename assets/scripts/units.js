@@ -792,7 +792,6 @@ function renderFeedbackSection() {
                 <!-- Ratings list -->
                 <div class="supcard">
                     <h2 id='h3' style="margin-bottom:8px; font-size:16px; margin:0 0 14px; color:69707a;">Ratings</h2>
-                    <button id="btn-toggle-ratings" class="btn" onclick="toggleRatings()" style="margin-bottom: 5px">Show Ratings</button>
                     <div class="vertical-scroll">
 						<div id="user-ratings-box"></div>
 						<div id="ratings-box"></div>

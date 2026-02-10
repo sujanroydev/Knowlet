@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CADSC 151 Unit 3 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Exam-ready notes for CADSC 151 Unit 3: Trees. Covers Binary Trees, BST operations, Threaded Binary Trees, AVL Trees, and Heaps.">
+    <meta name="keywords" content="Data Structure, CADSC 151, Unit 3, Trees, Binary Search Tree, AVL Tree, Threaded Binary Tree, Heap, Knowlet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #27ae60;
+            --accent-color: #e74c3c;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --border-color: #ddd;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 4px solid var(--secondary-color);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+        h2 {
+            color: var(--secondary-color);
+            border-left: 6px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-top: 50px;
+            background: #f9fbfd;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+        p {
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 25px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        blockquote {
+            background: #f4fbf7;
+            border-left: 8px solid var(--secondary-color);
+            margin: 25px 0;
+            padding: 20px;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        table, th, td {
+            border: 1px solid var(--border-color);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .toc {
+            background: #f0f4f8;
+            padding: 25px;
+            border: 1px solid #d1d9e6;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+            column-count: 2;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: 600;
+        }
+        .exam-focus {
+            background-color: #fff3cd;
+            border: 2px solid #ffeeba;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+        .exam-focus h4 {
+            margin-top: 0;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit III: Trees</h1>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#tree-intro">1. Introduction to Trees</a></li>
+            <li><a href="#binary-search-trees">2. Binary Search Trees (BST)</a></li>
+            <li><a href="#traversals">3. Tree Traversals</a></li>
+            <li><a href="#threaded-trees">4. Threaded Binary Trees</a></li>
+            <li><a href="#avl-trees">5. Height-Balanced (AVL) Trees</a></li>
+            <li><a href="#heap-trees">6. Heap Trees</a></li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 id="tree-intro">1. Introduction to Trees</h2>
+    <p>
+        [cite_start]A <strong>Tree</strong> is a non-linear hierarchical data structure that consists of nodes connected by edges[cite: 21]. Unlike linear structures (arrays, lists), trees represent relationships like "parent-child" hierarchies.
+    </p>
+    <ul>
+        [cite_start]<li><strong>Root:</strong> The topmost node of the tree[cite: 21].</li>
+        <li><strong>Leaf:</strong> A node with no children.</li>
+        <li><strong>Height:</strong> The length of the longest path from the root to a leaf.</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="binary-search-trees">2. Binary Search Trees (BST)</h2>
+    [cite_start]<p>A Binary Tree is a tree where each node has at most two children (Left and Right)[cite: 21]. A <strong>Binary Search Tree (BST)</strong> is specialized such that:</p>
+    <ul>
+        [cite_start]<li>The left subtree of a node contains only nodes with keys less than the node’s key[cite: 21].</li>
+        [cite_start]<li>The right subtree of a node contains only nodes with keys greater than the node’s key[cite: 21].</li>
+    </ul>
+
+    <h3>Operations on BST</h3>
+    <ul>
+        [cite_start]<li><strong>Insertion:</strong> Compares the value with the root; if smaller, it moves to the left; if larger, it moves to the right until an empty spot is found[cite: 21].</li>
+        [cite_start]<li><strong>Deletion:</strong> More complex; involves three cases: deleting a leaf, deleting a node with one child, or deleting a node with two children (requires replacing with in-order successor or predecessor)[cite: 21].</li>
+    </ul>
+    
+    
+
+    <hr>
+
+    <h2 id="traversals">3. Tree Traversals</h2>
+    <p>Traversal is the process of visiting all nodes in a tree exactly once. [cite_start]These can be implemented <strong>Recursively</strong> or <strong>Iteratively</strong>[cite: 21].</p>
+    
+    <table>
+        <tr>
+            <th>Traversal Type</th>
+            <th>Order of Visitation</th>
+        </tr>
+        <tr>
+            <td><strong>In-order</strong></td>
+            <td>Left Subtree &rarr; Root &rarr; Right Subtree</td>
+        </tr>
+        <tr>
+            <td><strong>Pre-order</strong></td>
+            <td>Root &rarr; Left Subtree &rarr; Right Subtree</td>
+        </tr>
+        <tr>
+            <td><strong>Post-order</strong></td>
+            <td>Left Subtree &rarr; Right Subtree &rarr; Root</td>
+        </tr>
+    </table>
+
+    <div class="exam-focus">
+        <h4>Exam Tip: In-order BST</h4>
+        <p>Performing an <strong>In-order traversal</strong> on a Binary Search Tree always yields the elements in <strong>ascending sorted order</strong>.</p>
+    </div>
+
+    <hr>
+
+    <h2 id="threaded-trees">4. Threaded Binary Trees</h2>
+    <p>
+        Standard binary trees have many NULL pointers in leaf nodes. [cite_start]<strong>Threaded Binary Trees</strong> utilize these NULL pointers to point to the in-order predecessor or successor[cite: 22].
+    </p>
+    <ul>
+        [cite_start]<li><strong>Advantage:</strong> Enables faster traversal without using a stack or recursion[cite: 22].</li>
+        [cite_start]<li><strong>Operations:</strong> Supports Insertion, Deletion, and Traversals[cite: 22].</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="avl-trees">5. Height-Balanced (AVL) Trees</h2>
+    <p>
+        [cite_start]An <strong>AVL Tree</strong> is a self-balancing binary search tree[cite: 22]. The heights of the two child subtrees of any node differ by at most one.
+    </p>
+    <blockquote>
+        <strong>Balance Factor (BF)</strong> = Height(Left Subtree) - Height(Right Subtree) <br>
+        For an AVL tree, BF must be -1, 0, or 1 for every node.
+    </blockquote>
+    
+    <h3>Rotations for Balancing</h3>
+    [cite_start]<p>To restore balance after insertion or deletion, four types of rotations are used[cite: 22]:</p>
+    <ol>
+        <li><strong>LL (Left-Left):</strong> Single right rotation.</li>
+        <li><strong>RR (Right-Right):</strong> Single left rotation.</li>
+        <li><strong>LR (Left-Right):</strong> Left rotation followed by right rotation.</li>
+        <li><strong>RL (Right-Left):</strong> Right rotation followed by left rotation.</li>
+    </ol>
+
+    
+
+    <hr>
+
+    <h2 id="heap-trees">6. Heap Tree</h2>
+    <p>
+        [cite_start]A <strong>Heap</strong> is a specialized complete binary tree that satisfies the heap property[cite: 22]:
+    </p>
+    <ul>
+        [cite_start]<li><strong>Max Heap:</strong> The key of the root node is greater than or equal to the keys of its children[cite: 22].</li>
+        [cite_start]<li><strong>Min Heap:</strong> The key of the root node is less than or equal to the keys of its children[cite: 22].</li>
+    </ul>
+
+    <div class="exam-focus">
+        <h4>Common Mistakes</h4>
+        <ul>
+            <li>Mistaking a Binary Tree for a Binary Search Tree. Remember: A Binary Tree has no specific ordering rule like the BST.</li>
+            <li>Forgetting to update the Balance Factor (BF) of <em>all</em> ancestors after an AVL insertion.</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h3>Frequently Asked Questions</h3>
+    <p><strong>Q: What is the time complexity of searching in a BST?</strong><br>
+    Average case: O(log n). Worst case (skewed tree): O(n). This is why balanced trees like AVL are used.</p>
+
+    <p><strong>Q: Why use Threaded Binary Trees?</strong><br>
+    They make it easier to find the in-order successor/predecessor without extra memory for a stack during traversal.</p>
+
+</div>
+
+</body>
+</html>

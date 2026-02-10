@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CADSC101 Unit 4 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Exam-ready HTML notes for CADSC101 Unit 4: Introduction to Internet and WWW. Covers Networking basics, topologies, and web surfing.">
+    <meta name="keywords" content="Knowlet, Networking, LAN, MAN, WAN, Topology, IP Address, ISP, WWW, CADSC101 Notes">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #d35400;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #f9f9f9;
+            border-left: 10px solid #3498db;
+            margin: 1.5em 10px;
+            padding: 1em 10px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border: 1px dashed #3498db;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #2980b9;
+        }
+        .exam-focus {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .diagram-placeholder {
+            background: #e9ecef;
+            border: 2px dashed #adb5bd;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #495057;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit IV: Introduction to Internet and WWW</h1>
+    [cite_start]<p><strong>Course:</strong> Fundamentals of Information Technology [cite: 2, 149]<br>
+    [cite_start]<strong>Code:</strong> CADSC101 [cite: 2, 149]</p>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#network-basics">Basics of Computer Networks</a></li>
+            <li><a href="#network-types">LAN, MAN, and WAN</a></li>
+            <li><a href="#topology">Network Topology</a></li>
+            <li><a href="#internet-www">Concept of Internet & WWW</a></li>
+            <li><a href="#addressing">IP Address, URL, and ISP</a></li>
+            <li><a href="#connectivity">Modes of Connecting Internet</a></li>
+            <li><a href="#surfing">Surfing the Web & Search Engines</a></li>
+            <li><a href="#exam-prep">Exam Focus: Tips & FAQs</a></li>
+        </ul>
+    </div>
+
+    <h2 id="network-basics">Basics of Computer Networks</h2>
+    [cite_start]<p>A computer network is a collection of computers and other hardware components interconnected by communication channels that allow sharing of resources and information[cite: 10, 24, 156, 171].</p>
+
+    <h2 id="network-types">LAN, MAN, and WAN</h2>
+    [cite_start]<p>Networks are categorized based on the geographical area they cover[cite: 24, 171].</p>
+    
+    <table>
+        <tr>
+            <th>Type</th>
+            <th>Full Form</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            [cite_start]<td><strong>LAN</strong> [cite: 24, 171]</td>
+            [cite_start]<td>Local Area Network [cite: 24, 171]</td>
+            [cite_start]<td>Covers a small area like a room, home, or office building[cite: 24, 171].</td>
+        </tr>
+        <tr>
+            [cite_start]<td><strong>MAN</strong> [cite: 24, 171]</td>
+            [cite_start]<td>Metropolitan Area Network [cite: 24, 171]</td>
+            [cite_start]<td>Connects multiple LANs across a city or a large campus[cite: 24, 171].</td>
+        </tr>
+        <tr>
+            [cite_start]<td><strong>WAN</strong> [cite: 24, 171]</td>
+            [cite_start]<td>Wide Area Network [cite: 24, 171]</td>
+            [cite_start]<td>Covers a broad area such as a country, continent, or the whole world[cite: 24, 171].</td>
+        </tr>
+    </table>
+
+    <h2 id="topology">Network Topology</h2>
+    [cite_start]<p>Network topology refers to the physical or logical arrangement of computers or nodes in a network[cite: 24, 171]. Common types include:</p>
+    <ul>
+        <li><strong>Bus Topology:</strong> All nodes are connected to a single central cable.</li>
+        <li><strong>Star Topology:</strong> All nodes are connected to a central hub or switch.</li>
+        <li><strong>Ring Topology:</strong> Each node is connected to exactly two other nodes, forming a circle.</li>
+        <li><strong>Mesh Topology:</strong> Every node is connected to every other node.</li>
+    </ul>
+    
+
+    <h2 id="internet-www">Concept of Internet & WWW</h2>
+    <ul>
+        [cite_start]<li><strong>Internet:</strong> A global system of interconnected computer networks that use the Internet protocol suite (TCP/IP) to link devices worldwide[cite: 10, 24, 156, 171].</li>
+        [cite_start]<li><strong>WWW (World Wide Web):</strong> A system of interlinked hypertext documents accessed via the Internet[cite: 24, 171].</li>
+    </ul>
+
+    <h2 id="addressing">IP Address, URL, and ISP</h2>
+    <ul>
+        [cite_start]<li><strong>IP Address:</strong> A unique numerical label assigned to each device connected to a computer network[cite: 24, 171].</li>
+        [cite_start]<li><strong>Website Address and URL:</strong> Uniform Resource Locator (URL) is the global address of documents and other resources on the World Wide Web[cite: 24, 171].</li>
+        [cite_start]<li><strong>ISP (Internet Service Provider):</strong> An organization that provides services for accessing, using, or participating in the Internet[cite: 24, 171].</li>
+    </ul>
+
+    <h2 id="connectivity">Modes of Connecting Internet</h2>
+    [cite_start]<p>There are several ways to connect a device to the Internet[cite: 24, 171]:</p>
+    <ul>
+        [cite_start]<li><strong>Hotspot:</strong> Using a mobile device's cellular data to create a local Wi-Fi network[cite: 24, 171].</li>
+        [cite_start]<li><strong>Wi-Fi:</strong> Wireless networking technology that allows devices to interface with the Internet[cite: 24, 171].</li>
+        [cite_start]<li><strong>LAN Cable:</strong> Physical ethernet connection for high-speed stability[cite: 24, 171].</li>
+        [cite_start]<li><strong>Broadband:</strong> High-speed Internet access that is always on[cite: 24, 171].</li>
+        [cite_start]<li><strong>USB Tethering:</strong> Connecting a phone to a computer via USB to share the phone's internet connection[cite: 24, 171].</li>
+    </ul>
+
+    <h2 id="surfing">Surfing the Web & Search Engines</h2>
+    [cite_start]<p>Exploring the Internet involves "surfing" through web pages using specialized tools[cite: 24, 171].</p>
+    <ul>
+        [cite_start]<li><strong>Search Engines:</strong> Tools used to search for information on the World Wide Web (e.g., Google, Bing)[cite: 24, 171].</li>
+        [cite_start]<li><strong>Downloading/Printing:</strong> Saving web pages for offline use or creating physical copies[cite: 24, 171].</li>
+    </ul>
+
+    <div class="exam-focus" id="exam-prep">
+        <h4>Exam Focus & Tips</h4>
+        <ul>
+            [cite_start]<li><strong>Exam Tip:</strong> Be ready to differentiate between the Internet and the World Wide Web; they are not the same thing[cite: 24, 171].</li>
+            <li><strong>Common Mistake:</strong> Confusing URL with IP Address. [cite_start]A URL is the human-readable name (www.google.com), while an IP is the machine-readable number[cite: 24, 171].</li>
+            [cite_start]<li><strong>Mnemonic:</strong> <strong>LMW</strong> - <strong>L</strong>ocal (Small), <strong>M</strong>etropolitan (City), <strong>W</strong>ide (World)[cite: 24, 171].</li>
+        </ul>
+        <hr>
+        <h4>Frequently Asked Questions</h4>
+        <p><strong>Q: What is the role of an ISP?</strong><br>
+        [cite_start]A: To provide the infrastructure and services needed for users to connect to the Internet[cite: 24, 171].</p>
+        <p><strong>Q: Name three network topologies.</strong><br>
+        [cite_start]A: Bus, Star, and Ring[cite: 24, 171].</p>
+    </div>
+
+</div>
+</body>
+</html>

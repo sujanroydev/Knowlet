@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CADSM 151 Unit 3 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Detailed exam-ready notes for CADSM 151 Unit 3: Arrays and Pointers in C. Covers array processing, pointer arithmetic, character pointers, and command line arguments.">
+    <meta name="keywords" content="C Programming, CADSM 151, Unit 3, Arrays, Pointers, Pointer Arithmetic, Function Pointers, Knowlet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #c0392b;
+            --accent-color: #2980b9;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --border-color: #ddd;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 4px solid var(--secondary-color);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+        h2 {
+            color: var(--secondary-color);
+            border-left: 6px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-top: 50px;
+            background: #fff5f5;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: var(--accent-color);
+            margin-top: 30px;
+            border-bottom: 1px solid #eee;
+        }
+        p {
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 25px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        blockquote {
+            background: #fdf2f2;
+            border-left: 8px solid var(--secondary-color);
+            margin: 25px 0;
+            padding: 20px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        table, th, td {
+            border: 1px solid var(--border-color);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background: #fff;
+            padding: 25px;
+            border: 1px solid #dcdde1;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+            column-count: 2;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        .exam-corner {
+            background-color: #eaf2f8;
+            border: 2px solid #3498db;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+        .exam-corner h4 {
+            margin-top: 0;
+            color: #21618c;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit III: Arrays and Pointers</h1>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#array-processing">1. Array Processing and Strings</a></li>
+            <li><a href="#pointer-basics">2. Pointer Fundamentals</a></li>
+            <li><a href="#pointer-arithmetic">3. Address Arithmetic</a></li>
+            <li><a href="#pointers-arrays">4. Pointers vs Multidimensional Arrays</a></li>
+            <li><a href="#advanced-pointers">5. Command Line Arguments & Function Pointers</a></li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 id="array-processing">1. Array Processing and Strings</h2>
+    <p>
+        [cite_start]An array is a collection of elements of the same type stored in contiguous memory locations[cite: 162]. 
+    </p>
+    <ul>
+        [cite_start]<li><strong>Definition and Processing:</strong> Arrays are defined by specifying the data type and the number of elements[cite: 162]. [cite_start]Processing involves accessing each element using its index[cite: 162].</li>
+        [cite_start]<li><strong>Passing Arrays to Functions:</strong> When an array is passed to a function, it is typically passed by reference (the address of the first element is passed)[cite: 162].</li>
+        [cite_start]<li><strong>Multidimensional Arrays:</strong> These are "arrays of arrays," such as matrices (2D arrays) used for grid-based data storage[cite: 162].</li>
+        [cite_start]<li><strong>Arrays and Strings:</strong> In C, a string is simply a one-dimensional array of characters terminated by a null character (\0)[cite: 162].</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="pointer-basics">2. Pointer Fundamentals</h2>
+    <p>
+        [cite_start]A pointer is a variable that stores the memory address of another variable[cite: 163].
+    </p>
+    <ul>
+        [cite_start]<li><strong>Pointers and Addresses:</strong> Every variable has an address in memory; pointers allow direct manipulation of these addresses[cite: 163].</li>
+        [cite_start]<li><strong>Pointer Declaration:</strong> Pointers are declared using the * operator (e.g., int *p)[cite: 163].</li>
+        [cite_start]<li><strong>Pointers and Function Arguments:</strong> Passing pointers to functions allows the function to modify the actual variable in the calling environment (Pass by Reference)[cite: 163].</li>
+        [cite_start]<li><strong>Pointers and One-dimensional Arrays:</strong> The name of an array acts as a constant pointer to its first element[cite: 163].</li>
+    </ul>
+
+    
+
+    <hr>
+
+    <h2 id="pointer-arithmetic">3. Address Arithmetic</h2>
+    <p>
+        [cite_start]Address arithmetic refers to the operations that can be performed on pointers[cite: 164].
+    </p>
+    <ul>
+        [cite_start]<li><strong>Operations:</strong> You can increment (p++), decrement (p--), or add/subtract integers to a pointer to navigate through memory[cite: 164].</li>
+        [cite_start]<li><strong>Character Pointers and Functions:</strong> Character pointers (char *ptr) are frequently used to handle strings and are passed to functions for efficient string manipulation[cite: 164].</li>
+    </ul>
+
+    <blockquote>
+        <strong>Rule:</strong> When you increment a pointer, it moves forward by the size of the data type it points to (e.g., +4 bytes for an int pointer on most systems).
+    </blockquote>
+
+    <hr>
+
+    <h2 id="pointers-arrays">4. Pointers vs Multidimensional Arrays</h2>
+    <p>
+        [cite_start]There is a strong relationship between pointers and multidimensional arrays in C[cite: 164].
+    </p>
+    <ul>
+        [cite_start]<li><strong>Pointer Arrays:</strong> An array where each element is a pointer to another variable or array[cite: 164].</li>
+        [cite_start]<li><strong>Pointers to Pointers:</strong> A variable that stores the address of another pointer (declared as **p)[cite: 164].</li>
+        [cite_start]<li><strong>Initialization:</strong> Pointer arrays can be initialized with addresses of strings or other variables for flexible data structures[cite: 164].</li>
+        [cite_start]<li><strong>Pointers and Multidimensional Arrays:</strong> Accessing elements like A[i][j] can be represented using pointer notation as *(*(A+i)+j)[cite: 164].</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="advanced-pointers">5. Command Line Arguments & Function Pointers</h2>
+    <p>
+        [cite_start]Advanced pointer usage allows for dynamic and highly flexible programming[cite: 165].
+    </p>
+    <ul>
+        [cite_start]<li><strong>Command Line Arguments:</strong> These allow parameters to be passed to the program when it starts via <code>int main(int argc, char *argv[])</code>[cite: 165].</li>
+        [cite_start]<li><strong>Pointers to Functions:</strong> Pointers can store the address of a function, allowing functions to be passed as arguments to other functions[cite: 165].</li>
+        [cite_start]<li><strong>Passing Functions:</strong> This is the basis for "callback" mechanisms in C[cite: 165].</li>
+    </ul>
+
+    <div class="exam-corner">
+        <h4>Exam Tips</h4>
+        <ul>
+            <li><strong>The & and * Operators:</strong> Remember that & is the "Address of" operator, while * is the "Value at address" (dereference) operator.</li>
+            <li><strong>Null Pointer:</strong> Always initialize pointers to NULL if they aren't assigned an address immediately to avoid "wild pointers."</li>
+            <li><strong>Array Bounds:</strong> C does not check array boundaries. Accessing A[10] in an array of size 5 is a common logic error.</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h3>Frequently Asked Questions</h3>
+    <p><strong>Q: What is the difference between char a[] = "hello" and char *p = "hello"?</strong><br>
+    The first is an array that can be modified. The second is a pointer to a string literal, which is often stored in read-only memory and should not be modified.</p>
+
+    <p><strong>Q: What is 'argc' and 'argv'?</strong><br>
+    'argc' (argument count) is the number of strings on the command line, and 'argv' (argument vector) is an array of pointers to those strings.</p>
+
+</div>
+
+</body>
+</html>

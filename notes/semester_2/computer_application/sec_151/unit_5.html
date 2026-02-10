@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CASEC 151 Unit 5 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Exam-ready HTML notes for CASEC 151: Python Programming, Unit 5. Covering File Operations, Exception Handling, Directories, and Graph Plotting with Matplotlib.">
+    <meta name="keywords" content="Python Programming, CASEC 151, Unit 5, Python Files, Exception Handling, Matplotlib, Graph Plotting, Knowlet">
+    <style>
+        :root {
+            --python-blue: #3776ab;
+            --python-yellow: #ffd43b;
+            --header-bg: #2c3e50;
+            --section-bg: #f9f9f9;
+            --accent: #e67e22;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: var(--python-blue);
+            text-align: center;
+            border-bottom: 4px solid var(--python-yellow);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: var(--header-bg);
+            border-left: 5px solid var(--python-blue);
+            padding-left: 15px;
+            margin-top: 40px;
+            background: var(--section-bg);
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: var(--accent);
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #ecf0f1;
+            border-left: 10px solid var(--python-blue);
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        table, th, td {
+            border: 1px solid #bdc3c7;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--python-blue);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+            column-count: 2;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--python-blue);
+            font-weight: bold;
+        }
+        .exam-section {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .exam-section h4 {
+            margin-top: 0;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit V: Files, Exceptions, and Plotting</h1>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#python-files">1. Python File Operations</a></li>
+            <li><a href="#python-directory">2. Python Directory Management</a></li>
+            <li><a href="#exception-handling">3. Exception Handling (Try/Except)</a></li>
+            <li><a href="#custom-exceptions">4. User-Defined Exceptions</a></li>
+            <li><a href="#matplotlib">5. Graph Plotting using Matplotlib</a></li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 id="python-files">1. Python File Operations</h2>
+    <p>
+        [cite_start]File handling is essential for storing data permanently[cite: 214]. [cite_start]Python provides built-in functions to create, read, update, and delete files[cite: 236].
+    </p>
+    <ul>
+        [cite_start]<li><strong>Opening a File:</strong> Done using the <code>open()</code> function[cite: 236].</li>
+        [cite_start]<li><strong>Reading:</strong> Methods like <code>read()</code>, <code>readline()</code>, and <code>readlines()</code> are used to retrieve data[cite: 236].</li>
+        [cite_start]<li><strong>Writing:</strong> The <code>write()</code> and <code>writelines()</code> methods allow saving data to a file[cite: 236].</li>
+        [cite_start]<li><strong>Closing:</strong> Always use <code>close()</code> to free up system resources[cite: 236].</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="python-directory">2. Python Directory Management</h2>
+    <p>
+        [cite_start]Python allows programmatic interaction with the file system through directory operations[cite: 236].
+    </p>
+    <ul>
+        [cite_start]<li><strong>OS Module:</strong> Typically used to create, rename, and list directories[cite: 236].</li>
+        [cite_start]<li><strong>Path Management:</strong> Navigating through folders and checking file existence[cite: 236].</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="exception-handling">3. Exception Handling (Try/Except)</h2>
+    <p>
+        [cite_start]Exceptions are errors detected during execution that interrupt the normal flow of the program[cite: 215, 236].
+    </p>
+    <ul>
+        [cite_start]<li><strong>Try Block:</strong> Contains the code that might raise an exception[cite: 236].</li>
+        [cite_start]<li><strong>Except Block:</strong> Handles the error if one occurs in the try block[cite: 236].</li>
+        [cite_start]<li><strong>Finally Block:</strong> Contains code that will execute regardless of whether an exception was raised or not, often used for cleanup[cite: 236].</li>
+        [cite_start]<li><strong>Built-in Exceptions:</strong> Python includes standard errors like <code>ZeroDivisionError</code>, <code>FileNotFoundError</code>, and <code>ValueError</code>[cite: 236].</li>
+    </ul>
+    
+
+    <hr>
+
+    <h2 id="custom-exceptions">4. User-Defined Exceptions</h2>
+    <p>
+        [cite_start]Programmers can create their own exception classes to handle specific error scenarios relevant to their applications[cite: 236].
+    </p>
+    <blockquote>
+        [cite_start]Utility: Improves code readability and allows for more precise error reporting in complex systems[cite: 215, 241].
+    </blockquote>
+
+    <hr>
+
+    <h2 id="matplotlib">5. Graph Plotting using Matplotlib</h2>
+    <p>
+        [cite_start]Matplotlib is a powerful library used for data visualization in Python[cite: 236].
+    </p>
+    <ul>
+        [cite_start]<li><strong>Plotting:</strong> Creating line graphs, bar charts, and histograms to represent data visually[cite: 236, 286].</li>
+        [cite_start]<li><strong>Customization:</strong> Adding labels, titles, and legends to make graphs informative[cite: 286].</li>
+    </ul>
+    
+
+    <div class="exam-section">
+        <h4>Exam Tips: Error Handling</h4>
+        <ul>
+            [cite_start]<li><strong>Specificity:</strong> Always try to catch specific exceptions rather than a generic <code>Except:</code> block[cite: 236].</li>
+            [cite_start]<li><strong>File Safety:</strong> Use the <code>with</code> statement when opening files to ensure they are automatically closed, even if an error occurs[cite: 236].</li>
+            [cite_start]<li><strong>Plotting:</strong> Remember that <code>plt.show()</code> is required to actually display the graph in a standard script[cite: 236].</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h3>Frequently Asked Questions</h3>
+    <p><strong>Q: What is the difference between an Error and an Exception?</strong><br>
+    [cite_start]Errors (like Syntax Errors) usually cannot be recovered from, while Exceptions can be "caught" and handled by the program to prevent a crash[cite: 215].</p>
+
+    <p><strong>Q: Why is the 'Finally' block useful?</strong><br>
+    [cite_start]It is perfect for closing files or database connections that must be shut down whether the program succeeded or failed[cite: 236].</p>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CADSM 151 Unit 5 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Final unit notes for CADSM 151: Programming with C. Covers Standard I/O, File Handling, and Low-Level C programming including bitwise operations.">
+    <meta name="keywords" content="C Programming, File Handling, Bitwise Operations, Macros, Preprocessor, CADSM 151, Knowlet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #f39c12;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --border-color: #bdc3c7;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 4px solid var(--secondary-color);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+        h2 {
+            color: var(--secondary-color);
+            border-left: 6px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-top: 50px;
+            background: #fdf2f2;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: var(--primary-color);
+            margin-top: 30px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+        p {
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 25px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        blockquote {
+            background: #fcf3cf;
+            border-left: 8px solid var(--accent-color);
+            margin: 25px 0;
+            padding: 20px;
+            font-weight: bold;
+            border-radius: 0 8px 8px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        table, th, td {
+            border: 1px solid var(--border-color);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background: #fff;
+            padding: 25px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+            column-count: 2;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: bold;
+        }
+        .exam-focus {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit V: Input/Output and Low-Level Programming</h1>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#std-io">1. Standard Input and Output</a></li>
+            <li><a href="#data-files">2. Data Files and Processing</a></li>
+            <li><a href="#low-level">3. Low-Level Programming</a></li>
+            <li><a href="#bitwise">4. Bitwise Operations and Fields</a></li>
+            <li><a href="#preprocessor">5. Preprocessor and Macros</a></li>
+            <li><a href="#command-line">6. Command Line Arguments</a></li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 id="std-io">1. Standard Input and Output</h2>
+    <p>
+        [cite_start]C provides a set of standard library functions for input and output operations, primarily defined in the <strong>stdio.h</strong> header file[cite: 175].
+    </p>
+    <ul>
+        [cite_start]<li><strong>Formatted Output (printf):</strong> Allows printing data to the standard output device with specific formatting like field width and precision[cite: 175].</li>
+        [cite_start]<li><strong>Formatted Input (scanf):</strong> Used to read formatted data from the standard input device (usually the keyboard)[cite: 175].</li>
+        [cite_start]<li><strong>Variable Length Arguments:</strong> A mechanism (using <em>stdarg.h</em>) that allows functions to accept an undefined number of arguments, similar to how printf works[cite: 175].</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="data-files">2. Data Files and Processing</h2>
+    <p>
+        [cite_start]File handling allows programs to store data permanently on a disk[cite: 176].
+    </p>
+    <ul>
+        [cite_start]<li><strong>Opening and Closing:</strong> Files must be opened using <em>fopen()</em> before access and closed using <em>fclose()</em> to ensure data integrity[cite: 176].</li>
+        [cite_start]<li><strong>File Access Modes:</strong> Includes "r" (read), "w" (write), "a" (append), and "b" (binary modes)[cite: 176].</li>
+        [cite_start]<li><strong>Unformatted Data Files:</strong> Files where data is stored in its raw binary form rather than human-readable text, often accessed via <em>fread()</em> and <em>fwrite()</em>[cite: 176].</li>
+        [cite_start]<li><strong>Miscellaneous Functions:</strong> Includes functions like <em>fseek()</em> for random access, <em>rewind()</em>, and <em>feof()</em> to check for the end of a file[cite: 176].</li>
+    </ul>
+
+    
+
+    <hr>
+
+    <h2 id="low-level">3. Low-Level Programming</h2>
+    <p>
+        [cite_start]C allows programmers to perform tasks that are typically the domain of assembly language, providing close control over hardware[cite: 177].
+    </p>
+    <ul>
+        [cite_start]<li><strong>Register Variables:</strong> Using the <em>register</em> keyword suggests to the compiler that the variable be stored in a CPU register for faster access[cite: 177].</li>
+        [cite_start]<li><strong>Enumeration (enum):</strong> A user-defined data type consisting of a set of named integer constants, improving code readability[cite: 177].</li>
+        [cite_start]<li><strong>Library Functions:</strong> Standard C libraries provide low-level access to system resources and memory management[cite: 177].</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="bitwise">4. Bitwise Operations and Fields</h2>
+    <p>
+        [cite_start]Bitwise operations allow for the manipulation of individual bits within a data type[cite: 177].
+    </p>
+    <table>
+        <tr>
+            <th>Operator</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>&</td>
+            <td>Bitwise AND</td>
+            <td>Sets bit to 1 if both corresponding bits are 1.</td>
+        </tr>
+        <tr>
+            <td>|</td>
+            <td>Bitwise OR</td>
+            <td>Sets bit to 1 if at least one corresponding bit is 1.</td>
+        </tr>
+        <tr>
+            <td>^</td>
+            <td>Bitwise XOR</td>
+            <td>Sets bit to 1 if bits are different.</td>
+        </tr>
+        <tr>
+            <td>~</td>
+            <td>Bitwise NOT</td>
+            <td>Flips all bits.</td>
+        </tr>
+        <tr>
+            <td>&lt;&lt;</td>
+            <td>Left Shift</td>
+            <td>Shifts bits to the left, filling with zeros.</td>
+        </tr>
+    </table>
+    <ul>
+        [cite_start]<li><strong>Bit Fields:</strong> Allow the definition of structure members with a specific width in bits, saving memory in hardware-level structures[cite: 177].</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="preprocessor">5. Preprocessor and Macros</h2>
+    <p>
+        [cite_start]The <strong>C Preprocessor</strong> is a tool that examines the code before actual compilation begins[cite: 177].
+    </p>
+    <blockquote>
+        [cite_start]Common Directives: #define, #include, #ifdef, #ifndef, #else, #endif[cite: 177].
+    </blockquote>
+    <ul>
+        <li><strong>Macros:</strong> Short pieces of code given a name. [cite_start]Whenever the name is used, it is replaced by the contents of the macro[cite: 177].</li>
+        [cite_start]<li><strong>Header Files:</strong> Used to include external library definitions or user-defined common code[cite: 159].</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="command-line">6. Command Line Arguments</h2>
+    <p>
+        [cite_start]Command line arguments allow users to pass parameters to the <em>main()</em> function when the program is executed from the terminal[cite: 177].
+    </p>
+    <ul>
+        [cite_start]<li><strong>argc:</strong> Argument count (integer)[cite: 177].</li>
+        [cite_start]<li><strong>argv:</strong> Argument vector (array of strings)[cite: 177].</li>
+    </ul>
+
+    <div class="exam-focus">
+        <h4>Exam Tips</h4>
+        <ul>
+            [cite_start]<li><strong>File EOF:</strong> Always check for the End-of-File (EOF) when reading files to prevent infinite loops[cite: 176].</li>
+            <li><strong>Bitwise shift:</strong> Remember that shifting left by 1 is equivalent to multiplying by 2, and shifting right by 1 is equivalent to dividing by 2 (integer division).</li>
+            <li><strong>Macro Safety:</strong> Always wrap macro arguments in parentheses to avoid unexpected operator precedence issues.</li>
+        </ul>
+    </div>
+
+    <div class="exam-focus">
+        <h4>Frequently Asked Questions</h4>
+        <p><strong>Q: What is the difference between text and binary files?</strong><br>
+        [cite_start]Text files store data as sequences of characters (human-readable), while binary files store data exactly as it is represented in memory[cite: 176].</p>
+        <p><strong>Q: Why use bit-fields?</strong><br>
+        [cite_start]They are used when memory is extremely limited or when you need to match a specific hardware register format[cite: 177].</p>
+    </div>
+
+</div>
+
+</body>
+</html>

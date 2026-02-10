@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CADSC 151 Unit 4 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Exam-ready HTML notes for CADSC 151 Unit 4: Searching and Sorting. Comprehensive guide to Linear Search, Binary Search, Bubble Sort, Selection Sort, Insertion Sort, Merge Sort, and Quick Sort.">
+    <meta name="keywords" content="Data Structure, CADSC 151, Unit 4, Searching, Sorting, Linear Search, Binary Search, Bubble Sort, Merge Sort, Quick Sort, Knowlet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #8e44ad;
+            --accent-color: #27ae60;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --border-color: #ddd;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 4px solid var(--secondary-color);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+        h2 {
+            color: var(--secondary-color);
+            border-left: 6px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-top: 50px;
+            background: #f9f0ff;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+        p {
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 25px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        blockquote {
+            background: #fdfefe;
+            border-left: 8px solid var(--secondary-color);
+            margin: 25px 0;
+            padding: 20px;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        table, th, td {
+            border: 1px solid var(--border-color);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .toc {
+            background: #fdfaff;
+            padding: 25px;
+            border: 1px solid #e1d5e7;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+            column-count: 2;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        .exam-focus {
+            background-color: #eafaf1;
+            border: 2px solid #2ecc71;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+        .exam-focus h4 {
+            margin-top: 0;
+            color: #1b5e20;
+        }
+        .complexity-tag {
+            display: inline-block;
+            background: #34495e;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit IV: Searching and Sorting</h1>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#linear-search">1. Linear Search</a></li>
+            <li><a href="#binary-search">2. Binary Search</a></li>
+            <li><a href="#bubble-sort">3. Bubble Sort</a></li>
+            <li><a href="#selection-sort">4. Selection Sort</a></li>
+            <li><a href="#insertion-sort">5. Insertion Sort</a></li>
+            <li><a href="#merge-sort">6. Merge Sort</a></li>
+            <li><a href="#quick-sort">7. Quick Sort</a></li>
+            <li><a href="#comparisons">8. Comparisons & Complexity</a></li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 id="linear-search">1. Linear Search</h2>
+    <p>
+        [cite_start]<strong>Linear Search</strong> is the simplest searching algorithm[cite: 27]. [cite_start]It works by sequentially checking each element of the list until a match is found or the whole list has been searched[cite: 27].
+    </p>
+    <ul>
+        <li><strong>Procedure:</strong> Start from the first element and compare it with the target value. [cite_start]Move to the next element until found[cite: 27].</li>
+        [cite_start]<li><strong>Applicability:</strong> Can be used on both sorted and unsorted lists[cite: 27].</li>
+        <li><strong>Best Case:</strong> Target is at the first position <span class="complexity-tag">O(1)</span>.</li>
+        <li><strong>Worst Case:</strong> Target is at the last position or not present <span class="complexity-tag">O(n)</span>.</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="binary-search">2. Binary Search</h2>
+    <p>
+        [cite_start]<strong>Binary Search</strong> is a much faster searching algorithm but requires the list to be <strong>sorted</strong> beforehand[cite: 27].
+    </p>
+    <ul>
+        [cite_start]<li><strong>Procedure:</strong> It repeatedly divides the search interval in half[cite: 27]. [cite_start]If the target value is less than the middle element, it narrows the interval to the lower half; otherwise, it narrows it to the upper half[cite: 27].</li>
+        [cite_start]<li><strong>Complexity:</strong> <span class="complexity-tag">O(log n)</span>[cite: 33].</li>
+    </ul>
+    
+    
+
+    <div class="exam-focus">
+        <h4>Comparison: Linear vs. Binary Search</h4>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Linear Search</th>
+                <th>Binary Search</th>
+            </tr>
+            <tr>
+                <td>Data Requirement</td>
+                <td>Unsorted or Sorted</td>
+                [cite_start]<td>Strictly Sorted [cite: 27]</td>
+            </tr>
+            <tr>
+                <td>Complexity</td>
+                <td>O(n)</td>
+                [cite_start]<td>O(log n) [cite: 33]</td>
+            </tr>
+            <tr>
+                <td>Efficiency</td>
+                <td>Low (for large data)</td>
+                <td>High (for large data)</td>
+            </tr>
+        </table>
+    </div>
+
+    <hr>
+
+    <h2 id="bubble-sort">3. Bubble Sort</h2>
+    <p>
+        [cite_start]<strong>Bubble Sort</strong> is a comparison-based sorting algorithm[cite: 27]. [cite_start]It works by repeatedly swapping adjacent elements if they are in the wrong order[cite: 27].
+    </p>
+    <ul>
+        [cite_start]<li><strong>Mechanism:</strong> Large values "bubble up" to the end of the list in each pass[cite: 27].</li>
+        [cite_start]<li><strong>Complexity:</strong> Worst and Average case <span class="complexity-tag">O(n²)</span>[cite: 33].</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="selection-sort">4. Selection Sort</h2>
+    <p>
+        [cite_start]In <strong>Selection Sort</strong>, the list is divided into two parts: sorted and unsorted[cite: 27]. 
+    </p>
+    <ul>
+        [cite_start]<li><strong>Mechanism:</strong> It repeatedly finds the <em>minimum</em> element from the unsorted part and puts it at the beginning[cite: 27].</li>
+        [cite_start]<li><strong>Complexity:</strong> Always <span class="complexity-tag">O(n²)</span> regardless of initial order[cite: 33].</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="insertion-sort">5. Insertion Sort</h2>
+    <p>
+        [cite_start]<strong>Insertion Sort</strong> works similarly to how we sort playing cards in our hands[cite: 27].
+    </p>
+    <ul>
+        [cite_start]<li><strong>Mechanism:</strong> It takes one element from the unsorted part and "inserts" it into its correct position in the sorted part[cite: 27].</li>
+        <li><strong>Complexity:</strong> Best case <span class="complexity-tag">O(n)</span> (already sorted); [cite_start]Worst case <span class="complexity-tag">O(n²)</span>[cite: 33].</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="merge-sort">6. Merge Sort</h2>
+    <p>
+        [cite_start]<strong>Merge Sort</strong> is a <strong>Divide and Conquer</strong> algorithm[cite: 27]. 
+    </p>
+    <ul>
+        [cite_start]<li><strong>Procedure:</strong> It divides the array into two halves, calls itself for the two halves, and then merges the two sorted halves[cite: 27].</li>
+        [cite_start]<li><strong>Complexity:</strong> <span class="complexity-tag">O(n log n)</span> in all cases[cite: 33].</li>
+        <li><strong>Stability:</strong> It is a stable sort (preserves order of equal elements).</li>
+    </ul>
+
+    
+
+    <hr>
+
+    <h2 id="quick-sort">7. Quick Sort</h2>
+    <p>
+        [cite_start]<strong>Quick Sort</strong> is also a Divide and Conquer algorithm[cite: 27]. [cite_start]It picks an element as a <strong>pivot</strong> and partitions the array around the pivot[cite: 27].
+    </p>
+    <ul>
+        [cite_start]<li><strong>Procedure:</strong> Elements smaller than the pivot go to the left, and larger elements go to the right[cite: 27].</li>
+        <li><strong>Complexity:</strong> Average case <span class="complexity-tag">O(n log n)</span>; [cite_start]Worst case <span class="complexity-tag">O(n²)</span> (if pivot selection is poor)[cite: 33].</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="comparisons">8. Comparisons of Sorting Techniques</h2>
+    <table>
+        <tr>
+            <th>Algorithm</th>
+            <th>Best Complexity</th>
+            <th>Worst Complexity</th>
+            <th>Space Complexity</th>
+        </tr>
+        <tr>
+            <td>Bubble Sort</td>
+            <td>O(n)</td>
+            <td>O(n²)</td>
+            <td>O(1)</td>
+        </tr>
+        <tr>
+            <td>Selection Sort</td>
+            <td>O(n²)</td>
+            <td>O(n²)</td>
+            <td>O(1)</td>
+        </tr>
+        <tr>
+            <td>Insertion Sort</td>
+            <td>O(n)</td>
+            <td>O(n²)</td>
+            <td>O(1)</td>
+        </tr>
+        <tr>
+            <td>Merge Sort</td>
+            <td>O(n log n)</td>
+            <td>O(n log n)</td>
+            <td>O(n)</td>
+        </tr>
+        <tr>
+            <td>Quick Sort</td>
+            <td>O(n log n)</td>
+            <td>O(n²)</td>
+            <td>O(log n)</td>
+        </tr>
+    </table>
+
+    <div class="exam-focus">
+        <h4>Exam Tips & Warnings</h4>
+        <ul>
+            [cite_start]<li><strong>Merge Sort</strong> is preferred for linked lists but requires extra space for arrays[cite: 27].</li>
+            [cite_start]<li><strong>Quick Sort</strong> is generally the fastest in practice but has a bad worst-case performance[cite: 27].</li>
+            <li><strong>Selection Sort</strong> minimizes the number of swaps, making it useful when memory writing is costly.</li>
+        </ul>
+    </div>
+
+    <h3>Frequently Asked Questions</h3>
+    <p><strong>Q: Why is Binary Search better than Linear Search?</strong><br>
+    Binary search drastically reduces the number of comparisons. [cite_start]For 1 million elements, Linear Search might take 1,000,000 steps, while Binary Search takes only about 20 steps[cite: 27, 33].</p>
+
+    <p><strong>Q: What is a "Pivot" in Quick Sort?</strong><br>
+    [cite_start]The pivot is a reference element used to partition the data into two subsets: those smaller than the pivot and those larger[cite: 27].</p>
+
+</div>
+
+</body>
+</html>

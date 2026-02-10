@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CADSC101 Unit 2 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Detailed academic notes for CADSC101 Unit 2: Number Systems, Operating Systems, and Programming Language Tools. Exam-ready resources for BCA students.">
+    <meta name="keywords" content="Knowlet, Number Systems, Binary Conversion, Operating System, Compiler vs Interpreter, CADSC101 Notes, Unit 2">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #d35400;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #f9f9f9;
+            border-left: 10px solid #3498db;
+            margin: 1.5em 10px;
+            padding: 1em 10px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border: 1px dashed #3498db;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #2980b9;
+        }
+        .exam-focus {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .diagram-placeholder {
+            background: #e9ecef;
+            border: 2px dashed #adb5bd;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #495057;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit II: Number Systems, OS, and Programming Tools</h1>
+    [cite_start]<p><strong>Course:</strong> Fundamentals of Information Technology [cite: 2]<br>
+    [cite_start]<strong>Code:</strong> CADSC101 [cite: 2]</p>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#number-systems">Number Systems & Character Representation</a></li>
+            <li><a href="#codes">Binary Codes (BCD, ASCII, EBCDIC, Gray)</a></li>
+            <li><a href="#os-basics">Operating System Basics & Functions</a></li>
+            <li><a href="#os-types">Types of OS and Windows vs Linux</a></li>
+            <li><a href="#prog-tools">Programming Language Tools (Compiler, Interpreter)</a></li>
+            <li><a href="#algo-flow">Algorithms, Pseudo-code, and Flowcharts</a></li>
+            <li><a href="#exam-prep">Exam Focus: Tips & FAQs</a></li>
+        </ul>
+    </div>
+
+    <h2 id="number-systems">Number Systems</h2>
+    [cite_start]<p>Number systems are the mathematical notation for representing numbers of a given set, using digits or other symbols in a consistent manner[cite: 14].</p>
+    
+    <h3>Common Bases</h3>
+    <ul>
+        [cite_start]<li><strong>Binary (Base 2):</strong> Uses 0 and 1[cite: 14].</li>
+        [cite_start]<li><strong>Octal (Base 8):</strong> Uses digits 0 to 7[cite: 14].</li>
+        <li><strong>Decimal (Base 10):</strong> Uses digits 0 to 9.</li>
+        [cite_start]<li><strong>Hexadecimal (Base 16):</strong> Uses digits 0-9 and letters A-F[cite: 14].</li>
+    </ul>
+
+    <h3>Conversion of Bases</h3>
+    [cite_start]<p>Computers convert all human-readable data into binary for processing[cite: 14]. [cite_start]Conversion involves dividing (from decimal) or multiplying (to decimal) by the target base[cite: 14].</p>
+    
+
+[Image of Number system conversion chart]
+
+
+    <h2 id="codes">Character Representation and Codes</h2>
+    [cite_start]<p>Specific coding schemes are used to represent characters and numbers in a format the computer can understand[cite: 14].</p>
+    <ul>
+        [cite_start]<li><strong>BCD (Binary Coded Decimal):</strong> Each decimal digit is represented by a fixed number of binary bits[cite: 14].</li>
+        [cite_start]<li><strong>ASCII (American Standard Code for Information Interchange):</strong> A standard code for representing text in computers[cite: 14].</li>
+        [cite_start]<li><strong>EBCDIC:</strong> An 8-bit character encoding used mainly on IBM mainframe[cite: 14].</li>
+        [cite_start]<li><strong>Gray Code:</strong> A binary numeral system where two successive values differ in only one bit[cite: 14].</li>
+    </ul>
+
+    <h2 id="os-basics">Operating System (OS)</h2>
+    <blockquote>
+        [cite_start]<strong>Definition:</strong> An Operating System is a system software that acts as an interface between the user and the computer hardware[cite: 15].
+    </blockquote>
+
+    <h3>Functions of an Operating System</h3>
+    <ul>
+        [cite_start]<li><strong>Process Management:</strong> Managing execution of multiple programs[cite: 15].</li>
+        [cite_start]<li><strong>Memory Management:</strong> Allocating and de-allocating memory space[cite: 15].</li>
+        [cite_start]<li><strong>File Management:</strong> Keeping track of files stored on storage devices[cite: 15].</li>
+        [cite_start]<li><strong>Device Management:</strong> Controlling input and output devices through drivers[cite: 15].</li>
+    </ul>
+    
+
+[Image of Operating System functions diagram]
+
+
+    <h2 id="os-types">Types of Operating Systems</h2>
+    [cite_start]<p>OS can be categorized based on how they process tasks[cite: 15].</p>
+    <ul>
+        [cite_start]<li><strong>Batch OS:</strong> Jobs are collected in batches and processed together[cite: 15].</li>
+        [cite_start]<li><strong>Multi-programming OS:</strong> Multiple programs run on a single processor simultaneously[cite: 15].</li>
+        [cite_start]<li><strong>Time-sharing OS:</strong> Allows multiple users to use the computer at the same time[cite: 15].</li>
+        [cite_start]<li><strong>Real-time OS:</strong> Used where time constraints are very strict (e.g., missiles, medical)[cite: 15].</li>
+    </ul>
+
+    <h3>Windows vs. Linux</h3>
+    <table>
+        <tr>
+            <th>Feature</th>
+            <th>Windows</th>
+            <th>Linux</th>
+        </tr>
+        <tr>
+            <td><strong>Kernel Type</strong></td>
+            [cite_start]<td>Hybrid [cite: 15]</td>
+            [cite_start]<td>Monolithic [cite: 15]</td>
+        </tr>
+        <tr>
+            <td><strong>User Interface</strong></td>
+            [cite_start]<td>Primarily GUI [cite: 15]</td>
+            [cite_start]<td>GUI and powerful CLI [cite: 15]</td>
+        </tr>
+        <tr>
+            <td><strong>Open Source</strong></td>
+            [cite_start]<td>No (Proprietary) [cite: 15]</td>
+            [cite_start]<td>Yes (Free/Open) [cite: 15]</td>
+        </tr>
+    </table>
+
+    <h2 id="prog-tools">Programming Language Tools</h2>
+    [cite_start]<p>These tools translate high-level code into machine language[cite: 16].</p>
+    <ul>
+        [cite_start]<li><strong>Assembler:</strong> Translates Assembly language to Machine code[cite: 16].</li>
+        [cite_start]<li><strong>Compiler:</strong> Translates the whole program at once[cite: 16].</li>
+        [cite_start]<li><strong>Interpreter:</strong> Translates the program line by line[cite: 16].</li>
+        [cite_start]<li><strong>Linker:</strong> Links various object files to create an executable[cite: 16].</li>
+        [cite_start]<li><strong>Loader:</strong> Loads the executable into memory for execution[cite: 16].</li>
+    </ul>
+
+    <h2 id="algo-flow">Algorithms and Flowcharts</h2>
+    [cite_start]<p>Before writing a computer program, a logical plan is created[cite: 16].</p>
+    <ul>
+        [cite_start]<li><strong>Algorithm:</strong> A step-by-step procedure to solve a problem[cite: 16].</li>
+        [cite_start]<li><strong>Pseudo-code:</strong> Informal description of an algorithm using plain English[cite: 16].</li>
+        [cite_start]<li><strong>Flowchart:</strong> Graphical representation of an algorithm using symbols[cite: 16].</li>
+    </ul>
+    
+
+    <div class="exam-focus" id="exam-prep">
+        <h4>Exam Focus & Tips</h4>
+        <ul>
+            [cite_start]<li><strong>Exam Tip:</strong> Practice Binary to Hexadecimal conversions; they are guaranteed marks[cite: 14].</li>
+            <li><strong>Common Mistake:</strong> Thinking an Interpreter and Compiler are the same. Remember: Compiler = Whole; [cite_start]Interpreter = Line-by-line[cite: 16].</li>
+            [cite_start]<li><strong>Mnemonics:</strong> <strong>B-O-D-H</strong> for Number Systems (Binary, Octal, Decimal, Hex)[cite: 14].</li>
+        </ul>
+        
+        <hr>
+        
+        <h4>Frequently Asked Questions</h4>
+        <p><strong>Q: What is the base of Hexadecimal?</strong><br>
+        [cite_start]A: 16 (Digits 0-9 and A-F)[cite: 14].</p>
+        
+        <p><strong>Q: Define a Linker.</strong><br>
+        [cite_start]A: It is a tool that combines multiple object files into a single executable file[cite: 16].</p>
+    </div>
+
+</div>
+</body>
+</html>

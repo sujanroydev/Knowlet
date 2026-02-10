@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CADSC 151 Unit 2 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready HTML notes for CADSC 151 Unit 2: Linked Lists and Queues. Detailed coverage of Singly, Doubly, and Circular lists, plus advanced queue structures.">
+    <meta name="keywords" content="Data Structure, CADSC 151, Unit 2, Linked Lists, Doubly Linked List, Circular Linked List, Skip Lists, Queues, De-queue, Priority Queues, Knowlet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #2980b9;
+            --accent-color: #e67e22;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --border-color: #ddd;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 4px solid var(--secondary-color);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        h2 {
+            color: var(--secondary-color);
+            border-left: 6px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-top: 50px;
+            background: #f9fbfd;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: var(--accent-color);
+            margin-top: 30px;
+            border-bottom: 1px dashed var(--accent-color);
+            display: inline-block;
+        }
+        p {
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 25px;
+            padding-left: 30px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        blockquote {
+            background: #fdf2e9;
+            border-left: 8px solid var(--accent-color);
+            margin: 25px 0;
+            padding: 20px;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: #fff;
+        }
+        table, th, td {
+            border: 1px solid var(--border-color);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background: #f0f4f8;
+            padding: 25px;
+            border: 1px solid #d1d9e6;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        .toc strong {
+            display: block;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+            column-count: 2;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        .toc a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+        .exam-focus {
+            background-color: #e8f4fd;
+            border: 2px solid #3498db;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+        .exam-focus h4 {
+            margin-top: 0;
+            color: #2980b9;
+            text-transform: uppercase;
+        }
+        .warning {
+            background-color: #fff5f5;
+            border-left: 5px solid #ff4d4d;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit II: Linked Lists and Queues</h1>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#linked-lists-intro">1. Introduction to Linked Lists</a></li>
+            <li><a href="#list-types">2. Types: Singly, Doubly & Circular</a></li>
+            <li><a href="#stack-representation">3. Stack Representation in Lists</a></li>
+            <li><a href="#advanced-lists">4. Self-Organizing & Skip Lists</a></li>
+            <li><a href="#queues">5. Queues: Array & Linked Rep</a></li>
+            <li><a href="#special-queues">6. De-queue & Priority Queues</a></li>
+            <li><a href="#exam-corner">7. Exam Focus & FAQs</a></li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 id="linked-lists-intro">1. Introduction to Linked Lists</h2>
+    <p>
+        [cite_start]A <strong>Linked List</strong> is a linear collection of data elements called <strong>nodes</strong>[cite: 18]. [cite_start]Unlike arrays, elements are not stored in contiguous memory locations[cite: 18]. Instead, each node contains two parts:
+    </p>
+    <ul>
+        [cite_start]<li><strong>Data:</strong> The actual information to be stored[cite: 18].</li>
+        [cite_start]<li><strong>Next (Pointer):</strong> A reference to the address of the next node in the sequence[cite: 18].</li>
+    </ul>
+
+    <h3>Advantages Over Arrays</h3>
+    <ul>
+        [cite_start]<li><strong>Dynamic Size:</strong> They can grow or shrink during runtime, avoiding the static limitations of arrays[cite: 18].</li>
+        [cite_start]<li><strong>Efficient Insertion/Deletion:</strong> No need to shift elements; only pointer updates are required[cite: 18].</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="list-types">2. Types: Singly, Doubly & Circular</h2>
+    
+    <h3>Singly Linked List</h3>
+    [cite_start]<p>The simplest form where each node points only to the next node[cite: 18]. [cite_start]The last node's pointer is <strong>NULL</strong>[cite: 18].</p>
+    
+
+    <h3>Doubly Linked List (DLL)</h3>
+    [cite_start]<p>Each node contains <strong>two pointers</strong>: one pointing to the <em>next</em> node and one to the <em>previous</em> node[cite: 18].</p>
+    <ul>
+        [cite_start]<li><strong>Benefit:</strong> Allows bidirectional traversal (forward and backward)[cite: 18].</li>
+        [cite_start]<li><strong>Cost:</strong> Requires extra memory for the second pointer[cite: 18].</li>
+    </ul>
+
+    <h3>Circular Linked List</h3>
+    [cite_start]<p>In this variation, the last node of the list does not point to NULL but points back to the <strong>first node</strong> (Head)[cite: 18].</p>
+    <ul>
+        [cite_start]<li><strong>Circular Singly:</strong> Last node points to the first[cite: 18].</li>
+        [cite_start]<li><strong>Circular Doubly:</strong> Last node points to first, and first node's 'previous' points to the last[cite: 18].</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="stack-representation">3. Stack Representation in Lists</h2>
+    [cite_start]<p>Stacks can be implemented using linked lists to overcome the fixed size limitation of arrays[cite: 18].</p>
+    
+    <h3>Normal Representation</h3>
+    [cite_start]<p>The <strong>Top</strong> of the stack is always the <strong>Head</strong> of the linked list[cite: 18].</p>
+    <ul>
+        [cite_start]<li><strong>Push:</strong> Insert a new node at the beginning (Head)[cite: 18].</li>
+        [cite_start]<li><strong>Pop:</strong> Delete the node at the beginning[cite: 18].</li>
+    </ul>
+
+    <h3>Circular Representation of Stack</h3>
+    [cite_start]<p>Using a circular linked list to represent a stack ensures that the "Top" node points to the bottom-most node, maintaining a closed loop[cite: 18]. [cite_start]This is often used in buffer management[cite: 18].</p>
+
+    <hr>
+
+    <h2 id="advanced-lists">4. Self-Organizing & Skip Lists</h2>
+    
+    <h3>Self-Organizing Lists</h3>
+    [cite_start]<p>A list that reorders its elements based on access frequency to improve search time[cite: 19].</p>
+    <ul>
+        [cite_start]<li><strong>Move-to-Front:</strong> When an element is accessed, it is moved to the head of the list[cite: 19].</li>
+        [cite_start]<li><strong>Transpose:</strong> When an element is accessed, it is swapped with its predecessor[cite: 19].</li>
+    </ul>
+
+    <h3>Skip Lists</h3>
+    [cite_start]<p>A probabilistic data structure that allows <strong>O(log n)</strong> search complexity[cite: 19]. [cite_start]It consists of multiple layers of linked lists where the bottom layer is a standard list and upper layers act as "express lanes" to skip nodes[cite: 19].</p>
+    
+
+    <hr>
+
+    <h2 id="queues">5. Queues: Array & Linked Representation</h2>
+    [cite_start]<p>A <strong>Queue</strong> is a linear structure following the <strong>FIFO (First-In, First-Out)</strong> principle[cite: 19].</p>
+
+    <h3>Array Representation</h3>
+    [cite_start]<p>Uses two pointers: <strong>Front</strong> (for deletion) and <strong>Rear</strong> (for insertion)[cite: 19].</p>
+    <div class="warning">
+        <strong>Warning:</strong> In a simple array queue, even if space is available at the front after deletions, you cannot insert more elements if Rear reaches the end. [cite_start]This is solved by <strong>Circular Queues</strong>[cite: 19].
+    </div>
+
+    <h3>Linked Representation</h3>
+    [cite_start]<p>Maintains 'Front' and 'Rear' pointers to a linked list[cite: 19].</p>
+    <ul>
+        [cite_start]<li><strong>Enqueue:</strong> Add node at the Rear[cite: 19].</li>
+        [cite_start]<li><strong>Dequeue:</strong> Remove node from the Front[cite: 19].</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="special-queues">6. De-queue & Priority Queues</h2>
+
+    <h3>De-queue (Double-Ended Queue)</h3>
+    [cite_start]<p>A generalized queue where elements can be added or removed from <strong>either the front or the rear</strong>[cite: 19].</p>
+    <ul>
+        [cite_start]<li><strong>Input-Restricted:</strong> Deletions from both ends, but insertions only at one end[cite: 19].</li>
+        [cite_start]<li><strong>Output-Restricted:</strong> Insertions at both ends, but deletions only at one end[cite: 19].</li>
+    </ul>
+
+    <h3>Priority Queues</h3>
+    [cite_start]<p>Each element is assigned a <strong>priority</strong>[cite: 19]. [cite_start]Elements with higher priority are dequeued before elements with lower priority, regardless of their arrival order[cite: 19].</p>
+    <blockquote>
+        [cite_start]Application: CPU Scheduling and Dijkstra's Shortest Path Algorithm[cite: 19].
+    </blockquote>
+
+    <hr>
+
+    <h2 id="exam-corner">7. Exam Focus & FAQs</h2>
+
+    <div class="exam-focus">
+        <h4>Exam Tips</h4>
+        <ul>
+            [cite_start]<li><strong>Derivations:</strong> Practice drawing the state of pointers before and after an <em>Insert-at-Middle</em> operation in a DLL[cite: 32].</li>
+            [cite_start]<li><strong>Complexity:</strong> Remember that searching in a Singly Linked List is <strong>O(n)</strong>, while in a Skip List it is <strong>O(log n)</strong>[cite: 33].</li>
+            [cite_start]<li><strong>Circular Queues:</strong> Formula for next position: <em>Rear = (Rear + 1) % Size</em>[cite: 32].</li>
+        </ul>
+    </div>
+
+    <h3>Frequently Asked Questions</h3>
+    <p><strong>Q: Why is a DLL preferred over a SLL?</strong><br>
+    [cite_start]DLL allows moving in both directions, making deletions of a given node easier as you have immediate access to the predecessor[cite: 31].</p>
+
+    <p><strong>Q: What is a Skip List?</strong><br>
+    [cite_start]It is a sorted linked list with multiple levels of pointers that allow "skipping" over many elements, providing search speeds comparable to binary search trees[cite: 19].</p>
+
+    <div class="exam-focus">
+        <h4>Mnemonic: Q-FIFO</h4>
+        <p>Remember <strong>Q-FIFO</strong>: <strong>Q</strong>ueues are <strong>F</strong>irst-<strong>I</strong>n, <strong>F</strong>irst-<strong>O</strong>ut.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CADSC101 Unit 1 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive academic notes for CADSC101 Fundamentals of Information Technology, Unit 1. Covering computer basics, hardware, software, and storage.">
+    <meta name="keywords" content="Knowlet, CADSC101, Fundamentals of Information Technology, Computer Basics, Unit 1 Notes, CPU, Computer Memory, Systems Software">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #d35400;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #f9f9f9;
+            border-left: 10px solid #3498db;
+            margin: 1.5em 10px;
+            padding: 1em 10px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border: 1px dashed #3498db;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #2980b9;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        .exam-focus {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .exam-focus h4 {
+            margin-top: 0;
+            color: #856404;
+        }
+        .diagram-placeholder {
+            background: #e9ecef;
+            border: 2px dashed #adb5bd;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #495057;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit I: Introduction to Computer</h1>
+    [cite_start]<p><strong>Course:</strong> Fundamentals of Information Technology [cite: 2]<br>
+    [cite_start]<strong>Code:</strong> CADSC101 [cite: 2]</p>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#definition">Computer Definition and Characteristics</a></li>
+            <li><a href="#evolution">Evolution and Applications</a></li>
+            <li><a href="#organization">Basic Organization of a Digital Computer</a></li>
+            <li><a href="#hardware-software">Hardware vs. Software</a></li>
+            <li><a href="#cpu-memory">CPU and Memory/Storage</a></li>
+            <li><a href="#io-devices">Input and Output Devices</a></li>
+            <li><a href="#software-types">Types of Software (System, Application, Open Source)</a></li>
+            <li><a href="#mobile-apps">Mobile Apps</a></li>
+            <li><a href="#exam-prep">Exam Focus: Tips & FAQs</a></li>
+        </ul>
+    </div>
+
+    <h2 id="definition">Computer Definition and Characteristics</h2>
+    [cite_start]<p>A <strong>computer</strong> is an advanced electronic device that takes raw data as input from the user and processes it under the control of a set of instructions (called a program), produces a result (output), and saves it for future use[cite: 12].</p>
+    
+    <h3>Key Characteristics of Computers</h3>
+    <ul>
+        <li><strong>Speed:</strong> Computers can perform millions of calculations per second.</li>
+        <li><strong>Accuracy:</strong> Errors only occur if wrong data is fed (GIGO - Garbage In, Garbage Out).</li>
+        <li><strong>Diligence:</strong> Unlike humans, computers do not get tired or lose concentration.</li>
+        <li><strong>Versatility:</strong> They can perform different types of tasks (scientific, business, artistic).</li>
+        <li><strong>Storage:</strong> Computers can store huge amounts of data for a long duration.</li>
+    </ul>
+
+    <h2 id="evolution">Evolution and Applications</h2>
+    [cite_start]<p>The evolution of computers is marked by <strong>generations</strong>, moving from vacuum tubes to transistors, integrated circuits, microprocessors, and now Artificial Intelligence[cite: 12].</p>
+    
+    <h3>IT Tools and Applications</h3>
+    [cite_start]<p>Information Technology (IT) tools refer to software and hardware used to create, store, and manage information. [cite: 12]</p>
+    <ul>
+        <li><strong>Education:</strong> E-learning platforms and digital classrooms.</li>
+        <li><strong>Business:</strong> Inventory management and payroll processing.</li>
+        <li><strong>Healthcare:</strong> Medical imaging and patient record management.</li>
+        <li><strong>Banking:</strong> Online transactions and ATM services.</li>
+    </ul>
+
+    <h2 id="organization">Basic Organization of a Digital Computer</h2>
+    [cite_start]<p>The basic structure follows the <strong>Input-Process-Output (IPO)</strong> cycle[cite: 12].</p>
+    
+    <div class="diagram-placeholder">
+            </div>
+
+    <table>
+        <tr>
+            <th>Component</th>
+            <th>Function</th>
+        </tr>
+        <tr>
+            <td><strong>Input Unit</strong></td>
+            <td>Accepts data from the outside world and converts it to machine language.</td>
+        </tr>
+        <tr>
+            <td><strong>CPU</strong></td>
+            <td>The "Brain" of the computer that processes data.</td>
+        </tr>
+        <tr>
+            <td><strong>Output Unit</strong></td>
+            <td>Presents processed information in human-readable form.</td>
+        </tr>
+        <tr>
+            <td><strong>Storage Unit</strong></td>
+            <td>Holds data and instructions permanently or temporarily.</td>
+        </tr>
+    </table>
+
+    <h2 id="hardware-software">Hardware and Software</h2>
+    <blockquote>
+        [cite_start]<strong>Hardware:</strong> The physical, tangible parts of the computer that you can touch and see[cite: 12].
+    </blockquote>
+    <blockquote>
+        [cite_start]<strong>Software:</strong> A set of instructions or programs that tells the hardware what to do[cite: 12].
+    </blockquote>
+
+    <h2 id="cpu-memory">Central Processing Unit (CPU) and Memory</h2>
+    <h3 id="cpu">Central Processing Unit (CPU)</h3>
+    [cite_start]<p>The CPU consists of three main parts[cite: 12]:</p>
+    <ul>
+        <li><strong>ALU (Arithmetic Logic Unit):</strong> Performs mathematical (+, -, *, /) and logical (>, <, =) operations.</li>
+        <li><strong>CU (Control Unit):</strong> Coordinates the flow of data and instructions.</li>
+        <li><strong>Registers:</strong> High-speed storage locations within the CPU.</li>
+    </ul>
+
+    <h3 id="memory">Computer Memory and Storage</h3>
+    <ul>
+        <li><strong>Primary Memory:</strong> Volatile (RAM) and Non-volatile (ROM). RAM holds active data, while ROM holds startup instructions.</li>
+        [cite_start]<li><strong>Secondary Storage:</strong> Used for permanent storage, such as Hard Disk Drives (HDD), Solid State Drives (SSD), and Pen drives[cite: 12].</li>
+    </ul>
+
+    <h2 id="io-devices">Input and Output Devices</h2>
+    [cite_start]<p>Input devices allow users to communicate with the computer, while output devices allow the computer to communicate with users[cite: 12].</p>
+    
+    <div class="diagram-placeholder">
+            </div>
+
+    <ul>
+        <li><strong>Input Devices:</strong> Keyboard, Mouse, Scanner, Microphone, Webcam.</li>
+        <li><strong>Output Devices:</strong> Monitor (VDU), Printer, Speakers, Plotter, Projector.</li>
+    </ul>
+
+    <h2 id="software-types">Types of Software</h2>
+    <h3 id="systems-software">Systems Software</h3>
+    <p>Software that manages and controls computer hardware so that application software can perform its tasks. [cite_start]<strong>Example:</strong> Operating Systems like Windows, Linux, and Android[cite: 12, 15].</p>
+
+    <h3 id="application-software">Application Software</h3>
+    <p>Programs designed to perform specific tasks for users. [cite_start]<strong>Example:</strong> MS Word, VLC Player, Web Browsers[cite: 12].</p>
+
+    <h3 id="utility-software">Utility Software</h3>
+    <p>Software that helps maintain, configure, or optimize the computer. [cite_start]<strong>Example:</strong> Antivirus, Disk Cleaners[cite: 12].</p>
+
+    <h3 id="proprietary-opensource">Open Source vs. Proprietary Software</h3>
+    <table>
+        <tr>
+            <th>Feature</th>
+            <th>Open Source</th>
+            <th>Proprietary</th>
+        </tr>
+        <tr>
+            <td><strong>Source Code</strong></td>
+            <td>Free and accessible to all.</td>
+            <td>Locked/Hidden; owned by a company.</td>
+        </tr>
+        <tr>
+            <td><strong>Cost</strong></td>
+            <td>Usually free.</td>
+            <td>Requires a license fee.</td>
+        </tr>
+        <tr>
+            <td><strong>Examples</strong></td>
+            [cite_start]<td>Linux, VLC, Firefox[cite: 12].</td>
+            [cite_start]<td>Windows, MS Office, Photoshop[cite: 12].</td>
+        </tr>
+    </table>
+
+    <h2 id="mobile-apps">Mobile Apps</h2>
+    [cite_start]<p>Mobile applications (Apps) are software specifically designed to run on mobile devices like smartphones and tablets[cite: 12]. They are optimized for touch interfaces and varying screen sizes.</p>
+
+    <div class="exam-focus" id="exam-prep">
+        <h4>Exam Focus & Tips</h4>
+        <ul>
+            <li><strong>Exam Tip:</strong> Be ready to draw the "Basic Organization" block diagram. It is a frequent 5-10 mark question.</li>
+            <li><strong>Common Pitfall:</strong> Do not confuse RAM (Primary/Volatile) with Storage (Secondary/Non-volatile).</li>
+            <li><strong>Mnemonics:</strong> CPU parts = <strong>ARC</strong> (ALU, Registers, Control Unit).</li>
+        </ul>
+        
+        <hr>
+        
+        <h4>Frequently Asked Questions</h4>
+        <p><strong>Q: What is the difference between Hardware and Software?</strong><br>
+        A: Hardware is physical (keyboard, monitor); Software is logical/set of instructions (OS, Apps).</p>
+        
+        <p><strong>Q: Why is the CPU called the "Brain" of the computer?</strong><br>
+        A: Because it performs all data processing and controls all other parts of the system.</p>
+    </div>
+
+</div>
+</body>
+</html>

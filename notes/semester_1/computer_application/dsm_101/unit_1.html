@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CADSM101 Unit 1 | 1st Semester Notes - Knowlet</title>
+    <meta name="description" content="Comprehensive academic notes for CADSM101 Programming with C, Unit 1. Covering data types, control structures, and basic programming logic.">
+    <meta name="keywords" content="Knowlet, CADSM101, C Programming, Data Types, Control Structures, Loops, If-Else, Programming Basics">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #27ae60;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #27ae60;
+            border-left: 5px solid #2ecc71;
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #d35400;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        blockquote {
+            background: #f4fff8;
+            border-left: 10px solid #27ae60;
+            margin: 1.5em 10px;
+            padding: 1em 10px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #27ae60;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background: #f0fff4;
+            padding: 20px;
+            border: 1px dashed #27ae60;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .exam-focus {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .diagram-placeholder {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #6c757d;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit I: Fundamentals of C Programming</h1>
+    <p><strong>Course:</strong> Programming with C<br>
+    <strong>Code:</strong> CADSM101</p>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#data-types">Data Types, Expressions, and Operations</a></li>
+            <li><a href="#input-output">Basic Input and Output</a></li>
+            <li><a href="#simple-programs">Writing Simple C Programs</a></li>
+            <li><a href="#decision-making">Decision Making: IF-ELSE and SWITCH</a></li>
+            <li><a href="#looping">Looping: WHILE, DO-WHILE, and FOR</a></li>
+            <li><a href="#jump-statements">Jumping: BREAK, CONTINUE, and GOTO</a></li>
+            <li><a href="#problem-solving">Elementary Problem Solving</a></li>
+            <li><a href="#exam-prep">Exam Focus: Tips & FAQs</a></li>
+        </ul>
+    </div>
+
+    <h2 id="data-types">Data Types, Expressions, and Operations</h2>
+    [cite_start]<p>C is a statically typed language, meaning every variable must have a declared type that defines the kind of data it can hold[cite: 107, 133].</p>
+    
+    <h3>Standard Data Types</h3>
+    <ul>
+        [cite_start]<li><strong>int</strong>: Used for whole numbers (integers)[cite: 108].</li>
+        [cite_start]<li><strong>float</strong>: Used for single-precision floating-point numbers (decimals)[cite: 108].</li>
+        [cite_start]<li><strong>double</strong>: Used for double-precision floating-point numbers[cite: 108].</li>
+        [cite_start]<li><strong>char</strong>: Used to store a single character[cite: 108].</li>
+    </ul>
+
+    <h3>Operators in C</h3>
+    [cite_start]<p>Operators are symbols used to perform operations on variables and values[cite: 108].</p>
+    <ul>
+        [cite_start]<li><strong>Arithmetic</strong>: +, -, *, /, % (modulus)[cite: 108].</li>
+        [cite_start]<li><strong>Relational</strong>: ==, !=, >, <, >=, <=[cite: 108].</li>
+        <li><strong>Logical</strong>: && (AND), || (OR), ! (NOT) [cite_start][cite: 108].</li>
+        [cite_start]<li><strong>Assignment</strong>: =[cite: 108].</li>
+    </ul>
+
+    <h2 id="input-output">Basic Input and Output</h2>
+    [cite_start]<p>Standard input and output allow a C program to interact with the user[cite: 108].</p>
+    <ul>
+        [cite_start]<li><strong>printf()</strong>: Function used to display data on the screen[cite: 127].</li>
+        [cite_start]<li><strong>scanf()</strong>: Function used to read data from the keyboard[cite: 127].</li>
+    </ul>
+
+    <h2 id="simple-programs">Writing Simple C Programs</h2>
+    [cite_start]<p>Every C program begins execution with the <code>main()</code> function[cite: 108].</p>
+    <blockquote>
+        Example Structure:<br>
+        #include &lt;stdio.h&gt;<br>
+        int main() {<br>
+           &nbsp;&nbsp;printf("Welcome to C!");<br>
+           &nbsp;&nbsp;return 0;<br>
+        }
+    </blockquote>
+
+    <h2 id="decision-making">Control Structures: Decision Making</h2>
+    [cite_start]<p>These structures allow the program to branch in different directions based on conditions[cite: 109].</p>
+    
+    <h3>IF-ELSE Statement</h3>
+    [cite_start]<p>Executes one block of code if a condition is true, and another if it is false[cite: 109].</p>
+    
+
+[Image of if-else flowchart in C programming]
+
+
+    <h3>SWITCH Statement</h3>
+    [cite_start]<p>Allows a variable to be tested for equality against a list of values (cases)[cite: 109].</p>
+
+    <h2 id="looping">Control Structures: Looping</h2>
+    [cite_start]<p>Loops are used to repeat a block of code multiple times[cite: 109].</p>
+    <ul>
+        <li><strong>WHILE Loop</strong>: Repeats as long as a condition is true. [cite_start]The condition is checked <em>before</em> execution[cite: 109].</li>
+        [cite_start]<li><strong>DO-WHILE Loop</strong>: Similar to while, but the condition is checked <em>after</em> execution, ensuring the loop runs at least once[cite: 109].</li>
+        <li><strong>FOR Loop</strong>: Best used when the number of iterations is known. [cite_start]It combines initialization, condition, and increment/decrement[cite: 109].</li>
+    </ul>
+
+    <h2 id="jump-statements">Jump Statements</h2>
+    <ul>
+        [cite_start]<li><strong>BREAK</strong>: Exits the current loop or switch immediately[cite: 109].</li>
+        [cite_start]<li><strong>CONTINUE</strong>: Skips the remaining code in the current iteration and jumps to the next iteration[cite: 109].</li>
+        [cite_start]<li><strong>GOTO</strong>: Transfers control to a labeled part of the program (use sparingly)[cite: 109].</li>
+    </ul>
+
+    <h2 id="problem-solving">Elementary Problem Solving</h2>
+    [cite_start]<p>C is widely used to solve problems in mathematics and statistics through algorithmic logic[cite: 110].</p>
+    <ul>
+        [cite_start]<li>Finding factorials[cite: 247].</li>
+        [cite_start]<li>Evaluating algebraic expressions[cite: 249].</li>
+        [cite_start]<li>Generating series like Fibonacci or geometric progressions[cite: 250, 256].</li>
+    </ul>
+
+    <div class="exam-focus" id="exam-prep">
+        <h4>Exam Focus & Tips</h4>
+        <ul>
+            [cite_start]<li><strong>Exam Tip:</strong> Be prepared to write code for finding the sum of a series or checking if a number is prime using nested loops[cite: 109, 253].</li>
+            [cite_start]<li><strong>Common Mistake:</strong> Forgetting the semicolon after the <code>while</code> condition in a <code>do-while</code> loop[cite: 109].</li>
+            [cite_start]<li><strong>Practical Tip:</strong> Always initialize your variables to avoid "garbage values" during calculation[cite: 108].</li>
+        </ul>
+        
+        <hr>
+        
+        <h4>Frequently Asked Questions</h4>
+        <p><strong>Q: What is the difference between = and ==?</strong><br>
+        A: = is for assignment; [cite_start]== is for checking equality[cite: 108].</p>
+        
+        <p><strong>Q: When is a DO-WHILE loop preferred over a WHILE loop?</strong><br>
+        [cite_start]A: When you need the code block to execute at least once regardless of the condition[cite: 109].</p>
+    </div>
+
+</div>
+</body>
+</html>

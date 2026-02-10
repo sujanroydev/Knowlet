@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CASEC 151 Unit 1 | 2nd Semester Notes - Knowlet</title>
+    <meta name="description" content="Exam-ready HTML notes for CASEC 151: Python Programming, Unit 1. Covering basic elements, tokens, data types, operators, and expressions in Python.">
+    <meta name="keywords" content="Python Programming, CASEC 151, Unit 1, Python Tokens, Data Types, Python Operators, Mutable Immutable, Knowlet">
+    <style>
+        :root {
+            --primary-color: #3776ab; /* Python Blue */
+            --secondary-color: #ffd43b; /* Python Yellow */
+            --dark-text: #2c3e50;
+            --bg-light: #f9f9f9;
+            --border-style: 1px solid #dee2e6;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border: var(--border-style);
+        }
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 4px solid var(--secondary-color);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+        h2 {
+            color: #2c3e50;
+            border-left: 6px solid var(--primary-color);
+            padding-left: 15px;
+            margin-top: 45px;
+            background: #eef5fb;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #d35400;
+            margin-top: 30px;
+            border-bottom: 1px dashed #d35400;
+            display: inline-block;
+        }
+        p {
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 25px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        blockquote {
+            background: #fff9e6;
+            border-left: 8px solid var(--secondary-color);
+            margin: 25px 0;
+            padding: 20px;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        table, th, td {
+            border: var(--border-style);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .toc {
+            background: #fff;
+            padding: 25px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+            column-count: 2;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .exam-tip {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+        .mnemonic {
+            background-color: #e8f4fd;
+            padding: 15px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #004085;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Unit I: Introduction to Python</h1>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#basic-elements">1. Basic Elements of Python</a></li>
+            <li><a href="#python-tokens">2. Python Character Set & Tokens</a></li>
+            <li><a href="#variables-values">3. Variables, L-values, and R-values</a></li>
+            <li><a href="#data-types">4. Knowledge of Data Types</a></li>
+            <li><a href="#mutability">5. Mutable vs Immutable Types</a></li>
+            <li><a href="#operators">6. Operators & Expressions</a></li>
+            <li><a href="#io-conversion">7. Input/Output & Type Conversion</a></li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 id="basic-elements">1. Basic Elements of Python</h2>
+    <p>
+        Python is a high-level, interpreted programming language known for its readability and simple syntax. [cite_start]The basic elements include character sets and the use of comments to explain code[cite: 220].
+    </p>
+    <ul>
+        <li><strong>Comments:</strong> Used to add notes within the code. [cite_start]Python uses the <strong>#</strong> symbol for single-line comments[cite: 220].</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="python-tokens">2. Python Character Set & Tokens</h2>
+    <p>
+        [cite_start]A <strong>token</strong> is the smallest individual unit in a python program[cite: 220].
+    </p>
+    <ul>
+        [cite_start]<li><strong>Keywords:</strong> Reserved words that have special meaning to the interpreter (e.g., <em>if</em>, <em>else</em>, <em>while</em>)[cite: 220].</li>
+        [cite_start]<li><strong>Identifiers:</strong> Names given to entities like variables, functions, and classes[cite: 220].</li>
+        [cite_start]<li><strong>Literals:</strong> Constant values stored in variables (e.g., 10, "Hello")[cite: 220].</li>
+        [cite_start]<li><strong>Operators:</strong> Symbols that perform operations on variables and values[cite: 220].</li>
+        [cite_start]<li><strong>Punctuators:</strong> Symbols used to organize sentence structures and expressions (e.g., <strong>, : [ ] { }</strong>)[cite: 220].</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="variables-values">3. Variables, L-values, and R-values</h2>
+    <p>
+        [cite_start]<strong>Variables</strong> are reserved memory locations to store values[cite: 220].
+    </p>
+    <ul>
+        [cite_start]<li><strong>L-value:</strong> Expressions that refer to a memory location (e.g., a variable on the left side of an assignment)[cite: 220].</li>
+        [cite_start]<li><strong>R-value:</strong> The data value stored at some address in memory (e.g., the value/expression on the right side of an assignment)[cite: 220].</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="data-types">4. Knowledge of Data Types</h2>
+    <p>
+        [cite_start]Python provides several built-in data types to handle different kinds of data[cite: 220]:
+    </p>
+    <table>
+        <tr>
+            <th>Category</th>
+            <th>Data Types</th>
+        </tr>
+        <tr>
+            <td><strong>Number</strong></td>
+            [cite_start]<td>Integer, Floating point, Complex [cite: 220]</td>
+        </tr>
+        <tr>
+            <td><strong>Boolean</strong></td>
+            [cite_start]<td>True, False [cite: 220]</td>
+        </tr>
+        <tr>
+            <td><strong>Sequence</strong></td>
+            [cite_start]<td>String, List, Tuple [cite: 220]</td>
+        </tr>
+        <tr>
+            <td><strong>Mapping</strong></td>
+            [cite_start]<td>Dictionary [cite: 220]</td>
+        </tr>
+        <tr>
+            <td><strong>None</strong></td>
+            [cite_start]<td>Represents the absence of a value [cite: 220]</td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <h2 id="mutability">5. Mutable vs Immutable Types</h2>
+    <p>
+        [cite_start]Understanding mutability is critical for managing data in Python[cite: 220].
+    </p>
+    <ul>
+        [cite_start]<li><strong>Mutable Types:</strong> Values can be changed after they are created (e.g., <strong>Lists, Dictionaries, Sets</strong>)[cite: 220].</li>
+        [cite_start]<li><strong>Immutable Types:</strong> Values cannot be changed once created (e.g., <strong>Numbers, Strings, Tuples</strong>)[cite: 220].</li>
+    </ul>
+
+    
+
+    <hr>
+
+    <h2 id="operators">6. Operators & Expressions</h2>
+    <p>
+        [cite_start]Operators are symbols used to perform computations[cite: 220].
+    </p>
+    <ul>
+        [cite_start]<li><strong>Arithmetic:</strong> +, -, *, /, %, **, //[cite: 220].</li>
+        [cite_start]<li><strong>Relational:</strong> ==, !=, >, <, >=, <=[cite: 220].</li>
+        [cite_start]<li><strong>Logical:</strong> and, or, not[cite: 220].</li>
+        [cite_start]<li><strong>Assignment:</strong> =, +=, -=, *=, /=[cite: 220].</li>
+        [cite_start]<li><strong>Identity:</strong> <em>is</em>, <em>is not</em>[cite: 220].</li>
+        [cite_start]<li><strong>Membership:</strong> <em>in</em>, <em>not in</em>[cite: 220].</li>
+    </ul>
+
+    <blockquote>
+        [cite_start]<strong>Precedence of Operators:</strong> Determines the order in which operators are evaluated in an expression (e.g., multiplication before addition)[cite: 220].
+    </blockquote>
+
+    <hr>
+
+    <h2 id="io-conversion">7. Input/Output & Type Conversion</h2>
+    <ul>
+        [cite_start]<li><strong>Input:</strong> The <code>input()</code> function is used to accept data from the console[cite: 220].</li>
+        [cite_start]<li><strong>Output:</strong> The <code>print()</code> function displays output to the console[cite: 220].</li>
+        [cite_start]<li><strong>Implicit Conversion:</strong> Python automatically converts one data type to another without user involvement[cite: 220].</li>
+        [cite_start]<li><strong>Explicit Conversion (Type Casting):</strong> The user manually converts the data type using functions like <code>int()</code>, <code>float()</code>, or <code>str()</code>[cite: 220].</li>
+    </ul>
+
+    <div class="exam-tip">
+        <h4>Exam Tips & Warnings</h4>
+        <ul>
+            [cite_start]<li><strong>Division Tip:</strong> In Python 3, <code>/</code> always returns a float, while <code>//</code> (floor division) returns an integer[cite: 220].</li>
+            [cite_start]<li><strong>Identifier Rules:</strong> Identifiers cannot start with a digit and cannot be a keyword[cite: 220].</li>
+            <li><strong>Case Sensitivity:</strong> Python is case-sensitive; [cite_start]<em>Variable</em> and <em>variable</em> are different[cite: 220].</li>
+        </ul>
+    </div>
+
+    <div class="mnemonic">
+        [cite_start]Mnemonic for Tokens: KILOP (Keywords, Identifiers, Literals, Operators, Punctuators)[cite: 220].
+    </div>
+
+    <hr>
+
+    <h3>Frequently Asked Questions</h3>
+    <p><strong>Q: What is the difference between a list and a tuple?</strong><br>
+    [cite_start]A list is <strong>mutable</strong> (can be changed), while a tuple is <strong>immutable</strong> (cannot be changed)[cite: 220].</p>
+
+    <p><strong>Q: What is a complex number in Python?</strong><br>
+    [cite_start]It is a number with a real and imaginary part, represented as <code>a + bj</code>[cite: 220].</p>
+
+</div>
+
+</body>
+</html>

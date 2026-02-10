@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CADSC 152P Unit 5 | 2nd Semester Lab Notes - Knowlet</title>
+    <meta name="description" content="Final practical lab notes for CADSC 152P. Detailed coverage of Binary Search Trees (BST), AVL Trees, Threaded Binary Trees, and specialized Matrix implementations.">
+    <meta name="keywords" content="Binary Search Tree, AVL Tree, Threaded Binary Tree, Matrix Implementation, CADSC 152P, Data Structures Lab, Knowlet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #9b59b6;
+            --accent-color: #2980b9;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --border-color: #ddd;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 4px solid var(--secondary-color);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+        h2 {
+            color: var(--secondary-color);
+            border-left: 6px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-top: 50px;
+            background: #fdfaff;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: var(--accent-color);
+            margin-top: 30px;
+        }
+        p {
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 25px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        blockquote {
+            background: #f8f9fa;
+            border-left: 8px solid var(--secondary-color);
+            margin: 25px 0;
+            padding: 20px;
+            font-style: italic;
+        }
+        .lab-task {
+            background-color: #f4ecf7;
+            border: 1px solid #d7bde2;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        .lab-task strong {
+            color: #6c3483;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .toc {
+            background: #fff;
+            padding: 25px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        .exam-focus {
+            background-color: #fdf2e9;
+            border: 1px solid #e67e22;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Lab on Data Structure: Practical Unit 5</h1>
+
+    <div class="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+            <li><a href="#bst-ops">1. Task 14: Binary Search Tree (BST) Operations</a></li>
+            <li><a href="#special-matrices">2. Tasks 18-21: Specialized Matrix Implementations</a></li>
+            <li><a href="#advanced-trees">3. Tasks 22-23: Threaded Binary Trees & AVL Trees</a></li>
+            <li><a href="#final-lab-tips">4. Final Lab Exam Summary</a></li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 id="bst-ops">1. Task 14: Binary Search Tree (BST) Operations</h2>
+    <div class="lab-task">
+        [cite_start]<strong>Assignment:</strong> WAP to create a BST and include: Insertion (Recursive/Iterative), Deletion (by Copying/Merging), Searching, Traversals (Recursive/Iterative), Level-by-level Traversal, Mirror Image, and Tree Comparison[cite: 88, 89].
+    </div>
+
+    <h3>Implementation Requirements</h3>
+    <ul>
+        [cite_start]<li><strong>Deletion by Copying:</strong> Replaces the deleted node with its predecessor or successor's value[cite: 88].</li>
+        [cite_start]<li><strong>Deletion by Merging:</strong> Attaches the right subtree of the node to the rightmost node of the left subtree[cite: 88].</li>
+        [cite_start]<li><strong>Level-order Traversal:</strong> Uses a <strong>Queue</strong> to visit nodes level by level[cite: 89].</li>
+        [cite_start]<li><strong>Height and Counting:</strong> Use recursion to count leaf nodes and determine the maximum depth[cite: 89].</li>
+    </ul>
+
+    
+
+    <hr>
+
+    <h2 id="special-matrices">2. Tasks 18-21: Specialized Matrix Implementations</h2>
+    <div class="lab-task">
+        [cite_start]<strong>Assignment:</strong> Implement Diagonal, Lower Triangular, Upper Triangular, and Symmetric Matrices using a 1D array[cite: 93, 94, 95, 100].
+    </div>
+
+    <p>
+        To save memory, specialized matrices store only non-zero elements in a one-dimensional array.
+    </p>
+
+    <table>
+        <tr>
+            <th>Matrix Type</th>
+            <th>Storage Condition (Row i, Col j)</th>
+            <th>1D Mapping Index (Row-Major)</th>
+        </tr>
+        <tr>
+            <td><strong>Diagonal</strong></td>
+            [cite_start]<td>Only i = j stored[cite: 93].</td>
+            <td>index = i</td>
+        </tr>
+        <tr>
+            <td><strong>Lower Triangular</strong></td>
+            [cite_start]<td>Only i >= j stored[cite: 94].</td>
+            <td>index = [i * (i + 1) / 2] + j</td>
+        </tr>
+        <tr>
+            <td><strong>Upper Triangular</strong></td>
+            [cite_start]<td>Only i <= j stored[cite: 95].</td>
+            <td>index = [j * (j + 1) / 2] + i</td>
+        </tr>
+        <tr>
+            <td><strong>Symmetric</strong></td>
+            <td>A[i][j] = A[j][i]. [cite_start]Only one triangle stored[cite: 100].</td>
+            <td>Same as Lower/Upper triangular.</td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <h2 id="advanced-trees">3. Tasks 22-23: Threaded Binary Trees & AVL Trees</h2>
+    
+    <h3>Threaded Binary Trees (Task 22)</h3>
+    <div class="lab-task">
+        [cite_start]<strong>Assignment:</strong> Create a Threaded Binary Tree as per inorder traversal; implement finding successor/predecessor and inorder traversal[cite: 101, 102].
+    </div>
+    <ul>
+        [cite_start]<li><strong>Logic:</strong> Instead of NULL pointers, use "threads" to point to the next node in the inorder sequence[cite: 101].</li>
+        [cite_start]<li><strong>Benefit:</strong> Traversal becomes iterative without needing a stack or recursion[cite: 102].</li>
+    </ul>
+
+    <h3>AVL Trees (Task 23)</h3>
+    <div class="lab-task">
+        [cite_start]<strong>Assignment:</strong> Implement various operations (Insertion, Deletion, Balancing) on an AVL Tree[cite: 103].
+    </div>
+    <p>
+        [cite_start]The implementation must include <strong>Rotations</strong> (LL, RR, LR, RL) to maintain the balance factor between -1 and 1[cite: 103].
+    </p>
+
+    
+
+    <hr>
+
+    <h2 id="final-lab-tips">4. Final Lab Exam Summary</h2>
+    
+    <div class="exam-focus">
+        <strong>Key Code to Memorize:</strong>
+        <ul>
+            <li><strong>Mirror Image:</strong> Swap left and right pointers of every node recursively.</li>
+            <li><strong>Tree Equality:</strong> Check if data matches AND left/right subtrees are equal recursively.</li>
+            <li><strong>Matrix Indexing:</strong> The formulas for mapping 2D coordinates to 1D arrays are high-frequency viva questions.</li>
+        </ul>
+    </div>
+
+    <h3>Frequently Asked Questions</h3>
+    <p><strong>Q: What is the difference between Deletion by Copying and Deletion by Merging?</strong><br>
+    Copying maintains the tree's height better, while Merging is simpler to implement but can lead to very skewed (unbalanced) subtrees.</p>
+
+    <p><strong>Q: Why store a Symmetric Matrix in a 1D array?</strong><br>
+    Since A[i][j] is the same as A[j][i], storing both is redundant. A 1D array reduces space usage by nearly 50%.</p>
+
+</div>
+
+</body>
+</html>

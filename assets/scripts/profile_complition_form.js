@@ -52,7 +52,7 @@ rdtLgnBtn.addEventListener("click", () => {
     window.location.href = "/login_signup";
 });
 
-btnSubmit.addEventListener("click", () => {
+btnSubmit.addEventListener("click", async () => {
     
     const name = input[0].value;
     const email = input[1].value;
@@ -87,12 +87,7 @@ btnSubmit.addEventListener("click", () => {
 
     localStorage.setItem("knowletUser", JSON.stringify(user))
 
-    //reset
-    for (i = 0; i < input.length; i++) {
-        input[i].value = null;
-    }
-    inputEdu.value = "";
-    sync()
+    await sync()
 });
 
 function load() {

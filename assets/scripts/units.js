@@ -527,7 +527,7 @@ async function toggleFavourite() {
 	favBtn.classList.toggle("favourited", pageFaved);
     favBtn.title = pageFaved ? "Remove from Favourites" : "Add to Favourites";
     
-    const res = await fetch('http://localhost:8888/.netlify/functions/update-favs', {
+    const res = await fetch('https://knowlet.in/.netlify/functions/update-favs', {
 		method: 'POST',
 		header: {
 			'Content-Type': 'application/json'
@@ -547,7 +547,7 @@ async function toggleFavourite() {
 }
 
 async function renderFavouriteState() {
-	const res = await fetch('http://localhost:8888/.netlify/functions/get-favs', {
+	const res = await fetch('https://knowlet.in/.netlify/functions/get-favs', {
 		method: 'POST',
 		header: {
 			'Content-Type': 'application/json'
@@ -675,7 +675,7 @@ function renderNavBar() {
     // trace history
     
     async function updateHistory() {
-    	fetch('http://localhost:8888/.netlify/functions/update-history', {
+    	fetch('https://knowlet.in/.netlify/functions/update-history', {
     		method: 'POST',
     		header: {
     			'Content-Type': 'application/json'

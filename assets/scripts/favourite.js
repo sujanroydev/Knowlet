@@ -63,7 +63,7 @@
 			return;
 		}
 
-		const res = await fetch('http://localhost:8888/.netlify/functions/get-favs', {
+		const res = await fetch('https://knowlet.in/.netlify/functions/get-favs', {
 			method: 'POST',
 			header: {
 				'Content-Type': 'application/json'

@@ -15,14 +15,14 @@ export default async (request) => {
         });
     }
 
-    const { user_id, page_id } = await request.json();
+    const { user_id, page_id, page_title } = await request.json();
 
     try {
     	if ( !user_id || !page_id ) throw new Error('missing parameters');
 
 		const { data, error: err1 } = await supabaseClient
 			.from("ratings")
-			.select("is_fav")
+			.select("is_fav, interactions_time")
 			.eq("user_id", user_id)
 			.eq("page_id", page_id);
 
@@ -34,7 +34,12 @@ export default async (request) => {
 			({ error } = await supabaseClient
 				.from("ratings")
 				.update({
-					is_fav: !(data[0].is_fav)
+					is_fav: !(data[0].is_fav),
+					interactions_time: {
+						faved_at: new Date().toISOString(),
+						liked_at: data[0].interactions_time.liked_at,
+						rated_at: data[0].interactions_time.rated_at
+					}
 				})
 				.eq("page_id", page_id)
 				.eq("user_id", user_id)
@@ -45,7 +50,13 @@ export default async (request) => {
 				.insert({
 					user_id,
 					page_id,
-					is_fav: true
+					page_title,
+					is_fav: true,
+					interactions_time: {
+						faved_at: new Date().toISOString(),
+						liked_at: null,
+						rated_at: null
+					}
 				})
 			);
 		}

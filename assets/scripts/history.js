@@ -1,5 +1,5 @@
 (function () {
-    const HISTORY_KEY = 'unit_page_history';
+    const user = JSON.parse(localStorage.getItem("knowletUser"));
     const historyList = document.getElementById('history-list');
 
 	// helper functions
@@ -63,13 +63,17 @@
 	}
 
 	async function renderHistory() {
+		if (!user) {
+			historyList.innerHTML = '<li class="empty-message">You are not Logged In, Try to login or Signup and start exploring the unit pages!</li>';
+			return;
+		} 
 		const res = await fetch('http://localhost:8888/.netlify/functions/get-history', {
 			method: 'POST',
 			header: {
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify({
-				user_id: "Sujan@2007"
+				user_id: user.id
 			})
 		});
 
@@ -81,6 +85,7 @@
 				if (ts) {
 					history.push({
 						url: item.page_id,
+						title: item.page_title,
 						timestamp: ts
 					})
 				}
@@ -90,8 +95,7 @@
 		history.sort((a, b) => b.timestamp.localeCompare(a.timestamp));
 
 		console.log(history)
-		console.log(JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]'))
-
+		
 		historyList.innerHTML = ''; // Clear loading message
 
         if (history.length === 0) {
@@ -101,7 +105,7 @@
 
         history.forEach(item => {
             const listItem = document.createElement('li');
-            const title = generateTitleFromURL(item.url)
+            const title = item.title || generateTitleFromURL(item.url)
             listItem.innerHTML = `
     <a href="${item.url}" title="Go to ${title}">${title}</a>
     <span class="timestamp">Visited: ${formatTime(item.timestamp)}</span>

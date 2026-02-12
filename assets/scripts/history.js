@@ -61,7 +61,7 @@
 			historyList.innerHTML = '<li class="empty-message">You are not Logged In, Try to login or Signup and start exploring the unit pages!</li>';
 			return;
 		} 
-		const res = await fetch('http://localhost:8888/.netlify/functions/get-history', {
+		const res = await fetch('https://knowlet.in/.netlify/functions/get-history', {
 			method: 'POST',
 			header: {
 				'Content-Type': 'application/json'

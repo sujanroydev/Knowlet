@@ -2,7 +2,7 @@ import { createClient } from '@supabase/supabase-js';
 
 const supabaseClient = createClient(process.env.SUPABASE_DATABASE_URL, process.env.SUPABASE_ANON_KEY);
 
-exports.handler = async (event) => {
+export const handler = async (event) => {
     const code = event.queryStringParameters.code;
 
     const params = new URLSearchParams({

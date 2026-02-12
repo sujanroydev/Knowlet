@@ -1,5 +1,7 @@
 const pageId = (window.location.href + '').replace('.html', '').replace(window.location.origin, 'https://knowlet.in');
 
+let user = JSON.parse(localStorage.getItem("knowletUser"));
+
 // Create UI on load
 renderNavBar();
 renderFeedbackSection();
@@ -14,8 +16,6 @@ const commentsBox = document.getElementById("comments-box");
 const btnPostComment = document.getElementById("btn-post-comment");
 const btnSubmitRating = document.getElementById("btn-submit-rating");
 const btnClearRating = document.getElementById("clear-rating");
-
-let user = JSON.parse(localStorage.getItem("knowletUser"));
 
 let pageLiked = false;
 let pageRated = false;
@@ -651,26 +651,23 @@ function renderNavBar() {
     topBar.appendChild(favBtn);
     
     // trace history
-    const HISTORY_KEY = 'unit_page_history';
-
-    function updateHistory() {
-        let history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
-        
-        const newEntry = { url: pageId, title: document.title, heading: document.querySelector('h1').textContent, timestamp: new Date().toISOString() };
-
-        history = history.filter(item => item.url !== newEntry.url); // <-- CORRECTED LINE
-        history.unshift(newEntry);
-                
-        const maxHistorySize = 50;
-        
-        if (history.length > maxHistorySize) {
-                history.length = maxHistorySize;
-        }
-
-        localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+    
+    async function updateHistory() {
+    	fetch('http://localhost:8888/.netlify/functions/update-history', {
+    		method: 'POST',
+    		header: {
+    			'Content-Type': 'application/json'
+    		},
+    		body: JSON.stringify({
+    			page_id: pageId,
+    			user_id: user.id,
+    			page_title: document.querySelector('h1').textContent
+    		})
+    	})
+    		.then(res => res.json())
+    		.catch(err => console.error(err));
     }
-
-    updateHistory();
+    if (user.id) { updateHistory() } else { alert('You are not logged in, try to login.') }
 
     // --- 4. Keep Screen On Button
     const screenBtn = document.createElement("button");

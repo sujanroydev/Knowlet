@@ -41,12 +41,6 @@
 	    return `${sub} ${paper} ${unit} | ${semester} Notes`
 	}
 
-    function formatTime(timestamp) {
-        if (!timestamp) return '';
-        const date = new Date(timestamp);
-        return date.toLocaleString();
-    }
-
 	function timeAgo(unixMs) {
 		const now = Date.now()
 		const diffMs = now - unixMs
@@ -78,6 +72,10 @@
 		});
 
 		const { data, error } = await res.json();
+		if (error) {
+			historyList.innerHTML = '<li class="empty-message">Failed to fetch history, try to refresh the page!</li>';
+			return;
+		}
 
 		let history = [];
 		data.forEach((item) => {
@@ -103,14 +101,20 @@
             return;
         }
 
+        let tempUrl, tempTa;
         history.forEach(item => {
-            const listItem = document.createElement('li');
-            const title = item.title || generateTitleFromURL(item.url)
-            listItem.innerHTML = `
-    <a href="${item.url}" title="Go to ${title}">${title}</a>
-    <span class="timestamp">Visited: ${formatTime(item.timestamp)}</span>
-            `;
-            historyList.appendChild(listItem);
+			const time = timeAgo(new Date(item.timestamp).getTime());
+			if (!(tempUrl === item.url && tempTa === time)) {
+				const listItem = document.createElement('li');
+				const title = item.title || generateTitleFromURL(item.url)
+				listItem.innerHTML = `
+	<a href="${item.url}" title="Go to ${title}">${title}</a>
+	<span class="timestamp">${time}</span>
+				`;
+				historyList.appendChild(listItem);
+			}
+            tempUrl = item.url;
+            tempTa = time;
         });
 	}
 	

@@ -82,7 +82,9 @@
 
 		console.log(favs)
 		console.log(JSON.parse(localStorage.getItem("unit_page_favourites") || '[]'))
-		
+
+		favs.sort((a, b) => b.interactions_time.faved_at.localeCompare(a.interactions_time.faved_at));
+
         favouritesList.innerHTML = ''; // Clear loading message
 
         if (favs.length === 0) {

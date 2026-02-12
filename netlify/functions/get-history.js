@@ -20,7 +20,7 @@ export default async (request) => {
     try {
 		const { data, error } = await supabaseClient
             .from('history')
-            .select('*')
+            .select('page_id, page_title, visit_time')
             .eq('user_id', user_id)
 
         if (error) {

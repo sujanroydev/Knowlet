@@ -15,14 +15,14 @@ export default async (request) => {
         });
     }
 
-    const { user_id, page_id } = await request.json();
+    const { user_id, page_id, page_title } = await request.json();
 
     try {
     	if ( !user_id || !page_id ) throw new Error('missing parameters');
 
 		const { data, error: err1 } = await supabaseClient
 			.from("history")
-			.select("visit_count, visit_time")
+			.select("visit_time")
 			.eq("user_id", user_id)
 			.eq("page_id", page_id);
 
@@ -34,7 +34,6 @@ export default async (request) => {
 			({ error } = await supabaseClient
 				.from("history")
 				.update({
-					visit_count: data[0].visit_count + 1,
 					visit_time: JSON.stringify([ ...(JSON.parse(data[0].visit_time) || [ null ]), new Date().toISOString() ])
 				})
 				.eq("page_id", page_id)
@@ -46,6 +45,7 @@ export default async (request) => {
 				.insert({
 					user_id,
 					page_id,
+					page_title,
 					visit_time: JSON.stringify([ (new Date().toISOString()) ])
 				})
 			);

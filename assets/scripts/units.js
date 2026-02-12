@@ -10,6 +10,7 @@ let selectedRating = 0;        // user's chosen star (1..5)
 let hoverRating = 0;             // hover preview
 
 let btnLike = document.getElementById("btnLike");
+const favBtn = document.getElementById("fav-btn");
 const topBar = document.getElementsByClassName("unit-top-bar")[0];
 const ratingsBox = document.getElementById("ratings-box");
 const commentsBox = document.getElementById("comments-box");
@@ -19,6 +20,7 @@ const btnClearRating = document.getElementById("clear-rating");
 
 let pageLiked = false;
 let pageRated = false;
+let pageFaved = false;
 let commentsHidden = true;
 let ratingsHidden = true;
 let recentComments = {};
@@ -517,7 +519,57 @@ async function likeComment(id, oldLikes){
     } catch(e){ console.error(e) }
 }
 
+//favs function
+
+async function toggleFavourite() {
+    pageFaved = !pageFaved;
+    
+	favBtn.classList.toggle("favourited", pageFaved);
+    favBtn.title = pageFaved ? "Remove from Favourites" : "Add to Favourites";
+    
+    const res = await fetch('http://localhost:8888/.netlify/functions/update-favs', {
+		method: 'POST',
+		header: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			user_id: user.id,
+			page_id: pageId,
+			page_title: document.querySelector('h1').textContent
+		})
+	});
+
+	const { data, error } = await res.json();
+	pageFaved = data[0].is_fav;
+	
+    favBtn.classList.toggle("favourited", pageFaved);
+    favBtn.title = pageFaved ? "Remove from Favourites" : "Add to Favourites";
+}
+
+async function renderFavouriteState() {
+	const res = await fetch('http://localhost:8888/.netlify/functions/get-favs', {
+		method: 'POST',
+		header: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			user_id: user.id,
+			page_id: pageId
+		})
+	});
+
+	const { data, error } = await res.json();
+	pageFaved = data[0].is_fav;
+	
+    favBtn.classList.toggle("favourited", pageFaved);
+    favBtn.title = pageFaved ? "Remove from Favourites" : "Add to Favourites";
+}
+
 // Small helpers
+
+function getFavourites() {
+    return JSON.parse(localStorage.getItem(FAV_KEY) || "[]");
+}
 
 function escapeHtml(text) {
     if (!text) return "";
@@ -617,37 +669,7 @@ function renderNavBar() {
     const favBtn = document.createElement("button");
     favBtn.id = "fav-btn";
     favBtn.title = "Add to Favourites";
-
-    function getFavourites() {
-        return JSON.parse(localStorage.getItem(FAV_KEY) || "[]");
-    }
-
-    function isFavourite(url) {
-        return getFavourites().some(item => item.url === url);
-    }
-
-    function toggleFavourite() {
-        let favs = getFavourites();
-        const index = favs.findIndex(item => item.url === pageId);
-
-        if (index >= 0) {
-            favs.splice(index, 1);
-        } else {
-            favs.push({ url: pageId, title: document.title, heading: document.querySelector('h1').textContent, timestamp: new Date().toISOString() });
-        }
-
-        localStorage.setItem(FAV_KEY, JSON.stringify(favs));
-        renderFavouriteState();
-    }
-
-    function renderFavouriteState() {
-        const favActive = isFavourite(pageId);
-        favBtn.classList.toggle("favourited", favActive);
-        favBtn.title = favActive ? "Remove from Favourites" : "Add to Favourites";
-    }
-
     favBtn.onclick = toggleFavourite;
-    renderFavouriteState();
     topBar.appendChild(favBtn);
     
     // trace history
@@ -879,4 +901,5 @@ renderInteractiveStars();
 
 // initial loads
 loadLikesAndRatings();
+renderFavouriteState();
 loadComments();

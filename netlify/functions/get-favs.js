@@ -18,36 +18,22 @@ export default async (request) => {
     const { user_id, page_id } = await request.json();
 
     try {
-    	if ( !user_id || !page_id ) throw new Error('missing parameters');
-
-		const { data, error: err1 } = await supabaseClient
-			.from("ratings")
-			.select("is_fav")
-			.eq("user_id", user_id)
-			.eq("page_id", page_id);
-
-		if (err1) throw new Error(err1);
-
-		let error;
-
-		if (data.length) {
-			({ error } = await supabaseClient
-				.from("ratings")
-				.update({
-					is_fav: !(data[0].is_fav)
-				})
-				.eq("page_id", page_id)
-				.eq("user_id", user_id)
-			);
-		} else {
-			({ error } = await supabaseClient
-				.from("ratings")
-				.insert({
-					user_id,
-					page_id,
-					is_fav: true
-				})
-			);
+		let error, data;
+		if (!user_id) throw new Error('user_id is mandatory');
+		if (user_id && !page_id) {
+			({ data, error } = await supabaseClient
+                .from('ratings')
+                .select('page_id')
+                .eq('user_id', user_id)
+                .eq('is_fav', true)
+            );
+		} else if (user_id && page_id) {
+            ({ data, error } = await supabaseClient
+                .from('ratings')
+                .select('is_fav')
+                .eq('user_id', user_id)
+                .eq('page_id', page_id)
+            );
 		}
 
         if (error) {
@@ -65,11 +51,11 @@ export default async (request) => {
                 }
             );
         }
-        
+
         return new Response(
             JSON.stringify({
                 success: true,
-                data: [{ is_fav: data.length ? !data[0].is_fav : true}]
+                data
             }),
             {
                 status: 200,

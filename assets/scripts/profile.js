@@ -154,16 +154,6 @@ async function fetchCommentsLikesAndRatings() {
 }
 
 function renderRecentActivity(comments = [], likesAndRatings = []) {
-	const favs = (JSON.parse(localStorage.getItem('unit_page_favourites')) || []).map(obj => {
-		return {
-			state: 'Started',
-			url: obj.url,
-			title: obj.title,
-			heading: obj.heading,
-			timeMs: new Date(obj.timestamp).getTime()  || 0
-		};
-	});
-
 	comments = comments.map(obj => {
 		return {
 			state: 'Commented',
@@ -174,13 +164,13 @@ function renderRecentActivity(comments = [], likesAndRatings = []) {
 	
 	likesAndRatings = likesAndRatings.map(obj => {
 		return {
-			state: obj.page_likes ? 'Liked' : obj.page_ratings ? 'Rated' : 'Removed',
+			state: obj.page_likes ? 'Liked' : obj.page_ratings ? 'Rated' : 'Faved',
 			url: obj.page_id,
 			timeMs: new Date(obj.created_at).getTime()
 		};
 	})
 
-	const recentActivities = [...favs, ...comments, ...likesAndRatings].sort((a, b) => b.timeMs - a.timeMs);
+	const recentActivities = [...comments, ...likesAndRatings].sort((a, b) => b.timeMs - a.timeMs);
 	
 	let recentActivityItems = '';
 

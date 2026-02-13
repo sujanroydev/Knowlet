@@ -6,18 +6,15 @@ const popupContent = document.getElementById("popup-content");
 const imgPopup = document.getElementById("img-popup");
 const popupImage = document.getElementById("popup-image");
 const imgTitle = document.getElementById("img-title");
+const user = JSON.parse(localStorage.getItem("knowletUser"));
 let notes = {d: "dff"};
 let loader = document.getElementById("loader");
 // JavaScript to read localStorage, populate the list, and calculate the animation width
 
 (function () {
-    const HISTORY_KEY = 'unit_page_history';
     const scrollContent = document.getElementById('scroll-content');
 
-    // NEW: Function to generate a random Hex color
     function getRandomColor() {
-        // Generates a random integer between 0 and 16777215 (FFFFFF in decimal)
-        // Converts to a hex string and pads with leading zeros if necessary
         return '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
     }
     
@@ -28,8 +25,44 @@ let loader = document.getElementById("loader");
         return date.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' });
     }
 
-    function renderScrollingHistory() {
-        const history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+    async function renderScrollingHistory() {
+		if (!user) {
+			scrollContent.innerHTML = '<li class="empty-message">You are not Logged In, Try to login or Signup and start exploring the unit pages!</li>';
+			return;
+		}
+
+		const res = await fetch('https://knowlet.in/.netlify/functions/get-history', {
+			method: 'POST',
+			header: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				user_id: user.id
+			})
+		});
+
+		const { data, error } = await res.json();
+
+		if (error) {
+			historyList.innerHTML = '<li class="empty-message">Failed to fetch history, try to refresh the page!</li>';
+			return;
+		} 
+
+		let history = [];
+		data.forEach((item) => {
+			JSON.parse(item.visit_time).forEach((ts) => {
+				if (ts) {
+					history.push({
+						url: item.page_id,
+						title: item.page_title,
+						timestamp: ts
+					})
+				}
+			});
+		});
+
+		history.sort((a, b) => b.timestamp.localeCompare(a.timestamp));
+
         scrollContent.innerHTML = ''; // Clear loading message
 
         if (history.length === 0) {

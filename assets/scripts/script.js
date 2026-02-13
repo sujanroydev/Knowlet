@@ -8,8 +8,6 @@ const popupImage = document.getElementById("popup-image");
 const imgTitle = document.getElementById("img-title");
 let notes = {d: "dff"};
 let loader = document.getElementById("loader");
-const searchInput = document.getElementById("searchInput");
-const searchResults = document.getElementById("searchResults");
 // JavaScript to read localStorage, populate the list, and calculate the animation width
 
 (function () {
@@ -84,66 +82,3 @@ const searchResults = document.getElementById("searchResults");
 
     renderScrollingHistory();
 })();
-
-function searchNotes(query) {
-  const results = [];
-  console.log(results);
-  notes.semesters[0].subjects.forEach(subject => {
-    const subjectName = subject.name.toLowerCase();
-
-    Object.keys(subject.papers).forEach(paperCode => {
-      const paperList = subject.papers[paperCode];
-
-      paperList.forEach(item => {
-        const unitName = item.unit.toLowerCase();
-
-        if (
-          subjectName.includes(query) ||
-          paperCode.toLowerCase().includes(query) ||
-          unitName.includes(query)
-        ) {
-          results.push({
-            subject: subject.name,
-            paper: paperCode,
-            unit: item.unit,
-            file: item.file
-          });
-        }
-      });
-    });
-  });
-
-  return results;
-}
-
-function displaySearchResults(results) {
-  searchResults.innerHTML = "";
-
-  if (results.length === 0) {
-    searchResults.innerHTML = `<p style="text-align:center; color:#aaa;">No results found</p>`;
-    return;
-  }
-
-  results.forEach(r => {
-    const div = document.createElement("div");
-    div.className = "note-card";
-    div.innerHTML = `
-      <h3>${r.subject} - ${r.paper}</h3>
-      <p>${r.unit}</p>
-      <button class="btn" onClick="viewImg('${r.unit}', '${r.file}')">View</button>
-      <a href="${r.file}" download class="btn btn-download">Download</a>
-    `;
-    searchResults.appendChild(div);
-  });
-}
-
-// Live search
-searchInput.addEventListener("keyup", () => {
-  const query = searchInput.value.toLowerCase().trim();
-  if (query === "") {
-    searchResults.innerHTML = ``; // clear if empty
-    return;
-  }
-  const matches = searchNotes(query);
-  displaySearchResults(matches);
-});

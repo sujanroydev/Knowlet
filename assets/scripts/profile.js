@@ -9,7 +9,6 @@ const userId = document.getElementById("userid");
 const profilePic = document.getElementById("profile-pic");
 const loader = document.getElementById("loader");
 const recentActivityView = document.getElementById("recent-activity-view");
-const recommendationView = document.getElementById("recommendation-view");
 
 const stat = document.getElementsByClassName("stat");
 
@@ -134,7 +133,7 @@ async function fetchCommentsLikesAndRatings() {
             res2.json()
         ]);
 		
-		renderRecentActivityAndRecommendation(data1, data2);
+		renderRecentActivity(data1, data2);
 		
 		let commentsCount = 0;
 		let totalCommentsLikes = 0;
@@ -150,31 +149,11 @@ async function fetchCommentsLikesAndRatings() {
 	} catch(err) {
 		console.error(err);
 		alert(err.message);
-		renderRecentActivityAndRecommendation();
+		renderRecentActivity();
 	}
 }
 
-function renderRecentActivityAndRecommendation(comments = [], likesAndRatings = []) {
-	const favs = (JSON.parse(localStorage.getItem('unit_page_favourites')) || []).map(obj => {
-		return {
-			state: 'Started',
-			url: obj.url,
-			title: obj.title,
-			heading: obj.heading,
-			timeMs: new Date(obj.timestamp).getTime()  || 0
-		};
-	});
-
-	const histories = (JSON.parse(localStorage.getItem('unit_page_history')) || []).reverse().map(obj => {
-		return {
-			state: 'Read',
-			url: obj.url,
-			title: obj.title,
-			heading: obj.heading,
-			timeMs: new Date(obj.timestamp).getTime()  || 0
-		};
-	});
-	
+function renderRecentActivity(comments = [], likesAndRatings = []) {
 	comments = comments.map(obj => {
 		return {
 			state: 'Commented',
@@ -185,28 +164,17 @@ function renderRecentActivityAndRecommendation(comments = [], likesAndRatings = 
 	
 	likesAndRatings = likesAndRatings.map(obj => {
 		return {
-			state: obj.page_likes ? 'Liked' : obj.page_ratings ? 'Rated' : 'Removed',
+			state: obj.page_likes ? 'Liked' : obj.page_ratings ? 'Rated' : 'Faved',
 			url: obj.page_id,
 			timeMs: new Date(obj.created_at).getTime()
 		};
 	})
 
-	const recentActivities = [...favs, ...histories, ...comments, ...likesAndRatings].sort((a, b) => b.timeMs - a.timeMs);
+	const recentActivities = [...comments, ...likesAndRatings].sort((a, b) => b.timeMs - a.timeMs);
 	
 	let recentActivityItems = '';
-	let recommendedItems = '';
 
 	recentActivities.forEach((item) => {
-
-		if (item.state === 'Started' || item.state === 'Liked') {
-			recommendedItems += `
-					<li>
-						<span class="example-title">${item.title || generateTitleFromURL(item.url)}</span><br>
-						<span class="example-heading">${item.heading ? item.heading : ''}</span> <a href="${item.url}">View</a>
-					</li>
-				`;
-		}
-
 		recentActivityItems += `
                 <li>
                     ${item.state || 'Visited'} : <span class="example-title">${item.title || generateTitleFromURL(item.url)}</span> - ${item.timeMs ? timeAgo(item.timeMs) : 'Unknown'}<br>
@@ -216,7 +184,6 @@ function renderRecentActivityAndRecommendation(comments = [], likesAndRatings = 
 	});
 
 	recentActivityView.innerHTML = recentActivityItems;
-	recommendationView.innerHTML = recommendedItems;
 }
 
 // helper functions

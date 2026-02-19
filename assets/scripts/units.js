@@ -76,6 +76,7 @@ function renderAverageStars(avg) {
     const pct = Math.max(0, Math.min(1, avg / 5));
     wrapper.querySelector(".front").style.width = (pct * 100) + "%";
     wrapper.setAttribute("aria-label", `Average rating ${avg.toFixed(2)} out of 5`);
+    wrapper.innerHTML = getRenderedStars(avg + 0.5);
 }
 
 function renderInteractiveStars() {
@@ -234,14 +235,7 @@ async function loadLikesAndRatings(){
                     </div>
                 </div>
             `;
-            
-            const avg = count ? (sum / count) : 0;
-            
-            // update average UI
-            document.getElementById("avg-number").textContent = count ? avg.toFixed(2) + " / 5" : "—";
-            document.getElementById("total-count").textContent = `${count} rating${count !== 1 ? "s" : ""}`;
-            renderAverageStars(avg);
-            
+        
             // show list
             if (!count) {
                 box.innerHTML = `<div class="muted">No ratings yet</div>`;
@@ -253,6 +247,13 @@ async function loadLikesAndRatings(){
                 box.appendChild(div);
             }
         });
+        
+        const avg = count ? (sum / count) : 0;
+        
+        // update average UI
+        document.getElementById("avg-number").textContent = count ? avg.toFixed(2) + " / 5" : "—";
+        document.getElementById("total-count").textContent = `${count} rating${count !== 1 ? "s" : ""}`;
+        renderAverageStars(avg);
         
         btnLike.remove()
         const btnLikeHtml = `<button id="btnLike" class="btn ghost" onclick="likePage(${totalLikes})">👍🏼 ${totalLikes}</button>`
@@ -788,8 +789,8 @@ function renderFeedbackSection() {
                         <div style="text-align:right;">
                             <div class="muted">Average rating</div>
                             <div style="margin-top:8px;" class="rating-summary">
-                                <div id="avg-stars" class="avg-stars" aria-hidden="true"></div>
                                 <div>
+                                    <div id="avg-stars" class="avg-stars" aria-hidden="true"></div>
                                     <div style="font-weight:700; font-size:16px;" id="avg-number">—</div>
                                     <div class="muted" id="total-count">0 ratings</div>
                                 </div>

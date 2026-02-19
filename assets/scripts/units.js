@@ -112,6 +112,28 @@ function updateStarVis(val = 0) {
     document.getElementById("btn-submit-rating").disabled = selectedRating === 0;
 }
 
+//render all stars
+function getRenderedStars(val) {
+    let starsHTML = "";
+
+    for (let i = 1; i <= 5; i++) {
+        // Determine the class based on the value
+        const stateClass = (i <= val) ? "filled" : "empty";
+        const isChecked = (i === val);
+
+        // Build the string for each star
+        starsHTML += `
+            <span class="star-f ${stateClass}"
+                  role="radio"
+                  aria-checked="${isChecked}"
+                  data-value="${i}">
+                ${STAR_SVG}
+            </span>`;
+    }
+
+    return starsHTML;
+}
+
 // Is Liked Or Rated
 
 function isLikedOrRated() {
@@ -204,7 +226,8 @@ async function loadLikesAndRatings(){
             
                     <!-- Rating + message -->
                     <div class="rating-content">
-                        <strong class="rating-score">${r.page_ratings} / 5</strong>
+                        ${getRenderedStars(r.page_ratings)}
+                        <!--<strong class="rating-score">${r.page_ratings} / 5</strong>-->
                         <div class="rating-message">
                             ${escapeHtml(r.ratings_message || "")}
                         </div>

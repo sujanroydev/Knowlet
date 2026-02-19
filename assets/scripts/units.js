@@ -205,7 +205,11 @@ async function loadLikesAndRatings(){
                 myLikesAndRatings = r;
             }
             
-            if (!r.page_ratings) return;
+            if (!r.page_ratings) {
+                box.innerHTML = `<div class="muted">No ratings yet</div>`
+                return;
+            };
+
             count += 1;
             sum += r.page_ratings;
             

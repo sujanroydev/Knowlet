@@ -227,3 +227,9 @@ li:last-child {
 #recent-activity-view {
     max-height: 350px;
 }
+
+.empty-message {
+    text-align: center;
+    color: #92400e;
+    font-style: italic;
+}

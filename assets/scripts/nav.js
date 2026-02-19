@@ -31,7 +31,7 @@ function focusNav (item) {
 }
 
 function randerNavBar() {
-	document.getElementById('bottom-nav').innerHTML = `
+    document.getElementById('bottom-nav').innerHTML = `
         <a href="index" class="nav-item">
             <span class="icon">🏠</span>
             <span class="text">Home</span>

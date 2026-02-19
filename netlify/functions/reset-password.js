@@ -20,7 +20,7 @@ export default async (request) => {
     
     try {
 
-		const { error } = await supabaseClient
+        const { error } = await supabaseClient
             .from("user")
             .update(user)
             .eq("email", user.email)

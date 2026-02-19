@@ -18,38 +18,38 @@ export default async (request) => {
     const { user_id, page_id, page_title } = await request.json();
 
     try {
-    	if ( !user_id || !page_id ) throw new Error('missing parameters');
+        if ( !user_id || !page_id ) throw new Error('missing parameters');
 
-		const { data, error: err1 } = await supabaseClient
-			.from("history")
-			.select("visit_time")
-			.eq("user_id", user_id)
-			.eq("page_id", page_id);
+        const { data, error: err1 } = await supabaseClient
+            .from("history")
+            .select("visit_time")
+            .eq("user_id", user_id)
+            .eq("page_id", page_id);
 
-		if (err1) throw new Error(err1);
+        if (err1) throw new Error(err1);
 
-		let error;
+        let error;
 
-		if (data.length) {
-			({ error } = await supabaseClient
-				.from("history")
-				.update({
-					visit_time: JSON.stringify([ ...(JSON.parse(data[0].visit_time) || [ null ]), new Date().toISOString() ])
-				})
-				.eq("page_id", page_id)
-				.eq("user_id", user_id)
-			);
-		} else {
-			({ error } = await supabaseClient
-				.from("history")
-				.insert({
-					user_id,
-					page_id,
-					page_title,
-					visit_time: JSON.stringify([ (new Date().toISOString()) ])
-				})
-			);
-		}
+        if (data.length) {
+            ({ error } = await supabaseClient
+                .from("history")
+                .update({
+                    visit_time: JSON.stringify([ ...(JSON.parse(data[0].visit_time) || [ null ]), new Date().toISOString() ])
+                })
+                .eq("page_id", page_id)
+                .eq("user_id", user_id)
+            );
+        } else {
+            ({ error } = await supabaseClient
+                .from("history")
+                .insert({
+                    user_id,
+                    page_id,
+                    page_title,
+                    visit_time: JSON.stringify([ (new Date().toISOString()) ])
+                })
+            );
+        }
 
         if (error) {
             return new Response(

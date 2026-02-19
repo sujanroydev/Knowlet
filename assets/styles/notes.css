@@ -21,7 +21,7 @@ body, #main {
      Header
 ------------------------------ */
 .header {
-	position: relative;
+    position: relative;
     background: linear-gradient(135deg, #3b82f6, #1e40af);
     color: #fff;
     text-align: center;
@@ -35,9 +35,9 @@ body, #main {
 }
 
 .header p {
-	position: absolute;
-	bottom: 15px;
-	left: 15px;
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
     font-size: 1.1rem;
     opacity: 0.9;
 }

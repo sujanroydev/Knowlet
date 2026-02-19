@@ -55,8 +55,8 @@ signupForm.addEventListener("submit", e => {
     let password = input[4].value;
     
     if (password !== input[5].value) {
-    	alert("Unmatched Password");
-    	return;
+        alert("Unmatched Password");
+        return;
     }
     
     if (!name || !email || !password) {

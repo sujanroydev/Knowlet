@@ -18,23 +18,23 @@ export default async (request) => {
     const { pageId, userId } = await request.json();
     
     try {
-    	let data, error;
-    	
-    	if (!pageId && userId) {
-	    	({ data, error } = await supabaseClient
-	            .from('comments')
-	            .select('id, page_id, likes, created_at')
-	            .eq('user_id', userId)
-	        );
-    	} else if (!userId && pageId) {
-    		({ data, error } = await supabaseClient
-	            .from('comments')
-	            .select('*, user (id, name, picture)')
-	            .eq('page_id', pageId)
-	        );
-    	} else {
-    		throw new Error('invalid pageId or userId');
-    	}
+        let data, error;
+        
+        if (!pageId && userId) {
+            ({ data, error } = await supabaseClient
+                .from('comments')
+                .select('id, page_id, likes, created_at')
+                .eq('user_id', userId)
+            );
+        } else if (!userId && pageId) {
+            ({ data, error } = await supabaseClient
+                .from('comments')
+                .select('*, user (id, name, picture)')
+                .eq('page_id', pageId)
+            );
+        } else {
+            throw new Error('invalid pageId or userId');
+        }
 
         if (error) {
             return new Response(

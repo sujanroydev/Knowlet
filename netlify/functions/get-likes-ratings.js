@@ -18,31 +18,31 @@ export default async (request) => {
     const { pageId, userId } = await request.json();
     
     try {
-    	
-    	let data, error;
-    	if (userId && pageId) {
-			({ data, error } = await supabaseClient
-	            .from('ratings')
-	            .select('*')
-	            .eq('page_id', pageId)
-	            .eq('user_id', userId)
-	        );
-    	} else if(!userId && pageId) {
-    		({ data, error } = await supabaseClient
-	            .from('ratings')
-	            .select('id, page_ratings, page_likes, ratings_message, created_at, user (id, name, picture)')
-	            .eq('page_id', pageId)
-	            .order("created_at", { ascending: false })
-	        );
-    	} else if(!pageId && userId) {
-    		({ data, error } = await supabaseClient
-	            .from('ratings')
-	            .select('id, page_id, page_ratings, page_likes, created_at')
-	            .eq('user_id', userId)
-	        );
-    	} else {
-    		throw new Error('invalid pageId or userId');
-    	}
+        
+        let data, error;
+        if (userId && pageId) {
+            ({ data, error } = await supabaseClient
+                .from('ratings')
+                .select('*')
+                .eq('page_id', pageId)
+                .eq('user_id', userId)
+            );
+        } else if(!userId && pageId) {
+            ({ data, error } = await supabaseClient
+                .from('ratings')
+                .select('id, page_ratings, page_likes, ratings_message, created_at, user (id, name, picture)')
+                .eq('page_id', pageId)
+                .order("created_at", { ascending: false })
+            );
+        } else if(!pageId && userId) {
+            ({ data, error } = await supabaseClient
+                .from('ratings')
+                .select('id, page_id, page_ratings, page_likes, created_at')
+                .eq('user_id', userId)
+            );
+        } else {
+            throw new Error('invalid pageId or userId');
+        }
 
         if (error) {
             return new Response(

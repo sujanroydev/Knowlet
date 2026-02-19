@@ -26,42 +26,42 @@ let loader = document.getElementById("loader");
     }
 
     async function renderScrollingHistory() {
-		if (!user) {
-			scrollContent.innerHTML = '<li class="empty-message">You are not Logged In, Try to login or Signup and start exploring the unit pages!</li>';
-			return;
-		}
+        if (!user) {
+            scrollContent.innerHTML = '<li class="empty-message">You are not Logged In, Try to login or Signup and start exploring the unit pages!</li>';
+            return;
+        }
 
-		const res = await fetch('https://knowlet.in/.netlify/functions/get-history', {
-			method: 'POST',
-			header: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({
-				user_id: user.id
-			})
-		});
+        const res = await fetch('https://knowlet.in/.netlify/functions/get-history', {
+            method: 'POST',
+            header: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                user_id: user.id
+            })
+        });
 
-		const { data, error } = await res.json();
+        const { data, error } = await res.json();
 
-		if (error) {
-			historyList.innerHTML = '<li class="empty-message">Failed to fetch history, try to refresh the page!</li>';
-			return;
-		} 
+        if (error) {
+            historyList.innerHTML = '<li class="empty-message">Failed to fetch history, try to refresh the page!</li>';
+            return;
+        } 
 
-		let history = [];
-		data.forEach((item) => {
-			JSON.parse(item.visit_time).forEach((ts) => {
-				if (ts) {
-					history.push({
-						url: item.page_id,
-						title: item.page_title,
-						timestamp: ts
-					})
-				}
-			});
-		});
+        let history = [];
+        data.forEach((item) => {
+            JSON.parse(item.visit_time).forEach((ts) => {
+                if (ts) {
+                    history.push({
+                        url: item.page_id,
+                        title: item.page_title,
+                        timestamp: ts
+                    })
+                }
+            });
+        });
 
-		history.sort((a, b) => b.timestamp.localeCompare(a.timestamp));
+        history.sort((a, b) => b.timestamp.localeCompare(a.timestamp));
 
         scrollContent.innerHTML = ''; // Clear loading message
 

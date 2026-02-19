@@ -38,9 +38,9 @@ let myLikesAndRatings, myCommenst;
 btnSubmitRating.addEventListener("click", submitRating);
 
 btnClearRating.addEventListener("click", () => {
-	selectedRating=0;
-	hoverRating=0;
-	updateStarVis();
+    selectedRating=0;
+    hoverRating=0;
+    updateStarVis();
 });
 
 function isLogged() {
@@ -168,9 +168,9 @@ function isLikedOrRated() {
 async function loadLikesAndRatings(){
     try {
         const res = await fetch('https://knowlet.in/.netlify/functions/get-likes-ratings', {
-        	method: 'POST',
-        	header: { 'content-type': 'application/json' },
-        	body: JSON.stringify({ pageId: pageId })
+            method: 'POST',
+            header: { 'content-type': 'application/json' },
+            body: JSON.stringify({ pageId: pageId })
         });
         
         if (!res.ok) throw new Error(`Error status: ${res.status}`);
@@ -197,43 +197,43 @@ async function loadLikesAndRatings(){
         let sum = 0;
         totalLikes = 0;
         
-		likesAndRatings = data;  // store likes and ratings for feature use
+        likesAndRatings = data;  // store likes and ratings for feature use
 
         data.forEach(r => {
             totalLikes += r.page_likes ? 1 : 0;
-			if (r.user.id === (user ? user.id : null)) {
-				myLikesAndRatings = r;
-			}
-			
+            if (r.user.id === (user ? user.id : null)) {
+                myLikesAndRatings = r;
+            }
+            
             if (!r.page_ratings) return;
             count += 1;
             sum += r.page_ratings;
-		    
+            
             const div = document.createElement("div");
             div.className = "rating-item";
             div.innerHTML = `
-			    <div class="rating-row">
-			        <!-- User info -->
-			        <div class="user-info">
-			            <img 
-			                src="${r.user.picture || '/assets/images/demo_pp.png'}" 
-			                alt="${escapeHtml(r.user.name)}" 
-			                class="avatar"
-			            />
-			            <div>
-			                <div class="user-name">${escapeHtml(r.user.name)}</div>
-			                <div class="meta">${new Date(r.created_at).toLocaleString()}</div>
-			            </div>
-			        </div>
-			
-			        <!-- Rating + message -->
-			        <div class="rating-content">
-			            <strong class="rating-score">${r.page_ratings} / 5</strong>
-			            <div class="rating-message">
-			                ${escapeHtml(r.ratings_message || "")}
-			            </div>
-			        </div>
-			    </div>
+                <div class="rating-row">
+                    <!-- User info -->
+                    <div class="user-info">
+                        <img 
+                            src="${r.user.picture || '/assets/images/demo_pp.png'}" 
+                            alt="${escapeHtml(r.user.name)}" 
+                            class="avatar"
+                        />
+                        <div>
+                            <div class="user-name">${escapeHtml(r.user.name)}</div>
+                            <div class="meta">${new Date(r.created_at).toLocaleString()}</div>
+                        </div>
+                    </div>
+            
+                    <!-- Rating + message -->
+                    <div class="rating-content">
+                        <strong class="rating-score">${r.page_ratings} / 5</strong>
+                        <div class="rating-message">
+                            ${escapeHtml(r.ratings_message || "")}
+                        </div>
+                    </div>
+                </div>
             `;
             
             const avg = count ? (sum / count) : 0;
@@ -249,24 +249,24 @@ async function loadLikesAndRatings(){
                 return;
             }
             if (r.user.id === (user ? user.id : null)) {
-				userBox.appendChild(div);
-			} else {
-				box.appendChild(div);
-			}
+                userBox.appendChild(div);
+            } else {
+                box.appendChild(div);
+            }
         });
         
-		btnLike.remove()
-		const btnLikeHtml = `<button id="btnLike" class="btn ghost" onclick="likePage(${totalLikes})">👍🏼 ${totalLikes}</button>`
-		topBar.insertAdjacentHTML('beforeend', btnLikeHtml)
-		btnLike = document.getElementById("btnLike");
-		isLikedOrRated()
+        btnLike.remove()
+        const btnLikeHtml = `<button id="btnLike" class="btn ghost" onclick="likePage(${totalLikes})">👍🏼 ${totalLikes}</button>`
+        topBar.insertAdjacentHTML('beforeend', btnLikeHtml)
+        btnLike = document.getElementById("btnLike");
+        isLikedOrRated()
     } catch (e) {
         console.error(e);
     }
 }
 
 async function submitRating() {
-	if (!ensureAuthenticated()) return;
+    if (!ensureAuthenticated()) return;
     if (!selectedRating || selectedRating < 1 || selectedRating > 5) {
         alert("Choose 1–5 stars first.");
         return;
@@ -277,18 +277,18 @@ async function submitRating() {
         r = myLikesAndRatings
         if (r) {
             const res = await fetch('https://knowlet.in/.netlify/functions/update-likes-ratings', {
-			    method: 'POST',
-			    header: { 'content-type': 'application/json' },
-			    body: JSON.stringify({
-			    	pageId,
-			    	userId: user.id,
-			    	action: 'rate',
-			    	pageRatingsScore: selectedRating,
-			    	pageReview: msg
-			    })
-			});
+                method: 'POST',
+                header: { 'content-type': 'application/json' },
+                body: JSON.stringify({
+                    pageId,
+                    userId: user.id,
+                    action: 'rate',
+                    pageRatingsScore: selectedRating,
+                    pageReview: msg
+                })
+            });
 
-			const { error } = await res.json();
+            const { error } = await res.json();
 
             if (error) {
                 console.error(error);
@@ -298,17 +298,17 @@ async function submitRating() {
             btnSubmitRating.textContent = "Updated";
         } else {
             const res = await fetch('https://knowlet.in/.netlify/functions/set-likes-ratings', {
-			    method: 'POST',
-			    header: { 'content-type': 'application/json' },
-			    body: JSON.stringify({
-			    	pageId,
-			    	userId: user.id,
-			    	action: 'rate',
-			    	pageRatingsScore: selectedRating,
-			    	pageReview: msg
-			    })
-			});
-			const { error } = await res.json();
+                method: 'POST',
+                header: { 'content-type': 'application/json' },
+                body: JSON.stringify({
+                    pageId,
+                    userId: user.id,
+                    action: 'rate',
+                    pageRatingsScore: selectedRating,
+                    pageReview: msg
+                })
+            });
+            const { error } = await res.json();
             if (error) {
                 console.error(error);
                 alert("Error submitting rating");
@@ -325,43 +325,43 @@ async function submitRating() {
 }
 
 async function likePage(oldLikes){
-	if (!ensureAuthenticated()) return;
+    if (!ensureAuthenticated()) return;
     try {
         if (myLikesAndRatings) {
-        	if (myLikesAndRatings.page_likes) {
-	        	btnLike.textContent = "👍🏼 " + (totalLikes - 1);
-        	} else {
-        		btnLike.textContent = "👍 " + (totalLikes + 1);
-        	}
+            if (myLikesAndRatings.page_likes) {
+                btnLike.textContent = "👍🏼 " + (totalLikes - 1);
+            } else {
+                btnLike.textContent = "👍 " + (totalLikes + 1);
+            }
             const res = await fetch('https://knowlet.in/.netlify/functions/update-likes-ratings', {
-			    method: 'POST',
-			    header: { 'content-type': 'application/json' },
-			    body: JSON.stringify({
-			    	pageId,
-			    	userId: user.id,
-			    	action: 'like',
-			    	pageLiked: !pageLiked
-			    })
-			});
+                method: 'POST',
+                header: { 'content-type': 'application/json' },
+                body: JSON.stringify({
+                    pageId,
+                    userId: user.id,
+                    action: 'like',
+                    pageLiked: !pageLiked
+                })
+            });
 
-			const { error } = await res.json();
+            const { error } = await res.json();
 
             if (error) {
                 console.error(error);
                 alert("Error updating likes");
             }
         } else {
-        	btnLike.textContent = "👍 " + (totalLikes + 1);
+            btnLike.textContent = "👍 " + (totalLikes + 1);
             const res = await fetch('https://knowlet.in/.netlify/functions/set-likes-ratings', {
-			    method: 'POST',
-			    header: { 'content-type': 'application/json' },
-			    body: JSON.stringify({
-			    	pageId,
-			    	userId: user.id,
-			    	action: 'like'
-			    })
-			});
-			const { error } = await res.json();
+                method: 'POST',
+                header: { 'content-type': 'application/json' },
+                body: JSON.stringify({
+                    pageId,
+                    userId: user.id,
+                    action: 'like'
+                })
+            });
+            const { error } = await res.json();
             if (error) {
                 console.error(error);
                 alert("Error submitting Like");
@@ -379,11 +379,11 @@ async function likePage(oldLikes){
 
 async function loadComments() {
     try {
-    	// new api copy
+        // new api copy
         const res = await fetch('https://knowlet.in/.netlify/functions/get-comments', {
-        	method: 'POST',
-        	header: { 'content-type': 'application/json' },
-        	body: JSON.stringify({ pageId: pageId })
+            method: 'POST',
+            header: { 'content-type': 'application/json' },
+            body: JSON.stringify({ pageId: pageId })
         });
         
         if (!res.ok) throw new Error(`Error status: ${res.status}`);
@@ -406,55 +406,55 @@ async function loadComments() {
             return;
         }
         
-		comments = data; // store comments for feature use
+        comments = data; // store comments for feature use
 
         data.forEach(c => {
-        	let totalCLikes = "";
-        	if (true) {
-	        	if (recentComments[c.id] === "Liked") {
-	        		totalCLikes = `👍 ${c.likes || 0}`;
-	        	} else {
-	        		totalCLikes = `👍🏼 ${c.likes || 0}`;
-	        	}
-        	}
+            let totalCLikes = "";
+            if (true) {
+                if (recentComments[c.id] === "Liked") {
+                    totalCLikes = `👍 ${c.likes || 0}`;
+                } else {
+                    totalCLikes = `👍🏼 ${c.likes || 0}`;
+                }
+            }
             const d = document.createElement("div");
             d.className = "comment-item";
             d.innerHTML = `
-			    <div class="comment-row">
-			        <!-- User info -->
-			        <div class="user-info">
-			            <img
-			                src="${c.user.picture || '/assets/images/demo_pp.png'}"
-			                alt="${escapeHtml(c.user.name)}"
-			                class="avatar"
-			            />
-			            <div>
-			                <div class="user-name">${escapeHtml(c.user.name)}</div>
-			                <div class="meta">${new Date(c.created_at).toLocaleString()}</div>
-			            </div>
-			        </div>
-			
-			        <!-- Comment content -->
-			        <div class="comment-content">
-			            <div class="comment-text">
-			                ${escapeHtml(c.comment_text)}
-			            </div>
-			
-			            <div class="comment-actions">
-			                <button
-			                    class="btn ghost"
-			                    onclick="likeComment(${c.id}, ${c.likes})">
-			                    ${totalCLikes}
-			                </button>
-			            </div>
-			        </div>
-			    </div>
+                <div class="comment-row">
+                    <!-- User info -->
+                    <div class="user-info">
+                        <img
+                            src="${c.user.picture || '/assets/images/demo_pp.png'}"
+                            alt="${escapeHtml(c.user.name)}"
+                            class="avatar"
+                        />
+                        <div>
+                            <div class="user-name">${escapeHtml(c.user.name)}</div>
+                            <div class="meta">${new Date(c.created_at).toLocaleString()}</div>
+                        </div>
+                    </div>
+            
+                    <!-- Comment content -->
+                    <div class="comment-content">
+                        <div class="comment-text">
+                            ${escapeHtml(c.comment_text)}
+                        </div>
+            
+                        <div class="comment-actions">
+                            <button
+                                class="btn ghost"
+                                onclick="likeComment(${c.id}, ${c.likes})">
+                                ${totalCLikes}
+                            </button>
+                        </div>
+                    </div>
+                </div>
             `;
             if (c.user.id === (user ? user.id : null)) {
-				userBox.appendChild(d);
-			} else {
-				box.appendChild(d);
-			}
+                userBox.appendChild(d);
+            } else {
+                box.appendChild(d);
+            }
         });
 
     } catch(e){
@@ -463,21 +463,21 @@ async function loadComments() {
 }
 
 async function submitComment(){
-	if (!ensureAuthenticated()) return;
+    if (!ensureAuthenticated()) return;
     const text = document.getElementById("comment-input").value;
     if (!text.trim()) return;
     try {
-		const res = await fetch('https://knowlet.in/.netlify/functions/set-comments', {
-		    method: 'POST',
-		    header: { 'content-type': 'application/json' },
-		    body: JSON.stringify({
-		    	pageId,
-		    	userId: user.id,
-		    	action: 'comment',
-		    	commentMessage: text
-		    })
-		});
-		const { error } = await res.json();
+        const res = await fetch('https://knowlet.in/.netlify/functions/set-comments', {
+            method: 'POST',
+            header: { 'content-type': 'application/json' },
+            body: JSON.stringify({
+                pageId,
+                userId: user.id,
+                action: 'comment',
+                commentMessage: text
+            })
+        });
+        const { error } = await res.json();
         if (error) {
             console.error(error);
             alert("Error posting comment");
@@ -491,29 +491,29 @@ async function submitComment(){
 }
 
 async function likeComment(id, oldLikes){
-	if (!ensureAuthenticated()) return;
-	let newLikes;
-	if (recentComments[id] === "Liked" && Number(oldLikes) >= 1) {
-		newLikes = (Number(oldLikes)||0)-1;
-		recentComments[id] = "Unliked";
-	}
-	else {
-		newLikes = (Number(oldLikes)||0)+1;
-		recentComments[id] = "Liked";
-	}
+    if (!ensureAuthenticated()) return;
+    let newLikes;
+    if (recentComments[id] === "Liked" && Number(oldLikes) >= 1) {
+        newLikes = (Number(oldLikes)||0)-1;
+        recentComments[id] = "Unliked";
+    }
+    else {
+        newLikes = (Number(oldLikes)||0)+1;
+        recentComments[id] = "Liked";
+    }
 
     try {
-    	const res = await fetch('https://knowlet.in/.netlify/functions/update-comments', {
-		    method: 'POST',
-		    header: { 'content-type': 'application/json' },
-		    body: JSON.stringify({
-		    	commentId: id,
-		    	action: 'like',
-		    	commentLike: newLikes
-		    })
-		});
+        const res = await fetch('https://knowlet.in/.netlify/functions/update-comments', {
+            method: 'POST',
+            header: { 'content-type': 'application/json' },
+            body: JSON.stringify({
+                commentId: id,
+                action: 'like',
+                commentLike: newLikes
+            })
+        });
 
-		const { error } = await res.json();
+        const { error } = await res.json();
 
         await loadComments();
     } catch(e){ console.error(e) }
@@ -524,43 +524,43 @@ async function likeComment(id, oldLikes){
 async function toggleFavourite() {
     pageFaved = !pageFaved;
     
-	favBtn.classList.toggle("favourited", pageFaved);
+    favBtn.classList.toggle("favourited", pageFaved);
     favBtn.title = pageFaved ? "Remove from Favourites" : "Add to Favourites";
     
     const res = await fetch('https://knowlet.in/.netlify/functions/update-favs', {
-		method: 'POST',
-		header: {
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify({
-			user_id: user.id,
-			page_id: pageId,
-			page_title: document.querySelector('h1').textContent
-		})
-	});
+        method: 'POST',
+        header: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            user_id: user.id,
+            page_id: pageId,
+            page_title: document.querySelector('h1').textContent
+        })
+    });
 
-	const { data, error } = await res.json();
-	pageFaved = data[0].is_fav;
-	
+    const { data, error } = await res.json();
+    pageFaved = data[0].is_fav;
+    
     favBtn.classList.toggle("favourited", pageFaved);
     favBtn.title = pageFaved ? "Remove from Favourites" : "Add to Favourites";
 }
 
 async function renderFavouriteState() {
-	const res = await fetch('https://knowlet.in/.netlify/functions/get-favs', {
-		method: 'POST',
-		header: {
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify({
-			user_id: user.id,
-			page_id: pageId
-		})
-	});
+    const res = await fetch('https://knowlet.in/.netlify/functions/get-favs', {
+        method: 'POST',
+        header: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            user_id: user.id,
+            page_id: pageId
+        })
+    });
 
-	const { data, error } = await res.json();
-	pageFaved = data[0].is_fav;
-	
+    const { data, error } = await res.json();
+    pageFaved = data[0].is_fav;
+    
     favBtn.classList.toggle("favourited", pageFaved);
     favBtn.title = pageFaved ? "Remove from Favourites" : "Add to Favourites";
 }
@@ -600,10 +600,10 @@ function renderNavBar() {
     const match = currentUrl.match(/(\/unit_)(\d+)/i);
     const container = document.querySelector(".container");
 
-	const parts = currentUrl.replace(currentRootUrl, "").replace(".html", "").split("?")[0].split("/");
+    const parts = currentUrl.replace(currentRootUrl, "").replace(".html", "").split("?")[0].split("/");
     
     const parms = `sem=${parts[2]}&sub=${parts[3]}&ppr=${parts[4]}` //`&unit=${parts[5]}`
-	const backUrl = `${currentRootUrl}/${parts[1]}?${parms}`
+    const backUrl = `${currentRootUrl}/${parts[1]}?${parms}`
 
     const topBar = document.createElement("div");
     topBar.className = "unit-top-bar";
@@ -657,10 +657,10 @@ function renderNavBar() {
     // profile     
     const srcUrl = localStorage.getItem('knowletUser') ? JSON.parse(localStorage.getItem('knowletUser')).picture : '/assets/images/demo_pp.jpg';
     const btnProfilePic = `<button id='profile-btn' class="btn ghost" onclick="window.location.href='/profile'">
-    	<img id='profile-btn-img'
-    		style=''
-    		src='${srcUrl}'
-    	/>
+        <img id='profile-btn-img'
+            style=''
+            src='${srcUrl}'
+        />
     </button>`;
     topBar.insertAdjacentHTML('beforeend', btnProfilePic);
     
@@ -675,19 +675,19 @@ function renderNavBar() {
     // trace history
     
     async function updateHistory() {
-    	fetch('https://knowlet.in/.netlify/functions/update-history', {
-    		method: 'POST',
-    		header: {
-    			'Content-Type': 'application/json'
-    		},
-    		body: JSON.stringify({
-    			page_id: pageId,
-    			user_id: user.id,
-    			page_title: document.querySelector('h1').textContent
-    		})
-    	})
-    		.then(res => res.json())
-    		.catch(err => console.error(err));
+        fetch('https://knowlet.in/.netlify/functions/update-history', {
+            method: 'POST',
+            header: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                page_id: pageId,
+                user_id: user.id,
+                page_title: document.querySelector('h1').textContent
+            })
+        })
+            .then(res => res.json())
+            .catch(err => console.error(err));
     }
     if (user.id) { updateHistory() } else { alert('You are not logged in, try to login.') }
 
@@ -812,18 +812,18 @@ function renderFeedbackSection() {
                 <div class="supcard">
                     <h2 id='h3' style="margin-bottom:8px; font-size:16px; margin:0 0 14px; color:69707a;">Ratings</h2>
                     <div class="vertical-scroll">
-						<div id="user-ratings-box"></div>
-						<div id="ratings-box"></div>
-					</div>
+                        <div id="user-ratings-box"></div>
+                        <div id="ratings-box"></div>
+                    </div>
                 </div>
         
                 <!-- Comments list -->
                 <div class="supcard">
                     <h2 id='h3' style="margin-bottom:8px; font-size:16px; margin:0 0 14px; color:69707a;">Comments</h2>
                     <div class="vertical-scroll">
-						<div id="user-comments-box"></div>
-						<div id="comments-box"></div>
-					</div>
+                        <div id="user-comments-box"></div>
+                        <div id="comments-box"></div>
+                    </div>
                 </div>
             </div>
         </div>        

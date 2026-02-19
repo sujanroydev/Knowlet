@@ -25,9 +25,9 @@ profilePic.addEventListener("click", () => {
 
 logoutBtn.addEventListener("click", () => {
     if (confirm("Logout?")) {
-	    localStorage.removeItem("knowletUser");
-	    document.getElementById("profile-btn").src = "assets/images/demo_pp.jpg";
-	    sync();
+        localStorage.removeItem("knowletUser");
+        document.getElementById("profile-btn").src = "assets/images/demo_pp.jpg";
+        sync();
     }
 });
 
@@ -51,66 +51,66 @@ async function sync() {
         // comProfileBtn.style.display = "none";
         return;
     }
-	try {
-	    loader.style.display = "flex";
-	    const oldData = user;
-	    
-	    const res = await fetch(
-	        'https://knowlet.in/.netlify/functions/get-data',
-	        {
-	            method: 'POST',
-	            header: {'Content-Type': 'application/json'},
-	            body: JSON.stringify({ email: user.email, password: user.password })
-	        }
-	    );
-	    
-	    loader.style.display = "none";
-	    
-	    if (!res.ok) {
-	        throw new Error(`HTTP error! status: ${res.status}`);
-	    }
-	
-	    const result = await res.json();
-	
-	    if (!result.success) {
-	        throw new Error(result.error || "Unknown error occurred");
-	    }
-	    
-	    const data = result.data;
-	    const error = result.error;
-	    
-	    if (!data && !error) {
-	        alert("Your account has been deleted");
-	    }
-	    
-	    if (error || !data) {
-	        user = oldData;
-	    } else {
-	        user = data[0];
-	    }
-	    
-	    if (user) {
-	        localStorage.setItem("knowletUser", JSON.stringify(user));
-	        
-	        userName.textContent = user.name;
-	        email.textContent = '' + user.email;
-	        userId.textContent = user.id;
-	        profilePic.src = user.picture || "assets/images/demo_pp.jpg";
-	        
-	        isExist = true;
-	        loginBtn.style.display = "none";
-	        SignupBtn.style.display = "none";
-	        logoutBtn.style.display = "block";
-	    }
-	} catch(e) {
-		console.log(error);
-		alert(error.message);
-	}
+    try {
+        loader.style.display = "flex";
+        const oldData = user;
+        
+        const res = await fetch(
+            'https://knowlet.in/.netlify/functions/get-data',
+            {
+                method: 'POST',
+                header: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ email: user.email, password: user.password })
+            }
+        );
+        
+        loader.style.display = "none";
+        
+        if (!res.ok) {
+            throw new Error(`HTTP error! status: ${res.status}`);
+        }
+    
+        const result = await res.json();
+    
+        if (!result.success) {
+            throw new Error(result.error || "Unknown error occurred");
+        }
+        
+        const data = result.data;
+        const error = result.error;
+        
+        if (!data && !error) {
+            alert("Your account has been deleted");
+        }
+        
+        if (error || !data) {
+            user = oldData;
+        } else {
+            user = data[0];
+        }
+        
+        if (user) {
+            localStorage.setItem("knowletUser", JSON.stringify(user));
+            
+            userName.textContent = user.name;
+            email.textContent = '' + user.email;
+            userId.textContent = user.id;
+            profilePic.src = user.picture || "assets/images/demo_pp.jpg";
+            
+            isExist = true;
+            loginBtn.style.display = "none";
+            SignupBtn.style.display = "none";
+            logoutBtn.style.display = "block";
+        }
+    } catch(e) {
+        console.log(error);
+        alert(error.message);
+    }
 }
 
 async function fetchCommentsLikesAndRatings() {
-	try {
-		const [res1, res2] = await Promise.all([
+    try {
+        const [res1, res2] = await Promise.all([
             fetch('https://knowlet.in/.netlify/functions/get-comments', {
                 method: 'POST',
                 header: {'Content-Type': 'application/json'},
@@ -122,8 +122,8 @@ async function fetchCommentsLikesAndRatings() {
                 body: JSON.stringify({ userId: user.id })
             })
         ]);
-		
-		if (!res1.ok || !res2.ok) {
+        
+        if (!res1.ok || !res2.ok) {
             console.error(`Fetch failed: res1: ${res1.status}, res2: ${res2.status}`);
             return;
         }
@@ -132,58 +132,58 @@ async function fetchCommentsLikesAndRatings() {
             res1.json(),
             res2.json()
         ]);
-		
-		renderRecentActivity(data1, data2);
-		
-		let commentsCount = 0;
-		let totalCommentsLikes = 0;
-		
-		data1.forEach((comments) => {
-			commentsCount += 1;
-			totalCommentsLikes += comments.likes;
-		});
-		
-		stat[0].textContent = totalCommentsLikes;
-		stat[1].textContent = commentsCount;
-		
-	} catch(err) {
-		console.error(err);
-		alert(err.message);
-		renderRecentActivity();
-	}
+        
+        renderRecentActivity(data1, data2);
+        
+        let commentsCount = 0;
+        let totalCommentsLikes = 0;
+        
+        data1.forEach((comments) => {
+            commentsCount += 1;
+            totalCommentsLikes += comments.likes;
+        });
+        
+        stat[0].textContent = totalCommentsLikes;
+        stat[1].textContent = commentsCount;
+        
+    } catch(err) {
+        console.error(err);
+        alert(err.message);
+        renderRecentActivity();
+    }
 }
 
 function renderRecentActivity(comments = [], likesAndRatings = []) {
-	comments = comments.map(obj => {
-		return {
-			state: 'Commented',
-			url: obj.page_id,
-			timeMs: new Date(obj.created_at).getTime()
-		};
-	})
-	
-	likesAndRatings = likesAndRatings.map(obj => {
-		return {
-			state: obj.page_likes ? 'Liked' : obj.page_ratings ? 'Rated' : 'Faved',
-			url: obj.page_id,
-			timeMs: new Date(obj.created_at).getTime()
-		};
-	})
+    comments = comments.map(obj => {
+        return {
+            state: 'Commented',
+            url: obj.page_id,
+            timeMs: new Date(obj.created_at).getTime()
+        };
+    })
+    
+    likesAndRatings = likesAndRatings.map(obj => {
+        return {
+            state: obj.page_likes ? 'Liked' : obj.page_ratings ? 'Rated' : 'Faved',
+            url: obj.page_id,
+            timeMs: new Date(obj.created_at).getTime()
+        };
+    })
 
-	const recentActivities = [...comments, ...likesAndRatings].sort((a, b) => b.timeMs - a.timeMs);
-	
-	let recentActivityItems = '';
+    const recentActivities = [...comments, ...likesAndRatings].sort((a, b) => b.timeMs - a.timeMs);
+    
+    let recentActivityItems = '';
 
-	recentActivities.forEach((item) => {
-		recentActivityItems += `
+    recentActivities.forEach((item) => {
+        recentActivityItems += `
                 <li>
                     ${item.state || 'Visited'} : <span class="example-title">${item.title || generateTitleFromURL(item.url)}</span> - ${item.timeMs ? timeAgo(item.timeMs) : 'Unknown'}<br>
                     <span class="example-heading">${item.heading ? item.heading : ''}</span> <a href="${item.url}">View</a>
                 </li>
-			`;
-	});
+            `;
+    });
 
-	recentActivityView.innerHTML = recentActivityItems;
+    recentActivityView.innerHTML = recentActivityItems;
 }
 
 // helper functions
@@ -228,18 +228,18 @@ function generateTitleFromURL(url) {
 }
 
 function timeAgo(unixMs) {
-	const now = Date.now()
-	const diffMs = now - unixMs
+    const now = Date.now()
+    const diffMs = now - unixMs
 
-	const seconds = Math.floor(diffMs / 1000)
-	const minutes = Math.floor(seconds / 60)
-	const hours = Math.floor(minutes / 60)
-	const days = Math.floor(hours / 24)
+    const seconds = Math.floor(diffMs / 1000)
+    const minutes = Math.floor(seconds / 60)
+    const hours = Math.floor(minutes / 60)
+    const days = Math.floor(hours / 24)
 
-	if (seconds < 60) return `${seconds} seconds ago`
-	if (minutes < 60) return `${minutes} minutes ago`
-	if (hours < 24) return `${hours} hours ago`
-	return `${days} days ago`
+    if (seconds < 60) return `${seconds} seconds ago`
+    if (minutes < 60) return `${minutes} minutes ago`
+    if (hours < 24) return `${hours} hours ago`
+    return `${days} days ago`
 }
 
 sync();

@@ -36,7 +36,7 @@ export default async (request) => {
             .from("avatars")
             .upload(filePath, image, {
                 cacheControl: "3600",
-				upsert: true
+                upsert: true
             });
 
         if (uploadError) {

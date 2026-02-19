@@ -35,50 +35,50 @@ export const handler = async (event) => {
 
     const user = await userRes.json();
 
-	try {
-		const { data, error } = await supabaseClient
-			.from('user')
-			.select('id')
-			.eq('email', user.email)
-		if (error) {
-			return {
-				statusCode: 503,
-				headers: {
-					Location: `https://knowlet.in/response.html?error=${encodeURIComponent(error)}`
-				}
-			}
-		}
-		if (data.length) {
-			try {
-				const { error } = await supabaseClient
-					.from('user')
-					.update({ 'is_verified': user.email_verified, 'verified_at': Date.now()})
-					.eq('email', user.email);
-				if (error) {
-					return {
-						statusCode: 503,
-						headers: {
-							Location: `https://knowlet.in/response.html?error=${encodeURIComponent(error)}`
-						}
-					}
-				}
-			} catch(err) {
-				return {
-					statusCode: 500,
-					headers: {
-						Location: `https://knowlet.in/response.html?error=${encodeURIComponent(err)}`
-					}
-				}
-			}
-		}
-	} catch(err) {
-		return {
-			statusCode: 500,
-			headers: {
-				Location: `https://knowlet.in/response.html?error=${encodeURIComponent(err)}`
-			}
-		}
-	}
+    try {
+        const { data, error } = await supabaseClient
+            .from('user')
+            .select('id')
+            .eq('email', user.email)
+        if (error) {
+            return {
+                statusCode: 503,
+                headers: {
+                    Location: `https://knowlet.in/response.html?error=${encodeURIComponent(error)}`
+                }
+            }
+        }
+        if (data.length) {
+            try {
+                const { error } = await supabaseClient
+                    .from('user')
+                    .update({ 'is_verified': user.email_verified, 'verified_at': Date.now()})
+                    .eq('email', user.email);
+                if (error) {
+                    return {
+                        statusCode: 503,
+                        headers: {
+                            Location: `https://knowlet.in/response.html?error=${encodeURIComponent(error)}`
+                        }
+                    }
+                }
+            } catch(err) {
+                return {
+                    statusCode: 500,
+                    headers: {
+                        Location: `https://knowlet.in/response.html?error=${encodeURIComponent(err)}`
+                    }
+                }
+            }
+        }
+    } catch(err) {
+        return {
+            statusCode: 500,
+            headers: {
+                Location: `https://knowlet.in/response.html?error=${encodeURIComponent(err)}`
+            }
+        }
+    }
 
     return {
         statusCode: 302,

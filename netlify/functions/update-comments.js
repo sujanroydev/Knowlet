@@ -19,58 +19,58 @@ export default async (request) => {
     const allowedActions = ["like", "comment"];
 
     try {
-    	if (!commentId) throw new Error('Comment ID is required');
-		if (!allowedActions.includes(action)) {
-		    return new Response("Invalid action", { status: 400 });
-		}
+        if (!commentId) throw new Error('Comment ID is required');
+        if (!allowedActions.includes(action)) {
+            return new Response("Invalid action", { status: 400 });
+        }
 
-    	if (action === 'like') {
-			const { error } = await supabaseClient
-	            .from('comments')
-	            .update({ likes: commentLike })
-	            .eq('id', commentId);
-	        
-	        if (error) {
-	            return new Response(
-	                JSON.stringify({
-	                    success: false,
-	                    error: error.message
-	                }),
-	                {
-	                    status: 500,
-	                    headers: {
-	                        'Content-Type': 'application/json',
-	                        'Access-Control-Allow-Origin': '*'
-	                    }
-	                }
-	            );
-	        }
-	        
-    	}
-    	if (action === 'comment') {
-    		const { error } = await supabaseClient
-	            .from('comments')
-	            .update({ comment_text: commentMessage })
-	            .eq('id', commentId);
-	        
-	        if (error) {
-	            return new Response(
-	                JSON.stringify({
-	                    success: false,
-	                    error: error.message
-	                }),
-	                {
-	                    status: 500,
-	                    headers: {
-	                        'Content-Type': 'application/json',
-	                        'Access-Control-Allow-Origin': '*'
-	                    }
-	                }
-	            );
-	        }
-	        
-    	}
-    	
+        if (action === 'like') {
+            const { error } = await supabaseClient
+                .from('comments')
+                .update({ likes: commentLike })
+                .eq('id', commentId);
+            
+            if (error) {
+                return new Response(
+                    JSON.stringify({
+                        success: false,
+                        error: error.message
+                    }),
+                    {
+                        status: 500,
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Access-Control-Allow-Origin': '*'
+                        }
+                    }
+                );
+            }
+            
+        }
+        if (action === 'comment') {
+            const { error } = await supabaseClient
+                .from('comments')
+                .update({ comment_text: commentMessage })
+                .eq('id', commentId);
+            
+            if (error) {
+                return new Response(
+                    JSON.stringify({
+                        success: false,
+                        error: error.message
+                    }),
+                    {
+                        status: 500,
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Access-Control-Allow-Origin': '*'
+                        }
+                    }
+                );
+            }
+            
+        }
+        
         return new Response(
             JSON.stringify({
                 success: true

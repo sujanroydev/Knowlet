@@ -18,23 +18,23 @@ export default async (request) => {
     const { user_id, page_id } = await request.json();
 
     try {
-		let error, data;
-		if (!user_id) throw new Error('user_id is mandatory');
-		if (user_id && !page_id) {
-			({ data, error } = await supabaseClient
+        let error, data;
+        if (!user_id) throw new Error('user_id is mandatory');
+        if (user_id && !page_id) {
+            ({ data, error } = await supabaseClient
                 .from('ratings')
                 .select('page_id, page_title, interactions_time')
                 .eq('user_id', user_id)
                 .eq('is_fav', true)
             );
-		} else if (user_id && page_id) {
+        } else if (user_id && page_id) {
             ({ data, error } = await supabaseClient
                 .from('ratings')
                 .select('is_fav, page_title, interactions_time')
                 .eq('user_id', user_id)
                 .eq('page_id', page_id)
             );
-		}
+        }
 
         if (error) {
             return new Response(

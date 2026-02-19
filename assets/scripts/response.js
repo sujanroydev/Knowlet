@@ -8,17 +8,17 @@ const params = new URLSearchParams(window.location.search);
 let isNewUser = true;
 
 if (params.get('error')) {
-	alert('Try to login or signup in manual way.\n\nError: ' + params.get('error'));
-	console.error(params.get('error'));
+    alert('Try to login or signup in manual way.\n\nError: ' + params.get('error'));
+    console.error(params.get('error'));
 }
 
 let user;
 if (params.get("user")) {
-	try {
-		user = JSON.parse(params.get("user"));
-	} catch(e) {
-		console.error(e);
-	}
+    try {
+        user = JSON.parse(params.get("user"));
+    } catch(e) {
+        console.error(e);
+    }
 }
 
 if (!user) {
@@ -51,8 +51,8 @@ setPasswordForm.addEventListener("submit", async (e) => {
     let password = input[2].value;
     
     if (password !== input[3].value) {
-    	alert("Unmatched Password");
-    	return;
+        alert("Unmatched Password");
+        return;
     }
     
     if (!name || !email || !password) {
@@ -60,72 +60,72 @@ setPasswordForm.addEventListener("submit", async (e) => {
         return;
     }
     
-	user = {
-	    name: name,
-	    email: email,
-	    picture: user.picture,
-	    password: password
-	}
+    user = {
+        name: name,
+        email: email,
+        picture: user.picture,
+        password: password
+    }
     
     if (isNewUser) {
-    	// set data
-		let userId = name.split(' ')[0] + "@" + parseInt(Math.random() * 9000 + 1000);
-		
-		user = { id: userId, ...user }
-		
-		try {
-		    const res = await fetch('https://knowlet.in/.netlify/functions/set-data', {
-		    	method: 'POST',
-		    	header: {'content-type': 'application/json'},
-		    	body: JSON.stringify(user)
-		    });
-		    
-		    if (!res.ok) console.error(`Error code ${res.status}`);
-		    
-		    const result = await res.json();
-		    
-		    if (!result.success) {
-		        console.error(`Database error: ${result.error}`);
-		        alert(result.error);
-		        return;
-		    }
-		    
-		    localStorage.setItem("knowletUser", JSON.stringify(user));
-		    document.getElementById("loading").style.display = "none";
-		    alert("Successfully Signed Up\n" + "Note your user ID: " + userId);
-		    redirect();
-		
-		} catch(e) {
-		    console.log(e);
-		}
+        // set data
+        let userId = name.split(' ')[0] + "@" + parseInt(Math.random() * 9000 + 1000);
+        
+        user = { id: userId, ...user }
+        
+        try {
+            const res = await fetch('https://knowlet.in/.netlify/functions/set-data', {
+                method: 'POST',
+                header: {'content-type': 'application/json'},
+                body: JSON.stringify(user)
+            });
+            
+            if (!res.ok) console.error(`Error code ${res.status}`);
+            
+            const result = await res.json();
+            
+            if (!result.success) {
+                console.error(`Database error: ${result.error}`);
+                alert(result.error);
+                return;
+            }
+            
+            localStorage.setItem("knowletUser", JSON.stringify(user));
+            document.getElementById("loading").style.display = "none";
+            alert("Successfully Signed Up\n" + "Note your user ID: " + userId);
+            redirect();
+        
+        } catch(e) {
+            console.log(e);
+        }
 
     } else {
-    	// reset password
-    	try {
-		    const res = await fetch('https://knowlet.in/.netlify/functions/reset-password', {
-		    	method: 'POST',
-		    	header: { 'content-type': 'application/json' },
-		    	body: JSON.stringify(user)
-		    });
+        // reset password
+        try {
+            const res = await fetch('https://knowlet.in/.netlify/functions/reset-password', {
+                method: 'POST',
+                header: { 'content-type': 'application/json' },
+                body: JSON.stringify(user)
+            });
 
-		    if (!res.ok) console.error(`Error status: ${res.status}`);
+            if (!res.ok) console.error(`Error status: ${res.status}`);
 
-			const result = await res.json();
-			
-			if (!result.success) {
-				console.error(`Database error: ${result.error}`);
-				alert(result.error);
-				return;
-			}
+            const result = await res.json();
+            
+            if (!result.success) {
+                console.error(`Database error: ${result.error}`);
+                alert(result.error);
+                return;
+            }
 
-		    localStorage.setItem("knowletUser", JSON.stringify(user));
-		    document.getElementById("loading").style.display = "none";
-		    alert("Password Updated");
-		    redirect();
-		
-		} catch(e) {
-		    console.log(e);
-		}
+            localStorage.setItem("knowletUser", JSON.stringify(user));
+            document.getElementById("loading").style.display = "none";
+            alert("Password Updated");
+            redirect();
+        
+        } catch(e) {
+            console.log(e);
+        }
     }
 
 });
@@ -133,11 +133,11 @@ setPasswordForm.addEventListener("submit", async (e) => {
 async function sync(name, email, picture) {
     
     try {
-		// login if exist
+        // login if exist
         const res = await fetch('https://knowlet.in/.netlify/functions/get-data', {
-        	method: 'POST',
-        	header: { 'content-type': 'application/json' },
-        	body: JSON.stringify({email: email})
+            method: 'POST',
+            header: { 'content-type': 'application/json' },
+            body: JSON.stringify({email: email})
         })
 
         if (!res.ok) console.error(`Error status: ${res.status}`);
@@ -145,9 +145,9 @@ async function sync(name, email, picture) {
         const result = await res.json();
         
         if (!result.success) {
-        	console.error(`Database error: ${result.error}`);
-        	alert(result.error);
-        	return;
+            console.error(`Database error: ${result.error}`);
+            alert(result.error);
+            return;
         }
         
         const data = result.data;

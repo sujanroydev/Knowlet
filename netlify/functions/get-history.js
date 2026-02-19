@@ -18,7 +18,7 @@ export default async (request) => {
     const { user_id } = await request.json();
 
     try {
-		const { data, error } = await supabaseClient
+        const { data, error } = await supabaseClient
             .from('history')
             .select('page_id, page_title, visit_time')
             .eq('user_id', user_id)

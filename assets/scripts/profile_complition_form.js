@@ -110,30 +110,30 @@ async function sync() {
     
     try {
         //new code
-    	loader.style.display = "flex";
-    	
-    	const res = await fetch('https://knowlet.in/.netlify/functions/update-data', {
-    		method: 'POST',
-    		headers: {'Content-Type': 'application/json'},
-    		body: JSON.stringify(user)
-    	});
-    	
-    	loader.style.display = "none";
-    	
-    	if (!res.ok) {
-    		console.error(`Error code: ${res.status}`);
-    	}
-    	
-    	const result = await res.json();
-    	
-    	if (!result.success) {
-    		console.error(`Database error: ${result.error}`);
-    		alert(result.error);
-    	} else {
-    		alert('Successfully Submitted.');
-    		window.location.href = 'profile.html';
-    	}
-    	
+        loader.style.display = "flex";
+        
+        const res = await fetch('https://knowlet.in/.netlify/functions/update-data', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(user)
+        });
+        
+        loader.style.display = "none";
+        
+        if (!res.ok) {
+            console.error(`Error code: ${res.status}`);
+        }
+        
+        const result = await res.json();
+        
+        if (!result.success) {
+            console.error(`Database error: ${result.error}`);
+            alert(result.error);
+        } else {
+            alert('Successfully Submitted.');
+            window.location.href = 'profile.html';
+        }
+        
     } catch(e) {
         console.log(e)
     }
@@ -169,32 +169,32 @@ async function uploadAvatar() {
     const fileName = `${userId.replaceAll("@", "").toLowerCase()}.${fileExt}`;
     const filePath = `users/${fileName}`;
 
-	const formData = new FormData();
-	formData.append("image", compressedFile); // <input type="file">
-	formData.append("filePath", filePath);
+    const formData = new FormData();
+    formData.append("image", compressedFile); // <input type="file">
+    formData.append("filePath", filePath);
 
-	const res = await fetch("https://knowlet.in/.netlify/functions/upload-image", {
-	    method: "POST",
-	    body: formData
-	});
+    const res = await fetch("https://knowlet.in/.netlify/functions/upload-image", {
+        method: "POST",
+        body: formData
+    });
 
-	if (!res.ok) {
-		loader.style.display = "none";
-		console.error(`Error code ${res.status}`);
-		return;
-	}
+    if (!res.ok) {
+        loader.style.display = "none";
+        console.error(`Error code ${res.status}`);
+        return;
+    }
 
-	const result = await res.json();
+    const result = await res.json();
 
-	if (!result.success) {
-		console.log(result.error);
-		alert(error.message);
-		return;
-	};
+    if (!result.success) {
+        console.log(result.error);
+        alert(error.message);
+        return;
+    };
 
-	loader.style.display = "none";
-	editPopup.style.display = "none";
-	profilePic.src = result.publicUrl + "?t=" + Date.now();
+    loader.style.display = "none";
+    editPopup.style.display = "none";
+    profilePic.src = result.publicUrl + "?t=" + Date.now();
 }
 
 function compressWithCanvas(file, quality = 0.7, maxSize = 512) {

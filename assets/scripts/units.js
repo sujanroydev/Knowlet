@@ -7,7 +7,6 @@ renderNavBar();
 renderFeedbackSection();
 
 let selectedRating = 0;        // user's chosen star (1..5)
-let hoverRating = 0;             // hover preview
 
 let btnLike = document.getElementById("btnLike");
 const favBtn = document.getElementById("fav-btn");
@@ -38,9 +37,7 @@ let myLikesAndRatings, myCommenst;
 btnSubmitRating.addEventListener("click", submitRating);
 
 btnClearRating.addEventListener("click", () => {
-    selectedRating=0;
-    hoverRating=0;
-    updateStarVis();
+    updateStarVis(0);
 });
 
 function isLogged() {
@@ -92,41 +89,22 @@ function renderInteractiveStars() {
         span.setAttribute("data-value", i);
         span.innerHTML = STAR_SVG;
         // events
-        span.addEventListener("mouseenter", () => {
-            hoverRating = i;
-            updateStarVis();
-        });
-        span.addEventListener("mouseleave", () => {
-            hoverRating = 0;
-            updateStarVis();
-        });
         span.addEventListener("click", () => {
-            selectedRating = i;
-            updateStarVis();
-        });
-        span.addEventListener("keydown", (e) => {
-            if (e.key === "Enter" || e.key === " ") {
-                selectedRating = i;
-                updateStarVis();
-            }
+            updateStarVis(i);
         });
         container.appendChild(span);
     }
     updateStarVis();
 }
 
-function updateStarVis() {
+function updateStarVis(val = 0) {
+    selectedRating = val;
     const stars = document.querySelectorAll("#star-input .star");
     stars.forEach((el, idx) => {
         const v = idx + 1;
         el.classList.remove("filled", "half", "empty");
-        if (hoverRating > 0) {
-            if (v <= hoverRating) el.classList.add("filled");
-            else el.classList.add("empty");
-        } else {
-            if (v <= selectedRating) el.classList.add("filled");
-            else el.classList.add("empty");
-        }
+        if (v <= selectedRating) el.classList.add("filled");
+        else el.classList.add("empty");
         el.setAttribute("aria-checked", (v === selectedRating).toString());
     });
 
@@ -151,16 +129,10 @@ function isLikedOrRated() {
             btnSubmitRating.textContent = "Submitted";
             
             pageRated = true;
-            selectedRating = r.page_ratings;
-            hoverRating = r.page_ratings;
-            
-            updateStarVis();
+            updateStarVis(r.page_ratings);
         } else {
             btnSubmitRating.textContent = "Submit";
-            
             pageRated = false;
-            selectedRating = r.page_ratings;
-            hoverRating = r.page_ratings;
         }
     }
 }

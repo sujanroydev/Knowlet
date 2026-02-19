@@ -13,7 +13,7 @@ const recentActivityView = document.getElementById("recent-activity-view");
 const stat = document.getElementsByClassName("stat");
 
 let isExist = false;
-let user;
+let user = localStorage.getItem("knowletUser");
 
 profilePic.addEventListener("click", () => {
     if (isExist) {
@@ -25,32 +25,45 @@ profilePic.addEventListener("click", () => {
 
 logoutBtn.addEventListener("click", () => {
     if (confirm("Logout?")) {
-        localStorage.removeItem("knowletUser");
-        document.getElementById("profile-btn").src = "assets/images/demo_pp.jpg";
-        sync();
+        logout();
     }
 });
 
+function logout() {
+    localStorage.removeItem("knowletUser");
+
+    user = null;
+    isExist = false;
+    stat[0].textContent = 0;
+    stat[1].textContent = 0;
+
+    try {
+        document.getElementById("profile-btn").src = "assets/images/demo_pp.jpg";
+    } catch(err) {
+        console.error(err);
+    }
+
+    recentActivityView.innerHTML = `<p class="empty-message">You are Logged Out, Try to login again</p>`;
+
+    userName.textContent = "Your Name";
+    email.textContent = "yourname@example.com";
+    userId.textContent = "User ID";
+    profilePic.src = "assets/images/demo_pp.jpg";
+
+    loginBtn.style.display = "inline-block";
+    SignupBtn.style.display = "inline-block";
+    logoutBtn.style.display = "none";
+}
+
 async function sync() {
-    
-    user = localStorage.getItem("knowletUser");
-    
-    if (user) {
-        user = JSON.parse(user);
-        fetchCommentsLikesAndRatings();
-    } else {
-        userName.textContent = "Your Name";
-        email.textContent = "yourname@example.com";
-        userId.textContent = "User ID";
-        profilePic.src = "assets/images/demo_pp.jpg";
-        
-        isExist = false;
-        loginBtn.style.display = "inline-block";
-        SignupBtn.style.display = "inline-block";
-        logoutBtn.style.display = "none";
-        // comProfileBtn.style.display = "none";
+    if (!user) {
+        recentActivityView.innerHTML = `<p class="empty-message">You are not Logged In, Try to login or Signup and start exploring the unit pages!</p>`;
         return;
     }
+
+    user = JSON.parse(user);
+    fetchCommentsLikesAndRatings();
+
     try {
         loader.style.display = "flex";
         const oldData = user;

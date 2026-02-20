@@ -1,8 +1,8 @@
 [build]
-  functions = "netlify/functions"
+    functions = "netlify/functions"
 
 [dev]
-  publish = ".netlify/functions" # Change this to your build folder (dist, build, etc.) if applicable
+    publish = ".netlify/functions" # Change this to your build folder (dist, build, etc.) if applicable
 
 [build.environment]
-  NODE_VERSION = "24.13.0"
+    NODE_VERSION = "24.13.0"

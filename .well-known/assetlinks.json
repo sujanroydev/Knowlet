@@ -1,12 +1,12 @@
 [
-  {
-    "relation": ["delegate_permission/common.handle_all_urls"],
-    "target": {
-      "namespace": "android_app",
-      "package_name": "com.knowlet.app",
-      "sha256_cert_fingerprints": [
-        "sha256:b068d6cf1ee1a36de8e0543f6baf76fedd9311bf9fe59868e5c80d2c7825b55a"
-      ]
+    {
+        "relation": ["delegate_permission/common.handle_all_urls"],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.knowlet.app",
+            "sha256_cert_fingerprints": [
+                "sha256:b068d6cf1ee1a36de8e0543f6baf76fedd9311bf9fe59868e5c80d2c7825b55a"
+            ]
+        }
     }
-  }
 ]

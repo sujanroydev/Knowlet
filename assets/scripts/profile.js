@@ -17,9 +17,9 @@ let user = localStorage.getItem("knowletUser");
 
 profilePic.addEventListener("click", () => {
     if (isExist) {
-        window.location.href = 'profile_complition_form.html';
+        window.location.href = '/profile_complition_form';
     } else {
-        window.location.href = 'login_signup.html';
+        window.location.href = '/login_signup';
     }
 });
 
@@ -116,8 +116,9 @@ async function sync() {
             logoutBtn.style.display = "block";
         }
     } catch(e) {
-        console.log(error);
-        alert(error.message);
+        console.error(error);
+        loader.style.display = "none";
+        // alert(error.message);
     }
 }
 
@@ -221,6 +222,7 @@ function capitalize(word) {
 
 function generateTitleFromURL(url) {
 
+    if (!url) return `Unknown`;
     let parts = url.replace(".html", "").split("/").slice(3)
 
     let sem = parts[1].split("_").join(" ")

@@ -11,6 +11,10 @@ let notes = {d: "dff"};
 let loader = document.getElementById("loader");
 // JavaScript to read localStorage, populate the list, and calculate the animation width
 
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js');
+}
+
 (function () {
     const scrollContent = document.getElementById('scroll-content');
 

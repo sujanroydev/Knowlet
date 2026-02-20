@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 2rem 3rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            max-width: 400px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ff6b6b;
+        }
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+        a, button {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            font-size: 1rem;
+            text-decoration: none;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        a {
+            background: #4facfe;
+            color: white;
+            margin-right: 10px;
+        }
+        a:hover {
+            background: #00f2fe;
+        }
+        button {
+            background: #ff6b6b;
+            color: white;
+        }
+        button:hover {
+            background: #ff4757;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>😕 Oops!</h1>
+        <p>It looks like you’re offline or the page isn’t available.</p>
+        <p>Please check your internet connection or try again.</p>
+        <div>
+            <a href="/">Go to Home</a>
+            <button onclick="location.reload()">Retry</button>
+        </div>
+    </div>
+</body>
+</html>

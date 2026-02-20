@@ -66,7 +66,6 @@ async function sync() {
 
     try {
         loader.style.display = "flex";
-        const oldData = user;
         
         const res = await fetch(
             'https://knowlet.in/.netlify/functions/get-data',
@@ -83,42 +82,37 @@ async function sync() {
             throw new Error(`HTTP error! status: ${res.status}`);
         }
     
-        const result = await res.json();
+        const { data, error } = await res.json();
     
-        if (!result.success) {
-            throw new Error(result.error || "Unknown error occurred");
-        }
-        
-        const data = result.data;
-        const error = result.error;
-        
         if (!data && !error) {
             alert("Your account has been deleted");
         }
         
-        if (error || !data) {
-            user = oldData;
-        } else {
+        if (!error && data) {
             user = data[0];
         }
         
-        if (user) {
-            localStorage.setItem("knowletUser", JSON.stringify(user));
-            
-            userName.textContent = user.name;
-            email.textContent = '' + user.email;
-            userId.textContent = user.id;
-            profilePic.src = user.picture || "assets/images/demo_pp.jpg";
-            
-            isExist = true;
-            loginBtn.style.display = "none";
-            SignupBtn.style.display = "none";
-            logoutBtn.style.display = "block";
-        }
+        renderUserInfo();
     } catch(e) {
         console.error(e);
+        renderUserInfo();
         loader.style.display = "none";
     }
+}
+
+function renderUserInfo() {
+    if (!user) return;
+    localStorage.setItem("knowletUser", JSON.stringify(user));
+
+    userName.textContent = user.name;
+    email.textContent = '' + user.email;
+    userId.textContent = user.id;
+    profilePic.src = user.picture || "assets/images/demo_pp.jpg";
+
+    isExist = true;
+    loginBtn.style.display = "none";
+    SignupBtn.style.display = "none";
+    logoutBtn.style.display = "block";
 }
 
 async function fetchCommentsLikesAndRatings() {

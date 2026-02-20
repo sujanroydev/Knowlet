@@ -116,9 +116,8 @@ async function sync() {
             logoutBtn.style.display = "block";
         }
     } catch(e) {
-        console.error(error);
+        console.error(e);
         loader.style.display = "none";
-        // alert(error.message);
     }
 }
 
@@ -162,8 +161,7 @@ async function fetchCommentsLikesAndRatings() {
         
     } catch(err) {
         console.error(err);
-        alert(err.message);
-        renderRecentActivity();
+        recentActivityView.innerHTML = `<p class="empty-message">Failed to fetch recent activity</p>`;
     }
 }
 
@@ -197,7 +195,7 @@ function renderRecentActivity(comments = [], likesAndRatings = []) {
             `;
     });
 
-    recentActivityView.innerHTML = recentActivityItems;
+    recentActivityView.innerHTML = recentActivityItems || `<p class="empty-message">No recent activity, visit notes, like, rate or comment </p>`;
 }
 
 // helper functions

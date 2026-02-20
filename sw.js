@@ -3,6 +3,10 @@ const CACHE_NAME = `knowlet-${APP_VERSION}`;
 const STATIC_ASSETS = [
     '/',
     '/offline',
+    '/legal/declaration',
+    '/legal/privacy-policy',
+    '/legal/terms-and-conditions',
+
     '/index',
     '/favourite',
     '/history',
@@ -29,6 +33,9 @@ const STATIC_ASSETS = [
     '/assets/scripts/profile_complition_form.js',
     '/assets/scripts/search.js',
     '/assets/scripts/notes.js',
+
+    '/assets/styles/units.css',
+    '/assets/scripts/units.js',
 
     '/assets/notes.json'
 ];

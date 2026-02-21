@@ -15,6 +15,26 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js');
 }
 
+let deferredPrompt;
+
+window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+
+    document.getElementById("installBtn").style.display = "";
+    document.getElementById("download-btn").style.display = "none";
+});
+
+document.getElementById("installBtn").addEventListener("click", async () => {
+    if (!deferredPrompt) return;
+
+    deferredPrompt.prompt();  // show install popup
+
+    const result = await deferredPrompt.userChoice;
+
+    deferredPrompt = null;
+});
+
 (function () {
     const scrollContent = document.getElementById('scroll-content');
 

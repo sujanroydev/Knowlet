@@ -9,31 +9,34 @@ let indmain = 0;
 
 const currentTitle = ["Semesters", "Subjects", "Papers", "Units"]
 
-// https://knowlet.in/notes?sem=semester_1&sub=mathematics&ppr=dsc_152&unit=unit_1
-const params = new URLSearchParams(window.location.search);
-
-const sem = params.get("sem");
-const sub = params.get("sub");
-const ppr = params.get("ppr");
-const unit = params.get("unit");
-
-// console.log(sem);
-
 fetch("assets/notes.json")
     .then(res => res.json())
     .then(data => {
-        tempNotes[indmain] = data;
-        try {
-            createPage();
-            createRequiredPage(); // Call a function to use the data
-        } catch(e) {
-            console.error(e);
-        }
+        tempNotes[0] = data;
+        history.replaceState(
+            getState(),
+            "",
+            buildURL()
+        );
+
+        createPage();
     })
     .catch(err => {console.error("Failed to load notes.json:", err);})
 
+window.addEventListener("popstate", function (event) {
+    if (!event.state) return;
+
+    indmain = event.state.indmain;
+    prevClicks = event.state.prevClicks;
+
+    createPage();
+});
+
 function createPage(n = "notes") {
     items = "";
+    temp = "";
+    tempNotes[indmain + 1] = [];
+
     let x = 0;
     for (let i in tempNotes[indmain]) {
         let parts = tempNotes[indmain][i].path.split("/");
@@ -55,7 +58,7 @@ function createPage(n = "notes") {
                 } else {
                     tagName = current.replace("_", " ").replace(/\b\w/g, char => char.toUpperCase());
                 }
-                items += `<div class="subject-card" onclick="fn('${current}')"><h4>${tagName}</h4></div>
+                items += `<div class="subject-card" onclick="navigateTo('${current}')"><h4>${tagName}</h4></div>
                     `;
             }
         }
@@ -75,7 +78,7 @@ function createPage(n = "notes") {
     
     for (let i in prevClicks) {
         if (prevClicks[i]) {
-            path += `<button onclick="sw('${prevClicks[i]}')">${prevClicks[i].replace("null/", "")}</button>` + "/";
+            path += `<button onclick="navigateBackTo('${prevClicks[i]}')">${prevClicks[i].replace("null/", "")}</button>` + "/";
         }
     }
     
@@ -100,49 +103,64 @@ function createPage(n = "notes") {
         </footer>
         `;
     }
-    
-function createRequiredPage() {
-    if (sem) {
-        fn(sem);
-        if (sub) {
-            fn(sub);
-            if (ppr) {
-                fn(ppr);
-                if (unit) {
-                    fn(unit);
-                }
-            }
+
+function navigateTo(level) {
+    indmain += 1;
+    prevClicks[indmain] = level;
+
+    history.pushState(
+        getState(),
+        "",
+        buildURL()
+    );
+
+    createPage();
+}
+
+function buildURL() {
+    const keys = ["sem", "sub", "ppr", "unit"];
+    const params = new URLSearchParams();
+
+    for (let i = 1; i < prevClicks.length; i++) {
+        if (prevClicks[i]) {
+            params.set(keys[i - 1], prevClicks[i]);
         }
     }
+
+    return "/notes?" + params.toString();
 }
 
-function fn(n) {
-    indmain += 1;
-    prevClicks[indmain] = n;
-    createPage(n)
-}
-
-function sw(n) {
+function navigateBackTo(level) {
 
     for (let i in prevClicks) {
-        if (n === prevClicks[i]) {
+        if (level === prevClicks[i]) {
             indmain = i - 1;
         }
     }
 
-    for (let i = indmain + 1; i < prevClicks.length; i++) {
-        prevClicks.pop(i);
-    }
-    
-    createPage(prevClicks[indmain]);
+    prevClicks = prevClicks.slice(0, indmain + 1);
+
+    history.pushState(
+        getState(),
+        "",
+        buildURL()
+    );
+
+    createPage();
+}
+
+function getState() {
+    return {
+        indmain,
+        prevClicks: [...prevClicks]
+    };
 }
 
 function goBack() {
     if (indmain === 0) {
-        window.location.href = '/';
+        window.location.href = "/";
         return;
     }
-    prevClicks.pop(indmain);
-    indmain -= 1;
-    createPage(prevClicks[indmain]);
+
+    history.back();
 }

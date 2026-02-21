@@ -31,24 +31,30 @@ if ('serviceWorker' in navigator) {
 
     async function renderScrollingHistory() {
         if (!user) {
-            scrollContent.innerHTML = '<li class="empty-message">You are not Logged In, Try to login or Signup and start exploring the unit pages!</li>';
+            scrollContent.innerHTML = '<div class="empty-message-scroll">You are not Logged In, Try to login or Signup and start exploring the unit pages!</div>';
             return;
         }
-
-        const res = await fetch('https://knowlet.in/.netlify/functions/get-history', {
-            method: 'POST',
-            header: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                user_id: user.id
-            })
-        });
-
-        const { data, error } = await res.json();
+        
+        let data, error
+        try {
+            const res = await fetch('https://knowlet.in/.netlify/functions/get-history', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    user_id: user.id
+                })
+            });
+    
+            ({ data, error } = await res.json());
+        } catch(err) {
+            console.error(err);
+            scrollContent.innerHTML = '<div class="empty-message-scroll">Failed to fetch data</div>';
+        }
 
         if (error) {
-            historyList.innerHTML = '<li class="empty-message">Failed to fetch history, try to refresh the page!</li>';
+            scrollContent.innerHTML = '<div class="empty-message-scroll">Failed to fetch history, try to refresh the page!</div>';
             return;
         } 
 

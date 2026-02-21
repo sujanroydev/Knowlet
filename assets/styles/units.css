@@ -52,6 +52,9 @@
     font-size: 20px;
     transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
 }
+.unit-top-bar #btnLike {
+    width: auto;
+}
 
 .unit-top-bar button:hover,
 .unit-top-bar a:hover {
@@ -101,25 +104,51 @@
 }
 
 /* --- Responsive (mobile-friendly) --- */
+/* Mobile */
 @media (max-width: 600px) {
     .unit-top-bar {
-        justify-content: center;
+        gap: 6px;
         padding: 8px;
-        gap: 8px;
     }
 
     .unit-top-bar button,
     .unit-top-bar a {
-        width: 36px;
-        height: 36px;
-        font-size: 18px;
+        width: 34px;
+        height: 34px;
+        font-size: 16px;
+    }
+
+    #btnLike {
+        font-size: 14px;
+        padding: 0 6px;
     }
 }
 
-    #btnLike{
-        width: auto;
+/* Very Small Screens */
+@media (max-width: 400px) {
+    .unit-top-bar {
+        gap: 4px;
+        padding: 6px;
+    }
+
+    .unit-top-bar button,
+    .unit-top-bar a {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    #btnLike {
+        font-size: 12px;
         padding: 0 4px;
     }
+
+    #profile-btn-img {
+        width: 28px;
+        height: 28px;
+    }
+}
+
 /* --- Page content offset --- */
 .container {
     max-width: 1000px;

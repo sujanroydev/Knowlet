@@ -68,8 +68,19 @@
         <p>Please check your internet connection or try again.</p>
         <div>
             <a href="/">Go to Home</a>
-            <button onclick="location.reload()">Retry</button>
+            <button onclick="backAndRefresh()">Retry</button>
         </div>
     </div>
+    <script>
+        function backAndRefresh() {
+            if (document.referrer) {
+                // Redirects to the previous page's URL, forcing a fresh load
+                window.location.href = document.referrer;
+            } else {
+                // Fallback if there is no history
+                window.history.back();
+            }
+        }
+    </script>
 </body>
 </html>

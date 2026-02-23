@@ -18,7 +18,7 @@ export default async (request) => {
     const { user_id, page_id, page_title, page_ratings, ratings_message } = await request.json();
 
     try {
-        if ( !user_id || !page_id ) throw new Error('missing parameters');
+        if ( !user_id || !page_id || !page_ratings) throw new Error('missing parameters');
 
         const { data, error: err1 } = await supabaseClient
             .from("ratings")
@@ -78,13 +78,13 @@ export default async (request) => {
                 }
             );
         }
-        
+
         return new Response(
             JSON.stringify({
                 success: true,
                 data: [{
-                    page_ratings: data[0]?.page_ratings ?? page_ratings,
-                    ratings_message: data[0]?ratings_message ?? ratings_message
+                    page_ratings: page_ratings || data[0]?.page_ratings,
+                    ratings_message: ratings_message || data[0]?.ratings_message
                 }]
             }),
             {

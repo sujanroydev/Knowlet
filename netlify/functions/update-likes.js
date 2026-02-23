@@ -76,11 +76,11 @@ export default async (request) => {
                 }
             );
         }
-        
+
         return new Response(
             JSON.stringify({
                 success: true,
-                data: [{ page_likes: data.length ? (data[0].page_likes ? 0 : 1) : 1}]
+                data: [{ page_likes: data[0]?.page_likes ? 0 : 1 }]
             }),
             {
                 status: 200,

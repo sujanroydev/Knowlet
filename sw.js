@@ -69,17 +69,24 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
+
+    if (event.request.method !== 'GET') return;
+
     event.respondWith(
         caches.match(event.request).then(cachedResponse => {
 
             // Start network fetch in the background
-            const networkFetch = fetch(event.request)
-                .then(networkResponse => {
+            const networkResponse = fetch(event.request)
+                .then(res => {
+
                     // Update cache with latest response
-                    return caches.open(CACHE_NAME).then(cache => {
-                        cache.put(event.request, networkResponse.clone());
-                        return networkResponse;
-                    });
+                    if ( res && res.status === 200 && event.request.url.startsWith(self.location.origin)) {
+                        caches.open(CACHE_NAME).then(cache => {
+                            cache.put(event.request, res.clone());
+                        });
+                    }
+
+                    return res;
                 })
                 .catch(() => {
                     // If network fails and it's a page navigation, show offline page
@@ -89,7 +96,7 @@ self.addEventListener('fetch', event => {
                 });
 
             // If cached version exists, return it immediately; network fetch updates cache in background
-            return cachedResponse || networkFetch;
+            return cachedResponse || networkResponse;
 
         })
     );

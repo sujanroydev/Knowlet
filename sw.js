@@ -1,8 +1,9 @@
-const APP_VERSION = "1.7.60";
+const APP_VERSION = "1.7.62";
 const CACHE_NAME = `knowlet-${APP_VERSION}`;
 const STATIC_ASSETS = [
     '/',
     '/offline',
+    '/about',
     '/legal/declaration',
     '/legal/privacy-policy',
     '/legal/terms-and-conditions',

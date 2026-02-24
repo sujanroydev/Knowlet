@@ -6,44 +6,114 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <style>
+        * {
+            box-sizing: border-box;
+        }
+    
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f5f7fa;
-            color: #333;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            background: linear-gradient(to bottom right, #eef2f7, #f8fbff);
+            color: #2c3e50;
         }
-
+    
         header {
-            background: #1e88e5;
+            background: linear-gradient(135deg, #1e88e5, #1565c0);
             color: white;
-            padding: 40px 20px;
+            padding: 60px 20px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-
+    
+        header h1 {
+            font-size: 42px;
+            margin: 0 0 10px;
+            letter-spacing: 1px;
+        }
+    
+        header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+    
         section {
-            max-width: 900px;
-            margin: 40px auto;
+            max-width: 950px;
+            margin: 60px auto;
             padding: 0 20px;
         }
-
-        h1, h2 {
+    
+        h2 {
+            font-size: 22px;
             margin-bottom: 15px;
+            color: #1e88e5;
         }
-
+    
         .card {
             background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            margin-bottom: 25px;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.04);
         }
-
+    
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+    
+        ul {
+            padding-left: 20px;
+        }
+    
+        ul li {
+            margin-bottom: 8px;
+        }
+    
         footer {
             text-align: center;
-            padding: 20px;
-            background: #e3eaf2;
+            padding: 25px;
+            background: #eaf1f8;
             font-size: 14px;
+            color: #555;
+            margin-top: 60px;
+        }
+    
+        /* Smooth fade-in animation */
+        .card {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.6s ease forwards;
+        }
+    
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+    
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    
+        /* Responsive */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 30px;
+            }
+    
+            header p {
+                font-size: 15px;
+            }
+    
+            .card {
+                padding: 22px;
+            }
         }
     </style>
 </head>
@@ -64,11 +134,14 @@
                 web technologies.
             </p>
         </div>
-
         <div class="card">
             <h2>When Was It Developed?</h2>
             <p>
-                Knowlet was developed in 2026 as a personal academic project.
+                Knowlet was developed between <strong>September and October 2025</strong> as a personal project,
+                and it was officially released on 
+                <time datetime="2025-12-05"><strong>5 December 2025 (Friday)</strong></time> 
+                with the domain 
+                <a href="https://knowlet.in" target="_blank"><strong>knowlet.in</strong></a>.
                 It was built with the goal of creating a lightweight and installable
                 web application that works smoothly even on low-resource devices.
             </p>
@@ -77,26 +150,37 @@
         <div class="card">
             <h2>Why Was It Developed?</h2>
             <p>
-                Many students struggle with scattered notes, slow websites,
-                and apps that require constant internet access. Knowlet was
-                created to solve these problems by offering:
+                Many college students struggle with scattered notes, notes from
+                different sources, and websites that require constant internet access.
+                Knowlet was created to solve these problems by offering:
             </p>
             <ul>
-                <li>Fast loading experience</li>
-                <li>Offline support</li>
-                <li>Simple navigation</li>
-                <li>Organized semester and subject structure</li>
-                <li>Minimal and distraction-free design</li>
+                <li><strong>Managed notes like a digital library</strong></li>
+                <li><strong>Fast loading experience</strong></li>
+                <li><strong>Offline support</strong></li>
+                <li><strong>Simple navigation</strong></li>
+                <li><strong>Organized semester and subject structure</strong></li>
+                <li><strong>Minimal and distraction-free design</strong></li>
+                <li><strong>Separate favourite notes section</strong></li>
             </ul>
         </div>
 
         <div class="card">
             <h2>Who Developed It?</h2>
             <p>
-                Knowlet was developed by an independent student developer
+                Knowlet was developed by 
+                <strong>Sujan Roy</strong>, an independent student developer 
                 passionate about building efficient web applications.
-                The platform was built using HTML, CSS, JavaScript,
-                and Progressive Web App technologies.
+                The platform was built using 
+                <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, 
+                and <strong>Progressive Web App (PWA)</strong> technologies.
+            </p>
+            <p>
+                Learn more about the developer:
+                <br>
+                🔗 <a href="https://sujanroy.in" target="_blank">Portfolio</a>
+                🔗 <a href="https://github.com/SKR0411" target="_blank">GitHub</a>
+                🔗 <a href="https://www.linkedin.com/in/skr0411" target="_blank">LinkedIn</a>
             </p>
         </div>
     </section>

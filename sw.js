@@ -1,4 +1,4 @@
-const APP_VERSION = "1.7.62";
+const APP_VERSION = "1.7.64";
 const CACHE_NAME = `knowlet-${APP_VERSION}`;
 const STATIC_ASSETS = [
     '/',

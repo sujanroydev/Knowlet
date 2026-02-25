@@ -1,5 +1,5 @@
 const pageId = (window.location.href + '').replace('.html', '').replace(window.location.origin, 'https://knowlet.in');
-
+const pageTitle = document.querySelector('h1').textContent;
 let user = JSON.parse(localStorage.getItem("knowletUser"));
 
 // Create UI on load
@@ -7,11 +7,13 @@ renderNavBar();
 renderFeedbackSection();
 
 let selectedRating = 0;        // user's chosen star (1..5)
+let ratingMessage = '';
 
 let btnLike = document.getElementById("btnLike");
 const favBtn = document.getElementById("fav-btn");
 const topBar = document.getElementsByClassName("unit-top-bar")[0];
 const ratingsBox = document.getElementById("ratings-box");
+const ratingMsgInput = document.getElementById("rating-message");
 const commentsBox = document.getElementById("comments-box");
 const btnPostComment = document.getElementById("btn-post-comment");
 const btnSubmitRating = document.getElementById("btn-submit-rating");
@@ -33,6 +35,7 @@ const STAR_SVG = `
 
 let likesAndRatings, comments;
 let myLikesAndRatings, myCommenst;
+let pageState;
 
 btnSubmitRating.addEventListener("click", submitRating);
 
@@ -46,6 +49,52 @@ function isLogged() {
             window.location.href = "../../../../login_signup.html";
         }, 60000);
     } 
+}
+
+// Load page state
+async function loadPageState() {
+    try {
+        const res = await fetch('https://knowlet.in/.netlify/functions/get-likes-ratings', {
+            method: 'POST',
+            header: { 'content-type': 'application/json' },
+            body: JSON.stringify({
+                userId: user.id,
+                pageId: pageId
+            })
+        });
+        
+        if (!res.ok) throw new Error(`Error status: ${res.status}`);
+        
+        const { data, error } = await res.json();
+        console.log(data || error)
+        if (!data.length) return;
+
+        pageState = data[0];
+        renderPageState();
+    } catch(error) {
+        console.error(error);
+    }
+}
+
+// render likes (liked or not), ratings, ratings message and fav state
+function renderPageState() {
+    pageLiked = pageState.page_likes ? true : false;
+    pageFaved = pageState.is_fav ? true : false;
+
+    ratingMessage = pageState.ratings_message;
+    selectedRating = pageState.page_ratings;
+
+    pageRated = (selectedRating || ratingMessage) ? true : false;
+
+    btnLike.textContent = pageLiked ? "👍 0" : "👍🏼 0";
+
+    favBtn.classList.toggle("favourited", pageFaved);
+    favBtn.title = pageFaved ? "Remove from Favourites" : "Add to Favourites";
+
+    ratingMsgInput.value = ratingMessage;
+    btnSubmitRating.textContent = pageRated ? 'Update' : 'Submit';
+    if (selectedRating) updateStarVis(selectedRating);
+    console.log(selectedRating);
 }
 
 // Average star visual (fractional filling)
@@ -272,106 +321,63 @@ async function submitRating() {
         return;
     }
     
-    const msg = document.getElementById("rating-message").value.trim();
+    ratingMessage = ratingMsgInput.value.trim();
     try {
-        r = myLikesAndRatings
-        if (r) {
-            const res = await fetch('https://knowlet.in/.netlify/functions/update-likes-ratings', {
-                method: 'POST',
-                header: { 'content-type': 'application/json' },
-                body: JSON.stringify({
-                    pageId,
-                    userId: user.id,
-                    action: 'rate',
-                    pageRatingsScore: selectedRating,
-                    pageReview: msg
-                })
-            });
+        btnSubmitRating.textContent = pageRated ? "Updating..." : "Submitting...";
 
-            const { error } = await res.json();
+        const res = await fetch('https://knowlet.in/.netlify/functions/update-interactions?action=ratings', {
+            method: 'POST',
+            header: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                user_id: user.id,
+                page_id: pageId,
+                page_title: pageTitle,
+                page_ratings: selectedRating,
+                ratings_message: ratingMessage
+            })
+        });
 
-            if (error) {
-                console.error(error);
-                alert("Error submitting rating");
-                return;
-            }
-            btnSubmitRating.textContent = "Updated";
-        } else {
-            const res = await fetch('https://knowlet.in/.netlify/functions/set-likes-ratings', {
-                method: 'POST',
-                header: { 'content-type': 'application/json' },
-                body: JSON.stringify({
-                    pageId,
-                    userId: user.id,
-                    action: 'rate',
-                    pageRatingsScore: selectedRating,
-                    pageReview: msg
-                })
-            });
-            const { error } = await res.json();
-            if (error) {
-                console.error(error);
-                alert("Error submitting rating");
-                return;
-            }
-            btnSubmitRating.textContent = "Submitted";
-        }
-        updateStarVis();
-        document.getElementById("rating-message").value = "";
-        await loadLikesAndRatings();
+        const { data, error } = await res.json();
+
+        if (error) throw new Error('Error fetching ratings');
+
+        console.log(data);
+        pageRated = (data[0].page_ratings || data[0].ratings_message) ? true : false;
+
+        btnSubmitRating.textContent = pageRated ? "Updated" : "Submitted";
     } catch (e) {
         console.error(e);
+        btnSubmitRating.textContent = pageRated ? "Update" : "Submit";
     }
 }
 
 async function likePage(oldLikes){
     if (!ensureAuthenticated()) return;
     try {
-        if (myLikesAndRatings) {
-            if (myLikesAndRatings.page_likes) {
-                btnLike.textContent = "👍🏼 " + (totalLikes - 1);
-            } else {
-                btnLike.textContent = "👍 " + (totalLikes + 1);
-            }
-            const res = await fetch('https://knowlet.in/.netlify/functions/update-likes-ratings', {
-                method: 'POST',
-                header: { 'content-type': 'application/json' },
-                body: JSON.stringify({
-                    pageId,
-                    userId: user.id,
-                    action: 'like',
-                    pageLiked: !pageLiked
-                })
-            });
+        btnLike.textContent =  pageLiked ? "👍🏼" + (totalLikes - 1) : "👍" + (totalLikes + 1);
 
-            const { error } = await res.json();
+        const res = await fetch('https://knowlet.in/.netlify/functions/update-interactions?action=likes', {
+            method: 'POST',
+            header: { 'content-type': 'application/json' },
+            body: JSON.stringify({
+                page_id: pageId,
+                user_id: user.id,
+                page_title: pageTitle
+            })
+        });
 
-            if (error) {
-                console.error(error);
-                alert("Error updating likes");
-            }
-        } else {
-            btnLike.textContent = "👍 " + (totalLikes + 1);
-            const res = await fetch('https://knowlet.in/.netlify/functions/set-likes-ratings', {
-                method: 'POST',
-                header: { 'content-type': 'application/json' },
-                body: JSON.stringify({
-                    pageId,
-                    userId: user.id,
-                    action: 'like'
-                })
-            });
-            const { error } = await res.json();
-            if (error) {
-                console.error(error);
-                alert("Error submitting Like");
-                return;
-            }
-        }
-        await loadLikesAndRatings();
+        const { data, error } = await res.json();
+
+        if (error) throw new Error('Error fetching likes');
+
+        console.log(data);
+        pageLiked = data[0].page_likes ? true : false;
+
     } catch(e){
-        console.error(e)
-        alert(e)
+        console.error(e);
+        btnLike.textContent =  !pageLiked ? "👍🏼" + totalLikes : "👍" + totalLikes;
     }
 }
 
@@ -527,7 +533,7 @@ async function toggleFavourite() {
     favBtn.classList.toggle("favourited", pageFaved);
     favBtn.title = pageFaved ? "Remove from Favourites" : "Add to Favourites";
     
-    const res = await fetch('https://knowlet.in/.netlify/functions/update-favs', {
+    const res = await fetch('https://knowlet.in/.netlify/functions/update-interactions?action=favs', {
         method: 'POST',
         header: {
             'Content-Type': 'application/json'
@@ -535,31 +541,13 @@ async function toggleFavourite() {
         body: JSON.stringify({
             user_id: user.id,
             page_id: pageId,
-            page_title: document.querySelector('h1').textContent
+            page_title: pageTitle
         })
     });
 
     const { data, error } = await res.json();
     pageFaved = data[0].is_fav;
-    
-    favBtn.classList.toggle("favourited", pageFaved);
-    favBtn.title = pageFaved ? "Remove from Favourites" : "Add to Favourites";
-}
-
-async function renderFavouriteState() {
-    const res = await fetch('https://knowlet.in/.netlify/functions/get-favs', {
-        method: 'POST',
-        header: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            user_id: user.id,
-            page_id: pageId
-        })
-    });
-
-    const { data, error } = await res.json();
-    pageFaved = data[0].is_fav;
+    console.log(data)
     
     favBtn.classList.toggle("favourited", pageFaved);
     favBtn.title = pageFaved ? "Remove from Favourites" : "Add to Favourites";
@@ -683,7 +671,7 @@ function renderNavBar() {
             body: JSON.stringify({
                 page_id: pageId,
                 user_id: user.id,
-                page_title: document.querySelector('h1').textContent
+                page_title: pageTitle
             })
         })
             .then(res => res.json())
@@ -900,6 +888,6 @@ isLogged();
 renderInteractiveStars();
 
 // initial loads
-loadLikesAndRatings();
-renderFavouriteState();
+loadPageState();
+// loadLikesAndRatings();
 loadComments();

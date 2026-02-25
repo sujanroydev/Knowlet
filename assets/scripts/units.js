@@ -231,7 +231,7 @@ async function loadLikesAndRatings(){
             totalRatingsCount += 1;
             totalRatingsValue += r.page_ratings;
 
-            const div = generateRatingItem(r.user.picture, r.user.name, r.created_at, r.page_ratings, r.ratings_message)
+            const div = generateRatingItem(r.user.picture, r.user.name, r.interactions_time?.rated_at || r.created_at, r.page_ratings, r.ratings_message)
 
             // show list
             if (!totalRatingsCount) {
@@ -330,6 +330,10 @@ async function submitRating() {
         document.getElementById("avg-number").textContent = totalRatingsCount ? avg.toFixed(2) + " / 5" : "—";
         document.getElementById("total-count").textContent = `${totalRatingsCount} rating${totalRatingsCount !== 1 ? "s" : ""}`;
         renderAverageStars(avg);
+
+        const div = generateRatingItem(user.picture, user.name, data[0].interactions_time.rated_at, ratingValue, ratingMessage);
+        document.getElementById("user-ratings-box").innerHTML = '';
+        document.getElementById("user-ratings-box").appendChild(div);
     } catch (e) {
         console.error(e);
         btnSubmitRating.textContent = pageRated ? "Update" : "Submit";

@@ -6,11 +6,8 @@ let user = JSON.parse(localStorage.getItem("knowletUser"));
 renderNavBar();
 renderFeedbackSection();
 
-let selectedRating = 0;        // user's chosen star (1..5)
-let ratingMessage = '';
-
-let likeIcon = document.getElementById("like-icon");
-let totalLikesD = document.getElementById("total-likes");
+const likeIcon = document.getElementById("like-icon");
+const totalLikesD = document.getElementById("total-likes");
 const favBtn = document.getElementById("fav-btn");
 const topBar = document.getElementsByClassName("unit-top-bar")[0];
 const ratingsBox = document.getElementById("ratings-box");
@@ -20,9 +17,15 @@ const btnPostComment = document.getElementById("btn-post-comment");
 const btnSubmitRating = document.getElementById("btn-submit-rating");
 const btnClearRating = document.getElementById("clear-rating");
 
+let selectedRating = 0;
+
+let ratingValue = 0;
+let ratingMessage = '';
+
 let pageLiked = false;
 let pageRated = false;
 let pageFaved = false;
+
 let commentsHidden = true;
 let ratingsHidden = true;
 let recentComments = {};
@@ -84,9 +87,9 @@ function renderPageState() {
     pageFaved = pageState.is_fav ? true : false;
 
     ratingMessage = pageState.ratings_message;
-    selectedRating = pageState.page_ratings;
+    ratingValue = pageState.page_ratings;
 
-    pageRated = (selectedRating || ratingMessage) ? true : false;
+    pageRated = (ratingValue || ratingMessage) ? true : false;
 
     likeIcon.textContent = pageLiked ? "👍" : "👍🏼";
 
@@ -96,7 +99,7 @@ function renderPageState() {
     ratingMsgInput.value = ratingMessage;
     btnSubmitRating.textContent = pageRated ? 'Update' : 'Submit';
 
-    if (selectedRating) updateStarVis(selectedRating);
+    if (ratingValue) updateStarVis(ratingValue);
 }
 
 // Average star visual (fractional filling)
@@ -146,7 +149,7 @@ function renderInteractiveStars() {
         });
         container.appendChild(span);
     }
-    updateStarVis();
+    updateStarVis(0);
 }
 
 function updateStarVis(val = 0) {
@@ -312,6 +315,16 @@ async function submitRating() {
         btnSubmitRating.textContent = pageRated ? "Updated" : "Submitted";
 
         pageRated = (data[0].page_ratings || data[0].ratings_message) ? true : false;
+
+        totalRatingsValue = totalRatingsValue - (pageRated ? ratingValue : 0) + selectedRating;
+        totalRatingsCount = totalRatingsCount + (pageRated ? 0 : 1);
+        ratingValue = selectedRating;
+
+        const avg = totalRatingsValue / totalRatingsCount;
+
+        document.getElementById("avg-number").textContent = totalRatingsCount ? avg.toFixed(2) + " / 5" : "—";
+        document.getElementById("total-count").textContent = `${totalRatingsCount} rating${totalRatingsCount !== 1 ? "s" : ""}`;
+        renderAverageStars(avg);
     } catch (e) {
         console.error(e);
         btnSubmitRating.textContent = pageRated ? "Update" : "Submit";

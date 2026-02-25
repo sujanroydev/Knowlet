@@ -37,7 +37,6 @@ const STAR_SVG = `
     </svg>`;
 
 let likesAndRatings, comments;
-let myLikesAndRatings, myCommenst;
 let pageState;
 
 btnSubmitRating.addEventListener("click", submitRating);
@@ -69,7 +68,7 @@ async function loadPageState() {
         if (!res.ok) throw new Error(`Error status: ${res.status}`);
         
         const { data, error } = await res.json();
-        console.log(data || error)
+
         if (!data.length) return;
 
         pageState = data[0];
@@ -96,8 +95,8 @@ function renderPageState() {
 
     ratingMsgInput.value = ratingMessage;
     btnSubmitRating.textContent = pageRated ? 'Update' : 'Submit';
+
     if (selectedRating) updateStarVis(selectedRating);
-    console.log(selectedRating);
 }
 
 // Average star visual (fractional filling)
@@ -225,14 +224,6 @@ async function loadLikesAndRatings(){
 
         data.forEach(r => {
             totalLikes += r.page_likes ? 1 : 0;
-            if (r.user.id === (user ? user.id : null)) {
-                myLikesAndRatings = r;
-            }
-            
-            if (!r.page_ratings) {
-                box.innerHTML = `<div class="muted">No ratings yet</div>`
-                return;
-            };
 
             totalRatingsCount += 1;
             totalRatingsValue += r.page_ratings;
@@ -318,10 +309,9 @@ async function submitRating() {
 
         if (error) throw new Error('Error fetching ratings');
 
-        console.log(data);
-        pageRated = (data[0].page_ratings || data[0].ratings_message) ? true : false;
-
         btnSubmitRating.textContent = pageRated ? "Updated" : "Submitted";
+
+        pageRated = (data[0].page_ratings || data[0].ratings_message) ? true : false;
     } catch (e) {
         console.error(e);
         btnSubmitRating.textContent = pageRated ? "Update" : "Submit";
@@ -347,8 +337,8 @@ async function likePage(){
 
         if (error) throw new Error('Error fetching likes');
 
-        console.log(data);
         totalLikesD.textContent = pageLiked ? totalLikes - 1 : totalLikes + 1;
+
         pageLiked = data[0].page_likes ? true : false;
 
     } catch(e){

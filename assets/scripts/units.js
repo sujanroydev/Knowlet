@@ -230,35 +230,9 @@ async function loadLikesAndRatings(){
 
             totalRatingsCount += 1;
             totalRatingsValue += r.page_ratings;
-            
-            const div = document.createElement("div");
-            div.className = "rating-item";
-            div.innerHTML = `
-                <div class="rating-row">
-                    <!-- User info -->
-                    <div class="user-info">
-                        <img 
-                            src="${r.user.picture || '/assets/images/demo_pp.png'}" 
-                            alt="${escapeHtml(r.user.name)}" 
-                            class="avatar"
-                        />
-                        <div>
-                            <div class="user-name">${escapeHtml(r.user.name)}</div>
-                            <div class="meta">${new Date(r.created_at).toLocaleString()}</div>
-                        </div>
-                    </div>
-            
-                    <!-- Rating + message -->
-                    <div class="rating-content">
-                        ${getRenderedStars(r.page_ratings)}
-                        <!--<strong class="rating-score">${r.page_ratings} / 5</strong>-->
-                        <div class="rating-message">
-                            ${escapeHtml(r.ratings_message || "")}
-                        </div>
-                    </div>
-                </div>
-            `;
-        
+
+            const div = generateRatingItem(r.user.picture, r.user.name, r.created_at, r.page_ratings, r.ratings_message)
+
             // show list
             if (!totalRatingsCount) {
                 box.innerHTML = `<div class="muted">No ratings yet</div>`;
@@ -281,6 +255,37 @@ async function loadLikesAndRatings(){
     } catch (e) {
         console.error(e);
     }
+}
+
+function generateRatingItem(pic, name, date, ratings, message) {
+    const div = document.createElement("div");
+    div.className = "rating-item";
+    div.innerHTML = `
+        <div class="rating-row">
+            <!-- User info -->
+            <div class="user-info">
+                <img
+                    src="${pic || '/assets/images/demo_pp.png'}"
+                    alt="${escapeHtml(name)}"
+                    class="avatar"
+                />
+                <div>
+                    <div class="user-name">${escapeHtml(name)}</div>
+                    <div class="meta">${new Date(date).toLocaleString()}</div>
+                </div>
+            </div>
+
+            <!-- Rating + message -->
+            <div class="rating-content">
+                ${getRenderedStars(ratings)}
+                <!--<strong class="rating-score">${ratings} / 5</strong>-->
+                <div class="rating-message">
+                    ${escapeHtml(message || "")}
+                </div>
+            </div>
+        </div>
+    `;
+    return div;
 }
 
 async function submitRating() {

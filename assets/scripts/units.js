@@ -27,6 +27,8 @@ let ratingsHidden = true;
 let recentComments = {};
 
 let totalLikes = 0;
+let totalRatingsCount = 0;
+let totalRatingsValue = 0;
 
 const STAR_SVG = `
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -237,8 +239,8 @@ async function loadLikesAndRatings(){
             return;
         }
 
-        let count = 0;
-        let sum = 0;
+        totalRatingsCount = 0;
+        totalRatingsValue = 0;
         totalLikes = 0;
         
         likesAndRatings = data;  // store likes and ratings for feature use
@@ -254,8 +256,8 @@ async function loadLikesAndRatings(){
                 return;
             };
 
-            count += 1;
-            sum += r.page_ratings;
+            totalRatingsCount += 1;
+            totalRatingsValue += r.page_ratings;
             
             const div = document.createElement("div");
             div.className = "rating-item";
@@ -286,7 +288,7 @@ async function loadLikesAndRatings(){
             `;
         
             // show list
-            if (!count) {
+            if (!totalRatingsCount) {
                 box.innerHTML = `<div class="muted">No ratings yet</div>`;
                 return;
             }
@@ -297,11 +299,11 @@ async function loadLikesAndRatings(){
             }
         });
         
-        const avg = count ? (sum / count) : 0;
+        const avg = totalRatingsCount ? (totalRatingsValue / totalRatingsCount) : 0;
         
         // update average UI
-        document.getElementById("avg-number").textContent = count ? avg.toFixed(2) + " / 5" : "—";
-        document.getElementById("total-count").textContent = `${count} rating${count !== 1 ? "s" : ""}`;
+        document.getElementById("avg-number").textContent = totalRatingsCount ? avg.toFixed(2) + " / 5" : "—";
+        document.getElementById("total-count").textContent = `${totalRatingsCount} rating${totalRatingsCount !== 1 ? "s" : ""}`;
         renderAverageStars(avg);
         
         btnLike.remove()
@@ -889,5 +891,5 @@ renderInteractiveStars();
 
 // initial loads
 loadPageState();
-// loadLikesAndRatings();
+loadLikesAndRatings();
 loadComments();

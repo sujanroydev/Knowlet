@@ -9,7 +9,8 @@ renderFeedbackSection();
 let selectedRating = 0;        // user's chosen star (1..5)
 let ratingMessage = '';
 
-let btnLike = document.getElementById("btnLike");
+let likeIcon = document.getElementById("like-icon");
+let totalLikesD = document.getElementById("total-likes");
 const favBtn = document.getElementById("fav-btn");
 const topBar = document.getElementsByClassName("unit-top-bar")[0];
 const ratingsBox = document.getElementById("ratings-box");
@@ -88,7 +89,7 @@ function renderPageState() {
 
     pageRated = (selectedRating || ratingMessage) ? true : false;
 
-    btnLike.textContent = pageLiked ? "👍 0" : "👍🏼 0";
+    likeIcon.textContent = pageLiked ? "👍" : "👍🏼";
 
     favBtn.classList.toggle("favourited", pageFaved);
     favBtn.title = pageFaved ? "Remove from Favourites" : "Add to Favourites";
@@ -188,29 +189,6 @@ function getRenderedStars(val) {
 
 // Is Liked Or Rated
 
-function isLikedOrRated() {
-    r = myLikesAndRatings;
-    
-    if (r) {
-        if (r.page_likes) {
-            pageLiked = true;
-            btnLike.textContent = "👍 " + totalLikes;
-        } else {
-            pageLiked = false;
-            btnLike.textContent = "👍🏼 " + totalLikes
-        }
-        if (r.page_ratings) {
-            btnSubmitRating.textContent = "Submitted";
-            
-            pageRated = true;
-            updateStarVis(r.page_ratings);
-        } else {
-            btnSubmitRating.textContent = "Submit";
-            pageRated = false;
-        }
-    }
-}
-
 async function loadLikesAndRatings(){
     try {
         const res = await fetch('https://knowlet.in/.netlify/functions/get-likes-ratings', {
@@ -305,12 +283,7 @@ async function loadLikesAndRatings(){
         document.getElementById("avg-number").textContent = totalRatingsCount ? avg.toFixed(2) + " / 5" : "—";
         document.getElementById("total-count").textContent = `${totalRatingsCount} rating${totalRatingsCount !== 1 ? "s" : ""}`;
         renderAverageStars(avg);
-        
-        btnLike.remove()
-        const btnLikeHtml = `<button id="btnLike" class="btn ghost" onclick="likePage(${totalLikes})">👍🏼 ${totalLikes}</button>`
-        topBar.insertAdjacentHTML('beforeend', btnLikeHtml)
-        btnLike = document.getElementById("btnLike");
-        isLikedOrRated()
+        totalLikesD.textContent = totalLikes;
     } catch (e) {
         console.error(e);
     }
@@ -355,10 +328,10 @@ async function submitRating() {
     }
 }
 
-async function likePage(oldLikes){
+async function likePage(){
     if (!ensureAuthenticated()) return;
     try {
-        btnLike.textContent =  pageLiked ? "👍🏼" + (totalLikes - 1) : "👍" + (totalLikes + 1);
+        likeIcon.textContent =  pageLiked ? "👍🏼" : "👍";
 
         const res = await fetch('https://knowlet.in/.netlify/functions/update-interactions?action=likes', {
             method: 'POST',
@@ -375,11 +348,12 @@ async function likePage(oldLikes){
         if (error) throw new Error('Error fetching likes');
 
         console.log(data);
+        totalLikesD.textContent = pageLiked ? totalLikes - 1 : totalLikes + 1;
         pageLiked = data[0].page_likes ? true : false;
 
     } catch(e){
         console.error(e);
-        btnLike.textContent =  !pageLiked ? "👍🏼" + totalLikes : "👍" + totalLikes;
+        likeIcon.textContent =  !pageLiked ? "👍🏼" : "👍";
     }
 }
 
@@ -692,8 +666,8 @@ function renderNavBar() {
     topBar.insertAdjacentHTML('beforeend', btnDownload);
 
     // --- 6. Like Button 
-    const btnLike = `<button id="btnLike" class="btn ghost" onclick="likePage(0)">👍🏼 0</button>`
-    topBar.insertAdjacentHTML('beforeend', btnLike);
+    const btnLikeHTML = `<button id="btnLike" class="btn ghost" onclick="likePage()"><span id="like-icon">👍🏼</span> <span id="total-likes">0</span></button>`
+    topBar.insertAdjacentHTML('beforeend', btnLikeHTML);
     
     // --- Functions 
 

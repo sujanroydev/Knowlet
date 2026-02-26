@@ -36,37 +36,37 @@
     <h3>Question 1</h3>
     <span class="marks">[2 Marks]</span>
     <p><strong>Define discrete random variable with examples. State two properties of random variable.</strong></p>
-    [span_0](start_span)<p>A random variable is discrete if it can take only a finite or countably infinite number of distinct values[span_0](end_span). [span_1](start_span)Examples: Number of heads in 10 tosses of a coin, number of students in a class[span_1](end_span). 
-    <strong>Properties:</strong> 1. P(x_i) &ge; 0 for all i. 2. &Sigma; [span_2](start_span)P(x_i) = 1[span_2](end_span).</p>
+    <span id="span_0"><p>A random variable is discrete if it can take only a finite or countably infinite number of distinct values</span>. <span id="span_1">Examples: Number of heads in 10 tosses of a coin, number of students in a class</span>. 
+    <strong>Properties:</strong> 1. P(x_i) &ge; 0 for all i. 2. &Sigma; <span id="span_2">P(x_i) = 1</span>.</p>
 
     <h3>Question 4</h3>
     <span class="marks">[2 Marks]</span>
     <p><strong>Show that for a random variable X, E(X²) &ge; {E(X)}².</strong></p>
-    [span_3](start_span)<p>We know that Variance V(X) = E(X²) - {E(X)}²[span_3](end_span). Since Variance is always non-negative (V(X) &ge; 0), it follows that E(X²) - {E(X)}² &ge; 0, hence E(X²) &ge; [span_4](start_span){E(X)}²[span_4](end_span).</p>
+    <span id="span_3"><p>We know that Variance V(X) = E(X²) - {E(X)}²</span>. Since Variance is always non-negative (V(X) &ge; 0), it follows that E(X²) - {E(X)}² &ge; 0, hence E(X²) &ge; <span id="span_4">{E(X)}²</span>.</p>
 
     <h3>Question 6</h3>
     <span class="marks">[2 Marks]</span>
     <p><strong>Define mathematical expectation of discrete and continuous random variable. Prove E(aX + b) = aE(X) + b.</strong></p>
-    <p><strong>Expectation:</strong> For discrete X, E(X) = &Sigma; x P(x). [span_5](start_span)For continuous X, E(X) = &int; x f(x) dx[span_5](end_span). 
-    <strong>Proof:</strong> E(aX + b) = &int; (ax + b) f(x) dx = a &int; x f(x) dx + b &int; f(x) dx. [span_6](start_span)Since &int; f(x) dx = 1, we get aE(X) + b[span_6](end_span).</p>
+    <p><strong>Expectation:</strong> For discrete X, E(X) = &Sigma; x P(x). <span id="span_5">For continuous X, E(X) = &int; x f(x) dx</span>. 
+    <strong>Proof:</strong> E(aX + b) = &int; (ax + b) f(x) dx = a &int; x f(x) dx + b &int; f(x) dx. <span id="span_6">Since &int; f(x) dx = 1, we get aE(X) + b</span>.</p>
 
     <h3>Question 11</h3>
     <span class="marks">[2 Marks]</span>
     <p><strong>What is hypergeometric distribution?</strong></p>
-    [span_7](start_span)<p>A discrete probability distribution that describes the probability of k successes in n draws, without replacement, from a finite population of size N that contains exactly K objects with a certain feature[span_7](end_span).</p>
+    <span id="span_7"><p>A discrete probability distribution that describes the probability of k successes in n draws, without replacement, from a finite population of size N that contains exactly K objects with a certain feature</span>.</p>
 
     <h3>Question 14</h3>
     <span class="marks">[2 Marks]</span>
     <p><strong>Write the definition of continuous uniform distribution and obtain its mean.</strong></p>
-    [span_8](start_span)<blockquote>f(x) = 1 / (b - a) for a &le; x &le; b, and 0 otherwise[span_8](end_span).</blockquote>
-    <p><strong>Mean:</strong> E(X) = &int; [span_9](start_span)[x / (b - a)] dx from a to b = [x² / 2(b - a)] from a to b = (b² - a²) / 2(b - a) = (a + b) / 2[span_9](end_span).</p>
+    <span id="span_8"><blockquote>f(x) = 1 / (b - a) for a &le; x &le; b, and 0 otherwise</span>.</blockquote>
+    <p><strong>Mean:</strong> E(X) = &int; <span id="span_9">[x / (b - a)] dx from a to b = [x² / 2(b - a)] from a to b = (b² - a²) / 2(b - a) = (a + b) / 2</span>.</p>
 
     <h3>Question 15</h3>
     <span class="marks">[2 Marks]</span>
     <p><strong>Discuss at least two importances of normal distribution in Statistics.</strong></p>
     <ul>
-        [span_10](start_span)<li>Most natural phenomena follow a normal distribution[span_10](end_span).</li>
-        [span_11](start_span)<li>It is the basis for the Central Limit Theorem and most inferential statistical tests[span_11](end_span).</li>
+        <span id="span_10"><li>Most natural phenomena follow a normal distribution</span>.</li>
+        <span id="span_11"><li>It is the basis for the Central Limit Theorem and most inferential statistical tests</span>.</li>
     </ul>
 
     <h2>SECTION-B: Descriptive Answer Type</h2>
@@ -75,58 +75,58 @@
     <h3>Question 16 (a)</h3>
     <span class="marks">[4 Marks]</span>
     <p><strong>Define probability density function (p.d.f.). Given f(x) = 6x(1 - x) for 0 &le; x &le; 1, find b such that P(X < b) = P(X > b).</strong></p>
-    <p><strong>p.d.f.:</strong> A function f(x) such that f(x) &ge; [span_12](start_span)0 and &int; f(x) dx = 1 over the entire range[span_12](end_span).</p>
-    [span_13](start_span)<p>Since P(X < b) = P(X > b) and the total probability is 1, P(X < b) must be 0.5[span_13](end_span).
-    &int; [span_14](start_span)6x(1-x) dx from 0 to b = 0.5[span_14](end_span).
-    6[x²/2 - x³/3] from 0 to b = 0.5 &rarr; 3b² - 2b³ = 0.5. [span_15](start_span)By inspection, b = 0.5[span_15](end_span).</p>
+    <p><strong>p.d.f.:</strong> A function f(x) such that f(x) &ge; <span id="span_12">0 and &int; f(x) dx = 1 over the entire range</span>.</p>
+    <span id="span_13"><p>Since P(X < b) = P(X > b) and the total probability is 1, P(X < b) must be 0.5</span>.
+    &int; <span id="span_14">6x(1-x) dx from 0 to b = 0.5</span>.
+    6[x²/2 - x³/3] from 0 to b = 0.5 &rarr; 3b² - 2b³ = 0.5. <span id="span_15">By inspection, b = 0.5</span>.</p>
 
     <h3>Question 18 (a)</h3>
     <span class="marks">[4 Marks]</span>
     <p><strong>Prove that E(X + Y) = E(X) + E(Y).</strong></p>
-    <p>For continuous variables: E(X + Y) = &int;&int; (x + y) [span_16](start_span)f(x,y) dx dy[span_16](end_span).
+    <p>For continuous variables: E(X + Y) = &int;&int; (x + y) <span id="span_16">f(x,y) dx dy</span>.
     = &int;&int; x f(x,y) dx dy + &int;&int; y f(x,y) dx dy.
-    The first term is &int; x [&int; f(x,y) dy] dx = &int; x f_X(x) dx = E(X). [span_17](start_span)Similarly, the second term is E(Y)[span_17](end_span).</p>
+    The first term is &int; x [&int; f(x,y) dy] dx = &int; x f_X(x) dx = E(X). <span id="span_17">Similarly, the second term is E(Y)</span>.</p>
 
     <h3>Question 20 (a)</h3>
     <span class="marks">[4 Marks]</span>
     <p><strong>Define cumulant-generating function. Discuss the effect of change of origin and scale.</strong></p>
-    [span_18](start_span)<p><strong>CGF:</strong> K(t) = log M(t), where M(t) is the m.g.f.[span_18](end_span).
-    <strong>Effect:</strong> Let Y = (X - a)/h. [span_19](start_span)Then K_Y(t) = log E[exp(t(X-a)/h)] = -at/h + K_X(t/h)[span_19](end_span).
-    [span_20](start_span)Only the first cumulant is affected by the change of origin, whereas all cumulants are affected by the change of scale[span_20](end_span).</p>
+    <span id="span_18"><p><strong>CGF:</strong> K(t) = log M(t), where M(t) is the m.g.f.</span>.
+    <strong>Effect:</strong> Let Y = (X - a)/h. <span id="span_19">Then K_Y(t) = log E[exp(t(X-a)/h)] = -at/h + K_X(t/h)</span>.
+    <span id="span_20">Only the first cumulant is affected by the change of origin, whereas all cumulants are affected by the change of scale</span>.</p>
 
     <h3>Question 22 (a)</h3>
     <span class="marks">[3 Marks]</span>
     <p><strong>Obtain mean and variance of binomial distribution.</strong></p>
-    <p>Let X ~ B(n, p). [span_21](start_span)M(t) = (q + pe^t)^n[span_21](end_span).
-    [span_22](start_span)[span_23](start_span)Mean &mu;'_1 = [d/dt M(t)] at t=0 = n(q + pe^t)^{n-1} (pe^t) at t=0 = np[span_22](end_span)[span_23](end_span).
-    [span_24](start_span)[span_25](start_span)Variance = &mu;'_2 - (&mu;'_1)² = [n(n-1)p² + np] - (np)² = npq[span_24](end_span)[span_25](end_span).</p>
+    <p>Let X ~ B(n, p). <span id="span_21">M(t) = (q + pe^t)^n</span>.
+    <span id="span_22"><span id="span_23">Mean &mu;'_1 = [d/dt M(t)] at t=0 = n(q + pe^t)^{n-1} (pe^t) at t=0 = np</span></span>.
+    <span id="span_24"><span id="span_25">Variance = &mu;'_2 - (&mu;'_1)² = [n(n-1)p² + np] - (np)² = npq</span></span>.</p>
 
     <h3>Question 24 (a)</h3>
     <span class="marks">[4 Marks]</span>
     <p><strong>For Normal distribution, show that &mu;_2n = 1.3.5....(2n-1)&sigma;^2n.</strong></p>
-        [span_26](start_span)<p>For N(&mu;, &sigma;²), moments about mean are found using &int; x^2n f(x) dx from -&infin; to &infin;[span_26](end_span).
-    [span_27](start_span)Using the recurrence relation &mu;_r = &sigma;² (r-1) &mu;_{r-2}, we get &mu;_2 = &sigma;², &mu;_4 = 3&sigma;^4, and by induction, &mu;_2n = (2n-1)(2n-3)...1 &sigma;^2n[span_27](end_span).</p>
+        <span id="span_26"><p>For N(&mu;, &sigma;²), moments about mean are found using &int; x^2n f(x) dx from -&infin; to &infin;</span>.
+    <span id="span_27">Using the recurrence relation &mu;_r = &sigma;² (r-1) &mu;_{r-2}, we get &mu;_2 = &sigma;², &mu;_4 = 3&sigma;^4, and by induction, &mu;_2n = (2n-1)(2n-3)...1 &sigma;^2n</span>.</p>
 
     <div class="footer-section">
         <h2>Exam Success Toolkit</h2>
         <h3>Exam Tips</h3>
         <ul>
-            [span_28](start_span)<li>Always state the range of the random variable when defining a p.d.f. or distribution[span_28](end_span).</li>
-            [span_29](start_span)<li>In MGF problems, remember that &mu;'_r is the r-th derivative evaluated at t=0[span_29](end_span).</li>
+            <span id="span_28"><li>Always state the range of the random variable when defining a p.d.f. or distribution</span>.</li>
+            <span id="span_29"><li>In MGF problems, remember that &mu;'_r is the r-th derivative evaluated at t=0</span>.</li>
         </ul>
         <h3>Common Mistakes</h3>
         <ul>
-            [span_30](start_span)[span_31](start_span)<li>Forgetting to check if the total probability &Sigma;P(x) or &int;f(x) equals 1[span_30](end_span)[span_31](end_span).</li>
-            [span_32](start_span)[span_33](start_span)<li>Confusing the Mean and Variance of different distributions (e.g., Gamma vs. Beta)[span_32](end_span)[span_33](end_span).</li>
+            <span id="span_30"><span id="span_31"><li>Forgetting to check if the total probability &Sigma;P(x) or &int;f(x) equals 1</span></span>.</li>
+            <span id="span_32"><span id="span_33"><li>Confusing the Mean and Variance of different distributions (e.g., Gamma vs. Beta)</span></span>.</li>
         </ul>
         <h3>Important Formulas List</h3>
         <ul>
-            [span_34](start_span)<li>Binomial: Mean = np, Var = npq[span_34](end_span).</li>
-            [span_35](start_span)<li>Poisson: Mean = Var = &lambda;[span_35](end_span).</li>
-            <li>Normal: &mu;_2n = (2n-1)!! [span_36](start_span)&sigma;^2n[span_36](end_span).</li>
+            <span id="span_34"><li>Binomial: Mean = np, Var = npq</span>.</li>
+            <span id="span_35"><li>Poisson: Mean = Var = &lambda;</span>.</li>
+            <li>Normal: &mu;_2n = (2n-1)!! <span id="span_36">&sigma;^2n</span>.</li>
         </ul>
         <h3>Answer Presentation Strategy</h3>
-        [span_37](start_span)[span_38](start_span)[span_39](start_span)<p>Use standard notation (E for Expectation, V for Variance) and clearly show step-by-step derivations for mathematical proofs to secure maximum points[span_37](end_span)[span_38](end_span)[span_39](end_span).</p>
+        <span id="span_37"><span id="span_38"><span id="span_39"><p>Use standard notation (E for Expectation, V for Variance) and clearly show step-by-step derivations for mathematical proofs to secure maximum points</span></span></span>.</p>
     </div>
 </div>
 

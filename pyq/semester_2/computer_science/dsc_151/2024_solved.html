@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Science DSC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet</title>
+    <meta name="description" content="Complete exam-ready solutions for Computer Science (Data Structure) CSCDSC-151T, FYUG 2nd Semester 2024. Prepared for Knowlet.">
+    <meta name="keywords" content="Data Structure, Computer Science, CSCDSC-151T, FYUG, 2nd Semester, PYQ Solutions, Knowlet, Binary Search Tree, Hashing, Stack, Recursion">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background-color: #f0f2f5; margin: 0; padding: 20px; }
+        .container { max-width: 950px; margin: auto; background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        h1 { color: #1a237e; text-align: center; border-bottom: 3px solid #3949ab; padding-bottom: 10px; margin-bottom: 30px; }
+        h2 { color: #ffffff; background-color: #3949ab; padding: 12px 15px; border-radius: 4px; margin-top: 40px; }
+        h3 { color: #1a237e; border-bottom: 2px solid #e8eaf6; padding-bottom: 5px; margin-top: 25px; }
+        p { margin-bottom: 15px; text-align: justify; }
+        strong { color: #1a237e; }
+        blockquote { background: #f5f5f5; border-left: 5px solid #3949ab; margin: 20px 0; padding: 15px; font-style: italic; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th { background-color: #3949ab; color: white; padding: 12px; text-align: left; }
+        td { padding: 10px; border: 1px solid #ddd; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .marks { float: right; font-weight: bold; color: #555; font-size: 0.9em; background: #eee; padding: 2px 8px; border-radius: 4px; }
+        .footer-section { margin-top: 50px; padding: 25px; background: #1a237e; color: white; border-radius: 8px; }
+        .footer-section h2 { background: transparent; color: #ffeb3b; padding: 0; margin-top: 0; border: none; }
+        pre { background: #f4f4f4; padding: 10px; border: 1px solid #ddd; overflow-x: auto; font-family: Consolas, monospace; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>COMPUTER SCIENCE: Data Structure (CSCDSC-151T)<br>FYUG Even Semester Exam, 2024</h1>
+
+    <div style="text-align: center; font-weight: bold; margin-bottom: 25px;">
+        Course No: CSCDSC-151T | Full Marks: 70 | Time: 3 Hours
+    </div>
+
+    <section id="metadata">
+        <span id="span_0"><p><strong>Subject:</strong> Computer Science</span></p>
+        <span id="span_1"><p><strong>Paper Code:</strong> CSCDSC-151T</span></p>
+        <span id="span_2"><p><strong>Semester:</strong> 2nd Semester (FYUG)</span></p>
+        <span id="span_3"><p><strong>Exam Name:</strong> Even Semester Exam, 2024</span></p>
+    </section>
+
+    <hr>
+
+    <h2>SECTION-A (Answer any ten) <span class="marks">2 &times; 10 = 20 Marks</span></h2>
+
+    <h3>1. What is multidimensional array? How is it represented in memory?</h3>
+    <span id="span_4"><p>A <strong>multidimensional array</strong> is an array with more than one dimension, often visualized as a grid (2D) or a collection of grids (3D)</span>. <span id="span_5">In memory, which is linear, they are represented using either <strong>Row-Major Order</strong> (elements stored row by row) or <strong>Column-Major Order</strong> (elements stored column by column)</span>.</p>
+
+    <h3>2. Write down the limitations of array.</h3>
+    <ul>
+        <span id="span_6"><li>Static size: The size must be known at compile-time and cannot be changed during execution</span>.</li>
+        <span id="span_7"><li>Homogeneous elements: Only elements of the same data type can be stored</span>.</li>
+        <span id="span_8"><li>Costly Insertions/Deletions: Moving elements to maintain order is time-consuming</span>.</li>
+    </ul>
+
+    <h3>3. Write the postfix notation of (A-B)+C.</h3>
+    <p>Expression: (A-B)+C</p>
+    <ol>
+        <li>Solve brackets: (A-B) &rarr; <span id="span_9">AB-</span></li>
+        <li>Final expression: AB-+C &rarr; <span id="span_10"><strong>AB-C+</strong></span></li>
+    </ol>
+
+    <h3>4. What do you mean by input-restricted and output-restricted dequeue?</h3>
+    <ul>
+        <span id="span_11"><li><strong>Input-restricted Dequeue:</strong> Insertion is allowed only at one end, while deletion is allowed at both ends</span>.</li>
+        <span id="span_12"><li><strong>Output-restricted Dequeue:</strong> Deletion is allowed only at one end, while insertion is allowed at both ends</span>.</li>
+    </ul>
+
+    <h3>5. Define doubly linked list with example.</h3>
+    <span id="span_13"><p>A <strong>doubly linked list</strong> is a complex type of linked list in which each node contains a pointer to the next node as well as a pointer to the previous node</span>.</p>
+    <blockquote>Example: Node(Prev, Data, Next). <span id="span_14">If we have nodes A, B, and C, B's 'prev' points to A and its 'next' points to C</span>.</blockquote>
+    
+    <h3>6. State the differences between array and linked list.</h3>
+    <table>
+        <tr>
+            <th>Feature</th>
+            <th>Array</th>
+            <th>Linked List</th>
+        </tr>
+        <tr>
+            <td>Size</td>
+            <span id="span_15"><td>Fixed/Static</span></td>
+            <span id="span_16"><td>Dynamic</span></td>
+        </tr>
+        <tr>
+            <td>Memory Allocation</td>
+            <span id="span_17"><td>Compile time</span></td>
+            <span id="span_18"><td>Run time</span></td>
+        </tr>
+        <tr>
+            <td>Access</td>
+            <span id="span_19"><td>Random access (Fast)</span></td>
+            <span id="span_20"><td>Sequential access (Slow)</span></td>
+        </tr>
+    </table>
+
+    <h3>7. Define height-balanced tree.</h3>
+    <span id="span_21"><p>A <strong>height-balanced tree</strong> (such as an AVL tree) is a binary tree in which the height of the left and right subtrees of every node differs by no more than one</span>.</p>
+
+    <h3>8. Write down the properties of binary search tree (BST).</h3>
+    <ul>
+        <span id="span_22"><li>The left subtree of a node contains only nodes with keys less than the node's key</span>.</li>
+        <span id="span_23"><li>The right subtree of a node contains only nodes with keys greater than the node's key</span>.</li>
+        <span id="span_24"><li>The left and right subtrees must also be binary search trees</span>.</li>
+    </ul>
+
+    <h3>9. Write the advantages and disadvantages of threaded binary tree.</h3>
+    <span id="span_25"><p><strong>Advantages:</strong> Efficient traversal (no stack/recursion needed) and better utilization of null links</span>.<br>
+    <span id="span_26"><strong>Disadvantages:</strong> More complex insertion/deletion and extra memory required for threads (flags)</span>.</p>
+
+    <h3>10. Differences between linear search and binary search.</h3>
+    <span id="span_27"><p><strong>Linear Search:</strong> Works on both sorted and unsorted lists; time complexity is O(n)</span>.<br>
+    <span id="span_28"><strong>Binary Search:</strong> Works only on sorted lists; time complexity is O(log n)</span>.</p>
+
+    <h3>11. Best case and worst case time complexities.</h3>
+    <span id="span_29"><p><strong>Best Case:</strong> Minimum time required by an algorithm for a given input size (optimal scenario)</span>.<br>
+    <span id="span_30"><strong>Worst Case:</strong> Maximum time required by an algorithm for any input of size n (guaranteed upper bound)</span>.</p>
+
+    <h3>13. Define hashing.</h3>
+    <span id="span_31"><p><strong>Hashing</strong> is a technique used to uniquely identify a specific object from a group of similar objects using a mathematical formula called a hash function, which maps data of arbitrary size to a fixed-size table</span>.</p>
+
+    <hr>
+
+    <h2>SECTION-B (Answer any five) <span class="marks">10 &times; 5 = 50 Marks</span></h2>
+
+    <h3>16. (a) What is stack? Algorithms for stack operations. (b) Recursion and its advantages. <span class="marks">[6+4=10]</span></h3>
+    <span id="span_32"><p><strong>Stack:</strong> A linear data structure that follows the <strong>LIFO</strong> (Last In First Out) principle</span>.</p>
+        <p><strong>Algorithms:</strong></p>
+    <ul>
+        <li><strong>PUSH(item):</strong> If TOP == MAX-1, Overflow; else { TOP = TOP + 1; STACK[TOP] = item; <span id="span_33">}</li>
+        <li><strong>POP():</strong> If TOP == -1, Underflow; else { item = STACK[TOP]; TOP = TOP - 1; return item; }</span></li>
+    </ul>
+    <span id="span_34"><p><strong>Recursion:</strong> A process in which a function calls itself directly or indirectly</span>.<br>
+    <span id="span_35"><strong>Advantages:</strong> Reduces code length, easier to solve problems like Tree traversals and Towers of Hanoi</span>.</p>
+
+    <h3>18. What is circular linked list? Algorithm to insert and delete. <span class="marks">[2+4+4=10]</span></h3>
+    <span id="span_36"><p><strong>Circular Linked List:</strong> A linked list where all nodes are connected to form a circle; there is no NULL at the end</span>.</p>
+        <p><strong>Insertion (at end):</strong> Create new node. Set new_node->next = head. <span id="span_37">Traverse to last node and set last_node->next = new_node</span>.<br>
+    <strong>Deletion (at end):</strong> Traverse to second last node. Set second_last->next = head. <span id="span_38">Delete the last node</span>.</p>
+
+    <h3>20. (a) Algebraic Expression E to Binary Tree and Traversals. (b) BST Construction. <span class="marks">[5+5=10]</span></h3>
+    <span id="span_39"><p><strong>Expression E:</strong> [a+(b-c)] * [(d-e)/(f+g-h)]</span></p>
+        <p><strong>Traversals:</strong><br>
+    <span id="span_40"><strong>Pre-order:</strong> * + a - b c / - d e - + f g h</span><br>
+    <span id="span_41"><strong>Post-order:</strong> a b c - + d e - f g + h - / *</span></p>
+    <span id="span_42"><p><strong>(b) BST Construction:</strong> 30, 60, 50, 35, 15, 25</span></p>
+    
+    <h3>22. Algorithm for Binary Search and search steps for 45. <span class="marks">[5+5=10]</span></h3>
+    <pre>
+Binary_Search(A, n, item):
+    Set beg = 0, end = n-1
+    While beg <= end:
+        mid = (beg + end) / 2
+        If A[mid] == item: return mid
+        Else If item < A[mid]: end = mid - 1
+        Else: beg = mid + 1
+    <span id="span_43">Return -1</span>
+    </pre>
+    <p><strong>Steps for 45 in [15, 21, 26, 30, 35, 45, 50, 55]:</strong></p>
+    <ol>
+        <li>Iteration 1: beg=0, end=7, mid=3. <span id="span_44">A[3]=30 < 45. beg=4</span>.</li>
+        <li>Iteration 2: beg=4, end=7, mid=5. <span id="span_45">A[5]=45 == 45. <strong>Found at index 5</strong></span>.</li>
+    </ol>
+
+    <h3>24. (a) Hash functions. (b) Open vs Closed Addressing. <span class="marks">[7+3=10]</span></h3>
+    <span id="span_46"><p><strong>Hash Functions:</strong> Division method ($h(k) = k \mod m$), Mid-square method, Folding method</span>.</p>
+    <p><strong>Differences:</strong><br>
+    <span id="span_47"><strong>Open Addressing:</strong> All elements are stored in the hash table itself (Linear Probing, Quadratic Probing)</span>.<br>
+    <span id="span_48"><strong>Closed Addressing (Chaining):</strong> Each slot of the hash table contains a link to a list of elements that hash to the same slot</span>.</p>
+
+    <h3>25. (a) Collision Resolution. (b) Linear Probing insertion. <span class="marks">[5+5=10]</span></h3>
+    <span id="span_49"><p><strong>Strategies:</strong> Chaining, Linear Probing, Quadratic Probing, Double Hashing</span>.</p>
+    <p><strong>Insertion (Size 10) for [72, 27, 36, 24, 63, 81, 92, 101]:</strong></p>
+    <ul>
+        <li>72 &rarr; 2, 27 &rarr; 7, 36 &rarr; 6, 24 &rarr; 4, 63 &rarr; 3, 81 &rarr; <span id="span_50">1</li>
+        <li>92 &rarr; 2 (Collision) &rarr; Next free is 5. 101 &rarr; 1 (Collision) &rarr; Next free is 8</span>.</li>
+    </ul>
+    <table>
+        <tr><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th></tr>
+        <tr><td>-</td><td>81</td><td>72</td><td>63</td><td>24</td><td>92</td><td>36</td><td>27</td><td>101</td><td>-</td></tr>
+    </table>
+
+    <div class="footer-section">
+        <h2>Exam Focus Enhancements</h2>
+        <ul>
+            <li><strong>Exam Tips:</strong> For Tree questions, always draw the tree clearly. <span id="span_51">For complexity, use Big-O notation</span>.</li>
+            <span id="span_52"><li><strong>Common Mistakes:</strong> Don't forget that array indices usually start from 0. In circular linked lists, ensure the last node points back to the head</span>.</li>
+            <span id="span_53"><li><strong>Important Formulas:</strong> Address in 2D array (Row Major): $Loc(A[i][j]) = Base + W[n(i-L1) + (j-L2)]$</span>.</li>
+            <span id="span_54"><span id="span_55"><li><strong>Strategy:</strong> Attempt numerical questions (Postfix evaluation, BST construction) first as they are scoring and take less time</span></span>.</li>
+        </ul>
+        <p style="text-align: center; margin-top: 20px;"><strong>&copy; 2026 Knowlet | Computer Science Series</strong></p>
+    </div>
+</div>
+
+</body>
+</html>

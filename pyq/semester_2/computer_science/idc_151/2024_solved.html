@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Science IDC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet</title>
+    <meta name="description" content="Complete exam-ready solutions for Computer Science (Programming with C) CSCDSM-151T, FYUG 2nd Semester 2024. Prepared for Knowlet.">
+    <meta name="keywords" content="C Programming, Computer Science, CSCDSM-151T, FYUG, 2nd Semester, PYQ Solutions, Knowlet, Pointers, Structures, Functions">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background-color: #f4f7f6; margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; text-align: center; border-bottom: 3px solid #3498db; padding-bottom: 10px; margin-bottom: 30px; }
+        h2 { color: #ffffff; background-color: #3498db; padding: 10px 15px; border-radius: 4px; margin-top: 40px; }
+        h3 { color: #2980b9; border-bottom: 2px solid #ecf0f1; padding-bottom: 5px; margin-top: 25px; }
+        p { margin-bottom: 15px; text-align: justify; }
+        strong { color: #2c3e50; }
+        code { background-color: #f8f9fa; padding: 2px 4px; border-radius: 4px; font-family: 'Courier New', Courier, monospace; color: #e83e8c; }
+        pre { background: #2d3436; color: #dfe6e9; padding: 15px; border-radius: 5px; overflow-x: auto; font-family: 'Consolas', 'Monaco', monospace; }
+        blockquote { background: #f9f9f9; border-left: 5px solid #3498db; margin: 20px 0; padding: 15px; font-style: italic; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th { background-color: #3498db; color: white; padding: 12px; text-align: left; }
+        td { padding: 10px; border: 1px solid #ddd; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .marks { float: right; font-weight: bold; color: #7f8c8d; background: #eee; padding: 2px 8px; border-radius: 4px; font-size: 0.9em; }
+        .footer-section { margin-top: 50px; padding: 25px; background: #2c3e50; color: white; border-radius: 8px; }
+        .footer-section h2 { background: transparent; color: #f1c40f; padding: 0; margin-top: 0; border: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>COMPUTER SCIENCE: Programming with C (CSCDSM-151T)<br>FYUG Even Semester Exam, 2024</h1>
+
+    <div style="text-align: center; font-weight: bold; margin-bottom: 25px;">
+        Course No: CSCDSM-151T | Full Marks: 70 | Time: 3 Hours
+    </div>
+
+    <section id="metadata">
+        <span id="span_0"><p><strong>Subject:</strong> Computer Science</span></p>
+        <span id="span_1"><p><strong>Paper Code:</strong> CSCDSM-151T</span></p>
+        <span id="span_2"><p><strong>Semester:</strong> 2nd Semester (FYUG)</span></p>
+        <span id="span_3"><p><strong>Exam Name:</strong> Even Semester Exam, 2024</span></p>
+    </section>
+
+    <hr>
+
+    <h2>SECTION-A (Answer any ten) <span class="marks">2 &times; <span id="span_4">10 = 20 Marks</span></span></h2>
+
+    <h3>1. What is variable? How do you declare a variable in C?</h3>
+    <span id="span_5"><p>A <strong>variable</strong> is a named storage location in memory used to hold a data value that can be modified during program execution</span>. 
+    <span id="span_6">To declare a variable, you specify the data type followed by the variable name: <code>int count;</code></span>.</p>
+
+    <h3>2. What are the different data types used in C?</h3>
+    <span id="span_7"><p>C provides several categories of data types</span>:</p>
+    <ul>
+        <span id="span_8"><li><strong>Primary:</strong> <code>int</code>, <code>char</code>, <code>float</code>, <code>double</code>, <code>void</code></span>.</li>
+        <span id="span_9"><li><strong>Derived:</strong> Arrays, Pointers, Functions</span>.</li>
+        <span id="span_10"><li><strong>User-defined:</strong> <code>struct</code>, <code>union</code>, <code>enum</code></span>.</li>
+    </ul>
+
+    <h3>3. Define token. Give example.</h3>
+    <span id="span_11"><p>A <strong>token</strong> is the smallest individual unit in a C program that is meaningful to the compiler</span>. 
+    <span id="span_12">Examples include <strong>keywords</strong> (<code>if</code>), <strong>identifiers</strong> (<code>total</code>), <strong>constants</strong> (<code>10</code>), and <strong>operators</strong> (<code>+</code>)</span>.</p>
+
+    <h3>4. What do you mean by function prototype? Give example.</h3>
+    <span id="span_13"><p>A <strong>function prototype</strong> is a declaration that tells the compiler about a function's name, return type, and parameters before its actual implementation</span>.
+    <span id="span_14"><blockquote>Example: <code>int add(int a, int b);</code></span></blockquote></p>
+
+    <h3>5. Write down the benefits of using function.</h3>
+    <ul>
+        <span id="span_15"><li><strong>Modularity:</strong> Divides a large program into smaller, manageable parts</span>.</li>
+        <span id="span_16"><li><strong>Reusability:</strong> Code can be called multiple times without rewriting</span>.</li>
+        <span id="span_17"><li><strong>Ease of Debugging:</strong> Errors are easier to isolate in specific functions</span>.</li>
+    </ul>
+
+    <h3>6. What are actual arguments and formal arguments? Give examples.</h3>
+    <span id="span_18"><p><strong>Actual arguments</strong> are values passed to the function when it is called</span>. <span id="span_19"><strong>Formal arguments</strong> are variables declared in the function definition that receive those values</span>.
+    <pre>
+void sum(int x, int y); // x, y are formal arguments
+int main() {
+    sum(10, 20); // 10, 20 are actual arguments
+<span id="span_20">}
+    </pre></p>
+
+    <h3>7. What is pointer? How do you declare a pointer variable?</h3>
+    <p>A <strong>pointer</strong> is a variable that stores the memory address of another variable</span>. 
+    <span id="span_21">It is declared using the asterisk (*) operator: <code>int *p;</code></span>.</p>
+
+    <h3>9. Define array. How do you initialize a one-dimensional array?</h3>
+    <span id="span_22"><p>An <strong>array</strong> is a collection of homogeneous data elements stored in contiguous memory locations</span>. 
+    <span id="span_23">One-dimensional arrays are initialized as: <code>int marks[3] = {80, 85, 90};</code></span>.</p>
+
+    <h3>12. What are the differences between array and structure?</h3>
+    <table>
+        <tr>
+            <th>Feature</th>
+            <span id="span_24"><th>Array</span></th>
+            <span id="span_25"><th>Structure</span></th>
+        </tr>
+        <tr>
+            <td>Data Type</td>
+            <span id="span_26"><td>Homogeneous (same type)</span></td>
+            <span id="span_27"><td>Heterogeneous (different types)</span></td>
+        </tr>
+        <tr>
+            <td>Access</td>
+            <span id="span_28"><td>Using index numbers</span></td>
+            <span id="span_29"><td>Using dot (.) operator</span></td>
+        </tr>
+    </table>
+
+    <h3>15. What is string? Write the purpose of null string in C.</h3>
+    <span id="span_30"><p>A <strong>string</strong> is an array of characters terminated by a null character (<code>\0</code>)</span>. 
+    <span id="span_31">The <strong>null string</strong> (<code>\0</code>) indicates the end of the character sequence, allowing functions like <code>printf</code> or <code>strlen</code> to know where the string stops in memory</span>.</p>
+
+    <hr>
+
+    <h2>SECTION-B (Answer any five) <span class="marks">10 &times; <span id="span_32">5 = 50 Marks</span></span></h2>
+
+    <h3>16. Explain 'while', 'do-while' and 'for' loops with suitable examples. Difference between 'while' and 'do-while'. <span id="span_33"><span class="marks">[10]</span></span></h3>
+        <ul>
+        <li><strong>while:</strong> Entry-controlled loop. Checks condition before execution.
+        <code>while(i < 5) { ... i++; <span id="span_34">}</code></span></li>
+        <li><strong>do-while:</strong> Exit-controlled loop. Executes body at least once.
+        <code>do { ... i++; <span id="span_35">} while(i < 5);</code></span></li>
+        <li><strong>for:</strong> Concise loop containing initialization, condition, and increment in one line.
+        <span id="span_36"><code>for(i=0; i < 5; i++) { ... }</code></span></li>
+    </ul>
+    <span id="span_37"><p><strong>Key Difference:</strong> A <code>while</code> loop may never execute if the condition is initially false, whereas a <code>do-while</code> loop is guaranteed to execute at least once</span>.</p>
+
+    <h3>17. Discuss the structure of a C program. Write programs for Area of Circle and Prime Numbers. <span id="span_38"><span class="marks">[2+4+4=10]</span></span></h3>
+    <span id="span_39"><p><strong>Structure of C Program:</strong> Documentation section, Link section (headers), Definition section, Global declaration, Main function, and Subprograms</span>.</p>
+        <pre>
+// Area of Circle
+#include &lt;stdio.h&gt;
+int main() {
+    float r, area;
+    printf("Enter radius: ");
+    scanf("%f", &r);
+    area = 3.14 * r * r;
+    printf("Area = %f", area);
+    return 0;
+<span id="span_40">}
+    </pre>
+
+    <h3>18. Define storage classes in C. Discuss Static and Auto. <span class="marks">[10]</span></span></h3>
+    <span id="span_41"><p><strong>Storage classes</strong> define the scope, lifetime, and initial value of a variable</span>.</p>
+    <ul>
+        <li><strong>Auto:</strong> Default class for local variables. <span id="span_42">Stored in stack; destroyed when function exits</span>.</li>
+        <span id="span_43"><li><strong>Static:</strong> Variables retain their value even after the function finishes its execution and are initialized only once</span>.</li>
+    </ul>
+
+    <h3>19. Recursion vs Iteration. Factorial program using both. <span id="span_44"><span class="marks">[2+4+4=10]</span></span></h3>
+    <span id="span_45"><p><strong>Recursion</strong> is a function calling itself, while <strong>iteration</strong> uses loops</span>. <span id="span_46">Recursion is often more elegant but uses more stack memory</span>.</p>
+    <pre>
+// Recursive Factorial
+int fact(int n) {
+    if (n == 0) return 1;
+    return n * fact(n-1);
+<span id="span_47">}
+    </pre>
+
+    <h3>22. (b) Define tag, member, dot operator, and struct keyword. <span class="marks">[1&times;4=4]</span></span></h3>
+    <ul>
+        <span id="span_48"><li><strong>struct:</strong> Keyword used to declare a structure</span>.</li>
+        <span id="span_49"><li><strong>tag:</strong> The name given to a specific structure type</span>.</li>
+        <span id="span_50"><li><strong>member:</strong> Individual variables inside the structure</span>.</li>
+        <span id="span_51"><li><strong>dot (.) operator:</strong> Used to access members of a structure variable</span>.</li>
+    </ul>
+
+    <h3>24. (a) Program to copy one file to another. (b) Macro vs Function. <span id="span_52"><span class="marks">[6+4=10]</span></span></h3>
+    <span id="span_53"><p><strong>Macro vs Function:</strong> Macros are pre-processed (text replacement) and faster as there is no function call overhead, but they do not check for data types like functions do</span>.</p>
+    <pre>
+// File Copy Snippet
+while ((ch = fgetc(source)) != EOF)
+    <span id="span_54">fputc(ch, target);</span>
+    </pre>
+
+    <div class="footer-section">
+        <h2>Exam Focus Enhancements</h2>
+        <ul>
+            <span id="span_55"><li><strong>Exam Tips:</strong> Always include <code>#include &lt;stdio.h&gt;</code> in program snippets to show complete syntax</span>.</li>
+            <span id="span_56"><li><strong>Common Mistakes:</strong> Forgetting the null terminator (<code>\0</code>) when manually handling strings</span>.</li>
+            <span id="span_57"><span id="span_58"><li><strong>Important Syntax:</strong> Pointer declaration (<code>type *name;</code>) and Structure member access (<code>variable.member</code>)</span></span>.</li>
+            <span id="span_59"><li><strong>Strategy:</strong> Attempt loop and structure programs first; they carry high marks and follow standard logic patterns</span>.</li>
+        </ul>
+        <p style="text-align: center; margin-top: 20px;"><strong>&copy; 2026 Knowlet | Computer Science Series</strong></p>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mathematics DSC 152 Solved Question Paper - 2024 | 2nd Semester - Knowlet</title>
+<meta name="description" content="Comprehensive exam-ready solutions for Mathematics MATDSC-152T (Integral Calculus and Vectors) FYUG Even Semester Exam 2024. Prepared by Knowlet.">
+<meta name="keywords" content="Mathematics, Integral Calculus, Vectors, MATDSC-152T, PYQ Solutions, 2024, Knowlet, FYUG, Exam Preparation">
+<style>
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background-color: #f4f7f9; margin: 0; padding: 20px; }
+.container { max-width: 900px; margin: auto; background: #fff; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-radius: 8px; }
+h1 { color: #2c3e50; text-align: center; border-bottom: 3px solid #3498db; padding-bottom: 10px; text-transform: uppercase; }
+h2 { color: #e67e22; border-left: 5px solid #e67e22; padding-left: 10px; margin-top: 30px; background: #fdf2e9; }
+h3 { color: #2980b9; margin-top: 20px; border-bottom: 1px solid #eee; }
+.marks { float: right; font-weight: bold; color: #7f8c8d; background: #ecf0f1; padding: 2px 8px; border-radius: 4px; }
+blockquote { background: #f9f9f9; border-left: 10px solid #3498db; margin: 1.5em 10px; padding: 10px; font-style: normal; }
+.formula { font-family: "Courier New", Courier, monospace; background: #f0f0f0; padding: 2px 5px; border-radius: 3px; }
+.footer-section { margin-top: 50px; padding: 20px; background: #2c3e50; color: white; border-radius: 8px; }
+.footer-section h2 { color: #f1c40f; background: transparent; border: none; }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>FYUG Even Semester Exam, 2024
+MATHEMATICS (2nd Semester)
+Integral Calculus and Vectors (MATDSC-152T)</h1>
+<div style="background: #eee; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+    <span id="span_0"><strong>Subject:</strong> MATHEMATICS</span><br>
+    <span id="span_1"><strong>Paper Code:</strong> MATDSC-152T</span><br>
+    <span id="span_2"><strong>Semester:</strong> 2nd Semester (FYUG)</span><br>
+    <span id="span_3"><strong>Full Marks:</strong> 70</span><br>
+    <span id="span_4"><strong>Time Duration:</strong> 3 Hours</span>
+</div>
+
+<h2>SECTION-A</h2>
+<span id="span_5"><p><em>Answer any ten of the following questions (2 marks each).</span></em></p>
+
+<h3>Question 1</h3>
+<span class="marks">2</span>
+<span id="span_6"><p><strong>Express Integral(a to b) f(x) dx as the limit of sum.</span></strong></p>
+<blockquote>
+    <span id="span_7">Integral(a to b) f(x) dx = lim (h -> 0) h * [f(a) + f(a+h) + f(a+2h) + ... + f(a+(n-1)h)]</span><br>
+    <span id="span_8">where nh = b - a.</span>
+</blockquote>
+
+<h3>Question 2</h3>
+<span class="marks">2</span>
+<span id="span_9"><p><strong>Evaluate: Integral(-5 to 5) |x + 2| dx.</span></strong></p>
+<span id="span_10"><p>We split the integral at x = -2 where the absolute value changes sign:</span><br>
+<span id="span_11">= Integral(-5 to -2) -(x + 2) dx + Integral(-2 to 5) (x + 2) dx</span><br>
+<span id="span_12">= -[x^2/2 + 2x](-5 to -2) + [x^2/2 + 2x](-2 to 5)</span><br>
+<span id="span_13">= -[(2 - 4) - (12.5 - 10)] + [(12.5 + 10) - (2 - 4)]</span><br>
+<span id="span_14">= -[-2 - 2.5] + [22.5 + 2] = 4.5 + 24.5 = <strong>29</strong>.</span></p>
+
+<h3>Question 3</h3>
+<span class="marks">2</span>
+<span id="span_15"><p><strong>Prove that Integral(0 to 2a) f(x) dx = Integral(0 to a) f(x) dx + Integral(0 to a) f(2a - x) dx.</span></strong></p>
+<span id="span_16"><p>We know Integral(0 to 2a) f(x) dx = Integral(0 to a) f(x) dx + Integral(a to 2a) f(x) dx.</span><br>
+<span id="span_17">In the second integral, let x = 2a - t, then dx = -dt.</span><br>
+<span id="span_18">When x=a, t=a; when x=2a, t=0.</span><br>
+<span id="span_19">Integral(a to 2a) f(x) dx = Integral(a to 0) f(2a-t) (-dt) = Integral(0 to a) f(2a-t) dt.</span><br>
+<span id="span_20">Replacing t by x, we get the required result.</span></p>
+
+<h3>Question 4</h3>
+<span class="marks">2</span>
+<span id="span_21"><p><strong>If In = Integral x^n cos(ax) dx and Jn = Integral x^n sin(ax) dx, show that a*In = x^n sin(ax) - n*Jn-1.</span></strong></p>
+<span id="span_22"><p>In = Integral x^n cos(ax) dx.</span><br>
+<span id="span_23">Using integration by parts (taking x^n as 1st function):</span><br>
+<span id="span_24">In = x^n * [sin(ax)/a] - Integral [n * x^(n-1) * (sin(ax)/a)] dx</span><br>
+<span id="span_25">In = (x^n sin(ax))/a - (n/a) * Integral x^(n-1) sin(ax) dx</span><br>
+<span id="span_26">Multiplying by 'a': a*In = x^n sin(ax) - n * Jn-1.</span></p>
+
+<h3>Question 5</h3>
+<span class="marks">2</span>
+<span id="span_27"><p><strong>Evaluate: Integral(0 to pi/2) cos^6(x) dx.</span></strong></p>
+<span id="span_28"><p>Using Reduction Formula: [(n-1)/n] * [(n-3)/(n-2)] * ... * (1/2) * (pi/2)</span><br>
+<span id="span_29">= (5/6) * (3/4) * (1/2) * (pi/2)</span><br>
+<span id="span_30">= <strong>5*pi / 32</strong>.</span></p>
+
+<h3>Question 11</h3>
+<span class="marks">2</span>
+<span id="span_31"><p><strong>Find lambda if 2i-j+k, i+2j-k, and lambda*i-4j+5k are coplanar.</span></strong></p>
+<span id="span_32"><p>For coplanar vectors, the scalar triple product is zero:</span><br>
+| 2 -1 1 ; 1 2 -1 ; lambda -4 5 | <span id="span_33">= 0</span><br>
+<span id="span_34">2(10 - 4) - (-1)(5 + lambda) + 1(-4 - 2*lambda) = 0</span><br>
+<span id="span_35">2(6) + 5 + lambda - 4 - 2*lambda = 0</span><br>
+<span id="span_36">12 + 1 - lambda = 0 => <strong>lambda = 13</strong>.</span></p>
+
+<h2>SECTION-B</h2>
+<span id="span_37"><p><em>Answer any five questions (10 marks each).</span></em></p>
+
+<h3>Question 16</h3>
+<span class="marks">5+5=10</span>
+<span id="span_38"><p><strong>(a) Evaluate: Limit(n -> infinity) [(1^2)/(n^3+1^3) + (2^2)/(n^3+2^3) + ... + (n^2)/(2n^3)].</span></strong></p>
+<span id="span_39"><p>The general term is r^2 / (n^3 + r^3) = (1/n) * (r/n)^2 / [1 + (r/n)^3].</span><br>
+<span id="span_40">Sum = Limit (1/n) * Sum[(r/n)^2 / (1 + (r/n)^3)] from r=1 to n.</span><br>
+<span id="span_41">This converts to Integral(0 to 1) [x^2 / (1 + x^3)] dx.</span><br>
+<span id="span_42">Let 1 + x^3 = t, then 3x^2 dx = dt.</span><br>
+<span id="span_43">= (1/3) Integral(1 to 2) (1/t) dt = (1/3) [log t](1 to 2) = <strong>(1/3) log 2</strong>.</span></p>
+
+<span id="span_44"><p><strong>(b) Prove that Integral(0 to pi/2) log(sin x) dx = -(pi/2) log 2.</span></strong></p>
+<p>Let I = Integral(0 to pi/2) log(sin x) dx. <span id="span_45">Also I = Integral(0 to pi/2) log(cos x) dx.</span><br>
+<span id="span_46">2I = Integral(0 to pi/2) [log(sin x) + log(cos x)] dx = Integral(0 to pi/2) log(sin x cos x) dx</span><br>
+<span id="span_47">2I = Integral(0 to pi/2) log(sin 2x / 2) dx = Integral(0 to pi/2) log(sin 2x) dx - (pi/2) log 2.</span><br>
+In first part, let 2x = u. <span id="span_48">Integral reduces to I.</span><br>
+<span id="span_49">2I = I - (pi/2) log 2 => <strong>I = -(pi/2) log 2</strong>.</span></p>
+
+<h3>Question 20</h3>
+<span class="marks">5+5=10</span>
+<span id="span_50"><p><strong>(a) Find the perimeter of the astroid x^(2/3) + y^(2/3) = a^(2/3).</span></strong></p>
+<span id="span_51"><p>Parametric equations: x = a*cos^3(t), y = a*sin^3(t).</span><br>
+<span id="span_52">dx/dt = -3a*cos^2(t)sin(t), dy/dt = 3a*sin^2(t)cos(t).</span><br>
+<span id="span_53">ds/dt = sqrt((dx/dt)^2 + (dy/dt)^2) = 3a*sin(t)cos(t).</span><br>
+<span id="span_54">Perimeter = 4 * Integral(0 to pi/2) 3a*sin(t)cos(t) dt</span><br>
+<span id="span_55">= 12a * [sin^2(t)/2](0 to pi/2) = 12a * (1/2) = <strong>6a</strong>.</span></p>
+
+<span id="span_56"><p><strong>(b) Find the surface area of the solid generated by revolving the cardioid r = a(1 - cos theta) about initial line.</span></strong></p>
+<span id="span_57"><p>Surface Area S = Integral(0 to pi) 2*pi*y ds = Integral(0 to pi) 2*pi*r*sin(theta) * sqrt(r^2 + (dr/d*theta)^2) d*theta.</span><br>
+<span id="span_58">r = a(1-cos theta), dr/d*theta = a*sin theta.</span><br>
+<span id="span_59">sqrt(r^2 + (dr/d*theta)^2) = 2a*sin(theta/2).</span><br>
+<span id="span_60">After integration from 0 to pi, <strong>S = (32/5) * pi * a^2</strong>.</span></p>
+
+<h3>Question 21</h3>
+<span class="marks">5+5=10</span>
+<span id="span_61"><p><strong>(a) Prove the length of one arc of the cycloid x=a(theta-sin theta), y=a(1-cos theta) is 8a.</span></strong></p>
+<span id="span_62"><p>dx/d*theta = a(1-cos theta), dy/d*theta = a*sin theta.</span><br>
+<span id="span_63">ds/d*theta = sqrt[(dx/d*theta)^2 + (dy/d*theta)^2] = a*sqrt[(1-cos theta)^2 + sin^2 theta]</span><br>
+<span id="span_64">= a*sqrt[1 + cos^2 theta - 2cos theta + sin^2 theta] = a*sqrt[2 - 2cos theta]</span><br>
+<span id="span_65">= 2a*sin(theta/2).</span><br>
+<span id="span_66">Length = Integral(0 to 2*pi) 2a*sin(theta/2) d*theta = 2a * [-2cos(theta/2)](0 to 2*pi)</span><br>
+<span id="span_67">= -4a * [cos(pi) - cos(0)] = -4a * [-1 - 1] = <strong>8a</strong>.</span></p>
+
+<span id="span_68"><p><strong>(b) Find the volume generated by revolution about x-axis of y^2 = x^2(2 - x).</span></strong></p>
+<span id="span_69"><p>Volume V = Integral(0 to 2) pi * y^2 dx</span><br>
+<span id="span_70">V = pi * Integral(0 to 2) x^2(2 - x) dx = pi * Integral(0 to 2) (2x^2 - x^3) dx</span><br>
+<span id="span_71">V = pi * [2x^3/3 - x^4/4](0 to 2) = pi * [16/3 - 16/4]</span><br>
+<span id="span_72">V = pi * [16/3 - 4] = pi * (4/3) = <strong>4*pi/3 cubic units</strong>.</span></p>
+
+<div class="footer-section">
+    <h2>Exam Focus Enhancements</h2>
+    <ul>
+        <span id="span_73"><li><strong>Exam Tips:</strong> In Integral Calculus, always check if the function is even or odd for symmetric limits to simplify calculations.</span></li>
+        <li><strong>Common Mistakes:</strong> Forgetting the Jacobian or 'dt' in substitution methods. <span id="span_74">In vector products, direction matters (A x B = -B x A).</span></li>
+        <li><strong>Important Formulas:</strong>
+            <ul>
+                <span id="span_75"><li>Surface Area (Cartesian): S = Integral 2*pi*y * sqrt(1 + (dy/dx)^2) dx</span></li>
+                <span id="span_76"><span id="span_77"><li>Volume (Cartesian): V = Integral pi * y^2 dx</span></span></li>
+                <span id="span_78"><li>Grad(r^n) = n * r^(n-2) * r</span></li>
+            </ul>
+        </li>
+    </ul>
+    <p style="text-align: center; font-size: 0.8em; margin-top: 20px;">Prepared by <strong>Knowlet</strong></p>
+</div>
+
+</div>
+<p>Would you like me to solve any other specific numerical from Section B in more detail?</p>
+</body>
+</html>

@@ -228,16 +228,13 @@ async function loadLikesAndRatings(){
         data.forEach(r => {
             totalLikes += r.page_likes ? 1 : 0;
 
+            if (!r.page_ratings) return;
+
             totalRatingsCount += 1;
             totalRatingsValue += r.page_ratings;
 
             const div = generateRatingItem(r.user.picture, r.user.name, r.interactions_time?.rated_at || r.created_at, r.page_ratings, r.ratings_message)
 
-            // show list
-            if (!totalRatingsCount) {
-                box.innerHTML = `<div class="muted">No ratings yet</div>`;
-                return;
-            }
             if (r.user.id === (user ? user.id : null)) {
                 userBox.appendChild(div);
             } else {
@@ -245,6 +242,11 @@ async function loadLikesAndRatings(){
             }
         });
         
+        if (!totalRatingsCount) {
+            box.innerHTML = `<div class="muted">No ratings yet</div>`;
+            return;
+        }
+
         const avg = totalRatingsCount ? (totalRatingsValue / totalRatingsCount) : 0;
         
         // update average UI
@@ -318,12 +320,13 @@ async function submitRating() {
         if (error) throw new Error('Error fetching ratings');
 
         btnSubmitRating.textContent = pageRated ? "Updated" : "Submitted";
-
-        pageRated = (data[0].page_ratings || data[0].ratings_message) ? true : false;
+        if (!totalRatingsValue) ratingsBox.innerHTML = "";
 
         totalRatingsValue = totalRatingsValue - (pageRated ? ratingValue : 0) + selectedRating;
         totalRatingsCount = totalRatingsCount + (pageRated ? 0 : 1);
         ratingValue = selectedRating;
+
+        pageRated = (data[0].page_ratings || data[0].ratings_message) ? true : false;
 
         const avg = totalRatingsValue / totalRatingsCount;
 

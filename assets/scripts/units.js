@@ -59,6 +59,7 @@ function isLogged() {
 // Load page state
 async function loadPageState() {
     try {
+        if (!user) throw new Error('Not logged in.');
         const res = await fetch('https://knowlet.in/.netlify/functions/get-likes-ratings', {
             method: 'POST',
             header: { 'content-type': 'application/json' },
@@ -668,7 +669,7 @@ function renderNavBar() {
             .then(res => res.json())
             .catch(err => console.error(err));
     }
-    if (user.id) { updateHistory() } else { alert('You are not logged in, try to login.') }
+    if (user) updateHistory();
 
     // --- 4. Keep Screen On Button
     const screenBtn = document.createElement("button");

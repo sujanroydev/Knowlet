@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STASEC-151T Statistical Data Analysis using R PYQ Solutions 2024 | Knowlet</title>
+<meta name="description" content="Exam-ready HTML solutions for STASEC-151T Statistical Data Analysis using R, FYUG 2nd Semester Exam 2024. Prepared for Knowlet.">
+<meta name="keywords" content="R Programming, Statistics, STASEC-151T, FYUG 2024, Knowlet, Data Analysis, Regression in R, Visualization">
+<style>
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background-color: #f4f7f6; margin: 0; padding: 20px; }
+.container { max-width: 900px; margin: auto; background: #fff; padding: 40px; box-shadow: 0 0 20px rgba(0,0,0,0.1); border-radius: 8px; }
+h1 { color: #2c3e50; text-align: center; border-bottom: 3px solid #3498db; padding-bottom: 10px; text-transform: uppercase; }
+h2 { color: #e67e22; border-left: 5px solid #e67e22; padding-left: 10px; margin-top: 30px; background: #fdf2e9; }
+h3 { color: #2980b9; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+p { margin: 10px 0; }
+ul, ol { margin-bottom: 20px; }
+blockquote { background: #f9f9f9; border-left: 10px solid #3498db; margin: 1.5em 10px; padding: 0.5em 10px; font-style: italic; }
+table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+th { background-color: #3498db; color: white; }
+tr:nth-child(even) { background-color: #f2f2f2; }
+code { background-color: #eee; padding: 2px 4px; border-radius: 4px; font-family: 'Courier New', Courier, monospace; }
+.marks { float: right; font-weight: bold; color: #7f8c8d; }
+.footer-section { margin-top: 50px; padding: 20px; background: #ecf0f1; border-radius: 5px; }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>FYUG Even Semester Exam, 2024
+STATISTICS (2nd Semester)
+Statistical Data Analysis using R (STASEC-151T)</h1>
+<div style="text-align: center; font-weight: bold; margin-bottom: 20px;">
+    Course No.: STASEC-151T | Full Marks: 50 | [span_0](start_span)Time: 2 Hours[span_0](end_span)
+</div>
+
+<h2>SECTION-A: Very Short Answer Type</h2>
+<p><em>Answer any fifteen questions. (15 x 1 = 15 Marks) [span_1](start_span)</em></p>
+
+<h3>Question 1</h3>
+<p><strong>Write the use of <code>with()</code> command in R.</strong><br>
+The <code>with()</code> function allows you to evaluate an R expression within a local environment constructed from data (usually a data frame), avoiding the need to repeatedly type the data frame name[span_1](end_span).</p>
+
+<h3>Question 3</h3>
+<p><strong>Write one feature of R.</strong><br>
+[span_2](start_span)R is an open-source programming language specifically designed for statistical computing and graphics[span_2](end_span).</p>
+
+<h3>Question 6</h3>
+<p><strong>Write the use of <code>scan()</code> function in R.</strong><br>
+[span_3](start_span)The <code>scan()</code> function is used to read data into a vector or list from the console or a file[span_3](end_span).</p>
+
+<h3>Question 10</h3>
+<p><strong>Which function is used to draw QQ plot?</strong><br>
+[span_4](start_span)The <code>qqnorm()</code> function is used to produce a normal QQ plot, and <code>qqline()</code> adds a theoretical line[span_4](end_span).</p>
+
+<h3>Question 11</h3>
+<p><strong>What is the relation between median and percentile?</strong><br>
+[span_5](start_span)The median is equivalent to the 50th percentile[span_5](end_span).</p>
+
+<h3>Question 12</h3>
+<p><strong>Which function is used to find variance in R?</strong><br>
+[span_6](start_span)The <code>var()</code> function is used to compute the variance[span_6](end_span).</p>
+
+<h3>Question 14</h3>
+<p><strong>Correlation coefficient lies between ________.</strong><br>
+[span_7](start_span)<strong>-1 and +1</strong>[span_7](end_span).</p>
+
+<h3>Question 15</h3>
+<p><strong>Which function is used to compute covariance in R?</strong><br>
+[span_8](start_span)The <code>cov()</code> function is used[span_8](end_span).</p>
+
+<h3>Question 18</h3>
+<p><strong>What is the use of <code>max()</code> function in R?</strong><br>
+[span_9](start_span)It returns the maximum value among the input arguments or within a vector[span_9](end_span).</p>
+
+<h3>Question 19</h3>
+<p><strong>What is the use of '$' operator in R?</strong><br>
+[span_10](start_span)The <code>$</code> operator is used to extract or access a specific column/variable from a data frame or a component from a list[span_10](end_span).</p>
+
+<h2>SECTION-B: Short Answer Type</h2>
+<p><em>Answer any five questions. (5 x 2 = 10 Marks) [span_11](start_span)</em></p>
+
+<h3>Question 21</h3>
+<p><strong>What is R? Write its two advantages.</strong><br>
+R is a language and environment for statistical computing and graphics[span_11](end_span). 
+<strong>Advantages:</strong> 1. It is free and open-source. 2. [span_12](start_span)It has a vast ecosystem of packages for advanced data analysis[span_12](end_span).</p>
+
+<h3>Question 23</h3>
+<p><strong>Define xlab, ylab, col, main with respect to data visualization in R.</strong><br>
+[span_13](start_span)These are graphical parameters used in plotting functions[span_13](end_span):
+<ul>
+    [span_14](start_span)<li><code>main</code>: The main title of the plot[span_14](end_span).</li>
+    [span_15](start_span)<li><code>xlab</code>: Label for the x-axis[span_15](end_span).</li>
+    [span_16](start_span)<li><code>ylab</code>: Label for the y-axis[span_16](end_span).</li>
+    [span_17](start_span)<li><code>col</code>: The color used for the plotted points or lines[span_17](end_span).</li>
+</ul></p>
+
+<h3>Question 24</h3>
+<p><strong>Define Boxplot with explaining all of its parts.</strong><br>
+[span_18](start_span)A boxplot (or whisker plot) displays the distribution of data based on a five-number summary: minimum, first quartile (Q1), median (Q2), third quartile (Q3), and maximum[span_18](end_span). 
+    [span_19](start_span)The "box" represents the Interquartile Range (IQR), the line inside is the median, and "whiskers" extend to the minimum and maximum values (excluding outliers)[span_19](end_span).</p>
+
+<h3>Question 27</h3>
+<p><strong>Write a note on kurtosis explaining its different types.</strong><br>
+[span_20](start_span)Kurtosis measures the "tailedness" of a probability distribution[span_20](end_span). 
+<strong>Types:</strong> 
+1. Mesokurtic (Normal distribution). 
+2. Leptokurtic (Sharper peak, heavy tails). 
+3. [span_21](start_span)Platykurtic (Flatter peak, thin tails)[span_21](end_span).</p>
+
+<h2>SECTION-C: Descriptive Answer Type</h2>
+<p><em>Answer any five questions. (5 x 5 = 25 Marks) [span_22](start_span)</em></p>
+
+<h3>Question 31</h3>
+<p><strong>Write a note on different operators in R.</strong><br>
+R supports several types of operators[span_22](end_span):
+<ul>
+    [span_23](start_span)<li><strong>Arithmetic Operators:</strong> <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>^</code> (exponent), <code>%%</code> (modulus)[span_23](end_span).</li>
+    [span_24](start_span)<li><strong>Relational Operators:</strong> <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>==</code>, <code>!=</code>[span_24](end_span).</li>
+    [span_25](start_span)<li><strong>Logical Operators:</strong> <code>&amp;</code> (AND), <code>|</code> (OR), <code>!</code> (NOT)[span_25](end_span).</li>
+    [span_26](start_span)<li><strong>Assignment Operators:</strong> <code>&lt;-</code> or <code>=</code>[span_26](end_span).</li>
+</ul></p>
+
+<h3>Question 33</h3>
+<p><strong>Write down the R-code for drawing visualizations.</strong><br>
+[span_27](start_span)[span_28](start_span)Assuming data vector <code>x</code>[span_27](end_span)[span_28](end_span):
+<ul>
+    [span_29](start_span)<li><strong>Bar Diagram:</strong> <code>barplot(x)</code>[span_29](end_span)</li>
+    [span_30](start_span)<li><strong>Pie Diagram:</strong> <code>pie(x)</code>[span_30](end_span)</li>
+    [span_31](start_span)<li><strong>Histogram:</strong> <code>hist(x)</code>[span_31](end_span)</li>
+    [span_32](start_span)<li><strong>Frequency Polygon:</strong> <code>plot(density(x))</code> or <code>lines(hist(x))</code>[span_32](end_span)</li>
+</ul></p>
+
+<h3>Question 35</h3>
+<p><strong>Write R-code to find statistical measures for data: 7, 3, 5, 9, 22, 7, 11, 13, 15, 10.</strong><br>
+<code>
+[span_33](start_span)data <- c(7, 3, 5, 9, 22, 7, 11, 13, 15, 10)[span_33](end_span)<br>
+[span_34](start_span)m <- mean(data)[span_34](end_span)<br>
+[span_35](start_span)med <- median(data)[span_35](end_span)<br>
+[span_36](start_span)v <- var(data)[span_36](end_span)<br>
+[span_37](start_span)s <- sd(data)[span_37](end_span)<br>
+[span_38](start_span)se <- sd(data)/sqrt(length(data))[span_38](end_span)
+</code></p>
+
+<h3>Question 40</h3>
+<p><strong>Define simple and multiple linear regression and provide code for y = a + bx.</strong><br>
+[span_39](start_span)<strong>Simple Linear Regression:</strong> Models the relationship between one dependent variable (y) and one independent variable (x)[span_39](end_span). 
+[span_40](start_span)<strong>Multiple Linear Regression:</strong> Models the relationship between one dependent variable and two or more independent variables[span_40](end_span).<br>
+[span_41](start_span)<strong>R-code for y = a + bx[span_41](end_span):</strong><br>
+<code>
+[span_42](start_span)y <- c(7, 5, 3, 2, 11)[span_42](end_span)<br>
+[span_43](start_span)x <- c(4, 2, 9, 3, 2)[span_43](end_span)<br>
+[span_44](start_span)[span_45](start_span)model <- lm(y ~ x)[span_44](end_span)[span_45](end_span)<br>
+[span_46](start_span)summary(model) # To find values of a (Intercept) and b (Slope)[span_46](end_span)
+</code></p>
+
+<div class="footer-section">
+    <h2>Exam Success Toolkit</h2>
+    <h3>Exam Tips</h3>
+    <ul>
+        [span_47](start_span)[span_48](start_span)<li>In R programming exams, always mention the specific function name like <code>lm()</code> for linear models or <code>sd()</code> for standard deviation[span_47](end_span)[span_48](end_span).</li>
+        [span_49](start_span)<li>For visualization questions, remember to include parameters like <code>main</code> and <code>col</code> to show you understand how to customize plots[span_49](end_span).</li>
+    </ul>
+    <h3>Important Functions List</h3>
+    <ul>
+        [span_50](start_span)<li><code>lm()</code>: Best linear line fit[span_50](end_span).</li>
+        [span_51](start_span)<li><code>cor()</code>: Correlation coefficient[span_51](end_span).</li>
+        [span_52](start_span)<li><code>quantile()</code>: Percentiles and quartiles[span_52](end_span).</li>
+    </ul>
+    <h3>Answer Presentation Strategy</h3>
+    <p>Present R-code clearly. [span_53](start_span)[span_54](start_span)For theoretical concepts like Regression or Boxplots, provide a definition first, followed by the specific R syntax used to implement it[span_53](end_span)[span_54](end_span).</p>
+</div>
+
+</div>
+</body>
+</html>

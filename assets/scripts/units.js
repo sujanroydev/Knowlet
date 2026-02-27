@@ -582,9 +582,8 @@ function renderNavBar() {
 
     const parts = currentUrl.replace(currentRootUrl, "").replace(".html", "").split("?")[0].split("/");
     
-    const parms = `sem=${parts[2]}&sub=${parts[3]}&ppr=${parts[4]}` //`&unit=${parts[5]}`
-    const backUrl = `${currentRootUrl}/${parts[1]}?${parms}`
-
+    const parms = `root=${parts[1]}&sem=${parts[2]}&sub=${parts[3]}&ppr=${parts[4]}` //`&unit=${parts[5]}`
+    const backUrl = `${currentRootUrl}/navigator?${parms}`
     const topBar = document.createElement("div");
     topBar.className = "unit-top-bar";
 
@@ -603,7 +602,7 @@ function renderNavBar() {
     const next = document.createElement("a");
     next.className = "unit-next";
 
-    if () {
+    if (match) {
         const base = match[1];
         const currentNum = parseInt(match[2]);
         

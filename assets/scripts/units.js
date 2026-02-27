@@ -603,7 +603,7 @@ function renderNavBar() {
     const next = document.createElement("a");
     next.className = "unit-next";
 
-    if (match) {
+    if () {
         const base = match[1];
         const currentNum = parseInt(match[2]);
         

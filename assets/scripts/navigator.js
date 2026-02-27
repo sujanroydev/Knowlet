@@ -56,7 +56,7 @@ function setupHistoryStack() {
     const params = new URLSearchParams(window.location.search);
 
     let baseClicks = [];
-    // history.replaceState({ prevClicks: baseClicks }, "", "/navigator");
+    history.replaceState({ prevClicks: baseClicks }, "", `/navigator?root=${root}`);
 
     for (let i = 0; i < keys.length; i++) {
         const value = params.get(keys[i]);
@@ -68,7 +68,7 @@ function setupHistoryStack() {
                 tempParams.set(keys[j], baseClicks[j]);
             }
 
-            if (value !== root) {
+            if (value !== prevClicks[prevClicks.length - 1]) {
                 history.pushState(
                     { prevClicks: [...baseClicks] },
                     "",
@@ -78,7 +78,7 @@ function setupHistoryStack() {
         }
     }
 
-    prevClicks = [...baseClicks];
+    prevClicks = baseClicks.length ? [...baseClicks] : [root];
 }
 
 function generateItems() {

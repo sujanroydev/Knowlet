@@ -158,3 +158,43 @@ body, #main {
     outline: none;
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.4);
 }
+
+/* ------------------------------
+     Notes & PYQ Navigation Buttons
+------------------------------ */
+.nav-buttons {
+    margin-top: 1.2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.nav-buttons button {
+    background: #ffffff;
+    color: #1e40af;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 22px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: "Segoe UI", Arial, sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.nav-buttons button:hover {
+    background-color: #e8f0ff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.16);
+}
+
+.nav-buttons button:active {
+    background-color: #d0e2ff;
+    transform: translateY(0);
+}
+
+.nav-buttons button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.4);
+}

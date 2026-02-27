@@ -1,5 +1,3 @@
-const main = document.getElementById("main");
-
 const params = new URLSearchParams(window.location.search);
 const root = params.get("root") || "notes";
 
@@ -34,6 +32,12 @@ window.addEventListener("popstate", function (event) {
     }
 
     prevClicks.pop();
+
+    if (prevClicks.length === 0) {
+        window.location.href = "/";
+        return;
+    }
+
     createPage();
 });
 
@@ -117,41 +121,25 @@ function generateItems() {
 
 function createPage() {
 
-    const items = generateItems();
-    if (!items) return;
+    const contents = generateItems();
+    if (!contents) return;
 
     const depth = prevClicks.length;
-    const h1 = (depth === 4)
+    const title = (depth === 4)
             ? prevClicks[depth - 1].replace("_", " ").toUpperCase()
             : prevClicks[depth - 1].replace("_", " ").replace(/\b\w/g, char => char.toUpperCase());
 
-    const h2 = currentTitle[depth - 1];
+    const subTitle = currentTitle[depth - 1];
     const path = prevClicks.filter(Boolean).map(click => `<button onclick="navigateBackTo('${click}')">${click.replace("null/", "")}</button>`).join("/");
 
-    main.innerHTML = getMainHtml(h1, h2, path, items);
+    renderContent(title, subTitle, path, contents);
 }
 
-function getMainHtml(h1, h2, path, items) {
-    return `
-        <header class="header">
-            <button id="back-btn" title="Go Back" onclick="goBack()">←</button>
-            <h1>${h1}</h1>
-            <p>${path}</p>
-        </header>
-        
-        <main class="main">
-            <section class="subjects-section">
-                <h2>${h2}</h2>
-                <div class="subjects-grid">
-                    ${items}
-                </div>
-            </section>
-        </main>
-        
-        <footer class="footer">
-            <p>© 2025 Knowlet | All rights reserved</p>
-        </footer>
-        `;
+function renderContent(title, subTitle, path, contents) {
+    document.getElementById("title").textContent = title;
+    document.getElementById("sub-title").textContent = subTitle;
+    document.getElementById("path").innerHTML = path;
+    document.getElementById("contents").innerHTML = contents;
 }
 
 function navigateTo(level) {

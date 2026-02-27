@@ -1,11 +1,12 @@
-const main = document.getElementById("main");
+const params = new URLSearchParams(window.location.search);
+const root = params.get("root") || "notes";
 
 const currentTitle = ["Semesters", "Subjects", "Papers", "Units"]
 
 let data = null;
-let prevClicks = ["notes"];
+let prevClicks = [root];
 
-fetch("assets/notes.json")
+fetch(`assets/${root}.json`)
     .then(res => res.json())
     .then(d => {
         data = d;
@@ -31,6 +32,12 @@ window.addEventListener("popstate", function (event) {
     }
 
     prevClicks.pop();
+
+    if (prevClicks.length === 0) {
+        window.location.href = "/";
+        return;
+    }
+
     createPage();
 });
 
@@ -38,7 +45,7 @@ function syncStateFromURL() {
     const params = new URLSearchParams(window.location.search);
     const keys = ["sem", "sub", "ppr", "unit"];
 
-    prevClicks = ["notes"];
+    prevClicks = [root];
 
     for (let i = 0; i < keys.length; i++) {
         const value = params.get(keys[i]);
@@ -49,12 +56,11 @@ function syncStateFromURL() {
 }
 
 function setupHistoryStack() {
-
-    const keys = ["sem", "sub", "ppr", "unit"];
+    const keys = ["root", "sem", "sub", "ppr", "unit"];
     const params = new URLSearchParams(window.location.search);
 
-    let baseClicks = ["notes"];
-    history.replaceState({ prevClicks: baseClicks }, "", "/notes");
+    let baseClicks = [];
+    history.replaceState({ prevClicks: baseClicks }, "", `/navigator?root=${root}`);
 
     for (let i = 0; i < keys.length; i++) {
         const value = params.get(keys[i]);
@@ -63,18 +69,20 @@ function setupHistoryStack() {
 
             const tempParams = new URLSearchParams();
             for (let j = 0; j <= i; j++) {
-                tempParams.set(keys[j], baseClicks[j + 1]);
+                tempParams.set(keys[j], baseClicks[j]);
             }
 
-            history.pushState(
-                { prevClicks: [...baseClicks] },
-                "",
-                "/notes?" + tempParams.toString()
-            );
+            if (value !== prevClicks[prevClicks.length - 1]) {
+                history.pushState(
+                    { prevClicks: [...baseClicks] },
+                    "",
+                    "/navigator?" + tempParams.toString()
+                );
+            }
         }
     }
 
-    prevClicks = [...baseClicks];
+    prevClicks = baseClicks.length ? [...baseClicks] : [root];
 }
 
 function generateItems() {
@@ -113,41 +121,25 @@ function generateItems() {
 
 function createPage() {
 
-    const items = generateItems();
-    if (!items) return;
+    const contents = generateItems();
+    if (!contents) return;
 
     const depth = prevClicks.length;
-    const h1 = (depth === 4)
+    const title = (depth === 4)
             ? prevClicks[depth - 1].replace("_", " ").toUpperCase()
             : prevClicks[depth - 1].replace("_", " ").replace(/\b\w/g, char => char.toUpperCase());
 
-    const h2 = currentTitle[depth - 1];
+    const subTitle = currentTitle[depth - 1];
     const path = prevClicks.filter(Boolean).map(click => `<button onclick="navigateBackTo('${click}')">${click.replace("null/", "")}</button>`).join("/");
 
-    main.innerHTML = getMainHtml(h1, h2, path, items);
+    renderContent(title, subTitle, path, contents);
 }
 
-function getMainHtml(h1, h2, path, items) {
-    return `
-        <header class="header">
-            <button id="back-btn" title="Go Back" onclick="goBack()">←</button>
-            <h1>${h1}</h1>
-            <p>${path}</p>
-        </header>
-        
-        <main class="main">
-            <section class="subjects-section">
-                <h2>${h2}</h2>
-                <div class="subjects-grid">
-                    ${items}
-                </div>
-            </section>
-        </main>
-        
-        <footer class="footer">
-            <p>© 2025 Knowlet | All rights reserved</p>
-        </footer>
-        `;
+function renderContent(title, subTitle, path, contents) {
+    document.getElementById("title").textContent = title;
+    document.getElementById("sub-title").textContent = subTitle;
+    document.getElementById("path").innerHTML = path;
+    document.getElementById("contents").innerHTML = contents;
 }
 
 function navigateTo(level) {
@@ -163,26 +155,23 @@ function navigateTo(level) {
 }
 
 function buildURL() {
-    const keys = ["sem", "sub", "ppr", "unit"];
+    const keys = ["root", "sem", "sub", "ppr", "unit"];
     const params = new URLSearchParams();
 
-    for (let i = 1; i < prevClicks.length; i++) {
+    for (let i = 0; i < prevClicks.length; i++) {
         if (prevClicks[i]) {
-            params.set(keys[i - 1], prevClicks[i]);
+            params.set(keys[i], prevClicks[i]);
         }
     }
 
-    return "/notes?" + params.toString();
+    return "/navigator?" + params.toString();
 }
 
 function navigateBackTo(level) {
 
-    for (let i in prevClicks) {
-        if (level === prevClicks[i]) {
-            prevClicks = prevClicks.slice(0, i);
-            break;
-        }
-    }
+    const index = prevClicks.indexOf(level);
+
+    if (index !== -1) prevClicks.length = index + 1;
 
     history.pushState(
         getState(),

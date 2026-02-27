@@ -1,4 +1,4 @@
-const APP_VERSION = "1.7.64";
+const APP_VERSION = "1.7.70";
 const CACHE_NAME = `knowlet-${APP_VERSION}`;
 const STATIC_ASSETS = [
     '/',
@@ -15,7 +15,7 @@ const STATIC_ASSETS = [
     '/login_signup',
     '/profile_complition_form',
     '/search',
-    '/notes',
+    '/navigator',
 
     '/assets/styles/style.css',
     '/assets/styles/favourite.css',
@@ -24,7 +24,7 @@ const STATIC_ASSETS = [
     '/assets/styles/login_signup.css',
     '/assets/styles/profile_complition_form.css',
     '/assets/styles/search.css',
-    '/assets/styles/notes.css',
+    '/assets/styles/navigator.css',
 
     '/assets/scripts/script.js',
     '/assets/scripts/favourite.js',
@@ -33,12 +33,13 @@ const STATIC_ASSETS = [
     '/assets/scripts/login_signup.js',
     '/assets/scripts/profile_complition_form.js',
     '/assets/scripts/search.js',
-    '/assets/scripts/notes.js',
+    '/assets/scripts/navigator.js',
 
     '/assets/styles/units.css',
     '/assets/scripts/units.js',
 
-    '/assets/notes.json'
+    '/assets/notes.json',
+    '/assets/pyq.json'
 ];
 
 self.addEventListener('install', event => {

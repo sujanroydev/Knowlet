@@ -1,5 +1,6 @@
-const APP_VERSION = "1.7.70";
+const APP_VERSION = '1.7.72';
 const CACHE_NAME = `knowlet-${APP_VERSION}`;
+const IGNORE_PARAMS_FOR = '/navigator';
 const STATIC_ASSETS = [
     '/',
     '/offline',
@@ -73,6 +74,14 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
 
     if (event.request.method !== 'GET') return;
+
+    const url = new URL(event.request.url);
+    let cacheRequest = event.request;
+
+    if (url.origin === self.location.origin && url.pathname === IGNORE_PARAMS_FOR) {
+        url.search = '';
+        cacheRequest = new Request(url.toString(), event.request);
+    }
 
     event.respondWith(
         caches.match(event.request).then(cachedResponse => {

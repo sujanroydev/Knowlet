@@ -76,24 +76,24 @@ self.addEventListener('fetch', event => {
     if (event.request.method !== 'GET') return;
 
     const url = new URL(event.request.url);
-    let cacheRequest = event.request;
+    let fetchRequest = event.request;
 
     if (url.origin === self.location.origin && url.pathname === IGNORE_PARAMS_FOR) {
         url.search = '';
-        cacheRequest = new Request(url.toString(), event.request);
+        fetchRequest = new Request(url.toString(), event.request);
     }
 
     event.respondWith(
-        caches.match(event.request).then(cachedResponse => {
+        caches.match(fetchRequest).then(cachedResponse => {
 
             // Start network fetch in the background
-            const networkResponse = fetch(event.request)
+            const networkResponse = fetch(fetchRequest)
                 .then(res => {
 
                     // Update cache with latest response
-                    if ( res && res.status === 200 && event.request.url.startsWith(self.location.origin)) {
+                    if ( res && res.status === 200 && fetchRequest.url.startsWith(self.location.origin)) {
                         caches.open(CACHE_NAME).then(cache => {
-                            cache.put(event.request, res.clone());
+                            cache.put(fetchRequest, res.clone());
                         });
                     }
 
@@ -101,7 +101,7 @@ self.addEventListener('fetch', event => {
                 })
                 .catch(() => {
                     // If network fails and it's a page navigation, show offline page
-                    if (event.request.mode === 'navigate') {
+                    if (fetchRequest.mode === 'navigate') {
                         return caches.match('/offline');
                     }
                 });

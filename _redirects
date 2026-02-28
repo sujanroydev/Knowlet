@@ -1,17 +1,14 @@
-https://knowlet.netlify.app/*       https://knowlet.in/:splat                     301!
+https://knowlet.netlify.app/*       https://knowlet.in/:splat                   301!
 
-/sujan                              /dev                                          301
+/sujan                              /dev                                        301
 
-/dev                                https://knowlet.in                            301
+/dev                                https://skrsportfolio.netlify.app            301
 /dev/github                         https://github.com/skr0411                    301
-/dev/linkedin                       https://linkedin.com/in/skr0411               301
-/dev/facebook                       https://facebook.com/sujanroy0411             301
+/dev/linkedin                       https://linkedin.com/in/skr0411                301
+/dev/facebook                       https://facebook.com/sujanroy0411            301
 
-/issue                              https://github.com/SKR0411/Knowlet/issues     301
-/assets/knowlet_declaration         /declaration                                  301
-
-/notes                              /navigator?root=notes                         301
-/pyq                                /navigator?root=pyq                           301
+/issue                              https://github.com/SKR0411/Knowlet/issues    301
+/assets/knowlet_declaration         /declaration                                301
 
 /semesters/subjects/papers/notes/botany_dsc_101_unit_1                    /notes/semester_1/botany/dsc_101/unit_1 301
 /semesters/subjects/papers/notes/botany_dsc_101_unit_2                    /notes/semester_1/botany/dsc_101/unit_2 301

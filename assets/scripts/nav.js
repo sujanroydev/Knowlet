@@ -32,19 +32,19 @@ function focusNav (item) {
 
 function randerNavBar() {
     document.getElementById('bottom-nav').innerHTML = `
-        <a href="index" class="nav-item">
+        <a href="/" class="nav-item">
             <span class="icon">🏠</span>
             <span class="text">Home</span>
         </a>
-        <a href="favourite" class="nav-item">
+        <a href="/favourite" class="nav-item">
             <span class="icon">🌟</span>
             <span class="text">Favourite</span>
         </a>
-        <a href="history" class="nav-item">
+        <a href="/history" class="nav-item">
             <span class="icon">📜</span>
             <span class="text">History</span>
         </a>
-        <a href="profile" class="nav-item">
+        <a href="/profile" class="nav-item">
             <span class="icon"><img id="profile-btn" src="/assets/images/demo_pp.jpg"></span>
             <span class="text">Profile</span>
         </a>

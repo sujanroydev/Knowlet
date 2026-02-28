@@ -1,5 +1,5 @@
 const params = new URLSearchParams(window.location.search);
-const root = params.get("root") || "notes";
+let root = params.get("root") || "notes";
 
 const currentTitle = ["Semesters", "Subjects", "Papers", "Units"]
 
@@ -11,35 +11,58 @@ fetch(`assets/${root}.json`)
     .then(d => {
         data = d;
         try {
-            syncStateFromURL();
-            setupHistoryStack();
-            history.replaceState(
-                getState(),
-                "",
-                buildURL()
-            );
-    
-            createPage();
+            initiateSetup();
         } catch(error) {
             console.error(error);
         }
     })
     .catch(err => {console.error("Failed to load notes.json:", err);})
 
-window.addEventListener("popstate", function (event) {
-    if (!event.state) {
-        return;
-    }
+document.getElementById("back-btn").addEventListener("click", goBack);
+document.getElementById("notes-btn").addEventListener("click", () => { loadJson("notes") });
+document.getElementById("pyq-btn").addEventListener("click", () => { loadJson("pyq") });
 
-    prevClicks.pop();
+window.addEventListener("popstate", (event) => {
+    if (!event.state || !event.state.prevClicks) return;
 
-    if (prevClicks.length === 0) {
-        window.location.href = "/";
-        return;
-    }
-
+    prevClicks = [...event.state.prevClicks];
     createPage();
 });
+
+function loadJson(name) {
+    root = name;
+    prevClicks = [root];
+
+    history.replaceState(
+        { prevClicks: [root] },
+        "",
+        `/navigator?root=${root}`
+    );
+
+    fetch(`assets/${root}.json`)
+        .then(res => res.json())
+        .then(d => {
+            data = d;
+            try {
+                initiateSetup();
+            } catch(error) {
+                console.error(error);
+            }
+        });
+}
+
+
+function initiateSetup() {
+    syncStateFromURL();
+    setupHistoryStack();
+    history.replaceState(
+        getState(),
+        "",
+        buildURL()
+    );
+
+    createPage();
+}
 
 function syncStateFromURL() {
     const params = new URLSearchParams(window.location.search);

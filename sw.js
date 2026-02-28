@@ -1,5 +1,6 @@
-const APP_VERSION = "1.7.64";
+const APP_VERSION = '1.7.72';
 const CACHE_NAME = `knowlet-${APP_VERSION}`;
+const IGNORE_PARAMS_FOR = '/navigator';
 const STATIC_ASSETS = [
     '/',
     '/offline',
@@ -15,7 +16,7 @@ const STATIC_ASSETS = [
     '/login_signup',
     '/profile_complition_form',
     '/search',
-    '/notes',
+    '/navigator',
 
     '/assets/styles/style.css',
     '/assets/styles/favourite.css',
@@ -24,7 +25,7 @@ const STATIC_ASSETS = [
     '/assets/styles/login_signup.css',
     '/assets/styles/profile_complition_form.css',
     '/assets/styles/search.css',
-    '/assets/styles/notes.css',
+    '/assets/styles/navigator.css',
 
     '/assets/scripts/script.js',
     '/assets/scripts/favourite.js',
@@ -33,12 +34,13 @@ const STATIC_ASSETS = [
     '/assets/scripts/login_signup.js',
     '/assets/scripts/profile_complition_form.js',
     '/assets/scripts/search.js',
-    '/assets/scripts/notes.js',
+    '/assets/scripts/navigator.js',
 
     '/assets/styles/units.css',
     '/assets/scripts/units.js',
 
-    '/assets/notes.json'
+    '/assets/notes.json',
+    '/assets/pyq.json'
 ];
 
 self.addEventListener('install', event => {
@@ -73,17 +75,25 @@ self.addEventListener('fetch', event => {
 
     if (event.request.method !== 'GET') return;
 
+    const url = new URL(event.request.url);
+    let fetchRequest = event.request;
+
+    if (url.origin === self.location.origin && url.pathname === IGNORE_PARAMS_FOR) {
+        url.search = '';
+        fetchRequest = new Request(url.toString(), event.request);
+    }
+
     event.respondWith(
-        caches.match(event.request).then(cachedResponse => {
+        caches.match(fetchRequest).then(cachedResponse => {
 
             // Start network fetch in the background
-            const networkResponse = fetch(event.request)
+            const networkResponse = fetch(fetchRequest)
                 .then(res => {
 
                     // Update cache with latest response
-                    if ( res && res.status === 200 && event.request.url.startsWith(self.location.origin)) {
+                    if ( res && res.status === 200 && fetchRequest.url.startsWith(self.location.origin)) {
                         caches.open(CACHE_NAME).then(cache => {
-                            cache.put(event.request, res.clone());
+                            cache.put(fetchRequest, res.clone());
                         });
                     }
 
@@ -91,7 +101,7 @@ self.addEventListener('fetch', event => {
                 })
                 .catch(() => {
                     // If network fails and it's a page navigation, show offline page
-                    if (event.request.mode === 'navigate') {
+                    if (fetchRequest.mode === 'navigate') {
                         return caches.match('/offline');
                     }
                 });

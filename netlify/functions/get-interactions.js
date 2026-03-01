@@ -10,18 +10,23 @@ export default async (request) => {
             headers: {
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Headers': 'Content-Type',
-                'Access-Control-Allow-Methods': 'GET, POST, OPTIONS'
+                'Access-Control-Allow-Methods': 'POST, OPTIONS'
             }
         });
     }
 
     const { searchParams } = new URL(request.url);
-    const action = searchParams.get('action'); // likes, ratings, favs and all
-
-    const { page_id, user_id } = await request.json();
+    const action = searchParams.get('action'); // likes, ratings, favs
 
     try {
-        if (!user_id && !page_id) throw new Error('must give user id or page id');
+        const { page_id, user_id } = await request.json();
+
+        if (!user_id && !page_id) {
+            return new Response(
+                JSON.stringify({ success: false, error: 'must use user id or page id.'}),
+                { status: 400, headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } }
+            );
+        }
 
         let data, error;
 
@@ -45,7 +50,7 @@ export default async (request) => {
             else if(page_id && !user_id) {
                 ({ data, error } = await supabaseClient
                     .from('ratings')
-                    .select('user_id, interactions_time, user (name, picture)')
+                    .select('interactions_time, user (name, picture)')
                     .eq('page_id', page_id)
                     .gt('page_likes', 0)
                 );
@@ -71,7 +76,7 @@ export default async (request) => {
             else if(page_id && !user_id) {
                 ({ data, error } = await supabaseClient
                     .from('ratings')
-                    .select('user_id, page_ratings, ratings_message, interactions_time, user (name, picture)')
+                    .select('page_ratings, ratings_message, interactions_time, user (name, picture)')
                     .eq('page_id', page_id)
                     .gt('page_ratings', 0)
                 );
@@ -94,7 +99,12 @@ export default async (request) => {
                     .eq('is_fav', true)
                 );
             }
-            else if(page_id && !user_id) throw new Error(`cann't access favs without user_id.`);
+            else if(page_id && !user_id) {
+                return new Response(
+                    JSON.stringify({ success: false, error: `can't access favs without user id.` }),
+                    { status: 400, headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } }
+                );
+            }
         }
         else if (!action) {
             if (user_id && page_id) {
@@ -108,19 +118,24 @@ export default async (request) => {
             else if (user_id && !page_id) {
                 ({ data, error } = await supabaseClient
                     .from('ratings')
-                    .select('user_id, page_title, page_likes, page_ratings, ratings_message, is_fav, interactions_time')
+                    .select('page_id, page_title, page_likes, page_ratings, ratings_message, is_fav, interactions_time')
                     .eq('user_id', user_id)
                 );
             }
             else if (page_id && !user_id) {
                 ({ data, error } = await supabaseClient
                     .from('ratings')
-                    .select('page_id, page_title, page_likes, page_ratings, ratings_message, interactions_time')
-                    .eq('user_id', user_id)
+                    .select('page_likes, page_ratings, ratings_message, interactions_time')
+                    .eq('page_id', page_id)
                 );
             }
         }
-        else throw new Error(`Invald action.`);
+        else {
+            return new Response(
+                JSON.stringify({ success: false, error: 'Invalid action.' }),
+                { status: 400, headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } }
+            );
+        }
 
         if (error) {
             return new Response(

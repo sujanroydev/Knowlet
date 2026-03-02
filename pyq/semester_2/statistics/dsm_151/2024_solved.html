@@ -8,121 +8,346 @@
     <meta name="keywords" content="Statistics, Probability, STADSM-151T, FYUG 2024, Knowlet, Regression, Bayes Theorem, Central Tendency">
     <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background-color: #f4f7f6; margin: 0; padding: 20px; }
-        .container { max-width: 900px; margin: auto; background: #fff; padding: 40px; box-shadow: 0 0 20px rgba(0,0,0,0.1); border-radius: 8px; }
-        h1 { color: #2c3e50; text-align: center; border-bottom: 3px solid #3498db; padding-bottom: 10px; text-transform: uppercase; }
-        h2 { color: #e67e22; border-left: 5px solid #e67e22; padding-left: 10px; margin-top: 30px; background: #fdf2e9; }
-        h3 { color: #2980b9; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
-        blockquote { background: #f9f9f9; border-left: 10px solid #3498db; margin: 1.5em 10px; padding: 0.5em 10px; font-style: italic; }
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-        th { background-color: #3498db; color: white; }
-        tr:nth-child(even) { background-color: #f2f2f2; }
-        .marks { float: right; font-weight: bold; color: #7f8c8d; }
-        .footer-section { margin-top: 50px; padding: 20px; background: #ecf0f1; border-radius: 5px; }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2980b9;
+            text-align: center;
+            border-bottom: 3px solid #2980b9;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+        }
+        h2 {
+            background-color: #2980b9;
+            color: white;
+            padding: 12px;
+            border-radius: 5px;
+            margin-top: 40px;
+        }
+        h3 {
+            color: #e67e22;
+            border-left: 5px solid #e67e22;
+            padding-left: 15px;
+            margin-top: 30px;
+            background: #fdf2e9;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        .marks {
+            font-weight: bold;
+            color: #7f8c8d;
+            float: right;
+        }
+        blockquote {
+            background: #f1f8ff;
+            border-left: 8px solid #3498db;
+            margin: 20px 0;
+            padding: 15px;
+            font-weight: 500;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #34495e;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .formula {
+            display: block;
+            text-align: center;
+            font-family: "Courier New", Courier, monospace;
+            background: #eee;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .footer-section {
+            margin-top: 50px;
+            padding: 30px;
+            background: #2c3e50;
+            color: #ecf0f1;
+            border-radius: 8px;
+        }
+        .footer-section h2 {
+            background: none;
+            border-bottom: 1px solid #7f8c8d;
+            margin-top: 0;
+        }
+        .footer-section ul {
+            list-style-type: square;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>FYUG Even Semester Exam, 2024<br>STATISTICS (2nd Semester)<br>Statistical Methods and Probability (STADSM-151T)</h1>
-
-    <div style="text-align: center; font-weight: bold; margin-bottom: 20px;">
-        Course No.: STADSM-151T | Full Marks: 70 | <span id="span_0">Time: 3 Hours</span>
+    <h1>FYUG Even Semester Exam, 2024<br>STATISTICS (2nd Semester)<br>Statistical Methods and Probability</h1>
+    
+    <div style="background: #e9ecef; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+        <span id="span_0"><strong>Course No.:</strong> STADSM-151T</span><br>
+        <strong>Full Marks:</strong> 70 | <span id="span_1"><strong>Time:</strong> 3 Hours</span><br>
+        <strong>Instructions:</strong> Answer any ten from Section-A and five from Section-B. (Full paper solved here)<span id="span_2">.
     </div>
 
-    <h2>SECTION-A: Short Answer Type</h2>
-    <p><em>Answer any ten of the following questions. (10 x 2 = 20 Marks) <span id="span_1"></em></p>
+    <h2>SECTION-A (2 x 10 = 20 Marks)</h2>
 
-    <h3>Question 1</h3>
-    <span class="marks">[2 Marks]</span>
-    <p><strong>Define the term 'statistics' and mention some limitations.</span></strong></p>
-    <span id="span_2"><p>Statistics is the science concerned with the collection, organization, analysis, interpretation, and presentation of data</span>. 
-    <span id="span_3"><strong>Limitations:</strong> Statistics does not study individuals, it deals only with quantitative characteristics, and statistical results are true only on average</span>.</p>
-
-    <h3>Question 4</h3>
-    <span class="marks">[2 Marks]</span>
-    <span id="span_4"><p><strong>Define mode and write its formula for continuous frequency distribution.</span></strong></p>
-    <span id="span_5"><p>Mode is the value that occurs most frequently in a distribution</span>.</p>
-    <span id="span_6"><blockquote>Mode = l + [(f1 - f0) / (2f1 - f0 - f2)] * h</span></blockquote>
-    <span id="span_7"><p>Where l is the lower limit of modal class, f1 is the frequency of modal class, f0 and f2 are frequencies of preceding and succeeding classes, and h is the class width</span>.</p>
-
-    <h3>Question 5</h3>
-    <span class="marks">[2 Marks]</span>
-    <span id="span_8"><p><strong>What are measures of dispersion and their types?</span></strong></p>
-    <span id="span_9"><p>Dispersion measures the extent to which data is spread out or scattered around a central value</span>. <span id="span_10"><span id="span_11">Different measures include Range, Quartile Deviation, Mean Deviation, and Standard Deviation</span></span>.</p>
-
-    <h3>Question 13</h3>
-    <span class="marks">[2 Marks]</span>
-    <span id="span_12"><p><strong>State the addition theorem of probability.</span></strong></p>
-    <span id="span_13"><p>For any two events A and B, the probability that at least one occurs is given by P(A ∪ B) = P(A) + P(B) - P(A ∩ B)</span>. <span id="span_14">If events are mutually exclusive, P(A ∪ B) = P(A) + P(B)</span>.</p>
-
-    <h2>SECTION-B: Descriptive Answer Type</h2>
-    <p><em>Answer any five of the following questions. (5 x 10 = 50 Marks) <span id="span_15"></em></p>
-
-    <h3>Question 19 (a)</h3>
-    <span class="marks">[5 Marks]</span>
-    <p><strong>Define range, quartile deviation, mean deviation, standard deviation, and variance.</span></strong></p>
-    <ul>
-        <span id="span_16"><li><strong>Range:</strong> Difference between the maximum and minimum values</span>.</li>
-        <span id="span_17"><li><strong>Quartile Deviation:</strong> Half the difference between the upper and lower quartiles</span>.</li>
-        <span id="span_18"><li><strong>Mean Deviation:</strong> Arithmetic mean of the absolute deviations from a central value</span>.</li>
-        <span id="span_19"><li><strong>Standard Deviation:</strong> Square root of the arithmetic mean of the squares of deviations from the mean</span>.</li>
-        <span id="span_20"><li><strong>Variance:</strong> The square of the standard deviation</span>.</li>
-    </ul>
-
-    <h3>Question 20 (a)</h3>
-    <span class="marks">[5 Marks]</span>
-    <p><strong>What is a scatter diagram? <span id="span_21">How can you have an idea about correlation from it?</span></strong></p>
-    <span id="span_22"><p>A scatter diagram is a graphical tool used to show the relationship between two variables by plotting them as points on a Cartesian plane</span>.</p>
+    <h3>1. Define 'statistics' and mention some limitations.</h3>
+    <span class="marks">2 Marks</span>
+    <p><strong>Definition:</strong> Statistics is the science concerned with collecting, organizing, analyzing, interpreting, and presenting data</span>.</p>
+    <span id="span_3"><p><strong>Limitations:</strong></span>
         <ul>
-        <span id="span_23"><li>If points follow an upward line, correlation is positive</span>.</li>
-        <span id="span_24"><li>If points follow a downward line, correlation is negative</span>.</li>
-        <span id="span_25"><li>If points are scattered randomly, there is no correlation</span>.</li>
-    </ul>
+            <span id="span_4"><li>It does not study qualitative phenomena directly (like honesty or beauty) unless they are quantified</span>.</li>
+            <span id="span_5"><li>It deals with aggregates (groups) rather than individual items</span>.</li>
+            <span id="span_6"><li>Statistical results are true only on average</span>.</li>
+        </ul>
+    </p>
 
-    <h3>Question 21 (a)</h3>
-    <span class="marks">[5 Marks]</span>
-    <span id="span_26"><p><strong>Obtain the equation of the line of regression of X on Y and Y on X.</span></strong></p>
-    <span id="span_27"><p>The regression equations are used to estimate the value of one variable when the other is known</span>.</p>
+    <h3>2. Define qualitative and quantitative data with examples.</h3>
+    <span class="marks">2 Marks</span>
+    <p><strong>Qualitative Data:</strong> Data describing attributes or characteristics that cannot be measured numerically. <span id="span_7">Example: Eye color, Gender</span>.</p>
+    <p><strong>Quantitative Data:</strong> Data that can be expressed numerically and measured. <span id="span_8">Example: Height (cm), Income (dollars)</span>.</p>
+
+    <h3>3. What are discrete and continuous data? Give examples.</h3>
+    <span class="marks">2 Marks</span>
+    <p><strong>Discrete Data:</strong> Data that takes only specific, isolated values (usually integers). <span id="span_9">Example: Number of children in a family</span>.</p>
+    <p><strong>Continuous Data:</strong> Data that can take any value within a given range. <span id="span_10">Example: Temperature of a room</span>.</p>
+
+    <h3>4. Define mode and give its formula for continuous distribution.</h3>
+    <span class="marks">2 Marks</span>
+    <span id="span_11"><p><strong>Mode:</strong> The value that appears most frequently in a data set</span>.</p>
+    <span id="span_12"><p><strong>Formula:</strong></span>
+        <span class="formula">Mode = l + [(f1 - f0) / (2f1 - f0 - f2)] * h</span>
+        <span id="span_13">Where: l = lower limit of modal class, f1 = frequency of modal class, f0 = frequency of preceding class, f2 = frequency of succeeding class, h = class width</span>.
+    </p>
+
+    <h3>5. What are measures of dispersion? Name them.</h3>
+    <span class="marks">2 Marks</span>
+    <span id="span_14"><p><strong>Definition:</strong> Measures that describe the spread or variability of data around a central value</span>.</p>
+    <span id="span_15"><p><strong>Measures:</strong> Range, Quartile Deviation, Mean Deviation, and Standard Deviation</span>.</p>
+
+    <h3>6. What are raw and central moments of the rth order?</h3>
+    <span class="marks">2 Marks</span>
+    <p><strong>Raw Moment (mu'_r):</strong> The expected value of the rth power of the variable X about the origin. <span id="span_16">Formula: mu'_r = E(X^r)</span>.</p>
+    <p><strong>Central Moment (mu_r):</strong> The expected value of the rth power of the deviation of X from its mean. <span id="span_17">Formula: mu_r = E[(X - Mean)^r]</span>.</p>
+
+    <h3>7. Write properties of Karl Pearson's correlation coefficient (r).</h3>
+    <span class="marks">2 Marks</span>
     <ul>
-        <span id="span_28"><li><strong>Y on X:</strong> (Y - ȳ) = b<sub>YX</sub>(X - x̄)</span></li>
-        <span id="span_29"><li><strong>X on Y:</strong> (X - x̄) = b<sub>XY</sub>(Y - ȳ)</span></li>
+        <span id="span_18"><li>The value of r lies between -1 and +1 inclusive (-1 <= r <= 1)</span>.</li>
+        <span id="span_19"><li>It is independent of change of origin and scale</span>.</li>
+        <span id="span_20"><li>It is a pure number (dimensionless)</span>.</li>
     </ul>
-    <span id="span_30"><p>Where b<sub>YX</sub> and b<sub>XY</sub> are regression coefficients calculated using the least squares method</span>.</p>
 
-    <h3>Question 24 (a)</h3>
-    <span class="marks">[5 Marks]</span>
-    <span id="span_31"><p><strong>Addition Theorem of Probability and Numerical.</span></strong></p>
-    <span id="span_32"><p>Given: P(English) = 2/3, P(English ∩ Physics) = 14/45, P(English ∪ Physics) = 4/5</span>.</p>
-    <span id="span_33"><p>Using Addition Theorem: P(E ∪ P) = P(E) + P(P) - P(E ∩ P)</span>.</p>
-    <blockquote>4/5 = 2/3 + P(P) - 14/45</blockquote>
-    <span id="span_34"><blockquote>P(P) = 4/5 - 2/3 + 14/45 = (36 - 30 + 14) / 45 = 20/45 = 4/9</span>.</blockquote>
+    <h3>8. Prove: If bXY > 1 then bYX < 1.</h3>
+    <span class="marks">2 Marks</span>
+    <span id="span_21"><p>We know that r^2 = bXY * bYX</span>. <span id="span_22">Since r^2 <= 1, it follows that bXY * bYX <= 1</span>. <span id="span_23">If bXY > 1, then for the product to be less than or equal to 1, bYX must be less than 1</span>.</p>
 
-    <h3>Question 25 (a)</h3>
-    <span class="marks">[5 Marks]</span>
-    <span id="span_35"><p><strong>State Bayes' Theorem and solve the Bonus Scheme manager problem.</span></strong></p>
-    <span id="span_36"><p><strong>Bayes' Theorem:</strong> Provides the probability of an event based on prior knowledge of conditions related to the event</span>.</p>
-        <p>Given: P(X)=4/9, P(Y)=2/9, P(Z)=1/3. <span id="span_37">P(B|X)=3/10, P(B|Y)=1/2, P(B|Z)=4/5</span>.</p>
-    <span id="span_38"><p>P(X|B) = [P(X) * P(B|X)] / [P(X)P(B|X) + P(Y)P(B|Y) + P(Z)P(B|Z)]</span>.</p>
-    <blockquote>P(X|B) = (4/9 * 3/10) / [(4/9 * 3/10) + (2/9 * 1/2) + (1/3 * 4/5)]</blockquote>
-    <span id="span_39"><blockquote>P(X|B) = (12/90) / [(12/90) + (10/90) + (24/90)] = 12 / 46 = 6/23</span>.</blockquote>
+    <h3>9. Mention two properties of regression coefficients.</h3>
+    <span class="marks">2 Marks</span>
+    <ul>
+        <span id="span_24"><li>Regression coefficients are independent of change of origin but not scale</span>.</li>
+        <span id="span_25"><li>The geometric mean of two regression coefficients is the correlation coefficient</span>.</li>
+    </ul>
+
+    <h3>10. Define an attribute with an example.</h3>
+    <span class="marks">2 Marks</span>
+    <p><strong>Definition:</strong> A qualitative characteristic that cannot be measured quantitatively but can only be categorized. <span id="span_26">Example: Marital status (Married, Single, Divorced)</span>.</p>
+
+    <h3>11. Define 'trial' and 'event'.</h3>
+    <span class="marks">2 Marks</span>
+    <p><strong>Trial:</strong> A performance of a random experiment. <span id="span_27">Example: Tossing a coin</span>.</p>
+    <p><strong>Event:</strong> A possible outcome or a collection of outcomes of a trial. <span id="span_28">Example: Getting a 'Head'</span>.</p>
+
+    <h3>12. Give the axiomatic definition of probability.</h3>
+    <span class="marks">2 Marks</span>
+    <span id="span_29"><p>Probability P(A) is a real-valued function satisfying:</span>
+        <ol>
+            <span id="span_30"><li>Non-negativity: P(A) >= 0</span>.</li>
+            <span id="span_31"><li>Certainty: P(S) = 1</span>.</li>
+            <span id="span_32"><li>Additivity: For mutually exclusive events A and B, P(A union B) = P(A) + P(B)</span>.</li>
+        </ol>
+    </p>
+
+    <h3>13. State the addition theorem of probability.</h3>
+    <span class="marks">2 Marks</span>
+    <span id="span_33"><p>For any two events A and B:</span>
+        <span class="formula">P(A union B) = P(A) + P(B) - P(A intersect B)</span>
+    </p>
+
+    <h3>14. If A and B are independent, P(A intersect B) = 0.25, P(A) = 0.5, find P(B).</h3>
+    <span class="marks">2 Marks</span>
+    <span id="span_34"><p>For independent events, P(A intersect B) = P(A) * P(B)</span>.<br>
+    <span id="span_35">0.25 = 0.5 * P(B) => P(B) = 0.25 / 0.5 = <strong>0.5</strong></span>.</p>
+
+    <h3>15. If A and B are mutually exclusive, what is P(A intersect B)?</h3>
+    <span class="marks">2 Marks</span>
+    <span id="span_36"><p>By definition, mutually exclusive events cannot occur simultaneously, so P(A intersect B) = <strong>0</strong></span>.</p>
+
+    <h2>SECTION-B (10 x 5 = 50 Marks)</h2>
+
+    <h3>16. (a) Types of data used in statistics with examples.</h3>
+    <span class="marks">5 Marks</span>
+    <span id="span_37"><p>Data is primarily categorized into:</span>
+        <ul>
+            <li><strong>Primary Data:</strong> Collected for the first time by the investigator. <span id="span_38">Example: Census surveys</span>.</li>
+            <li><strong>Secondary Data:</strong> Data already collected by others. <span id="span_39">Example: Using data from a WHO report</span>.</li>
+            <li><strong>Qualitative Data:</strong> Descriptive data. <span id="span_40">Example: Blood groups (A, B, AB, O)</span>.</li>
+            <li><strong>Quantitative Data:</strong> Numerical data. <span id="span_41">Example: Weight of students</span>.</li>
+        </ul>
+    </p>
+
+    <h3>16. (b) Note on graphical representation of statistical data.</h3>
+    <span class="marks">5 Marks</span>
+    <p>Graphical representation simplifies complex data and makes comparisons easier. <span id="span_42">Key types include:</span>
+        <ul>
+            <span id="span_43"><li><strong>Bar Charts:</strong> Used for qualitative or discrete data</span>.</li>
+            <span id="span_44"><li><strong>Histograms:</strong> Used for continuous frequency distributions</span>.</li>
+            <span id="span_45"><li><strong>Pie Charts:</strong> Showing proportions of a whole</span>.</li>
+            <span id="span_46"><li><strong>Ogive:</strong> Representing cumulative frequencies</span>.</li>
+        </ul>
+    </p>
+
+    <h3>17. (a) Represent the given data with a histogram.</h3>
+    <span class="marks">5 Marks</span>
+    <p>The data provided is in an inclusive form (e.g., 15-19, 20-24). <span id="span_47">First, convert to exclusive class boundaries: 14.5-19.5, 19.5-24.5, etc</span>.</p>
+    <table>
+        <tr><th>Class Boundaries</th><th>Frequency</th></tr>
+        <tr><td>14.5 - 19.5</td><td>9</td></tr>
+        <tr><td>19.5 - 24.5</td><td>11</td></tr>
+        <tr><td>24.5 - 29.5</td><td>10</td></tr>
+        <tr><td>29.5 - 34.5</td><td>44</td></tr>
+        <tr><td>34.5 - 39.5</td><td>45</td></tr>
+        <tr><td>39.5 - 44.5</td><td>54</td></tr>
+        <tr><td>44.5 - 49.5</td><td>37</td></tr>
+        <tr><td>49.5 - 54.5</td><td>26</td></tr>
+        <tr><td>54.5 - 59.5</td><td>8</td></tr>
+        <tr><td>59.5 - 64.5</td><td>5</td></tr>
+    </table>
+    
+    <h3>17. (b) 'Less than' and 'More than' cumulative frequency curves.</h3>
+    <span class="marks">5 Marks</span>
+    <p><strong>Less than Ogive:</strong> Points are plotted as (upper limit, cumulative frequency). <span id="span_48">It is a rising curve</span>.</p>
+    <p><strong>More than Ogive:</strong> Points are plotted as (lower limit, cumulative frequency). <span id="span_49">It is a falling curve</span>.</p>
+    <p><strong>Construction:</strong> 1. Prepare cumulative frequency table. 2. Plot points on a graph. 3. Join points with a smooth curve. <span id="span_50">Intersection of both curves gives the Median</span>.</p>
+
+    <h3>18. (a) Measures of central tendency and requisites of a good measure.</h3>
+    <span class="marks">5 Marks</span>
+    <span id="span_51"><p><strong>Measures:</strong> Arithmetic Mean (AM), Median, Mode, Geometric Mean, Harmonic Mean</span>.</p>
+    <span id="span_52"><p><strong>Requisites:</strong> It should be rigidly defined, based on all observations, easy to calculate, and stable under sampling fluctuations</span>.</p>
+    <span id="span_53"><p><strong>Mathematical treatment:</strong> Arithmetic Mean is the most amenable to further mathematical treatment</span>.</p>
+
+    <h3>18. (b) Relationship between raw and central moments.</h3>
+    <span class="marks">5 Marks</span>
+    <span id="span_54"><p>Central moments (mu_r) in terms of raw moments (mu'_r) about the origin:</span>
+        <ul>
+            <span id="span_55"><li>mu_2 = mu'_2 - (mu'_1)^2</span></li>
+            <span id="span_56"><li>mu_3 = mu'_3 - 3*mu'_2*mu'_1 + 2*(mu'_1)^3</span></li>
+        </ul>
+    </p>
+
+    <h3>19. (a) Definitions of Range, QD, MD, SD, and Variance.</h3>
+    <span class="marks">5 Marks</span>
+    <ul>
+        <span id="span_57"><li><strong>Range:</strong> Difference between maximum and minimum value</span>.</li>
+        <span id="span_58"><li><strong>Quartile Deviation (QD):</strong> (Q3 - Q1) / 2</span>.</li>
+        <span id="span_59"><li><strong>Mean Deviation (MD):</strong> Average of absolute deviations from a central value</span>.</li>
+        <span id="span_60"><li><strong>Standard Deviation (SD):</strong> Root mean square deviation from the arithmetic mean</span>.</li>
+        <span id="span_61"><li><strong>Variance:</strong> Square of Standard Deviation</span>.</li>
+    </ul>
+
+    <h3>19. (b) Define Skewness and Kurtosis with formulas.</h3>
+    <span class="marks">5 Marks</span>
+    <p><strong>Skewness:</strong> Measure of asymmetry. <span id="span_62">Formula (Karl Pearson): (Mean - Mode) / SD</span>.</p>
+    <p><strong>Kurtosis:</strong> Measure of "peakedness" or flatness of a distribution. <span id="span_63">Formula: beta_2 = mu_4 / (mu_2)^2</span>.</p>
+
+    <h3>20. (a) Scatter Diagram and Correlation.</h3>
+    <span class="marks">5 Marks</span>
+    <span id="span_64"><p><strong>Scatter Diagram:</strong> A graph plotting pairs of (x, y) values as points</span>.</p>
+    <p><strong>Correlation Idea:</strong> If points cluster along a rising line, correlation is positive. If falling, it's negative. <span id="span_65">If points are randomly scattered, correlation is zero</span>.</p>
+    
+    <h3>20. (b) Correlation Coefficients.</h3>
+    <span class="marks">5 Marks</span>
+    <span id="span_66"><p><strong>Karl Pearson's r:</strong> Measure of linear relationship between two variables</span>.<br>
+    <strong>Spearman's rank:</strong> Measure of relationship between ranked data. <span id="span_67">Formula: 1 - [6 * Sum(d^2) / (n(n^2 - 1))]</span>.<br>
+    <span id="span_68"><strong>Range of r:</strong> [-1, +1]</span>.</p>
+
+    <h3>21. (a) Regression lines of X on Y and Y on X.</h3>
+    <span class="marks">5 Marks</span>
+    <span id="span_69"><p><strong>Y on X:</strong> (y - y_bar) = bYX * (x - x_bar)</span>.<br>
+    <span id="span_70"><strong>X on Y:</strong> (x - x_bar) = bXY * (y - y_bar)</span>.</p>
+
+    <h3>21. (b) Principle of Least Squares for fitting y = a + bx.</h3>
+    <span class="marks">5 Marks</span>
+    <span id="span_71"><p>Minimize the sum of squared residuals: S = Sum(yi - (a + bxi))^2</span>. To find 'a' and 'b', differentiate S with respect to 'a' and 'b' and equate to zero. <span id="span_72">This leads to Normal Equations:</span>
+        <ol>
+            <span id="span_73"><li>Sum(y) = na + b*Sum(x)</span></li>
+            <span id="span_74"><li>Sum(xy) = a*Sum(x) + b*Sum(x^2)</span></li>
+        </ol>
+    </p>
+
+    <h3>22. (a) Probability Definitions.</h3>
+    <span class="marks">5 Marks</span>
+    <ul>
+        <span id="span_75"><li><strong>Exhaustive:</strong> All possible outcomes</span>.</li>
+        <span id="span_76"><li><strong>Mutually Exclusive:</strong> Cannot happen at once</span>.</li>
+        <span id="span_77"><li><strong>Equally Likely:</strong> No outcome is preferred over others</span>.</li>
+        <span id="span_78"><li><strong>Independent:</strong> Occurrence of one doesn't affect the other</span>.</li>
+    </ul>
+
+    <h3>22. (b) Set theoretic expressions for events.</h3>
+    <span class="marks">5 Marks</span>
+    <ol>
+        <span id="span_79"><li>Only A: A intersect B' intersect C'</span></li>
+        <span id="span_80"><li>All three: A intersect B intersect C</span></li>
+        <span id="span_81"><li>At least two: (A intersect B) union (B intersect C) union (A intersect C)</span></li>
+        <span id="span_82"><li>A and B but not C: A intersect B intersect C'</span></li>
+        <span id="span_83"><li>None: A' intersect B' intersect C'</span></li>
+    </ol>
+
+    <h3>25. (a) Bayes' Theorem and Manager Appointment Problem.</h3>
+    <span class="marks">5 Marks</span>
+    <span id="span_84"><p><strong>Bayes' Theorem:</strong> Provides the posterior probability of an event given prior evidence</span>.<br>
+    Let X, Y, Z be manager appointments. <span id="span_85">P(X)=4/9, P(Y)=2/9, P(Z)=3/9</span>. Let B = Bonus Scheme. <span id="span_86">P(B|X)=3/10, P(B|Y)=5/10, P(B|Z)=8/10</span>.<br>
+    <span id="span_87">P(B) = (4/9 * 3/10) + (2/9 * 5/10) + (3/9 * 8/10) = (12+10+24)/90 = 46/90</span>.<br>
+    <span id="span_88">P(X|B) = [P(X)*P(B|X)] / P(B) = (12/90) / (46/90) = <strong>12/46 = 6/23</strong></span>.</p>
 
     <div class="footer-section">
-        <h2>Exam Success Toolkit</h2>
-        <h3>Exam Tips</h3>
+        <h2>Exam Preparation Strategy</h2>
         <ul>
-            <span id="span_40"><li>In Regression questions, remember that the product of the two regression coefficients equals the square of the correlation coefficient (b<sub>XY</sub> * b<sub>YX</sub> = r²)</span>.</li>
-            <span id="span_41"><li>For Bayes' theorem, always define the events clearly before starting the calculation</span>.</li>
+            <li><strong>Formulas to Memorize:</strong> Normal equations for least squares, Pearson's r, and the mode formula for continuous data.</li>
+            <li><strong>Common Mistakes:</strong> Forgetting to convert inclusive class intervals to exclusive before drawing a histogram or calculating mode.</li>
+            <li><strong>Answer Presentation:</strong> Use tables for comparative definitions (like raw vs. central moments) to score higher.</li>
+            <li><strong>Final Reminder:</strong> Probability values must always be between 0 and 1. If you get a value outside this, re-check your calculations.</li>
         </ul>
-        <h3>Important Formulas List</h3>
-        <ul>
-            <span id="span_42"><li>Standard Deviation (&sigma;) = &radic;[&Sigma;(x - x̄)² / n]</span></li>
-            <span id="span_43"><li>Karl Pearson's r = Cov(X,Y) / (&sigma;<sub>X</sub> &sigma;<sub>Y</sub>)</span></li>
-            <span id="span_44"><li>Coefficient of Variation = (S.D. / Mean) * 100</span></li>
-        </ul>
-        <h3>Answer Presentation Strategy</h3>
-        <p>For probability questions, always write the theoretical formula before plugging in values. <span id="span_45"><span id="span_46">Use tables for frequency distribution calculations to ensure accuracy and clarity for the examiner</span></span>.</p>
     </div>
 </div>
 

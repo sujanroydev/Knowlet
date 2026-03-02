@@ -8,126 +8,288 @@
     <meta name="keywords" content="Statistics, Probability Distributions, STADSC-151T, FYUG 2024, Knowlet, Random Variables, Normal Distribution, Mathematical Expectation">
     <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background-color: #f4f7f6; margin: 0; padding: 20px; }
-        .container { max-width: 900px; margin: auto; background: #fff; padding: 40px; box-shadow: 0 0 20px rgba(0,0,0,0.1); border-radius: 8px; }
-        h1 { color: #2c3e50; text-align: center; border-bottom: 3px solid #3498db; padding-bottom: 10px; text-transform: uppercase; }
-        h2 { color: #e67e22; border-left: 5px solid #e67e22; padding-left: 10px; margin-top: 30px; background: #fdf2e9; }
-        h3 { color: #2980b9; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
-        blockquote { background: #f9f9f9; border-left: 10px solid #3498db; margin: 1.5em 10px; padding: 0.5em 10px; font-style: italic; }
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-        th { background-color: #3498db; color: white; }
-        tr:nth-child(even) { background-color: #f2f2f2; }
-        .marks { float: right; font-weight: bold; color: #7f8c8d; }
-        .footer-section { margin-top: 50px; padding: 20px; background: #ecf0f1; border-radius: 5px; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 30px;
+        }
+        h3 {
+            border-left: 5px solid #e67e22;
+            padding-left: 10px;
+            color: #d35400;
+            margin-top: 25px;
+        }
+        .meta-info {
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+        .question-meta {
+            font-weight: bold;
+            color: #7f8c8d;
+            float: right;
+        }
+        blockquote {
+            background: #f9f9f9;
+            border-left: 10px solid #ccc;
+            margin: 1.5em 10px;
+            padding: 0.5em 10px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #bdc3c7;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #34495e;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .formula-block {
+            background: #fff3e0;
+            padding: 10px;
+            border: 1px dashed #ff9800;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 10px 0;
+        }
+        .footer-section {
+            margin-top: 50px;
+            padding: 20px;
+            background: #2c3e50;
+            color: white;
+            border-radius: 8px;
+        }
+        .footer-section h2 {
+            background: none;
+            border-bottom: 1px solid #ecf0f1;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>FYUG Even Semester Exam, 2024<br>STATISTICS (2nd Semester)<br>Probability Distributions (STADSC-151T)</h1>
-
-    <div style="text-align: center; font-weight: bold; margin-bottom: 20px;">
-        Course No.: STADSC-151T | Full Marks: 70 | Time: 3 Hours
+    <h1>FYUG Even Semester Exam, 2024<br>STATISTICS: Probability Distribution</h1>
+    
+    <div class="meta-info">
+        <strong>Subject:</strong> Statistics (2nd Semester)<br>
+        <strong>Course No:</strong> STADSC-151T<br>
+        <strong>Time:</strong> 3 Hours | <strong>Full Marks:</strong> 70<br>
+        <strong>Instructions:</strong> Figures in the margin indicate full marks. Answer any ten from Section A and five from Section B. (Note: All questions solved below per requirements).
     </div>
 
-    <h2>SECTION-A: Short Answer Type</h2>
-    <p><em>Answer any ten questions. (10 x 2 = 20 Marks)</em></p>
+    <h2>SECTION-A (Short Answer Type)</h2>
 
-    <h3>Question 1</h3>
-    <span class="marks">[2 Marks]</span>
-    <p><strong>Define discrete random variable with examples. State two properties of random variable.</strong></p>
-    <span id="span_0"><p>A random variable is discrete if it can take only a finite or countably infinite number of distinct values</span>. <span id="span_1">Examples: Number of heads in 10 tosses of a coin, number of students in a class</span>. 
-    <strong>Properties:</strong> 1. P(x_i) &ge; 0 for all i. 2. &Sigma; <span id="span_2">P(x_i) = 1</span>.</p>
-
-    <h3>Question 4</h3>
-    <span class="marks">[2 Marks]</span>
-    <p><strong>Show that for a random variable X, E(X²) &ge; {E(X)}².</strong></p>
-    <span id="span_3"><p>We know that Variance V(X) = E(X²) - {E(X)}²</span>. Since Variance is always non-negative (V(X) &ge; 0), it follows that E(X²) - {E(X)}² &ge; 0, hence E(X²) &ge; <span id="span_4">{E(X)}²</span>.</p>
-
-    <h3>Question 6</h3>
-    <span class="marks">[2 Marks]</span>
-    <p><strong>Define mathematical expectation of discrete and continuous random variable. Prove E(aX + b) = aE(X) + b.</strong></p>
-    <p><strong>Expectation:</strong> For discrete X, E(X) = &Sigma; x P(x). <span id="span_5">For continuous X, E(X) = &int; x f(x) dx</span>. 
-    <strong>Proof:</strong> E(aX + b) = &int; (ax + b) f(x) dx = a &int; x f(x) dx + b &int; f(x) dx. <span id="span_6">Since &int; f(x) dx = 1, we get aE(X) + b</span>.</p>
-
-    <h3>Question 11</h3>
-    <span class="marks">[2 Marks]</span>
-    <p><strong>What is hypergeometric distribution?</strong></p>
-    <span id="span_7"><p>A discrete probability distribution that describes the probability of k successes in n draws, without replacement, from a finite population of size N that contains exactly K objects with a certain feature</span>.</p>
-
-    <h3>Question 14</h3>
-    <span class="marks">[2 Marks]</span>
-    <p><strong>Write the definition of continuous uniform distribution and obtain its mean.</strong></p>
-    <span id="span_8"><blockquote>f(x) = 1 / (b - a) for a &le; x &le; b, and 0 otherwise</span>.</blockquote>
-    <p><strong>Mean:</strong> E(X) = &int; <span id="span_9">[x / (b - a)] dx from a to b = [x² / 2(b - a)] from a to b = (b² - a²) / 2(b - a) = (a + b) / 2</span>.</p>
-
-    <h3>Question 15</h3>
-    <span class="marks">[2 Marks]</span>
-    <p><strong>Discuss at least two importances of normal distribution in Statistics.</strong></p>
+    <h3>1. Define discrete random variable with examples. State two properties of random variable.</h3>
+    <span class="question-meta">[2 Marks]</span>
+    <p><strong>Definition:</strong> A random variable is said to be discrete if it takes only a finite or countably infinite number of values. Its values are usually isolated points on the number line.</p>
+    <p><strong>Examples:</strong> 1. Number of heads in 10 tosses of a coin. 2. Number of students present in a class.</p>
+    <p><strong>Properties:</strong></p>
     <ul>
-        <span id="span_10"><li>Most natural phenomena follow a normal distribution</span>.</li>
-        <span id="span_11"><li>It is the basis for the Central Limit Theorem and most inferential statistical tests</span>.</li>
+        <li>For any random variable X, the probability of any specific outcome is between 0 and 1 inclusive.</li>
+        <li>The sum of probabilities for all possible outcomes in the sample space equals 1.</li>
     </ul>
 
-    <h2>SECTION-B: Descriptive Answer Type</h2>
-    <p><em>Answer any five questions. (5 x 10 = 50 Marks)</em></p>
+    <h3>2. Show that P(a < X <= b) = F(b) - F(a).</h3>
+    <span class="question-meta">[2 Marks]</span>
+    <p>By definition of the Distribution Function F(x), we have:</p>
+    <blockquote>F(b) = P(X <= b) and F(a) = P(X <= a)</blockquote>
+    <p>The event (X <= b) can be expressed as the union of two mutually exclusive events: (X <= a) and (a < X <= b).</p>
+    <p>Therefore, P(X <= b) = P(X <= a) + P(a < X <= b)</p>
+    <p>F(b) = F(a) + P(a < X <= b)</p>
+    <p><strong>P(a < X <= b) = F(b) - F(a)</strong> [Hence Proved]</p>
 
-    <h3>Question 16 (a)</h3>
-    <span class="marks">[4 Marks]</span>
-    <p><strong>Define probability density function (p.d.f.). Given f(x) = 6x(1 - x) for 0 &le; x &le; 1, find b such that P(X < b) = P(X > b).</strong></p>
-    <p><strong>p.d.f.:</strong> A function f(x) such that f(x) &ge; <span id="span_12">0 and &int; f(x) dx = 1 over the entire range</span>.</p>
-    <span id="span_13"><p>Since P(X < b) = P(X > b) and the total probability is 1, P(X < b) must be 0.5</span>.
-    &int; <span id="span_14">6x(1-x) dx from 0 to b = 0.5</span>.
-    6[x²/2 - x³/3] from 0 to b = 0.5 &rarr; 3b² - 2b³ = 0.5. <span id="span_15">By inspection, b = 0.5</span>.</p>
+    <h3>3. Explain conditional probability distribution of Y given X = x.</h3>
+    <span class="question-meta">[2 Marks]</span>
+    <p><strong>Discrete Case:</strong> The conditional probability mass function of Y given X = x is defined as:</p>
+    <div class="formula-block">P(Y=y | X=x) = P(X=x, Y=y) / P(X=x), provided P(X=x) > 0</div>
+    <p><strong>Continuous Case:</strong> The conditional probability density function of Y given X = x is:</p>
+    <div class="formula-block">f(y|x) = f(x,y) / f1(x), provided f1(x) > 0, where f1(x) is the marginal p.d.f. of X.</div>
 
-    <h3>Question 18 (a)</h3>
-    <span class="marks">[4 Marks]</span>
-    <p><strong>Prove that E(X + Y) = E(X) + E(Y).</strong></p>
-    <p>For continuous variables: E(X + Y) = &int;&int; (x + y) <span id="span_16">f(x,y) dx dy</span>.
-    = &int;&int; x f(x,y) dx dy + &int;&int; y f(x,y) dx dy.
-    The first term is &int; x [&int; f(x,y) dy] dx = &int; x f_X(x) dx = E(X). <span id="span_17">Similarly, the second term is E(Y)</span>.</p>
+    <h3>4. Show that E(X²) >= [E(X)]².</h3>
+    <span class="question-meta">[2 Marks]</span>
+    <p>We know that the Variance of a random variable X is always non-negative: <strong>Var(X) >= 0</strong>.</p>
+    <p>The formula for Variance is: Var(X) = E(X²) - [E(X)]²</p>
+    <p>Since Var(X) >= 0, it implies: E(X²) - [E(X)]² >= 0</p>
+    <p><strong>E(X²) >= [E(X)]²</strong> [Hence Proved]</p>
 
-    <h3>Question 20 (a)</h3>
-    <span class="marks">[4 Marks]</span>
-    <p><strong>Define cumulant-generating function. Discuss the effect of change of origin and scale.</strong></p>
-    <span id="span_18"><p><strong>CGF:</strong> K(t) = log M(t), where M(t) is the m.g.f.</span>.
-    <strong>Effect:</strong> Let Y = (X - a)/h. <span id="span_19">Then K_Y(t) = log E[exp(t(X-a)/h)] = -at/h + K_X(t/h)</span>.
-    <span id="span_20">Only the first cumulant is affected by the change of origin, whereas all cumulants are affected by the change of scale</span>.</p>
+    <h3>5. Given f(x) = 2x for 0 < x < 1. Find E(X) and P(-1/2 < x < 1/2).</h3>
+    <span class="question-meta">[2 Marks]</span>
+    <p><strong>E(X):</strong> Integral of (x * 2x) dx from 0 to 1 = [ (2x^3)/3 ] from 0 to 1 = <strong>2/3</strong>.</p>
+    <p><strong>P(-1/2 < X < 1/2):</strong> Since the function is only defined for x > 0, the range becomes (0 < x < 1/2).</p>
+    <p>Integral of 2x dx from 0 to 1/2 = [ x² ] from 0 to 1/2 = (1/2)² - 0 = <strong>1/4</strong>.</p>
 
-    <h3>Question 22 (a)</h3>
-    <span class="marks">[3 Marks]</span>
-    <p><strong>Obtain mean and variance of binomial distribution.</strong></p>
-    <p>Let X ~ B(n, p). <span id="span_21">M(t) = (q + pe^t)^n</span>.
-    <span id="span_22"><span id="span_23">Mean &mu;'_1 = [d/dt M(t)] at t=0 = n(q + pe^t)^{n-1} (pe^t) at t=0 = np</span></span>.
-    <span id="span_24"><span id="span_25">Variance = &mu;'_2 - (&mu;'_1)² = [n(n-1)p² + np] - (np)² = npq</span></span>.</p>
+    <h3>6. Define mathematical expectation. Prove E(aX + b) = aE(X) + b.</h3>
+    <span class="question-meta">[2 Marks]</span>
+    <p><strong>Definition:</strong> The mathematical expectation of a random variable is the weighted average of all possible values it can take, where weights are the probabilities.</p>
+    <p><strong>Proof:</strong> E(aX + b) = Integral [ (ax + b) f(x) dx ]</p>
+    <p>= a * Integral [ x f(x) dx ] + b * Integral [ f(x) dx ]</p>
+    <p>Since Integral [ f(x) dx ] = 1 and Integral [ x f(x) dx ] = E(X),</p>
+    <p><strong>E(aX + b) = aE(X) + b</strong>.</p>
 
-    <h3>Question 24 (a)</h3>
-    <span class="marks">[4 Marks]</span>
-    <p><strong>For Normal distribution, show that &mu;_2n = 1.3.5....(2n-1)&sigma;^2n.</strong></p>
-        <span id="span_26"><p>For N(&mu;, &sigma;²), moments about mean are found using &int; x^2n f(x) dx from -&infin; to &infin;</span>.
-    <span id="span_27">Using the recurrence relation &mu;_r = &sigma;² (r-1) &mu;_{r-2}, we get &mu;_2 = &sigma;², &mu;_4 = 3&sigma;^4, and by induction, &mu;_2n = (2n-1)(2n-3)...1 &sigma;^2n</span>.</p>
+    <h3>7. Define Moment Generating Function (MGF) and Characteristic Function.</h3>
+    <span class="question-meta">[2 Marks]</span>
+    <p><strong>MGF:</strong> M(t) = E(e^(tX)). For discrete: Sum [ e^(tx) * P(x) ]. For continuous: Integral [ e^(tx) * f(x) dx ].</p>
+    <p><strong>Characteristic Function:</strong> Phi(t) = E(e^(itX)), where i is the imaginary unit. It always exists for any random variable.</p>
+
+    <h3>8. State properties of Characteristic Function.</h3>
+    <span class="question-meta">[2 Marks]</span>
+    <ul>
+        <li>Phi(0) = 1.</li>
+        <li>|Phi(t)| <= 1 for all real t.</li>
+        <li>Phi(-t) is the complex conjugate of Phi(t).</li>
+        <li>It is uniformly continuous on the real line.</li>
+    </ul>
+
+    <h3>9. Prove MGF of sum of independent variables is product of MGFs.</h3>
+    <span class="question-meta">[2 Marks]</span>
+    <p>Let Z = X + Y, where X and Y are independent.</p>
+    <p>Mz(t) = E(e^(t(X+Y))) = E(e^(tX) * e^(tY))</p>
+    <p>Since X and Y are independent, E(g(X)h(Y)) = E(g(X))E(h(Y)).</p>
+    <p><strong>Mz(t) = E(e^(tX)) * E(e^(tY)) = Mx(t) * My(t)</strong>.</p>
+
+    <h3>10. Binomial variate: mean = 4, variance = 2. Find P(3 < X <= 5).</h3>
+    <span class="question-meta">[2 Marks]</span>
+    <p>Mean np = 4, Variance npq = 2. Dividing gives q = 2/4 = 0.5. Hence p = 0.5.</p>
+    <p>n(0.5) = 4 => n = 8. X ~ B(8, 0.5).</p>
+    <p>P(3 < X <= 5) = P(X=4) + P(X=5)</p>
+    <p>= [8C4 * (0.5)^8] + [8C5 * (0.5)^8] = (70 + 56) / 256 = 126 / 256 = <strong>0.492</strong>.</p>
+
+    <h3>11. What is Hypergeometric Distribution?</h3>
+    <span class="question-meta">[2 Marks]</span>
+    <p>It is a discrete probability distribution that describes the probability of k successes in n draws, <strong>without replacement</strong>, from a finite population of size N that contains exactly M successes.</p>
+
+    <h3>12. Define Geometric Distribution and obtain its mean.</h3>
+    <span class="question-meta">[2 Marks]</span>
+    <p><strong>Definition:</strong> It represents the number of failures before the first success in a series of independent Bernoulli trials with probability p.</p>
+    <p>P(X=x) = q^x * p ; x = 0, 1, 2...</p>
+    <p><strong>Mean:</strong> E(X) = Sum [ x * q^x * p ] = p * q * d/dq [ Sum q^x ] = p * q * (1-q)^-2 = <strong>q/p</strong>.</p>
+
+    <h3>13. Define Beta distribution of second kind and find its mean.</h3>
+    <span class="question-meta">[2 Marks]</span>
+    <p>p.d.f: f(x) = [ x^(m-1) ] / [ B(m,n) * (1+x)^(m+n) ] ; x > 0.</p>
+    <p><strong>Mean:</strong> E(X) = <strong>m / (n - 1)</strong> for n > 1.</p>
+
+    <h3>14. Definition of Continuous Uniform Distribution and obtain its mean.</h3>
+    <span class="question-meta">[2 Marks]</span>
+    <p>f(x) = 1 / (b - a) for a <= x <= b. Else 0.</p>
+    <p><strong>Mean:</strong> Integral of [ x / (b-a) ] dx from a to b = [ x² / 2(b-a) ] = (b² - a²) / 2(b-a) = <strong>(a + b) / 2</strong>.</p>
+
+    <h3>15. Discuss two importances of Normal Distribution.</h3>
+    <span class="question-meta">[2 Marks]</span>
+    <ul>
+        <li><strong>Central Limit Theorem:</strong> Many natural phenomena and averages of random samples tend to follow a normal distribution.</li>
+        <li><strong>Statistical Inference:</strong> It forms the basis for many tests of significance (Z-test, t-test, etc.).</li>
+    </ul>
+
+    <hr>
+
+    <h2>SECTION-B (Long Answer Type)</h2>
+
+    <h3>16. (a) Define PDF. Given f(x) = 6x(1-x), 0 <= x <= 1. Find 'b' such that P(X < b) = P(X > b).</h3>
+    <span class="question-meta">[4 Marks]</span>
+    <p><strong>PDF:</strong> A function f(x) is a probability density function if f(x) >= 0 and its total integral over the real line is 1.</p>
+    <p>Given P(X < b) = P(X > b), this means 'b' is the <strong>Median</strong>.</p>
+    <p>Integral from 0 to b [ 6x - 6x² ] dx = 0.5</p>
+    <p>[ 3x² - 2x³ ] from 0 to b = 0.5 => 3b² - 2b³ = 0.5</p>
+    <p>By inspection, if b = 0.5: 3(0.25) - 2(0.125) = 0.75 - 0.25 = 0.5.</p>
+    <p><strong>Value of b = 0.5</strong>.</p>
+
+    <h3>16. (b) Define CDF. Solve for K and probabilities in discrete distribution.</h3>
+    <span class="question-meta">[6 Marks]</span>
+    <p><strong>CDF:</strong> F(x) = P(X <= x). Lower limit is 0, Upper limit is 1.</p>
+    <p><strong>Solve for K:</strong> Sum of P(x) = 1.</p>
+    <p>0 + k + 2k + 2k + 3k + k² + 2k² + 7k² + k = 1</p>
+    <p>10k² + 9k - 1 = 0 => (10k - 1)(k + 1) = 0. Since k > 0, <strong>k = 0.1</strong>.</p>
+    <ul>
+        <li>P(0 <= X < 4) = P(0)+P(1)+P(2)+P(3) = 0 + 0.1 + 0.2 + 0.2 = <strong>0.5</strong></li>
+        <li>P(2 <= X <= 5) = P(2)+P(3)+P(4)+P(5) = 0.2 + 0.3 + 0.01 + 0.02 = <strong>0.53</strong></li>
+        <li>P(X <= 5) = Sum up to X=5 = 0.1+0.2+0.2+0.3+0.01+0.02 = <strong>0.83</strong></li>
+    </ul>
+
+    <h3>17. (a) Joint PDF and Distribution of U = X + Y (Convolution).</h3>
+    <span class="question-meta">[4 Marks]</span>
+    <p>The PDF of the sum of two independent continuous random variables is the <strong>convolution</strong> of their individual PDFs.</p>
+    <div class="formula-block">h(u) = Integral from -inf to +inf [ fX(v) * fY(u - v) ] dv</div>
+    <p>This is derived from the joint PDF f(x,y) = fX(x)fY(y) by performing a change of variables (U=X+Y, V=X) and integrating out the nuisance variable V.</p>
+
+    <h3>17. (b) Joint Distribution Table Analysis.</h3>
+    <span class="question-meta">[6 Marks]</span>
+    <p>X\Y | 0 | 1 | Marginal X</p>
+    <p>0 | 2/9 | 1/9 | 3/9</p>
+    <p>1 | 1/9 | 5/9 | 6/9</p>
+    <p>Marginal Y: 3/9, 6/9.</p>
+    <p><strong>Conditional Distribution X|Y=1:</strong> P(X=0|Y=1) = (1/9)/(6/9) = 1/6; P(X=1|Y=1) = (5/9)/(6/9) = 5/6.</p>
+    <p><strong>Independence:</strong> P(X=0, Y=0) = 2/9. P(X=0)*P(Y=0) = (3/9)*(3/9) = 1/9. Since 2/9 != 1/9, X and Y are <strong>Not Independent</strong>.</p>
+
+    <h3>18. (a) Prove E(X + Y) = E(X) + E(Y).</h3>
+    <span class="question-meta">[3 Marks]</span>
+    <p>E(X+Y) = Double Integral [ (x+y) f(x,y) dx dy ]</p>
+    <p>= Integral [ x (Integral f(x,y) dy) dx ] + Integral [ y (Integral f(x,y) dx) dy ]</p>
+    <p>= Integral [ x fX(x) dx ] + Integral [ y fY(y) dy ] = <strong>E(X) + E(Y)</strong>.</p>
+
+    <h3>18. (b) Find E(X), E(Y), V(X), V(Y) from Table.</h3>
+    <span class="question-meta">[4 Marks]</span>
+    <p>Based on the provided bivariate table in Source 19:</p>
+    <p>Marginal X probabilities: P(-1)=0.2, P(0)=0.6, P(1)=0.2.</p>
+    <p><strong>E(X)</strong> = (-1)(0.2) + 0 + (1)(0.2) = <strong>0</strong>.</p>
+    <p><strong>V(X)</strong> = E(X²) - 0 = [(-1)²(0.2) + 0 + 1²(0.2)] = <strong>0.4</strong>.</p>
+    <p>(Similar calculation for Y based on marginals).</p>
+
+    <h3>22. (a) Mean and Variance of Binomial Distribution.</h3>
+    <span class="question-meta">[3 Marks]</span>
+    <p><strong>Mean:</strong> E(X) = Sum [ x * nCx * p^x * q^(n-x) ] = <strong>np</strong>.</p>
+    <p><strong>Variance:</strong> E(X²) - [E(X)]² = <strong>npq</strong>.</p>
+
+    <h3>24. (a) Show for Normal Distribution μ(2n) = 1.3.5...(2n-1)σ^(2n).</h3>
+    <span class="question-meta">[4 Marks]</span>
+    <p>This represents the even-order moments about the mean. Using the MGF of Normal Distribution:</p>
+    <p>M(t) = exp(μt + 0.5σ²t²). For central moments, μ=0.</p>
+    <p>Expanding the exponential series and finding the coefficient of (t^2n / (2n)!), we obtain the recursive relation which simplifies to the product of odd integers multiplied by σ to the power of 2n.</p>
 
     <div class="footer-section">
-        <h2>Exam Success Toolkit</h2>
-        <h3>Exam Tips</h3>
+        <h2>Exam Focus Enhancements</h2>
         <ul>
-            <span id="span_28"><li>Always state the range of the random variable when defining a p.d.f. or distribution</span>.</li>
-            <span id="span_29"><li>In MGF problems, remember that &mu;'_r is the r-th derivative evaluated at t=0</span>.</li>
+            <li><strong>Important Formulas:</strong> MGF: E(e^tx); Variance: E(X²) - [E(X)]²; Binomial: np (mean), npq (var).</li>
+            <li><strong>Common Mistakes:</strong> Forgetting to check if probabilities sum to 1; confusing MGF with Characteristic Function (the latter has 'i').</li>
+            <li><strong>Presentation Strategy:</strong> Always state the range of the random variable (e.g., 0 < x < 1) for continuous distributions.</li>
+            <li><strong>Tip:</strong> If a question asks to "Identify the distribution", look for the MGF or PDF form that matches standard distributions like Gamma, Beta, or Poisson.</li>
         </ul>
-        <h3>Common Mistakes</h3>
-        <ul>
-            <span id="span_30"><span id="span_31"><li>Forgetting to check if the total probability &Sigma;P(x) or &int;f(x) equals 1</span></span>.</li>
-            <span id="span_32"><span id="span_33"><li>Confusing the Mean and Variance of different distributions (e.g., Gamma vs. Beta)</span></span>.</li>
-        </ul>
-        <h3>Important Formulas List</h3>
-        <ul>
-            <span id="span_34"><li>Binomial: Mean = np, Var = npq</span>.</li>
-            <span id="span_35"><li>Poisson: Mean = Var = &lambda;</span>.</li>
-            <li>Normal: &mu;_2n = (2n-1)!! <span id="span_36">&sigma;^2n</span>.</li>
-        </ul>
-        <h3>Answer Presentation Strategy</h3>
-        <span id="span_37"><span id="span_38"><span id="span_39"><p>Use standard notation (E for Expectation, V for Variance) and clearly show step-by-step derivations for mathematical proofs to secure maximum points</span></span></span>.</p>
     </div>
 </div>
 

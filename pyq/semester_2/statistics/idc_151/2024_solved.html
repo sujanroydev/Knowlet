@@ -1,178 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Statistics IDC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet</title>
-<meta name="description" content="Exam-ready HTML solutions for STAIDC-151T Index Number and Time Series Analysis, FYUG 2nd Semester Exam 2024. Prepared for Knowlet.">
-<meta name="keywords" content="Statistics, Index Number, Time Series, STAIDC-151T, FYUG 2024, Knowlet, Fisher's Index, Moving Average, Seasonal Indices">
-<link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics IDC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet</title>
+    <meta name="description" content="Exam-ready HTML solutions for STAIDC-151T Index Number and Time Series Analysis, FYUG 2nd Semester Exam 2024. Prepared for Knowlet.">
+    <meta name="keywords" content="Statistics, Index Number, Time Series, STAIDC-151T, FYUG 2024, Knowlet, Fisher's Index, Moving Average, Seasonal Indices">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
     <style>
-body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background-color: #f4f7f6; margin: 0; padding: 20px; }
-.container { max-width: 900px; margin: auto; background: #fff; padding: 40px; box-shadow: 0 0 20px rgba(0,0,0,0.1); border-radius: 8px; }
-h1 { color: #2c3e50; text-align: center; border-bottom: 3px solid #3498db; padding-bottom: 10px; text-transform: uppercase; }
-h2 { color: #e67e22; border-left: 5px solid #e67e22; padding-left: 10px; margin-top: 30px; background: #fdf2e9; }
-h3 { color: #2980b9; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
-p { margin: 10px 0; }
-ul, ol { margin-bottom: 20px; }
-blockquote { background: #f9f9f9; border-left: 10px solid #3498db; margin: 1.5em 10px; padding: 0.5em 10px; font-style: italic; }
-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-th { background-color: #3498db; color: white; }
-tr:nth-child(even) { background-color: #f2f2f2; }
-.marks { float: right; font-weight: bold; color: #7f8c8d; }
-.footer-section { margin-top: 50px; padding: 20px; background: #ecf0f1; border-radius: 5px; }
-</style>
+        body { font-family: 'Segoe UI', SegoeUI, Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; background-color: #f0f2f5; margin: 0; padding: 20px; }
+        .container { max-width: 950px; margin: auto; background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+        h1 { color: #1a73e8; text-align: center; border-bottom: 4px solid #1a73e8; padding-bottom: 15px; margin-bottom: 30px; }
+        h2 { background-color: #1a73e8; color: white; padding: 12px 20px; border-radius: 6px; margin-top: 40px; font-size: 1.5em; }
+        h3 { color: #d93025; border-left: 6px solid #d93025; padding-left: 15px; margin-top: 30px; background: #feefee; padding-top: 10px; padding-bottom: 10px; }
+        .marks { font-weight: bold; color: #5f6368; float: right; background: #e8eaed; padding: 2px 8px; border-radius: 4px; font-size: 0.9em; }
+        .code-block { background: #272822; color: #f8f8f2; padding: 15px; border-radius: 8px; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; overflow-x: auto; margin: 15px 0; position: relative; }
+        .code-comment { color: #75715e; }
+        .code-func { color: #66d9ef; }
+        .code-var { color: #a6e22e; }
+        .explanation { background: #e7f3ff; border-left: 5px solid #2196f3; padding: 15px; margin: 15px 0; border-radius: 4px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; background: #fff; }
+        th, td { border: 1px solid #dadce0; padding: 12px; text-align: left; }
+        th { background-color: #f8f9fa; color: #202124; font-weight: 600; }
+        .footer { margin-top: 50px; padding: 30px; background: #202124; color: #fff; border-radius: 8px; text-align: center; }
+    </style>
 </head>
 <body>
+
 <div class="container">
-<h1>FYUG Even Semester Exam, 2024
-STATISTICS (2nd Semester)
-Index Number and Time Series Analysis (STAIDC-151T)</h1>
-<div style="text-align: center; font-weight: bold; margin-bottom: 20px;">
-    Course No.: STAIDC-151T | Full Marks: 70 | <span id="span_0">Time: 3 Hours</span>
-</div>
+    <h1>FYUG Even Semester Exam, 2024<br>STATISTICS (2nd Semester)<br>Statistical Data Analysis using R</h1>
 
-<h2>SECTION-A: Very Short Answer Type</h2>
-<p><em>Answer any twenty questions. (20 x 1 = 20 Marks) <span id="span_1"></em></p>
+    <div style="background: #fdf7e3; border: 1px solid #f1c40f; padding: 15px; border-radius: 8px; margin-bottom: 25px;">
+        <span id="span_0"><strong>Course No:</strong> STASEC-151T</span><br>
+        <strong>Full Marks:</strong> 50 | <span id="span_1"><strong>Time:</strong> 2 Hours</span><br>
+        <strong>Note:</strong> Comprehensive solutions for Section A, B, and C.
+    </div>
 
-<h3>Question 1</h3>
-<span class="marks">[1 Mark]</span>
-<p><strong>What is an index number?</strong></p>
-<p>An index number is a statistical measure designed to show changes in a variable or a group of related variables with respect to time, geographical location, or other characteristics</span>.</p>
+    <h2>SECTION-A (1 x 15 = 15 Marks)</h2>
 
-<h3>Question 4</h3>
-<span class="marks">[1 Mark]</span>
-<p><strong>Write down the formula for Fisher's index number.</strong></p>
-<span id="span_2"><blockquote>P<sub>01</sub> = √[(Σp<sub>1</sub>q<sub>0</sub> / Σp<sub>0</sub>q<sub>0</sub>) × (Σp<sub>1</sub>q<sub>1</sub> / Σp<sub>0</sub>q<sub>1</sub>)] × 100</span></blockquote>
+    <h3>1. Use of with() command in R.</h3>
+    <span id="span_2"><p>The <code>with()</code> function applies an expression to a dataset, allowing you to reference column names directly without using the <code>$</code> operator</span>.</p>
 
-<h3>Question 6</h3>
-<span class="marks">[1 Mark]</span>
-<p><strong>Why is Fisher's formula known as ideal formula?</strong></p>
-<span id="span_3"><span id="span_4"><p>It is known as the ideal formula because it satisfies both the Time Reversal Test and the Factor Reversal Test, and it uses a geometric mean of Laspeyre's and Paasche's indices</span></span>.</p>
+    <h3>2. Use of by() command in R.</h3>
+    <span id="span_3"><p>The <code>by()</code> function is used to apply a function to a data frame split by factors (similar to a grouped "apply" operation)</span>.</p>
 
-<h3>Question 11</h3>
-<span class="marks">[1 Mark]</span>
-<p><strong>Fill in the blank: A time series is a set of values arranged in ________ order.</strong></p>
-<span id="span_5"><p><strong>Chronological</strong> order</span>.</p>
+    <h3>3. One feature of R.</h3>
+    <span id="span_4"><p>R is an open-source programming language specifically designed for statistical computing and graphics</span>.</p>
 
-<h3>Question 12</h3>
-<span class="marks">[1 Mark]</span>
-<p><strong>Write True or False: A time series consists of four components.</strong></p>
-<span id="span_6"><span id="span_7"><p><strong>True</strong> (Secular trend, Seasonal variation, Cyclical variation, and Irregular/Random variation)</span></span>.</p>
+    <h3>4. How to remove duplicate rows in R?</h3>
+    <span id="span_5"><p>Use the <code>unique()</code> function or <code>distinct()</code> from the dplyr package</span>.</p>
 
-<h3>Question 18</h3>
-<span class="marks">[1 Mark]</span>
-<p><strong>Write down the equation of the exponential curve.</strong></p>
-<span id="span_8"><p>Y = ab<sup>x</sup> or Y = ae<sup>bx</sup></span>.</p>
+    <h3>5. Which package is used to remove duplicate rows?</h3>
+    <span id="span_6"><p>The <strong>dplyr</strong> package is commonly used (with the <code>distinct()</code> function)</span>.</p>
 
-<h3>Question 20</h3>
-<span class="marks">[1 Mark]</span>
-<p><strong>Fill in the blank: Moving-average method eliminates ________.</strong></p>
-<span id="span_9"><p><strong>Short-term fluctuations</strong> (specifically seasonal and some cyclical movements)</span>.</p>
+    <h3>6. Use of scan() function in R.</h3>
+    <span id="span_7"><p>The <code>scan()</code> function is used to read data into a vector or list from the console or a file</span>.</p>
 
-<h2>SECTION-B: Short Answer Type</h2>
-<p><em>Answer any five questions. (5 x 2 = 10 Marks) <span id="span_10"></em></p>
+    <h3>7. How to add labels in a plot?</h3>
+    <span id="span_8"><p>Labels are added using arguments like <code>xlab</code> (x-axis), <code>ylab</code> (y-axis), and <code>main</code> (title) within plotting functions</span>.</p>
 
-<h3>Question 26</h3>
-<span class="marks">[2 Marks]</span>
-<p><strong>Define base period and current period.</strong></p>
-<ul>
-    <li><strong>Base Period</strong>: The period (year) against which comparisons are made; it is assigned an index value of 100</span>.</li>
-    <span id="span_11"><li><strong>Current Period</strong>: The period for which the index number is currently being calculated</span>.</li>
-</ul>
+    <h3>8. How to export a plot in R?</h3>
+    <span id="span_9"><p>Plots can be exported by opening a device (e.g., <code>png()</code>, <code>pdf()</code>), plotting, and then closing it with <code>dev.off()</code></span>.</p>
 
-<h3>Question 31</h3>
-<span class="marks">[2 Marks]</span>
-<span id="span_12"><p><strong>Which component of time series is mainly applicable?</span></strong></p>
-<ul>
-    <span id="span_13"><span id="span_14"><li>(a) Fire in a factory: <strong>Irregular/Random component</strong></span></span>.</li>
-    <span id="span_15"><span id="span_16"><li>(b) Fall in death rate due to research: <strong>Secular Trend</strong></span></span>.</li>
-    <span id="span_17"><span id="span_18"><li>(c) An upturn in business activity: <strong>Cyclical variation</strong></span></span>.</li>
-    <span id="span_19"><span id="span_20"><li>(d) Decline in ice cream sales in winter: <strong>Seasonal variation</strong></span></span>.</li>
-</ul>
+    <h3>9. What is a normal probability plot?</h3>
+    <span id="span_10"><p>A graphical technique (like a Q-Q plot) used to assess whether a dataset follows a normal distribution</span>.</p>
 
-<h3>Question 32</h3>
-<span class="marks">[2 Marks]</span>
-<p><strong>Explain semi-average method.</strong></p>
-<span id="span_21"><span id="span_22"><p>In this method, the data is divided into two equal parts</span></span>. <span id="span_23">The arithmetic mean for each part is calculated and plotted against the mid-point of the time interval of that part, and a straight line is drawn through these two points to show the trend</span>.</p>
+    <h3>10. Which function is used to draw a QQ plot?</h3>
+    <span id="span_11"><p>The <code>qqnorm()</code> and <code>qqline()</code> functions</span>.</p>
 
-<h2>SECTION-C: Descriptive Answer Type</h2>
-<p><em>Answer any five questions. (5 x 8 = 40 Marks) <span id="span_24"></em></p>
+    <h3>11. Relation between median and percentile.</h3>
+    <span id="span_12"><p>The median is equivalent to the <strong>50th percentile</strong></span>.</p>
 
-<h3>Question 37 (Numerical)</h3>
-<span class="marks">[8 Marks]</span>
-<p><strong>Calculate Price Index Numbers (Base 1995, Current 2000).</span></strong></p>
-<table>
-    <tr><th>Commodity</th><th>p<sub>0</sub></th><th>q<sub>0</sub></th><th>p<sub>1</sub></th><th>q<sub>1</sub></th><th>p<sub>1</sub>q<sub>0</sub></th><th>p<sub>0</sub>q<sub>0</sub></th><th>p<sub>1</sub>q<sub>1</sub></th><th>p<sub>0</sub>q<sub>1</sub></th></tr>
-    <tr><td>A</td><td>4</td><td>20</td><td>6</td><td>10</td><td>120</td><td>80</td><td>60</td><td>40</td></tr>
-    <tr><td>B</td><td>3</td><td>15</td><td>5</td><td>23</td><td>75</td><td>45</td><td>115</td><td>69</td></tr>
-    <tr><td>C</td><td>2</td><td>25</td><td>3</td><td>15</td><td>75</td><td>50</td><td>45</td><td>30</td></tr>
-    <tr><td>D</td><td>5</td><td>10</td><td>4</td><td>40</td><td>40</td><td>50</td><td>160</td><td>200</td></tr>
-    <tr><td><strong>Total</strong></td><td></td><td></td><td></td><td></td><td><strong>310</strong></td><td><strong>225</strong></td><td><strong>380</strong></td><td><strong>339</strong></td></tr>
-</table>
-<ul>
-    <span id="span_25"><li>(i) <strong>Laspeyre's</strong>: (Σp<sub>1</sub>q<sub>0</sub> / Σp<sub>0</sub>q<sub>0</sub>) × 100 = (310 / 225) × 100 = <strong>137.78</strong></span>.</li>
-    <span id="span_26"><li>(ii) <strong>Paasche's</strong>: (Σp<sub>1</sub>q<sub>1</sub> / Σp<sub>0</sub>q<sub>1</sub>) × 100 = (380 / 339) × 100 = <strong>112.09</strong></span>.</li>
-    <span id="span_27"><li>(iii) <strong>Fisher's</strong>: √(Laspeyre × Paasche) = √(137.78 × 112.09) = <strong>124.27</strong></span>.</li>
-</ul>
+    <h3>12. Function to find variance in R.</h3>
+    <span id="span_13"><p>The <code>var()</code> function</span>.</p>
 
-<h3>Question 40</h3>
-<span class="marks">[8 Marks]</span>
-<span id="span_28"><p><strong>Discuss the components of time series with examples.</span></strong></p>
-    <ol>
-    <span id="span_29"><span id="span_30"><li><strong>Secular Trend</strong>: Long-term tendency of data to increase or decrease (e.g., population growth over decades)</span></span>.</li>
-    <span id="span_31"><span id="span_32"><li><strong>Seasonal Variation</strong>: Rhythmical movements occurring within a year (e.g., increased woollen sales in winter)</span></span>.</li>
-    <span id="span_33"><li><strong>Cyclical Variation</strong>: Long-term oscillations around the trend with periods longer than a year (e.g., business cycles of boom and depression)</span>.</li>
-    <span id="span_34"><span id="span_35"><li><strong>Irregular Variation</strong>: Unpredictable and random fluctuations (e.g., floods, strikes)</span></span>.</li>
-</ol>
+    <h3>13. Package used to compute skewness.</h3>
+    <span id="span_14"><p>The <strong>moments</strong> or <strong>e1071</strong> packages</span>.</p>
 
-<h3>Question 42</h3>
-<span class="marks">[8 Marks]</span>
-<span id="span_36"><p><strong>Describe the method of moving average for estimating trend.</span></strong></p>
-<span id="span_37"><p>This method involves calculating the arithmetic mean of a fixed number of successive items in a series and shifting the group by one period each time</span>.</p>
-<ul>
-    <span id="span_38"><li><strong>Merits</strong>: Simple to understand, flexible, and effective in smoothing out periodic fluctuations</span>.</li>
-    <span id="span_39"><span id="span_40"><li><strong>Demerits</strong>: Loses data at the beginning and end of the series, assumes a linear trend, and choice of the "period" is subjective</span></span>.</li>
-</ul>
+    <h3>14. Correlation coefficient lies between ______.</h3>
+    <span id="span_15"><p><strong>-1 and +1</strong></span>.</p>
 
-<h3>Question 43 (Numerical)</h3>
-<span class="marks">[8 Marks]</span>
-<span id="span_41"><p><strong>Fit a straight line trend.</span></strong></p>
-<table>
-    <tr><th>Year (t)</th><th>Sales (Y)</th><th>x (t-1999)</th><th>x²</th><th>xY</th></tr>
-    <tr><td>1997</td><td>10</td><td>-2</td><td>4</td><td>-20</td></tr>
-    <tr><td>1998</td><td>13</td><td>-1</td><td>1</td><td>-13</td></tr>
-    <tr><td>1999</td><td>15</td><td>0</td><td>0</td><td>0</td></tr>
-    <tr><td>2000</td><td>20</td><td>1</td><td>1</td><td>20</td></tr>
-    <tr><td>2001</td><td>22</td><td>2</td><td>4</td><td>44</td></tr>
-    <tr><td><strong>Σ</strong></td><td><strong>80</strong></td><td><strong>0</strong></td><td><strong>10</strong></td><td><strong>31</strong></td></tr>
-</table>
-<ul>
-    <span id="span_42"><li>a = ΣY / n = 80 / 5 = 16</span>.</li>
-    <span id="span_43"><li>b = ΣxY / Σx² = 31 / 10 = 3.1</span>.</li>
-    <li>Equation: <strong>Y = 16 + 3.1x</strong>.</li>
-    <span id="span_44"><li>For 2005, x = 2005 - 1999 = 6. Y = 16 + 3.1(6) = 16 + 18.6 = <strong>34.6</strong> ('000)</span>.</li>
-</ul>
+    <h3>15. Function to compute covariance.</h3>
+    <span id="span_16"><p>The <code>cov()</code> function</span>.</p>
 
-<div class="footer-section">
-    <h2>Exam Success Toolkit</h2>
-    <h3>Exam Tips</h3>
+    <h2>SECTION-B (2 x 5 = 10 Marks)</h2>
+
+    <h3>21. What is R? Write two advantages.</h3>
+    <span id="span_17"><p><strong>R</strong> is a language and environment for statistical computing and graphics</span>.</p>
     <ul>
-        <span id="span_45"><span id="span_46"><li>Fisher's formula is "Ideal" because it is the geometric mean of Laspeyre's and Paasche's and passes the time and factor reversal tests</span></span>.</li>
-        <span id="span_47"><li>In Time Series numericals, always shift the origin to the mid-year (Σx = 0) to simplify calculations for 'a' and 'b'</span>.</li>
+        <span id="span_18"><li><strong>Advantage 1:</strong> It is free and open-source with a massive community</span>.</li>
+        <span id="span_19"><li><strong>Advantage 2:</strong> It has excellent data visualization capabilities (ggplot2, etc.)</span>.</li>
     </ul>
-    <h3>Important Concepts List</h3>
+
+    <h3>23. Define xlab, ylab, col, main in R.</h3>
+    <span id="span_20"><p>These are graphical parameters used in visualization</span>:</p>
     <ul>
-        <span id="span_48"><span id="span_49"><li>Time Reversal Test: P<sub>01</sub> × P<sub>10</sub> = 1</span></span>.</li>
-        <span id="span_50"><span id="span_51"><li>Factor Reversal Test: P<sub>01</sub> × Q<sub>01</sub> = Σp<sub>1</sub>q<sub>1</sub> / Σp<sub>0</sub>q<sub>0</sub></span></span>.</li>
-        <span id="span_52"><span id="span_53"><li>Consumer Price Index (CPI): Used for fixing dearness allowance</span></span>.</li>
+        <span id="span_21"><li><code>xlab</code>: Label for the x-axis</span>.</li>
+        <span id="span_22"><li><code>ylab</code>: Label for the y-axis</span>.</li>
+        <span id="span_23"><li><code>col</code>: Sets the color of the plot elements</span>.</li>
+        <span id="span_24"><li><code>main</code>: Sets the main title of the plot</span>.</li>
     </ul>
-    <h3>Answer Presentation Strategy</h3>
-    <span id="span_54"><p>For theoretical questions like "Problems in construction of index numbers," use bulleted lists</span>. <span id="span_55">For trend fitting, always provide the final estimated value for the requested future year (e.g., 2005) clearly</span>.</p>
+
+    <h3>24. Define Boxplot with explaining its parts.</h3>
+    <span id="span_25"><p>A boxplot summarizes data using a "box and whiskers" approach</span>:</p>
+    
+    <ul>
+        <span id="span_26"><li><strong>Median:</strong> The line inside the box</span>.</li>
+        <span id="span_27"><li><strong>Box:</strong> Represents the Interquartile Range (IQR) from Q1 to Q3</span>.</li>
+        <span id="span_28"><li><strong>Whiskers:</strong> Lines extending to the min/max values (within 1.5*IQR)</span>.</li>
+        <span id="span_29"><li><strong>Outliers:</strong> Points plotted individually beyond the whiskers</span>.</li>
+    </ul>
+
+    <h3>26. R-code for 60th and 85th percentile (Data: 5, 7, 9, 15, 23, 10).</h3>
+    <div class="code-block">
+<span class="code-var">data</span> <- <span class="code-func">c</span>(5, 7, 9, 15, 23, 10)
+<span class="code-func">quantile</span>(<span class="code-var">data</span>, <span class="code-func">probs</span> = <span class="code-func">c</span>(0.60, 0.85)) <span class="code-comment"># Result: 60th and 85th percentiles</span>
+    </div>
+
+    <h3>29. R-code for computing range (Data: 8, 9, 3, 10, 7, 2, 3, 8, 12, 15, 17, 11).</h3>
+    <div class="code-block">
+<span class="code-var">vals</span> <- <span class="code-func">c</span>(8, 9, 3, 10, 7, 2, 3, 8, 12, 15, 17, 11)
+<span class="code-func">diff</span>(<span class="code-func">range</span>(<span class="code-var">vals</span>)) <span class="code-comment"># Returns the single range value (Max - Min)</span>
+    </div>
+
+    <h2>SECTION-C (5 x 5 = 25 Marks)</h2>
+
+    <h3>33. R-code for Bar, Pie, Histogram, and Frequency Polygon.</h3>
+    <div class="code-block">
+<span class="code-comment"># (a) Bar Diagram</span>
+<span id="span_30"><span class="code-func">barplot</span>(<span class="code-var">data_vector</span>)</span>
+
+<span class="code-comment"># (b) Pie Diagram</span>
+<span id="span_31"><span class="code-func">pie</span>(<span class="code-var">data_vector</span>)</span>
+
+<span class="code-comment"># (c) Histogram</span>
+<span id="span_32"><span class="code-func">hist</span>(<span class="code-var">data_vector</span>)</span>
+
+<span class="code-comment"># (d) Frequency Polygon</span>
+<span class="code-var">h</span> <- <span class="code-func">hist</span>(<span class="code-var">data_vector</span>, <span class="code-var">plot</span>=F)
+<span id="span_33"><span class="code-func">lines</span>(<span class="code-var">h</span>$mids, <span class="code-var">h</span>$counts)</span>
+    </div>
+
+    <h3>35. R-code for Mean, Median, Variance, SD, and SE.</h3>
+    <span id="span_34"><p>Data: 7, 3, 5, 9, 22, 7, 11, 13, 15, 10</span></p>
+    <div class="code-block">
+<span class="code-var">x</span> <- <span class="code-func">c</span>(7, 3, 5, 9, 22, 7, 11, 13, 15, 10)
+<span class="code-func">mean</span>(<span class="code-var">x</span>)
+<span class="code-func">median</span>(<span class="code-var">x</span>)
+<span class="code-func">var</span>(<span class="code-var">x</span>)
+<span class="code-func">sd</span>(<span class="code-var">x</span>)
+<span class="code-var">se</span> <- <span class="code-func">sd</span>(<span class="code-var">x</span>) / <span class="code-func">sqrt</span>(<span class="code-func">length</span>(<span class="code-var">x</span>))
+    </div>
+
+    <h3>37. R-code for Karl Pearson and Spearman Correlation.</h3>
+    <span id="span_35"><p>Data X: 10, 15, 7, 13, 5, 17, 12, 21, 11</span><span id="span_36"><br>Data Y: 80, 120, 45, 33, 37, 11, 15, 21</span></p>
+    <div class="code-block">
+<span class="code-comment"># Pearson</span>
+<span id="span_37"><span class="code-func">cor</span>(<span class="code-var">x</span>, <span class="code-var">y</span>, <span class="code-var">method</span> = <span class="code-string">"pearson"</span>)</span>
+
+<span class="code-comment"># Spearman Rank</span>
+<span id="span_38"><span class="code-func">cor</span>(<span class="code-var">x</span>, <span class="code-var">y</span>, <span class="code-var">method</span> = <span class="code-string">"spearman"</span>)</span>
+    </div>
+
+    <h3>40. Simple vs Multiple Linear Regression Model.</h3>
+    <span id="span_39"><p><strong>Simple Linear Regression:</strong> Models the relationship between one dependent variable (Y) and one independent variable (X)</span>. <span id="span_40">Formula: <code>y = a + bx</code></span>.</p>
+    <span id="span_41"><p><strong>Multiple Linear Regression:</strong> Models the relationship between one dependent variable and two or more independent variables</span>.</p>
+    
+    <p><strong>R-code for fitting y = a + bx:</strong></p>
+    <div class="code-block">
+<span id="span_42"><span class="code-var">y</span> <- <span class="code-func">c</span>(7, 5, 3, 2, 11)</span>
+<span id="span_43"><span class="code-var">x</span> <- <span class="code-func">c</span>(4, 2, 9, 3, 2)</span>
+<span id="span_44"><span class="code-var">model</span> <- <span class="code-func">lm</span>(<span class="code-var">y</span> ~ <span class="code-var">x</span>)</span>
+<span class="code-func">coef</span>(<span class="code-var">model</span>) <span class="code-comment"># Returns Intercept (a) and Slope (b)</span>
+    </div>
+
+    <div class="footer">
+        <p>© 2024 Knowlet - Statistics Exam Solutions Series</p>
+        <span id="span_45">[span_46](start_span)<p>Information sourced directly from Semester Examination Papers</span>[span_46](end_span)</p>
+    </div>
 </div>
 
-</div>
     <div id="app"></div>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="../../../../assets/scripts/units.js"></script>

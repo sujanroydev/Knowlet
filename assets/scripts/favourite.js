@@ -64,7 +64,7 @@
         }
 
         try {
-            const res = await fetch('https://knowlet.in/.netlify/functions/get-favs', {
+            const res = await fetch('https://knowlet.in/.netlify/functions/get-interactions?action=favs', {
                 method: 'POST',
                 header: {
                     'Content-Type': 'application/json'

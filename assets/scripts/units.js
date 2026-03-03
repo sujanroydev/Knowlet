@@ -569,6 +569,16 @@ function ensureAuthenticated() {
     return true;
 }
 
+async function checkUrlStatus(url) {
+    try {
+        const response = await fetch(url, { method: 'HEAD' });
+        return response.ok ? true : false;
+    } catch (error) {
+        console.error("Error: Could not reach the server. Check your connection or CORS settings.");
+        return true;
+    }
+}
+
 // Wire up UI and init
 // build nav bar
 function renderNavBar() {

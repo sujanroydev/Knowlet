@@ -10,8 +10,6 @@ const profilePic = document.getElementById("profile-pic");
 const loader = document.getElementById("loader");
 const recentActivityView = document.getElementById("recent-activity-view");
 
-const stat = document.getElementsByClassName("stat");
-
 let isExist = false;
 let user = localStorage.getItem("knowletUser");
 
@@ -141,18 +139,6 @@ async function fetchActivity() {
         ]);
         
         renderRecentActivity(comments, interactions);
-        
-        let commentsCount = 0;
-        let totalCommentsLikes = 0;
-        
-        comments.forEach((c) => {
-            commentsCount += 1;
-            totalCommentsLikes += c.likes;
-        });
-        
-        stat[0].textContent = totalCommentsLikes;
-        stat[1].textContent = commentsCount;
-        
     } catch(err) {
         console.error(err);
         recentActivityView.innerHTML = `<p class="empty-message">Failed to fetch recent activity</p>`;

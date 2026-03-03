@@ -125,7 +125,7 @@ export default async (request) => {
             else if (page_id && !user_id) {
                 ({ data, error } = await supabaseClient
                     .from('ratings')
-                    .select('page_likes, page_ratings, ratings_message, interactions_time')
+                    .select('page_likes, page_ratings, ratings_message, interactions_time, user (name, picture)')
                     .eq('page_id', page_id)
                 );
             }

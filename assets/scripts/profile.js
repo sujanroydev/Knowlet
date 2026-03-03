@@ -10,8 +10,6 @@ const profilePic = document.getElementById("profile-pic");
 const loader = document.getElementById("loader");
 const recentActivityView = document.getElementById("recent-activity-view");
 
-const stat = document.getElementsByClassName("stat");
-
 let isExist = false;
 let user = localStorage.getItem("knowletUser");
 
@@ -62,7 +60,7 @@ async function sync() {
     }
 
     user = JSON.parse(user);
-    fetchCommentsLikesAndRatings();
+    fetchActivity();
 
     try {
         loader.style.display = "flex";
@@ -115,7 +113,7 @@ function renderUserInfo() {
     logoutBtn.style.display = "block";
 }
 
-async function fetchCommentsLikesAndRatings() {
+async function fetchActivity() {
     try {
         const [res1, res2] = await Promise.all([
             fetch('https://knowlet.in/.netlify/functions/get-comments', {
@@ -123,10 +121,10 @@ async function fetchCommentsLikesAndRatings() {
                 header: {'Content-Type': 'application/json'},
                 body: JSON.stringify({ userId: user.id })
             }),
-            fetch('https://knowlet.in/.netlify/functions/get-likes-ratings', {
+            fetch('https://knowlet.in/.netlify/functions/get-interactions', {
                 method: 'POST',
                 header: {'Content-Type': 'application/json'},
-                body: JSON.stringify({ userId: user.id })
+                body: JSON.stringify({ user_id: user.id })
             })
         ]);
         
@@ -135,58 +133,66 @@ async function fetchCommentsLikesAndRatings() {
             return;
         }
         
-        const [{ data: data1 }, { data: data2 }] = await Promise.all([
+        const [{ data: comments }, { data: interactions }] = await Promise.all([
             res1.json(),
             res2.json()
         ]);
         
-        renderRecentActivity(data1, data2);
-        
-        let commentsCount = 0;
-        let totalCommentsLikes = 0;
-        
-        data1.forEach((comments) => {
-            commentsCount += 1;
-            totalCommentsLikes += comments.likes;
-        });
-        
-        stat[0].textContent = totalCommentsLikes;
-        stat[1].textContent = commentsCount;
-        
+        renderRecentActivity(comments, interactions);
     } catch(err) {
         console.error(err);
         recentActivityView.innerHTML = `<p class="empty-message">Failed to fetch recent activity</p>`;
     }
 }
 
-function renderRecentActivity(comments = [], likesAndRatings = []) {
-    comments = comments.map(obj => {
+function renderRecentActivity(comments = [], interactions = []) {
+    comments = comments.map(c => {
         return {
             state: 'Commented',
-            url: obj.page_id,
-            timeMs: new Date(obj.created_at).getTime()
+            url: c.page_id,
+            timeMs: new Date(c.created_at).getTime()
         };
-    })
-    
-    likesAndRatings = likesAndRatings.map(obj => {
-        return {
-            state: obj.page_likes ? 'Liked' : obj.page_ratings ? 'Rated' : 'Faved',
-            url: obj.page_id,
-            timeMs: new Date(obj.created_at).getTime()
-        };
-    })
+    });
 
-    const recentActivities = [...comments, ...likesAndRatings].sort((a, b) => b.timeMs - a.timeMs);
+    let likes = [];
+    let ratings = [];
+    let favs = [];
+
+    interactions.forEach((i) => {
+        if (i.page_likes) {
+            likes.push({
+                state: 'Liked',
+                url: i.page_id,
+                timeMs: new Date(i.interactions_time.liked_at).getTime()
+            })
+        }
+        if (i.page_ratings) {
+            ratings.push({
+                state: 'Rated',
+                url: i.page_id,
+                timeMs: new Date(i.interactions_time.rated_at).getTime()
+            })
+        }
+        if (i.is_fav) {
+            favs.push({
+                state: 'Faved',
+                url: i.page_id,
+                timeMs: new Date(i.interactions_time.faved_at).getTime()
+            })
+        }
+    });
+
+    const recentActivities = [...comments, ...likes, ...ratings, ...favs].sort((a, b) => b.timeMs - a.timeMs);
     
     let recentActivityItems = '';
 
     recentActivities.forEach((item) => {
-        recentActivityItems += `
+        recentActivityItems += item.state ? `
                 <li>
                     ${item.state || 'Visited'} : <span class="example-title">${item.title || generateTitleFromURL(item.url)}</span> - ${item.timeMs ? timeAgo(item.timeMs) : 'Unknown'}<br>
                     <span class="example-heading">${item.heading ? item.heading : ''}</span> <a href="${item.url}">View</a>
                 </li>
-            `;
+            ` : '' ;
     });
 
     recentActivityView.innerHTML = recentActivityItems || `<p class="empty-message">No recent activity, visit notes, like, rate or comment </p>`;
@@ -231,7 +237,7 @@ function generateTitleFromURL(url) {
 
     let semester = getSemester(courseNumber)
 
-    return `${sub} ${paper} ${unit} | ${semester} Notes`
+    return `${sub} ${paper} ${unit} | ${semester} ${parts[0]}`
 }
 
 function timeAgo(unixMs) {
@@ -243,10 +249,10 @@ function timeAgo(unixMs) {
     const hours = Math.floor(minutes / 60)
     const days = Math.floor(hours / 24)
 
-    if (seconds < 60) return `${seconds} seconds ago`
-    if (minutes < 60) return `${minutes} minutes ago`
-    if (hours < 24) return `${hours} hours ago`
-    return `${days} days ago`
+    if (seconds < 60) return `${seconds}s ago`;
+    if (minutes < 60) return `${minutes} ${minutes === 1 ? 'minute' : 'minutes'} ago`;
+    if (hours < 24) return `${hours} ${hours === 1 ? 'hour' : 'hours'} ago`;
+    return `${days} ${days === 1 ? 'day' : 'days'} ago`;
 }
 
 sync();

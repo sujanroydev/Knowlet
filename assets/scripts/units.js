@@ -60,12 +60,12 @@ function isLogged() {
 async function loadPageState() {
     try {
         if (!user) throw new Error('Not logged in.');
-        const res = await fetch('https://knowlet.in/.netlify/functions/get-likes-ratings', {
+        const res = await fetch('https://knowlet.in/.netlify/functions/get-interactions', {
             method: 'POST',
             header: { 'content-type': 'application/json' },
             body: JSON.stringify({
-                userId: user.id,
-                pageId: pageId
+                user_id: user.id,
+                page_id: pageId
             })
         });
         
@@ -194,10 +194,10 @@ function getRenderedStars(val) {
 
 async function loadLikesAndRatings(){
     try {
-        const res = await fetch('https://knowlet.in/.netlify/functions/get-likes-ratings', {
+        const res = await fetch('https://knowlet.in/.netlify/functions/get-interactions', {
             method: 'POST',
             header: { 'content-type': 'application/json' },
-            body: JSON.stringify({ pageId: pageId })
+            body: JSON.stringify({ page_id: pageId })
         });
         
         if (!res.ok) throw new Error(`Error status: ${res.status}`);

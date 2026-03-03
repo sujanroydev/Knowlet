@@ -43,7 +43,7 @@ export default async (request) => {
         if (action === "likes") {
             if (data.length){
                 pageState = {
-                    is_liked: data[0].is_liked ? 0 : 1,
+                    is_liked: !(data[0].is_liked),
                     interactions_time: {
                         faved_at: data[0].interactions_time.faved_at,
                         liked_at: new Date().toISOString(),
@@ -53,7 +53,7 @@ export default async (request) => {
             }
             else {
                 pageState = {
-                    is_liked: 1,
+                    is_liked: true,
                     interactions_time: {
                         faved_at: null,
                         liked_at: new Date().toISOString(),

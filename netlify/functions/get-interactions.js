@@ -44,7 +44,7 @@ export default async (request) => {
                     .from('interactions')
                     .select('page_id, page_title, interactions_time')
                     .eq('user_id', user_id)
-                    .gt('is_liked', 0)
+                    .eq('is_liked', true)
                 );
             }
             else if(page_id && !user_id) {
@@ -52,7 +52,7 @@ export default async (request) => {
                     .from('interactions')
                     .select('interactions_time, users (name, picture)')
                     .eq('page_id', page_id)
-                    .gt('is_liked', 0)
+                    .eq('is_liked', true)
                 );
             }
         }

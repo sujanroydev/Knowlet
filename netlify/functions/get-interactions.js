@@ -110,7 +110,7 @@ export default async (request) => {
             if (user_id && page_id) {
                 ({ data, error } = await supabaseClient
                     .from('ratings')
-                    .select('page_likes, page_ratings, ratings_message, is_fav, interactions_time, user (name, picture)')
+                    .select('page_likes, page_ratings, ratings_message, is_fav, interactions_time')
                     .eq('user_id', user_id)
                     .eq('page_id', page_id)
                 );
@@ -118,7 +118,7 @@ export default async (request) => {
             else if (user_id && !page_id) {
                 ({ data, error } = await supabaseClient
                     .from('ratings')
-                    .select('page_id, page_title, page_likes, page_ratings, ratings_message, is_fav, interactions_time, user (name, picture)')
+                    .select('page_id, page_title, page_likes, page_ratings, ratings_message, is_fav, interactions_time')
                     .eq('user_id', user_id)
                 );
             }

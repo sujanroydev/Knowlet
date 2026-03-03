@@ -538,7 +538,6 @@ async function toggleFavourite() {
 
     const { data, error } = await res.json();
     pageFaved = data[0].is_faved;
-    console.log(data)
     
     favBtn.classList.toggle("favourited", pageFaved);
     favBtn.title = pageFaved ? "Remove from Favourites" : "Add to Favourites";

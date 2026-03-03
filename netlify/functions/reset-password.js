@@ -21,7 +21,7 @@ export default async (request) => {
     try {
 
         const { error } = await supabaseClient
-            .from("user")
+            .from("users")
             .update(user)
             .eq("email", user.email)
             .eq("is_verified", true)

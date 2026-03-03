@@ -95,8 +95,6 @@
     
             history.sort((a, b) => b.timestamp.localeCompare(a.timestamp));
     
-            console.log(history)
-            
             historyList.innerHTML = ''; // Clear loading message
     
             if (history.length === 0) {

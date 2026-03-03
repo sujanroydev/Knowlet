@@ -32,8 +32,6 @@ function logout() {
 
     user = null;
     isExist = false;
-    stat[0].textContent = 0;
-    stat[1].textContent = 0;
 
     try {
         document.getElementById("profile-btn").src = "assets/images/demo_pp.jpg";

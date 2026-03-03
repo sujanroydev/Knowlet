@@ -18,7 +18,7 @@ export default async (request) => {
     const { searchParams } = new URL(request.url);
     const action = searchParams.get("action");
 
-    const { user_id, page_id, page_title, page_ratings, ratings_message } = await request.json();
+    const { user_id, page_id, page_title, ratings_score, ratings_message } = await request.json();
 
     try {
         if (!action) throw new Error('Missing quary parameter action');
@@ -43,7 +43,7 @@ export default async (request) => {
         if (action === "likes") {
             if (data.length){
                 pageState = {
-                    page_likes: data[0].page_likes ? 0 : 1,
+                    is_liked: data[0].is_liked ? 0 : 1,
                     interactions_time: {
                         faved_at: data[0].interactions_time.faved_at,
                         liked_at: new Date().toISOString(),
@@ -53,7 +53,7 @@ export default async (request) => {
             }
             else {
                 pageState = {
-                    page_likes: 1,
+                    is_liked: 1,
                     interactions_time: {
                         faved_at: null,
                         liked_at: new Date().toISOString(),
@@ -64,7 +64,7 @@ export default async (request) => {
         } else if (action === "ratings") {
             if (data.length){
                 pageState = {
-                    page_ratings: page_ratings || data[0].page_ratings,
+                    ratings_score: ratings_score || data[0].ratings_score,
                     ratings_message: ratings_message || data[0].ratings_message,
                     interactions_time: {
                         faved_at: data[0].interactions_time.faved_at,
@@ -75,7 +75,7 @@ export default async (request) => {
             }
             else {
                 pageState = {
-                    page_ratings,
+                    ratings_score,
                     ratings_message,
                     interactions_time: {
                         faved_at: null,
@@ -87,7 +87,7 @@ export default async (request) => {
         } else if (action === "favs") {
             if (data.length){
                 pageState = {
-                    is_fav: !(data[0].is_fav),
+                    is_faved: !(data[0].is_faved),
                     interactions_time: {
                         faved_at: new Date().toISOString(),
                         liked_at: data[0].interactions_time.liked_at,
@@ -97,7 +97,7 @@ export default async (request) => {
             }
             else {
                 pageState = {
-                    is_fav: true,
+                    is_faved: true,
                     interactions_time: {
                         faved_at: new Date().toISOString(),
                         liked_at: null,

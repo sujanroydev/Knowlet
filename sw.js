@@ -1,4 +1,4 @@
-const APP_VERSION = '1.7.72';
+const APP_VERSION = '1.7.85';
 const CACHE_NAME = `knowlet-${APP_VERSION}`;
 const IGNORE_PARAMS_FOR = '/navigator';
 const STATIC_ASSETS = [
@@ -80,7 +80,7 @@ self.addEventListener('fetch', event => {
 
     if (url.origin === self.location.origin && url.pathname === IGNORE_PARAMS_FOR) {
         url.search = '';
-        fetchRequest = new Request(url.toString(), event.request);
+        fetchRequest = new Request('/navigator');
     }
 
     event.respondWith(

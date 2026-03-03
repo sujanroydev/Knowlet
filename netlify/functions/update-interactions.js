@@ -25,7 +25,7 @@ export default async (request) => {
         if ( !user_id || !page_id) throw new Error('Missing parameters page id and user id');
 
         const { data, error: err1 } = await supabaseClient
-            .from("ratings")
+            .from("interactions")
             .select("*")
             .eq("user_id", user_id)
             .eq("page_id", page_id);
@@ -109,14 +109,14 @@ export default async (request) => {
 
         if (data.length) {
             ({ error } = await supabaseClient
-                .from("ratings")
+                .from("interactions")
                 .update(pageState)
                 .eq("page_id", page_id)
                 .eq("user_id", user_id)
             );
         } else {
             ({ error } = await supabaseClient
-                .from("ratings")
+                .from("interactions")
                 .insert({ ...pageInfo, ...pageState })
             );
         }

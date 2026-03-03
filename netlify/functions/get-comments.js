@@ -29,7 +29,7 @@ export default async (request) => {
         } else if (!userId && pageId) {
             ({ data, error } = await supabaseClient
                 .from('comments')
-                .select('*, user (id, name, picture)')
+                .select('*, users (id, name, picture)')
                 .eq('page_id', pageId)
             );
         } else {

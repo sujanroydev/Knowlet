@@ -20,7 +20,7 @@ export default async (request) => {
     
     try {
         const { error } = await supabaseClient
-                .from("user")
+                .from("users")
                 .insert(user);
 
         if (error) {

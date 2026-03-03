@@ -146,25 +146,53 @@ async function fetchActivity() {
 }
 
 function renderRecentActivity(comments = [], interactions = []) {
-    comments = comments.map(obj => {
+    comments = comments.map(c => {
         return {
             state: 'Commented',
-            url: obj.page_id,
-            timeMs: new Date(obj.created_at).getTime()
+            url: c.page_id,
+            timeMs: new Date(c.created_at).getTime()
         };
     });
 
-    const recentActivities = [...comments].sort((a, b) => b.timeMs - a.timeMs);
+    let likes = [];
+    let ratings = [];
+    let favs = [];
+
+    interactions.forEach((i) => {
+        if (i.page_likes) {
+            likes.push({
+                state: 'Liked',
+                url: i.page_id,
+                timeMs: new Date(i.interactions_time.liked_at).getTime()
+            })
+        }
+        if (i.page_ratings) {
+            ratings.push({
+                state: 'Rated',
+                url: i.page_id,
+                timeMs: new Date(i.interactions_time.rated_at).getTime()
+            })
+        }
+        if (i.is_fav) {
+            favs.push({
+                state: 'Faved',
+                url: i.page_id,
+                timeMs: new Date(i.interactions_time.faved_at).getTime()
+            })
+        }
+    });
+
+    const recentActivities = [...comments, ...likes, ...ratings, ...favs].sort((a, b) => b.timeMs - a.timeMs);
     
     let recentActivityItems = '';
 
     recentActivities.forEach((item) => {
-        recentActivityItems += `
+        recentActivityItems += item.state ? `
                 <li>
                     ${item.state || 'Visited'} : <span class="example-title">${item.title || generateTitleFromURL(item.url)}</span> - ${item.timeMs ? timeAgo(item.timeMs) : 'Unknown'}<br>
                     <span class="example-heading">${item.heading ? item.heading : ''}</span> <a href="${item.url}">View</a>
                 </li>
-            `;
+            ` : '' ;
     });
 
     recentActivityView.innerHTML = recentActivityItems || `<p class="empty-message">No recent activity, visit notes, like, rate or comment </p>`;
@@ -209,7 +237,7 @@ function generateTitleFromURL(url) {
 
     let semester = getSemester(courseNumber)
 
-    return `${sub} ${paper} ${unit} | ${semester} Notes`
+    return `${sub} ${paper} ${unit} | ${semester} ${parts[0]}`
 }
 
 function timeAgo(unixMs) {

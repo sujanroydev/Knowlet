@@ -51,7 +51,7 @@ btnClearRating.addEventListener("click", () => {
 function isLogged() {
     if (!user) {
         setTimeout(() => {
-            window.location.href = "../../../../login_signup.html";
+            window.location.href = "../../../../login_signup";
         }, 60000);
     } 
 }
@@ -477,10 +477,8 @@ async function submitComment(){
         const { error } = await res.json();
         if (error) {
             console.error(error);
-            alert("Error posting comment");
             return;
         }
-        //alert("Posted");
         btnPostComment.textContent = "Posted"
         document.getElementById("comment-input").value = "";
         await loadComments();
@@ -545,10 +543,6 @@ async function toggleFavourite() {
 
 // Small helpers
 
-function getFavourites() {
-    return JSON.parse(localStorage.getItem(FAV_KEY) || "[]");
-}
-
 function escapeHtml(text) {
     if (!text) return "";
     return text
@@ -563,7 +557,7 @@ function ensureAuthenticated() {
     if (!user) {
         const message = "You have to Login or Signup to download the notes or interact with them.\n\nClick OK to Login or Signup.\n\nOtherwise, you will be redirected automatically.";
         if (confirm(message)) {
-            window.location.href = "../../../../login_signup.html";
+            window.location.href = "../../../../login_signup";
         }
         return false;
     }

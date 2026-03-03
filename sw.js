@@ -79,7 +79,6 @@ self.addEventListener('fetch', event => {
     let fetchRequest = event.request;
 
     if (url.origin === self.location.origin && url.pathname === IGNORE_PARAMS_FOR) {
-        url.search = '';
         fetchRequest = new Request('/navigator');
     }
 

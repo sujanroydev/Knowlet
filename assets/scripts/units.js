@@ -84,11 +84,11 @@ async function loadPageState() {
 
 // render likes (liked or not), ratings, ratings message and fav state
 function renderPageState() {
-    pageLiked = pageState.page_likes ? true : false;
-    pageFaved = pageState.is_fav ? true : false;
+    pageLiked = pageState.is_liked;
+    pageFaved = pageState.is_faved;
 
     ratingMessage = pageState.ratings_message;
-    ratingValue = pageState.page_ratings;
+    ratingValue = pageState.ratings_score;
 
     pageRated = (ratingValue || ratingMessage) ? true : false;
 
@@ -227,14 +227,14 @@ async function loadLikesAndRatings(){
         likesAndRatings = data;  // store likes and ratings for feature use
 
         data.forEach(r => {
-            totalLikes += r.page_likes ? 1 : 0;
+            totalLikes += r.is_liked ? 1 : 0;
 
-            if (!r.page_ratings) return;
+            if (!r.ratings_score) return;
 
             totalRatingsCount += 1;
-            totalRatingsValue += r.page_ratings;
+            totalRatingsValue += r.ratings_score;
 
-            const div = generateRatingItem(r.user.picture, r.user.name, r.interactions_time?.rated_at || r.created_at, r.page_ratings, r.ratings_message)
+            const div = generateRatingItem(r.user.picture, r.user.name, r.interactions_time?.rated_at || r.created_at, r.ratings_score, r.ratings_message)
 
             if (r.user.id === (user ? user.id : null)) {
                 userBox.appendChild(div);
@@ -311,7 +311,7 @@ async function submitRating() {
                 user_id: user.id,
                 page_id: pageId,
                 page_title: pageTitle,
-                page_ratings: selectedRating,
+                ratings_score: selectedRating,
                 ratings_message: ratingMessage
             })
         });
@@ -327,7 +327,7 @@ async function submitRating() {
         totalRatingsCount = totalRatingsCount + (pageRated ? 0 : 1);
         ratingValue = selectedRating;
 
-        pageRated = (data[0].page_ratings || data[0].ratings_message) ? true : false;
+        pageRated = (data[0].ratings_score || data[0].ratings_message) ? true : false;
 
         const avg = totalRatingsValue / totalRatingsCount;
 
@@ -365,7 +365,7 @@ async function likePage(){
 
         totalLikesD.textContent = pageLiked ? totalLikes - 1 : totalLikes + 1;
 
-        pageLiked = data[0].page_likes ? true : false;
+        pageLiked = data[0].is_liked;
 
     } catch(e){
         console.error(e);
@@ -538,7 +538,7 @@ async function toggleFavourite() {
     });
 
     const { data, error } = await res.json();
-    pageFaved = data[0].is_fav;
+    pageFaved = data[0].is_faved;
     console.log(data)
     
     favBtn.classList.toggle("favourited", pageFaved);

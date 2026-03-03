@@ -234,9 +234,9 @@ async function loadLikesAndRatings(){
             totalRatingsCount += 1;
             totalRatingsValue += r.ratings_score;
 
-            const div = generateRatingItem(r.user.picture, r.user.name, r.interactions_time?.rated_at || r.created_at, r.ratings_score, r.ratings_message)
+            const div = generateRatingItem(r.users.picture, r.users.name, r.interactions_time?.rated_at || r.created_at, r.ratings_score, r.ratings_message)
 
-            if (r.user.id === (user ? user.id : null)) {
+            if (r.users.id === (user ? user.id : null)) {
                 userBox.appendChild(div);
             } else {
                 box.appendChild(div);

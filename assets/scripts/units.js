@@ -363,10 +363,9 @@ async function likePage(){
 
         if (error) throw new Error('Error fetching likes');
 
-        totalLikesD.textContent = pageLiked ? totalLikes - 1 : totalLikes + 1;
-
         pageLiked = data[0].is_liked;
-
+        totalLikes = pageLiked ? totalLikes + 1 : totalLikes - 1;
+        totalLikesD.textContent = totalLikes;
     } catch(e){
         console.error(e);
         likeIcon.textContent =  !pageLiked ? "👍🏼" : "👍";

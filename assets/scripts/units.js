@@ -612,24 +612,31 @@ function renderNavBar() {
     if (match) {
         const base = match[1];
         const currentNum = parseInt(match[2]);
-        
-        // Previous
-        if (currentNum > 1) {
-            prev.href = currentUrl.replace(/\/unit_\d+/i, `${base}${currentNum - 1}`);
-            prev.title = `Previous Unit (${currentNum - 1})`;
-        } else {
-            prev.classList.add("disabled");
-            prev.title = "No Previous Unit";
-        }
 
-        // Next
-        if (currentNum < 5) {
-            next.href = currentUrl.replace(/\/unit_\d+/i, `${base}${currentNum + 1}`);
-            next.title = `Next Unit (${currentNum + 1})`;
-        } else {
-            next.classList.add("disabled");
-            next.title = "No Next Unit";
-        }
+        const prevUrl = currentUrl.replace(/\/unit_\d+/i, `${base}${currentNum - 1}`);
+        const nextUrl = currentUrl.replace(/\/unit_\d+/i, `${base}${currentNum + 1}`);
+
+        checkUrlStatus(prevUrl).then(res => {
+            console.log(res)
+            if (res) {
+                prev.href = prevUrl;
+                prev.title = `Previous Unit (${currentNum - 1})`;
+            } else {
+                prev.classList.add("disabled");
+                prev.title = "No Previous Unit";
+            }
+        });
+
+        checkUrlStatus(nextUrl).then(res => {
+            console.log(res)
+            if (res) {
+                next.href = nextUrl;
+                next.title = `Next Unit (${currentNum + 1})`;
+            } else {
+                next.classList.add("disabled");
+                next.title = "No Next Unit";
+            }
+        });
     }
 
     topBar.appendChild(prev);

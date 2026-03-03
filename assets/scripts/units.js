@@ -584,9 +584,9 @@ async function checkUrlStatus(url) {
 function renderNavBar() {
     const currentUrl = window.location.href;
     const currentRootUrl = window.location.origin;
-    const match = currentUrl.match(/(\/unit_)(\d+)/i);
+    const matchUnit = currentUrl.match(/(\/unit_)(\d+)/i);
+    const matchPyq = currentUrl.match(/\/(\d{4})(_solved)/i);
     const container = document.querySelector(".container");
-
     const parts = currentUrl.replace(currentRootUrl, "").replace(".html", "").split("?")[0].split("/");
     
     const parms = `root=${parts[1]}&sem=${parts[2]}&sub=${parts[3]}&ppr=${parts[4]}` //`&unit=${parts[5]}`
@@ -609,15 +609,23 @@ function renderNavBar() {
     const next = document.createElement("a");
     next.className = "unit-next";
 
-    if (match) {
-        const base = match[1];
-        const currentNum = parseInt(match[2]);
+    if (matchUnit || matchPyq) {
+        let base, currentNum, prevUrl, nexturl;
+        if (matchUnit) {
+            base = matchUnit[1];
+            currentNum = parseInt(matchUnit[2]);
 
-        const prevUrl = currentUrl.replace(/\/unit_\d+/i, `${base}${currentNum - 1}`);
-        const nextUrl = currentUrl.replace(/\/unit_\d+/i, `${base}${currentNum + 1}`);
+            prevUrl = currentUrl.replace(/\/unit_\d+/i, `${base}${currentNum - 1}`);
+            nextUrl = currentUrl.replace(/\/unit_\d+/i, `${base}${currentNum + 1}`);
+        } else if (matchPyq) {
+            currentNum = parseInt(matchPyq[1]);
+            base = matchPyq[2];
+
+            prevUrl = currentUrl.replace(/\/\d{4}_solved/i, `/${currentNum - 1}${base}`);
+            nextUrl = currentUrl.replace(/\/\d{4}_solved/i, `/${currentNum + 1}${base}`);
+        }
 
         checkUrlStatus(prevUrl).then(res => {
-            console.log(res)
             if (res) {
                 prev.href = prevUrl;
                 prev.title = `Previous Unit (${currentNum - 1})`;
@@ -628,7 +636,6 @@ function renderNavBar() {
         });
 
         checkUrlStatus(nextUrl).then(res => {
-            console.log(res)
             if (res) {
                 next.href = nextUrl;
                 next.title = `Next Unit (${currentNum + 1})`;

@@ -414,39 +414,7 @@ async function loadComments() {
                     totalCLikes = `👍🏼 ${c.likes || 0}`;
                 }
             }
-            const d = document.createElement("div");
-            d.className = "comment-item";
-            d.innerHTML = `
-                <div class="comment-row">
-                    <!-- User info -->
-                    <div class="user-info">
-                        <img
-                            src="${c.users.picture || '/assets/images/demo_pp.png'}"
-                            alt="${escapeHtml(c.users.name)}"
-                            class="avatar"
-                        />
-                        <div>
-                            <div class="user-name">${escapeHtml(c.users.name)}</div>
-                            <div class="meta">${new Date(c.created_at).toLocaleString()}</div>
-                        </div>
-                    </div>
-            
-                    <!-- Comment content -->
-                    <div class="comment-content">
-                        <div class="comment-text">
-                            ${escapeHtml(c.comment_text)}
-                        </div>
-            
-                        <div class="comment-actions">
-                            <button
-                                class="btn ghost"
-                                onclick="likeComment(${c.id}, ${c.likes})">
-                                ${totalCLikes}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
+            const d = generateCommentsItems(c.users.picture, c.users.name, c.created_at, c.comment_text, c.id, c.likes, totalCLikes);
             if (c.users.id === (user ? user.id : null)) {
                 userBox.appendChild(d);
             } else {
@@ -457,6 +425,43 @@ async function loadComments() {
     } catch(e){
         console.error(e);
     }
+}
+
+function generateCommentsItems(pic, name, time, msg, id, likes, totalCLikes) {
+    const d = document.createElement("div");
+        d.className = "comment-item";
+        d.innerHTML = `
+            <div class="comment-row">
+                <!-- User info -->
+                <div class="user-info">
+                    <img
+                        src="${pic || '/assets/images/demo_pp.png'}"
+                        alt="${escapeHtml(name)}"
+                        class="avatar"
+                    />
+                    <div>
+                        <div class="user-name">${escapeHtml(name)}</div>
+                        <div class="meta">${new Date(time).toLocaleString()}</div>
+                    </div>
+                </div>
+
+                <!-- Comment content -->
+                <div class="comment-content">
+                    <div class="comment-text">
+                        ${escapeHtml(msg)}
+                    </div>
+
+                    <div class="comment-actions">
+                        <button
+                            class="btn ghost"
+                            onclick="likeComment(${id}, ${likes})">
+                            ${totalCLikes}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+    return d
 }
 
 async function submitComment(){

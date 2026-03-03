@@ -123,10 +123,10 @@ async function fetchCommentsLikesAndRatings() {
                 header: {'Content-Type': 'application/json'},
                 body: JSON.stringify({ userId: user.id })
             }),
-            fetch('https://knowlet.in/.netlify/functions/get-likes-ratings', {
+            fetch('https://knowlet.in/.netlify/functions/get-interactions', {
                 method: 'POST',
                 header: {'Content-Type': 'application/json'},
-                body: JSON.stringify({ userId: user.id })
+                body: JSON.stringify({ user_id: user.id })
             })
         ]);
         

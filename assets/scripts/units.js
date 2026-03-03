@@ -422,12 +422,12 @@ async function loadComments() {
                     <!-- User info -->
                     <div class="user-info">
                         <img
-                            src="${c.user.picture || '/assets/images/demo_pp.png'}"
-                            alt="${escapeHtml(c.user.name)}"
+                            src="${c.users.picture || '/assets/images/demo_pp.png'}"
+                            alt="${escapeHtml(c.users.name)}"
                             class="avatar"
                         />
                         <div>
-                            <div class="user-name">${escapeHtml(c.user.name)}</div>
+                            <div class="user-name">${escapeHtml(c.users.name)}</div>
                             <div class="meta">${new Date(c.created_at).toLocaleString()}</div>
                         </div>
                     </div>
@@ -448,7 +448,7 @@ async function loadComments() {
                     </div>
                 </div>
             `;
-            if (c.user.id === (user ? user.id : null)) {
+            if (c.users.id === (user ? user.id : null)) {
                 userBox.appendChild(d);
             } else {
                 box.appendChild(d);

@@ -62,7 +62,7 @@ async function sync() {
     }
 
     user = JSON.parse(user);
-    fetchCommentsLikesAndRatings();
+    fetchActivity();
 
     try {
         loader.style.display = "flex";
@@ -115,7 +115,7 @@ function renderUserInfo() {
     logoutBtn.style.display = "block";
 }
 
-async function fetchCommentsLikesAndRatings() {
+async function fetchActivity() {
     try {
         const [res1, res2] = await Promise.all([
             fetch('https://knowlet.in/.netlify/functions/get-comments', {
@@ -135,19 +135,19 @@ async function fetchCommentsLikesAndRatings() {
             return;
         }
         
-        const [{ data: data1 }, { data: data2 }] = await Promise.all([
+        const [{ data: comments }, { data: interactions }] = await Promise.all([
             res1.json(),
             res2.json()
         ]);
         
-        renderRecentActivity(data1, data2);
+        renderRecentActivity(comments, interactions);
         
         let commentsCount = 0;
         let totalCommentsLikes = 0;
         
-        data1.forEach((comments) => {
+        comments.forEach((c) => {
             commentsCount += 1;
-            totalCommentsLikes += comments.likes;
+            totalCommentsLikes += c.likes;
         });
         
         stat[0].textContent = totalCommentsLikes;
@@ -159,24 +159,16 @@ async function fetchCommentsLikesAndRatings() {
     }
 }
 
-function renderRecentActivity(comments = [], likesAndRatings = []) {
+function renderRecentActivity(comments = [], interactions = []) {
     comments = comments.map(obj => {
         return {
             state: 'Commented',
             url: obj.page_id,
             timeMs: new Date(obj.created_at).getTime()
         };
-    })
-    
-    likesAndRatings = likesAndRatings.map(obj => {
-        return {
-            state: obj.page_likes ? 'Liked' : obj.page_ratings ? 'Rated' : 'Faved',
-            url: obj.page_id,
-            timeMs: new Date(obj.created_at).getTime()
-        };
-    })
+    });
 
-    const recentActivities = [...comments, ...likesAndRatings].sort((a, b) => b.timeMs - a.timeMs);
+    const recentActivities = [...comments].sort((a, b) => b.timeMs - a.timeMs);
     
     let recentActivityItems = '';
 

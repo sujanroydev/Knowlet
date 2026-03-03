@@ -51,7 +51,7 @@ btnClearRating.addEventListener("click", () => {
 function isLogged() {
     if (!user) {
         setTimeout(() => {
-            window.location.href = "../../../../login_signup.html";
+            window.location.href = "../../../../login_signup";
         }, 60000);
     } 
 }
@@ -414,39 +414,7 @@ async function loadComments() {
                     totalCLikes = `👍🏼 ${c.likes || 0}`;
                 }
             }
-            const d = document.createElement("div");
-            d.className = "comment-item";
-            d.innerHTML = `
-                <div class="comment-row">
-                    <!-- User info -->
-                    <div class="user-info">
-                        <img
-                            src="${c.users.picture || '/assets/images/demo_pp.png'}"
-                            alt="${escapeHtml(c.users.name)}"
-                            class="avatar"
-                        />
-                        <div>
-                            <div class="user-name">${escapeHtml(c.users.name)}</div>
-                            <div class="meta">${new Date(c.created_at).toLocaleString()}</div>
-                        </div>
-                    </div>
-            
-                    <!-- Comment content -->
-                    <div class="comment-content">
-                        <div class="comment-text">
-                            ${escapeHtml(c.comment_text)}
-                        </div>
-            
-                        <div class="comment-actions">
-                            <button
-                                class="btn ghost"
-                                onclick="likeComment(${c.id}, ${c.likes})">
-                                ${totalCLikes}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
+            const d = generateCommentsItems(c.users.picture, c.users.name, c.created_at, c.comment_text, c.id, c.likes, totalCLikes);
             if (c.users.id === (user ? user.id : null)) {
                 userBox.appendChild(d);
             } else {
@@ -457,6 +425,43 @@ async function loadComments() {
     } catch(e){
         console.error(e);
     }
+}
+
+function generateCommentsItems(pic, name, time, msg, id, likes, totalCLikes) {
+    const d = document.createElement("div");
+        d.className = "comment-item";
+        d.innerHTML = `
+            <div class="comment-row">
+                <!-- User info -->
+                <div class="user-info">
+                    <img
+                        src="${pic || '/assets/images/demo_pp.png'}"
+                        alt="${escapeHtml(name)}"
+                        class="avatar"
+                    />
+                    <div>
+                        <div class="user-name">${escapeHtml(name)}</div>
+                        <div class="meta">${new Date(time).toLocaleString()}</div>
+                    </div>
+                </div>
+
+                <!-- Comment content -->
+                <div class="comment-content">
+                    <div class="comment-text">
+                        ${escapeHtml(msg)}
+                    </div>
+
+                    <div class="comment-actions">
+                        <button
+                            class="btn ghost"
+                            onclick="likeComment(${id}, ${likes})">
+                            ${totalCLikes}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+    return d
 }
 
 async function submitComment(){
@@ -477,10 +482,8 @@ async function submitComment(){
         const { error } = await res.json();
         if (error) {
             console.error(error);
-            alert("Error posting comment");
             return;
         }
-        //alert("Posted");
         btnPostComment.textContent = "Posted"
         document.getElementById("comment-input").value = "";
         await loadComments();
@@ -545,10 +548,6 @@ async function toggleFavourite() {
 
 // Small helpers
 
-function getFavourites() {
-    return JSON.parse(localStorage.getItem(FAV_KEY) || "[]");
-}
-
 function escapeHtml(text) {
     if (!text) return "";
     return text
@@ -563,11 +562,21 @@ function ensureAuthenticated() {
     if (!user) {
         const message = "You have to Login or Signup to download the notes or interact with them.\n\nClick OK to Login or Signup.\n\nOtherwise, you will be redirected automatically.";
         if (confirm(message)) {
-            window.location.href = "../../../../login_signup.html";
+            window.location.href = "../../../../login_signup";
         }
         return false;
     }
     return true;
+}
+
+async function checkUrlStatus(url) {
+    try {
+        const response = await fetch(url, { method: 'HEAD' });
+        return response.ok ? true : false;
+    } catch (error) {
+        console.error("Error: Could not reach the server. Check your connection or CORS settings.");
+        return true;
+    }
 }
 
 // Wire up UI and init
@@ -575,9 +584,9 @@ function ensureAuthenticated() {
 function renderNavBar() {
     const currentUrl = window.location.href;
     const currentRootUrl = window.location.origin;
-    const match = currentUrl.match(/(\/unit_)(\d+)/i);
+    const matchUnit = currentUrl.match(/(\/unit_)(\d+)/i);
+    const matchPyq = currentUrl.match(/\/(\d{4})(_solved)/i);
     const container = document.querySelector(".container");
-
     const parts = currentUrl.replace(currentRootUrl, "").replace(".html", "").split("?")[0].split("/");
     
     const parms = `root=${parts[1]}&sem=${parts[2]}&sub=${parts[3]}&ppr=${parts[4]}` //`&unit=${parts[5]}`
@@ -600,27 +609,41 @@ function renderNavBar() {
     const next = document.createElement("a");
     next.className = "unit-next";
 
-    if (match) {
-        const base = match[1];
-        const currentNum = parseInt(match[2]);
-        
-        // Previous
-        if (currentNum > 1) {
-            prev.href = currentUrl.replace(/\/unit_\d+/i, `${base}${currentNum - 1}`);
-            prev.title = `Previous Unit (${currentNum - 1})`;
-        } else {
-            prev.classList.add("disabled");
-            prev.title = "No Previous Unit";
+    if (matchUnit || matchPyq) {
+        let base, currentNum, prevUrl, nexturl;
+        if (matchUnit) {
+            base = matchUnit[1];
+            currentNum = parseInt(matchUnit[2]);
+
+            prevUrl = currentUrl.replace(/\/unit_\d+/i, `${base}${currentNum - 1}`);
+            nextUrl = currentUrl.replace(/\/unit_\d+/i, `${base}${currentNum + 1}`);
+        } else if (matchPyq) {
+            currentNum = parseInt(matchPyq[1]);
+            base = matchPyq[2];
+
+            prevUrl = currentUrl.replace(/\/\d{4}_solved/i, `/${currentNum - 1}${base}`);
+            nextUrl = currentUrl.replace(/\/\d{4}_solved/i, `/${currentNum + 1}${base}`);
         }
 
-        // Next
-        if (currentNum < 5) {
-            next.href = currentUrl.replace(/\/unit_\d+/i, `${base}${currentNum + 1}`);
-            next.title = `Next Unit (${currentNum + 1})`;
-        } else {
-            next.classList.add("disabled");
-            next.title = "No Next Unit";
-        }
+        checkUrlStatus(prevUrl).then(res => {
+            if (res) {
+                prev.href = prevUrl;
+                prev.title = `Previous Unit (${currentNum - 1})`;
+            } else {
+                prev.classList.add("disabled");
+                prev.title = "No Previous Unit";
+            }
+        });
+
+        checkUrlStatus(nextUrl).then(res => {
+            if (res) {
+                next.href = nextUrl;
+                next.title = `Next Unit (${currentNum + 1})`;
+            } else {
+                next.classList.add("disabled");
+                next.title = "No Next Unit";
+            }
+        });
     }
 
     topBar.appendChild(prev);

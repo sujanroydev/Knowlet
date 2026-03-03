@@ -21,7 +21,7 @@ export default async (request) => {
     try {
         if (!user.password || !user.email) throw new Error('email and password are required.')
         const { error } = await supabaseClient
-                .from("user")
+                .from("users")
                 .update(user)
                 .eq("email", user.email)
                 .eq("password", user.password);

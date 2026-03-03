@@ -37,7 +37,7 @@ export const handler = async (event) => {
 
     try {
         const { data, error } = await supabaseClient
-            .from('user')
+            .from('users')
             .select('id')
             .eq('email', user.email)
         if (error) {
@@ -51,7 +51,7 @@ export const handler = async (event) => {
         if (data.length) {
             try {
                 const { error } = await supabaseClient
-                    .from('user')
+                    .from('users')
                     .update({ 'is_verified': user.email_verified, 'verified_at': Date.now()})
                     .eq('email', user.email);
                 if (error) {

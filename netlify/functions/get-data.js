@@ -23,7 +23,7 @@ export default async (request) => {
 
         if (!password) {
             ({ data, error } = await supabaseClient
-                .from('user')
+                .from('users')
                 .select('*')
                 .eq('email', email)
                 .eq('is_verified', true)
@@ -31,7 +31,7 @@ export default async (request) => {
             );
         } else {
             ({ data, error } = await supabaseClient
-                .from('user')
+                .from('users')
                 .select('*')
                 .eq('email', email)
                 .eq('password', password)

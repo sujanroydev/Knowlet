@@ -159,21 +159,21 @@ function renderRecentActivity(comments = [], interactions = []) {
     let favs = [];
 
     interactions.forEach((i) => {
-        if (i.page_likes) {
+        if (i.is_liked) {
             likes.push({
                 state: 'Liked',
                 url: i.page_id,
                 timeMs: new Date(i.interactions_time.liked_at).getTime()
             })
         }
-        if (i.page_ratings) {
+        if (i.ratings_score) {
             ratings.push({
                 state: 'Rated',
                 url: i.page_id,
                 timeMs: new Date(i.interactions_time.rated_at).getTime()
             })
         }
-        if (i.is_fav) {
+        if (i.is_faved) {
             favs.push({
                 state: 'Faved',
                 url: i.page_id,

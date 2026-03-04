@@ -217,13 +217,27 @@ li:last-child {
 .stats-sections {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 32px;   /* was 24px */
+}
+
+.stats-block {
+    background: #f9fafc;
+    padding: 18px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: 0.2s ease;
 }
 
 .stats-block h3 {
     margin-bottom: 12px;
     font-size: 15px;
     color: #444;
+}
+
+.stats-block:hover {
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
 }
 
 /* ==== 7 Day Streak ==== */

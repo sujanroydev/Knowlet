@@ -109,6 +109,9 @@ body {
     border-left: 5px solid #1a73e8;
     padding-left: 10px;
     font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 /* LISTS */
@@ -156,7 +159,9 @@ li:last-child {
 
 /* SETTINGS */
 .settings-links a {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     padding: 8px 0;
     text-decoration: none;
     color: #1a73e8;
@@ -210,4 +215,12 @@ li:last-child {
     text-align: center;
     color: #92400e;
     font-style: italic;
+}
+
+.ui-icon {
+    width: 20px;
+    height: 20px;
+    color: #555;
+    flex-shrink: 0;
+    display: block;
 }

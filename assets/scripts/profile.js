@@ -212,20 +212,31 @@ function renderStats(comments = [], interactions = []) {
     document.getElementById("stat-ratings").textContent = totalRatings;
     document.getElementById("stat-favs").textContent = totalFavs;
 
-    // 🔥 STREAK
+    // 🔥 STREAK SYSTEM (7 Day Visual + Freeze)
+
     const timestamps = [];
 
     comments.forEach(c => timestamps.push(new Date(c.created_at).getTime()));
 
     interactions.forEach(i => {
-        if (i.is_liked) timestamps.push(new Date(i.interactions_time.liked_at).getTime());
         if (i.ratings_score) timestamps.push(new Date(i.interactions_time.rated_at).getTime());
         if (i.is_faved) timestamps.push(new Date(i.interactions_time.faved_at).getTime());
     });
 
-    const streak = calculateStreak(timestamps);
+    // ❗ Only count meaningful actions (no likes)
+    const streakData = calculate7DayStreak(timestamps);
+
     document.getElementById("streak-text").textContent =
-        streak > 0 ? `🔥 ${streak} Day Streak` : "Start your learning streak today!";
+        streakData.currentStreak > 0
+            ? `🔥 ${streakData.currentStreak} Day Streak`
+            : "Start your learning streak";
+
+    document.getElementById("freeze-text").textContent =
+        streakData.freezeUsed
+            ? "❄ Freeze used"
+            : "No freeze used";
+
+    renderStreakCircles(streakData.days);
 
     // 🏆 LEVEL
     const { level, nextTarget } = getLevel(totalInteractions);
@@ -282,6 +293,68 @@ function renderStats(comments = [], interactions = []) {
         progressElement.classList.remove("complete");
     }
 
+}
+
+function calculate7DayStreak(timestamps) {
+
+    const today = new Date();
+    const days = [];
+    let freezeUsed = false;
+    let currentStreak = 0;
+
+    for (let i = 6; i >= 0; i--) {
+        const date = new Date();
+        date.setDate(today.getDate() - i);
+        const dayString = date.toDateString();
+
+        const hasActivity = timestamps.some(t =>
+            new Date(t).toDateString() === dayString
+        );
+
+        days.push({
+            date: dayString,
+            active: hasActivity,
+            freeze: false
+        });
+    }
+
+    // Calculate streak backwards
+    for (let i = days.length - 1; i >= 0; i--) {
+
+        if (days[i].active) {
+            currentStreak++;
+        } else if (!freezeUsed) {
+            freezeUsed = true;
+            days[i].freeze = true;
+            currentStreak++;
+        } else {
+            break;
+        }
+    }
+
+    return { days, currentStreak, freezeUsed };
+}
+
+function renderStreakCircles(days) {
+
+    const row = document.getElementById("streak-row");
+    row.innerHTML = "";
+
+    days.forEach(day => {
+
+        const div = document.createElement("div");
+        div.classList.add("streak-day");
+
+        if (day.active) {
+            div.classList.add("active");
+        }
+
+        if (day.freeze) {
+            div.classList.add("freeze");
+        }
+
+        row.appendChild(div);
+    });
 }
 
 function calculateStreak(timestamps) {

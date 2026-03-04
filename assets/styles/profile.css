@@ -214,6 +214,41 @@ li:last-child {
     font-size: 14px;
 }
 
+.stats-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.stats-block h3 {
+    margin-bottom: 12px;
+    font-size: 15px;
+    color: #444;
+}
+
+/* 7 Day Streak Circles */
+.streak-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.streak-day {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #e5e7eb;
+    transition: 0.3s ease;
+}
+
+.streak-day.active {
+    background: #22c55e;
+}
+
+.streak-day.freeze {
+    background: #3b82f6;
+}
+
 .completion-wrapper {
     margin-top: 12px;
 }

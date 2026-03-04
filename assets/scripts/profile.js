@@ -310,9 +310,8 @@ function calculate7DayStreak(timestamps) {
         const hasActivity = timestamps.some(t =>
             new Date(t).toDateString() === dayString
         );
-
         days.push({
-            date: dayString,
+            date: date,
             active: hasActivity,
             freeze: false
         });
@@ -340,20 +339,40 @@ function renderStreakCircles(days) {
     const row = document.getElementById("streak-row");
     row.innerHTML = "";
 
-    days.forEach(day => {
+    days.forEach((day, index) => {
 
-        const div = document.createElement("div");
-        div.classList.add("streak-day");
+        const item = document.createElement("div");
+        item.classList.add("streak-item");
 
-        if (day.active) {
-            div.classList.add("active");
-        }
+        const circle = document.createElement("div");
+        circle.classList.add("streak-circle");
+
+        const fill = document.createElement("div");
+        fill.classList.add("streak-fill");
 
         if (day.freeze) {
-            div.classList.add("freeze");
+            circle.classList.add("freeze");
         }
 
-        row.appendChild(div);
+        circle.appendChild(fill);
+
+        const dateText = document.createElement("div");
+        dateText.classList.add("streak-date");
+
+        const dateObj = new Date(day.date);
+        dateText.textContent =
+            dateObj.getDate() + "/" + (dateObj.getMonth() + 1);
+
+        item.appendChild(circle);
+        item.appendChild(dateText);
+        row.appendChild(item);
+
+        // Animate fill
+        if (day.active || day.freeze) {
+            setTimeout(() => {
+                fill.style.height = "100%";
+            }, index * 120); // stagger animation
+        }
     });
 }
 

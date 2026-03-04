@@ -46,6 +46,30 @@ function logout() {
     userId.textContent = "User ID";
     profilePic.src = "assets/images/demo_pp.jpg";
 
+    // Reset Stats Numbers
+    document.getElementById("stat-comments").textContent = "0";
+    document.getElementById("stat-likes").textContent = "0";
+    document.getElementById("stat-ratings").textContent = "0";
+    document.getElementById("stat-favs").textContent = "0";
+    
+    // Reset Streak
+    document.getElementById("streak-text").textContent = "🔥 0 Day Streak";
+    document.getElementById("freeze-text").textContent = "";
+    document.getElementById("streak-row").innerHTML = "";
+    
+    // Reset Level
+    document.getElementById("level-text").textContent = "Level: Beginner Explorer";
+    document.getElementById("next-level-text").textContent = "";
+    document.getElementById("level-fill").style.width = "0%";
+    document.getElementById("xp-text").textContent = "";
+    
+    // Reset Profile Completion Ring
+    const progressElement = document.getElementById("profile-progress");
+    progressElement.style.background =
+        "conic-gradient(#e5e7eb 0% 100%)";
+    progressElement.classList.remove("complete");
+    progressElement.setAttribute("data-progress", "0% Complete");
+
     loginBtn.style.display = "inline-block";
     SignupBtn.style.display = "inline-block";
     logoutBtn.style.display = "none";

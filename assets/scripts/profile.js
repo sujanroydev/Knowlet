@@ -46,6 +46,30 @@ function logout() {
     userId.textContent = "User ID";
     profilePic.src = "assets/images/demo_pp.jpg";
 
+    // Reset Stats Numbers
+    document.getElementById("stat-comments").textContent = "0";
+    document.getElementById("stat-likes").textContent = "0";
+    document.getElementById("stat-ratings").textContent = "0";
+    document.getElementById("stat-favs").textContent = "0";
+    
+    // Reset Streak
+    document.getElementById("streak-text").textContent = "🔥 0 Day Streak";
+    document.getElementById("freeze-text").textContent = "";
+    document.getElementById("streak-row").innerHTML = "";
+    
+    // Reset Level
+    document.getElementById("level-text").textContent = "Level: Beginner Explorer";
+    document.getElementById("next-level-text").textContent = "";
+    document.getElementById("level-fill").style.width = "0%";
+    document.getElementById("xp-text").textContent = "";
+    
+    // Reset Profile Completion Ring
+    const progressElement = document.getElementById("profile-progress");
+    progressElement.style.background =
+        "conic-gradient(#e5e7eb 0% 100%)";
+    progressElement.classList.remove("complete");
+    progressElement.setAttribute("data-progress", "0% Complete");
+
     loginBtn.style.display = "inline-block";
     SignupBtn.style.display = "inline-block";
     logoutBtn.style.display = "none";
@@ -137,6 +161,7 @@ async function fetchActivity() {
         ]);
         
         renderRecentActivity(comments, interactions);
+        renderStats(comments, interactions);
     } catch(err) {
         console.error(err);
         recentActivityView.innerHTML = `<p class="empty-message">Failed to fetch recent activity</p>`;
@@ -196,20 +221,338 @@ function renderRecentActivity(comments = [], interactions = []) {
     recentActivityView.innerHTML = recentActivityItems || `<p class="empty-message">No recent activity, visit notes, like, rate or comment </p>`;
 }
 
+function renderStats(comments = [], interactions = []) {
+
+    const totalComments = comments.length;
+    const totalLikes = interactions.filter(i => i.is_liked).length;
+    const totalRatings = interactions.filter(i => i.ratings_score).length;
+    const totalFavs = interactions.filter(i => i.is_faved).length;
+
+    const totalInteractions = totalComments + totalLikes + totalRatings + totalFavs;
+
+    // Update UI
+    document.getElementById("stat-comments").textContent = totalComments;
+    document.getElementById("stat-likes").textContent = totalLikes;
+    document.getElementById("stat-ratings").textContent = totalRatings;
+    document.getElementById("stat-favs").textContent = totalFavs;
+
+    // 🔥 STREAK SYSTEM (7 Day Visual + Freeze)
+
+    const timestamps = [];
+
+    comments.forEach(c => timestamps.push(new Date(c.created_at).getTime()));
+
+    interactions.forEach(i => {
+        if (i.ratings_score) timestamps.push(new Date(i.interactions_time.rated_at).getTime());
+        if (i.is_faved) timestamps.push(new Date(i.interactions_time.faved_at).getTime());
+    });
+
+    // ❗ Only count meaningful actions (no likes)
+    const streakData = calculate7DayStreak(timestamps);
+    
+    document.getElementById("streak-text").textContent =
+        streakData.currentStreak > 0
+            ? `🔥 ${streakData.currentStreak} Day Streak (Best: ${streakData.longest})`
+            : "Start your learning streak";
+
+    document.getElementById("freeze-text").textContent =
+        streakData.freezeUsed
+            ? "❄ Freeze used"
+            : "No freeze used";
+
+    renderStreakCircles(streakData.days);
+
+    // 🏆 LEVEL
+
+    const levelData = getLevelData(
+        totalComments,
+        totalRatings,
+        totalFavs,
+        totalLikes
+    );
+    
+    document.getElementById("level-text").textContent =
+        `Level ${levelData.level}: ${levelData.levelName}`;
+    
+    document.getElementById("next-level-text").textContent =
+        `${Math.max(levelData.required - levelData.xp, 0)} XP to next level`;
+    
+    document.getElementById("level-fill").style.width =
+        levelData.progressPercent + "%";
+    
+    document.getElementById("xp-text").textContent =
+        `${levelData.xp} XP`;
+
+    // 📊 PROFILE COMPLETION (Advanced)
+    
+    let score = 0;
+    
+    if (user.name) score += 20;
+    if (user.picture && !user.picture.includes("demo_pp")) score += 20;
+    if (user.stream) score += 20;
+    if (user.fv_subject) score += 20;
+    if (totalInteractions > 0) score += 20;
+    
+    const progressElement = document.getElementById("profile-progress");
+    
+    // 🎨 Determine color based on score
+    function getProgressColor(percent) {
+    
+        if (percent < 50) {
+            // Red zone
+            return "#ef4444";   // red
+        } else if (percent < 80) {
+            // Yellow zone
+            return "#facc15";   // yellow
+        } else {
+            // Green zone
+            return "#22c55e";   // green
+        }
+    }
+    
+    const color = getProgressColor(score);
+    
+    // Apply gradient
+    progressElement.style.background =
+        `conic-gradient(${color} ${score}%, #e5e7eb ${score}% 100%)`;
+    
+    // Tooltip
+    progressElement.setAttribute("data-progress", score + "% Complete");
+    
+    // ✨ Glow when 100%
+    if (score === 100) {
+        progressElement.classList.add("complete");
+    } else {
+        progressElement.classList.remove("complete");
+    }
+
+}
+
+function calculate7DayStreak(timestamps) {
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const activeDays = new Set(
+        timestamps.map(t => {
+            const d = new Date(t);
+            d.setHours(0, 0, 0, 0);
+            return d.getTime();
+        })
+    );
+
+    const days = [];
+    let freezeUsed = false;
+    let currentStreak = 0;
+
+    // Build last 7 days (oldest → newest)
+    for (let i = 6; i >= 0; i--) {
+
+        const date = new Date(today);
+        date.setDate(today.getDate() - i);
+
+        const time = date.getTime();
+        const active = activeDays.has(time);
+
+        days.push({
+            date: new Date(date),
+            active,
+            freeze: false
+        });
+    }
+
+    // Calculate streak from today backwards
+    for (let i = days.length - 1; i >= 0; i--) {
+
+        if (days[i].active) {
+            currentStreak++;
+        }
+        else if (!freezeUsed && days[i].date.getTime() !== today.getTime()) {
+            freezeUsed = true;
+            days[i].freeze = true;
+            currentStreak++;
+        }
+        else {
+            break;
+        }
+    }
+
+    return {
+        days,
+        currentStreak,
+        freezeUsed,
+        longest: calculateLongestStreak(activeDays)
+    };
+}
+
+function renderStreakCircles(days) {
+
+    const row = document.getElementById("streak-row");
+    row.innerHTML = "";
+
+    const todayString = new Date().toDateString();
+
+    days.forEach((day, index) => {
+
+        const item = document.createElement("div");
+        item.classList.add("streak-item");
+
+        const circle = document.createElement("div");
+        circle.classList.add("streak-circle");
+
+        const fill = document.createElement("div");
+        fill.classList.add("streak-fill");
+
+        if (day.freeze) {
+            circle.classList.add("freeze");
+        }
+
+        // Highlight today
+        if (day.date.toDateString() === todayString) {
+            circle.classList.add("today");
+
+            if (day.active) {
+                circle.classList.add("pulse");
+            }
+        }
+
+        circle.appendChild(fill);
+
+        const dateText = document.createElement("div");
+        dateText.classList.add("streak-date");
+
+        const dateObj = day.date;
+        dateText.textContent =
+            dateObj.getDate() + "/" + (dateObj.getMonth() + 1);
+
+        // Tooltip full date
+        item.setAttribute(
+            "data-full-date",
+            dateObj.toLocaleDateString("en-GB", {
+                day: "numeric",
+                month: "short",
+                year: "numeric"
+            })
+        );
+
+        item.appendChild(circle);
+        item.appendChild(dateText);
+        row.appendChild(item);
+
+        // Animate fill
+        if (day.active || day.freeze) {
+            setTimeout(() => {
+                fill.style.height = "100%";
+            }, index * 120);
+        }
+    });
+}
+
+function calculateStreak(timestamps) {
+
+    if (!timestamps.length) return 0;
+
+    const days = [...new Set(
+        timestamps.map(t => new Date(t).toDateString())
+    )].sort((a, b) => new Date(b) - new Date(a));
+
+    let streak = 0;
+    let today = new Date().toDateString();
+
+    for (let i = 0; i < days.length; i++) {
+        if (days[i] === today) {
+            streak++;
+            today = new Date(Date.now() - 86400000 * (i + 1)).toDateString();
+        } else {
+            break;
+        }
+    }
+
+    return streak;
+}
+
+function calculateLongestStreak(activeDaysSet) {
+
+    const days = Array.from(activeDaysSet).sort((a, b) => a - b);
+
+    let longest = 0;
+    let temp = 0;
+
+    for (let i = 0; i < days.length; i++) {
+
+        if (i === 0) {
+            temp = 1;
+        } else {
+            const diff = (days[i] - days[i - 1]) / 86400000;
+
+            if (diff === 1) temp++;
+            else temp = 1;
+        }
+
+        if (temp > longest) longest = temp;
+    }
+
+    return longest;
+}
+
 // helper functions
 
-function getSemester(courseNumber) {
-    const num = parseInt(courseNumber)
+function getLevelData(totalComments, totalRatings, totalFavs, totalLikes) {
 
-    if (num >= 100 && num < 150) return "1st Semester"
-    else if (num >= 150 && num < 200) return "2nd Semester"
-    else if (num >= 200 && num < 250) return "3rd Semester"
-    else if (num >= 250 && num < 300) return "4th Semester"
-    else if (num >= 300 && num < 350) return "5th Semester"
-    else if (num >= 350 && num < 400) return "6th Semester"
-    else if (num >= 400 && num < 550) return "7th Semester"
-    else if (num >= 550 && num < 600) return "8th Semester"
-    else return "Any Semester"
+    // XP weights
+    const xp =
+        totalComments * 5 +
+        totalRatings * 4 +
+        totalFavs * 3 +
+        totalLikes * 1;
+
+    let level = 1;
+    let required = 20;          // XP required for level 1 → 2
+    let previousRequired = 0;
+
+    while (xp >= required) {
+        previousRequired = required;
+        level++;
+        required = Math.floor(required * 1.6); // scaling
+    }
+
+    const progressPercent =
+        ((xp - previousRequired) / (required - previousRequired)) * 100;
+
+    const levelNames = [
+        "Reader",
+        "Explorer",
+        "Scholar",
+        "Analyst",
+        "Researcher",
+        "Specialist",
+        "Authority",
+        "Master"
+    ];
+
+    const levelName = levelNames[level - 1] || "Legend";
+
+    return {
+        level,
+        levelName,
+        xp,
+        required,
+        progressPercent: Math.min(progressPercent, 100)
+    };
+}
+
+function getSemester(semNum) {
+    const num = parseInt(semNum)
+
+    if (num == 1) return "1st Semester"
+    else if (num == 2) return "2nd Semester"
+    else if (num == 3) return "3rd Semester"
+    else if (num == 4) return "4th Semester"
+    else if (num == 5) return "5th Semester"
+    else if (num == 6) return "6th Semester"
+    else if (num == 7) return "7th Semester"
+    else if (num == 8) return "8th Semester"
+    else return "Unknown"
 }
 
 function capitalize(word) {
@@ -233,7 +576,7 @@ function generateTitleFromURL(url) {
 
     let courseNumber = parts[3].split("_")[1]
 
-    let semester = getSemester(courseNumber)
+    let semester = getSemester(parts[1].split("_")[1])
 
     return `${sub} ${paper} ${unit} | ${semester} ${parts[0]}`
 }

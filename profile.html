@@ -26,12 +26,65 @@
 
         <!-- PROFILE CARD -->
         <div class="card profile-header">
-            <img src="assets/images/demo_pp.jpg" id="profile-pic">
+            <div class="profile-progress" id="profile-progress">
+                <img src="assets/images/demo_pp.jpg" id="profile-pic">
+            </div>
 
             <div>
                 <h1 id="username" style="margin-bottom: 0">Your Name</h1>
                 <h2 id="userid" style="margin-top: 3px; color: #148e00">User ID</h2>
                 <p id="email">yourname@example.com</p>
+            </div>
+        </div>
+
+        <!-- LEARNING STATS -->
+        <div class="card" id="stats-card">
+            <h2 class="section-title">Your Learning Stats</h2>
+        
+            <div class="stats-sections">
+        
+                <!-- Block 1: Numbers -->
+                <div class="stats-block">
+                    <h3>Activity</h3>
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <span class="stat-number" id="stat-comments">0</span>
+                            <span class="stat-label">Comments</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number" id="stat-likes">0</span>
+                            <span class="stat-label">Likes</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number" id="stat-ratings">0</span>
+                            <span class="stat-label">Ratings</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number" id="stat-favs">0</span>
+                            <span class="stat-label">Favorites</span>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Block 2: Streak -->
+                <div class="stats-block">
+                    <h3>7 Day Streak</h3>
+                    <div class="streak-row" id="streak-row"></div>
+                    <p id="streak-text">🔥 0 Day Streak</p>
+                    <p id="freeze-text"></p>
+                </div>
+        
+                <!-- Block 3: Level -->
+                <div class="stats-block">
+                    <h3>Level</h3>
+                    <p id="level-text">Level: Beginner Explorer</p>
+                    <p id="next-level-text"></p>
+                    <div class="level-bar">
+                        <div id="level-fill" class="level-fill"></div>
+                    </div>
+                    <p id="xp-text"></p>
+                </div>
+        
             </div>
         </div>
 

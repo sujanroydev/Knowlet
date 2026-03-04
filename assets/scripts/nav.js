@@ -34,8 +34,8 @@ function renderNavBar() {
 
 function setActiveNav() {
     const navItems = document.querySelectorAll(".nav-item");
-    let currentPagePath = window.location.pathname;
-    currentPagePath = (currentPagePath === '/index' || currentPagePath === '/index.html') ? '/' : currentPagePath;
+    let currentPagePath = window.location.pathname.replace('.html', '');
+    currentPagePath = currentPagePath === '/index' ? '/' : currentPagePath;
 
     navItems.forEach(item => {
         const linkPath = item.getAttribute('href');

@@ -29,6 +29,8 @@
 }
 
 .nav-item .icon {
+    height: 30px;
+    width: 30px;
     font-size: 20px;
     line-height: 1;
     margin-bottom: 2px;

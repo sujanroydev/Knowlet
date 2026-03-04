@@ -137,6 +137,7 @@ async function fetchActivity() {
         ]);
         
         renderRecentActivity(comments, interactions);
+        renderStats(comments, interactions);
     } catch(err) {
         console.error(err);
         recentActivityView.innerHTML = `<p class="empty-message">Failed to fetch recent activity</p>`;
@@ -196,7 +197,97 @@ function renderRecentActivity(comments = [], interactions = []) {
     recentActivityView.innerHTML = recentActivityItems || `<p class="empty-message">No recent activity, visit notes, like, rate or comment </p>`;
 }
 
+function renderStats(comments = [], interactions = []) {
+
+    const totalComments = comments.length;
+    const totalLikes = interactions.filter(i => i.is_liked).length;
+    const totalRatings = interactions.filter(i => i.ratings_score).length;
+    const totalFavs = interactions.filter(i => i.is_faved).length;
+
+    const totalInteractions = totalComments + totalLikes + totalRatings + totalFavs;
+
+    // Update UI
+    document.getElementById("stat-comments").textContent = totalComments;
+    document.getElementById("stat-likes").textContent = totalLikes;
+    document.getElementById("stat-ratings").textContent = totalRatings;
+    document.getElementById("stat-favs").textContent = totalFavs;
+
+    // 🔥 STREAK
+    const timestamps = [];
+
+    comments.forEach(c => timestamps.push(new Date(c.created_at).getTime()));
+
+    interactions.forEach(i => {
+        if (i.is_liked) timestamps.push(new Date(i.interactions_time.liked_at).getTime());
+        if (i.ratings_score) timestamps.push(new Date(i.interactions_time.rated_at).getTime());
+        if (i.is_faved) timestamps.push(new Date(i.interactions_time.faved_at).getTime());
+    });
+
+    const streak = calculateStreak(timestamps);
+    document.getElementById("streak-text").textContent =
+        streak > 0 ? `🔥 ${streak} Day Streak` : "Start your learning streak today!";
+
+    // 🏆 LEVEL
+    const { level, nextTarget } = getLevel(totalInteractions);
+
+    document.getElementById("level-text").textContent = `Level: ${level}`;
+
+    if (nextTarget) {
+        document.getElementById("next-level-text").textContent =
+            `${nextTarget - totalInteractions} interactions to next level`;
+    } else {
+        document.getElementById("next-level-text").textContent =
+            "You reached the highest level!";
+    }
+
+    // 📊 PROFILE COMPLETION
+    let score = 0;
+
+    if (user.name) score += 25;
+    if (user.picture && !user.picture.includes("demo_pp")) score += 25;
+    if (user.bio) score += 25;
+    if (totalInteractions > 0) score += 25;
+
+    document.getElementById("completion-fill").style.width = score + "%";
+    document.getElementById("completion-text").textContent =
+        `Profile Completion: ${score}%`;
+}
+
+function calculateStreak(timestamps) {
+
+    if (!timestamps.length) return 0;
+
+    const days = [...new Set(
+        timestamps.map(t => new Date(t).toDateString())
+    )].sort((a, b) => new Date(b) - new Date(a));
+
+    let streak = 0;
+    let today = new Date().toDateString();
+
+    for (let i = 0; i < days.length; i++) {
+        if (days[i] === today) {
+            streak++;
+            today = new Date(Date.now() - 86400000 * (i + 1)).toDateString();
+        } else {
+            break;
+        }
+    }
+
+    return streak;
+}
+
+function getLevel(total) {
+
+    if (total < 10) return { level: "Beginner Explorer", nextTarget: 10 };
+    if (total < 40) return { level: "Active Learner", nextTarget: 40 };
+    if (total < 100) return { level: "Knowledge Contributor", nextTarget: 100 };
+
+    return { level: "Master Explorer", nextTarget: null };
+}
+
 // helper functions
+
+
 
 function getSemester(courseNumber) {
     const num = parseInt(courseNumber)

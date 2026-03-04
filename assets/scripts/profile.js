@@ -287,10 +287,11 @@ function renderStats(comments = [], interactions = []) {
     
     let score = 0;
     
-    if (user.name) score += 25;
-    if (user.picture && !user.picture.includes("demo_pp")) score += 25;
-    if (user.bio) score += 25;
-    if (totalInteractions > 0) score += 25;
+    if (user.name) score += 20;
+    if (user.picture && !user.picture.includes("demo_pp")) score += 20;
+    if (user.stream) score += 20;
+    if (user.fv_subject) score += 20;
+    if (totalInteractions > 0) score += 20;
     
     const progressElement = document.getElementById("profile-progress");
     
@@ -540,18 +541,18 @@ function getLevelData(totalComments, totalRatings, totalFavs, totalLikes) {
     };
 }
 
-function getSemester(courseNumber) {
-    const num = parseInt(courseNumber)
+function getSemester(semNum) {
+    const num = parseInt(semNum)
 
-    if (num >= 100 && num < 150) return "1st Semester"
-    else if (num >= 150 && num < 200) return "2nd Semester"
-    else if (num >= 200 && num < 250) return "3rd Semester"
-    else if (num >= 250 && num < 300) return "4th Semester"
-    else if (num >= 300 && num < 350) return "5th Semester"
-    else if (num >= 350 && num < 400) return "6th Semester"
-    else if (num >= 400 && num < 550) return "7th Semester"
-    else if (num >= 550 && num < 600) return "8th Semester"
-    else return "Any Semester"
+    if (num == 1) return "1st Semester"
+    else if (num == 2) return "2nd Semester"
+    else if (num == 3) return "3rd Semester"
+    else if (num == 4) return "4th Semester"
+    else if (num == 5) return "5th Semester"
+    else if (num == 6) return "6th Semester"
+    else if (num == 7) return "7th Semester"
+    else if (num == 8) return "8th Semester"
+    else return "Unknown"
 }
 
 function capitalize(word) {
@@ -575,7 +576,7 @@ function generateTitleFromURL(url) {
 
     let courseNumber = parts[3].split("_")[1]
 
-    let semester = getSemester(courseNumber)
+    let semester = getSemester(parts[1].split("_")[1])
 
     return `${sub} ${paper} ${unit} | ${semester} ${parts[0]}`
 }

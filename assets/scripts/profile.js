@@ -239,17 +239,25 @@ function renderStats(comments = [], interactions = []) {
     renderStreakCircles(streakData.days);
 
     // 🏆 LEVEL
-    const { level, nextTarget } = getLevel(totalInteractions);
 
-    document.getElementById("level-text").textContent = `Level: ${level}`;
-
-    if (nextTarget) {
-        document.getElementById("next-level-text").textContent =
-            `${nextTarget - totalInteractions} interactions to next level`;
-    } else {
-        document.getElementById("next-level-text").textContent =
-            "You reached the highest level!";
-    }
+    const levelData = getLevelData(
+        totalComments,
+        totalRatings,
+        totalFavs,
+        totalLikes
+    );
+    
+    document.getElementById("level-text").textContent =
+        `Level ${levelData.level}: ${levelData.levelName}`;
+    
+    document.getElementById("next-level-text").textContent =
+        `${Math.max(levelData.required - levelData.xp, 0)} XP to next level`;
+    
+    document.getElementById("level-fill").style.width =
+        levelData.progressPercent + "%";
+    
+    document.getElementById("xp-text").textContent =
+        `${levelData.xp} XP`;
 
     // 📊 PROFILE COMPLETION (Advanced)
     
@@ -450,18 +458,51 @@ function calculateStreak(timestamps) {
     return streak;
 }
 
-function getLevel(total) {
-
-    if (total < 10) return { level: "Beginner Explorer", nextTarget: 10 };
-    if (total < 40) return { level: "Active Learner", nextTarget: 40 };
-    if (total < 100) return { level: "Knowledge Contributor", nextTarget: 100 };
-
-    return { level: "Master Explorer", nextTarget: null };
-}
-
 // helper functions
 
+function getLevelData(totalComments, totalRatings, totalFavs, totalLikes) {
 
+    // XP weights
+    const xp =
+        totalComments * 5 +
+        totalRatings * 4 +
+        totalFavs * 3 +
+        totalLikes * 1;
+
+    let level = 1;
+    let required = 20;          // XP required for level 1 → 2
+    let previousRequired = 0;
+
+    while (xp >= required) {
+        previousRequired = required;
+        level++;
+        required = Math.floor(required * 1.6); // scaling
+    }
+
+    const progressPercent =
+        ((xp - previousRequired) / (required - previousRequired)) * 100;
+
+    const levelNames = [
+        "Reader",
+        "Explorer",
+        "Scholar",
+        "Analyst",
+        "Researcher",
+        "Specialist",
+        "Authority",
+        "Master"
+    ];
+
+    const levelName = levelNames[level - 1] || "Legend";
+
+    return {
+        level,
+        levelName,
+        xp,
+        required,
+        progressPercent: Math.min(progressPercent, 100)
+    };
+}
 
 function getSemester(courseNumber) {
     const num = parseInt(courseNumber)

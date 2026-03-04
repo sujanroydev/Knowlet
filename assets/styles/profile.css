@@ -243,16 +243,24 @@ li:last-child {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: conic-gradient(#1a73e8 0%, #e5e7eb 0%);
-    transition: background 0.4s ease;
+    transition: background 0.6s ease, box-shadow 0.4s ease;
 }
 
+/* Inner profile image */
 #profile-pic {
     width: 96px;
     height: 96px;
     border-radius: 50%;
     object-fit: cover;
     background: linear-gradient(#ddd, #ccc);
+}
+
+/* Glow effect when 100% */
+.profile-progress.complete {
+    box-shadow:
+        0 0 8px rgba(34,197,94,0.6),
+        0 0 18px rgba(34,197,94,0.4),
+        0 0 28px rgba(34,197,94,0.2);
 }
 
 .profile-progress:hover::after {
@@ -265,3 +273,4 @@ li:last-child {
     padding: 4px 8px;
     border-radius: 6px;
 }
+

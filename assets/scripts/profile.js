@@ -240,7 +240,7 @@ function renderStats(comments = [], interactions = []) {
             "You reached the highest level!";
     }
 
-    // 📊 PROFILE COMPLETION (Border Meter)
+    // 📊 PROFILE COMPLETION (Advanced)
     
     let score = 0;
     
@@ -251,9 +251,37 @@ function renderStats(comments = [], interactions = []) {
     
     const progressElement = document.getElementById("profile-progress");
     
+    // 🎨 Determine color based on score
+    function getProgressColor(percent) {
+    
+        if (percent < 50) {
+            // Red zone
+            return "#ef4444";   // red
+        } else if (percent < 80) {
+            // Yellow zone
+            return "#facc15";   // yellow
+        } else {
+            // Green zone
+            return "#22c55e";   // green
+        }
+    }
+    
+    const color = getProgressColor(score);
+    
+    // Apply gradient
     progressElement.style.background =
-        `conic-gradient(#1a73e8 ${score}%, #e5e7eb ${score}% 100%)`;
+        `conic-gradient(${color} ${score}%, #e5e7eb ${score}% 100%)`;
+    
+    // Tooltip
     progressElement.setAttribute("data-progress", score + "% Complete");
+    
+    // ✨ Glow when 100%
+    if (score === 100) {
+        progressElement.classList.add("complete");
+    } else {
+        progressElement.classList.remove("complete");
+    }
+
 }
 
 function calculateStreak(timestamps) {

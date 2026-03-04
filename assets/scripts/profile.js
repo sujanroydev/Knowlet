@@ -225,10 +225,10 @@ function renderStats(comments = [], interactions = []) {
 
     // ❗ Only count meaningful actions (no likes)
     const streakData = calculate7DayStreak(timestamps);
-
+    
     document.getElementById("streak-text").textContent =
         streakData.currentStreak > 0
-            ? `🔥 ${streakData.currentStreak} Day Streak`
+            ? `🔥 ${streakData.currentStreak} Day Streak (Best: ${streakData.longest})`
             : "Start your learning streak";
 
     document.getElementById("freeze-text").textContent =
@@ -302,22 +302,24 @@ function calculate7DayStreak(timestamps) {
     let freezeUsed = false;
     let currentStreak = 0;
 
+    // Build last 7 days
     for (let i = 6; i >= 0; i--) {
+
         const date = new Date();
         date.setDate(today.getDate() - i);
-        const dayString = date.toDateString();
 
         const hasActivity = timestamps.some(t =>
-            new Date(t).toDateString() === dayString
+            new Date(t).toDateString() === date.toDateString()
         );
+
         days.push({
-            date: date,
+            date: new Date(date),
             active: hasActivity,
             freeze: false
         });
     }
 
-    // Calculate streak backwards
+    // Current streak (backward from today)
     for (let i = days.length - 1; i >= 0; i--) {
 
         if (days[i].active) {
@@ -331,13 +333,43 @@ function calculate7DayStreak(timestamps) {
         }
     }
 
-    return { days, currentStreak, freezeUsed };
+    // Longest streak from full history
+    const uniqueDays = [...new Set(
+        timestamps.map(t => new Date(t).toDateString())
+    )].sort((a, b) => new Date(a) - new Date(b));
+
+    let longest = 0;
+    let temp = 0;
+
+    for (let i = 0; i < uniqueDays.length; i++) {
+
+        if (i === 0) {
+            temp = 1;
+        } else {
+            const prev = new Date(uniqueDays[i - 1]);
+            const curr = new Date(uniqueDays[i]);
+
+            const diff = (curr - prev) / (1000 * 60 * 60 * 24);
+
+            if (diff === 1) {
+                temp++;
+            } else {
+                temp = 1;
+            }
+        }
+
+        if (temp > longest) longest = temp;
+    }
+
+    return { days, currentStreak, freezeUsed, longest };
 }
 
 function renderStreakCircles(days) {
 
     const row = document.getElementById("streak-row");
     row.innerHTML = "";
+
+    const todayString = new Date().toDateString();
 
     days.forEach((day, index) => {
 
@@ -354,14 +386,33 @@ function renderStreakCircles(days) {
             circle.classList.add("freeze");
         }
 
+        // Highlight today
+        if (day.date.toDateString() === todayString) {
+            circle.classList.add("today");
+
+            if (day.active) {
+                circle.classList.add("pulse");
+            }
+        }
+
         circle.appendChild(fill);
 
         const dateText = document.createElement("div");
         dateText.classList.add("streak-date");
 
-        const dateObj = new Date(day.date);
+        const dateObj = day.date;
         dateText.textContent =
             dateObj.getDate() + "/" + (dateObj.getMonth() + 1);
+
+        // Tooltip full date
+        item.setAttribute(
+            "data-full-date",
+            dateObj.toLocaleDateString("en-GB", {
+                day: "numeric",
+                month: "short",
+                year: "numeric"
+            })
+        );
 
         item.appendChild(circle);
         item.appendChild(dateText);
@@ -371,7 +422,7 @@ function renderStreakCircles(days) {
         if (day.active || day.freeze) {
             setTimeout(() => {
                 fill.style.height = "100%";
-            }, index * 120); // stagger animation
+            }, index * 120);
         }
     });
 }

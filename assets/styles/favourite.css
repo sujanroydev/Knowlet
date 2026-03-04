@@ -80,9 +80,7 @@ a {
     text-decoration: none;
     color: var(--fav-secondary);
     font-weight: 600;
-    font-size: 1.15rem;
-    display: block;
-    width: 100%;
+    font-size: 1.1rem;
 }
 
 a:hover {

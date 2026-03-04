@@ -240,17 +240,20 @@ function renderStats(comments = [], interactions = []) {
             "You reached the highest level!";
     }
 
-    // 📊 PROFILE COMPLETION
+    // 📊 PROFILE COMPLETION (Border Meter)
+    
     let score = 0;
-
+    
     if (user.name) score += 25;
     if (user.picture && !user.picture.includes("demo_pp")) score += 25;
     if (user.bio) score += 25;
     if (totalInteractions > 0) score += 25;
-
-    document.getElementById("completion-fill").style.width = score + "%";
-    document.getElementById("completion-text").textContent =
-        `Profile Completion: ${score}%`;
+    
+    const progressElement = document.getElementById("profile-progress");
+    
+    progressElement.style.background =
+        `conic-gradient(#1a73e8 ${score}%, #e5e7eb ${score}% 100%)`;
+    progressElement.setAttribute("data-progress", score + "% Complete");
 }
 
 function calculateStreak(timestamps) {

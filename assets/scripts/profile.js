@@ -306,70 +306,58 @@ function renderStats(comments = [], interactions = []) {
 function calculate7DayStreak(timestamps) {
 
     const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const activeDays = new Set(
+        timestamps.map(t => {
+            const d = new Date(t);
+            d.setHours(0, 0, 0, 0);
+            return d.getTime();
+        })
+    );
+
     const days = [];
     let freezeUsed = false;
     let currentStreak = 0;
 
-    // Build last 7 days
+    // Build last 7 days (oldest → newest)
     for (let i = 6; i >= 0; i--) {
 
-        const date = new Date();
+        const date = new Date(today);
         date.setDate(today.getDate() - i);
 
-        const hasActivity = timestamps.some(t =>
-            new Date(t).toDateString() === date.toDateString()
-        );
+        const time = date.getTime();
+        const active = activeDays.has(time);
 
         days.push({
             date: new Date(date),
-            active: hasActivity,
+            active,
             freeze: false
         });
     }
 
-    // Current streak (backward from today)
+    // Calculate streak from today backwards
     for (let i = days.length - 1; i >= 0; i--) {
 
         if (days[i].active) {
             currentStreak++;
-        } else if (!freezeUsed) {
+        }
+        else if (!freezeUsed && days[i].date.getTime() !== today.getTime()) {
             freezeUsed = true;
             days[i].freeze = true;
             currentStreak++;
-        } else {
+        }
+        else {
             break;
         }
     }
 
-    // Longest streak from full history
-    const uniqueDays = [...new Set(
-        timestamps.map(t => new Date(t).toDateString())
-    )].sort((a, b) => new Date(a) - new Date(b));
-
-    let longest = 0;
-    let temp = 0;
-
-    for (let i = 0; i < uniqueDays.length; i++) {
-
-        if (i === 0) {
-            temp = 1;
-        } else {
-            const prev = new Date(uniqueDays[i - 1]);
-            const curr = new Date(uniqueDays[i]);
-
-            const diff = (curr - prev) / (1000 * 60 * 60 * 24);
-
-            if (diff === 1) {
-                temp++;
-            } else {
-                temp = 1;
-            }
-        }
-
-        if (temp > longest) longest = temp;
-    }
-
-    return { days, currentStreak, freezeUsed, longest };
+    return {
+        days,
+        currentStreak,
+        freezeUsed,
+        longest: calculateLongestStreak(activeDays)
+    };
 }
 
 function renderStreakCircles(days) {
@@ -456,6 +444,30 @@ function calculateStreak(timestamps) {
     }
 
     return streak;
+}
+
+function calculateLongestStreak(activeDaysSet) {
+
+    const days = Array.from(activeDaysSet).sort((a, b) => a - b);
+
+    let longest = 0;
+    let temp = 0;
+
+    for (let i = 0; i < days.length; i++) {
+
+        if (i === 0) {
+            temp = 1;
+        } else {
+            const diff = (days[i] - days[i - 1]) / 86400000;
+
+            if (diff === 1) temp++;
+            else temp = 1;
+        }
+
+        if (temp > longest) longest = temp;
+    }
+
+    return longest;
 }
 
 // helper functions

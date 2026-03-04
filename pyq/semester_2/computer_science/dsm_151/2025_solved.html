@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSCDSM-151 Programming with C PYQ Solutions 2025 | Knowlet</title>
+<meta name="description" content="Complete exam-ready HTML solutions for Programming with C (CSCDSM-151), FYUG 2nd Semester Exam 2025. Extracted from original PYQ for Knowlet.">
+<meta name="keywords" content="C Programming, CSCDSM-151, FYUG 2025, PYQ Solutions, Computer Science, Knowlet, Assam University, LPU">
+<style>
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+line-height: 1.6;
+color: #2c3e50;
+background-color: #f8f9fa;
+margin: 0;
+padding: 20px;
+}
+.container {
+max-width: 1000px;
+margin: auto;
+background: #ffffff;
+padding: 40px;
+border-radius: 12px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+border: 1px solid #e1e4e8;
+}
+h1 {
+color: #2980b9;
+text-align: center;
+border-bottom: 4px solid #2980b9;
+padding-bottom: 15px;
+text-transform: uppercase;
+font-size: 24px;
+}
+.meta-box {
+background: #eef2f7;
+padding: 20px;
+border-radius: 8px;
+margin-bottom: 30px;
+border-left: 6px solid #2980b9;
+}
+h2 {
+background-color: #2980b9;
+color: white;
+padding: 12px 20px;
+border-radius: 6px;
+margin-top: 40px;
+font-size: 20px;
+}
+h3 {
+color: #d35400;
+border-bottom: 2px solid #fad7a0;
+padding-bottom: 5px;
+margin-top: 30px;
+}
+.marks {
+float: right;
+font-size: 0.9em;
+color: #7f8c8d;
+background: #f2f3f4;
+padding: 2px 8px;
+border-radius: 4px;
+}
+blockquote {
+background: #fdfefe;
+border-left: 5px solid #bdc3c7;
+margin: 1.5em 10px;
+padding: 10px 20px;
+font-style: italic;
+color: #566573;
+}
+pre {
+background: #272822;
+color: #f8f8f2;
+padding: 15px;
+border-radius: 5px;
+overflow-x: auto;
+font-family: 'Courier New', Courier, monospace;
+}
+table {
+width: 100%;
+border-collapse: collapse;
+margin: 20px 0;
+}
+th, td {
+border: 1px solid #dee2e6;
+padding: 12px;
+text-align: left;
+}
+th {
+background-color: #f2f4f6;
+}
+tr:nth-child(even) {
+background-color: #f9f9f9;
+}
+.exam-tips {
+background-color: #fff9db;
+border: 2px solid #ffe066;
+padding: 25px;
+margin-top: 50px;
+border-radius: 10px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>FYUG EVEN SEMESTER EXAM, 2025
+COMPUTER SCIENCE (2nd Semester)</h1>
+<div class="meta-box">
+    [span_0](start_span)<p><strong>Course No:</strong> CSCDSM-151[span_0](end_span)</p>
+    [span_1](start_span)<p><strong>Subject:</strong> Programming with C[span_1](end_span)</p>
+    [span_2](start_span)<p><strong>Full Marks:</strong> 70[span_2](end_span)</p>
+    [span_3](start_span)<p><strong>Exam Year:</strong> 2025[span_3](end_span)</p>
+</div>
+
+<h2>UNIT-I</h2>
+
+<h3>1. (a) Define keyword. What is the importance of keywords in C? <span class="marks">[2 Marks]</span></h3>
+[span_4](start_span)<p><strong>Definition:</strong> Keywords are reserved words in C that have a predefined meaning to the compiler[span_4](end_span). [span_5](start_span)They cannot be used as identifiers (like variable or function names)[span_5](end_span).</p>
+[span_6](start_span)<p><strong>Importance:</strong> Keywords form the basic syntax and structure of the C language, allowing the compiler to understand commands such as loops (for), data types (int), and control flows (if/else)[span_6](end_span).</p>
+
+<h3>1. (b) Define operator. List the various types of operator in C. <span class="marks">[2 Marks]</span></h3>
+[span_7](start_span)<p><strong>Definition:</strong> An operator is a symbol that tells the compiler to perform specific mathematical or logical manipulations on data[span_7](end_span).</p>
+[span_8](start_span)<p><strong>Types of Operators:</strong>[span_8](end_span)</p>
+<ul>
+    [span_9](start_span)<li>Arithmetic Operators (+, -, *, /, %)[span_9](end_span)</li>
+    [span_10](start_span)<li>Relational Operators (==, !=, &gt;, &lt;)[span_10](end_span)</li>
+    [span_11](start_span)<li>Logical Operators (&amp;&amp;, ||, !)[span_11](end_span)</li>
+    [span_12](start_span)<li>Assignment Operators (=, +=, -=)[span_12](end_span)</li>
+    [span_13](start_span)<li>Increment/Decrement Operators (++, --)[span_13](end_span)</li>
+</ul>
+
+<h3>1. (c) Write down the general format of: (i) for loop, (ii) GOTO. <span class="marks">[2 Marks]</span></h3>
+[span_14](start_span)<p><strong>(i) for loop format:</strong>[span_14](end_span)</p>
+<pre>for (initialization; condition; increment/decrement) {
+// statements
+
+}</pre>
+<p><strong>(ii) GOTO format:</strong></p>
+<pre>goto label;
+...
+label:
+// statements</pre>
+<h3>2. (a) Explain the decision making statement in C with an example. <span class="marks">[10 Marks]</span></h3>
+[span_16](start_span)<p>Decision making statements allow a program to execute specific blocks of code based on whether a condition is true or false[span_16](end_span).</p>
+[span_17](start_span)<p><strong>The if-else Statement:</strong> This is the most common decision statement[span_17](end_span).</p>
+<pre>#include &lt;stdio.h&gt;
+
+int main() {
+int age = 20;
+if (age >= 18) {
+printf("Eligible to vote.");
+} else {
+printf("Not eligible.");
+}
+return 0;
+}</pre>
+<h3>2. (b) (i) Short note on history of C. (ii) Program to calculate simple interest. <span class="marks">[5+5=10 Marks]</span></h3>
+[span_18](start_span)<p><strong>History:</strong> C was developed by Dennis Ritchie at AT&amp;T Bell Labs in 1972[span_18](end_span). [span_19](start_span)It was designed to build the Unix operating system and evolved from earlier languages like B and BCPL[span_19](end_span).</p>
+[span_20](start_span)<p><strong>Simple Interest Program:</strong>[span_20](end_span)</p>
+<pre>#include &lt;stdio.h&gt;
+
+int main() {
+float p, r, t, si;
+p = 1000; r = 5; t = 2; // Example values
+si = (p * r * t) / 100;
+printf("Simple Interest = %f", si);
+return 0;
+}</pre>
+<h2>UNIT-II</h2>
+
+<h3>3. (a) Declare a float array of size 5 and assign values. <span class="marks">[2 Marks]</span></h3>
+[span_21](start_span)<pre>float arr[5] = {1.1, 2.2, 3.3, 4.4, 5.5};[span_21](end_span)</pre>
+
+<h3>3. (b) How character array is declared? Give example. <span class="marks">[2 Marks]</span></h3>
+[span_22](start_span)<p>A character array is declared using the <code>char</code> data type followed by the array name and size in square brackets[span_22](end_span).</p>
+[span_23](start_span)<pre>char name[10] = "Hello";[span_23](end_span)</pre>
+
+<h3>4. (a) What is meant by Recursive function? Write a program for factorial. <span class="marks">[2+8=10 Marks]</span></h3>
+[span_24](start_span)<p><strong>Recursion:</strong> A function that calls itself to solve a smaller version of the same problem is known as a recursive function[span_24](end_span).</p>
+<pre>#include &lt;stdio.h&gt;
+
+int factorial(int n) {
+if (n == 0) return 1;
+else return (n * factorial(n - 1));
+}
+int main() {
+printf("Factorial of 5: %d", factorial(5));
+return 0;
+}</pre>
+<h2>UNIT-III</h2>
+
+<h3>5. (b) Differentiate between call by value and call by reference. <span class="marks">[2 Marks]</span></h3>
+<table>
+    <tr>
+        <th>Call by Value</th>
+        <th>Call by Reference</th>
+    </tr>
+    <tr>
+        [span_25](start_span)<td>Passes a copy of the actual parameter[span_25](end_span).</td>
+        [span_26](start_span)<td>Passes the address of the actual parameter[span_26](end_span).</td>
+    </tr>
+    <tr>
+        [span_27](start_span)<td>Changes inside function do not affect original values[span_27](end_span).</td>
+        [span_28](start_span)<td>Changes inside function affect the original values[span_28](end_span).</td>
+    </tr>
+</table>
+
+<h3>6. (a) (iii) C program to swap two numbers using pointer. <span class="marks">[5 Marks]</span></h3>
+<pre>#include &lt;stdio.h&gt;
+
+void swap(int *a, int *b) {
+int temp = *a;
+*a = *b;
+*b = temp;
+}
+int main() {
+int x = 10, y = 20;
+swap(&x, &y);
+printf("x=%d, y=%d", x, y);
+return 0;
+}</pre>
+<h2>UNIT-IV</h2>
+
+<h3>7. (a) Compare structures and union. <span class="marks">[2 Marks]</span></h3>
+<table>
+    <tr>
+        <th>Structure</th>
+        <th>Union</th>
+    </tr>
+    <tr>
+        [span_29](start_span)<td>Every member has its own memory location[span_29](end_span).</td>
+        [span_30](start_span)<td>All members share the same memory location[span_30](end_span).</td>
+    </tr>
+    <tr>
+        [span_31](start_span)<td>Total size is the sum of sizes of all members[span_31](end_span).</td>
+        [span_32](start_span)<td>Total size is the size of the largest member[span_32](end_span).</td>
+    </tr>
+</table>
+
+<h3>8. (a) (ii) C program to store and print employee info using structure. <span class="marks">[8 Marks]</span></h3>
+<pre>#include &lt;stdio.h&gt;
+
+struct Employee {
+int id;
+char name[30];
+float salary;
+};
+int main() {
+struct Employee e = {101, "Sujan Roy", 50000.0};
+printf("ID: %d, Name: %s, Salary: %.2f", e.id, e.name, e.salary);
+return 0;
+}</pre>
+<h2>UNIT-V</h2>
+
+<h3>9. (a) What are the files in C language? How many types of files are in C? <span class="marks">[2 Marks]</span></h3>
+[span_34](start_span)<p>A file is a place on a disk where a group of related data is stored[span_34](end_span). [span_35](start_span)In C, there are primarily two types: <strong>Text files</strong> and <strong>Binary files</strong>[span_35](end_span).</p>
+
+<h3>10. (a) (i) How to open a file? List standard I/O opening modes. <span class="marks">[3 Marks]</span></h3>
+[span_36](start_span)<p>Files are opened using the <code>fopen()</code> function[span_36](end_span).</p>
+[span_37](start_span)<p><strong>Modes:</strong>[span_37](end_span)</p>
+<ul>
+    [span_38](start_span)<li>"r": Open for reading[span_38](end_span)</li>
+    [span_39](start_span)<li>"w": Open for writing (creates new or overwrites)[span_39](end_span)</li>
+    [span_40](start_span)<li>"a": Open for appending[span_40](end_span)</li>
+    [span_41](start_span)<li>"r+": Open for both reading and writing[span_41](end_span)</li>
+</ul>
+
+<div class="exam-tips">
+    <h2>Knowlet Exam Strategy & Tips</h2>
+    <ul>
+        [span_42](start_span)<li><strong>Diagrams:</strong> Always draw flowcharts for decision-making (if-else, switch) and loop structures[span_42](end_span).</li>
+        <li><strong>Structure vs Union:</strong> This is a high-frequency question. [span_43](start_span)Remember to mention that Unions are memory efficient[span_43](end_span).</li>
+        [span_44](start_span)<li><strong>Pointers:</strong> When swapping or using arrays with pointers, ensure you use the dereference operator (<code>*</code>) correctly[span_44](end_span).</li>
+        <li><strong>Common Mistake:</strong> Forgetting the <code>&amp;</code> in <code>scanf()</code> for non-array variables.</li>
+    </ul>
+    <p><strong>Key Formulas/Syntax:</strong></p>
+    <blockquote>
+        [span_45](start_span)Simple Interest = (P * R * T) / 100[span_45](end_span)<br>
+        [span_46](start_span)Pointer Syntax: <code>data_type *pointer_name;</code>[span_46](end_span)
+    </blockquote>
+</div>
+
+<div style="text-align: center; margin-top: 30px; color: #7f8c8d;">
+    <p>Prepared by <strong>Knowlet</strong> for Academic Excellence.</p>
+</div>
+
+</div>
+</body>
+</html>

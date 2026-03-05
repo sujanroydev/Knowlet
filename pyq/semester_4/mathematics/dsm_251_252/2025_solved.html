@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MATDSM-251/252 PYQ Solutions 2025 | Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready solutions for MATDSM-251/252 Differential Equations FYUG Even Semester Exam 2025.">
+    <meta name="keywords" content="Differential Equations, MATDSM-251, MATDSM-252, FYUG, Semester 4, PYQ Solutions, Knowlet, Cauchy-Euler, Lagrange Method, PDE">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 3px solid #2c3e50;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #e67e22;
+            border-left: 5px solid #e67e22;
+            padding-left: 15px;
+            margin-top: 40px;
+            background: #fdf2e9;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #2980b9;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+        }
+        .marks {
+            font-weight: bold;
+            color: #c0392b;
+            float: right;
+        }
+        .solution-block {
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        blockquote {
+            background: #ecf0f1;
+            border-left: 10px solid #bdc3c7;
+            margin: 1.5em 10px;
+            padding: 10px 20px;
+            font-style: italic;
+        }
+        .metadata {
+            background: #f9f9f9;
+            padding: 15px;
+            border: 1px dashed #7f8c8d;
+            margin-bottom: 30px;
+        }
+        .footer-section {
+            background: #2c3e50;
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="metadata">
+            <h1>MATDSM-251/252: Differential Equations
+                FYUG Even Semester Exam, 2025</h1>
+            <p>
+                <strong>Programme:</strong> FYUG (4th Semester)
+            </p>
+            <p>
+                <strong>Course Code:</strong> MATDSM-251/252
+            </p>
+            <p>
+                <strong>Full Marks:</strong> 70
+            </p>
+            <p>
+                <strong>Time Duration:</strong> 3 Hours
+            </p>
+        </div>
+        <h2>UNIT I: First Order Differential Equations</h2>
+
+        <div class="solution-block">
+            <h3>Question 1 (a)</h3>
+            <span class="marks">[2 Marks]</span>
+            [span_4](start_span)<p>
+                <strong>Write one solution for dy/dx = 3x².[span_4](end_span)</strong>
+            </p>
+            <p>
+                Integrating both sides with respect to x:
+            </p>
+            <blockquote>
+                y = ∫ 3x² dx = x³ + C
+            </blockquote>
+            <p>
+                One specific solution (letting C = 0) is <strong>y = x³</strong>.
+            </p>
+        </div>
+
+        <div class="solution-block">
+            <h3>Question 1 (c)</h3>
+            <span class="marks">[2 Marks]</span>
+            [span_5](start_span)<p>
+                <strong>Determine whether (2xy + y²)dx + (x² + 2xy)dy = 0 is exact.[span_5](end_span)</strong>
+            </p>
+            [span_6](start_span)<p>
+                Here, M = 2xy + y² and N = x² + 2xy.[span_6](end_span)
+            </p>
+            <ul>
+                [span_7](start_span)<li>∂M/∂y = 2x + 2y[span_7](end_span)</li>
+                [span_8](start_span)<li>∂N/∂x = 2x + 2y[span_8](end_span)</li>
+            </ul>
+            [span_9](start_span)<p>
+                Since <strong>∂M/∂y = ∂N/∂x</strong>, the differential equation is <strong>exact</strong>.[span_9](end_span)
+            </p>
+        </div>
+
+        <div class="solution-block">
+            <h3>Question 2 (b)</h3>
+            <span class="marks">[5 Marks]</span>
+            [span_10](start_span)<p>
+                <strong>Solve dy/dx + 2y/x = x³.[span_10](end_span)</strong>
+            </p>
+            [span_11](start_span)<p>
+                This is a linear differential equation of the form dy/dx + Py = Q, where P = 2/x and Q = x³.[span_11](end_span)
+            </p>
+            <ol>
+                [span_12](start_span)<li><strong>Integrating Factor (IF):</strong> IF = e^(∫ P dx) = e^(∫ 2/x dx) = e^(2 ln x) = <strong>x²</strong>.[span_12](end_span)</li>
+                [span_13](start_span)<li><strong>General Solution:</strong> y * (IF) = ∫ Q * (IF) dx + C[span_13](end_span)</li>
+                [span_14](start_span)<li>y * x² = ∫ x³ * x² dx + C = ∫ x⁵ dx + C[span_14](end_span)</li>
+                [span_15](start_span)<li>y * x² = x⁶/6 + C[span_15](end_span)</li>
+            </ol>
+            [span_16](start_span)<p>
+                <strong>Final Answer: y = x⁴/6 + C/x²</strong>.[span_16](end_span)
+            </p>
+        </div>
+
+        <h2>UNIT II: Higher Order & Clairaut's Equations</h2>
+
+        <div class="solution-block">
+            <h3>Question 3 (c)</h3>
+            <span class="marks">[2 Marks]</span>
+            [span_17](start_span)<p>
+                <strong>Write the general form of Clairaut's equation.[span_17](end_span)</strong>
+            </p>
+            [span_18](start_span)<blockquote>
+                y = xp + f(p), where p = dy/dx.[span_18](end_span)
+            </blockquote>
+        </div>
+
+        <div class="solution-block">
+            <h3>Question 4 (a)</h3>
+            <span class="marks">[5 Marks]</span>
+            [span_19](start_span)<p>
+                <strong>Find the general solution of y'' + 3y' + 2y = e⁻²ˣ.[span_19](end_span)</strong>
+            </p>
+            <p>
+                <strong>1. [span_20](start_span)Complementary Function (CF):</strong> Characteristic equation is m² + 3m + 2 = 0.[span_20](end_span)
+            </p>
+            <ul>
+                [span_21](start_span)<li>(m + 1)(m + 2) = 0 ⇒ m = -1, -2.[span_21](end_span)</li>
+                [span_22](start_span)<li>CF = C₁e⁻ˣ + C₂e⁻²ˣ.[span_22](end_span)</li>
+            </ul>
+            <p>
+                <strong>2. [span_23](start_span)Particular Integral (PI):</strong> PI = [1 / (D² + 3D + 2)] e⁻²ˣ.[span_23](end_span)
+            </p>
+            [span_24](start_span)<p>
+                Since D = -2 makes the denominator zero, we use the formula for a repeated root: PI = x * [1 / (2D + 3)] e⁻²ˣ = x * [1 / (2(-2) + 3)] e⁻²ˣ = <strong>-xe⁻²ˣ</strong>.[span_24](end_span)
+            </p>
+            [span_25](start_span)<p>
+                <strong>General Solution: y = C₁e⁻ˣ + C₂e⁻²ˣ - xe⁻²ˣ</strong>.[span_25](end_span)
+            </p>
+        </div>
+
+        <h2>UNIT III: Cauchy-Euler & Variation of Parameters</h2>
+
+        <div class="solution-block">
+            <h3>Question 5 (b)</h3>
+            <span class="marks">[2 Marks]</span>
+            [span_26](start_span)<p>
+                <strong>What substitution reduces x²y'' - 4xy' + 6y = 0 into a constant coefficient equation?[span_26](end_span)</strong>
+            </p>
+            [span_27](start_span)<p>
+                The standard substitution is <strong>x = eᶻ</strong> or <strong>z = ln x</strong>.[span_27](end_span)
+            </p>
+            [span_28](start_span)<p>
+                The transformed equation becomes: [D(D-1) - 4D + 6]y = 0 ⇒ <strong>(D² - 5D + 6)y = 0</strong>, where D = d/dz.[span_28](end_span)
+            </p>
+        </div>
+
+        <div class="solution-block">
+            <h3>Question 6 (b)</h3>
+            <span class="marks">[5 Marks]</span>
+            [span_29](start_span)<p>
+                <strong>Solve x²y'' + 5xy' + 6y = 0 using substitution.[span_29](end_span)</strong>
+            </p>
+            [span_30](start_span)<p>
+                Substitute x = eᶻ, then x(dy/dx) = Dy and x²(d²y/dx²) = D(D-1)y.[span_30](end_span)
+            </p>
+            [span_31](start_span)<p>
+                Equation becomes: [D(D-1) + 5D + 6]y = 0 ⇒ (D² + 4D + 6)y = 0.[span_31](end_span)
+            </p>
+            [span_32](start_span)<p>
+                Characteristic roots: m = [-4 ± √(16 - 24)] / 2 = -2 ± i√2.[span_32](end_span)
+            </p>
+            [span_33](start_span)<p>
+                y = e⁻²ᶻ [C₁ cos(√2 z) + C₂ sin(√2 z)].[span_33](end_span)
+            </p>
+            [span_34](start_span)<p>
+                <strong>Final Answer: y = x⁻² [C₁ cos(√2 ln x) + C₂ sin(√2 ln x)]</strong>.[span_34](end_span)
+            </p>
+        </div>
+
+        <h2>UNIT IV: Simultaneous & Total Differential Equations</h2>
+
+        <div class="solution-block">
+            <h3>Question 7 (c)</h3>
+            <span class="marks">[2 Marks]</span>
+            [span_35](start_span)<p>
+                <strong>Check if (2x + 3y)dx + (3x + 4y)dy = 0 is a total differential equation.[span_35](end_span)</strong>
+            </p>
+            [span_36](start_span)<p>
+                Here M = 2x + 3y and N = 3x + 4y.[span_36](end_span)
+            </p>
+            <ul>
+                [span_37](start_span)<li>∂M/∂y = 3[span_37](end_span)</li>
+                [span_38](start_span)<li>∂N/∂x = 3[span_38](end_span)</li>
+            </ul>
+            [span_39](start_span)<p>
+                Since <strong>∂M/∂y = ∂N/∂x</strong>, it is a <strong>total (exact) differential equation</strong>.[span_39](end_span)
+            </p>
+        </div>
+
+        <h2>UNIT V: Partial Differential Equations (PDE)</h2>
+
+        <div class="solution-block">
+            <h3>Question 9 (b)</h3>
+            <span class="marks">[2 Marks]</span>
+            [span_40](start_span)<p>
+                <strong>Find the order and degree of the PDE: ∂²z/∂x² + (∂z/∂x)² = 0.[span_40](end_span)</strong>
+            </p>
+            <ul>
+                [span_41](start_span)<li><strong>Order:</strong> 2 (highest derivative is second order).[span_41](end_span)</li>
+                [span_42](start_span)<li><strong>Degree:</strong> 1 (the highest order derivative is raised to the power 1).[span_42](end_span)</li>
+            </ul>
+        </div>
+
+        <div class="solution-block">
+            <h3>Question 10 (a)</h3>
+            <span class="marks">[5 Marks]</span>
+            [span_43](start_span)<p>
+                <strong>Solve (x-y)∂z/∂x + (x+y)∂z/∂y = z using Lagrange's method.[span_43](end_span)</strong>
+            </p>
+            [span_44](start_span)<p>
+                Lagrange's auxiliary equations are: dx / (x-y) = dy / (x+y) = dz / z.[span_44](end_span)
+            </p>
+            <ol>
+                <li>From dy/dx = (x+y)/(x-y), this is homogeneous. [span_45](start_span)Let y=vx.[span_45](end_span)</li>
+                [span_46](start_span)<li>Solving leads to ln(x² + y²) - 2 arctan(y/x) = C₁.[span_46](end_span)</li>
+                [span_47](start_span)<li>Using multipliers (dx-dy)/( (x-y)-(x+y) ) = dz/z leads to second characteristic C₂.[span_47](end_span)</li>
+            </ol>
+            [span_48](start_span)<p>
+                <strong>General Solution: Φ(C₁, C₂) = 0</strong>.[span_48](end_span)
+            </p>
+        </div>
+
+        <div class="footer-section">
+            <h2>Exam Focus Enhancements</h2>
+            <h3>Exam Tips</h3>
+            <ul>
+                [span_49](start_span)[span_50](start_span)<li>For <strong>Exact Equations</strong>, always verify ∂M/∂y = ∂N/∂x first.[span_49](end_span)[span_50](end_span)</li>
+                [span_51](start_span)[span_52](start_span)<li>In <strong>Cauchy-Euler</strong> problems, don't forget to convert back from z to ln x in the final answer.[span_51](end_span)[span_52](end_span)</li>
+            </ul>
+            <h3>Important Formulas List</h3>
+            <ul>
+                [span_53](start_span)<li>Linear IF: e^(∫ P dx)[span_53](end_span)</li>
+                [span_54](start_span)<li>Clairaut: y = xp + f(p)[span_54](end_span)</li>
+                [span_55](start_span)[span_56](start_span)<li>Cauchy-Euler roots: m(m-1) + am + b = 0[span_55](end_span)[span_56](end_span)</li>
+            </ul>
+            <h3>Answer Presentation Strategy</h3>
+            [span_57](start_span)<p>
+                Clearly separate the <strong>Complementary Function (CF)</strong> and <strong>Particular Integral (PI)</strong> when solving second-order linear equations to ensure partial marks.[span_57](end_span)
+            </p>
+        </div>
+
+    </div>
+</body>
+</html>

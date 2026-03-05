@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MATDSC-251 PYQ Solutions 2025 | Knowlet</title>
+    <meta name="description" content="Comprehensive, exam-ready solutions for MATDSC-251 Abstract Algebra FYUG Even Semester Exam 2025.">
+    <meta name="keywords" content="Abstract Algebra, MATDSC-251, FYUG, Semester 4, PYQ Solutions, Knowlet, Group Theory, Ring Theory, Lagrange's Theorem">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 3px solid #2c3e50;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #e67e22;
+            border-left: 5px solid #e67e22;
+            padding-left: 15px;
+            margin-top: 40px;
+            background: #fdf2e9;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #2980b9;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #2980b9;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        blockquote {
+            background: #ecf0f1;
+            border-left: 10px solid #bdc3c7;
+            margin: 1.5em 10px;
+            padding: 10px 20px;
+            font-style: italic;
+        }
+        .marks {
+            font-weight: bold;
+            color: #c0392b;
+            float: right;
+        }
+        .solution-block {
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .metadata {
+            background: #f9f9f9;
+            padding: 15px;
+            border: 1px dashed #7f8c8d;
+            margin-bottom: 30px;
+        }
+        .footer-section {
+            background: #2c3e50;
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 50px;
+        }
+        .footer-section h2 {
+            color: #f39c12;
+            border-left: 5px solid #f39c12;
+            background: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="metadata">
+            <h1>MATDSC-251: Abstract Algebra
+                FYUG Even Semester Exam, 2025</h1>
+            <p>
+                <strong>Programme:</strong> FYUG (4th Semester)
+            </p>
+            <p>
+                <strong>Subject:</strong> Mathematics
+            </p>
+            <p>
+                <strong>Course Code:</strong> MATDSC-251
+            </p>
+            <p>
+                <strong>Full Marks:</strong> 70 | <strong>Pass Marks:</strong> 28
+            </p>
+            <p>
+                <strong>Instructions:</strong> Figures in the margin indicate full marks.
+            </p>
+        </div>
+        <h2>UNIT I</h2>
+
+        <div class="solution-block">
+            <h3>Question 1 (a)</h3>
+            <span class="marks">[2 Marks]</span>
+            <p>
+                <strong>Define a group. [span_5](start_span)Give a suitable example.</strong>[span_5](end_span)
+            </p>
+            <blockquote>
+                A non-empty set G together with a binary operation * is called a <strong>group</strong> if it satisfies:
+                <ul>
+                    <li><strong>Closure:</strong> a * b is in G for all a, b in G.</li>
+                    <li><strong>Associativity:</strong> (a * b) * c = a * (b * c) for all a, b, c in G.</li>
+                    <li><strong>Identity:</strong> There exists e in G such that a * e = e * a = a.</li>
+                    <li><strong>Inverse:</strong> For every a in G, there exists a' in G such that a * a' = a' * a = e.</li>
+                </ul>
+            </blockquote>
+            [span_6](start_span)<p>
+                <strong>Example:</strong> The set of integers Z under the operation of addition (+) is a group.[span_6](end_span)
+            </p>
+        </div>
+
+        <div class="solution-block">
+            <h3>Question 1 (b)</h3>
+            <span class="marks">[2 Marks]</span>
+            <p>
+                <strong>Write the Cayley table for the set G = {0, 1, 2, 3} with respect to usual multiplication. [span_7](start_span)Is it a group?</strong>[span_7](end_span)
+            </p>
+            <table>
+                <tr><th>x</th><th>0</th><th>1</th><th>2</th><th>3</th></tr>
+                <tr><th>0</th><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+                <tr><th>1</th><td>0</td><td>1</td><td>2</td><td>3</td></tr>
+                <tr><th>2</th><td>0</td><td>2</td><td>4</td><td>6</td></tr>
+                <tr><th>3</th><td>0</td><td>3</td><td>6</td><td>9</td></tr>
+            </table>
+            [span_8](start_span)<p>
+                <strong>Conclusion:</strong> No, it is not a group.[span_8](end_span) [span_9](start_span)Specifically, the element 0 does not have a multiplicative inverse, and the set is not closed under usual multiplication (e.g., 2 * 2 = 4, which is not in G).[span_9](end_span)
+            </p>
+        </div>
+
+        <div class="solution-block">
+            <h3>Question 1 (c)</h3>
+            <span class="marks">[2 Marks]</span>
+            <p>
+                <strong>Define order of an element of a group. [span_10](start_span)Find the order of 2 in Z₄.</strong>[span_10](end_span)
+            </p>
+            <blockquote>
+                The <strong>order of an element</strong> 'a' in a group G is the smallest positive integer n such that aⁿ = e (where e is the identity). [span_11](start_span)In additive notation, this is na = 0.[span_11](end_span)
+            </blockquote>
+            <p>
+                In Z₄ = {0, 1, 2, 3} under addition modulo 4:
+            </p>
+            <ul>
+                <li>1 * 2 = 2 (mod 4)</li>
+                <li>2 * 2 = 4 ≡ 0 (mod 4)</li>
+            </ul>
+            [span_12](start_span)<p>
+                <strong>Final Answer:</strong> The order of 2 in Z₄ is 2.[span_12](end_span)
+            </p>
+        </div>
+
+        <div class="solution-block">
+            <h3>Question 2 (Option A & B)</h3>
+            <span class="marks">[5 + 5 = 10 Marks]</span>
+            [span_13](start_span)<p>
+                <strong>(a) Show that the set GL(2, R) of 2x2 matrices with real entries and non-zero determinant is a group w.r.t. matrix multiplication.</strong>[span_13](end_span)
+            </p>
+            <p>
+                To prove GL(2, R) is a group:
+            </p>
+            <ol>
+                <li><strong>Closure:</strong> If A and B have det(A) ≠ 0 and det(B) ≠ 0, then det(AB) = det(A)det(B) ≠ 0. Thus AB is in GL(2, R).</li>
+                <li><strong>Associativity:</strong> Matrix multiplication is inherently associative.</li>
+                <li><strong>Identity:</strong> The identity matrix I = [[1, 0], [0, 1]] has det(I) = 1 ≠ 0 and acts as the identity.</li>
+                <li><strong>Inverse:</strong> For any A with det(A) ≠ 0, A⁻¹ = (1/det(A)) * adj(A) exists and det(A⁻¹) = 1/det(A) ≠ 0.</li>
+            </ol>
+
+            [span_14](start_span)<p>
+                <strong>(b) Show that a non-empty subset H of a group G is a subgroup of G if and only if ab⁻¹ is in H whenever a, b are in H.</strong>[span_14](end_span)
+            </p>
+            <p>
+                <strong>Proof:</strong>
+            </p>
+            <ul>
+                <li><strong>(Necessary condition):</strong> If H is a subgroup, then for any b in H, b⁻¹ is in H (inverse property). Since H is closed, if a and b⁻¹ are in H, then ab⁻¹ is in H.</li>
+                <li><strong>(Sufficient condition):</strong> Suppose ab⁻¹ is in H for all a, b in H.
+                    <ul>
+                        <li>Since H is non-empty, let x be in H. Then xx⁻¹ = e is in H (Identity).</li>
+                        <li>If e and x are in H, then ex⁻¹ = x⁻¹ is in H (Inverse).</li>
+                        <li>If a and b are in H, then b⁻¹ is in H. Thus a(b⁻¹)⁻¹ = ab is in H (Closure).</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="solution-block">
+            <h3>Question 2 (Option C & D)</h3>
+            <span class="marks">[4 + 6 = 10 Marks]</span>
+            [span_15](start_span)<p>
+                <strong>(c) Prove the uniqueness of identity and uniqueness of inverses in a group.</strong>[span_15](end_span)
+            </p>
+            <p>
+                <strong>Uniqueness of Identity:</strong> Suppose there are two identities e and e'. Then e * e' = e (if e' is identity) and e * e' = e' (if e is identity). [span_16](start_span)Thus e = e'.[span_16](end_span)
+            </p>
+            <p>
+                <strong>Uniqueness of Inverses:</strong> Let 'a' have two inverses b and c. Then ab = e and ac = e. Now, b = be = b(ac) = (ba)c = ec = c. [span_17](start_span)Thus b = c.[span_17](end_span)
+            </p>
+
+            <p>
+                <strong>(d) Let G = {[[a, a], [a, a]] | a ∈ R, a ≠ 0}. [span_18](start_span)[span_19](start_span)Show that G is a group w.r.t. multiplication.</strong>[span_18](end_span)[span_19](end_span)
+            </p>
+            <p>
+                Let A = [[a, a], [a, a]] and B = [[b, b], [b, b]].
+            </p>
+            <ul>
+                <li><strong>Closure:</strong> AB = [[2ab, 2ab], [2ab, 2ab]]. [span_20](start_span)Since a, b ≠ 0, 2ab ≠ 0. AB is in G.[span_20](end_span)</li>
+                <li><strong>Identity:</strong> Let E = [[e, e], [e, e]]. AE = [[2ae, 2ae], [2ae, 2ae]] = [[a, a], [a, a]]. This implies 2ae = a, so e = 1/2. [span_21](start_span)Identity is [[1/2, 1/2], [1/2, 1/2]].[span_21](end_span)</li>
+                <li><strong>Inverse:</strong> Let A' = [[x, x], [x, x]]. AA' = E implies 2ax = 1/2, so x = 1/(4a). [span_22](start_span)Inverse exists.[span_22](end_span)</li>
+            </ul>
+        </div>
+
+        <h2>UNIT II</h2>
+
+        <div class="solution-block">
+            <h3>Question 3 (a)</h3>
+            <span class="marks">[2 Marks]</span>
+            [span_23](start_span)<p>
+                <strong>Define centralizer of an element of a group.</strong>[span_23](end_span)
+            </p>
+            <blockquote>
+                The <strong>centralizer</strong> of an element 'a' in a group G, denoted C(a), is the set of all elements in G that commute with 'a': <br>
+                [span_24](start_span)C(a) = {x ∈ G | xa = ax}[span_24](end_span)
+            </blockquote>
+        </div>
+
+        <div class="solution-block">
+            <h3>Question 3 (c)</h3>
+            <span class="marks">[2 Marks]</span>
+            [span_25](start_span)<p>
+                <strong>Let G = &lt;a&gt; be a cyclic group of order 25. Justify if a⁵ is a generator of G.</strong>[span_25](end_span)
+            </p>
+            [span_26](start_span)<p>
+                For a cyclic group G = &lt;a&gt; of order n, aᵏ is a generator if and only if gcd(k, n) = 1.[span_26](end_span)
+            </p>
+            [span_27](start_span)<p>
+                Here, n = 25 and k = 5. Since gcd(5, 25) = 5 ≠ 1, <strong>a⁵ is not a generator</strong> of G.[span_27](end_span)
+            </p>
+        </div>
+
+        <div class="solution-block">
+            <h3>Question 4 (Option A & B)</h3>
+            <span class="marks">[5 + 5 = 10 Marks]</span>
+            [span_28](start_span)<p>
+                <strong>(a) Show that the center of a group is a subgroup of the group.</strong>[span_28](end_span)
+            </p>
+            [span_29](start_span)<p>
+                The center Z(G) = {z ∈ G | zg = gz for all g ∈ G}.[span_29](end_span)
+            </p>
+            <ol>
+                <li><strong>Identity:</strong> eg = ge = g, so e ∈ Z(G).</li>
+                <li><strong>Closure:</strong> Let a, b ∈ Z(G). Then (ab)g = a(bg) = a(gb) = (ag)b = (ga)b = g(ab). So ab ∈ Z(G).</li>
+                <li><strong>Inverse:</strong> Let a ∈ Z(G). Then ag = ga. Multiplying by a⁻¹ on both sides: a⁻¹(ag)a⁻¹ = a⁻¹(ga)a⁻¹ → ga⁻¹ = a⁻¹g. [span_30](start_span)So a⁻¹ ∈ Z(G).[span_30](end_span)</li>
+            </ol>
+
+            <p>
+                <strong>(b) Let G = &lt;a&gt; be a cyclic group of order n. [span_31](start_span)Prove that G = &lt;aᵏ&gt; iff gcd(k, n) = 1.</strong>[span_31](end_span)
+            </p>
+            <p>
+                <strong>Proof:</strong> The order of element aᵏ is |aᵏ| [span_32](start_span)= n / gcd(k, n).[span_32](end_span) For aᵏ to be a generator, its order must equal the order of the group, which is n. [span_33](start_span)Thus, n / gcd(k, n) = n, which implies gcd(k, n) = 1.[span_33](end_span)
+            </p>
+        </div>
+
+        <div class="solution-block">
+            <h3>Question 4 (Option C & D)</h3>
+            <span class="marks">[5 + 5 = 10 Marks]</span>
+            <p>
+                <strong>(c) Justify if the center of a group is always Abelian. [span_34](start_span)Justify if the centralizer of an element is always Abelian.</strong>[span_34](end_span)
+            </p>
+            <ul>
+                [span_35](start_span)<li><strong>Center Z(G):</strong> Yes, it is always Abelian because every element in Z(G) commutes with all elements of G, including all other elements in Z(G).[span_35](end_span)</li>
+                <li><strong>Centralizer C(a):</strong> No, it is not necessarily Abelian. [span_36](start_span)For example, in a non-Abelian group G, C(e) = G, which is non-Abelian.[span_36](end_span)</li>
+            </ul>
+
+            [span_37](start_span)<p>
+                <strong>(d) Show that every subgroup of a cyclic group is cyclic.</strong>[span_37](end_span)
+            </p>
+            <p>
+                Let G = &lt;a&gt; and H be a subgroup. If H = {e}, it is cyclic. [span_38](start_span)If H ≠ {e}, let m be the smallest positive integer such that aᵐ ∈ H.[span_38](end_span) We claim H = &lt;aᵐ&gt;. For any aⁿ ∈ H, by division algorithm n = mq + r where 0 ≤ r < m. Then aʳ = aⁿ(aᵐ)⁻ᵝ. [span_39](start_span)Since aⁿ, aᵐ ∈ H, aʳ must be in H. Since m is the smallest positive integer, r must be 0. Thus n = mq, and aⁿ = (aᵐ)ᵝ.[span_39](end_span)
+                </p>
+            </div>
+
+            <h2>UNIT III</h2>
+
+            <div class="solution-block">
+                <h3>Question 5 (a)</h3>
+                <span class="marks">[2 Marks]</span>
+                [span_40](start_span)<p>
+                    <strong>Define symmetric group Sₙ.</strong>[span_40](end_span)
+                </p>
+                <blockquote>
+                    [span_41](start_span)The <strong>symmetric group</strong> Sₙ is the group of all permutations (one-to-one and onto functions) of a finite set of n elements under the operation of function composition.[span_41](end_span)
+                </blockquote>
+            </div>
+
+            <div class="solution-block">
+                <h3>Question 6 (Option A & B)</h3>
+                <span class="marks">[5 + 5 = 10 Marks]</span>
+                <p>
+                    <strong>(a) Show that every permutation of a finite set can be written as a product of disjoint cycles. [span_42](start_span)Express (12)(45)(153)(24) as disjoint cycles.</strong>[span_42](end_span)
+                </p>
+                <p>
+                    <strong>Decomposition:</strong> Starting with 1 → 5 → 4 → 2 → 1. Next available 3 → 3. Next available 5 (already used). [span_43](start_span)Result: (1542)(3) or simply <strong>(1542)</strong>.[span_43](end_span)
+                </p>
+
+                [span_44](start_span)<p>
+                    <strong>(b) Show that disjoint cycles commute.</strong>[span_44](end_span)
+                </p>
+                <p>
+                    Let α and β be disjoint cycles. They move disjoint sets of elements. If an element x is moved by α, it is fixed by β. Thus αβ(x) = α(x) and βα(x) = β(α(x)) = α(x) (since α(x) is also fixed by β). If x is moved by neither, both sides fix it. [span_45](start_span)Thus αβ = βα.[span_45](end_span)
+                </p>
+            </div>
+
+            <h2>UNIT IV</h2>
+
+            <div class="solution-block">
+                <h3>Question 8 (a)</h3>
+                <span class="marks">[6 Marks]</span>
+                [span_46](start_span)<p>
+                    <strong>State and prove Lagrange's theorem.</strong>[span_46](end_span)
+                </p>
+                <blockquote>
+                    [span_47](start_span)<strong>Theorem:</strong> The order of every subgroup H of a finite group G divides the order of G.[span_47](end_span)
+                </blockquote>
+                <p>
+                    <strong>Proof:</strong> Let |G| = n and |H| = m. [span_48](start_span)The distinct left cosets of H partition G.[span_48](end_span) Since each coset has exactly m elements and there are, say, k distinct cosets, then n = mk. [span_49](start_span)This implies m divides n, i.e., |H| divides |G|.[span_49](end_span)
+                </p>
+            </div>
+
+            <div class="solution-block">
+                <h3>Question 8 (b)</h3>
+                <span class="marks">[4 Marks]</span>
+                [span_50](start_span)<p>
+                    <strong>Show that a subgroup H of G is normal iff xHx⁻¹ ⊆ H for all x ∈ G.</strong>[span_50](end_span)
+                </p>
+                <p>
+                    <strong>Proof:</strong> A subgroup is normal if xH = Hx for all x. [span_51](start_span)This is equivalent to xHx⁻¹ = H.[span_51](end_span) The condition xHx⁻¹ ⊆ H for all x implies that for x⁻¹, x⁻¹H(x⁻¹)⁻¹ ⊆ H, which means x⁻¹Hx ⊆ H, or H ⊆ xHx⁻¹. [span_52](start_span)Thus xHx⁻¹ = H.[span_52](end_span)
+                </p>
+            </div>
+
+            <h2>UNIT V</h2>
+
+            <div class="solution-block">
+                <h3>Question 9 (b)</h3>
+                <span class="marks">[2 Marks]</span>
+                [span_53](start_span)<p>
+                    <strong>Give example, with justification, of an integral domain that is not a field.</strong>[span_53](end_span)
+                </p>
+                [span_54](start_span)<p>
+                    <strong>Example:</strong> The ring of integers Z.[span_54](end_span)
+                </p>
+                <p>
+                    <strong>Justification:</strong> Z has no zero divisors (if ab = 0, then a=0 or b=0), so it is an integral domain. [span_55](start_span)However, elements like 2 have no multiplicative inverse in Z (1/2 is not an integer), so it is not a field.[span_55](end_span)
+                </p>
+            </div>
+
+            <div class="solution-block">
+                <h3>Question 10 (b)</h3>
+                <span class="marks">[5 Marks]</span>
+                [span_56](start_span)<p>
+                    <strong>Prove that every non-zero finite integral domain is a field.</strong>[span_56](end_span)
+                </p>
+                <p>
+                    <strong>Proof:</strong> Let D be a finite integral domain with elements {x₁, x₂, ..., xₙ}. For any non-zero 'a' in D, consider the set {ax₁, ax₂, ..., axₙ}. Since D has no zero divisors, all these products are distinct. [span_57](start_span)Thus, one of them must be the unity '1'.[span_57](end_span) So axᵢ = 1 for some xᵢ, meaning 'a' has an inverse. [span_58](start_span)Hence, D is a field.[span_58](end_span)
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h2>Exam Focus Enhancements</h2>
+                <h3>Exam Tips</h3>
+                <ul>
+                    <li>Always check for the "Abelian" property when working with groups of small prime orders.</li>
+                    <li>For Normal Subgroups, remember the condition: gng⁻¹ ∈ N.</li>
+                </ul>
+                <h3>Important Formulas List</h3>
+                <ul>
+                    <li>|aᵏ| = n / gcd(k, n)</li>
+                    <li>Index of H in G: [G:H] = |G| / |H|</li>
+                    <li>Order of a permutation: LCM of its disjoint cycle lengths.</li>
+                </ul>
+                <h3>Answer Presentation Strategy</h3>
+                <p>
+                    Use the <strong>"Statement-Proof-Example"</strong> flow for long answers. [span_59](start_span)Clearly label Section/Unit numbers to match the question paper.[span_59](end_span)
+                </p>
+            </div>
+
+        </div>
+    </body>
+</html>

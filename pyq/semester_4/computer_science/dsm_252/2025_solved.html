@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Science DSM 252 Solved Question Paper - 2025 | 4th Semester - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready solutions for Database Management System (CSCDSM-252) FYUG Even Semester Exam 2025.">
+    <meta name="keywords" content="DBMS, CSCDSM-252, FYUG, 2025, SQL, Normalization, Transactions, Indexing, Knowlet">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 4px solid #2ecc71;
+            padding-bottom: 15px;
+            text-transform: uppercase;
+        }
+        h2 {
+            color: #27ae60;
+            border-left: 6px solid #2ecc71;
+            padding-left: 15px;
+            margin-top: 40px;
+            background: #f0fff4;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #2980b9;
+            background: #eef7fd;
+            padding: 12px;
+            border-radius: 5px;
+            margin-top: 25px;
+        }
+        .marks-badge {
+            float: right;
+            background: #e67e22;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        blockquote {
+            background: #fdfdfd;
+            border-left: 8px solid #3498db;
+            margin: 20px 0;
+            padding: 15px 25px;
+            font-size: 1.1em;
+            color: #34495e;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dfe6e9;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #2ecc71;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .footer-section {
+            margin-top: 60px;
+            padding: 30px;
+            background: #34495e;
+            color: #ecf0f1;
+            border-radius: 8px;
+        }
+        .important-list {
+            border: 1px dashed #bdc3c7;
+            padding: 15px;
+            background: #fcfcfc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>FYUG Even Semester Exam, 2025<br>COMPUTER SCIENCE: CSCDSM-252<br>(Database Management System)</h1>
+
+    <div class="metadata">
+        <span id="span_0"><p><strong>Subject:</strong> Computer Science</span></p>
+        <span id="span_1"><p><strong>Course No:</strong> CSCDSM-252</span></p>
+        <span id="span_2"><p><strong>Semester:</strong> 4th Semester</span></p>
+        <span id="span_3"><p><strong>Year:</strong> 2025</span></p>
+        <span id="span_4"><p><strong>Programme:</strong> FYUG</span></p>
+    </div>
+
+    <hr>
+
+    <h2>UNIT—I</h2>
+
+    <h3>Question 1 (a) <span class="marks-badge">2 Marks</span></h3>
+    <span id="span_5"><p><strong>What do you mean by database management system?</span></strong></p>
+    <blockquote>
+        <span id="span_6">A Database Management System (DBMS) is software designed to store, retrieve, and manage data in a database.</span> <span id="span_7">It acts as an interface between users and the data, ensuring security, integrity, and efficient data handling.</span>
+    </blockquote>
+
+    <h3>Question 1 (b) <span class="marks-badge">2 Marks</span></h3>
+    <span id="span_8"><p><strong>What are schemas and instances?</span></strong></p>
+    <ul>
+        <span id="span_9"><li><strong>Schema:</strong> The overall design or logical structure of the database is called the schema.</span> <span id="span_10">It is static and defined during database creation.</span></li>
+        <span id="span_11"><li><strong>Instance:</strong> The collection of information stored in the database at a particular moment is called an instance.</span> <span id="span_12">It changes whenever data is inserted or deleted.</span></li>
+    </ul>
+
+    <h3>Question 1 (c) <span class="marks-badge">2 Marks</span></h3>
+    <span id="span_13"><p><strong>Differentiate between logical data independence and physical data independence.</span></strong></p>
+    <table>
+        <tr>
+            <th>Feature</th>
+            <th>Logical Data Independence</th>
+            <th>Physical Data Independence</th>
+        </tr>
+        <tr>
+            <td>Definition</td>
+            <span id="span_14"><td>Ability to change the conceptual schema without affecting external views.</span></td>
+            <span id="span_15"><td>Ability to change the physical schema without affecting the conceptual schema.</span></td>
+        </tr>
+        <tr>
+            <td>Level</td>
+            <span id="span_16"><td>Occurs at the User-Conceptual mapping level.</span></td>
+            <span id="span_17"><td>Occurs at the Conceptual-Internal mapping level.</span></td>
+        </tr>
+        <tr>
+            <td>Complexity</td>
+            <span id="span_18"><td>More difficult to achieve.</span></td>
+            <span id="span_19"><td>Easier to achieve.</span></td>
+        </tr>
+    </table>
+
+    <h3>Question 2 (a) <span class="marks-badge">10 Marks</span></h3>
+    <span id="span_20"><p><strong>(i) Explain the architecture of DBMS.</span></strong></p>
+    <span id="span_21"><p>The standard architecture for a DBMS is the <strong>Three-Schema Architecture</strong>, which separates the physical database from user applications:</span></p>
+        <ul>
+        <span id="span_22"><li><strong>External Level (View Level):</strong> Describes only the part of the database relevant to specific users.</span></li>
+        <span id="span_23"><li><strong>Conceptual Level (Logical Level):</strong> Describes what data is stored in the database and what relationships exist among those data.</span></li>
+        <span id="span_24"><li><strong>Internal Level (Physical Level):</strong> Describes how the data is actually stored on the storage media.</span></li>
+    </ul>
+
+    <span id="span_25"><p><strong>(ii) Write about the different data models used in DBMS.</span></strong></p>
+    <ul>
+        <span id="span_26"><li><strong>Relational Model:</strong> Represents data as tables (relations) with rows and columns.</span></li>
+        <span id="span_27"><li><strong>Entity-Relationship (ER) Model:</strong> Uses entities, attributes, and relationships to represent the real world.</span></li>
+        <span id="span_28"><li><strong>Hierarchical Model:</strong> Organizes data in a tree-like structure with parent-child relationships.</span></li>
+        <span id="span_29"><li><strong>Network Model:</strong> Similar to hierarchical but allows child nodes to have multiple parents.</span></li>
+        <span id="span_30"><li><strong>Object-Oriented Model:</strong> Represents data as objects, similar to OOP concepts.</span></li>
+    </ul>
+
+    <h3>Question 2 (b) <span class="marks-badge">10 Marks</span></h3>
+    <span id="span_31"><p><strong>(i) Write down the advantages of DBMS.</span></strong></p>
+    <ul>
+        <span id="span_32"><li><strong>Controlled Redundancy:</strong> Minimizes duplicate data storage.</span></li>
+        <span id="span_33"><li><strong>Data Sharing:</strong> Allows multiple users to access data simultaneously.</span></li>
+        <span id="span_34"><li><strong>Data Consistency:</strong> Ensures all users see the same accurate data.</span></li>
+        <span id="span_35"><li><strong>Improved Security:</strong> Restricts unauthorized access through permissions.</span></li>
+        <span id="span_36"><li><strong>Backup and Recovery:</strong> Provides mechanisms to restore data after failures.</span></li>
+    </ul>
+
+    <p><strong>(ii) What are the different types of relationship? <span id="span_37">Explain.</span></strong></p>
+    <ul>
+        <span id="span_38"><li><strong>One-to-One (1:1):</strong> An entity in A is associated with exactly one entity in B.</span></li>
+        <span id="span_39"><li><strong>One-to-Many (1:N):</strong> An entity in A is associated with any number of entities in B.</span></li>
+        <span id="span_40"><li><strong>Many-to-One (N:1):</strong> Multiple entities in A are associated with one entity in B.</span></li>
+        <span id="span_41"><li><strong>Many-to-Many (M:N):</strong> Multiple entities in A are associated with multiple entities in B.</span></li>
+    </ul>
+
+    <h2>UNIT—II</h2>
+
+    <h3>Question 3 (b) <span class="marks-badge">2 Marks</span></h3>
+    <span id="span_42"><p><strong>What are DDL and DML?</span></strong></p>
+    <ul>
+        <span id="span_43"><li><strong>DDL (Data Definition Language):</strong> Used to define database structures like tables (e.g., CREATE, ALTER, DROP).</span></li>
+        <span id="span_44"><li><strong>DML (Data Manipulation Language):</strong> Used to access and manipulate the data (e.g., SELECT, INSERT, UPDATE, DELETE).</span></li>
+    </ul>
+
+    <h3>Question 4 (a) <span class="marks-badge">10 Marks</span></h3>
+    <span id="span_45"><p><strong>Explain different relational algebra operations used in DBMS.</span></strong></p>
+    <ul>
+        <span id="span_46"><li><strong>Select (σ):</strong> Extracts rows that satisfy a given predicate.</span></li>
+        <span id="span_47"><li><strong>Project (π):</strong> Selects specific columns from a table.</span></li>
+        <span id="span_48"><li><strong>Union (∪):</strong> Combines all tuples from two compatible relations.</span></li>
+        <span id="span_49"><li><strong>Set Difference (−):</strong> Tuples in one relation but not in the other.</span></li>
+        <span id="span_50"><li><strong>Cartesian Product (X):</strong> Combines every tuple of one relation with every tuple of another.</span></li>
+        <span id="span_51"><li><strong>Join (⋈):</strong> Combines related tuples based on a common attribute.</span></li>
+    </ul>
+
+    <h2>UNIT—III</h2>
+
+    <h3>Question 6 (b) <span class="marks-badge">10 Marks</span></h3>
+    <p><strong>What is normalization? Explain different normal forms. <span id="span_52">Differentiate between 3NF and BCNF.</span></strong></p>
+    <span id="span_53"><p><strong>Normalization:</strong> The process of organizing data in a database to reduce redundancy and avoid anomalies.</span></p>
+        <ul>
+        <span id="span_54"><li><strong>1NF:</strong> Eliminates multi-valued attributes; values must be atomic.</span></li>
+        <span id="span_55"><li><strong>2NF:</strong> In 1NF + eliminates partial functional dependency.</span></li>
+        <span id="span_56"><li><strong>3NF:</strong> In 2NF + eliminates transitive dependency.</span></li>
+    </ul>
+    <span id="span_57"><p><strong>3NF vs BCNF:</strong> A table is in 3NF if for every FD X → A, X is a superkey or A is a prime attribute.</span> <span id="span_58">BCNF is stricter: for every FD X → A, X must be a superkey.</span></p>
+
+    <h2>UNIT—IV</h2>
+
+    <h3>Question 8 (b) <span class="marks-badge">10 Marks</span></h3>
+    <span id="span_59"><p><strong>(i) Explain ACID properties of transaction.</span></strong></p>
+    <ul>
+        <span id="span_60"><li><strong>Atomicity:</strong> The entire transaction happens at once or not at all.</span></li>
+        <span id="span_61"><li><strong>Consistency:</strong> Database must remain in a consistent state before and after the transaction.</span></li>
+        <span id="span_62"><li><strong>Isolation:</strong> Transactions run independently without interference.</span></li>
+        <span id="span_63"><li><strong>Durability:</strong> Changes are permanent once the transaction is committed.</span></li>
+    </ul>
+
+    <h2>UNIT—V</h2>
+
+    <h3>Question 10 (b) <span class="marks-badge">10 Marks</span></h3>
+    <p><strong>What is indexing? <span id="span_64">Explain different types of indices with example of each.</span></strong></p>
+    <span id="span_65"><p><strong>Indexing:</strong> A data structure technique to quickly locate and access data in a database.</span></p>
+    <ul>
+        <span id="span_66"><li><strong>Primary Index:</strong> Defined on an ordered data file (e.g., Index on StudentID in a sorted list).</span></li>
+        <span id="span_67"><li><strong>Clustering Index:</strong> Defined on an ordered data file on a non-key field.</span></li>
+        <span id="span_68"><li><strong>Secondary Index:</strong> Defined on fields that are not the search key of the primary index.</span></li>
+    </ul>
+
+    <div class="footer-section">
+        <h2>Exam Focus Enhancements</h2>
+        <h3>Exam Tips</h3>
+        <ul>
+            <span id="span_69">[span_70](start_span)<li>For 10-mark questions like <strong>Architecture</strong> or <strong>Normalization</strong>, always include diagrams even if not asked.</span>[span_70](end_span)</li>
+            <span id="span_71">[span_72](start_span)<li>In SQL questions, provide the syntax and one simple example.</span>[span_72](end_span)</li>
+        </ul>
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li>Confusing <strong>Logical</strong> and <strong>Physical</strong> data independence. <span id="span_73">Remember: Logical = Tables, Physical = Storage.</span></li>
+            <span id="span_74"><li>Forgetting to state that a relation must be in 2NF before it can be in 3NF.</span></li>
+        </ul>
+        <h3>Important Formulas List</h3>
+        <div class="important-list">
+            <span id="span_75">Select Operation: σ_condition(R)</span><br>
+            <span id="span_76">Project Operation: π_attributes(R)</span><br>
+            <span id="span_77">Join: R ⋈ S</span>
+        </div>
+        <h3>Answer Presentation Strategy</h3>
+        <span id="span_78">[span_79](start_span)<p>Use bullet points for advantages/features and tables for comparisons (like DDL vs DML or 3rd NF vs BCNF) to score better.</span>[span_79](end_span)</p>
+    </div>
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics DSC 253 Solved Question Paper - 2025 | 4th Semester - Knowlet</title>
+    <meta name="description" content="Comprehensive solutions for MATDSC-253 Linear Algebra FYUG 4th Semester Exam 2025. Includes vector spaces, linear transformations, and inner product spaces.">
+    <meta name="keywords" content="Linear Algebra, MATDSC-253, FYUG, Semester 4, PYQ Solutions, Knowlet, Vector Space, Eigenvalues, Cayley-Hamilton Theorem">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 3px solid #2c3e50;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #e67e22;
+            border-left: 5px solid #e67e22;
+            padding-left: 15px;
+            margin-top: 40px;
+            background: #fdf2e9;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #2980b9;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .marks {
+            font-weight: bold;
+            color: #c0392b;
+            float: right;
+        }
+        .solution-block {
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        blockquote {
+            background: #ecf0f1;
+            border-left: 10px solid #bdc3c7;
+            margin: 1.5em 10px;
+            padding: 10px 20px;
+            font-style: italic;
+        }
+        .metadata {
+            background: #f9f9f9;
+            padding: 15px;
+            border: 1px dashed #7f8c8d;
+            margin-bottom: 30px;
+        }
+        .footer-section {
+            background: #2c3e50;
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="metadata">
+            <h1>MATDSC-253: Linear Algebra
+                FYUG Even Semester Exam, 2025</h1>
+            <p>
+                <strong>Programme:</strong> FYUG (4th Semester)
+            </p>
+            <p>
+                <strong>Course Code:</strong> MATDSC-253
+            </p>
+            <p>
+                <strong>Full Marks:</strong> 70
+            </p>
+            <p>
+                <strong>Subject:</strong> Mathematics
+            </p>
+        </div>
+        <h2>UNIT I: Vector Spaces</h2>
+
+        <div class="solution-block">
+            <h3>Question 1 (a)</h3>
+            <span class="marks">[2 Marks]</span>
+            <span id="span_4"><p>
+                <strong>Show that αx = 0 implies α = 0 or x = 0 for α in F and x in V.</span></strong>
+            </p>
+            <p>
+                <strong>Solution:</strong>
+            </p>
+            <span id="span_5"><p>
+                Assume αx = 0. If α = 0, the condition is satisfied.</span> <span id="span_6">If α ≠ 0, then its multiplicative inverse α⁻¹ exists in the field F.</span> Multiplying both sides by α⁻¹:
+            </p>
+            <span id="span_7"><p>
+                α⁻¹(αx) = α⁻¹(0)</span>
+            </p>
+            <span id="span_8"><p>
+                (α⁻¹α)x = 0</span>
+            </p>
+            <span id="span_9"><p>
+                1x = 0 ⇒ x = 0.</span>
+            </p>
+            <span id="span_10"><p>
+                Thus, either α = 0 or x = 0.</span>
+            </p>
+        </div>
+
+        <div class="solution-block">
+            <h3>Question 1 (b)</h3>
+            <span class="marks">[2 Marks]</span>
+            <span id="span_11"><p>
+                <strong>Justify whether W = {(x, y, 2) | x, y in R} is a subspace of R³.</span></strong>
+            </p>
+            <p>
+                <strong>Solution:</strong>
+            </p>
+            <span id="span_12"><p>
+                For W to be a subspace, it must contain the zero vector (0, 0, 0).</span> <span id="span_13">In this set, the third component is fixed at 2.</span> <span id="span_14">Since (0, 0, 0) does not belong to W (because 0 ≠ 2), <strong>W is not a subspace</strong> of R³.</span>
+            </p>
+        </div>
+
+        <div class="solution-block">
+            <h3>Question 2 (b)</h3>
+            <span class="marks">[4 Marks]</span>
+            <p>
+                <strong>Define linearly dependent/independent sets. <span id="span_15">Show {(1,0,0), (0,1,0), (0,0,1), (1,1,1)} is linearly dependent.</span></strong>
+            </p>
+            <p>
+                <strong>Definitions:</strong>
+            </p>
+            <ul>
+                <span id="span_16"><li><strong>Linearly Independent (LI):</strong> A set of vectors is LI if the equation c₁v₁ + c₂v₂ + ... + cₙvₙ = 0 implies all constants cᵢ = 0.</span></li>
+                <span id="span_17"><li><strong>Linearly Dependent (LD):</strong> A set is LD if there exist constants cᵢ, not all zero, such that their linear combination equals zero.</span></li>
+            </ul>
+            <p>
+                <strong>Justification:</strong>
+            </p>
+            <span id="span_18"><p>
+                Notice that (1,1,1) = 1(1,0,0) + 1(0,1,0) + 1(0,0,1).</span> <span id="span_19">Since one vector can be expressed as a linear combination of the others, the set is <strong>linearly dependent</strong>.</span>
+            </p>
+        </div>
+
+        <h2>UNIT II: Basis and Dimension</h2>
+
+        <div class="solution-block">
+            <h3>Question 4 (b)</h3>
+            <span class="marks">[6 Marks]</span>
+            <span id="span_20"><p>
+                <strong>Prove dim(W₁ + W₂) = dim W₁ + dim W₂ - dim(W₁ ∩ W₂).</span></strong>
+            </p>
+            <p>
+                <strong>Proof Strategy:</strong>
+            </p>
+            <ol>
+                <span id="span_21"><li>Let {u₁, ..., uₖ} be a basis for W₁ ∩ W₂.</span></li>
+                <span id="span_22"><li>Extend this to a basis {u₁, ..., uₖ, v₁, ..., vₘ} for W₁.</span></li>
+                <span id="span_23"><li>Extend the intersection basis to {u₁, ..., uₖ, w₁, ..., wₙ} for W₂.</span></li>
+                <span id="span_24"><li>Prove that {u₁, ..., uₖ, v₁, ..., vₘ, w₁, ..., wₙ} is a basis for W₁ + W₂.</span></li>
+                <span id="span_25"><li>Count: dim(W₁ + W₂) = k + m + n = (k+m) + (k+n) - k = dim W₁ + dim W₂ - dim(W₁ ∩ W₂).</span></li>
+            </ol>
+        </div>
+
+        <h2>UNIT III: Linear Transformations</h2>
+
+        <div class="solution-block">
+            <h3>Question 5 (c)</h3>
+            <span class="marks">[2 Marks]</span>
+            <span id="span_26"><p>
+                <strong>Define nullity and rank of a linear transformation.</span></strong>
+            </p>
+            <blockquote>
+                <span id="span_27"><strong>Rank:</strong> The dimension of the range (image) of a linear transformation T, denoted as ρ(T).</span><br>
+                <span id="span_28"><strong>Nullity:</strong> The dimension of the kernel (null space) of T, denoted as ν(T).</span>
+            </blockquote>
+        </div>
+
+        <div class="solution-block">
+            <h3>Question 6 (c)</h3>
+            <span class="marks">[5 Marks]</span>
+            <span id="span_29"><p>
+                <strong>State and prove rank-nullity law.</span></strong>
+            </p>
+            <span id="span_30"><p>
+                <strong>Statement:</strong> If V is a finite-dimensional vector space and T: V → W is linear, then rank(T) + nullity(T) = dim(V).</span>
+            </p>
+            <span id="span_31"><p>
+                <strong>Proof:</strong> Let {v₁, ..., vₖ} be a basis for Ker(T), so nullity(T) = k.</span> <span id="span_32">Extend this to a basis {v₁, ..., vₖ, vₖ₊₁, ..., vₙ} for V, where n = dim(V).</span> <span id="span_33">It can be shown that {T(vₖ₊₁), ..., T(vₙ)} is a basis for Range(T).</span> <span id="span_34">Thus, rank(T) = n - k.</span> <span id="span_35">Therefore, rank(T) + nullity(T) = (n-k) + k = n.</span>
+            </p>
+        </div>
+
+        <h2>UNIT IV: Eigenvalues and Eigenvectors</h2>
+
+        <div class="solution-block">
+            <h3>Question 8 (b)</h3>
+            <span class="marks">[5 Marks]</span>
+            <span id="span_36"><p>
+                <strong>State and prove Cayley-Hamilton theorem.</span></strong>
+            </p>
+            <span id="span_37"><p>
+                <strong>Statement:</strong> Every square matrix satisfies its own characteristic equation.</span>
+            </p>
+            <span id="span_38"><p>
+                <strong>Proof Outline:</strong> Let p(λ) = det(A - λI) be the characteristic polynomial.</span> <span id="span_39">Using the property that B * adj(B) = det(B) * I, where B = (A - λI), and equating coefficients of the powers of λ, we show that p(A) = O (zero matrix).</span>
+            </p>
+        </div>
+
+        <h2>UNIT V: Inner Product Spaces</h2>
+
+        <div class="solution-block">
+            <h3>Question 9 (a)</h3>
+            <span class="marks">[4 Marks]</span>
+            <p>
+                <strong>Define an inner product space. Show ||x|| ≥ 0 and ||x|| <span id="span_40">= 0 iff x = 0.</span></strong>
+            </p>
+            <span id="span_41"><p>
+                An <strong>inner product space</strong> is a vector space V over F with a function (u, v) satisfying:</span>
+            </p>
+            <ul>
+                <span id="span_42"><li>(u + v, w) = (u, w) + (v, w)</span></li>
+                <span id="span_43"><li>(αu, v) = α(u, v)</span></li>
+                <span id="span_44"><li>(u, v) = conjugate of (v, u)</span></li>
+                <span id="span_45"><li>(u, u) ≥ 0 and (u, u) = 0 iff u = 0.</span></li>
+            </ul>
+            <p>
+                <strong>Norm property:</strong> Since ||x|| = √(x, x) and (x, x) ≥ 0 by definition, ||x|| <span id="span_46">≥ 0.</span> Also, ||x|| <span id="span_47">= 0 implies √(x, x) = 0 ⇒ (x, x) = 0, which by the last axiom means x = 0.</span>
+            </p>
+        </div>
+
+        <div class="footer-section">
+            <h2>Exam Focus Enhancements</h2>
+            <h3>Important Formulas List</h3>
+            <ul>
+                <span id="span_48"><li>Rank(T) + Nullity(T) = dim(V)</span></li>
+                <span id="span_49"><li>||x + y||² + ||x - y||² = 2(||x||² + ||y||²)</span></li>
+                <span id="span_50"><li>det(A - λI) = 0 (Characteristic Equation)</span></li>
+            </ul>
+            <h3>Answer Presentation Strategy</h3>
+            <span id="span_51">[span_52](start_span)<p>
+                For definitions like <strong>Basis</strong> or <strong>Linear Transformation</strong>, always provide a small standard example (like the standard basis for R²) to secure full marks.</span>[span_52](end_span)
+            </p>
+        </div>
+
+    </div>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

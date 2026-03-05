@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSC 252 Solved Question Paper - 2025 | 4th Semester - Knowlet</title>
+    <meta name="description" content="Exam-ready solutions for PHYDSC-252 (Electronics), FYUG 4th Semester Even Semester Exam 2025. Developed by Knowlet.">
+    <meta name="keywords" content="PHYDSC-252, Electronics PYQ, FYUG Physics 2025, Knowlet, PN Junction, Transistor, OP-AMP, Logic Gates, Flip-Flops">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #333; background-color: #f0f2f5; margin: 0; padding: 20px; }
+        .container { max-width: 1000px; margin: auto; background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #1a5276; border-bottom: 4px solid #1a5276; padding-bottom: 10px; }
+        .meta-data { text-align: center; font-weight: bold; margin-bottom: 30px; color: #566573; }
+        h2 { background-color: #1a5276; color: white; padding: 12px; border-radius: 5px; margin-top: 40px; }
+        h3 { color: #c0392b; border-left: 5px solid #c0392b; padding-left: 10px; margin-top: 30px; }
+        .marks { float: right; font-weight: bold; color: #7f8c8d; }
+        .solution { border: 1px solid #e1e4e8; padding: 20px; margin-bottom: 20px; border-radius: 8px; background: #fafafa; }
+        blockquote { background: #e8f4f8; border-left: 5px solid #3498db; margin: 20px 0; padding: 15px; font-style: italic; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th { background-color: #34495e; color: white; padding: 10px; }
+        td { border: 1px solid #ddd; padding: 10px; text-align: center; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .diagram-box { background: #fef9e7; border: 1px dashed #f39c12; padding: 15px; text-align: center; margin: 15px 0; color: #7e5109; }
+        .footer { margin-top: 50px; padding: 30px; background: #2c3e50; color: white; border-radius: 8px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>FYUG Even Semester Exam, 2025</h1>
+    <div class="meta-data">
+        PHYSICS (4th Semester) | Course No.: PHYDSC-252<br>
+        <strong>Subject: Electronics</strong><br>
+        Full Marks: 70 | Pass Marks: 28 | Duration: 3 Hours
+    </div>
+
+    <h2>UNIT-I</h2>
+
+    <div class="solution">
+        <span class="marks">[2 &times; 2 = 4]</span>
+        <h3>1. Short Answers (Any Two)</h3>
+        
+        <p><strong>(a) Define conductivity and mobility.</strong></p>
+        <p><strong>Answer:</strong> 
+        <ul>
+            <li><strong>Mobility (μ):</strong> The magnitude of the drift velocity per unit electric field. <span id="span_0">Formula: μ = v_d / E</span>.</li>
+            <li><strong>Conductivity (σ):</strong> The measure of a material's ability to conduct an electric current. <span id="span_1">It is the reciprocal of resistivity</span>.</li>
+        </ul>
+        </p>
+
+        <p><strong>(b) Define static and dynamic resistance of a p-n junction.</strong></p>
+        <p><strong>Answer:</strong>
+        <ul>
+            <li><strong>Static Resistance (R_dc):</strong> The resistance offered by the diode to direct current at a particular operating point. R_dc = V / I.</li>
+            <li><strong>Dynamic Resistance (r_ac):</strong> The resistance offered to a changing signal (AC). It is the reciprocal of the slope of the V-I characteristics. r_ac = ΔV / ΔI.</li>
+        </ul>
+        </p>
+
+        <p><strong>(c) Explain the principle of LED.</strong></p>
+        <p><strong>Answer:</strong> Light Emitting Diodes work on the principle of <strong>electroluminescence</strong>. When a p-n junction is forward biased, electrons cross from the n-side to the p-side and holes cross from the p-side to the n-side. <span id="span_2">During recombination, energy is released in the form of photons (light)</span>.</p>
+    </div>
+
+    <div class="solution">
+        <span class="marks">[5 + 5 = 10]</span>
+        <h3>2. Long Answers (Option A & B)</h3>
+        
+        <p><strong>(a) Explain in detail both forward and reverse bias characteristics of a p-n junction diode.</strong></p>
+        <p><strong>Answer:</strong> 
+        <strong>Forward Bias:</strong> When the P-region is connected to the positive terminal and N-region to the negative terminal. <span id="span_3">The depletion layer narrows, allowing current to flow exponentially after the knee voltage</span>.<br>
+        <strong>Reverse Bias:</strong> When the P-region is connected to the negative terminal and N-region to the positive terminal. <span id="span_4">The depletion layer widens, preventing majority carrier flow</span>.
+        </p>
+
+        <p><strong>(b) Why is the current during reverse bias called reverse saturation current?</strong></p>
+        <p><strong>Answer:</strong> It is called "saturation" current because it reaches a constant maximum value very quickly and remains independent of the applied reverse voltage (until breakdown). <span id="span_5">It is caused by the flow of minority carriers</span>.</p>
+    </div>
+
+    <h2>UNIT-II</h2>
+
+    <div class="solution">
+        <span class="marks">[2 + 4 = 6]</span>
+        <h3>4. (a) Transistor in CE Mode</h3>
+        <p><strong>Explain input and output characteristics of a transistor in CE mode.</strong></p>
+        <p><strong>Answer:</strong> In Common Emitter (CE) mode, the emitter is common to both input (base) and output (collector).
+        <ul>
+            <li><strong>Input Characteristics:</strong> Plot of Base Current (I_B) vs Base-Emitter Voltage (V_BE) for constant V_CE. <span id="span_6">It resembles a forward-biased diode</span>.</li>
+            <li><strong>Output Characteristics:</strong> Plot of Collector Current (I_C) vs Collector-Emitter Voltage (V_CE) for constant I_B. <span id="span_7">It has three regions: Cut-off, Active, and Saturation</span>.</li>
+        </ul>
+        </p>
+    </div>
+
+    <div class="solution">
+        <span class="marks">[4]</span>
+        <h3>4. (d) Numerical: Total Collector Current</h3>
+        <p><strong>In a CB configuration, I_E = 1 mA. If emitter is open, I_C = 60 μA. Find I_C if α = 0.9.</strong></p>
+        <p><strong>Answer:</strong>
+        <span id="span_8">Given: I_E = 1 mA = 1000 μA, α = 0.9, I_CBO = 60 μA (current when emitter is open)</span>.<br>
+        Formula: I_C = α I_E + I_CBO<br>
+        I_C = (0.9 &times; 1000) + 60<br>
+        I_C = 900 + 60 = <strong>960 μA</strong>.</p>
+    </div>
+
+    <h2>UNIT-III</h2>
+
+    <div class="solution">
+        <span class="marks">[2 &times; 2 = 4]</span>
+        <h3>5. Short Answers (Any Two)</h3>
+        <p><strong>(a) Why are h-parameters called hybrid parameters?</strong></p>
+        <p><strong>Answer:</strong> They are called "hybrid" because they use a mix of units. <span id="span_9">For example, h_ie is measured in Ohms (impedance), h_fe is dimensionless (current gain), and h_oe is in Siemens (admittance)</span>.</p>
+
+        <p><strong>(b) Difference between virtual ground and real ground.</strong></p>
+        <p><strong>Answer:</strong> 
+        <strong>Real Ground:</strong> Physically connected to the earth/zero potential point.<br>
+        <span id="span_10"><strong>Virtual Ground:</strong> A point in a circuit (like the inverting input of an OP-AMP) that is not physically grounded but is at zero potential because the other input is grounded and gain is infinite</span>.</p>
+    </div>
+
+    <h2>UNIT-IV</h2>
+
+    <div class="solution">
+        <span class="marks">[5]</span>
+        <h3>8. (c) Maxterms and Minterms</h3>
+        <table>
+            <tr>
+                <th>A B C</th>
+                <th>Minterm (Symbol)</th>
+                <th>Maxterm (Symbol)</th>
+            </tr>
+            <tr><td>0 0 0</td><td>A'B'C' (m0)</td><td>A+B+C (M0)</td></tr>
+            <tr><td>0 0 1</td><td>A'B'C (m1)</td><td>A+B+C' (M1)</td></tr>
+            <tr><td>1 1 1</td><td>ABC (m7)</td><td>A'+B'+C' (M7)</td></tr>
+        </table>
+        <span id="span_11"><p><em>(Simplified table; full list includes all 8 combinations)</span>.</em></p>
+    </div>
+
+    <h2>UNIT-V</h2>
+
+    <div class="solution">
+        <span class="marks">[4 + 2 = 6]</span>
+        <h3>10. (b) J-K Flip-Flop</h3>
+        <p><strong>Explain J-K Flip-flop and Race Around Condition.</strong></p>
+        <p><strong>Answer:</strong> The J-K Flip-flop is a universal flip-flop that eliminates the invalid state of an S-R flip-flop.
+        <strong>Race Around Condition:</strong> Occurs in Level-triggered J-K flip-flops when J=1, K=1, and the clock pulse width is greater than the propagation delay of the gate. <span id="span_12">The output toggles multiple times during a single clock pulse, leading to an uncertain state</span>.</p>
+    </div>
+
+    <div class="footer">
+        <h2>Exam Strategy & Knowlet Insights</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div>
+                <h3>Important Formulas</h3>
+                <ul>
+                    <span id="span_13"><li>Stability Factor: S = dI_C / dI_CBO</span></li>
+                    <span id="span_14"><li>Slew Rate = dV_out / dt (max)</span></li>
+                    <span id="span_15"><li>Efficiency (FWR) = 81.2%</span></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Confusing CB and CE current gain (α vs β).</li>
+                    <li>Incorrectly drawing the Zener diode symbol in regulator circuits.</li>
+                    <li>Mixing up Minterm (SOP) and Maxterm (POS) logic.</li>
+                </ul>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 20px;"><strong>Knowlet: Your Academic Companion. Good Luck!</strong></p>
+    </div>
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

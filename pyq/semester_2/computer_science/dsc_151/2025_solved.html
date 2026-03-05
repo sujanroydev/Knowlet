@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Computer Science DSC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet</title>
+<meta name="description" content="Comprehensive exam-ready solutions for Computer Science (Data Structure) CSCDSC-151, FYUG Even Semester Exam 2025. Created for students by Knowlet.">
+<meta name="keywords" content="Data Structure, CSCDSC-151, PYQ Solutions, FYUG 2025, Computer Science, Knowlet, Exam Preparation, Silchar, LPU">
+<link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+line-height: 1.6;
+color: #333;
+background-color: #f4f7f6;
+margin: 0;
+padding: 20px;
+}
+.container {
+max-width: 900px;
+margin: auto;
+background: #fff;
+padding: 40px;
+border-radius: 8px;
+box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+h1 {
+color: #2c3e50;
+text-align: center;
+border-bottom: 3px solid #3498db;
+padding-bottom: 10px;
+text-transform: uppercase;
+}
+.header-info {
+background: #ecf0f1;
+padding: 20px;
+border-radius: 5px;
+margin-bottom: 30px;
+border-left: 5px solid #3498db;
+}
+h2 {
+background-color: #3498db;
+color: white;
+padding: 10px 15px;
+border-radius: 4px;
+margin-top: 40px;
+}
+h3 {
+color: #e67e22;
+border-bottom: 1px dashed #e67e22;
+padding-bottom: 5px;
+margin-top: 25px;
+}
+.marks {
+float: right;
+font-weight: bold;
+color: #7f8c8d;
+}
+blockquote {
+background: #f9f9f9;
+border-left: 10px solid #ccc;
+margin: 1.5em 10px;
+padding: 0.5em 10px;
+font-style: italic;
+}
+table {
+width: 100%;
+border-collapse: collapse;
+margin: 20px 0;
+}
+table, th, td {
+border: 1px solid #ddd;
+}
+th, td {
+padding: 12px;
+text-align: left;
+}
+tr:nth-child(even) {
+background-color: #f2f2f2;
+}
+.exam-focus {
+background-color: #fff3cd;
+border: 1px solid #ffeeba;
+padding: 20px;
+margin-top: 50px;
+border-radius: 8px;
+}
+.exam-focus h2 {
+background-color: #856404;
+}
+.footer {
+text-align: center;
+margin-top: 40px;
+font-size: 0.9em;
+color: #7f8c8d;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>FYUG Even Semester Exam, 2025
+Computer Science: Data Structure</h1>
+<div class="header-info">
+    <span id="span_0"><p><strong>Subject:</strong> Computer Science</span></p>
+    <span id="span_1"><p><strong>Course No:</strong> CSCDSC-151</span></p>
+    <span id="span_2"><p><strong>Semester:</strong> 2nd Semester (FYUG)</span></p>
+    <span id="span_3"><p><strong>Year:</strong> 2025</span></p>
+    <span id="span_4"><p><strong>Full Marks:</strong> 70</span></p>
+    <span id="span_5"><p><strong>Time:</strong> 3 Hours</span></p>
+</div>
+
+<h2>UNIT-I</h2>
+
+<h3>1. (a) Why is sparse matrix used? <span class="marks">[2 Marks]</span></h3>
+<p>A <strong>Sparse Matrix</strong> is a matrix in which most of the elements are zero. It is used primarily for two reasons:</p>
+<ul>
+    <li><strong>Storage Efficiency:</strong> Instead of storing all elements (including zeros), we only store non-zero elements along with their row and column indices. <span id="span_6">This saves a significant amount of memory.</span></li>
+    <span id="span_7"><li><strong>Computational Efficiency:</strong> Processing only non-zero elements reduces the time complexity of matrix operations like addition and multiplication.</span></li>
+</ul>
+
+<h3>1. (b) What are overflow and underflow? <span class="marks">[2 Marks]</span></h3>
+<blockquote>
+    <span id="span_8"><strong>Overflow:</strong> Occurs when an attempt is made to insert an element into a data structure (like a Stack or Queue) that is already full.</span>
+</blockquote>
+<blockquote>
+    <span id="span_9"><strong>Underflow:</strong> Occurs when an attempt is made to delete or access an element from a data structure that is currently empty.</span>
+</blockquote>
+
+<h3>1. (c) What are the advantages of recursion? <span class="marks">[2 Marks]</span></h3>
+<ul>
+    <span id="span_10"><li><strong>Code Conciseness:</strong> Recursion reduces the length of the code and makes it easier to read and maintain for problems that have a naturally recursive structure (e.g., Tree traversals).</span></li>
+    <span id="span_11"><li><strong>Problem Solving:</strong> It simplifies the implementation of complex algorithms like Tower of Hanoi, Quick Sort, and Merge Sort.</span></li>
+</ul>
+
+<h3>2. (a) (i) Write an algorithm to delete an element from an array. <span class="marks">[4 Marks]</span></h3>
+<p><strong>Algorithm: Delete_Element(A, N, POS)</strong></p>
+<p>Here, A is the linear array, N is the number of elements, and POS is the position of the element to be deleted.</p>
+<ol>
+    <span id="span_12"><li>Start.</span></li>
+    <span id="span_13"><li>Set ITEM = A[POS].</span></li>
+    <li>Repeat for I = POS to N - 1:
+        <ul>
+            <li>Set A[I] = A[I + 1].</li>
+        </ul>
+    </li>
+    <span id="span_14"><li>Set N = N - 1 (Decrement the size).</span></li>
+    <span id="span_15"><li>End.</span></li>
+</ol>
+<h3>2. (a) (ii) How do you declare a single-dimensional array? <span class="marks">[2 Marks]</span></h3>
+<p>In C/C++, a single-dimensional array is declared by specifying the data type, the name of the array, and the size in square brackets.</p>
+<span id="span_16"><p><strong>Syntax:</strong> <code>data_type array_name[size];</code></span></p>
+<span id="span_17"><p><strong>Example:</strong> <code>int marks[50];</code> (This declares an integer array named 'marks' that can hold 50 elements).</span></p>
+
+<h3>2. (b) Convert the infix expression into postfix: 8+(((7-5)*9(9-4)+6)/4) <span class="marks">[10 Marks]</span></h3>
+<p><em>Note: Assuming the expression is 8+(((7-5)*9/(9-4)+6)/4) as the '9(9-4)' syntax likely implies multiplication or division in standard CS problems.</em></p>
+<table>
+    <tr>
+        <th>Token</th>
+        <th>Stack</th>
+        <th>Postfix Expression</th>
+    </tr>
+    <tr><td>8</td><td>(empty)</td><td>8</td></tr>
+    <tr><td>+</td><td>+</td><td>8</td></tr>
+    <tr><td>(</td><td>+(</td><td>8</td></tr>
+    <tr><td>(</td><td>+((</td><td>8</td></tr>
+    <tr><td>(</td><td>+(((</td><td>8</td></tr>
+    <tr><td>7</td><td>+(((</td><td>8 7</td></tr>
+    <tr><td>-</td><td>+(((-</td><td>8 7</td></tr>
+    <tr><td>5</td><td>+(((-</td><td>8 7 5</td></tr>
+    <tr><td>)</td><td>+((</td><td>8 7 5 -</td></tr>
+    <tr><td>*</td><td>+((*</td><td>8 7 5 -</td></tr>
+    <tr><td>9</td><td>+((*</td><td>8 7 5 - 9</td></tr>
+    <tr><td>/</td><td>+((/</td><td>8 7 5 - 9 *</td></tr>
+    <tr><td>(</td><td>+((/(</td><td>8 7 5 - 9 *</td></tr>
+    <tr><td>9</td><td>+((/(</td><td>8 7 5 - 9 * 9</td></tr>
+    <tr><td>-</td><td>+((/(-</td><td>8 7 5 - 9 * 9</td></tr>
+    <tr><td>4</td><td>+((/(-</td><td>8 7 5 - 9 * 9 4</td></tr>
+    <tr><td>)</td><td>+((/</td><td>8 7 5 - 9 * 9 4 -</td></tr>
+    <tr><td>+</td><td>+((+</td><td>8 7 5 - 9 * 9 4 - /</td></tr>
+    <tr><td>6</td><td>+((+</td><td>8 7 5 - 9 * 9 4 - / 6</td></tr>
+    <tr><td>)</td><td>+(</td><td>8 7 5 - 9 * 9 4 - / 6 +</td></tr>
+    <tr><td>/</td><td>+(/</td><td>8 7 5 - 9 * 9 4 - / 6 +</td></tr>
+    <tr><td>4</td><td>+(/</td><td>8 7 5 - 9 * 9 4 - / 6 + 4</td></tr>
+    <tr><td>)</td><td>+</td><td>8 7 5 - 9 * 9 4 - / 6 + 4 /</td></tr>
+    <tr><td>(end)</td><td>(empty)</td><td>8 7 5 - 9 * 9 4 - / 6 + 4 / +</td></tr>
+</table>
+<span id="span_18"><p><strong>Final Postfix:</strong> 8 7 5 - 9 * 9 4 - / 6 + 4 / +</span></p>
+
+<h2>UNIT-II</h2>
+
+<h3>3. (a) Differentiate between singly linked list and doubly linked list. <span class="marks">[2 Marks]</span></h3>
+<table>
+    <tr>
+        <th>Feature</th>
+        <th>Singly Linked List</th>
+        <th>Doubly Linked List</th>
+    </tr>
+    <tr>
+        <td>Pointers</td>
+        <span id="span_19"><td>Each node has one pointer (Next).</span></td>
+        <span id="span_20"><td>Each node has two pointers (Next and Previous).</span></td>
+    </tr>
+    <tr>
+        <td>Traversal</td>
+        <span id="span_21"><td>Forward direction only.</span></td>
+        <span id="span_22"><td>Both forward and backward directions.</span></td>
+    </tr>
+</table>
+
+<h3>3. (b) What is deque? Mention its types. <span class="marks">[2 Marks]</span></h3>
+<span id="span_23"><p>A <strong>Deque</strong> (Double-Ended Queue) is a linear data structure where insertion and deletion can be performed from both ends (Front and Rear).</span></p>
+<p><strong>Types:</strong></p>
+<ul>
+    <span id="span_24"><li><strong>Input Restricted Deque:</strong> Insertion at one end, deletion at both ends.</span></li>
+    <span id="span_25"><li><strong>Output Restricted Deque:</strong> Insertion at both ends, deletion at one end.</span></li>
+</ul>
+
+<h3>3. (c) What is skip list? <span class="marks">[2 Marks]</span></h3>
+<p>A <strong>Skip List</strong> is a probabilistic data structure that allows fast search within an ordered sequence of elements. <span id="span_26">It consists of multiple layers of linked lists, where the bottom layer is a normal sorted list and higher layers act as "express lanes" to skip elements.</span></p>
+
+<h3>4. (a) Write an algorithm to insert and delete an element in a singly linked list. <span class="marks">[10 Marks]</span></h3>
+<p><strong>Algorithm: Insert_At_Beginning(START, ITEM)</strong></p>
+<ol>
+    <span id="span_27"><li>Allocate memory for NewNode.</span></li>
+    <span id="span_28"><li>Set NewNode -> Data = ITEM.</span></li>
+    <span id="span_29"><li>Set NewNode -> Next = START.</span></li>
+    <span id="span_30"><li>Set START = NewNode.</span></li>
+</ol>
+<p><strong>Algorithm: Delete_From_Beginning(START)</strong></p>
+<ol>
+    <span id="span_31"><li>If START is NULL, print "Underflow" and exit.</span></li>
+    <span id="span_32"><li>Set TEMP = START.</span></li>
+    <span id="span_33"><li>Set START = START -> Next.</span></li>
+    <span id="span_34"><li>Free TEMP memory.</span></li>
+</ol>
+<h2>UNIT-III</h2>
+
+<h3>5. (a) Write down the properties of a tree. <span class="marks">[2 Marks]</span></h3>
+<ul>
+    <span id="span_35"><li>A tree has one designated node called the <strong>Root</strong>.</span></li>
+    <span id="span_36"><li>There is exactly one path between any two nodes in a tree.</span></li>
+    <span id="span_37"><li>A tree with N nodes always has exactly N-1 edges.</span></li>
+</ul>
+
+<h3>5. (b) Define AVL tree. <span class="marks">[2 Marks]</span></h3>
+<span id="span_38"><p>An <strong>AVL Tree</strong> is a self-balancing Binary Search Tree (BST) where the difference between heights of left and right subtrees (Balance Factor) for any node cannot be more than 1 (i.e., -1, 0, or 1).</span></p>
+
+<h3>6. (a) (i) Show the tree after inserting: 18, 6, 20, 25, 32, 8, 12, 16 into a BST. <span class="marks">[6 Marks]</span></h3>
+<p>Steps for BST Construction:</p>
+<ul>
+    <span id="span_39"><li>18 (Root)</span></li>
+    <span id="span_40"><li>6 < 18 (Left of 18)</span></li>
+    <span id="span_41"><li>20 > 18 (Right of 18)</span></li>
+    <span id="span_42"><li>25 > 20 (Right of 20)</span></li>
+    <span id="span_43"><li>32 > 25 (Right of 25)</span></li>
+    <span id="span_44"><li>8 > 6 (Right of 6)</span></li>
+    <span id="span_45"><li>12 > 8 (Right of 8)</span></li>
+    <span id="span_46"><li>16 > 12 (Right of 12)</span></li>
+</ul>
+<span id="span_47"><p><strong>After Deleting Root (18):</strong> The root is replaced by its in-order successor (20).</span></p>
+
+<h2>UNIT-IV</h2>
+
+<h3>8. (a) Write an algorithm for linear search. <span class="marks">[3 Marks]</span></h3>
+<p><strong>Algorithm: Linear_Search(A, N, ITEM)</strong></p>
+<ol>
+    <span id="span_48"><li>Set I = 0.</span></li>
+    <span id="span_49"><li>Repeat while I < N:</span>
+        <ul>
+            <li>If A[I] == ITEM, Return I (Found).</li>
+            <li>Set I = I + 1.</li>
+        </ul>
+    </li>
+    <span id="span_50"><li>Return -1 (Not Found).</span></li>
+</ol>
+
+<h2>UNIT-V</h2>
+
+<h3>9. (a) Define hash table. <span class="marks">[2 Marks]</span></h3>
+<p>A <strong>Hash Table</strong> is a data structure that maps keys to values using a special function called a hash function. <span id="span_51">It provides very fast data retrieval, ideally in O(1) time.</span></p>
+
+<h3>10. (b) (i) Hash Table (Size 10) using Linear Probing for: 72, 27, 36, 24, 63, 81, 92, 101. <span class="marks">[6 Marks]</span></h3>
+<p>Using Hash Function h(k) = k mod 10:</p>
+<ol>
+    <span id="span_52"><li>72 mod 10 = 2 (Index 2)</span></li>
+    <span id="span_53"><li>27 mod 10 = 7 (Index 7)</span></li>
+    <span id="span_54"><li>36 mod 10 = 6 (Index 6)</span></li>
+    <span id="span_55"><li>24 mod 10 = 4 (Index 4)</span></li>
+    <span id="span_56"><li>63 mod 10 = 3 (Index 3)</span></li>
+    <span id="span_57"><li>81 mod 10 = 1 (Index 1)</span></li>
+    <span id="span_58"><li>92 mod 10 = 2 (Collision! Index 2 full, move to 3 (full), move to Index 5)</span></li>
+    <span id="span_59"><li>101 mod 10 = 1 (Collision! Index 1 full, move to 2, 3, 4, 5 (all full), move to Index 8)</span></li>
+</ol>
+<table>
+    <tr><th>Index</th><th>Key</th></tr>
+    <tr><td>0</td><td>-</td></tr>
+    <tr><td>1</td><td>81</td></tr>
+    <tr><td>2</td><td>72</td></tr>
+    <tr><td>3</td><td>63</td></tr>
+    <tr><td>4</td><td>24</td></tr>
+    <tr><td>5</td><td>92</td></tr>
+    <tr><td>6</td><td>36</td></tr>
+    <tr><td>7</td><td>27</td></tr>
+    <tr><td>8</td><td>101</td></tr>
+    <tr><td>9</td><td>-</td></tr>
+</table>
+
+<div class="exam-focus">
+    <h2>Exam Focus & Tips</h2>
+    <h3>Important Formulas List</h3>
+    <ul>
+        <span id="span_60"><li><strong>Binary Tree Height (N nodes):</strong> h = log2(N + 1) - 1</span></li>
+        <span id="span_61"><li><strong>Hash Function (Division):</strong> h(k) = k mod m</span></li>
+        <span id="span_62"><li><strong>Linear Probing:</strong> h(k, i) = (h'(k) + i) mod m</span></li>
+    </ul>
+    <h3>Common Mistakes</h3>
+    <ul>
+        <span id="span_63"><li>Forgetting the "Underflow" check in deletion algorithms.</span></li>
+        <span id="span_64"><li>Incorrect stack positions during infix-to-postfix conversion.</span></li>
+        <span id="span_65"><li>Mixing up "Selection Sort" and "Bubble Sort" logic.</span></li>
+    </ul>
+    <h3>Answer Presentation Strategy</h3>
+    <p>Always start long answers with a formal definition. Use diagrams for Linked Lists and Trees to secure full marks. When writing algorithms, ensure step numbering is logical and includes a start/end step.</p>
+</div>
+
+<div class="footer">
+    <p>© 2026 Knowlet. All rights reserved. | Prepared for Sujan Kumar Roy.</p>
+</div>
+
+</div>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

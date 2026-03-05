@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready solutions for PHYDSC-151 Electricity and Magnetism, FYUG Even Semester Exam 2025. Detailed answers for Unit I to Unit V.">
+    <meta name="keywords" content="Physics, Electricity and Magnetism, PHYDSC-151, PYQ Solutions, Knowlet, FYUG 2025, Gauss Law, Biot-Savart Law, LCR Circuits">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+        }
+        h2 {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #e67e22;
+            border-left: 5px solid #e67e22;
+            padding-left: 10px;
+            margin-top: 20px;
+        }
+        .marks {
+            float: right;
+            font-weight: bold;
+            color: #7f8c8d;
+        }
+        blockquote {
+            background: #f9f9f9;
+            border-left: 10px solid #ccc;
+            margin: 1.5em 10px;
+            padding: 0.5em 10px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .formula-box {
+            background: #ecf0f1;
+            padding: 15px;
+            border: 1px dashed #2980b9;
+            margin: 10px 0;
+            font-family: "Courier New", Courier, monospace;
+        }
+        .footer-section {
+            margin-top: 50px;
+            padding: 20px;
+            background: #2c3e50;
+            color: white;
+            border-radius: 8px;
+        }
+        .footer-section h4 {
+            color: #f1c40f;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>FYUG Even Semester Exam, 2025<br>Physics (2nd Semester)<br>Electricity and Magnetism (PHYDSC-151)</h1>
+
+        <div style="text-align: center; font-weight: bold;">
+            <p>
+                Paper Code: PHYDSC-151 | Full Marks: 50 | Time: As per Regulations
+            </p>
+        </div>
+
+        <hr>
+
+        <h2>UNIT-I</h2>
+
+        <h3>Question 1 (a) <span class="marks">[2]</span></h3>
+        <p>
+            <strong>What is an electric field line? <span id="span_0">Why two electric field lines cannot intersect each other?</span></strong>
+        </p>
+        <span id="span_1"><p>
+            An <strong>electric field line</strong> is an imaginary curve drawn in such a way that the tangent to it at any point gives the direction of the electric field intensity at that point</span>.
+        </p>
+        <blockquote>
+            Two electric field lines can never intersect because if they did, at the point of intersection, two tangents could be drawn. <span id="span_2">This would imply two different directions for the electric field at the same point, which is physically impossible</span>.
+        </blockquote>
+
+        <h3>Question 1 (b) <span class="marks">[2]</span></h3>
+        <p>
+            <strong>Derive Poisson's equation from differential form of Gauss' law.</strong>
+        </p>
+        <p>
+            The differential form of Gauss' Law is given by:
+        </p>
+        <div class="formula-box">
+            grad . E = rho / epsilon_0
+        </div>
+        <p>
+            We know that the electric field <strong>E</strong> is the negative gradient of the electric potential <strong>V</strong>:
+        </p>
+        <div class="formula-box">
+            E = -grad V
+        </div>
+        <p>
+            Substituting <strong>E</strong> in Gauss' Law:
+        </p>
+        <div class="formula-box">
+            grad . (-grad V) = rho / epsilon_0
+        </div>
+        <p>
+            This results in <strong>Poisson's Equation</strong>:
+        </p>
+        <blockquote>
+            grad²V = -rho / epsilon_0
+        </blockquote>
+
+        <h3>Question 1 (c) <span class="marks">[2]</span></h3>
+        <span id="span_3"><p>
+            <strong>Show that electrostatic field is conservative in nature.</span></strong>
+        </p>
+        <span id="span_4"><p>
+            A field is conservative if the work done in moving a charge between two points is independent of the path taken</span>. Mathematically, the curl of the electric field must be zero:
+        </p>
+        <div class="formula-box">
+            curl E = 0
+        </div>
+        <span id="span_5"><p>
+            Since the line integral of <strong>E</strong> around any closed loop is zero (closed integral E.dl = 0), the energy is conserved, proving the field is conservative</span>.
+        </p>
+
+        <h3>Question 2 (a) <span class="marks">[10]</span></h3>
+        <p>
+            <strong>(i) State and prove Gauss' law. <span id="span_6">Apply Gauss' law to find the electric field due to a line charge.</span></strong>
+        </p>
+        <span id="span_7"><p>
+            <strong>Statement:</strong> Gauss' Law states that the total electric flux through any closed surface is equal to 1/epsilon_0 times the net charge enclosed by that surface</span>.
+        </p>
+        <div class="formula-box">
+            Flux = closed integral E.dS = Q_enclosed / epsilon_0
+        </div>
+        <p>
+            <strong>Proof:</strong> Consider a point charge <strong>q</strong> at the center of a sphere of radius <strong>r</strong>. The field <strong>E</strong> is <strong>q / (4 * pi * epsilon_0 * r²)</strong>. The area <strong>dS</strong> is <strong>4 * pi * r²</strong>. <span id="span_8">Multiplying these gives <strong>q / epsilon_0</strong></span>.
+        </p>
+        <p>
+            <strong>Electric Field due to Line Charge:</strong>
+        </p>
+        <ul>
+            <span id="span_9"><li>Consider an infinite line charge with linear charge density <strong>lambda</strong></span>.</li>
+            <span id="span_10"><li>Draw a cylindrical Gaussian surface of radius <strong>r</strong> and length <strong>L</strong></span>.</li>
+            <span id="span_11"><li>Flux passes only through the curved surface: <strong>E * (2 * pi * r * L)</strong></span>.</li>
+            <span id="span_12"><li>By Gauss Law: <strong>E * (2 * pi * r * L) = (lambda * L) / epsilon_0</strong></span>.</li>
+        </ul>
+        <span id="span_13"><blockquote>
+            E = lambda / (2 * pi * epsilon_0 * r)</span>
+        </blockquote>
+        <span id="span_14"><p>
+            <strong>(ii) Show that the function phi = x² - y² + z satisfies Laplace's equation.</span></strong>
+        </p>
+        <span id="span_15"><p>
+            Laplace's equation is <strong>grad²phi = 0</strong></span>.
+        </p>
+        <ol>
+            <li>d(phi)/dx = 2x; d²(phi)/dx² = 2</li>
+            <li>d(phi)/dy = -2y; d²(phi)/dy² = -2</li>
+            <li>d(phi)/dz = 1; d²(phi)/dz² = 0</li>
+        </ol>
+        <p>
+            Summing them up: <strong>2 + (-2) + 0 = 0</strong>. <span id="span_16">Thus, it satisfies the equation</span>.
+        </p>
+
+        <h3>Question 2 (b) [OR Option] <span class="marks">[10]</span></h3>
+        <p>
+            <strong>(i) What is electric dipole? Define dipole moment. <span id="span_17">Find the expression for potential and field intensity.</span></strong>
+        </p>
+        <span id="span_18"><p>
+            An <strong>electric dipole</strong> consists of two equal and opposite charges separated by a small distance</span>. <span id="span_19"><strong>Dipole Moment (p)</strong> is the product of one charge and the distance between them: <strong>p = q * 2a</strong></span>.
+        </p>
+        <span id="span_20"><p>
+            <strong>Potential (V):</strong> At a point (r, theta), <strong>V = (p * cos(theta)) / (4 * pi * epsilon_0 * r²)</strong></span>.
+        </p>
+        <span id="span_21"><p>
+            <strong>Field Intensity (E):</strong> <strong>E = [p * sqrt(1 + 3cos²(theta))] / (4 * pi * epsilon_0 * r³)</strong></span>.
+        </p>
+
+        <span id="span_22"><p>
+            <strong>(ii) Find the expression for torque acting on an electric dipole.</span></strong>
+        </p>
+        <span id="span_23"><p>
+            When a dipole is placed in a uniform electric field <strong>E</strong> at an angle <strong>theta</strong>, the forces on the charges create a couple</span>.
+        </p>
+        <div class="formula-box">
+            Torque (tau) = Force * perpendicular distance = (qE) * (2a sin(theta))
+        </div>
+        <span id="span_24"><blockquote>
+            tau = p * E * sin(theta) OR tau = p x E</span>
+        </blockquote>
+
+        <h2>UNIT-II</h2>
+
+        <h3>Question 3 (a) <span class="marks">[2]</span></h3>
+        <span id="span_25"><p>
+            <strong>What are meant by free charge and bound charge?</span></strong>
+        </p>
+        <ul>
+            <span id="span_26"><li><strong>Free Charge:</strong> Charges that can move freely within a conductor (like conduction electrons)</span>.</li>
+            <span id="span_27"><li><strong>Bound Charge:</strong> Charges that are restricted to specific atoms or molecules in a dielectric and can only shift slightly under an electric field</span>.</li>
+        </ul>
+
+        <h3>Question 3 (b) <span class="marks">[2]</span></h3>
+        <p>
+            <strong>Write down the relation connecting E, P and D. What is polarisation vector?</strong>
+        </p>
+        <p>
+            The relation is:
+        </p>
+        <div class="formula-box">
+            D = (epsilon_0 * E) + P
+        </div>
+        <p>
+            The <strong>polarisation vector (P)</strong> is defined as the electric dipole moment per unit volume of the dielectric material.
+        </p>
+
+        <h3>Question 3 (c) <span class="marks">[2]</span></h3>
+        <p>
+            <strong>State Gauss' law in dielectrics.</strong>
+        </p>
+        <blockquote>
+            The surface integral of the electric displacement field D over a closed surface is equal to the free charge enclosed by that surface: closed integral D.dS = Q_free.
+        </blockquote>
+
+        <h3>Question 4 (a) <span class="marks">[10]</span></h3>
+        <p>
+            <strong>(i) Define electrical susceptibility and dielectric constant. <span id="span_28">Obtain the relation between them.</span></strong>
+        </p>
+        <span id="span_29"><p>
+            <strong>Susceptibility (chi):</strong> Measures how easily a dielectric polarizes in an electric field: <strong>P = epsilon_0 * chi * E</strong></span>.<br>
+            <span id="span_30"><strong>Dielectric Constant (K):</strong> The ratio of permittivity of the medium to the permittivity of vacuum</span>.
+        </p>
+        <p>
+            <strong>Relation:</strong> Since <strong>D = epsilon_0 * E + P</strong> and <strong>D = epsilon_0 * K * E</strong>:<br>
+            epsilon_0 * K * E = epsilon_0 * E + epsilon_0 * chi * E<br>
+            Divide by (epsilon_0 * E):
+        </p>
+        <span id="span_31"><blockquote>
+            K = 1 + chi</span>
+        </blockquote>
+
+        <p>
+            <strong>(ii) Find the expression for capacitance of a parallel plate capacitor with dielectric slab.</strong>
+        </p>
+        <p>
+            If a slab of thickness <strong>t</strong> and dielectric constant <strong>K</strong> is inserted between plates separated by <strong>d</strong>:
+        </p>
+        <div class="formula-box">
+            C = (epsilon_0 * A) / [d - t + (t/K)]
+        </div>
+
+        <h3>Question 4 (b) [OR Option] <span class="marks">[10]</span></h3>
+        <span id="span_32"><p>
+            <strong>(i) Derive an expression for mechanical force per unit area on a charged conductor and find energy density.</span></strong>
+        </p>
+        <span id="span_33"><p>
+            The electrostatic pressure or force per unit area on the surface of a charged conductor is given by</span>:
+        </p>
+        <span id="span_34"><blockquote>
+            f = sigma² / (2 * epsilon_0)</span>
+        </blockquote>
+        <span id="span_35"><p>
+            <strong>Energy Density (u):</strong> The energy stored per unit volume in the electric field is</span>:
+        </p>
+        <span id="span_36"><div class="formula-box">
+            u = (1/2) * epsilon_0 * E²</span>
+        </div>
+
+        <p>
+            <strong>(ii) What is electrical image? <span id="span_37">Obtain electric field at a point on the plane surface.</span></strong>
+        </p>
+        <span id="span_38"><p>
+            The <strong>method of electrical images</strong> allows solving for the electric field of a charge near a conductor by replacing the conductor with a virtual "image charge"</span>. <span id="span_39">For a charge <strong>+q</strong> at distance <strong>d</strong> from a grounded plane, an image charge <strong>-q</strong> is placed at <strong>-d</strong></span>.
+        </p>
+
+        <h2>UNIT-III</h2>
+
+        <h3>Question 5 (a) <span class="marks">[2]</span></h3>
+        <p>
+            <strong>Define magnetic field. <span id="span_40">What is the SI unit of magnetic field?</span></strong>
+        </p>
+        <span id="span_41"><p>
+            A <strong>magnetic field</strong> is a region around a magnetic material or a moving electric charge within which the force of magnetism acts</span>. <span id="span_42">The SI unit is the <strong>Tesla (T)</strong></span>.
+        </p>
+
+        <h3>Question 5 (b) <span class="marks">[2]</span></h3>
+        <span id="span_43"><p>
+            <strong>State Biot-Savart law.</span></strong>
+        </p>
+        <span id="span_44"><p>
+            It states that the magnetic field <strong>dB</strong> due to a current element <strong>I dl</strong> is proportional to the current, the length of the element, and the sine of the angle between the element and the position vector, and inversely proportional to the square of the distance</span>.
+        </p>
+        <span id="span_45"><div class="formula-box">
+            dB = (mu_0 / 4pi) * (I dl sin(theta) / r²)</span>
+        </div>
+
+        <h3>Question 6 (a) <span class="marks">[10]</span></h3>
+        <span id="span_46"><p>
+            <strong>(i) Find magnetic field due to a current carrying circular loop at a point on the axis.</span></strong>
+        </p>
+        <span id="span_47"><p>
+            For a loop of radius <strong>R</strong> carrying current <strong>I</strong>, at a distance <strong>x</strong> from the center on the axis</span>:
+        </p>
+        <span id="span_48"><blockquote>
+            B = (mu_0 * I * R²) / [2 * (R² + x²)^(3/2)]</span>
+        </blockquote>
+        <p>
+            <strong>(ii) Show that div B = 0. What is its physical significance?</strong>
+        </p>
+        <p>
+            Since magnetic field lines form continuous closed loops, the net flux through any closed surface is zero. This is expressed as <strong>grad . B = 0</strong>. <strong>Physical Significance:</strong> It indicates that magnetic monopoles do not exist.
+        </p>
+
+        <h2>UNIT-IV</h2>
+
+        <h3>Question 7 (a) <span class="marks">[2]</span></h3>
+        <p>
+            <strong>Neutral vs Inversion Temperature.</strong>
+        </p>
+        <ul>
+            <li><strong>Neutral Temperature:</strong> The temperature of the hot junction at which the thermo-emf is maximum.</li>
+            <li><strong>Inversion Temperature:</strong> The temperature at which the thermo-emf becomes zero and then reverses direction.</li>
+        </ul>
+
+        <h3>Question 8 (b) <span class="marks">[10]</span></h3>
+        <span id="span_49"><p>
+            <strong>(i) Thomson effect and coefficient.</span></strong>
+        </p>
+        <span id="span_50"><p>
+            The <strong>Thomson effect</strong> is the evolution or absorption of heat when a current flows through a single conductor that has a temperature gradient</span>. <span id="span_51">The <strong>Thomson coefficient (sigma)</strong> is the heat exchanged per unit current per unit temperature gradient</span>.
+        </p>
+
+        <span id="span_52"><p>
+            <strong>(ii) EMF calculation for E = at + bt².</span></strong>
+        </p>
+        <ul>
+            <span id="span_53"><li>Neutral Temp (Tn): dE/dt = 0 -> a + 2bt = 0 -> <strong>Tn = -a/2b</strong></span>.</li>
+            <span id="span_54"><li>Inversion Temp (Ti): E = 0 -> t(a + bt) = 0 -> <strong>Ti = -a/b</strong></span>.</li>
+            <span id="span_55"><li>Peltier Coefficient (pi): <strong>pi = T * (dE/dT)</strong></span>.</li>
+        </ul>
+
+        <h2>UNIT-V</h2>
+
+        <h3>Question 10 (b) <span class="marks">[10]</span></h3>
+        <span id="span_56"><p>
+            <strong>(i) State and prove Norton's theorem.</span></strong>
+        </p>
+        <span id="span_57"><p>
+            <strong>Statement:</strong> Any linear bilateral network with voltage sources and resistances can be replaced by an equivalent circuit consisting of a single current source (In) in parallel with a single resistor (Rn)</span>.
+        </p>
+
+        <span id="span_58"><p>
+            <strong>(ii) Numerical: Unity power factor in AC circuit.</span></strong>
+        </p>
+        <p>
+            Given: C = 5 microFarads, R = 100 ohm, f = 50 Hz. <span id="span_59">For unity power factor, <strong>XL = XC</strong></span>.
+        </p>
+        <div class="formula-box">
+            XC = 1 / (2 * pi * f * C) = 1 / (2 * 3.14 * 50 * 5 * 10^-6) = 636.9 ohms<br>
+            <span id="span_60">L = XC / (2 * pi * f) = 636.9 / (2 * 3.14 * 50) = 2.02 Henrys</span>
+        </div>
+
+        <div class="footer-section">
+            <h4>Exam Focus Enhancements</h4>
+            <ul>
+                <li><strong>Exam Tips:</strong> Always draw neat diagrams for Gauss Law and Biot-Savart applications to secure full marks.</li>
+                <li><strong>Common Mistakes:</strong> Forgetting to mention the direction of vectors in field derivations.</li>
+                <li><strong>Important Formulas:</strong> grad²V = -rho/epsilon_0, B = mu_0*I/2R, D = eps_0*E + P.</li>
+                <li><strong>Presentation Strategy:</strong> Use the method of substitution clearly in numericals and state units (Tesla, Farad, Henry) at the end.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

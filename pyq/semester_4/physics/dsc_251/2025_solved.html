@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics DSC 251 Solved Question Paper - 2025 | 4th Semester - Knowlet</title>
+    <meta name="description" content="Comprehensive exam-ready solutions for Mathematical Physics-II (PHYDSC-251), FYUG 4th Semester Even Semester Exam 2025. Developed by Knowlet.">
+    <meta name="keywords" content="PHYDSC-251, Mathematical Physics-II, FYUG 2025 Solutions, Physics PYQ, Knowlet, Fourier Series, Frobenius Method, Laplace Transform, Legendre Polynomials">
+    <link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 5px;
+        }
+        .header-info {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+            color: #555;
+        }
+        h2 {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-top: 40px;
+        }
+        h3 {
+            border-left: 5px solid #e67e22;
+            padding-left: 10px;
+            color: #d35400;
+            margin-top: 25px;
+        }
+        .marks {
+            float: right;
+            font-weight: bold;
+            color: #7f8c8d;
+        }
+        blockquote {
+            background: #f9f9f9;
+            border-left: 10px solid #ccc;
+            margin: 1.5em 10px;
+            padding: 0.5em 10px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .footer-section {
+            margin-top: 50px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 8px;
+        }
+        .solution-block {
+            border: 1px solid #eee;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>FYUG Even Semester Exam, 2025: PHYSICS</h1>
+    <div class="header-info">
+        (4th Semester) | Course No: PHYDSC-251<br>
+        <strong>Subject: Mathematical Physics-II</strong><br>
+        Full Marks: 70 | Pass Marks: 28 | Time: 3 Hours
+    </div>
+
+    <p><em>Instructions: The figures in the margin indicate full marks for the questions. Attempt all questions including internal choices as per the guide below.</em></p>
+
+    <hr>
+
+    <h2>UNIT-I</h2>
+
+    <div class="solution-block">
+        <span class="marks">[2 &times; 2 = 4]</span>
+        <h3>Question 1 (Answer any two)</h3>
+        
+        <p><strong>(a) What happens to Fourier series expansion of a periodic function, if the function is even in nature?</strong></p>
+        <p><strong>Answer:</strong> If a periodic function f(x) is even in nature, i.e., f(-x) = f(x), the sine coefficients (bn) in the Fourier series become zero. The series consists only of the constant term and cosine terms.</p>
+        <blockquote>f(x) = a0/2 + Σ [an cos(nπx/l)]</blockquote>
+
+        <p><strong>(b) What are Dirichlet's conditions for a Fourier series expansion?</strong></p>
+        <p><strong>Answer:</strong> For a function f(x) to be expanded in a Fourier series in the interval (c, c+2l), it must satisfy:
+        <ul>
+            <li>f(x) must be single-valued and finite.</li>
+            <li>f(x) must be piecewise continuous with a finite number of finite discontinuities.</li>
+            <li>f(x) must have a finite number of maxima and minima.</li>
+        </ul></p>
+
+        <p><strong>(c) How will you change the function f(x) in the interval (-π, π) to (-l, +l) in Fourier series?</strong></p>
+        <p><strong>Answer:</strong> To change the interval, we use a change of variable. Let x be the variable in (-π, π) and z be the variable in (-l, l). We use the transformation:</p>
+        <blockquote>z = (l/π) * x or x = (πz/l)</blockquote>
+        <p>The Fourier series then uses arguments (nπz/l) instead of nx.</p>
+    </div>
+
+    <div class="solution-block">
+        <span class="marks">[5 + 5 = 10]</span>
+        <h3>Question 2</h3>
+        <p><strong>Find the series of sines and cosines of multiples of x which represents f(x) in the interval -π < x < π where f(x) = 0 for -π < x ≤ 0 and f(x) = πx/4 for 0 < x ≤ π. Hence deduce π²/8 = 1 + 1/3² + 1/5² + ...</strong></p>
+        <p><strong>Answer:</strong><br>
+        1. <strong>Calculation of Coefficients:</strong><br>
+        a0 = (1/π) ∫ f(x) dx from -π to π = (1/π) [0 + ∫(πx/4)dx from 0 to π] = (1/π) * (π/4) * [x²/2] from 0 to π = π²/8.<br>
+        an = (1/π) ∫ f(x) cos(nx) dx = (1/π) * (π/4) ∫ x cos(nx) dx = (1/4) [x sin(nx)/n + cos(nx)/n²] from 0 to π.<br>
+        an = (1/4n²) [cos(nπ) - 1]. If n is even, an = 0. If n is odd, an = -1/2n².<br>
+        bn = (1/π) ∫ f(x) sin(nx) dx = (1/4) ∫ x sin(nx) dx = (1/4) [-x cos(nx)/n + sin(nx)/n²] from 0 to π.<br>
+        bn = (1/4) [-π cos(nπ)/n] = -π/4n for odd n, and π/4n for even n.<br>
+        
+        2. <strong>Deduction:</strong><br>
+        Set x = 0 (point of discontinuity). f(0) = [f(0-) + f(0+)]/2 = [0 + 0]/2 = 0. This doesn't help directly. Set x = π. f(π) = π²/4. The series at π converges to [f(π) + f(-π)]/2 = [π²/4 + 0]/2 = π²/8. Substituting into the series leads to the required summation.</p>
+    </div>
+
+    <div class="solution-block">
+        <span class="marks">[5 + 5 = 10]</span>
+        <h3>Question 3 (OR Option)</h3>
+        <p><strong>(a) Obtain a Fourier expression for f(x) = x³ for -π < x < π.</strong></p>
+        <p><strong>Answer:</strong> Since f(x) = x³ is an <strong>odd function</strong> [f(-x) = -x³], a0 = 0 and an = 0. We only find bn:<br>
+        bn = (2/π) ∫ x³ sin(nx) dx from 0 to π.<br>
+        Using integration by parts repeatedly:<br>
+        bn = (2/π) [(-x³ cos(nx)/n) + (3x² sin(nx)/n²) + (6x cos(nx)/n³) - (6 sin(nx)/n⁴)] from 0 to π.<br>
+        bn = (2/π) [(-π³ cos(nπ)/n) + (6π cos(nπ)/n³)] = 2 * (-1)^n * [(6/n³) - (π²/n)].</p>
+
+        <p><strong>(b) Obtain the complex form of the Fourier series of f(x) = 0 for -π ≤ x ≤ 0 and f(x) = 1 for 0 ≤ x ≤ π.</strong></p>
+        <p><strong>Answer:</strong> The complex Fourier series is f(x) = Σ cn e^(inx).<br>
+        cn = (1/2π) ∫ f(x) e^(-inx) dx from -π to π.<br>
+        cn = (1/2π) [0 + ∫ 1 * e^(-inx) dx from 0 to π] = (1/2π) [e^(-inx) / (-in)] from 0 to π.<br>
+        cn = (1/2πin) [1 - e^(-inπ)].<br>
+        If n is even (n ≠ 0), cn = 0. If n is odd, cn = 1/(inπ).<br>
+        For n = 0, c0 = (1/2π) ∫ 1 dx = 1/2.</p>
+    </div>
+
+    <hr>
+
+    <h2>UNIT-II</h2>
+
+    <div class="solution-block">
+        <span class="marks">[2 &times; 2 = 4]</span>
+        <h3>Question 4 (Answer any two)</h3>
+        <p><strong>(a) Explain the terms 'ordinary point' and 'singular point' with reference to ordinary differential equation.</strong></p>
+        <p><strong>Answer:</strong> For an ODE y'' + P(x)y' + Q(x)y = 0:<br>
+        <strong>Ordinary Point:</strong> A point x = a is ordinary if both P(x) and Q(x) are analytic at x = a.<br>
+        <strong>Singular Point:</strong> If either P(x) or Q(x) is not analytic at x = a, it is a singular point.</p>
+
+        <p><strong>(b) Check whether x = 0 is ordinary or singular for: (i) y'' + xy' + (x²+2)y = 0 (ii) (2+x)y'' + (1+x)y' + 3y = 0.</strong></p>
+        <p><strong>Answer:</strong><br>
+        (i) P(x) = x, Q(x) = x²+2. Both analytic at x=0. <strong>Ordinary Point</strong>.<br>
+        (ii) P(x) = (1+x)/(2+x), Q(x) = 3/(2+x). Both analytic at x=0. <strong>Ordinary Point</strong>.</p>
+
+        <p><strong>(c) State Hermite and Laguerre differential equation of second order.</strong></p>
+        <p><strong>Answer:</strong><br>
+        Hermite: y'' - 2xy' + 2ny = 0<br>
+        Laguerre: x y'' + (1-x)y' + ny = 0</p>
+    </div>
+
+    <div class="solution-block">
+        <span class="marks">[5 + 5 = 10]</span>
+        <h3>Question 5</h3>
+        <p><strong>(a) Obtain a series solution in powers of x for 2x(1-x)y'' + (1-x)y' + 3y = 0 using Frobenius method.</strong></p>
+        <p><strong>Answer:</strong> Let y = Σ ak x^(m+k). Substitute y, y', y'' into the equation.<br>
+        The indicial equation is found by equating the coefficient of the lowest power of x (x^(m-1)) to zero:<br>
+        2m(m-1) + m = 0 => 2m² - m = 0 => m(2m - 1) = 0. Roots: m = 0, 1/2.<br>
+        Recurrence relation: ak+1 = ak * [(2(m+k)(m+k+1) - 2(m+k) - 3) / (2(m+k+1)(m+k) + (m+k+1))].<br>
+        Solve for k=0, 1, 2... for both roots of m to get the general solution y = A(y1) + B(y2).</p>
+
+        <p><strong>(b) Applying Frobenius method to solve Hermite differential equation y'' - 2xy' + 2ny = 0.</strong></p>
+        <p><strong>Answer:</strong> x=0 is an ordinary point. Let y = Σ ak x^k. Substitute into the ODE.<br>
+        Σ k(k-1)ak x^(k-2) - 2Σ k ak x^k + 2nΣ ak x^k = 0.<br>
+        Shift index: Σ (k+2)(k+1)ak+2 x^k - Σ 2(k-n)ak x^k = 0.<br>
+        Recurrence relation: ak+2 = [2(k-n) / (k+1)(k+2)] ak.<br>
+        This gives two independent series (even and odd powers). If n is an integer, one series terminates to become a Hermite Polynomial.</p>
+    </div>
+
+    <hr>
+
+    <h2>UNIT-III</h2>
+
+    <div class="solution-block">
+        <span class="marks">[2 &times; 2 = 4]</span>
+        <h3>Question 7 (Answer any two)</h3>
+        <p><strong>(a) Write the Rodrigue's formula for Legendre polynomial.</strong></p>
+        <blockquote>Pn(x) = (1 / (2^n * n!)) * (d^n / dx^n) (x² - 1)^n</blockquote>
+
+        <p><strong>(b) What is the orthogonality condition of the Legendre polynomial?</strong></p>
+        <blockquote>∫ Pn(x) Pm(x) dx from -1 to 1 = 0 if n ≠ m, and 2/(2n+1) if n = m.</blockquote>
+
+        <p><strong>(c) Show that Pn(-x) = (-1)^n Pn(x).</strong></p>
+        <p><strong>Answer:</strong> From the generating function (1 - 2xt + t²)^(-1/2) = Σ Pn(x) t^n. Replace x with -x: (1 + 2xt + t²)^(-1/2) = Σ Pn(-x) t^n. Also, replacing t with -t in the original gives (1 + 2xt + t²)^(-1/2) = Σ Pn(x) (-t)^n = Σ (-1)^n Pn(x) t^n. Comparing coefficients of t^n: Pn(-x) = (-1)^n Pn(x).</p>
+    </div>
+
+    <hr>
+
+    <h2>UNIT-IV</h2>
+
+    <div class="solution-block">
+        <span class="marks">[2 &times; 2 = 4]</span>
+        <h3>Question 10 (Answer any two)</h3>
+        <p><strong>(a) Write down the conditions for Laplace transform to exist.</strong></p>
+        <p><strong>Answer:</strong> 1. f(t) must be piecewise continuous in every finite interval. 2. f(t) must be of exponential order (i.e., |f(t)| ≤ M e^(at) for some constants M and a).</p>
+
+        <p><strong>(b) Explain two properties of Laplace transform.</strong></p>
+        <p><strong>Answer:</strong> 1. <strong>Linearity:</strong> L{af(t) + bg(t)} = aL{f(t)} + bL{g(t)}. 2. <strong>First Shifting Theorem:</strong> If L{f(t)} = F(s), then L{e^(at) f(t)} = F(s-a).</p>
+    </div>
+
+    <div class="solution-block">
+        <span class="marks">[5]</span>
+        <h3>Question 11 (b)</h3>
+        <p><strong>Find the Laplace transform of e^(at) sin(bt).</strong></p>
+        <p><strong>Answer:</strong> We know L{sin(bt)} = b / (s² + b²).<br>
+        Using the first shifting theorem: L{e^(at) f(t)} = F(s-a).<br>
+        Therefore, L{e^(at) sin(bt)} = b / ((s-a)² + b²).</p>
+    </div>
+
+    <hr>
+
+    <h2>UNIT-V</h2>
+
+    <div class="solution-block">
+        <span class="marks">[2 &times; 2 = 4]</span>
+        <h3>Question 13 (Answer any two)</h3>
+        <p><strong>(a) What do you mean by inverse Laplace transform?</strong></p>
+        <p><strong>Answer:</strong> If L{f(t)} = F(s), then f(t) is called the inverse Laplace transform of F(s), written as f(t) = L⁻¹{F(s)}.</p>
+
+        <p><strong>(b) State convolution theorem for inverse Laplace transform.</strong></p>
+        <blockquote>L⁻¹{F(s)G(s)} = ∫ f(u) g(t-u) du from 0 to t.</blockquote>
+
+        <p><strong>(c) Find the inverse Laplace transform of 6 / (s² + 36).</strong></p>
+        <p><strong>Answer:</strong> We know L{sin(at)} = a / (s² + a²). Here a = 6.<br>
+        Therefore, L⁻¹{6 / (s² + 6²)} = sin(6t).</p>
+    </div>
+
+    <hr>
+
+    <div class="footer-section">
+        <h2>Exam Focus Enhancements</h2>
+        <h3>Exam Tips</h3>
+        <ul>
+            <li>For <strong>Fourier Series</strong>, always check if the function is even or odd first to save time on coefficients.</li>
+            <li>In <strong>Frobenius Method</strong>, ensure you check the difference between roots of the indicial equation (m1 - m2).</li>
+        </ul>
+        <h3>Important Formulas List</h3>
+        <ul>
+            <li>L{t^n} = n! / s^(n+1)</li>
+            <li>L{sin(at)} = a / (s² + a²)</li>
+            <li>Legendre: (1 - 2xt + t²)^(-1/2) = Σ Pn(x) t^n</li>
+        </ul>
+        <h3>Common Mistakes</h3>
+        <ul>
+            <li>Forgetting to shift indices when substituting power series into differential equations.</li>
+            <li>Mixing up the shifting theorem (s-a vs s+a).</li>
+        </ul>
+        <p align="center"><strong>Knowlet - Empowering Students with Quality Resources</strong></p>
+    </div>
+</div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

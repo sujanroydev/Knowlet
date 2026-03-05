@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mathematics SEC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet</title>
+<meta name="description" content="Comprehensive solutions for MATSEC-151 Mathematical Programming in C, FYUG 2nd Semester Exam 2025. Academic resources provided by Knowlet.">
+<meta name="keywords" content="MATSEC-151, C Programming, Mathematics, FYUG, 2nd Semester, PYQ Solutions, Knowlet, Silchar">
+<link rel="stylesheet" href="../../../../assets/styles/units.css">
+    <style>
+:root {
+--primary-color: #2c3e50;
+--secondary-color: #27ae60;
+--accent-color: #e67e22;
+--bg-color: #f4f7f6;
+--code-bg: #2d2d2d;
+--code-text: #f8f8f2;
+}
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        background-color: var(--bg-color);
+        color: #333;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: auto;
+        background: #fff;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        text-align: center;
+        color: var(--primary-color);
+        border-bottom: 3px solid var(--secondary-color);
+        padding-bottom: 10px;
+        text-transform: uppercase;
+    }
+
+    .metadata {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 30px;
+        color: #555;
+    }
+
+    h2 {
+        background-color: var(--primary-color);
+        color: #fff;
+        padding: 10px 15px;
+        border-radius: 5px;
+        margin-top: 40px;
+    }
+
+    h3 {
+        color: var(--secondary-color);
+        border-left: 5px solid var(--secondary-color);
+        padding-left: 10px;
+        margin-top: 30px;
+    }
+
+    .solution-block {
+        border: 1px solid #ddd;
+        padding: 20px;
+        margin: 15px 0;
+        border-radius: 5px;
+        background-color: #fafafa;
+    }
+
+    code {
+        font-family: 'Consolas', 'Courier New', monospace;
+        background-color: #eee;
+        padding: 2px 5px;
+        border-radius: 3px;
+    }
+
+    pre {
+        background-color: var(--code-bg);
+        color: var(--code-text);
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+    }
+
+    blockquote {
+        background: #eef7fd;
+        border-left: 5px solid #3498db;
+        margin: 1.5em 10px;
+        padding: 10px 20px;
+        font-style: italic;
+    }
+
+    .marks {
+        float: right;
+        font-weight: bold;
+        color: var(--accent-color);
+    }
+
+    .footer {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 0.9em;
+        color: #777;
+    }
+</style>
+
+</head>
+<body>
+<div class="container">
+<h1>MATHEMATICS: Mathematical Programming in C | FYUG 2025</h1>
+<div class="metadata">
+    Course No: MATSEC-151 | <span id="span_0">2nd Semester</span><br>
+    Full Marks: 50 | Pass Marks: 20 | <span id="span_1">Time: 2 Hours</span>
+</div>
+
+<hr>
+
+<h2>UNIT-I: C Fundamentals</h2>
+
+<h3>Question 1 (a)</h3>
+<div class="solution-block">
+    <span class="marks">1 Mark</span>
+    <span id="span_2"><p><strong>Question:</strong> Write the syntax for variable declaration in C.</span></p>
+    <p><strong>Solution:</strong></p>
+    <blockquote>data_type variable_name;</blockquote>
+    <p>Example: <code>int count;</code> or <code>float price;</code></p>
+</div>
+
+<h3>Question 1 (b)</h3>
+<div class="solution-block">
+    <span class="marks">1 Mark</span>
+    <span id="span_3"><p><strong>Question:</strong> Write the syntax to define a symbolic constant.</span></p>
+    <p><strong>Solution:</strong></p>
+    <blockquote>#define CONSTANT_NAME value</blockquote>
+    <p>Example: <code>#define PI 3.14159</code></p>
+</div>
+
+<h3>Question 1 (c)</h3>
+<div class="solution-block">
+    <span class="marks">1 Mark</span>
+    <span id="span_4"><p><strong>Question:</strong> How will you write the arithmetic expression a² + 10a - 8 in C?</span></p>
+    <p><strong>Solution:</strong></p>
+    <pre>a * a + 10 * a - 8;</pre>
+    <p>Alternatively, using the math library: <code>pow(a, 2) + 10 * a - 8;</code></p>
+</div>
+
+<h3>Question 1 (d)</h3>
+<div class="solution-block">
+    <span class="marks">1 Mark</span>
+    <span id="span_5"><p><strong>Question:</strong> How will you assign the value 100 to the variable x at the time of variable declaration?</span></p>
+    <p><strong>Solution:</strong></p>
+    <pre>int x = 100;</pre>
+</div>
+
+<h3>Question 2 (a)</h3>
+<div class="solution-block">
+    <span class="marks">2 Marks</span>
+    <span id="span_6"><p><strong>Question:</strong> Which of the following are valid variable names: Char, First_name, List one, 2int_type?</span></p>
+    <p><strong>Solution:</strong></p>
+    <ul>
+        <span id="span_7"><li><strong>Char:</strong> Valid (C is case-sensitive; <code>char</code> is a keyword, but <code>Char</code> is not).</span></li>
+        <span id="span_8"><li><strong>First_name:</strong> Valid (contains letters and underscores).</span></li>
+        <span id="span_9"><li><strong>List one:</strong> Invalid (contains a space).</span></li>
+        <span id="span_10"><li><strong>2int_type:</strong> Invalid (cannot start with a digit).</span></li>
+    </ul>
+</div>
+
+<h3>Question 3 (a)</h3>
+<div class="solution-block">
+    <span class="marks">5 Marks</span>
+    <span id="span_11"><p><strong>Question:</strong> Write the rules for naming identifiers.</span></p>
+    <p><strong>Solution:</strong></p>
+    <ol>
+        <span id="span_12"><li>An identifier can only contain alphabets (uppercase and lowercase), digits, and underscores (<code>_</code>).</span></li>
+        <li>The first character must be an alphabet or an underscore. <span id="span_13">It cannot be a digit.</span></li>
+        <span id="span_14"><li>Keywords (like <code>int</code>, <code>while</code>, etc.) cannot be used as identifiers.</span></li>
+        <span id="span_15"><li>Identifiers are case-sensitive (e.g., <code>Total</code> and <code>total</code> are different).</span></li>
+        <span id="span_16"><li>No special characters or spaces are allowed except for the underscore.</span></li>
+    </ol>
+</div>
+
+<h2>UNIT-II: Operators and Control Flow</h2>
+
+<h3>Question 4 (a)</h3>
+<div class="solution-block">
+    <span class="marks">1 Mark</span>
+    <span id="span_17"><p><strong>Question:</strong> What are the relational operators in C?</span></p>
+    <p><strong>Solution:</strong></p>
+    <p>Relational operators are used to compare two values. <span id="span_18">They are:</span></p>
+    <ul>
+        <span id="span_19"><li><code>==</code> (Equal to)</span></li>
+        <span id="span_20"><li><code>!=</code> (Not equal to)</span></li>
+        <span id="span_21"><li><code>&gt;</code> (Greater than)</span></li>
+        <span id="span_22"><li><code>&lt;</code> (Less than)</span></li>
+        <span id="span_23"><li><code>&gt;=</code> (Greater than or equal to)</span></li>
+        <span id="span_24"><li><code>&lt;=</code> (Less than or equal to)</span></li>
+    </ul>
+</div>
+
+<h3>Question 5 (a)</h3>
+<div class="solution-block">
+    <span class="marks">2 Marks</span>
+    <span id="span_25"><p><strong>Question:</strong> What is the error in: <code>int x=10; float y=4.25; x=y%x;</code>?</span></p>
+    <p><strong>Solution:</strong></p>
+    <span id="span_26"><p>The error lies in the expression <code>x = y % x;</code>.</span></p>
+    <blockquote>
+        <strong>Error:</strong> The modulo operator (<code>%</code>) can only be used with integer operands. <span id="span_27">Since <code>y</code> is a <code>float</code>, this operation is illegal in C.</span>
+    </blockquote>
+</div>
+
+<h3>Question 6 (a)</h3>
+<div class="solution-block">
+    <span class="marks">5 Marks</span>
+    <span id="span_28"><p><strong>Question:</strong> Write a C program to read two integers m and n and to decide and print whether m is a multiple of n.</span></p>
+    <p><strong>Solution:</strong></p>
+    <pre>
+
+#include <stdio.h>
+int main() {
+int m, n;
+printf("Enter two integers (m and n): ");
+scanf("%d %d", &m, &n);
+if (n != 0 && m % n == 0) {
+    printf("%d is a multiple of %d\n", m, n);
+} else {
+    printf("%d is not a multiple of %d\n", m, n);
+}
+return 0;
+
+}
+</pre>
+</div>
+<h2>UNIT-III: Loops and Logic</h2>
+
+<h3>Question 7 (a)</h3>
+<div class="solution-block">
+    <span class="marks">1 Mark</span>
+    <span id="span_29">[span_30](start_span)<p><strong>Question:</strong> Write the general syntax of for loop.</span>[span_30](end_span)</p>
+    <p><strong>Solution:</strong></p>
+    <pre>
+
+for (initialization; condition; increment/decrement) {
+// Statements to be executed
+}
+</pre>
+</div>
+<h3>Question 9 (a)</h3>
+<div class="solution-block">
+    <span class="marks">5 Marks</span>
+    <span id="span_31">[span_32](start_span)<p><strong>Question:</strong> Write the rules for switch statement.</span>[span_32](end_span)</p>
+    <p><strong>Solution:</strong></p>
+    <ol>
+        <span id="span_33"><li>The <code>switch</code> expression must be an integral type (int or char).</span></li>
+        <span id="span_34"><li>Each <code>case</code> label must be a unique constant expression.</span></li>
+        <span id="span_35"><li>The <code>break</code> statement is optional but used to exit the switch block; otherwise, execution "falls through" to the next case.</span></li>
+        <span id="span_36"><li>The <code>default</code> case is optional and executes if no case matches.</span></li>
+        <span id="span_37"><li>Case labels must end with a colon (<code>:</code>).</span></li>
+    </ol>
+</div>
+
+<h2>UNIT-IV: Functions and Recursion</h2>
+
+<h3>Question 10 (a)</h3>
+<div class="solution-block">
+    <span class="marks">1 Mark</span>
+    <span id="span_38">[span_39](start_span)<p><strong>Question:</strong> Every program must have a ______ function.</span>[span_39](end_span)</p>
+    <p><strong>Solution:</strong></p>
+    <blockquote>main</blockquote>
+</div>
+
+<h3>Question 11 (b)</h3>
+<div class="solution-block">
+    <span class="marks">2 Marks</span>
+    <span id="span_40">[span_41](start_span)<p><strong>Question:</strong> What is recursion?</span>[span_41](end_span)</p>
+    <p><strong>Solution:</strong></p>
+    <span id="span_42"><p>Recursion is a programming technique where a function calls itself, either directly or indirectly, to solve a problem.</span> <span id="span_43">It must have a base case to terminate the calls.</span></p>
+</div>
+
+<h3>Question 12 (a)</h3>
+<div class="solution-block">
+    <span class="marks">5 Marks</span>
+    <span id="span_44">[span_45](start_span)<p><strong>Question:</strong> Write a C program to compute the sum of first n natural numbers using function.</span>[span_45](end_span)</p>
+    <p><strong>Solution:</strong></p>
+    <pre>
+
+#include <stdio.h>
+int findSum(int n) {
+return (n * (n + 1)) / 2;
+}
+int main() {
+int n;
+printf("Enter a positive integer: ");
+scanf("%d", &n);
+printf("Sum of first %d natural numbers is %d\n", n, findSum(n));
+return 0;
+}
+</pre>
+</div>
+<h2>UNIT-V: Arrays</h2>
+
+<h3>Question 13 (a)</h3>
+<div class="solution-block">
+    <span class="marks">1 Mark</span>
+    <span id="span_46"><p><strong>Question:</strong> Write the syntax for declaring a two-dimensional array.</span></p>
+    <p><strong>Solution:</strong></p>
+    <blockquote>data_type array_name[row_size][column_size];</blockquote>
+    <span id="span_47"><p>Example: <code>int matrix[3][3];</code></span></p>
+</div>
+
+<h3>Question 13 (c)</h3>
+<div class="solution-block">
+    <span class="marks">1 Mark</span>
+    <span id="span_48"><p><strong>Question:</strong> What is the first subscript of one-dimensional array in C?</span></p>
+    <p><strong>Solution:</strong></p>
+    <blockquote>0</blockquote>
+</div>
+
+<h3>Question 15 (a)</h3>
+<div class="solution-block">
+    <span class="marks">5 Marks</span>
+    <span id="span_49"><p><strong>Question:</strong> Write a program to find the largest element in an integer array.</span></p>
+    <p><strong>Solution:</strong></p>
+    <pre>
+
+#include <stdio.h>
+int main() {
+int arr[100], n, i, max;
+printf("Enter number of elements: ");
+scanf("%d", &n);
+printf("Enter %d elements:\n", n);
+for(i = 0; i < n; i++) {
+    scanf("%d", &arr[i]);
+}
+
+max = arr[0];
+for(i = 1; i < n; i++) {
+    if(arr[i] > max) {
+        max = arr[i];
+    }
+}
+
+printf("Largest element = %d\n", max);
+return 0;
+
+}
+</pre>
+</div>
+<div class="exam-focus" style="background-color: #fff3e0; padding: 20px; border: 2px solid var(--accent-color); border-radius: 8px; margin-top: 50px;">
+    <h2>Exam Focus Enhancements</h2>
+    <h3>Exam Tips</h3>
+    <ul>
+        <span id="span_50"><li>When writing programs, always include <code>#include &lt;stdio.h&gt;</code> and basic indentation for full marks.</span></li>
+        <span id="span_51"><li>For short syntax questions, always provide an example.</span></li>
+    </ul>
+    <h3>Common Mistakes</h3>
+    <ul>
+        <span id="span_52"><li>Confusing <code>=</code> (assignment) with <code>==</code> (equality) in <code>if</code> conditions.</span></li>
+        <span id="span_53"><li>Forgetting that array indices start at 0, not 1.</span></li>
+    </ul>
+    <h3>Important Formulas List</h3>
+    <ul>
+        <span id="span_54"><li>Sum of n natural numbers: n(n+1)/2</span></li>
+        <span id="span_55"><li>Condition for multiple: <code>m % n == 0</code></span></li>
+    </ul>
+</div>
+
+<div class="footer">
+    <span id="span_56">[span_57](start_span)Generated by Gemini for <strong>Knowlet</strong> Academic Solutions.</span>[span_57](end_span)
+</div>
+
+</div>
+<p>Would you like me to create a flowchart for the "Largest element in an array" program or explain any of the logical operators in more detail?</p>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../assets/scripts/units.js"></script>
+</body>
+</html>

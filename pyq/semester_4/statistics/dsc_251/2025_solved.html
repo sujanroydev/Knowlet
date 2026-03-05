@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STADSC-251 PYQ Solutions 2025 | Knowlet</title>
+<meta name="description" content="Comprehensive solutions for FYUG Statistics 4th Semester Paper STADSC-251 (Statistical Inference) 2025. Prepared by Knowlet.">
+<meta name="keywords" content="Statistics, Statistical Inference, STADSC-251, FYUG, 4th Semester, PYQ Solutions, Knowlet, LPU Statistics, Assam University">
+<style>
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+line-height: 1.6;
+color: #333;
+background-color: #f4f7f6;
+margin: 0;
+padding: 20px;
+}
+.container {
+max-width: 900px;
+margin: auto;
+background: #fff;
+padding: 40px;
+border-radius: 8px;
+box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+h1 {
+color: #2c3e50;
+text-align: center;
+border-bottom: 3px solid #3498db;
+padding-bottom: 10px;
+}
+h2 {
+color: #e67e22;
+border-left: 5px solid #e67e22;
+padding-left: 15px;
+margin-top: 40px;
+background: #fdf2e9;
+}
+h3 {
+color: #2980b9;
+border-bottom: 1px solid #eee;
+padding-bottom: 5px;
+margin-top: 25px;
+}
+.marks {
+float: right;
+font-weight: bold;
+color: #7f8c8d;
+}
+.solution-block {
+border: 1px solid #e1e4e8;
+padding: 15px;
+margin-bottom: 20px;
+border-radius: 5px;
+background-color: #fafafa;
+}
+blockquote {
+background: #ecf0f1;
+border-left: 10px solid #95a5a6;
+margin: 1.5em 10px;
+padding: 0.5em 10px;
+font-style: italic;
+}
+table {
+width: 100%;
+border-collapse: collapse;
+margin: 20px 0;
+}
+table, th, td {
+border: 1px solid #ddd;
+}
+th, td {
+padding: 12px;
+text-align: left;
+}
+tr:nth-child(even) {
+background-color: #f2f2f2;
+}
+.footer-section {
+margin-top: 50px;
+padding: 20px;
+background: #2c3e50;
+color: white;
+border-radius: 8px;
+}
+.footer-section h2 {
+color: #f1c40f;
+border: none;
+background: none;
+padding: 0;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>FYUG Even Semester Exam, 2025
+STATISTICS: Statistical Inference (STADSC-251)</h1>
+<div class="solution-block">
+    <p><strong>Subject:</strong> Statistics</p>
+    <p><strong>Paper Code:</strong> TADSC-257 / STADSC-251</p>
+    <p><strong>Semester:</strong> 4th Semester (FYUG)</p>
+    <p><strong>Time:</strong> 3 Hours | <strong>Full Marks:</strong> 50</p>
+</div>
+
+<h2>UNIT-I</h2>
+
+<h3>Question 1 (a) <span class="marks">[2 Marks]</span></h3>
+<p><strong>Define estimate and estimator.</strong></p>
+<blockquote>
+    An <strong>estimator</strong> is a rule or formula (a function of sample observations) used to estimate an unknown population parameter. An <strong>estimate</strong> is the specific numerical value obtained by applying the estimator to a particular set of sample data.
+</blockquote>
+
+<h3>Question 1 (b) <span class="marks">[2 Marks]</span></h3>
+<p><strong>Define consistency.</strong></p>
+<p>An estimator T_n is said to be a <strong>consistent estimator</strong> of a parameter theta if it converges in probability to theta as the sample size n approaches infinity. Formally:</p>
+<blockquote>P(|T_n - theta| < epsilon) approaches 1 as n approaches infinity.</blockquote>
+
+<h3>Question 1 (c) <span class="marks">[2 Marks]</span></h3>
+<p><strong>What is factorization theorem of sufficiency?</strong></p>
+<p>The Neyman-Factorization theorem states that a statistic T(x) is sufficient for a parameter theta if and only if the joint probability density function (or likelihood L) can be factored into two non-negative functions:</p>
+<blockquote>L(x; theta) = g(T(x); theta) * h(x)</blockquote>
+<p>where <strong>g</strong> depends on the data only through T and <strong>h</strong> is independent of theta.</p>
+
+<h3>Question 2 (a)(i) <span class="marks">[4 Marks]</span></h3>
+<p><strong>Define unbiasedness. Show that [sum x_i (sum x_i - 1)] / [n(n-1)] is an unbiased estimator of theta^2 for a Bernoulli sample.</strong></p>
+<p><strong>Definition:</strong> An estimator T is unbiased for parameter theta if its expected value is equal to the parameter, i.e., E(T) = theta.</p>
+<p><strong>Proof:</strong> Let x_i follow Bernoulli(theta). Then sum x_i follows Binomial(n, theta). Let Y = sum x_i.</p>
+<ul>
+    <li>E(Y) = n * theta</li>
+    <li>E(Y^2) = Var(Y) + [E(Y)]^2 = n * theta(1 - theta) + (n * theta)^2</li>
+    <li>E(Y^2 - Y) = E(Y^2) - E(Y) = n * theta - n * theta^2 + n^2 * theta^2 - n * theta</li>
+    <li>E(Y^2 - Y) = (n^2 - n) * theta^2 = n(n-1) * theta^2</li>
+    <li>E[(Y(Y-1)) / (n(n-1))] = [n(n-1) * theta^2] / [n(n-1)] = theta^2</li>
+</ul>
+<p>Thus, the estimator is unbiased.</p>
+
+<h3>Question 2 (a)(ii) <span class="marks">[2 Marks]</span></h3>
+<p><strong>If T_n is consistent for theta, show Psi(T_n) is consistent for Psi(theta).</strong></p>
+<p>By the <strong>Invariance Property of Consistent Estimators</strong>, if T_n converges in probability to theta, and Psi is a continuous function, then Psi(T_n) converges in probability to Psi(theta). This is a direct result of Slutsky's Theorem/Continuous Mapping Theorem.</p>
+
+<h3>Question 2 (a)(iv) <span class="marks">[4 Marks]</span></h3>
+<p><strong>Find lambda for T_3 to be unbiased. Are T_1 and T_2 unbiased? Best among them?</strong></p>
+<p>Given T_1 = (x1+x2+x3+x4+x5)/5, T_2 = (x1+x2)/2 + x3, T_3 = (2x1 + x2 + lambda*x3)/3.</p>
+<p><strong>For T_3 to be unbiased:</strong> E(T_3) = mu. <br> [2mu + mu + lambda*mu]/3 = mu => 3 + lambda = 3 => <strong>lambda = 0</strong>.</p>
+<p><strong>Checking T_1 and T_2:</strong></p>
+<ul>
+    <li>E(T_1) = (5mu)/5 = mu (Unbiased)</li>
+    <li>E(T_2) = (mu+mu)/2 + mu = 2mu (Biased)</li>
+</ul>
+<p><strong>Best Estimator:</strong> T_1 is the best because it is unbiased and has the minimum variance among the choices (utilizing more sample info equally).</p>
+
+<h2>UNIT-II</h2>
+
+<h3>Question 3 (a) <span class="marks">[2 Marks]</span></h3>
+<p><strong>Define MVUE.</strong></p>
+<blockquote>
+    <strong>Minimum Variance Unbiased Estimator (MVUE):</strong> An unbiased estimator that has the smallest variance among all other unbiased estimators for a given parameter for all possible values of the parameter.
+</blockquote>
+
+<h3>Question 4 (a)(i) <span class="marks">[2 Marks]</span></h3>
+<p><strong>Write regularity conditions of Cramer-Rao inequality.</strong></p>
+<ul>
+    <li>The parameter space is an open interval.</li>
+    <li>The first and second derivatives of log L with respect to theta exist.</li>
+    <li>The operations of integration and differentiation are interchangeable.</li>
+    <li>The support of the distribution is independent of the parameter theta.</li>
+</ul>
+
+<h3>Question 4 (a)(ii) <span class="marks">[5 Marks]</span></h3>
+<p><strong>Prove the Cramer-Rao Inequality: V(t) >= [gamma'(theta)]^2 / I(theta).</strong></p>
+<p>Consider an unbiased estimator T such that E(T) = gamma(theta). Since Integral T * L dx = gamma(theta):</p>
+<ol>
+    <li>Differentiate both sides w.r.t theta: Integral T * (dL/dtheta) dx = gamma'(theta).</li>
+    <li>Using (dL/dtheta) = L * (d/dtheta log L), we get: Cov(T, d/dtheta log L) = gamma'(theta).</li>
+    <li>By Cauchy-Schwarz Inequality: [Cov(X,Y)]^2 <= Var(X)Var(Y).</li>
+    <li>Var(T) * Var(d/dtheta log L) >= [gamma'(theta)]^2.</li>
+    <li>Var(T) >= [gamma'(theta)]^2 / E[(d/dtheta log L)^2].</li>
+</ol>
+
+<h2>UNIT-III</h2>
+
+<h3>Question 5 (a) <span class="marks">[2 Marks]</span></h3>
+<p><strong>Define critical region and level of significance.</strong></p>
+<p><strong>Critical Region (w):</strong> The set of values of the test statistic for which the null hypothesis is rejected.</p>
+<p><strong>Level of Significance (alpha):</strong> The probability of committing a Type-I error (rejecting H0 when it is true).</p>
+
+<h3>Question 6 (a)(i) <span class="marks">[4 Marks]</span></h3>
+<p><strong>Find MLE for Poisson distribution.</strong></p>
+<p>Likelihood L = Product [exp(-lambda) * lambda^x_i / x_i!]</p>
+<p>log L = -n*lambda + (sum x_i)log(lambda) - sum log(x_i!)</p>
+<p>d/dlambda(log L) = -n + (sum x_i)/lambda = 0</p>
+<blockquote><strong>lambda_hat = (sum x_i) / n = sample mean</strong></blockquote>
+
+<h2>UNIT-IV</h2>
+
+<h3>Question 7 (a) <span class="marks">[2 Marks]</span></h3>
+<p><strong>Define MP and UMP test.</strong></p>
+<p>A <strong>Most Powerful (MP)</strong> test is a test that has the maximum power against a specific alternative hypothesis for a fixed alpha. A <strong>Uniformly Most Powerful (UMP)</strong> test is an MP test that remains most powerful for all values of the parameter in the alternative hypothesis space.</p>
+
+<h3>Question 8 (a)(i) <span class="marks">[5 Marks]</span></h3>
+<p><strong>State and prove Neyman-Pearson Lemma.</strong></p>
+<p><strong>Statement:</strong> For testing H0: theta = theta0 vs H1: theta = theta1, the most powerful test is given by the likelihood ratio L(x, theta1) / L(x, theta0) > k.</p>
+<p><strong>Proof Strategy:</strong></p>
+<ul>
+    <li>Define critical region w based on the ratio.</li>
+    <li>Assume another region w' with the same size alpha.</li>
+    <li>Show that Integral over w of (L1) >= Integral over w' of (L1) by comparing the differences in regions where they don't overlap.</li>
+</ul>
+
+<h2>UNIT-V</h2>
+
+<h3>Question 9 (a) <span class="marks">[2 Marks]</span></h3>
+<p><strong>Define confidence interval and confidence limit.</strong></p>
+<p>A <strong>Confidence Interval</strong> is a range of values, derived from sample statistics, that is likely to contain the value of an unknown population parameter with a certain probability. The end points of this interval are called <strong>Confidence Limits</strong>.</p>
+
+<div class="footer-section">
+    <h2>Exam Focus Enhancements</h2>
+    <p><strong>Exam Tips:</strong> Always check if the range of 'x' depends on the parameter before applying Cramer-Rao regularity conditions.</p>
+    <p><strong>Common Mistakes:</strong> Forgetting to use log-likelihood before differentiating in MLE problems.</p>
+    <p><strong>Important Formulas:</strong></p>
+    <ul>
+        <li>Cramer-Rao Lower Bound: 1 / [n * I(theta)]</li>
+        <li>Method of Moments: Equate m1' = mu1' and m2' = mu2'</li>
+    </ul>
+    <p><strong>Answer Presentation:</strong> For derivation questions (8-10 marks), always state the assumptions first, followed by step-by-step mathematical logic, and box your final result.</p>
+</div>
+
+</div>
+</body>
+</html>

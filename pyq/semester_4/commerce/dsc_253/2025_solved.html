@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete PYQ Solutions for Business Statistics (COMDSC-253) 2025. Detailed academic notes for Commerce students covering Probability, Dispersion, Correlation, Index Numbers, and Time Series.">
+    <meta name="keywords" content="Business Statistics, COMDSC-253, PYQ 2025, Knowlet, Probability, Correlation, Index Numbers, Time Series Analysis">
+    <title>COMDSC-253 PYQ Solutions 2025 | Knowlet</title>
+    <style>
+        :root {
+            --primary-blue: #2c3e50;
+            --secondary-blue: #34495e;
+            --accent-orange: #d35400;
+            --light-bg: #f8f9fa;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f1f4f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        header {
+            text-align: center;
+            border-bottom: 4px solid var(--primary-blue);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+        h1 { margin: 0; color: var(--primary-blue); font-size: 26px; }
+        .meta-info { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 10px; font-weight: bold; color: #666; }
+        
+        h2 { 
+            background: var(--primary-blue); 
+            color: white; 
+            padding: 12px 20px; 
+            border-radius: 4px; 
+            margin-top: 40px;
+            font-size: 20px;
+        }
+        h3 { 
+            color: var(--accent-orange); 
+            border-bottom: 2px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 25px;
+        }
+        .marks { float: right; color: #7f8c8d; font-size: 0.9em; font-weight: normal; }
+        
+        .answer-block {
+            border: 1px solid #e1e8ed;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 6px;
+            background-color: var(--light-bg);
+        }
+        .option-label {
+            display: inline-block;
+            background: #7f8c8d;
+            color: white;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            margin-bottom: 10px;
+        }
+        blockquote {
+            border-left: 5px solid var(--accent-orange);
+            margin: 15px 0;
+            padding: 10px 20px;
+            background: #fff5eb;
+            font-weight: 500;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+        th { background-color: var(--secondary-blue); color: white; }
+        th, td { border: 1px solid #dee2e6; padding: 12px; text-align: center; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        
+        .footer-box {
+            margin-top: 50px;
+            padding: 25px;
+            background: var(--primary-blue);
+            color: white;
+            border-radius: 8px;
+        }
+        .formula { font-family: "Courier New", Courier, monospace; font-weight: bold; color: #2c3e50; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>FYUG Even Semester Exam, 2025</h1>
+        <div class="meta-info">
+            <span>Course: COMDSC-253</span>
+            <span>Subject: Business Statistics</span>
+            <span>Full Marks: 70</span>
+            <span>Time: 3 Hours</span>
+        </div>
+    </header>
+
+    <h2>UNIT-I: Probability & Random Variables</h2>
+    
+    <div class="answer-block">
+        [span_0](start_span)<h3>Question 1 <span class="marks">[2 x 2 = 4 Marks][span_0](end_span)</span></h3>
+        [span_1](start_span)<p><strong>(a) Define mutually exclusive events.[span_1](end_span)</strong></p>
+        <p>Two events are said to be mutually exclusive if they cannot occur at the same time. [span_2](start_span)If event A happens, event B cannot happen, meaning their intersection is an empty set (P(A ∩ B) = 0).[span_2](end_span)</p>
+
+        [span_3](start_span)<p><strong>(b) State the classical definition of probability.[span_3](end_span)</strong></p>
+        <blockquote>
+            [span_4](start_span)If a random experiment has 'n' mutually exclusive, equally likely, and exhaustive outcomes, and 'm' of these are favorable to an event A, then the probability of A is P(A) = m / n.[span_4](end_span)
+        </blockquote>
+
+        [span_5](start_span)<p><strong>(c) State the multiplication law of probability.[span_5](end_span)</strong></p>
+        [span_6](start_span)<p>For two independent events A and B, the probability of both occurring is the product of their individual probabilities: P(A ∩ B) = P(A) × P(B).[span_6](end_span)</p>
+    </div>
+
+    <div class="answer-block">
+        [span_7](start_span)<h3>Question 2 <span class="marks">[10 Marks][span_7](end_span)</span></h3>
+        <span class="option-label">Option A</span>
+        [span_8](start_span)<p><strong>(i) Probability of drawing one king and one queen from 52 cards.[span_8](end_span)</strong></p>
+        [span_9](start_span)<p>Total ways to draw 2 cards: 52C2 = (52 × 51) / 2 = 1326.[span_9](end_span)<br>
+           Ways to draw 1 King (out of 4): 4C1 = 4.<br>
+           Ways to draw 1 Queen (out of 4): 4C1 = 4.<br>
+           Favorable outcomes: 4 × 4 = 16.<br>
+           [span_10](start_span)Probability = 16 / 1326 = <strong>8 / 663</strong>.[span_10](end_span)</p>
+
+        [span_11](start_span)<p><strong>(ii) Define conditional probability.[span_11](end_span)</strong></p>
+        [span_12](start_span)[span_13](start_span)<p>Conditional probability is the probability of an event A occurring given that event B has already occurred, denoted as P(A|B) = P(A ∩ B) / P(B), where P(B) > 0.[span_12](end_span)[span_13](end_span)</p>
+
+        [span_14](start_span)<p><strong>(iii) Probability that a leap year contains 53 Mondays.[span_14](end_span)</strong></p>
+        [span_15](start_span)[span_16](start_span)<p>A leap year has 366 days = 52 weeks + 2 extra days.[span_15](end_span)[span_16](end_span)<br>
+           Possible pairs for extra days: (Sun, Mon), (Mon, Tue), (Tue, Wed), (Wed, Thu), (Thu, Fri), (Fri, Sat), (Sat, Sun). Total = 7.<br>
+           Favorable pairs (containing Monday): (Sun, Mon) and (Mon, Tue). Favorable = 2.<br>
+           [span_17](start_span)[span_18](start_span)Probability = <strong>2 / 7</strong>.[span_17](end_span)[span_18](end_span)</p>
+    </div>
+
+    <h2>UNIT-II: Measures of Central Tendency & Dispersion</h2>
+
+    <div class="answer-block">
+        [span_19](start_span)<h3>Question 3 <span class="marks">[2 x 2 = 4 Marks][span_19](end_span)</span></h3>
+        <p><strong>(a) What do you mean by average? [span_20](start_span)Write one limitation of AM.[span_20](end_span)</strong></p>
+        [span_21](start_span)<p>An average is a single value that represents the central position of a data set.[span_21](end_span) [span_22](start_span)A key limitation of Arithmetic Mean (AM) is that it is <strong>highly affected by extreme values</strong> (outliers).[span_22](end_span)</p>
+
+        [span_23](start_span)<p><strong>(b) What is meant by dispersion?[span_23](end_span)</strong></p>
+        [span_24](start_span)<p>Dispersion refers to the extent to which data points in a distribution differ from the average or from each other; it measures the "spread" of data.[span_24](end_span)</p>
+
+        [span_25](start_span)<p><strong>(c) Find Standard Deviation: 8, 10, 12, 14, 16, 18, 20, 22.[span_25](end_span)</strong></p>
+        [span_26](start_span)<p>Mean (x̄) = (8+10+12+14+16+18+20+22) / 8 = 120 / 8 = 15.[span_26](end_span)<br>
+           Deviations (x - x̄): -7, -5, -3, -1, 1, 3, 5, 7.<br>
+           Squared Deviations: 49, 25, 9, 1, 1, 9, 25, 49. Sum = 168.<br>
+           [span_27](start_span)Variance = 168 / 8 = 21. Standard Deviation = √21 ≈ <strong>4.58</strong>.[span_27](end_span)</p>
+    </div>
+
+    <div class="answer-block">
+        [span_28](start_span)<h3>Question 4 <span class="marks">[10 Marks][span_28](end_span)</span></h3>
+        <span class="option-label">Option A</span>
+        [span_29](start_span)<p><strong>(i) Write five important measures of dispersion.[span_29](end_span)</strong></p>
+        <ul>
+            [span_30](start_span)<li>Range[span_30](end_span)</li>
+            [span_31](start_span)<li>Quartile Deviation[span_31](end_span)</li>
+            [span_32](start_span)<li>Mean Deviation[span_32](end_span)</li>
+            [span_33](start_span)<li>Standard Deviation[span_33](end_span)</li>
+            [span_34](start_span)<li>Variance[span_34](end_span)</li>
+        </ul>
+
+        [span_35](start_span)<p><strong>(ii) Find the Coefficient of Variation (CV).[span_35](end_span)</strong></p>
+                [span_36](start_span)<p>Using the provided table for Marks 0-80[span_36](end_span):<br>
+           1. Calculate Mid-points (x) and Mean (x̄ = Σfx / Σf).<br>
+           2. Calculate Standard Deviation (σ).<br>
+           3. [span_37](start_span)<strong>CV = (σ / x̄) × 100</strong>.[span_37](end_span)</p>
+    </div>
+
+    <h2>UNIT-III: Correlation & Regression</h2>
+
+    <div class="answer-block">
+        [span_38](start_span)<h3>Question 5 <span class="marks">[2 x 2 = 4 Marks][span_38](end_span)</span></h3>
+        [span_39](start_span)<p><strong>(a) Regression equations.[span_39](end_span)</strong></p>
+        [span_40](start_span)<p>X on Y: (X - x̄) = bxy(Y - ȳ)[span_40](end_span)<br>
+           [span_41](start_span)Y on X: (Y - ȳ) = byx(X - x̄)[span_41](end_span)</p>
+
+        [span_42](start_span)<p><strong>(b) Compute Correlation Coefficient (r).[span_42](end_span)</strong></p>
+        [span_43](start_span)<p>Formula: r = [nΣxy - (Σx)(Σy)] / √[nΣx² - (Σx)²][nΣy² - (Σy)²][span_43](end_span)<br>
+           r = [25(508) - (125)(100)] / √[25(650) - 125²][25(460) - 100²]<br>
+           r = [12700 - 12500] / √[16250 - 15625][11500 - 10000]<br>
+           [span_44](start_span)r = 200 / √[625 × 1500] = 200 / 968.25 ≈ <strong>0.206</strong>.[span_44](end_span)</p>
+    </div>
+
+    <div class="answer-block">
+        [span_45](start_span)<h3>Question 6 <span class="marks">[10 Marks][span_45](end_span)</span></h3>
+        <span class="option-label">Option A</span>
+        [span_46](start_span)<p><strong>(iii) Given regression equations: 8x + 10y + 66 = 0 and 40x - 18y = 214.[span_46](end_span)</strong></p>
+        <p><strong>1. [span_47](start_span)Average value of x and y:</strong> Solve the two equations simultaneously.[span_47](end_span)<br>
+           Multiply 1st eq by 5: 40x + 50y = -330.<br>
+           Subtract 2nd eq: (40x + 50y) - (40x - 18y) = -330 - 214.<br>
+           68y = -544 → <strong>ȳ = -8</strong>.<br>
+           [span_48](start_span)Substitute ȳ: 8x + 10(-8) + 66 = 0 → 8x - 14 = 0 → <strong>x̄ = 1.75</strong>.[span_48](end_span)</p>
+        
+        <p><strong>2. Correlation Coefficient (r):</strong><br>
+           From Eq 1: y = -0.8x - 6.6 (byx = -0.8).<br>
+           From Eq 2: x = 0.45y + 5.35 (bxy = 0.45).<br>
+           r² = byx × bxy = -0.8 × 0.45 = 0.36.<br>
+           [span_49](start_span)<strong>r = -0.6</strong> (Negative because regression coefficients are negative).[span_49](end_span)</p>
+    </div>
+
+    <h2>UNIT-IV: Index Numbers</h2>
+
+    <div class="answer-box">
+        [span_50](start_span)<h3>Question 8 <span class="marks">[10 Marks][span_50](end_span)</span></h3>
+        <span class="option-label">Option A</span>
+        [span_51](start_span)<p><strong>(i) Laspeyres and Paasche's Price Index.[span_51](end_span)</strong></p>
+                [span_52](start_span)<p>Using data for 1999 (Base) and 2000 (Current)[span_52](end_span):<br>
+           - [span_53](start_span)<strong>Laspeyres:</strong> P01 = (Σp1q0 / Σp0q0) × 100[span_53](end_span)<br>
+           - [span_54](start_span)<strong>Paasche's:</strong> P01 = (Σp1q1 / Σp0q1) × 100[span_54](end_span)</p>
+
+        [span_55](start_span)<p><strong>(ii) Why Index Numbers are called 'Economic Barometers'?[span_55](end_span)</strong></p>
+        [span_56](start_span)[span_57](start_span)<p>They are called economic barometers because they measure the "pressure" or changes in the economic variable (like price or production) over time, helping to sense the pulse of the economy and guide policy decisions.[span_56](end_span)[span_57](end_span)</p>
+    </div>
+
+    <h2>UNIT-V: Time Series Analysis</h2>
+
+    <div class="answer-block">
+        [span_58](start_span)<h3>Question 10 <span class="marks">[10 Marks][span_58](end_span)</span></h3>
+        <span class="option-label">Option A</span>
+        [span_59](start_span)<p><strong>(i) Fit a linear trend by Least Squares method.[span_59](end_span)</strong></p>
+        <p>Years: 1975 to 1980 (n=6). [span_60](start_span)Let x = Year - 1977.5.[span_60](end_span)<br>
+           Equation: Y = a + bx.<br>
+           [span_61](start_span)Solve Normal Equations: ΣY = na and ΣxY = bΣx².[span_61](end_span)</p>
+
+        [span_62](start_span)<p><strong>(ii) Components of Time Series.[span_62](end_span)</strong></p>
+        <ul>
+            [span_63](start_span)<li><strong>Secular Trend (T):</strong> Long-term smooth movement.[span_63](end_span)</li>
+            [span_64](start_span)<li><strong>Seasonal Variations (S):</strong> Periodic fluctuations within a year.[span_64](end_span)</li>
+            [span_65](start_span)<li><strong>Cyclical Variations (C):</strong> Oscillatory movements over 2-10 years.[span_65](end_span)</li>
+            [span_66](start_span)<li><strong>Irregular Variations (I):</strong> Random, unpredictable changes.[span_66](end_span)</li>
+        </ul>
+    </div>
+
+    <div class="footer-box">
+        <h3>Exam Focus Enhancements</h3>
+        <p><strong>Common Mistakes:</strong></p>
+        <ul>
+            <li>In Regression, ensure 'r' has the same sign as the regression coefficients.</li>
+            <li>For Leap Year probability, remember there are always 2 extra days.</li>
+        </ul>
+        <p><strong>Answer Strategy:</strong> For numericals, always write the formula first and then create a clear calculation table to ensure partial marks even if the final result is slightly off.</p>
+    </div>
+</div>
+
+[span_67](start_span)[span_68](start_span)<p>Would you like me to generate a <strong>Practice Quiz</strong> for the numerical sections of Index Numbers and Correlation to help you master these formulas?[span_67](end_span)[span_68](end_span)</p>
+
+</body>
+</html>

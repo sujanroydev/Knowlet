@@ -1,282 +1,957 @@
 [
   {
-    "title": "Ecology AEC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG EVEN SEMESTER EXAM, 2024 ECOLOGY AND ENVIRONMENTAL SCIENCE (2nd Semester) Course No.: EESVAC-151T (Environmental Studies)",
-    "path": "pyq/semester_2/ecology/aec_151/2024_solved"
-  },
-  {
-    "title": "Chemistory DSC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG EVEN SEMESTER EXAM, 2024 CHEMISTRY (2nd Semester) Course No.: CHMDSC-151T (Organic Chemistry)",
-    "path": "pyq/semester_2/chemistory/dsc_151/2024_solved"
-  },
-  {
-    "title": "Chemistory DSM 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG EVEN SEMESTER EXAM, 2024 CHEMISTRY (2nd Semester) Course No.: CHMDSM-151T (Fundamentals of Chemistry)",
-    "path": "pyq/semester_2/chemistory/dsm_151/2024_solved"
-  },
-  {
-    "title": "Chemistory SEC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG EVEN SEMESTER EXAM, 2024 CHEMISTRY (2nd Semester) Course No.: CHMSEC-151T (Basic Analytical Chemistry)",
-    "path": "pyq/semester_2/chemistory/sec_151/2024_solved"
-  },
-  {
-    "title": "Chemistory IDC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG EVEN SEMESTER EXAM, 2024 CHEMISTRY (2nd Semester) Course No.: CHMIDC-151T (Indian Chemistry Through the Ages)",
-    "path": "pyq/semester_2/chemistory/idc_151/2024_solved"
-  },
-  {
-    "title": "Zoology DSC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG EVEN SEMESTER EXAM 2024 ZOOLOGY (2nd Semester) Course No.: ZOODSC-151T",
-    "path": "pyq/semester_2/zoology/dsc_151/2024_solved"
-  },
-  {
-    "title": "Zoology DSM 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG EVEN SEMESTER EXAM, 2024 ZOOLOGY (2nd Semester) Cell Biology and Histology",
-    "path": "pyq/semester_2/zoology/dsm_151/2024_solved"
-  },
-  {
-    "title": "Zoology SEC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG EVEN SEMESTER EXAM, 2024 ZOOLOGY (2nd Semester) Course No.: ZOOSEC-151T (Medical Diagnostics)",
-    "path": "pyq/semester_2/zoology/sec_151/2024_solved"
-  },
-  {
-    "title": "Zoology IDC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG EVEN SEMESTER EXAM, 2024 ZOOLOGY (2nd Semester) Course No.: ZOOIDC-151T (Economic Zoology)",
-    "path": "pyq/semester_2/zoology/idc_151/2024_solved"
-  },
-  {
-    "title": "Economics DSC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG EVEN SEMESTER EXAM, 2024 ECONOMICS (2nd Semester) Course No.: ECODSC-151T (Elementary Mathematics for Economics)",
-    "path": "pyq/semester_2/economics/dsc_151/2024_solved"
-  },
-  {
-    "title": "Economics DSM 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG EVEN SEMESTER EXAM, 2024 ECONOMICS (2nd Semester) Course No.: ECODSM-151T (Elementary Economics)",
-    "path": "pyq/semester_2/economics/dsm_151/2024_solved"
-  },
-  {
-    "title": "Economics DSC 152 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG EVEN SEMESTER EXAM, 2024 ECONOMICS (2nd Semester) Course No.: ECODSC-152T (Issues in Indian Economy)",
-    "path": "pyq/semester_2/economics/dsc_152/2024_solved"
-  },
-  {
-    "title": "Economics IDC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG EVEN SEMESTER EXAM, 2024 ECONOMICS (2nd Semester) Course No.: ECOIDC-151T (Foundation of Economics-II)",
-    "path": "pyq/semester_2/economics/idc_151/2024_solved"
-  },
-  {
-    "title": "Economics SEC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG EVEN SEMESTER EXAM, 2024 ECONOMICS (2nd Semester) Course No.: ECOSEC-151T (Insurance Principles and Practice)",
-    "path": "pyq/semester_2/economics/sec_151/2024_solved"
-  },
-  {
-    "title": "History DSC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024<br>History of Early Medieval India",
-    "path": "pyq/semester_2/history/dsc_151/2024_solved"
-  },
-  {
-    "title": "History DSM 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024<br>History of India: Shunga to Harshavardhana",
-    "path": "pyq/semester_2/history/dsm_151/2024_solved"
-  },
-  {
-    "title": "History DSC 152 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024<br>History of India (1206–1526)",
-    "path": "pyq/semester_2/history/dsc_152/2024_solved"
-  },
-  {
-    "title": "History IDC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024<br>History: Gender Studies",
-    "path": "pyq/semester_2/history/idc_151/2024_solved"
-  },
-  {
-    "title": "History SEC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024<br>History: Evolution of Indian Culture",
-    "path": "pyq/semester_2/history/sec_151/2024_solved"
-  },
-  {
-    "title": "Political Science DSC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024<br>Political Science: Political Theory-Concepts and Debates",
-    "path": "pyq/semester_2/political_science/dsc_151/2024_solved"
-  },
-  {
-    "title": "Political Science DSM 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024<br>Political Science: Introduction to Political Theory",
-    "path": "pyq/semester_2/political_science/dsm_151/2024_solved"
-  },
-  {
-    "title": "Political Science DSC 152 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024<br>Political Science: Political Process in India",
-    "path": "pyq/semester_2/political_science/dsc_152/2024_solved"
-  },
-  {
-    "title": "Political Science IDC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024<br>Political Science: Indian Political System",
-    "path": "pyq/semester_2/political_science/idc_151/2024_solved"
-  },
-  {
-    "title": "Political Science SEC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024<br>Political Science: Public Opinion and Survey Research",
-    "path": "pyq/semester_2/political_science/sec_151/2024_solved"
-  },
-  {
-    "title": "Philosophy DSC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024<br>Philosophy: Ethics-I (Indian)",
-    "path": "pyq/semester_2/philosophy/dsc_151/2024_solved"
-  },
-  {
-    "title": "Philosophy DSM 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024<br>Philosophy: Epistemology and Metaphysics (Indian)",
-    "path": "pyq/semester_2/philosophy/dsm_151/2024_solved"
-  },
-  {
-    "title": "Philosophy DSC 152 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024<br>Philosophy: Ethics-II (Western)",
-    "path": "pyq/semester_2/philosophy/dsc_152/2024_solved"
-  },
-  {
-    "title": "Philosophy IDC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024<br>Philosophy: Environmental Ethics",
-    "path": "pyq/semester_2/philosophy/idc_151/2024_solved"
-  },
-  {
-    "title": "Philosophy SEC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024<br>Philosophy: Logic-II (Modern)",
-    "path": "pyq/semester_2/philosophy/sec_151/2024_solved"
-  },
-  {
-    "title": "Computer Science DSC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "COMPUTER SCIENCE: Data Structure (CSCDSC-151T)<br>FYUG Even Semester Exam, 2024",
-    "path": "pyq/semester_2/computer_science/dsc_151/2024_solved"
-  },
-  {
-    "title": "Computer Science DSM 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "COMPUTER SCIENCE: Programming with C (CSCDSM-151T)<br>FYUG Even Semester Exam, 2024",
-    "path": "pyq/semester_2/computer_science/dsm_151/2024_solved"
-  },
-  {
-    "title": "Computer Science IDC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "COMPUTER SCIENCE: Programming with C (CSCDSM-151T)<br>FYUG Even Semester Exam, 2024",
-    "path": "pyq/semester_2/computer_science/idc_151/2024_solved"
-  },
-  {
-    "title": "Computer Science SEC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "COMPUTER SCIENCE: Python Programming (CSCSEC-151T)<br>FYUG Even Semester Exam, 2024",
-    "path": "pyq/semester_2/computer_science/sec_151/2024_solved"
-  },
-  {
-    "title": "Commerce DSC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024<br>COMMERCE (2nd Semester)<br>Corporate Accounting (COMDSC-151T)",
-    "path": "pyq/semester_2/commerce/dsc_151/2024_solved"
-  },
-  {
-    "title": "Commerce DSM 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024<br>COMMERCE (2nd Semester)<br>Macroeconomics (COMDSM-151T)",
-    "path": "pyq/semester_2/commerce/dsm_151/2024_solved"
-  },
-  {
-    "title": "Commerce DSC 152 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024<br>COMMERCE (2nd Semester)<br>Business Law (COMDSC-152T)",
-    "path": "pyq/semester_2/commerce/dsc_152/2024_solved"
-  },
-  {
-    "title": "Commerce IDC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024<br>COMMERCE (2nd Semester)<br>Course No.: COMIDC-151T",
-    "path": "pyq/semester_2/commerce/idc_151/2024_solved"
-  },
-  {
-    "title": "Commerce SEC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024<br>COMMERCE (2nd Semester)<br>Computer Applications in Business (COMSEC-151T)",
-    "path": "pyq/semester_2/commerce/sec_151/2024_solved"
-  },
-  {
-    "title": "Statistics DSC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024<br>STATISTICS (2nd Semester)<br>Probability Distributions (STADSC-151T)",
-    "path": "pyq/semester_2/statistics/dsc_151/2024_solved"
-  },
-  {
-    "title": "Statistics DSM 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024<br>STATISTICS (2nd Semester)<br>Statistical Methods and Probability (STADSM-151T)",
-    "path": "pyq/semester_2/statistics/dsm_151/2024_solved"
-  },
-  {
-    "title": "Statistics IDC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024 STATISTICS (2nd Semester) Index Number and Time Series Analysis (STAIDC-151T)",
-    "path": "pyq/semester_2/statistics/idc_151/2024_solved"
-  },
-  {
-    "title": "Statistics SEC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024 STATISTICS (2nd Semester) Statistical Data Analysis using R (STASEC-151T)",
-    "path": "pyq/semester_2/statistics/sec_151/2024_solved"
-  },
-  {
-    "title": "Physics DSC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024 PHYSICS (2nd Semester) Electricity and Magnetism (PHYDSC-151T)",
-    "path": "pyq/semester_2/physics/dsc_151/2024_solved"
-  },
-  {
-    "title": "Physics DSM 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024 PHYSICS (2nd Semester) Mechanics, Mathematical Physics (PHYDSM-151T)",
-    "path": "pyq/semester_2/physics/dsm_151/2024_solved"
-  },
-  {
-    "title": "Physics IDC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024 Understanding the Climate (PHYIDC-151T)",
-    "path": "pyq/semester_2/physics/idc_151/2024_solved"
-  },
-  {
-    "title": "Physics SEC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024 PHYSICS (2nd Semester) Electrical Circuits and Safety (PHYSEC-151T)",
-    "path": "pyq/semester_2/physics/sec_151/2024_solved"
-  },
-  {
-    "title": "Mathematics DSM 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024 MATHEMATICS (2nd Semester) Calculus (MATDSM-151T)",
-    "path": "pyq/semester_2/mathematics/dsm_151/2024_solved"
-  },
-  {
-    "title": "Mathematics DSC 152 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024 MATHEMATICS (2nd Semester) Integral Calculus and Vectors (MATDSC-152T)",
-    "path": "pyq/semester_2/mathematics/dsc_152/2024_solved"
-  },
-  {
-    "title": "Mathematics IDC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024 MATHEMATICS (2nd Semester) Geometry (MATIDC-151T)",
-    "path": "pyq/semester_2/mathematics/idc_151/2024_solved"
-  },
-  {
-    "title": "Mathematics SEC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "FYUG Even Semester Exam, 2024 MATHEMATICS (2nd Semester) Mathematical Programming (MATSEC-151T)",
-    "path": "pyq/semester_2/mathematics/sec_151/2024_solved"
-  },
-  {
-    "title": "Botany DSC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "BOTANY: Cell Biology (BOTDSC-151T)<br>FYUG Even Semester Exam, 2024",
-    "path": "pyq/semester_2/botany/dsc_151/2024_solved"
-  },
-  {
-    "title": "Botany DSM 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "BOTANY: Morphology and Taxonomy (BOTDSM-151T)<br>FYUG Even Semester Exam, 2024",
-    "path": "pyq/semester_2/botany/dsm_151/2024_solved"
-  },
-  {
-    "title": "Botany IDC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "BOTANY: Biodiversity Conservation (BOTIDC-151T)<br>FYUG Even Semester Exam, 2024",
-    "path": "pyq/semester_2/botany/idc_151/2024_solved"
-  },
-  {
-    "title": "Botany SEC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
-    "h1": "BOTANY: Mushroom Cultivation (BOTSEC-151T)<br>FYUG Even Semester Exam, 2024",
-    "path": "pyq/semester_2/botany/sec_151/2024_solved"
-  },
-  {
     "title": "Biotechnology DSC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
     "h1": "BIOTECHNOLOGY: Biochemistry (BTCDSC-151T)<br>FYUG Even Semester Exam, 2024",
-    "path": "pyq/semester_2/biotechnology/dsc_151/2024_solved"
+    "path": "/semester_2/biotechnology/dsc_151/2024_solved"
+  },
+  {
+    "title": "Biotechnology DSC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 Biotechnology (Biochemistry) Course No: BTCDSC-151",
+    "path": "/semester_2/biotechnology/dsc_151/2025_solved"
   },
   {
     "title": "Biotechnology SEC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
     "h1": "BIOTECHNOLOGY: Immunology (BTCSEC-151T)<br>FYUG Even Semester Exam, 2024",
-    "path": "pyq/semester_2/biotechnology/sec_151/2024_solved"
+    "path": "/semester_2/biotechnology/sec_151/2024_solved"
+  },
+  {
+    "title": "Biotechnology SEC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 Biotechnology (2nd Semester) Immunology (Course No: BTCSEC-151)",
+    "path": "/semester_2/biotechnology/sec_151/2025_solved"
+  },
+  {
+    "title": "Biotechnology DSM 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 Biotechnology (2nd Semester) Cell Biology and Biochemistry (BTCDSM-151)",
+    "path": "/semester_2/biotechnology/dsm_151/2025_solved"
+  },
+  {
+    "title": "Biotechnology IDC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 Biotechnology (2nd Semester) Human Physiology (BTCIDC-151)",
+    "path": "/semester_2/biotechnology/idc_151/2025_solved"
+  },
+  {
+    "title": "Botany DSC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "BOTANY: Cell Biology (BOTDSC-151T)<br>FYUG Even Semester Exam, 2024",
+    "path": "/semester_2/botany/dsc_151/2024_solved"
+  },
+  {
+    "title": "Botany DSC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 BOTANY (Cell Biology) Course No.: BOTDSC-151",
+    "path": "/semester_2/botany/dsc_151/2025_solved"
+  },
+  {
+    "title": "Botany DSM 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "BOTANY: Morphology and Taxonomy (BOTDSM-151T)<br>FYUG Even Semester Exam, 2024",
+    "path": "/semester_2/botany/dsm_151/2024_solved"
+  },
+  {
+    "title": "Botany DSM 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 BOTANY (2nd Semester) Angiosperm Morphology and Taxonomy Course No.: BOTDSM-151",
+    "path": "/semester_2/botany/dsm_151/2025_solved"
+  },
+  {
+    "title": "Botany IDC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "BOTANY: Biodiversity Conservation (BOTIDC-151T)<br>FYUG Even Semester Exam, 2024",
+    "path": "/semester_2/botany/idc_151/2024_solved"
+  },
+  {
+    "title": "Botany IDC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 STATISTICS (2nd Semester) Index Number and Time Series Analysis (STAIDC-151)",
+    "path": "/semester_2/botany/idc_151/2025_solved"
+  },
+  {
+    "title": "Botany SEC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "BOTANY: Mushroom Cultivation (BOTSEC-151T)<br>FYUG Even Semester Exam, 2024",
+    "path": "/semester_2/botany/sec_151/2024_solved"
+  },
+  {
+    "title": "Botany SEC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 BOTANY (2nd Semester) Mushroom Cultivation (BOTSEC-151)",
+    "path": "/semester_2/botany/sec_151/2025_solved"
+  },
+  {
+    "title": "Chemistory DSC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG EVEN SEMESTER EXAM, 2024 CHEMISTRY (2nd Semester) Course No.: CHMDSC-151T (Organic Chemistry)",
+    "path": "/semester_2/chemistory/dsc_151/2024_solved"
+  },
+  {
+    "title": "Chemistory DSC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025<br>CHEMISTRY (Organic Chemistry)<br>Course No.: CHMDSC-151",
+    "path": "/semester_2/chemistory/dsc_151/2025_solved"
+  },
+  {
+    "title": "Chemistory DSM 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG EVEN SEMESTER EXAM, 2024 CHEMISTRY (2nd Semester) Course No.: CHMDSM-151T (Fundamentals of Chemistry)",
+    "path": "/semester_2/chemistory/dsm_151/2024_solved"
+  },
+  {
+    "title": "Chemistory DSM 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025<br>CHEMISTRY: Fundamentals of Chemistry",
+    "path": "/semester_2/chemistory/dsm_151/2025_solved"
+  },
+  {
+    "title": "Chemistory IDC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG EVEN SEMESTER EXAM, 2024 CHEMISTRY (2nd Semester) Course No.: CHMIDC-151T (Indian Chemistry Through the Ages)",
+    "path": "/semester_2/chemistory/idc_151/2024_solved"
+  },
+  {
+    "title": "Chemistory SEC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG EVEN SEMESTER EXAM, 2024 CHEMISTRY (2nd Semester) Course No.: CHMSEC-151T (Basic Analytical Chemistry)",
+    "path": "/semester_2/chemistory/sec_151/2024_solved"
+  },
+  {
+    "title": "Chemistory SEC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025",
+    "path": "/semester_2/chemistory/sec_151/2025_solved"
+  },
+  {
+    "title": "Commerce DSC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024<br>COMMERCE (2nd Semester)<br>Corporate Accounting (COMDSC-151T)",
+    "path": "/semester_2/commerce/dsc_151/2024_solved"
+  },
+  {
+    "title": "Commerce DSC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 COMMERCE (2nd Semester) Corporate Accounting (COMDSC-151)",
+    "path": "/semester_2/commerce/dsc_151/2025_solved"
+  },
+  {
+    "title": "Commerce DSC 152 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024<br>COMMERCE (2nd Semester)<br>Business Law (COMDSC-152T)",
+    "path": "/semester_2/commerce/dsc_152/2024_solved"
+  },
+  {
+    "title": "Commerce DSC 152 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 COMMERCE (2nd Semester) Business Law (COMDSC-152)",
+    "path": "/semester_2/commerce/dsc_152/2025_solved"
+  },
+  {
+    "title": "Commerce DSM 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024<br>COMMERCE (2nd Semester)<br>Macroeconomics (COMDSM-151T)",
+    "path": "/semester_2/commerce/dsm_151/2024_solved"
+  },
+  {
+    "title": "Commerce DSM 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 COMMERCE (2nd Semester) Macroeconomics (COMDSM-151)",
+    "path": "/semester_2/commerce/dsm_151/2025_solved"
+  },
+  {
+    "title": "Commerce IDC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024<br>COMMERCE (2nd Semester)<br>Course No.: COMIDC-151T",
+    "path": "/semester_2/commerce/idc_151/2024_solved"
+  },
+  {
+    "title": "Commerce IDC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025",
+    "path": "/semester_2/commerce/idc_151/2025_solved"
+  },
+  {
+    "title": "Commerce SEC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024<br>COMMERCE (2nd Semester)<br>Computer Applications in Business (COMSEC-151T)",
+    "path": "/semester_2/commerce/sec_151/2024_solved"
+  },
+  {
+    "title": "Commerce SEC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 COMMERCE (2nd Semester) Computer Application in Business (COMSEC-151)",
+    "path": "/semester_2/commerce/sec_151/2025_solved"
+  },
+  {
+    "title": "Computer Science DSC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "COMPUTER SCIENCE: Data Structure (CSCDSC-151T)<br>FYUG Even Semester Exam, 2024",
+    "path": "/semester_2/computer_science/dsc_151/2024_solved"
+  },
+  {
+    "title": "Computer Science DSC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 Computer Science: Data Structure",
+    "path": "/semester_2/computer_science/dsc_151/2025_solved"
+  },
+  {
+    "title": "Computer Science DSM 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "COMPUTER SCIENCE: Programming with C (CSCDSM-151T)<br>FYUG Even Semester Exam, 2024",
+    "path": "/semester_2/computer_science/dsm_151/2024_solved"
+  },
+  {
+    "title": "Computer Science DSM 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG EVEN SEMESTER EXAM, 2025 COMPUTER SCIENCE (2nd Semester)",
+    "path": "/semester_2/computer_science/dsm_151/2025_solved"
+  },
+  {
+    "title": "Computer Science IDC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "COMPUTER SCIENCE: Programming with C (CSCDSM-151T)<br>FYUG Even Semester Exam, 2024",
+    "path": "/semester_2/computer_science/idc_151/2024_solved"
+  },
+  {
+    "title": "Computer Science IDC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 Computer Science",
+    "path": "/semester_2/computer_science/idc_151/2025_solved"
+  },
+  {
+    "title": "Computer Science SEC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "COMPUTER SCIENCE: Python Programming (CSCSEC-151T)<br>FYUG Even Semester Exam, 2024",
+    "path": "/semester_2/computer_science/sec_151/2024_solved"
+  },
+  {
+    "title": "Computer Science SEC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 Computer Science: Python Programming",
+    "path": "/semester_2/computer_science/sec_151/2025_solved"
+  },
+  {
+    "title": "Ecology AEC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG EVEN SEMESTER EXAM, 2024 ECOLOGY AND ENVIRONMENTAL SCIENCE (2nd Semester) Course No.: EESVAC-151T (Environmental Studies)",
+    "path": "/semester_2/ecology/aec_151/2024_solved"
+  },
+  {
+    "title": "Ecology IDC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "ECOLOGY AND ENVIRONMENTAL SCIENCE (2025)<br>EESIDC-151 | Knowlet",
+    "path": "/semester_2/ecology/idc_151/2025_solved"
+  },
+  {
+    "title": "Ecology IDC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024 Solutions",
+    "path": "/semester_2/ecology/idc_151/2024_solved"
+  },
+  {
+    "title": "Ecology DSM 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "ECOLOGY AND ENVIRONMENTAL SCIENCE (2025)<br>EESDSM-151 | Knowlet",
+    "path": "/semester_2/ecology/dsm_151/2025_solved"
+  },
+  {
+    "title": "Ecology DSM 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "Ecology and Environmental Science (EESDSM-151T) Solutions - 2024",
+    "path": "/semester_2/ecology/dsm_151/2024_solved"
+  },
+  {
+    "title": "Ecology VAC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "ECOLOGY AND ENVIRONMENTAL SCIENCE (2025)<br>EESVAC-151 | Knowlet",
+    "path": "/semester_2/ecology/vac_151/2025_solved"
+  },
+  {
+    "title": "Ecology VAC 151 ARTS Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "ECOLOGY AND ENVIRONMENTAL SCIENCE (2025)<br>EESVAC-151(A) | Knowlet",
+    "path": "/semester_2/ecology/vac_151_arts/2025_solved"
+  },
+  {
+    "title": "Economics DSC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG EVEN SEMESTER EXAM, 2024 ECONOMICS (2nd Semester) Course No.: ECODSC-151T (Elementary Mathematics for Economics)",
+    "path": "/semester_2/economics/dsc_151/2024_solved"
+  },
+  {
+    "title": "Economics DSC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 ECONOMICS: ECODSC-151 (Elementary Mathematics for Economics)",
+    "path": "/semester_2/economics/dsc_151/2025_solved"
+  },
+  {
+    "title": "Economics DSC 152 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG EVEN SEMESTER EXAM, 2024 ECONOMICS (2nd Semester) Course No.: ECODSC-152T (Issues in Indian Economy)",
+    "path": "/semester_2/economics/dsc_152/2024_solved"
+  },
+  {
+    "title": "Economics DSC 152 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 ECONOMICS: ECODSC-152 (Issues in Indian Economy)",
+    "path": "/semester_2/economics/dsc_152/2025_solved"
+  },
+  {
+    "title": "Economics DSM 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG EVEN SEMESTER EXAM, 2024 ECONOMICS (2nd Semester) Course No.: ECODSM-151T (Elementary Economics)",
+    "path": "/semester_2/economics/dsm_151/2024_solved"
+  },
+  {
+    "title": "Economics DSM 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 ECONOMICS: ECODSM-151 (Elementary Economics)",
+    "path": "/semester_2/economics/dsm_151/2025_solved"
+  },
+  {
+    "title": "Economics IDC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG EVEN SEMESTER EXAM, 2024 ECONOMICS (2nd Semester) Course No.: ECOIDC-151T (Foundation of Economics-II)",
+    "path": "/semester_2/economics/idc_151/2024_solved"
+  },
+  {
+    "title": "Economics IDC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 ECONOMICS: ECOIDC-151",
+    "path": "/semester_2/economics/idc_151/2025_solved"
+  },
+  {
+    "title": "Economics SEC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG EVEN SEMESTER EXAM, 2024 ECONOMICS (2nd Semester) Course No.: ECOSEC-151T (Insurance Principles and Practice)",
+    "path": "/semester_2/economics/sec_151/2024_solved"
+  },
+  {
+    "title": "Economics SEC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 ECONOMICS: ECOSEC-151 (Insurance Principles and Practices)",
+    "path": "/semester_2/economics/sec_151/2025_solved"
+  },
+  {
+    "title": "History DSC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024<br>History of Early Medieval India",
+    "path": "/semester_2/history/dsc_151/2024_solved"
+  },
+  {
+    "title": "History DSC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "History of Early Medieval India (HISDSC-151)<br>FYUG Even Semester Exam, 2025",
+    "path": "/semester_2/history/dsc_151/2025_solved"
+  },
+  {
+    "title": "History DSC 152 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024<br>History of India (1206–1526)",
+    "path": "/semester_2/history/dsc_152/2024_solved"
+  },
+  {
+    "title": "History DSC 152 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "History of India from 1206-1526 CE (HISDSC-152)<br>FYUG Even Semester Exam, 2025",
+    "path": "/semester_2/history/dsc_152/2025_solved"
+  },
+  {
+    "title": "History DSM 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024<br>History of India: Shunga to Harshavardhana",
+    "path": "/semester_2/history/dsm_151/2024_solved"
+  },
+  {
+    "title": "History DSM 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "History of India from Shunga to Pushyabhuti Dynasty (HISDSM-151)<br>FYUG Even Semester Exam, 2025",
+    "path": "/semester_2/history/dsm_151/2025_solved"
+  },
+  {
+    "title": "History IDC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024<br>History: Gender Studies",
+    "path": "/semester_2/history/idc_151/2024_solved"
+  },
+  {
+    "title": "History IDC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "Gender Studies (HISIDC-151)<br>FYUG Even Semester Exam, 2025",
+    "path": "/semester_2/history/idc_151/2025_solved"
+  },
+  {
+    "title": "History SEC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024<br>History: Evolution of Indian Culture",
+    "path": "/semester_2/history/sec_151/2024_solved"
+  },
+  {
+    "title": "History SEC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "Evaluation of Indian Culture (HISSEC-151)<br>FYUG Even Semester Exam, 2025",
+    "path": "/semester_2/history/sec_151/2025_solved"
+  },
+  {
+    "title": "Mathematics DSC 152 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024 MATHEMATICS (2nd Semester) Integral Calculus and Vectors (MATDSC-152T)",
+    "path": "/semester_2/mathematics/dsc_152/2024_solved"
+  },
+  {
+    "title": "Mathematics DSC 152 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "MATHEMATICS (Analytical Geometry) | FYUG Even Semester Exam, 2025",
+    "path": "/semester_2/mathematics/dsc_152/2025_solved"
+  },
+  {
+    "title": "Mathematics DSM 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024 MATHEMATICS (2nd Semester) Calculus (MATDSM-151T)",
+    "path": "/semester_2/mathematics/dsm_151/2024_solved"
+  },
+  {
+    "title": "Mathematics DSM 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "MATHEMATICS: CALCULUS | FYUG Even Semester Exam, 2025",
+    "path": "/semester_2/mathematics/dsm_151/2025_solved"
+  },
+  {
+    "title": "Mathematics IDC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024 MATHEMATICS (2nd Semester) Geometry (MATIDC-151T)",
+    "path": "/semester_2/mathematics/idc_151/2024_solved"
+  },
+  {
+    "title": "Mathematics IDC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "MATHEMATICS (GEOMETRY) | FYUG Even Semester Exam, 2025",
+    "path": "/semester_2/mathematics/idc_151/2025_solved"
+  },
+  {
+    "title": "Mathematics SEC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024 MATHEMATICS (2nd Semester) Mathematical Programming (MATSEC-151T)",
+    "path": "/semester_2/mathematics/sec_151/2024_solved"
+  },
+  {
+    "title": "Mathematics SEC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "MATHEMATICS: Mathematical Programming in C | FYUG 2025",
+    "path": "/semester_2/mathematics/sec_151/2025_solved"
+  },
+  {
+    "title": "Philosophy DSC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024<br>Philosophy: Ethics-I (Indian)",
+    "path": "/semester_2/philosophy/dsc_151/2024_solved"
+  },
+  {
+    "title": "Philosophy DSC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam 2025: Philosophy (Ethics-I Indian) Paper Code: PHIDSC-151",
+    "path": "/semester_2/philosophy/dsc_151/2025_solved"
+  },
+  {
+    "title": "Philosophy DSC 152 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024<br>Philosophy: Ethics-II (Western)",
+    "path": "/semester_2/philosophy/dsc_152/2024_solved"
+  },
+  {
+    "title": "Philosophy DSC 152 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam 2025: Philosophy (Ethics-II Western) Paper Code: PHIDSC-152",
+    "path": "/semester_2/philosophy/dsc_152/2025_solved"
+  },
+  {
+    "title": "Philosophy DSM 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024<br>Philosophy: Epistemology and Metaphysics (Indian)",
+    "path": "/semester_2/philosophy/dsm_151/2024_solved"
+  },
+  {
+    "title": "Philosophy DSM 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam 2025: Philosophy (Epistemology and Metaphysics - Indian) Paper Code: PHIDSM-151",
+    "path": "/semester_2/philosophy/dsm_151/2025_solved"
+  },
+  {
+    "title": "Philosophy IDC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024<br>Philosophy: Environmental Ethics",
+    "path": "/semester_2/philosophy/idc_151/2024_solved"
+  },
+  {
+    "title": "Philosophy IDC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam 2025: PHIIDC-151 Environmental Ethics Solutions",
+    "path": "/semester_2/philosophy/idc_151/2025_solved"
+  },
+  {
+    "title": "Philosophy SEC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024<br>Philosophy: Logic-II (Modern)",
+    "path": "/semester_2/philosophy/sec_151/2024_solved"
+  },
+  {
+    "title": "Philosophy SEC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam 2025: PHISEC-151 Logic-II (Modern Logic) Solutions",
+    "path": "/semester_2/philosophy/sec_151/2025_solved"
+  },
+  {
+    "title": "Physics DSC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024 PHYSICS (2nd Semester) Electricity and Magnetism (PHYDSC-151T)",
+    "path": "/semester_2/physics/dsc_151/2024_solved"
+  },
+  {
+    "title": "Physics DSC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025<br>Physics (2nd Semester)<br>Electricity and Magnetism (PHYDSC-151)",
+    "path": "/semester_2/physics/dsc_151/2025_solved"
+  },
+  {
+    "title": "Physics DSM 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024 PHYSICS (2nd Semester) Mechanics, Mathematical Physics (PHYDSM-151T)",
+    "path": "/semester_2/physics/dsm_151/2024_solved"
+  },
+  {
+    "title": "Physics DSM 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025",
+    "path": "/semester_2/physics/dsm_151/2025_solved"
+  },
+  {
+    "title": "Physics IDC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024 Understanding the Climate (PHYIDC-151T)",
+    "path": "/semester_2/physics/idc_151/2024_solved"
+  },
+  {
+    "title": "Physics IDC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 PHYSICS (Course No.: PHYIDC-151) Understanding the Climate",
+    "path": "/semester_2/physics/idc_151/2025_solved"
+  },
+  {
+    "title": "Physics SEC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024 PHYSICS (2nd Semester) Electrical Circuits and Safety (PHYSEC-151T)",
+    "path": "/semester_2/physics/sec_151/2024_solved"
+  },
+  {
+    "title": "Physics SEC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 Electrical Circuits and Safety",
+    "path": "/semester_2/physics/sec_151/2025_solved"
+  },
+  {
+    "title": "Political Science DSC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024<br>Political Science: Political Theory-Concepts and Debates",
+    "path": "/semester_2/political_science/dsc_151/2024_solved"
+  },
+  {
+    "title": "Political Science DSC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 Political Science: PLSDSC-151 Political Theory-Concepts and Debates",
+    "path": "/semester_2/political_science/dsc_151/2025_solved"
+  },
+  {
+    "title": "Political Science DSC 152 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024<br>Political Science: Political Process in India",
+    "path": "/semester_2/political_science/dsc_152/2024_solved"
+  },
+  {
+    "title": "Political Science DSC 152 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 Political Science: PLSDSC-152 (Political Process in India)",
+    "path": "/semester_2/political_science/dsc_152/2025_solved"
+  },
+  {
+    "title": "Political Science DSM 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024<br>Political Science: Introduction to Political Theory",
+    "path": "/semester_2/political_science/dsm_151/2024_solved"
+  },
+  {
+    "title": "Political Science DSM 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 Political Science: PLSDSM-151 Introduction to Political Theory",
+    "path": "/semester_2/political_science/dsm_151/2025_solved"
+  },
+  {
+    "title": "Political Science IDC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024<br>Political Science: Indian Political System",
+    "path": "/semester_2/political_science/idc_151/2024_solved"
+  },
+  {
+    "title": "Political Science IDC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 Political Science: PLSIDC-151 Indian Political System",
+    "path": "/semester_2/political_science/idc_151/2025_solved"
+  },
+  {
+    "title": "Political Science SEC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024<br>Political Science: Public Opinion and Survey Research",
+    "path": "/semester_2/political_science/sec_151/2024_solved"
+  },
+  {
+    "title": "Political Science SEC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 Political Science: PLSSEC-151 Public Opinion and Survey Research",
+    "path": "/semester_2/political_science/sec_151/2025_solved"
+  },
+  {
+    "title": "Statistics DSC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024<br>STATISTICS: Probability Distribution",
+    "path": "/semester_2/statistics/dsc_151/2024_solved"
+  },
+  {
+    "title": "Statistics DSC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 STATISTICS (2nd Semester) Course No.: STADSC-151",
+    "path": "/semester_2/statistics/dsc_151/2025_solved"
+  },
+  {
+    "title": "Statistics DSM 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024<br>STATISTICS (2nd Semester)<br>Statistical Methods and Probability",
+    "path": "/semester_2/statistics/dsm_151/2024_solved"
+  },
+  {
+    "title": "Statistics DSM 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 STATISTICS (2nd Semester) Course No.: STADSM-151",
+    "path": "/semester_2/statistics/dsm_151/2025_solved"
+  },
+  {
+    "title": "Statistics IDC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024<br>STATISTICS (2nd Semester)<br>Statistical Data Analysis using R",
+    "path": "/semester_2/statistics/idc_151/2024_solved"
+  },
+  {
+    "title": "Statistics IDC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 STATISTICS (2nd Semester) Course No.: STAIDC-151",
+    "path": "/semester_2/statistics/idc_151/2025_solved"
+  },
+  {
+    "title": "Statistics SEC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2024",
+    "path": "/semester_2/statistics/sec_151/2024_solved"
+  },
+  {
+    "title": "Statistics SEC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 STATISTICS (2nd Semester) Course No.: STASEC-151",
+    "path": "/semester_2/statistics/sec_151/2025_solved"
+  },
+  {
+    "title": "Zoology DSC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG EVEN SEMESTER EXAM 2024 ZOOLOGY (2nd Semester) Course No.: ZOODSC-151T",
+    "path": "/semester_2/zoology/dsc_151/2024_solved"
+  },
+  {
+    "title": "Zoology DSC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "ZOOLOGY: CELL BIOLOGY (ZOODSC-151) FYUG Even Semester Exam, 2025",
+    "path": "/semester_2/zoology/dsc_151/2025_solved"
+  },
+  {
+    "title": "Zoology DSM 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG EVEN SEMESTER EXAM, 2024 ZOOLOGY (2nd Semester) Cell Biology and Histology",
+    "path": "/semester_2/zoology/dsm_151/2024_solved"
+  },
+  {
+    "title": "Zoology DSM 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "ZOOLOGY: CELL BIOLOGY AND HISTOLOGY (ZOODSM-151) FYUG Even Semester Exam, 2025",
+    "path": "/semester_2/zoology/dsm_151/2025_solved"
+  },
+  {
+    "title": "Zoology IDC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG EVEN SEMESTER EXAM, 2024 ZOOLOGY (2nd Semester) Course No.: ZOOIDC-151T (Economic Zoology)",
+    "path": "/semester_2/zoology/idc_151/2024_solved"
+  },
+  {
+    "title": "Zoology IDC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "ZOOLOGY: ECONOMIC ZOOLOGY (ZOOIDC-151)",
+    "path": "/semester_2/zoology/idc_151/2025_solved"
+  },
+  {
+    "title": "Zoology SEC 151 Solved Question Paper - 2024 | 2nd Semester - Knowlet",
+    "h1": "FYUG EVEN SEMESTER EXAM, 2024 ZOOLOGY (2nd Semester) Course No.: ZOOSEC-151T (Medical Diagnostics)",
+    "path": "/semester_2/zoology/sec_151/2024_solved"
+  },
+  {
+    "title": "Zoology SEC 151 Solved Question Paper - 2025 | 2nd Semester - Knowlet",
+    "h1": "ZOOLOGY: MEDICAL DIAGNOSTICS (ZOOSEC-151) FYUG Even Semester Exam, 2025",
+    "path": "/semester_2/zoology/sec_151/2025_solved"
+  },
+  {
+    "title": "Physics DSC 252 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025",
+    "path": "/semester_4/physics/dsc_252/2025_solved"
+  },
+  {
+    "title": "Physics DSC 251 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025: PHYSICS",
+    "path": "/semester_4/physics/dsc_251/2025_solved"
+  },
+  {
+    "title": "Physics DSM 252 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025",
+    "path": "/semester_4/physics/dsm_252/2025_solved"
+  },
+  {
+    "title": "History DSC 252 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025<br>History of Assam (1228 to 1826 CE)<br>Course No.: HISDSC-252",
+    "path": "/semester_4/history/dsc_252/2025_solved"
+  },
+  {
+    "title": "History DSC 251 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025<br>History of India (1857-1947 CE)<br>Subject Code: HISDSC-251",
+    "path": "/semester_4/history/dsc_251/2025_solved"
+  },
+  {
+    "title": "History DSM 251 252 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025<br>HISTORY (4th Semester)<br>Course No.: HISDSM-251/252",
+    "path": "/semester_4/history/dsm_251_252/2025_solved"
+  },
+  {
+    "title": "History DSC 253 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025<br>History of Europe from 13th Century<br>Course No.: HISDSC-253",
+    "path": "/semester_4/history/dsc_253/2025_solved"
+  },
+  {
+    "title": "Political Science DSC 253 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "Indian Political Thought-I",
+    "path": "/semester_4/political_science/dsc_253/2025_solved"
+  },
+  {
+    "title": "Political Science DSC 252 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "Introduction to International Politics<br>FYUG 4th Semester Exam Solution 2025",
+    "path": "/semester_4/political_science/dsc_252/2025_solved"
+  },
+  {
+    "title": "Political Science DSC 251 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "Political Science: World Constitutions<br>FYUG Even Semester Exam 2025",
+    "path": "/semester_4/political_science/dsc_251/2025_solved"
+  },
+  {
+    "title": "Political Science DSM 251 252 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "Indian Political System Solutions",
+    "path": "/semester_4/political_science/dsm_251_252/2025_solved"
+  },
+  {
+    "title": "Economics DSM 251 252 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "ECODSM-251/252: Economics FYUG Even Semester Exam, 2025",
+    "path": "/semester_4/economics/dsm_251_252/2025_solved"
+  },
+  {
+    "title": "Economics DSC 252 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "ECODSC-252: Intermediate Macroeconomics FYUG Even Semester Exam, 2025",
+    "path": "/semester_4/economics/dsc_252/2025_solved"
+  },
+  {
+    "title": "Economics DSC 251 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "ECODSC-251: Intermediate Microeconomics FYUG Even Semester Exam, 2025",
+    "path": "/semester_4/economics/dsc_251/2025_solved"
+  },
+  {
+    "title": "Economics DSC 253 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "ECODSC-253: Statistics for Economics FYUG Even Semester Exam, 2025",
+    "path": "/semester_4/economics/dsc_253/2025_solved"
+  },
+  {
+    "title": "Commerce DSC 252 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025",
+    "path": "/semester_4/commerce/dsc_252/2025_solved"
+  },
+  {
+    "title": "Commerce DSC 251 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025<br>Corporate Law (COMDSC-251)",
+    "path": "/semester_4/commerce/dsc_251/2025_solved"
+  },
+  {
+    "title": "Commerce DSC 253 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025",
+    "path": "/semester_4/commerce/dsc_253/2025_solved"
+  },
+  {
+    "title": "Commerce DSM 251 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025<br>Indian Economy (COMDSM-251)",
+    "path": "/semester_4/commerce/dsm_251/2025_solved"
+  },
+  {
+    "title": "Commerce DSM 252 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025<br>Marketing Management (COMDSM-252)",
+    "path": "/semester_4/commerce/dsm_252/2025_solved"
+  },
+  {
+    "title": "Zoology DSC 252 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 | Zoology | ZOODSC-252",
+    "path": "/semester_4/zoology/dsc_252/2025_solved"
+  },
+  {
+    "title": "Zoology DSC 251 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 | Zoology | ZOODSC-251",
+    "path": "/semester_4/zoology/dsc_251/2025_solved"
+  },
+  {
+    "title": "Zoology DSM 252 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 | Zoology | ZOODSM-252",
+    "path": "/semester_4/zoology/dsm_252/2025_solved"
+  },
+  {
+    "title": "Ecology DSM 252 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam 2025<br>EESDSM-252: Ecology and Environmental Science",
+    "path": "/semester_4/ecology/dsm_252/2025_solved"
+  },
+  {
+    "title": "Computer Application DSC 252 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "COMPUTER APPLICATION (CADSC-251) <br> FYUG Even Semester Exam, 2025",
+    "path": "/semester_4/computer_application/dsc_252/2025_solved"
+  },
+  {
+    "title": "Computer Application DSC 251 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "COMPUTER APPLICATION (CADSC-251) <br> FYUG Even Semester Exam, 2025",
+    "path": "/semester_4/computer_application/dsc_251/2025_solved"
+  },
+  {
+    "title": "Chemistry DSC 252 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 CHEMISTRY (CHMDSC-252) Organometallic and Analytical Chemistry",
+    "path": "/semester_4/chemistry/dsc_252/2025_solved"
+  },
+  {
+    "title": "Chemistry DSC 251 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 CHEMISTRY (CHMDSC-251) Physical Chemistry-II",
+    "path": "/semester_4/chemistry/dsc_251/2025_solved"
+  },
+  {
+    "title": "Chemistry DSM 252 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025",
+    "path": "/semester_4/chemistry/dsm_252/2025_solved"
+  },
+  {
+    "title": "Botany DSC 252 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam 2025<br>BTCDSM-252: Microbiology and Immunology",
+    "path": "/semester_4/botany/dsc_252/2025_solved"
+  },
+  {
+    "title": "Botany DSC 251 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam 2025 | BOTDSC-251",
+    "path": "/semester_4/botany/dsc_251/2025_solved"
+  },
+  {
+    "title": "Botany DSM 252 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025<br>BOTANY: Plant Physiology (BOTDSM-252)",
+    "path": "/semester_4/botany/dsm_252/2025_solved"
+  },
+  {
+    "title": "Biotechnology DSC 252 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam 2025<br>BTCDSC-252: Bioprocess Technology",
+    "path": "/semester_4/biotechnology/dsc_252/2025_solved"
+  },
+  {
+    "title": "Biotechnology DSC 251 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam 2025<br>BTCDSC-251: Bioanalytical Tools",
+    "path": "/semester_4/biotechnology/dsc_251/2025_solved"
+  },
+  {
+    "title": "Biotechnology DSM 252 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam 2025<br>BTCDSM-252: Microbiology and Immunology",
+    "path": "/semester_4/biotechnology/dsm_252/2025_solved"
+  },
+  {
+    "title": "Mathematics DSM 251 252 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "MATDSM-251/252: Differential Equations FYUG Even Semester Exam, 2025",
+    "path": "/semester_4/mathematics/dsm_251_252/2025_solved"
+  },
+  {
+    "title": "Mathematics DSC 252 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "MATDSC-252: Mathematics FYUG Even Semester Exam, 2025",
+    "path": "/semester_4/mathematics/dsc_252/2025_solved"
+  },
+  {
+    "title": "Mathematics DSC 251 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "MATDSC-251: Abstract Algebra FYUG Even Semester Exam, 2025",
+    "path": "/semester_4/mathematics/dsc_251/2025_solved"
+  },
+  {
+    "title": "Mathematics DSC 253 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "MATDSC-253: Linear Algebra FYUG Even Semester Exam, 2025",
+    "path": "/semester_4/mathematics/dsc_253/2025_solved"
+  },
+  {
+    "title": "Computer Science DSC 252 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025<br>COMPUTER SCIENCE: CSCDSC-252<br>(Database Management System)",
+    "path": "/semester_4/computer_science/dsc_252/2025_solved"
+  },
+  {
+    "title": "Computer Science DSC 251 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025<br>COMPUTER SCIENCE: CSCDSC-251<br>(Object-oriented Programming with Java)",
+    "path": "/semester_4/computer_science/dsc_251/2025_solved"
+  },
+  {
+    "title": "Computer Science DSM 252 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025<br>COMPUTER SCIENCE: CSCDSM-252<br>(Database Management System)",
+    "path": "/semester_4/computer_science/dsm_252/2025_solved"
+  },
+  {
+    "title": "Philosophy DSM 251 252 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025<br>Philosophy: PHIDSM-251/252 (Logic)",
+    "path": "/semester_4/philosophy/dsm_251_252/2025_solved"
+  },
+  {
+    "title": "Philosophy DSC 252 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025<br>PHILOSOPHY (4th Semester)<br>Course No.: PHIDSC-252<br>[Classical Text: Indian]",
+    "path": "/semester_4/philosophy/dsc_252/2025_solved"
+  },
+  {
+    "title": "Philosophy DSC 251 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025<br>Philosophy: PHIDSC-251<br>(History of Modern Western Philosophy)",
+    "path": "/semester_4/philosophy/dsc_251/2025_solved"
+  },
+  {
+    "title": "Philosophy DSC 253 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025<br>PHILOSOPHY: PHIDSC-253<br>(Social and Political Philosophy)",
+    "path": "/semester_4/philosophy/dsc_253/2025_solved"
+  },
+  {
+    "title": "Statistics DSC 252 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 STATISTICS: Mathematical and Numerical Analysis (STADSC-252)",
+    "path": "/semester_4/statistics/dsc_252/2025_solved"
+  },
+  {
+    "title": "Statistics DSC 251 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 STATISTICS: Statistical Inference (STADSC-251)",
+    "path": "/semester_4/statistics/dsc_251/2025_solved"
+  },
+  {
+    "title": "Statistics DSM 252 Solved Question Paper - 2025 | 4th Semester - Knowlet",
+    "h1": "FYUG Even Semester Exam, 2025 STATISTICS: Mathematical Statistics (STADSM-252)",
+    "path": "/semester_4/statistics/dsm_252/2025_solved"
+  },
+  {
+    "title": "Economics IDC 101 Solved Question Paper - 2023 | 1st Semester - Knowlet",
+    "h1": "FYUG Odd Semester Exam, 2023 ECONOMICS (ECOIDC-101T)",
+    "path": "/semester_1/economics/idc_101/2023_solved"
+  },
+  {
+    "title": "Economics DSC 102 Solved Question Paper - 2023 | 1st Semester - Knowlet",
+    "h1": "FYUG Odd Semester Exam, 2023<br>ECONOMICS (ECODSC-102T)",
+    "path": "/semester_1/economics/dsc_102/2023_solved"
+  },
+  {
+    "title": "Economics DSM 101 Solved Question Paper - 2023 | 1st Semester - Knowlet",
+    "h1": "FYUG Odd Semester Exam, 2023<br>ECONOMICS (ECODSM-101T)",
+    "path": "/semester_1/economics/dsm_101/2023_solved"
+  },
+  {
+    "title": "Economics DSC 101 Solved Question Paper - 2023 | 1st Semester - Knowlet",
+    "h1": "FYUG Odd Semester Exam, 2023<br>ECONOMICS (ECODSC-101T)",
+    "path": "/semester_1/economics/dsc_101/2023_solved"
+  },
+  {
+    "title": "Economics SEC 101 Solved Question Paper - 2023 | 1st Semester - Knowlet",
+    "h1": "FYUG Odd Semester Exam, 2023 Business Project Formulation and Entrepreneurship Development",
+    "path": "/semester_1/economics/sec_101/2023_solved"
+  },
+  {
+    "title": "Political Science IDC 101 Solved Question Paper - 2023 | 1st Semester - Knowlet",
+    "h1": "Economics: Macroeconomics (ECOIDC-151)",
+    "path": "/semester_1/political_science/idc_101/2023_solved"
+  },
+  {
+    "title": "Political Science DSC 102 Solved Question Paper - 2023 | 1st Semester - Knowlet",
+    "h1": "Indian Government Politics (PLSDSC-102T)",
+    "path": "/semester_1/political_science/dsc_102/2023_solved"
+  },
+  {
+    "title": "Political Science DSM 101 Solved Question Paper - 2023 | 1st Semester - Knowlet",
+    "h1": "Introduction to Political Theory (PLSDSM-101T)",
+    "path": "/semester_1/political_science/dsm_101/2023_solved"
+  },
+  {
+    "title": "Political Science DSC 101 Solved Question Paper - 2023 | 1st Semester - Knowlet",
+    "h1": "Introduction to Political Theory (PLSDSC-101T) <br> FYUG Odd Semester Exam, 2023",
+    "path": "/semester_1/political_science/dsc_101/2023_solved"
+  },
+  {
+    "title": "Political Science SEC 101 Solved Question Paper - 2023 | 1st Semester - Knowlet",
+    "h1": "Legislative Support (PLSSEC-101T)",
+    "path": "/semester_1/political_science/sec_101/2023_solved"
+  },
+  {
+    "title": "Education IDC 101 Solved Question Paper - 2023 | 1st Semester - Knowlet",
+    "h1": "Introduction to Teaching and Learning FYUG Odd Semester Exam, 2023",
+    "path": "/semester_1/education/idc_101/2023_solved"
+  },
+  {
+    "title": "Ecology IDC 101 Solved Question Paper - 2023 | 1st Semester - Knowlet",
+    "h1": "ECOLOGY AND ENVIRONMENTAL SCIENCE (2023) FYUG Odd Semester Exam | EESIDC-101T",
+    "path": "/semester_1/ecology/idc_101/2023_solved"
+  },
+  {
+    "title": "History IDC 101 Solved Question Paper - 2023 | 1st Semester - Knowlet",
+    "h1": "History of Environment FYUG Odd Semester Exam, 2023",
+    "path": "/semester_1/history/idc_101/2023_solved"
+  },
+  {
+    "title": "History DSM 101 Solved Question Paper - 2023 | 1st Semester - Knowlet",
+    "h1": "History of India: From Earliest Times Till the Mauryan Period FYUG Odd Semester Exam, 2023 (Held in 2024)",
+    "path": "/semester_1/history/dsm_101/2023_solved"
+  },
+  {
+    "title": "History DSC 101 Solved Question Paper - 2023 | 1st Semester - Knowlet",
+    "h1": "History of India (Earliest Times to 300 BCE) FYUG Odd Semester Exam 2023",
+    "path": "/semester_1/history/dsc_101/2023_solved"
+  },
+  {
+    "title": "History SEC 101 Solved Question Paper - 2023 | 1st Semester - Knowlet",
+    "h1": "Archaeology and Museology FYUG Odd Semester Exam, 2023",
+    "path": "/semester_1/history/sec_101/2023_solved"
+  },
+  {
+    "title": "Philosophy IDC 101 Solved Question Paper - 2023 | 1st Semester - Knowlet",
+    "h1": "FYUG Odd Semester Exam, 2023 (Held in 2024)<br>PHILOSOPHY: PHIIDC-101T<br>Applied Ethics",
+    "path": "/semester_1/philosophy/idc_101/2023_solved"
+  },
+  {
+    "title": "Philosophy DSC 102 Solved Question Paper - 2023 | 1st Semester - Knowlet",
+    "h1": "FYUG Odd Semester Exam, 2023 (Held in 2024)<br>PHILOSOPHY: PHIDSC-102T<br>Epistemology and Metaphysics: Western",
+    "path": "/semester_1/philosophy/dsc_102/2023_solved"
+  },
+  {
+    "title": "Philosophy DSM 101 Solved Question Paper - 2023 | 1st Semester - Knowlet",
+    "h1": "FYUG Odd Semester Exam, 2023 (Held in 2024)<br>PHILOSOPHY: PHIDSM-101T<br>Epistemology and Metaphysics (Indian)",
+    "path": "/semester_1/philosophy/dsm_101/2023_solved"
+  },
+  {
+    "title": "Philosophy DSC 101 Solved Question Paper - 2023 | 1st Semester - Knowlet",
+    "h1": "FYUG Odd Semester Exam, 2023 (Held in 2024)<br>PHILOSOPHY: PHIDSC-101T<br>Epistemology and Metaphysics (Indian)",
+    "path": "/semester_1/philosophy/dsc_101/2023_solved"
+  },
+  {
+    "title": "Philosophy SEC 101 Solved Question Paper - 2023 | 1st Semester - Knowlet",
+    "h1": "FYUG Odd Semester Exam, 2023 (Held in 2024)<br>PHILOSOPHY: PHISEC-101T<br>Logic-I",
+    "path": "/semester_1/philosophy/sec_101/2023_solved"
+  },
+  {
+    "title": "Botany IDC 101 Solved Question Paper - 2023 | 1st Semester - Knowlet",
+    "h1": "FYUG Odd Semester Exam, 2023 (Held in 2024) BOTANY (Gardening and Nursery Management) Course No.: BOTIDC-101T",
+    "path": "/semester_1/botany/idc_101/2023_solved"
+  },
+  {
+    "title": "Botany DSC 102 Solved Question Paper - 2023 | 1st Semester - Knowlet",
+    "h1": "FYUG Odd Semester Exam, 2023 BOTANY (Phycology and Mycology) Paper: BOTDSC-102T",
+    "path": "/semester_1/botany/dsc_102/2023_solved"
+  },
+  {
+    "title": "Botany SEC 101 Solved Question Paper - 2023 | 1st Semester - Knowlet",
+    "h1": "FYUG Odd Semester Exam, 2023 (Held in 2024) BOTANY (Medicinal Plants and Herbal Technology) Course No.: BOTSEC-101T",
+    "path": "/semester_1/botany/sec_101/2023_solved"
   }
 ]

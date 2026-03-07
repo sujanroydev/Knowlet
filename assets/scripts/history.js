@@ -26,9 +26,15 @@ class HistoryManager {
                 })
             });
 
+            if(!res.status) {
+                console.error(`Failed to fetch, status code ${res.status}`);
+                this.showError('Failed to fetch history');
+            }
+
             const { data, error } = await res.json();
 
             if (error) {
+                console.error(error);
                 this.showError('Failed to fetch history, try to refresh the page!');
                 return;
             }

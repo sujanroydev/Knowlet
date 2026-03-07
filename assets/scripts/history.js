@@ -4,9 +4,14 @@ class HistoryManager {
         this.historyList = document.getElementById('history-list');
     }
 
+    showError(message) {
+        this.historyList.innerHTML =
+            `<li class="empty-message">${message}</li>`;
+    }
+
     async render() {
         if (!this.user) {
-            this.historyList.innerHTML = '<li class="empty-message">You are not Logged In, Try to login or Signup and start exploring the unit pages!</li>';
+            this.showError('You are not Logged In, Try to login or Signup and start exploring the unit pages!');
             return;
         }
 
@@ -20,14 +25,14 @@ class HistoryManager {
                     user_id: this.user.id
                 })
             });
-    
+
             const { data, error } = await res.json();
 
             if (error) {
-                this.historyList.innerHTML = '<li class="empty-message">Failed to fetch history, try to refresh the page!</li>';
+                this.showError('Failed to fetch history, try to refresh the page!');
                 return;
             }
-    
+
             let history = [];
             data.forEach((item) => {
                 JSON.parse(item.visit_time).forEach((ts) => {
@@ -48,12 +53,12 @@ class HistoryManager {
             });
 
             this.historyList.innerHTML = ''; // Clear loading message
-    
+
             if (history.length === 0) {
-                this.historyList.innerHTML = '<li class="empty-message">Your visit history is empty. Start exploring the unit pages!</li>';
+                this.showError('Your visit history is empty. Start exploring the unit pages!');
                 return;
             }
-    
+
             let tempUrl, tempTa;
             history.forEach(item => {
                 const time = Utils.timeAgo(new Date(item.timestamp).getTime());
@@ -71,7 +76,7 @@ class HistoryManager {
             });
         } catch(err) {
             console.error(err);
-            this.historyList.innerHTML = '<li class="empty-message">Failed to fetch data</li>';
+            this.showError('Failed to fetch data');
         }
     }
 };

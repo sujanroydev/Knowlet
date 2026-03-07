@@ -87,7 +87,6 @@
                 return dateB.localeCompare(dateA);
             });
 
-
             favouritesList.innerHTML = ''; // Clear loading message
     
             if (favs.length === 0) {

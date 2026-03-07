@@ -12,6 +12,8 @@ class Utils {
 
     static generateTitleFromURL(url) {
         let parts = url.replace(".html", "").split("/").slice(3);
+
+        let root = parts[0];
         let sem = parts[1].split("_").join(" ");
         sem = Utils.capitalize(sem);
 
@@ -22,7 +24,7 @@ class Utils {
 
         let semester = Utils.getSemester(parts[1].split("_")[1]);
 
-        return `${sub} ${paper} ${unit} | ${semester} Notes`;
+        return `${sub} ${paper} ${unit} | ${semester} ${root}`;
     }
 
     static timeAgo(unixMs) {

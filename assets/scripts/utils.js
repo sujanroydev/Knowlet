@@ -1,16 +1,9 @@
 class Utils {
     static getSemester(semNum) {
         const num = parseInt(semNum)
+        const semesters = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th'];
 
-        if (num == 1) return "1st Semester"
-        else if (num == 2) return "2nd Semester"
-        else if (num == 3) return "3rd Semester"
-        else if (num == 4) return "4th Semester"
-        else if (num == 5) return "5th Semester"
-        else if (num == 6) return "6th Semester"
-        else if (num == 7) return "7th Semester"
-        else if (num == 8) return "8th Semester"
-        else return "Unknown"
+        return num - 1 < 8 ? `${semesters[num - 1]} Semester` : '';
     }
 
     static capitalize(word) {

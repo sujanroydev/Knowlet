@@ -92,9 +92,13 @@
                     }
                 });
             });
-    
-            history.sort((a, b) => b.timestamp.localeCompare(a.timestamp));
-    
+
+            history.sort((a, b) => {
+                const dateA = a.timestamp ?? "";
+                const dateB = b.timestamp ?? "";
+                return dateB.localeCompare(dateA);
+            });
+
             historyList.innerHTML = ''; // Clear loading message
     
             if (history.length === 0) {

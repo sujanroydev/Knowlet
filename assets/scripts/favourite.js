@@ -81,8 +81,12 @@
                 return;
             }
 
-            favs.sort((a, b) => b.interactions_time.faved_at.localeCompare(a.interactions_time.faved_at));
-    
+            favs.sort((a, b) => {
+                const dateA = a.interactions_time.faved_at ?? "";
+                const dateB = b.interactions_time.faved_at ?? "";
+                return dateB.localeCompare(dateA);
+            });
+
             favouritesList.innerHTML = ''; // Clear loading message
     
             if (favs.length === 0) {

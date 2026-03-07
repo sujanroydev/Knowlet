@@ -7,11 +7,10 @@ class Utils {
     }
 
     static capitalize(word) {
-        return word.charAt(0).toUpperCase() + word.slice(1)
+        return word.charAt(0).toUpperCase() + word.slice(1);
     }
 
     static generateTitleFromURL(url) {
-
         let parts = url.replace(".html", "").split("/").slice(3);
         let sem = parts[1].split("_").join(" ");
         sem = Utils.capitalize(sem);
@@ -27,17 +26,17 @@ class Utils {
     }
 
     static timeAgo(unixMs) {
-        const now = Date.now()
-        const diffMs = now - unixMs
+        const now = Date.now();
+        const diffMs = now - unixMs;
 
-        const seconds = Math.floor(diffMs / 1000)
-        const minutes = Math.floor(seconds / 60)
-        const hours = Math.floor(minutes / 60)
-        const days = Math.floor(hours / 24)
+        const seconds = Math.floor(diffMs / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+        const days = Math.floor(hours / 24);
 
-        if (seconds < 60) return `${seconds} seconds ago`
-        if (minutes < 60) return `${minutes} minutes ago`
-        if (hours < 24) return `${hours} hours ago`
-        return `${days} days ago`
+        if (seconds < 60) return `${seconds} seconds ago`;
+        if (minutes < 60) return `${minutes} minutes ago`;
+        if (hours < 24) return `${hours} hours ago`;
+        return `${days} days ago`;
     }
 };

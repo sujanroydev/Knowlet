@@ -1,11 +1,17 @@
-(function () {
-    const user = JSON.parse(localStorage.getItem("knowletUser"));
-    const favouritesList = document.getElementById('favourites-list');
+class FavouriteManager {
+    constructor() {
+        this.user = JSON.parse(localStorage.getItem("knowletUser"));
+        this.favouritesList = document.getElementById('favourites-list');
+    }
 
-    async function renderFavourites() {
+    showError(message) {
+        this.favouritesList.innerHTML =
+            `<li class="empty-message">${message}</li>`;
+    }
 
-        if (!user) {
-            favouritesList.innerHTML = '<li class="empty-message">You are not Logged In, Try to login or Signup and start exploring the unit pages!</li>';
+    async render() {
+        if (!this.user) {
+            this.showError('You are not Logged In, Try to login or Signup and start exploring the unit pages!');
             return;
         }
 
@@ -16,14 +22,20 @@
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    user_id: user.id
+                    user_id: this.user.id
                 })
             });
-        
+
+            if(!res.ok) {
+                console.error(`Failed to fetch, status code: ${res.status}`);
+                this.showError('Failed to fetch history.');
+            }
+
             const { data: favs, error } = await res.json();
-    
+
             if (error) {
-                favouritesList.innerHTML = '<li class="empty-message">Failed to fetch data, try to refresh the page!</li>';
+                console.error(error);
+                this.showError('Failed to fetch data, try to refresh the page!');
                 return;
             }
 
@@ -33,26 +45,26 @@
                 return dateB.localeCompare(dateA);
             });
 
-            favouritesList.innerHTML = ''; // Clear loading message
-    
+            this.favouritesList.innerHTML = '';
+
             if (favs.length === 0) {
-                favouritesList.innerHTML = '<li class="empty-message">You have no pages marked as favourite yet. Go to a unit page and click "Add to Favourites"!</li>';
+                this.showError('You have no pages marked as favourite yet. Go to a unit page and click "Add to Favourites"!');
                 return;
             }
-    
+
             favs.forEach(item => {
-                const title = item.page_title ? item.page_title : generateTitleFromURL(item.page_id);
+                const title = item.page_title ? item.page_title : Utils.generateTitleFromURL(item.page_id);
                 const listItem = document.createElement('li');
                 listItem.innerHTML = `
                     <a href="${item.page_id}" title="Go to ${title}">${title}</a>
                 `;
-                favouritesList.appendChild(listItem);
+                this.favouritesList.appendChild(listItem);
             });
         } catch(err) {
             console.error(err);
-            favouritesList.innerHTML = '<li class="empty-message">Failed to fetch data</li>';
+            this.showError('Failed to fetch data');
         }
     }
+};
 
-    renderFavourites();
-})();
+new FavouriteManager().render();

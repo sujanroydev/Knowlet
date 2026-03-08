@@ -1,147 +1,159 @@
-const semestersDiv = document.getElementById("semesters");
-const popup = document.getElementById("popup");
-const popupTitle = document.getElementById("popup-title");
-const popupBody = document.getElementById("popup-body");
-const popupContent = document.getElementById("popup-content");
-const imgPopup = document.getElementById("img-popup");
-const popupImage = document.getElementById("popup-image");
-const imgTitle = document.getElementById("img-title");
-const user = JSON.parse(localStorage.getItem("knowletUser"));
-let notes = {d: "dff"};
-let loader = document.getElementById("loader");
-// JavaScript to read localStorage, populate the list, and calculate the animation width
+class PWAHandler {
+    constructor(installBtnId, downloadBtnId) {
+        this.installBtn = document.getElementById(installBtnId);
+        this.downloadBtn = document.getElementById(downloadBtnId);
+        this.deferredPrompt = null;
+        this.init();
+    }
 
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js');
+    init() {
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js');
+        }
+
+        window.addEventListener("beforeinstallprompt", (e) => {
+            e.preventDefault();
+            this.deferredPrompt = e;
+            if (this.installBtn) this.installBtn.style.display = "";
+            if (this.downloadBtn) this.downloadBtn.style.display = "none";
+        });
+
+        if (this.installBtn) {
+            this.installBtn.addEventListener("click", () => this.handleInstall());
+        }
+    }
+
+    async handleInstall() {
+        if (!this.deferredPrompt) return;
+        this.deferredPrompt.prompt();
+        const { outcome } = await this.deferredPrompt.userChoice;
+        console.log(`User response to install: ${outcome}`);
+        this.deferredPrompt = null;
+    }
 }
 
-let deferredPrompt;
-
-window.addEventListener("beforeinstallprompt", (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-
-    document.getElementById("installBtn").style.display = "";
-    document.getElementById("download-btn").style.display = "none";
-});
-
-document.getElementById("installBtn").addEventListener("click", async () => {
-    if (!deferredPrompt) return;
-
-    deferredPrompt.prompt();  // show install popup
-
-    const result = await deferredPrompt.userChoice;
-
-    deferredPrompt = null;
-});
-
-(function () {
-    const scrollContent = document.getElementById('scroll-content');
-
-    function getRandomColor() {
-        return '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
-    }
-    
-    // Helper function to format the timestamp
-    function formatTime(timestamp) {
-        if (!timestamp) return '';
-        const date = new Date(timestamp);
-        return date.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' });
+class HistoryManager {
+    constructor(apiEndpoint, userData) {
+        this.apiEndpoint = apiEndpoint;
+        this.user = userData;
     }
 
-    async function renderScrollingHistory() {
-        if (!user) {
-            scrollContent.innerHTML = '<div class="empty-message-scroll">You are not Logged In, Try to login or Signup and start exploring the unit pages!</div>';
-            return;
-        }
-        
-        let data, error
-        try {
-            const res = await fetch('https://knowlet.in/.netlify/functions/get-history', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    user_id: user.id
-                })
-            });
-    
-            ({ data, error } = await res.json());
-        } catch(err) {
-            console.error(err);
-            scrollContent.innerHTML = '<div class="empty-message-scroll">Failed to fetch data</div>';
-        }
+    async fetchHistory() {
+        if (!this.user) throw new Error("USER_NOT_LOGGED_IN");
 
-        if (error) {
-            scrollContent.innerHTML = '<div class="empty-message-scroll">Failed to fetch history, try to refresh the page!</div>';
-            return;
-        } 
+        const res = await fetch(this.apiEndpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ user_id: this.user.id })
+        });
 
+        const { data, error } = await res.json();
+        if (error) throw new Error("FETCH_ERROR");
+
+        return this.processData(data);
+    }
+
+    processData(data) {
         let history = [];
         data.forEach((item) => {
-            JSON.parse(item.visit_time).forEach((ts) => {
+            const visitTimes = JSON.parse(item.visit_time);
+            visitTimes.forEach((ts) => {
                 if (ts) {
                     history.push({
                         url: item.page_id,
                         title: item.page_title,
                         timestamp: ts
-                    })
+                    });
                 }
             });
         });
+        return history.sort((a, b) => b.timestamp.localeCompare(a.timestamp));
+    }
+}
 
-        history.sort((a, b) => b.timestamp.localeCompare(a.timestamp));
+class HistoryUI {
+    constructor(containerId) {
+        this.container = document.getElementById(containerId);
+    }
 
-        scrollContent.innerHTML = ''; // Clear loading message
+    getRandomColor() {
+        return '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+    }
 
-        if (history.length === 0) {
-            scrollContent.innerHTML = '<div class="empty-message-scroll">Your history is empty. Visit some unit pages to track them here!</div>';
+    formatTime(timestamp) {
+        if (!timestamp) return '';
+        return new Date(timestamp).toLocaleString('en-US', { 
+            month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' 
+        });
+    }
+
+    showError(message) {
+        this.container.innerHTML = `<div class="empty-message-scroll">${message}</div>`;
+    }
+
+    render(historyItems) {
+        if (historyItems.length === 0) {
+            this.showError("Your history is empty. Visit some unit pages!");
             return;
         }
 
-        history.forEach((item, index) => {
-            const historyItem = document.createElement('div');
-            historyItem.className = 'history-scroll-item';
-            
-            // Get a random color
-            const randomColor = getRandomColor();
-
-            // Apply the random color for styling
-            historyItem.style.backgroundColor = `rgba(255, 255, 255, 0.95)`; // Slightly off-white background
-            historyItem.style.borderLeftColor = randomColor; // Vibrant color on the left border
-            historyItem.style.boxShadow = `0 2px 5px ${randomColor}33`; // Subtle shadow matching the border color
-
-            // Apply a staggered delay for the fade-in animation
-            historyItem.style.animationDelay = `${index * 0.08}s`; 
-
-            historyItem.innerHTML = `
-                <a href="${item.url}" title="${item.title}" style="color: ${randomColor};">${item.title}</a>
-                <span class="timestamp">${formatTime(item.timestamp)}</span>
+        this.container.innerHTML = '';
+        historyItems.forEach((item, index) => {
+            const color = this.getRandomColor();
+            const div = document.createElement('div');
+            div.className = 'history-scroll-item';
+            div.style.cssText = `
+                background-color: rgba(255, 255, 255, 0.95);
+                border-left-color: ${color};
+                box-shadow: 0 2px 5px ${color}33;
+                animation-delay: ${index * 0.08}s;
             `;
-            scrollContent.appendChild(historyItem);
+
+            div.innerHTML = `
+                <a href="${item.url}" title="${item.title}" style="color: ${color};">${item.title}</a>
+                <span class="timestamp">${this.formatTime(item.timestamp)}</span>
+            `;
+            this.container.appendChild(div);
         });
 
-        // --- LOGIC FOR AUTO-SCROLLING (Remains the same) ---
-
-        const itemWidth = 215; 
-        const totalContentWidth = history.length * itemWidth;
-        scrollContent.style.width = `${totalContentWidth}px`;
-        
-        const style = document.createElement('style');
-        const marqueeFrames = `
-            @keyframes marquee {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(-${totalContentWidth}px); }
-            }
-        `;
-        
-        const duration = history.length * 3; 
-        scrollContent.style.animationDuration = `${duration}s`;
-        
-        style.textContent = marqueeFrames;
-        document.head.appendChild(style);
+        this.applyMarquee(historyItems.length);
     }
 
-    renderScrollingHistory();
-})();
+    applyMarquee(count) {
+        const itemWidth = 215;
+        const totalWidth = count * itemWidth;
+        this.container.style.width = `${totalWidth}px`;
+        this.container.style.animationDuration = `${count * 3}s`;
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes marquee {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-${totalWidth}px); }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+    const pwa = new PWAHandler("installBtn", "download-btn");
+    const ui = new HistoryUI("scroll-content");
+    const user = JSON.parse(localStorage.getItem("knowletUser"));
+
+    const manager = new HistoryManager(
+        'https://knowlet.in/.netlify/functions/get-history', 
+        user
+    );
+
+    try {
+        const historyData = await manager.fetchHistory();
+        ui.render(historyData);
+    } catch (err) {
+        if (err.message === "USER_NOT_LOGGED_IN") {
+            ui.showError("You are not Logged In.");
+        } else {
+            ui.showError("Failed to fetch history, try refreshing!");
+        }
+    }
+});

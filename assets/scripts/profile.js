@@ -1,19 +1,22 @@
 class ProfileManager {
-        const loginBtn = document.getElementById("login-btn");
-        const SignupBtn = document.getElementById("signup-btn");
-        const logoutBtn = document.getElementById("logout-btn");
+    constructor() {
+        this.loginBtn = document.getElementById("login-btn");
+        this.SignupBtn = document.getElementById("signup-btn");
+        this.logoutBtn = document.getElementById("logout-btn");
         
-        const userName = document.getElementById("username");
-        const email = document.getElementById("email");
-        const userId = document.getElementById("userid");
-        const profilePic = document.getElementById("profile-pic");
-        const loader = document.getElementById("loader");
-        const recentActivityView = document.getElementById("recent-activity-view");
+        this.userName = document.getElementById("username");
+        this.email = document.getElementById("email");
+        this.userId = document.getElementById("userid");
+        this.profilePic = document.getElementById("profile-pic");
+        this.loader = document.getElementById("loader");
+        this.recentActivityView = document.getElementById("recent-activity-view");
         
-        let isExist = false;
-        let user = localStorage.getItem("knowletUser");
-        
-        profilePic.addEventListener("click", () => {
+        this.isExist = false;
+        this.user = localStorage.getItem("knowletUser");
+    }
+    
+    initEvent() {
+        this.profilePic.addEventListener("click", () => {
             if (isExist) {
                 window.location.href = '/profile_complition_form';
             } else {
@@ -21,11 +24,12 @@ class ProfileManager {
             }
         });
         
-        logoutBtn.addEventListener("click", () => {
+        this.logoutBtn.addEventListener("click", () => {
             if (confirm("Logout?")) {
                 logout();
             }
         });
+    }
     
     logout() {
         localStorage.removeItem("knowletUser");

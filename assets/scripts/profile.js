@@ -13,6 +13,8 @@ class ProfileManager {
         
         this.isExist = false;
         this.user = localStorage.getItem("knowletUser");
+        
+        this.initEvent();
     }
     
     initEvent() {
@@ -544,4 +546,4 @@ class ProfileManager {
     }
 }
 
-sync();
+new ProfileManager();

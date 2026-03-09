@@ -15,6 +15,7 @@ class ProfileManager {
         this.user = localStorage.getItem("knowletUser");
         
         this.initEvent();
+        this.sync();
     }
     
     initEvent() {
@@ -97,7 +98,7 @@ class ProfileManager {
                 'https://knowlet.in/.netlify/functions/get-data',
                 {
                     method: 'POST',
-                    header: {'Content-Type': 'application/json'},
+                    headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({ email: this.user.email, password: this.user.password })
                 }
             );
@@ -146,12 +147,12 @@ class ProfileManager {
             const [res1, res2] = await Promise.all([
                 fetch('https://knowlet.in/.netlify/functions/get-comments', {
                     method: 'POST',
-                    header: {'Content-Type': 'application/json'},
+                    headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({ userId: this.user.id })
                 }),
                 fetch('https://knowlet.in/.netlify/functions/get-interactions', {
                     method: 'POST',
-                    header: {'Content-Type': 'application/json'},
+                    headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({ user_id: this.user.id })
                 })
             ]);
@@ -251,7 +252,8 @@ class ProfileManager {
         interactions.forEach(i => {
             if (i.ratings_score) timestamps.push(new Date(i.interactions_time.rated_at).getTime());
             if (i.is_faved) timestamps.push(new Date(i.interactions_time.faved_at).getTime());
-        });
+            if (i.is_liked) timestamps.push(new Date(i.interactions_time.faved_at).getTime());
+            });
     
         // ❗ Only count meaningful actions (no likes)
         const streakData = this.calculate7DayStreak(timestamps);
@@ -511,4 +513,6 @@ class ProfileManager {
     }
 }
 
-new ProfileManager();
+document.addEventListener("DOMContentLoaded", () => {
+    new ProfileManager();
+});

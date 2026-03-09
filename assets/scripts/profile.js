@@ -17,7 +17,7 @@ class ProfileManager {
     
     initEvent() {
         this.profilePic.addEventListener("click", () => {
-            if (isExist) {
+            if (this.isExist) {
                 window.location.href = '/profile_complition_form';
             } else {
                 window.location.href = '/login_signup';
@@ -26,7 +26,7 @@ class ProfileManager {
         
         this.logoutBtn.addEventListener("click", () => {
             if (confirm("Logout?")) {
-                logout();
+                this.logout();
             }
         });
     }
@@ -34,8 +34,8 @@ class ProfileManager {
     logout() {
         localStorage.removeItem("knowletUser");
     
-        user = null;
-        isExist = false;
+        this.user = null;
+        this.isExist = false;
     
         try {
             document.getElementById("profile-btn").src = "assets/images/demo_pp.jpg";
@@ -43,12 +43,12 @@ class ProfileManager {
             console.error(err);
         }
     
-        recentActivityView.innerHTML = `<p class="empty-message">You are Logged Out, Try to login again</p>`;
+        this.recentActivityView.innerHTML = `<p class="empty-message">You are Logged Out, Try to login again</p>`;
     
-        userName.textContent = "Your Name";
-        email.textContent = "yourname@example.com";
-        userId.textContent = "User ID";
-        profilePic.src = "assets/images/demo_pp.jpg";
+        this.userName.textContent = "Your Name";
+        this.email.textContent = "yourname@example.com";
+        this.userId.textContent = "User ID";
+        this.profilePic.src = "assets/images/demo_pp.jpg";
     
         // Reset Stats Numbers
         document.getElementById("stat-comments").textContent = "0";
@@ -74,33 +74,33 @@ class ProfileManager {
         progressElement.classList.remove("complete");
         progressElement.setAttribute("data-progress", "0% Complete");
     
-        loginBtn.style.display = "inline-block";
-        SignupBtn.style.display = "inline-block";
-        logoutBtn.style.display = "none";
+        this.loginBtn.style.display = "inline-block";
+        this.SignupBtn.style.display = "inline-block";
+        this.logoutBtn.style.display = "none";
     }
     
     async sync() {
-        if (!user) {
-            recentActivityView.innerHTML = `<p class="empty-message">You are not Logged In, Try to login or Signup and start exploring the unit pages!</p>`;
+        if (!this.user) {
+            this.recentActivityView.innerHTML = `<p class="empty-message">You are not Logged In, Try to login or Signup and start exploring the unit pages!</p>`;
             return;
         }
     
-        user = JSON.parse(user);
-        fetchActivity();
+        this.user = JSON.parse(this.user);
+        this.fetchActivity();
     
         try {
-            loader.style.display = "flex";
+            this.loader.style.display = "flex";
             
             const res = await fetch(
                 'https://knowlet.in/.netlify/functions/get-data',
                 {
                     method: 'POST',
                     header: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({ email: user.email, password: user.password })
+                    body: JSON.stringify({ email: this.user.email, password: this.user.password })
                 }
             );
             
-            loader.style.display = "none";
+            this.loader.style.display = "none";
             
             if (!res.ok) {
                 throw new Error(`HTTP error! status: ${res.status}`);
@@ -113,30 +113,30 @@ class ProfileManager {
             }
             
             if (!error && data) {
-                user = data[0];
+                this.user = data[0];
             }
             
-            renderUserInfo();
+            this.renderUserInfo();
         } catch(e) {
             console.error(e);
-            renderUserInfo();
-            loader.style.display = "none";
+            this.renderUserInfo();
+            this.loader.style.display = "none";
         }
     }
     
     renderUserInfo() {
-        if (!user) return;
-        localStorage.setItem("knowletUser", JSON.stringify(user));
+        if (!this.user) return;
+        localStorage.setItem("knowletUser", JSON.stringify(this.user));
     
-        userName.textContent = user.name;
-        email.textContent = '' + user.email;
-        userId.textContent = user.id;
-        profilePic.src = user.picture || "assets/images/demo_pp.jpg";
+        this.userName.textContent = this.user.name;
+        this.email.textContent = '' + this.user.email;
+        this.userId.textContent = this.user.id;
+        this.profilePic.src = this.user.picture || "assets/images/demo_pp.jpg";
     
-        isExist = true;
-        loginBtn.style.display = "none";
-        SignupBtn.style.display = "none";
-        logoutBtn.style.display = "block";
+        this.isExist = true;
+        this.loginBtn.style.display = "none";
+        this.SignupBtn.style.display = "none";
+        this.logoutBtn.style.display = "block";
     }
     
     async fetchActivity() {
@@ -145,12 +145,12 @@ class ProfileManager {
                 fetch('https://knowlet.in/.netlify/functions/get-comments', {
                     method: 'POST',
                     header: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({ userId: user.id })
+                    body: JSON.stringify({ userId: this.user.id })
                 }),
                 fetch('https://knowlet.in/.netlify/functions/get-interactions', {
                     method: 'POST',
                     header: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({ user_id: user.id })
+                    body: JSON.stringify({ user_id: this.user.id })
                 })
             ]);
             
@@ -164,11 +164,11 @@ class ProfileManager {
                 res2.json()
             ]);
             
-            renderRecentActivity(comments, interactions);
-            renderStats(comments, interactions);
+            this.renderRecentActivity(comments, interactions);
+            this.renderStats(comments, interactions);
         } catch(err) {
             console.error(err);
-            recentActivityView.innerHTML = `<p class="empty-message">Failed to fetch recent activity</p>`;
+            this.recentActivityView.innerHTML = `<p class="empty-message">Failed to fetch recent activity</p>`;
         }
     }
     
@@ -222,7 +222,7 @@ class ProfileManager {
                 ` : '' ;
         });
     
-        recentActivityView.innerHTML = recentActivityItems || `<p class="empty-message">No recent activity, visit notes, like, rate or comment </p>`;
+        this.recentActivityView.innerHTML = recentActivityItems || `<p class="empty-message">No recent activity, visit notes, like, rate or comment </p>`;
     }
     
     renderStats(comments = [], interactions = []) {
@@ -252,7 +252,7 @@ class ProfileManager {
         });
     
         // ❗ Only count meaningful actions (no likes)
-        const streakData = calculate7DayStreak(timestamps);
+        const streakData = this.calculate7DayStreak(timestamps);
         
         document.getElementById("streak-text").textContent =
             streakData.currentStreak > 0
@@ -264,11 +264,11 @@ class ProfileManager {
                 ? "❄ Freeze used"
                 : "No freeze used";
     
-        renderStreakCircles(streakData.days);
+        this.renderStreakCircles(streakData.days);
     
         // 🏆 LEVEL
     
-        const levelData = getLevelData(
+        const levelData = this.getLevelData(
             totalComments,
             totalRatings,
             totalFavs,
@@ -291,10 +291,10 @@ class ProfileManager {
         
         let score = 0;
         
-        if (user.name) score += 20;
-        if (user.picture && !user.picture.includes("demo_pp")) score += 20;
-        if (user.stream) score += 20;
-        if (user.fv_subject) score += 20;
+        if (this.user.name) score += 20;
+        if (this.user.picture && !this.user.picture.includes("demo_pp")) score += 20;
+        if (this.user.stream) score += 20;
+        if (this.user.fv_subject) score += 20;
         if (totalInteractions > 0) score += 20;
         
         const progressElement = document.getElementById("profile-progress");
@@ -385,7 +385,7 @@ class ProfileManager {
             days,
             currentStreak,
             freezeUsed,
-            longest: calculateLongestStreak(activeDays)
+            longest: this.calculateLongestStreak(activeDays)
         };
     }
     

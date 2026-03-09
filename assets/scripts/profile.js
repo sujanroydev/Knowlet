@@ -302,19 +302,7 @@ class ProfileManager {
         const progressElement = document.getElementById("profile-progress");
         
         // 🎨 Determine color based on score
-        getProgressColor(percent) {
-        
-            if (percent < 50) {
-                // Red zone
-                return "#ef4444";   // red
-            } else if (percent < 80) {
-                // Yellow zone
-                return "#facc15";   // yellow
-            } else {
-                // Green zone
-                return "#22c55e";   // green
-            }
-        }
+        const getProgressColor = (s) => s < 50 ? "#ef4444" : s < 80 ? "#facc15" : "#22c55e";
         
         const color = getProgressColor(score);
         

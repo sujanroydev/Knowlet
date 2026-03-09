@@ -454,29 +454,6 @@ class ProfileManager {
         });
     }
     
-    calculateStreak(timestamps) {
-    
-        if (!timestamps.length) return 0;
-    
-        const days = [...new Set(
-            timestamps.map(t => new Date(t).toDateString())
-        )].sort((a, b) => new Date(b) - new Date(a));
-    
-        let streak = 0;
-        let today = new Date().toDateString();
-    
-        for (let i = 0; i < days.length; i++) {
-            if (days[i] === today) {
-                streak++;
-                today = new Date(Date.now() - 86400000 * (i + 1)).toDateString();
-            } else {
-                break;
-            }
-        }
-    
-        return streak;
-    }
-    
     calculateLongestStreak(activeDaysSet) {
     
         const days = Array.from(activeDaysSet).sort((a, b) => a - b);

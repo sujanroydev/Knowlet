@@ -1,7 +1,7 @@
+class ProfileManager {
     const loginBtn = document.getElementById("login-btn");
     const SignupBtn = document.getElementById("signup-btn");
     const logoutBtn = document.getElementById("logout-btn");
-    // const comProfileBtn = document.getElementById("com-profile-btn");
     
     const userName = document.getElementById("username");
     const email = document.getElementById("email");
@@ -27,7 +27,7 @@
         }
     });
     
-    function logout() {
+    logout() {
         localStorage.removeItem("knowletUser");
     
         user = null;
@@ -75,7 +75,7 @@
         logoutBtn.style.display = "none";
     }
     
-    async function sync() {
+    async sync() {
         if (!user) {
             recentActivityView.innerHTML = `<p class="empty-message">You are not Logged In, Try to login or Signup and start exploring the unit pages!</p>`;
             return;
@@ -120,7 +120,7 @@
         }
     }
     
-    function renderUserInfo() {
+    renderUserInfo() {
         if (!user) return;
         localStorage.setItem("knowletUser", JSON.stringify(user));
     
@@ -135,7 +135,7 @@
         logoutBtn.style.display = "block";
     }
     
-    async function fetchActivity() {
+    async fetchActivity() {
         try {
             const [res1, res2] = await Promise.all([
                 fetch('https://knowlet.in/.netlify/functions/get-comments', {
@@ -168,7 +168,7 @@
         }
     }
     
-    function renderRecentActivity(comments = [], interactions = []) {
+    renderRecentActivity(comments = [], interactions = []) {
         comments = comments.map(c => {
             return {
                 state: 'Commented',
@@ -221,7 +221,7 @@
         recentActivityView.innerHTML = recentActivityItems || `<p class="empty-message">No recent activity, visit notes, like, rate or comment </p>`;
     }
     
-    function renderStats(comments = [], interactions = []) {
+    renderStats(comments = [], interactions = []) {
     
         const totalComments = comments.length;
         const totalLikes = interactions.filter(i => i.is_liked).length;
@@ -296,7 +296,7 @@
         const progressElement = document.getElementById("profile-progress");
         
         // 🎨 Determine color based on score
-        function getProgressColor(percent) {
+        getProgressColor(percent) {
         
             if (percent < 50) {
                 // Red zone
@@ -328,7 +328,7 @@
     
     }
     
-    function calculate7DayStreak(timestamps) {
+    calculate7DayStreak(timestamps) {
     
         const today = new Date();
         today.setHours(0, 0, 0, 0);
@@ -385,7 +385,7 @@
         };
     }
     
-    function renderStreakCircles(days) {
+    renderStreakCircles(days) {
     
         const row = document.getElementById("streak-row");
         row.innerHTML = "";
@@ -448,7 +448,7 @@
         });
     }
     
-    function calculateStreak(timestamps) {
+    calculateStreak(timestamps) {
     
         if (!timestamps.length) return 0;
     
@@ -471,7 +471,7 @@
         return streak;
     }
     
-    function calculateLongestStreak(activeDaysSet) {
+    calculateLongestStreak(activeDaysSet) {
     
         const days = Array.from(activeDaysSet).sort((a, b) => a - b);
     
@@ -495,7 +495,7 @@
         return longest;
     }
     
-    function getLevelData(totalComments, totalRatings, totalFavs, totalLikes) {
+    getLevelData(totalComments, totalRatings, totalFavs, totalLikes) {
     
         // XP weights
         const xp =
@@ -538,5 +538,6 @@
             progressPercent: Math.min(progressPercent, 100)
         };
     }
-    
-    sync();
+}
+
+sync();

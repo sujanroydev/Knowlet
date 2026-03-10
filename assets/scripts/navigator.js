@@ -21,7 +21,7 @@ class Navigator {
             .catch(err => {console.error("Failed to load notes.json:", err);});
         this.initEvents();
     }
-    
+
     initEvents() {
         document.getElementById("back-btn").addEventListener("click", () => this.goBack());
         document.getElementById("notes-btn").addEventListener("click", () => this.loadJson("notes"));
@@ -50,7 +50,7 @@ class Navigator {
             this.createPage();
         });
     }
-    
+
     loadJson(name) {
         this.root = name;
         this.prevClicks = [this.root];
@@ -72,7 +72,7 @@ class Navigator {
                 }
             });
     }
-    
+
     initiateSetup() {
         this.syncStateFromURL();
         this.setupHistoryStack();
@@ -84,7 +84,7 @@ class Navigator {
     
         this.createPage();
     }
-    
+
     syncStateFromURL() {
         const params = new URLSearchParams(window.location.search);
         const keys = ["sem", "sub", "ppr", "unit"];
@@ -98,7 +98,7 @@ class Navigator {
             }
         }
     }
-    
+
     setupHistoryStack() {
         const keys = ["root", "sem", "sub", "ppr", "unit"];
         const params = new URLSearchParams(window.location.search);
@@ -128,7 +128,7 @@ class Navigator {
     
         this.prevClicks = baseClicks.length ? [...baseClicks] : [this.root];
     }
-    
+
     generateItems() {
         const notesArr = this.data;
     
@@ -161,7 +161,7 @@ class Navigator {
             window.location.href = this.prevClicks.join("/");
         }
     }
-    
+
     createPage() {
     
         const contents = this.generateItems();
@@ -177,14 +177,14 @@ class Navigator {
     
         this.renderContent(title, subTitle, path, contents);
     }
-    
+
     renderContent(title, subTitle, path, contents) {
         document.getElementById("title").textContent = title;
         document.getElementById("sub-title").textContent = subTitle;
         document.getElementById("path").innerHTML = path;
         document.getElementById("contents").innerHTML = contents;
     }
-    
+
     navigateTo(level) {
         this.prevClicks.push(level);
     
@@ -196,7 +196,7 @@ class Navigator {
     
         this.createPage();
     }
-    
+
     buildURL() {
         const keys = ["root", "sem", "sub", "ppr", "unit"];
         const params = new URLSearchParams();
@@ -209,7 +209,7 @@ class Navigator {
     
         return "/navigator?" + params.toString();
     }
-    
+
     navigateBackTo(level) {
     
         const index = this.prevClicks.indexOf(level);
@@ -224,13 +224,13 @@ class Navigator {
     
         this.createPage();
     }
-    
+
     getState() {
         return {
             prevClicks: [...this.prevClicks]
         };
     }
-    
+
     goBack() {
         if (this.prevClicks.length === 1) {
             window.location.href = "/";

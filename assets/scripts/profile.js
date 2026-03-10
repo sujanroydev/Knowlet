@@ -17,7 +17,7 @@ class ProfileManager {
         this.initEvent();
         this.sync();
     }
-    
+
     initEvent() {
         this.profilePic.addEventListener("click", () => {
             if (this.isExist) {
@@ -33,7 +33,7 @@ class ProfileManager {
             }
         });
     }
-    
+
     logout() {
         localStorage.removeItem("knowletUser");
     
@@ -81,7 +81,7 @@ class ProfileManager {
         this.SignupBtn.style.display = "inline-block";
         this.logoutBtn.style.display = "none";
     }
-    
+
     async sync() {
         if (!this.user) {
             this.recentActivityView.innerHTML = `<p class="empty-message">You are not Logged In, Try to login or Signup and start exploring the unit pages!</p>`;
@@ -126,7 +126,7 @@ class ProfileManager {
             this.loader.style.display = "none";
         }
     }
-    
+
     renderUserInfo() {
         if (!this.user) return;
         localStorage.setItem("knowletUser", JSON.stringify(this.user));
@@ -141,7 +141,7 @@ class ProfileManager {
         this.SignupBtn.style.display = "none";
         this.logoutBtn.style.display = "block";
     }
-    
+
     async fetchActivity() {
         try {
             const [res1, res2] = await Promise.all([
@@ -174,7 +174,7 @@ class ProfileManager {
             this.recentActivityView.innerHTML = `<p class="empty-message">Failed to fetch recent activity</p>`;
         }
     }
-    
+
     renderRecentActivity(comments = [], interactions = []) {
         comments = comments.map(c => {
             return {
@@ -227,7 +227,7 @@ class ProfileManager {
     
         this.recentActivityView.innerHTML = recentActivityItems || `<p class="empty-message">No recent activity, visit notes, like, rate or comment </p>`;
     }
-    
+
     renderStats(comments = [], interactions = []) {
     
         const totalComments = comments.length;
@@ -323,7 +323,7 @@ class ProfileManager {
         }
     
     }
-    
+
     calculate7DayStreak(timestamps) {
     
         const today = new Date();
@@ -380,7 +380,7 @@ class ProfileManager {
             longest: this.calculateLongestStreak(activeDays)
         };
     }
-    
+
     renderStreakCircles(days) {
     
         const row = document.getElementById("streak-row");
@@ -443,7 +443,7 @@ class ProfileManager {
             }
         });
     }
-    
+
     calculateLongestStreak(activeDaysSet) {
     
         const days = Array.from(activeDaysSet).sort((a, b) => a - b);
@@ -467,7 +467,7 @@ class ProfileManager {
     
         return longest;
     }
-    
+
     getLevelData(totalComments, totalRatings, totalFavs, totalLikes) {
     
         // XP weights

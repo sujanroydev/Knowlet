@@ -32,7 +32,7 @@ class NavBar {
     
         this.setActiveNav();
     }
-    
+
     setActiveNav() {
         const navItems = document.querySelectorAll(".nav-item");
         let currentPagePath = window.location.pathname.replace('.html', '');

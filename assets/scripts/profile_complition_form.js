@@ -3,17 +3,11 @@ class ProfileCPManager {
         this.imgInput = document.getElementById("input-image");
         this.input = document.getElementsByClassName("user-input");
         this.inputEdu = document.getElementById("sltEdu")
-        this.btnSubmit = document.getElementById("submit-btn");
         this.profilePic = document.getElementById("profile-pic");
-        this.editBtn = document.getElementById("edit");
-        this.saveBtn = document.getElementById("save");
-        this.cancelBtn = document.getElementById("cancel");
         this.imgPreview = document.getElementById("img-preview");
         this.editPopup = document.getElementById("edit-popup");
         this.loginPopup = document.getElementById("login-popup");
         this.loader = document.getElementById("loader");
-        
-        this.rdtLgnBtn = document.getElementById("redirect-to-login-btn");
         
         this.userId;
         
@@ -25,17 +19,8 @@ class ProfileCPManager {
         
         this.initEvents();
     }
-    
+
     initEvents() {
-        this.profilePic.addEventListener("click", () => {
-            this.editPopup.style.display = "flex";
-            this.imgPreview.src = this.profilePic.src;
-        });
-        
-        this.editBtn.addEventListener("click", () => {
-            this.imgInput.click()
-        });
-        
         this.imgInput.addEventListener("change", () => {
             const file = this.imgInput.files[0];
             if (!file) return;
@@ -44,21 +29,21 @@ class ProfileCPManager {
             this.imgPreview.style.display = "";
         });
         
-        this.saveBtn.addEventListener("click", () => {
-            this.uploadAvatar();
+        this.profilePic.addEventListener("click", () => {
+            this.editPopup.style.display = "flex";
+            this.imgPreview.src = this.profilePic.src;
         });
         
-        this.cancelBtn.addEventListener("click", () => {
-            this.editPopup.style.display = "none";
-        });
+        document.getElementById("edit").addEventListener("click", () => this.imgInput.click());
+        document.getElementById("save").addEventListener("click", () => this.uploadAvatar());
+        document.getElementById("cancel").addEventListener("click", () => this.editPopup.style.display = "none");
         
-        this.rdtLgnBtn.addEventListener("click", () => {
-            // alert()
+        document.getElementById("redirect-to-login-btn").addEventListener("click", () => {
             this.loginPopup.style.display = "none";
             window.location.href = "/login_signup";
         });
         
-        this.btnSubmit.addEventListener("click", async () => {
+        document.getElementById("submit-btn").addEventListener("click", async () => {
             
             const name = this.input[0].value;
             const email = this.input[1].value;
@@ -96,8 +81,8 @@ class ProfileCPManager {
             await this.sync()
         });
     }
-    
-    load() {
+
+    renderValues() {
         const user = JSON.parse(localStorage.getItem("knowletUser"));
         
         document.getElementById("user-id").textContent = "Your User ID: " + this.userId;
@@ -110,7 +95,7 @@ class ProfileCPManager {
         this.inputEdu.value = user.standered ? user.standered : "";
         this.profilePic.src = user.picture || "assets/images/demo_pp.jpg";
     }
-    
+
     async sync() {
         
         const user = JSON.parse(localStorage.getItem("knowletUser"));
@@ -145,7 +130,7 @@ class ProfileCPManager {
             console.log(e)
         }
     }
-    
+
     async uploadAvatar() {
         const originalFile = this.imgInput.files[0];
     
@@ -203,7 +188,7 @@ class ProfileCPManager {
         this.editPopup.style.display = "none";
         this.profilePic.src = result.publicUrl + "?t=" + Date.now();
     }
-    
+
     compressWithCanvas(file, quality = 0.7, maxSize = 512) {
         return new Promise((resolve) => {
             const img = new Image();
@@ -232,4 +217,4 @@ class ProfileCPManager {
     }
 }
 
-new ProfileCPManager().load();
+new ProfileCPManager().renderValues();

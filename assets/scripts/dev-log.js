@@ -1,4 +1,4 @@
-const GITHUB_USERNAME = 'SKR0411'
+const GITHUB_USERNAME = 'sujankumarroy'
 const REPO_NAME = 'Knowlet'
 
 async function fetchRepoInfo(){

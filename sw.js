@@ -5,6 +5,7 @@ const STATIC_ASSETS = [
     '/',
     '/offline',
     '/about',
+    '/help',
     '/legal/declaration',
     '/legal/privacy-policy',
     '/legal/terms-and-conditions',

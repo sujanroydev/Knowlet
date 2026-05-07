@@ -26,7 +26,7 @@ export default async (request) => {
     if (ADMIN_PASSWORD !== process.env.ADMIN_PASSWORD) {
       return new Response(
         JSON.stringify({ success: false, error: "wrong password" }),
-        { status: 403 },
+        { status: 403, headers: defaultHeader() },
       );
     }
     // const { data, error } = await supabaseClient
@@ -53,6 +53,7 @@ export default async (request) => {
     if (error) {
       return new Response(JSON.stringify({ success: false, error }), {
         status: 500,
+        headers: defaultHeader(),
       });
     }
 
@@ -82,11 +83,14 @@ export default async (request) => {
       }
     }
 
-    return new Response(JSON.stringify({ success: true }), { status: 200 });
+    return new Response(JSON.stringify({ success: true }), {
+      status: 200,
+      headers: defaultHeader(),
+    });
   } catch (err) {
     return new Response(
       JSON.stringify({ success: false, error: err.message }),
-      { status: 500 },
+      { status: 500, headers: defaultHeader() },
     );
   }
 };

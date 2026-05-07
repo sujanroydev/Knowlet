@@ -1,22 +1,17 @@
-const ADMIN_PASSWORD = "1234";
+let ADMIN_PASSWORD = "";
 
 function checkPassword() {
-    const input = document.getElementById("password").value;
-
-    if (input === ADMIN_PASSWORD) {
-        document.getElementById("login").style.display = "none";
-        document.getElementById("dashboard").classList.remove("hidden");
-    } else {
-        alert("Wrong password");
-    }
+  ADMIN_PASSWORD = document.getElementById("password").value + "";
+  document.getElementById("login").style.display = "none";
+  document.getElementById("dashboard").classList.remove("hidden");
 }
 
 function preview() {
-    const title = document.getElementById("title").value;
-    const body = document.getElementById("body").value;
-    const image = document.getElementById("image").value;
+  const title = document.getElementById("title").value;
+  const body = document.getElementById("body").value;
+  const image = document.getElementById("image").value;
 
-    document.getElementById("previewBox").innerHTML = `
+  document.getElementById("previewBox").innerHTML = `
         <strong>${title}</strong><br>
         ${body}<br>
         ${image ? `<img src="${image}">` : ""}
@@ -24,77 +19,98 @@ function preview() {
 }
 
 function saveDraft() {
-    const draft = {
-        title: document.getElementById("title").value,
-        body: document.getElementById("body").value
-    };
+  const draft = {
+    title: document.getElementById("title").value,
+    body: document.getElementById("body").value,
+  };
 
-    let drafts = JSON.parse(localStorage.getItem("drafts") || "[]");
-    drafts.push(draft);
+  let drafts = JSON.parse(localStorage.getItem("drafts") || "[]");
+  drafts.push(draft);
 
-    localStorage.setItem("drafts", JSON.stringify(drafts));
-    loadDrafts();
+  localStorage.setItem("drafts", JSON.stringify(drafts));
+  loadDrafts();
 }
 
 function loadDrafts() {
-    const drafts = JSON.parse(localStorage.getItem("drafts") || "[]");
+  const drafts = JSON.parse(localStorage.getItem("drafts") || "[]");
 
-    document.getElementById("drafts").innerHTML =
-        drafts.map(d => `<li>${d.title}</li>`).join("");
+  document.getElementById("drafts").innerHTML = drafts
+    .map((d) => `<li>${d.title}</li>`)
+    .join("");
 }
 
-async function sendNow() {
-    const payload = {
-        title: document.getElementById("title").value,
-        body: document.getElementById("body").value,
-        image: document.getElementById("image").value,
-        url: document.getElementById("url").value
-    };
+async function sendNow(to) {
+  const payload = {
+    title: document.getElementById("title").value,
+    body: document.getElementById("body").value,
+    // icon: "/assets/icons/knowlet/android-chrome-192x192.png",
+    // badge: "/assets/icons/owlet/favicon-32x32.png",
+    image: document.getElementById("image").value,
+    // tag: "profile",
+    url: document.getElementById("url").value,
+    ADMIN_PASSWORD,
+  };
 
-    await fetch("/.netlify/functions/send-notification", {
-        method: "POST",
-        body: JSON.stringify(payload)
-    });
+  const url =
+    to === "sujan"
+      ? "http://localhost:8888/.netlify/functions/send-notification-copy"
+      : "http://localhost:8888/.netlify/functions/send-notification";
+  console.log(url);
+  console.log(ADMIN_PASSWORD);
+  const res = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
 
-    let history = JSON.parse(localStorage.getItem("history") || "[]");
-    history.push(payload);
+  if (!res.ok) {
+    console.error(`failed to fetch, status code: ${res.status}`);
+    alert("failed to send");
+    return;
+  }
 
-    localStorage.setItem("history", JSON.stringify(history));
+  let history = JSON.parse(localStorage.getItem("history") || "[]");
+  history.push(payload);
 
-    let sent = Number(localStorage.getItem("sent") || 0);
-    localStorage.setItem("sent", sent + 1);
+  localStorage.setItem("history", JSON.stringify(history));
 
-    loadHistory();
-    loadStats();
+  let sent = Number(localStorage.getItem("sent") || 0);
+  localStorage.setItem("sent", sent + 1);
 
-    alert("Notification Sent!");
+  loadHistory();
+  loadStats();
+
+  alert("Notification Sent!");
 }
 
 function loadHistory() {
-    const history = JSON.parse(localStorage.getItem("history") || "[]");
+  const history = JSON.parse(localStorage.getItem("history") || "[]");
 
-    document.getElementById("history").innerHTML =
-        history.map(h => `<li>${h.title}</li>`).join("");
+  document.getElementById("history").innerHTML = history
+    .map((h) => `<li>${h.title}</li>`)
+    .join("");
 }
 
 function loadStats() {
-    document.getElementById("sentCount").innerText =
-        localStorage.getItem("sent") || 0;
+  document.getElementById("sentCount").innerText =
+    localStorage.getItem("sent") || 0;
 
-    document.getElementById("clickCount").innerText =
-        localStorage.getItem("clicks") || 0;
+  document.getElementById("clickCount").innerText =
+    localStorage.getItem("clicks") || 0;
 }
 
 function schedule() {
-    const time = new Date(document.getElementById("scheduleTime").value).getTime();
-    const now = Date.now();
+  const time = new Date(
+    document.getElementById("scheduleTime").value,
+  ).getTime();
+  const now = Date.now();
 
-    const delay = time - now;
+  const delay = time - now;
 
-    if (delay > 0) {
-        setTimeout(sendNow, delay);
-        alert("Scheduled!");
-    }
+  if (delay > 0) {
+    setTimeout(sendNow, delay);
+    alert("Scheduled!");
+  }
 }
 
 loadDrafts();

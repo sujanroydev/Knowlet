@@ -29,9 +29,26 @@ export default async (request) => {
         { status: 403 },
       );
     }
-    const { data, error } = await supabaseClient
-      .from("subscriptions")
-      .select("subscription");
+    // const { data, error } = await supabaseClient
+    //     .from("subscriptions")
+    //     .select("subscription");
+    const { data, error } = {
+      data: [
+        {
+          subscription: {
+            keys: {
+              auth: "SjxBVnRIm6YEctNAEJwiTA",
+              p256dh:
+                "BHdO4fXPFv7LREaINaEzhUKsELB79B3dFf8yiCGMbVVZyvmt3BTRwCSyfNM7KGJsnI4f5emOHW9qkFs8mleVGDs",
+            },
+            endpoint:
+              "https://fcm.googleapis.com/fcm/send/dnDZAVvjPAM:APA91bHoS3CH38_QIDnfFAOSrpJrIt6pWxgGjrR7700bF0lXuLQKpag4s-QdnYQlFe_duZxz-I5oIqYo1D2_LtiouVPx_mNn6zwE9zyPwEZh1zVptEee1YQHnx2hycMaN7RJmKz82Viq",
+            expirationTime: null,
+          },
+        },
+      ],
+      error: null,
+    };
 
     if (error) {
       return new Response(JSON.stringify({ success: false, error }), {

@@ -53,10 +53,9 @@ async function sendNow(to) {
 
   const url =
     to === "sujan"
-      ? "http://localhost:8888/.netlify/functions/send-notification-copy"
-      : "http://localhost:8888/.netlify/functions/send-notification";
-  console.log(url);
-  console.log(ADMIN_PASSWORD);
+      ? "https://knowlet.in/.netlify/functions/send-notification-copy"
+      : "https://knowlet.in/.netlify/functions/send-notification";
+
   const res = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },

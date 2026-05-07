@@ -16,12 +16,21 @@ function preview() {
         ${body}<br>
         ${image ? `<img src="${image}">` : ""}
     `;
+  document
+    .getElementById("previewBox")
+    .addEventListener(
+      "click",
+      () =>
+        (window.location.href = document.getElementById("url").value || null),
+    );
 }
 
 function saveDraft() {
   const draft = {
     title: document.getElementById("title").value,
     body: document.getElementById("body").value,
+    image: document.getElementById("image").value,
+    url: document.getElementById("url").value,
   };
 
   let drafts = JSON.parse(localStorage.getItem("drafts") || "[]");
@@ -31,11 +40,18 @@ function saveDraft() {
   loadDrafts();
 }
 
+function loadInput({ title, body, image, url }) {
+  document.getElementById("title").value = title || "";
+  document.getElementById("body").value = body || "";
+  document.getElementById("image").value = image || "";
+  document.getElementById("url").value = url || "";
+}
+
 function loadDrafts() {
   const drafts = JSON.parse(localStorage.getItem("drafts") || "[]");
 
   document.getElementById("drafts").innerHTML = drafts
-    .map((d) => `<li>${d.title}</li>`)
+    .map((d) => `<li onclick='loadInput(${JSON.stringify(d)})'>${d.title}</li>`)
     .join("");
 }
 
@@ -86,7 +102,7 @@ function loadHistory() {
   const history = JSON.parse(localStorage.getItem("history") || "[]");
 
   document.getElementById("history").innerHTML = history
-    .map((h) => `<li>${h.title}</li>`)
+    .map((h) => `<li onclick='loadInput(${JSON.stringify(h)})'>${h.title}</li>`)
     .join("");
 }
 

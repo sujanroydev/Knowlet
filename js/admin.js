@@ -1,4 +1,13 @@
 let ADMIN_PASSWORD = "";
+const inputIds = ["title", "body", "image", "url"];
+
+function initEventListener() {
+  inputIds.forEach((inputId) => {
+    document
+      .getElementById(inputId)
+      .addEventListener("input", () => updatePreview(inputId));
+  });
+}
 
 function checkPassword() {
   ADMIN_PASSWORD = document.getElementById("password").value + "";
@@ -6,23 +15,26 @@ function checkPassword() {
   document.getElementById("dashboard").classList.remove("hidden");
 }
 
-function preview() {
-  const title = document.getElementById("title").value;
-  const body = document.getElementById("body").value;
-  const image = document.getElementById("image").value;
+function updatePreview(item) {
+  if (item === "image") {
+    document.getElementById("preview" + "-" + item).src =
+      document.getElementById(item).value;
+  } else if (item === "url") {
+    document
+      .getElementById("previewBox")
+      .addEventListener("click", redirectPreview);
+  } else if (item) {
+    document.getElementById("preview" + "-" + item).textContent =
+      document.getElementById(item).value;
+  }
 
-  document.getElementById("previewBox").innerHTML = `
-        <strong>${title}</strong><br>
-        ${body}<br>
-        ${image ? `<img src="${image}">` : ""}
-    `;
-  document
-    .getElementById("previewBox")
-    .addEventListener(
-      "click",
-      () =>
-        (window.location.href = document.getElementById("url").value || null),
-    );
+  function redirectPreview() {
+    const url = document.getElementById("url").value;
+
+    if (url) {
+      window.location.href = url;
+    }
+  }
 }
 
 function saveDraft() {
@@ -40,11 +52,11 @@ function saveDraft() {
   loadDrafts();
 }
 
-function loadInput({ title, body, image, url }) {
-  document.getElementById("title").value = title || "";
-  document.getElementById("body").value = body || "";
-  document.getElementById("image").value = image || "";
-  document.getElementById("url").value = url || "";
+function loadInput(value) {
+  inputIds.forEach((id) => {
+    document.getElementById(id).value = value[id] || "";
+    updatePreview(id);
+  });
 }
 
 function loadDrafts() {
@@ -131,3 +143,4 @@ function schedule() {
 loadDrafts();
 loadHistory();
 loadStats();
+initEventListener();

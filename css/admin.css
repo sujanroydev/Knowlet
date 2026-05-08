@@ -1,134 +1,134 @@
 body {
-    font-family: Arial, sans-serif;
-    background: #f3f4f6;
-    margin: 0;
-    padding: 20px;
-    box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  background: #f3f4f6;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 h1 {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
 }
 
 .card {
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 input,
 textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 16px;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
 }
 
 textarea {
-    resize: none;
-    height: 80px;
+  resize: none;
+  height: 80px;
 }
 
 button {
-    padding: 10px 14px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    background: #3b82f6;
-    color: white;
-    font-size: 15px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #3b82f6;
+  color: white;
+  font-size: 15px;
 }
 
 button:hover {
-    opacity: 0.9;
+  opacity: 0.9;
 }
 
 .buttons {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 #previewBox img {
-    margin-top: 10px;
-    max-width: 100%;
-    border-radius: 8px;
+  margin-top: 10px;
+  max-width: 100%;
+  border-radius: 8px;
 }
 
 ul {
-    padding-left: 0;
+  padding-left: 0;
 }
 
 ul li {
-    list-style: none;
-    padding: 10px;
-    border-radius: 6px;
-    cursor: pointer;
+  list-style: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 ul li:hover {
-    background-color: antiquewhite;
+  background-color: antiquewhite;
 }
 
 /* Tablet */
 @media (max-width: 768px) {
-    body {
-        padding: 15px;
-    }
+  body {
+    padding: 15px;
+  }
 
-    .grid {
-        grid-template-columns: 1fr;
-    }
+  .grid {
+    grid-template-columns: 1fr;
+  }
 
-    .card {
-        padding: 12px;
-    }
+  .card {
+    padding: 12px;
+  }
 }
 
 /* Mobile */
 @media (max-width: 480px) {
-    body {
-        padding: 10px;
-    }
+  body {
+    padding: 10px;
+  }
 
-    h1 {
-        font-size: 22px;
-    }
+  h1 {
+    font-size: 22px;
+  }
 
-    .card {
-        padding: 10px;
-        border-radius: 8px;
-    }
+  .card {
+    padding: 10px;
+    border-radius: 8px;
+  }
 
-    input,
-    textarea,
-    button {
-        font-size: 14px;
-    }
+  input,
+  textarea,
+  button {
+    font-size: 14px;
+  }
 
-    .buttons {
-        flex-direction: column;
-    }
+  .buttons {
+    flex-direction: column;
+  }
 
-    button {
-        width: 100%;
-    }
+  button {
+    width: 100%;
+  }
 }

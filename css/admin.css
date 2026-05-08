@@ -101,6 +101,14 @@ ul li span:hover {
   transition: transform 0.2s ease;
 }
 
+.empty-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: red;
+}
+
 /* Tablet */
 @media (max-width: 768px) {
   body {

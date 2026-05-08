@@ -1,6 +1,24 @@
 let ADMIN_PASSWORD = "";
 const inputIds = ["title", "body", "image", "url"];
 
+const deleteIcon = `<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 6h18" />
+  <path d="M8 6V4h8v2" />
+  <path d="M19 6l-1 14H6L5 6" />
+  <path d="M10 11v6" />
+  <path d="M14 11v6" />
+</svg>`;
+
 function initEventListener() {
   inputIds.forEach((inputId) => {
     document
@@ -106,7 +124,10 @@ function loadDrafts() {
   const drafts = JSON.parse(localStorage.getItem("drafts") || "[]");
 
   document.getElementById("drafts").innerHTML = drafts
-    .map((d) => `<li onclick='loadInput(${JSON.stringify(d)})'>${d.title}</li>`)
+    .map(
+      (d) =>
+        `<li onclick='loadInput(${JSON.stringify(d)})'>${d.title}<span id='delete'>${deleteIcon}</span></li>`,
+    )
     .join("");
 }
 

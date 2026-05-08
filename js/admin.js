@@ -125,20 +125,24 @@ function loadInput(value) {
 function loadDrafts() {
   const drafts = JSON.parse(localStorage.getItem("drafts") || "[]");
 
-  document.getElementById("drafts").innerHTML = drafts
-    .map(
-      (d) =>
-        `<li onclick='loadInput(${JSON.stringify(d)})'>${d.title}<span id='delete' onclick='trash("${d.id}", "drafts")'>${deleteIcon}</span></li>`,
-    )
-    .join("");
+  document.getElementById("drafts").innerHTML =
+    drafts
+      .map(
+        (d) =>
+          `<li onclick='loadInput(${JSON.stringify(d)})'>${d.title}<span id='delete' onclick='trash("${d.id}", "drafts")'>${deleteIcon}</span></li>`,
+      )
+      .join("") || "<p class='empty-message'>Empty Draft</p>";
 }
 
 function loadHistory() {
   const history = JSON.parse(localStorage.getItem("history") || "[]");
 
-  document.getElementById("history").innerHTML = history
-    .map((h) => `<li onclick='loadInput(${JSON.stringify(h)})'>${h.title}</li>`)
-    .join("");
+  document.getElementById("history").innerHTML =
+    history
+      .map(
+        (h) => `<li onclick='loadInput(${JSON.stringify(h)})'>${h.title}</li>`,
+      )
+      .join("") || "<p class='empty-message'>Empty notificaiton history</p>";
 }
 
 function loadStats() {

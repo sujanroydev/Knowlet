@@ -1,8 +1,8 @@
-import Navbar from "../components/profile/Navbar";
-import ProfileCard from "../components/profile/ProfileCard";
-import RecentActivity from "../components/profile/RecentActivity";
-import SettingsPanel from "../components/profile/SettingsPanel";
-import StatsSection from "../components/profile/StatsSection";
+import Navbar from "../../components/profile/Navbar";
+import ProfileCard from "../../components/profile/ProfileCard";
+import RecentActivity from "../../components/profile/RecentActivity";
+import SettingsPanel from "../../components/profile/SettingsPanel";
+import StatsSection from "../../components/profile/StatsSection";
 
 export default function Profile() {
   return (

@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 type NavItem = {
   href: string;
@@ -11,6 +10,7 @@ type NavItem = {
 
 export default function BottomNav() {
   const pathname = usePathname();
+  const router = useRouter();
 
   const navItems: NavItem[] = [
     {
@@ -78,9 +78,9 @@ export default function BottomNav() {
         const isActive = pathname === item.href;
 
         return (
-          <Link
+          <div
             key={item.href}
-            href={item.href}
+            onClick={() => router.push(item.href)}
             className={`flex flex-col items-center justify-center flex-1 h-full transition-colors text-xs font-medium
               ${
                 isActive
@@ -97,7 +97,7 @@ export default function BottomNav() {
             </div>
 
             <span>{item.label}</span>
-          </Link>
+          </div>
         );
       })}
     </nav>

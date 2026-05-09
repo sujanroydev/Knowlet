@@ -15,9 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="pb-15">
-        <BottomNav />
+      <body className="h-screen pb-15 box-border">
         {children}
+        <BottomNav />
       </body>
     </html>
   );

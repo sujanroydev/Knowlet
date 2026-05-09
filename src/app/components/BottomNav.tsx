@@ -32,8 +32,8 @@ export default function BottomNav() {
       ),
     },
     {
-      href: "/assistant",
-      label: "Assistant",
+      href: "/nexus",
+      label: "Nexus",
       icon: (
         <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
           <rect x="2" y="2" width="20" height="20" rx="6" fill="currentColor" />

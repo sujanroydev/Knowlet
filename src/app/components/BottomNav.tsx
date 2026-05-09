@@ -45,7 +45,7 @@ export default function BottomNav() {
             fontSize="10"
             fontFamily="Arial, sans-serif"
             fill="white"
-            font-weight="600"
+            fontWeight="600"
           >
             AI
           </text>
@@ -73,7 +73,7 @@ export default function BottomNav() {
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 w-full h-[60px] bg-white shadow-[0_-2px_5px_rgba(0,0,0,0.1)] flex justify-around items-center z-50 pb-[env(safe-area-inset-bottom)]">
+    <nav className="fixed bottom-0 left-0 w-full h-15 bg-white shadow-[0_-2px_5px_rgba(0,0,0,0.1)] flex justify-around items-center z-50 pb-[env(safe-area-inset-bottom)]">
       {navItems.map((item) => {
         const isActive = pathname === item.href;
 
@@ -89,7 +89,7 @@ export default function BottomNav() {
               }`}
           >
             <div
-              className={`mb-[2px] transition-transform ${
+              className={`mb-0.5 transition-transform ${
                 isActive ? "scale-110" : ""
               }`}
             >

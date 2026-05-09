@@ -7,13 +7,13 @@ export default function Navbar() {
 
       <div className="flex gap-2">
         <button className="px-3 py-1 text-xs border rounded hover:bg-gray-100">
-          Login
+          Sign In
         </button>
         <button className="px-3 py-1 text-xs border rounded hover:bg-gray-100">
           Sign Up
         </button>
         <button className="px-3 py-1 text-xs border rounded hover:bg-gray-100 hidden">
-          Logout
+          Sign Out
         </button>
       </div>
     </div>

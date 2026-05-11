@@ -1,9 +1,9 @@
 import { createClient } from "@supabase/supabase-js";
 
 let supabaseUrl = process.env.SUPABASE_URL;
-let supabaseKey = process.env.SUPABASE_ANON_KEY;
+let supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-if (!supabaseUrl || !supabaseKey) {
+if (!supabaseUrl || !supabaseServiceRoleKey) {
   throw new Error("Supabase keys not found.");
 }
 
@@ -19,7 +19,7 @@ const connectDb = async () => {
   }
 
   try {
-    cached.client = createClient(supabaseUrl, supabaseKey);
+    cached.client = createClient(supabaseUrl, supabaseServiceRoleKey);
   } catch (error) {
     throw error;
   }

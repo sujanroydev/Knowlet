@@ -1,5 +1,6 @@
 import connectDb from "@/lib/db";
 import styles from "./Content.module.css";
+import { notFound } from "next/navigation";
 
 export default async function Content({ slug }: { slug: string[] }) {
   const db = await connectDb();
@@ -7,16 +8,18 @@ export default async function Content({ slug }: { slug: string[] }) {
   const { data, error } = await db
     .from("resources")
     .select("*")
-    .eq("resource_path", slug.join("/"));
+    .eq("resource_path", slug.join("/"))
+    .maybeSingle();
 
-  console.log("error", error);
-  console.log(data);
+  if (error || !data) {
+    notFound();
+  }
 
   return (
     <article
       className={styles.container}
       dangerouslySetInnerHTML={{
-        __html: data?.[0]?.content || "",
+        __html: data.content || "",
       }}
     />
   );

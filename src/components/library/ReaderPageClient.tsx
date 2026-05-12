@@ -1,20 +1,20 @@
 "use client";
 
+import { useHeader } from "@/context/HeaderContext";
 import { useEffect } from "react";
-import { useApp } from "@/context/AppContext";
 
 export default function ReaderPageClient({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const { setHeaderMode } = useApp();
+  const { setMode } = useHeader();
 
   useEffect(() => {
-    setHeaderMode("reader");
+    setMode("reader");
 
     return () => {
-      setHeaderMode("home");
+      setMode("home");
     };
   }, []);
 

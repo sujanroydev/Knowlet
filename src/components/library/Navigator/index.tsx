@@ -33,10 +33,11 @@ export default async function Navigator({
   return (
     <>
       <Header
-        title={slug ? data[0].title || slug[depth - 1] : "Semesters"}
+        title={slug ? data[0].title || slug[slug.length - 1] : "Semesters"}
         subtitle={
           slug
-            ? data[0].description || `Open any ${slug[depth - 1]} to view more.`
+            ? data[0].description ||
+              `Open any ${tables[slug.length].slice(0, -1)} to view more.`
             : "Open any semester to view more."
         }
         path={slug ? slug : []}

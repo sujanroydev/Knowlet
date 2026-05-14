@@ -4,45 +4,85 @@ import Main from "./Main";
 import { notFound } from "next/navigation";
 
 type SelectQuery =
-  | "*, subjects(*)"
-  | "*, papers(*)"
-  | "*, units(*)"
-  | "*, resources(*)";
+  | "*, subjects(title, description, path)"
+  | "*, papers(title, description, path)"
+  | "*, resources(title, description, path)";
+
+type Table = "levels" | "subjects" | "papers" | "resources";
 
 export default async function Navigator({
   slug,
 }: {
   slug: string[] | null | undefined;
 }) {
-  const tables = ["levels", "subjects", "papers", "units", "resources"];
+  const tables = ["levels", "subjects", "papers", "resources"];
   const depth = !slug ? 0 : slug.length - 1;
 
-  const currentTable = tables[depth];
-  const nextTable = tables[depth + 1];
+  const currentTable = tables[depth] as Table;
+  const nextTable = tables[depth + 1] as Table;
+
+  let academicPattern: "semester" | "class" | null = slug
+    ? slug[0].startsWith("semester")
+      ? "semester"
+      : slug[0].startsWith("class")
+        ? "class"
+        : null
+    : null;
 
   const db = await connectDb();
 
-  let query = db.from(currentTable).select(`*, ${nextTable}(*)` as SelectQuery);
+  let query;
+  let special = false;
 
-  if (slug) query = query.eq("path", slug?.join("/"));
+  if (slug) {
+    if (academicPattern === "semester" && slug.length >= 3) {
+      // "/library/semester-1/ecology/idc-101"
+      query = db
+        .from("resources")
+        .select("title, description, path")
+        .like("path", `${slug.join("/")}%`);
+      special = true;
+      console.log("special");
+    } else {
+      // "/library/semester-1/ecology"
+      // "/library/semester-1"
+      query = db
+        .from(currentTable)
+        .select(`*, ${nextTable}(title, description, path)` as SelectQuery)
+        .eq("path", slug?.join("/"));
+    }
+  } else {
+    // "/library"
+    query = db
+      .from(currentTable)
+      .select(`*, ${nextTable}(title, description, path)` as SelectQuery);
+  }
 
   const { data, error } = await query;
 
+  console.log("error", error);
+  console.log("data", data);
+
+  console.log(slug);
+  console.log(currentTable);
+
   if (error || !data) return notFound();
+
+  const title = slug ? data[0].title || slug[slug.length - 1] : "Semesters";
+  const subtitle = slug
+    ? special
+      ? `Open any ${tables[slug.length].slice(0, -1)} to view more.`
+      : data[0].description ||
+        `Open any ${tables[slug.length].slice(0, -1)} to view more.`
+    : "Open any semester to view more.";
+  const path = slug ? slug : [];
+
+  const items = !slug || special ? data : data[0]?.[nextTable];
 
   return (
     <>
-      <Header
-        title={slug ? data[0].title || slug[slug.length - 1] : "Semesters"}
-        subtitle={
-          slug
-            ? data[0].description ||
-              `Open any ${tables[slug.length].slice(0, -1)} to view more.`
-            : "Open any semester to view more."
-        }
-        path={slug ? slug : []}
-      />
-      <Main items={!slug ? data : data[0]?.[nextTable]} />
+      <Header title={title} subtitle={subtitle} path={path} />
+      <Main items={items} />
     </>
   );
 }

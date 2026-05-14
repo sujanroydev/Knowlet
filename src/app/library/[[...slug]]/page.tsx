@@ -10,7 +10,7 @@ export default async function Page({
 }) {
   const { slug } = await params;
 
-  if (!slug || slug?.length <= 3) {
+  if (!slug || slug?.length <= 4) {
     return (
       <div>
         <ReaderPageClient>

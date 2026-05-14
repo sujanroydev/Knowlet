@@ -19,12 +19,14 @@ export default function RootLayout({
     <html lang="en">
       <body className="h-dvh py-15 box-border overflow-hidden bg-gray-100">
         <AppProvider>
-          <div className="flex h-full flex-col">
-            <TopBar />
-            <main className="flex-1 overflow-y-auto">
-              <div className="mx-auto h-full w-full max-w-3xl ">{children}</div>
-            </main>
-            <BottomNav />
+          <div className="h-full flex flex-col">
+            <TopBar /> {/* 60px */}
+            <div className="flex-1 overflow-y-auto">
+              <div className="min-h-[calc(100dvh-120px)] w-full max-w-3xl mx-auto">
+                {children}
+              </div>
+            </div>
+            <BottomNav /> {/* 60px */}
           </div>
         </AppProvider>
       </body>

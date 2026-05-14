@@ -12,17 +12,20 @@ export default function NavigatorBtnCard({ item }: { item: Item }) {
     <button
       key={item.path}
       onClick={() => router.push(`/library/${item.path}`)}
-      className="group text-left rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-blue-400"
+      className="group flex min-h-40 flex-col justify-between rounded-2xl border border-slate-200 bg-white p-4 text-left shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-blue-400"
     >
-      <h2 className="text-lg font-semibold text-slate-800 group-hover:text-blue-600 transition-colors">
-        {item.title}
-      </h2>
+      <div>
+        <h2 className="text-lg font-semibold text-slate-800 transition-colors group-hover:text-blue-600">
+          {item.title.slice(0, 30) + (item.title.slice(30, 31) ? " ..." : "")}
+        </h2>
 
-      <p className="mt-1 text-sm text-slate-500 line-clamp-2">
-        {item.description}
-      </p>
+        <p className="mt-1 line-clamp-2 text-sm text-slate-500">
+          {item.description.slice(0, 50) +
+            (item.description.slice(50, 51) ? " ..." : "")}
+        </p>
+      </div>
 
-      <div className="mt-3 text-xs text-blue-500 font-medium">Open →</div>
+      <div className="mt-4 text-xs font-medium text-blue-500">Open →</div>
     </button>
   );
 }

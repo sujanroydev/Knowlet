@@ -8,7 +8,7 @@ export default async function Content({ slug }: { slug: string[] }) {
   const { data, error } = await db
     .from("resources")
     .select("*")
-    .eq("resource_path", slug.join("/"))
+    .eq("path", slug.join("/"))
     .maybeSingle();
 
   if (error || !data) {

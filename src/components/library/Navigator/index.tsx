@@ -60,18 +60,16 @@ export default async function Navigator({
 
   const { data, error } = await query;
 
-  console.log("error", error);
-  console.log("data", data);
-
-  console.log(slug);
-  console.log(currentTable);
-
   if (error || !data) return notFound();
 
-  const title = slug ? data[0].title || slug[slug.length - 1] : "Semesters";
+  const title = slug
+    ? special
+      ? "Resources"
+      : data[0].title || tables[slug.length - 1]
+    : "Semesters";
   const subtitle = slug
     ? special
-      ? `Open any ${tables[slug.length].slice(0, -1)} to view more.`
+      ? `Open any resource to start reading.`
       : data[0].description ||
         `Open any ${tables[slug.length].slice(0, -1)} to view more.`
     : "Open any semester to view more.";

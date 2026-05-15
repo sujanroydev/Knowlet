@@ -1,5 +1,4 @@
 import Content from "@/components/library/Content";
-import ReaderPageClient from "@/components/library/ReaderPageClient";
 import Navigator from "@/components/library/Navigator";
 
 export default async function Page({
@@ -18,9 +17,7 @@ export default async function Page({
   }
   return (
     <div>
-      <ReaderPageClient>
-        <Content slug={slug} />
-      </ReaderPageClient>
+      <Content slug={slug} />
     </div>
   );
 }

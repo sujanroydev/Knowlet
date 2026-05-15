@@ -1,6 +1,7 @@
 import connectDb from "@/lib/db";
 import styles from "./Content.module.css";
 import { notFound } from "next/navigation";
+import ReaderPageClient from "./ReaderPageClient";
 
 export default async function Content({ slug }: { slug: string[] }) {
   const db = await connectDb();
@@ -16,11 +17,13 @@ export default async function Content({ slug }: { slug: string[] }) {
   }
 
   return (
-    <article
-      className={styles.container}
-      dangerouslySetInnerHTML={{
-        __html: data.content || "",
-      }}
-    />
+    <ReaderPageClient resourceId={data.id}>
+      <article
+        className={styles.container}
+        dangerouslySetInnerHTML={{
+          __html: data.content || "",
+        }}
+      />
+    </ReaderPageClient>
   );
 }

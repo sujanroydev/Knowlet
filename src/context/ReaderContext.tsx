@@ -3,6 +3,9 @@
 import { createContext, useContext, useState } from "react";
 
 type ReaderContextType = {
+  resourceId: string | null;
+  setResourceId: (resourceId: string | null) => void;
+
   liked: boolean;
   bookmarked: boolean;
 
@@ -17,7 +20,7 @@ const ReaderContext = createContext<ReaderContextType | null>(null);
 
 export function ReaderProvider({ children }: { children: React.ReactNode }) {
   const [liked, setLiked] = useState(false);
-
+  const [resourceId, setResourceId] = useState<string | null>(null);
   const [bookmarked, setBookmarked] = useState(false);
 
   function toggleLike() {
@@ -39,6 +42,8 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
   return (
     <ReaderContext.Provider
       value={{
+        resourceId,
+        setResourceId,
         liked,
         bookmarked,
         toggleLike,

@@ -1,5 +1,4 @@
 import Content from "@/components/library/Content";
-import { notFound } from "next/navigation";
 import ReaderPageClient from "@/components/library/ReaderPageClient";
 import Navigator from "@/components/library/Navigator";
 
@@ -13,9 +12,7 @@ export default async function Page({
   if (!slug || slug?.length <= 4) {
     return (
       <div>
-        <ReaderPageClient>
-          <Navigator slug={slug} />
-        </ReaderPageClient>
+        <Navigator slug={slug} />
       </div>
     );
   }

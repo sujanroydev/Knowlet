@@ -23,12 +23,32 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
   const [resourceId, setResourceId] = useState<string | null>(null);
   const [bookmarked, setBookmarked] = useState(false);
 
-  function toggleLike() {
+  async function toggleLike() {
     setLiked((prev) => !prev);
+    try {
+      const res = await fetch("/api/likes/toggle", {
+        method: "POST",
+        body: JSON.stringify({ resource_id: resourceId }),
+      });
+      const { data, error } = await res.json();
+      if (error) console.error("error", error);
+    } catch (error) {
+      console.error("error", error);
+    }
   }
 
-  function toggleBookmark() {
+  async function toggleBookmark() {
     setBookmarked((prev) => !prev);
+    try {
+      const res = await fetch("/api/bookmarks/toggle", {
+        method: "POST",
+        body: JSON.stringify({ resource_id: resourceId }),
+      });
+      const { data, error } = await res.json();
+      if (error) console.error("error", error);
+    } catch (error) {
+      console.error("error", error);
+    }
   }
 
   function next() {

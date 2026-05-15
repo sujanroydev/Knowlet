@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 type ReaderContextType = {
   resourceId: string | null;
@@ -22,6 +22,25 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
   const [liked, setLiked] = useState(false);
   const [resourceId, setResourceId] = useState<string | null>(null);
   const [bookmarked, setBookmarked] = useState(false);
+
+  useEffect(() => {
+    if (resourceId) loadResStats();
+  }, [resourceId]);
+
+  async function loadResStats() {
+    try {
+      const res = await fetch("/api/resources/stats", {
+        method: "POST",
+        body: JSON.stringify({ resource_id: resourceId }),
+      });
+      const { data, error } = await res.json();
+      if (error || !data) console.error("error", error);
+      setLiked(data.liked);
+      setBookmarked(data.bookmarked);
+    } catch (error) {
+      console.error("error", error);
+    }
+  }
 
   async function toggleLike() {
     setLiked((prev) => !prev);

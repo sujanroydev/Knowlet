@@ -24,9 +24,9 @@ export async function POST(req: NextRequest) {
 
     const db = await connectDb();
 
-    // check existing saved resource
+    // check existing bookmarks
     const { data, error } = await db
-      .from("saved_resources")
+      .from("bookmarks")
       .select("id")
       .eq("user_id", payload?.user_id)
       .eq("resource_id", resource_id)
@@ -34,27 +34,27 @@ export async function POST(req: NextRequest) {
 
     if (error) throw new Error(error?.message);
 
-    // save
+    // bookmark
     if (data) {
       const { error } = await db
-        .from("saved_resources")
+        .from("bookmarks")
         .delete()
         .eq("user_id", payload?.user_id)
         .eq("resource_id", resource_id);
 
       if (error) throw new Error(error.message);
-      return NextResponse.json({ data: { saved: false } });
+      return NextResponse.json({ data: { bookmarked: false } });
     }
 
-    // unsave
-    const { error: insertError } = await db.from("saved_resources").insert({
+    // remove bookmarks
+    const { error: insertError } = await db.from("bookmarks").insert({
       user_id: payload?.user_id,
       resource_id,
     });
 
     if (insertError) throw new Error(insertError.message);
 
-    return NextResponse.json({ data: { saved: true } });
+    return NextResponse.json({ data: { bookmarked: true } });
   } catch (error) {
     return NextResponse.json({ error }, { status: 500 });
   }

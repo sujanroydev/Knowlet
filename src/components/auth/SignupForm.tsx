@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Loader from "./Loader";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 export default function SignupForm() {
   const [loading, setLoading] = useState(false);
@@ -20,7 +21,7 @@ export default function SignupForm() {
     const confirmPassword = formData.get("confirmPassword") as string;
 
     if (password !== confirmPassword) {
-      alert("Passwords do not match");
+      toast.warning("Passwords do not match");
       return;
     }
 
@@ -42,18 +43,20 @@ export default function SignupForm() {
       const { user, error } = await res.json();
 
       if (!user || error) {
-        alert(error.message);
+        toast.error(error.message);
         return;
       }
 
-      localStorage.setItem("knowlet-usr", JSON.stringify(user));
+      localStorage.setItem("knowlet-user", JSON.stringify(user));
 
-      alert(`Successfully Signed Up\nYour username: ${user.id}`);
+      toast.success("Successfully Signed Up", {
+        description: `Your username: ${user.id}`,
+      });
 
       router.push("/profile");
     } catch (error) {
       console.error(error);
-      alert("Signup failed");
+      toast.error((error as Error).message);
     } finally {
       setLoading(false);
     }

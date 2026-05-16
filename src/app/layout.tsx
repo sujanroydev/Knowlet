@@ -3,6 +3,8 @@ import "./globals.css";
 import BottomNav from "@/components/BottomNav";
 import TopBar from "@/components/TopBar";
 import { AppProvider } from "@/context/AppContext";
+import { Toaster } from "sonner";
+import AppToaster from "@/components/AppToaster";
 
 export const metadata: Metadata = {
   title: "Knowlet – Notes & Study Materials",
@@ -26,6 +28,7 @@ export default function RootLayout({
                 {children}
               </div>
             </div>
+            <AppToaster />
             <BottomNav /> {/* 60px */}
           </div>
         </AppProvider>

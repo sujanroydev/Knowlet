@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { useState } from "react";
 import Loader from "./Loader";
+import { useRouter } from "next/navigation";
 
 export default function SigninForm() {
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -43,9 +45,9 @@ export default function SigninForm() {
 
       localStorage.setItem("knowlet-user", JSON.stringify(user));
 
-      alert("Successfully Logged In");
+      alert("Successfully Signed In");
 
-      window.location.href = "/profile";
+      router.push("/profile");
     } catch (error) {
       console.error(error);
       alert("Something went wrong");

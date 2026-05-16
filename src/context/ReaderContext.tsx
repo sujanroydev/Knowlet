@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
+import { useAuth } from "./AuthContext";
 
 type ReaderContextType = {
   resourceId: string | null;
@@ -22,6 +23,7 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
   const [liked, setLiked] = useState(false);
   const [resourceId, setResourceId] = useState<string | null>(null);
   const [bookmarked, setBookmarked] = useState(false);
+  const { user } = useAuth();
 
   useEffect(() => {
     if (resourceId) loadResStats();
@@ -43,6 +45,7 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
   }
 
   async function toggleLike() {
+    if (!user) return;
     setLiked((prev) => !prev);
     try {
       const res = await fetch("/api/likes/toggle", {
@@ -57,6 +60,7 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
   }
 
   async function toggleBookmark() {
+    if (!user) return;
     setBookmarked((prev) => !prev);
     try {
       const res = await fetch("/api/bookmarks/toggle", {

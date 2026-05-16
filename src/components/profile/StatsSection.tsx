@@ -2,7 +2,7 @@ const stats = [
   { label: "Comments", value: 0 },
   { label: "Likes", value: 0 },
   { label: "Ratings", value: 0 },
-  { label: "Favorites", value: 0 },
+  { label: "Bookmarks", value: 0 },
 ];
 
 export default function StatsSection() {

@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 import { useAuth } from "./AuthContext";
-import { useToast } from "./ToastContext";
+import { toast } from "sonner";
 
 type ReaderContextType = {
   resourceId: string | null;
@@ -25,7 +25,6 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
   const [resourceId, setResourceId] = useState<string | null>(null);
   const [bookmarked, setBookmarked] = useState(false);
   const { user } = useAuth();
-  const { toast } = useToast();
 
   useEffect(() => {
     if (resourceId) loadResStats();
@@ -48,7 +47,7 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
 
   async function toggleLike() {
     if (!user) {
-      toast({ type: "info", title: "you are not signed in" });
+      toast.error("you are not signed in");
       return;
     }
     setLiked((prev) => !prev);
@@ -66,7 +65,7 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
 
   async function toggleBookmark() {
     if (!user) {
-      toast({ type: "info", title: "you are not signed in" });
+      toast.error("you are not signed in");
       return;
     }
     setBookmarked((prev) => !prev);

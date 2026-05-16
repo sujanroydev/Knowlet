@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Loader from "./Loader";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 export default function SigninForm() {
   const [loading, setLoading] = useState(false);
@@ -18,7 +19,7 @@ export default function SigninForm() {
     const password = formData.get("password");
 
     if (!email || !password) {
-      alert("All fields are required");
+      toast.warning("All fields are required");
       return;
     }
 
@@ -39,18 +40,18 @@ export default function SigninForm() {
       const { user, error } = await res.json();
 
       if (!user || error) {
-        alert("Invalid credentials");
+        toast.warning("Invalid credentials");
         return;
       }
 
       localStorage.setItem("knowlet-user", JSON.stringify(user));
 
-      alert("Successfully Signed In");
+      toast.success("Successfully Signed In");
 
       router.push("/profile");
     } catch (error) {
       console.error(error);
-      alert("Something went wrong");
+      toast.error("Something went wrong");
     } finally {
       setLoading(false);
     }

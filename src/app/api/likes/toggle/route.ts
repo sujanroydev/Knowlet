@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
     const payload = await verifyJwt(req.cookies.get("token")?.value);
 
     if (!payload?.user_id) {
-      NextResponse.json(
+      return NextResponse.json(
         { error: { message: "Unauthorized" } },
         { status: 401 },
       );

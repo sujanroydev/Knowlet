@@ -43,7 +43,7 @@ async function verifyAdmin(token: string | undefined | null) {
     .from("users_duplicate")
     .select("role")
     .eq("id", payload.user_id)
-    .eq("users_duplicate", true)
+    .eq("is_active", true)
     .maybeSingle();
 
   if (error || !data || data.role !== "admin") return null;

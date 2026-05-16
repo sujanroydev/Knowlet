@@ -27,8 +27,37 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
   const { user } = useAuth();
 
   useEffect(() => {
-    if (resourceId) loadResStats();
+    if (!resourceId) return;
+
+    const currentResourceId = resourceId;
+
+    loadResStats();
+
+    const timer = setTimeout(() => {
+      addHistory(currentResourceId);
+    }, 10000);
+
+    return () => clearTimeout(timer);
   }, [resourceId]);
+
+  async function addHistory(resourceId: string) {
+    try {
+      const res = await fetch("/api/history/view_history", {
+        method: "POST",
+        body: JSON.stringify({
+          resource_id: resourceId,
+        }),
+      });
+
+      const { error } = await res.json();
+
+      if (error) {
+        console.error(error);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   async function loadResStats() {
     try {

@@ -16,7 +16,7 @@ export async function GET(req: NextRequest) {
     const db = await connectDb();
 
     const { data: user, error } = await db
-      .from("user_duplicata")
+      .from("users_duplicate")
       .select("*")
       .eq("id", payload.user_id)
       .maybeSingle();
@@ -29,6 +29,9 @@ export async function GET(req: NextRequest) {
         { status: 404 },
       );
     }
+
+    delete user.id;
+    delete user.password_hash;
 
     return NextResponse.json({ data: user });
   } catch (error) {

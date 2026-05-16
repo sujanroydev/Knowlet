@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { useState } from "react";
 import Loader from "./Loader";
+import { useRouter } from "next/navigation";
 
 export default function SignupForm() {
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -46,9 +48,9 @@ export default function SignupForm() {
 
       localStorage.setItem("knowlet-usr", JSON.stringify(user));
 
-      alert(`Successfully Signed Up\nYour User ID: ${user.id}`);
+      alert(`Successfully Signed Up\nYour username: ${user.id}`);
 
-      window.location.href = "/profile";
+      router.push("/profile");
     } catch (error) {
       console.error(error);
       alert("Signup failed");

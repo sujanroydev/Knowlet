@@ -12,12 +12,27 @@ const AuthContext = createContext<AuthContextType | null>(null);
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
 
+  async function fetchMe() {
+    try {
+      const res = await fetch("/api/auth/me");
+      const { data: user, error } = await res.json();
+      if (error) console.log(error);
+      if (!user) console.log(user);
+      setUser(user);
+      localStorage.setItem("knowlet-user", JSON.stringify(user));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   useEffect(() => {
     const stored = localStorage.getItem("knowlet-user");
 
     if (stored) {
       setUser(JSON.parse(stored));
     }
+
+    fetchMe();
   }, []);
 
   return (

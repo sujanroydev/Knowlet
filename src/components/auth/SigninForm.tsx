@@ -84,12 +84,12 @@ export default function SigninForm() {
           Sign In
         </button>
 
-        <button
+        {/* <button
           type="button"
           className="w-full rounded-lg bg-green-600 py-3 font-medium text-white transition hover:bg-green-700"
         >
           Continue with Google
-        </button>
+        </button> */}
 
         <div className="text-center text-sm text-gray-600">
           New here?{" "}

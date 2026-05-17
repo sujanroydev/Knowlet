@@ -1,58 +1,36 @@
-# Knowlet
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-**Knowlet** is a free online resource platform for Bachelor students to search, view, and download study notes and reference materials across multiple subjects and semesters. Built with simplicity and accessibility in mind, Knowlet aims to make learning easier for college students by providing semester-wise notes in a mobile-friendly format.
+## Getting Started
 
-## Features
+First, run the development server:
 
-- 📘 **Free access** to semester-wise notes and study materials
-- 📂 **Easy to view and download** notes for each subject and semester
-- 📱 **Mobile-friendly design** for studying anywhere
-- 🕑 **Recently visited** section for quick access to your history
-- 🌟 **Favorites** feature to bookmark your important materials
-- 🔎 **Search** any notes easily by knowlet search
-- ☀️ **Always screen on** feature to read without disturbance
-- 🛜 **Very light weight** for which knowlet also works at very low internet connection
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-## Subjects Covered
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-- Mathematics
-- Physics
-- Computer Science
-- Statistics
-- Economics
-- Political Science
-- Education
-- History
-- Zoology
-- Geology
-- Botany
-- Biotechnology
-- And more!
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Website
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-Visit the platform: [Knowlet](https://knowlet.in)
+## Learn More
 
-## How to Use
+To learn more about Next.js, take a look at the following resources:
 
-1. **Browse Semesters:** Select your semester from the homepage grid.
-2. **Search Materials:** Use the search bar to find notes and papers by unit, subject, or keywords.
-3. **Download Notes:** Click on any subject or unit to view or download the study material.
-4. **Favorites & History:** Use the bottom navigation to access your favorite notes and recently visited pages.
-5. **Like, Rate & Comment:** Like, Comment and rate the comment for the notes.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## Contributing
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-Want to contribute? Feel free to fork the repository, make changes, and submit a pull request!
+## Deploy on Vercel
 
-- **Report Issues:** [GitHub Issues](https://github.com/KnowletHQ/Knowlet/issues)
-- **Contact:** [knowlet.study@gmail.com](mailto:knowlet.study@gmail.com)
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-## License
-
-All notes and resources are provided free for educational use. See [Declaration](https://knowlet.netlify.app/declaration.html) for more info.
-
----
-
-**Designed & Maintained by [Sujan Kumar Roy](https://github.com/SKR0411)**  
-© 2025 Knowlet | All rights reserved
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

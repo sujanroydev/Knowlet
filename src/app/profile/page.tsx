@@ -7,9 +7,9 @@ export default function Profile() {
   return (
     <div className="max-w-3xl mx-auto p-4 space-y-6">
       <ProfileCard />
-      <StatsSection />
-      <RecentActivity />
-      <SettingsPanel />
+      {/* <StatsSection /> */}
+      {/* <RecentActivity /> */}
+      {/* <SettingsPanel /> */}
     </div>
   );
 }

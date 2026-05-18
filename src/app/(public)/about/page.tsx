@@ -1,3 +1,35 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Knowlet",
+
+  description:
+    "Learn about Knowlet, its mission, development, features, and the technology behind the platform.",
+
+  alternates: {
+    canonical: "https://knowlet.in/about",
+  },
+
+  openGraph: {
+    title: "About Knowlet",
+    description: "Learn about Knowlet, its mission, features, and development.",
+    url: "https://knowlet.in/about",
+    siteName: "Knowlet",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "About Knowlet",
+    description: "Learn about Knowlet, its mission, features, and development.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-100 to-blue-50 text-slate-800">

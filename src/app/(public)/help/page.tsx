@@ -1,3 +1,35 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Help Center | Knowlet",
+
+  description:
+    "Get help with using Knowlet, accessing study materials, managing bookmarks, and navigating the platform.",
+
+  alternates: {
+    canonical: "https://knowlet.in/help",
+  },
+
+  openGraph: {
+    title: "Help Center | Knowlet",
+    description: "Support and guidance for using Knowlet effectively.",
+    url: "https://knowlet.in/help",
+    siteName: "Knowlet",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary",
+    title: "Help Center | Knowlet",
+    description: "Support and guidance for using Knowlet effectively.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
 export default function HelpPage() {
   return (
     <div className="min-h-screen bg-slate-100 text-slate-800">

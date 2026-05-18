@@ -1,3 +1,35 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | Knowlet",
+
+  description:
+    "Read Knowlet's privacy policy to understand how user data, cookies, and account information are handled.",
+
+  alternates: {
+    canonical: "https://knowlet.in/privacy-policy",
+  },
+
+  openGraph: {
+    title: "Privacy Policy | Knowlet",
+    description: "Learn how Knowlet collects, uses, and protects user data.",
+    url: "https://knowlet.in/privacy-policy",
+    siteName: "Knowlet",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary",
+    title: "Privacy Policy | Knowlet",
+    description: "Learn how Knowlet collects, uses, and protects user data.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
 export default function PrivacyPolicyPage() {
   return (
     <div className="min-h-screen bg-slate-100 text-slate-800">

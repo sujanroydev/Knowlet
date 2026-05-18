@@ -1,3 +1,37 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Declaration | Knowlet",
+
+  description:
+    "Read the official declaration and informational statements regarding Knowlet and its educational resources.",
+
+  alternates: {
+    canonical: "https://knowlet.in/declaration",
+  },
+
+  openGraph: {
+    title: "Declaration | Knowlet",
+    description:
+      "Official declaration and informational statements regarding Knowlet.",
+    url: "https://knowlet.in/declaration",
+    siteName: "Knowlet",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary",
+    title: "Declaration | Knowlet",
+    description:
+      "Official declaration and informational statements regarding Knowlet.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
 export default function DeclarationPage() {
   return (
     <div className="min-h-screen bg-slate-100 text-slate-800">

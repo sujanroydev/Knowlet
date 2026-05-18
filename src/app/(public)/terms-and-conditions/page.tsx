@@ -1,3 +1,35 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms and Conditions | Knowlet",
+
+  description:
+    "Read the terms and conditions for using Knowlet and accessing its educational content and services.",
+
+  alternates: {
+    canonical: "https://knowlet.in/terms-and-conditions",
+  },
+
+  openGraph: {
+    title: "Terms and Conditions | Knowlet",
+    description: "Terms and conditions for using Knowlet and its services.",
+    url: "https://knowlet.in/terms-and-conditions",
+    siteName: "Knowlet",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary",
+    title: "Terms and Conditions | Knowlet",
+    description: "Terms and conditions for using Knowlet and its services.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
 export default function TermsAndConditionsPage() {
   return (
     <div className="min-h-screen bg-slate-100 text-slate-800">

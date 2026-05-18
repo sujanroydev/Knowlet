@@ -1,27 +1,22 @@
-"use client";
+import ForgotPasswordPage from "./ForgotPasswordPage";
+import type { Metadata } from "next";
 
-import { useState } from "react";
-import AuthCard from "@/components/auth/AuthCard";
-import ForgotPasswordForm from "@/components/auth/ForgotPasswordForm";
-import ResetPasswordForm from "@/components/auth/ResetPasswordForm";
+export const metadata: Metadata = {
+  title: "Forgot Password | Knowlet",
 
-export default function ForgotPasswordPage() {
-  const [email, setEmail] = useState("");
-  const [otpSent, setOtpSent] = useState(false);
+  description:
+    "Reset your Knowlet account password and regain access to your study resources and bookmarks.",
 
-  return (
-    <main className="min-h-[calc(100dvh-120px)] flex items-center justify-center bg-gray-100 p-4">
-      <AuthCard title="Forgot Password">
-        {!otpSent ? (
-          <ForgotPasswordForm
-            email={email}
-            setEmail={setEmail}
-            onSuccess={() => setOtpSent(true)}
-          />
-        ) : (
-          <ResetPasswordForm email={email} />
-        )}
-      </AuthCard>
-    </main>
-  );
+  alternates: {
+    canonical: "https://knowlet.in/forgot-password",
+  },
+
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
+
+export default function Page() {
+  return <ForgotPasswordPage />;
 }

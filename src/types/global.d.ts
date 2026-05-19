@@ -16,10 +16,10 @@ interface Resource {
   title: string;
   description?: string;
   content: string;
+  path: string;
   target?: string;
   type?: string;
   slug?: string;
-  path: string;
   file_url?: string;
   thumbnail_url?: string;
   is_published?: boolean;

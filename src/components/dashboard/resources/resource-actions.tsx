@@ -1,4 +1,4 @@
-export default function ResourceActions() {
+export default function ResourceActions({ resource }: { resource: Resource }) {
   return (
     <div className="flex flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:flex-row sm:items-center sm:justify-between">
       <div>

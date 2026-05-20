@@ -28,19 +28,26 @@ export default function WelcomePage() {
                 Explore Library
               </a>
 
+              <a
+                href="/"
+                className="rounded-2xl border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
+              >
+                Go to Home
+              </a>
+
               {/* <a
                 href="/profile"
                 className="rounded-2xl border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
               >
                 Complete Profile
-              </a>
+              </a> */}
 
               <a
-                href="/settings/password"
+                href="profile/settings/password"
                 className="rounded-2xl border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
               >
                 Set Password
-              </a> */}
+              </a>
             </div>
           </div>
         </section>

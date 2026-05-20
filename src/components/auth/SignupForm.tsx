@@ -20,12 +20,6 @@ export default function SignupForm() {
   const { setUser } = useAuth();
 
   async function handleRequestOtp() {
-    // const formData = new FormData(e.currentTarget);
-
-    // const name = formData.get("name") as string;
-    // const email = formData.get("email") as string;
-    // const otp = formData.get("otp") as string;
-
     if (!name || !email) {
       toast.warning("Enter name and email first");
       return;
@@ -140,8 +134,8 @@ export default function SignupForm() {
             placeholder="OTP"
             value={otp}
             onChange={(e) => setOtp(e.target.value)}
-            disabled={!otpSent}
             className="flex-1 px-4 py-3 outline-none disabled:bg-gray-100"
+            required={!otpSent}
           />
 
           <button

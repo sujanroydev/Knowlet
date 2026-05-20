@@ -19,3 +19,19 @@ type AuthOtpType =
   | "reset_password"
   | "change_password"
   | "verify_email";
+
+interface Resource {
+  title: string;
+  description?: string;
+  content: string;
+  path: string;
+  target?: string;
+  type?: string;
+  slug?: string;
+  file_url?: string;
+  thumbnail_url?: string;
+  is_published?: boolean;
+  view_count?: number;
+  created_at?: string;
+  updated_at?: string;
+}

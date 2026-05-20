@@ -36,7 +36,8 @@ export async function proxy(req: NextRequest) {
   if (
     pathname.startsWith("/admin") ||
     pathname.startsWith("/profile") ||
-    pathname.startsWith("/settings/password")
+    pathname.startsWith("/settings/password") ||
+    pathname.startsWith("/dashboard")
   ) {
     const token = req.cookies.get("token")?.value;
 
@@ -66,5 +67,6 @@ export const config = {
     "/admin/:path*",
     "/profile/:path*",
     "/settings/password/:path*",
+    "/dashboard/:path*",
   ],
 };

@@ -12,7 +12,7 @@ export default function NavigatorBtnCard({ item }: { item: Item }) {
     <button
       key={item.path}
       onClick={() => router.push(`/library/${item.path}`)}
-      className="group flex min-h-30 flex-col justify-between rounded-2xl border border-slate-200 bg-white p-4 text-left shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-blue-400"
+      className={`${item.description ? "min-h-30" : "min-h-20"} group flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-4 text-left shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-blue-400`}
     >
       <div>
         <h2 className="text-lg font-semibold text-slate-800 transition-colors group-hover:text-blue-600">

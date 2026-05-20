@@ -35,22 +35,26 @@ export async function POST(req: NextRequest) {
 
     const levelSlug = parts[0];
     const subjectSlug = parts[1];
-    const paperSlug = subjectSlug.startsWith("semester") ? parts[2] : null;
+    const paperSlug = levelSlug.startsWith("semester") ? parts[2] : null;
 
     let level, subject, paper;
+    let oldLevelRow, oldSubjectRow, oldPaperRow;
+    let newLevelRow, newSubjectRow, newPaperRow;
 
     const db = await connectDb();
 
-    let { data, error: levelError } = await db
+    // fetch
+    oldLevelRow = await db
       .from("levels")
       .select("id")
       .eq("slug", levelSlug)
       .maybeSingle();
 
-    level = data;
+    level = oldLevelRow?.data;
 
-    if (!level) {
-      const levelRow = await db
+    // insert
+    if (!oldLevelRow?.data) {
+      newLevelRow = await db
         .from("levels")
         .insert({
           title: levelSlug
@@ -64,68 +68,92 @@ export async function POST(req: NextRequest) {
         .select()
         .single();
 
-      level = levelRow.data;
-    } else {
-      let { data, error: subjectError } = await db
+      level = newLevelRow?.data;
+    }
+
+    // fetch
+    if (oldLevelRow?.data) {
+      oldSubjectRow = await db
         .from("subjects")
         .select("id")
         .eq("slug", subjectSlug)
         .eq("level_id", level?.id)
         .maybeSingle();
 
-      subject = data;
-
-      if (!subject) {
-        const subjectRow = await db
-          .from("subjects")
-          .insert({
-            title: subjectSlug
-              .split("-")
-              .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-              .join(" "),
-            number: subjectSlug.split("-")[1],
-            slug: subjectSlug,
-            path: `${subjectSlug}`,
-          })
-          .select()
-          .single();
-
-        subject = subjectRow.data;
-      } else if (paperSlug) {
-        let { data, error: paperError } = await db
-          .from("papers")
-          .select("id")
-          .eq("slug", paperSlug)
-          .eq("subject_id", subject?.id)
-          .maybeSingle();
-
-        paper = data;
-
-        if (!paper) {
-          const paperRow = await db
-            .from("papers")
-            .insert({
-              title: paperSlug
-                .split("-")
-                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                .join(" "),
-              number: paperSlug.split("-")[1],
-              slug: paperSlug,
-              path: `${paperSlug}`,
-            })
-            .select()
-            .single();
-
-          paper = paperRow.data;
-        }
-      }
+      subject = oldSubjectRow?.data;
     }
 
+    // insert
+    if (!oldLevelRow?.data || !oldSubjectRow?.data) {
+      newSubjectRow = await db
+        .from("subjects")
+        .insert({
+          level_id: level?.id,
+          title: subjectSlug
+            .split("-")
+            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(" "),
+          slug: subjectSlug,
+          path: `${levelSlug}/${subjectSlug}`,
+        })
+        .select()
+        .single();
+
+      subject = newSubjectRow?.data;
+    }
+
+    // fetch
+    if ((oldLevelRow?.data || oldSubjectRow?.data) && paperSlug) {
+      oldPaperRow = await db
+        .from("papers")
+        .select("id")
+        .eq("slug", paperSlug)
+        .eq("subject_id", subject?.id)
+        .maybeSingle();
+
+      paper = oldPaperRow?.data;
+    }
+
+    // insert
+    if ((!oldLevelRow?.data || !oldSubjectRow?.data) && paperSlug) {
+      newPaperRow = await db
+        .from("papers")
+        .insert({
+          subject_id: subject?.id,
+          level_id: level?.id,
+          title: paperSlug.split("-").join(" ").toUpperCase(),
+          code: paperSlug.split("-").join("").toUpperCase(),
+          slug: paperSlug,
+          path: `${levelSlug}/${subjectSlug}/${paperSlug}`,
+        })
+        .select()
+        .single();
+
+      paper = newPaperRow?.data;
+    }
+
+    // console.log(level, subject, paper);
+    console.log("\n\n");
+    console.log(oldLevelRow?.data, oldSubjectRow?.data, oldPaperRow?.data);
+    console.log("\n\n");
+    console.log(oldLevelRow?.error, oldSubjectRow?.error, oldPaperRow?.error);
+    console.log("\n\n");
+    console.log(newLevelRow?.data, newSubjectRow?.data, newPaperRow?.data);
+    console.log("\n\n");
+    console.log(newLevelRow?.error, newSubjectRow?.error, newPaperRow?.error);
+
+    //insert
     const { data: res, error: resErr } = await db.from("resources").insert({
       level_id: level?.id,
       subject_id: subject?.id,
       paper_id: paper?.id,
-      ...{ title, description, content, target, type, slug, path },
+      title,
+      description,
+      content,
+      target,
+      type,
+      slug,
+      path,
     });
 
     if (resErr) throw new Error(resErr.message);

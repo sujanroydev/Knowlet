@@ -50,6 +50,7 @@ export async function POST(req: NextRequest) {
       .eq("slug", levelSlug)
       .maybeSingle();
 
+    if (oldLevelRow?.error) throw new Error(oldLevelRow?.error.message);
     level = oldLevelRow?.data;
 
     // insert
@@ -68,6 +69,7 @@ export async function POST(req: NextRequest) {
         .select()
         .single();
 
+      if (newLevelRow?.error) throw new Error(newLevelRow?.error.message);
       level = newLevelRow?.data;
     }
 
@@ -80,6 +82,7 @@ export async function POST(req: NextRequest) {
         .eq("level_id", level?.id)
         .maybeSingle();
 
+      if (oldSubjectRow?.error) throw new Error(oldSubjectRow?.error.message);
       subject = oldSubjectRow?.data;
     }
 
@@ -99,6 +102,7 @@ export async function POST(req: NextRequest) {
         .select()
         .single();
 
+      if (newSubjectRow?.error) throw new Error(newSubjectRow?.error.message);
       subject = newSubjectRow?.data;
     }
 
@@ -111,11 +115,12 @@ export async function POST(req: NextRequest) {
         .eq("subject_id", subject?.id)
         .maybeSingle();
 
+      if (oldPaperRow?.error) throw new Error(oldPaperRow?.error.message);
       paper = oldPaperRow?.data;
     }
 
     // insert
-    if ((!oldLevelRow?.data || !oldSubjectRow?.data) && paperSlug) {
+    if ((!oldLevelRow?.data || !oldPaperRow?.data) && paperSlug) {
       newPaperRow = await db
         .from("papers")
         .insert({
@@ -129,21 +134,12 @@ export async function POST(req: NextRequest) {
         .select()
         .single();
 
+      if (newPaperRow?.error) throw new Error(newPaperRow?.error.message);
       paper = newPaperRow?.data;
     }
 
-    // console.log(level, subject, paper);
-    console.log("\n\n");
-    console.log(oldLevelRow?.data, oldSubjectRow?.data, oldPaperRow?.data);
-    console.log("\n\n");
-    console.log(oldLevelRow?.error, oldSubjectRow?.error, oldPaperRow?.error);
-    console.log("\n\n");
-    console.log(newLevelRow?.data, newSubjectRow?.data, newPaperRow?.data);
-    console.log("\n\n");
-    console.log(newLevelRow?.error, newSubjectRow?.error, newPaperRow?.error);
-
     //insert
-    const { data: res, error: resErr } = await db.from("resources").insert({
+    const { data, error } = await db.from("resources").insert({
       level_id: level?.id,
       subject_id: subject?.id,
       paper_id: paper?.id,
@@ -156,9 +152,12 @@ export async function POST(req: NextRequest) {
       path,
     });
 
-    if (resErr) throw new Error(resErr.message);
+    if (error) throw new Error(error.message);
 
-    return NextResponse.json({ success: true }, { status: 201 });
+    return NextResponse.json(
+      { success: true, data: { resource: data } },
+      { status: 201 },
+    );
   } catch (error) {
     return NextResponse.json(
       { error: { message: (error as Error).message } },

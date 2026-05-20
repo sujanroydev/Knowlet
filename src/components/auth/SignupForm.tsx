@@ -177,12 +177,13 @@ export default function SignupForm() {
           Sign Up
         </button>
 
-        {/* <button
+        <button
+          onClick={() => (window.location.href = "/api/auth/google")}
           type="button"
           className="w-full rounded-lg bg-green-600 py-3 font-medium text-white transition hover:bg-green-700"
         >
           Continue with Google
-        </button> */}
+        </button>
 
         <div className="text-center text-sm text-gray-600">
           Already have an account?{" "}

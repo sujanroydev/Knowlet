@@ -20,28 +20,20 @@ export default function ResourceDetails({
 }) {
   const [title, setTitle] = useState("Title");
   const [description, setDescription] = useState("Description");
-  const [level, setLevel] = useState("Semester 1");
-  const [subject, setSubject] = useState("Ecology");
-  const [paper, setPaper] = useState("DSC");
-  const [type, setType] = useState("Note");
-  const [target, setTarget] = useState("Unit 1");
+  const [level, setLevel] = useState("select");
+  const [subject, setSubject] = useState("select");
+  const [paper, setPaper] = useState("");
+  const [type, setType] = useState("select");
+  const [target, setTarget] = useState("select");
 
   useEffect(() => {
     let path = `${level}/${subject}`;
 
-    if (level.startsWith("Semester")) path += `/${paper}/${type}`;
+    if (level.startsWith("semester")) path += `/${paper}/${type}`;
 
     if (type !== "PYQ") path += `/${target}`;
 
-    setDetails({
-      ...details,
-      title,
-      description,
-      path,
-      type,
-      target,
-      slug: "demo--23",
-    });
+    setDetails({ title, description, path, type, target, slug: target });
   }, [title, description, level, subject, paper, type, target]);
 
   return (
@@ -56,16 +48,12 @@ export default function ResourceDetails({
 
           <div className="grid gap-5 md:grid-cols-2">
             <TextInput
-              onChange={(e) =>
-                setDetails({ ...details, title: e.target.value })
-              }
+              onChange={(e) => setTitle(e.target.value)}
               label="Resource Title"
               placeholder="Enter title"
             />
             <TextInput
-              onChange={(e) =>
-                setDetails({ ...details, description: e.target.value })
-              }
+              onChange={(e) => setDescription(e.target.value)}
               label="Description"
               placeholder="Resource Description"
             />
@@ -79,31 +67,26 @@ export default function ResourceDetails({
 
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             <SelectInput
+              label="Resource Type"
+              options={["select", "note", "pyq", "important-questions"]}
+              value={type}
+              onChange={(e) => setType(e.target.value)}
+            />
+
+            <SelectInput
               label="Level"
               options={[
-                "Semester 1",
-                "Semester 2",
-                "Semester 3",
-                "Semester 4",
-                "Semester 5",
-                "Semester 6",
-                "Semester 7",
-                "Semester 8",
+                "select",
+                ...[...Array(8)].map((_, i) => `semester-${i + 1}`),
               ]}
               value={level}
               onChange={(e) => setLevel(e.target.value)}
             />
 
             <SelectInput
-              label="Resource Type"
-              options={["Notes", "PYQ", "Important Questions"]}
-              value={type}
-              onChange={(e) => setType(e.target.value)}
-            />
-
-            <SelectInput
               label="Subject"
               options={[
+                "select",
                 "zoology",
                 "statistics",
                 "political-science",
@@ -126,30 +109,19 @@ export default function ResourceDetails({
               onChange={(e) => setSubject(e.target.value)}
             />
 
-            <SelectInput
+            <TextInput
               label="Paper"
-              options={["DSC", "DSM", "SEC", "IDC"]}
+              placeholder="Enter Paper Code eg. dsc-152"
               value={paper}
-              onChange={(e) => setPaper(e.target.value)}
+              onChange={(e) =>
+                setPaper(e.target.value.toLowerCase().split(" ").join("-"))
+              }
             />
-
             <SelectInput
               label="target"
               options={[
-                "Unit 1",
-                "Unit 2",
-                "Unit 3",
-                "Unit 4",
-                "Unit 5",
-                "Unit 6",
-                "Unit 7",
-                "Unit 8",
-                "Unit 9",
-                "Unit 10",
-                "Unit 11",
-                "Unit 12",
-                "Unit 13",
-                "Unit 14",
+                "select",
+                ...[...Array(15)].map((_, i) => `unit-${i + 1}`),
               ]}
               value={target}
               onChange={(e) => setTarget(e.target.value)}

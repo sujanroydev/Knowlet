@@ -47,11 +47,16 @@ export async function GET(req: NextRequest) {
 
   if (error) throw new Error(error.message);
 
-  if (!data) {
+  if (data) {
+    user = data;
+  } else {
     const newUser = {
       name: user.name,
       email: user.email,
       username: generateUsername(user.name),
+      picture: user.picture,
+      is_verified: true,
+      verified_at: new Date().toISOString(),
     };
 
     // Create new user
@@ -65,8 +70,6 @@ export async function GET(req: NextRequest) {
 
     user = data;
   }
-
-  user = data;
 
   // Create JWT
   const secret = new TextEncoder().encode(process.env.JWT_SECRET!);

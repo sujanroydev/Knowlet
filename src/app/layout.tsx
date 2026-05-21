@@ -5,6 +5,7 @@ import TopBar from "@/components/TopBar";
 import { AppProvider } from "@/context/AppContext";
 import { Toaster } from "sonner";
 import AppToaster from "@/components/AppToaster";
+import SWRegister from "@/components/SWRegister";
 
 export const metadata: Metadata = {
   title: "Knowlet – Notes & Study Materials",
@@ -25,6 +26,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="h-dvh py-15 box-border overflow-hidden bg-gray-100">
         <AppProvider>
+          <SWRegister />
           <div className="h-full flex flex-col">
             <TopBar /> {/* 60px */}
             <div className="flex-1 overflow-y-auto">

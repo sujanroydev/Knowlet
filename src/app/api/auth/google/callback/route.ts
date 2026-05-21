@@ -40,7 +40,7 @@ export async function GET(req: NextRequest) {
 
   // Sync with Database
   const { data, error } = await db
-    .from("users_duplicate")
+    .from("users")
     .select("id")
     .eq("email", user.email)
     .maybeSingle();
@@ -64,7 +64,7 @@ export async function GET(req: NextRequest) {
 
     // Create new user
     const { data, error } = await db
-      .from("users_duplicate")
+      .from("users")
       .insert(newUser)
       .select()
       .single();

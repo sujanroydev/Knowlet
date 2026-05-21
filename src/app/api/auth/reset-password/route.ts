@@ -75,7 +75,7 @@ export async function POST(req: NextRequest) {
 
     // Update password
     const { error: updateError } = await db
-      .from("users_duplicate")
+      .from("users")
       .update({
         password_hash: passwordHash,
       })

@@ -24,7 +24,7 @@ async function verifyUser(token: string | undefined | null) {
 
   const db = await connectDb();
   const { data, error } = await db
-    .from("users_duplicate")
+    .from("users")
     .select("is_active")
     .eq("id", payload.user_id)
     .maybeSingle();
@@ -40,7 +40,7 @@ async function verifyAdmin(token: string | undefined | null) {
 
   const db = await connectDb();
   const { data, error } = await db
-    .from("users_duplicate")
+    .from("users")
     .select("role")
     .eq("id", payload.user_id)
     .eq("is_active", true)

@@ -16,7 +16,7 @@ export async function GET(req: NextRequest) {
     const db = await connectDb();
 
     const { data: user, error } = await db
-      .from("users_duplicate")
+      .from("users")
       .select("*")
       .eq("id", payload.user_id)
       .maybeSingle();

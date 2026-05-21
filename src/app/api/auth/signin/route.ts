@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
     const db = await connectDb();
 
     const { data: user, error } = await db
-      .from("users_duplicate")
+      .from("users")
       .select("*")
       .eq("email", email)
       .maybeSingle();

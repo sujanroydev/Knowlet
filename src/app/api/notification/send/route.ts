@@ -1,3 +1,4 @@
+import { verifyAdmin } from "@/lib/auth";
 import connectDb from "@/lib/db";
 import { NextRequest, NextResponse } from "next/server";
 import webpush from "web-push";
@@ -11,6 +12,15 @@ webpush.setVapidDetails(
 export async function POST(req: NextRequest) {
   try {
     const { title, body, icon, badge, image, tag, url } = await req.json();
+
+    const admin = await verifyAdmin(req.cookies.get("token")?.value);
+
+    if (!admin) {
+      return NextResponse.json(
+        { error: { message: "Unauthorized User" } },
+        { status: 403 },
+      );
+    }
 
     const db = await connectDb();
 

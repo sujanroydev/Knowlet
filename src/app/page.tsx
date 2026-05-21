@@ -10,7 +10,7 @@ import OpenLibraryFull from "@/components/home/OpenLibraryFull";
 
 export default function Home() {
   return (
-    <>
+    <div className="min-h-[calc(100dvh-120px)] w-full max-w-3xl mx-auto">
       <Header />
       <SearchBar />
       <OpenLibraryFull />
@@ -20,6 +20,6 @@ export default function Home() {
       <Download />
       <ContactCTA />
       <Footer />
-    </>
+    </div>
   );
 }

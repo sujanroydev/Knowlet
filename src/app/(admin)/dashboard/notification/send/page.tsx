@@ -1,4 +1,4 @@
-import CreateResourcePage from "@/components/dashboard/resources/create-resource-page";
+import NotificationAdminPage from "@/components/dashboard/notification/notification-admin-page";
 import { verifyAdmin } from "@/lib/auth";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
@@ -9,5 +9,5 @@ export default async function Page() {
 
   if (!admin) redirect("/forbidden");
 
-  return <CreateResourcePage />;
+  return <NotificationAdminPage />;
 }

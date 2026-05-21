@@ -70,7 +70,7 @@ export async function POST(request: NextRequest) {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const { data: user, error } = await db
-      .from("users_duplicate")
+      .from("users")
       .insert({
         username,
         name,

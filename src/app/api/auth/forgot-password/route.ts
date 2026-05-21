@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
 
     // Find user
     const { data: user, error: userError } = await db
-      .from("users_duplicate")
+      .from("users")
       .select("id, email")
       .eq("email", email)
       .maybeSingle();

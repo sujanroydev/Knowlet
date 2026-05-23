@@ -1,6 +1,6 @@
 import Link from "next/link";
 import connectDb from "@/lib/db";
-import { ArrowUpRight, BookOpen, Clock3, Eye, Plus } from "lucide-react";
+import { ArrowUpRight, Bell, BookOpen, Clock3, Eye, Plus } from "lucide-react";
 
 type Resource = {
   id: string;
@@ -129,13 +129,23 @@ export default async function DashboardPage() {
               </div>
             </div>
 
-            <Link
-              href="/dashboard/resources/create"
-              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-5 py-3 font-medium text-black transition hover:scale-[1.02] hover:shadow-lg"
-            >
-              <Plus size={18} />
-              Add Resource
-            </Link>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/dashboard/resources/create"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-5 py-3 font-medium text-black transition hover:scale-[1.02] hover:shadow-lg"
+              >
+                <Plus size={18} />
+                Add Resource
+              </Link>
+
+              <Link
+                href="/dashboard/notification/send"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/10 px-5 py-3 font-medium text-white backdrop-blur transition hover:bg-white/20"
+              >
+                <Bell size={18} />
+                Push Notifications
+              </Link>
+            </div>
           </div>
         </div>
 

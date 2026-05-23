@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
 
     const { data, error } = await db
       .from("push_subscriptions")
-      .select("id, endpoint, auth, p256dh")
+      .select("id, user_id, endpoint, auth, p256dh")
       .eq("is_active", true);
 
     if (error) {
@@ -42,6 +42,27 @@ export async function POST(req: NextRequest) {
       tag,
       url,
     });
+
+    const { data: notification } = await db
+      .from("notifications")
+      .insert({
+        type: "resource",
+        title,
+        body,
+        icon,
+        // badge,
+        image,
+        // tag,
+        action_url: url,
+      })
+      .select()
+      .single();
+
+    const notificationId = notification.id;
+    let userNotificationArr: {
+      user_id: string;
+      notification_id: string;
+    }[] = [];
 
     const results = await Promise.allSettled(
       data.map(async (row) => {
@@ -69,9 +90,16 @@ export async function POST(req: NextRequest) {
             statusCode: err.statusCode,
             message: err.message,
           };
+        } finally {
+          userNotificationArr.push({
+            user_id: row.user_id,
+            notification_id: notificationId,
+          });
         }
       }),
     );
+
+    await db.from("user_notifications").insert(userNotificationArr);
 
     const success = results.filter((r) => r.status === "fulfilled").length;
 

@@ -33,16 +33,6 @@ export async function POST(req: NextRequest) {
       throw new Error(error.message);
     }
 
-    const payload = JSON.stringify({
-      title,
-      body,
-      icon,
-      badge,
-      image,
-      tag,
-      url,
-    });
-
     const { data: notification } = await db
       .from("notifications")
       .insert({
@@ -59,10 +49,25 @@ export async function POST(req: NextRequest) {
       .single();
 
     const notificationId = notification.id;
-    let userNotificationArr: {
-      user_id: string;
-      notification_id: string;
-    }[] = [];
+    const uniqueUserIds = [...new Set(data.map((row) => row.user_id))];
+
+    const payload = JSON.stringify({
+      notificationId,
+      title,
+      body,
+      icon,
+      badge,
+      image,
+      tag,
+      url,
+    });
+
+    await db.from("user_notifications").insert(
+      uniqueUserIds.map((userId) => ({
+        user_id: userId,
+        notification_id: notificationId,
+      })),
+    );
 
     const results = await Promise.allSettled(
       data.map(async (row) => {
@@ -90,18 +95,15 @@ export async function POST(req: NextRequest) {
             statusCode: err.statusCode,
             message: err.message,
           };
-        } finally {
-          userNotificationArr.push({
-            user_id: row.user_id,
-            notification_id: notificationId,
-          });
         }
       }),
     );
 
     await db.from("user_notifications").insert(userNotificationArr);
 
-    const success = results.filter((r) => r.status === "fulfilled").length;
+    const success = results.filter(
+      (r) => r.status === "fulfilled" && r.value.success,
+    ).length;
 
     return NextResponse.json({
       success: true,

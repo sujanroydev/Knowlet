@@ -16,7 +16,7 @@ const menuItems = [
   },
   {
     label: "Notifications",
-    href: "/notificaitons",
+    href: "/notifications",
   },
   {
     label: "Dashboard",

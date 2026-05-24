@@ -30,20 +30,15 @@ export default async function NotificationsPage() {
     .eq("user_id", payload?.user_id)
     .order("created_at", { ascending: false });
 
-  const { data: subscription, error } = await db
+  const { data: user_subscriptions, error } = await db
     .from("push_subscriptions")
-    .select("is_active")
-    .eq("user_id", payload?.user_id)
-    .maybeSingle();
-
-  console.log(error);
-  console.log(subscription);
-  console.log(payload);
+    .select()
+    .eq("user_id", payload?.user_id);
 
   return (
     <NotificationClient
       notifications={notifications || []}
-      isSubscribed={!!subscription?.is_active}
+      user_subscriptions={user_subscriptions || []}
     />
   );
 }

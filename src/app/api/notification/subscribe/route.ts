@@ -7,8 +7,6 @@ export async function POST(req: NextRequest) {
     const subscription = await req.json();
     const payload = await verifyJwt(req.cookies.get("token")?.value);
 
-    console.log(subscription);
-
     if (!subscription?.endpoint) {
       return NextResponse.json(
         { success: false, error: "Invalid subscription" },
@@ -43,6 +41,7 @@ export async function POST(req: NextRequest) {
 
 export async function PATCH(req: NextRequest) {
   try {
+    const subscription = await req.json();
     const payload = await verifyJwt(req.cookies.get("token")?.value);
 
     if (!payload) {
@@ -57,7 +56,7 @@ export async function PATCH(req: NextRequest) {
         is_active: false,
         updated_at: new Date().toISOString(),
       })
-      .eq("user_id", payload?.user_id);
+      .eq("endpoint", subscription.endpoint);
 
     if (error) throw new Error("Database Error");
 

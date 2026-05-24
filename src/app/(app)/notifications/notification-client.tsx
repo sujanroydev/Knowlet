@@ -1,17 +1,52 @@
 "use client";
 
 import { subscribe } from "@/components/SWRegister";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function NotificationClient({
   notifications,
-  isSubscribed,
-}: any) {
-  const [subscribed, setSubscribed] = useState(isSubscribed);
+  user_subscriptions,
+}: {
+  notifications: any;
+  user_subscriptions: any[];
+}) {
+  const [subscribed, setSubscribed] = useState(false);
+
+  useEffect(() => {
+    checkSubscription();
+  }, []);
+
+  async function checkSubscription() {
+    try {
+      const registration = await navigator.serviceWorker.ready;
+
+      const subscription = await registration.pushManager.getSubscription();
+
+      if (!subscription) {
+        setSubscribed(false);
+        return;
+      }
+
+      const exists = user_subscriptions.find(
+        (i) => i.endpoint === subscription.endpoint,
+      ).is_active;
+
+      setSubscribed(exists);
+      return subscription;
+    } catch (error) {
+      console.error("Failed to check subscription", error);
+    }
+  }
 
   async function toggleSubscription() {
     if (subscribed) {
-      await fetch("/api/notification/subscribe", { method: "PATCH" });
+      await fetch("/api/notification/subscribe", {
+        method: "PATCH",
+        body: JSON.stringify(await checkSubscription()),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       setSubscribed(false);
     } else {
       await subscribe();
@@ -52,7 +87,7 @@ export default function NotificationClient({
             <p className="text-sm text-gray-600">{n.notifications.body}</p>
 
             <p className="text-xs text-gray-400 mt-1">
-              {new Date(n.created_at).toLocaleString()}
+              {new Date(n.created_at).toLocaleString("en-US")}
             </p>
           </a>
         ))}

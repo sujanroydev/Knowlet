@@ -17,8 +17,18 @@ export default function SWRegister() {
     };
 
     registerSW();
-    setTimeout(() => {
-      subscribe();
+    setTimeout(async () => {
+      try {
+        const registration = await navigator.serviceWorker.ready;
+        const subscription = await registration.pushManager.getSubscription();
+
+        if (!subscription) {
+          subscribe();
+          return;
+        }
+      } catch (error) {
+        console.error("Failed to check subscription", error);
+      }
     }, 6000);
   }, []);
 

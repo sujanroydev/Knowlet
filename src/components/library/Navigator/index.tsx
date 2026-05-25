@@ -62,7 +62,15 @@ export default async function Navigator({
 
   const { data, error } = await query;
 
-  if (error || !data) return notFound();
+  if (error || !data) {
+    if (variant === "home") {
+      return (
+        <div className="flex min-h-[300px] items-center justify-center">
+          <p className="text-2xl font-semibold text-red-500">Failed to load</p>
+        </div>
+      );
+    } else return notFound();
+  }
 
   const title = slug
     ? special

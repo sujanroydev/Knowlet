@@ -10,6 +10,7 @@ export default function NotificationClient({
   notifications: any;
   user_subscriptions: any[];
 }) {
+  const [localNotifications, setLocalNotifications] = useState(notifications);
   const [subscribed, setSubscribed] = useState(false);
 
   useEffect(() => {
@@ -29,9 +30,9 @@ export default function NotificationClient({
 
       const exists = user_subscriptions.find(
         (i) => i.endpoint === subscription.endpoint,
-      ).is_active;
+      );
 
-      setSubscribed(exists);
+      setSubscribed(!!exists?.is_active);
       return subscription;
     } catch (error) {
       console.error("Failed to check subscription", error);
@@ -51,6 +52,32 @@ export default function NotificationClient({
     } else {
       await subscribe();
       setSubscribed(true);
+    }
+  }
+
+  async function markAsRead(id: string) {
+    try {
+      setLocalNotifications((prev: any[]) =>
+        prev.map((n) =>
+          n.id === id
+            ? {
+                ...n,
+                is_read: true,
+                read_at: new Date().toISOString(),
+              }
+            : n,
+        ),
+      );
+
+      await fetch(`/api/notification/read`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id }),
+      });
+    } catch (error) {
+      console.error("Failed to mark notification as read", error);
     }
   }
 
@@ -91,10 +118,11 @@ export default function NotificationClient({
 
         {/* Notification List */}
         <div className="space-y-4">
-          {notifications.map((n: any) => (
+          {localNotifications.map((n: any) => (
             <a
               key={n.id}
               href={n.notifications.action_url || "#"}
+              onClick={() => markAsRead(n.id)}
               className={`group block rounded-3xl border backdrop-blur-sm p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl
             ${
               n.is_read

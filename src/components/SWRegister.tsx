@@ -24,7 +24,9 @@ export default function SWRegister() {
 
         if (!subscription) {
           subscribe();
-          return;
+        } else if (localStorage.getItem("subscribed") !== "true") {
+          subscribe(); //update subscription
+          localStorage.setItem("subscribed", "true");
         }
       } catch (error) {
         console.error("Failed to check subscription", error);

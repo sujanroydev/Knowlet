@@ -15,12 +15,12 @@ const menuItems = [
     href: "/settings",
   },
   {
-    label: "Bookmarks",
-    href: "/bookmarks",
+    label: "Notifications",
+    href: "/notifications",
   },
   {
-    label: "History",
-    href: "/history",
+    label: "Dashboard",
+    href: "/dashboard",
   },
 ];
 

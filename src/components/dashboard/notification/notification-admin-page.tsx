@@ -24,7 +24,7 @@ const defaultPreview = {
   title: "⚡ Stop Scrolling. Start Revising.",
   body: "Important topics, quick notes & exam-focused questions ready for you.",
   image:
-    "https://res.cloudinary.com/db975putk/image/upload/q_auto/f_auto/v1778231354/ChatGPT_Image_May_8_2026_02_16_27_PM_y2cunt.png",
+    "https://res.cloudinary.com/db975putk/image/upload/q_auto/f_auto/v1779595876/IMG_20260524_094028_cmlvb1.png",
   url: "https://knowlet.in",
 };
 
@@ -77,16 +77,13 @@ export default function NotificationAdminPage() {
         url: url || defaultPreview.url,
       };
 
-      const res = await fetch(
-        "https://knowlet.in/.netlify/functions/send-notification",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(payload),
+      const res = await fetch("/api/notification/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+        body: JSON.stringify(payload),
+      });
 
       if (!res.ok) {
         alert("Failed to send notification");
@@ -228,29 +225,23 @@ export default function NotificationAdminPage() {
           <div className="rounded-2xl bg-white p-5 shadow-sm">
             <h2 className="mb-5 text-xl font-semibold">Preview</h2>
 
-            <div className="overflow-hidden rounded-2xl border border-gray-200 bg-gray-50">
-              <img
-                src={image || defaultPreview.image}
-                alt="preview"
-                className="h-64 w-full object-cover"
-              />
-
+            <div
+              onClick={() => window.open(url || defaultPreview.url, "_blank")}
+              className="overflow-hidden rounded-2xl border border-gray-200 bg-gray-50"
+            >
               <div className="p-5">
                 <h3 className="mb-2 text-2xl font-bold">
                   {title || defaultPreview.title}
                 </h3>
 
                 <p className="text-gray-600">{body || defaultPreview.body}</p>
-
-                <button
-                  onClick={() =>
-                    window.open(url || defaultPreview.url, "_blank")
-                  }
-                  className="mt-5 rounded-xl bg-blue-600 px-4 py-2 text-white"
-                >
-                  Open URL
-                </button>
               </div>
+
+              <img
+                src={image || defaultPreview.image}
+                alt="preview"
+                className="h-64 w-full object-cover"
+              />
             </div>
           </div>
         </div>

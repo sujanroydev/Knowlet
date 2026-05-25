@@ -26,14 +26,44 @@ export async function POST(req: NextRequest) {
 
     const { data, error } = await db
       .from("push_subscriptions")
-      .select("id, endpoint, auth, p256dh")
+      .select("id, user_id, endpoint, auth, p256dh")
       .eq("is_active", true);
 
     if (error) {
       throw new Error(error.message);
     }
 
+    const { data: notification } = await db
+      .from("notifications")
+      .insert({
+        type: "resource",
+        title,
+        body,
+        icon,
+        // badge,
+        image,
+        // tag,
+        action_url: url,
+      })
+      .select()
+      .single();
+
+    const notificationId = notification.id;
+    const uniqueUserIds = [
+      ...new Set(
+        data.map((row) => row.user_id).filter((id): id is string => !!id),
+      ),
+    ];
+
+    await db.from("user_notifications").insert(
+      uniqueUserIds.map((userId) => ({
+        user_id: userId,
+        notification_id: notificationId,
+      })),
+    );
+
     const payload = JSON.stringify({
+      notificationId,
       title,
       body,
       icon,
@@ -73,7 +103,9 @@ export async function POST(req: NextRequest) {
       }),
     );
 
-    const success = results.filter((r) => r.status === "fulfilled").length;
+    const success = results.filter(
+      (r) => r.status === "fulfilled" && r.value.success,
+    ).length;
 
     return NextResponse.json({
       success: true,

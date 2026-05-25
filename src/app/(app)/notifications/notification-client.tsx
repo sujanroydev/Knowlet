@@ -55,42 +55,119 @@ export default function NotificationClient({
   }
 
   return (
-    <div className="p-6 max-w-2xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Notifications</h1>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 p-6">
+      <div className="max-w-3xl mx-auto">
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+          <div>
+            <h1 className="text-3xl font-bold tracking-tight text-slate-900">
+              Notifications
+            </h1>
 
-      {/* Subscribe Button */}
-      <button
-        onClick={toggleSubscription}
-        className={`px-4 py-2 rounded mb-6 ${
-          subscribed ? "bg-red-500" : "bg-green-500"
-        } text-white`}
-      >
-        {subscribed
-          ? "Unsubscribe Push Notifications"
-          : "Subscribe Push Notifications"}
-      </button>
-
-      {/* Notification List */}
-      <div className="space-y-3">
-        {notifications.map((n: any) => (
-          <a
-            key={n.id}
-            href={n.notifications.action_url || "#"}
-            className="block p-4 border rounded hover:bg-gray-50"
-          >
-            <div className="flex justify-between">
-              <h2 className="font-semibold">{n.notifications.title}</h2>
-
-              {!n.is_read && <span className="text-xs text-blue-500">NEW</span>}
-            </div>
-
-            <p className="text-sm text-gray-600">{n.notifications.body}</p>
-
-            <p className="text-xs text-gray-400 mt-1">
-              {new Date(n.created_at).toLocaleString("en-US")}
+            <p className="text-slate-500 mt-1">
+              Stay updated with your latest activity and announcements.
             </p>
-          </a>
-        ))}
+          </div>
+
+          {/* Subscribe Button */}
+          <button
+            onClick={toggleSubscription}
+            className={`relative overflow-hidden px-5 py-3 rounded-2xl font-medium transition-all duration-300 shadow-lg hover:scale-[1.02] active:scale-[0.98]
+          ${
+            subscribed
+              ? "bg-gradient-to-r from-red-500 to-rose-500 hover:shadow-red-200"
+              : "bg-gradient-to-r from-emerald-500 to-green-500 hover:shadow-green-200"
+          } text-white`}
+          >
+            <span className="relative z-10">
+              {subscribed
+                ? "Unsubscribe Notifications"
+                : "Subscribe Notifications"}
+            </span>
+
+            <div className="absolute inset-0 bg-white/10 opacity-0 hover:opacity-100 transition-opacity" />
+          </button>
+        </div>
+
+        {/* Notification List */}
+        <div className="space-y-4">
+          {notifications.map((n: any) => (
+            <a
+              key={n.id}
+              href={n.notifications.action_url || "#"}
+              className={`group block rounded-3xl border backdrop-blur-sm p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl
+            ${
+              n.is_read
+                ? "bg-white border-slate-200 hover:border-slate-300"
+                : "bg-blue-50/70 border-blue-200 hover:border-blue-300 shadow-blue-100"
+            }`}
+            >
+              <div className="flex items-start gap-4">
+                {/* Icon */}
+                <div
+                  className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-lg font-bold
+                ${
+                  n.is_read
+                    ? "bg-slate-100 text-slate-600"
+                    : "bg-blue-500 text-white shadow-lg shadow-blue-200"
+                }`}
+                >
+                  🔔
+                </div>
+
+                <div className="flex-1 min-w-0">
+                  {/* Top Row */}
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <h2 className="font-semibold text-slate-900 text-base group-hover:text-blue-600 transition-colors">
+                        {n.notifications.title}
+                      </h2>
+
+                      <p className="mt-1 text-sm leading-relaxed text-slate-600">
+                        {n.notifications.body}
+                      </p>
+                    </div>
+
+                    {!n.is_read && (
+                      <span className="shrink-0 rounded-full bg-blue-500 px-2.5 py-1 text-[10px] font-semibold tracking-wide text-white shadow">
+                        NEW
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Footer */}
+                  <div className="mt-4 flex items-center justify-between">
+                    <p className="text-xs text-slate-400">
+                      {new Date(n.created_at).toLocaleString("en-US", {
+                        dateStyle: "medium",
+                        timeStyle: "short",
+                      })}
+                    </p>
+
+                    <span className="text-sm font-medium text-blue-500 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1">
+                      Open →
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          ))}
+
+          {/* Empty State */}
+          {notifications.length === 0 && (
+            <div className="rounded-3xl border border-dashed border-slate-300 bg-white/70 p-12 text-center">
+              <div className="text-5xl mb-4">🔕</div>
+
+              <h3 className="text-lg font-semibold text-slate-800">
+                No notifications yet
+              </h3>
+
+              <p className="mt-2 text-sm text-slate-500">
+                When new updates arrive, they’ll appear here.
+              </p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

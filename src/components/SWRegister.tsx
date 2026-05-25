@@ -36,7 +36,7 @@ export default function SWRegister() {
 }
 
 async function subscribe() {
-  const registration = await navigator.serviceWorker.register("/sw.js");
+  const registration = await navigator.serviceWorker.ready;
 
   const permission = await Notification.requestPermission();
 

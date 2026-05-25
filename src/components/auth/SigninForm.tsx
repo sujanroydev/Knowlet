@@ -5,6 +5,7 @@ import { useState } from "react";
 import Loader from "./Loader";
 import { toast } from "sonner";
 import { useAuth } from "@/context/AuthContext";
+import { subscribe } from "../SWRegister";
 
 export default function SigninForm() {
   const [loading, setLoading] = useState(false);
@@ -45,6 +46,7 @@ export default function SigninForm() {
       }
 
       setUser(user);
+      subscribe();
       localStorage.setItem("knowlet-user", JSON.stringify(user));
       toast.success("Successfully Signed In");
       window.location.href = "/profile";

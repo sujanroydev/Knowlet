@@ -9,10 +9,11 @@ export default async function NotificationsPage() {
 
   const db = await connectDb();
 
-  const { data: notifications } = await db
-    .from("user_notifications")
-    .select(
-      `
+  const [notificationsRes, subscriptionsRes] = await Promise.all([
+    db
+      .from("user_notifications")
+      .select(
+        `
       id,
       is_read,
       read_at,
@@ -26,19 +27,28 @@ export default async function NotificationsPage() {
         created_at
       )
     `,
-    )
-    .eq("user_id", payload?.user_id)
-    .order("created_at", { ascending: false });
+      )
+      .eq("user_id", payload?.user_id)
+      .order("created_at", { ascending: false }),
 
-  const { data: user_subscriptions, error } = await db
-    .from("push_subscriptions")
-    .select()
-    .eq("user_id", payload?.user_id);
+    db.from("push_subscriptions").select().eq("user_id", payload?.user_id),
+  ]);
+
+  if (notificationsRes.error) {
+    console.error("Notifications Error:", notificationsRes.error);
+  }
+
+  if (subscriptionsRes.error) {
+    console.error("Subscriptions Error:", subscriptionsRes.error);
+  }
+
+  const notifications = notificationsRes.data || [];
+  const userSubscriptions = subscriptionsRes.data || [];
 
   return (
     <NotificationClient
       notifications={notifications || []}
-      user_subscriptions={user_subscriptions || []}
+      user_subscriptions={userSubscriptions || []}
     />
   );
 }

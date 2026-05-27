@@ -14,16 +14,16 @@
 
   "icons": [
     {
-      "src": "/icons/knowlet/android-chrome-192x192.png",
+      "src": "/icons/web-app-manifest-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any"
+      "purpose": "maskable"
     },
     {
-      "src": "/icons/knowlet/android-chrome-512x512.png",
+      "src": "/icons/web-app-manifest-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any"
+      "purpose": "maskable"
     }
   ],
 
@@ -40,6 +40,22 @@
           "type": "image/png"
         }
       ]
+    }
+  ],
+
+  "screenshots": [
+    {
+      "src": "/screenshots/mobile-home.jpg",
+      "sizes": "1080x2408",
+      "type": "image/jpeg",
+      "label": "Knowlet mobile homepage"
+    },
+    {
+      "src": "/screenshots/desktop-home.png",
+      "sizes": "1630x945",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Knowlet desktop dashboard"
     }
   ]
 }

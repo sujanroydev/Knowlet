@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Knowlet – Notes & Study Materials",
   description:
     "Free notes and study materials for college students. Download study materials for Mathematics, Physics, Computer Science, Statistics, Alternative English, Economics, Political Science, Education, Zoology, Botany, and more.",
-
+  manifest: "/manifest.json",
   verification: {
     google: "MyH_ZXmYfE8D3u5iHa7tODNYysPhybxM7dWcc5i3nSI",
   },

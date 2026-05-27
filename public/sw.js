@@ -1,6 +1,4 @@
 self.addEventListener("push", (event) => {
-  console.log("notification came");
-
   const data = event.data?.json() || {};
   const title = data.title || "Your Notes Are Ready";
 

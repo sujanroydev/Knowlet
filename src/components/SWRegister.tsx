@@ -8,9 +8,7 @@ export default function SWRegister() {
 
     const registerSW = async () => {
       try {
-        const registration = await navigator.serviceWorker.register("/sw.js");
-
-        console.log("SW registered:", registration);
+        await navigator.serviceWorker.register("/sw.js");
       } catch (error) {
         console.error("SW registration failed:", error);
       }
@@ -31,7 +29,7 @@ export default function SWRegister() {
       } catch (error) {
         console.error("Failed to check subscription", error);
       }
-    }, 6000);
+    }, 15000);
   }, []);
 
   return null;

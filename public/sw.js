@@ -6,8 +6,8 @@ self.addEventListener("push", (event) => {
     self.registration
       .showNotification(title, {
         body: data.body || "Jump back in and keep learning with Knowlet.",
-        icon: data.icon || "/icons/knowlet/android-chrome-192x192.png",
-        badge: data.badge || "/icons/knowlet/favicon-32x32.png",
+        icon: data.icon || "/icons/favicon-96x96.png",
+        badge: data.badge || "/icons/favicon-96x96.png",
         image: data.image,
         tag: data.tag,
         data: {

@@ -1,9 +1,26 @@
 import connectDb from "@/lib/db";
 
+type Feedback = {
+  id: string;
+  message: string;
+  created_at: string;
+
+  resource: {
+    id: string;
+    title: string;
+  } | null;
+
+  user: {
+    id: string;
+    name: string;
+    avatar_url: string | null;
+  } | null;
+};
+
 export default async function FeedbackPage() {
   const db = await connectDb();
 
-  const { data: feedbacks, error } = await db
+  const { data, error } = await db
     .from("resource_feedback")
     .select(
       `
@@ -24,6 +41,8 @@ export default async function FeedbackPage() {
     .order("created_at", {
       ascending: false,
     });
+
+  const feedbacks = data as Feedback[] | null;
 
   if (error) {
     console.log(error);

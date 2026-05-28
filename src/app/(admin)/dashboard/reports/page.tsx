@@ -1,12 +1,34 @@
 import connectDb from "@/lib/db";
 import ReportStatusForm from "./report-status-form";
 
+type Report = {
+  id: string;
+
+  reason: string;
+  details: string | null;
+
+  status: "open" | "reviewed" | "resolved" | "dismissed";
+
+  created_at: string;
+
+  resource: {
+    id: string;
+    title: string;
+  } | null;
+
+  user: {
+    id: string;
+    name: string;
+    picture: string | null;
+  } | null;
+};
+
 const STATUS_OPTIONS = ["open", "reviewed", "resolved", "dismissed"];
 
 export default async function ReportsPage() {
   const db = await connectDb();
 
-  const { data: reports, error } = await db
+  const { data, error } = await db
     .from("resource_reports")
     .select(
       `
@@ -31,6 +53,8 @@ export default async function ReportsPage() {
     .order("created_at", {
       ascending: false,
     });
+
+  const reports = data as Report[] | null;
 
   if (error) {
     return (

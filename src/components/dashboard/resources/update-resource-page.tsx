@@ -88,10 +88,14 @@ export default function UpdateResourcePage({
         {/* <ResourceMetadata metadata={metadata} /> */}
 
         {/* Resource Form */}
-        <ResourceDetails details={details} setDetails={setDetails} />
+        <ResourceDetails
+          modificationAllowed={false}
+          details={details}
+          setDetails={setDetails}
+        />
 
         {/* Actions */}
-        <ResourceActions resource={updatedResource} />
+        <ResourceActions resource={updatedResource} action={"update"} />
       </div>
     </div>
   );

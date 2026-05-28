@@ -1,6 +1,6 @@
 import Link from "next/link";
 import connectDb from "@/lib/db";
-import { ArrowUpRight, Bell, BookOpen, Clock3, Eye, Plus } from "lucide-react";
+import { Bell, BookOpen, Clock3, Eye, Plus } from "lucide-react";
 
 type Resource = {
   id: string;
@@ -8,6 +8,10 @@ type Resource = {
   type: string;
   path: string;
   views: number;
+  likes: number;
+  bookmarks: number;
+  feedbacks: number;
+  reports: number;
 };
 
 type ResourceCardProps = {
@@ -16,10 +20,23 @@ type ResourceCardProps = {
 
 function ResourceCard({ resource }: ResourceCardProps) {
   return (
-    <Link
-      href={`/library/${resource.path}`}
-      className="group block rounded-2xl border border-gray-200 bg-white p-4 transition-all duration-200 hover:-translate-y-1 hover:border-gray-300 hover:shadow-lg"
-    >
+    <div className="relative group block rounded-2xl border border-gray-200 bg-white p-4 transition-all duration-200 hover:-translate-y-1 hover:border-gray-300 hover:shadow-lg">
+      <div className="absolute top-4 right-4 flex gap-2">
+        <Link
+          href={`/library/${resource.path}`}
+          className="transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:bg-gray-100 inline-flex h-9 items-center justify-center rounded-xl border px-4 text-sm font-medium transition hover:bg-muted"
+        >
+          Open
+        </Link>
+
+        <Link
+          href={`/dashboard/resources/update/${resource.id}`}
+          className="transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:bg-gray-100 inline-flex h-9 items-center justify-center rounded-xl border px-4 text-sm font-medium transition hover:bg-muted"
+        >
+          Update
+        </Link>
+      </div>
+
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0 space-y-2">
           <div className="flex items-center gap-2">
@@ -36,22 +53,35 @@ function ResourceCard({ resource }: ResourceCardProps) {
             {resource.title}
           </h3>
         </div>
-
-        <ArrowUpRight
-          size={18}
-          className="shrink-0 text-gray-400 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-black"
-        />
       </div>
 
-      <div className="mt-4 flex items-center justify-between border-t pt-3 text-sm text-gray-500">
+      <div className="mt-4 flex flex-wrap items-center gap-3 border-t pt-3 text-xs text-gray-500">
         <div className="flex items-center gap-1">
-          <Eye size={15} />
+          <Eye size={14} />
           <span>{resource.views}</span>
         </div>
 
-        <span>Open Resource</span>
+        <div className="flex items-center gap-1">
+          <span>❤️</span>
+          <span>{resource.likes}</span>
+        </div>
+
+        <div className="flex items-center gap-1">
+          <span>🔖</span>
+          <span>{resource.bookmarks}</span>
+        </div>
+
+        <div className="flex items-center gap-1">
+          <span>💬</span>
+          <span>{resource.feedbacks}</span>
+        </div>
+
+        <div className="flex items-center gap-1 text-red-500">
+          <span>⚠️</span>
+          <span>{resource.reports}</span>
+        </div>
       </div>
-    </Link>
+    </div>
   );
 }
 
@@ -59,9 +89,15 @@ type ResourceSectionProps = {
   title: string;
   icon: React.ReactNode;
   resources: Resource[];
+  error?: Error | null;
 };
 
-function ResourceSection({ title, icon, resources }: ResourceSectionProps) {
+function ResourceSection({
+  title,
+  icon,
+  resources,
+  error,
+}: ResourceSectionProps) {
   return (
     <div className="rounded-3xl border border-gray-200 bg-white/80 p-5 shadow-sm backdrop-blur">
       <div className="mb-5 flex items-center justify-between">
@@ -78,7 +114,18 @@ function ResourceSection({ title, icon, resources }: ResourceSectionProps) {
         </div>
       </div>
 
-      {resources.length === 0 ? (
+      {error ? (
+        <div
+          className="
+            rounded-2xl border
+            border-red-200 bg-red-50
+            py-12 text-center
+            text-sm text-red-600
+          "
+        >
+          Failed to load resources
+        </div>
+      ) : resources.length === 0 ? (
         <div className="rounded-2xl border border-dashed border-gray-300 py-12 text-center text-sm text-gray-500">
           No resources found
         </div>
@@ -96,15 +143,13 @@ function ResourceSection({ title, icon, resources }: ResourceSectionProps) {
 export default async function DashboardPage() {
   const db = await connectDb();
 
-  const [{ data: mostVisitedResources, error }, { data: recentResources }] =
-    await Promise.all([
-      db.rpc("get_most_visited_resources"),
-      db.rpc("get_recently_published_resources"),
-    ]);
-
-  if (error) {
-    return <div className="p-6">Failed to load dashboard</div>;
-  }
+  const [
+    { data: mostVisitedResources, error: mostVisitedResourcesError },
+    { data: recentResources, error: recentResourcesError },
+  ] = await Promise.all([
+    db.rpc("get_most_visited_resources"),
+    db.rpc("get_recently_published_resources"),
+  ]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 p-4 md:p-6">
@@ -253,12 +298,14 @@ export default async function DashboardPage() {
             title="Most Visited Resources"
             icon={<Eye size={18} />}
             resources={mostVisitedResources || []}
+            error={mostVisitedResourcesError}
           />
 
           <ResourceSection
             title="Recently Published"
             icon={<Clock3 size={18} />}
             resources={recentResources || []}
+            error={recentResourcesError}
           />
         </div>
       </div>

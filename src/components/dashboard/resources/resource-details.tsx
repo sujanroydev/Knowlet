@@ -12,29 +12,40 @@ interface Details {
 }
 
 export default function ResourceDetails({
-  details,
+  modificationAllowed = true,
+  details: d,
   setDetails,
 }: {
+  modificationAllowed?: boolean;
   details: Details;
   setDetails: (details: Details) => void;
 }) {
-  const [title, setTitle] = useState("Title");
-  const [description, setDescription] = useState("Description");
+  const [title, setTitle] = useState(d.title || "Title");
+  const [description, setDescription] = useState(
+    d.description || "Description",
+  );
   const [level, setLevel] = useState("select");
   const [subject, setSubject] = useState("select");
   const [paper, setPaper] = useState("");
-  const [type, setType] = useState("select");
-  const [target, setTarget] = useState("select");
+  const [type, setType] = useState(d.type || "select");
+  const [target, setTarget] = useState(d.target || "select");
 
   useEffect(() => {
     let path = `${level}/${subject}`;
 
-    if (level.startsWith("semester")) path += `/${paper}/${type}`;
+    if (level.startsWith("semester")) path += `/${paper}`;
 
-    if (type !== "PYQ") path += `/${target}`;
+    path += `/${type}/${target}`;
 
     setDetails({ title, description, path, type, target, slug: target });
   }, [title, description, level, subject, paper, type, target]);
+
+  useEffect(() => {
+    const parts = d.path.split("/");
+    setLevel(parts[0]);
+    setSubject(parts[1]);
+    if (parts[0].startsWith("semester")) setPaper(parts[2]);
+  }, []);
 
   return (
     <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -48,11 +59,13 @@ export default function ResourceDetails({
 
           <div className="grid gap-5 md:grid-cols-2">
             <TextInput
+              value={title}
               onChange={(e) => setTitle(e.target.value)}
               label="Resource Title"
               placeholder="Enter title"
             />
             <TextInput
+              value={description}
               onChange={(e) => setDescription(e.target.value)}
               label="Description"
               placeholder="Resource Description"
@@ -71,6 +84,7 @@ export default function ResourceDetails({
               options={["select", "note", "pyq", "important-questions"]}
               value={type}
               onChange={(e) => setType(e.target.value)}
+              disabled={!modificationAllowed}
             />
 
             <SelectInput
@@ -81,6 +95,7 @@ export default function ResourceDetails({
               ]}
               value={level}
               onChange={(e) => setLevel(e.target.value)}
+              disabled={!modificationAllowed}
             />
 
             <SelectInput
@@ -107,6 +122,7 @@ export default function ResourceDetails({
               ]}
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
+              disabled={!modificationAllowed}
             />
 
             <TextInput
@@ -116,6 +132,7 @@ export default function ResourceDetails({
               onChange={(e) =>
                 setPaper(e.target.value.toLowerCase().split(" ").join("-"))
               }
+              disabled={!modificationAllowed}
             />
             <SelectInput
               label="target"
@@ -125,6 +142,7 @@ export default function ResourceDetails({
               ]}
               value={target}
               onChange={(e) => setTarget(e.target.value)}
+              disabled={!modificationAllowed}
             />
           </div>
         </div>

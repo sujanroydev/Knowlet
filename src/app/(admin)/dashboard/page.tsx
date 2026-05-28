@@ -8,6 +8,10 @@ type Resource = {
   type: string;
   path: string;
   views: number;
+  likes: number;
+  bookmarks: number;
+  feedbacks: number;
+  reports: number;
 };
 
 type ResourceCardProps = {
@@ -18,7 +22,15 @@ function ResourceCard({ resource }: ResourceCardProps) {
   return (
     <Link
       href={`/library/${resource.path}`}
-      className="group block rounded-2xl border border-gray-200 bg-white p-4 transition-all duration-200 hover:-translate-y-1 hover:border-gray-300 hover:shadow-lg"
+      className="
+        group block rounded-2xl
+        border border-gray-200
+        bg-white p-4
+        transition-all duration-200
+        hover:-translate-y-1
+        hover:border-gray-300
+        hover:shadow-lg
+      "
     >
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0 space-y-2">
@@ -27,29 +39,74 @@ function ResourceCard({ resource }: ResourceCardProps) {
               <BookOpen size={16} />
             </div>
 
-            <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600">
+            <span
+              className="
+                rounded-full bg-gray-100
+                px-2 py-1
+                text-xs font-medium
+                text-gray-600
+              "
+            >
               {resource.type}
             </span>
           </div>
 
-          <h3 className="line-clamp-2 text-sm font-semibold text-gray-900 transition-colors group-hover:text-black">
+          <h3
+            className="
+              line-clamp-2 text-sm
+              font-semibold text-gray-900
+              transition-colors
+              group-hover:text-black
+            "
+          >
             {resource.title}
           </h3>
         </div>
 
         <ArrowUpRight
           size={18}
-          className="shrink-0 text-gray-400 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-black"
+          className="
+            shrink-0 text-gray-400
+            transition
+            group-hover:translate-x-0.5
+            group-hover:-translate-y-0.5
+            group-hover:text-black
+          "
         />
       </div>
 
-      <div className="mt-4 flex items-center justify-between border-t pt-3 text-sm text-gray-500">
+      <div
+        className="
+          mt-4 flex flex-wrap
+          items-center gap-3
+          border-t pt-3
+          text-xs text-gray-500
+        "
+      >
         <div className="flex items-center gap-1">
-          <Eye size={15} />
+          <Eye size={14} />
           <span>{resource.views}</span>
         </div>
 
-        <span>Open Resource</span>
+        <div className="flex items-center gap-1">
+          <span>❤️</span>
+          <span>{resource.likes}</span>
+        </div>
+
+        <div className="flex items-center gap-1">
+          <span>🔖</span>
+          <span>{resource.bookmarks}</span>
+        </div>
+
+        <div className="flex items-center gap-1">
+          <span>💬</span>
+          <span>{resource.feedbacks}</span>
+        </div>
+
+        <div className="flex items-center gap-1 text-red-500">
+          <span>⚠️</span>
+          <span>{resource.reports}</span>
+        </div>
       </div>
     </Link>
   );
@@ -96,15 +153,13 @@ function ResourceSection({ title, icon, resources }: ResourceSectionProps) {
 export default async function DashboardPage() {
   const db = await connectDb();
 
-  const [{ data: mostVisitedResources, error }, { data: recentResources }] =
-    await Promise.all([
-      db.rpc("get_most_visited_resources"),
-      db.rpc("get_recently_published_resources"),
-    ]);
-
-  if (error) {
-    return <div className="p-6">Failed to load dashboard</div>;
-  }
+  const [
+    { data: mostVisitedResources, error: mostVisitedResourcesError },
+    { data: recentResources, error: recentResourcesError },
+  ] = await Promise.all([
+    db.rpc("get_most_visited_resources"),
+    db.rpc("get_recently_published_resources"),
+  ]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 p-4 md:p-6">

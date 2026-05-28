@@ -12,9 +12,11 @@ interface Details {
 }
 
 export default function ResourceDetails({
+  modificationAllowed = true,
   details: d,
   setDetails,
 }: {
+  modificationAllowed?: boolean;
   details: Details;
   setDetails: (details: Details) => void;
 }) {
@@ -83,6 +85,7 @@ export default function ResourceDetails({
               options={["select", "note", "pyq", "important-questions"]}
               value={type}
               onChange={(e) => setType(e.target.value)}
+              disabled={!modificationAllowed}
             />
 
             <SelectInput
@@ -93,6 +96,7 @@ export default function ResourceDetails({
               ]}
               value={level}
               onChange={(e) => setLevel(e.target.value)}
+              disabled={!modificationAllowed}
             />
 
             <SelectInput
@@ -119,6 +123,7 @@ export default function ResourceDetails({
               ]}
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
+              disabled={!modificationAllowed}
             />
 
             <TextInput
@@ -128,6 +133,7 @@ export default function ResourceDetails({
               onChange={(e) =>
                 setPaper(e.target.value.toLowerCase().split(" ").join("-"))
               }
+              disabled={!modificationAllowed}
             />
             <SelectInput
               label="target"
@@ -137,6 +143,7 @@ export default function ResourceDetails({
               ]}
               value={target}
               onChange={(e) => setTarget(e.target.value)}
+              disabled={!modificationAllowed}
             />
           </div>
         </div>

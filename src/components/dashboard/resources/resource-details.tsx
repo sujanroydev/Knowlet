@@ -37,8 +37,7 @@ export default function ResourceDetails({
 
     path += `/${type}/${target}`;
 
-    if (d.path !== path)
-      setDetails({ title, description, path, type, target, slug: target });
+    setDetails({ title, description, path, type, target, slug: target });
   }, [title, description, level, subject, paper, type, target]);
 
   useEffect(() => {

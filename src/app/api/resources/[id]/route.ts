@@ -2,7 +2,7 @@ import { verifyAdmin } from "@/lib/auth";
 import connectDb from "@/lib/db";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(
+export async function PUT(
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> },
 ) {
@@ -11,13 +11,12 @@ export async function POST(
     const { title, description, content, target, type, slug, path } = resource;
     const { id } = await params;
 
-    console.log("Received resource:", resource);
-    console.log("Received ID:", id);
-
-    return NextResponse.json(
-      { success: true, message: "Resource received successfully." },
-      { status: 200 },
-    );
+    if (!id) {
+      return NextResponse.json(
+        { error: { message: "Resource ID is required." } },
+        { status: 400 },
+      );
+    }
 
     if (
       !title ||
@@ -55,121 +54,114 @@ export async function POST(
 
     const db = await connectDb();
 
-    // fetch
-    oldLevelRow = await db
-      .from("levels")
-      .select("id")
-      .eq("slug", levelSlug)
-      .maybeSingle();
+    // // fetch
+    // oldLevelRow = await db
+    //   .from("levels")
+    //   .select("id")
+    //   .eq("slug", levelSlug)
+    //   .maybeSingle();
 
-    if (oldLevelRow?.error) throw new Error(oldLevelRow?.error.message);
-    level = oldLevelRow?.data;
+    // if (oldLevelRow?.error) throw new Error(oldLevelRow?.error.message);
+    // level = oldLevelRow?.data;
 
-    // insert
-    if (!oldLevelRow?.data) {
-      newLevelRow = await db
-        .from("levels")
-        .insert({
-          title: levelSlug
-            .split("-")
-            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-            .join(" "),
-          number: levelSlug.split("-")[1],
-          slug: levelSlug,
-          path: `${levelSlug}`,
-        })
-        .select()
-        .single();
+    // // insert
+    // if (!oldLevelRow?.data) {
+    //   newLevelRow = await db
+    //     .from("levels")
+    //     .insert({
+    //       title: levelSlug
+    //         .split("-")
+    //         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    //         .join(" "),
+    //       number: levelSlug.split("-")[1],
+    //       slug: levelSlug,
+    //       path: `${levelSlug}`,
+    //     })
+    //     .select()
+    //     .single();
 
-      if (newLevelRow?.error) throw new Error(newLevelRow?.error.message);
-      level = newLevelRow?.data;
-    }
+    //   if (newLevelRow?.error) throw new Error(newLevelRow?.error.message);
+    //   level = newLevelRow?.data;
+    // }
 
-    // fetch
-    if (oldLevelRow?.data) {
-      oldSubjectRow = await db
-        .from("subjects")
-        .select("id")
-        .eq("slug", subjectSlug)
-        .eq("level_id", level?.id)
-        .maybeSingle();
+    // // fetch
+    // if (oldLevelRow?.data) {
+    //   oldSubjectRow = await db
+    //     .from("subjects")
+    //     .select("id")
+    //     .eq("slug", subjectSlug)
+    //     .eq("level_id", level?.id)
+    //     .maybeSingle();
 
-      if (oldSubjectRow?.error) throw new Error(oldSubjectRow?.error.message);
-      subject = oldSubjectRow?.data;
-    }
+    //   if (oldSubjectRow?.error) throw new Error(oldSubjectRow?.error.message);
+    //   subject = oldSubjectRow?.data;
+    // }
 
-    // insert
-    if (!oldLevelRow?.data || !oldSubjectRow?.data) {
-      newSubjectRow = await db
-        .from("subjects")
-        .insert({
-          level_id: level?.id,
-          title: subjectSlug
-            .split("-")
-            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-            .join(" "),
-          slug: subjectSlug,
-          path: `${levelSlug}/${subjectSlug}`,
-        })
-        .select()
-        .single();
+    // // insert
+    // if (!oldLevelRow?.data || !oldSubjectRow?.data) {
+    //   newSubjectRow = await db
+    //     .from("subjects")
+    //     .insert({
+    //       level_id: level?.id,
+    //       title: subjectSlug
+    //         .split("-")
+    //         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    //         .join(" "),
+    //       slug: subjectSlug,
+    //       path: `${levelSlug}/${subjectSlug}`,
+    //     })
+    //     .select()
+    //     .single();
 
-      if (newSubjectRow?.error) throw new Error(newSubjectRow?.error.message);
-      subject = newSubjectRow?.data;
-    }
+    //   if (newSubjectRow?.error) throw new Error(newSubjectRow?.error.message);
+    //   subject = newSubjectRow?.data;
+    // }
 
-    // fetch
-    if ((oldLevelRow?.data || oldSubjectRow?.data) && paperSlug) {
-      oldPaperRow = await db
-        .from("papers")
-        .select("id")
-        .eq("slug", paperSlug)
-        .eq("subject_id", subject?.id)
-        .maybeSingle();
+    // // fetch
+    // if ((oldLevelRow?.data || oldSubjectRow?.data) && paperSlug) {
+    //   oldPaperRow = await db
+    //     .from("papers")
+    //     .select("id")
+    //     .eq("slug", paperSlug)
+    //     .eq("subject_id", subject?.id)
+    //     .maybeSingle();
 
-      if (oldPaperRow?.error) throw new Error(oldPaperRow?.error.message);
-      paper = oldPaperRow?.data;
-    }
+    //   if (oldPaperRow?.error) throw new Error(oldPaperRow?.error.message);
+    //   paper = oldPaperRow?.data;
+    // }
 
-    // insert
-    if ((!oldLevelRow?.data || !oldPaperRow?.data) && paperSlug) {
-      newPaperRow = await db
-        .from("papers")
-        .insert({
-          subject_id: subject?.id,
-          level_id: level?.id,
-          title: paperSlug.split("-").join(" ").toUpperCase(),
-          code: paperSlug.split("-").join("").toUpperCase(),
-          slug: paperSlug,
-          path: `${levelSlug}/${subjectSlug}/${paperSlug}`,
-        })
-        .select()
-        .single();
+    // // insert
+    // if ((!oldLevelRow?.data || !oldPaperRow?.data) && paperSlug) {
+    //   newPaperRow = await db
+    //     .from("papers")
+    //     .insert({
+    //       subject_id: subject?.id,
+    //       level_id: level?.id,
+    //       title: paperSlug.split("-").join(" ").toUpperCase(),
+    //       code: paperSlug.split("-").join("").toUpperCase(),
+    //       slug: paperSlug,
+    //       path: `${levelSlug}/${subjectSlug}/${paperSlug}`,
+    //     })
+    //     .select()
+    //     .single();
 
-      if (newPaperRow?.error) throw new Error(newPaperRow?.error.message);
-      paper = newPaperRow?.data;
-    }
+    //   if (newPaperRow?.error) throw new Error(newPaperRow?.error.message);
+    //   paper = newPaperRow?.data;
+    // }
 
     //insert
-    const { data, error } = await db.from("resources").insert({
-      level_id: level?.id,
-      subject_id: subject?.id,
-      paper_id: paper?.id,
-      title,
-      description,
-      content,
-      target,
-      type,
-      slug,
-      path,
-    });
+    const { data, error } = await db
+      .from("resources")
+      .update({
+        title,
+        description,
+        content,
+      })
+      .eq("id", id);
 
     if (error) throw new Error(error.message);
 
-    return NextResponse.json(
-      { success: true, data: { resource: data } },
-      { status: 201 },
-    );
+    return NextResponse.json({ success: true }, { status: 201 });
   } catch (error) {
     return NextResponse.json(
       { error: { message: (error as Error).message } },

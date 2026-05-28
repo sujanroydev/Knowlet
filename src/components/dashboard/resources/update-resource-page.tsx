@@ -36,6 +36,7 @@ export default function UpdateResourcePage({
 
   useEffect(() => {
     setUpdatedResource({
+      id: r.id,
       ...details,
       content: rowHtml,
     });

@@ -52,8 +52,15 @@ export default function NotificationAdminPage() {
     setDrafts(data);
   }
 
-  function loadHistory() {
-    const data = JSON.parse(localStorage.getItem("history") || "[]");
+  async function loadHistory() {
+    const res = await fetch("/api/notification");
+    const { data, error } = await res.json();
+
+    if (error) {
+      toast.error("Failed to load history");
+      return;
+    }
+
     setHistory(data);
   }
 

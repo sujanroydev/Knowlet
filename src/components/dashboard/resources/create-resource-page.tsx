@@ -87,7 +87,7 @@ export default function CreateResourcePage() {
         <ResourceDetails details={details} setDetails={setDetails} />
 
         {/* Actions */}
-        <ResourceActions resource={resource} />
+        <ResourceActions action="create" resource={resource} />
       </div>
     </div>
   );

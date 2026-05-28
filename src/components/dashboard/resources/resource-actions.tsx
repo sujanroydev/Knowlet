@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { toast } from "sonner";
 
 export default function ResourceActions({
@@ -7,15 +10,19 @@ export default function ResourceActions({
   resource: Resource | undefined;
   action: "create" | "update";
 }) {
+  const [loading, setLoading] = useState<boolean>(false);
+
   async function publichResource() {
     if (!validateResource()) return;
 
+    setLoading(true);
     const res = await fetch("/api/resources", {
       method: "POST",
       body: JSON.stringify(resource),
     });
 
-    const { data, error } = await res.json();
+    const { error } = await res.json();
+    setLoading(false);
 
     if (error) {
       toast.error(error.message);
@@ -36,12 +43,14 @@ export default function ResourceActions({
       return;
     }
 
+    setLoading(true);
     const res = await fetch(`/api/resources/${resource.id}`, {
       method: "PUT",
       body: JSON.stringify(resource),
     });
 
-    const { data, error } = await res.json();
+    const { error } = await res.json();
+    setLoading(false);
 
     if (error) {
       toast.error(error.message);
@@ -90,16 +99,22 @@ export default function ResourceActions({
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-3">
-        <button className="rounded-2xl border border-slate-300 px-5 py-3 font-medium text-slate-700 transition hover:bg-slate-100">
+      <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+        <button className="w-full rounded-2xl border border-slate-300 px-5 py-3 font-medium text-slate-700 transition hover:bg-slate-100 sm:w-44">
           Save Draft
         </button>
 
         <button
           onClick={action === "create" ? publichResource : updateResource}
-          className="rounded-2xl bg-blue-600 px-5 py-3 font-medium text-white transition hover:bg-blue-700"
+          className="w-full rounded-2xl bg-blue-600 px-5 py-3 font-medium text-white transition hover:bg-blue-700 sm:w-44"
         >
-          {action === "create" ? "Publish Resource" : "Update Resource"}
+          {loading
+            ? action === "create"
+              ? "Publishing..."
+              : "Updating..."
+            : action === "create"
+              ? "Publish Resource"
+              : "Update Resource"}
         </button>
       </div>
     </div>

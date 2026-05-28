@@ -3,6 +3,7 @@
 import { useHeader } from "@/context/HeaderContext";
 import { useReader } from "@/context/ReaderContext";
 import { useEffect } from "react";
+import ResourceFooterActions from "./resource-footer-actions";
 
 export default function ReaderPageClient({
   children,
@@ -23,5 +24,10 @@ export default function ReaderPageClient({
     };
   }, []);
 
-  return children;
+  return (
+    <>
+      {children}
+      <ResourceFooterActions />
+    </>
+  )
 }

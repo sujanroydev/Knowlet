@@ -128,25 +128,98 @@ export default async function DashboardPage() {
                 </p>
               </div>
             </div>
-
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <Link
-                href="/dashboard/resources/create"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-5 py-3 font-medium text-black transition hover:scale-[1.02] hover:shadow-lg"
-              >
-                <Plus size={18} />
-                Add Resource
-              </Link>
-
-              <Link
-                href="/dashboard/notification/send"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/10 px-5 py-3 font-medium text-white backdrop-blur transition hover:bg-white/20"
-              >
-                <Bell size={18} />
-                Push Notifications
-              </Link>
-            </div>
           </div>
+        </div>
+
+        {/* Admin Actions */}
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <Link
+            href="/dashboard/resources/create"
+            className="
+      group rounded-3xl border border-gray-200
+      bg-white p-5 shadow-sm transition
+      hover:-translate-y-1 hover:shadow-lg
+    "
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-gray-500">Content</p>
+
+                <h3 className="mt-1 text-lg font-semibold text-gray-900">
+                  Add Resource
+                </h3>
+              </div>
+
+              <div className="rounded-2xl bg-black p-3 text-white">
+                <Plus size={20} />
+              </div>
+            </div>
+          </Link>
+
+          <Link
+            href="/dashboard/notification/send"
+            className="
+      group rounded-3xl border border-gray-200
+      bg-white p-5 shadow-sm transition
+      hover:-translate-y-1 hover:shadow-lg
+    "
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-gray-500">Notifications</p>
+
+                <h3 className="mt-1 text-lg font-semibold text-gray-900">
+                  Push Notifications
+                </h3>
+              </div>
+
+              <div className="rounded-2xl bg-black p-3 text-white">
+                <Bell size={20} />
+              </div>
+            </div>
+          </Link>
+
+          <Link
+            href="/dashboard/feedback"
+            className="
+      group rounded-3xl border border-gray-200
+      bg-white p-5 shadow-sm transition
+      hover:-translate-y-1 hover:shadow-lg
+    "
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-gray-500">User Insights</p>
+
+                <h3 className="mt-1 text-lg font-semibold text-gray-900">
+                  Feedback
+                </h3>
+              </div>
+
+              <div className="rounded-2xl bg-black p-3 text-white">💬</div>
+            </div>
+          </Link>
+
+          <Link
+            href="/dashboard/reports"
+            className="
+      group rounded-3xl border border-gray-200
+      bg-white p-5 shadow-sm transition
+      hover:-translate-y-1 hover:shadow-lg
+    "
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-gray-500">Moderation</p>
+
+                <h3 className="mt-1 text-lg font-semibold text-gray-900">
+                  Reports
+                </h3>
+              </div>
+
+              <div className="rounded-2xl bg-black p-3 text-white">⚠️</div>
+            </div>
+          </Link>
         </div>
 
         {/* Stats */}

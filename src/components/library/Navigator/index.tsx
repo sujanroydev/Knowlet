@@ -44,7 +44,6 @@ export default async function Navigator({
         .select("title, description, path, type")
         .like("path", `${slug.join("/")}%`);
       special = true;
-      console.log("special");
     } else {
       // "/library/semester-1/ecology"
       // "/library/semester-1"

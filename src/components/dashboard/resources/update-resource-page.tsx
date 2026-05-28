@@ -15,23 +15,28 @@ interface Details {
   path: string;
 }
 
-export default function CreateResourcePage() {
-  const [resource, setResource] = useState<Resource>();
-  const [rowHtml, setRowHtml] = useState<string>("");
+export default function UpdateResourcePage({
+  resource: r,
+}: {
+  resource: Resource;
+}) {
+  const [updatedResource, setUpdatedResource] = useState<Resource>();
+  const [rowHtml, setRowHtml] = useState<string>(r.content);
   const [parsedHtml, setParsedHtml] = useState<string>("");
   const [details, setDetails] = useState<Details>({
-    title: "",
-    description: "",
-    target: "",
-    type: "",
-    slug: "",
-    path: "",
+    title: r.title,
+    description: r.description || "",
+    target: r.target || "",
+    type: r.type || "",
+    slug: r.slug || "",
+    path: r.path,
   });
 
   const [preview, setPreview] = useState<boolean>(false);
 
   useEffect(() => {
-    setResource({
+    setUpdatedResource({
+      id: r.id,
       ...details,
       content: rowHtml,
     });
@@ -84,10 +89,14 @@ export default function CreateResourcePage() {
         {/* <ResourceMetadata metadata={metadata} /> */}
 
         {/* Resource Form */}
-        <ResourceDetails details={details} setDetails={setDetails} />
+        <ResourceDetails
+          modificationAllowed={false}
+          details={details}
+          setDetails={setDetails}
+        />
 
         {/* Actions */}
-        <ResourceActions action="create" resource={resource} />
+        <ResourceActions resource={updatedResource} action={"update"} />
       </div>
     </div>
   );

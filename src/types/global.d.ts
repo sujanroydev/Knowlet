@@ -21,6 +21,7 @@ type AuthOtpType =
   | "verify_email";
 
 interface Resource {
+  id?: string;
   title: string;
   description?: string;
   content: string;

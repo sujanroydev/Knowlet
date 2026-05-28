@@ -12,6 +12,7 @@ self.addEventListener("push", (event) => {
         tag: data.tag,
         data: {
           url: data.url || "/",
+          notificationId: data.notificationId,
         },
       })
       .catch((err) => {
@@ -22,18 +23,37 @@ self.addEventListener("push", (event) => {
 
 self.addEventListener("notificationclick", (event) => {
   event.notification.close();
+
+  const notificationId = event.notification.data?.notificationId;
   const url = new URL(event.notification.data?.url || "/", self.location.origin)
     .href;
+
   event.waitUntil(
-    clients
-      .matchAll({ type: "window", includeUncontrolled: true })
-      .then((clientList) => {
-        for (const client of clientList) {
-          if (client.url === url && "focus" in client) {
-            return client.focus();
-          }
+    (async () => {
+      if (notificationId) {
+        try {
+          await fetch("/api/notifications/click", {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id: notificationId }),
+          });
+        } catch (err) {
+          console.error("Failed to track notification click:", err);
         }
-        return clients.openWindow(url);
-      }),
+      }
+
+      const clientList = await clients.matchAll({
+        type: "window",
+        includeUncontrolled: true,
+      });
+
+      for (const client of clientList) {
+        if (client.url === url && "focus" in client) {
+          return client.focus();
+        }
+      }
+
+      return clients.openWindow(url);
+    })(),
   );
 });

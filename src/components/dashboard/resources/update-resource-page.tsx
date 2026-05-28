@@ -15,23 +15,27 @@ interface Details {
   path: string;
 }
 
-export default function CreateResourcePage() {
-  const [resource, setResource] = useState<Resource>();
-  const [rowHtml, setRowHtml] = useState<string>("");
+export default function UpdateResourcePage({
+  resource: r,
+}: {
+  resource: Resource;
+}) {
+  const [updatedResource, setUpdatedResource] = useState<Resource>();
+  const [rowHtml, setRowHtml] = useState<string>(r.content);
   const [parsedHtml, setParsedHtml] = useState<string>("");
   const [details, setDetails] = useState<Details>({
-    title: "",
-    description: "",
-    target: "",
-    type: "",
-    slug: "",
-    path: "",
+    title: r.title,
+    description: r.description || "",
+    target: r.target || "",
+    type: r.type || "",
+    slug: r.slug || "",
+    path: r.path,
   });
 
   const [preview, setPreview] = useState<boolean>(false);
 
   useEffect(() => {
-    setResource({
+    setUpdatedResource({
       ...details,
       content: rowHtml,
     });
@@ -87,7 +91,7 @@ export default function CreateResourcePage() {
         <ResourceDetails details={details} setDetails={setDetails} />
 
         {/* Actions */}
-        <ResourceActions resource={resource} />
+        <ResourceActions resource={updatedResource} />
       </div>
     </div>
   );

@@ -17,8 +17,6 @@ export default async function Page({
 
   const { slug } = await params;
 
-  console.log(slug);
-
   const action = slug[0] as "create" | "update";
 
   if (
@@ -48,8 +46,6 @@ export default async function Page({
       )
       .eq("id", resource_id)
       .maybeSingle();
-
-    console.log("data.id", data?.id);
 
     const resource = data as any;
 

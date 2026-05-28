@@ -33,6 +33,13 @@ export async function POST(req: NextRequest) {
       throw new Error(error.message);
     }
 
+    const subscriptions =
+      process.env.NODE_ENV === "development"
+        ? data.filter(
+            (row) => row.user_id === "7cf87d0f-55d0-4275-93df-d240980e436c",
+          )
+        : data;
+
     const { data: notification } = await db
       .from("notifications")
       .insert({
@@ -51,7 +58,9 @@ export async function POST(req: NextRequest) {
     const notificationId = notification.id;
     const uniqueUserIds = [
       ...new Set(
-        data.map((row) => row.user_id).filter((id): id is string => !!id),
+        subscriptions
+          .map((row) => row.user_id)
+          .filter((id): id is string => !!id),
       ),
     ];
 
@@ -74,7 +83,7 @@ export async function POST(req: NextRequest) {
     });
 
     const results = await Promise.allSettled(
-      data.map(async (row) => {
+      subscriptions.map(async (row) => {
         try {
           await webpush.sendNotification(
             {
@@ -108,10 +117,10 @@ export async function POST(req: NextRequest) {
     ).length;
 
     return NextResponse.json({
-      success: true,
       data: {
         total: data.length,
         sent: success,
+        failed: data.length - success,
       },
     });
   } catch (err) {

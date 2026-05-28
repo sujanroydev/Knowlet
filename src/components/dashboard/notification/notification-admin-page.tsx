@@ -17,7 +17,7 @@ type NotificationData = {
   title: string;
   body: string;
   image: string;
-  url: string;
+  action_url: string;
   to?: string;
 };
 
@@ -26,7 +26,7 @@ const defaultPreview = {
   body: "Important topics, quick notes & exam-focused questions ready for you.",
   image:
     "https://res.cloudinary.com/db975putk/image/upload/q_auto/f_auto/v1779595876/IMG_20260524_094028_cmlvb1.png",
-  url: "https://knowlet.in",
+  action_url: "https://knowlet.in",
 };
 
 export default function NotificationAdminPage() {
@@ -73,7 +73,7 @@ export default function NotificationAdminPage() {
     setTitle(data.title || "");
     setBody(data.body || "");
     setImage(data.image || "");
-    setUrl(data.url || "");
+    setUrl(data.action_url || "");
   }
 
   async function sendNow(to?: string) {
@@ -82,7 +82,7 @@ export default function NotificationAdminPage() {
         title: title || defaultPreview.title,
         body: body || defaultPreview.body,
         image: image || defaultPreview.image,
-        url: url || defaultPreview.url,
+        action_url: url || defaultPreview.action_url,
       };
 
       const res = await fetch("/api/notification/send", {
@@ -109,7 +109,7 @@ export default function NotificationAdminPage() {
           title: payload.title,
           body: payload.body,
           image: payload.image,
-          url: payload.url,
+          action_url: payload.action_url,
           to: to || "public",
         },
       ];
@@ -136,7 +136,7 @@ export default function NotificationAdminPage() {
       title,
       body,
       image,
-      url,
+      action_url: url || defaultPreview.action_url,
     };
 
     const updatedDrafts = [...drafts, draft];
@@ -240,7 +240,9 @@ export default function NotificationAdminPage() {
             <h2 className="mb-5 text-xl font-semibold">Preview</h2>
 
             <div
-              onClick={() => window.open(url || defaultPreview.url, "_blank")}
+              onClick={() =>
+                window.open(url || defaultPreview.action_url, "_blank")
+              }
               className="overflow-hidden rounded-2xl border border-gray-200 bg-gray-50"
             >
               <div className="p-5">
@@ -321,11 +323,8 @@ export default function NotificationAdminPage() {
                     <div>
                       <p className="font-medium">{item.title || "Untitled"}</p>
 
-                      <p className="text-sm text-gray-500">
-                        Visible to:{" "}
-                        <span className="font-medium text-green-600">
-                          {item.to}
-                        </span>
+                      <p className="line-clamp-1 text-sm text-gray-500">
+                        {item.body}
                       </p>
                     </div>
                   </div>

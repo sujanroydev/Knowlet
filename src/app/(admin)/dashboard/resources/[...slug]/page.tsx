@@ -49,6 +49,8 @@ export default async function Page({
       .eq("id", resource_id)
       .maybeSingle();
 
+    console.log("data.id", data?.id);
+
     const resource = data as any;
 
     if (!resource || resource.length === 0) notFound();

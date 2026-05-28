@@ -135,16 +135,16 @@ export default async function ReportsPage() {
                     <>
                       <Link
                         href={`/library/${report.resource.path}`}
-                        className="inline-flex h-9 items-center justify-center rounded-xl border px-4 text-sm font-medium transition hover:bg-muted"
+                        className="transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:bg-gray-100 inline-flex h-9 items-center justify-center rounded-xl border px-4 text-sm font-medium transition hover:bg-muted"
                       >
-                        Open Resource
+                        Open
                       </Link>
 
                       <Link
                         href={`/dashboard/resources/update/${report.resource.id}`}
-                        className="inline-flex h-9 items-center justify-center rounded-xl border px-4 text-sm font-medium transition hover:bg-muted"
+                        className="transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:bg-gray-100 inline-flex h-9 items-center justify-center rounded-xl border px-4 text-sm font-medium transition hover:bg-muted"
                       >
-                        Update Resource
+                        Update
                       </Link>
                     </>
                   )}

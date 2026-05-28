@@ -1,6 +1,6 @@
 import Link from "next/link";
 import connectDb from "@/lib/db";
-import { ArrowUpRight, Bell, BookOpen, Clock3, Eye, Plus } from "lucide-react";
+import { Bell, BookOpen, Clock3, Eye, Plus } from "lucide-react";
 
 type Resource = {
   id: string;
@@ -20,18 +20,23 @@ type ResourceCardProps = {
 
 function ResourceCard({ resource }: ResourceCardProps) {
   return (
-    <Link
-      href={`/library/${resource.path}`}
-      className="
-        group block rounded-2xl
-        border border-gray-200
-        bg-white p-4
-        transition-all duration-200
-        hover:-translate-y-1
-        hover:border-gray-300
-        hover:shadow-lg
-      "
-    >
+    <div className="relative group block rounded-2xl border border-gray-200 bg-white p-4 transition-all duration-200 hover:-translate-y-1 hover:border-gray-300 hover:shadow-lg">
+      <div className="absolute top-4 right-4 flex gap-2">
+        <Link
+          href={`/library/${resource.path}`}
+          className="transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:bg-gray-100 inline-flex h-9 items-center justify-center rounded-xl border px-4 text-sm font-medium transition hover:bg-muted"
+        >
+          Open
+        </Link>
+
+        <Link
+          href={`/dashboard/resources/update/${resource.id}`}
+          className="transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:bg-gray-100 inline-flex h-9 items-center justify-center rounded-xl border px-4 text-sm font-medium transition hover:bg-muted"
+        >
+          Update
+        </Link>
+      </div>
+
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0 space-y-2">
           <div className="flex items-center gap-2">
@@ -39,50 +44,18 @@ function ResourceCard({ resource }: ResourceCardProps) {
               <BookOpen size={16} />
             </div>
 
-            <span
-              className="
-                rounded-full bg-gray-100
-                px-2 py-1
-                text-xs font-medium
-                text-gray-600
-              "
-            >
+            <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600">
               {resource.type}
             </span>
           </div>
 
-          <h3
-            className="
-              line-clamp-2 text-sm
-              font-semibold text-gray-900
-              transition-colors
-              group-hover:text-black
-            "
-          >
+          <h3 className="line-clamp-2 text-sm font-semibold text-gray-900 transition-colors group-hover:text-black">
             {resource.title}
           </h3>
         </div>
-
-        <ArrowUpRight
-          size={18}
-          className="
-            shrink-0 text-gray-400
-            transition
-            group-hover:translate-x-0.5
-            group-hover:-translate-y-0.5
-            group-hover:text-black
-          "
-        />
       </div>
 
-      <div
-        className="
-          mt-4 flex flex-wrap
-          items-center gap-3
-          border-t pt-3
-          text-xs text-gray-500
-        "
-      >
+      <div className="mt-4 flex flex-wrap items-center gap-3 border-t pt-3 text-xs text-gray-500">
         <div className="flex items-center gap-1">
           <Eye size={14} />
           <span>{resource.views}</span>
@@ -108,7 +81,7 @@ function ResourceCard({ resource }: ResourceCardProps) {
           <span>{resource.reports}</span>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
 

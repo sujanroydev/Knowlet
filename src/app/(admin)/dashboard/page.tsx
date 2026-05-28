@@ -116,9 +116,15 @@ type ResourceSectionProps = {
   title: string;
   icon: React.ReactNode;
   resources: Resource[];
+  error?: Error | null;
 };
 
-function ResourceSection({ title, icon, resources }: ResourceSectionProps) {
+function ResourceSection({
+  title,
+  icon,
+  resources,
+  error,
+}: ResourceSectionProps) {
   return (
     <div className="rounded-3xl border border-gray-200 bg-white/80 p-5 shadow-sm backdrop-blur">
       <div className="mb-5 flex items-center justify-between">
@@ -135,7 +141,18 @@ function ResourceSection({ title, icon, resources }: ResourceSectionProps) {
         </div>
       </div>
 
-      {resources.length === 0 ? (
+      {error ? (
+        <div
+          className="
+            rounded-2xl border
+            border-red-200 bg-red-50
+            py-12 text-center
+            text-sm text-red-600
+          "
+        >
+          Failed to load resources
+        </div>
+      ) : resources.length === 0 ? (
         <div className="rounded-2xl border border-dashed border-gray-300 py-12 text-center text-sm text-gray-500">
           No resources found
         </div>
@@ -308,12 +325,14 @@ export default async function DashboardPage() {
             title="Most Visited Resources"
             icon={<Eye size={18} />}
             resources={mostVisitedResources || []}
+            error={mostVisitedResourcesError}
           />
 
           <ResourceSection
             title="Recently Published"
             icon={<Clock3 size={18} />}
             resources={recentResources || []}
+            error={recentResourcesError}
           />
         </div>
       </div>

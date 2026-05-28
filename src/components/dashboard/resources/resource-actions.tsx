@@ -30,7 +30,13 @@ export default function ResourceActions({
   async function updateResource() {
     if (!validateResource()) return;
 
-    const res = await fetch("/api/resources", {
+    if (!resource?.id) {
+      toast.error("can't update resource without id");
+      console.log("Resource ID is missing:", resource);
+      return;
+    }
+
+    const res = await fetch(`/api/resources/${resource.id}`, {
       method: "PUT",
       body: JSON.stringify(resource),
     });

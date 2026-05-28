@@ -33,18 +33,14 @@ export default function NotificationAdminPage() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [image, setImage] = useState("");
-  const [url, setUrl] = useState("");
+  const [action_url, setActionUrl] = useState("");
 
   const [drafts, setDrafts] = useState<NotificationData[]>([]);
   const [history, setHistory] = useState<NotificationData[]>([]);
 
-  const [sentCount, setSentCount] = useState(0);
-  const [clickCount, setClickCount] = useState(0);
-
   useEffect(() => {
     loadDrafts();
     loadHistory();
-    loadStats();
   }, []);
 
   function loadDrafts() {
@@ -64,25 +60,20 @@ export default function NotificationAdminPage() {
     setHistory(data);
   }
 
-  function loadStats() {
-    setSentCount(Number(localStorage.getItem("sent") || 0));
-    setClickCount(Number(localStorage.getItem("clicks") || 0));
-  }
-
   function loadInput(data: NotificationData) {
     setTitle(data.title || "");
     setBody(data.body || "");
     setImage(data.image || "");
-    setUrl(data.action_url || "");
+    setActionUrl(data.action_url || "");
   }
 
-  async function sendNow(to?: string) {
+  async function sendNow() {
     try {
       const payload = {
         title: title || defaultPreview.title,
         body: body || defaultPreview.body,
         image: image || defaultPreview.image,
-        action_url: url || defaultPreview.action_url,
+        action_url: action_url || defaultPreview.action_url,
       };
 
       const res = await fetch("/api/notification/send", {
@@ -110,16 +101,10 @@ export default function NotificationAdminPage() {
           body: payload.body,
           image: payload.image,
           action_url: payload.action_url,
-          to: to || "public",
         },
       ];
 
-      localStorage.setItem("history", JSON.stringify(newHistory));
       setHistory(newHistory);
-
-      const newSentCount = sentCount + 1;
-      localStorage.setItem("sent", String(newSentCount));
-      setSentCount(newSentCount);
 
       toast.success("Notification sent!", {
         description: `sent: ${data.sent}, total: ${data.total}`,
@@ -136,7 +121,7 @@ export default function NotificationAdminPage() {
       title,
       body,
       image,
-      action_url: url || defaultPreview.action_url,
+      action_url: action_url || defaultPreview.action_url,
     };
 
     const updatedDrafts = [...drafts, draft];
@@ -147,20 +132,11 @@ export default function NotificationAdminPage() {
     toast.info("Draft saved!");
   }
 
-  function removeItem(id: string, from: "drafts" | "history") {
-    if (from === "drafts") {
-      const updated = drafts.filter((item) => item.id !== id);
+  function removeDraft(id: string) {
+    const updated = drafts.filter((item) => item.id !== id);
 
-      localStorage.setItem("drafts", JSON.stringify(updated));
-      setDrafts(updated);
-    }
-
-    if (from === "history") {
-      const updated = history.filter((item) => item.id !== id);
-
-      localStorage.setItem("history", JSON.stringify(updated));
-      setHistory(updated);
-    }
+    localStorage.setItem("drafts", JSON.stringify(updated));
+    setDrafts(updated);
   }
 
   return (
@@ -210,8 +186,8 @@ export default function NotificationAdminPage() {
 
               <input
                 placeholder="Click URL"
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
+                value={action_url}
+                onChange={(e) => setActionUrl(e.target.value)}
                 className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
               />
             </div>
@@ -241,7 +217,7 @@ export default function NotificationAdminPage() {
 
             <div
               onClick={() =>
-                window.open(url || defaultPreview.action_url, "_blank")
+                window.open(action_url || defaultPreview.action_url, "_blank")
               }
               className="overflow-hidden rounded-2xl border border-gray-200 bg-gray-50"
             >
@@ -290,7 +266,7 @@ export default function NotificationAdminPage() {
                     </div>
 
                     <button
-                      onClick={() => draft.id && removeItem(draft.id, "drafts")}
+                      onClick={() => draft.id && removeDraft(draft.id)}
                       className="text-red-500 hover:text-red-700"
                     >
                       <Trash2 size={18} />
@@ -334,32 +310,6 @@ export default function NotificationAdminPage() {
                   No notification history
                 </p>
               )}
-            </div>
-          </div>
-        </div>
-
-        {/* Stats */}
-        <div className="rounded-2xl bg-white p-5 shadow-sm">
-          <div className="mb-5 flex items-center gap-2">
-            <BarChart3 className="text-purple-600" />
-            <h2 className="text-xl font-semibold">Stats</h2>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl bg-blue-50 p-5">
-              <p className="text-sm text-gray-500">Total Sent</p>
-
-              <h3 className="mt-2 text-4xl font-bold text-blue-600">
-                {sentCount}
-              </h3>
-            </div>
-
-            <div className="rounded-2xl bg-green-50 p-5">
-              <p className="text-sm text-gray-500">Total Clicks</p>
-
-              <h3 className="mt-2 text-4xl font-bold text-green-600">
-                {clickCount}
-              </h3>
             </div>
           </div>
         </div>

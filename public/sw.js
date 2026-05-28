@@ -32,10 +32,10 @@ self.addEventListener("notificationclick", (event) => {
     (async () => {
       if (notificationId) {
         try {
-          await fetch("/api/notifications/click", {
+          await fetch("/api/notification/read", {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ id: notificationId }),
+            body: JSON.stringify({ notification_id: notificationId }),
           });
         } catch (err) {
           console.error("Failed to track notification click:", err);

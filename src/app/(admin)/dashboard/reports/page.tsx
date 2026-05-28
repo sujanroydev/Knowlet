@@ -1,5 +1,6 @@
 import connectDb from "@/lib/db";
 import ReportStatusForm from "./report-status-form";
+import Link from "next/link";
 
 type Report = {
   id: string;
@@ -14,6 +15,7 @@ type Report = {
   resource: {
     id: string;
     title: string;
+    path: string;
   } | null;
 
   user: {
@@ -40,7 +42,8 @@ export default async function ReportsPage() {
 
       resource:resources (
         id,
-        title
+        title,
+        path
       ),
 
       user:users (
@@ -127,11 +130,31 @@ export default async function ReportsPage() {
                   </div>
                 </div>
 
-                <ReportStatusForm
-                  reportId={report.id}
-                  currentStatus={report.status}
-                  updateReportStatus={updateReportStatus}
-                />
+                <div className="flex flex-wrap items-center gap-2">
+                  {report.resource && (
+                    <>
+                      <Link
+                        href={`/library/${report.resource.path}`}
+                        className="inline-flex h-9 items-center justify-center rounded-xl border px-4 text-sm font-medium transition hover:bg-muted"
+                      >
+                        Open Resource
+                      </Link>
+
+                      <Link
+                        href={`/dashboard/resources/update/${report.resource.id}`}
+                        className="inline-flex h-9 items-center justify-center rounded-xl border px-4 text-sm font-medium transition hover:bg-muted"
+                      >
+                        Update Resource
+                      </Link>
+                    </>
+                  )}
+
+                  <ReportStatusForm
+                    reportId={report.id}
+                    currentStatus={report.status}
+                    updateReportStatus={updateReportStatus}
+                  />
+                </div>
               </div>
 
               {report.details && (

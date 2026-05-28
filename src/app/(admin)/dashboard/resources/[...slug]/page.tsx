@@ -1,5 +1,7 @@
 import CreateResourcePage from "@/components/dashboard/resources/create-resource-page";
+import UpdateResourcePage from "@/components/dashboard/resources/update-resource-page";
 import { verifyAdmin } from "@/lib/auth";
+import connectDb from "@/lib/db";
 import { cookies } from "next/headers";
 import { notFound, redirect } from "next/navigation";
 
@@ -26,7 +28,33 @@ export default async function Page({
     notFound();
   }
 
-  const id = action === "update" ? slug[1] : null;
+  if (action === "update") {
+    const resource_id = slug[1];
+    const db = await connectDb();
 
-  return action === "create" ? <CreateResourcePage /> : <CreateResourcePage />;
+    const { data, error } = await db
+      .from("resources")
+      .select(
+        `
+        id,
+        title,
+        description,
+        content,
+        path,
+        target,
+        type,
+        slug
+      `,
+      )
+      .eq("id", resource_id)
+      .maybeSingle();
+
+    const resource = data as any;
+
+    if (!resource || resource.length === 0) notFound();
+
+    return <UpdateResourcePage resource={resource} />;
+  }
+
+  return <CreateResourcePage />;
 }

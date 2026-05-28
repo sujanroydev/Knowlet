@@ -10,6 +10,7 @@ import {
   History,
   FileText,
 } from "lucide-react";
+import { toast } from "sonner";
 
 type NotificationData = {
   id?: string;
@@ -85,10 +86,14 @@ export default function NotificationAdminPage() {
         body: JSON.stringify(payload),
       });
 
-      if (!res.ok) {
-        alert("Failed to send notification");
+      const { data, error } = await res.json();
+
+      if (error) {
+        toast.error("Failed to send notification");
         return;
       }
+
+      if (!res.ok) return;
 
       const newHistory = [
         ...history,
@@ -109,10 +114,12 @@ export default function NotificationAdminPage() {
       localStorage.setItem("sent", String(newSentCount));
       setSentCount(newSentCount);
 
-      alert("Notification sent!");
+      toast.success("Notification sent!", {
+        description: `sent: ${data.sent}, total: ${data.total}`,
+      });
     } catch (error) {
       console.error(error);
-      alert("Something went wrong");
+      toast.error("Something went wrong");
     }
   }
 
@@ -130,7 +137,7 @@ export default function NotificationAdminPage() {
     localStorage.setItem("drafts", JSON.stringify(updatedDrafts));
     setDrafts(updatedDrafts);
 
-    alert("Draft saved!");
+    toast.info("Draft saved!");
   }
 
   function removeItem(id: string, from: "drafts" | "history") {

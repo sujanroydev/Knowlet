@@ -31,21 +31,20 @@ export default function ResourceDetails({
   useEffect(() => {
     let path = `${level}/${subject}`;
 
-    if (level.startsWith("semester")) path += `/${paper}/${type}`;
+    if (level.startsWith("semester")) path += `/${paper}`;
 
-    path += `/${target}`;
+    path += `/${type}/${target}`;
 
-    setDetails({ title, description, path, type, target, slug: target });
+    if (d.path !== path)
+      setDetails({ title, description, path, type, target, slug: target });
   }, [title, description, level, subject, paper, type, target]);
 
   useEffect(() => {
-    if (d) {
-      const parts = d.path.split("/");
-      setLevel(parts[0]);
-      setSubject(parts[1]);
-      if (parts[0].startsWith("semester")) setPaper(parts[2]);
-    }
-  }, [d.path]);
+    const parts = d.path.split("/");
+    setLevel(parts[0]);
+    setSubject(parts[1]);
+    if (parts[0].startsWith("semester")) setPaper(parts[2]);
+  }, []);
 
   return (
     <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">

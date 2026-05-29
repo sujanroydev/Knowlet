@@ -22,7 +22,7 @@ type NotificationData = {
 };
 
 const defaultPreview = {
-  title: "⚡ Stop Scrolling. Start Revising.",
+  title: "Stop Scrolling. Start Revising.",
   body: "Important topics, quick notes & exam-focused questions ready for you.",
   image:
     "https://res.cloudinary.com/db975putk/image/upload/q_auto/f_auto/v1779595876/IMG_20260524_094028_cmlvb1.png",

@@ -1,17 +1,16 @@
 self.addEventListener("push", (event) => {
   const data = event.data?.json() || {};
-  const title = data.title || "Your Notes Are Ready";
 
   event.waitUntil(
     self.registration
-      .showNotification(title, {
-        body: data.body || "Jump back in and keep learning with Knowlet.",
-        icon: data.icon || "/icons/favicon-96x96.png",
-        badge: data.badge || "/icons/favicon-96x96.png",
+      .showNotification(data.title || "Knowlet", {
+        body: data.body,
+        icon: data.icon,
+        badge: data.badge,
         image: data.image,
         tag: data.tag,
         data: {
-          url: data.url || "/",
+          url: data.url,
           notificationId: data.notificationId,
         },
       })

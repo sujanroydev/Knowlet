@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { jwtVerify } from "jose";
+import { verifyAdmin } from "./lib/auth";
 
 function slugify(value: string) {
   return value.replace(/_/g, "-");
@@ -34,10 +35,8 @@ export async function proxy(req: NextRequest) {
 
   // AUTH
   if (
-    pathname.startsWith("/admin") ||
     pathname.startsWith("/profile") ||
-    pathname.startsWith("/settings/password") ||
-    pathname.startsWith("/dashboard")
+    pathname.startsWith("/settings/password")
   ) {
     const token = req.cookies.get("token")?.value;
 
@@ -56,6 +55,19 @@ export async function proxy(req: NextRequest) {
 
       return res;
     }
+  }
+
+  // ADMIN
+  if (pathname.startsWith("/dashboard")) {
+    const token = req.cookies.get("token")?.value;
+
+    if (!token) {
+      return NextResponse.redirect(new URL("/signin", req.url));
+    }
+
+    const admin = await verifyAdmin(token);
+
+    if (!admin) return NextResponse.redirect(new URL("/forbidden", req.url));
   }
 
   return NextResponse.next();

@@ -1,20 +1,13 @@
 import CreateResourcePage from "@/components/dashboard/resources/create-resource-page";
 import UpdateResourcePage from "@/components/dashboard/resources/update-resource-page";
-import { verifyAdmin } from "@/lib/auth";
 import connectDb from "@/lib/db";
-import { cookies } from "next/headers";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 export default async function Page({
   params,
 }: {
   params: Promise<{ slug: string[] }>;
 }) {
-  const cookieStore = await cookies();
-  const admin = await verifyAdmin(cookieStore.get("token")?.value);
-
-  if (!admin) redirect("/forbidden");
-
   const { slug } = await params;
 
   const action = slug[0] as "create" | "update";

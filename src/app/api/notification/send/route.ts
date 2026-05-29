@@ -11,7 +11,10 @@ webpush.setVapidDetails(
 
 export async function POST(req: NextRequest) {
   try {
-    const { title, body, icon, badge, image, tag, url } = await req.json();
+    const { title, body, icon, badge, image, tag, action_url } =
+      await req.json();
+
+    console.log(icon, badge, tag);
 
     const admin = await verifyAdmin(req.cookies.get("token")?.value);
 
@@ -33,25 +36,35 @@ export async function POST(req: NextRequest) {
       throw new Error(error.message);
     }
 
+    const notificationData = {
+      title: title || undefined,
+      body: body || undefined,
+      image: image || undefined,
+      icon: icon || "/icons/web-app-manifest-192x192.png",
+      badge: badge || "/icons/favicon-96x96.png",
+      tag: tag || undefined,
+      action_url: action_url || "https://knowlet.in",
+    };
+
+    const subscriptions =
+      process.env.NODE_ENV === "development"
+        ? data.filter(
+            (row) => row.user_id === "7cf87d0f-55d0-4275-93df-d240980e436c",
+          )
+        : data;
+
     const { data: notification } = await db
       .from("notifications")
-      .insert({
-        type: "resource",
-        title,
-        body,
-        icon,
-        // badge,
-        image,
-        // tag,
-        action_url: url,
-      })
+      .insert({ type: "resource", ...notificationData })
       .select()
       .single();
 
     const notificationId = notification.id;
     const uniqueUserIds = [
       ...new Set(
-        data.map((row) => row.user_id).filter((id): id is string => !!id),
+        subscriptions
+          .map((row) => row.user_id)
+          .filter((id): id is string => !!id),
       ),
     ];
 
@@ -62,19 +75,10 @@ export async function POST(req: NextRequest) {
       })),
     );
 
-    const payload = JSON.stringify({
-      notificationId,
-      title,
-      body,
-      icon,
-      badge,
-      image,
-      tag,
-      url,
-    });
+    const payload = JSON.stringify({ notificationId, ...notificationData });
 
     const results = await Promise.allSettled(
-      data.map(async (row) => {
+      subscriptions.map(async (row) => {
         try {
           await webpush.sendNotification(
             {
@@ -107,13 +111,18 @@ export async function POST(req: NextRequest) {
       (r) => r.status === "fulfilled" && r.value.success,
     ).length;
 
-    return NextResponse.json({
-      success: true,
-      data: {
-        total: data.length,
-        sent: success,
-      },
-    });
+    const notificationStats = {
+      total_users: data.length,
+      sent_count: success,
+      failed_count: data.length - success,
+    };
+
+    await db
+      .from("notifications")
+      .update(notificationStats)
+      .eq("id", notificationId);
+
+    return NextResponse.json({ data: notificationStats });
   } catch (err) {
     return NextResponse.json(
       { error: { message: "Server Error" } },

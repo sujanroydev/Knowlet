@@ -55,7 +55,7 @@ export default function NotificationClient({
     }
   }
 
-  async function markAsRead(id: string) {
+  async function markAsRead(id: string, notificationId: string) {
     try {
       setLocalNotifications((prev: any[]) =>
         prev.map((n) =>
@@ -74,7 +74,7 @@ export default function NotificationClient({
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ id }),
+        body: JSON.stringify({ notification_id: notificationId }),
       });
     } catch (error) {
       console.error("Failed to mark notification as read", error);
@@ -122,7 +122,7 @@ export default function NotificationClient({
             <a
               key={n.id}
               href={n.notifications.action_url || "#"}
-              onClick={() => markAsRead(n.id)}
+              onClick={() => markAsRead(n.id, n.notifications?.id)}
               className={`group block rounded-3xl border backdrop-blur-sm p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl
             ${
               n.is_read

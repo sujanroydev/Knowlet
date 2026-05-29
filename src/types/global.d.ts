@@ -2,13 +2,17 @@ interface User {
   id?: string;
   name: string;
   email: string;
+  role?: string;
+  username?: string;
   age?: string;
   picture?: string;
   stream?: string;
   standered?: string;
   fv_subject?: string;
   is_verified: boolean;
+  is_active?: string;
   created_at?: string;
+  updated_at?: string;
   verified_at: string;
 }
 

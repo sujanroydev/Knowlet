@@ -7,6 +7,7 @@ type Item = {
   description: string;
   path: string;
   type: string;
+  target?: string;
 };
 
 export default function Main({
@@ -46,7 +47,14 @@ export default function Main({
 
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
               {sectionItems.map((item) => (
-                <NavigatorBtnCard key={item.path} item={item} />
+                <NavigatorBtnCard
+                  key={item.path}
+                  item={{
+                    title: item.target!,
+                    description: item.title,
+                    path: item.path,
+                  }}
+                />
               ))}
             </div>
           </section>

@@ -6,44 +6,51 @@ import {
   Bell,
   Send,
   Save,
-  BarChart3,
   History,
   FileText,
+  Settings,
 } from "lucide-react";
+import { toast } from "sonner";
 
 type NotificationData = {
   id?: string;
   title: string;
   body: string;
   image: string;
-  url: string;
-  to?: string;
+  icon?: string;
+  badge?: string;
+  tag?: string;
+  action_url: string;
 };
 
 const defaultPreview = {
-  title: "⚡ Stop Scrolling. Start Revising.",
+  title: "Stop Scrolling. Start Revising.",
   body: "Important topics, quick notes & exam-focused questions ready for you.",
   image:
     "https://res.cloudinary.com/db975putk/image/upload/q_auto/f_auto/v1779595876/IMG_20260524_094028_cmlvb1.png",
-  url: "https://knowlet.in",
+  icon: "https://knowlet.in/icons/web-app-manifest-192x192.png",
+  badge: "https://knowlet.in/icons/favicon-96x96.png",
+  tag: undefined,
+  action_url: "https://knowlet.in",
 };
 
 export default function NotificationAdminPage() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [image, setImage] = useState("");
-  const [url, setUrl] = useState("");
+  const [icon, setIcon] = useState("");
+  const [badge, setBadge] = useState("");
+  const [tag, setTag] = useState("");
+  const [action_url, setActionUrl] = useState("");
 
   const [drafts, setDrafts] = useState<NotificationData[]>([]);
   const [history, setHistory] = useState<NotificationData[]>([]);
 
-  const [sentCount, setSentCount] = useState(0);
-  const [clickCount, setClickCount] = useState(0);
+  const [advancedOptionsOpen, setAdvancedOptionsOpen] = useState(false);
 
   useEffect(() => {
     loadDrafts();
     loadHistory();
-    loadStats();
   }, []);
 
   function loadDrafts() {
@@ -51,30 +58,38 @@ export default function NotificationAdminPage() {
     setDrafts(data);
   }
 
-  function loadHistory() {
-    const data = JSON.parse(localStorage.getItem("history") || "[]");
-    setHistory(data);
-  }
+  async function loadHistory() {
+    const res = await fetch("/api/notification");
+    const { data, error } = await res.json();
 
-  function loadStats() {
-    setSentCount(Number(localStorage.getItem("sent") || 0));
-    setClickCount(Number(localStorage.getItem("clicks") || 0));
+    if (error) {
+      toast.error("Failed to load history");
+      return;
+    }
+
+    setHistory(data);
   }
 
   function loadInput(data: NotificationData) {
     setTitle(data.title || "");
     setBody(data.body || "");
     setImage(data.image || "");
-    setUrl(data.url || "");
+    setIcon(data.icon || "");
+    setBadge(data.badge || "");
+    setTag(data.tag || "");
+    setActionUrl(data.action_url || "");
   }
 
-  async function sendNow(to?: string) {
+  async function sendNow() {
     try {
       const payload = {
         title: title || defaultPreview.title,
         body: body || defaultPreview.body,
         image: image || defaultPreview.image,
-        url: url || defaultPreview.url,
+        icon: icon || defaultPreview.icon,
+        badge: badge || defaultPreview.badge,
+        tag: tag || defaultPreview.tag,
+        action_url: action_url || defaultPreview.action_url,
       };
 
       const res = await fetch("/api/notification/send", {
@@ -85,34 +100,26 @@ export default function NotificationAdminPage() {
         body: JSON.stringify(payload),
       });
 
-      if (!res.ok) {
-        alert("Failed to send notification");
+      const {
+        data: { total_users, sent_count, failed_count },
+        error,
+      } = await res.json();
+
+      if (error) {
+        toast.error("Failed to send notification");
         return;
       }
 
-      const newHistory = [
-        ...history,
-        {
-          id: crypto.randomUUID(),
-          title: payload.title,
-          body: payload.body,
-          image: payload.image,
-          url: payload.url,
-          to: to || "public",
-        },
-      ];
+      if (!res.ok) return;
 
-      localStorage.setItem("history", JSON.stringify(newHistory));
-      setHistory(newHistory);
+      await loadHistory();
 
-      const newSentCount = sentCount + 1;
-      localStorage.setItem("sent", String(newSentCount));
-      setSentCount(newSentCount);
-
-      alert("Notification sent!");
+      toast.success("Notification sent!", {
+        description: `sent: ${sent_count}, total: ${total_users}, failed: ${failed_count}`,
+      });
     } catch (error) {
       console.error(error);
-      alert("Something went wrong");
+      toast.error("Something went wrong");
     }
   }
 
@@ -122,7 +129,10 @@ export default function NotificationAdminPage() {
       title,
       body,
       image,
-      url,
+      icon,
+      badge,
+      tag,
+      action_url,
     };
 
     const updatedDrafts = [...drafts, draft];
@@ -130,23 +140,14 @@ export default function NotificationAdminPage() {
     localStorage.setItem("drafts", JSON.stringify(updatedDrafts));
     setDrafts(updatedDrafts);
 
-    alert("Draft saved!");
+    toast.info("Draft saved!");
   }
 
-  function removeItem(id: string, from: "drafts" | "history") {
-    if (from === "drafts") {
-      const updated = drafts.filter((item) => item.id !== id);
+  function removeDraft(id: string) {
+    const updated = drafts.filter((item) => item.id !== id);
 
-      localStorage.setItem("drafts", JSON.stringify(updated));
-      setDrafts(updated);
-    }
-
-    if (from === "history") {
-      const updated = history.filter((item) => item.id !== id);
-
-      localStorage.setItem("history", JSON.stringify(updated));
-      setHistory(updated);
-    }
+    localStorage.setItem("drafts", JSON.stringify(updated));
+    setDrafts(updated);
   }
 
   return (
@@ -196,27 +197,59 @@ export default function NotificationAdminPage() {
 
               <input
                 placeholder="Click URL"
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
+                value={action_url}
+                onChange={(e) => setActionUrl(e.target.value)}
                 className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
               />
+
+              {advancedOptionsOpen && (
+                <>
+                  <input
+                    placeholder="Icon URL"
+                    value={icon}
+                    onChange={(e) => setIcon(e.target.value)}
+                    className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
+                  />
+                  <input
+                    placeholder="Badge URL"
+                    value={badge}
+                    onChange={(e) => setBadge(e.target.value)}
+                    className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
+                  />
+                  <input
+                    placeholder="Tag"
+                    value={tag}
+                    onChange={(e) => setTag(e.target.value)}
+                    className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
+                  />
+                </>
+              )}
             </div>
 
-            <div className="mt-5 flex flex-wrap gap-3">
-              <button
-                onClick={() => sendNow()}
-                className="flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-white transition hover:bg-blue-700"
-              >
-                <Send size={18} />
-                Send
-              </button>
+            <div className="mt-5 flex justify-between">
+              <div className="flex flex-wrap gap-3">
+                <button
+                  onClick={() => sendNow()}
+                  className="flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-white transition hover:bg-blue-700"
+                >
+                  <Send size={18} />
+                  Send
+                </button>
 
+                <button
+                  onClick={saveDraft}
+                  className="flex items-center gap-2 rounded-xl bg-gray-800 px-5 py-3 text-white transition hover:bg-black"
+                >
+                  <Save size={18} />
+                  Save Draft
+                </button>
+              </div>
               <button
-                onClick={saveDraft}
-                className="flex items-center gap-2 rounded-xl bg-gray-800 px-5 py-3 text-white transition hover:bg-black"
+                onClick={() => setAdvancedOptionsOpen((prev) => !prev)}
+                className="flex items-center gap-2 rounded-xl bg-gray-200 px-5 py-3 text-gray-700 transition hover:bg-gray-300"
               >
-                <Save size={18} />
-                Save Draft
+                <Settings size={18} />
+                Show Advance Options
               </button>
             </div>
           </div>
@@ -226,7 +259,9 @@ export default function NotificationAdminPage() {
             <h2 className="mb-5 text-xl font-semibold">Preview</h2>
 
             <div
-              onClick={() => window.open(url || defaultPreview.url, "_blank")}
+              onClick={() =>
+                window.open(action_url || defaultPreview.action_url, "_blank")
+              }
               className="overflow-hidden rounded-2xl border border-gray-200 bg-gray-50"
             >
               <div className="p-5">
@@ -274,7 +309,7 @@ export default function NotificationAdminPage() {
                     </div>
 
                     <button
-                      onClick={() => draft.id && removeItem(draft.id, "drafts")}
+                      onClick={() => draft.id && removeDraft(draft.id)}
                       className="text-red-500 hover:text-red-700"
                     >
                       <Trash2 size={18} />
@@ -307,11 +342,8 @@ export default function NotificationAdminPage() {
                     <div>
                       <p className="font-medium">{item.title || "Untitled"}</p>
 
-                      <p className="text-sm text-gray-500">
-                        Visible to:{" "}
-                        <span className="font-medium text-green-600">
-                          {item.to}
-                        </span>
+                      <p className="line-clamp-1 text-sm text-gray-500">
+                        {item.body}
                       </p>
                     </div>
                   </div>
@@ -321,32 +353,6 @@ export default function NotificationAdminPage() {
                   No notification history
                 </p>
               )}
-            </div>
-          </div>
-        </div>
-
-        {/* Stats */}
-        <div className="rounded-2xl bg-white p-5 shadow-sm">
-          <div className="mb-5 flex items-center gap-2">
-            <BarChart3 className="text-purple-600" />
-            <h2 className="text-xl font-semibold">Stats</h2>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl bg-blue-50 p-5">
-              <p className="text-sm text-gray-500">Total Sent</p>
-
-              <h3 className="mt-2 text-4xl font-bold text-blue-600">
-                {sentCount}
-              </h3>
-            </div>
-
-            <div className="rounded-2xl bg-green-50 p-5">
-              <p className="text-sm text-gray-500">Total Clicks</p>
-
-              <h3 className="mt-2 text-4xl font-bold text-green-600">
-                {clickCount}
-              </h3>
             </div>
           </div>
         </div>

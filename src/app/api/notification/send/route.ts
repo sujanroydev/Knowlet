@@ -11,7 +11,8 @@ webpush.setVapidDetails(
 
 export async function POST(req: NextRequest) {
   try {
-    const { title, body, icon, badge, image, tag, url } = await req.json();
+    const { title, body, icon, badge, image, tag, action_url } =
+      await req.json();
 
     const admin = await verifyAdmin(req.cookies.get("token")?.value);
 
@@ -33,6 +34,16 @@ export async function POST(req: NextRequest) {
       throw new Error(error.message);
     }
 
+    const notificationData = {
+      title,
+      body,
+      image,
+      icon: icon || "/icons/web-app-manifest-192x192.png",
+      badge: badge || "/icons/favicon-96x96.png",
+      tag,
+      action_url: action_url || "https://knowlet.in",
+    };
+
     const subscriptions =
       process.env.NODE_ENV === "development"
         ? data.filter(
@@ -42,16 +53,7 @@ export async function POST(req: NextRequest) {
 
     const { data: notification } = await db
       .from("notifications")
-      .insert({
-        type: "resource",
-        title,
-        body,
-        icon,
-        // badge,
-        image,
-        // tag,
-        action_url: url,
-      })
+      .insert({ type: "resource", ...notificationData })
       .select()
       .single();
 
@@ -71,16 +73,7 @@ export async function POST(req: NextRequest) {
       })),
     );
 
-    const payload = JSON.stringify({
-      notificationId,
-      title,
-      body,
-      icon,
-      badge,
-      image,
-      tag,
-      url,
-    });
+    const payload = JSON.stringify({ notificationId, ...notificationData });
 
     const results = await Promise.allSettled(
       subscriptions.map(async (row) => {

@@ -6,9 +6,9 @@ import {
   Bell,
   Send,
   Save,
-  BarChart3,
   History,
   FileText,
+  Settings,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -17,8 +17,10 @@ type NotificationData = {
   title: string;
   body: string;
   image: string;
+  icon?: string;
+  badge?: string;
+  tag?: string;
   action_url: string;
-  to?: string;
 };
 
 const defaultPreview = {
@@ -26,6 +28,9 @@ const defaultPreview = {
   body: "Important topics, quick notes & exam-focused questions ready for you.",
   image:
     "https://res.cloudinary.com/db975putk/image/upload/q_auto/f_auto/v1779595876/IMG_20260524_094028_cmlvb1.png",
+  icon: "https://knowlet.in/icons/web-app-manifest-192x192.png",
+  badge: "https://knowlet.in/icons/favicon-96x96.png",
+  tag: undefined,
   action_url: "https://knowlet.in",
 };
 
@@ -33,10 +38,15 @@ export default function NotificationAdminPage() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [image, setImage] = useState("");
+  const [icon, setIcon] = useState("");
+  const [badge, setBadge] = useState("");
+  const [tag, setTag] = useState("");
   const [action_url, setActionUrl] = useState("");
 
   const [drafts, setDrafts] = useState<NotificationData[]>([]);
   const [history, setHistory] = useState<NotificationData[]>([]);
+
+  const [advancedOptionsOpen, setAdvancedOptionsOpen] = useState(false);
 
   useEffect(() => {
     loadDrafts();
@@ -64,6 +74,9 @@ export default function NotificationAdminPage() {
     setTitle(data.title || "");
     setBody(data.body || "");
     setImage(data.image || "");
+    setIcon(data.icon || "");
+    setBadge(data.badge || "");
+    setTag(data.tag || "");
     setActionUrl(data.action_url || "");
   }
 
@@ -73,6 +86,9 @@ export default function NotificationAdminPage() {
         title: title || defaultPreview.title,
         body: body || defaultPreview.body,
         image: image || defaultPreview.image,
+        icon: icon || defaultPreview.icon,
+        badge: badge || defaultPreview.badge,
+        tag: tag || defaultPreview.tag,
         action_url: action_url || defaultPreview.action_url,
       };
 
@@ -113,7 +129,10 @@ export default function NotificationAdminPage() {
       title,
       body,
       image,
-      action_url: action_url || defaultPreview.action_url,
+      icon,
+      badge,
+      tag,
+      action_url,
     };
 
     const updatedDrafts = [...drafts, draft];
@@ -182,23 +201,55 @@ export default function NotificationAdminPage() {
                 onChange={(e) => setActionUrl(e.target.value)}
                 className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
               />
+
+              {advancedOptionsOpen && (
+                <>
+                  <input
+                    placeholder="Icon URL"
+                    value={icon}
+                    onChange={(e) => setIcon(e.target.value)}
+                    className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
+                  />
+                  <input
+                    placeholder="Badge URL"
+                    value={badge}
+                    onChange={(e) => setBadge(e.target.value)}
+                    className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
+                  />
+                  <input
+                    placeholder="Tag"
+                    value={tag}
+                    onChange={(e) => setTag(e.target.value)}
+                    className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
+                  />
+                </>
+              )}
             </div>
 
-            <div className="mt-5 flex flex-wrap gap-3">
-              <button
-                onClick={() => sendNow()}
-                className="flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-white transition hover:bg-blue-700"
-              >
-                <Send size={18} />
-                Send
-              </button>
+            <div className="mt-5 flex justify-between">
+              <div className="flex flex-wrap gap-3">
+                <button
+                  onClick={() => sendNow()}
+                  className="flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-white transition hover:bg-blue-700"
+                >
+                  <Send size={18} />
+                  Send
+                </button>
 
+                <button
+                  onClick={saveDraft}
+                  className="flex items-center gap-2 rounded-xl bg-gray-800 px-5 py-3 text-white transition hover:bg-black"
+                >
+                  <Save size={18} />
+                  Save Draft
+                </button>
+              </div>
               <button
-                onClick={saveDraft}
-                className="flex items-center gap-2 rounded-xl bg-gray-800 px-5 py-3 text-white transition hover:bg-black"
+                onClick={() => setAdvancedOptionsOpen((prev) => !prev)}
+                className="flex items-center gap-2 rounded-xl bg-gray-200 px-5 py-3 text-gray-700 transition hover:bg-gray-300"
               >
-                <Save size={18} />
-                Save Draft
+                <Settings size={18} />
+                Show Advance Options
               </button>
             </div>
           </div>

@@ -14,6 +14,8 @@ export async function POST(req: NextRequest) {
     const { title, body, icon, badge, image, tag, action_url } =
       await req.json();
 
+    console.log(icon, badge, tag);
+
     const admin = await verifyAdmin(req.cookies.get("token")?.value);
 
     if (!admin) {
@@ -35,12 +37,12 @@ export async function POST(req: NextRequest) {
     }
 
     const notificationData = {
-      title,
-      body,
-      image,
+      title: title || undefined,
+      body: body || undefined,
+      image: image || undefined,
       icon: icon || "/icons/web-app-manifest-192x192.png",
       badge: badge || "/icons/favicon-96x96.png",
-      tag,
+      tag: tag || undefined,
       action_url: action_url || "https://knowlet.in",
     };
 

@@ -111,18 +111,23 @@ export default function ProfileMenu() {
           {/* Navigation */}
           <div className="mt-4 border-t pt-4">
             <div className="space-y-2">
-              {menuItems.map((item) => (
-                <button
-                  key={item.href}
-                  onClick={() => {
-                    router.push(item.href);
-                    setOpen(false);
-                  }}
-                  className="w-full rounded-xl px-4 py-2 text-left text-sm font-medium text-slate-700 transition hover:bg-slate-100"
-                >
-                  {item.label}
-                </button>
-              ))}
+              {menuItems
+                .filter(
+                  (item) =>
+                    item.href !== "/dashboard" || user?.role === "admin",
+                )
+                .map((item) => (
+                  <button
+                    key={item.href}
+                    onClick={() => {
+                      router.push(item.href);
+                      setOpen(false);
+                    }}
+                    className="w-full rounded-xl px-4 py-2 text-left text-sm font-medium text-slate-700 transition hover:bg-slate-100"
+                  >
+                    {item.label}
+                  </button>
+                ))}
             </div>
           </div>
 

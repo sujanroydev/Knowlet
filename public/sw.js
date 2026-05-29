@@ -1,3 +1,17 @@
+self.addEventListener("install", () => {
+  self.skipWaiting();
+});
+
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
+    (async () => {
+      const cacheNames = await caches.keys();
+      await Promise.all(cacheNames.map((cache) => caches.delete(cache)));
+      await self.clients.claim();
+    })(),
+  );
+});
+
 self.addEventListener("push", (event) => {
   const data = event.data?.json() || {};
 

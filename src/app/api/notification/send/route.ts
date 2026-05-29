@@ -116,13 +116,18 @@ export async function POST(req: NextRequest) {
       (r) => r.status === "fulfilled" && r.value.success,
     ).length;
 
-    return NextResponse.json({
-      data: {
-        total: data.length,
-        sent: success,
-        failed: data.length - success,
-      },
-    });
+    const notificationStats = {
+      total_users: data.length,
+      sent_count: success,
+      failed_count: data.length - success,
+    };
+
+    await db
+      .from("notifications")
+      .update(notificationStats)
+      .eq("id", notificationId);
+
+    return NextResponse.json({ data: notificationStats });
   } catch (err) {
     return NextResponse.json(
       { error: { message: "Server Error" } },

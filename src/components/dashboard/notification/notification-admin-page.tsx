@@ -84,7 +84,10 @@ export default function NotificationAdminPage() {
         body: JSON.stringify(payload),
       });
 
-      const { data, error } = await res.json();
+      const {
+        data: { total_users, sent_count, failed_count },
+        error,
+      } = await res.json();
 
       if (error) {
         toast.error("Failed to send notification");
@@ -93,21 +96,10 @@ export default function NotificationAdminPage() {
 
       if (!res.ok) return;
 
-      const newHistory = [
-        ...history,
-        {
-          id: crypto.randomUUID(),
-          title: payload.title,
-          body: payload.body,
-          image: payload.image,
-          action_url: payload.action_url,
-        },
-      ];
-
-      setHistory(newHistory);
+      await loadHistory();
 
       toast.success("Notification sent!", {
-        description: `sent: ${data.sent}, total: ${data.total}`,
+        description: `sent: ${sent_count}, total: ${total_users}, failed: ${failed_count}`,
       });
     } catch (error) {
       console.error(error);

@@ -11,6 +11,7 @@ import {
   Settings,
 } from "lucide-react";
 import { toast } from "sonner";
+import { Bars } from "react-loader-spinner";
 
 type NotificationData = {
   id?: string;
@@ -35,6 +36,8 @@ const defaultPreview = {
 };
 
 export default function NotificationAdminPage() {
+  const [sending, setSending] = useState(false);
+
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [image, setImage] = useState("");
@@ -92,6 +95,8 @@ export default function NotificationAdminPage() {
         action_url: action_url || defaultPreview.action_url,
       };
 
+      setSending(true);
+
       const res = await fetch("/api/notification/send", {
         method: "POST",
         headers: {
@@ -104,6 +109,8 @@ export default function NotificationAdminPage() {
         data: { total_users, sent_count, failed_count },
         error,
       } = await res.json();
+
+      setSending(false);
 
       if (error) {
         toast.error("Failed to send notification");
@@ -120,6 +127,7 @@ export default function NotificationAdminPage() {
     } catch (error) {
       console.error(error);
       toast.error("Something went wrong");
+      setSending(false);
     }
   }
 
@@ -232,8 +240,21 @@ export default function NotificationAdminPage() {
                   onClick={() => sendNow()}
                   className="flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-white transition hover:bg-blue-700"
                 >
-                  <Send size={18} />
-                  Send
+                  {sending ? (
+                    <div className="flex justify-center items-center">
+                      <Bars
+                        height={25}
+                        color="white"
+                        ariaLabel="bars-loading"
+                        visible={true}
+                      />
+                    </div>
+                  ) : (
+                    <>
+                      <Send size={18} />
+                      Send
+                    </>
+                  )}
                 </button>
 
                 <button

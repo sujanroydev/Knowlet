@@ -91,6 +91,7 @@ export default function ResourceDetails({
               label="Level"
               options={[
                 "select",
+                // ...[...Array(4)].map((_, i) => `class-${i + 8}`),
                 ...[...Array(8)].map((_, i) => `semester-${i + 1}`),
               ]}
               value={level}
@@ -125,20 +126,25 @@ export default function ResourceDetails({
               disabled={!modificationAllowed}
             />
 
-            <TextInput
-              label="Paper"
-              placeholder="Enter Paper Code eg. dsc-152"
-              value={paper}
-              onChange={(e) =>
-                setPaper(e.target.value.toLowerCase().split(" ").join("-"))
-              }
-              disabled={!modificationAllowed}
-            />
+            {level.startsWith("semester") && (
+              <TextInput
+                label="Paper"
+                placeholder="Enter Paper Code eg. dsc-152"
+                value={paper}
+                onChange={(e) =>
+                  setPaper(e.target.value.toLowerCase().split(" ").join("-"))
+                }
+                disabled={!modificationAllowed}
+              />
+            )}
+
             <SelectInput
               label="target"
               options={[
                 "select",
-                ...[...Array(15)].map((_, i) => `unit-${i + 1}`),
+                ...(type === "pyq"
+                  ? [...Array(5)].map((_, i) => `solved-${i + 2021}`)
+                  : [...Array(15)].map((_, i) => `unit-${i + 1}`)),
               ]}
               value={target}
               onChange={(e) => setTarget(e.target.value)}

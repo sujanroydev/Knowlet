@@ -9,9 +9,12 @@ import {
   History,
   FileText,
   Settings,
+  XCircle,
+  CheckCircle2,
+  Users,
+  Clock,
 } from "lucide-react";
 import { toast } from "sonner";
-import { Bars } from "react-loader-spinner";
 
 type NotificationData = {
   id?: string;
@@ -21,7 +24,11 @@ type NotificationData = {
   icon?: string;
   badge?: string;
   tag?: string;
+  total_users?: number;
+  sent_count?: number;
+  failed_count?: number;
   action_url: string;
+  created_at?: string;
 };
 
 const defaultPreview = {
@@ -31,20 +38,19 @@ const defaultPreview = {
     "https://res.cloudinary.com/db975putk/image/upload/q_auto/f_auto/v1779595876/IMG_20260524_094028_cmlvb1.png",
   icon: "https://knowlet.in/icons/web-app-manifest-192x192.png",
   badge: "https://knowlet.in/icons/favicon-96x96.png",
-  tag: undefined,
   action_url: "https://knowlet.in",
 };
 
 export default function NotificationAdminPage() {
   const [sending, setSending] = useState(false);
 
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
-  const [image, setImage] = useState("");
-  const [icon, setIcon] = useState("");
-  const [badge, setBadge] = useState("");
+  const [title, setTitle] = useState(defaultPreview.title);
+  const [body, setBody] = useState(defaultPreview.body);
+  const [image, setImage] = useState(defaultPreview.image);
+  const [icon, setIcon] = useState(defaultPreview.icon);
+  const [badge, setBadge] = useState(defaultPreview.badge);
   const [tag, setTag] = useState("");
-  const [action_url, setActionUrl] = useState("");
+  const [action_url, setActionUrl] = useState(defaultPreview.action_url);
 
   const [drafts, setDrafts] = useState<NotificationData[]>([]);
   const [history, setHistory] = useState<NotificationData[]>([]);
@@ -86,13 +92,13 @@ export default function NotificationAdminPage() {
   async function sendNow() {
     try {
       const payload = {
-        title: title || defaultPreview.title,
-        body: body || defaultPreview.body,
-        image: image || defaultPreview.image,
-        icon: icon || defaultPreview.icon,
-        badge: badge || defaultPreview.badge,
-        tag: tag || defaultPreview.tag,
-        action_url: action_url || defaultPreview.action_url,
+        title: title,
+        body: body,
+        image: image,
+        icon: icon,
+        badge: badge,
+        tag: tag || undefined,
+        action_url: action_url,
       };
 
       setSending(true);
@@ -240,21 +246,10 @@ export default function NotificationAdminPage() {
                   onClick={() => sendNow()}
                   className="flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-white transition hover:bg-blue-700"
                 >
-                  {sending ? (
-                    <div className="flex justify-center items-center">
-                      <Bars
-                        height={25}
-                        color="white"
-                        ariaLabel="bars-loading"
-                        visible={true}
-                      />
-                    </div>
-                  ) : (
-                    <>
-                      <Send size={18} />
-                      Send
-                    </>
-                  )}
+                  <>
+                    <Send size={18} />
+                    {sending ? "Sending..." : "Send"}
+                  </>
                 </button>
 
                 <button
@@ -270,7 +265,9 @@ export default function NotificationAdminPage() {
                 className="flex items-center gap-2 rounded-xl bg-gray-200 px-5 py-3 text-gray-700 transition hover:bg-gray-300"
               >
                 <Settings size={18} />
-                Show Advance Options
+                {advancedOptionsOpen
+                  ? "Hide Advanced Options"
+                  : "Show Advanced Options"}
               </button>
             </div>
           </div>
@@ -283,21 +280,41 @@ export default function NotificationAdminPage() {
               onClick={() =>
                 window.open(action_url || defaultPreview.action_url, "_blank")
               }
-              className="overflow-hidden rounded-2xl border border-gray-200 bg-gray-50"
+              className="p-3 overflow-hidden rounded-2xl border border-gray-200 bg-gray-50"
             >
-              <div className="p-5">
-                <h3 className="mb-2 text-2xl font-bold">
-                  {title || defaultPreview.title}
-                </h3>
+              <div className="flex justify-between">
+                <div className="w-10 flex items-center">
+                  <img
+                    src="/icons/web-app-manifest-192x192.png"
+                    alt="icon"
+                    className="h-10 w-10 rounded-full"
+                  />
+                </div>
 
-                <p className="text-gray-600">{body || defaultPreview.body}</p>
+                <div className="flex-1 px-3">
+                  <h3 className="mb-2 text-2xl font-bold">
+                    {title || defaultPreview.title}
+                  </h3>
+
+                  {body && <p className="text-gray-600">{body}</p>}
+                </div>
+
+                {icon && (
+                  <img
+                    src={icon}
+                    alt="icon"
+                    className="h-6 w-6 rounded-full self-end"
+                  />
+                )}
               </div>
 
-              <img
-                src={image || defaultPreview.image}
-                alt="preview"
-                className="h-64 w-full object-cover"
-              />
+              {image && (
+                <img
+                  src={image}
+                  alt="preview"
+                  className="h-auto w-full object-cover overflow-hidden rounded-2xl mt-3"
+                />
+              )}
             </div>
           </div>
         </div>
@@ -311,7 +328,7 @@ export default function NotificationAdminPage() {
               <h2 className="text-xl font-semibold">Drafts</h2>
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-2 overflow-auto max-h-96">
               {drafts.length ? (
                 drafts.map((draft) => (
                   <div
@@ -352,13 +369,13 @@ export default function NotificationAdminPage() {
               <h2 className="text-xl font-semibold">History</h2>
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-2 overflow-auto max-h-96">
               {history.length ? (
                 history.map((item) => (
                   <div
                     key={item.id}
                     onClick={() => loadInput(item)}
-                    className="flex cursor-pointer items-center justify-between rounded-xl border border-gray-200 p-4 transition hover:bg-gray-50"
+                    className="flex flex-row cursor-pointer items-center justify-between rounded-xl border border-gray-200 p-4 transition hover:bg-gray-50"
                   >
                     <div>
                       <p className="font-medium">{item.title || "Untitled"}</p>
@@ -366,7 +383,36 @@ export default function NotificationAdminPage() {
                       <p className="line-clamp-1 text-sm text-gray-500">
                         {item.body}
                       </p>
+
+                      <div className="mt-2 flex items-center gap-4 text-xs text-gray-500">
+                        <div className="flex items-center gap-1">
+                          <Users size={12} />
+                          {item.total_users}
+                        </div>
+
+                        <div className="flex items-center gap-1">
+                          <CheckCircle2 size={12} />
+                          {item.sent_count}
+                        </div>
+
+                        <div className="flex items-center gap-1">
+                          <XCircle size={12} />
+                          {item.failed_count}
+                        </div>
+
+                        <div className="flex items-center gap-1">
+                          <Clock size={12} />
+                          {new Date(item.created_at!).toLocaleString()}
+                        </div>
+                      </div>
                     </div>
+                    {item.image && (
+                      <img
+                        src={item.image}
+                        alt="preview"
+                        className="h-auto w-15 rounded-md object-cover"
+                      />
+                    )}
                   </div>
                 ))
               ) : (

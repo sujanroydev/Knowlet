@@ -31,7 +31,9 @@ export default function ResourceActions({
 
     if (!res.ok) return;
 
-    toast.success("Resource Published Successfully.");
+    toast.success("Resource Published Successfully.", {
+      description: `path: https://knowlet.in/library/${resource?.path}`,
+    });
   }
 
   async function updateResource() {
@@ -59,7 +61,9 @@ export default function ResourceActions({
 
     if (!res.ok) return;
 
-    toast.success("Resource Updated Successfully.");
+    toast.success("Resource Updated Successfully.", {
+      description: `path: https://knowlet.in/library/${resource?.path}`,
+    });
   }
 
   function validateResource(): boolean {

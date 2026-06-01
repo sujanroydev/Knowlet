@@ -11,7 +11,6 @@ import {
   Settings,
 } from "lucide-react";
 import { toast } from "sonner";
-import { Bars } from "react-loader-spinner";
 
 type NotificationData = {
   id?: string;
@@ -31,20 +30,19 @@ const defaultPreview = {
     "https://res.cloudinary.com/db975putk/image/upload/q_auto/f_auto/v1779595876/IMG_20260524_094028_cmlvb1.png",
   icon: "https://knowlet.in/icons/web-app-manifest-192x192.png",
   badge: "https://knowlet.in/icons/favicon-96x96.png",
-  tag: undefined,
   action_url: "https://knowlet.in",
 };
 
 export default function NotificationAdminPage() {
   const [sending, setSending] = useState(false);
 
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
-  const [image, setImage] = useState("");
-  const [icon, setIcon] = useState("");
-  const [badge, setBadge] = useState("");
+  const [title, setTitle] = useState(defaultPreview.title);
+  const [body, setBody] = useState(defaultPreview.body);
+  const [image, setImage] = useState(defaultPreview.image);
+  const [icon, setIcon] = useState(defaultPreview.icon);
+  const [badge, setBadge] = useState(defaultPreview.badge);
   const [tag, setTag] = useState("");
-  const [action_url, setActionUrl] = useState("");
+  const [action_url, setActionUrl] = useState(defaultPreview.action_url);
 
   const [drafts, setDrafts] = useState<NotificationData[]>([]);
   const [history, setHistory] = useState<NotificationData[]>([]);
@@ -86,13 +84,13 @@ export default function NotificationAdminPage() {
   async function sendNow() {
     try {
       const payload = {
-        title: title || defaultPreview.title,
-        body: body || defaultPreview.body,
-        image: image || defaultPreview.image,
-        icon: icon || defaultPreview.icon,
-        badge: badge || defaultPreview.badge,
-        tag: tag || defaultPreview.tag,
-        action_url: action_url || defaultPreview.action_url,
+        title: title,
+        body: body,
+        image: image,
+        icon: icon,
+        badge: badge,
+        tag: tag || undefined,
+        action_url: action_url,
       };
 
       setSending(true);
@@ -240,21 +238,10 @@ export default function NotificationAdminPage() {
                   onClick={() => sendNow()}
                   className="flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-white transition hover:bg-blue-700"
                 >
-                  {sending ? (
-                    <div className="flex justify-center items-center">
-                      <Bars
-                        height={25}
-                        color="white"
-                        ariaLabel="bars-loading"
-                        visible={true}
-                      />
-                    </div>
-                  ) : (
-                    <>
-                      <Send size={18} />
-                      Send
-                    </>
-                  )}
+                  <>
+                    <Send size={18} />
+                    {sending ? "Sending..." : "Send"}
+                  </>
                 </button>
 
                 <button
@@ -290,14 +277,16 @@ export default function NotificationAdminPage() {
                   {title || defaultPreview.title}
                 </h3>
 
-                <p className="text-gray-600">{body || defaultPreview.body}</p>
+                {body && <p className="text-gray-600">{body}</p>}
               </div>
 
-              <img
-                src={image || defaultPreview.image}
-                alt="preview"
-                className="h-64 w-full object-cover"
-              />
+              {image && (
+                <img
+                  src={image}
+                  alt="preview"
+                  className="h-auto w-full object-cover"
+                />
+              )}
             </div>
           </div>
         </div>

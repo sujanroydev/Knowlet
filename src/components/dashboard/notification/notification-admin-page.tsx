@@ -318,7 +318,7 @@ export default function NotificationAdminPage() {
               <h2 className="text-xl font-semibold">Drafts</h2>
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-2 overflow-auto max-h-96">
               {drafts.length ? (
                 drafts.map((draft) => (
                   <div
@@ -359,7 +359,7 @@ export default function NotificationAdminPage() {
               <h2 className="text-xl font-semibold">History</h2>
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-2 overflow-auto max-h-96">
               {history.length ? (
                 history.map((item) => (
                   <div

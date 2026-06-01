@@ -9,6 +9,10 @@ import {
   History,
   FileText,
   Settings,
+  XCircle,
+  CheckCircle2,
+  Users,
+  Clock,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -20,7 +24,11 @@ type NotificationData = {
   icon?: string;
   badge?: string;
   tag?: string;
+  total_users?: number;
+  sent_count?: number;
+  failed_count?: number;
   action_url: string;
+  created_at?: string;
 };
 
 const defaultPreview = {
@@ -257,7 +265,9 @@ export default function NotificationAdminPage() {
                 className="flex items-center gap-2 rounded-xl bg-gray-200 px-5 py-3 text-gray-700 transition hover:bg-gray-300"
               >
                 <Settings size={18} />
-                Show Advance Options
+                {advancedOptionsOpen
+                  ? "Hide Advanced Options"
+                  : "Show Advanced Options"}
               </button>
             </div>
           </div>
@@ -365,7 +375,7 @@ export default function NotificationAdminPage() {
                   <div
                     key={item.id}
                     onClick={() => loadInput(item)}
-                    className="flex cursor-pointer items-center justify-between rounded-xl border border-gray-200 p-4 transition hover:bg-gray-50"
+                    className="flex flex-row cursor-pointer items-center justify-between rounded-xl border border-gray-200 p-4 transition hover:bg-gray-50"
                   >
                     <div>
                       <p className="font-medium">{item.title || "Untitled"}</p>
@@ -373,7 +383,36 @@ export default function NotificationAdminPage() {
                       <p className="line-clamp-1 text-sm text-gray-500">
                         {item.body}
                       </p>
+
+                      <div className="mt-2 flex items-center gap-4 text-xs text-gray-500">
+                        <div className="flex items-center gap-1">
+                          <Users size={12} />
+                          {item.total_users}
+                        </div>
+
+                        <div className="flex items-center gap-1">
+                          <CheckCircle2 size={12} />
+                          {item.sent_count}
+                        </div>
+
+                        <div className="flex items-center gap-1">
+                          <XCircle size={12} />
+                          {item.failed_count}
+                        </div>
+
+                        <div className="flex items-center gap-1">
+                          <Clock size={12} />
+                          {new Date(item.created_at!).toLocaleString()}
+                        </div>
+                      </div>
                     </div>
+                    {item.image && (
+                      <img
+                        src={item.image}
+                        alt="preview"
+                        className="h-auto w-15 rounded-md object-cover"
+                      />
+                    )}
                   </div>
                 ))
               ) : (

@@ -270,21 +270,39 @@ export default function NotificationAdminPage() {
               onClick={() =>
                 window.open(action_url || defaultPreview.action_url, "_blank")
               }
-              className="overflow-hidden rounded-2xl border border-gray-200 bg-gray-50"
+              className="p-3 overflow-hidden rounded-2xl border border-gray-200 bg-gray-50"
             >
-              <div className="p-5">
-                <h3 className="mb-2 text-2xl font-bold">
-                  {title || defaultPreview.title}
-                </h3>
+              <div className="flex justify-between">
+                <div className="w-10 flex items-center">
+                  <img
+                    src="/icons/web-app-manifest-192x192.png"
+                    alt="icon"
+                    className="h-10 w-10 rounded-full"
+                  />
+                </div>
 
-                {body && <p className="text-gray-600">{body}</p>}
+                <div className="flex-1 px-3">
+                  <h3 className="mb-2 text-2xl font-bold">
+                    {title || defaultPreview.title}
+                  </h3>
+
+                  {body && <p className="text-gray-600">{body}</p>}
+                </div>
+
+                {icon && (
+                  <img
+                    src={icon}
+                    alt="icon"
+                    className="h-6 w-6 rounded-full self-end"
+                  />
+                )}
               </div>
 
               {image && (
                 <img
                   src={image}
                   alt="preview"
-                  className="h-auto w-full object-cover"
+                  className="h-auto w-full object-cover overflow-hidden rounded-2xl mt-3"
                 />
               )}
             </div>

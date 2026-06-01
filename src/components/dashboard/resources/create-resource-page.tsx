@@ -5,6 +5,8 @@ import ResourcePreview from "./resource-preview";
 import ResourceActions from "./resource-actions";
 import ResourceDetails from "./resource-details";
 import { useEffect, useState } from "react";
+import { parseHtml } from "@/utils/parseResource";
+import { toast } from "sonner";
 
 interface Details {
   title: string;
@@ -33,9 +35,9 @@ export default function CreateResourcePage() {
   useEffect(() => {
     setResource({
       ...details,
-      content: rowHtml,
+      content: parsedHtml,
     });
-  }, [parsedHtml, details, rowHtml]);
+  }, [parsedHtml, details]);
 
   return (
     <div className="min-h-screen bg-slate-100 p-6">
@@ -65,16 +67,28 @@ export default function CreateResourcePage() {
               </p>
             </div>
 
-            <button
-              onClick={() => setPreview((pre) => !pre)}
-              className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-700"
-            >
-              {preview ? "Show Editor" : "Show Preview"}
-            </button>
+            <div className="flex flex-row gap-3">
+              <button
+                onClick={() => {
+                  setParsedHtml(parseHtml(rowHtml));
+                  toast.info("parsed");
+                }}
+                className="rounded-xl bg-green-400 px-4 py-2 text-sm font-medium text-white transition hover:bg-green-700"
+              >
+                Parse
+              </button>
+
+              <button
+                onClick={() => setPreview((pre) => !pre)}
+                className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-700"
+              >
+                {preview ? "Show Editor" : "Show Preview"}
+              </button>
+            </div>
           </div>
 
           {preview ? (
-            <ResourcePreview parsedHtml={rowHtml} />
+            <ResourcePreview parsedHtml={parsedHtml} />
           ) : (
             <HtmlEditor rowHtml={rowHtml} setRowHtml={setRowHtml} />
           )}

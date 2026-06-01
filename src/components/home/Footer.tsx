@@ -13,13 +13,6 @@ export default function Footer() {
 
         <a
           className="text-blue-600 hover:text-blue-800 transition-colors"
-          href="/dev-log"
-        >
-          Dev Log
-        </a>
-
-        <a
-          className="text-blue-600 hover:text-blue-800 transition-colors"
           href="/about"
         >
           About

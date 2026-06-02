@@ -13,18 +13,29 @@ import {
   SkipForward,
 } from "lucide-react";
 
+interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode;
+}
+
 export default function TopBar() {
   const { mode } = useHeader();
   const { user } = useAuth();
-  const { liked, bookmarked, toggleLike, toggleBookmark, next, prev } =
-    useReader();
+  const {
+    liked,
+    bookmarked,
+    toggleLike,
+    toggleBookmark,
+    next,
+    prev,
+    parsePath,
+  } = useReader();
 
   const router = useRouter();
   const pathname = usePathname();
 
-  const Btn = ({ onClick, children }: any) => (
+  const Btn = ({ children, ...props }: Props) => (
     <button
-      onClick={onClick}
+      {...props}
       className="flex h-9 w-9 items-center justify-center rounded-full text-slate-600 transition
       hover:bg-slate-100 hover:text-indigo-600
       active:scale-95"
@@ -32,6 +43,9 @@ export default function TopBar() {
       {children}
     </button>
   );
+
+  const { currentPath, prevPath, nextPath, target, prevTarget, nextTarget } =
+    parsePath();
 
   return (
     <header className="fixed top-0 z-50 flex h-15 w-full items-center justify-center border-b bg-white/80 backdrop-blur-md px-4">
@@ -51,15 +65,23 @@ export default function TopBar() {
       <div className="flex-1 flex items-center justify-center">
         {mode === "reader" && (
           <div className="flex items-center gap-1 rounded-full border border-slate-200 bg-white/70 px-2 py-1 shadow-sm backdrop-blur-md">
-            <Btn onClick={prev}>
+            <Btn
+              onClick={() => prev(prevPath!)}
+              title={prevTarget || ""}
+              disabled={!prevPath}
+            >
               <SkipBack className="w-5 h-5" />
             </Btn>
 
-            <Btn onClick={next}>
+            <Btn
+              onClick={() => next(nextPath!)}
+              title={nextTarget || ""}
+              disabled={!nextPath}
+            >
               <SkipForward className="w-5 h-5" />
             </Btn>
 
-            <Btn onClick={toggleLike}>
+            <Btn onClick={toggleLike} title={liked ? "Unlike" : "Like"}>
               <ThumbsUp
                 className={`w-5 h-5 transition ${
                   liked ? "text-indigo-600 fill-indigo-100" : "text-slate-500"
@@ -67,7 +89,10 @@ export default function TopBar() {
               />
             </Btn>
 
-            <Btn onClick={toggleBookmark}>
+            <Btn
+              onClick={toggleBookmark}
+              title={bookmarked ? "Remove Bookmark" : "Bookmark"}
+            >
               <Bookmark
                 className={`w-5 h-5 transition ${
                   bookmarked

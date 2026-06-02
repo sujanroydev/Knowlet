@@ -111,11 +111,26 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
   }
 
   function next() {
-    console.log("next");
+    const { currentPath, nextPath } = parsePath();
+    console.log("currentPath", currentPath);
+    console.log("nextPath", nextPath);
   }
 
   function prev() {
-    console.log("prev");
+    const { currentPath, prevPath } = parsePath();
+    console.log("currentPath", currentPath);
+    console.log("prevPath", prevPath);
+  }
+  
+  function parsePath(): { currentPath: string; prevPath: string | null; nextPath: string | null, target: string } {
+    const currentPath = window.location.pathname;
+    const pathParts = currentPath.split("/").filter(Boolean);
+
+    const target = pathParts[pathParts.length - 1];
+    const prevPath = currentPath.replace(target, target.split("-").map((part, index) => index === 1 ? Number(part) - 1 : part).join("-"));
+    const nextPath = currentPath.replace(target, target.split("-").map((part, index) => index === 1 ? Number(part) + 1 : part).join("-"));
+
+    return { currentPath, prevPath, nextPath, target };
   }
 
   return (

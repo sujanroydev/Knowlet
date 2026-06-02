@@ -12,14 +12,14 @@ type Item = {
 
 export default function Main({
   items,
-  resources,
+  special,
 }: {
   items: Item[];
-  resources?: boolean;
+  special?: boolean;
 }) {
   let groupedItems: Record<string, Item[]>;
   let orderedTypes = ["note", "pyq"];
-  if (resources) {
+  if (special) {
     groupedItems = items.reduce(
       (acc, item) => {
         if (!acc[item.type]) {
@@ -32,7 +32,7 @@ export default function Main({
     );
   }
 
-  return resources ? (
+  return special ? (
     <div className="space-y-8 p-4">
       {orderedTypes.map((type) => {
         const sectionItems = groupedItems[type];
@@ -42,7 +42,7 @@ export default function Main({
         return (
           <section key={type}>
             <h2 className="mb-4 text-xl font-bold capitalize text-slate-800">
-              {type.replace("-", " ")}
+              {type === "pyq" ? "PYQ" : type}
             </h2>
 
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
@@ -50,7 +50,7 @@ export default function Main({
                 <NavigatorBtnCard
                   key={item.path}
                   item={{
-                    title: item.target!,
+                    title: item.target!.replace(/-/g, " ").slice(0, 1).toUpperCase() + item.target!.replace(/-/g, " ").slice(1),
                     description: item.title,
                     path: item.path,
                   }}

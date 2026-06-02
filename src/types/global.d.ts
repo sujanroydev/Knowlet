@@ -40,3 +40,12 @@ interface Resource {
   created_at?: string;
   updated_at?: string;
 }
+
+type ParsedPath = {
+  currentPath: string;
+  prevPath: string | null;
+  nextPath: string | null;
+  target: string;
+  prevTarget: string | null;
+  nextTarget: string | null;
+};

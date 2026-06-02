@@ -1,4 +1,5 @@
 import connectDb from "@/lib/db";
+import { sendWelcomeEmail } from "@/services/email/send/welcome";
 import generateUsername from "@/utils/generateUsername";
 import { SignJWT } from "jose";
 import { NextRequest, NextResponse } from "next/server";
@@ -96,6 +97,12 @@ export async function GET(req: NextRequest) {
     path: "/",
     maxAge: 60 * 60 * 24 * 15,
   });
+
+  if (isNewUser) {
+    void sendWelcomeEmail({ email: user.email, name: user.name }).catch((error) => {
+      console.error("Failed to send welcome email:", error);
+    });
+  }
 
   return response;
 }

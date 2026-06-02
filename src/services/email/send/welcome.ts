@@ -1,5 +1,3 @@
-// src/services/email/send-welcome.ts
-
 import { sendEmail } from "./index";
 
 export async function sendWelcomeEmail({
@@ -11,6 +9,7 @@ export async function sendWelcomeEmail({
 }) {
   return sendEmail({
     from: "Knowlet <welcome@knowlet.in>",
+    replyTo: "support@knowlet.in",
     to: email,
     subject: "Welcome to Knowlet 🎉",
     html: `

@@ -3,6 +3,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useAuth } from "./AuthContext";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 type ReaderContextType = {
   resourceId: string | null;
@@ -14,8 +15,10 @@ type ReaderContextType = {
   toggleLike: () => void;
   toggleBookmark: () => void;
 
-  next: () => void;
-  prev: () => void;
+  next: (nextPath: string) => void;
+  prev: (prevPath: string) => void;
+
+  parsePath: () => Promise<ParsedPath>;
 };
 
 const ReaderContext = createContext<ReaderContextType | null>(null);
@@ -25,6 +28,8 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
   const [resourceId, setResourceId] = useState<string | null>(null);
   const [bookmarked, setBookmarked] = useState(false);
   const { user } = useAuth();
+
+  const router = useRouter();
 
   useEffect(() => {
     if (!resourceId) return;
@@ -110,27 +115,47 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
     }
   }
 
-  function next() {
-    const { currentPath, nextPath } = parsePath();
-    console.log("currentPath", currentPath);
+  function next(nextPath: string) {
+    router.push(nextPath);
     console.log("nextPath", nextPath);
   }
 
-  function prev() {
-    const { currentPath, prevPath } = parsePath();
-    console.log("currentPath", currentPath);
+  function prev(prevPath: string) {
+    router.push(prevPath);
     console.log("prevPath", prevPath);
   }
-  
-  function parsePath(): { currentPath: string; prevPath: string | null; nextPath: string | null, target: string } {
+
+  async function parsePath(): Promise<ParsedPath> {
     const currentPath = window.location.pathname;
     const pathParts = currentPath.split("/").filter(Boolean);
 
     const target = pathParts[pathParts.length - 1];
-    const prevPath = currentPath.replace(target, target.split("-").map((part, index) => index === 1 ? Number(part) - 1 : part).join("-"));
-    const nextPath = currentPath.replace(target, target.split("-").map((part, index) => index === 1 ? Number(part) + 1 : part).join("-"));
 
-    return { currentPath, prevPath, nextPath, target };
+    let prevTarget = target
+      .split("-")
+      .map((part, index) => (index === 1 ? Number(part) - 1 : part))
+      .join("-");
+    let nextTarget = target
+      .split("-")
+      .map((part, index) => (index === 1 ? Number(part) + 1 : part))
+      .join("-");
+
+    let prevPath: string | null = currentPath.replace(target, prevTarget);
+    let nextPath: string | null = currentPath.replace(target, nextTarget);
+
+    const [resPrev, resNext] = await Promise.allSettled([
+      prevPath ? fetch(prevPath) : Promise.resolve(null),
+      nextPath ? fetch(nextPath) : Promise.resolve(null),
+    ]);
+
+    console.log("resPrev", resPrev);
+    console.log("resNext", resNext);
+
+    prevPath =
+      resPrev.status === "fulfilled" && resPrev.value?.ok ? prevPath : null;
+    nextPath =
+      resNext.status === "fulfilled" && resNext.value?.ok ? nextPath : null;
+    return { currentPath, prevPath, nextPath, target, prevTarget, nextTarget };
   }
 
   return (
@@ -144,6 +169,7 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
         toggleBookmark,
         next,
         prev,
+        parsePath,
       }}
     >
       {children}

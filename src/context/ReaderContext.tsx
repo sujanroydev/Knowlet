@@ -3,6 +3,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useAuth } from "./AuthContext";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 type ReaderContextType = {
   resourceId: string | null;
@@ -14,8 +15,7 @@ type ReaderContextType = {
   toggleLike: () => void;
   toggleBookmark: () => void;
 
-  next: () => void;
-  prev: () => void;
+  parsePath: () => Promise<ParsedPath>;
 };
 
 const ReaderContext = createContext<ReaderContextType | null>(null);
@@ -25,6 +25,8 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
   const [resourceId, setResourceId] = useState<string | null>(null);
   const [bookmarked, setBookmarked] = useState(false);
   const { user } = useAuth();
+
+  const router = useRouter();
 
   useEffect(() => {
     if (!resourceId) return;
@@ -110,12 +112,41 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
     }
   }
 
-  function next() {
-    console.log("next");
-  }
+  async function parsePath(): Promise<ParsedPath> {
+    const currentPath = window.location.pathname;
+    const pathParts = currentPath.split("/").filter(Boolean);
 
-  function prev() {
-    console.log("prev");
+    const target = pathParts[pathParts.length - 1];
+
+    let prevTarget: string | null = target
+      .split("-")
+      .map((part, index) => (index === 1 ? Number(part) - 1 : part))
+      .join("-");
+
+    let nextTarget: string | null = target
+      .split("-")
+      .map((part, index) => (index === 1 ? Number(part) + 1 : part))
+      .join("-");
+
+    let prevPath: string | null = currentPath.replace(target, prevTarget);
+    let nextPath: string | null = currentPath.replace(target, nextTarget);
+
+    const [resPrev, resNext] = await Promise.allSettled([
+      prevPath ? fetch(prevPath) : Promise.resolve(null),
+      nextPath ? fetch(nextPath) : Promise.resolve(null),
+    ]);
+
+    if (resPrev.status !== "fulfilled" || !resPrev.value?.ok) {
+      prevPath = null;
+      prevTarget = null;
+    }
+
+    if (resNext.status !== "fulfilled" || !resNext.value?.ok) {
+      nextPath = null;
+      nextTarget = null;
+    }
+
+    return { currentPath, prevPath, nextPath, target, prevTarget, nextTarget };
   }
 
   return (
@@ -127,8 +158,7 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
         bookmarked,
         toggleLike,
         toggleBookmark,
-        next,
-        prev,
+        parsePath,
       }}
     >
       {children}

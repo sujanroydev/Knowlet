@@ -1,4 +1,5 @@
 import connectDb from "@/lib/db";
+import { sendWelcomeEmail } from "@/services/email/send/welcome";
 import generateUsername from "@/utils/generateUsername";
 import bcrypt from "bcryptjs";
 import { SignJWT } from "jose";
@@ -99,6 +100,10 @@ export async function POST(request: NextRequest) {
       sameSite: "strict",
       path: "/",
       maxAge: 60 * 60 * 24 * 15,
+    });
+
+    void sendWelcomeEmail({ email, name }).catch((error) => {
+      console.error("Failed to send welcome email:", error);
     });
 
     return response;

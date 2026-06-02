@@ -91,7 +91,7 @@ export default async function Navigator({
       {variant !== "home" && (
         <Header title={title} subtitle={subtitle} path={path} />
       )}
-      <Main items={items} resources={!!special} />
+      <Main items={items} special={!!special} />
     </>
   );
 }

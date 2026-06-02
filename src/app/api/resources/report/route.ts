@@ -1,5 +1,8 @@
 import { verifyJwt } from "@/lib/auth";
 import connectDb from "@/lib/db";
+import { sendEmail, sendEmailByUserId } from "@/services/email/send";
+import { reportReceivedTemplate } from "@/services/email/templates/report-received";
+import { newResourceReportTemplate } from "@/services/email/templates/resource-report-admin";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
@@ -25,6 +28,27 @@ export async function POST(req: NextRequest) {
     });
 
     if (error) throw new Error(error.message);
+
+    void sendEmailByUserId({
+      user_id: payload.user_id,
+      subject: "Your Report Has Been Submitted",
+      html: reportReceivedTemplate({ reportReason, reportDetails }),
+    }).catch((err) => {
+      console.error("Failed to send email:", err);
+    });
+
+    void sendEmail({
+      to: "knowlet.official@gmail.com",
+      subject: "Resource Report: Action Required",
+      html: newResourceReportTemplate({
+        userId: payload.user_id,
+        resourceId,
+        reportReason,
+        reportDetails,
+      }),
+    }).catch((err) => {
+      console.error("Failed to send email:", err);
+    });
 
     return NextResponse.json(
       { reportReason, reportDetails, resourceId },

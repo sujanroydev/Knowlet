@@ -1,4 +1,3 @@
-import connectDb from "@/lib/db";
 import { resend } from "@/lib/resend";
 import { getUserEmail } from "@/services/user/get/email";
 

@@ -12,12 +12,15 @@ import {
   SkipBack,
   SkipForward,
 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
 }
 
 export default function TopBar() {
+  const [parsedPath, setParsedPath] = useState<ParsedPath | null>(null);
+
   const { mode } = useHeader();
   const { user } = useAuth();
   const {
@@ -44,8 +47,15 @@ export default function TopBar() {
     </button>
   );
 
-  const { currentPath, prevPath, nextPath, target, prevTarget, nextTarget } =
-    parsePath();
+  async function updateParsedPath() {
+    setParsedPath(await parsePath());
+  }
+
+  useEffect(() => {
+    if (mode === "reader") {
+      updateParsedPath();
+    }
+  }, [pathname]);
 
   return (
     <header className="fixed top-0 z-50 flex h-15 w-full items-center justify-center border-b bg-white/80 backdrop-blur-md px-4">
@@ -66,17 +76,17 @@ export default function TopBar() {
         {mode === "reader" && (
           <div className="flex items-center gap-1 rounded-full border border-slate-200 bg-white/70 px-2 py-1 shadow-sm backdrop-blur-md">
             <Btn
-              onClick={() => prev(prevPath!)}
-              title={prevTarget || ""}
-              disabled={!prevPath}
+              onClick={() => prev(parsedPath?.prevPath!)}
+              title={parsedPath?.prevTarget || ""}
+              disabled={!parsedPath?.prevPath}
             >
               <SkipBack className="w-5 h-5" />
             </Btn>
 
             <Btn
-              onClick={() => next(nextPath!)}
-              title={nextTarget || ""}
-              disabled={!nextPath}
+              onClick={() => next(parsedPath?.nextPath!)}
+              title={parsedPath?.nextTarget || ""}
+              disabled={!parsedPath?.nextPath}
             >
               <SkipForward className="w-5 h-5" />
             </Btn>

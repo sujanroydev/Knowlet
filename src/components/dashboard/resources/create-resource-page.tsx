@@ -5,8 +5,9 @@ import ResourcePreview from "./resource-preview";
 import ResourceActions from "./resource-actions";
 import ResourceDetails from "./resource-details";
 import { useEffect, useState } from "react";
-import { parseHtml } from "@/utils/parseResource";
+import { parseResource } from "@/utils/parseResource";
 import { toast } from "sonner";
+import ResourceMetadata from "./resource-metadata";
 
 interface Details {
   title: string;
@@ -15,6 +16,12 @@ interface Details {
   type: string;
   slug: string;
   path: string;
+}
+
+interface Metadata {
+  title: string;
+  description: string;
+  word_count: string;
 }
 
 export default function CreateResourcePage() {
@@ -28,6 +35,11 @@ export default function CreateResourcePage() {
     type: "",
     slug: "",
     path: "",
+  });
+  const [metadata, setMetadata] = useState<Metadata>({
+    title: "",
+    description: "",
+    word_count: "",
   });
 
   const [preview, setPreview] = useState<boolean>(false);
@@ -70,7 +82,16 @@ export default function CreateResourcePage() {
             <div className="flex flex-row gap-3">
               <button
                 onClick={() => {
-                  setParsedHtml(parseHtml(rowHtml));
+                  const { title, description, content, word_count } =
+                    parseResource(rowHtml);
+                  console.log({ title, description, content, word_count });
+                  setParsedHtml(content);
+                  setMetadata((prev) => ({
+                    ...prev,
+                    title,
+                    description,
+                    word_count,
+                  }));
                   toast.info("parsed");
                 }}
                 className="rounded-xl bg-green-400 px-4 py-2 text-sm font-medium text-white transition hover:bg-green-700"
@@ -95,7 +116,7 @@ export default function CreateResourcePage() {
         </div>
 
         {/* Metadata */}
-        {/* <ResourceMetadata metadata={metadata} /> */}
+        <ResourceMetadata metadata={metadata} />
 
         {/* Resource Form */}
         <ResourceDetails details={details} setDetails={setDetails} />

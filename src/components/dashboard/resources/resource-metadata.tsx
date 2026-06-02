@@ -1,14 +1,18 @@
 export default function ResourceMetadata({
   metadata,
 }: {
-  metadata: { title: string; description: string } | undefined;
+  metadata:
+    | { title: string; description: string; word_count: string }
+    | undefined;
 }) {
   return (
     <div className="grid gap-6 lg:grid-cols-4">
-      <Card title="Title" value="Introduction to C Programming" />
-      <Card title="Word Count" value="1,248" />
-      <Card title="Reading Time" value="6 min" />
-      <Card title="Status" value="Draft" />
+      <Card title="Title" value={metadata?.title || "Resource Title"} />
+      <Card
+        title="Description"
+        value={metadata?.description || "A brief description of the resource."}
+      />
+      <Card title="Word Count" value={metadata?.word_count || "0"} />
     </div>
   );
 }

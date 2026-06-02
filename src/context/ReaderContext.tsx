@@ -15,9 +15,6 @@ type ReaderContextType = {
   toggleLike: () => void;
   toggleBookmark: () => void;
 
-  next: (nextPath: string) => void;
-  prev: (prevPath: string) => void;
-
   parsePath: () => Promise<ParsedPath>;
 };
 
@@ -115,27 +112,18 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
     }
   }
 
-  function next(nextPath: string) {
-    router.push(nextPath);
-    console.log("nextPath", nextPath);
-  }
-
-  function prev(prevPath: string) {
-    router.push(prevPath);
-    console.log("prevPath", prevPath);
-  }
-
   async function parsePath(): Promise<ParsedPath> {
     const currentPath = window.location.pathname;
     const pathParts = currentPath.split("/").filter(Boolean);
 
     const target = pathParts[pathParts.length - 1];
 
-    let prevTarget = target
+    let prevTarget: string | null = target
       .split("-")
       .map((part, index) => (index === 1 ? Number(part) - 1 : part))
       .join("-");
-    let nextTarget = target
+
+    let nextTarget: string | null = target
       .split("-")
       .map((part, index) => (index === 1 ? Number(part) + 1 : part))
       .join("-");
@@ -148,13 +136,16 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
       nextPath ? fetch(nextPath) : Promise.resolve(null),
     ]);
 
-    console.log("resPrev", resPrev);
-    console.log("resNext", resNext);
+    if (resPrev.status !== "fulfilled" || !resPrev.value?.ok) {
+      prevPath = null;
+      prevTarget = null;
+    }
 
-    prevPath =
-      resPrev.status === "fulfilled" && resPrev.value?.ok ? prevPath : null;
-    nextPath =
-      resNext.status === "fulfilled" && resNext.value?.ok ? nextPath : null;
+    if (resNext.status !== "fulfilled" || !resNext.value?.ok) {
+      nextPath = null;
+      nextTarget = null;
+    }
+
     return { currentPath, prevPath, nextPath, target, prevTarget, nextTarget };
   }
 
@@ -167,8 +158,6 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
         bookmarked,
         toggleLike,
         toggleBookmark,
-        next,
-        prev,
         parsePath,
       }}
     >

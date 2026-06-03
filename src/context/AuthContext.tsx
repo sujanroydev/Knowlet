@@ -24,12 +24,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setUser(null);
         localStorage.removeItem("knowlet-user");
         if (error.message !== "NO_TOKEN") router.push(`/signin`);
-
         return;
       }
 
-      if (error || !data) {
-        console.error(error);
+      if (!data) {
+        console.log("Data Not Found");
         return;
       }
 

@@ -4,13 +4,16 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
   try {
-    const payload = await verifyJwt(req.cookies.get("token")?.value);
+    const token = req.cookies.get("token")?.value;
+    const { ok, payload, reason } = await verifyJwt(token);
 
-    if (!payload?.user_id) {
-      return NextResponse.json(
-        { error: { message: "Unauthorized" } },
+    if (!ok) {
+      const res = NextResponse.json(
+        { error: { message: reason } },
         { status: 401 },
       );
+      res.cookies.set("token", "", { maxAge: 0 });
+      return res;
     }
 
     const db = await connectDb();

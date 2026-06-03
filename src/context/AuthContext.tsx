@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "sonner";
 
@@ -12,11 +13,21 @@ const AuthContext = createContext<AuthContextType | null>(null);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
+  const router = useRouter();
 
   async function fetchMe() {
     try {
       const res = await fetch("/api/auth/me");
       const { data: user, error } = await res.json();
+
+      if (["EXPIRED", "INVALID"].includes(error.message)) {
+        setUser(null);
+        localStorage.removeItem("knowlet-user");
+        router.push(`/signin`);
+
+        return;
+      }
+
       if (error || !user) {
         console.log(error);
         return;

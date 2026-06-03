@@ -60,14 +60,17 @@ export async function proxy(req: NextRequest) {
   // ADMIN
   if (pathname.startsWith("/dashboard")) {
     const token = req.cookies.get("token")?.value;
+    const { ok, reason } = await verifyAdmin(token);
 
-    if (!token) {
-      return NextResponse.redirect(new URL("/signin", req.url));
+    if (!ok) {
+      if (reason === "NOT_ADMIN") {
+        return NextResponse.redirect(new URL("/forbidden", req.url));
+      } else {
+        return NextResponse.redirect(
+          new URL("/signin?redirect=/dashboard", req.url),
+        );
+      }
     }
-
-    const admin = await verifyAdmin(token);
-
-    if (!admin) return NextResponse.redirect(new URL("/forbidden", req.url));
   }
 
   return NextResponse.next();

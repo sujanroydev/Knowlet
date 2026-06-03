@@ -2,6 +2,24 @@ import { authGate } from "@/lib/auth/authGate";
 import connectDb from "@/lib/db";
 import { NextRequest, NextResponse } from "next/server";
 
+export async function GET(req: NextRequest) {
+  try {
+    const db = await connectDb();
+    const { data, error } = await db
+      .from("resources")
+      .select("id, title, description, slug, path");
+
+    if (error) throw new Error(error.message);
+
+    return NextResponse.json({ data });
+  } catch (error) {
+    return NextResponse.json(
+      { error: { message: "Server Error" } },
+      { status: 500 },
+    );
+  }
+}
+
 export async function POST(req: NextRequest) {
   try {
     let resource: Resource = await req.json();

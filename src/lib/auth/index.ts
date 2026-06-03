@@ -1,5 +1,5 @@
 import { jwtVerify, JWTPayload } from "jose";
-import connectDb from "./db";
+import connectDb from "../db";
 
 type AuthPayload = JWTPayload & {
   user_id: string;

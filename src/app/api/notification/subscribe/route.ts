@@ -44,8 +44,11 @@ export async function PATCH(req: NextRequest) {
     const subscription = await req.json();
     const payload = await verifyJwt(req.cookies.get("token")?.value);
 
-    if (!payload) {
-      return NextResponse.redirect("/login");
+    if (!subscription?.endpoint) {
+      return NextResponse.json(
+        { success: false, error: "Invalid subscription" },
+        { status: 400 },
+      );
     }
 
     const db = await connectDb();

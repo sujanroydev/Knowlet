@@ -1,4 +1,4 @@
-import { verifyAdmin } from "@/lib/auth";
+import { authGate } from "@/lib/auth/authGate";
 import connectDb from "@/lib/db";
 import { NextRequest, NextResponse } from "next/server";
 import webpush from "web-push";
@@ -14,16 +14,8 @@ export async function POST(req: NextRequest) {
     const { title, body, icon, badge, image, tag, action_url } =
       await req.json();
 
-    console.log(icon, badge, tag);
-
-    const admin = await verifyAdmin(req.cookies.get("token")?.value);
-
-    if (!admin) {
-      return NextResponse.json(
-        { error: { message: "Unauthorized User" } },
-        { status: 403 },
-      );
-    }
+    const { ok, res, payload: admin } = await authGate(req, "admin");
+    if (!ok || !admin) return res;
 
     const db = await connectDb();
 

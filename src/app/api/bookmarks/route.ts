@@ -1,17 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import connectDb from "@/lib/db";
-import { verifyJwt } from "@/lib/auth";
+import { authGate } from "@/lib/auth/authGate";
 
 export async function GET(req: NextRequest) {
   try {
-    const payload = await verifyJwt(req.cookies.get("token")?.value);
-
-    if (!payload?.user_id) {
-      return NextResponse.json(
-        { error: { message: "Unauthorized" } },
-        { status: 401 },
-      );
-    }
+    const { ok, res, payload } = await authGate(req, "jwt");
+    if (!ok || !payload) return res;
 
     const db = await connectDb();
 

@@ -1,13 +1,25 @@
 import { NextRequest, NextResponse } from "next/server";
-import { jwtVerify } from "jose";
-import { verifyAdmin } from "./lib/auth";
+import { verifyAdmin, verifyJwt } from "./lib/auth";
 
 function slugify(value: string) {
   return value.replace(/_/g, "-");
 }
 
+function redirectToSignin(req: NextRequest) {
+  const res = NextResponse.redirect(new URL("/signin", req.url));
+
+  res.cookies.set("token", "", {
+    httpOnly: true,
+    path: "/",
+    maxAge: 0,
+  });
+
+  return res;
+}
+
 export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
+  const token = req.cookies.get("token")?.value;
 
   // OLD NOTES REDIRECTS
   if (pathname === "/notes") {
@@ -36,39 +48,26 @@ export async function proxy(req: NextRequest) {
   // AUTH
   if (
     pathname.startsWith("/profile") ||
+    pathname.startsWith("/history") ||
+    pathname.startsWith("/bookmarks") ||
+    pathname.startsWith("/settings") ||
+    pathname.startsWith("/notifications") ||
     pathname.startsWith("/settings/password")
   ) {
-    const token = req.cookies.get("token")?.value;
+    const { ok } = await verifyJwt(token);
 
-    if (!token) {
-      return NextResponse.redirect(new URL("/signin", req.url));
-    }
-
-    try {
-      const secret = new TextEncoder().encode(process.env.JWT_SECRET);
-      await jwtVerify(token, secret);
-
-      return NextResponse.next();
-    } catch {
-      const res = NextResponse.redirect(new URL("/signin", req.url));
-      res.cookies.set("token", "", { maxAge: 0 });
-
-      return res;
-    }
+    if (!ok) return redirectToSignin(req);
   }
 
   // ADMIN
   if (pathname.startsWith("/dashboard")) {
-    const token = req.cookies.get("token")?.value;
     const { ok, reason } = await verifyAdmin(token);
 
     if (!ok) {
       if (reason === "NOT_ADMIN") {
         return NextResponse.redirect(new URL("/forbidden", req.url));
       } else {
-        return NextResponse.redirect(
-          new URL("/signin?redirect=/dashboard", req.url),
-        );
+        return redirectToSignin(req);
       }
     }
   }
@@ -83,5 +82,7 @@ export const config = {
     "/profile/:path*",
     "/settings/password/:path*",
     "/dashboard/:path*",
+    "/history/:path*",
+    "/bookmarks/:path*",
   ],
 };

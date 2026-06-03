@@ -1,4 +1,4 @@
-import { verifyJwt } from "@/lib/auth";
+import { authGate } from "@/lib/auth/authGate";
 import connectDb from "@/lib/db";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -6,13 +6,8 @@ export async function PATCH(req: NextRequest) {
   try {
     const { notification_id } = await req.json();
 
-    const payload = await verifyJwt(req.cookies.get("token")?.value);
-    if (!payload) {
-      return NextResponse.json(
-        { error: { message: "Unauthorized" } },
-        { status: 403 },
-      );
-    }
+    const { ok, res, payload } = await authGate(req, "jwt");
+    if (!ok || !payload) return res;
 
     const db = await connectDb();
 

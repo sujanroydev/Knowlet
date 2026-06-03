@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "sonner";
 
@@ -12,19 +13,29 @@ const AuthContext = createContext<AuthContextType | null>(null);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
+  const router = useRouter();
 
   async function fetchMe() {
     try {
       const res = await fetch("/api/auth/me");
-      const { data: user, error } = await res.json();
-      if (error || !user) {
-        console.log(error);
+      const { data, error } = await res.json();
+
+      if (error) {
+        setUser(null);
+        localStorage.removeItem("knowlet-user");
+        if (error.message !== "NO_TOKEN") router.push(`/signin`);
         return;
       }
-      setUser(user);
-      localStorage.setItem("knowlet-user", JSON.stringify(user));
+
+      if (!data) {
+        console.log("Data Not Found");
+        return;
+      }
+
+      setUser(data);
+      localStorage.setItem("knowlet-user", JSON.stringify(data));
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 

@@ -1,11 +1,13 @@
-import { verifyJwt } from "@/lib/auth";
+import { authGate } from "@/lib/auth/authGate";
 import connectDb from "@/lib/db";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {
     const subscription = await req.json();
-    const payload = await verifyJwt(req.cookies.get("token")?.value);
+    const { ok, res, payload } = await authGate(req, "jwt");
+
+    if (!ok || !payload) return res;
 
     if (!subscription?.endpoint) {
       return NextResponse.json(
@@ -42,7 +44,9 @@ export async function POST(req: NextRequest) {
 export async function PATCH(req: NextRequest) {
   try {
     const subscription = await req.json();
-    const payload = await verifyJwt(req.cookies.get("token")?.value);
+    const { ok, res, payload } = await authGate(req, "jwt");
+
+    if (!ok || !payload) return res;
 
     if (!subscription?.endpoint) {
       return NextResponse.json(

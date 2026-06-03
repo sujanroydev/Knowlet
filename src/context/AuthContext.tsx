@@ -18,24 +18,25 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   async function fetchMe() {
     try {
       const res = await fetch("/api/auth/me");
-      const { data: user, error } = await res.json();
+      const { data, error } = await res.json();
 
-      if (["EXPIRED", "INVALID"].includes(error.message)) {
+      if (error) {
         setUser(null);
         localStorage.removeItem("knowlet-user");
-        router.push(`/signin`);
+        if (error.message !== "NO_TOKEN") router.push(`/signin`);
 
         return;
       }
 
-      if (error || !user) {
-        console.log(error);
+      if (error || !data) {
+        console.error(error);
         return;
       }
-      setUser(user);
-      localStorage.setItem("knowlet-user", JSON.stringify(user));
+
+      setUser(data);
+      localStorage.setItem("knowlet-user", JSON.stringify(data));
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 

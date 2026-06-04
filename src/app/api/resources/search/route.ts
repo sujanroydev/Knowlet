@@ -2,11 +2,15 @@ import connectDb from "@/lib/db";
 import { NextRequest, NextResponse } from "next/server";
 
 function tokenize(text: string) {
-  return text.toLowerCase().replace(/[/-]/g, " ").split(/\s+/).filter(Boolean);
+  return text
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, " ")
+    .split(/\s+/)
+    .filter(Boolean);
 }
 
 function buildTokens(query: string) {
-  const words = query.toLowerCase().split(/\s+/).filter(Boolean);
+  const words = tokenize(query);
 
   const tokens: string[] = [];
 
@@ -14,7 +18,7 @@ function buildTokens(query: string) {
     const current = words[i];
     const next = words[i + 1];
 
-    if (next && /^\d+$/.test(next) && ["semester", "unit"].includes(current)) {
+    if (next && /^\d+$/.test(next)) {
       tokens.push(`${current}-${next}`);
       i++;
       continue;
@@ -32,11 +36,9 @@ function getScore(
     description: string | null;
     path: string;
   },
-  query: string,
+  queryTokens: string[],
 ) {
-  const queryTokens = tokenize(query);
-
-  const pathTokens = tokenize(resource.path);
+  const pathTokens = buildTokens(resource.path);
   const titleTokens = tokenize(resource.title);
   const descTokens = tokenize(resource.description ?? "");
 
@@ -74,6 +76,12 @@ export async function GET(req: NextRequest) {
     const query = req.nextUrl.searchParams.get("query")?.trim() ?? "";
 
     if (!query) return NextResponse.json({ data: [] });
+    if (query.length < 10) {
+      return NextResponse.json(
+        { error: { message: "Query must be at least 10 characters long" } },
+        { status: 400 },
+      );
+    }
 
     const tokens = buildTokens(query);
 
@@ -96,15 +104,14 @@ export async function GET(req: NextRequest) {
     const { data, error } = await db
       .from("resources")
       .select("id,title,description,path")
-      .or(conditions.join(","))
-      .limit(100);
+      .or(conditions.join(","));
 
     if (error) throw error;
 
     const ranked = (data ?? [])
       .map((resource) => ({
         ...resource,
-        score: getScore(resource, query),
+        score: getScore(resource, tokens),
       }))
       .sort((a, b) => b.score - a.score)
       .slice(0, 30);

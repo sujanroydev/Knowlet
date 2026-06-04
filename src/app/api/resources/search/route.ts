@@ -5,6 +5,27 @@ function tokenize(text: string) {
   return text.toLowerCase().replace(/[/-]/g, " ").split(/\s+/).filter(Boolean);
 }
 
+function buildTokens(query: string) {
+  const words = query.toLowerCase().split(/\s+/).filter(Boolean);
+
+  const tokens: string[] = [];
+
+  for (let i = 0; i < words.length; i++) {
+    const current = words[i];
+    const next = words[i + 1];
+
+    if (next && /^\d+$/.test(next) && ["semester", "unit"].includes(current)) {
+      tokens.push(`${current}-${next}`);
+      i++;
+      continue;
+    }
+
+    tokens.push(current);
+  }
+
+  return tokens;
+}
+
 function getScore(
   resource: {
     title: string;
@@ -52,27 +73,21 @@ export async function GET(req: NextRequest) {
   try {
     const query = req.nextUrl.searchParams.get("query")?.trim() ?? "";
 
-    if (!query) {
-      return NextResponse.json({ data: [] });
-    }
+    if (!query) return NextResponse.json({ data: [] });
 
-    const words = query
-      .toLowerCase()
-      .replace(/[^\w\s-]/g, " ")
-      .split(/\s+/)
-      .filter(Boolean);
+    const tokens = buildTokens(query);
 
-    const conditions = words.flatMap((word) => {
-      const isNumber = /^\d+$/.test(word);
+    const conditions = tokens.flatMap((token) => {
+      const containsNumber = /\d/.test(token);
 
-      if (isNumber) {
-        return [`path.ilike.%${word}%`];
+      if (containsNumber) {
+        return [`path.ilike.%${token}%`];
       }
 
       return [
-        `title.ilike.%${word}%`,
-        `description.ilike.%${word}%`,
-        `path.ilike.%${word}%`,
+        `title.ilike.%${token}%`,
+        `description.ilike.%${token}%`,
+        `path.ilike.%${token}%`,
       ];
     });
 

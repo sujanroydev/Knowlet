@@ -77,6 +77,7 @@ export default function SearchPage() {
         }}
       >
         <input
+          ref={inputRef}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search e.g. Semester 1 Ecology Unit 2"

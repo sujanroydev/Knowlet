@@ -20,7 +20,7 @@ export default function SearchPage() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedQuery(query.trim());
-    }, 300);
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, [query]);

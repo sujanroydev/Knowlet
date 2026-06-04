@@ -31,31 +31,36 @@ export default function SearchPage() {
       return;
     }
 
-    const search = async () => {
-      try {
-        setLoading(true);
-
-        const res = await fetch(
-          `/api/resources/search?query=${encodeURIComponent(debouncedQuery)}`,
-        );
-
-        const { data, error } = await res.json();
-
-        if (error) {
-          toast.error(error.message);
-          return;
-        }
-
-        setSearchResults(data ?? []);
-      } catch {
-        toast.error("Search failed");
-      } finally {
-        setLoading(false);
-      }
-    };
-
     search();
   }, [debouncedQuery]);
+
+  const search = async () => {
+    try {
+      if (query.length < 10) {
+        toast.warning("Query must be at least 10 characters long");
+        return;
+      }
+
+      setLoading(true);
+
+      const res = await fetch(
+        `/api/resources/search?query=${encodeURIComponent(debouncedQuery)}`,
+      );
+
+      const { data, error } = await res.json();
+
+      if (error) {
+        toast.error(error.message);
+        return;
+      }
+
+      setSearchResults(data ?? []);
+    } catch {
+      toast.error("Search failed");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="mx-auto w-full max-w-4xl px-4 py-8">
@@ -65,13 +70,19 @@ export default function SearchPage() {
         Find notes, papers, units, subjects and study materials.
       </p>
 
-      <input
-        ref={inputRef}
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="Search e.g. Semester 1 Ecology Unit 2"
-        className="mb-8 w-full rounded-2xl border bg-background px-5 py-4 text-lg shadow-sm outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10"
-      />
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          search();
+        }}
+      >
+        <input
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search e.g. Semester 1 Ecology Unit 2"
+          className="mb-8 w-full rounded-2xl border bg-background px-5 py-4 text-lg shadow-sm outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10"
+        />
+      </form>
 
       {loading && (
         <div className="py-10 text-center text-muted-foreground">

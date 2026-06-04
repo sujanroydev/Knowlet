@@ -10,7 +10,7 @@ export default function SearchPage() {
 
   const [loading, setLoading] = useState(false);
 
-  const [searchStr, setSearchStr] = useState("");
+  const [query, setQuery] = useState("");
 
   const router = useRouter();
 
@@ -19,14 +19,50 @@ export default function SearchPage() {
     const { data, error } = await res.json();
 
     if (error) toast.error(error.message);
-    console.log(data);
+
     setResources(data);
-    setSearchResult(data);
+  }
+
+  function getScore(resource: Resource, query: string) {
+    let score = 0;
+
+    const searchable = [
+      resource.title,
+      resource.description,
+      ...[resource.path.replace(/(\/|\-)/g, " ")],
+    ]
+      .join(" ")
+      .toLowerCase();
+
+    for (const word of query.split(/\s+/)) {
+      if (resource.title.toLowerCase().includes(word)) {
+        score += 100;
+      }
+
+      if (searchable.includes(word)) {
+        score += 20;
+      }
+    }
+
+    return score;
   }
 
   useEffect(() => {
     fetchResource();
   }, []);
+
+  useEffect(() => {
+    setSearchResult(
+      resources
+        ?.map((resource) => ({
+          resource,
+          score: getScore(resource, query),
+        }))
+        .filter((item) => item.score > 0)
+        .sort((a, b) => b.score - a.score)
+        .map((item) => item.resource),
+    );
+  }, [query]);
 
   return (
     <div className="w-full h-full m-auto max-w-3xl">
@@ -34,8 +70,8 @@ export default function SearchPage() {
         Search Any Resources
       </h1>
       <input
-        value={searchStr}
-        onChange={(e) => setSearchStr(e.target.value)}
+        value={query}
+        onChange={(e) => setQuery(e.target.value.toLowerCase())}
         className="w-full h-15 border rounded-full my-5"
         placeholder="Find Resource eg. Semester 1 Ecology Unit 2"
       />
@@ -51,6 +87,13 @@ export default function SearchPage() {
                 {resource.title}
               </h2>
               <p>{resource.description}</p>
+              <div className="m-2 flex flex-row gap-1">
+                {resource.path.split("/").map((i) => (
+                  <span className="font-bold bg-purple-300 rounded-lg p-1">
+                    {i.replace("-", " ")}
+                  </span>
+                ))}
+              </div>
             </div>
           ))}
       </div>

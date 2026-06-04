@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
 
 export default function SearchPage() {
@@ -11,6 +11,7 @@ export default function SearchPage() {
   const [loading, setLoading] = useState(true);
 
   const router = useRouter();
+  const inputRef = useRef<HTMLInputElement>(null);
 
   async function fetchResources() {
     try {
@@ -68,6 +69,7 @@ export default function SearchPage() {
 
   useEffect(() => {
     fetchResources();
+    inputRef.current?.focus();
   }, []);
 
   useEffect(() => {
@@ -101,6 +103,7 @@ export default function SearchPage() {
       </p>
 
       <input
+        ref={inputRef}
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search e.g. Semester 1 Ecology Unit 2"

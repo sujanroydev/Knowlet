@@ -62,11 +62,19 @@ export async function GET(req: NextRequest) {
       .split(/\s+/)
       .filter(Boolean);
 
-    const conditions = words.flatMap((word) => [
-      `title.ilike.%${word}%`,
-      `description.ilike.%${word}%`,
-      `path.ilike.%${word}%`,
-    ]);
+    const conditions = words.flatMap((word) => {
+      const isNumber = /^\d+$/.test(word);
+
+      if (isNumber) {
+        return [`path.ilike.%${word}%`];
+      }
+
+      return [
+        `title.ilike.%${word}%`,
+        `description.ilike.%${word}%`,
+        `path.ilike.%${word}%`,
+      ];
+    });
 
     const db = await connectDb();
 

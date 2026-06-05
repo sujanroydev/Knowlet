@@ -152,7 +152,7 @@ export default function ResourceDetails({
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             <SelectInput
               label="Resource Type"
-              options={["select", "note", "pyq", "important-question"]}
+              options={["select", "note", "pyq", "important_question"]}
               value={type}
               onChange={(e) => setType(e.target.value)}
               disabled={!modificationAllowed}

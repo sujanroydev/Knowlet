@@ -5,8 +5,6 @@ import ResourcePreview from "./resource-preview";
 import ResourceActions from "./resource-actions";
 import ResourceDetails from "./resource-details";
 import { useEffect, useState } from "react";
-import { parseResource } from "@/utils/parseResource";
-import { toast } from "sonner";
 
 interface Details {
   title: string;
@@ -15,12 +13,6 @@ interface Details {
   type: string;
   slug: string;
   path: string;
-}
-
-interface Metadata {
-  title: string;
-  description: string;
-  word_count: string;
 }
 
 export default function CreateResourcePage() {
@@ -35,11 +27,6 @@ export default function CreateResourcePage() {
     slug: "",
     path: "",
   });
-  const [metadata, setMetadata] = useState<Metadata>({
-    title: "",
-    description: "",
-    word_count: "",
-  });
 
   const [preview, setPreview] = useState<boolean>(false);
 
@@ -49,6 +36,17 @@ export default function CreateResourcePage() {
       content: parsedHtml,
     });
   }, [parsedHtml, details]);
+
+  useEffect(() => {
+    if (rowHtml) {
+      const content = rowHtml
+        .replaceAll(/\[cite_start\]\s*/g, "")
+        .replaceAll(/\s*\[cite: \d+\]/g, "")
+        .replaceAll(/\s*\[cite: \d+(, \d+)*\]/g, "");
+
+      setParsedHtml(content);
+    }
+  }, [rowHtml]);
 
   return (
     <div className="min-h-screen bg-slate-100 p-6">
@@ -78,33 +76,12 @@ export default function CreateResourcePage() {
               </p>
             </div>
 
-            <div className="flex flex-row gap-3">
-              <button
-                onClick={() => {
-                  const { title, description, content, word_count } =
-                    parseResource(rowHtml);
-                  console.log({ title, description, content, word_count });
-                  setParsedHtml(content);
-                  setMetadata((prev) => ({
-                    ...prev,
-                    title,
-                    description,
-                    word_count,
-                  }));
-                  toast.info("parsed");
-                }}
-                className="rounded-xl bg-green-400 px-4 py-2 text-sm font-medium text-white transition hover:bg-green-700"
-              >
-                Parse
-              </button>
-
-              <button
-                onClick={() => setPreview((pre) => !pre)}
-                className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-700"
-              >
-                {preview ? "Show Editor" : "Show Preview"}
-              </button>
-            </div>
+            <button
+              onClick={() => setPreview((pre) => !pre)}
+              className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-700"
+            >
+              {preview ? "Show Editor" : "Show Preview"}
+            </button>
           </div>
 
           {preview ? (

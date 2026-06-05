@@ -49,3 +49,5 @@ type ParsedPath = {
   prevTarget: string | null;
   nextTarget: string | null;
 };
+
+type ResourceType = "note" | "pyq" | "important_question" | "pdf";

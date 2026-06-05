@@ -11,6 +11,76 @@ interface Details {
   path: string;
 }
 
+const typeToPath: Record<ResourceType, string> = {
+  note: "notes",
+  pyq: "pyq",
+  important_question: "important-questions",
+  pdf: "pdf",
+};
+
+function buildResourcePath({
+  level,
+  subject,
+  paper,
+  target,
+  type,
+}: {
+  level: string;
+  subject: string;
+  paper?: string;
+  target: string;
+  type: string;
+}) {
+  if (!level || !subject || !type || !target)
+    throw new Error("leve, subject, type and target are mandetory");
+
+  let path = `${level}/${subject}`;
+
+  if (level.startsWith("semester")) {
+    if (typeof paper === "string") path += `/${paper}`;
+    else throw new Error("Invalid value of Paper.");
+  }
+
+  path += `/${typeToPath[type as ResourceType]}/${target}`;
+
+  return path;
+}
+
+function parseResourcePath(path: string) {
+  const parts = path.split("/");
+
+  if (parts.length < 4) throw new Error("Invalid Resource Path");
+
+  const level = parts[0];
+  const subject = parts[1];
+
+  if (level.startsWith("semester")) {
+    if (parts.length < 5) throw new Error("Invalid Resource Path");
+    else {
+      const paper = parts[2];
+      const type = (Object.entries(typeToPath).find((i) => i[1] === parts[3]) ||
+        [])[0] as ResourceType;
+      const target = parts[4];
+
+      if (!level || !subject || !paper || !type || !target) {
+        throw new Error("Invalid Resource Path");
+      }
+
+      return { level, subject, paper, type, target };
+    }
+  } else {
+    const type = (Object.entries(typeToPath).find((i) => i[1] === parts[2]) ||
+      [])[0] as ResourceType;
+    const target = parts[3];
+
+    if (!level || !subject || !type || !target) {
+      throw new Error("Invalid Resource Path");
+    }
+
+    return { level, subject, type, target };
+  }
+}
+
 export default function ResourceDetails({
   modificationAllowed = true,
   details: d,
@@ -31,20 +101,19 @@ export default function ResourceDetails({
   const [target, setTarget] = useState(d.target || "select");
 
   useEffect(() => {
-    let path = `${level}/${subject}`;
-
-    if (level.startsWith("semester")) path += `/${paper}`;
-
-    path += `/${type}/${target}`;
+    const path = buildResourcePath({ level, subject, paper, target, type });
 
     setDetails({ title, description, path, type, target, slug: target });
   }, [title, description, level, subject, paper, type, target]);
 
   useEffect(() => {
-    const parts = d.path.split("/");
-    setLevel(parts[0]);
-    setSubject(parts[1]);
-    if (parts[0].startsWith("semester")) setPaper(parts[2]);
+    const { level, subject, paper, target, type } = parseResourcePath(d.path);
+
+    setLevel(level);
+    setSubject(subject);
+    paper && setPaper(paper);
+    setTarget(target);
+    setType(type);
   }, []);
 
   return (
@@ -81,7 +150,7 @@ export default function ResourceDetails({
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             <SelectInput
               label="Resource Type"
-              options={["select", "note", "pyq", "important-questions"]}
+              options={["select", "note", "pyq", "important-question"]}
               value={type}
               onChange={(e) => setType(e.target.value)}
               disabled={!modificationAllowed}
@@ -91,7 +160,7 @@ export default function ResourceDetails({
               label="Level"
               options={[
                 "select",
-                // ...[...Array(4)].map((_, i) => `class-${i + 8}`),
+                ...[...Array(4)].map((_, i) => `class-${i + 8}`),
                 ...[...Array(8)].map((_, i) => `semester-${i + 1}`),
               ]}
               value={level}
@@ -111,10 +180,10 @@ export default function ResourceDetails({
                 "mathematics",
                 "history",
                 "geology",
-                "environmental-science",
                 "education",
                 "economics",
-                "ecology",
+                "commerce",
+                "ecology-and-environmental-science",
                 "computer-science",
                 "computer-application",
                 "chemistry",

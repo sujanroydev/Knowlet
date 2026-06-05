@@ -7,7 +7,6 @@ import ResourceDetails from "./resource-details";
 import { useEffect, useState } from "react";
 import { parseResource } from "@/utils/parseResource";
 import { toast } from "sonner";
-import ResourceMetadata from "./resource-metadata";
 
 interface Details {
   title: string;
@@ -114,9 +113,6 @@ export default function CreateResourcePage() {
             <HtmlEditor rowHtml={rowHtml} setRowHtml={setRowHtml} />
           )}
         </div>
-
-        {/* Metadata */}
-        <ResourceMetadata metadata={metadata} />
 
         {/* Resource Form */}
         <ResourceDetails details={details} setDetails={setDetails} />

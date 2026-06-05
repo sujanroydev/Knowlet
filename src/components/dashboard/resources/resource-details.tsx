@@ -1,6 +1,7 @@
 import SelectInput from "@/components/ui/select-input";
 import TextInput from "@/components/ui/text-input";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 interface Details {
   title: string;
@@ -107,6 +108,7 @@ export default function ResourceDetails({
   }, [title, description, level, subject, paper, type, target]);
 
   useEffect(() => {
+    if (!d.path) return;
     const { level, subject, paper, target, type } = parseResourcePath(d.path);
 
     setLevel(level);
@@ -200,9 +202,19 @@ export default function ResourceDetails({
                 label="Paper"
                 placeholder="Enter Paper Code eg. dsc-152"
                 value={paper}
-                onChange={(e) =>
-                  setPaper(e.target.value.toLowerCase().split(" ").join("-"))
-                }
+                onChange={(e) => {
+                  const value = e.target.value;
+                  const match = value.match(
+                    /^[^a-zA-Z]*([a-zA-Z]+)([^a-zA-Z\d]*)(\d+)[^\d]*$/,
+                  );
+                  if (!match) {
+                    setPaper(value);
+                    toast.warning("paper must be like dsc-152");
+                    return;
+                  }
+                  const paper = `${match[1]}-${match[3]}`.toLowerCase();
+                  setPaper(paper);
+                }}
                 disabled={!modificationAllowed}
               />
             )}

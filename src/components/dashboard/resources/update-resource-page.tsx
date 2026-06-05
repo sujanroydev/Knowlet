@@ -85,9 +85,6 @@ export default function UpdateResourcePage({
           )}
         </div>
 
-        {/* Metadata */}
-        {/* <ResourceMetadata metadata={metadata} /> */}
-
         {/* Resource Form */}
         <ResourceDetails
           modificationAllowed={false}

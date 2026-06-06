@@ -3,7 +3,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useAuth } from "./AuthContext";
 import { toast } from "sonner";
-import { useRouter } from "next/navigation";
 
 type ReaderContextType = {
   resourceId: string | null;
@@ -26,8 +25,6 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
   const [bookmarked, setBookmarked] = useState(false);
   const { user } = useAuth();
 
-  const router = useRouter();
-
   useEffect(() => {
     if (!resourceId) return;
 
@@ -44,21 +41,13 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
 
   async function addHistory(resourceId: string) {
     try {
-      const res = await fetch("/api/history/view_history", {
+      await fetch("/api/history/view_history", {
         method: "POST",
         body: JSON.stringify({
           resource_id: resourceId,
         }),
       });
-
-      const { error } = await res.json();
-
-      if (error) {
-        console.error(error);
-      }
-    } catch (error) {
-      console.error(error);
-    }
+    } catch {}
   }
 
   async function loadResStats() {
@@ -68,12 +57,10 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
         body: JSON.stringify({ resource_id: resourceId }),
       });
       const { data, error } = await res.json();
-      if (error || !data) console.error("error", error);
+      if (error || !data) return;
       setLiked(data.liked);
       setBookmarked(data.bookmarked);
-    } catch (error) {
-      console.error("error", error);
-    }
+    } catch {}
   }
 
   async function toggleLike() {

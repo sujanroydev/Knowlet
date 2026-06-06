@@ -48,11 +48,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const db = await connectDb();
 
-  // Fetch dynamic resources
-  const { data: resources, error } = await db
-    .from("resources")
-    .select("path, updated_at, is_published")
-    .eq("is_published", true);
+  const { data, error } = await db.rpc("get_sitemap_resources");
+  const resources = data as { path: string; updated_at: string }[];
 
   if (error) {
     console.error("Sitemap Error:", error.message);

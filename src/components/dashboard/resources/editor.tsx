@@ -4,7 +4,7 @@ import HtmlEditor from "./html-editor";
 import ResourcePreview from "./resource-preview";
 import ResourceActions from "./resource-actions";
 import ResourceDetails from "./resource-details";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 interface Details {
   title: string;
@@ -15,32 +15,51 @@ interface Details {
   path: string;
 }
 
-export default function UpdateResourcePage({
-  resource: r,
+const defaultDetails = {
+  title: "",
+  description: "",
+  target: "",
+  type: "",
+  slug: "",
+  path: "",
+};
+
+export default function ResourceEditor({
+  resource,
+  action,
 }: {
-  resource: Resource;
+  resource?: Resource;
+  action: "create" | "update";
 }) {
-  const [updatedResource, setUpdatedResource] = useState<Resource>();
-  const [rowHtml, setRowHtml] = useState<string>(r.content);
-  const [parsedHtml, setParsedHtml] = useState<string>("");
-  const [details, setDetails] = useState<Details>({
-    title: r.title,
-    description: r.description || "",
-    target: r.target || "",
-    type: r.type || "",
-    slug: r.slug || "",
-    path: r.path,
-  });
+  const [newResource, setNewResource] = useState<Resource>();
+
+  const [content, setContent] = useState<string>("");
+  const [details, setDetails] = useState<Details>(defaultDetails);
 
   const [preview, setPreview] = useState<boolean>(false);
 
+  const resourceDetails = useMemo(
+    () =>
+      resource
+        ? {
+            title: resource.title || "",
+            description: resource.description || "",
+            target: resource.target || "",
+            type: resource.type || "",
+            slug: resource.slug || "",
+            path: resource.path || "",
+          }
+        : undefined,
+    [resource],
+  );
+
   useEffect(() => {
-    setUpdatedResource({
-      id: r.id,
+    setNewResource({
+      id: resource?.id,
       ...details,
-      content: rowHtml,
+      content,
     });
-  }, [parsedHtml, details, rowHtml]);
+  }, [content, details]);
 
   return (
     <div className="min-h-screen bg-slate-100 p-6">
@@ -79,24 +98,21 @@ export default function UpdateResourcePage({
           </div>
 
           {preview ? (
-            <ResourcePreview parsedHtml={rowHtml} />
+            <ResourcePreview content={content} />
           ) : (
-            <HtmlEditor rowHtml={rowHtml} setRowHtml={setRowHtml} />
+            <HtmlEditor content={resource?.content} setContent={setContent} />
           )}
         </div>
 
-        {/* Metadata */}
-        {/* <ResourceMetadata metadata={metadata} /> */}
-
         {/* Resource Form */}
         <ResourceDetails
-          modificationAllowed={false}
-          details={details}
+          action={action}
           setDetails={setDetails}
+          details={resourceDetails}
         />
 
         {/* Actions */}
-        <ResourceActions resource={updatedResource} action={"update"} />
+        <ResourceActions action={action} resource={newResource} />
       </div>
     </div>
   );

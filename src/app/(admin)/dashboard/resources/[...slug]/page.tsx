@@ -1,4 +1,5 @@
 import CreateResourcePage from "@/components/dashboard/resources/create-resource-page";
+import ResourceEditor from "@/components/dashboard/resources/editor";
 import UpdateResourcePage from "@/components/dashboard/resources/update-resource-page";
 import connectDb from "@/lib/db";
 import { notFound } from "next/navigation";
@@ -44,8 +45,8 @@ export default async function Page({
 
     if (!resource || resource.length === 0) notFound();
 
-    return <UpdateResourcePage resource={resource} />;
+    return <ResourceEditor action={action} resource={resource} />;
   }
 
-  return <CreateResourcePage />;
+  return <ResourceEditor action={"update"} />;
 }

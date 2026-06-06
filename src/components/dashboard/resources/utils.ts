@@ -67,3 +67,5 @@ function parseResourcePath(path: string) {
     return { level, subject, type, target };
   }
 }
+
+export { buildResourcePath, parseResourcePath };

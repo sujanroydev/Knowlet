@@ -15,8 +15,14 @@ interface Details {
   path: string;
 }
 
-export default function CreateResourcePage() {
-  const [resource, setResource] = useState<Resource>();
+export default function ResourceEditor({
+  resource,
+  action,
+}: {
+  resource?: Resource;
+  action: "create" | "update";
+}) {
+  const [newResource, setNewResource] = useState<Resource>();
   const [rowHtml, setRowHtml] = useState<string>("");
   const [parsedHtml, setParsedHtml] = useState<string>("");
   const [details, setDetails] = useState<Details>({
@@ -31,7 +37,8 @@ export default function CreateResourcePage() {
   const [preview, setPreview] = useState<boolean>(false);
 
   useEffect(() => {
-    setResource({
+    setNewResource({
+      id: resource?.id,
       ...details,
       content: parsedHtml,
     });
@@ -47,6 +54,20 @@ export default function CreateResourcePage() {
       setParsedHtml(content);
     }
   }, [rowHtml]);
+
+  useEffect(() => {
+    if (resource && Object.keys(resource).length) {
+      const path = resource.path;
+      setDetails({
+        title: resource.title,
+        description: resource.description || "",
+        target: resource.target || "",
+        type: resource.type || "",
+        slug: resource.slug || "",
+        path: resource.path || "",
+      });
+    }
+  });
 
   return (
     <div className="min-h-screen bg-slate-100 p-6">
@@ -92,10 +113,14 @@ export default function CreateResourcePage() {
         </div>
 
         {/* Resource Form */}
-        <ResourceDetails details={details} setDetails={setDetails} />
+        <ResourceDetails
+          modificationAllowed={action === "create" ? true : false}
+          details={details}
+          setDetails={setDetails}
+        />
 
         {/* Actions */}
-        <ResourceActions action="create" resource={resource} />
+        <ResourceActions action={action} resource={resource} />
       </div>
     </div>
   );

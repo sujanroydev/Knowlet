@@ -4,7 +4,7 @@ import HtmlEditor from "./html-editor";
 import ResourcePreview from "./resource-preview";
 import ResourceActions from "./resource-actions";
 import ResourceDetails from "./resource-details";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 interface Details {
   title: string;
@@ -37,6 +37,21 @@ export default function ResourceEditor({
   const [details, setDetails] = useState<Details>(defaultDetails);
 
   const [preview, setPreview] = useState<boolean>(false);
+
+  const resourceDetails = useMemo(
+    () =>
+      resource
+        ? {
+            title: resource.title || "",
+            description: resource.description || "",
+            target: resource.target || "",
+            type: resource.type || "",
+            slug: resource.slug || "",
+            path: resource.path || "",
+          }
+        : undefined,
+    [resource],
+  );
 
   useEffect(() => {
     setNewResource({
@@ -93,18 +108,7 @@ export default function ResourceEditor({
         <ResourceDetails
           action={action}
           setDetails={setDetails}
-          details={
-            resource && Object.keys(resource).length
-              ? {
-                  title: resource?.title || "",
-                  description: resource?.description || "",
-                  target: resource?.target || "",
-                  type: resource?.type || "",
-                  slug: resource?.slug || "",
-                  path: resource?.path || "",
-                }
-              : undefined
-          }
+          details={resourceDetails}
         />
 
         {/* Actions */}

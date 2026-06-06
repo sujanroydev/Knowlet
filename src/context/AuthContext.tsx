@@ -34,9 +34,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
       setUser(data);
       localStorage.setItem("knowlet-user", JSON.stringify(data));
-    } catch (error) {
-      console.error(error);
-    }
+    } catch {}
   }
 
   useEffect(() => {

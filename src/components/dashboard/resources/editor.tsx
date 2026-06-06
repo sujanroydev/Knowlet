@@ -15,6 +15,15 @@ interface Details {
   path: string;
 }
 
+const defaultDetails = {
+  title: "",
+  description: "",
+  target: "",
+  type: "",
+  slug: "",
+  path: "",
+};
+
 export default function ResourceEditor({
   resource,
   action,
@@ -23,16 +32,9 @@ export default function ResourceEditor({
   action: "create" | "update";
 }) {
   const [newResource, setNewResource] = useState<Resource>();
-  const [rowHtml, setRowHtml] = useState<string>("");
-  const [parsedHtml, setParsedHtml] = useState<string>("");
-  const [details, setDetails] = useState<Details>({
-    title: "",
-    description: "",
-    target: "",
-    type: "",
-    slug: "",
-    path: "",
-  });
+
+  const [content, setContent] = useState<string>("");
+  const [details, setDetails] = useState<Details>(defaultDetails);
 
   const [preview, setPreview] = useState<boolean>(false);
 
@@ -40,34 +42,9 @@ export default function ResourceEditor({
     setNewResource({
       id: resource?.id,
       ...details,
-      content: parsedHtml,
+      content,
     });
-  }, [parsedHtml, details]);
-
-  useEffect(() => {
-    if (rowHtml) {
-      const content = rowHtml
-        .replaceAll(/\[cite_start\]\s*/g, "")
-        .replaceAll(/\s*\[cite: \d+\]/g, "")
-        .replaceAll(/\s*\[cite: \d+(, \d+)*\]/g, "");
-
-      setParsedHtml(content);
-    }
-  }, [rowHtml]);
-
-  useEffect(() => {
-    if (resource && Object.keys(resource).length) {
-      const path = resource.path;
-      setDetails({
-        title: resource.title,
-        description: resource.description || "",
-        target: resource.target || "",
-        type: resource.type || "",
-        slug: resource.slug || "",
-        path: resource.path || "",
-      });
-    }
-  });
+  }, [content, details]);
 
   return (
     <div className="min-h-screen bg-slate-100 p-6">
@@ -106,21 +83,32 @@ export default function ResourceEditor({
           </div>
 
           {preview ? (
-            <ResourcePreview parsedHtml={parsedHtml} />
+            <ResourcePreview content={content} />
           ) : (
-            <HtmlEditor rowHtml={rowHtml} setRowHtml={setRowHtml} />
+            <HtmlEditor content={resource?.content} setContent={setContent} />
           )}
         </div>
 
         {/* Resource Form */}
         <ResourceDetails
-          modificationAllowed={action === "create" ? true : false}
-          details={details}
+          action={action}
           setDetails={setDetails}
+          details={
+            resource && Object.keys(resource).length
+              ? {
+                  title: resource?.title || "",
+                  description: resource?.description || "",
+                  target: resource?.target || "",
+                  type: resource?.type || "",
+                  slug: resource?.slug || "",
+                  path: resource?.path || "",
+                }
+              : undefined
+          }
         />
 
         {/* Actions */}
-        <ResourceActions action={action} resource={resource} />
+        <ResourceActions action={action} resource={newResource} />
       </div>
     </div>
   );

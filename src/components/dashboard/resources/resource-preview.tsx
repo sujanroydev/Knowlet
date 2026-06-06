@@ -1,17 +1,13 @@
 import styles from "@/components/library/Content.module.css";
 
-export default function ResourcePreview({
-  parsedHtml,
-}: {
-  parsedHtml: string | undefined;
-}) {
+export default function ResourcePreview({ content }: { content: string }) {
   return (
     <div className="h-[650px] overflow-y-auto bg-slate-50 p-6">
-      {parsedHtml ? (
+      {content ? (
         <article
           className={styles.container}
           dangerouslySetInnerHTML={{
-            __html: parsedHtml || "",
+            __html: content || "",
           }}
         />
       ) : (

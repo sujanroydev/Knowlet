@@ -11,6 +11,7 @@ import {
   ThumbsUp,
   SkipBack,
   SkipForward,
+  Edit,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -29,6 +30,7 @@ export default function TopBar() {
     toggleLike,
     toggleBookmark,
     parsePath,
+    resourceId,
   } = useReader();
 
   const router = useRouter();
@@ -74,7 +76,9 @@ export default function TopBar() {
         {mode === "reader" && (
           <div className="flex items-center gap-1 rounded-full border border-slate-200 bg-white/70 px-2 py-1 shadow-sm backdrop-blur-md">
             <Btn
-              onClick={() => parsedPath?.prevPath && router.push(parsedPath.prevPath)}
+              onClick={() =>
+                parsedPath?.prevPath && router.push(parsedPath.prevPath)
+              }
               title={parsedPath?.prevTarget || "none"}
               disabled={!parsedPath?.prevPath}
             >
@@ -82,12 +86,25 @@ export default function TopBar() {
             </Btn>
 
             <Btn
-              onClick={() => parsedPath?.nextPath && router.push(parsedPath.nextPath)}
+              onClick={() =>
+                parsedPath?.nextPath && router.push(parsedPath.nextPath)
+              }
               title={parsedPath?.nextTarget || "none"}
               disabled={!parsedPath?.nextPath}
             >
               <SkipForward className="w-5 h-5" />
             </Btn>
+
+            {user?.role === "admin" && resourceId && (
+              <Btn
+                onClick={() => {
+                  router.push(`/dashboard/resources/update/${resourceId}`);
+                }}
+                title="update"
+              >
+                <Edit className="w-5 h-5" />
+              </Btn>
+            )}
 
             <Btn onClick={toggleLike} title={liked ? "Unlike" : "Like"}>
               <ThumbsUp

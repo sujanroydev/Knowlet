@@ -1,8 +1,7 @@
 const links = [
-  "Edit Profile",
-  "Change Password",
-  "Notification Preferences",
-  "Privacy Controls",
+  { label: "Edit Profile", href: "#" },
+  { label: "Notification Preferences", href: "/notifications" },
+  { label: "Settings", href: "/settings" },
 ];
 
 export default function SettingsPanel() {
@@ -13,11 +12,11 @@ export default function SettingsPanel() {
       <div className="space-y-2">
         {links.map((l) => (
           <a
-            key={l}
-            href="#"
+            key={l.label}
+            href={l.href}
             className="flex items-center gap-2 text-blue-600 hover:pl-1 transition"
           >
-            {l}
+            {l.label}
           </a>
         ))}
       </div>

@@ -61,6 +61,30 @@ export function newResourceReportTemplate({
         </tr>
       </table>
 
+      <table role="presentation" cellspacing="0" cellpadding="0" style="margin-top: 24px;">
+        <tr>
+          <td
+            style="
+              border-radius: 8px;
+              background-color: #2563eb;
+            "
+          >
+            <a
+              href="https://knowlet.in/dashboard/resources/update/${resourceId}"
+              style="
+                display: inline-block;
+                padding: 12px 20px;
+                color: #ffffff;
+                text-decoration: none;
+                font-weight: 600;
+              "
+            >
+              Review & Update Resource
+            </a>
+          </td>
+        </tr>
+      </table>
+
       <p style="margin-top: 24px;">
         Please review this report in the admin dashboard.
       </p>

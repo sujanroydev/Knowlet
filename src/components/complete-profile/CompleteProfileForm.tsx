@@ -1,13 +1,17 @@
 "use client";
 
 import { useAuth } from "@/context/AuthContext";
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import ProfilePhotoSection from "./ProfilePhotoSection";
 import PersonalInfoSection from "./PersonalInfoSection";
 import AcademicInfoSection from "./AcademicInfoSection";
+import { toast } from "sonner";
+import { Loader2Icon } from "lucide-react";
 
 export default function CompleteProfileForm() {
-  const { user } = useAuth();
+  const [loading, setLoading] = useState(false);
+
+  const { user, setUser } = useAuth();
   const [form, setForm] = useState({
     picture: "",
     username: "",
@@ -35,8 +39,35 @@ export default function CompleteProfileForm() {
     }));
   };
 
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      setLoading(true);
+      const res = await fetch("api/user/update", {
+        method: "POST",
+        body: JSON.stringify(form),
+      });
+
+      const { data, error } = await res.json();
+      setLoading(false);
+
+      if (error) {
+        setLoading(false);
+        toast.error(error.message);
+        return;
+      }
+
+      const user = data as User;
+      setUser(user);
+
+      toast.success("Updated Successfully");
+    } catch (error) {
+      toast.error("Failed to Submit");
+    }
+  };
+
   return (
-    <form className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6">
       <ProfilePhotoSection
         picture={form.picture}
         onChange={(picture) => updateField("picture", picture)}
@@ -59,7 +90,14 @@ export default function CompleteProfileForm() {
         type="submit"
         className="rounded bg-blue-600 px-4 py-2 text-white"
       >
-        Complete Profile
+        {loading ? (
+          <span className="flex items-center gap-2">
+            <Loader2Icon className="animate-spin" />
+            Updating...
+          </span>
+        ) : (
+          "Update Profile"
+        )}
       </button>
     </form>
   );

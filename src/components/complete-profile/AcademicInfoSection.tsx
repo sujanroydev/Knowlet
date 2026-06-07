@@ -1,14 +1,14 @@
 interface AcademicInfoSectionProps {
   stream: string;
   standard: string;
-  favouriteSubject: string;
+  fav_subject: string;
   onChange: (field: string, value: string) => void;
 }
 
 export default function AcademicInfoSection({
   stream,
   standard,
-  favouriteSubject,
+  fav_subject,
   onChange,
 }: AcademicInfoSectionProps) {
   return (
@@ -38,8 +38,8 @@ export default function AcademicInfoSection({
         <input
           className="rounded border p-2"
           placeholder="Favourite Subject"
-          value={favouriteSubject}
-          onChange={(e) => onChange("favouriteSubject", e.target.value)}
+          value={fav_subject}
+          onChange={(e) => onChange("fav_subject", e.target.value)}
         />
       </div>
     </section>

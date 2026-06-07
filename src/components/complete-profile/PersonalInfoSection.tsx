@@ -1,11 +1,11 @@
 interface PersonalInfoSectionProps {
-  username: string;
+  name: string;
   age: string;
   onChange: (field: string, value: string) => void;
 }
 
 export default function PersonalInfoSection({
-  username,
+  name,
   age,
   onChange,
 }: PersonalInfoSectionProps) {
@@ -16,9 +16,9 @@ export default function PersonalInfoSection({
       <div className="grid gap-4">
         <input
           className="rounded border p-2"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => onChange("username", e.target.value)}
+          placeholder="Name"
+          value={name}
+          onChange={(e) => onChange("name", e.target.value)}
         />
 
         <input

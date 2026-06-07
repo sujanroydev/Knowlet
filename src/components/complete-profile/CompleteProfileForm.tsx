@@ -23,7 +23,7 @@ export default function CompleteProfileForm() {
 
   useEffect(() => {
     setForm({
-      picture: user?.picture || "/demo_pp.png",
+      picture: user?.picture || "/images/demo_pp.jpg",
       username: user?.username || "",
       age: user?.age || "",
       stream: user?.stream || "",
@@ -68,10 +68,13 @@ export default function CompleteProfileForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <ProfilePhotoSection
-        picture={form.picture}
-        onChange={(picture) => updateField("picture", picture)}
-      />
+      {user?.username && (
+        <ProfilePhotoSection
+          picture={form.picture}
+          username={user?.username}
+          onChange={(picture) => updateField("picture", picture)}
+        />
+      )}
 
       <PersonalInfoSection
         username={form.username}

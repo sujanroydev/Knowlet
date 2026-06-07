@@ -1,5 +1,5 @@
 const links = [
-  { label: "Edit Profile", href: "#" },
+  { label: "Edit Profile", href: "/complete-profile" },
   { label: "Notification Preferences", href: "/notifications" },
   { label: "Settings", href: "/settings" },
 ];

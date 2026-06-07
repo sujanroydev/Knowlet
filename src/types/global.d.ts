@@ -7,8 +7,8 @@ interface User {
   age?: string;
   picture?: string;
   stream?: string;
-  standered?: string;
-  fv_subject?: string;
+  standard?: string;
+  fav_subject?: string;
   is_verified: boolean;
   is_active?: string;
   created_at?: string;

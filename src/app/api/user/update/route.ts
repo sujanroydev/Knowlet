@@ -14,11 +14,12 @@ export async function POST(req: NextRequest) {
     const { data: user, error } = await db
       .from("users")
       .update({
+        name: body.name,
         picture: body.picture,
         age: body.age,
         stream: body.stream,
         standard: body.standard,
-        favoriteSubject: body.favoriteSubject,
+        fav_subject: body.fav_subject,
         updated_at: new Date().toISOString(),
       })
       .eq("id", payload?.user_id)

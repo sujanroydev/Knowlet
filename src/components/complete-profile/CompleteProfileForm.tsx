@@ -14,21 +14,21 @@ export default function CompleteProfileForm() {
   const { user, setUser } = useAuth();
   const [form, setForm] = useState({
     picture: "",
-    username: "",
+    name: "",
     age: "",
     stream: "",
     standard: "",
-    favouriteSubject: "",
+    fav_subject: "",
   });
 
   useEffect(() => {
     setForm({
       picture: user?.picture || "/images/demo_pp.jpg",
-      username: user?.username || "",
+      name: user?.name || "",
       age: user?.age || "",
       stream: user?.stream || "",
-      standard: user?.standered || "",
-      favouriteSubject: user?.fv_subject || "",
+      standard: user?.standard || "",
+      fav_subject: user?.fav_subject || "",
     });
   }, [user]);
 
@@ -59,6 +59,7 @@ export default function CompleteProfileForm() {
 
       const user = data as User;
       setUser(user);
+      console.log(user);
 
       toast.success("Updated Successfully");
     } catch (error) {
@@ -83,7 +84,7 @@ export default function CompleteProfileForm() {
       />
 
       <PersonalInfoSection
-        username={form.username}
+        name={form.name}
         age={form.age}
         onChange={updateField}
       />
@@ -91,7 +92,7 @@ export default function CompleteProfileForm() {
       <AcademicInfoSection
         stream={form.stream}
         standard={form.standard}
-        favouriteSubject={form.favouriteSubject}
+        fav_subject={form.fav_subject}
         onChange={updateField}
       />
 

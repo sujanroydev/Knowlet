@@ -1,14 +1,17 @@
+import { authGate } from "@/lib/auth/authGate";
 import connectDb from "@/lib/db";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {
+    const { ok, res, payload } = await authGate(req);
+    if (!ok || !payload) return res;
+
     const formData = await req.formData();
+    const image = formData.get("image");
+    const filePath = formData.get("file-path") as string;
 
-    const image = formData.get("image"); // File object
-    const filePath = formData.get("filePath") as string; // normal field
-
-    if (!image) {
+    if (!image || !filePath) {
       return NextResponse.json(
         { success: false, error: { message: "Image required" } },
         { status: 400 },
@@ -29,13 +32,8 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    return NextResponse.json(
-      {
-        success: true,
-        publicUrl: `https://ampwczxrfpbqlkuawrdf.supabase.co/storage/v1/object/public/avatars/${filePath}`,
-      },
-      { status: 200 },
-    );
+    const imageUrl = `https://ampwczxrfpbqlkuawrdf.supabase.co/storage/v1/object/public/avatars/${filePath}?time=${Date.now()}`;
+    return NextResponse.json({ data: { imageUrl } });
   } catch (error) {
     return NextResponse.json(
       { error: { message: "Server Internal Error" } },

@@ -3,6 +3,7 @@ import { toast } from "sonner";
 
 interface ProfilePhotoSectionProps {
   picture: string;
+  username: string;
   onChange: (url: string) => void;
 }
 
@@ -59,12 +60,12 @@ function compressWithCanvas(
 
 export default function ProfilePhotoSection({
   picture,
+  username,
   onChange,
 }: ProfilePhotoSectionProps) {
   const [uploading, setUploading] = useState(false);
-  const [originalImage, setOriginalImage] = useState<File>();
 
-  const upload = async () => {
+  const upload = async (originalImage: File | undefined) => {
     try {
       if (!originalImage) {
         toast.info("Select an image first");
@@ -84,15 +85,20 @@ export default function ProfilePhotoSection({
       setUploading(true);
       const compressedImage = await compressWithCanvas(originalImage);
 
+      const fileName = `${username.replaceAll("@", "").toLowerCase()}.jpg`;
+      const filePath = `users/${fileName}`;
+
       const formData = new FormData();
       formData.append("image", compressedImage);
+      formData.append("file-path", filePath);
 
-      const res = await fetch("api/user/upload-avater", {
+      const res = await fetch("api/user/upload-avatar", {
         method: "POST",
         body: formData,
       });
 
       const { data, error } = await res.json();
+      setUploading(false);
 
       if (error) {
         toast.error(error.message);
@@ -111,13 +117,13 @@ export default function ProfilePhotoSection({
 
       <div className="flex items-center gap-4">
         <img
-          src={picture || "/demo_pp.png"}
+          src={picture || "/images/demo_pp.jpg"}
           alt="Profile"
           className="h-20 w-20 rounded-full object-cover"
         />
 
         <input
-          onChange={(e) => setOriginalImage(e.target.files?.[0])}
+          onChange={(e) => upload(e.target.files?.[0])}
           type="file"
           accept="image/jpeg"
         />

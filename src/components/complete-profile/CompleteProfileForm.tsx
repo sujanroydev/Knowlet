@@ -66,15 +66,21 @@ export default function CompleteProfileForm() {
     }
   };
 
+  if (!user) {
+    return (
+      <div className="flex items-center justify-center h-40">
+        <Loader2Icon className="animate-spin" />
+      </div>
+    );
+  }
+
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      {user?.username && (
-        <ProfilePhotoSection
-          picture={form.picture}
-          username={user?.username}
-          onChange={(picture) => updateField("picture", picture)}
-        />
-      )}
+      <ProfilePhotoSection
+        picture={form.picture}
+        username={user.username}
+        onChange={(picture) => updateField("picture", picture)}
+      />
 
       <PersonalInfoSection
         username={form.username}

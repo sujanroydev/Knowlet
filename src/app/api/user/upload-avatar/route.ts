@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const imageUrl = `https://ampwczxrfpbqlkuawrdf.supabase.co/storage/v1/object/public/avatars/${filePath}`;
+    const imageUrl = `https://ampwczxrfpbqlkuawrdf.supabase.co/storage/v1/object/public/avatars/${filePath}?time=${Date.now()}`;
     return NextResponse.json({ data: { imageUrl } });
   } catch (error) {
     return NextResponse.json(

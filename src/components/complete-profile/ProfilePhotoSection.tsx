@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { Loader2 } from "lucide-react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
 interface ProfilePhotoSectionProps {
@@ -64,6 +65,11 @@ export default function ProfilePhotoSection({
   onChange,
 }: ProfilePhotoSectionProps) {
   const [uploading, setUploading] = useState(false);
+  const [imageUrl, setImageUrl] = useState(picture);
+
+  useEffect(() => {
+    setImageUrl(picture);
+  }, [picture]);
 
   const upload = async (originalImage: File | undefined) => {
     try {
@@ -105,7 +111,8 @@ export default function ProfilePhotoSection({
         return;
       }
 
-      console.log(data.imageUrl);
+      setImageUrl(data.imageUrl);
+      onChange(data.imageUrl);
     } catch (error) {
       toast.error("Failed to Upload");
     }
@@ -116,11 +123,19 @@ export default function ProfilePhotoSection({
       <h2 className="mb-4 text-lg font-semibold">Profile Picture</h2>
 
       <div className="flex items-center gap-4">
-        <img
-          src={picture || "/images/demo_pp.jpg"}
-          alt="Profile"
-          className="h-20 w-20 rounded-full object-cover"
-        />
+        <div className="relative h-20 w-20">
+          <img
+            src={imageUrl || "/images/demo_pp.jpg"}
+            alt="Profile"
+            className={`h-20 w-20 rounded-full object-cover transition ${
+              uploading ? "opacity-50 blur-[1px]" : ""
+            }`}
+          />
+
+          {uploading && (
+            <Loader2 className="absolute inset-0 m-auto h-7 w-7 animate-spin text-white" />
+          )}
+        </div>
 
         <input
           onChange={(e) => upload(e.target.files?.[0])}

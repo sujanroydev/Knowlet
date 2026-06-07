@@ -3,7 +3,7 @@ interface User {
   name: string;
   email: string;
   role?: string;
-  username?: string;
+  username: string;
   age?: string;
   picture?: string;
   stream?: string;

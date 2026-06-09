@@ -99,17 +99,16 @@ export default function NotificationClient({
           {/* Subscribe Button */}
           <button
             onClick={toggleSubscription}
-            className={`relative overflow-hidden px-5 py-3 rounded-2xl font-medium transition-all duration-300 shadow-lg hover:scale-[1.02] active:scale-[0.98]
-          ${
-            subscribed
-              ? "bg-gradient-to-r from-red-500 to-rose-500 hover:shadow-red-200"
-              : "bg-gradient-to-r from-emerald-500 to-green-500 hover:shadow-green-200"
-          } text-white`}
+            className={`relative overflow-hidden px-5 py-3 rounded-2xl text-white font-medium transition-all duration-300 shadow-lg hover:scale-[1.02] active:scale-[0.98]
+              ${
+                subscribed
+                  ? "bg-gradient-to-r from-red-500 to-rose-500 hover:shadow-red-200"
+                  : "bg-gradient-to-r from-emerald-500 to-green-500 hover:shadow-green-200"
+              }
+            `}
           >
             <span className="relative z-10">
-              {subscribed
-                ? "Unsubscribe Notifications"
-                : "Subscribe Notifications"}
+              {subscribed ? "Unsubscribe" : "Subscribe"}
             </span>
 
             <div className="absolute inset-0 bg-white/10 opacity-0 hover:opacity-100 transition-opacity" />

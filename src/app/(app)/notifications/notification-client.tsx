@@ -13,10 +13,6 @@ export default function NotificationClient({
   const [localNotifications, setLocalNotifications] = useState(notifications);
   const [subscribed, setSubscribed] = useState(false);
 
-  useEffect(() => {
-    checkSubscription();
-  }, []);
-
   async function checkSubscription() {
     try {
       const registration = await navigator.serviceWorker.ready;
@@ -80,6 +76,10 @@ export default function NotificationClient({
       console.error("Failed to mark notification as read", error);
     }
   }
+
+  useEffect(() => {
+    checkSubscription();
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 p-6">

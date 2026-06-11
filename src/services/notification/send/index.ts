@@ -1,3 +1,4 @@
+import connectDb from "@/lib/db";
 import webpush from "web-push";
 
 webpush.setVapidDetails(
@@ -32,4 +33,32 @@ export async function sendNotification({
 
   await webpush.sendNotification(subscription, payload);
   return { success: true };
+}
+
+export async function sendNotificationByUserId({
+  title,
+  user_id,
+  options,
+}: {
+  title: string;
+  user_id: string;
+  options: NotificationOptions & { image?: string };
+}) {
+  const db = await connectDb();
+
+  const { data, error } = await db
+    .from("push_subscriptions")
+    .select("id, endpoint, auth, p256dh")
+    .eq("user_id", user_id)
+    .maybeSingle();
+
+  if (error) throw error;
+  if (!data) throw new Error("User Doesn't Exist");
+
+  const subscription: webpush.PushSubscription = {
+    endpoint: data.endpoint,
+    keys: { auth: data.auth, p256dh: data.p256dh },
+  };
+
+  sendNotification({ title, subscription, options });
 }

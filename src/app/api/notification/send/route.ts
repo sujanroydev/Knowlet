@@ -39,16 +39,22 @@ export async function POST(req: NextRequest) {
       action_url: action_url || "https://knowlet.in",
     };
 
-    const subscriptions =
+    const subscriptions = (
       process.env.NODE_ENV === "development"
         ? data.filter(
             (row) => row.user_id === "7cf87d0f-55d0-4275-93df-d240980e436c",
           )
-        : data;
+        : data
+    ).map((s) => ({
+      id: s.id,
+      user_id: s.user_id,
+      endpoint: s.endpoint,
+      keys: { p256dh: s.p256dh, auth: s.auth },
+    }));
 
     const notificationStats = sendNotification({
       title,
-      subscriptions,
+      subscription: subscriptions,
       options: notificationData,
     });
 

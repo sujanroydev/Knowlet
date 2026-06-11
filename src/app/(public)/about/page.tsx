@@ -125,14 +125,14 @@ export default function AboutPage() {
               Portfolio
             </a>
             <a
-              href="https://github.com/sujankumarroy"
+              href="https://github.com/sujanroydev"
               target="_blank"
               className="hover:underline"
             >
               GitHub
             </a>
             <a
-              href="https://www.linkedin.com/in/skr0411"
+              href="https://www.linkedin.com/in/sujanroydev"
               target="_blank"
               className="hover:underline"
             >

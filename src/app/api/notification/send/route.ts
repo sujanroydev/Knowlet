@@ -1,5 +1,6 @@
 import { authGate } from "@/lib/auth/authGate";
 import connectDb from "@/lib/db";
+import { sendNotification } from "@/services/notification/send";
 import { NextRequest, NextResponse } from "next/server";
 import webpush from "web-push";
 
@@ -45,74 +46,11 @@ export async function POST(req: NextRequest) {
           )
         : data;
 
-    const { data: notification } = await db
-      .from("notifications")
-      .insert({ type: "resource", ...notificationData })
-      .select()
-      .single();
-
-    const notificationId = notification.id;
-    const uniqueUserIds = [
-      ...new Set(
-        subscriptions
-          .map((row) => row.user_id)
-          .filter((id): id is string => !!id),
-      ),
-    ];
-
-    await db.from("user_notifications").insert(
-      uniqueUserIds.map((userId) => ({
-        user_id: userId,
-        notification_id: notificationId,
-      })),
-    );
-
-    const payload = JSON.stringify({ notificationId, ...notificationData });
-
-    const results = await Promise.allSettled(
-      subscriptions.map(async (row) => {
-        try {
-          await webpush.sendNotification(
-            {
-              endpoint: row.endpoint,
-              keys: { auth: row.auth, p256dh: row.p256dh },
-            },
-            payload,
-          );
-
-          return { success: true };
-        } catch (err: any) {
-          // Remove only invalid/expired subscriptions
-          if (err.statusCode === 404 || err.statusCode === 410) {
-            await db
-              .from("push_subscriptions")
-              .update({ is_active: false })
-              .eq("id", row.id);
-          }
-
-          return {
-            success: false,
-            statusCode: err.statusCode,
-            message: err.message,
-          };
-        }
-      }),
-    );
-
-    const success = results.filter(
-      (r) => r.status === "fulfilled" && r.value.success,
-    ).length;
-
-    const notificationStats = {
-      total_users: data.length,
-      sent_count: success,
-      failed_count: data.length - success,
-    };
-
-    await db
-      .from("notifications")
-      .update(notificationStats)
-      .eq("id", notificationId);
+    const notificationStats = sendNotification({
+      title,
+      subscriptions,
+      options: notificationData,
+    });
 
     return NextResponse.json({ data: notificationStats });
   } catch (err) {

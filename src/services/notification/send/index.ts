@@ -1,14 +1,6 @@
 import connectDb from "@/lib/db";
 import webpush from "web-push";
-
-interface Subscription extends webpush.PushSubscription {
-  id: string;
-  user_id: string;
-}
-
-interface Options extends NotificationOptions {
-  image?: string;
-}
+import { Options, Subscription } from "./types";
 
 webpush.setVapidDetails(
   "mailto:knowlet.official@gmail.com",

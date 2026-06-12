@@ -44,7 +44,7 @@ function parseResourcePath(path: string) {
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
 
-  const upperCase = (text: string) => text.toUpperCase();
+  const upperCase = (text: string) => text.replace("-", " ").toUpperCase();
 
   const levelSlug = parts[0];
   const subjectSlug = parts[1];

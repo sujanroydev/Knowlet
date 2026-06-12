@@ -45,8 +45,7 @@ export async function POST(req: NextRequest) {
     const { ok, res, payload } = await authGate(req, "admin");
     if (!ok || !payload) return res;
 
-    const { levelSlug, subjectSlug, paperSlug, level, subject, paper } =
-      parseResourcePath(path);
+    const { levelSlug, subjectSlug, paperSlug } = parseResourcePath(path);
 
     let levelData, subjectData, paperData;
     let oldLevelRow, oldSubjectRow, oldPaperRow;
@@ -180,6 +179,7 @@ export async function POST(req: NextRequest) {
       .gte("created_at", thirtyDaysAgo.toISOString());
 
     if (!historyError && history && history.length) {
+      const { subject, paper, type, target } = parseResourcePath(path);
       void sendNotificationByUserId({
         user_id: [...new Set(history.map((h) => h.user_id) ?? [])],
         title: `📚 New ${paper || subject} Resource`,

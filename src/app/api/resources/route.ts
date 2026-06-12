@@ -45,11 +45,7 @@ export async function POST(req: NextRequest) {
     const { ok, res, payload } = await authGate(req, "admin");
     if (!ok || !payload) return res;
 
-    const {
-      level: levelSlug,
-      subject: subjectSlug,
-      paper: paperSlug,
-    } = parseResourcePath(path);
+    const { levelSlug, subjectSlug, paperSlug } = parseResourcePath(path);
 
     let level, subject, paper;
     let oldLevelRow, oldSubjectRow, oldPaperRow;

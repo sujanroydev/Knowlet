@@ -76,15 +76,14 @@ export default function ResourceDetails({
       setTitle(details.title);
       setDescription(details.description);
 
-      const { level, subject, paper, target, type } = parseResourcePath(
-        details.path,
-      );
+      const { levelSlug, subjectSlug, paperSlug, targetSlug, typeSlug } =
+        parseResourcePath(details.path);
 
-      setLevel(level);
-      setSubject(subject);
-      paper && setPaper(paper);
-      setTarget(target);
-      setType(type);
+      setLevel(levelSlug);
+      setSubject(subjectSlug);
+      paperSlug && setPaper(paperSlug);
+      setTarget(targetSlug);
+      setType(typeSlug);
     }
   }, [details]);
 

@@ -31,8 +31,21 @@ export default function ResourceActions({
 
     if (!res.ok) return;
 
+    const url = `https://knowlet.in/library/${resource?.path}`;
+
     toast.success("Resource Published Successfully.", {
-      description: `path: https://knowlet.in/library/${resource?.path}`,
+      description: "The resource is live and ready to view.",
+      action: {
+        label: "Open",
+        onClick: () => window.open(url, "_blank"),
+      },
+      cancel: {
+        label: "Copy",
+        onClick: async () => {
+          await navigator.clipboard.writeText(url);
+          toast.success("Link copied to clipboard");
+        },
+      },
     });
   }
 
@@ -61,8 +74,21 @@ export default function ResourceActions({
 
     if (!res.ok) return;
 
+    const url = `https://knowlet.in/library/${resource?.path}`;
+
     toast.success("Resource Updated Successfully.", {
-      description: `path: https://knowlet.in/library/${resource?.path}`,
+      description: "The resource is live and ready to view.",
+      action: {
+        label: "Open",
+        onClick: () => window.open(url, "_blank"),
+      },
+      cancel: {
+        label: "Copy",
+        onClick: async () => {
+          await navigator.clipboard.writeText(url);
+          toast.success("Link copied to clipboard");
+        },
+      },
     });
   }
 

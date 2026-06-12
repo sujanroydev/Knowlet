@@ -1,5 +1,6 @@
 import { authGate } from "@/lib/auth/authGate";
 import connectDb from "@/lib/db";
+import { sendNotificationByUserId } from "@/services/notification/send";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function PUT(
@@ -151,9 +152,31 @@ export async function PUT(
         description,
         content,
       })
-      .eq("id", id);
+      .eq("id", id)
+      .select("path")
+      .single();
 
     if (error) throw new Error(error.message);
+
+    const { data: reports, error: reportsError } = await db
+      .from("resource_reports")
+      .select("user_id ( id, name, email )")
+      .eq("resource_id", id);
+
+    if (!reportsError && reports && reports.length) {
+      const users = reports?.map((r: any) => r.user_id.id);
+      console.log(data);
+      sendNotificationByUserId({
+        user_id: users,
+        title: "✅ Resource Updated",
+        options: {
+          body: "Thanks for reporting the issue. The resource has been updated and is ready to view.",
+          data: {
+            action_url: `https://knowlet.in/library/${data.path}`,
+          },
+        },
+      });
+    }
 
     return NextResponse.json({ success: true }, { status: 201 });
   } catch (error) {

@@ -168,9 +168,9 @@ export async function PUT(
       console.log(data);
       sendNotificationByUserId({
         user_id: users,
-        title: "✅ Resource Updated",
+        title: "✅ Thanks for the Report!",
         options: {
-          body: "Thanks for reporting the issue. The resource has been updated and is ready to view.",
+          body: "We've fixed the issue and updated the resource. Tap to view the latest version.",
           data: {
             action_url: `https://knowlet.in/library/${data.path}`,
           },

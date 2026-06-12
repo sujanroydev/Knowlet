@@ -38,33 +38,69 @@ function parseResourcePath(path: string) {
 
   if (parts.length < 4) throw new Error("Invalid Resource Path");
 
-  const level = parts[0];
-  const subject = parts[1];
+  const titleCase = (text: string) =>
+    text
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
 
-  if (level.startsWith("semester")) {
+  const upperCase = (text: string) => text.toUpperCase();
+
+  const levelSlug = parts[0];
+  const subjectSlug = parts[1];
+
+  if (levelSlug.startsWith("semester")) {
     if (parts.length < 5) throw new Error("Invalid Resource Path");
     else {
-      const paper = parts[2];
-      const type = (Object.entries(typeToPath).find((i) => i[1] === parts[3]) ||
-        [])[0] as ResourceType;
-      const target = parts[4];
+      const paperSlug = parts[2];
+      const typeSlug = (Object.entries(typeToPath).find(
+        (i) => i[1] === parts[3],
+      ) || [])[0] as ResourceType;
+      const targetSlug = parts[4];
 
-      if (!level || !subject || !paper || !type || !target) {
+      if (
+        !levelSlug ||
+        !subjectSlug ||
+        !paperSlug ||
+        !typeSlug ||
+        !targetSlug
+      ) {
         throw new Error("Invalid Resource Path");
       }
 
-      return { level, subject, paper, type, target };
+      return {
+        level: titleCase(levelSlug),
+        levelSlug,
+        subject: titleCase(subjectSlug),
+        subjectSlug,
+        paper: upperCase(paperSlug),
+        paperSlug,
+        type: typeSlug === "pyq" ? upperCase(typeSlug) : titleCase(typeSlug),
+        typeSlug,
+        target: titleCase(targetSlug),
+        targetSlug,
+      };
     }
   } else {
-    const type = (Object.entries(typeToPath).find((i) => i[1] === parts[2]) ||
-      [])[0] as ResourceType;
-    const target = parts[3];
+    const typeSlug = (Object.entries(typeToPath).find(
+      (i) => i[1] === parts[2],
+    ) || [])[0] as ResourceType;
+    const targetSlug = parts[3];
 
-    if (!level || !subject || !type || !target) {
+    if (!levelSlug || !subjectSlug || !typeSlug || !targetSlug) {
       throw new Error("Invalid Resource Path");
     }
 
-    return { level, subject, type, target };
+    return {
+      level: titleCase(levelSlug),
+      levelSlug,
+      subject: titleCase(subjectSlug),
+      subjectSlug,
+      type: titleCase(typeSlug),
+      typeSlug,
+      target: titleCase(targetSlug),
+      targetSlug,
+    };
   }
 }
 

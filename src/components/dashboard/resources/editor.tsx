@@ -55,7 +55,7 @@ export default function ResourceEditor({
 
   useEffect(() => {
     setNewResource({
-      id: resource?.id,
+      ...(resource?.id && { id: resource.id }),
       ...details,
       content,
     });

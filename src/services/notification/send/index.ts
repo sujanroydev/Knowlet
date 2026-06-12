@@ -26,18 +26,20 @@ export async function sendNotification({
     icon: o.icon || "/icons/web-app-manifest-192x192.png",
     badge: o.badge || "/icons/favicon-96x96.png",
     tag: o.tag,
-    action_url: o.data.action_url || "https://knowlet.in",
+    action_url: o.data?.action_url || "https://knowlet.in",
   };
 
   const subscriptions = Array.isArray(subscription)
     ? subscription
     : [subscription];
 
-  const { data: notification } = await db
+  const { data: notification, error } = await db
     .from("notifications")
     .insert({ type: "resource", ...notificationData })
     .select()
     .single();
+
+  if (error) throw error;
 
   const notificationId = notification.id;
   const payload = JSON.stringify({

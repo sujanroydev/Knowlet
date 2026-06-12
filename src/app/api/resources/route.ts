@@ -45,7 +45,8 @@ export async function POST(req: NextRequest) {
     const { ok, res, payload } = await authGate(req, "admin");
     if (!ok || !payload) return res;
 
-    const { levelSlug, subjectSlug, paperSlug } = parseResourcePath(path);
+    const { levelSlug, subjectSlug, paperSlug, level, subject, paper } =
+      parseResourcePath(path);
 
     let levelData, subjectData, paperData;
     let oldLevelRow, oldSubjectRow, oldPaperRow;
@@ -181,8 +182,13 @@ export async function POST(req: NextRequest) {
     if (!historyError && history && history.length) {
       void sendNotificationByUserId({
         user_id: [...new Set(history.map((h) => h.user_id) ?? [])],
-        title: `📚 New ${subjectSlug} Resource`,
-        options: { body: `New material added in ${target} (${levelSlug}).` },
+        title: `📚 New ${paper || subject} Resource`,
+        options: {
+          body: `New ${target} ${type} ${type.endsWith("s") ? "are" : "is"} now available.`,
+          data: {
+            action_url: `https://knowlet.in/library/${path}`,
+          },
+        },
       });
     }
 

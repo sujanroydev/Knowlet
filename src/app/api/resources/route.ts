@@ -187,6 +187,7 @@ export async function POST(req: NextRequest) {
           body: `New ${target} ${type} ${type.endsWith("s") ? "are" : "is"} now available.`,
           data: {
             action_url: `https://knowlet.in/library/${path}`,
+            type: "resource",
           },
         },
       });

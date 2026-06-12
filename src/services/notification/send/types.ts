@@ -6,5 +6,9 @@ export interface Subscription extends PushSubscription {
 }
 
 export interface Options extends NotificationOptions {
+  data?: {
+    notificationId?: string;
+    action_url?: string;
+  };
   image?: string;
 }

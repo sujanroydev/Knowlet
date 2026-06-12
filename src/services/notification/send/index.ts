@@ -26,7 +26,6 @@ export async function sendNotification({
   const { data: notification, error } = await db
     .from("notifications")
     .insert({
-      type: "resource",
       title: title,
       body: options.body,
       icon: options.icon,
@@ -34,6 +33,7 @@ export async function sendNotification({
       badge: options.badge,
       tag: options.tag,
       action_url: options.data?.action_url,
+      type: options.data?.type,
     })
     .select()
     .single();

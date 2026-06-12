@@ -173,6 +173,7 @@ export async function PUT(
           body: "We've fixed the issue and updated the resource. Tap to view the latest version.",
           data: {
             action_url: `https://knowlet.in/library/${data.path}`,
+            type: "resource",
           },
         },
       });

@@ -13,39 +13,37 @@ const db = await connectDb();
 export async function sendNotification({
   title,
   subscription,
-  options: o,
+  options,
 }: {
   title: string;
   subscription: Subscription | Subscription[];
   options: Options;
 }) {
-  const notificationData = {
-    title: title,
-    body: o.body,
-    image: o.image,
-    icon: o.icon || "/icons/web-app-manifest-192x192.png",
-    badge: o.badge || "/icons/favicon-96x96.png",
-    tag: o.tag,
-    action_url: o.data?.action_url || "https://knowlet.in",
-  };
-
   const subscriptions = Array.isArray(subscription)
     ? subscription
     : [subscription];
 
   const { data: notification, error } = await db
     .from("notifications")
-    .insert({ type: "resource", ...notificationData })
+    .insert({
+      type: "resource",
+      title: title,
+      body: options.body,
+      icon: options.icon,
+      image: options.image,
+      badge: options.badge,
+      tag: options.tag,
+      action_url: options.data?.action_url,
+    })
     .select()
     .single();
 
   if (error) throw error;
 
   const notificationId = notification.id;
-  const payload = JSON.stringify({
-    notificationId,
-    ...notificationData,
-  });
+  options.data = { ...options.data, notificationId };
+
+  const payload = JSON.stringify({ title, options });
 
   const uniqueUserIds = [
     ...new Set(
@@ -61,15 +59,9 @@ export async function sendNotification({
   );
 
   const results = await Promise.allSettled(
-    subscriptions.map(async (s) => {
+    subscriptions.map(async (subscription) => {
       try {
-        await webpush.sendNotification(
-          {
-            endpoint: s.endpoint,
-            keys: { auth: s.keys.auth, p256dh: s.keys.p256dh },
-          },
-          payload,
-        );
+        await webpush.sendNotification(subscription, payload);
 
         return { success: true };
       } catch (err: any) {
@@ -77,7 +69,7 @@ export async function sendNotification({
           await db
             .from("push_subscriptions")
             .update({ is_active: false })
-            .eq("id", s.id);
+            .eq("id", subscription.id);
         }
 
         return {
@@ -133,5 +125,10 @@ export async function sendNotificationByUserId({
     user_id: row.user_id,
   }));
 
-  sendNotification({ title, subscription: subscriptions, options });
+  const notificationStats = sendNotification({
+    title,
+    subscription: subscriptions,
+    options,
+  });
+  return notificationStats;
 }

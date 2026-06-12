@@ -1,5 +1,7 @@
+import { parseResourcePath } from "@/components/dashboard/resources/utils";
 import { authGate } from "@/lib/auth/authGate";
 import connectDb from "@/lib/db";
+import { sendNotificationByUserId } from "@/services/notification/send";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
@@ -43,11 +45,11 @@ export async function POST(req: NextRequest) {
     const { ok, res, payload } = await authGate(req, "admin");
     if (!ok || !payload) return res;
 
-    const parts = path.split("/");
-
-    const levelSlug = parts[0];
-    const subjectSlug = parts[1];
-    const paperSlug = levelSlug.startsWith("semester") ? parts[2] : null;
+    const {
+      level: levelSlug,
+      subject: subjectSlug,
+      paper: paperSlug,
+    } = parseResourcePath(path);
 
     let level, subject, paper;
     let oldLevelRow, oldSubjectRow, oldPaperRow;
@@ -165,6 +167,28 @@ export async function POST(req: NextRequest) {
     });
 
     if (error) throw new Error(error.message);
+
+    const thirtyDaysAgo = new Date();
+    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+
+    const prefix = path
+      .split("/")
+      .slice(0, path.split("/")[0].startsWith("semester") ? 3 : 2)
+      .join("/");
+
+    const { data: history, error: historyError } = await db
+      .from("view_history")
+      .select("user_id, resources!inner(path)")
+      .ilike("resources.path", `${prefix}%`)
+      .gte("created_at", thirtyDaysAgo.toISOString());
+
+    if (!historyError && history && history.length) {
+      void sendNotificationByUserId({
+        user_id: [...new Set(history.map((h) => h.user_id) ?? [])],
+        title: `📚 New ${subjectSlug} Resource`,
+        options: { body: `New material added in ${target} (${levelSlug}).` },
+      });
+    }
 
     return NextResponse.json(
       { success: true, data: { resource: data } },

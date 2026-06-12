@@ -111,19 +111,18 @@ export default function NotificationAdminPage() {
         body: JSON.stringify(payload),
       });
 
-      const {
-        data: { total_users, sent_count, failed_count },
-        error,
-      } = await res.json();
+      const { data, error } = await res.json();
 
       setSending(false);
 
       if (error) {
-        toast.error("Failed to send notification");
+        toast.error(error.message);
         return;
       }
 
       if (!res.ok) return;
+
+      const { total_users, sent_count, failed_count } = data;
 
       await loadHistory();
 

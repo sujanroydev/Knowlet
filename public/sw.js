@@ -13,21 +13,11 @@ self.addEventListener("activate", (event) => {
 });
 
 self.addEventListener("push", (event) => {
-  const data = event.data?.json() || {};
+  const { title, options } = event.data?.json() || {};
 
   event.waitUntil(
     self.registration
-      .showNotification(data.title || "Knowlet", {
-        body: data.body,
-        icon: data.icon,
-        badge: data.badge,
-        image: data.image,
-        tag: data.tag,
-        data: {
-          url: data.url,
-          notificationId: data.notificationId,
-        },
-      })
+      .showNotification(title || "Knowlet", options)
       .catch((err) => {
         console.error("showNotification error:", err);
       }),
@@ -37,22 +27,17 @@ self.addEventListener("push", (event) => {
 self.addEventListener("notificationclick", (event) => {
   event.notification.close();
 
-  const notificationId = event.notification.data?.notificationId;
-  const url = new URL(event.notification.data?.url || "/", self.location.origin)
-    .href;
+  const { notificationId, action_url } = event.notification.data;
+  const url = new URL(action_url || "/", self.location.origin).href;
 
   event.waitUntil(
     (async () => {
       if (notificationId) {
-        try {
-          await fetch("/api/notification/read", {
-            method: "PATCH",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ notification_id: notificationId }),
-          });
-        } catch (err) {
-          console.error("Failed to track notification click:", err);
-        }
+        void fetch("/api/notification/read", {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ notification_id: notificationId }),
+        }).catch(console.error);
       }
 
       const clientList = await clients.matchAll({
@@ -61,12 +46,12 @@ self.addEventListener("notificationclick", (event) => {
       });
 
       for (const client of clientList) {
-        if (client.url === url && "focus" in client) {
+        if (client.url === action_url && "focus" in client) {
           return client.focus();
         }
       }
 
-      return clients.openWindow(url);
+      return clients.openWindow(action_url);
     })(),
   );
 });

@@ -47,7 +47,7 @@ export async function POST(req: NextRequest) {
 
     const { levelSlug, subjectSlug, paperSlug } = parseResourcePath(path);
 
-    let level, subject, paper;
+    let levelData, subjectData, paperData;
     let oldLevelRow, oldSubjectRow, oldPaperRow;
     let newLevelRow, newSubjectRow, newPaperRow;
 
@@ -61,7 +61,7 @@ export async function POST(req: NextRequest) {
       .maybeSingle();
 
     if (oldLevelRow?.error) throw new Error(oldLevelRow?.error.message);
-    level = oldLevelRow?.data;
+    levelData = oldLevelRow?.data;
 
     // insert
     if (!oldLevelRow?.data) {
@@ -80,7 +80,7 @@ export async function POST(req: NextRequest) {
         .single();
 
       if (newLevelRow?.error) throw new Error(newLevelRow?.error.message);
-      level = newLevelRow?.data;
+      levelData = newLevelRow?.data;
     }
 
     // fetch
@@ -89,11 +89,11 @@ export async function POST(req: NextRequest) {
         .from("subjects")
         .select("id")
         .eq("slug", subjectSlug)
-        .eq("level_id", level?.id)
+        .eq("level_id", levelData?.id)
         .maybeSingle();
 
       if (oldSubjectRow?.error) throw new Error(oldSubjectRow?.error.message);
-      subject = oldSubjectRow?.data;
+      subjectData = oldSubjectRow?.data;
     }
 
     // insert
@@ -101,7 +101,7 @@ export async function POST(req: NextRequest) {
       newSubjectRow = await db
         .from("subjects")
         .insert({
-          level_id: level?.id,
+          level_id: levelData?.id,
           title: subjectSlug
             .split("-")
             .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -113,7 +113,7 @@ export async function POST(req: NextRequest) {
         .single();
 
       if (newSubjectRow?.error) throw new Error(newSubjectRow?.error.message);
-      subject = newSubjectRow?.data;
+      subjectData = newSubjectRow?.data;
     }
 
     // fetch
@@ -122,11 +122,11 @@ export async function POST(req: NextRequest) {
         .from("papers")
         .select("id")
         .eq("slug", paperSlug)
-        .eq("subject_id", subject?.id)
+        .eq("subject_id", subjectData?.id)
         .maybeSingle();
 
       if (oldPaperRow?.error) throw new Error(oldPaperRow?.error.message);
-      paper = oldPaperRow?.data;
+      paperData = oldPaperRow?.data;
     }
 
     // insert
@@ -134,8 +134,8 @@ export async function POST(req: NextRequest) {
       newPaperRow = await db
         .from("papers")
         .insert({
-          subject_id: subject?.id,
-          level_id: level?.id,
+          subject_id: subjectData?.id,
+          level_id: levelData?.id,
           title: paperSlug.split("-").join(" ").toUpperCase(),
           code: paperSlug.split("-").join("").toUpperCase(),
           slug: paperSlug,
@@ -145,14 +145,14 @@ export async function POST(req: NextRequest) {
         .single();
 
       if (newPaperRow?.error) throw new Error(newPaperRow?.error.message);
-      paper = newPaperRow?.data;
+      paperData = newPaperRow?.data;
     }
 
     //insert
     const { data, error } = await db.from("resources").insert({
-      level_id: level?.id,
-      subject_id: subject?.id,
-      paper_id: paper?.id,
+      level_id: levelData?.id,
+      subject_id: subjectData?.id,
+      paper_id: paperData?.id,
       title,
       description,
       content,

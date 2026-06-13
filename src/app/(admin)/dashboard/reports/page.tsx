@@ -25,8 +25,6 @@ type Report = {
   } | null;
 };
 
-const STATUS_OPTIONS = ["open", "reviewed", "resolved", "dismissed"];
-
 export default async function ReportsPage() {
   const db = await connectDb();
 

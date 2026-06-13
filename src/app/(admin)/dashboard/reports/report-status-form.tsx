@@ -25,13 +25,7 @@ export default function ReportStatusForm({
         name="status"
         defaultValue={currentStatus}
         disabled={isPending}
-        className="
-          rounded-xl border
-          bg-background
-          px-3 py-2
-          text-sm
-          outline-none
-        "
+        className="rounded-xl border bg-background px-3 py-2 text-sm outline-none"
         onChange={(e) => {
           const form = e.currentTarget.form;
 

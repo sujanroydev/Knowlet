@@ -1,47 +1,37 @@
 "use client";
 
-import { useTransition } from "react";
+import type { ReportStatus } from "./types";
 
-const STATUS_OPTIONS = ["open", "reviewed", "resolved", "dismissed"];
+const STATUS_OPTIONS: ReportStatus[] = [
+  "open",
+  "reviewed",
+  "resolved",
+  "dismissed",
+];
 
 type Props = {
   reportId: string;
-  currentStatus: string;
-  updateReportStatus: (formData: FormData) => Promise<void>;
+  currentStatus: ReportStatus;
+  onStatusChange: (reportId: string, status: ReportStatus) => void;
 };
 
 export default function ReportStatusForm({
   reportId,
   currentStatus,
-  updateReportStatus,
+  onStatusChange,
 }: Props) {
-  const [isPending, startTransition] = useTransition();
-
   return (
-    <form action={updateReportStatus}>
-      <input type="hidden" name="reportId" value={reportId} />
-
-      <select
-        name="status"
-        defaultValue={currentStatus}
-        disabled={isPending}
-        className="rounded-xl border bg-background px-3 py-2 text-sm outline-none"
-        onChange={(e) => {
-          const form = e.currentTarget.form;
-
-          if (!form) return;
-
-          startTransition(() => {
-            form.requestSubmit();
-          });
-        }}
-      >
-        {STATUS_OPTIONS.map((status) => (
-          <option key={status} value={status}>
-            {status}
-          </option>
-        ))}
-      </select>
-    </form>
+    <select
+      name="status"
+      className="rounded-xl border bg-background px-3 py-2 text-sm outline-none"
+      value={currentStatus}
+      onChange={(e) => onStatusChange(reportId, e.target.value as ReportStatus)}
+    >
+      {STATUS_OPTIONS.map((status) => (
+        <option key={status} value={status}>
+          {status}
+        </option>
+      ))}
+    </select>
   );
 }

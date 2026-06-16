@@ -3,6 +3,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useAuth } from "./AuthContext";
 import { toast } from "sonner";
+import { ParsedPath } from "@/types/resource";
 
 type ReaderContextType = {
   resourceId: string | null;

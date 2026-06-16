@@ -14,6 +14,7 @@ import {
   Edit,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { ParsedPath } from "@/types/resource";
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;

@@ -5,6 +5,7 @@ import ResourcePreview from "./resource-preview";
 import ResourceActions from "./resource-actions";
 import ResourceDetails from "./resource-details";
 import { useEffect, useMemo, useState } from "react";
+import { Resource } from "@/types/resource";
 
 interface Details {
   title: string;

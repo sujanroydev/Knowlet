@@ -1,5 +1,6 @@
 "use client";
 
+import { Resource } from "@/types/resource";
 import { useState } from "react";
 import { toast } from "sonner";
 

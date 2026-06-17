@@ -1,4 +1,7 @@
-import StatsActivity from "./Stats/Activity";
+import ActivityBlock from "./Stats/Activity";
+import LevelBlock from "./Stats/Level";
+import StreakBlock from "./Stats/Streak";
+import StatsStreak from "./Stats/Streak";
 
 export default async function StatsSection() {
   return (
@@ -7,7 +10,9 @@ export default async function StatsSection() {
         Your Learning Stats
       </h2>
 
-      <StatsActivity />
+      <ActivityBlock />
+      {/* <StreakBlock />
+      <LevelBlock /> */}
     </div>
   );
 }

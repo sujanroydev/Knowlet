@@ -1,7 +1,5 @@
 import connectDb from "@/lib/db";
 import StatsBlock from "./Block";
-import { cookies } from "next/headers";
-import { verifyJwt } from "@/lib/auth";
 
 type HistoryItem = {
   created_at: string;
@@ -75,14 +73,7 @@ export function getStreakData(history: HistoryItem[]) {
   };
 }
 
-export default async function StreakBlock() {
-  const cookieStore = await cookies();
-  const token = cookieStore.get("token")?.value;
-
-  const { ok, payload } = await verifyJwt(token);
-
-  if (!ok) return;
-
+export default async function StreakBlock({ userId }: { userId: string }) {
   const db = await connectDb();
   const thirtyDaysAgo = new Date();
   thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 90);
@@ -90,7 +81,7 @@ export default async function StreakBlock() {
   const { data: history } = await db
     .from("view_history")
     .select("created_at")
-    .eq("user_id", payload.user_id)
+    .eq("user_id", userId)
     .gte("created_at", thirtyDaysAgo.toISOString());
 
   const streakData = getStreakData(history as HistoryItem[]);

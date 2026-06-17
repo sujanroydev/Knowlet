@@ -12,7 +12,7 @@ function getLevelData(history: HistoryItem[]) {
   const xp = calculateXp(history);
 
   let level = 1;
-  let required = 20;
+  let required = 40;
   let previousRequired = 0;
 
   while (xp >= required) {
@@ -21,8 +21,7 @@ function getLevelData(history: HistoryItem[]) {
     required = Math.floor(required * 1.6);
   }
 
-  const progressPercent =
-    ((xp - previousRequired) / (required - previousRequired)) * 100;
+  const progressPercent = ((xp - previousRequired) / required) * 100;
 
   const levelNames = [
     "Reader",
@@ -41,6 +40,7 @@ function getLevelData(history: HistoryItem[]) {
     level,
     levelName,
     xp,
+    previousRequired,
     required,
     progressPercent: Math.min(progressPercent, 100),
   };
@@ -107,22 +107,36 @@ export default async function LevelBlock() {
 
   return (
     <StatsBlock title="Level">
-      <p className="text-sm font-medium mb-2">
-        Level {level}: {levelName}
-      </p>
+      <div className="flex items-center justify-between mb-3">
+        <div>
+          <p className="text-xs text-gray-500">Current Level</p>
+          <p className="text-lg font-semibold leading-tight">
+            {level} · {levelName}
+          </p>
+        </div>
 
-      <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-        <div
-          className="h-full bg-blue-500 transition-all"
-          style={{ width: progressPercent }}
-        />
+        <div className="text-right">
+          <p className="text-xs text-gray-500">XP</p>
+          <p className="text-sm font-medium">{xp}</p>
+        </div>
       </div>
 
-      <p className="text-xs text-gray-500 mt-2">
-        {required - xp} XP to next level
-      </p>
+      <div className="relative w-full h-3 bg-gray-100 rounded-full overflow-hidden">
+        <div
+          className="h-full bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full transition-all duration-500"
+          style={{ width: `${progressPercent}%` }}
+        />
 
-      <p className="text-xs text-gray-500">{xp} XP</p>
+        <div className="absolute inset-0 bg-white/10" />
+      </div>
+
+      <div className="flex items-center justify-between mt-3">
+        <p className="text-xs text-gray-500">
+          {required - xp} XP to next level
+        </p>
+
+        <p className="text-xs text-gray-400">{progressPercent}% complete</p>
+      </div>
     </StatsBlock>
   );
 }

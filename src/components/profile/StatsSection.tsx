@@ -12,7 +12,7 @@ export default async function StatsSection() {
 
       <ActivityBlock />
       <StreakBlock />
-      {/* <LevelBlock /> */}
+      <LevelBlock />
     </div>
   );
 }

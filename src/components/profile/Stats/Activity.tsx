@@ -1,17 +1,7 @@
-import { verifyJwt } from "@/lib/auth";
 import connectDb from "@/lib/db";
-import { cookies } from "next/headers";
 import StatsBlock from "./Block";
 
-export default async function ActivityBlock() {
-  const cookieStore = await cookies();
-  const token = cookieStore.get("token")?.value;
-
-  const { ok, payload } = await verifyJwt(token);
-
-  if (!ok) return;
-
-  const userId = payload.user_id;
+export default async function ActivityBlock({ userId }: { userId: string }) {
   const db = await connectDb();
 
   const [likes, bookmarks, history] = await Promise.all([

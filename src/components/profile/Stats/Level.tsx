@@ -1,7 +1,5 @@
 import connectDb from "@/lib/db";
 import StatsBlock from "./Block";
-import { cookies } from "next/headers";
-import { verifyJwt } from "@/lib/auth";
 
 type HistoryItem = {
   created_at: any;
@@ -12,7 +10,7 @@ function getLevelData(history: HistoryItem[]) {
   const xp = calculateXp(history);
 
   let level = 1;
-  let required = 40;
+  let required = 30;
   let previousRequired = 0;
 
   while (xp >= required) {
@@ -42,7 +40,7 @@ function getLevelData(history: HistoryItem[]) {
     xp,
     previousRequired,
     required,
-    progressPercent: Math.min(progressPercent, 100),
+    progressPercent: Math.min(progressPercent, 100).toFixed(2),
   };
 }
 
@@ -82,19 +80,14 @@ function calculateXp(history: HistoryItem[]) {
   return Math.round(xp);
 }
 
-export default async function LevelBlock() {
-  const cookieStore = await cookies();
-  const token = cookieStore.get("token")?.value;
-
-  const { ok, payload } = await verifyJwt(token);
-
-  if (!ok) return;
-
+export default async function LevelBlock({ userId }: { userId: string }) {
   const db = await connectDb();
   const { data, error } = await db
     .from("view_history")
     .select("created_at, resources(path)")
-    .eq("user_id", payload.user_id);
+    .eq("user_id", userId);
+
+  if (error) return;
 
   const history = (data as any[])?.map((i) => ({
     created_at: i.created_at,
@@ -102,7 +95,6 @@ export default async function LevelBlock() {
   }));
 
   const levelData = getLevelData(history);
-  console.log(levelData);
   const { level, levelName, xp, required, progressPercent } = levelData;
 
   return (

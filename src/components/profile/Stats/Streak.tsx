@@ -1,5 +1,6 @@
 import connectDb from "@/lib/db";
 import StatsBlock from "./Block";
+import { Flame, Trophy, Circle } from "lucide-react";
 
 type HistoryItem = {
   created_at: string;
@@ -88,27 +89,54 @@ export default async function StreakBlock({ userId }: { userId: string }) {
 
   return (
     <StatsBlock title="7 Day Streak">
-      <div className="flex gap-2 mb-3">
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-start gap-2">
+          <Flame className="w-5 h-5 text-orange-500 mt-0.5" />
+          <div>
+            <p className="text-xs text-gray-500">Current streak</p>
+            <p className="text-lg font-semibold">
+              {streakData.currentStreak} days
+            </p>
+          </div>
+        </div>
+
+        <div className="flex items-start gap-2 text-right">
+          <Trophy className="w-5 h-5 text-yellow-500 mt-0.5" />
+          <div>
+            <p className="text-xs text-gray-500">Best</p>
+            <p className="text-sm font-medium">
+              {streakData.longestStreak} days
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex items-center justify-between gap-2 mb-3">
         {streakData.days.map((d, i) => (
-          <div key={i} className="flex flex-col items-center">
+          <div key={i} className="flex flex-col items-center flex-1">
+            {/* ROUND ICON */}
             <div
-              className={`h-7 w-7 rounded-full border ${
+              className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
                 d.active
-                  ? "bg-green-500 border-green-500"
-                  : "bg-gray-200 border-gray-300"
+                  ? "bg-orange-100 text-orange-500 shadow-sm"
+                  : "bg-gray-100 text-gray-400"
               }`}
-            />
-            <span className="text-xs mt-1 text-gray-500">{d.day}</span>
+            >
+              {d.active ? (
+                <Flame className="w-4 h-4" />
+              ) : (
+                <Circle className="w-3 h-3" />
+              )}
+            </div>
+
+            {/* label */}
+            <span className="text-[10px] mt-1 text-gray-500">{d.day}</span>
           </div>
         ))}
       </div>
 
-      <p className="text-sm font-medium">
-        🔥 {streakData.currentStreak} Day Streak
-      </p>
-
       <p className="text-xs text-gray-500">
-        Best: {streakData.longestStreak} days
+        Keep going — consistency compounds over time.
       </p>
     </StatsBlock>
   );

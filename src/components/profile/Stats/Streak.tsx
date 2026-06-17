@@ -19,7 +19,7 @@ export function getStreakData(history: HistoryItem[]) {
   let date = new Date();
   date.setHours(0, 0, 0, 0);
 
-  while (studiedDays.has(date.toISOString().slice(0, 10))) {
+  while (studiedDays.has(getDateKey(date))) {
     currentStreak++;
     date.setDate(date.getDate() - 1);
   }
@@ -44,6 +44,14 @@ export function getStreakData(history: HistoryItem[]) {
   }
 
   // Last 7 days activity
+  function getDateKey(date: Date) {
+    return [
+      date.getFullYear(),
+      String(date.getMonth() + 1).padStart(2, "0"),
+      String(date.getDate()).padStart(2, "0"),
+    ].join("-");
+  }
+
   const days = [];
   const formatter = new Intl.DateTimeFormat("en-US", {
     weekday: "short",
@@ -51,14 +59,14 @@ export function getStreakData(history: HistoryItem[]) {
 
   for (let i = 6; i >= 0; i--) {
     const d = new Date();
-    d.setHours(0, 0, 0, 0);
     d.setDate(d.getDate() - i);
 
     days.push({
-      day: formatter.format(d)[0], // M,T,W,T,F,S,S
-      active: studiedDays.has(d.toISOString().slice(0, 10)),
+      day: formatter.format(d)[0],
+      active: studiedDays.has(getDateKey(d)),
     });
   }
+  // TODO: also manage freez streak
 
   return {
     currentStreak,
@@ -87,13 +95,10 @@ export default async function StreakBlock() {
 
   const streakData = getStreakData(history as HistoryItem[]);
 
-  console.log(streakData);
-
-  const { currentStreak, longestStreak, days } = streakData;
   return (
     <StatsBlock title="7 Day Streak">
       <div className="flex gap-2 mb-3">
-        {days.map((d, i) => (
+        {streakData.days.map((d, i) => (
           <div key={i} className="flex flex-col items-center">
             <div
               className={`h-7 w-7 rounded-full border ${
@@ -107,9 +112,13 @@ export default async function StreakBlock() {
         ))}
       </div>
 
-      <p className="text-sm font-medium">🔥 {currentStreak} Day Streak</p>
+      <p className="text-sm font-medium">
+        🔥 {streakData.currentStreak} Day Streak
+      </p>
 
-      <p className="text-xs text-gray-500">Best: {longestStreak} days</p>
+      <p className="text-xs text-gray-500">
+        Best: {streakData.longestStreak} days
+      </p>
     </StatsBlock>
   );
 }

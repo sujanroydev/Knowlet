@@ -3,7 +3,7 @@ import connectDb from "@/lib/db";
 import { cookies } from "next/headers";
 import StatsBlock from "./Block";
 
-export default async function StatsActivity() {
+export default async function ActivityBlock() {
   const cookieStore = await cookies();
   const token = cookieStore.get("token")?.value;
 

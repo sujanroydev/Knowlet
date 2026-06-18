@@ -3,7 +3,7 @@ import { schedules, logger } from "@trigger.dev/sdk/v3";
 export const updateLevels = schedules.task({
   id: "update-levels",
   // cron: "0 0 1 1,7 *",
-  cron: "* * * * *",
+  cron: "*/2 * * * *",
 
   run: async () => {
     try {

@@ -48,6 +48,9 @@ function getLevelData(history: HistoryItem[]) {
 function calculateXp(history: HistoryItem[]) {
   if (!history.length) return 0;
 
+  let bft = 0;
+  let bfts = 0;
+
   const sortedByDate = [...history].sort(
     (a, b) =>
       new Date(a.created_at).getTime() - new Date(b.created_at).getTime(),
@@ -69,41 +72,48 @@ function calculateXp(history: HistoryItem[]) {
     if (lastTime && time - lastTime <= FIVE_MIN) {
       streakForTime += 1;
     } else {
-      streakForTime = 1;
+      streakForTime = 0;
     }
 
     lastTime = time;
 
     const streakBonus = Math.min(streakForTime * 0.5, 3);
-    // console.log(streakBonus);
-    // xp += streakBonus;
+    xp += streakBonus;
   }
+  bft = xp - history.length;
 
   let streakForPath = 0;
   let lastTargetSlug = "";
 
   for (const item of sortedByPath) {
     const { targetSlug } = parseResourcePath(item.path);
+    const calculatedTargetSlug =
+      lastTargetSlug.split("-")[0] +
+      "-" +
+      (Number(lastTargetSlug.split("-")[1]) + 1);
 
-    if (
-      lastTargetSlug &&
-      String(Number(lastTargetSlug.split("-")[1]) + 1) === targetSlug
-    ) {
+    // console.log("calculatedTargetSlug: ", calculatedTargetSlug);
+    // console.log("targetSlug: ", targetSlug);
+
+    if (lastTargetSlug && calculatedTargetSlug === targetSlug) {
       streakForPath += 1;
-      console.log(streakForPath);
-      console.log(item.path);
+      // console.log(item.path);
     } else {
-      streakForPath = 1;
+      streakForPath = 0;
     }
+    // TODO: also give bonus for same after 10 min
 
     lastTargetSlug = targetSlug;
 
     const streakBonus = Math.min(streakForPath * 0.5, 5);
-    console.log(streakBonus);
+    // console.log(streakBonus);
     xp += streakBonus;
   }
+  bfts = xp - history.length - bft;
 
-  return Math.round(xp);
+  console.log("%d + %d + %d = %d", history.length, bft, bfts, xp);
+
+  return xp;
 }
 
 export default async function LevelBlock({ userId }: { userId: string }) {

@@ -2,7 +2,6 @@ import { apiError } from "@/lib/api-response";
 import connectDb from "@/lib/db";
 import { sendEmail } from "@/services/email/send";
 import { educationalDetailsUpdateReminderTemplate } from "@/services/email/templates/educational-details-update-reminder";
-import { sendNotificationByEmailId } from "@/services/notification/send";
 import { NextRequest } from "next/server";
 
 export async function POST(req: NextRequest) {
@@ -20,8 +19,7 @@ export async function POST(req: NextRequest) {
     const userEmails = data.map((i) => i.email) as string[];
 
     await sendEmail({
-      // to: userEmails,
-      to: "sujanroydev@gmail.com",
+      to: userEmails,
       subject: "Verify your academic information",
       html: educationalDetailsUpdateReminderTemplate(),
     });

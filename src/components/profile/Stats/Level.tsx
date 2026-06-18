@@ -20,7 +20,7 @@ function getLevelData(history: HistoryItem[]) {
   const xp = calculateXp(history);
 
   let level = 1;
-  let required = 30;
+  let required = 20;
   let previousRequired = 0;
 
   while (xp >= required) {
@@ -29,7 +29,8 @@ function getLevelData(history: HistoryItem[]) {
     required = Math.floor(required * 1.6);
   }
 
-  const progressPercent = ((xp - previousRequired) / required) * 100;
+  const progressPercent =
+    ((xp - previousRequired) / (required - previousRequired)) * 100;
 
   const levelNames = [
     "Reader",
@@ -57,9 +58,11 @@ function getLevelData(history: HistoryItem[]) {
 function calculateXp(history: HistoryItem[]) {
   if (!history.length) return 0;
 
-  const sortedByPath = [...history].sort((a, b) => {
-    const aParts = a.path.split("/");
-    const bParts = b.path.split("/");
+  const uniqueHistory = [...new Set(history.map((i) => i.path))];
+
+  const sortedHistory = [...uniqueHistory].sort((a, b) => {
+    const aParts = a.split("/");
+    const bParts = b.split("/");
 
     for (let i = 0; i < Math.max(aParts.length, bParts.length); i++) {
       const aP = parsePart(aParts[i] ?? "");
@@ -80,30 +83,25 @@ function calculateXp(history: HistoryItem[]) {
     return 0;
   });
 
-  let xp = [...new Set(history.map((i) => i.path))].length;
+  let xp = uniqueHistory.length;
 
-  let streakForPath = 0;
-  let lastTargetSlug = "";
+  let streak = 0;
+  let lastSlug = "";
 
-  for (const item of sortedByPath) {
-    const path = item.path;
-    const { targetSlug } = parseResourcePath(path);
+  for (const item of sortedHistory) {
+    const path = item;
+    const { paperSlug } = parseResourcePath(path);
+    const parts = path.split("/");
+    const slug = parts.slice(0, paperSlug ? 3 : 2).join("/");
 
-    const lastTargetSlugParts = lastTargetSlug.split("-");
-    const calculatedTargetSlug = `${lastTargetSlugParts[0]}-${Number(lastTargetSlugParts[1]) + 1}`;
-
-    if (lastTargetSlug && calculatedTargetSlug === targetSlug) {
-      streakForPath += 1;
-    } else if (lastTargetSlug === targetSlug) {
-      streakForPath += 0.5;
+    if (lastSlug && lastSlug === slug) {
+      streak += 1;
     } else {
-      streakForPath = 0;
+      streak = 0;
     }
 
-    lastTargetSlug = targetSlug;
-
-    const streakBonus = Math.min(streakForPath * 0.5, 5);
-    xp += streakBonus;
+    lastSlug = slug;
+    xp += Math.min(streak * 0.5, 5);
   }
 
   return xp;

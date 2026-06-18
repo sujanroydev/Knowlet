@@ -116,7 +116,7 @@ export async function sendNotificationByUserId({
     .eq("user_id", user_id);
 
   if (error) throw error;
-  if (!data.length) throw new Error("User Doesn't Exist");
+  if (!data.length) throw new Error("Subscription Doesn't Exist");
 
   const subscriptions: Subscription[] = data.map((row) => ({
     id: row.id,
@@ -145,23 +145,19 @@ export async function sendNotificationByEmailId({
   const db = await connectDb();
 
   const { data, error } = await db
-    .from("push_subscriptions")
-    .select("id, user_id, endpoint, auth, p256dh")
+    .from("users")
+    .select("id")
     .eq("email", emailId);
 
   if (error) throw error;
+
   if (!data.length) throw new Error("User Doesn't Exist");
 
-  const subscriptions: Subscription[] = data.map((row) => ({
-    id: row.id,
-    endpoint: row.endpoint,
-    keys: { auth: row.auth, p256dh: row.p256dh },
-    user_id: row.user_id,
-  }));
+  const users = data.map((i) => i.id) as string[];
 
-  const notificationStats = sendNotification({
+  const notificationStats = sendNotificationByUserId({
     title,
-    subscription: subscriptions,
+    user_id: users,
     options,
   });
 

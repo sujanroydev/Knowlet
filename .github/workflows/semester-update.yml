@@ -11,6 +11,7 @@ jobs:
     steps:
       - name: Call API
         run: |
-          curl -X POST \
+          curl --fail -i \
+            -X POST \
             -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
             https://knowlet.in/api/automation/level-update

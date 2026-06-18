@@ -16,7 +16,11 @@ export async function POST(req: NextRequest) {
     const { data, error } = await db.from("users").select("email");
 
     if (error) throw error;
-    const userEmails = data.map((i) => i.email) as string[];
+
+    const userEmails =
+      process.env.NODE_ENV === "production"
+        ? (data.map((i) => i.email) as string[])
+        : ["mr.sujan.kumar.roy@gmail.com"];
 
     await sendEmail({
       to: userEmails,

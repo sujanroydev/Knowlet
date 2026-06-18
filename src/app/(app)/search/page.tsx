@@ -1,5 +1,6 @@
 "use client";
 
+import { Resource } from "@/types/resource";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";

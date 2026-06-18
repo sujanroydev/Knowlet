@@ -44,7 +44,7 @@ export async function sendEmailByUserId({
   from = "Knowlet <noreply@knowlet.in>",
   replyTo,
 }: {
-  user_id: string;
+  user_id: string; // TODO: upgrade to this to work with string[] also
   subject: string;
   html: string;
   from?: string;

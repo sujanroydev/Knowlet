@@ -2,6 +2,7 @@ import { parseResourcePath } from "@/components/dashboard/resources/utils";
 import { authGate } from "@/lib/auth/authGate";
 import connectDb from "@/lib/db";
 import { sendNotificationByUserId } from "@/services/notification/send";
+import { Resource } from "@/types/resource";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {

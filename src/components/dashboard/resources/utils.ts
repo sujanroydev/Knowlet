@@ -1,3 +1,5 @@
+import { ResourceType } from "@/types/resource";
+
 const typeToPath: Record<ResourceType, string> = {
   note: "notes",
   pyq: "pyq",

@@ -7,6 +7,15 @@ type HistoryItem = {
   path: string;
 };
 
+const parsePart = (part: string) => {
+  const match = part.match(/^([a-zA-Z-]+)-(\d+)$/);
+  if (!match) return { text: part, num: null };
+  return {
+    text: match[1],
+    num: Number(match[2]),
+  };
+};
+
 function getLevelData(history: HistoryItem[]) {
   const xp = calculateXp(history);
 
@@ -56,15 +65,6 @@ function calculateXp(history: HistoryItem[]) {
       new Date(a.created_at).getTime() - new Date(b.created_at).getTime(),
   );
 
-  const parsePart = (part: string) => {
-    const match = part.match(/^([a-zA-Z-]+)-(\d+)$/);
-    if (!match) return { text: part, num: null };
-    return {
-      text: match[1],
-      num: Number(match[2]),
-    };
-  };
-
   const sortedByPath = [...history].sort((a, b) => {
     const aParts = a.path.split("/");
     const bParts = b.path.split("/");
@@ -106,7 +106,6 @@ function calculateXp(history: HistoryItem[]) {
     lastTime = time;
 
     const streakBonus = Math.min(streakForTime * 0.5, 3);
-    // console.log(streakBonus);
     xp += streakBonus;
   }
   bft = xp - history.length;
@@ -115,32 +114,25 @@ function calculateXp(history: HistoryItem[]) {
   let lastTargetSlug = "";
 
   for (const item of sortedByPath) {
-    const { targetSlug } = parseResourcePath(item.path);
-    const calculatedTargetSlug =
-      lastTargetSlug.split("-")[0] +
-      "-" +
-      (Number(lastTargetSlug.split("-")[1]) + 1);
+    const path = item.path;
+    const { targetSlug } = parseResourcePath(path);
 
-    // console.log("calculatedTargetSlug: ", calculatedTargetSlug);
-    // console.log("targetSlug: ", targetSlug);
+    const lastTargetSlugParts = lastTargetSlug.split("-");
+    const calculatedTargetSlug = `${lastTargetSlugParts[0]}-${Number(lastTargetSlugParts[1]) + 1}`;
 
     if (lastTargetSlug && calculatedTargetSlug === targetSlug) {
       streakForPath += 1;
-      // console.log(item.path);
     } else {
       streakForPath = 0;
     }
-    // TODO: also give bonus for same after 10 min
 
     lastTargetSlug = targetSlug;
 
     const streakBonus = Math.min(streakForPath * 0.5, 5);
-    // console.log(streakBonus);
     xp += streakBonus;
   }
   bfts = xp - history.length - bft;
 
-  console.log(sortedByPath);
   console.log("%d + %d + %d = %d", history.length, bft, bfts, xp);
 
   return xp;

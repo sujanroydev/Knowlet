@@ -57,11 +57,6 @@ function getLevelData(history: HistoryItem[]) {
 function calculateXp(history: HistoryItem[]) {
   if (!history.length) return 0;
 
-  const sortedByDate = [...history].sort(
-    (a, b) =>
-      new Date(a.created_at).getTime() - new Date(b.created_at).getTime(),
-  );
-
   const sortedByPath = [...history].sort((a, b) => {
     const aParts = a.path.split("/");
     const bParts = b.path.split("/");
@@ -87,26 +82,8 @@ function calculateXp(history: HistoryItem[]) {
 
   let xp = [...new Set(history.map((i) => i.path))].length;
 
-  let streakForTime = 0;
   let streakForPath = 0;
-
-  let lastTime = 0;
   let lastTargetSlug = "";
-
-  for (const item of sortedByDate) {
-    const time = new Date(item.created_at).getTime();
-
-    if (lastTime && time - lastTime <= 5 * 60 * 1000) {
-      streakForTime += 1;
-    } else {
-      streakForTime = 0;
-    }
-
-    lastTime = time;
-
-    const streakBonus = Math.min(streakForTime * 0.5, 3);
-    xp += streakBonus;
-  }
 
   for (const item of sortedByPath) {
     const path = item.path;
@@ -118,7 +95,7 @@ function calculateXp(history: HistoryItem[]) {
     if (lastTargetSlug && calculatedTargetSlug === targetSlug) {
       streakForPath += 1;
     } else if (lastTargetSlug === targetSlug) {
-      streakForPath += 0;
+      streakForPath += 0.5;
     } else {
       streakForPath = 0;
     }

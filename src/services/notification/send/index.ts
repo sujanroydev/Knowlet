@@ -132,3 +132,38 @@ export async function sendNotificationByUserId({
   });
   return notificationStats;
 }
+
+export async function sendNotificationByEmailId({
+  title,
+  emailId,
+  options,
+}: {
+  title: string;
+  emailId: string | string[];
+  options: Options;
+}) {
+  const db = await connectDb();
+
+  const { data, error } = await db
+    .from("push_subscriptions")
+    .select("id, user_id, endpoint, auth, p256dh")
+    .eq("email", emailId);
+
+  if (error) throw error;
+  if (!data.length) throw new Error("User Doesn't Exist");
+
+  const subscriptions: Subscription[] = data.map((row) => ({
+    id: row.id,
+    endpoint: row.endpoint,
+    keys: { auth: row.auth, p256dh: row.p256dh },
+    user_id: row.user_id,
+  }));
+
+  const notificationStats = sendNotification({
+    title,
+    subscription: subscriptions,
+    options,
+  });
+
+  return notificationStats;
+}

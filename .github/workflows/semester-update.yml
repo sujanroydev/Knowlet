@@ -1,0 +1,16 @@
+name: Level Update
+
+on:
+  schedule:
+    - cron: "1 * * * *"
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Call API
+        run: |
+          curl -X POST \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            https://knowlet.in/api/automation/level-update

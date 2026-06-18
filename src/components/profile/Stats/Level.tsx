@@ -56,9 +56,33 @@ function calculateXp(history: HistoryItem[]) {
       new Date(a.created_at).getTime() - new Date(b.created_at).getTime(),
   );
 
-  const sortedByPath = [...history].sort((a, b) =>
-    a.path.toLowerCase().localeCompare(b.path.toLowerCase()),
-  );
+  const sortedByPath = [...history].sort((a, b) => {
+    const parse = (str: string) =>
+      str.split("/").map((part) => {
+        const num = Number(part.match(/\d+/)?.[0]);
+        return isNaN(num) ? part : num; // numeric if possible, else string
+      });
+
+    const aParts = parse(a.path);
+    const bParts = parse(b.path);
+
+    for (let i = 0; i < Math.max(aParts.length, bParts.length); i++) {
+      const aVal = aParts[i];
+      const bVal = bParts[i];
+
+      if (aVal === bVal) continue;
+
+      // number vs number
+      if (typeof aVal === "number" && typeof bVal === "number") {
+        return aVal - bVal;
+      }
+
+      // string vs string
+      return String(aVal).localeCompare(String(bVal));
+    }
+
+    return 0;
+  });
 
   let xp = history.length;
 
@@ -78,6 +102,7 @@ function calculateXp(history: HistoryItem[]) {
     lastTime = time;
 
     const streakBonus = Math.min(streakForTime * 0.5, 3);
+    // console.log(streakBonus);
     xp += streakBonus;
   }
   bft = xp - history.length;
@@ -111,6 +136,7 @@ function calculateXp(history: HistoryItem[]) {
   }
   bfts = xp - history.length - bft;
 
+  console.log(sortedByPath);
   console.log("%d + %d + %d = %d", history.length, bft, bfts, xp);
 
   return xp;

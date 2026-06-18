@@ -1,5 +1,6 @@
 import connectDb from "@/lib/db";
 import StatsBlock from "./Block";
+import { parseResourcePath } from "@/components/dashboard/resources/utils";
 
 type HistoryItem = {
   created_at: any;
@@ -47,36 +48,61 @@ function getLevelData(history: HistoryItem[]) {
 function calculateXp(history: HistoryItem[]) {
   if (!history.length) return 0;
 
-  const sorted = [...history].sort(
+  const sortedByDate = [...history].sort(
     (a, b) =>
       new Date(a.created_at).getTime() - new Date(b.created_at).getTime(),
   );
 
-  let xp = 0;
-  let streak = 0;
+  const sortedByPath = [...history].sort((a, b) =>
+    a.path.toLowerCase().localeCompare(b.path.toLowerCase()),
+  );
 
+  let xp = history.length;
+
+  let streakForTime = 0;
   let lastTime = 0;
   const FIVE_MIN = 5 * 60 * 1000;
 
-  for (const item of sorted) {
+  for (const item of sortedByDate) {
     const time = new Date(item.created_at).getTime();
-    xp += 1;
 
-    // check continuity (within 5 minutes)
     if (lastTime && time - lastTime <= FIVE_MIN) {
-      streak += 1;
+      streakForTime += 1;
     } else {
-      streak = 1;
+      streakForTime = 1;
     }
 
     lastTime = time;
 
-    // streak bonus (capped so it can't be farmed)
-    const streakBonus = Math.min(streak * 0.2, 3);
+    const streakBonus = Math.min(streakForTime * 0.5, 3);
+    // console.log(streakBonus);
+    // xp += streakBonus;
+  }
+
+  let streakForPath = 0;
+  let lastTargetSlug = "";
+
+  for (const item of sortedByPath) {
+    const { targetSlug } = parseResourcePath(item.path);
+
+    if (
+      lastTargetSlug &&
+      String(Number(lastTargetSlug.split("-")[1]) + 1) === targetSlug
+    ) {
+      streakForPath += 1;
+      console.log(streakForPath);
+      console.log(item.path);
+    } else {
+      streakForPath = 1;
+    }
+
+    lastTargetSlug = targetSlug;
+
+    const streakBonus = Math.min(streakForPath * 0.5, 5);
+    console.log(streakBonus);
     xp += streakBonus;
   }
 
-  // return history;
   return Math.round(xp);
 }
 

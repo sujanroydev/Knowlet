@@ -3,8 +3,8 @@ import StatsBlock from "./Block";
 import { parseResourcePath } from "@/components/dashboard/resources/utils";
 
 type HistoryItem = {
-  created_at: any;
-  path: any;
+  created_at: string;
+  path: string;
 };
 
 function getLevelData(history: HistoryItem[]) {
@@ -56,29 +56,33 @@ function calculateXp(history: HistoryItem[]) {
       new Date(a.created_at).getTime() - new Date(b.created_at).getTime(),
   );
 
-  const sortedByPath = [...history].sort((a, b) => {
-    const parse = (str: string) =>
-      str.split("/").map((part) => {
-        const num = Number(part.match(/\d+/)?.[0]);
-        return isNaN(num) ? part : num; // numeric if possible, else string
-      });
+  const parsePart = (part: string) => {
+    const match = part.match(/^([a-zA-Z-]+)-(\d+)$/);
+    if (!match) return { text: part, num: null };
+    return {
+      text: match[1],
+      num: Number(match[2]),
+    };
+  };
 
-    const aParts = parse(a.path);
-    const bParts = parse(b.path);
+  const sortedByPath = [...history].sort((a, b) => {
+    const aParts = a.path.split("/");
+    const bParts = b.path.split("/");
 
     for (let i = 0; i < Math.max(aParts.length, bParts.length); i++) {
-      const aVal = aParts[i];
-      const bVal = bParts[i];
+      const aP = parsePart(aParts[i] ?? "");
+      const bP = parsePart(bParts[i] ?? "");
 
-      if (aVal === bVal) continue;
+      const textDiff = aP.text.localeCompare(bP.text);
+      if (textDiff !== 0) return textDiff;
 
-      // number vs number
-      if (typeof aVal === "number" && typeof bVal === "number") {
-        return aVal - bVal;
+      if (aP.num !== null && bP.num !== null) {
+        const numDiff = aP.num - bP.num;
+        if (numDiff !== 0) return numDiff;
       }
 
-      // string vs string
-      return String(aVal).localeCompare(String(bVal));
+      const fallback = aParts[i].localeCompare(bParts[i]);
+      if (fallback !== 0) return fallback;
     }
 
     return 0;

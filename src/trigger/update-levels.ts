@@ -1,22 +1,33 @@
-import connectDb from "@/lib/db";
-import { sendEmail } from "@/services/email/send";
-import { educationalDetailsUpdateReminderTemplate } from "@/services/email/templates/educational-details-update-reminder";
-import { schedules } from "@trigger.dev/sdk/v3";
+import { schedules, logger } from "@trigger.dev/sdk/v3";
 
 export const updateLevels = schedules.task({
   id: "update-levels",
-  cron: "0 0 1 1,7 *",
+  // cron: "0 0 1 1,7 *",
+  cron: "* * * * *",
+
   run: async () => {
-    const db = await connectDb();
-    const { data, error } = await db.from("users").select("email");
+    try {
+      const res = await fetch(
+        "https://knowlet.in/api/automation/level-update",
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${process.env.AUTOMATION_SECRET}`,
+            "Content-Type": "application/json",
+          },
+        },
+      );
 
-    if (error) throw error;
-    const userEmails = data.map((i) => i.email) as string[];
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(`API failed: ${res.status} - ${text}`);
+      }
 
-    await sendEmail({
-      to: userEmails,
-      subject: "Verify your academic information",
-      html: educationalDetailsUpdateReminderTemplate(),
-    });
+      const data = await res.json();
+      logger.info("Level update success", { data });
+    } catch (err) {
+      logger.error("Level update failed", { err });
+      throw err;
+    }
   },
 });

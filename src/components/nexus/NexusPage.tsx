@@ -13,7 +13,7 @@ export default function NexusPage() {
     <div className="h-full flex items-center justify-center bg-gray-100">
       <div className="w-full max-w-xl h-full flex flex-col border border-gray-200 rounded-xl bg-white shadow-sm">
         <NexusChat messages={messages} />
-
+        {/* TODO: add 3 line menu */}
         {/* <NexusToolbar mode={mode} setMode={setMode} /> */}
 
         <NexusInput mode={mode} setMessages={setMessages} messages={messages} />

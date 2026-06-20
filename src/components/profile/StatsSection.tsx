@@ -1,5 +1,4 @@
 import { cookies } from "next/headers";
-import ActivityBlock from "./Stats/Activity";
 import LevelBlock from "./Stats/Level";
 import StreakBlock from "./Stats/Streak";
 import { verifyJwt } from "@/lib/auth";
@@ -19,7 +18,6 @@ export default async function StatsSection() {
         Your Learning Stats
       </h2>
 
-      <ActivityBlock userId={userId} />
       <StreakBlock userId={userId} />
       <LevelBlock userId={userId} />
     </div>

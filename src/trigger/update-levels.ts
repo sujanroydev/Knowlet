@@ -1,17 +1,12 @@
 import { schedules, logger } from "@trigger.dev/sdk/v3";
 
-const isProduction = process.env.NODE_ENV === "production";
-
 export const updateLevels = schedules.task({
   id: "update-levels",
-  cron: isProduction ? "0 0 1 1,7 *" : "*/5 * * * *",
+  cron: "0 0 1 1,7 *",
 
   run: async () => {
     try {
-      const url = isProduction
-        ? "https://knowlet.in/api/automation/level-update"
-        : "http://localhost:3000/api/automation/level-update";
-
+      const url = "https://knowlet.in/api/automation/level-update";
       const res = await fetch(url, {
         method: "POST",
         headers: {

@@ -12,9 +12,11 @@ import {
   SkipBack,
   SkipForward,
   Edit,
+  Share2,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { ParsedPath } from "@/types/resource";
+import { toast } from "sonner";
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
@@ -47,6 +49,19 @@ export default function TopBar() {
       {children}
     </button>
   );
+
+  const handleShare = async () => {
+    try {
+      if (navigator.share) {
+        await navigator.share({ url: pathname });
+      } else {
+        await navigator.clipboard.writeText(pathname);
+        toast.info("Link copied to clipboard");
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   async function updateParsedPath() {
     setParsedPath(await parsePath());
@@ -106,6 +121,10 @@ export default function TopBar() {
                 <Edit className="w-5 h-5" />
               </Btn>
             )}
+
+            <Btn onClick={handleShare} title={"Share"}>
+              <Share2 className={`w-5 h-5 transition`} />
+            </Btn>
 
             <Btn onClick={toggleLike} title={liked ? "Unlike" : "Like"}>
               <ThumbsUp

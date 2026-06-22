@@ -106,4 +106,59 @@ function parseResourcePath(path: string) {
   }
 }
 
-export { buildResourcePath, parseResourcePath };
+function parsePath(path: string) {
+  const parts = path.split("/");
+
+  const titleCase = (text: string) =>
+    text
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+
+  const upperCase = (text: string) => text.replace("-", " ").toUpperCase();
+
+  let levelSlug: string | undefined;
+  let subjectSlug: string | undefined;
+  let paperSlug: string | undefined;
+  let typeSlug: ResourceType | undefined;
+  let targetSlug: string | undefined;
+
+  levelSlug = parts[0];
+  subjectSlug = parts[1];
+
+  if (levelSlug?.startsWith("semester")) {
+    paperSlug = parts[2];
+    typeSlug = (Object.entries(typeToPath).find((i) => i[1] === parts[3]) ||
+      [])[0] as ResourceType;
+    targetSlug = parts[4];
+  } else {
+    typeSlug = (Object.entries(typeToPath).find((i) => i[1] === parts[2]) ||
+      [])[0] as ResourceType;
+    targetSlug = parts[3];
+  }
+
+  return {
+    ...(levelSlug && {
+      level: titleCase(levelSlug),
+      levelSlug,
+    }),
+    ...(subjectSlug && {
+      subject: titleCase(subjectSlug),
+      subjectSlug,
+    }),
+    ...(paperSlug && {
+      paper: upperCase(paperSlug),
+      paperSlug,
+    }),
+    ...(typeSlug && {
+      type: typeSlug === "pyq" ? upperCase(typeSlug) : titleCase(typeSlug),
+      typeSlug,
+    }),
+    ...(targetSlug && {
+      target: titleCase(targetSlug),
+      targetSlug,
+    }),
+  };
+}
+
+export { buildResourcePath, parseResourcePath, parsePath };

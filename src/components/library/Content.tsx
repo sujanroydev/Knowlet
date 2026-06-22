@@ -16,6 +16,9 @@ export default async function Content({ slug }: { slug: string[] }) {
     notFound();
   }
 
+  // TODO: ADD A NAVIGATOR IN LEFT SIDE TOGGLE FROM 3 LINES IN HEADER
+  // TODO: SHARE BUTTON IN THE TOP BAR
+
   return (
     <ReaderPageClient resourceId={data.id}>
       <article

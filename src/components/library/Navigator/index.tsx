@@ -85,6 +85,7 @@ export default async function Navigator({
   const path = slug ? slug : [];
 
   const items = !slug || special ? data : data[0]?.[nextTable];
+  // TODO: SORT THE ITEMS
 
   return (
     <>

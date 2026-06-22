@@ -2,6 +2,7 @@ import connectDb from "@/lib/db";
 import Header from "./Header";
 import Main from "./Main";
 import { notFound } from "next/navigation";
+import sortByPath from "@/utils/sortByPath";
 
 type SelectQuery =
   | "*, subjects(title, description, path)"
@@ -85,14 +86,13 @@ export default async function Navigator({
   const path = slug ? slug : [];
 
   const items = !slug || special ? data : data[0]?.[nextTable];
-  // TODO: SORT THE ITEMS
 
   return (
     <>
       {variant !== "home" && (
         <Header title={title} subtitle={subtitle} path={path} />
       )}
-      <Main items={items} special={!!special} />
+      <Main items={sortByPath(items)} special={!!special} />
     </>
   );
 }

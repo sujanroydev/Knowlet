@@ -19,6 +19,7 @@ export default function Main({
 }) {
   let groupedItems: Record<string, Item[]>;
   let orderedTypes = ["note", "pyq"];
+
   if (special) {
     groupedItems = items.reduce(
       (acc, item) => {
@@ -50,7 +51,12 @@ export default function Main({
                 <NavigatorBtnCard
                   key={item.path}
                   item={{
-                    title: item.target!.replace(/-/g, " ").slice(0, 1).toUpperCase() + item.target!.replace(/-/g, " ").slice(1),
+                    title:
+                      item
+                        .target!.replace(/-/g, " ")
+                        .slice(0, 1)
+                        .toUpperCase() +
+                      item.target!.replace(/-/g, " ").slice(1),
                     description: item.title,
                     path: item.path,
                   }}

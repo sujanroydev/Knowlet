@@ -1,7 +1,7 @@
 import connectDb from "@/lib/db";
 import StatsBlock from "./Block";
 import { parseResourcePath } from "@/components/dashboard/resources/utils";
-import sortResourcesByPath from "@/utils/sortResourcesByPath";
+import sortByPath from "@/utils/sortByPath";
 
 type HistoryItem = {
   path: string;
@@ -49,7 +49,7 @@ function getLevelData(history: HistoryItem[]) {
 function calculateXp(history: HistoryItem[]) {
   if (!history.length) return 0;
 
-  const sortedHistory = sortResourcesByPath(history);
+  const sortedHistory = sortByPath(history);
 
   let xp = 0;
   let streak = 0;

@@ -7,6 +7,14 @@ const typeToPath: Record<ResourceType, string> = {
   pdf: "pdf",
 };
 
+const titleCase = (text: string) =>
+  text
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+
+const upperCase = (text: string) => text.replace("-", " ").toUpperCase();
+
 function buildResourcePath({
   level,
   subject,
@@ -39,14 +47,6 @@ function parseResourcePath(path: string) {
   const parts = path.split("/");
 
   if (parts.length < 4) throw new Error("Invalid Resource Path");
-
-  const titleCase = (text: string) =>
-    text
-      .split("-")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
-
-  const upperCase = (text: string) => text.replace("-", " ").toUpperCase();
 
   const levelSlug = parts[0];
   const subjectSlug = parts[1];
@@ -106,4 +106,42 @@ function parseResourcePath(path: string) {
   }
 }
 
-export { buildResourcePath, parseResourcePath };
+function parseLibraryPath(path: string) {
+  const parts = path.split("/");
+
+  const levelSlug = parts[0];
+  const subjectSlug = parts[1];
+
+  const i = parts[0]?.startsWith("semester") ? 1 : 0;
+  const paperSlug = i ? parts[2] : undefined;
+
+  const typeSlug = Object.entries(typeToPath).find(
+    (item) => item[1] === parts[2 + 1],
+  )?.[0] as ResourceType;
+  const targetSlug = parts[3 + i];
+
+  return {
+    ...(levelSlug && {
+      level: titleCase(levelSlug),
+      levelSlug,
+    }),
+    ...(subjectSlug && {
+      subject: titleCase(subjectSlug),
+      subjectSlug,
+    }),
+    ...(paperSlug && {
+      paper: upperCase(paperSlug),
+      paperSlug,
+    }),
+    ...(typeSlug && {
+      type: typeSlug === "pyq" ? upperCase(typeSlug) : titleCase(typeSlug),
+      typeSlug,
+    }),
+    ...(targetSlug && {
+      target: titleCase(targetSlug),
+      targetSlug,
+    }),
+  };
+}
+
+export { buildResourcePath, parseResourcePath, parseLibraryPath };

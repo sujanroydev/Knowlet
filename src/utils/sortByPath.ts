@@ -7,7 +7,7 @@ const parsePart = (part: string) => {
   };
 };
 
-function sortResourcesByPath<T extends { path: string }>(resources: T[]) {
+function sortByPath<T extends { path: string }>(resources: T[]) {
   const sortedResources = [...resources].sort((a, b) => {
     const aParts = a.path.split("/");
     const bParts = b.path.split("/");
@@ -34,4 +34,4 @@ function sortResourcesByPath<T extends { path: string }>(resources: T[]) {
   return sortedResources;
 }
 
-export default sortResourcesByPath;
+export default sortByPath;

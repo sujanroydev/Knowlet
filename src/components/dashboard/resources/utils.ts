@@ -7,6 +7,14 @@ const typeToPath: Record<ResourceType, string> = {
   pdf: "pdf",
 };
 
+const titleCase = (text: string) =>
+  text
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+
+const upperCase = (text: string) => text.replace("-", " ").toUpperCase();
+
 function buildResourcePath({
   level,
   subject,
@@ -39,14 +47,6 @@ function parseResourcePath(path: string) {
   const parts = path.split("/");
 
   if (parts.length < 4) throw new Error("Invalid Resource Path");
-
-  const titleCase = (text: string) =>
-    text
-      .split("-")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
-
-  const upperCase = (text: string) => text.replace("-", " ").toUpperCase();
 
   const levelSlug = parts[0];
   const subjectSlug = parts[1];
@@ -109,33 +109,16 @@ function parseResourcePath(path: string) {
 function parsePath(path: string) {
   const parts = path.split("/");
 
-  const titleCase = (text: string) =>
-    text
-      .split("-")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
+  const levelSlug = parts[0];
+  const subjectSlug = parts[1];
 
-  const upperCase = (text: string) => text.replace("-", " ").toUpperCase();
+  const i = parts[0]?.startsWith("semester") ? 1 : 0;
+  const paperSlug = i ? parts[2] : undefined;
 
-  let levelSlug: string | undefined;
-  let subjectSlug: string | undefined;
-  let paperSlug: string | undefined;
-  let typeSlug: ResourceType | undefined;
-  let targetSlug: string | undefined;
-
-  levelSlug = parts[0];
-  subjectSlug = parts[1];
-
-  if (levelSlug?.startsWith("semester")) {
-    paperSlug = parts[2];
-    typeSlug = (Object.entries(typeToPath).find((i) => i[1] === parts[3]) ||
-      [])[0] as ResourceType;
-    targetSlug = parts[4];
-  } else {
-    typeSlug = (Object.entries(typeToPath).find((i) => i[1] === parts[2]) ||
-      [])[0] as ResourceType;
-    targetSlug = parts[3];
-  }
+  const typeSlug = Object.entries(typeToPath).find(
+    (item) => item[1] === parts[2 + 1],
+  )?.[0] as ResourceType;
+  const targetSlug = parts[3 + i];
 
   return {
     ...(levelSlug && {

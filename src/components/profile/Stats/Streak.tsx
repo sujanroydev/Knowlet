@@ -65,7 +65,6 @@ export function getStreakData(history: HistoryItem[]) {
       active: studiedDays.has(getDateKey(d)),
     });
   }
-  // TODO: also manage freez streak
 
   return {
     currentStreak,

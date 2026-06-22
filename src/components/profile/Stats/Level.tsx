@@ -51,11 +51,13 @@ function calculateXp(history: HistoryItem[]) {
 
   const sortedHistory = sortResourcesByPath(history);
 
-  let xp = [...new Set(history.map((i) => i.path))].length;
+  let xp = 0;
   let streak = 0;
 
   let lastPath = "";
   let lastSlug = "";
+
+  xp = [...new Set(history.map((i) => i.path))].length;
 
   for (const item of sortedHistory) {
     const path = item.path;
@@ -65,17 +67,16 @@ function calculateXp(history: HistoryItem[]) {
     const slug = parts.slice(0, paperSlug ? 3 : 2).join("/");
 
     if (lastPath && lastPath === path) {
-      streak += 0;
+      xp += 0.5;
     } else if (lastSlug && lastSlug === slug) {
       streak += 1;
+      xp += Math.min(streak * 0.5, 5);
     } else {
       streak = 0;
     }
 
     lastPath = path;
     lastSlug = slug;
-
-    xp += Math.min(streak * 0.5, 5);
   }
 
   return xp;

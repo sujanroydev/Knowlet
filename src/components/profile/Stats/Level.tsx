@@ -1,19 +1,10 @@
 import connectDb from "@/lib/db";
 import StatsBlock from "./Block";
 import { parseResourcePath } from "@/components/dashboard/resources/utils";
+import sortResourcesByPath from "@/utils/sortResourcesByPath";
 
 type HistoryItem = {
-  created_at: string;
   path: string;
-};
-
-const parsePart = (part: string) => {
-  const match = part.match(/^([a-zA-Z-]+)-(\d+)$/);
-  if (!match) return { text: part, num: null };
-  return {
-    text: match[1],
-    num: Number(match[2]),
-  };
 };
 
 function getLevelData(history: HistoryItem[]) {
@@ -58,49 +49,32 @@ function getLevelData(history: HistoryItem[]) {
 function calculateXp(history: HistoryItem[]) {
   if (!history.length) return 0;
 
-  const uniqueHistory = [...new Set(history.map((i) => i.path))];
+  const sortedHistory = sortResourcesByPath(history);
 
-  const sortedHistory = [...uniqueHistory].sort((a, b) => {
-    const aParts = a.split("/");
-    const bParts = b.split("/");
-
-    for (let i = 0; i < Math.max(aParts.length, bParts.length); i++) {
-      const aP = parsePart(aParts[i] ?? "");
-      const bP = parsePart(bParts[i] ?? "");
-
-      const textDiff = aP.text.localeCompare(bP.text);
-      if (textDiff !== 0) return textDiff;
-
-      if (aP.num !== null && bP.num !== null) {
-        const numDiff = aP.num - bP.num;
-        if (numDiff !== 0) return numDiff;
-      }
-
-      const fallback = aParts[i].localeCompare(bParts[i]);
-      if (fallback !== 0) return fallback;
-    }
-
-    return 0;
-  });
-
-  let xp = uniqueHistory.length;
-
+  let xp = [...new Set(history.map((i) => i.path))].length;
   let streak = 0;
+
+  let lastPath = "";
   let lastSlug = "";
 
   for (const item of sortedHistory) {
-    const path = item;
+    const path = item.path;
     const { paperSlug } = parseResourcePath(path);
+
     const parts = path.split("/");
     const slug = parts.slice(0, paperSlug ? 3 : 2).join("/");
 
-    if (lastSlug && lastSlug === slug) {
+    if (lastPath && lastPath === path) {
+      streak += 0;
+    } else if (lastSlug && lastSlug === slug) {
       streak += 1;
     } else {
       streak = 0;
     }
 
+    lastPath = path;
     lastSlug = slug;
+
     xp += Math.min(streak * 0.5, 5);
   }
 

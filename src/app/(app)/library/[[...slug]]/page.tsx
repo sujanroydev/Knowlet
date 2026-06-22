@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import Content from "@/components/library/Content";
 import Navigator from "@/components/library/Navigator";
+import { parseLibraryPath } from "@/components/dashboard/resources/utils";
 
 const BASE_URL = "https://knowlet.in";
 
@@ -23,6 +24,9 @@ export async function generateMetadata({
     };
   }
 
+  const { level, subject, paper, type, target } = parseLibraryPath(
+    slug.join("/"),
+  );
   const url = `${BASE_URL}/library/${slug.join("/")}`;
 
   // =========================
@@ -30,7 +34,9 @@ export async function generateMetadata({
   // =========================
 
   if (slug.length <= 4) {
-    const title = slug.map(formatSlug).join(" - ") + " | Knowlet";
+    const title =
+      [level, subject, paper, type, target].filter(Boolean).join(" - ") +
+      " | Knowlet";
 
     const description = `Browse study materials for ${slug
       .map(formatSlug)
@@ -58,15 +64,8 @@ export async function generateMetadata({
   // RESOURCE PAGE
   // =========================
 
-  const unit = formatSlug(slug[4] || "");
-  const type = formatSlug(slug[3] || "");
-  const paper = formatSlug(slug[2] || "");
-  const semester = formatSlug(slug[0] || "");
-  const subject = formatSlug(slug[1] || "");
-
-  const title = `${unit} ${type} - ${paper ?? subject} ${paper ? subject : ""} ${semester} | Knowlet`;
-
-  const description = `Read ${unit} ${type} for  ${paper ?? subject} ${paper ? subject : ""} ${semester} on Knowlet.`;
+  const title = `${target} ${type} - ${paper ?? subject} ${paper ? subject : ""} ${level} | Knowlet`;
+  const description = `Read ${target} ${type} for  ${paper ?? subject} ${paper ? subject : ""} ${level} on Knowlet.`;
 
   return {
     title,

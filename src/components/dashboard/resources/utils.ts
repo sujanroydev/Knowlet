@@ -106,7 +106,7 @@ function parseResourcePath(path: string) {
   }
 }
 
-function parsePath(path: string) {
+function parseLibraryPath(path: string) {
   const parts = path.split("/");
 
   const levelSlug = parts[0];
@@ -144,4 +144,4 @@ function parsePath(path: string) {
   };
 }
 
-export { buildResourcePath, parseResourcePath, parsePath };
+export { buildResourcePath, parseResourcePath, parseLibraryPath };

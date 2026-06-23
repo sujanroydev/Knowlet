@@ -19,7 +19,7 @@ export default async function Content({ slug }: { slug: string[] }) {
 
   return (
     <ReaderPageClient resourceId={data.id}>
-      <div className="max-w-4xl mx-auto my-10 p-8 bg-white text-gray-800 rounded-xl shadow-lg leading-loose text-base break-words">
+      <div className="max-w-5xl mx-auto px-4 py-6 lg:my-10 lg:p-8 lg:rounded-xl bg-white text-gray-800  shadow-lg leading-loose text-base break-words">
         <article
           className={styles.container}
           dangerouslySetInnerHTML={{

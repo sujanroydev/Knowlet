@@ -38,9 +38,7 @@ export async function generateMetadata({
       [level, subject, paper, type, target].filter(Boolean).join(" - ") +
       " | Knowlet";
 
-    const description = `Browse study materials for ${slug
-      .map(formatSlug)
-      .join(", ")} on Knowlet.`;
+    const description = `Browse study materials for ${[level, subject, paper, type, target].filter(Boolean).join(", ")} on Knowlet.`;
 
     return {
       title,

@@ -300,11 +300,6 @@
 ========================= */
 
 @media (max-width: 768px) {
-  .container {
-    padding: 20px;
-    margin: 20px;
-  }
-
   .container h1 {
     font-size: 2rem;
   }

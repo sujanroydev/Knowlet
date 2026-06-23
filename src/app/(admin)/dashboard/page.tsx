@@ -140,6 +140,62 @@ function ResourceSection({
   );
 }
 
+interface ActionCardProps {
+  href: string;
+  category: string;
+  title: string;
+  icon: React.ReactNode;
+}
+
+const actions = [
+  {
+    href: "/dashboard/resources/create",
+    category: "Content",
+    title: "Add Resource",
+    icon: <Plus size={20} />,
+  },
+  {
+    href: "/dashboard/notification/send",
+    category: "Notifications",
+    title: "Push Notifications",
+    icon: <Bell size={20} />,
+  },
+  {
+    href: "/dashboard/feedback",
+    category: "User Insights",
+    title: "Feedback",
+    icon: "💬",
+  },
+  {
+    href: "/dashboard/reports",
+    category: "Moderation",
+    title: "Reports",
+    icon: "⚠️",
+  },
+];
+
+function ActionCard({ href, category, title, icon }: ActionCardProps) {
+  return (
+    <Link
+      href={href}
+      className="
+        group rounded-3xl border border-gray-200
+        bg-white p-5 shadow-sm transition
+        hover:-translate-y-1 hover:shadow-lg
+      "
+    >
+      <div className="flex items-center justify-between">
+        <div>
+          <p className="text-sm text-gray-500">{category}</p>
+          <h3 className="mt-1 text-lg font-semibold text-gray-900">{title}</h3>
+        </div>
+
+        <div className="rounded-2xl bg-black p-3 text-white">{icon}</div>
+      </div>
+    </Link>
+  );
+}
+
 export default async function DashboardPage() {
   const db = await connectDb();
 
@@ -177,123 +233,20 @@ export default async function DashboardPage() {
         </div>
 
         {/* Admin Actions */}
-        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          <Link
-            href="/dashboard/resources/create"
-            className="
-      group rounded-3xl border border-gray-200
-      bg-white p-5 shadow-sm transition
-      hover:-translate-y-1 hover:shadow-lg
-    "
-          >
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-gray-500">Content</p>
-
-                <h3 className="mt-1 text-lg font-semibold text-gray-900">
-                  Add Resource
-                </h3>
-              </div>
-
-              <div className="rounded-2xl bg-black p-3 text-white">
-                <Plus size={20} />
-              </div>
-            </div>
-          </Link>
-
-          <Link
-            href="/dashboard/notification/send"
-            className="
-      group rounded-3xl border border-gray-200
-      bg-white p-5 shadow-sm transition
-      hover:-translate-y-1 hover:shadow-lg
-    "
-          >
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-gray-500">Notifications</p>
-
-                <h3 className="mt-1 text-lg font-semibold text-gray-900">
-                  Push Notifications
-                </h3>
-              </div>
-
-              <div className="rounded-2xl bg-black p-3 text-white">
-                <Bell size={20} />
-              </div>
-            </div>
-          </Link>
-
-          <Link
-            href="/dashboard/feedback"
-            className="
-      group rounded-3xl border border-gray-200
-      bg-white p-5 shadow-sm transition
-      hover:-translate-y-1 hover:shadow-lg
-    "
-          >
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-gray-500">User Insights</p>
-
-                <h3 className="mt-1 text-lg font-semibold text-gray-900">
-                  Feedback
-                </h3>
-              </div>
-
-              <div className="rounded-2xl bg-black p-3 text-white">💬</div>
-            </div>
-          </Link>
-
-          <Link
-            href="/dashboard/reports"
-            className="
-      group rounded-3xl border border-gray-200
-      bg-white p-5 shadow-sm transition
-      hover:-translate-y-1 hover:shadow-lg
-    "
-          >
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-gray-500">Moderation</p>
-
-                <h3 className="mt-1 text-lg font-semibold text-gray-900">
-                  Reports
-                </h3>
-              </div>
-
-              <div className="rounded-2xl bg-black p-3 text-white">⚠️</div>
-            </div>
-          </Link>
-        </div>
-
-        {/* Stats */}
-        <div className="grid gap-4 md:grid-cols-3">
-          <div className="rounded-3xl border border-gray-200 bg-white p-5 shadow-sm">
-            <p className="text-sm text-gray-500">Most Visited</p>
-
-            <h3 className="mt-2 text-3xl font-bold">
-              {mostVisitedResources?.length || 0}
-            </h3>
-          </div>
-
-          <div className="rounded-3xl border border-gray-200 bg-white p-5 shadow-sm">
-            <p className="text-sm text-gray-500">Recently Published</p>
-
-            <h3 className="mt-2 text-3xl font-bold">
-              {recentResources?.length || 0}
-            </h3>
-          </div>
-
-          <div className="rounded-3xl border border-gray-200 bg-white p-5 shadow-sm">
-            <p className="text-sm text-gray-500">Total Sections</p>
-
-            <h3 className="mt-2 text-3xl font-bold">2</h3>
-          </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {actions.map((action) => (
+            <ActionCard
+              key={action.href}
+              href={action.href}
+              category={action.category}
+              title={action.title}
+              icon={action.icon}
+            />
+          ))}
         </div>
 
         {/* Resource Sections */}
-        <div className="grid gap-6 xl:grid-cols-2">
+        <div className="grid gap-6 lg:grid-cols-2">
           <ResourceSection
             title="Most Visited Resources"
             icon={<Eye size={18} />}

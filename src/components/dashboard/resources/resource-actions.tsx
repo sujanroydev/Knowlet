@@ -1,7 +1,7 @@
 "use client";
 
 import { Resource } from "@/types/resource";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 
 export default function ResourceActions({
@@ -12,6 +12,8 @@ export default function ResourceActions({
   action: "create" | "update";
 }) {
   const [loading, setLoading] = useState<boolean>(false);
+  const [currentResource, setCurrentResource] = useState(resource);
+  const lastResource = useRef(resource);
 
   async function publichResource() {
     if (!validateResource()) return;
@@ -56,6 +58,13 @@ export default function ResourceActions({
     if (!resource?.id) {
       toast.error("can't update resource without id");
       console.log("Resource ID is missing:", resource);
+      return;
+    }
+
+    if (
+      JSON.stringify(currentResource) === JSON.stringify(lastResource.current)
+    ) {
+      toast.warning("No changes were made.");
       return;
     }
 
@@ -117,6 +126,11 @@ export default function ResourceActions({
     }
     return true;
   }
+
+  useEffect(() => {
+    lastResource.current = currentResource;
+    setCurrentResource(resource);
+  }, [resource]);
 
   return (
     <div className="flex flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:flex-row sm:items-center sm:justify-between">

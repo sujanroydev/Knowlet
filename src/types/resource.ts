@@ -15,6 +15,15 @@ export interface Resource {
   updated_at?: string;
 }
 
+export interface Details {
+  title: string;
+  description: string;
+  target: string;
+  type: string;
+  slug: string;
+  path: string;
+}
+
 export interface ParsedPath {
   currentPath: string;
   prevPath: string | null;

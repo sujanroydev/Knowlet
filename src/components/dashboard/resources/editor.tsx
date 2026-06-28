@@ -4,63 +4,31 @@ import HtmlEditor from "./html-editor";
 import ResourcePreview from "./resource-preview";
 import ResourceActions from "./resource-actions";
 import ResourceDetails from "./resource-details";
-import { useEffect, useMemo, useState } from "react";
-import { Resource } from "@/types/resource";
-
-interface Details {
-  title: string;
-  description: string;
-  target: string;
-  type: string;
-  slug: string;
-  path: string;
-}
-
-const defaultDetails = {
-  title: "",
-  description: "",
-  target: "",
-  type: "",
-  slug: "",
-  path: "",
-};
+import { useState } from "react";
+import { Resource, Details } from "@/types/resource";
 
 export default function ResourceEditor({
   resource,
-  action,
+  action = "create",
 }: {
   resource?: Resource;
   action: "create" | "update";
 }) {
-  const [newResource, setNewResource] = useState<Resource>();
-
-  const [content, setContent] = useState<string>("");
-  const [details, setDetails] = useState<Details>(defaultDetails);
-
-  const [preview, setPreview] = useState<boolean>(false);
-
-  const resourceDetails = useMemo(
-    () =>
-      resource
-        ? {
-            title: resource.title || "",
-            description: resource.description || "",
-            target: resource.target || "",
-            type: resource.type || "",
-            slug: resource.slug || "",
-            path: resource.path || "",
-          }
-        : undefined,
-    [resource],
+  const [content, setContent] = useState<string | undefined>(
+    resource && resource.content,
+  );
+  const [details, setDetails] = useState<Details | undefined>(
+    resource && {
+      title: resource.title,
+      description: resource.description || "",
+      target: resource.target || "",
+      type: resource.type || "",
+      slug: resource.slug || "",
+      path: resource.path,
+    },
   );
 
-  useEffect(() => {
-    setNewResource({
-      ...(resource?.id && { id: resource.id }),
-      ...details,
-      content,
-    });
-  }, [content, details]);
+  const [preview, setPreview] = useState<boolean>(false);
 
   return (
     <div className="min-h-screen bg-slate-100 p-6">
@@ -109,11 +77,16 @@ export default function ResourceEditor({
         <ResourceDetails
           action={action}
           setDetails={setDetails}
-          details={resourceDetails}
+          details={details}
         />
 
         {/* Actions */}
-        <ResourceActions action={action} resource={newResource} />
+        <ResourceActions
+          action={action}
+          id={resource?.id}
+          details={details}
+          content={content}
+        />
       </div>
     </div>
   );

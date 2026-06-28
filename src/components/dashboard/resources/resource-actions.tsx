@@ -1,14 +1,18 @@
 "use client";
 
-import { Resource } from "@/types/resource";
+import { Details } from "@/types/resource";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 
 export default function ResourceActions({
-  resource,
+  id,
+  details,
+  content,
   action,
 }: {
-  resource: Resource | undefined;
+  id?: string;
+  details?: Details;
+  content?: string;
   action: "create" | "update";
 }) {
   const [loading, setLoading] = useState<boolean>(false);

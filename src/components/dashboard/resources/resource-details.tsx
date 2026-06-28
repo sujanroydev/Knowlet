@@ -3,15 +3,7 @@ import TextInput from "@/components/ui/text-input";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { buildResourcePath, parseResourcePath } from "./utils";
-
-interface Details {
-  title: string;
-  description: string;
-  target: string;
-  type: string;
-  slug: string;
-  path: string;
-}
+import { Details } from "@/types/resource";
 
 const options = {
   level: [

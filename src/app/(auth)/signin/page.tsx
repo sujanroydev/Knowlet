@@ -19,6 +19,7 @@ export const metadata: Metadata = {
 };
 
 export default function SigninPage() {
+  // TODO: after login return to previous using query params from url
   return (
     <main className="min-h-[calc(100dvh-120px)] flex items-center justify-center bg-gray-100 p-4">
       <AuthCard title="Signin">

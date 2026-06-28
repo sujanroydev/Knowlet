@@ -1,6 +1,6 @@
 import styles from "@/components/library/Content.module.css";
 
-export default function ResourcePreview({ content }: { content: string }) {
+export default function ResourcePreview({ content }: { content?: string }) {
   return (
     <div className="h-[650px] overflow-y-auto bg-slate-50 p-6">
       {content ? (

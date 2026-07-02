@@ -34,7 +34,7 @@ export default function ResourceEditor({
 }) {
   const [newResource, setNewResource] = useState<Resource>();
 
-  const [content, setContent] = useState<string>("");
+  const [content, setContent] = useState<string>(resource?.content || "");
   const [details, setDetails] = useState<Details>(defaultDetails);
 
   const [preview, setPreview] = useState<boolean>(false);
@@ -101,7 +101,7 @@ export default function ResourceEditor({
           {preview ? (
             <ResourcePreview content={content} />
           ) : (
-            <HtmlEditor content={resource?.content} setContent={setContent} />
+            <HtmlEditor content={content} setContent={setContent} />
           )}
         </div>
 

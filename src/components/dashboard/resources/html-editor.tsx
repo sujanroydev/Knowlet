@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { html as beautifyHtml } from "js-beautify";
 
 export default function HtmlEditor({
   content,
@@ -13,12 +14,19 @@ export default function HtmlEditor({
 
   useEffect(() => {
     if (rowContent) {
-      setContent(
-        rowContent
-          .replaceAll(/\[cite_start\]\s*/g, "")
-          .replaceAll(/\s*\[cite: \d+\]/g, "")
-          .replaceAll(/\s*\[cite: \d+(, \d+)*\]/g, ""),
-      );
+      const cleanedContent = rowContent
+        .replaceAll(/\[cite_start\]\s*/g, "")
+        .replaceAll(/\s*\[cite: \d+\]/g, "")
+        .replaceAll(/\s*\[cite: \d+(, \d+)*\]/g, "");
+
+      const beautifiedContent = beautifyHtml(cleanedContent, {
+        indent_size: 4,
+        wrap_line_length: 0,
+        preserve_newlines: true,
+        max_preserve_newlines: 1,
+      });
+
+      setContent(beautifiedContent);
     }
   }, [rowContent]);
 

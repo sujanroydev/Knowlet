@@ -22,11 +22,18 @@ export async function POST(req: NextRequest) {
         ? (data.map((i) => i.email) as string[])
         : ["mr.sujan.kumar.roy@gmail.com"];
 
-    await sendEmail({
-      to: userEmails,
-      subject: "Verify your academic information",
-      html: educationalDetailsUpdateReminderTemplate(),
-    });
+    const batches = [];
+    for (let i = 0; i < userEmails.length; i += 50) {
+      batches.push(userEmails.slice(i, i + 50));
+    }
+
+    for (const batch of batches) {
+      await sendEmail({
+        to: batch,
+        subject: "Verify your academic information",
+        html: educationalDetailsUpdateReminderTemplate(),
+      });
+    }
 
     return Response.json({ success: true });
   } catch (error) {

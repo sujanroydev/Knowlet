@@ -1,6 +1,17 @@
 import ResourceEditor from "@/components/dashboard/resources/editor";
 import connectDb from "@/lib/db";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
+
+export const metadata: Metadata = {
+  title: "Resource Editor | Knowlet",
+  description: "Create, edit, and manage resources.",
+
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default async function Page({
   params,

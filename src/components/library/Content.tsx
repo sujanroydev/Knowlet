@@ -3,6 +3,7 @@ import styles from "./Content.module.css";
 import { notFound } from "next/navigation";
 import ReaderPageClient from "./ReaderPageClient";
 import ResourceFooterActions from "./resource-footer-actions";
+import { headingThemes } from "./Navigator/headingThemes";
 
 export default async function Content({ slug }: { slug: string[] }) {
   const db = await connectDb();
@@ -17,11 +18,29 @@ export default async function Content({ slug }: { slug: string[] }) {
     notFound();
   }
 
+  const theme = headingThemes[Math.floor(Math.random() * headingThemes.length)];
+
   return (
     <ReaderPageClient resourceId={data.id}>
       <div className="max-w-5xl mx-auto px-4 py-6 lg:my-10 lg:p-8 lg:rounded-xl bg-white text-gray-800  shadow-lg leading-loose text-base break-words">
         <article
           className={styles.container}
+          style={
+            {
+              "--h1": theme.h1,
+              "--h2": theme.h2,
+              "--h3": theme.h3,
+              "--h4": theme.h4,
+              "--h5": theme.h5,
+              "--h6": theme.h6,
+              "--accent": theme.accent,
+              "--link": theme.link,
+              "--link-hover": theme.linkHover,
+              "--blockquote": theme.blockquote,
+              "--code": theme.code,
+              "--hr": theme.hr,
+            } as React.CSSProperties
+          }
           dangerouslySetInnerHTML={{
             __html: data.content || "",
           }}

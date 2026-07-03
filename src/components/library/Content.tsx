@@ -5,6 +5,16 @@ import ReaderPageClient from "./ReaderPageClient";
 import ResourceFooterActions from "./resource-footer-actions";
 import { headingThemes } from "./Navigator/headingThemes";
 
+function getThemeIndex(uuid: string) {
+  let hash = 0;
+
+  for (let i = 0; i < uuid.length; i++) {
+    hash = (hash * 31 + uuid.charCodeAt(i)) >>> 0;
+  }
+
+  return hash % headingThemes.length;
+}
+
 export default async function Content({ slug }: { slug: string[] }) {
   const db = await connectDb();
 
@@ -18,7 +28,7 @@ export default async function Content({ slug }: { slug: string[] }) {
     notFound();
   }
 
-  const theme = headingThemes[Math.floor(Math.random() * headingThemes.length)];
+  const theme = headingThemes[getThemeIndex(data.id)];
 
   return (
     <ReaderPageClient resourceId={data.id}>

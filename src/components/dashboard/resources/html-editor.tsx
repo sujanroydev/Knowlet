@@ -16,6 +16,7 @@ export default function HtmlEditor({
     const rowContent = e.target.value;
 
     const cleanedContent = rowContent
+      .replaceAll("```", "")
       .replaceAll(/\[cite_start\]\s*/g, "")
       .replaceAll(/\s*\[cite: \d+\]/g, "")
       .replaceAll(/\s*\[cite: \d+(, \d+)*\]/g, "");

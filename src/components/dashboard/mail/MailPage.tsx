@@ -1,14 +1,18 @@
 "use client";
 
 import { sendMailAction } from "@/app/(admin)/dashboard/mail/actions";
+import { invitationToKnowletTemplate } from "@/services/email/templates/invition-to-knowlet";
 import { useState } from "react";
+import { toast } from "sonner";
 
 export default function MailPage() {
   const [sending, setSending] = useState(false);
 
   const [to, setTo] = useState("");
-  const [subject, setSubject] = useState("");
-  const [body, setBody] = useState("");
+  const [subject, setSubject] = useState(
+    "You're Invited to Join Knowlet – Study Smarter, Anytime",
+  );
+  const [body, setBody] = useState(invitationToKnowletTemplate());
 
   async function handleSend(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -21,7 +25,10 @@ export default function MailPage() {
       setTo("");
       setSubject("");
       setBody("");
+
+      toast.success("Email sent successfully.");
     } catch (error) {
+      toast.error("Failed to send.");
       console.error(error);
     } finally {
       setSending(false);

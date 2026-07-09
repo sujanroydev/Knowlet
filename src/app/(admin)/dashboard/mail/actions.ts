@@ -3,15 +3,37 @@
 import { sendEmail } from "@/services/email/send";
 
 export async function sendMailAction(
-  to: string,
+  to: string | string[],
   subject: string,
   body: string,
-  from = "hello@knowlet.in",
+  from = "Knowlet <hello@knowlet.in>",
 ) {
-  await sendEmail({
-    to,
-    from,
-    subject,
-    html: body,
-  });
+  const recipients = Array.isArray(to) ? to : [to];
+
+  let sent = 0;
+  const failed: { email: string; error: string }[] = [];
+
+  for (const email of recipients) {
+    try {
+      await sendEmail({
+        to: email.trim(),
+        from,
+        subject,
+        html: body,
+      });
+
+      sent++;
+    } catch (error) {
+      failed.push({
+        email,
+        error: error instanceof Error ? error.message : "Unknown error",
+      });
+    }
+  }
+
+  return {
+    total: recipients.length,
+    sent,
+    failed,
+  };
 }

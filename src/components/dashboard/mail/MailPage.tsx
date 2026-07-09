@@ -5,6 +5,8 @@ import { invitationToKnowletTemplate } from "@/services/email/templates/invition
 import { useState } from "react";
 import { toast } from "sonner";
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export default function MailPage() {
   const [sending, setSending] = useState(false);
 
@@ -17,19 +19,53 @@ export default function MailPage() {
   async function handleSend(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
+    const emails = [
+      ...new Set(
+        to
+          .split(",")
+          .map((email) => email.trim())
+          .filter(Boolean),
+      ),
+    ];
+
+    if (emails.length === 0) {
+      toast.error("Please enter at least one email address.");
+      return;
+    }
+
+    const invalidEmails = emails.filter((email) => !EMAIL_REGEX.test(email));
+
+    if (invalidEmails.length > 0) {
+      toast.error(`Invalid email(s): ${invalidEmails.join(", ")}`);
+      return;
+    }
+
     setSending(true);
 
     try {
-      await sendMailAction(to, subject, body);
+      const result = await sendMailAction(emails, subject, body);
 
-      setTo("");
-      setSubject("");
-      setBody("");
+      if (result.failed.length === 0) {
+        toast.success(
+          `Successfully sent ${result.sent} email${result.sent > 1 ? "s" : ""}.`,
+        );
 
-      toast.success("Email sent successfully.");
+        setTo("");
+        setSubject("");
+        setBody(invitationToKnowletTemplate());
+      } else if (result.sent > 0) {
+        toast.warning(
+          `Sent ${result.sent}/${result.total} emails. ${result.failed.length} failed.`,
+        );
+
+        console.table(result.failed);
+      } else {
+        toast.error("Failed to send any emails.");
+        console.table(result.failed);
+      }
     } catch (error) {
-      toast.error("Failed to send.");
       console.error(error);
+      toast.error("Something went wrong while sending emails.");
     } finally {
       setSending(false);
     }
@@ -39,7 +75,10 @@ export default function MailPage() {
     <main className="mx-auto max-w-3xl p-6">
       <div className="rounded-xl border bg-white p-6 shadow-sm">
         <h1 className="text-2xl font-bold">📧 Send Email</h1>
-        <p className="mt-1 text-sm text-gray-500">Send a single email.</p>
+
+        <p className="mt-1 text-sm text-gray-500">
+          Enter one or more email addresses separated by commas.
+        </p>
 
         <form onSubmit={handleSend} className="mt-6 space-y-5">
           <div>
@@ -49,10 +88,10 @@ export default function MailPage() {
 
             <input
               id="to"
-              type="email"
+              type="text"
               value={to}
               onChange={(e) => setTo(e.target.value)}
-              placeholder="user@example.com"
+              placeholder="user1@example.com, user2@example.com"
               className="w-full rounded-lg border px-4 py-2 outline-none focus:border-blue-500"
             />
           </div>
@@ -93,7 +132,7 @@ export default function MailPage() {
               disabled={sending}
               className="rounded-lg bg-blue-600 px-5 py-2.5 text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
             >
-              {sending ? "Sending..." : "Send Email"}
+              {sending ? `Sending$...` : "Send Email"}
             </button>
           </div>
         </form>

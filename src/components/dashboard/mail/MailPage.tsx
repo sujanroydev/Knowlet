@@ -1,6 +1,6 @@
 "use client";
 
-import { sendEmail } from "@/services/email/send";
+import { sendMailAction } from "@/app/(admin)/dashboard/mail/actions";
 import { useState } from "react";
 
 export default function MailPage() {
@@ -16,11 +16,7 @@ export default function MailPage() {
     setSending(true);
 
     try {
-      await sendEmail({
-        to,
-        subject,
-        html: body,
-      });
+      await sendMailAction(to, subject, body);
 
       setTo("");
       setSubject("");

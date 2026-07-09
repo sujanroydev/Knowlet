@@ -86,7 +86,7 @@ export function invitationToKnowletTemplate(name = "there") {
               to help make Knowlet even better.
             </p>
 
-            <!-- Button -->
+            <!-- Buttons -->
             <table
               role="presentation"
               cellpadding="0"
@@ -112,6 +112,28 @@ export function invitationToKnowletTemplate(name = "there") {
                     "
                   >
                     Visit Knowlet
+                  </a>
+                </td>
+
+                <td width="12"></td>
+
+                <td
+                  bgcolor="#16a34a"
+                  style="border-radius:6px;text-align:center;"
+                >
+                  <a
+                    href="${website}/signin"
+                    target="_blank"
+                    style="
+                      display:inline-block;
+                      padding:14px 28px;
+                      font-size:16px;
+                      font-weight:bold;
+                      color:#ffffff;
+                      text-decoration:none;
+                    "
+                  >
+                    Sign In
                   </a>
                 </td>
               </tr>

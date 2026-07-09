@@ -1,7 +1,7 @@
 "use client";
 
 import { sendMailAction } from "@/app/(admin)/dashboard/mail/actions";
-import { invitationToKnowletTemplate } from "@/services/email/templates/invition-to-knowlet";
+import { invitationToKnowletTemplate } from "@/services/email/templates/invitation-to-knowlet";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -22,7 +22,7 @@ export default function MailPage() {
     const emails = [
       ...new Set(
         to
-          .split(",")
+          .split(/[\s,;]+/)
           .map((email) => email.trim())
           .filter(Boolean),
       ),
@@ -132,7 +132,7 @@ export default function MailPage() {
               disabled={sending}
               className="rounded-lg bg-blue-600 px-5 py-2.5 text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
             >
-              {sending ? `Sending$...` : "Send Email"}
+              {sending ? `Sending...` : "Send Email"}
             </button>
           </div>
         </form>

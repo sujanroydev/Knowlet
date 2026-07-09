@@ -2,6 +2,8 @@
 
 import { sendEmail } from "@/services/email/send";
 
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
 export async function sendMailAction(
   to: string | string[],
   subject: string,
@@ -23,11 +25,15 @@ export async function sendMailAction(
       });
 
       sent++;
+
+      await sleep(550);
     } catch (error) {
       failed.push({
         email,
         error: error instanceof Error ? error.message : "Unknown error",
       });
+
+      await sleep(550);
     }
   }
 

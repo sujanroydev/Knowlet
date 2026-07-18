@@ -155,6 +155,12 @@ const actions = [
     icon: <Plus size={20} />,
   },
   {
+    href: "/dashboard/mail",
+    category: "Mail",
+    title: "Mail Box",
+    icon: <Mail size={20} />,
+  },
+  {
     href: "/dashboard/notification/send",
     category: "Notifications",
     title: "Push Notifications",

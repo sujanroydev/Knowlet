@@ -1,6 +1,6 @@
 import Link from "next/link";
 import connectDb from "@/lib/db";
-import { Bell, BookOpen, Clock3, Eye, Plus } from "lucide-react";
+import { Bell, BookOpen, Clock3, Eye, Mail, Plus } from "lucide-react";
 
 type Resource = {
   id: string;

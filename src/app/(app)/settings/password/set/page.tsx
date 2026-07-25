@@ -3,8 +3,12 @@
 import { useAuth } from "@/context/AuthContext";
 import { useState } from "react";
 import { toast } from "sonner";
+import { Eye, EyeOff } from "lucide-react";
 
 export default function SetPasswordPage() {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setConfirmShowPassword] = useState(false);
+
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -102,34 +106,48 @@ export default function SetPasswordPage() {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-5">
-          <div>
-            <label className="mb-2 block text-sm font-medium text-slate-700">
-              New Password
-            </label>
-
+          <div className="relative">
             <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter password"
-              className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-blue-500"
+              type={showPassword ? "text" : "password"}
+              name="password"
+              placeholder="New Password"
+              className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
               required
             />
+            <button
+              type="button"
+              onClick={() => setShowPassword((prev) => !prev)}
+              className="absolute right-3 top-1/3 justify-center"
+              aria-label={showPassword ? "Hide password" : "Show password"}
+            >
+              {showPassword ? (
+                <EyeOff className="h-5 w-5" />
+              ) : (
+                <Eye className="h-5 w-5" />
+              )}
+            </button>
           </div>
 
-          <div>
-            <label className="mb-2 block text-sm font-medium text-slate-700">
-              Confirm Password
-            </label>
-
+          <div className="relative">
             <input
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              placeholder="Confirm password"
-              className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-blue-500"
+              type={showConfirmPassword ? "text" : "password"}
+              name="confirmPassword"
+              placeholder="Confirm Password"
+              className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
               required
             />
+            <button
+              type="button"
+              onClick={() => setConfirmShowPassword((prev) => !prev)}
+              className="absolute right-3 top-1/3 justify-center"
+              aria-label={showConfirmPassword ? "Hide password" : "Show password"}
+            >
+              {showConfirmPassword ? (
+                <EyeOff className="h-5 w-5" />
+              ) : (
+                <Eye className="h-5 w-5" />
+              )}
+            </button>
           </div>
 
           <div className="flex overflow-hidden rounded-lg border border-gray-300 focus-within:border-blue-500">

@@ -6,11 +6,14 @@ import Loader from "./Loader";
 import { toast } from "sonner";
 import { useAuth } from "@/context/AuthContext";
 import { subscribe } from "../SWRegister";
+import { Eye, EyeOff } from "lucide-react";
 
 export default function SignupForm() {
   const [loading, setLoading] = useState(false);
   const [otpLoading, setOtpLoading] = useState(false);
   const [otpSent, setOtpSent] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setConfirmShowPassword] = useState(false);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -143,21 +146,49 @@ export default function SignupForm() {
           </button>
         </div>
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
-          required
-        />
+        <div className="relative">
+          <input
+            type={showPassword ? "text" : "password"}
+            name="password"
+            placeholder="Password"
+            className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
+            required
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword((prev) => !prev)}
+            className="absolute right-3 top-1/3 justify-center"
+            aria-label={showPassword ? "Hide password" : "Show password"}
+          >
+            {showPassword ? (
+              <EyeOff className="h-5 w-5" />
+            ) : (
+              <Eye className="h-5 w-5" />
+            )}
+          </button>
+        </div>
 
-        <input
-          type="password"
-          name="confirmPassword"
-          placeholder="Confirm Password"
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
-          required
-        />
+        <div className="relative">
+          <input
+            type={showConfirmPassword ? "text" : "password"}
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
+            required
+          />
+          <button
+            type="button"
+            onClick={() => setConfirmShowPassword((prev) => !prev)}
+            className="absolute right-3 top-1/3 justify-center"
+            aria-label={showConfirmPassword ? "Hide password" : "Show password"}
+          >
+            {showConfirmPassword ? (
+              <EyeOff className="h-5 w-5" />
+            ) : (
+              <Eye className="h-5 w-5" />
+            )}
+          </button>
+        </div>
 
         <button
           type="submit"

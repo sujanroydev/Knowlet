@@ -98,22 +98,6 @@ export default function SetPasswordPage() {
     <main className="min-h-[calc(100dvh-120px)] flex items-center justify-center bg-gray-100 p-4">
       <AuthCard title="Reset Password">
         <form onSubmit={handleSubmit} className="space-y-5">
-          <PasswordInput
-            name="password"
-            placeholder="Password"
-            onChange={(e) => setPassword(e.currentTarget.value)}
-            value={password}
-            required
-          />
-
-          <PasswordInput
-            name="confirmPassword"
-            placeholder="Confirm Password"
-            onChange={(e) => setConfirmPassword(e.currentTarget.value)}
-            value={confirmPassword}
-            required
-          />
-
           <div className="flex overflow-hidden rounded-lg border border-gray-300 focus-within:border-blue-500">
             <input
               type="text"
@@ -134,6 +118,22 @@ export default function SetPasswordPage() {
               {otpLoading ? "Sending..." : otpSent ? "Resend" : "Send OTP"}
             </button>
           </div>
+
+          <PasswordInput
+            name="password"
+            placeholder="Password"
+            onChange={(e) => setPassword(e.currentTarget.value)}
+            value={password}
+            required
+          />
+
+          <PasswordInput
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            onChange={(e) => setConfirmPassword(e.currentTarget.value)}
+            value={confirmPassword}
+            required
+          />
 
           <button
             type="submit"

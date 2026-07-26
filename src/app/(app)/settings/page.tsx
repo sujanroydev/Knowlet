@@ -23,6 +23,10 @@ export default function SettingsPage() {
           href: "/settings/password/set",
         },
         {
+          label: "Reset Password",
+          href: "/settings/password/reset",
+        },
+        {
           label: "Change Password",
           href: "/settings/password/change",
         },

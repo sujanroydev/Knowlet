@@ -1,4 +1,5 @@
 import SetPasswordPage from "./SetPasswordPage";
+import ForgotPasswordPage from "@/app/(auth)/forgot-password/ForgotPasswordPage";
 import { notFound } from "next/navigation";
 
 export default async function page({
@@ -8,9 +9,8 @@ export default async function page({
 }) {
   const { mode } = await params;
 
-  if (mode === "set") {
-    return <SetPasswordPage />;
-  }
+  if (mode === "set") return <SetPasswordPage />
+  else if (mode === "reset") return <ForgotPasswordPage />
 
   notFound();
 }

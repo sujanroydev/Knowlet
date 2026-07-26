@@ -79,7 +79,7 @@ export default function ForgotPasswordPage() {
 
   return (
     <main className="min-h-[calc(100dvh-120px)] flex items-center justify-center bg-gray-100 p-4">
-      <AuthCard title="Forgot Password">¬
+      <AuthCard title="Forgot Password">
         {loading && <Loader />}
 
         <form onSubmit={handleSubmit} className="space-y-4">

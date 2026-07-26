@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import { useAuth } from "@/context/AuthContext";
 import { subscribe } from "../SWRegister";
 import { Eye, EyeOff } from "lucide-react";
+import PasswordInput from "@/components/ui/PasswordInput";
 
 export default function SigninForm() {
   const [loading, setLoading] = useState(false);
@@ -74,27 +75,11 @@ export default function SigninForm() {
           required
         />
 
-        <div className="relative">
-          <input
-            type={showPassword ? "text" : "password"}
-            name="password"
-            placeholder="Password"
-            className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
-            required
-          />
-          <button
-            type="button"
-            onClick={() => setShowPassword((prev) => !prev)}
-            className="absolute right-3 top-1/3 justify-center"
-            aria-label={showPassword ? "Hide password" : "Show password"}
-          >
-            {showPassword ? (
-              <EyeOff className="h-5 w-5" />
-            ) : (
-              <Eye className="h-5 w-5" />
-            )}
-          </button>
-        </div>
+        <PasswordInput
+          name="password"
+          placeholder="Password"
+          required
+        />
 
         <div className="flex justify-end">
           <Link

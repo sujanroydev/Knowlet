@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { toast } from "sonner";
+import { Eye, EyeOff } from "lucide-react";
 import Loader from "@/components/auth/Loader";
 import AuthCard from "@/components/auth/AuthCard";
-import { Eye, EyeOff } from "lucide-react";
+import PasswordInput from "@/components/ui/PasswordInput";
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
@@ -113,49 +114,17 @@ export default function ForgotPasswordPage() {
             </button>
           </div>
 
-          <div className="relative">
-            <input
-              type={showPassword ? "text" : "password"}
-              name="password"
-              placeholder="Password"
-              className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
-              required
-            />
-            <button
-              type="button"
-              onClick={() => setShowPassword((prev) => !prev)}
-              className="absolute right-3 top-1/3 justify-center"
-              aria-label={showPassword ? "Hide password" : "Show password"}
-            >
-              {showPassword ? (
-                <EyeOff className="h-5 w-5" />
-              ) : (
-                <Eye className="h-5 w-5" />
-              )}
-            </button>
-          </div>
+          <PasswordInput
+            name="password"
+            placeholder="Password"
+            required
+          />
 
-          <div className="relative">
-            <input
-              type={showConfirmPassword ? "text" : "password"}
-              name="confirmPassword"
-              placeholder="Confirm Password"
-              className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
-              required
-            />
-            <button
-              type="button"
-              onClick={() => setConfirmShowPassword((prev) => !prev)}
-              className="absolute right-3 top-1/3 justify-center"
-              aria-label={showConfirmPassword ? "Hide password" : "Show password"}
-            >
-              {showConfirmPassword ? (
-                <EyeOff className="h-5 w-5" />
-              ) : (
-                <Eye className="h-5 w-5" />
-              )}
-            </button>
-          </div>
+          <PasswordInput
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            required
+          />
 
           <button className="w-full bg-blue-600 text-white py-3 rounded-lg">
             Reset Password

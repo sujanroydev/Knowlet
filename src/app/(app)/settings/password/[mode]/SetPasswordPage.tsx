@@ -14,11 +14,11 @@ export default function SetPasswordPage() {
 
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [otp, setOtp] = useState("");
 
   const [loading, setLoading] = useState(false);
   const [otpLoading, setOtpLoading] = useState(false);
   const [otpSent, setOtpSent] = useState(false);
-  const [otp, setOtp] = useState("");
 
   const { user } = useAuth();
   const email = user?.email;
@@ -83,8 +83,10 @@ export default function SetPasswordPage() {
       if (!res.ok) return;
 
       toast.success("Password updated successfully.");
+
       setPassword("");
       setConfirmPassword("");
+      setOtp("");
     } catch (err: any) {
       toast.error(err.message);
     } finally {
@@ -95,18 +97,20 @@ export default function SetPasswordPage() {
   return (
     <main className="min-h-[calc(100dvh-120px)] flex items-center justify-center bg-gray-100 p-4">
       <AuthCard title="Reset Password">
-        {loading && <Loader />}
-
         <form onSubmit={handleSubmit} className="space-y-5">
           <PasswordInput
             name="password"
             placeholder="Password"
+            onChange={(e) => setPassword(e.currentTarget.value)}
+            value={password}
             required
           />
 
           <PasswordInput
             name="confirmPassword"
             placeholder="Confirm Password"
+            onChange={(e) => setConfirmPassword(e.currentTarget.value)}
+            value={confirmPassword}
             required
           />
 

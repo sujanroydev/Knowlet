@@ -3,10 +3,13 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Bot, Send, X } from "lucide-react";
 import { useState } from "react";
+import NexusInput from "@/components/nexus/NexusInput";
+import NexusChat from "@/components/nexus/NexusChat";
 
 export default function AIAssistant() {
   const [open, setOpen] = useState(false);
-  const [message, setMessage] = useState("");
+  const [mode, setMode] = useState<string>("normal");
+  const [messages, setMessages] = useState<any[]>([]);
 
   return (
     <>
@@ -50,41 +53,11 @@ export default function AIAssistant() {
               </button>
             </div>
 
-            {/* Messages */}
-            <div className="flex-1 overflow-y-auto bg-gray-50 p-4">
-              <div className="max-w-[80%] rounded-2xl rounded-tl-md bg-white p-3 shadow">
-                👋 Hi! I'm Knowlet AI. How can I help you today?
-              </div>
-            </div>
+            {/* Message */}
+            <NexusChat messages={messages} />
 
             {/* Input */}
-            <div className="border-t border-gray-200 p-3">
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-
-                  if (!message.trim()) return;
-
-                  console.log(message);
-                  setMessage("");
-                }}
-                className="flex items-center gap-2"
-              >
-                <input
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Ask anything..."
-                  className="flex-1 rounded-xl border border-gray-300 px-4 py-3 text-sm outline-none transition focus:border-blue-600"
-                />
-
-                <button
-                  type="submit"
-                  className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-600 text-white transition hover:bg-blue-700"
-                >
-                  <Send size={18} />
-                </button>
-              </form>
-            </div>
+            <NexusInput mode={mode} setMessages={setMessages} messages={messages} />
           </motion.div>
         )}
       </AnimatePresence>

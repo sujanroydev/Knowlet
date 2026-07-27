@@ -44,138 +44,9 @@ export async function POST(req: NextRequest) {
       "gemini-2.5-flash-lite",  // 10 RPM, 250K TPM, 20 RPD
     ];
 
-    const model = genAI.getGenerativeModel({ model: models[4] });
+    const model = genAI.getGenerativeModel({ model: models[mode === "create-resource" ? 0 : 4] });
 
-    let prompt = "";
-
-    // Mode-specific prompt
-    switch (mode) {
-      case "quiz":
-        prompt = `
-You are a quiz generator for Knowlet.
-
-Create 5 ${difficulty}-level multiple-choice questions (MCQs) from the given student notes.
-
-STRICT RULES:
-- Output MUST be valid JSON
-- NO markdown
-- NO explanations or extra text
-- Start with [ and end with ]
-- Exactly 4 options per question
-
-FORMAT:
-[
-  {
-    "question": "string",
-    "options": [
-      "option text",
-      "option text",
-      "option text",
-      "option text"
-    ],
-    "answer": "option text"
-  }
-]
-
-NOTES:
-${text}
-`;
-        break;
-
-      case "study":
-        prompt = `
-You are Knowlet, an AI learning assistant.
-
-Summarize the following text clearly and concisely for study purposes:
-- Keep it simple and easy to understand
-- Highlight key points
-- No unnecessary long explanations
-
-TEXT:
-${text}
-`;
-        break;
-
-      case "short":
-        prompt = `
-You are Knowlet, an AI learning assistant.
-
-Provide a very short and direct answer to the user's question. Max 1-2 sentences.
-
-QUESTION:
-${text}
-`;
-        break;
-
-      case "explain":
-        prompt = `
-You are Knowlet, an AI learning assistant.
-
-Explain the following topic in a detailed but simple manner:
-- Use examples if possible
-- Make it easy for a student to understand
-
-TOPIC:
-${text}
-`;
-
-        break;
-
-      case "create-resource":
-        prompt = `
-You are Knowlet, an AI learning assistant.
-
-Your task is to convert the following syllabus into a complete study resource.
-
-STRICT RULES:
-- Output MUST be valid JSON
-- Do NOT use markdown outside of the JSON
-- Do NOT include explanations or extra text
-- Return ONLY one JSON object
-- Start with { and end with }
-- The "resource" field MUST be a Markdown string
-
-JSON FORMAT:
-{
-  "title": "string",
-  "description": "string",
-  "resource": "markdown content"
-}
-
-FIELD REQUIREMENTS:
-- "title": A clear, concise title for the resource.
-- "description": A short summary (1-3 sentences) describing what students will learn.
-- "resource":
-  - Write comprehensive study notes in Markdown.
-  - Cover every topic mentioned in the syllabus.
-  - Use headings (##, ###), bullet points, tables when useful.
-  - Explain concepts in simple, student-friendly language.
-  - Include examples wherever appropriate.
-  - Add important definitions, key points, formulas, or diagrams (using Markdown) when relevant.
-  - Do not skip any syllabus topic.
-  - Do not include any text outside the JSON object.
-
-SYLLABUS:
-${text}
-`;
-
-        break;
-
-      default:
-        // normal chat
-        prompt = `
-You are Knowlet, an AI learning assistant.
-
-Answer the user's question clearly and concisely.
-- Keep it simple and easy to understand
-- No unnecessary long explanations
-- No JSON, only plain text
-
-QUESTION:
-${text}
-`;
-    }
-
+    let prompt = generatePrompt(mode, difficulty, text);
     let raw = "";
 
     for (let attempt = 0; attempt < 3; attempt++) {
@@ -237,6 +108,140 @@ ${text}
       { status: 500, headers: corsHeaders() },
     );
   }
+}
+
+function generatePrompt(mode: string, difficulty: string, text: string): string {
+  let prompt = "";
+  switch (mode) {
+    case "quiz":
+      prompt = `
+You are a quiz generator for Knowlet.
+
+Create 5 ${difficulty}-level multiple-choice questions (MCQs) from the given student notes.
+
+STRICT RULES:
+- Output MUST be valid JSON
+- NO markdown
+- NO explanations or extra text
+- Start with [ and end with ]
+- Exactly 4 options per question
+
+FORMAT:
+[
+  {
+    "question": "string",
+    "options": [
+      "option text",
+      "option text",
+      "option text",
+      "option text"
+    ],
+    "answer": "option text"
+  }
+]
+
+NOTES:
+${text}
+`;
+      break;
+
+    case "study":
+      prompt = `
+You are Knowlet, an AI learning assistant.
+
+Summarize the following text clearly and concisely for study purposes:
+- Keep it simple and easy to understand
+- Highlight key points
+- No unnecessary long explanations
+
+TEXT:
+${text}
+`;
+      break;
+
+    case "short":
+      prompt = `
+You are Knowlet, an AI learning assistant.
+
+Provide a very short and direct answer to the user's question. Max 1-2 sentences.
+
+QUESTION:
+${text}
+`;
+      break;
+
+    case "explain":
+      prompt = `
+You are Knowlet, an AI learning assistant.
+
+Explain the following topic in a detailed but simple manner:
+- Use examples if possible
+- Make it easy for a student to understand
+
+TOPIC:
+${text}
+`;
+
+      break;
+
+    case "create-resource":
+      prompt = `
+You are Knowlet, an AI learning assistant.
+
+Your task is to convert the following syllabus into a complete study resource.
+
+STRICT RULES:
+- Output MUST be valid JSON
+- Do NOT use markdown
+- Do NOT include explanations or extra text
+- Return ONLY one JSON object
+- Start with { and end with }
+- The "resource" field MUST contain valid HTML only
+
+JSON FORMAT:
+{
+  "title": "string",
+  "description": "string",
+  "resource": "valid html content"
+}
+
+FIELD REQUIREMENTS:
+- "title": A clear, concise title for the resource.
+- "description": A short summary (1-3 sentences) describing what students will learn.
+- "resource":
+  - Write a complete HTML document body (without <html>, <head>, or <body> tags).
+  - Use only valid HTML.
+  - Structure the content with appropriate tags such as <h1>, <h2>, <h3>, <p>, <ul>, <ol>, <li>, <table>, <strong>, <em>, <code>, <pre>, and <blockquote> where appropriate.
+  - Cover every topic mentioned in the syllabus.
+  - Explain concepts in simple, student-friendly language.
+  - Include examples wherever appropriate.
+  - Add important definitions, key points, formulas, and summaries where relevant.
+  - Do not skip any syllabus topic.
+  - Do not use Markdown syntax anywhere inside the HTML.
+  - Ensure the HTML is well-formed and valid.
+  - Do not include any text outside the JSON object.
+
+SYLLABUS:
+${text}
+`;
+
+      break;
+
+    default:
+      // normal chat
+      prompt = `
+You are Knowlet, an AI learning assistant.
+
+Answer the user's question clearly and concisely.
+- Keep it simple and easy to understand
+- No unnecessary long explanations
+- No JSON, only plain text
+
+QUESTION:
+${text}
+`;
+  }
+  return prompt;
 }
 
 function cleanJSON(raw: string) {

@@ -56,7 +56,11 @@ export default async function Page({
 
     if (!resource || resource.length === 0) notFound();
 
-    return <ResourceEditor action={action} resource={resource} />;
+    return (
+      <ResourceEditorProvider>
+        <ResourceEditor action={action} resource={resource} />
+      </ResourceEditorProvider>
+    );
   }
 
   return (

@@ -6,7 +6,7 @@ export default function NexusInput({ mode, setMessages, messages }: any) {
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const API_URL = "api/nexus/chat";
+  const API_URL = "/api/nexus/chat";
 
   const send = async () => {
     if (!text.trim() || loading) return;

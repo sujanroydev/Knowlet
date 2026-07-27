@@ -1,4 +1,5 @@
 import ResourceEditor from "@/components/dashboard/resources/editor";
+import AIAssistant from "@/components/nexus/AIAssistant";
 import connectDb from "@/lib/db";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -57,5 +58,10 @@ export default async function Page({
     return <ResourceEditor action={action} resource={resource} />;
   }
 
-  return <ResourceEditor action="create" />;
+  return (
+    <>
+      <ResourceEditor action="create" />
+      <AIAssistant />
+    </>
+  );
 }

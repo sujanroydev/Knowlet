@@ -28,11 +28,11 @@ export default function NexusInput({ mode, setMessages, messages }: any) {
         body: JSON.stringify({ text, mode }),
       });
 
-      const { success, type, message, quiz, retryAfter } = await res.json();
+      const { success, type, data, retryAfter } = await res.json();
 
       const aiMsg = {
         sender: "ai",
-        text: message || "No response",
+        text: data.resource || data || "No response",
         time: new Date().toLocaleTimeString(),
       };
 

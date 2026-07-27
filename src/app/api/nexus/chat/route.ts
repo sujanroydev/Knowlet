@@ -26,14 +26,25 @@ export async function POST(req: NextRequest) {
         JSON.stringify({
           success: true,
           type: "identity",
-          message:
+          data:
             "I am Knowlet, an AI-powered learning assistant that helps students generate quizzes, understand concepts, and study more effectively.",
         }),
         { status: 200, headers: corsHeaders() },
       );
     }
 
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+    const models = [
+      "gemini-3.6-flash",       // 5 RPM, 250K TPM, 20 RPD
+      "gemini-3.5-flash",       // 5 RPM, 250K TPM, 20 RPD
+      "gemini-3-flash",         // 5 RPM, 250K TPM, 20 RPD
+      "gemini-2.5-flash",       // 5 RPM, 250K TPM, 20 RPD
+
+      "gemini-3.1-flash-lite",  // 15 RPM, 250K TPM, 500 RPD
+      "gemini-3.5-flash-lite",  // 15 RPM, 250K TPM, 500 RPD
+      "gemini-2.5-flash-lite",  // 10 RPM, 250K TPM, 20 RPD
+    ];
+
+    const model = genAI.getGenerativeModel({ model: models[4] });
 
     let prompt = "";
 
@@ -107,6 +118,47 @@ Explain the following topic in a detailed but simple manner:
 TOPIC:
 ${text}
 `;
+
+        break;
+
+      case "create-resource":
+        prompt = `
+You are Knowlet, an AI learning assistant.
+
+Your task is to convert the following syllabus into a complete study resource.
+
+STRICT RULES:
+- Output MUST be valid JSON
+- Do NOT use markdown outside of the JSON
+- Do NOT include explanations or extra text
+- Return ONLY one JSON object
+- Start with { and end with }
+- The "resource" field MUST be a Markdown string
+
+JSON FORMAT:
+{
+  "title": "string",
+  "description": "string",
+  "resource": "markdown content"
+}
+
+FIELD REQUIREMENTS:
+- "title": A clear, concise title for the resource.
+- "description": A short summary (1-3 sentences) describing what students will learn.
+- "resource":
+  - Write comprehensive study notes in Markdown.
+  - Cover every topic mentioned in the syllabus.
+  - Use headings (##, ###), bullet points, tables when useful.
+  - Explain concepts in simple, student-friendly language.
+  - Include examples wherever appropriate.
+  - Add important definitions, key points, formulas, or diagrams (using Markdown) when relevant.
+  - Do not skip any syllabus topic.
+  - Do not include any text outside the JSON object.
+
+SYLLABUS:
+${text}
+`;
+
         break;
 
       default:
@@ -126,16 +178,18 @@ ${text}
 
     let raw = "";
     let parsed = null;
+    let count = 4;
 
     for (let attempt = 0; attempt < 3; attempt++) {
       const result = await model.generateContent(prompt);
       const response = await result.response;
       raw = response.text();
 
-      if (mode === "quiz") {
+      if (mode === "quiz" || mode === "create-resource") {
         try {
           const cleaned = cleanJSON(raw);
           parsed = JSON.parse(cleaned);
+          count = attempt;
           break;
         } catch (err) {
           if (attempt === 2) {
@@ -150,15 +204,17 @@ ${text}
           }
         }
       } else {
+        console.log({ success: true, type: "string", data: raw.trim() });
         return new Response(
-          JSON.stringify({ success: true, type: "chat", message: raw.trim() }),
+          JSON.stringify({ success: true, type: "string", data: raw.trim() }),
           { status: 200, headers: corsHeaders() },
         );
       }
     }
 
+    console.log({ success: true, type: "json", data: parsed, count: count });
     return new Response(
-      JSON.stringify({ success: true, type: "quiz", quiz: parsed }),
+      JSON.stringify({ success: true, type: "json", data: parsed }),
       { status: 200, headers: corsHeaders() },
     );
   } catch (err) {
@@ -174,7 +230,7 @@ ${text}
         JSON.stringify({
           success: false,
           type: "rate_limit",
-          message: `⏳ AI limit reached. Try again in ${waitTime} seconds.`,
+          data: `⏳ AI limit reached. Try again in ${waitTime} seconds.`,
           retryAfter: waitTime,
         }),
         { status: 429, headers: corsHeaders() },

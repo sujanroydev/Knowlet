@@ -3,13 +3,10 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Bot, Send, X } from "lucide-react";
 import { useState } from "react";
-import NexusInput from "@/components/nexus/NexusInput";
-import NexusChat from "@/components/nexus/NexusChat";
+import NexusPage from "@/components/nexus/NexusPage";
 
 export default function AIAssistant() {
   const [open, setOpen] = useState(false);
-  const [mode, setMode] = useState<string>("normal");
-  const [messages, setMessages] = useState<any[]>([]);
 
   return (
     <>
@@ -52,12 +49,7 @@ export default function AIAssistant() {
                 <X size={18} />
               </button>
             </div>
-
-            {/* Message */}
-            <NexusChat messages={messages} />
-
-            {/* Input */}
-            <NexusInput mode={mode} setMessages={setMessages} messages={messages} />
+            <NexusPage messages={messages} />
           </motion.div>
         )}
       </AnimatePresence>

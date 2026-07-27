@@ -1,5 +1,5 @@
 export default function NexusToolbar({ mode, setMode }: any) {
-  const modes = ["quiz", "study", "short", "explain"];
+  const modes = ["normal", "quiz", "study", "short", "explain", "create-resource"];
 
   return (
     <div className="flex gap-2 px-2 py-2 border-t border-gray-200 bg-white">

@@ -177,8 +177,6 @@ ${text}
     }
 
     let raw = "";
-    let parsed = null;
-    let count = 4;
 
     for (let attempt = 0; attempt < 3; attempt++) {
       const result = await model.generateContent(prompt);
@@ -188,8 +186,8 @@ ${text}
       if (mode === "quiz" || mode === "create-resource") {
         try {
           const cleaned = cleanJSON(raw);
-          parsed = JSON.parse(cleaned);
-          count = attempt;
+          const parsed = JSON.parse(cleaned);
+          raw = JSON.stringify(parsed);
           break;
         } catch (err) {
           if (attempt === 2) {
@@ -203,18 +201,11 @@ ${text}
             );
           }
         }
-      } else {
-        console.log({ success: true, type: "string", data: raw.trim() });
-        return new Response(
-          JSON.stringify({ success: true, type: "string", data: raw.trim() }),
-          { status: 200, headers: corsHeaders() },
-        );
-      }
+      } else break;
     }
 
-    console.log({ success: true, type: "json", data: parsed, count: count });
     return new Response(
-      JSON.stringify({ success: true, type: "json", data: parsed }),
+      JSON.stringify({ success: true, data: raw }),
       { status: 200, headers: corsHeaders() },
     );
   } catch (err) {

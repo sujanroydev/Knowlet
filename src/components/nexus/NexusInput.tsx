@@ -33,6 +33,7 @@ export default function NexusInput({ mode, setMessages, messages }: any) {
       const aiMsg = {
         sender: "ai",
         text: data.resource || data || "No response",
+        mode,
         time: new Date().toLocaleTimeString(),
       };
 
@@ -40,7 +41,7 @@ export default function NexusInput({ mode, setMessages, messages }: any) {
     } catch {
       setMessages((prev: any) => [
         ...prev,
-        { sender: "ai", text: "Request failed", time: "" },
+        { sender: "ai", text: "Request failed", mode, time: new Date().toLocaleTimeString() },
       ]);
     }
 

@@ -6,24 +6,7 @@ import ResourceActions from "./resource-actions";
 import ResourceDetails from "./resource-details";
 import { useEffect, useMemo, useState } from "react";
 import { Resource } from "@/types/resource";
-
-interface Details {
-  title: string;
-  description: string;
-  target: string;
-  type: string;
-  slug: string;
-  path: string;
-}
-
-const defaultDetails = {
-  title: "",
-  description: "",
-  target: "",
-  type: "",
-  slug: "",
-  path: "",
-};
+import { useResourceEditor } from "@/context/ResourceEditorContext";
 
 export default function ResourceEditor({
   resource,
@@ -34,10 +17,9 @@ export default function ResourceEditor({
 }) {
   const [newResource, setNewResource] = useState<Resource>();
 
-  const [content, setContent] = useState<string>(resource?.content || "");
-  const [details, setDetails] = useState<Details>(defaultDetails);
-
   const [preview, setPreview] = useState<boolean>(false);
+
+  const { content, details, setContent, setDetails } = useResourceEditor();
 
   const resourceDetails = useMemo(
     () =>
@@ -61,6 +43,10 @@ export default function ResourceEditor({
       content,
     });
   }, [content, details]);
+
+  useEffect(() => {
+    setContent(resource?.content || "")
+  }, [])
 
   return (
     <div className="min-h-screen bg-slate-100 p-6">

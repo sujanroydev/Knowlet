@@ -3,6 +3,7 @@ import AIAssistant from "@/components/nexus/AIAssistant";
 import connectDb from "@/lib/db";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { ResourceEditorProvider } from "@/context/ResourceEditorContext";
 
 export const metadata: Metadata = {
   title: "Resource Editor | Knowlet",
@@ -59,9 +60,9 @@ export default async function Page({
   }
 
   return (
-    <>
+    <ResourceEditorProvider>
       <ResourceEditor action="create" />
       <AIAssistant />
-    </>
+    </ResourceEditorProvider>
   );
 }

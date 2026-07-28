@@ -22,7 +22,7 @@ export default function ResourceActions({
       body: JSON.stringify(resource),
     });
 
-    const { error } = await res.json();
+    const { error, path } = await res.json();
     setLoading(false);
 
     if (error) {
@@ -32,7 +32,7 @@ export default function ResourceActions({
 
     if (!res.ok) return;
 
-    const url = `https://knowlet.in/library/${resource?.path}`;
+    const url = `https://knowlet.in/library/${path}`;
 
     toast.success("Resource Published Successfully.", {
       description: "The resource is live and ready to view.",
@@ -65,7 +65,7 @@ export default function ResourceActions({
       body: JSON.stringify(resource),
     });
 
-    const { error } = await res.json();
+    const { error, path } = await res.json();
     setLoading(false);
 
     if (error) {
@@ -75,7 +75,7 @@ export default function ResourceActions({
 
     if (!res.ok) return;
 
-    const url = `https://knowlet.in/library/${resource?.path}`;
+    const url = `https://knowlet.in/library/${path}`;
 
     toast.success("Resource Updated Successfully.", {
       description: "The resource is live and ready to view.",

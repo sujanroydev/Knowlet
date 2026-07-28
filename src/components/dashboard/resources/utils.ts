@@ -29,7 +29,7 @@ function buildResourcePath({
   type: string;
 }) {
   if (!level || !subject || !type || !target)
-    throw new Error("leve, subject, type and target are mandetory");
+    throw new Error("level, subject, type and target are mandetory");
 
   let path = `${level}/${subject}`;
 

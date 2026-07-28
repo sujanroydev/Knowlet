@@ -10,10 +10,12 @@ export default function NexusMessage({ message }: any) {
   let description = "";
 
   if (!isUser && message.mode === "create-resource") {
-    const parsed = JSON.parse(content);
-    content = parsed.resource;
-    title = parsed.title;
-    description = parsed.description;
+    try {
+      const parsed = JSON.parse(content);
+      content = parsed.resource;
+      title = parsed.title;
+      description = parsed.description;
+    } catch {}
   }
 
   return (

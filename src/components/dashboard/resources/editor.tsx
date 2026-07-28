@@ -8,33 +8,12 @@ import { useEffect, useMemo, useState } from "react";
 import { Resource } from "@/types/resource";
 import { useResourceEditor } from "@/context/ResourceEditorContext";
 
-export default function ResourceEditor({
-  resource,
-  action,
-}: {
-  resource?: Resource;
-  action: "create" | "update";
-}) {
+export default function ResourceEditor() {
   const [newResource, setNewResource] = useState<Resource>();
 
   const [preview, setPreview] = useState<boolean>(false);
 
-  const { content, details, setContent, setDetails } = useResourceEditor();
-
-  const resourceDetails = useMemo(
-    () =>
-      resource
-        ? {
-            title: resource.title || "",
-            description: resource.description || "",
-            target: resource.target || "",
-            type: resource.type || "",
-            slug: resource.slug || "",
-            path: resource.path || "",
-          }
-        : undefined,
-    [resource],
-  );
+  const { action, resource, content, details, setContent, setDetails } = useResourceEditor();
 
   useEffect(() => {
     setNewResource({
@@ -43,10 +22,6 @@ export default function ResourceEditor({
       content,
     });
   }, [content, details]);
-
-  useEffect(() => {
-    setContent(resource?.content || "")
-  }, [])
 
   return (
     <div className="min-h-screen bg-slate-100 p-6">
@@ -92,11 +67,7 @@ export default function ResourceEditor({
         </div>
 
         {/* Resource Form */}
-        <ResourceDetails
-          action={action}
-          setDetails={setDetails}
-          details={resourceDetails}
-        />
+        <ResourceDetails />
 
         {/* Actions */}
         <ResourceActions action={action} resource={newResource} />

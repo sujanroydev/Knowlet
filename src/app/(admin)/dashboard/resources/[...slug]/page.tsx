@@ -57,15 +57,15 @@ export default async function Page({
     if (!resource || resource.length === 0) notFound();
 
     return (
-      <ResourceEditorProvider>
-        <ResourceEditor action={action} resource={resource} />
+      <ResourceEditorProvider action={action} resource={resource} >
+        <ResourceEditor />
       </ResourceEditorProvider>
     );
   }
 
   return (
-    <ResourceEditorProvider>
-      <ResourceEditor action="create" />
+    <ResourceEditorProvider action="create" >
+      <ResourceEditor />
       <AIAssistant />
     </ResourceEditorProvider>
   );

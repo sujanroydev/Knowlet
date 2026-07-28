@@ -114,7 +114,7 @@ export default function SearchPage() {
             )}
 
             <div className="mt-4 flex flex-wrap gap-2">
-              {resource.path.split("/").map((part, index) => (
+              {resource?.path && resource.path.split("/").map((part, index) => (
                 <span
                   key={`${part}-${index}`}
                   className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary"

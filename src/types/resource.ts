@@ -7,10 +7,13 @@ export type Action = "create" | "update";
 export interface Details {
   title: string;
   description: string;
-  target: string;
-  type: string;
-  slug: string;
-  path: string;
+  level?: string;
+  subject?: string;
+  paper?: string;
+  target?: string;
+  type?: string;
+  slug?: string;
+  path?: string;
 }
 
 export interface Resource {
@@ -18,9 +21,12 @@ export interface Resource {
   title: string;
   description?: string;
   content: string;
-  path: string;
+  level?: string;
+  subject?: string;
+  paper?: string;
   target?: string;
   type?: string;
+  path?: string;
   slug?: string;
   file_url?: string;
   thumbnail_url?: string;

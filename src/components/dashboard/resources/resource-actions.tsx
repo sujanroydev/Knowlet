@@ -1,6 +1,6 @@
 "use client";
 
-import { Resource } from "@/types/resource";
+import { Resource, Action } from "@/types/resource";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -9,7 +9,7 @@ export default function ResourceActions({
   action,
 }: {
   resource: Resource | undefined;
-  action: "create" | "update";
+  action: Action;
 }) {
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -108,7 +108,7 @@ export default function ResourceActions({
 
     if (
       values.includes("select") ||
-      resource.path.split("/").includes("select") ||
+      // resource.path.split("/").includes("select") ||
       values.includes(null) ||
       values.includes(undefined)
     ) {

@@ -66,7 +66,11 @@ export default function ResourceDetails({
   const [target, setTarget] = useState("select");
 
   useEffect(() => {
-    const path = buildResourcePath({ level, subject, paper, target, type });
+    let path = "";
+
+    try {
+      path = buildResourcePath({ level, subject, paper, target, type });
+    } catch {}
 
     setDetails({ title, description, path, type, target, slug: target });
   }, [title, description, level, subject, paper, type, target]);
@@ -76,14 +80,23 @@ export default function ResourceDetails({
       setTitle(details.title);
       setDescription(details.description);
 
-      const { levelSlug, subjectSlug, paperSlug, targetSlug, typeSlug } =
-        parseResourcePath(details.path);
+      let parsedResourcePath = {
+        levelSlug: "",
+        subjectSlug: "",
+        paperSlug: "",
+        targetSlug: "",
+        typeSlug: "",
+      }
 
-      setLevel(levelSlug);
-      setSubject(subjectSlug);
-      paperSlug && setPaper(paperSlug);
-      setTarget(targetSlug);
-      setType(typeSlug);
+      try {
+        parsedResourcePath = parseResourcePath(details.path);
+      } catch {}
+
+      setLevel(parsedResourcePath.levelSlug);
+      setSubject(parsedResourcePath.subjectSlug);
+      parsedResourcePath.paperSlug && setPaper(parsedResourcePath.paperSlug);
+      setTarget(parsedResourcePath.targetSlug);
+      setType(parsedResourcePath.typeSlug);
     }
   }, [details]);
 

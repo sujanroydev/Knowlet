@@ -1,19 +1,23 @@
+"use client";
+
+import Link from "next/link";
+
 export default function SettingsPage() {
   const sections = [
-    // {
-    //   title: "Profile",
-    //   description: "Manage your personal information and account details.",
-    //   links: [
-    //     {
-    //       label: "Edit Profile",
-    //       href: "/profile/edit",
-    //     },
-    //     {
-    //       label: "Change Avatar",
-    //       href: "/profile/avatar",
-    //     },
-    //   ],
-    // },
+    {
+      title: "Profile",
+      description: "Manage your personal information and account details.",
+      links: [
+        {
+          label: "Edit Profile",
+          href: "/complete-profile",
+        },
+        // {
+        //   label: "Change Avatar",
+        //   href: "/profile/avatar",
+        // },
+      ],
+    },
     {
       title: "Security",
       description: "Update your password and secure your account.",
@@ -82,7 +86,7 @@ export default function SettingsPage() {
 
               <div className="mt-6 space-y-3">
                 {section.links.map((link) => (
-                  <a
+                  <Link
                     key={link.href}
                     href={link.href}
                     className="flex items-center justify-between rounded-2xl border border-slate-200 px-4 py-3 text-sm font-medium text-slate-700 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700"
@@ -90,7 +94,7 @@ export default function SettingsPage() {
                     <span>{link.label}</span>
 
                     <span>→</span>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -98,7 +102,7 @@ export default function SettingsPage() {
         </div>
 
         {/* Danger Zone */}
-        <section className="rounded-[28px] border border-red-200 bg-white p-6 shadow-sm">
+        {/* <section className="rounded-[28px] border border-red-200 bg-white p-6 shadow-sm">
           <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
             <div>
               <h2 className="text-xl font-bold text-red-600">Danger Zone</h2>
@@ -119,7 +123,7 @@ export default function SettingsPage() {
               </button>
             </div>
           </div>
-        </section>
+        </section> */}
       </div>
     </main>
   );

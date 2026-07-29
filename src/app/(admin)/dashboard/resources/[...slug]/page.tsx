@@ -1,7 +1,9 @@
 import ResourceEditor from "@/components/dashboard/resources/editor";
+import AIAssistant from "@/components/nexus/AIAssistant";
 import connectDb from "@/lib/db";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { ResourceEditorProvider } from "@/context/ResourceEditorContext";
 
 export const metadata: Metadata = {
   title: "Resource Editor | Knowlet",
@@ -54,8 +56,17 @@ export default async function Page({
 
     if (!resource || resource.length === 0) notFound();
 
-    return <ResourceEditor action={action} resource={resource} />;
+    return (
+      <ResourceEditorProvider action={action} resource={resource} >
+        <ResourceEditor />
+      </ResourceEditorProvider>
+    );
   }
 
-  return <ResourceEditor action="create" />;
+  return (
+    <ResourceEditorProvider action="create" >
+      <ResourceEditor />
+      <AIAssistant />
+    </ResourceEditorProvider>
+  );
 }

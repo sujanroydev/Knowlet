@@ -3,6 +3,7 @@ import TextInput from "@/components/ui/text-input";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { buildResourcePath, parseResourcePath } from "./utils";
+import { useResourceEditor } from "@/context/ResourceEditorContext";
 
 interface Details {
   title: string;
@@ -47,45 +48,26 @@ const options = {
   ],
 };
 
-export default function ResourceDetails({
-  action,
-  details,
-  setDetails,
-}: {
-  action: "create" | "update";
-  details?: Details;
-  setDetails: (details: Details) => void;
-}) {
-  const [title, setTitle] = useState("Title");
-  const [description, setDescription] = useState("Description");
+export default function ResourceDetails() {
+  const { action, details, setDetails } = useResourceEditor();
 
-  const [level, setLevel] = useState("select");
-  const [subject, setSubject] = useState("select");
-  const [paper, setPaper] = useState("");
-  const [type, setType] = useState("select");
-  const [target, setTarget] = useState("select");
+  const [title, setTitle] = useState(details?.title ?? "");
+  const [description, setDescription] = useState(details?.description ?? "");
+
+  const [level, setLevel] = useState(details?.level ?? "");
+  const [subject, setSubject] = useState(details?.subject ?? "");
+  const [paper, setPaper] = useState(details?.paper ?? "");
+  const [type, setType] = useState(details?.type ?? "");
+  const [target, setTarget] = useState(details?.target ?? "");
 
   useEffect(() => {
-    const path = buildResourcePath({ level, subject, paper, target, type });
-
-    setDetails({ title, description, path, type, target, slug: target });
-  }, [title, description, level, subject, paper, type, target]);
+    setTitle(details?.title ?? "");
+    setDescription(details?.description ?? "");
+  }, [details.title, details.description])
 
   useEffect(() => {
-    if (details && Object.keys(details).length) {
-      setTitle(details.title);
-      setDescription(details.description);
-
-      const { levelSlug, subjectSlug, paperSlug, targetSlug, typeSlug } =
-        parseResourcePath(details.path);
-
-      setLevel(levelSlug);
-      setSubject(subjectSlug);
-      paperSlug && setPaper(paperSlug);
-      setTarget(targetSlug);
-      setType(typeSlug);
-    }
-  }, [details]);
+    setDetails({ title, description, level, subject, paper, target, type });
+  }, [title, description, level, subject, paper, target, type]);
 
   return (
     <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">

@@ -1,6 +1,6 @@
 "use client";
 
-import { Resource } from "@/types/resource";
+import { Resource, Action } from "@/types/resource";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -9,7 +9,7 @@ export default function ResourceActions({
   action,
 }: {
   resource: Resource | undefined;
-  action: "create" | "update";
+  action: Action;
 }) {
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -22,7 +22,7 @@ export default function ResourceActions({
       body: JSON.stringify(resource),
     });
 
-    const { error } = await res.json();
+    const { error, path } = await res.json();
     setLoading(false);
 
     if (error) {
@@ -32,7 +32,7 @@ export default function ResourceActions({
 
     if (!res.ok) return;
 
-    const url = `https://knowlet.in/library/${resource?.path}`;
+    const url = `https://knowlet.in/library/${path}`;
 
     toast.success("Resource Published Successfully.", {
       description: "The resource is live and ready to view.",
@@ -65,7 +65,7 @@ export default function ResourceActions({
       body: JSON.stringify(resource),
     });
 
-    const { error } = await res.json();
+    const { error, path } = await res.json();
     setLoading(false);
 
     if (error) {
@@ -75,7 +75,7 @@ export default function ResourceActions({
 
     if (!res.ok) return;
 
-    const url = `https://knowlet.in/library/${resource?.path}`;
+    const url = `https://knowlet.in/library/${path}`;
 
     toast.success("Resource Updated Successfully.", {
       description: "The resource is live and ready to view.",
@@ -108,7 +108,7 @@ export default function ResourceActions({
 
     if (
       values.includes("select") ||
-      resource.path.split("/").includes("select") ||
+      // resource.path.split("/").includes("select") ||
       values.includes(null) ||
       values.includes(undefined)
     ) {

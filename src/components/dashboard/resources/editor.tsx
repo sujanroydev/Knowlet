@@ -6,53 +6,41 @@ import ResourceActions from "./resource-actions";
 import ResourceDetails from "./resource-details";
 import { useEffect, useMemo, useState } from "react";
 import { Resource } from "@/types/resource";
+import { useResourceEditor } from "@/context/ResourceEditorContext";
+import { useKnowva } from "@/context/KnowvaContext";
+import type { Message } from "@/types/knowva";
 
-interface Details {
-  title: string;
-  description: string;
-  target: string;
-  type: string;
-  slug: string;
-  path: string;
-}
-
-const defaultDetails = {
-  title: "",
-  description: "",
-  target: "",
-  type: "",
-  slug: "",
-  path: "",
-};
-
-export default function ResourceEditor({
-  resource,
-  action,
-}: {
-  resource?: Resource;
-  action: "create" | "update";
-}) {
+export default function ResourceEditor() {
   const [newResource, setNewResource] = useState<Resource>();
-
-  const [content, setContent] = useState<string>(resource?.content || "");
-  const [details, setDetails] = useState<Details>(defaultDetails);
 
   const [preview, setPreview] = useState<boolean>(false);
 
-  const resourceDetails = useMemo(
-    () =>
-      resource
-        ? {
-            title: resource.title || "",
-            description: resource.description || "",
-            target: resource.target || "",
-            type: resource.type || "",
-            slug: resource.slug || "",
-            path: resource.path || "",
-          }
-        : undefined,
-    [resource],
-  );
+  const { action, resource, content, details, setContent, setDetails } = useResourceEditor();
+  const { setOnMessageClick } = useKnowva();
+
+  useEffect(() => {
+    setOnMessageClick(() => (message: Message) => {
+      if (message.sender !== "user" && message.mode === "create-resource") {
+        try {
+          const parsed = JSON.parse(content);
+
+          setContent(parsed.resource);
+          setDetails({
+            title: parsed.title,
+            description: parsed.description,
+            target: "",
+            type: "",
+            slug: "",
+            path: "",
+          })
+        } catch {}
+      }
+    });
+
+    return () => {
+      setOnMessageClick(undefined);
+    }
+  }, [setOnMessageClick]);
 
   useEffect(() => {
     setNewResource({
@@ -106,11 +94,7 @@ export default function ResourceEditor({
         </div>
 
         {/* Resource Form */}
-        <ResourceDetails
-          action={action}
-          setDetails={setDetails}
-          details={resourceDetails}
-        />
+        <ResourceDetails />
 
         {/* Actions */}
         <ResourceActions action={action} resource={newResource} />

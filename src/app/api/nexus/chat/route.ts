@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
       // "gemini-2.5-flash-lite",  // 10 RPM, 250K TPM, 20 RPD
     ];
 
-    const randomNumber = (n) => Math.floor(Math.random() * (n));
+    const randomNumber = (n: number) => Math.floor(Math.random() * (n));
     const modelName = modelNames[mode === "create-resource" ? randomNumber(2) : 3 + randomNumber(2)];
     console.log("Model Name: ", modelName);
 

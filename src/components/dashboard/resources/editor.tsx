@@ -19,7 +19,21 @@ export default function ResourceEditor() {
 
   useEffect(() => {
     setOnMessageClick(() => (message) => {
-      setContent(message.text);
+      if (message.sender !== "user" && message.mode === "create-resource") {
+        try {
+          const parsed = JSON.parse(content);
+
+          setContent(parsed.resource);
+          setDetails({
+            title: parsed.title,
+            description: parsed.description,
+            target: "",
+            type: "",
+            slug: "",
+            path: "",
+          })
+        } catch {}
+      }
     });
 
     return () => {

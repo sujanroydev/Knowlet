@@ -3,6 +3,7 @@ import connectDb from "@/lib/db";
 import { sendNotificationByUserId } from "@/services/notification/send";
 import { Resource } from "@/types/resource";
 import { NextRequest, NextResponse } from "next/server";
+import { buildResourcePath } from "@/components/dashboard/resources/utils";
 
 export async function PUT(
   req: NextRequest,
@@ -10,7 +11,7 @@ export async function PUT(
 ) {
   try {
     let resource: Resource = await req.json();
-    const { title, description, content, target, type, slug, path } = resource;
+    const { title, description, content, level, subject, paper, target, type } = resource;
     const { id } = await params;
 
     if (!id) {
@@ -24,10 +25,10 @@ export async function PUT(
       !title ||
       !description ||
       !content ||
+      !level ||
+      !subject ||
       !target ||
-      !type ||
-      !slug ||
-      !path
+      !type
     ) {
       return NextResponse.json(
         { error: { message: "All fields are required." } },
@@ -38,13 +39,15 @@ export async function PUT(
     const { ok, res, payload } = await authGate(req, "admin");
     if (!ok || !payload) return res;
 
+    const path = buildResourcePath({ level, subject, paper, target, type });
+    const slug = target;
+
     const parts = path.split("/");
 
     const levelSlug = parts[0];
     const subjectSlug = parts[1];
     const paperSlug = levelSlug.startsWith("semester") ? parts[2] : null;
 
-    let level, subject, paper;
     let oldLevelRow, oldSubjectRow, oldPaperRow;
     let newLevelRow, newSubjectRow, newPaperRow;
 

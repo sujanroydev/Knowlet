@@ -1,11 +1,18 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import type { Mode } from "@/types/knowva";
 
-export default function NexusToolbar({ mode, setMode }: any) {
+export default function NexusToolbar({
+  mode,
+  setMode
+}: {
+  mode: Mode;
+  setMode: (mode: Mode) => void;
+}) {
   const pathname = usePathname();
 
-  const modes = ["study", "short", "explain", ...(pathname.endsWith("create") ? ["create-resource"] : []),];
+  const modes: Mode[] = ["study", "short", "explain", ...(pathname.endsWith("create") ? (["create-resource"] as Mode[]) : []),];
 
   return (
     <div className="flex gap-2 px-2 py-2 overflow-x-auto whitespace-nowrap border-t border-gray-200 bg-white">

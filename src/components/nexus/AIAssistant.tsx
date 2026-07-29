@@ -6,11 +6,12 @@ import { useState } from "react";
 import NexusInput from "@/components/nexus/NexusInput";
 import NexusChat from "@/components/nexus/NexusChat";
 import NexusToolbar from "@/components/nexus/NexusToolbar";
+import type { Message, Mode } from "@/types/knowva";
 
 export default function AIAssistant() {
   const [open, setOpen] = useState(false);
-  const [mode, setMode] = useState<string>("normal");
-  const [messages, setMessages] = useState<any[]>([]);
+  const [mode, setMode] = useState<Mode>("normal");
+  const [messages, setMessages] = useState<Message[]>([]);
 
   return (
     <>
@@ -57,6 +58,7 @@ export default function AIAssistant() {
             <NexusChat messages={messages} />
 
             <NexusToolbar mode={mode} setMode={setMode} />
+
             <NexusInput mode={mode} setMessages={setMessages} messages={messages} />
           </motion.div>
         )}

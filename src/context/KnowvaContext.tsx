@@ -8,14 +8,13 @@ import {
   type ReactNode,
   type SetStateAction,
 } from "react";
+import type { Message } from "@/types/knowva";
 
-type OnMessageClick = (message: any) => void;
+type OnMessageClick = (message: Message) => void;
 
 interface KnowvaState {
   onMessageClick?: OnMessageClick;
-  setOnMessageClick: Dispatch<
-    SetStateAction<OnMessageClick | undefined>
-  >;
+  setOnMessageClick: Dispatch<SetStateAction<OnMessageClick | undefined>>;
 }
 
 const KnowvaContext = createContext<KnowvaState | null>(null);

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Content from "@/components/library/Content";
 import Navigator from "@/components/library/Navigator";
 import { parseLibraryPath } from "@/components/dashboard/resources/utils";
+import AIAssistant from "@/components/nexus/AIAssistant";
 
 const BASE_URL = "https://knowlet.in";
 
@@ -97,15 +98,12 @@ export default async function Page({
   const { slug } = await params;
 
   if (!slug || slug?.length <= 4) {
-    return (
-      <div>
-        <Navigator slug={slug} />
-      </div>
-    );
+    return <Navigator slug={slug} />;
   }
   return (
-    <div>
+    <>
       <Content slug={slug} />
-    </div>
+      <AIAssistant />
+    </>
   );
 }

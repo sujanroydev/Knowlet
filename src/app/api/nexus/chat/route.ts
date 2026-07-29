@@ -46,7 +46,6 @@ export async function POST(req: NextRequest) {
 
     const randomNumber = (n: number) => Math.floor(Math.random() * (n));
     const modelName = modelNames[mode === "create-resource" ? randomNumber(2) : 3 + randomNumber(2)];
-    console.log("Model Name: ", modelName);
 
     const model = genAI.getGenerativeModel({ model: modelName });
 

@@ -10,7 +10,7 @@ export default function NexusInput({
 }: {
   mode: Mode;
   messages: Message[];
-  setMessages: (messages: Message[]) => void;
+  setMessages: React.Dispatch<React.SetStateAction<Message[]>>;
 }) {
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
@@ -27,7 +27,7 @@ export default function NexusInput({
       time: new Date().toLocaleTimeString(),
     };
 
-    setMessages([...messages, userMsg]);
+    setMessages((prev) => [...prev, userMsg]);
     setText("");
     setLoading(true);
 
@@ -47,10 +47,10 @@ export default function NexusInput({
         time: new Date().toLocaleTimeString(),
       };
 
-      setMessages([...messages, aiMsg]);
+      setMessages((prev) => [...prev, aiMsg]);
     } catch {
-      setMessages([
-        ...messages,
+      setMessages((prev) => [
+        ...prev,
         { sender: "system", text: "Request failed", mode, time: new Date().toLocaleTimeString() },
       ]);
     }

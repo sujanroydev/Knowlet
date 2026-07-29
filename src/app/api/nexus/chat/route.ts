@@ -33,18 +33,22 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const models = [
+    const modelNames = [
       "gemini-3.6-flash",       // 5 RPM, 250K TPM, 20 RPD
-      //"gemini-3.5-flash",       // 5 RPM, 250K TPM, 20 RPD
-      //"gemini-3-flash",         // 5 RPM, 250K TPM, 20 RPD
+      "gemini-3.5-flash",       // 5 RPM, 250K TPM, 20 RPD
+      // "gemini-3-flash",         // 5 RPM, 250K TPM, 20 RPD
       "gemini-2.5-flash",       // 5 RPM, 250K TPM, 20 RPD
 
-      "gemini-3.1-flash-lite",  // 15 RPM, 250K TPM, 500 RPD
       "gemini-3.5-flash-lite",  // 15 RPM, 250K TPM, 500 RPD
-      "gemini-2.5-flash-lite",  // 10 RPM, 250K TPM, 20 RPD
+      "gemini-3.1-flash-lite",  // 15 RPM, 250K TPM, 500 RPD
+      // "gemini-2.5-flash-lite",  // 10 RPM, 250K TPM, 20 RPD
     ];
 
-    const model = genAI.getGenerativeModel({ model: models[mode === "create-resource" ? 0 : 2] });
+    const randomNumber = (n) => Math.floor(Math.random() * (n));
+    const modelName = modelNames[mode === "create-resource" ? randomNumber(2) : 3 + randomNumber(2)];
+    console.log("Model Name: ", modelName);
+
+    const model = genAI.getGenerativeModel({ model: modelName });
 
     let prompt = generatePrompt(mode, difficulty, text);
     let raw = "";

@@ -8,6 +8,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Resource } from "@/types/resource";
 import { useResourceEditor } from "@/context/ResourceEditorContext";
 import { useKnowva } from "@/context/KnowvaContext";
+import type { Message } from "@/types/knowva";
 
 export default function ResourceEditor() {
   const [newResource, setNewResource] = useState<Resource>();
@@ -18,7 +19,7 @@ export default function ResourceEditor() {
   const { setOnMessageClick } = useKnowva();
 
   useEffect(() => {
-    setOnMessageClick(() => (message) => {
+    setOnMessageClick(() => (message: Message) => {
       if (message.sender !== "user" && message.mode === "create-resource") {
         try {
           const parsed = JSON.parse(content);

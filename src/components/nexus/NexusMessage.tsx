@@ -1,7 +1,12 @@
 import { Edit2 } from "lucide-react";
 import { useKnowva } from "@/context/KnowvaContext";
+import type { Message } from "@/types/knowva";
 
-export default function NexusMessage({ message }: any) {
+export default function NexusMessage({
+  message
+}: {
+  message: Message
+}) {
   const { onMessageClick } = useKnowva();
 
   const isUser = message.sender === "user";

@@ -1,6 +1,7 @@
 import NexusMessage from "./NexusMessage";
+import type { Message } from "@/types/knowva";
 
-export default function NexusChat({ messages }: any) {
+export default function NexusChat({ messages }: { messages: Message[] }) {
   return (
     <div className="h-full flex-1 p-4 space-y-3 overflow-y-auto bg-gray-50">
       {messages.length === 0 && (
@@ -9,7 +10,7 @@ export default function NexusChat({ messages }: any) {
         </p>
       )}
 
-      {messages.map((msg: any, i: number) => (
+      {messages.map((msg: Message, i: number) => (
         <NexusMessage key={i} message={msg} />
       ))}
     </div>

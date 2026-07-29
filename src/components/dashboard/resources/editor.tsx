@@ -7,6 +7,7 @@ import ResourceDetails from "./resource-details";
 import { useEffect, useMemo, useState } from "react";
 import { Resource } from "@/types/resource";
 import { useResourceEditor } from "@/context/ResourceEditorContext";
+import { useKnowva } from "@/context/KnowvaContext";
 
 export default function ResourceEditor() {
   const [newResource, setNewResource] = useState<Resource>();
@@ -14,6 +15,17 @@ export default function ResourceEditor() {
   const [preview, setPreview] = useState<boolean>(false);
 
   const { action, resource, content, details, setContent, setDetails } = useResourceEditor();
+  const { setOnMessageClick } = useKnowva();
+
+  useEffect(() => {
+    setOnMessageClick(() => (message) => {
+      setContent(message.text);
+    });
+
+    return () => {
+      setOnMessageClick(undefined);
+    }
+  }, [setOnMessageClick]);
 
   useEffect(() => {
     setNewResource({

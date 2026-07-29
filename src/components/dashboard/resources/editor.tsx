@@ -22,7 +22,7 @@ export default function ResourceEditor() {
     setOnMessageClick(() => (message: Message) => {
       if (message.sender !== "user" && message.mode === "create-resource") {
         try {
-          const parsed = JSON.parse(content);
+          const parsed = JSON.parse(message.text);
 
           setContent(parsed.resource);
           setDetails({

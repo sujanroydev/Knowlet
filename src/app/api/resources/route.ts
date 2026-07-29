@@ -1,4 +1,4 @@
-import { parseResourcePath } from "@/components/dashboard/resources/utils";
+import { parseResourcePath, buildResourcePath } from "@/components/dashboard/resources/utils";
 import { authGate } from "@/lib/auth/authGate";
 import connectDb from "@/lib/db";
 import { sendNotificationByUserId } from "@/services/notification/send";
@@ -26,16 +26,16 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
   try {
     let resource: Resource = await req.json();
-    const { title, description, content, target, type, slug, path } = resource;
+    const { title, description, content, level, subject, paper, target, type } = resource;
 
     if (
       !title ||
       !description ||
       !content ||
+      !level ||
+      !subject ||
       !target ||
-      !type ||
-      !slug ||
-      !path
+      !type
     ) {
       return NextResponse.json(
         { error: { message: "All fields are required." } },
@@ -45,6 +45,9 @@ export async function POST(req: NextRequest) {
 
     const { ok, res, payload } = await authGate(req, "admin");
     if (!ok || !payload) return res;
+
+    const path = buildResourcePath({ level, subject, paper, target, type });
+    const slug = target;
 
     const { levelSlug, subjectSlug, paperSlug } = parseResourcePath(path);
 
@@ -195,7 +198,7 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json(
-      { success: true, data: { resource: data } },
+      { success: true, data: { resource: data }, path },
       { status: 201 },
     );
   } catch (error) {

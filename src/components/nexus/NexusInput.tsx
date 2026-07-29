@@ -1,12 +1,21 @@
 "use client";
 
 import { useState } from "react";
+import type { Message, Mode } from "@/types/knowva";
 
-export default function NexusInput({ mode, setMessages, messages }: any) {
+export default function NexusInput({
+  mode,
+  messages,
+  setMessages,
+}: {
+  mode: Mode;
+  messages: Message[];
+  setMessages: (messages: Message[]) => void;
+}) {
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const API_URL = "api/nexus/chat";
+  const API_URL = "/api/nexus/chat";
 
   const send = async () => {
     if (!text.trim() || loading) return;
@@ -14,6 +23,7 @@ export default function NexusInput({ mode, setMessages, messages }: any) {
     const userMsg = {
       sender: "user",
       text,
+      mode,
       time: new Date().toLocaleTimeString(),
     };
 
@@ -28,19 +38,20 @@ export default function NexusInput({ mode, setMessages, messages }: any) {
         body: JSON.stringify({ text, mode }),
       });
 
-      const { success, type, message, quiz, retryAfter } = await res.json();
+      const { success, type, data, retryAfter } = await res.json();
 
       const aiMsg = {
-        sender: "ai",
-        text: message || "No response",
+        sender: "knowva",
+        text: data as string || "No response",
+        mode,
         time: new Date().toLocaleTimeString(),
       };
 
-      setMessages((prev: any) => [...prev, aiMsg]);
+      setMessages([...messages, aiMsg]);
     } catch {
-      setMessages((prev: any) => [
-        ...prev,
-        { sender: "ai", text: "Request failed", time: "" },
+      setMessages([
+        ...messages,
+        { sender: "system", text: "Request failed", mode, time: new Date().toLocaleTimeString() },
       ]);
     }
 

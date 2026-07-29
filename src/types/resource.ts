@@ -1,11 +1,32 @@
+export type ResourceType = "note" | "pyq" | "important_question" | "pdf";
+
+export type Mode = "normal" | "quiz" | "study" | "short" | "explain" | "create_resource"
+
+export type Action = "create" | "update";
+
+export interface Details {
+  title: string;
+  description: string;
+  level?: string;
+  subject?: string;
+  paper?: string;
+  target?: string;
+  type?: string;
+  slug?: string;
+  path?: string;
+}
+
 export interface Resource {
   id?: string;
   title: string;
   description?: string;
   content: string;
-  path: string;
+  level?: string;
+  subject?: string;
+  paper?: string;
   target?: string;
   type?: string;
+  path?: string;
   slug?: string;
   file_url?: string;
   thumbnail_url?: string;
@@ -23,5 +44,3 @@ export interface ParsedPath {
   prevTarget: string | null;
   nextTarget: string | null;
 }
-
-export type ResourceType = "note" | "pyq" | "important_question" | "pdf";

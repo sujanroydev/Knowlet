@@ -176,14 +176,17 @@ export async function PUT(
         options: {
           body: "We've fixed the issue and updated the resource. Tap to view the latest version.",
           data: {
-            action_url: `https://knowlet.in/library/${data.path}`,
+            action_url: `https://knowlet.in/library/${path}`,
             type: "resource",
           },
         },
       });
     }
 
-    return NextResponse.json({ success: true }, { status: 201 });
+    return NextResponse.json(
+      { success: true, data: { resource: data }, path },
+      { status: 201 }
+    );
   } catch (error) {
     return NextResponse.json(
       { error: { message: (error as Error).message } },

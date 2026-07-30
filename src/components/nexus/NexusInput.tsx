@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import type { Message, Mode } from "@/types/knowva";
+import { useKnowva } from "@/context/KnowvaContext";
+import { newChat, saveMessage } from "./actions";
 
 export default function NexusInput({
   mode,
@@ -14,6 +16,8 @@ export default function NexusInput({
 }) {
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const { chatId, parentId, setChatId, setParentId } = useKnowva();
 
   const API_URL = "/api/nexus/chat";
 
@@ -31,6 +35,8 @@ export default function NexusInput({
     setText("");
     setLoading(true);
 
+    let currentChatId = chatId;
+
     try {
       const res = await fetch(API_URL, {
         method: "POST",
@@ -41,21 +47,50 @@ export default function NexusInput({
       const { success, type, data, retryAfter } = await res.json();
 
       const aiMsg = {
-        sender: "knowva",
+        sender: "assistant",
         text: data as string || "No response",
         mode,
         time: new Date().toLocaleTimeString(),
       };
 
       setMessages((prev) => [...prev, aiMsg]);
-    } catch {
-      setMessages((prev) => [
-        ...prev,
-        { sender: "system", text: "Request failed", mode, time: new Date().toLocaleTimeString() },
-      ]);
-    }
 
-    setLoading(false);
+      if (!currentChatId) {
+        const chat = await newChat();
+        currentChatId = chat.id;
+        setChatId(currentChatId);
+      }
+
+      const { id: userMsgId } = await saveMessage(
+        userMsg,
+        currentChatId,
+        parentId
+      );
+
+      const { id: aiMsgId } = await saveMessage(
+        aiMsg,
+        currentChatId,
+        userMsgId
+      );
+
+      setParentId(aiMsgId);
+    } catch {
+      const systemMsg = {
+        sender: "system",
+        text: "Request failed",
+        mode,
+        time: new Date().toLocaleTimeString(),
+      };
+
+      setMessages(prev => [...prev, systemMsg]);
+
+      if (currentChatId) {
+        const { id } = await saveMessage(systemMsg, currentChatId, parentId);
+        setParentId(id);
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

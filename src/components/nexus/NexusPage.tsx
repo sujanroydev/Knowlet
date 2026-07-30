@@ -1,14 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NexusInput from "./NexusInput";
 import NexusChat from "./NexusChat";
 import NexusToolbar from "./NexusToolbar";
 import type { Message, Mode } from "@/types/knowva";
+import { useHeader } from "@/context/HeaderContext";
 
 export default function NexusPage() {
   const [mode, setMode] = useState<Mode>("normal");
   const [messages, setMessages] = useState<Message[]>([]);
+
+  const { setMode: setTopBarMode } = useHeader();
+
+
+  useEffect(() => {
+    setTopBarMode("knowva");
+
+    return () => {
+      setTopBarMode("home");
+    };
+  }, []);
+
+
 
   return (
     <div className="h-full flex items-center justify-center bg-gray-100">

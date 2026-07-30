@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState } from "react";
 
-type HeaderMode = "home" | "reader" | "auth" | "search";
+type HeaderMode = "home" | "reader" | "knowva" | "auth" | "search";
 
 type HeaderState = {
   mode: HeaderMode;

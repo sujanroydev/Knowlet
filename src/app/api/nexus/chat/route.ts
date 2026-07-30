@@ -36,16 +36,14 @@ export async function POST(req: NextRequest) {
     const modelNames = [
       "gemini-3.6-flash",       // 5 RPM, 250K TPM, 20 RPD
       "gemini-3.5-flash",       // 5 RPM, 250K TPM, 20 RPD
-      // "gemini-3-flash",         // 5 RPM, 250K TPM, 20 RPD
       "gemini-2.5-flash",       // 5 RPM, 250K TPM, 20 RPD
 
       "gemini-3.5-flash-lite",  // 15 RPM, 250K TPM, 500 RPD
       "gemini-3.1-flash-lite",  // 15 RPM, 250K TPM, 500 RPD
-      // "gemini-2.5-flash-lite",  // 10 RPM, 250K TPM, 20 RPD
     ];
 
     const randomNumber = (n: number) => Math.floor(Math.random() * (n));
-    const modelName = modelNames[mode === "create-resource" ? randomNumber(2) : 3 + randomNumber(2)];
+    const modelName = modelNames[mode === "create-resource" ? 0 : 2]; // randomNumber(2) : 3 + randomNumber(2)];
 
     const model = genAI.getGenerativeModel({ model: modelName });
 

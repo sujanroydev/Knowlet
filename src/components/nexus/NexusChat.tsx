@@ -1,7 +1,19 @@
+"use client"
+
+import { useRef, useLayoutEffect } from "react";
 import NexusMessage from "./NexusMessage";
 import type { Message } from "@/types/knowva";
 
 export default function NexusChat({ messages }: { messages: Message[] }) {
+  const messagesRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    messagesRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "end",
+    });
+  }, [messages]);
+
   return (
     <div className="h-full flex-1 p-4 space-y-3 overflow-y-auto bg-gray-50">
       {messages.length === 0 && (
@@ -11,7 +23,11 @@ export default function NexusChat({ messages }: { messages: Message[] }) {
       )}
 
       {messages.map((msg: Message, i: number) => (
-        <NexusMessage key={i} message={msg} />
+        <NexusMessage
+          key={i}
+          message={msg}
+          messagesRef={i === messages.length - 1 ? messagesRef : undefined}
+        />
       ))}
     </div>
   );

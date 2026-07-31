@@ -13,7 +13,14 @@ import type { Message } from "@/types/knowva";
 type OnMessageClick = (message: Message) => void;
 
 interface KnowvaState {
+  chatId: string;
+  parentId: string;
+  model: string;
   onMessageClick?: OnMessageClick;
+
+  setChatId: Dispatch<SetStateAction<string>>;
+  setParentId: Dispatch<SetStateAction<string>>;
+  setModel: Dispatch<SetStateAction<string>>;
   setOnMessageClick: Dispatch<SetStateAction<OnMessageClick | undefined>>;
 }
 
@@ -24,12 +31,14 @@ export function KnowvaProvider({
 }: {
   children: ReactNode;
 }) {
-  const [onMessageClick, setOnMessageClick] =
-    useState<OnMessageClick>();
+  const [chatId, setChatId] = useState<string>("");
+  const [parentId, setParentId] = useState<string>("");
+  const [model, setModel] = useState<string>("auto");
+  const [onMessageClick, setOnMessageClick] = useState<OnMessageClick>();
 
   return (
     <KnowvaContext.Provider
-      value={{ onMessageClick, setOnMessageClick }}
+      value={{ chatId, setChatId, parentId, setParentId, model, setModel, onMessageClick, setOnMessageClick }}
     >
       {children}
     </KnowvaContext.Provider>

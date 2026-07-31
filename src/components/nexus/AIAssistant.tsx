@@ -59,7 +59,12 @@ export default function AIAssistant() {
 
             <NexusToolbar mode={mode} setMode={setMode} />
 
-            <NexusInput mode={mode} setMessages={setMessages} messages={messages} />
+            <NexusInput
+              mode={mode}
+              setMessages={setMessages}
+              messages={messages}
+              model="auto"
+            />
           </motion.div>
         )}
       </AnimatePresence>

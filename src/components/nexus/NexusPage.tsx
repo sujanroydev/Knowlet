@@ -1,14 +1,27 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NexusInput from "./NexusInput";
 import NexusChat from "./NexusChat";
 import NexusToolbar from "./NexusToolbar";
 import type { Message, Mode } from "@/types/knowva";
+import { useHeader } from "@/context/HeaderContext";
+import { useKnowva } from "@/context/KnowvaContext";
 
 export default function NexusPage() {
   const [mode, setMode] = useState<Mode>("normal");
   const [messages, setMessages] = useState<Message[]>([]);
+
+  const { setMode: setTopBarMode } = useHeader();
+  const { model } = useKnowva();
+
+  useEffect(() => {
+    setTopBarMode("knowva");
+
+    return () => {
+      setTopBarMode("home");
+    };
+  }, []);
 
   return (
     <div className="h-full flex items-center justify-center bg-gray-100">
@@ -17,7 +30,12 @@ export default function NexusPage() {
 
         <NexusToolbar mode={mode} setMode={setMode} />
 
-        <NexusInput mode={mode} setMessages={setMessages} messages={messages} />
+        <NexusInput
+          mode={mode}
+          model={model}
+          setMessages={setMessages}
+          messages={messages}
+        />
       </div>
     </div>
   );

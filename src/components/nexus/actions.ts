@@ -34,7 +34,7 @@ export async function newChat() {
   }
 }
 
-export async function saveMessage(message: Message, chatId: string, parentId: string) {
+export async function saveMessage(message: Message, chatId: string, parentId: string, model: string) {
   try {
     const db = await connectDb();
 
@@ -45,7 +45,7 @@ export async function saveMessage(message: Message, chatId: string, parentId: st
         parent_id: parentId || null,
         role: message.sender,
         content: message.text,
-        model: "unknown"
+        model: model
       })
       .select()
       .maybeSingle();

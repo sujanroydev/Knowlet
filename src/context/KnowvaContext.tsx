@@ -33,7 +33,7 @@ export function KnowvaProvider({
 }) {
   const [chatId, setChatId] = useState<string>("");
   const [parentId, setParentId] = useState<string>("");
-  const [model, setModel] = useState<string>("");
+  const [model, setModel] = useState<string>("auto");
   const [onMessageClick, setOnMessageClick] = useState<OnMessageClick>();
 
   return (

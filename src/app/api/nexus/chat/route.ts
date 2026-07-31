@@ -43,7 +43,10 @@ export async function POST(req: NextRequest) {
     ];
 
     const randomNumber = (n: number) => Math.floor(Math.random() * (n));
-    const selectedModel = userSelectedModel || modelNames[mode === "create-resource" ? 0 : 3]; // randomNumber(2) : 3 + randomNumber(2)];
+    const selectedModel = userSelectedModel === "auto" || !userSelectedModel
+      ? modelNames[mode === "create-resource" ? 0 : 3] // randomNumber(2) : 3 + randomNumber(2)];
+      : userSelectedModel;
+
     console.log("model name: ", selectedModel)
 
     const model = genAI.getGenerativeModel({ model: selectedModel });

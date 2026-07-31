@@ -27,12 +27,12 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const MODELS = [
-  "gemini-3.6-flash",       // 5 RPM, 250K TPM, 20 RPD
-  "gemini-3.5-flash",       // 5 RPM, 250K TPM, 20 RPD
-  "gemini-2.5-flash",       // 5 RPM, 250K TPM, 20 RPD
-
-  "gemini-3.5-flash-lite",  // 15 RPM, 250K TPM, 500 RPD
-  "gemini-3.1-flash-lite"   // 15 RPM, 250K TPM, 500 RPD
+  { label: "Auto", value: "auto" },
+  { label: "Gemini 3.6 Flash", value: "gemini-3.6-flash", premium: true },
+  { label: "Gemini 3.5 Flash", value: "gemini-3.5-flash", premium: true },
+  { label: "Gemini 2.5 Flash", value: "gemini-2.5-flash", premium: true },
+  { label: "Gemini 3.5 Flash Lite", value: "gemini-3.5-flash-lite" },
+  { label: "Gemini 3.1 Flash Lite", value: "gemini-3.1-flash-lite" },
 ];
 
 export default function TopBar() {
@@ -182,23 +182,23 @@ export default function TopBar() {
                     <span className="sm:hidden">Model</span>
                   <ChevronDown className="h-3.5 w-3.5" />
                 </button>
-  
+
                 {open && (
                   <div className="absolute left-0 mt-1 w-48 rounded-md border bg-white shadow-lg">
                     {MODELS.map((m) => (
                       <button
-                        key={m}
+                        key={m.value}
                         onClick={() => {
-                          setModel(m);
+                          setModel(m.value);
                           setOpen(false);
                         }}
                         className={`block w-full px-3 py-2 text-left text-sm transition ${
-                          model === m
+                          model === m.value
                             ? "bg-indigo-50 text-indigo-600 font-medium"
                             : "text-slate-700 hover:bg-slate-100"
                         }`}
                       >
-                        {m}
+                        {m.label}
                       </button>
                     ))}
                   </div>

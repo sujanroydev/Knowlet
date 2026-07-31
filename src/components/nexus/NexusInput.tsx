@@ -7,12 +7,12 @@ import { newChat, saveMessage } from "./actions";
 
 export default function NexusInput({
   mode,
-  model,
+  model = "auto",
   messages,
   setMessages,
 }: {
   mode: Mode;
-  model?: string;
+  model: string;
   messages: Message[];
   setMessages: React.Dispatch<React.SetStateAction<Message[]>>;
 }) {
@@ -66,13 +66,15 @@ export default function NexusInput({
       const { id: userMsgId } = await saveMessage(
         userMsg,
         currentChatId,
-        parentId
+        parentId,
+        model
       );
 
       const { id: aiMsgId } = await saveMessage(
         aiMsg,
         currentChatId,
-        userMsgId
+        userMsgId,
+        model
       );
 
       setParentId(aiMsgId);
@@ -87,7 +89,12 @@ export default function NexusInput({
       setMessages(prev => [...prev, systemMsg]);
 
       if (currentChatId) {
-        const { id } = await saveMessage(systemMsg, currentChatId, parentId);
+        const { id } = await saveMessage(
+          systemMsg,
+          currentChatId,
+          parentId,
+          model
+        );
         setParentId(id);
       }
     } finally {

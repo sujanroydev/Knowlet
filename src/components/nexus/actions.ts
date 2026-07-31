@@ -34,7 +34,7 @@ export async function newChat() {
   }
 }
 
-export async function saveMessage(message: Message, chatId: string, parentId: string): string {
+export async function saveMessage(message: Message, chatId: string, parentId: string) {
   try {
     const db = await connectDb();
 

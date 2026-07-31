@@ -6,7 +6,7 @@ const genAI = new GoogleGenerativeAI(process.env.GOOGLE_AI_API_KEY!);
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { text, mode, difficulty = "medium" } = body;
+    const { text, mode, model: userSelectedModel, difficulty = "medium" } = body;
 
     if (!text) {
       return new Response(
@@ -43,9 +43,10 @@ export async function POST(req: NextRequest) {
     ];
 
     const randomNumber = (n: number) => Math.floor(Math.random() * (n));
-    const modelName = modelNames[mode === "create-resource" ? 0 : 2]; // randomNumber(2) : 3 + randomNumber(2)];
+    const selectedModel = userSelectedModel || modelNames[mode === "create-resource" ? 0 : 3]; // randomNumber(2) : 3 + randomNumber(2)];
+    console.log("model name: ", selectedModel)
 
-    const model = genAI.getGenerativeModel({ model: modelName });
+    const model = genAI.getGenerativeModel({ model: selectedModel });
 
     let prompt = generatePrompt(mode, difficulty, text);
     let raw = "";

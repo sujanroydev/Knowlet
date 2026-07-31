@@ -5,6 +5,7 @@ import { useHeader } from "@/context/HeaderContext";
 import { usePathname, useRouter } from "next/navigation";
 import ProfileMenu from "./profile/ProfileMenu";
 import { useReader } from "@/context/ReaderContext";
+import { useKnowva } from "@/context/KnowvaContext";
 import {
   ChevronLeft,
   Bookmark,
@@ -35,7 +36,6 @@ const MODELS = [
 ];
 
 export default function TopBar() {
-  const [model, setModel] = useState(MODELS[0]);
   const [open, setOpen] = useState(false);
   const [parsedPath, setParsedPath] = useState<ParsedPath | null>(null);
 
@@ -49,6 +49,7 @@ export default function TopBar() {
     parsePath,
     resourceId,
   } = useReader();
+  const { model, setModel } = useKnowva();
 
   const router = useRouter();
   const pathname = usePathname();

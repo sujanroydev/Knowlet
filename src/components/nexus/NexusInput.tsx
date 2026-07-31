@@ -7,10 +7,12 @@ import { newChat, saveMessage } from "./actions";
 
 export default function NexusInput({
   mode,
+  model,
   messages,
   setMessages,
 }: {
   mode: Mode;
+  model?: string;
   messages: Message[];
   setMessages: React.Dispatch<React.SetStateAction<Message[]>>;
 }) {
@@ -41,7 +43,7 @@ export default function NexusInput({
       const res = await fetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text, mode }),
+        body: JSON.stringify({ text, mode, model }),
       });
 
       const { success, type, data, retryAfter } = await res.json();

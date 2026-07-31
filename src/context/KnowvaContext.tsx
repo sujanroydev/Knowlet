@@ -16,8 +16,8 @@ interface KnowvaState {
   chatId: string;
   parentId: string;
   onMessageClick?: OnMessageClick;
-  setChatId: Dispatch<SetStateAction<string | undefined>>;
-  setParentId: Dispatch<SetStateAction<string | undefined>>;
+  setChatId: Dispatch<SetStateAction<string>>;
+  setParentId: Dispatch<SetStateAction<string>>;
   setOnMessageClick: Dispatch<SetStateAction<OnMessageClick | undefined>>;
 }
 

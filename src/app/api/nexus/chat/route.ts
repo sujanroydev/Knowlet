@@ -6,7 +6,7 @@ const genAI = new GoogleGenerativeAI(process.env.GOOGLE_AI_API_KEY!);
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { text, mode, difficulty = "medium" } = body;
+    const { text, mode, model: userSelectedModel, difficulty = "medium" } = body;
 
     if (!text) {
       return new Response(
@@ -36,18 +36,20 @@ export async function POST(req: NextRequest) {
     const modelNames = [
       "gemini-3.6-flash",       // 5 RPM, 250K TPM, 20 RPD
       "gemini-3.5-flash",       // 5 RPM, 250K TPM, 20 RPD
-      // "gemini-3-flash",         // 5 RPM, 250K TPM, 20 RPD
       "gemini-2.5-flash",       // 5 RPM, 250K TPM, 20 RPD
 
       "gemini-3.5-flash-lite",  // 15 RPM, 250K TPM, 500 RPD
       "gemini-3.1-flash-lite",  // 15 RPM, 250K TPM, 500 RPD
-      // "gemini-2.5-flash-lite",  // 10 RPM, 250K TPM, 20 RPD
     ];
 
     const randomNumber = (n: number) => Math.floor(Math.random() * (n));
-    const modelName = modelNames[mode === "create-resource" ? randomNumber(2) : 3 + randomNumber(2)];
+    const selectedModel = userSelectedModel === "auto" || !userSelectedModel
+      ? modelNames[mode === "create-resource" ? 0 : 3] // randomNumber(2) : 3 + randomNumber(2)];
+      : userSelectedModel;
 
-    const model = genAI.getGenerativeModel({ model: modelName });
+    console.log("model name: ", selectedModel)
+
+    const model = genAI.getGenerativeModel({ model: selectedModel });
 
     let prompt = generatePrompt(mode, difficulty, text);
     let raw = "";

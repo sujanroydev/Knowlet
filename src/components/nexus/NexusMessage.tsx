@@ -1,11 +1,14 @@
+import type { Ref } from "react";
 import { Edit2 } from "lucide-react";
 import { useKnowva } from "@/context/KnowvaContext";
 import type { Message } from "@/types/knowva";
 
 export default function NexusMessage({
-  message
+  message,
+  messagesRef
 }: {
-  message: Message
+  message: Message;
+  messagesRef?: Ref<HTMLDivElement>;
 }) {
   const { onMessageClick } = useKnowva();
 
@@ -13,6 +16,7 @@ export default function NexusMessage({
 
   return (
     <div
+      ref={messagesRef}
       className={`max-w-[75%] px-3 py-2 rounded-xl text-sm whitespace-pre-wrap ${
         isUser
           ? "bg-blue-500 text-white ml-auto"

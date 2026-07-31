@@ -5,6 +5,7 @@ import { useHeader } from "@/context/HeaderContext";
 import { usePathname, useRouter } from "next/navigation";
 import ProfileMenu from "./profile/ProfileMenu";
 import { useReader } from "@/context/ReaderContext";
+import { useKnowva } from "@/context/KnowvaContext";
 import {
   ChevronLeft,
   Bookmark,
@@ -13,6 +14,9 @@ import {
   SkipForward,
   Edit,
   Share2,
+  Menu,
+  ChevronDown,
+  SquarePen
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { ParsedPath } from "@/types/resource";
@@ -22,7 +26,17 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
 }
 
+const MODELS = [
+  { label: "Auto", value: "auto" },
+  { label: "Gemini 3.6 Flash", value: "gemini-3.6-flash", premium: true },
+  { label: "Gemini 3.5 Flash", value: "gemini-3.5-flash", premium: true },
+  { label: "Gemini 2.5 Flash", value: "gemini-2.5-flash", premium: true },
+  { label: "Gemini 3.5 Flash Lite", value: "gemini-3.5-flash-lite" },
+  { label: "Gemini 3.1 Flash Lite", value: "gemini-3.1-flash-lite" },
+];
+
 export default function TopBar() {
+  const [open, setOpen] = useState(false);
   const [parsedPath, setParsedPath] = useState<ParsedPath | null>(null);
 
   const { mode } = useHeader();
@@ -35,6 +49,7 @@ export default function TopBar() {
     parsePath,
     resourceId,
   } = useReader();
+  const { model, setModel } = useKnowva();
 
   const router = useRouter();
   const pathname = usePathname();
@@ -77,13 +92,19 @@ export default function TopBar() {
     <header className="fixed top-0 z-50 flex h-15 w-full items-center justify-center border-b bg-white/80 backdrop-blur-md px-4">
       {/* LEFT */}
       <div className="w-20">
-        {pathname !== "/" && (
-          <button
-            onClick={() => router.back()}
-            className="flex h-9 w-9 items-center justify-center rounded-full text-slate-600 transition hover:bg-slate-100 active:scale-95"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
+        {mode === "knowva" ? (
+          <Btn title="Menu">
+            <Menu className="w-5 h-5" />
+          </Btn>
+        ) : (
+          pathname !== "/" && (
+            <button
+              onClick={() => router.back()}
+              className="flex h-9 w-9 items-center justify-center rounded-full text-slate-600 transition hover:bg-slate-100 active:scale-95"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+          )
         )}
       </div>
 
@@ -147,6 +168,56 @@ export default function TopBar() {
               />
             </Btn>
           </div>
+        )}
+
+        {mode === "knowva" && (
+          <div className="flex w-full items-center">
+            <div className="flex flex-1 justify-start">
+              <div className="relative">
+                <button
+                  onClick={() => setOpen(!open)}
+                  className="flex items-center gap-1 rounded-md px-2 py-1 text-sm text-slate-700 hover:bg-slate-100"
+                >
+                    <span className="hidden sm:inline">{model}</span>
+                    <span className="sm:hidden">Model</span>
+                  <ChevronDown className="h-3.5 w-3.5" />
+                </button>
+
+                {open && (
+                  <div className="absolute left-0 mt-1 w-48 rounded-md border bg-white shadow-lg">
+                    {MODELS.map((m) => (
+                      <button
+                        key={m.value}
+                        onClick={() => {
+                          setModel(m.value);
+                          setOpen(false);
+                        }}
+                        className={`block w-full px-3 py-2 text-left text-sm transition ${
+                          model === m.value
+                            ? "bg-indigo-50 text-indigo-600 font-medium"
+                            : "text-slate-700 hover:bg-slate-100"
+                        }`}
+                      >
+                        {m.label}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div className="flex flex-1 justify-center">
+              <h1 className="text-lg font-semibold tracking-tight text-slate-800">
+                Knowva
+              </h1>
+            </div>
+
+            <div className="flex flex-1 justify-end">
+              <button className="flex items-center gap-1 rounded-lg px-3 py-1.5 text-sm font-medium">
+              <SquarePen className="w-4 h-4" />
+            </button>
+            </div>
+            </div>
         )}
 
         {mode === "home" && (

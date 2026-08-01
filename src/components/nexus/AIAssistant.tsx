@@ -7,11 +7,15 @@ import NexusInput from "@/components/nexus/NexusInput";
 import NexusChat from "@/components/nexus/NexusChat";
 import NexusToolbar from "@/components/nexus/NexusToolbar";
 import type { Message, Mode } from "@/types/knowva";
+import { ModelSelector } from "@/components/nexus/ModelSelector";
+import { useKnowva } from "@/context/KnowvaContext";
 
 export default function AIAssistant() {
   const [open, setOpen] = useState(false);
   const [mode, setMode] = useState<Mode>("normal");
   const [messages, setMessages] = useState<Message[]>([]);
+
+  const { model, setModel } = useKnowva();
 
   return (
     <>
@@ -45,6 +49,8 @@ export default function AIAssistant() {
                   <h2 className="font-semibold">Knowlet AI</h2>
                   <p className="text-xs text-green-600">Online</p>
                 </div>
+
+                <ModelSelector model={model} setModel={setModel} />
               </div>
 
               <button
@@ -63,7 +69,7 @@ export default function AIAssistant() {
               mode={mode}
               setMessages={setMessages}
               messages={messages}
-              model="auto"
+              model={model}
             />
           </motion.div>
         )}

@@ -31,6 +31,8 @@ export default function NexusInput({
     let currentParentId = parentId;
     const currentText = text;
 
+    abortController.current = new AbortController();
+
     try {
       if (!currentChatId) {
         const chat = await newChat();
@@ -59,7 +61,9 @@ export default function NexusInput({
 
       currentParentId = userMessageId;
 
-      abortController.current = new AbortController();
+      if (signal.aborted) {
+        throw new DOMException("Aborted", "AbortError");
+      }
 
       const res = await fetch("/api/nexus/chat", {
         method: "POST",

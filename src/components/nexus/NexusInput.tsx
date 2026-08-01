@@ -32,6 +32,7 @@ export default function NexusInput({
     const currentText = text;
 
     abortController.current = new AbortController();
+    const signal = abortController.current.signal;
 
     try {
       if (!currentChatId) {
@@ -69,7 +70,7 @@ export default function NexusInput({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text, mode, model }),
-        signal: abortController.current.signal,
+        signal: signal,
       });
 
       const { success, type, data, retryAfter } = await res.json();

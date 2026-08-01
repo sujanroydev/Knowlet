@@ -86,5 +86,7 @@ export const config = {
     "/dashboard/:path*",
     "/history/:path*",
     "/bookmarks/:path*",
+    "/nexus/:path*",
+    "/knowva/:path*",
   ],
 };

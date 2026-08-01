@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { ArrowUp, Square } from "lucide-react";
 import type { Message, Mode } from "@/types/knowva";
 import { useKnowva } from "@/context/KnowvaContext";
 import { newChat, saveMessage } from "./actions";
@@ -21,6 +22,8 @@ export default function NexusInput({
 
   const { chatId, parentId, setChatId, setParentId } = useKnowva();
 
+  const abortController = useRef<AbortController | null>(null);
+
   const API_URL = "/api/nexus/chat";
 
   const send = async () => {
@@ -40,10 +43,13 @@ export default function NexusInput({
     let currentChatId = chatId;
 
     try {
+      abortController.current = new AbortController();
+
       const res = await fetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text, mode, model }),
+        signal: abortController.current.signal,
       });
 
       const { success, type, data, retryAfter } = await res.json();
@@ -78,17 +84,21 @@ export default function NexusInput({
       );
 
       setParentId(aiMsgId);
-    } catch {
-      const systemMsg = {
+    } catch (err) {
+      let systemMsg = {
         sender: "system",
         text: "Request failed",
         mode,
         time: new Date().toLocaleTimeString(),
       };
 
+      if (err instanceof DOMException && err.name === "AbortError") {
+        systemMsg.text = "Stopped";
+      }
+
       setMessages(prev => [...prev, systemMsg]);
 
-      if (currentChatId) {
+      if (currentChatId && parentId) {
         const { id } = await saveMessage(
           systemMsg,
           currentChatId,
@@ -100,6 +110,12 @@ export default function NexusInput({
     } finally {
       setLoading(false);
     }
+  };
+
+  const stop = () => {
+    abortController.current?.abort();
+    abortController.current = null;
+    setLoading(false);
   };
 
   return (
@@ -118,11 +134,13 @@ export default function NexusInput({
       />
 
       <button
-        onClick={send}
-        disabled={loading}
+        onClick={loading ? stop : send}
         className="px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
       >
-        {loading ? "..." : "➤"}
+        {loading
+          ? <Square size={18} />
+          : <ArrowUp size={18} />
+        }
       </button>
     </div>
   );

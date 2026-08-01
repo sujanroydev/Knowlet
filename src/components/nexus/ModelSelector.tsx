@@ -1,5 +1,8 @@
 import { useState, type Dispatch, type SetStateAction } from "react";
 import { ChevronDown, Crown } from "lucide-react";
+import { toast } from "sonner";
+
+import { useAuth } from "@/context/AuthContext";
 
 type Props = {
   model: string;
@@ -17,6 +20,8 @@ export const MODELS = [
 
 export function ModelSelector({ model, setModel }: Props) {
   const [open, setOpen] = useState(false);
+
+  const { user } = useAuth();
 
   return (
     <div className="relative">
@@ -36,6 +41,10 @@ export function ModelSelector({ model, setModel }: Props) {
             <button
               key={m.value}
               onClick={() => {
+                if (m.premium && (!user || (user && user.role !== "admin"))) {
+                  toast.warning("You don't have access of this model");
+                  return;
+                }
                 setModel(m.value);
                 setOpen(false);
               }}
@@ -46,7 +55,7 @@ export function ModelSelector({ model, setModel }: Props) {
               }`}
             >
               <span>{m.label}</span>
-                {m.premium && (
+                {m.premium && (!user || (user && user.role !== "admin")) && (
                   <Crown
                     className="h-3.5 w-3.5 text-amber-500"
                     aria-label="Pro model"

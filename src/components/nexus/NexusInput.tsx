@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { ArrowUp, Square } from "lucide-react";
 import type { Message, Mode } from "@/types/knowva";
 import { useKnowva } from "@/context/KnowvaContext";
 import { newChat, saveMessage } from "./actions";
@@ -21,85 +22,112 @@ export default function NexusInput({
 
   const { chatId, parentId, setChatId, setParentId } = useKnowva();
 
-  const API_URL = "/api/nexus/chat";
+  const abortController = useRef<AbortController | null>(null);
 
   const send = async () => {
     if (!text.trim() || loading) return;
 
-    const userMsg = {
-      sender: "user",
-      text,
-      mode,
-      time: new Date().toLocaleTimeString(),
-    };
-
-    setMessages((prev) => [...prev, userMsg]);
-    setText("");
-    setLoading(true);
-
     let currentChatId = chatId;
+    let currentParentId = parentId;
+    const currentText = text;
+
+    abortController.current = new AbortController();
 
     try {
-      const res = await fetch(API_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text, mode, model }),
-      });
-
-      const { success, type, data, retryAfter } = await res.json();
-
-      const aiMsg = {
-        sender: "assistant",
-        text: data as string || "No response",
-        mode,
-        time: new Date().toLocaleTimeString(),
-      };
-
-      setMessages((prev) => [...prev, aiMsg]);
-
       if (!currentChatId) {
         const chat = await newChat();
         currentChatId = chat.id;
         setChatId(currentChatId);
       }
 
-      const { id: userMsgId } = await saveMessage(
-        userMsg,
+      const userMessage = {
+        sender: "user",
+        text,
+        mode,
+        time: new Date().toLocaleTimeString(),
+      };
+
+      setMessages((prev) => [...prev, userMessage]);
+
+      setText("");
+      setLoading(true);
+
+      const { id: userMessageId } = await saveMessage(
+        userMessage,
         currentChatId,
-        parentId,
+        currentParentId,
         model
       );
 
-      const { id: aiMsgId } = await saveMessage(
-        aiMsg,
+      currentParentId = userMessageId;
+
+      if (signal.aborted) {
+        throw new DOMException("Aborted", "AbortError");
+      }
+
+      const res = await fetch("/api/nexus/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text, mode, model }),
+        signal: abortController.current.signal,
+      });
+
+      const { success, type, data, retryAfter } = await res.json();
+
+      if (!success) throw new Error("Failed");
+
+      const knowvaMessage = {
+        sender: "assistant",
+        text: data as string || "No response",
+        mode,
+        time: new Date().toLocaleTimeString(),
+      };
+
+      setMessages((prev) => [...prev, knowvaMessage]);
+
+      const { id: knowvaMessageId } = await saveMessage(
+        knowvaMessage,
         currentChatId,
-        userMsgId,
+        currentParentId,
         model
       );
 
-      setParentId(aiMsgId);
-    } catch {
-      const systemMsg = {
+      currentParentId = knowvaMessageId;
+      setParentId(currentParentId);
+    } catch (err) {
+      let systemMessage = {
         sender: "system",
         text: "Request failed",
         mode,
         time: new Date().toLocaleTimeString(),
       };
 
-      setMessages(prev => [...prev, systemMsg]);
+      if (err instanceof DOMException && err.name === "AbortError") {
+        systemMessage.text = "Stopped";
+      }
 
-      if (currentChatId) {
-        const { id } = await saveMessage(
-          systemMsg,
+      setMessages(prev => [...prev, systemMessage]);
+      setText(currentText);
+
+      if (currentChatId && currentParentId) {
+        const { id: messageId } = await saveMessage(
+          systemMessage,
           currentChatId,
-          parentId,
+          currentParentId,
           model
         );
-        setParentId(id);
+        setParentId(messageId);
       }
     } finally {
+      abortController.current = null;
       setLoading(false);
     }
+  };
+
+  const stop = () => {
+    abortController.current?.abort();
+    abortController.current = null;
+    setLoading(false);
   };
 
   return (
@@ -118,11 +146,13 @@ export default function NexusInput({
       />
 
       <button
-        onClick={send}
-        disabled={loading}
+        onClick={loading ? stop : send}
         className="px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
       >
-        {loading ? "..." : "➤"}
+        {loading
+          ? <Square size={18} />
+          : <ArrowUp size={18} />
+        }
       </button>
     </div>
   );

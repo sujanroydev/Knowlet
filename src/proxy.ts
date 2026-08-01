@@ -49,6 +49,8 @@ export async function proxy(req: NextRequest) {
   if (
     pathname.startsWith("/profile") ||
     pathname.startsWith("/history") ||
+    pathname.startsWith("/nexus") ||
+    pathname.startsWith("/knowva") ||
     pathname.startsWith("/bookmarks") ||
     pathname.startsWith("/settings") ||
     pathname.startsWith("/notifications") ||

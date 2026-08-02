@@ -10,7 +10,7 @@ interface DrawerState {
 const DrawerContext = createContext<DrawerState | null>(null);
 
 export function DrawerProvider({ children }: {children: React.ReactNode}) {
-  const [open, setOpen] = useState();
+  const [open, setOpen] = useState(false);
 
   return (
     <DrawerContext.Provider value={{open, setOpen}}>

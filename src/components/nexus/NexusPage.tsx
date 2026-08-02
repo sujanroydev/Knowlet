@@ -7,6 +7,7 @@ import NexusToolbar from "./NexusToolbar";
 import type { Message, Mode } from "@/types/knowva";
 import { useHeader } from "@/context/HeaderContext";
 import { useKnowva } from "@/context/KnowvaContext";
+import Drawer from "@/components/Drawer";
 
 export default function NexusPage() {
   const [mode, setMode] = useState<Mode>("normal");
@@ -36,6 +37,8 @@ export default function NexusPage() {
           setMessages={setMessages}
           messages={messages}
         />
+
+        <Drawer />
       </div>
     </div>
   );

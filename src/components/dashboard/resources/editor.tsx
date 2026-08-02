@@ -9,6 +9,7 @@ import { Resource } from "@/types/resource";
 import { useResourceEditor } from "@/context/ResourceEditorContext";
 import { useKnowva } from "@/context/KnowvaContext";
 import type { Message } from "@/types/knowva";
+import { toast } from "sonner";
 
 export default function ResourceEditor() {
   const [newResource, setNewResource] = useState<Resource>();
@@ -32,7 +33,9 @@ export default function ResourceEditor() {
             type: "",
             slug: "",
             path: "",
-          })
+          });
+
+          toast.success("Imported Successfully");
         } catch {}
       }
     });

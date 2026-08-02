@@ -4,7 +4,8 @@ import { useState, useRef } from "react";
 import { ArrowUp, Square } from "lucide-react";
 import type { Message, Mode } from "@/types/knowva";
 import { useKnowva } from "@/context/KnowvaContext";
-import { newChat, saveMessage } from "./actions";
+import { newChat, saveMessage, renameChat } from "./actions";
+import { generateChatTitle } from "./gemini-actions";
 
 export default function NexusInput({
   mode,
@@ -20,7 +21,13 @@ export default function NexusInput({
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const { chatId, parentId, setChatId, setParentId } = useKnowva();
+  const {
+    chatId,
+    parentId,
+    setChatId,
+    setParentId,
+    setChats,
+  } = useKnowva();
 
   const abortController = useRef<AbortController | null>(null);
 
@@ -30,6 +37,7 @@ export default function NexusInput({
     let currentChatId = chatId;
     let currentParentId = parentId;
     const currentText = text;
+    const isNewChat = !chatId;
 
     abortController.current = new AbortController();
     const signal = abortController.current.signal;
@@ -122,6 +130,9 @@ export default function NexusInput({
     } finally {
       abortController.current = null;
       setLoading(false);
+      if (isNewChat && currentChatId) {
+        void updateChatTitle(currentChatId, currentText);
+      }
     }
   };
 
@@ -130,6 +141,12 @@ export default function NexusInput({
     abortController.current = null;
     setLoading(false);
   };
+
+  const updateChatTitle = async (chatId: string, message: string) => {
+    const generatedTitle = await generateChatTitle(message);
+    const chat = await renameChat(chatId, generatedTitle);
+    setChats((prev) => [...(chat ? [chat] : []), ...prev]);
+  }
 
   return (
     <div className="flex gap-2 p-3 border-t border-gray-200 bg-white">

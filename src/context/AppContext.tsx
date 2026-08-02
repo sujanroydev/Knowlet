@@ -4,6 +4,7 @@ import { AuthProvider } from "./AuthContext";
 import { HeaderProvider } from "./HeaderContext";
 import { ReaderProvider } from "./ReaderContext";
 import { KnowvaProvider } from "./KnowvaContext";
+import { DrawerProvider } from "./DrawerContext";
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
   return (
@@ -11,7 +12,9 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       <HeaderProvider>
         <ReaderProvider>
           <KnowvaProvider>
-            {children}
+            <DrawerProvider>
+              {children}
+            </DrawerProvider>
           </KnowvaProvider>
         </ReaderProvider>
       </HeaderProvider>

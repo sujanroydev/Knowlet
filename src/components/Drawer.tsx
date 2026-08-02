@@ -31,7 +31,7 @@ export default function Drawer() {
 
       {/* Drawer */}
       <aside
-        className={`fixed left-0 top-0 z-60 flex h-screen w-72 flex-col border-r border-border/50 bg-white/90 backdrop-blur-xl transition-transform duration-300 ease-out ${
+        className={`fixed left-0 top-0 z-60 flex h-full w-72 flex-col border-r border-border/50 bg-white/90 backdrop-blur-xl transition-transform duration-300 ease-out ${
           open ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -61,23 +61,25 @@ export default function Drawer() {
         </div>
 
         {/* Recent Chats */}
-        <main className="flex-1 overflow-y-auto px-3">
+        <main className="flex-1 overflow-hidden px-3">
           <p className="mb-2 px-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">
             Recent Chats
           </p>
 
-          {Array.from({ length: 6 }).map((_, i) => (
-            <button
-              key={i}
-              className="mb-1 flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm transition hover:bg-accent hover:text-accent-foreground"
-            >
-              <History
-                size={16}
-                className="shrink-0 text-muted-foreground"
-              />
-              <span className="truncate">Chat {i + 1}</span>
-            </button>
-          ))}
+          <div className="h-full overflow-y-auto pb-4">
+            {Array.from({ length: 23 }).map((_, i) => (
+              <button
+                key={i}
+                className="mb-1 flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm transition hover:bg-accent hover:text-accent-foreground"
+              >
+                <History
+                  size={16}
+                  className="shrink-0 text-muted-foreground"
+                />
+                <span className="truncate">Chat {i + 1}</span>
+              </button>
+            ))}
+          </div>
         </main>
 
         {/* Navigation */}
@@ -126,16 +128,6 @@ export default function Drawer() {
           </Link>
         </footer>
       </aside>
-
-      {/* Demo open button (remove when using HeaderContext) */}
-      {!open && (
-        <button
-          onClick={() => setOpen(true)}
-          className="fixed left-4 top-4 z-30 rounded-lg border bg-background p-2 shadow-lg lg:hidden"
-        >
-          <MessageSquarePlus size={20} />
-        </button>
-      )}
     </>
   );
 }

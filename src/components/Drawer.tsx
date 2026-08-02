@@ -19,13 +19,14 @@ import {
 import { useDrawer } from "@/context/DrawerContext";
 import { useKnowva } from "@/context/KnowvaContext";
 
-import { fetchMessages } from "@/components/nexus/actions";
+import { fetchMessages, removeChat } from "@/components/nexus/actions";
 
 export default function Drawer() {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
 
   const { open, setOpen } = useDrawer();
   const {
+    chatId: currentChatId,
     chats,
     setChats,
     setMessages,
@@ -38,6 +39,26 @@ export default function Drawer() {
     setMessages(fetchedMessages || []);
     setChatId(chatId);
     setParentId((fetchedMessages || [])[(fetchedMessages || []).length - 1].id || "");
+    setOpen(false);
+  }
+
+  const deleteChat = async (chatId: string) => {
+    await removeChat(chatId);
+
+    setChats(prev => prev.filter(chat => chat.id !== chatId));
+
+    if (chatId === currentChatId) {
+      setMessages([]);
+      setChatId("");
+      setParentId("");
+    }
+  }
+
+  const createNewChat = () => {
+    setMessages([]);
+    setChatId("");
+    setParentId("");
+    setOpen(false);
   }
 
   return (
@@ -77,7 +98,10 @@ export default function Drawer() {
 
         {/* New Chat */}
         <div className="p-4">
-          <button className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90 active:scale-95">
+          <button
+            onClick={() => createNewChat()}
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90 active:scale-95"
+          >
             <MessageSquarePlus size={18} />
             New Chat
           </button>
@@ -118,7 +142,7 @@ export default function Drawer() {
 
                 {openMenu === c.id && (
                   <div className="absolute right-2 top-full z-50 mt-1 w-40 overflow-hidden rounded-lg border bg-white shadow-lg">
-                    <button
+                    {/* <button
                       onClick={() => {
                         setOpenMenu(null);
                         // TODO: open rename dialog
@@ -127,12 +151,12 @@ export default function Drawer() {
                     >
                       <Pencil size={16} />
                       Rename
-                    </button>
+                    </button> */}
 
                     <button
                       onClick={() => {
                         setOpenMenu(null);
-                        // TODO: delete chat
+                        void deleteChat(c.id);
                       }}
                       className="flex w-full items-center gap-2 px-3 py-2 text-sm text-red-600 hover:bg-red-50"
                     >

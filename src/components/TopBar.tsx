@@ -7,6 +7,7 @@ import ProfileMenu from "./profile/ProfileMenu";
 import { useReader } from "@/context/ReaderContext";
 import { useKnowva } from "@/context/KnowvaContext";
 import { useDrawer } from "@/context/DrawerContext";
+import  { useDrawerActions } from "@/components/nexus/useDrawerActions";
 
 import {
   ChevronLeft,
@@ -44,6 +45,7 @@ export default function TopBar() {
   } = useReader();
   const { model, setModel } = useKnowva();
   const { setOpen: setOpenDrawer } = useDrawer();
+  const { createNewChat } = useDrawerActions();
 
   const router = useRouter();
   const pathname = usePathname();
@@ -180,7 +182,10 @@ export default function TopBar() {
             </div>
 
             <div className="flex flex-1 justify-end">
-              <button className="flex items-center gap-1 rounded-lg px-3 py-1.5 text-sm font-medium">
+              <button
+                onClick={() => createNewChat()}
+                className="flex items-center gap-1 rounded-lg px-3 py-1.5 text-sm font-medium"
+              >
                 <SquarePen className="w-4 h-4" />
               </button>
             </div>

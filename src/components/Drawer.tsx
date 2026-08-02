@@ -18,48 +18,18 @@ import {
 
 import { useDrawer } from "@/context/DrawerContext";
 import { useKnowva } from "@/context/KnowvaContext";
-
-import { fetchMessages, removeChat } from "@/components/nexus/actions";
+import  { useDrawerActions } from "@/components/nexus/useDrawerActions";
 
 export default function Drawer() {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
 
   const { open, setOpen } = useDrawer();
+  const { chats, chatId } = useKnowva();
   const {
-    chatId: currentChatId,
-    chats,
-    setChats,
-    setMessages,
-    setChatId,
-    setParentId,
-  } = useKnowva()
-
-  const loadMessages = async (chatId: string) => {
-    const fetchedMessages = await fetchMessages(chatId);
-    setMessages(fetchedMessages || []);
-    setChatId(chatId);
-    setParentId((fetchedMessages || [])[(fetchedMessages || []).length - 1].id || "");
-    setOpen(false);
-  }
-
-  const deleteChat = async (chatId: string) => {
-    await removeChat(chatId);
-
-    setChats(prev => prev.filter(chat => chat.id !== chatId));
-
-    if (chatId === currentChatId) {
-      setMessages([]);
-      setChatId("");
-      setParentId("");
-    }
-  }
-
-  const createNewChat = () => {
-    setMessages([]);
-    setChatId("");
-    setParentId("");
-    setOpen(false);
-  }
+    loadMessages,
+    deleteChat,
+    createNewChat,
+  } = useDrawerActions();
 
   return (
     <>
@@ -121,11 +91,19 @@ export default function Drawer() {
               >
                 <button
                   onClick={() => loadMessages(c.id)}
-                  className="flex w-full items-center gap-3 rounded-lg px-3 py-2 pr-10 text-sm transition hover:bg-accent hover:text-accent-foreground"
+                  className={`flex w-full items-center gap-3 rounded-lg px-3 py-2 pr-10 text-sm transition ${
+                    c.id === chatId
+                      ? "bg-accent text-accent-foreground font-medium"
+                      : "hover:bg-accent hover:text-accent-foreground"
+                  }`}
                 >
                   <History
                     size={16}
-                    className="shrink-0 text-muted-foreground"
+                    className={`shrink-0 ${
+                      c.id === chatId
+                        ? "text-accent-foreground"
+                        : "text-muted-foreground"
+                    }`}
                   />
                   <span className="truncate">{c.title}</span>
                 </button>

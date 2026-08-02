@@ -2,6 +2,7 @@ export type Mode = "normal" | "quiz" | "study" | "short" | "explain" | "create-r
 export type Sender = "user" | "knowva" | "system";
 
 export interface Message {
+  id?: string;
   sender: string;
   text: string;
   mode: Mode;

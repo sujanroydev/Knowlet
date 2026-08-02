@@ -388,6 +388,8 @@ Rules:
 
 Example:
 
+<h1>Title</h1>
+
 <div class="toc">
 <ul>
 <li><a href="#topic-id">Topic Name</a></li>
@@ -434,20 +436,19 @@ FINAL VALIDATION
 
 Before responding, verify:
 
-✓ Output is valid JSON only  
-✓ Contains exactly: title, description, resource  
-✓ resource contains HTML string only  
-✓ No HTML exists outside resource  
-✓ No Markdown exists  
-✓ All syllabus topics are covered  
-✓ HTML is valid  
-✓ No unsupported information is added  
+✓ Output is valid JSON only
+✓ Contains exactly: title, description, resource
+✓ resource contains HTML string only
+✓ No HTML exists outside resource
+✓ No Markdown exists
+✓ All syllabus topics are covered
+✓ HTML is valid
+✓ No unsupported information is added
 
 SYLLABUS:
 
 ${text}
 `;
-
 
       break;
 

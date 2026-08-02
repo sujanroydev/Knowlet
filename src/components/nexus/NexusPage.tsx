@@ -12,13 +12,14 @@ import { fetchChats } from "./actions";
 
 export default function NexusPage() {
   const [mode, setMode] = useState<Mode>("normal");
-  const [messages, setMessages] = useState<Message[]>([]);
 
   const { setMode: setTopBarMode } = useHeader();
 
   const {
     chats,
+    messages,
     setChats,
+    setMessages,
     model
   } = useKnowva();
 

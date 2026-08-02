@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import {
   MessageSquarePlus,
   History,
@@ -81,33 +82,48 @@ export default function Drawer() {
 
         {/* Navigation */}
         <nav className="border-t border-border/50 p-3">
-          <button className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm transition hover:bg-accent">
+          <Link
+            href="/library"
+            className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm transition hover:bg-accent"
+          >
             <BookOpen size={18} />
             <span>Library</span>
-          </button>
+          </Link>
 
-          <button className="mt-1 flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm transition hover:bg-accent">
+          <Link
+            href="/dashboard/resource/create"
+            className="mt-1 flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm transition hover:bg-accent"
+          >
             <FilePlus2 size={18} />
             <span>Create Resource</span>
-          </button>
+          </Link>
 
-          <button className="mt-1 flex w-full items-center gap-3 rounded-lg bg-gradient-to-r from-amber-500/15 to-yellow-500/10 px-3 py-2 text-sm font-medium text-amber-600 transition hover:from-amber-500/20 hover:to-yellow-500/20 dark:text-amber-400">
+          {/* <Link
+              href="#"
+              className="mt-1 flex w-full items-center gap-3 rounded-lg bg-gradient-to-r from-amber-500/15 to-yellow-500/10 px-3 py-2 text-sm font-medium text-amber-600 transition hover:from-amber-500/20 hover:to-yellow-500/20 dark:text-amber-400"
+            >
             <Sparkles size={18} />
             <span>Upgrade to Pro</span>
-          </button>
+          </Link> */}
         </nav>
 
         {/* Footer */}
         <footer className="border-t border-border/50 p-3">
-          <button className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm transition hover:bg-accent">
+          {/* <Link
+            href="#"
+            className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm transition hover:bg-accent"
+          >
             <Settings size={18} />
             <span>Settings</span>
-          </button>
+          </Link> */}
 
-          <button className="mt-1 flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm transition hover:bg-accent">
+          <Link
+            href="/profile"
+            className="mt-1 flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm transition hover:bg-accent"
+          >
             <UserRound size={18} />
             <span>Profile</span>
-          </button>
+          </Link>
         </footer>
       </aside>
 

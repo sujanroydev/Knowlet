@@ -34,6 +34,21 @@ export async function newChat() {
   }
 }
 
+export async function removeChat(chatId: string) {
+  try {
+    const db = await connectDb();
+
+    const { error } = await db
+      .from("knowva_chats")
+      .delete()
+      .eq("id", chatId);
+
+    if (error) throw error;
+  } catch(error) {
+    console.log(error);
+  }
+}
+
 export async function saveMessage(message: Message, chatId: string, parentId: string, model: string) {
   try {
     const db = await connectDb();

@@ -107,3 +107,20 @@ export async function fetchMessages(chatId: string) {
     console.log(error);
   }
 }
+
+export async function renameChat(chatId: string, newName: string) {
+  const db = await connectDb();
+
+  const { data, error } = await db
+    .from("knowva_chats")
+    .update({
+      title: newName,
+    })
+    .eq("id", chatId)
+    .select("id, title, created_at")
+    .maybeSingle();
+
+  if (error) throw error;
+
+  return data;
+}

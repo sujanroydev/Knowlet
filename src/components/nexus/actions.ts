@@ -1,7 +1,7 @@
 "use server";
 
 import connectDb from "@/lib/db";
-import type { Message } from "@/types/knowva";
+import type { Message, Mode } from "@/types/knowva";
 import { cookies } from "next/headers";
 import { verifyJwt } from "@/lib/auth"
 
@@ -82,4 +82,28 @@ export async function fetchChats() {
     console.log(error);
   }
 
+}
+
+export async function fetchMessages(chatId: string) {
+  try {
+    const db = await connectDb();
+
+    const { data, error } = await db
+      .from("knowva_messages")
+      .select("id, parent_id, role, content, created_at")
+      .eq("chat_id", chatId)
+      .order("created_at", { ascending: true });
+
+    if (error) throw error;
+
+    return data.map(d => ({
+      id: d.id,
+      sender: d.role,
+      text: d.content,
+      mode: "normal" as Mode,
+      time: d.created_at,
+    }));
+  } catch(error) {
+    console.log(error);
+  }
 }

@@ -16,9 +16,24 @@ import {
 import { useDrawer } from "@/context/DrawerContext";
 import { useKnowva } from "@/context/KnowvaContext";
 
+import { fetchMessages } from "@/components/nexus/actions";
+
 export default function Drawer() {
   const { open, setOpen } = useDrawer();
-  const { chats, setChats } = useKnowva()
+  const {
+    chats,
+    setChats,
+    setMessages,
+    setChatId,
+    setParentId,
+  } = useKnowva()
+
+  const loadMessages = async (chatId: string) => {
+    const fetchedMessages = await fetchMessages(chatId);
+    setMessages(fetchedMessages || []);
+    setChatId(chatId);
+    setParentId((fetchedMessages || [])[(fetchedMessages || []).length - 1].id || "");
+  }
 
   return (
     <>
@@ -73,6 +88,7 @@ export default function Drawer() {
             {chats.map((c, i) => (
               <button
                 key={i}
+                onClick={() => loadMessages(c.id)}
                 className="mb-1 flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm transition hover:bg-accent hover:text-accent-foreground"
               >
                 <History

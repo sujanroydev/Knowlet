@@ -11,20 +11,18 @@ import {
   UserRound,
   X,
 } from "lucide-react";
-// import { useHeader } from "@/context/HeaderContext";
+import { useDrawer } from "@/context/DrawerContext";
 
 export default function Drawer() {
-  // const { drawerOpen, setDrawerOpen } = useHeader();
-
-  const [drawerOpen, setDrawerOpen] = useState(true);
+  const { open, setOpen } = useDrawer();
 
   return (
     <>
       {/* Backdrop */}
       <div
-        onClick={() => setDrawerOpen(false)}
+        onClick={() => setOpen(false)}
         className={`fixed inset-0 z-55 bg-black/40 transition-opacity duration-300 lg:hidden ${
-          drawerOpen
+          open
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         }`}
@@ -33,7 +31,7 @@ export default function Drawer() {
       {/* Drawer */}
       <aside
         className={`fixed left-0 top-0 z-60 flex h-screen w-72 flex-col border-r border-border/50 bg-white/90 backdrop-blur-xl transition-transform duration-300 ease-out ${
-          drawerOpen ? "translate-x-0" : "-translate-x-full"
+          open ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         {/* Header */}
@@ -46,7 +44,7 @@ export default function Drawer() {
           </div>
 
           <button
-            onClick={() => setDrawerOpen(false)}
+            onClick={() => setOpen(false)}
             className="rounded-lg p-2 transition hover:bg-accent"
           >
             <X size={18} />
@@ -114,9 +112,9 @@ export default function Drawer() {
       </aside>
 
       {/* Demo open button (remove when using HeaderContext) */}
-      {!drawerOpen && (
+      {!open && (
         <button
-          onClick={() => setDrawerOpen(true)}
+          onClick={() => setOpen(true)}
           className="fixed left-4 top-4 z-30 rounded-lg border bg-background p-2 shadow-lg lg:hidden"
         >
           <MessageSquarePlus size={20} />

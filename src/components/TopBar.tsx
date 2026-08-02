@@ -6,6 +6,8 @@ import { usePathname, useRouter } from "next/navigation";
 import ProfileMenu from "./profile/ProfileMenu";
 import { useReader } from "@/context/ReaderContext";
 import { useKnowva } from "@/context/KnowvaContext";
+import { useDrawer } from "@/context/DrawerContext";
+
 import {
   ChevronLeft,
   Bookmark,
@@ -41,6 +43,7 @@ export default function TopBar() {
     resourceId,
   } = useReader();
   const { model, setModel } = useKnowva();
+  const { setOpen: setOpenDrawer } = useDrawer();
 
   const router = useRouter();
   const pathname = usePathname();
@@ -84,7 +87,10 @@ export default function TopBar() {
       {/* LEFT */}
       <div className="w-20">
         {mode === "knowva" ? (
-          <Btn title="Menu">
+          <Btn
+            title="Menu"
+            onClick={() => setOpenDrawer(true)}
+          >
             <Menu className="w-5 h-5" />
           </Btn>
         ) : (

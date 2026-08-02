@@ -11,6 +11,9 @@ import {
   Settings,
   UserRound,
   X,
+  MoreHorizontal,
+  Pencil,
+  Trash2,
 } from "lucide-react";
 
 import { useDrawer } from "@/context/DrawerContext";
@@ -19,6 +22,8 @@ import { useKnowva } from "@/context/KnowvaContext";
 import { fetchMessages } from "@/components/nexus/actions";
 
 export default function Drawer() {
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+
   const { open, setOpen } = useDrawer();
   const {
     chats,
@@ -85,18 +90,58 @@ export default function Drawer() {
           </p>
 
           <div className="h-full overflow-y-auto pb-4">
-            {chats.map((c, i) => (
-              <button
-                key={i}
-                onClick={() => loadMessages(c.id)}
-                className="mb-1 flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm transition hover:bg-accent hover:text-accent-foreground"
+            {chats.map((c) => (
+              <div
+                key={c.id}
+                className="relative mb-1"
               >
-                <History
-                  size={16}
-                  className="shrink-0 text-muted-foreground"
-                />
-                <span className="truncate">{c.title}</span>
-              </button>
+                <button
+                  onClick={() => loadMessages(c.id)}
+                  className="flex w-full items-center gap-3 rounded-lg px-3 py-2 pr-10 text-sm transition hover:bg-accent hover:text-accent-foreground"
+                >
+                  <History
+                    size={16}
+                    className="shrink-0 text-muted-foreground"
+                  />
+                  <span className="truncate">{c.title}</span>
+                </button>
+
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setOpenMenu(openMenu === c.id ? null : c.id);
+                  }}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 rounded p-1 hover:bg-accent"
+                >
+                  <MoreHorizontal size={16} />
+                </button>
+
+                {openMenu === c.id && (
+                  <div className="absolute right-2 top-full z-50 mt-1 w-40 overflow-hidden rounded-lg border bg-white shadow-lg">
+                    <button
+                      onClick={() => {
+                        setOpenMenu(null);
+                        // TODO: open rename dialog
+                      }}
+                      className="flex w-full items-center gap-2 px-3 py-2 text-sm hover:bg-accent"
+                    >
+                      <Pencil size={16} />
+                      Rename
+                    </button>
+
+                    <button
+                      onClick={() => {
+                        setOpenMenu(null);
+                        // TODO: delete chat
+                      }}
+                      className="flex w-full items-center gap-2 px-3 py-2 text-sm text-red-600 hover:bg-red-50"
+                    >
+                      <Trash2 size={16} />
+                      Delete
+                    </button>
+                  </div>
+                )}
+              </div>
             ))}
           </div>
         </main>

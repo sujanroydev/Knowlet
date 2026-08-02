@@ -97,7 +97,8 @@ export async function POST(request: NextRequest) {
     const response = NextResponse.json({ user }, { status: 201 });
     response.cookies.set("token", jwtToken, {
       httpOnly: true,
-      sameSite: "strict",
+      sameSite: "lax",
+      secure: process.env.NODE_ENV === "production",
       path: "/",
       maxAge: 60 * 60 * 24 * 15,
     });

@@ -12,10 +12,13 @@ import {
   UserRound,
   X,
 } from "lucide-react";
+
 import { useDrawer } from "@/context/DrawerContext";
+import { useKnowva } from "@/context/KnowvaContext";
 
 export default function Drawer() {
   const { open, setOpen } = useDrawer();
+  const { chats, setChats } = useKnowva()
 
   return (
     <>
@@ -67,7 +70,7 @@ export default function Drawer() {
           </p>
 
           <div className="h-full overflow-y-auto pb-4">
-            {Array.from({ length: 23 }).map((_, i) => (
+            {chats.map((c, i) => (
               <button
                 key={i}
                 className="mb-1 flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm transition hover:bg-accent hover:text-accent-foreground"
@@ -76,7 +79,7 @@ export default function Drawer() {
                   size={16}
                   className="shrink-0 text-muted-foreground"
                 />
-                <span className="truncate">Chat {i + 1}</span>
+                <span className="truncate">{c.title}</span>
               </button>
             ))}
           </div>

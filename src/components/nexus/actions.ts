@@ -58,3 +58,28 @@ export async function saveMessage(message: Message, chatId: string, parentId: st
     console.log(error);
   }
 }
+
+export async function fetchChats() {
+  try {
+    const cookieStore = await cookies();
+    const token = cookieStore.get("token")?.value;
+    const { ok, payload } = await verifyJwt(token);
+
+    if (!ok) throw new Error("Unauthorized")
+
+    const db = await connectDb();
+
+    const { data, error } = await db
+      .from("knowva_chats")
+      .select("id, title, created_at")
+      .eq("user_id", payload.user_id)
+      .order("updated_at", { ascending: false });
+
+    if (error) throw error;
+
+    return data;
+  } catch(error) {
+    console.log(error);
+  }
+
+}

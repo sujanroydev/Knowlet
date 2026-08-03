@@ -1,14 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
-import puppeteer, { Browser } from "puppeteer";
+import { pdf } from "@react-pdf/renderer";
+import React from "react";
+
 import { authGate } from "@/lib/auth/authGate";
 import connectDb from "@/lib/db";
+import ResourcePDF from "@/components/pdf/ResourcePDF";
+
+export const runtime = "nodejs";
 
 export async function GET(
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  let browser: Browser | null = null;
-
   try {
     const { id: resourceId } = await params;
 
@@ -17,44 +20,48 @@ export async function GET(
     }
 
     const { ok, res, payload } = await authGate(req, "jwt");
-    if (!ok || !payload) return res;
 
-    browser = await puppeteer.launch({
-      headless: true,
-    });
-
-    const page = await browser.newPage();
+    if (!ok || !payload) {
+      return res;
+    }
 
     const db = await connectDb();
+
     const { data, error } = await db
       .from("resources")
-      .select()
+      .select("title, content")
       .eq("id", resourceId)
       .maybeSingle();
 
     if (error) throw error;
+
     if (!data?.content) {
       throw new Error("No resource found");
     }
 
-    await page.setContent(data.content, {
-      waitUntil: "load",
-    });
+    const pdfBuffer = await pdf(
+      React.createElement(ResourcePDF, {
+        title: data.title,
+        content: data.content,
+      })
+    ).toBuffer();
 
-    const pdf = await page.pdf({
-      format: "A4",
-      printBackground: true,
-    });
-
-    return new NextResponse(Buffer.from(pdf), {
+    return new NextResponse(pdfBuffer, {
       headers: {
         "Content-Type": "application/pdf",
-        "Content-Disposition": 'attachment; filename="document.pdf"',
+        "Content-Disposition": `attachment; filename="${data.title || "document"}.pdf"`,
       },
     });
-  } finally {
-    if (browser) {
-      await browser.close();
-    }
+  } catch (error) {
+    console.error("PDF generation error:", error);
+
+    return NextResponse.json(
+      {
+        error: "Failed to generate PDF",
+      },
+      {
+        status: 500,
+      }
+    );
   }
 }

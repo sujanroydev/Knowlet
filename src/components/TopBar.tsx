@@ -143,7 +143,7 @@ export default function TopBar() {
               </Btn>
             )}
 
-            {user?.role && resourceId && (
+            {user?.email && resourceId && (
               <Btn
                 onClick={() => {
                   const a = document.createElement("a");

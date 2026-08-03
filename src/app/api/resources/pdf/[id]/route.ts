@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { pdf } from "@react-pdf/renderer";
 import React from "react";
+import { Readable } from "stream";
 
 import { authGate } from "@/lib/auth/authGate";
 import connectDb from "@/lib/db";
@@ -39,12 +40,20 @@ export async function GET(
       throw new Error("No resource found");
     }
 
-    const pdfBuffer = await pdf(
+    const stream = await pdf(
       React.createElement(ResourcePDF, {
         title: data.title,
         content: data.content,
       })
     ).toBuffer();
+
+    const chunks: Buffer[] = [];
+
+    for await (const chunk of stream as unknown as Readable) {
+      chunks.push(Buffer.from(chunk));
+    }
+
+    const pdfBuffer = Buffer.concat(chunks);
 
     return new NextResponse(pdfBuffer, {
       headers: {

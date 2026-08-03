@@ -1,6 +1,6 @@
 const features = [
   "📘 Free access to semester-wise notes",
-  "📂 Easy download system",
+  // "📂 Easy download system",
   "🔎 Smart search system",
   "📱 Mobile-friendly design",
 ];

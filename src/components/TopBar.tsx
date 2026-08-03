@@ -16,6 +16,7 @@ import {
   SkipBack,
   SkipForward,
   Edit,
+  Download,
   Share2,
   Menu,
   SquarePen
@@ -139,6 +140,20 @@ export default function TopBar() {
                 title="update"
               >
                 <Edit className="w-5 h-5" />
+              </Btn>
+            )}
+
+            {user?.role && resourceId && (
+              <Btn
+                onClick={() => {
+                  const a = document.createElement("a");
+                  a.href = `/api/resources/pdf/${resourceId}`;
+                  a.download = "";
+                  a.click();
+                }}
+                title="Download PDF"
+              >
+                <Download className="w-5 h-5" />
               </Btn>
             )}
 

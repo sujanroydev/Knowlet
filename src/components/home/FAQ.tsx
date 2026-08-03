@@ -3,10 +3,10 @@ const faqs = [
     q: "Is Knowlet free to use?",
     a: "Yes. All materials are free for students.",
   },
-  {
-    q: "Can I download notes?",
-    a: "Yes, you can download or view directly.",
-  },
+  // {
+  //   q: "Can I download notes?",
+  //   a: "Yes, you can download or view directly.",
+  // },
   {
     q: "Can I contribute?",
     a: "Yes, contact us via email.",

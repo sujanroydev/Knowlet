@@ -17,7 +17,7 @@ interface Details {
 const options = {
   level: [
     "select",
-    ...[...Array(4)].map((_, i) => `class-${i + 8}`),
+    ...[...Array(4)].map((_, i) => `class-${i + 9}`),
     ...[...Array(8)].map((_, i) => `semester-${i + 1}`),
   ],
   subjects: [

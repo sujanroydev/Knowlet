@@ -47,8 +47,6 @@ export async function POST(req: NextRequest) {
       ? modelNames[mode === "create-resource" ? 0 : 3] // randomNumber(2) : 3 + randomNumber(2)];
       : userSelectedModel;
 
-    console.log("model name: ", selectedModel)
-
     const model = genAI.getGenerativeModel({ model: selectedModel });
 
     let prompt = generatePrompt(mode, difficulty, text);

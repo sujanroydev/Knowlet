@@ -45,6 +45,13 @@ export default async function Navigator({
         .select("title, description, path, type, target")
         .like("path", `${slug.join("/")}%`);
       special = true;
+    } else if (academicPattern === "class" && slug.length >= 2) {
+      // "/library/semester-1/ecology/"
+      query = db
+        .from("resources")
+        .select("title, description, path, type, target")
+        .like("path", `${slug.join("/")}%`);
+      special = true;
     } else {
       // "/library/semester-1/ecology"
       // "/library/semester-1"

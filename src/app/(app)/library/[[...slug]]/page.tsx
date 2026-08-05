@@ -97,7 +97,7 @@ export default async function Page({
 }) {
   const { slug } = await params;
 
-  if (!slug || slug?.length <= 4) {
+  if (!slug || slug?.length <= ((slug || [])[0]?.startsWith("semester") ? 4 : 3)) {
     return <Navigator slug={slug} />;
   }
   return (

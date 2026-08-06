@@ -5,6 +5,12 @@ import type { Message, Mode } from "@/types/knowva";
 import { cookies } from "next/headers";
 import { verifyJwt } from "@/lib/auth"
 
+import { generateChatTitle as _generateChatTitle } from "@/services/knowva";
+
+export async function generateChatTitle(message: string) {
+  return await _generateChatTitle(message);
+}
+
 export async function newChat() {
   try {
     const cookieStore = await cookies();

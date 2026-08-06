@@ -4,8 +4,7 @@ import { useState, useRef } from "react";
 import { ArrowUp, Square } from "lucide-react";
 import type { Message, Mode } from "@/types/knowva";
 import { useKnowva } from "@/context/KnowvaContext";
-import { newChat, saveMessage, renameChat } from "./actions";
-import { generateChatTitle } from "@/services/knowva";
+import { newChat, saveMessage, renameChat, generateChatTitle } from "./actions";
 
 export default function NexusInput({
   mode,

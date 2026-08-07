@@ -22,7 +22,9 @@ export async function newChat(
   return data;
 }
 
-export async function removeChat(chatId: string) {
+export async function removeChat(
+  chatId: string
+) {
   const db = await connectDb();
 
   const { error } = await db
@@ -36,7 +38,9 @@ export async function removeChat(chatId: string) {
   if (error) throw error;
 }
 
-export async function fetchChats(userId: string) {
+export async function fetchChats(
+  userId: string
+) {
   const db = await connectDb();
 
   const { data, error } = await db
@@ -85,6 +89,46 @@ export async function updateLastMessageTime(
     .from("knowva_chats")
     .update({
       last_message_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+    })
+    .eq("id", chatId);
+
+  if (error) throw error;
+}
+
+
+export async function pinChat(
+  chatId: string,
+  pinned: boolean
+) {
+  const db = await connectDb();
+
+  const { data, error } = await db
+    .from("knowva_chats")
+    .update({
+      pinned,
+      updated_at: new Date().toISOString(),
+    })
+    .eq("id", chatId)
+    .select()
+    .maybeSingle();
+
+  if (error) throw error;
+
+  return data;
+}
+
+
+export async function archiveChat(
+  chatId: string,
+  archived: boolean
+) {
+  const db = await connectDb();
+
+  const { error } = await db
+    .from("knowva_chats")
+    .update({
+      archived: true,
       updated_at: new Date().toISOString(),
     })
     .eq("id", chatId);

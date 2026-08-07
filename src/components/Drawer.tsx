@@ -14,11 +14,15 @@ import {
   MoreHorizontal,
   Pencil,
   Trash2,
+  Pin,
+  Archive
 } from "lucide-react";
 
 import { useDrawer } from "@/context/DrawerContext";
 import { useKnowva } from "@/context/KnowvaContext";
 import  { useDrawerActions } from "@/components/nexus/useDrawerActions";
+
+import { useChatActions } from "@/hooks/knowva/useChatActions";
 
 export default function Drawer() {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
@@ -30,6 +34,10 @@ export default function Drawer() {
     deleteChat,
     createNewChat,
   } = useDrawerActions();
+  const {
+    pinChatAction,
+    archiveChatAction,
+  } = useChatActions();
 
   return (
     <>
@@ -120,6 +128,28 @@ export default function Drawer() {
 
                 {openMenu === c.id && (
                   <div className="absolute right-2 top-full z-50 mt-1 w-40 overflow-hidden rounded-lg border bg-white shadow-lg">
+                    <button
+                      onClick={() => {
+                        setOpenMenu(null);
+                        void pinChatAction(c.id, true);
+                      }}
+                      className="flex w-full items-center gap-2 px-3 py-2 text-sm text-blue-600 hover:bg-blue-50"
+                    >
+                      <Pin size={16} />
+                      Pin
+                    </button>
+
+                    <button
+                      onClick={() => {
+                        setOpenMenu(null);
+                        void archiveChatAction(c.id, true);
+                      }}
+                      className="flex w-full items-center gap-2 px-3 py-2 text-sm text-amber-600 hover:bg-amber-50"
+                    >
+                      <Archive size={16} />
+                      Archive
+                    </button>
+
                     {/* <button
                       onClick={() => {
                         setOpenMenu(null);

@@ -1,6 +1,7 @@
 import connectDb from "@/lib/db";
 
 import type { Message, Mode } from "@/types/knowva";
+import { updateLastMessageTime } from "@/db/knowva/chat";
 
 export async function saveMessage(message: Message, chatId: string, parentId: string, model: string) {
   const db = await connectDb();
@@ -19,6 +20,10 @@ export async function saveMessage(message: Message, chatId: string, parentId: st
 
   if (error) throw error;
   if (!data) throw new Error("no data returned");
+
+  void updateLastMessageTime(chatId).catch((error) => {
+    console.error("Failed to update chat activity:", error);
+  });
 
   return data;
 }

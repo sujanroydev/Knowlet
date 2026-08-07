@@ -1,24 +1,19 @@
-"use server";
-
-import { GoogleGenerativeAI } from "@google/generative-ai";
-
-const genAI = new GoogleGenerativeAI(process.env.GOOGLE_AI_API_KEY!);
+import { gemini } from "@/lib/gemini";
+import { sleep } from "@/utils/sleep";
+import { DEFAULT_MODEL, ModelId } from "@/config/ai";
 
 type GenerateOptions = {
   prompt: string;
-  model?: string;
+  model?: ModelId;
   retries?: number;
 };
 
-const sleep = (ms: number) =>
-  new Promise((resolve) => setTimeout(resolve, ms));
-
 export async function generate({
   prompt,
-  model = "gemini-3.1-flash-lite",
+  model = DEFAULT_MODEL,
   retries = 3,
 }: GenerateOptions): Promise<string> {
-  const ai = genAI.getGenerativeModel({ model });
+  const ai = gemini.getGenerativeModel({ model });
 
   let lastError: unknown;
 
@@ -37,7 +32,6 @@ export async function generate({
         break;
       }
 
-      // Exponential backoff: 1s, 2s, 4s...
       await sleep(1000 * 2 ** (attempt - 1));
     }
   }
@@ -48,27 +42,4 @@ export async function generate({
       : "Failed to generate AI response.";
 
   throw new Error(message);
-}
-
-export async function generateChatTitle(message: string): Promise<string> {
-  const prompt = `
-Generate a short chat title.
-
-Rules:
-- Maximum 6 words.
-- No quotes.
-- No punctuation at the end.
-- Return only the title.
-
-Message:
-${message}
-`;
-
-  try {
-    return await generate({ prompt });
-  } catch (error) {
-    console.error("Failed to generate chat title:", error);
-
-    return "Untitled Chat";
-  }
 }

@@ -76,7 +76,7 @@ export default function NexusInput({
       const res = await fetch("/api/nexus/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text, mode, model }),
+        body: JSON.stringify({ text, mode, model, chatId: currentChatId }),
         signal: signal,
       });
 

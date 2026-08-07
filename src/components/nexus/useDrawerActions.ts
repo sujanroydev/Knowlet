@@ -2,7 +2,7 @@
 
 import { useDrawer } from "@/context/DrawerContext";
 import { useKnowva } from "@/context/KnowvaContext";
-import { fetchMessages, removeChat } from "./actions";
+import { fetchMessages, removeChat } from "@/actions/knowva";
 
 export function useDrawerActions() {
   const { setOpen } = useDrawer();

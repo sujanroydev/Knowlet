@@ -1,16 +1,12 @@
 "use server";
 
-import connectDb from "@/lib/db";
-import type { Message, Mode } from "@/types/knowva";
 import { cookies } from "next/headers";
 import { verifyJwt } from "@/lib/auth"
 
 import { generateChatTitle as _generateChatTitle } from "@/services/knowva";
 import {
-  saveMessage as _saveMessage,
-  fetchMessages as _fetchMessages,
-} from "@/db/knowva/message";
-import {
+  pinChat as _pinChat,
+  archiveChat as _archiveChat,
   newChat as _newChat,
   fetchChats as _fetchChats,
   removeChat as _removeChat,
@@ -35,17 +31,9 @@ export async function newChat() {
   }
 }
 
-export async function removeChat(chatId: string) {
+export async function renameChat(chatId: string, newName: string) {
   try {
-    return await _removeChat(chatId);
-  } catch(error) {
-    console.log(error);
-  }
-}
-
-export async function saveMessage(message: Message, chatId: string, parentId: string, model: string) {
-  try {
-    return await _saveMessage(message, chatId, parentId, model);
+    return await _renameChat(chatId, newName);
   } catch(error) {
     console.log(error);
   }
@@ -63,21 +51,34 @@ export async function fetchChats() {
   } catch(error) {
     console.log(error);
   }
-
 }
 
-export async function fetchMessages(chatId: string) {
+export async function removeChat(chatId: string) {
   try {
-    return await _fetchMessages(chatId);
+    return await _removeChat(chatId);
   } catch(error) {
     console.log(error);
   }
 }
 
-export async function renameChat(chatId: string, newName: string) {
+export async function pinChat(
+  chatId: string,
+  pinned: boolean
+) {
   try {
-    return await _renameChat(chatId, newName);
-  } catch(error) {
+    return await _pinChat(chatId, pinned);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function archiveChat(
+  chatId: string,
+  archived: boolean
+) {
+  try {
+    return await _archiveChat(chatId, archived);
+  } catch (error) {
     console.log(error);
   }
 }

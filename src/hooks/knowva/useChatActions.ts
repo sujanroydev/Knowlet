@@ -1,10 +1,39 @@
 "use client";
 
+import { useDrawer } from "@/context/DrawerContext";
 import { useKnowva } from "@/context/KnowvaContext";
-import { pinChat, archiveChat } from "@/actions/knowva";
+import {
+  fetchMessages,
+  pinChat,
+  archiveChat,
+  deleteChat,
+} from "@/actions/knowva";
 
 export function useChatActions() {
-  const { setChats } = useKnowva();
+  const { setOpen } = useDrawer();
+  const {
+    chatId: currentChatId,
+    setChats,
+    setMessages,
+    setChatId,
+    setParentId,
+  } = useKnowva();
+
+  async function loadChat(chatId: string) {
+    const messages = await fetchMessages(chatId);
+
+    setMessages(messages ?? []);
+    setChatId(chatId);
+    setParentId(messages?.at(-1)?.id ?? "");
+    setOpen(false);
+  };
+
+  async function createNewChat() {
+    setMessages([]);
+    setChatId("");
+    setParentId("");
+    setOpen(false);
+  };
 
   async function pinChatAction(chatId: string, pinned: boolean) {
     await pinChat(chatId, pinned);
@@ -22,8 +51,23 @@ export function useChatActions() {
     );
   }
 
+  async function deleteChatAction (chatId: string) {
+    await deleteChat(chatId);
+
+    setChats(prev => prev.filter(chat => chat.id !== chatId));
+
+    if (chatId === currentChatId) {
+      setMessages([]);
+      setChatId("");
+      setParentId("");
+    }
+  };
+
   return {
+    loadChat,
+    createNewChat,
     pinChatAction,
     archiveChatAction,
+    deleteChatAction,
   };
 }

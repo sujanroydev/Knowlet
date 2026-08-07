@@ -7,7 +7,7 @@ import ProfileMenu from "./profile/ProfileMenu";
 import { useReader } from "@/context/ReaderContext";
 import { useKnowva } from "@/context/KnowvaContext";
 import { useDrawer } from "@/context/DrawerContext";
-import  { useDrawerActions } from "@/components/nexus/useDrawerActions";
+import { useChatActions } from "@/hooks/knowva/useChatActions";
 
 import {
   ChevronLeft,
@@ -46,7 +46,7 @@ export default function TopBar() {
   } = useReader();
   const { model, setModel } = useKnowva();
   const { setOpen: setOpenDrawer } = useDrawer();
-  const { createNewChat } = useDrawerActions();
+  const { createNewChat } = useChatActions();
 
   const router = useRouter();
   const pathname = usePathname();

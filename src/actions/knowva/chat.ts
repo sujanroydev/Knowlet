@@ -9,7 +9,7 @@ import {
   archiveChat as _archiveChat,
   newChat as _newChat,
   fetchChats as _fetchChats,
-  removeChat as _removeChat,
+  deleteChat as _deleteChat,
   renameChat as _renameChat,
 } from "@/db/knowva/chat";
 
@@ -53,9 +53,9 @@ export async function fetchChats() {
   }
 }
 
-export async function removeChat(chatId: string) {
+export async function deleteChat(chatId: string) {
   try {
-    return await _removeChat(chatId);
+    return await _deleteChat(chatId);
   } catch(error) {
     console.log(error);
   }

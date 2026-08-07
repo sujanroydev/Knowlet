@@ -6,6 +6,8 @@ import { extractMemories } from "@/services/knowva";
 import { createMemories, getMemories } from "@/db/knowva/memory";
 import { fetchMessages } from "@/db/knowva/message";
 
+import { MODELS } from "@/config/ai";
+
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_AI_API_KEY!);
 
 export async function POST(req: NextRequest) {
@@ -34,23 +36,15 @@ export async function POST(req: NextRequest) {
       }
     })();
 
-    const modelNames = [
-      "gemini-3.6-flash",       // 5 RPM, 250K TPM, 20 RPD
-      "gemini-3.5-flash",       // 5 RPM, 250K TPM, 20 RPD
-      "gemini-2.5-flash",       // 5 RPM, 250K TPM, 20 RPD
-
-      "gemini-3.5-flash-lite",  // 15 RPM, 250K TPM, 500 RPD
-      "gemini-3.1-flash-lite",  // 15 RPM, 250K TPM, 500 RPD
-    ];
-
     const randomNumber = (n: number) => Math.floor(Math.random() * (n));
     const selectedModel = userSelectedModel === "auto" || !userSelectedModel
-      ? modelNames[mode === "create-resource" ? 0 : 3] // randomNumber(2) : 3 + randomNumber(2)];
+      ? MODELS[mode === "create-resource" ? 0 : 3].value // randomNumber(2) : 3 + randomNumber(2)].value;
       : userSelectedModel;
 
     const model = genAI.getGenerativeModel({ model: selectedModel });
 
-    let prompt = ""
+    let prompt = "";
+
     if (["quiz", "study", "short", "explain", "create-resource"].includes(mode)) {
       prompt = generatePrompt(mode, difficulty, text);
     } else {

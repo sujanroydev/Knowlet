@@ -22,7 +22,7 @@ export async function newChat(
   return data;
 }
 
-export async function removeChat(
+export async function deleteChat(
   chatId: string
 ) {
   const db = await connectDb();

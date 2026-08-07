@@ -20,7 +20,6 @@ import {
 
 import { useDrawer } from "@/context/DrawerContext";
 import { useKnowva } from "@/context/KnowvaContext";
-import  { useDrawerActions } from "@/components/nexus/useDrawerActions";
 
 import { useChatActions } from "@/hooks/knowva/useChatActions";
 
@@ -30,11 +29,9 @@ export default function Drawer() {
   const { open, setOpen } = useDrawer();
   const { chats, chatId } = useKnowva();
   const {
-    loadMessages,
-    deleteChat,
+    loadChat,
+    deleteChatAction,
     createNewChat,
-  } = useDrawerActions();
-  const {
     pinChatAction,
     archiveChatAction,
   } = useChatActions();
@@ -98,7 +95,7 @@ export default function Drawer() {
                 className="relative mb-1"
               >
                 <button
-                  onClick={() => loadMessages(c.id)}
+                  onClick={() => loadChat(c.id)}
                   className={`flex w-full items-center gap-3 rounded-lg px-3 py-2 pr-10 text-sm transition ${
                     c.id === chatId
                       ? "bg-accent text-accent-foreground font-medium"
@@ -164,7 +161,7 @@ export default function Drawer() {
                     <button
                       onClick={() => {
                         setOpenMenu(null);
-                        void deleteChat(c.id);
+                        void deleteChatAction(c.id);
                       }}
                       className="flex w-full items-center gap-2 px-3 py-2 text-sm text-red-600 hover:bg-red-50"
                     >

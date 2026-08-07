@@ -1,5 +1,9 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextRequest } from "next/server";
+import { authGate } from "@/lib/auth/authGate";
+
+import { extractMemories } from "@/services/knowva";
+import { createMemories } from "@/db/knowva/memory";
 
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_AI_API_KEY!);
 
@@ -15,7 +19,19 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    const { ok, res, payload } = await authGate(req, "jwt");
+    if (!ok || !payload) return res;
+
     const lowerText = text.toLowerCase();
+
+    void (async () => {
+      try {
+        const memories = await extractMemories(text);
+        await createMemories(memories, payload.user_id);
+      } catch (error) {
+        console.error("Memory extraction failed:", error);
+      }
+    })();
 
     if (
       lowerText.includes("who are you") ||

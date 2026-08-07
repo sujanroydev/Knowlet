@@ -4,13 +4,14 @@ import { authGate } from "@/lib/auth/authGate";
 
 import { extractMemories } from "@/services/knowva";
 import { createMemories, getMemories } from "@/db/knowva/memory";
+import { fetchMessages } from "@/db/knowva/message";
 
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_AI_API_KEY!);
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { text, mode, model: userSelectedModel, difficulty = "medium" } = body;
+    const { text, mode, model: userSelectedModel, difficulty = "medium", chatId } = body;
 
     if (!text) {
       return new Response(
@@ -54,12 +55,25 @@ export async function POST(req: NextRequest) {
       prompt = generatePrompt(mode, difficulty, text);
     } else {
       let userMemories = "";
-      let conversationSummary = "";
       let recentConversation = "";
+      let conversationSummary = "";
 
-      const memories = await getMemories(payload.user_id);
+      const result = await Promise.allSettled([
+        await getMemories(payload.user_id),
+        await fetchMessages(chatId),
+      ]);
 
-      userMemories = memories.map(memory => `- ${memory.content}`).join("\n");
+      const memories = result[0].status === "fulfilled" ? result[0].value : [];
+      const messages = result[1].status === "fulfilled" ? result[1].value : [];
+
+      userMemories = memories
+        .map(memory => `- ${memory.content}`)
+        .join("\n");
+
+      messages.pop();
+      recentConversation = messages
+        .map(message => `${message.sender}: ${message.text}`)
+        .join("\n");
 
       prompt = defaultPrompt(text, userMemories, recentConversation, conversationSummary);
     }

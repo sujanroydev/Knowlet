@@ -1,13 +1,8 @@
 "use client";
 
-import { useAuth } from "@/context/AuthContext";
-import { useHeader } from "@/context/HeaderContext";
 import { usePathname, useRouter } from "next/navigation";
-import ProfileMenu from "./profile/ProfileMenu";
-import { useReader } from "@/context/ReaderContext";
-import { useKnowva } from "@/context/KnowvaContext";
-import { useDrawer } from "@/context/DrawerContext";
-import { useChatActions } from "@/hooks/knowva/useChatActions";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 import {
   ChevronLeft,
@@ -21,10 +16,15 @@ import {
   Menu,
   SquarePen
 } from "lucide-react";
-import { useEffect, useState } from "react";
-import { ParsedPath } from "@/types/resource";
-import { toast } from "sonner";
 
+import { useAuth } from "@/context/AuthContext";
+import { useHeader } from "@/context/HeaderContext";
+import ProfileMenu from "./profile/ProfileMenu";
+import { useReader } from "@/context/ReaderContext";
+import { useKnowva } from "@/context/KnowvaContext";
+import { useDrawer } from "@/context/DrawerContext";
+import { ParsedPath } from "@/types/resource";
+import { useChatActions } from "@/hooks/knowva/useChatActions";
 import { ModelSelector } from "@/components/nexus/ModelSelector";
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {

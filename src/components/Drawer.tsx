@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import {
   MessageSquarePlus,
@@ -25,6 +25,7 @@ import { useChatActions } from "@/hooks/knowva/useChatActions";
 
 export default function Drawer() {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const { open, setOpen } = useDrawer();
   const { chats, chatId } = useKnowva();
@@ -35,6 +36,23 @@ export default function Drawer() {
     pinChatAction,
     archiveChatAction,
   } = useChatActions();
+
+  useEffect(() => {
+    function handleOutsideClick(event: PointerEvent) {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node)
+      ) {
+        setOpenMenu(null);
+      }
+    }
+
+    document.addEventListener("pointerdown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("pointerdown", handleOutsideClick);
+    };
+  }, []);
 
   return (
     <>
@@ -75,7 +93,7 @@ export default function Drawer() {
         <div className="p-4">
           <button
             onClick={() => createNewChat()}
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90 active:scale-95"
+            className="flex w-full items-center justify-center gap-2 rounded-xl border border-blue-200 bg-blue-50 px-4 py-3 text-sm font-medium text-blue-600 transition hover:bg-blue-100 active:scale-95"
           >
             <MessageSquarePlus size={18} />
             New Chat
@@ -124,7 +142,10 @@ export default function Drawer() {
                 </button>
 
                 {openMenu === c.id && (
-                  <div className="absolute right-2 top-full z-50 mt-1 w-40 overflow-hidden rounded-lg border bg-white shadow-lg">
+                  <div
+                    ref={menuRef}
+                    className="absolute right-2 top-full z-50 mt-1 w-40 overflow-hidden rounded-lg border bg-white shadow-lg"
+                  >
                     <button
                       onClick={() => {
                         setOpenMenu(null);

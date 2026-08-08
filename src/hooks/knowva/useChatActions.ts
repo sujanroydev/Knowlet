@@ -39,7 +39,7 @@ export function useChatActions() {
     await pinChat(chatId, pinned);
 
     setChats((chats) =>
-      chats.filter((chat) => chat.id !== chatId)
+      chats.map((chat) => chat.id === chatId ? { ...chat, pinned } : chat)
     );
   }
 

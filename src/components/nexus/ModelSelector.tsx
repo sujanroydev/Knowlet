@@ -1,27 +1,37 @@
-import { useState, type Dispatch, type SetStateAction } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Crown } from "lucide-react";
 import { toast } from "sonner";
 
 import { useAuth } from "@/context/AuthContext";
+import { MODELS } from "@/config/ai";
 
 type Props = {
   model: string;
-  setModel: Dispatch<SetStateAction<string>>;
+  setModel: React.Dispatch<React.SetStateAction<string>>;
 };
-
-export const MODELS = [
-  { label: "Auto", value: "auto" },
-  { label: "Gemini 3.6 Flash", value: "gemini-3.6-flash", premium: true },
-  { label: "Gemini 3.5 Flash", value: "gemini-3.5-flash", premium: true },
-  { label: "Gemini 2.5 Flash", value: "gemini-2.5-flash", premium: true },
-  { label: "Gemini 3.5 Flash Lite", value: "gemini-3.5-flash-lite" },
-  { label: "Gemini 3.1 Flash Lite", value: "gemini-3.1-flash-lite" },
-];
 
 export function ModelSelector({ model, setModel }: Props) {
   const [open, setOpen] = useState(false);
+  const selectorRef = useRef<HTMLDivElement>(null);
 
   const { user } = useAuth();
+
+  useEffect(() => {
+    function handleOutsideClick(event: PointerEvent) {
+      if (
+        selectorRef.current &&
+        !selectorRef.current.contains(event.target as Node)
+      ) {
+        setOpen(false);
+      }
+    }
+
+    document.addEventListener("pointerdown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("pointerdown", handleOutsideClick);
+    };
+  }, []);
 
   return (
     <div className="relative">
@@ -36,7 +46,10 @@ export function ModelSelector({ model, setModel }: Props) {
       </button>
 
       {open && (
-        <div className="absolute left-0 mt-1 w-48 rounded-md border bg-white shadow-lg">
+        <div
+          ref={selectorRef}
+          className="absolute left-0 mt-1 w-48 rounded-md border bg-white shadow-lg"
+        >
           {MODELS.map((m) => (
             <button
               key={m.value}

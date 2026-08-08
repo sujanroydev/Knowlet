@@ -8,7 +8,7 @@ import type { Message, Mode } from "@/types/knowva";
 import { useHeader } from "@/context/HeaderContext";
 import { useKnowva } from "@/context/KnowvaContext";
 import Drawer from "@/components/Drawer";
-import { fetchChats } from "./actions";
+import { fetchChats } from "@/actions/knowva";
 
 export default function NexusPage() {
   const [mode, setMode] = useState<Mode>("normal");

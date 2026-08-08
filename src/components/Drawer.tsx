@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import {
   MessageSquarePlus,
@@ -14,22 +14,45 @@ import {
   MoreHorizontal,
   Pencil,
   Trash2,
+  Pin,
+  Archive
 } from "lucide-react";
 
 import { useDrawer } from "@/context/DrawerContext";
 import { useKnowva } from "@/context/KnowvaContext";
-import  { useDrawerActions } from "@/components/nexus/useDrawerActions";
+
+import { useChatActions } from "@/hooks/knowva/useChatActions";
 
 export default function Drawer() {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const { open, setOpen } = useDrawer();
   const { chats, chatId } = useKnowva();
   const {
-    loadMessages,
-    deleteChat,
+    loadChat,
+    deleteChatAction,
     createNewChat,
-  } = useDrawerActions();
+    pinChatAction,
+    archiveChatAction,
+  } = useChatActions();
+
+  useEffect(() => {
+    function handleOutsideClick(event: PointerEvent) {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node)
+      ) {
+        setOpenMenu(null);
+      }
+    }
+
+    document.addEventListener("pointerdown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("pointerdown", handleOutsideClick);
+    };
+  }, []);
 
   return (
     <>
@@ -70,7 +93,7 @@ export default function Drawer() {
         <div className="p-4">
           <button
             onClick={() => createNewChat()}
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90 active:scale-95"
+            className="flex w-full items-center justify-center gap-2 rounded-xl border border-blue-200 bg-blue-50 px-4 py-3 text-sm font-medium text-blue-600 transition hover:bg-blue-100 active:scale-95"
           >
             <MessageSquarePlus size={18} />
             New Chat
@@ -84,13 +107,23 @@ export default function Drawer() {
           </p>
 
           <div className="h-full overflow-y-auto pb-4">
-            {chats.map((c) => (
+            {chats
+              .sort((a, b) => {
+                if (a.pinned !== b.pinned) {
+                  return a.pinned ? -1 : 1;
+                }
+                return (
+                  new Date(b.last_message_at ?? b.created_at).getTime() -
+                  new Date(a.last_message_at ?? a.created_at).getTime()
+                );
+              })
+              .map((c) => (
               <div
                 key={c.id}
                 className="relative mb-1"
               >
                 <button
-                  onClick={() => loadMessages(c.id)}
+                  onClick={() => loadChat(c.id)}
                   className={`flex w-full items-center gap-3 rounded-lg px-3 py-2 pr-10 text-sm transition ${
                     c.id === chatId
                       ? "bg-accent text-accent-foreground font-medium"
@@ -108,18 +141,47 @@ export default function Drawer() {
                   <span className="truncate">{c.title}</span>
                 </button>
 
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setOpenMenu(openMenu === c.id ? null : c.id);
-                  }}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 rounded p-1 hover:bg-accent"
-                >
-                  <MoreHorizontal size={16} />
-                </button>
+                <div className="absolute right-2 top-1/2 flex -translate-y-1/2 items-center gap-1">
+                  {c.pinned && <Pin size={14} className="text-blue-600" />}
+
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setOpenMenu(openMenu === c.id ? null : c.id);
+                    }}
+                    className="rounded p-1 hover:bg-accent"
+                  >
+                    <MoreHorizontal size={16} />
+                  </button>
+                </div>
 
                 {openMenu === c.id && (
-                  <div className="absolute right-2 top-full z-50 mt-1 w-40 overflow-hidden rounded-lg border bg-white shadow-lg">
+                  <div
+                    ref={menuRef}
+                    className="absolute right-2 top-full z-50 mt-1 w-40 overflow-hidden rounded-lg border bg-white shadow-lg"
+                  >
+                    <button
+                      onClick={() => {
+                        setOpenMenu(null);
+                        void pinChatAction(c.id, !c.pinned);
+                      }}
+                      className="flex w-full items-center gap-2 px-3 py-2 text-sm text-blue-600 hover:bg-blue-50"
+                    >
+                      <Pin size={16} />
+                      {c.pinned ? "Unpin" : "Pin"}
+                    </button>
+
+                    {/* <button
+                      onClick={() => {
+                        setOpenMenu(null);
+                        void archiveChatAction(c.id, true);
+                      }}
+                      className="flex w-full items-center gap-2 px-3 py-2 text-sm text-amber-600 hover:bg-amber-50"
+                    >
+                      <Archive size={16} />
+                      Archive
+                    </button> */}
+
                     {/* <button
                       onClick={() => {
                         setOpenMenu(null);
@@ -134,7 +196,7 @@ export default function Drawer() {
                     <button
                       onClick={() => {
                         setOpenMenu(null);
-                        void deleteChat(c.id);
+                        void deleteChatAction(c.id);
                       }}
                       className="flex w-full items-center gap-2 px-3 py-2 text-sm text-red-600 hover:bg-red-50"
                     >

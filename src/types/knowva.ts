@@ -12,5 +12,9 @@ export interface Message {
 export interface Chat {
   id: string;
   title: string;
+  mode?: string;
+  pinned: boolean;
+  archived: boolean;
   created_at: string;
+  last_message_at?: string;
 }

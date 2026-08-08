@@ -59,8 +59,6 @@ export async function GET(req: NextRequest) {
       email: user.email,
       username: generateUsername(user.name),
       picture: user.picture,
-      is_verified: true,
-      verified_at: new Date().toISOString(),
     };
 
     // Create new user

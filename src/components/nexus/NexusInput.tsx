@@ -44,6 +44,7 @@ export default function NexusInput({
     try {
       if (!currentChatId) {
         const chat = await newChat();
+        if (!chat) throw new Error("Failed to create chat");
         currentChatId = chat.id;
         setChatId(currentChatId);
       }

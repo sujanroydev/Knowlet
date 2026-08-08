@@ -107,7 +107,17 @@ export default function Drawer() {
           </p>
 
           <div className="h-full overflow-y-auto pb-4">
-            {chats.map((c) => (
+            {chats
+              .sort((a, b) => {
+                if (a.pinned !== b.pinned) {
+                  return a.pinned ? -1 : 1;
+                }
+                return (
+                  new Date(b.last_message_at ?? b.created_at).getTime() -
+                  new Date(a.last_message_at ?? a.created_at).getTime()
+                );
+              })
+              .map((c) => (
               <div
                 key={c.id}
                 className="relative mb-1"
@@ -131,15 +141,19 @@ export default function Drawer() {
                   <span className="truncate">{c.title}</span>
                 </button>
 
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setOpenMenu(openMenu === c.id ? null : c.id);
-                  }}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 rounded p-1 hover:bg-accent"
-                >
-                  <MoreHorizontal size={16} />
-                </button>
+                <div className="absolute right-2 top-1/2 flex -translate-y-1/2 items-center gap-1">
+                  {c.pinned && <Pin size={14} className="text-blue-600" />}
+
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setOpenMenu(openMenu === c.id ? null : c.id);
+                    }}
+                    className="rounded p-1 hover:bg-accent"
+                  >
+                    <MoreHorizontal size={16} />
+                  </button>
+                </div>
 
                 {openMenu === c.id && (
                   <div
@@ -149,15 +163,15 @@ export default function Drawer() {
                     <button
                       onClick={() => {
                         setOpenMenu(null);
-                        void pinChatAction(c.id, true);
+                        void pinChatAction(c.id, !c.pinned);
                       }}
                       className="flex w-full items-center gap-2 px-3 py-2 text-sm text-blue-600 hover:bg-blue-50"
                     >
                       <Pin size={16} />
-                      Pin
+                      {c.pinned ? "Unpin" : "Pin"}
                     </button>
 
-                    <button
+                    {/* <button
                       onClick={() => {
                         setOpenMenu(null);
                         void archiveChatAction(c.id, true);
@@ -166,7 +180,7 @@ export default function Drawer() {
                     >
                       <Archive size={16} />
                       Archive
-                    </button>
+                    </button> */}
 
                     {/* <button
                       onClick={() => {

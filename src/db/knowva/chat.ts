@@ -1,4 +1,15 @@
 import connectDb from "@/lib/db";
+import { Chat } from "@/types/knowva";
+
+const chatSelect = `
+  id,
+  title,
+  mode,
+  pinned,
+  archived,
+  created_at,
+  last_message_at
+`;
 
 export async function newChat(
   userId: string,
@@ -13,13 +24,13 @@ export async function newChat(
       title: "Untitled Chat",
       mode,
     })
-    .select()
+    .select(chatSelect)
     .maybeSingle();
 
   if (error) throw error;
   if (!data) throw new Error("No data returned");
 
-  return data;
+  return data as Chat;
 }
 
 export async function deleteChat(
@@ -45,18 +56,14 @@ export async function fetchChats(
 
   const { data, error } = await db
     .from("knowva_chats")
-    .select(`
-      id,
-      title,
-      created_at
-    `)
+    .select(chatSelect)
     .eq("user_id", userId)
     .is("deleted_at", null)
     .order("last_message_at", { ascending: false });
 
   if (error) throw error;
 
-  return data;
+  return data as Chat[];
 }
 
 export async function renameChat(
@@ -72,12 +79,12 @@ export async function renameChat(
       updated_at: new Date().toISOString(),
     })
     .eq("id", chatId)
-    .select("id, title, created_at")
+    .select(chatSelect)
     .maybeSingle();
 
   if (error) throw error;
 
-  return data;
+  return data as Chat;
 }
 
 export async function updateLastMessageTime(
@@ -103,19 +110,15 @@ export async function pinChat(
 ) {
   const db = await connectDb();
 
-  const { data, error } = await db
+  const { error } = await db
     .from("knowva_chats")
     .update({
       pinned,
       updated_at: new Date().toISOString(),
     })
-    .eq("id", chatId)
-    .select()
-    .maybeSingle();
+    .eq("id", chatId);
 
   if (error) throw error;
-
-  return data;
 }
 
 

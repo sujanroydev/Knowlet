@@ -2,6 +2,8 @@ import type { Ref } from "react";
 import { Edit2 } from "lucide-react";
 import { useKnowva } from "@/context/KnowvaContext";
 import type { Message } from "@/types/knowva";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 export default function NexusMessage({
   message,
@@ -23,7 +25,9 @@ export default function NexusMessage({
           : "bg-white text-gray-800 mr-auto border border-gray-200"
       }`}
     >
-      <p>{message.text}</p>
+      <ReactMarkdown remarkPlugins={[remarkGfm]}>
+        {message.text}
+      </ReactMarkdown>
 
       <div className="mt-2 flex items-center justify-end gap-2 text-[10px] opacity-70">
         {(message.mode === "create-resource" && !isUser) && (

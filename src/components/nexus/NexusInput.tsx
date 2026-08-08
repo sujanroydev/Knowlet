@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 import { ArrowUp, Square } from "lucide-react";
 import type { Message, Mode } from "@/types/knowva";
 import { useKnowva } from "@/context/KnowvaContext";
-import { newChat, saveMessage, renameChat, generateChatTitle } from "./actions";
+import { newChat, saveMessage, renameChat, generateChatTitle } from "@/actions/knowva";
 
 export default function NexusInput({
   mode,
@@ -44,6 +44,7 @@ export default function NexusInput({
     try {
       if (!currentChatId) {
         const chat = await newChat();
+        if (!chat) throw new Error("Failed to create chat");
         currentChatId = chat.id;
         setChatId(currentChatId);
       }

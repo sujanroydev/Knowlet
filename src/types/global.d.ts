@@ -9,11 +9,9 @@ interface User {
   stream?: string;
   standard?: string;
   fav_subject?: string;
-  is_verified: boolean;
   is_active?: string;
   created_at?: string;
   updated_at?: string;
-  verified_at: string;
 }
 
 type AuthOtpType =

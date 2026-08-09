@@ -8,3 +8,15 @@ export async function updateUserLastAccessedAt(userId: string) {
 
   if (error) throw error;
 }
+
+export async function getUserIdByEmail(email: string) {
+  const { data, error } = await supabase
+    .from("users")
+    .select("id")
+    .eq("email", email)
+    .maybeSingle();
+
+  if (error) throw error;
+
+  return data?.id as string;
+}

@@ -1,4 +1,4 @@
-import connectDb from "@/lib/db";
+import { getUserIdByEmail, createUser } from "@/db/user";
 import { sendWelcomeEmail } from "@/services/email/send/welcome";
 import generateUsername from "@/utils/generateUsername";
 import { SignJWT } from "jose";
@@ -37,22 +37,13 @@ export async function GET(req: NextRequest) {
   });
 
   let user = await userRes.json();
-  const db = await connectDb();
 
   // Sync with Database
-  const { data, error } = await db
-    .from("users")
-    .select("id")
-    .eq("email", user.email)
-    .maybeSingle();
-
-  if (error) throw new Error(error.message);
+  const userId = await getUserIdByEmail(user.email);
 
   let isNewUser = false;
 
-  if (data) {
-    user = data;
-  } else {
+  if (!userId) {
     isNewUser = true;
     const newUser = {
       name: user.name,
@@ -62,15 +53,7 @@ export async function GET(req: NextRequest) {
     };
 
     // Create new user
-    const { data, error } = await db
-      .from("users")
-      .insert(newUser)
-      .select()
-      .single();
-
-    if (error) throw new Error(error.message);
-
-    user = data;
+    user = await createUser(newUser);
   }
 
   // Create JWT

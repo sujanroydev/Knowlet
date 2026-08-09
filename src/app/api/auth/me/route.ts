@@ -1,5 +1,5 @@
 import { authGate } from "@/lib/auth/authGate";
-import connectDb from "@/lib/db";
+import { getUserById } from "@/db/user";
 import { updateUserLastAccessedAt } from "@/db/user";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -8,14 +8,7 @@ export async function GET(req: NextRequest) {
     const { ok, res, payload } = await authGate(req, "jwt");
     if (!ok || !payload) return res;
 
-    const db = await connectDb();
-    const { data: user, error } = await db
-      .from("users")
-      .select("*")
-      .eq("id", payload.user_id)
-      .maybeSingle();
-
-    if (error) throw new Error(error.message);
+    const user = await getUserById(payload.user_id);
 
     if (!user) {
       return NextResponse.json(

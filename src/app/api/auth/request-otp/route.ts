@@ -1,7 +1,9 @@
-import connectDb from "@/lib/db";
-import { resend } from "@/lib/resend";
 import bcrypt from "bcryptjs";
 import { NextRequest, NextResponse } from "next/server";
+
+import { getUserIdByEmail } from "@/db/user";
+import { upsertOtp } from "@/db/auth/otp";
+import { resend } from "@/lib/resend";
 
 export async function POST(req: NextRequest) {
   try {
@@ -19,15 +21,9 @@ export async function POST(req: NextRequest) {
     const otpHash = await bcrypt.hash(otp, 10);
     const expiresAt = new Date(Date.now() + 10 * 60 * 1000).toISOString();
 
-    const db = await connectDb();
+    const userId = await getUserIdByEmail(email);
 
-    const { data: existUser } = await db
-      .from("users")
-      .select("id")
-      .eq("email", email)
-      .maybeSingle();
-
-    if (existUser && type === "signup") {
+    if (userId && type === "signup") {
       return NextResponse.json(
         { error: { message: "user already exists" } },
         { status: 400 },
@@ -40,7 +36,7 @@ export async function POST(req: NextRequest) {
         "verify_email",
       ].includes(type)
     ) {
-      if (!existUser) {
+      if (!userId) {
         return NextResponse.json(
           { error: { message: "Unauthorized User" } },
           { status: 403 },
@@ -48,23 +44,7 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    const { error: otpError } = await db.from("password_reset_otps").upsert(
-      {
-        email,
-        otp_hash: otpHash,
-        expires_at: expiresAt,
-      },
-      {
-        onConflict: "email",
-      },
-    );
-
-    if (otpError) {
-      return NextResponse.json(
-        { error: { message: "Failed to generate OTP" } },
-        { status: 500 },
-      );
-    }
+    await upsertOtp(email, otpHash, expiresAt);
 
     let emailHeader = "";
     if (type === "signup") emailHeader = "<h2>Email Verification OTP</h2>";

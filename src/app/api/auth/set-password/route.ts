@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
-import connectDb from "@/lib/db";
+import { findOtpByEmail, deleteOtp } from "@/db/auth/otp";
+import { updatePassword } from "@/db/user";
 
 export async function POST(req: NextRequest) {
   try {
@@ -13,18 +14,9 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const db = await connectDb();
+    const otpObj = await findOtpByEmail(email);
 
-    // Find latest OTP record
-    const { data: otpRow, error: otpError } = await db
-      .from("password_reset_otps")
-      .select("*")
-      .eq("email", email)
-      .order("created_at", { ascending: false })
-      .limit(1)
-      .maybeSingle();
-
-    if (otpError || !otpRow) {
+    if (!otpObj) {
       return NextResponse.json(
         { error: { message: "Invalid or expired OTP" } },
         { status: 400 },
@@ -34,9 +26,9 @@ export async function POST(req: NextRequest) {
     // Check expiry
     const now = new Date();
 
-    if (now > new Date(otpRow.expires_at)) {
+    if (now > new Date(otpObj.expires_at)) {
       // Delete expired OTP
-      await db.from("password_reset_otps").delete().eq("id", otpRow.id);
+      await deleteOtp(email);
 
       return NextResponse.json(
         { error: { message: "OTP expired" } },
@@ -45,7 +37,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Verify OTP
-    const validOtp = await bcrypt.compare(otp, otpRow.otp_hash);
+    const validOtp = await bcrypt.compare(otp, otpObj.otp_hash);
 
     if (!validOtp) {
       return NextResponse.json(
@@ -58,28 +50,10 @@ export async function POST(req: NextRequest) {
     const passwordHash = await bcrypt.hash(password, 10);
 
     // Update password
-    const { error: updateError } = await db
-      .from("users")
-      .update({
-        password_hash: passwordHash,
-      })
-      .eq("email", email);
-
-    if (updateError) {
-      console.error(updateError);
-
-      return NextResponse.json(
-        {
-          error: {
-            message: "Failed to reset password",
-          },
-        },
-        { status: 500 },
-      );
-    }
+    await updatePassword(email, passwordHash);
 
     // Delete OTP after successful reset
-    await db.from("password_reset_otps").delete().eq("id", otpRow.id);
+    await deleteOtp(email);
 
     return NextResponse.json({
       success: true,

@@ -1,6 +1,7 @@
 import { supabase } from "@/lib/supabase";
+import { Feedback } from "@/schemas/resource/feedback";
 
-export async function fetchResourceFeedback(
+export async function fetchResourceFeedbacks(
   from = 0,
   to = 49,
 ) {
@@ -11,11 +12,11 @@ export async function fetchResourceFeedback(
         id,
         message,
         created_at,
-        resources (
+        resource: resources (
           id,
           title
         ),
-        users (
+        user: users (
           id,
           name,
           picture
@@ -29,9 +30,5 @@ export async function fetchResourceFeedback(
 
   if (error) throw error;
 
-  return data?.map((feedback) => ({
-    ...feedback,
-    resource: feedback.resources[0] ?? null,
-    user: feedback.users[0] ?? null,
-  })) ?? [];
+  return data as unknown as Feedback[];
 }

@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const feedbackSchema = z.object({
+export const FeedbackSchema = z.object({
   id: z.string(),
   message: z.string(),
   created_at: z.string(),
@@ -17,4 +17,4 @@ export const feedbackSchema = z.object({
   }).nullable(),
 });
 
-export type Feedback = z.infer<typeof feedbackSchema>;
+export type Feedback = z.infer<typeof FeedbackSchema>;

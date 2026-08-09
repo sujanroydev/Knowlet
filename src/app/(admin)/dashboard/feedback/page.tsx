@@ -1,8 +1,8 @@
-import { fetchResourceFeedback } from "@/db/resource/feedback";
+import { fetchResourceFeedbacks } from "@/db/resource/feedback";
 import { Feedback } from "@/schemas/resource/feedback";
 
 export default async function FeedbackPage() {
-  const data = await fetchResourceFeedback().catch((error) => {
+  const data = await fetchResourceFeedbacks().catch((error) => {
     console.error("Failed to load feedback", error);
     return (
       <div className="p-6">

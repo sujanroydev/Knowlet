@@ -1,6 +1,6 @@
 "use client";
 
-import type { ReportStatus } from "./types";
+import type { ReportStatus } from "@/schemas/resource/report";
 
 const STATUS_OPTIONS: ReportStatus[] = [
   "open",

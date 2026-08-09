@@ -1,51 +1,9 @@
-import connectDb from "@/lib/db";
-
-type Feedback = {
-  id: string;
-  message: string;
-  created_at: string;
-
-  resource: {
-    id: string;
-    title: string;
-  } | null;
-
-  user: {
-    id: string;
-    name: string;
-    avatar_url: string | null;
-  } | null;
-};
+import { fetchResourceFeedback } from "@/db/resource/feedback";
+import { Feedback } from "@/schemas/resource/feedback";
 
 export default async function FeedbackPage() {
-  const db = await connectDb();
-
-  const { data, error } = await db
-    .from("resource_feedback")
-    .select(
-      `
-      id,
-      message,
-      created_at,
-      resource:resources (
-        id,
-        title
-      ),
-      user:users (
-        id,
-        name,
-        picture
-      )
-    `,
-    )
-    .order("created_at", {
-      ascending: false,
-    });
-
-  const feedbacks = data as Feedback[] | null;
-
-  if (error) {
-    console.log(error);
+  const data = await fetchResourceFeedback().catch((error) => {
+    console.error("Failed to load feedback", error);
     return (
       <div className="p-6">
         <div className="rounded-2xl border border-red-200 bg-red-50 p-4 text-red-600 dark:border-red-900 dark:bg-red-950/30">
@@ -53,7 +11,9 @@ export default async function FeedbackPage() {
         </div>
       </div>
     );
-  }
+  });
+
+  const feedbacks = data as Feedback[] | null;
 
   return (
     <div className="mx-auto max-w-5xl space-y-6 p-6">

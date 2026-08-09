@@ -1,18 +1,8 @@
 import Link from "next/link";
-import connectDb from "@/lib/db";
 import { Bell, BookOpen, Clock3, Eye, Mail, Plus } from "lucide-react";
 
-type Resource = {
-  id: string;
-  title: string;
-  type: string;
-  path: string;
-  views: number;
-  likes: number;
-  bookmarks: number;
-  feedbacks: number;
-  reports: number;
-};
+import { supabase } from "@/lib/supabase";
+import { Resource } from "@/schemas/resource";
 
 type ResourceCardProps = {
   resource: Resource;
@@ -203,14 +193,12 @@ function ActionCard({ href, category, title, icon }: ActionCardProps) {
 }
 
 export default async function DashboardPage() {
-  const db = await connectDb();
-
   const [
     { data: mostVisitedResources, error: mostVisitedResourcesError },
     { data: recentResources, error: recentResourcesError },
   ] = await Promise.all([
-    db.rpc("get_most_visited_resources"),
-    db.rpc("get_recently_published_resources"),
+    supabase.rpc("get_most_visited_resources"),
+    supabase.rpc("get_recently_published_resources"),
   ]);
 
   return (

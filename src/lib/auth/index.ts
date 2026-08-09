@@ -1,5 +1,5 @@
 import { jwtVerify, JWTPayload } from "jose";
-import connectDb from "../db";
+import { supabase } from "@/lib/supabase";
 
 type AuthPayload = JWTPayload & {
   user_id: string;
@@ -26,8 +26,7 @@ async function verifyUser(token: string | undefined | null) {
   const { ok, payload, reason } = await verifyJwt(token);
   if (!ok) return { ok, reason } as const;
 
-  const db = await connectDb();
-  const { data, error } = await db
+  const { data, error } = await supabase
     .from("users")
     .select("is_active")
     .eq("id", payload.user_id)
@@ -43,8 +42,7 @@ async function verifyAdmin(token: string | undefined | null) {
   const { ok, payload, reason } = await verifyJwt(token);
   if (!ok) return { ok, reason } as const;
 
-  const db = await connectDb();
-  const { data, error } = await db
+  const { data, error } = await supabase
     .from("users")
     .select("role")
     .eq("id", payload.user_id)

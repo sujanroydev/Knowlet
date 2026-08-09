@@ -1,6 +1,6 @@
 import { authGate } from "@/lib/auth/authGate";
 import connectDb from "@/lib/db";
-import { updateUserLastAccessedTime } from "@/db/user";
+import { updateUserLastAccessedAt } from "@/db/user";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
@@ -27,7 +27,7 @@ export async function GET(req: NextRequest) {
     delete user.id;
     delete user.password_hash;
 
-    void updateUserLastAccessedTime(payload.user_id).catch((error) => {
+    void updateUserLastAccessedAt(payload.user_id).catch((error) => {
       console.error("Failed to update last accessed time", error);
     });
 

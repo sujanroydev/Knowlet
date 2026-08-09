@@ -1,9 +1,7 @@
-import connectDb from "@/lib/db";
+import { supabase } from "@/lib/supabase";
 
-export async function updateUserLastAccessedTime(userId: string) {
-  const db = await connectDb();
-
-  const { error } = await db
+export async function updateUserLastAccessedAt(userId: string) {
+  const { error } = await supabase
     .from("users")
     .update({ last_accessed_at: new Date().toISOString() })
     .eq("id", userId);

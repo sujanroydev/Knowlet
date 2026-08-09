@@ -1,12 +1,10 @@
-import connectDb from "@/lib/db";
+import { supabase } from "@/lib/supabase";
 
 import type { Message, Mode } from "@/types/knowva";
 import { updateLastMessageTime } from "@/db/knowva/chat";
 
 export async function saveMessage(message: Message, chatId: string, parentId: string, model: string) {
-  const db = await connectDb();
-
-  const { data, error } = await db
+  const { data, error } = await supabase
     .from("knowva_messages")
     .insert({
       chat_id: chatId,
@@ -29,9 +27,7 @@ export async function saveMessage(message: Message, chatId: string, parentId: st
 }
 
 export async function fetchMessages(chatId: string) {
-  const db = await connectDb();
-
-  const { data, error } = await db
+  const { data, error } = await supabase
     .from("knowva_messages")
     .select("id, parent_id, role, content, created_at")
     .eq("chat_id", chatId)

@@ -1,4 +1,4 @@
-import connectDb from "@/lib/db";
+import { supabase } from "@/lib/supabase";
 import { Chat } from "@/types/knowva";
 
 const chatSelect = `
@@ -15,9 +15,7 @@ export async function newChat(
   userId: string,
   mode = "chat"
 ) {
-  const db = await connectDb();
-
-  const { data, error } = await db
+  const { data, error } = await supabase
     .from("knowva_chats")
     .insert({
       user_id: userId,
@@ -36,9 +34,7 @@ export async function newChat(
 export async function deleteChat(
   chatId: string
 ) {
-  const db = await connectDb();
-
-  const { error } = await db
+  const { data, error } = await supabase
     .from("knowva_chats")
     .update({
       deleted_at: new Date().toISOString(),
@@ -52,9 +48,7 @@ export async function deleteChat(
 export async function fetchChats(
   userId: string
 ) {
-  const db = await connectDb();
-
-  const { data, error } = await db
+  const { data, error } = await supabase
     .from("knowva_chats")
     .select(chatSelect)
     .eq("user_id", userId)
@@ -70,9 +64,7 @@ export async function renameChat(
   chatId: string,
   newName: string
 ) {
-  const db = await connectDb();
-
-  const { data, error } = await db
+  const { data, error } = await supabase
     .from("knowva_chats")
     .update({
       title: newName,
@@ -90,9 +82,7 @@ export async function renameChat(
 export async function updateLastMessageTime(
   chatId: string
 ) {
-  const db = await connectDb();
-
-  const { error } = await db
+  const { data, error } = await supabase
     .from("knowva_chats")
     .update({
       last_message_at: new Date().toISOString(),
@@ -108,9 +98,7 @@ export async function pinChat(
   chatId: string,
   pinned: boolean
 ) {
-  const db = await connectDb();
-
-  const { error } = await db
+  const { data, error } = await supabase
     .from("knowva_chats")
     .update({
       pinned,
@@ -126,9 +114,7 @@ export async function archiveChat(
   chatId: string,
   archived: boolean
 ) {
-  const db = await connectDb();
-
-  const { error } = await db
+  const { data, error } = await supabase
     .from("knowva_chats")
     .update({
       archived: true,

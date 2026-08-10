@@ -13,6 +13,7 @@ export async function createUser(newUser: {
   name: string;
   email: string;
   username: string;
+  password_hash?: string;
   picture?: string;
 }) {
   const { data, error } = await supabase
@@ -31,6 +32,18 @@ export async function getUserById(userId: string) {
     .from("users")
     .select()
     .eq("id", userId)
+    .maybeSingle();
+
+  if (error) throw error;
+
+  return data;
+}
+
+export async function getUserByEmail(email: string) {
+  const { data, error } = await supabase
+    .from("users")
+    .select()
+    .eq("email", email)
     .maybeSingle();
 
   if (error) throw error;

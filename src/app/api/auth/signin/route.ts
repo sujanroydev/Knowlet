@@ -1,4 +1,4 @@
-import connectDb from "@/lib/db";
+import { getUserByEmail } from "@/db/user";
 import bcrypt from "bcryptjs";
 import { SignJWT } from "jose";
 import { NextRequest, NextResponse } from "next/server";
@@ -14,20 +14,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const db = await connectDb();
-
-    const { data: user, error } = await db
-      .from("users")
-      .select("*")
-      .eq("email", email)
-      .maybeSingle();
-
-    if (error || !user) {
-      return NextResponse.json(
-        { error: { message: "Invalid credentials" } },
-        { status: 401 },
-      );
-    }
+    const user = await getUserByEmail(email)
 
     const isMatch = await bcrypt.compare(password, user.password_hash);
     delete user.password_hash;

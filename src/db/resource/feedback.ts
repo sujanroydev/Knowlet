@@ -1,6 +1,22 @@
 import { supabase } from "@/lib/supabase";
 import { Feedback } from "@/schemas/resource/feedback";
 
+export async function insertFeedback(
+  userId: string,
+  resourceId: string,
+  feedbackMessage: string,
+) {
+  const { error } = await supabase
+    .from("resource_feedback")
+    .insert({
+      user_id: userId,
+      resource_id: resourceId,
+      message: feedbackMessage,
+    });
+
+  if (error) throw error;
+}
+
 export async function fetchResourceFeedbacks(
   from = 0,
   to = 49,

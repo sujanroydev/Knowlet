@@ -2,6 +2,22 @@ import { supabase } from "@/lib/supabase";
 import { Report } from "@/schemas/resource/report";
 import { ReportSchema } from "@/schemas/resource/report";
 
+export async function insertReport(
+  userId: string,
+  resourceId: string,
+  reason: string,
+  details?: string,
+) {
+  const { error } = await supabase
+    .from("resource_reports")
+    .insert({
+      user_id: userId,
+      resource_id: resourceId,
+      reason,
+      details,
+    });
+}
+
 export async function updateReportStatus(reportId: string, status: string) {
   const { error } = await supabase
     .from("resource_reports")

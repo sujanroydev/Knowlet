@@ -1,9 +1,10 @@
+import { NextRequest, NextResponse } from "next/server";
+
 import { authGate } from "@/lib/auth/authGate";
-import connectDb from "@/lib/db";
+import { insertReport } from "@/db/resource/report";
 import { sendEmail, sendEmailByUserId } from "@/services/email/send";
 import { reportReceivedTemplate } from "@/services/email/templates/report-received";
 import { newResourceReportTemplate } from "@/services/email/templates/resource-report-admin";
-import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {
@@ -12,16 +13,7 @@ export async function POST(req: NextRequest) {
 
     if (!ok || !payload) return res;
 
-    const db = await connectDb();
-
-    const { error } = await db.from("resource_reports").insert({
-      user_id: payload.user_id,
-      resource_id: resourceId,
-      reason: reportReason,
-      details: reportDetails,
-    });
-
-    if (error) throw new Error(error.message);
+    await insertReport(payload.user_id, resourceId, reportReason, reportDetails);
 
     void sendEmailByUserId({
       user_id: payload.user_id,

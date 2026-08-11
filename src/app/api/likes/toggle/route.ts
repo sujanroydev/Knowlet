@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import connectDb from "@/lib/db";
+import { insertLike, isLiked, deleteLike} from "@/db/user/like";
 import { authGate } from "@/lib/auth/authGate";
 
 export async function POST(req: NextRequest) {
@@ -16,37 +16,15 @@ export async function POST(req: NextRequest) {
     const { ok, res, payload } = await authGate(req, "jwt");
     if (!ok || !payload) return res;
 
-    const db = await connectDb();
+    const liked = await isLiked(payload.user_id, resource_id);
 
-    // check existing like
-    const { data, error } = await db
-      .from("likes")
-      .select("id")
-      .eq("user_id", payload?.user_id)
-      .eq("resource_id", resource_id)
-      .maybeSingle();
+    if (liked) {
+      await deleteLike(payload.user_id, resource_id);
 
-    if (error) throw new Error(error?.message);
-
-    // unlike
-    if (data) {
-      const { error } = await db
-        .from("likes")
-        .delete()
-        .eq("user_id", payload?.user_id)
-        .eq("resource_id", resource_id);
-
-      if (error) throw new Error(error.message);
       return NextResponse.json({ data: { liked: false } });
     }
 
-    // like
-    const { error: insertError } = await db.from("likes").insert({
-      user_id: payload?.user_id,
-      resource_id,
-    });
-
-    if (insertError) throw new Error(insertError.message);
+    await insertLike(payload.user_id, resource_id);
 
     return NextResponse.json({ data: { liked: true } });
   } catch (error) {

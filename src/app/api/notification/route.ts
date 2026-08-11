@@ -1,5 +1,5 @@
 import { authGate } from "@/lib/auth/authGate";
-import connectDb from "@/lib/db";
+import { supabase } from "@/lib/supabase";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
@@ -7,8 +7,7 @@ export async function GET(req: NextRequest) {
     const { ok, res, payload } = await authGate(req, "jwt");
     if (!ok || !payload) return res;
 
-    const db = await connectDb();
-    const { data, error } = await db
+    const { data, error } = await supabase
       .from("notifications")
       .select("*")
       .order("created_at", { ascending: false });

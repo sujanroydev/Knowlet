@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import connectDb from "@/lib/db";
+
+import { supabase } from "@/lib/supabase";
+import { getHistory } from "@/db/user/history";
 import { authGate } from "@/lib/auth/authGate";
 
 export async function POST(req: NextRequest) {
@@ -16,9 +18,7 @@ export async function POST(req: NextRequest) {
     const { ok, res, payload } = await authGate(req, "jwt");
     if (!ok || !payload) return res;
 
-    const db = await connectDb();
-
-    const { error } = await db.rpc("add_view_history", {
+    const { error } = await supabase.rpc("add_view_history", {
       p_user_id: payload.user_id,
       p_resource_id: resource_id,
     });
@@ -43,31 +43,10 @@ export async function GET(req: NextRequest) {
     const { ok, res, payload } = await authGate(req, "jwt");
     if (!ok || !payload) return res;
 
-    const db = await connectDb();
-
     // select all history for the user
-    const { data, error } = await db
-      .from("view_history")
-      .select(
-        "id, created_at, resources(id, title, description, path, created_at)",
-      )
-      .eq("user_id", payload.user_id)
-      .order("created_at", { ascending: false });
+    const history = await getHistory(payload.user_id);
 
-    if (error) {
-      return NextResponse.json(
-        { error: { message: error.message } },
-        { status: 500 },
-      );
-    }
-
-    return NextResponse.json({
-      data: data?.map((b) => ({
-        id: b.id,
-        created_at: b.created_at,
-        resource: b.resources,
-      })),
-    });
+    return NextResponse.json({ data: history });
   } catch (error) {
     return NextResponse.json(
       { error: { message: "Internal Server Error" } },

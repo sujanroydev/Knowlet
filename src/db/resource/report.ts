@@ -16,6 +16,8 @@ export async function insertReport(
       reason,
       details,
     });
+
+  if (error) throw error;
 }
 
 export async function updateReportStatus(reportId: string, status: string) {

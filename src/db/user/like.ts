@@ -40,5 +40,5 @@ export async function isLiked(
 
   if (error) throw error;
 
-  return !!data as boolean;
+  return !!data;
 }

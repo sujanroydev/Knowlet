@@ -1,6 +1,7 @@
-import connectDb from "@/lib/db";
-import styles from "./Content.module.css";
 import { notFound } from "next/navigation";
+
+import { getResourceByPath } from "@/db/resource";
+import styles from "./Content.module.css";
 import ReaderPageClient from "./ReaderPageClient";
 import ResourceFooterActions from "./resource-footer-actions";
 import { headingThemes } from "./Navigator/headingThemes";
@@ -16,22 +17,14 @@ function getThemeIndex(uuid: string) {
 }
 
 export default async function Content({ slug }: { slug: string[] }) {
-  const db = await connectDb();
+  const resource = await getResourceByPath(slug.join("/"));
 
-  const { data, error } = await db
-    .from("resources")
-    .select("*")
-    .eq("path", slug.join("/"))
-    .maybeSingle();
+  if (!resource) notFound();
 
-  if (error || !data) {
-    notFound();
-  }
-
-  const theme = headingThemes[getThemeIndex(data.id)];
+  const theme = headingThemes[getThemeIndex(resource.id)];
 
   return (
-    <ReaderPageClient resourceId={data.id}>
+    <ReaderPageClient resourceId={resource.id}>
       <div className="max-w-5xl mx-auto px-4 py-6 lg:my-10 lg:p-8 lg:rounded-xl bg-white text-gray-800  shadow-lg leading-loose text-base break-words">
         <article
           className={styles.container}
@@ -52,7 +45,7 @@ export default async function Content({ slug }: { slug: string[] }) {
             } as React.CSSProperties
           }
           dangerouslySetInnerHTML={{
-            __html: data.content || "",
+            __html: resource.content || "",
           }}
         />
 

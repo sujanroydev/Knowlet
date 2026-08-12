@@ -32,3 +32,15 @@ export async function getResources() {
 
   return data;
 }
+
+export async function getResourceByPath(path: string) {
+  const { data, error } = await supabase
+    .from("resources")
+    .select("*")
+    .eq("path", path)
+    .maybeSingle();
+
+  if (error) throw error;
+
+  return data;
+}

@@ -1,4 +1,4 @@
-import connectDb from "@/lib/db";
+import { getHistoryPaths } from "@/db/user/history";
 import StatsBlock from "./Block";
 import { parseResourcePath } from "@/components/dashboard/resources/utils";
 import sortByPath from "@/utils/sortByPath";
@@ -83,17 +83,9 @@ function calculateXp(history: HistoryItem[]) {
 }
 
 export default async function LevelBlock({ userId }: { userId: string }) {
-  const db = await connectDb();
-  const { data, error } = await db
-    .from("view_history")
-    .select("created_at, resources(path)")
-    .eq("user_id", userId);
-
-  if (error) return;
-
-  const history = (data as any[])?.map((i) => ({
+  const history = (await getHistoryPaths(userId))?.map((i) => ({
     created_at: i.created_at,
-    path: i.resources.path,
+    path: i.resource.path,
   }));
 
   const levelData = getLevelData(history);

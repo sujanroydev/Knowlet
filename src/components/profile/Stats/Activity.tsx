@@ -1,19 +1,17 @@
-import connectDb from "@/lib/db";
+import { supabase } from "@/lib/supabase";
 import StatsBlock from "./Block";
 
 export default async function ActivityBlock({ userId }: { userId: string }) {
-  const db = await connectDb();
-
   const [likes, bookmarks, history] = await Promise.all([
-    db
+    supabase
       .from("likes")
       .select("*", { count: "exact", head: true })
       .eq("user_id", userId),
-    db
+    supabase
       .from("bookmarks")
       .select("*", { count: "exact", head: true })
       .eq("user_id", userId),
-    db
+    supabase
       .from("view_history")
       .select("*", { count: "exact", head: true })
       .eq("user_id", userId),

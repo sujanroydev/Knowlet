@@ -18,7 +18,7 @@ export default function Main({
   special?: boolean;
 }) {
   let groupedItems: Record<string, Item[]>;
-  let orderedTypes = ["note", "pyq"];
+  let orderedTypes = ["notes", "pyqs"];
 
   if (special) {
     groupedItems = items.reduce(

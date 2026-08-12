@@ -1,11 +1,4 @@
-import { ResourceType } from "@/types/resource";
-
-const typeToPath: Record<ResourceType, string> = {
-  note: "notes",
-  pyq: "pyq",
-  important_question: "important-questions",
-  pdf: "pdf",
-};
+import { slugify } from "@/utils/slugify";
 
 const titleCase = (text: string) =>
   text
@@ -28,17 +21,24 @@ function buildResourcePath({
   target: string;
   type: string;
 }) {
-  if (!level || !subject || !type || !target)
+  if (!level || !subject || !type || !target) {
     throw new Error("level, subject, type and target are mandetory");
+  }
 
-  let path = `${level}/${subject}`;
+  const levelSlug = slugify(level);
+  const subjectSlug = slugify(subject);
+  const paperSlug = paper ? slugify(paper) : undefined;
+  const typeSlug = slugify(type);
+  const targetSlug = slugify(target);
+
+  let path = `${levelSlug}/${subjectSlug}`;
 
   if (level.startsWith("semester")) {
-    if (typeof paper === "string") path += `/${paper}`;
+    if (typeof paperSlug === "string") path += `/${paperSlug}`;
     else throw new Error("Invalid value of Paper.");
   }
 
-  path += `/${typeToPath[type as ResourceType]}/${target}`;
+  path += `/${typeSlug}/${targetSlug}`;
 
   return path;
 }
@@ -55,9 +55,7 @@ function parseResourcePath(path: string) {
     if (parts.length < 5) throw new Error("Invalid Resource Path");
     else {
       const paperSlug = parts[2];
-      const typeSlug = (Object.entries(typeToPath).find(
-        (i) => i[1] === parts[3],
-      ) || [])[0] as ResourceType;
+      const typeSlug = parts[3];
       const targetSlug = parts[4];
 
       if (
@@ -72,21 +70,20 @@ function parseResourcePath(path: string) {
 
       return {
         level: titleCase(levelSlug),
-        levelSlug,
         subject: titleCase(subjectSlug),
-        subjectSlug,
         paper: upperCase(paperSlug),
-        paperSlug,
-        type: typeSlug === "pyq" ? upperCase(typeSlug) : titleCase(typeSlug),
-        typeSlug,
+        type: typeSlug === "pyqs" ? "PYQs" : typeSlug === "pdf" ? "PDF" : titleCase(typeSlug),
         target: titleCase(targetSlug),
+
+        levelSlug,
+        subjectSlug,
+        paperSlug,
+        typeSlug,
         targetSlug,
       };
     }
   } else {
-    const typeSlug = (Object.entries(typeToPath).find(
-      (i) => i[1] === parts[2],
-    ) || [])[0] as ResourceType;
+    const typeSlug = parts[2];
     const targetSlug = parts[3];
 
     if (!levelSlug || !subjectSlug || !typeSlug || !targetSlug) {
@@ -95,12 +92,13 @@ function parseResourcePath(path: string) {
 
     return {
       level: titleCase(levelSlug),
-      levelSlug,
       subject: titleCase(subjectSlug),
-      subjectSlug,
-      type: titleCase(typeSlug),
-      typeSlug,
+      type: typeSlug === "pyqs" ? "PYQs" : typeSlug === "pdf" ? "PDF" : titleCase(typeSlug),
       target: titleCase(targetSlug),
+
+      levelSlug,
+      subjectSlug,
+      typeSlug,
       targetSlug,
     };
   }
@@ -115,9 +113,7 @@ function parseLibraryPath(path: string) {
   const i = parts[0]?.startsWith("semester") ? 1 : 0;
   const paperSlug = i ? parts[2] : undefined;
 
-  const typeSlug = Object.entries(typeToPath).find(
-    (item) => item[1] === parts[2 + 1],
-  )?.[0] as ResourceType;
+  const typeSlug = parts[2 + i];
   const targetSlug = parts[3 + i];
 
   return {
@@ -134,7 +130,7 @@ function parseLibraryPath(path: string) {
       paperSlug,
     }),
     ...(typeSlug && {
-      type: typeSlug === "pyq" ? upperCase(typeSlug) : titleCase(typeSlug),
+      type: typeSlug === "pyqs" ? "PYQs" : typeSlug === "pdf" ? "PDF" : titleCase(typeSlug),
       typeSlug,
     }),
     ...(targetSlug && {

@@ -2,7 +2,6 @@ import SelectInput from "@/components/ui/select-input";
 import TextInput from "@/components/ui/text-input";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { buildResourcePath, parseResourcePath } from "./utils";
 import { useResourceEditor } from "@/context/ResourceEditorContext";
 
 interface Details {
@@ -16,35 +15,47 @@ interface Details {
 
 const options = {
   level: [
-    "select",
-    ...[...Array(4)].map((_, i) => `class-${i + 9}`),
-    ...[...Array(8)].map((_, i) => `semester-${i + 1}`),
+    "Select",
+    ...[...Array(4)].map((_, i) => `Class ${i + 9}`),
+    ...[...Array(8)].map((_, i) => `Semester ${i + 1}`),
   ],
   subjects: [
-    "select",
-    "zoology",
-    "statistics",
-    "political-science",
-    "physics",
-    "philosophy",
-    "mathematics",
-    "history",
-    "geology",
-    "education",
-    "economics",
-    "commerce",
-    "ecology-and-environmental-science",
-    "computer-science",
-    "computer-application",
-    "chemistry",
-    "botany",
-    "biotechnology",
+    "Select",
+    "Anthropology",
+    "Accountancy",
+    "Zoology",
+    "Biology",
+    "Statistics",
+    "Political Science",
+    "Physics",
+    "Philosophy",
+    "Psychology",
+    "Sociology",
+    "Mathematics",
+    "History",
+    "Geology",
+    "Education",
+    "Economics",
+    "Commerce",
+    "Ecology And Environmental Science",
+    "Computer Science",
+    "Computer Application",
+    "Chemistry",
+    "Botany",
+    "Biotechnology",
+  ],
+  type: [
+    "Select",
+    "Notes",
+    "PYQs",
+    "Questions",
+    "PDF",
   ],
   target: (type: string) => [
-    "select",
+    "Select",
     ...(type === "pyq"
-      ? [...Array(5)].map((_, i) => `solved-${i + 2021}`)
-      : [...Array(15)].map((_, i) => `unit-${i + 1}`)),
+      ? [...Array(5)].map((_, i) => `Solved ${i + 2021}`)
+      : [...Array(15)].map((_, i) => `Unit ${i + 1}`)),
   ],
 };
 
@@ -102,14 +113,6 @@ export default function ResourceDetails() {
 
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             <SelectInput
-              label="Resource Type"
-              options={["select", "note", "pyq", "important_question"]}
-              value={type}
-              onChange={(e) => setType(e.target.value)}
-              disabled={action === "update" ? true : false}
-            />
-
-            <SelectInput
               label="Level"
               options={options.level}
               value={level}
@@ -137,7 +140,7 @@ export default function ResourceDetails() {
                   );
                   if (!match) {
                     setPaper(value);
-                    toast.warning("paper must be like dsc-152");
+                    toast.warning("paper must be like DSC-152 or DSC152");
                     return;
                   }
                   const paper = `${match[1]}-${match[3]}`.toLowerCase();
@@ -146,6 +149,14 @@ export default function ResourceDetails() {
                 disabled={action === "update" ? true : false}
               />
             )}
+
+            <SelectInput
+              label="Resource Type"
+              options={options.type}
+              value={type}
+              onChange={(e) => setType(e.target.value)}
+              disabled={action === "update" ? true : false}
+            />
 
             <SelectInput
               label="target"

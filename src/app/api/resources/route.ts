@@ -46,9 +46,12 @@ export async function POST(req: NextRequest) {
     if (!ok || !payload) return res;
 
     const path = buildResourcePath({ level, subject, paper, target, type });
-    const slug = target;
 
-    const { levelSlug, subjectSlug, paperSlug } = parseResourcePath(path);
+    const { levelSlug, subjectSlug, paperSlug, typeSlug, targetSlug } = parseResourcePath(path);
+
+    console.log(!!title, !!description, !!content, level, subject, paper, target, type);
+    console.log(levelSlug, subjectSlug, paperSlug, typeSlug, targetSlug);
+    console.log(parseResourcePath(path));
 
     let levelId = await getLevelId(levelSlug);
     let subjectId: string;
@@ -62,6 +65,7 @@ export async function POST(req: NextRequest) {
         slug: levelSlug,
         path: levelSlug,
       });
+      console.log("level created")
 
       levelId = levelData.id;
 
@@ -71,6 +75,7 @@ export async function POST(req: NextRequest) {
         slug: subjectSlug,
         path: `${levelSlug}/${subjectSlug}`,
       });
+      console.log("subject created")
 
       subjectId = subjectData.id;
       isSubjectNew = true;
@@ -84,6 +89,7 @@ export async function POST(req: NextRequest) {
           slug: subjectSlug,
           path: `${levelSlug}/${subjectSlug}`,
         });
+        console.log("subject created")
 
         subjectId = subjectData.id;
         isSubjectNew = true;
@@ -103,6 +109,7 @@ export async function POST(req: NextRequest) {
           slug: paperSlug,
           path: `${levelSlug}/${subjectSlug}/${paperSlug}`,
         });
+        console.log("paper created")
 
         paperId = paperData.id;
       }
@@ -116,11 +123,12 @@ export async function POST(req: NextRequest) {
       title,
       description,
       content,
-      target,
-      type,
-      slug,
+      target: targetSlug,
+      type: typeSlug,
+      slug: targetSlug,
       path,
     });
+    console.log("resource created")
 
     const thirtyDaysAgo = new Date();
     thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
@@ -152,6 +160,7 @@ export async function POST(req: NextRequest) {
       { status: 201 },
     );
   } catch (error) {
+    console.error("Failed to save resource", error);
     return NextResponse.json(
       { error: { message: (error as Error).message } },
       { status: 500 },

@@ -1,5 +1,5 @@
 import { resend } from "@/lib/resend";
-import { getUserEmail } from "@/services/user/get/email";
+import { getEmailByUserId } from "@/db/user";
 
 type SendEmailOptions = {
   to: string | string[];
@@ -53,7 +53,7 @@ export async function sendEmailByUserId({
   try {
     if (!user_id) throw new Error("User ID is required to send email");
 
-    const email = await getUserEmail(user_id);
+    const email = await getEmailByUserId(user_id);
 
     const data = await sendEmail({ from, to: email, subject, html, replyTo });
 

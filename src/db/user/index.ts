@@ -66,6 +66,18 @@ export async function getUserByEmail(email: string) {
   return data;
 }
 
+export async function getEmailByUserId(userId: string) {
+  const { data, error } = await supabase
+    .from("users")
+    .select("email")
+    .eq("id", userId)
+    .maybeSingle();
+
+  if (error) throw error;
+
+  return data?.email as string;
+}
+
 export async function getUserIdByEmail(email: string) {
   const { data, error } = await supabase
     .from("users")

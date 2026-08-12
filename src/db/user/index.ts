@@ -90,6 +90,32 @@ export async function getUserIdByEmail(email: string) {
   return data?.id as string;
 }
 
+export async function getEmailsByUserIds(userIds: string | string[]) {
+  const ids = Array.isArray(userIds) ? userIds : [userIds];
+
+  const { data, error } = await supabase
+    .from("users")
+    .select("email")
+    .in("id", ids);
+
+  if (error) throw error;
+
+  return data.map(d => d.email) as string[];
+}
+
+export async function getUserIdsByEmails(emails: string | string[]) {
+  const emailIds = Array.isArray(emails) ? emails : [emails];
+
+  const { data, error } = await supabase
+    .from("users")
+    .select("id")
+    .in("email", emailIds);
+
+  if (error) throw error;
+
+  return data.map(d => d.id) as string[];
+}
+
 export async function updatePassword(email: string, newPasswordHash: string) {
   const { error } = await supabase
     .from("users")

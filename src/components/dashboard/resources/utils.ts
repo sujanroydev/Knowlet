@@ -33,7 +33,7 @@ function buildResourcePath({
 
   let path = `${levelSlug}/${subjectSlug}`;
 
-  if (level.startsWith("semester")) {
+  if (level.startsWith("Semester")) {
     if (typeof paperSlug === "string") path += `/${paperSlug}`;
     else throw new Error("Invalid value of Paper.");
   }

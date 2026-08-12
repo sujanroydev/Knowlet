@@ -140,10 +140,10 @@ export default function ResourceDetails() {
                   );
                   if (!match) {
                     setPaper(value);
-                    toast.warning("paper must be like DSC-152 or DSC152");
+                    toast.warning("paper must be like DSC-152 or DSC 152");
                     return;
                   }
-                  const paper = `${match[1].toUpperCase()}${match[3]}`;
+                  const paper = `${match[1].toUpperCase()} ${match[3]}`;
                   setPaper(paper);
                 }}
                 disabled={action === "update" ? true : false}

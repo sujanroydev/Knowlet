@@ -1,4 +1,4 @@
-import connectDb from "@/lib/db";
+import { supabase } from "@/lib/supabase";
 import { NextRequest, NextResponse } from "next/server";
 
 function tokenize(text: string) {
@@ -99,9 +99,7 @@ export async function GET(req: NextRequest) {
       ];
     });
 
-    const db = await connectDb();
-
-    const { data, error } = await db
+    const { data, error } = await supabase
       .from("resources")
       .select("id,title,description,path")
       .or(conditions.join(","));

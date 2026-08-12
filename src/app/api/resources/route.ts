@@ -49,10 +49,6 @@ export async function POST(req: NextRequest) {
 
     const { levelSlug, subjectSlug, paperSlug, typeSlug, targetSlug } = parseResourcePath(path);
 
-    console.log(!!title, !!description, !!content, level, subject, paper, target, type);
-    console.log(levelSlug, subjectSlug, paperSlug, typeSlug, targetSlug);
-    console.log(parseResourcePath(path));
-
     let levelId = await getLevelId(levelSlug);
     let subjectId: string;
     let paperId: string | undefined;
@@ -65,7 +61,6 @@ export async function POST(req: NextRequest) {
         slug: levelSlug,
         path: levelSlug,
       });
-      console.log("level created")
 
       levelId = levelData.id;
 
@@ -75,7 +70,6 @@ export async function POST(req: NextRequest) {
         slug: subjectSlug,
         path: `${levelSlug}/${subjectSlug}`,
       });
-      console.log("subject created")
 
       subjectId = subjectData.id;
       isSubjectNew = true;
@@ -89,7 +83,6 @@ export async function POST(req: NextRequest) {
           slug: subjectSlug,
           path: `${levelSlug}/${subjectSlug}`,
         });
-        console.log("subject created")
 
         subjectId = subjectData.id;
         isSubjectNew = true;
@@ -109,7 +102,6 @@ export async function POST(req: NextRequest) {
           slug: paperSlug,
           path: `${levelSlug}/${subjectSlug}/${paperSlug}`,
         });
-        console.log("paper created")
 
         paperId = paperData.id;
       }
@@ -128,7 +120,6 @@ export async function POST(req: NextRequest) {
       slug: targetSlug,
       path,
     });
-    console.log("resource created")
 
     const thirtyDaysAgo = new Date();
     thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);

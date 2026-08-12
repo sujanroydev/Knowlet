@@ -27,6 +27,21 @@ export async function createUser(newUser: {
   return data;
 }
 
+export async function uploadAvatar(
+  filePath: string,
+  image: File,
+) {
+  const { error } = await supabase
+    .storage
+    .from("avatars")
+    .upload(filePath, image, {
+      cacheControl: "3600",
+      upsert: true,
+    });
+
+  if (error) throw error;
+}
+
 export async function getUserById(userId: string) {
   const { data, error } = await supabase
     .from("users")
@@ -72,4 +87,30 @@ export async function updatePassword(email: string, newPasswordHash: string) {
     .eq("email", email);
 
   if (error) throw error;
+}
+
+export async function updateUserInfo(
+  userId: string,
+  newInfo: {
+    name: string;
+    picture: string;
+    age: number;
+    stream: string;
+    standard: string;
+    fav_subject: string;
+  }
+) {
+  const { data, error } = await supabase
+    .from("users")
+    .update({
+      ...newInfo,
+      updated_at: new Date().toISOString(),
+    })
+    .eq("id", userId)
+    .select()
+    .maybeSingle();
+
+  if (error) throw error;
+
+  return data;
 }

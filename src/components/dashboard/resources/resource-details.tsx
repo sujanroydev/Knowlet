@@ -128,10 +128,10 @@ export default function ResourceDetails() {
               disabled={action === "update" ? true : false}
             />
 
-            {level.startsWith("semester") && (
+            {level.startsWith("Semester") && (
               <TextInput
                 label="Paper"
-                placeholder="Enter Paper Code eg. dsc-152"
+                placeholder="eg. DSC 152"
                 value={paper}
                 onChange={(e) => {
                   const value = e.target.value;
@@ -143,7 +143,7 @@ export default function ResourceDetails() {
                     toast.warning("paper must be like DSC-152 or DSC152");
                     return;
                   }
-                  const paper = `${match[1]}-${match[3]}`.toLowerCase();
+                  const paper = `${match[1].toUpperCase()}${match[3]}`;
                   setPaper(paper);
                 }}
                 disabled={action === "update" ? true : false}

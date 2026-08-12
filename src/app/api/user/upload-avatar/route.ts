@@ -1,5 +1,5 @@
 import { authGate } from "@/lib/auth/authGate";
-import connectDb from "@/lib/db";
+import { uploadAvatar } from "@/db/user";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
@@ -8,8 +8,19 @@ export async function POST(req: NextRequest) {
     if (!ok || !payload) return res;
 
     const formData = await req.formData();
+
     const image = formData.get("image");
-    const filePath = formData.get("file-path") as string;
+    const filePath = formData.get("file-path");
+
+    if (!(image instanceof File) || typeof filePath !== "string") {
+      return NextResponse.json(
+        {
+          success: false,
+          error: { message: "Image and file path are required" },
+        },
+        { status: 400 },
+      );
+    }
 
     if (!image || !filePath) {
       return NextResponse.json(
@@ -18,19 +29,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const db = await connectDb();
-
-    const { error } = await db.storage.from("avatars").upload(filePath, image, {
-      cacheControl: "3600",
-      upsert: true,
-    });
-
-    if (error) {
-      return NextResponse.json(
-        { success: false, error: { message: error.message } },
-        { status: 500 },
-      );
-    }
+    await uploadAvatar(filePath, image);
 
     const imageUrl = `https://ampwczxrfpbqlkuawrdf.supabase.co/storage/v1/object/public/avatars/${filePath}?time=${Date.now()}`;
     return NextResponse.json({ data: { imageUrl } });

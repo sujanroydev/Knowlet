@@ -39,21 +39,21 @@ export default async function Navigator({
 
   if (slug) {
     if (academicPattern === "semester" && slug.length >= 3) {
-      // "/library/semester-1/ecology/idc-101"
+      // "/library/semester-1/physics/idc-101"
       query = db
         .from("resources")
         .select("title, description, path, type, target")
         .like("path", `${slug.join("/")}%`);
       special = true;
     } else if (academicPattern === "class" && slug.length >= 2) {
-      // "/library/semester-1/ecology/"
+      // "/library/class-11/physics"
       query = db
         .from("resources")
         .select("title, description, path, type, target")
         .like("path", `${slug.join("/")}%`);
       special = true;
     } else {
-      // "/library/semester-1/ecology"
+      // "/library/semester-1/physics"
       // "/library/semester-1"
       query = db
         .from(currentTable)

@@ -1,6 +1,6 @@
 {
   "name": "knowlet",
-  "version": "0.13.1",
+  "version": "0.13.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -27,7 +27,8 @@
     "remark-gfm": "^4.0.1",
     "resend": "^6.12.3",
     "sonner": "^2.0.7",
-    "web-push": "^3.6.7"
+    "web-push": "^3.6.7",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

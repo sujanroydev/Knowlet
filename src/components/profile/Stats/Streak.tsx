@@ -1,6 +1,7 @@
-import connectDb from "@/lib/db";
-import StatsBlock from "./Block";
 import { Flame, Trophy, Circle } from "lucide-react";
+
+import { getRecentHistoryPaths } from "@/db/user/history";
+import StatsBlock from "./Block";
 
 type HistoryItem = {
   created_at: string;
@@ -74,15 +75,10 @@ export function getStreakData(history: HistoryItem[]) {
 }
 
 export default async function StreakBlock({ userId }: { userId: string }) {
-  const db = await connectDb();
   const thirtyDaysAgo = new Date();
   thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 90);
 
-  const { data: history } = await db
-    .from("view_history")
-    .select("created_at")
-    .eq("user_id", userId)
-    .gte("created_at", thirtyDaysAgo.toISOString());
+  const history = await getRecentHistoryPaths(userId, thirtyDaysAgo.toISOString());
 
   const streakData = getStreakData(history as HistoryItem[]);
 

@@ -1,7 +1,8 @@
-import connectDb from "@/lib/db";
+import { notFound } from "next/navigation";
+
+import { supabase } from "@/lib/supabase";
 import Header from "./Header";
 import Main from "./Main";
-import { notFound } from "next/navigation";
 import sortByPath from "@/utils/sortByPath";
 
 type SelectQuery =
@@ -32,37 +33,35 @@ export default async function Navigator({
         : null
     : null;
 
-  const db = await connectDb();
-
   let query;
   let special = false;
 
   if (slug) {
     if (academicPattern === "semester" && slug.length >= 3) {
-      // "/library/semester-1/ecology/idc-101"
-      query = db
+      // "/library/semester-1/physics/idc-101"
+      query = supabase
         .from("resources")
         .select("title, description, path, type, target")
         .like("path", `${slug.join("/")}%`);
       special = true;
     } else if (academicPattern === "class" && slug.length >= 2) {
-      // "/library/semester-1/ecology/"
-      query = db
+      // "/library/class-11/physics"
+      query = supabase
         .from("resources")
         .select("title, description, path, type, target")
         .like("path", `${slug.join("/")}%`);
       special = true;
     } else {
-      // "/library/semester-1/ecology"
+      // "/library/semester-1/physics"
       // "/library/semester-1"
-      query = db
+      query = supabase
         .from(currentTable)
         .select(`*, ${nextTable}(title, description, path)` as SelectQuery)
         .eq("path", slug?.join("/"));
     }
   } else {
     // "/library"
-    query = db
+    query = supabase
       .from(currentTable)
       .select(`*, ${nextTable}(title, description, path)` as SelectQuery);
   }

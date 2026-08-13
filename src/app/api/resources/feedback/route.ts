@@ -1,6 +1,7 @@
-import { authGate } from "@/lib/auth/authGate";
-import connectDb from "@/lib/db";
 import { NextRequest, NextResponse } from "next/server";
+
+import { authGate } from "@/lib/auth/authGate";
+import { insertFeedback } from "@/db/resource/feedback";
 
 export async function POST(req: NextRequest) {
   try {
@@ -9,16 +10,9 @@ export async function POST(req: NextRequest) {
 
     if (!ok || !payload) return res;
 
-    const db = await connectDb();
+    await insertFeedback(payload.user_id, resourceId, feedbackMsg);
 
-    const { error } = await db.from("resource_feedback").insert({
-      user_id: payload.user_id,
-      resource_id: resourceId,
-      message: feedbackMsg,
-    });
-
-    if (error) throw new Error(error.message);
-
+    // TODO: update the response body.
     return NextResponse.json({ feedbackMsg, resourceId }, { status: 200 });
   } catch (error) {
     console.error(error);

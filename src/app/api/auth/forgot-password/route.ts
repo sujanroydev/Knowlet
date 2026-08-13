@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
-import connectDb from "@/lib/db";
+
+import { insertOtp, deleteOtp } from "@/db/auth/otp";
+import { getUserIdByEmail } from "@/db/user";
 import { resend } from "@/lib/resend";
 
 export async function POST(req: NextRequest) {
@@ -18,23 +20,16 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const db = await connectDb();
+    const userId = await getUserIdByEmail(email);
 
-    // Find user
-    const { data: user, error: userError } = await db
-      .from("users")
-      .select("id, email")
-      .eq("email", email)
-      .maybeSingle();
-
-    if (userError || !user) {
+    if (!userId) {
       return NextResponse.json({
         success: true,
       });
     }
 
     // Delete old OTPs
-    await db.from("password_reset_otps").delete().eq("email", email);
+    await deleteOtp(email);
 
     // Generate 6-digit OTP
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
@@ -46,24 +41,7 @@ export async function POST(req: NextRequest) {
     const expiresAt = new Date(Date.now() + 10 * 60 * 1000).toISOString();
 
     // Save OTP
-    const { error: otpError } = await db.from("password_reset_otps").insert({
-      email,
-      otp_hash: otpHash,
-      expires_at: expiresAt,
-    });
-
-    if (otpError) {
-      console.error(otpError);
-
-      return NextResponse.json(
-        {
-          error: {
-            message: "Failed to generate OTP",
-          },
-        },
-        { status: 500 },
-      );
-    }
+    await insertOtp(email, otpHash, expiresAt);
 
     // Send email
     await resend.emails.send({

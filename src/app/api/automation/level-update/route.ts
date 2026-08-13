@@ -1,8 +1,9 @@
+import { NextRequest } from "next/server";
+
 import { apiError } from "@/lib/api-response";
-import connectDb from "@/lib/db";
+import { supabase } from "@/lib/supabase";
 import { sendEmail } from "@/services/email/send";
 import { educationalDetailsUpdateReminderTemplate } from "@/services/email/templates/educational-details-update-reminder";
-import { NextRequest } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {
@@ -12,8 +13,7 @@ export async function POST(req: NextRequest) {
       return Response.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const db = await connectDb();
-    const { data, error } = await db.from("users").select("email");
+    const { data, error } = await supabase.from("users").select("email");
 
     if (error) throw error;
 

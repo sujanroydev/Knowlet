@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import type { Report, ReportStatus } from "./types";
-import { updateReportStatus } from "./actions";
+import type { Report, ReportStatus } from "@/schemas/resource/report";
+import { updateReportStatus } from "@/actions/resource/report";
 import ReportStatusForm from "./report-status-form";
 import Link from "next/link";
 

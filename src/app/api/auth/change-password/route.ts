@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
-import connectDb from "@/lib/db";
+
+import { getUserByEmail, updatePassword } from "@/db/user";
 
 export async function POST(req: NextRequest) {
   try {
@@ -13,16 +14,9 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const db = await connectDb();
+    const user = await getUserByEmail(email);
 
-    // Fatch user
-    const { data: user, error: userError } = await db
-      .from("users")
-      .select("password_hash")
-      .eq("email", email)
-      .maybeSingle();
-
-    if (userError || !user) throw userError;
+    if (!user) throw Error("User doesn't exist with this email");
 
     if (!user.password_hash) {
       return NextResponse.json(
@@ -45,21 +39,7 @@ export async function POST(req: NextRequest) {
     const passwordHash = await bcrypt.hash(password, 10);
 
     // Update password
-    const { error: updateError } = await db
-      .from("users")
-      .update({
-        password_hash: passwordHash,
-      })
-      .eq("email", email);
-
-    if (updateError) {
-      console.error(updateError);
-
-      return NextResponse.json(
-        {error: {message: "Failed to reset password" }},
-        { status: 500 },
-      );
-    }
+    await updatePassword(email, passwordHash);
 
     return NextResponse.json({ success: true });
   } catch (error) {

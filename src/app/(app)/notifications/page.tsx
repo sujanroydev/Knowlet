@@ -1,4 +1,4 @@
-import connectDb from "@/lib/db";
+import { supabase } from "@/lib/supabase";
 import { cookies } from "next/headers";
 import { verifyUser } from "@/lib/auth";
 import NotificationClient from "./notification-client";
@@ -43,10 +43,8 @@ export default async function NotificationsPage() {
     }
   }
 
-  const db = await connectDb();
-
   const [notificationsRes, subscriptionsRes] = await Promise.all([
-    db
+    supabase
       .from("user_notifications")
       .select(
         `
@@ -67,7 +65,7 @@ export default async function NotificationsPage() {
       .eq("user_id", payload?.user_id)
       .order("created_at", { ascending: false }),
 
-    db.from("push_subscriptions").select().eq("user_id", payload?.user_id),
+    supabase.from("push_subscriptions").select().eq("user_id", payload?.user_id),
   ]);
 
   if (notificationsRes.error) {

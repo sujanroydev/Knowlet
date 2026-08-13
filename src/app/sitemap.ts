@@ -1,4 +1,4 @@
-import connectDb from "@/lib/db";
+import { supabase } from "@/lib/supabase";
 import type { MetadataRoute } from "next";
 
 const baseUrl = "https://knowlet.in";
@@ -20,6 +20,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${baseUrl}/history`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/knowva`,
       lastModified: new Date(),
     },
 
@@ -46,9 +50,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  const db = await connectDb();
-
-  const { data, error } = await db.rpc("get_sitemap_resources");
+  const { data, error } = await supabase.rpc("get_sitemap_resources");
   const resources = data as { path: string; updated_at: string }[];
 
   if (error) {

@@ -1,8 +1,10 @@
-import { authGate } from "@/lib/auth/authGate";
-import connectDb from "@/lib/db";
-import { sendNotificationByUserId } from "@/services/notification/send";
-import { Resource } from "@/types/resource";
 import { NextRequest, NextResponse } from "next/server";
+
+import { authGate } from "@/lib/auth/authGate";
+import { Resource } from "@/types/resource";
+import { updateResource } from "@/db/resource";
+import { getResourceReporterIds } from "@/db/resource/report";
+import { sendNotificationByUserId } from "@/services/notification/send";
 import { buildResourcePath } from "@/components/dashboard/resources/utils";
 
 export async function PUT(
@@ -10,11 +12,11 @@ export async function PUT(
   { params }: { params: Promise<{ id: string }> },
 ) {
   try {
-    let resource: Resource = await req.json();
-    const { title, description, content, level, subject, paper, target, type } = resource;
-    const { id } = await params;
+    let updatedResource: Resource = await req.json();
+    const { title, description, content, level, subject, paper, target, type } = updatedResource;
+    const { id: resourceId } = await params;
 
-    if (!id) {
+    if (!resourceId) {
       return NextResponse.json(
         { error: { message: "Resource ID is required." } },
         { status: 400 },
@@ -40,151 +42,37 @@ export async function PUT(
     if (!ok || !payload) return res;
 
     const path = buildResourcePath({ level, subject, paper, target, type });
-    const slug = target;
 
-    const parts = path.split("/");
+    const resource = await updateResource(resourceId, {
+      title,
+      description,
+      content,
+    });
 
-    const levelSlug = parts[0];
-    const subjectSlug = parts[1];
-    const paperSlug = levelSlug.startsWith("semester") ? parts[2] : null;
+    void (async () => {
+      try {
+        const reporterIds = await getResourceReporterIds(resourceId);
 
-    let oldLevelRow, oldSubjectRow, oldPaperRow;
-    let newLevelRow, newSubjectRow, newPaperRow;
+        if (!reporterIds?.length) return;
 
-    const db = await connectDb();
-
-    // // fetch
-    // oldLevelRow = await db
-    //   .from("levels")
-    //   .select("id")
-    //   .eq("slug", levelSlug)
-    //   .maybeSingle();
-
-    // if (oldLevelRow?.error) throw new Error(oldLevelRow?.error.message);
-    // level = oldLevelRow?.data;
-
-    // // insert
-    // if (!oldLevelRow?.data) {
-    //   newLevelRow = await db
-    //     .from("levels")
-    //     .insert({
-    //       title: levelSlug
-    //         .split("-")
-    //         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    //         .join(" "),
-    //       number: levelSlug.split("-")[1],
-    //       slug: levelSlug,
-    //       path: `${levelSlug}`,
-    //     })
-    //     .select()
-    //     .single();
-
-    //   if (newLevelRow?.error) throw new Error(newLevelRow?.error.message);
-    //   level = newLevelRow?.data;
-    // }
-
-    // // fetch
-    // if (oldLevelRow?.data) {
-    //   oldSubjectRow = await db
-    //     .from("subjects")
-    //     .select("id")
-    //     .eq("slug", subjectSlug)
-    //     .eq("level_id", level?.id)
-    //     .maybeSingle();
-
-    //   if (oldSubjectRow?.error) throw new Error(oldSubjectRow?.error.message);
-    //   subject = oldSubjectRow?.data;
-    // }
-
-    // // insert
-    // if (!oldLevelRow?.data || !oldSubjectRow?.data) {
-    //   newSubjectRow = await db
-    //     .from("subjects")
-    //     .insert({
-    //       level_id: level?.id,
-    //       title: subjectSlug
-    //         .split("-")
-    //         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    //         .join(" "),
-    //       slug: subjectSlug,
-    //       path: `${levelSlug}/${subjectSlug}`,
-    //     })
-    //     .select()
-    //     .single();
-
-    //   if (newSubjectRow?.error) throw new Error(newSubjectRow?.error.message);
-    //   subject = newSubjectRow?.data;
-    // }
-
-    // // fetch
-    // if ((oldLevelRow?.data || oldSubjectRow?.data) && paperSlug) {
-    //   oldPaperRow = await db
-    //     .from("papers")
-    //     .select("id")
-    //     .eq("slug", paperSlug)
-    //     .eq("subject_id", subject?.id)
-    //     .maybeSingle();
-
-    //   if (oldPaperRow?.error) throw new Error(oldPaperRow?.error.message);
-    //   paper = oldPaperRow?.data;
-    // }
-
-    // // insert
-    // if ((!oldLevelRow?.data || !oldPaperRow?.data) && paperSlug) {
-    //   newPaperRow = await db
-    //     .from("papers")
-    //     .insert({
-    //       subject_id: subject?.id,
-    //       level_id: level?.id,
-    //       title: paperSlug.split("-").join(" ").toUpperCase(),
-    //       code: paperSlug.split("-").join("").toUpperCase(),
-    //       slug: paperSlug,
-    //       path: `${levelSlug}/${subjectSlug}/${paperSlug}`,
-    //     })
-    //     .select()
-    //     .single();
-
-    //   if (newPaperRow?.error) throw new Error(newPaperRow?.error.message);
-    //   paper = newPaperRow?.data;
-    // }
-
-    //insert
-    const { data, error } = await db
-      .from("resources")
-      .update({
-        title,
-        description,
-        content,
-      })
-      .eq("id", id)
-      .select("path")
-      .single();
-
-    if (error) throw new Error(error.message);
-
-    const { data: reports, error: reportsError } = await db
-      .from("resource_reports")
-      .select("user_id ( id, name, email )")
-      .eq("resource_id", id);
-
-    if (!reportsError && reports && reports.length) {
-      const users = reports?.map((r: any) => r.user_id.id);
-      console.log(data);
-      sendNotificationByUserId({
-        user_id: users,
-        title: "✅ Thanks for the Report!",
-        options: {
-          body: "We've fixed the issue and updated the resource. Tap to view the latest version.",
-          data: {
-            action_url: `https://knowlet.in/library/${path}`,
-            type: "resource",
+        await sendNotificationByUserId({
+          user_id: reporterIds,
+          title: "✅ Thanks for the Report!",
+          options: {
+            body: "We've fixed the issue or updated the resource. Tap to view the latest version.",
+            data: {
+              action_url: `https://knowlet.in/library/${path}`,
+              type: "resource",
+            },
           },
-        },
-      });
-    }
+        });
+      } catch (error) {
+        console.error("Failed to notify resource reporters:", error);
+      }
+    })();
 
     return NextResponse.json(
-      { success: true, data: { resource: data }, path },
+      { success: true, data: { resource }, path },
       { status: 201 }
     );
   } catch (error) {

@@ -1,5 +1,5 @@
 import { authGate } from "@/lib/auth/authGate";
-import connectDb from "@/lib/db";
+import { supabase } from "@/lib/supabase";
 import { sendNotification } from "@/services/notification/send";
 import { Options, Subscription } from "@/services/notification/send/types";
 import { NextRequest, NextResponse } from "next/server";
@@ -12,9 +12,7 @@ export async function POST(req: NextRequest) {
     const { ok, res, payload: admin } = await authGate(req, "admin");
     if (!ok || !admin) return res;
 
-    const db = await connectDb();
-
-    const { data, error } = await db
+    const { data, error } = await supabase
       .from("push_subscriptions")
       .select("id, user_id, endpoint, auth, p256dh")
       .eq("is_active", true);

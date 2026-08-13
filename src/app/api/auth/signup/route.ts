@@ -1,9 +1,11 @@
-import connectDb from "@/lib/db";
-import { sendWelcomeEmail } from "@/services/email/send/welcome";
-import generateUsername from "@/utils/generateUsername";
 import bcrypt from "bcryptjs";
 import { SignJWT } from "jose";
 import { NextRequest, NextResponse } from "next/server";
+
+import { findOtpByEmail, deleteOtp } from "@/db/auth/otp";
+import { createUser } from "@/db/user";
+import { sendWelcomeEmail } from "@/services/email/send/welcome";
+import generateUsername from "@/utils/generateUsername";
 
 export async function POST(request: NextRequest) {
   try {
@@ -24,18 +26,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const db = await connectDb();
-
     // Find latest OTP record
-    const { data: otpRow, error: otpError } = await db
-      .from("password_reset_otps")
-      .select("*")
-      .eq("email", email)
-      .order("created_at", { ascending: false })
-      .limit(1)
-      .maybeSingle();
+    const otpObj = await findOtpByEmail(email);
 
-    if (otpError || !otpRow) {
+    if (!otpObj) {
       return NextResponse.json(
         { error: { message: "Invalid or expired OTP" } },
         { status: 400 },
@@ -45,9 +39,9 @@ export async function POST(request: NextRequest) {
     // Check expiry
     const now = new Date();
 
-    if (now > new Date(otpRow.expires_at)) {
+    if (now > new Date(otpObj.expires_at)) {
       // Delete expired OTP
-      await db.from("password_reset_otps").delete().eq("id", otpRow.id);
+      await deleteOtp(email);
 
       return NextResponse.json(
         { error: { message: "OTP expired" } },
@@ -56,11 +50,11 @@ export async function POST(request: NextRequest) {
     }
 
     // Verify OTP
-    const validOtp = await bcrypt.compare(otp, otpRow.otp_hash);
+    const validOtp = await bcrypt.compare(otp, otpObj.otp_hash);
 
     if (!validOtp) {
       // Delete expired OTP
-      await db.from("password_reset_otps").delete().eq("id", otpRow.id);
+      await deleteOtp(email);
 
       return NextResponse.json(
         { error: { message: "Invalid OTP" } },
@@ -70,20 +64,12 @@ export async function POST(request: NextRequest) {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const { data: user, error } = await db
-      .from("users")
-      .insert({
-        username,
-        name,
-        email,
-        password_hash: hashedPassword,
-      })
-      .select()
-      .single();
-
-    if (error) {
-      return NextResponse.json({ error }, { status: 501 });
-    }
+    const user = await createUser({
+      name,
+      email,
+      username,
+      password_hash: hashedPassword,
+    });
 
     delete user.password_hash;
 

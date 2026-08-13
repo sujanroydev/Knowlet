@@ -25,22 +25,22 @@ export function ResourceEditorProvider({
   resource?: Resource;
 }) {
   let parsedResourcePath = {
-    levelSlug: "",
-    subjectSlug: "",
-    paperSlug: "",
-    targetSlug: "",
-    typeSlug: "",
+    level: "",
+    subject: "",
+    paper: "",
+    target: "",
+    type: "",
   } as {
-    levelSlug: string,
-    subjectSlug: string,
-    paperSlug?: string,
-    targetSlug: string,
-    typeSlug: string,
+    level: string,
+    subject: string,
+    paper?: string,
+    target: string,
+    type: string,
   }
 
   try {
-    const { levelSlug, subjectSlug, paperSlug, targetSlug, typeSlug } = parseResourcePath(resource?.path ?? "");
-    parsedResourcePath = { levelSlug, subjectSlug, paperSlug, targetSlug, typeSlug };
+    const { level, subject, paper, target, type } = parseResourcePath(resource?.path ?? "");
+    parsedResourcePath = { level, subject, paper, target, type };
   } catch {}
 
   const [content, setContent] = useState<string>(resource?.content ?? "");
@@ -48,11 +48,11 @@ export function ResourceEditorProvider({
     title: resource?.title ?? "",
     description: resource?.description ?? "",
 
-    level: parsedResourcePath?.levelSlug ?? "",
-    subject: parsedResourcePath?.subjectSlug ?? "",
-    paper: parsedResourcePath?.paperSlug ?? "",
-    target: parsedResourcePath?.targetSlug ?? "",
-    type: parsedResourcePath?.typeSlug ?? "",
+    level: parsedResourcePath?.level ?? "",
+    subject: parsedResourcePath?.subject ?? "",
+    paper: parsedResourcePath?.paper ?? "",
+    target: parsedResourcePath?.target ?? "",
+    type: parsedResourcePath?.type ?? "",
 
     slug: resource?.slug ?? "",
     path: resource?.path ?? "",

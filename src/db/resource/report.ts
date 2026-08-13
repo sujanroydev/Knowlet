@@ -1,0 +1,76 @@
+import { supabase } from "@/lib/supabase";
+import { Report } from "@/schemas/resource/report";
+import { ReportSchema } from "@/schemas/resource/report";
+
+export async function insertReport(
+  userId: string,
+  resourceId: string,
+  reason: string,
+  details?: string,
+) {
+  const { error } = await supabase
+    .from("resource_reports")
+    .insert({
+      user_id: userId,
+      resource_id: resourceId,
+      reason,
+      details,
+    });
+
+  if (error) throw error;
+}
+
+export async function updateReportStatus(reportId: string, status: string) {
+  const { error } = await supabase
+    .from("resource_reports")
+    .update({ status })
+    .eq("id", reportId);
+
+  if (error) throw error;
+}
+
+export async function getResourceReporterIds(resourceId: string) {
+  const { data, error } = await supabase
+    .from("resource_reports")
+    .select("user_id")
+    .eq("resource_id", resourceId);
+
+  if (error) throw error;
+
+  return data.map(d => d.user_id);
+}
+
+export async function fetchResourceReports(
+  from = 0,
+  to = 49,
+) {
+  const { data, error } = await supabase
+    .from("resource_reports")
+    .select(
+      `
+        id,
+        reason,
+        details,
+        status,
+        created_at,
+        resource: resources (
+          id,
+          title,
+          path
+        ),
+        user: users (
+          id,
+          name,
+          picture
+        )
+      `,
+    )
+    .order("created_at", {
+      ascending: false,
+    })
+    .range(from, to);
+
+  if (error) throw error;
+
+  return data as unknown as Report[];
+}

@@ -1,14 +1,16 @@
-import connectDb from "@/lib/db";
 import webpush from "web-push";
+
 import { Options, Subscription } from "./types";
+import { createNotification, updateNotificationStats } from "@/db/notification";
+import { createUserNotifications } from "@/db/user/notification";
+import { getPushSubscriptionsByUserId, deactivatePushSubscription } from "@/db/pushSubscription";
+import { getUserIdsByEmails } from "@/db/user";
 
 webpush.setVapidDetails(
   "mailto:knowlet.official@gmail.com",
   process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY!,
   process.env.VAPID_PRIVATE_KEY!,
 );
-
-const db = await connectDb();
 
 export async function sendNotification({
   title,
@@ -23,22 +25,16 @@ export async function sendNotification({
     ? subscription
     : [subscription];
 
-  const { data: notification, error } = await db
-    .from("notifications")
-    .insert({
-      title: title,
-      body: options.body,
-      icon: options.icon,
-      image: options.image,
-      badge: options.badge,
-      tag: options.tag,
-      action_url: options.data?.action_url,
-      type: options.data?.type,
-    })
-    .select()
-    .single();
-
-  if (error) throw error;
+  const notification = await createNotification({
+    title: title,
+    body: options.body,
+    icon: options.icon,
+    image: options.image,
+    badge: options.badge,
+    tag: options.tag,
+    action_url: options.data?.action_url,
+    type: options.data?.type,
+  })
 
   const notificationId = notification.id;
   options.data = { ...options.data, notificationId };
@@ -51,12 +47,7 @@ export async function sendNotification({
     ),
   ];
 
-  await db.from("user_notifications").insert(
-    uniqueUserIds.map((userId) => ({
-      user_id: userId,
-      notification_id: notificationId,
-    })),
-  );
+  await createUserNotifications(uniqueUserIds, notificationId);
 
   const results = await Promise.allSettled(
     subscriptions.map(async (subscription) => {
@@ -66,10 +57,7 @@ export async function sendNotification({
         return { success: true };
       } catch (err: any) {
         if (err.statusCode === 404 || err.statusCode === 410) {
-          await db
-            .from("push_subscriptions")
-            .update({ is_active: false })
-            .eq("id", subscription.id);
+          await deactivatePushSubscription(subscription.id);
         }
 
         return {
@@ -91,10 +79,7 @@ export async function sendNotification({
     failed_count: subscriptions.length - success,
   };
 
-  await db
-    .from("notifications")
-    .update(notificationStats)
-    .eq("id", notificationId);
+  await updateNotificationStats(notificationId, notificationStats);
 
   return notificationStats;
 }
@@ -108,24 +93,18 @@ export async function sendNotificationByUserId({
   user_id: string | string[];
   options: Options;
 }) {
-  const db = await connectDb();
+  const subscriptionRows = await getPushSubscriptionsByUserId(user_id);
 
-  const { data, error } = await db
-    .from("push_subscriptions")
-    .select("id, user_id, endpoint, auth, p256dh")
-    .eq("user_id", user_id);
+  if (!subscriptionRows.length) throw new Error("Subscription Doesn't Exist");
 
-  if (error) throw error;
-  if (!data.length) throw new Error("Subscription Doesn't Exist");
-
-  const subscriptions: Subscription[] = data.map((row) => ({
+  const subscriptions: Subscription[] = subscriptionRows.map((row) => ({
     id: row.id,
     endpoint: row.endpoint,
     keys: { auth: row.auth, p256dh: row.p256dh },
     user_id: row.user_id,
   }));
 
-  const notificationStats = sendNotification({
+  const notificationStats = await sendNotification({
     title,
     subscription: subscriptions,
     options,
@@ -142,22 +121,13 @@ export async function sendNotificationByEmailId({
   emailId: string | string[];
   options: Options;
 }) {
-  const db = await connectDb();
+  const userIds = await getUserIdsByEmails(emailId);
 
-  const { data, error } = await db
-    .from("users")
-    .select("id")
-    .eq("email", emailId);
-
-  if (error) throw error;
-
-  if (!data.length) throw new Error("User Doesn't Exist");
-
-  const users = data.map((i) => i.id) as string[];
+  if (!userIds.length) throw new Error("User Doesn't Exist");
 
   const notificationStats = sendNotificationByUserId({
     title,
-    user_id: users,
+    user_id: userIds,
     options,
   });
 

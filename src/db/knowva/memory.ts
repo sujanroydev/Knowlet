@@ -1,12 +1,10 @@
-import connectDb from "@/lib/db";
+import { supabase } from "@/lib/supabase";
 import type { Memory } from "@/services/knowva";
 
 export async function createMemories(memories: Memory[], userId: string) {
   if (!memories.length) return;
 
-  const db = await connectDb();
-
-  const { error } = await db
+  const { error } = await supabase
     .from("user_memories")
     .insert(memories.map(memory => ({
       user_id: userId,
@@ -17,9 +15,7 @@ export async function createMemories(memories: Memory[], userId: string) {
 }
 
 export async function getMemories(userId: string) {
-  const db = await connectDb();
-
-  const { data, error } = await db
+  const { data, error } = await supabase
     .from("user_memories")
     .select("category, content, importance, confidence")
     .eq("user_id", userId);

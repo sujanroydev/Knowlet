@@ -1,20 +1,20 @@
-import { parseResourcePath, buildResourcePath } from "@/components/dashboard/resources/utils";
-import { authGate } from "@/lib/auth/authGate";
-import connectDb from "@/lib/db";
-import { sendNotificationByUserId } from "@/services/notification/send";
-import { Resource } from "@/types/resource";
 import { NextRequest, NextResponse } from "next/server";
+
+import { parseResourcePath, buildResourcePath } from "@/components/dashboard/resources/utils";
+import { sendNotificationByUserId } from "@/services/notification/send";
+import { authGate } from "@/lib/auth/authGate";
+
+import { getResources, insertResource } from "@/db/resource";
+import { getLevelId, insertLevel } from "@/db/resource/level";
+import { getSubjectId, insertSubject } from "@/db/resource/subject";
+import { getPaperId, insertPaper } from "@/db/resource/paper";
+import { getRecentViewHistory } from "@/db/resource/history";
 
 export async function GET(req: NextRequest) {
   try {
-    const db = await connectDb();
-    const { data, error } = await db
-      .from("resources")
-      .select("id, title, description, slug, path");
+    const resources = await getResources();
 
-    if (error) throw new Error(error.message);
-
-    return NextResponse.json({ data });
+    return NextResponse.json({ data: resources });
   } catch (error) {
     return NextResponse.json(
       { error: { message: "Server Error" } },
@@ -25,8 +25,7 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
   try {
-    let resource: Resource = await req.json();
-    const { title, description, content, level, subject, paper, target, type } = resource;
+    const { title, description, content, level, subject, paper, target, type } = await req.json();
 
     if (
       !title ||
@@ -47,126 +46,80 @@ export async function POST(req: NextRequest) {
     if (!ok || !payload) return res;
 
     const path = buildResourcePath({ level, subject, paper, target, type });
-    const slug = target;
 
-    const { levelSlug, subjectSlug, paperSlug } = parseResourcePath(path);
+    const { levelSlug, subjectSlug, paperSlug, typeSlug, targetSlug } = parseResourcePath(path);
 
-    let levelData, subjectData, paperData;
-    let oldLevelRow, oldSubjectRow, oldPaperRow;
-    let newLevelRow, newSubjectRow, newPaperRow;
+    let levelId = await getLevelId(levelSlug);
+    let subjectId: string;
+    let paperId: string | undefined;
+    let isSubjectNew = false;
 
-    const db = await connectDb();
+    if (!levelId) {
+      const levelData = await insertLevel({
+        title: level,
+        number: Number(levelSlug.split("-")[1]),
+        slug: levelSlug,
+        path: levelSlug,
+      });
 
-    // fetch
-    oldLevelRow = await db
-      .from("levels")
-      .select("id")
-      .eq("slug", levelSlug)
-      .maybeSingle();
+      levelId = levelData.id;
 
-    if (oldLevelRow?.error) throw new Error(oldLevelRow?.error.message);
-    levelData = oldLevelRow?.data;
+      const subjectData = await insertSubject({
+        level_id: levelId,
+        title: subject,
+        slug: subjectSlug,
+        path: `${levelSlug}/${subjectSlug}`,
+      });
 
-    // insert
-    if (!oldLevelRow?.data) {
-      newLevelRow = await db
-        .from("levels")
-        .insert({
-          title: levelSlug
-            .split("-")
-            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-            .join(" "),
-          number: levelSlug.split("-")[1],
-          slug: levelSlug,
-          path: `${levelSlug}`,
-        })
-        .select()
-        .single();
+      subjectId = subjectData.id;
+      isSubjectNew = true;
+    } else {
+      subjectId = await getSubjectId(subjectSlug, levelId);
 
-      if (newLevelRow?.error) throw new Error(newLevelRow?.error.message);
-      levelData = newLevelRow?.data;
-    }
-
-    // fetch
-    if (oldLevelRow?.data) {
-      oldSubjectRow = await db
-        .from("subjects")
-        .select("id")
-        .eq("slug", subjectSlug)
-        .eq("level_id", levelData?.id)
-        .maybeSingle();
-
-      if (oldSubjectRow?.error) throw new Error(oldSubjectRow?.error.message);
-      subjectData = oldSubjectRow?.data;
-    }
-
-    // insert
-    if (!oldLevelRow?.data || !oldSubjectRow?.data) {
-      newSubjectRow = await db
-        .from("subjects")
-        .insert({
-          level_id: levelData?.id,
-          title: subjectSlug
-            .split("-")
-            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-            .join(" "),
+      if (!subjectId) {
+        const subjectData = await insertSubject({
+          level_id: levelId,
+          title: subject,
           slug: subjectSlug,
           path: `${levelSlug}/${subjectSlug}`,
-        })
-        .select()
-        .single();
+        });
 
-      if (newSubjectRow?.error) throw new Error(newSubjectRow?.error.message);
-      subjectData = newSubjectRow?.data;
+        subjectId = subjectData.id;
+        isSubjectNew = true;
+      }
     }
 
-    // fetch
-    if ((oldLevelRow?.data || oldSubjectRow?.data) && paperSlug) {
-      oldPaperRow = await db
-        .from("papers")
-        .select("id")
-        .eq("slug", paperSlug)
-        .eq("subject_id", subjectData?.id)
-        .maybeSingle();
-
-      if (oldPaperRow?.error) throw new Error(oldPaperRow?.error.message);
-      paperData = oldPaperRow?.data;
-    }
-
-    // insert
-    if ((!oldLevelRow?.data || !oldPaperRow?.data) && paperSlug) {
-      newPaperRow = await db
-        .from("papers")
-        .insert({
-          subject_id: subjectData?.id,
-          level_id: levelData?.id,
+    if (paperSlug) {
+      if (!isSubjectNew) {
+        paperId = await getPaperId(paperSlug, subjectId);
+      }
+      if (!paperId) {
+        const paperData = await insertPaper({
+          subject_id: subjectId,
+          level_id: levelId,
           title: paperSlug.split("-").join(" ").toUpperCase(),
           code: paperSlug.split("-").join("").toUpperCase(),
           slug: paperSlug,
           path: `${levelSlug}/${subjectSlug}/${paperSlug}`,
-        })
-        .select()
-        .single();
+        });
 
-      if (newPaperRow?.error) throw new Error(newPaperRow?.error.message);
-      paperData = newPaperRow?.data;
+        paperId = paperData.id;
+      }
     }
 
     //insert
-    const { data, error } = await db.from("resources").insert({
-      level_id: levelData?.id,
-      subject_id: subjectData?.id,
-      paper_id: paperData?.id,
+    const resource = await insertResource({
+      level_id: levelId,
+      subject_id: subjectId,
+      paper_id: paperId,
       title,
       description,
       content,
-      target,
-      type,
-      slug,
+      target: targetSlug,
+      type: typeSlug,
+      slug: targetSlug,
       path,
     });
-
-    if (error) throw new Error(error.message);
 
     const thirtyDaysAgo = new Date();
     thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
@@ -176,13 +129,9 @@ export async function POST(req: NextRequest) {
       .slice(0, path.split("/")[0].startsWith("semester") ? 3 : 2)
       .join("/");
 
-    const { data: history, error: historyError } = await db
-      .from("view_history")
-      .select("user_id, resources!inner(path)")
-      .ilike("resources.path", `${prefix}%`)
-      .gte("created_at", thirtyDaysAgo.toISOString());
+    const history = await getRecentViewHistory(prefix, thirtyDaysAgo.toISOString());
 
-    if (!historyError && history && history.length) {
+    if (history && history.length) {
       const { subject, paper, type, target } = parseResourcePath(path);
       void sendNotificationByUserId({
         user_id: [...new Set(history.map((h) => h.user_id) ?? [])],
@@ -198,10 +147,11 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json(
-      { success: true, data: { resource: data }, path },
+      { success: true, data: { resource }, path },
       { status: 201 },
     );
   } catch (error) {
+    console.error("Failed to save resource", error);
     return NextResponse.json(
       { error: { message: (error as Error).message } },
       { status: 500 },

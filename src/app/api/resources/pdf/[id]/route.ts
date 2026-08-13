@@ -4,7 +4,7 @@ import React from "react";
 import { Readable } from "stream";
 
 import { authGate } from "@/lib/auth/authGate";
-import connectDb from "@/lib/db";
+import { getResourceById } from "@/db/resource";
 import ResourcePDF from "@/components/pdf/ResourcePDF";
 
 export const runtime = "nodejs";
@@ -22,28 +22,16 @@ export async function GET(
 
     const { ok, res, payload } = await authGate(req, "jwt");
 
-    if (!ok || !payload) {
-      return res;
-    }
+    if (!ok || !payload) return res;
 
-    const db = await connectDb();
+    const resource = await getResourceById(resourceId);
 
-    const { data, error } = await db
-      .from("resources")
-      .select("title, content")
-      .eq("id", resourceId)
-      .maybeSingle();
-
-    if (error) throw error;
-
-    if (!data?.content) {
-      throw new Error("No resource found");
-    }
+    if (!resource?.content) throw new Error("No resource found");
 
     const stream = await pdf(
       React.createElement(ResourcePDF, {
-        title: data.title,
-        content: data.content,
+        title: resource.title,
+        content: resource.content,
       })
     ).toBuffer();
 
@@ -58,19 +46,15 @@ export async function GET(
     return new NextResponse(pdfBuffer, {
       headers: {
         "Content-Type": "application/pdf",
-        "Content-Disposition": `attachment; filename="${data.title || "document"}.pdf"`,
+        "Content-Disposition": `attachment; filename="${resource.title || "document"}.pdf"`,
       },
     });
   } catch (error) {
     console.error("PDF generation error:", error);
 
     return NextResponse.json(
-      {
-        error: "Failed to generate PDF",
-      },
-      {
-        status: 500,
-      }
+      { error: "Failed to generate PDF" },
+      { status: 500 }
     );
   }
 }

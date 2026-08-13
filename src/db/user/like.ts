@@ -1,0 +1,44 @@
+import { supabase } from "@/lib/supabase";
+
+export async function insertLike(
+  userId: string,
+  resourceId: string,
+) {
+  const { error } = await supabase
+    .from("likes")
+    .insert({
+      user_id: userId,
+      resource_id: resourceId,
+    });
+
+  if (error) throw error;
+}
+
+export async function deleteLike(
+  userId: string,
+  resourceId: string,
+) {
+  const { error } = await supabase
+    .from("likes")
+    .delete()
+    .eq("user_id", userId)
+    .eq("resource_id", resourceId);
+
+  if (error) throw error;
+}
+
+export async function isLiked(
+  userId: string,
+  resourceId: string,
+) {
+  const { data, error } = await supabase
+    .from("likes")
+    .select("id")
+    .eq("user_id", userId)
+    .eq("resource_id", resourceId)
+    .maybeSingle();
+
+  if (error) throw error;
+
+  return !!data;
+}

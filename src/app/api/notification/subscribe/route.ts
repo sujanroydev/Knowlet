@@ -1,6 +1,7 @@
-import { authGate } from "@/lib/auth/authGate";
-import connectDb from "@/lib/db";
 import { NextRequest, NextResponse } from "next/server";
+
+import { authGate } from "@/lib/auth/authGate";
+import { supabase } from "@/lib/supabase";
 
 export async function POST(req: NextRequest) {
   try {
@@ -16,9 +17,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const db = await connectDb();
-
-    const { error } = await db.from("push_subscriptions").upsert(
+    const { error } = await supabase.from("push_subscriptions").upsert(
       {
         user_id: payload?.user_id ?? null,
         endpoint: subscription.endpoint,
@@ -55,9 +54,7 @@ export async function PATCH(req: NextRequest) {
       );
     }
 
-    const db = await connectDb();
-
-    const { error } = await db
+    const { error } = await supabase
       .from("push_subscriptions")
       .update({
         is_active: false,

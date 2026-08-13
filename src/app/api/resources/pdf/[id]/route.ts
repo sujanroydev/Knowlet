@@ -1,60 +1,99 @@
-import { NextRequest, NextResponse } from "next/server";
-import { pdf } from "@react-pdf/renderer";
-import React from "react";
-import { Readable } from "stream";
+import chromium from "@sparticuz/chromium";
+import puppeteer from "puppeteer-core";
 
-import { authGate } from "@/lib/auth/authGate";
-import { getResourceById } from "@/db/resource";
-import ResourcePDF from "@/components/pdf/ResourcePDF";
+import { supabase } from "@/lib/supabase";
+import { createResourcePdfHtml } from "@/lib/pdf/createResourcePdfHtml";
+import { getPdfCss } from "@/lib/pdf/getPdfCss";
 
 export const runtime = "nodejs";
 
 export async function GET(
-  req: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  _req: Request,
+  { params }: { params: Promise<{ id: string }> },
 ) {
+  let browser;
+
   try {
-    const { id: resourceId } = await params;
+    const { id } = await params;
 
-    if (!resourceId) {
-      throw new Error("Resource ID is required");
+    const { data: resource, error } = await supabase
+      .from("resources")
+      .select("*")
+      .eq("id", id)
+      .single();
+
+    if (error || !resource) {
+      return Response.json(
+        { error: "Resource not found" },
+        { status: 404 },
+      );
     }
 
-    const { ok, res, payload } = await authGate(req, "jwt");
+    // Replace this with however you currently get the theme.
+    const theme = {
+      h1: "#111",
+      h2: "#222",
+      h3: "#333",
+      h4: "#444",
+      h5: "#555",
+      h6: "#666",
+      accent: "#000",
+      link: "#0066cc",
+      linkHover: "#004499",
+      blockquote: "#999",
+      code: "#555",
+      hr: "#ddd",
+    };
 
-    if (!ok || !payload) return res;
+    const css = getPdfCss();
 
-    const resource = await getResourceById(resourceId);
-
-    if (!resource?.content) throw new Error("No resource found");
-
-    const stream = await pdf(
-      React.createElement(ResourcePDF, {
-        title: resource.title,
-        content: resource.content,
-      })
-    ).toBuffer();
-
-    const chunks: Buffer[] = [];
-
-    for await (const chunk of stream as unknown as Readable) {
-      chunks.push(Buffer.from(chunk));
-    }
-
-    const pdfBuffer = Buffer.concat(chunks);
-
-    return new NextResponse(pdfBuffer, {
-      headers: {
-        "Content-Type": "application/pdf",
-        "Content-Disposition": `attachment; filename="${resource.title || "document"}.pdf"`,
-      },
-    });
-  } catch (error) {
-    console.error("PDF generation error:", error);
-
-    return NextResponse.json(
-      { error: "Failed to generate PDF" },
-      { status: 500 }
+    const html = createResourcePdfHtml(
+      resource,
+      theme,
+      css,
     );
+
+    browser = await puppeteer.launch({
+      args: chromium.args,
+      executablePath: await chromium.executablePath(),
+      headless: true,
+    });
+
+    const page = await browser.newPage();
+
+    await page.setContent(html, {
+      waitUntil: "load", // remove
+    });
+
+    const pdf = await page.pdf({
+      format: "A4",
+      printBackground: true,
+      preferCSSPageSize: true,
+    });
+
+    return new Response(
+      new Uint8Array(pdf).buffer as ArrayBuffer,
+      {
+        headers: {
+          "Content-Type": "application/pdf",
+          "Content-Disposition": `inline; filename="${resource.title}.pdf"`,
+        },
+      },
+    );
+  } catch (error) {
+    console.error("PDF generation failed:", error);
+
+    return Response.json(
+      {
+        error: "PDF generation failed",
+        message:
+          error instanceof Error
+            ? error.message
+            : String(error),
+      },
+      { status: 500 },
+    );
+  } finally {
+    await browser?.close();
   }
 }

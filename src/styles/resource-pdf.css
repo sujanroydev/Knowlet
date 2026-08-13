@@ -1,0 +1,76 @@
+@page {
+  size: A4;
+  margin: 20mm 15mm;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #171717;
+  background: white;
+}
+
+.resource-pdf {
+  width: 100%;
+}
+
+.resource-pdf-header {
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.resource-pdf-header h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.resource-pdf-header p {
+  margin: 0;
+  color: #666;
+}
+
+.resource-pdf h1,
+.resource-pdf h2,
+.resource-pdf h3,
+.resource-pdf h4,
+.resource-pdf h5,
+.resource-pdf h6 {
+  page-break-after: avoid;
+}
+
+.resource-pdf img {
+  max-width: 100%;
+  height: auto;
+}
+
+.resource-pdf table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.resource-pdf th,
+.resource-pdf td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.resource-pdf pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.resource-pdf blockquote {
+  break-inside: avoid;
+}
+
+.resource-pdf img,
+.resource-pdf table,
+.resource-pdf pre {
+  break-inside: avoid;
+}

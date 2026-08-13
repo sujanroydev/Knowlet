@@ -77,6 +77,11 @@ export default function TopBar() {
   };
 
   const handleDownload = async () => {
+    if (!user) {
+      toast.error("you are not signed in");
+      return;
+    }
+
     try {
       setDownloading(true);
       toast.info("Generating PDF");
@@ -174,15 +179,13 @@ export default function TopBar() {
               </Btn>
             )}
 
-            {user && user.email && resourceId && (
-              <Btn
-                onClick={handleDownload}
-                title={downloading ? "Downloading..." : "Download PDF"}
-                disabled={downloading}
-              >
-                <Download className="w-5 h-5" />
-              </Btn>
-            )}
+            <Btn
+              onClick={handleDownload}
+              title={downloading ? "Downloading..." : "Download PDF"}
+              disabled={downloading}
+            >
+              <Download className="w-5 h-5" />
+            </Btn>
 
             <Btn onClick={handleShare} title={"Share"}>
               <Share2 className={`w-5 h-5 transition`} />

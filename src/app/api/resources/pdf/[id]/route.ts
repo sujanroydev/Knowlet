@@ -1,32 +1,27 @@
+import { NextRequest } from "next/server";
 import chromium from "@sparticuz/chromium";
 import puppeteer from "puppeteer-core";
 
-import { supabase } from "@/lib/supabase";
+import { authGate } from "@/lib/auth/authGate";
+import { getResourceById } from "@/db/resource";
 import { createResourcePdfHtml } from "@/lib/pdf/createResourcePdfHtml";
 
 export const runtime = "nodejs";
 
 export async function GET(
-  _req: Request,
+  req: NextRequest,
   { params }: { params: Promise<{ id: string }> },
 ) {
   let browser;
 
   try {
+    const { ok, res, payload } = await authGate(req, "jwt");
+    if (!ok || !payload) return res;
+
     const { id } = await params;
 
-    const { data: resource, error } = await supabase
-      .from("resources")
-      .select("*")
-      .eq("id", id)
-      .single();
-
-    if (error || !resource) {
-      return Response.json(
-        { error: "Resource not found" },
-        { status: 404 },
-      );
-    }
+    const resource = await getResourceById(id);
+    if (!resource) throw new Error("Resource not found");
 
     const html = createResourcePdfHtml(resource);
 

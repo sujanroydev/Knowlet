@@ -1,6 +1,6 @@
 import ResourceEditor from "@/components/dashboard/resources/editor";
 import AIAssistant from "@/components/nexus/AIAssistant";
-import connectDb from "@/lib/db";
+import { getResourceById } from "@/db/resource";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ResourceEditorProvider } from "@/context/ResourceEditorContext";
@@ -33,28 +33,10 @@ export default async function Page({
 
   if (action === "update") {
     const resource_id = slug[1];
-    const db = await connectDb();
 
-    const { data, error } = await db
-      .from("resources")
-      .select(
-        `
-        id,
-        title,
-        description,
-        content,
-        path,
-        target,
-        type,
-        slug
-      `,
-      )
-      .eq("id", resource_id)
-      .maybeSingle();
+    const resource = await getResourceById(resource_id);
 
-    const resource = data as any;
-
-    if (!resource || resource.length === 0) notFound();
+    if (!resource) notFound();
 
     return (
       <ResourceEditorProvider action={action} resource={resource} >

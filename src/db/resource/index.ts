@@ -33,12 +33,58 @@ export async function getResources() {
   return data;
 }
 
+export async function getResourceById(resourceId: string) {
+  const { data, error } = await supabase
+    .from("resources")
+    .select(
+      `
+        id,
+        title,
+        description,
+        content,
+        path,
+        target,
+        type,
+        slug
+      `,
+    )
+    .eq("id", resourceId)
+    .maybeSingle();
+
+  if (error) throw error;
+
+  return data;
+}
+
 export async function getResourceByPath(path: string) {
   const { data, error } = await supabase
     .from("resources")
     .select("*")
     .eq("path", path)
     .maybeSingle();
+
+  if (error) throw error;
+
+  return data;
+}
+
+export async function updateResource(
+  resourceId: string,
+  resource: {
+    title: string,
+    description: string,
+    content: string,
+  }
+) {
+  const { data, error } = await supabase
+    .from("resources")
+    .update({
+      ...resource,
+      updated_at: new Date().toISOString(),
+    })
+    .eq("id", resourceId)
+    .select("path")
+    .single();
 
   if (error) throw error;
 

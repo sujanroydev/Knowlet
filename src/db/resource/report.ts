@@ -29,6 +29,17 @@ export async function updateReportStatus(reportId: string, status: string) {
   if (error) throw error;
 }
 
+export async function getResourceReporterIds(resourceId: string) {
+  const { data, error } = await supabase
+    .from("resource_reports")
+    .select("user_id")
+    .eq("resource_id", resourceId);
+
+  if (error) throw error;
+
+  return data.map(d => d.user_id);
+}
+
 export async function fetchResourceReports(
   from = 0,
   to = 49,

@@ -61,22 +61,10 @@ export function createResourcePdfHtml(
 
       <body>
         <article
-          class="resource-content"
+          class="container"
           style="${variables}"
         >
-          <header class="resource-pdf-header">
-            <h1>${escapeHtml(resource.title)}</h1>
-
-            ${
-              resource.description
-                ? `<p>${escapeHtml(resource.description)}</p>`
-                : ""
-            }
-          </header>
-
-          <main>
-            ${resource.content || ""}
-          </main>
+          ${resource.content || ""}
         </article>
       </body>
     </html>

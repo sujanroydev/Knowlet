@@ -1,60 +1,77 @@
-import { NextRequest, NextResponse } from "next/server";
-import { pdf } from "@react-pdf/renderer";
-import React from "react";
-import { Readable } from "stream";
+import { NextRequest } from "next/server";
+import chromium from "@sparticuz/chromium";
+import puppeteer from "puppeteer-core";
 
+import { createDownload } from "@/db/resource/download";
 import { authGate } from "@/lib/auth/authGate";
 import { getResourceById } from "@/db/resource";
-import ResourcePDF from "@/components/pdf/ResourcePDF";
+import { createResourcePdfHtml } from "@/lib/pdf/createResourcePdfHtml";
+import { generateResourceTitle } from "@/utils/resource";
 
 export const runtime = "nodejs";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: Promise<{ id: string }> },
 ) {
+  let browser;
+
   try {
-    const { id: resourceId } = await params;
-
-    if (!resourceId) {
-      throw new Error("Resource ID is required");
-    }
-
     const { ok, res, payload } = await authGate(req, "jwt");
-
     if (!ok || !payload) return res;
 
-    const resource = await getResourceById(resourceId);
+    const { id } = await params;
 
-    if (!resource?.content) throw new Error("No resource found");
+    const resource = await getResourceById(id);
+    if (!resource) throw new Error("Resource not found");
 
-    const stream = await pdf(
-      React.createElement(ResourcePDF, {
-        title: resource.title,
-        content: resource.content,
-      })
-    ).toBuffer();
+    const html = createResourcePdfHtml(resource);
 
-    const chunks: Buffer[] = [];
-
-    for await (const chunk of stream as unknown as Readable) {
-      chunks.push(Buffer.from(chunk));
-    }
-
-    const pdfBuffer = Buffer.concat(chunks);
-
-    return new NextResponse(pdfBuffer, {
-      headers: {
-        "Content-Type": "application/pdf",
-        "Content-Disposition": `attachment; filename="${resource.title || "document"}.pdf"`,
-      },
+    browser = await puppeteer.launch({
+      args: chromium.args,
+      executablePath: await chromium.executablePath(),
+      headless: true,
     });
-  } catch (error) {
-    console.error("PDF generation error:", error);
 
-    return NextResponse.json(
-      { error: "Failed to generate PDF" },
-      { status: 500 }
+    const page = await browser.newPage();
+
+    await page.setContent(html, {
+      waitUntil: "load", // remove
+    });
+
+    const pdf = await page.pdf({
+      format: "A4",
+      printBackground: true,
+      preferCSSPageSize: true,
+    });
+
+    void createDownload(id, payload.user_id).catch((error) => {
+      console.error("Faild to Record download", error);
+    });
+
+    return new Response(
+      new Uint8Array(pdf).buffer as ArrayBuffer,
+      {
+        headers: {
+          "Content-Type": "application/pdf",
+          "Content-Disposition": `inline; filename="${generateResourceTitle(resource.path)}.pdf"`,
+        },
+      },
     );
+  } catch (error) {
+    console.error("PDF generation failed:", error);
+
+    return Response.json(
+      {
+        error: "PDF generation failed",
+        message:
+          error instanceof Error
+            ? error.message
+            : String(error),
+      },
+      { status: 500 },
+    );
+  } finally {
+    await browser?.close();
   }
 }

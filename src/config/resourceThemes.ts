@@ -1,4 +1,4 @@
-export type HeadingTheme = {
+export type ResourceTheme = {
   h1: string;
   h2: string;
   h3: string;
@@ -13,7 +13,7 @@ export type HeadingTheme = {
   hr: string;
 };
 
-export const headingThemes: HeadingTheme[] = [
+export const resourceThemes: ResourceTheme[] = [
   // 1. Ocean Blue
   {
     h1: "#1D4ED8",

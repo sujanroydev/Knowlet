@@ -33,6 +33,7 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 export default function TopBar() {
   const [parsedPath, setParsedPath] = useState<ParsedPath | null>(null);
+  const [downloading, setDownloading] = useState(false);
 
   const { mode } = useHeader();
   const { user } = useAuth();
@@ -72,6 +73,41 @@ export default function TopBar() {
       }
     } catch (err) {
       console.error(err);
+    }
+  };
+
+  const handleDownload = async () => {
+    if (!user) {
+      toast.error("you are not signed in");
+      return;
+    }
+
+    try {
+      setDownloading(true);
+      toast.info("Generating PDF");
+
+      const response = await fetch(`/api/resources/pdf/${resourceId}`);
+
+      if (!response.ok) {
+        throw new Error("Failed to generate PDF");
+      }
+
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to generate PDF");
+    } finally {
+      setDownloading(false);
     }
   };
 
@@ -143,19 +179,13 @@ export default function TopBar() {
               </Btn>
             )}
 
-            {user?.role === "admin" && resourceId && (
-              <Btn
-                onClick={() => {
-                  const a = document.createElement("a");
-                  a.href = `/api/resources/pdf/${resourceId}`;
-                  a.download = "";
-                  a.click();
-                }}
-                title="Download PDF"
-              >
-                <Download className="w-5 h-5" />
-              </Btn>
-            )}
+            <Btn
+              onClick={handleDownload}
+              title={downloading ? "Downloading..." : "Download PDF"}
+              disabled={downloading}
+            >
+              <Download className="w-5 h-5" />
+            </Btn>
 
             <Btn onClick={handleShare} title={"Share"}>
               <Share2 className={`w-5 h-5 transition`} />

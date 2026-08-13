@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "@/styles/resource-content.css";
 import "./globals.css";
 import BottomNav from "@/components/BottomNav";
 import TopBar from "@/components/TopBar";

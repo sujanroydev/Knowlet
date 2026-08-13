@@ -1,10 +1,9 @@
 import { notFound } from "next/navigation";
 
 import { getResourceByPath } from "@/db/resource";
-import styles from "./Content.module.css";
 import ReaderPageClient from "./ReaderPageClient";
 import ResourceFooterActions from "./resource-footer-actions";
-import { headingThemes } from "./Navigator/headingThemes";
+import { resourceThemes, type ResourceTheme } from "@/config/resourceThemes";
 
 function getThemeIndex(uuid: string) {
   let hash = 0;
@@ -13,7 +12,7 @@ function getThemeIndex(uuid: string) {
     hash = (hash * 31 + uuid.charCodeAt(i)) >>> 0;
   }
 
-  return hash % headingThemes.length;
+  return hash % resourceThemes.length;
 }
 
 export default async function Content({ slug }: { slug: string[] }) {
@@ -21,13 +20,13 @@ export default async function Content({ slug }: { slug: string[] }) {
 
   if (!resource) notFound();
 
-  const theme = headingThemes[getThemeIndex(resource.id)];
+  const theme = resourceThemes[getThemeIndex(resource.id)];
 
   return (
     <ReaderPageClient resourceId={resource.id}>
       <div className="max-w-5xl mx-auto px-4 py-6 lg:my-10 lg:p-8 lg:rounded-xl bg-white text-gray-800  shadow-lg leading-loose text-base break-words">
         <article
-          className={styles.container}
+          className="resource-content"
           style={
             {
               "--h1": theme.h1,

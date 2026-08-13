@@ -54,7 +54,7 @@ export function createResourcePdfHtml(resource: Resource) {
 
       <body>
         <article
-          class="container"
+          class="resource-content"
           style="${variables}"
         >
           ${resource.content || ""}

@@ -1,4 +1,4 @@
-.container {
+.resource-content {
   --h1: #0056b3;
   --h2: #0d6efd;
   --h3: #17a2b8;
@@ -18,19 +18,19 @@
    HEADINGS
 ========================= */
 
-.container h1,
-.container h2,
-.container h3,
-.container h4,
-.container h5,
-.container h6 {
+.resource-content h1,
+.resource-content h2,
+.resource-content h3,
+.resource-content h4,
+.resource-content h5,
+.resource-content h6 {
   font-weight: 700;
   line-height: 1.3;
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
 
-.container h1 {
+.resource-content h1 {
   font-size: 2.4rem;
   color: var(--h1);
   border-bottom: 3px solid var(--h1);
@@ -38,31 +38,31 @@
   text-align: center;
 }
 
-.container h2 {
+.resource-content h2 {
   font-size: 2rem;
   color: var(--h2);
   border-bottom: 2px solid var(--h2);
   padding-bottom: 8px;
 }
 
-.container h3 {
+.resource-content h3 {
   font-size: 1.6rem;
   color: var(--h3);
   border-bottom: 1px solid var(--h3);
   padding-bottom: 6px;
 }
 
-.container h4 {
+.resource-content h4 {
   font-size: 1.3rem;
   color: var(--h4);
 }
 
-.container h5 {
+.resource-content h5 {
   font-size: 1.1rem;
   color: var(--h5);
 }
 
-.container h6 {
+.resource-content h6 {
   font-size: 1rem;
   color: var(--h6);
 }
@@ -71,36 +71,36 @@
    TEXT
 ========================= */
 
-.container p {
+.resource-content p {
   margin: 1rem 0;
 }
 
-.container strong,
-.container b {
+.resource-content strong,
+.resource-content b {
   color: var(--accent);
   font-weight: 700;
 }
 
-.container em,
-.container i {
+.resource-content em,
+.resource-content i {
   font-style: italic;
 }
 
-.container mark {
+.resource-content mark {
   background: #fff3cd;
   padding: 2px 4px;
   border-radius: 4px;
 }
 
-.container small {
+.resource-content small {
   font-size: 0.85rem;
 }
 
-.container del {
+.resource-content del {
   text-decoration: line-through;
 }
 
-.container ins {
+.resource-content ins {
   text-decoration: underline;
 }
 
@@ -108,13 +108,13 @@
    LINKS
 ========================= */
 
-.container a {
+.resource-content a {
   color: var(--link);
   text-decoration: none;
   transition: 0.2s;
 }
 
-.container a:hover {
+.resource-content a:hover {
   text-decoration: underline;
   color: var(--link-hover);
 }
@@ -123,21 +123,21 @@
    LISTS
 ========================= */
 
-.container ul,
-.container ol {
+.resource-content ul,
+.resource-content ol {
   margin: 1rem 0;
   padding-left: 2rem;
 }
 
-.container ul {
+.resource-content ul {
   list-style-type: square;
 }
 
-.container ol {
+.resource-content ol {
   list-style-type: decimal;
 }
 
-.container li {
+.resource-content li {
   margin: 0.5rem 0;
 }
 
@@ -145,7 +145,7 @@
    BLOCKQUOTE
 ========================= */
 
-.container blockquote {
+.resource-content blockquote {
   background: #f1f3f5;
   border-left: 5px solid var(--blockquote);
   margin: 1.5rem 0;
@@ -159,7 +159,7 @@
    CODE
 ========================= */
 
-.container code {
+.resource-content code {
   background: #f8f9fa;
   color: var(--code);
   padding: 2px 6px;
@@ -168,7 +168,7 @@
   font-size: 0.95rem;
 }
 
-.container pre {
+.resource-content pre {
   background: #212529;
   color: #f8f9fa;
   padding: 1rem;
@@ -177,7 +177,7 @@
   margin: 1.5rem 0;
 }
 
-.container pre code {
+.resource-content pre code {
   background: transparent;
   color: inherit;
   padding: 0;
@@ -187,25 +187,25 @@
    TABLES
 ========================= */
 
-.container table {
+.resource-content table {
   width: 100%;
   border-collapse: collapse;
   margin: 1.5rem 0;
 }
 
-.container th,
-.container td {
+.resource-content th,
+.resource-content td {
   border: 1px solid #dee2e6;
   padding: 12px;
   text-align: left;
 }
 
-.container th {
+.resource-content th {
   background: #f1f3f5;
   font-weight: 700;
 }
 
-.container tr:nth-child(even) {
+.resource-content tr:nth-child(even) {
   background: #f8f9fa;
 }
 
@@ -213,15 +213,15 @@
    IMAGES & MEDIA
 ========================= */
 
-.container img {
+.resource-content img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
   margin: 1rem 0;
 }
 
-.container video,
-.container iframe {
+.resource-content video,
+.resource-content iframe {
   max-width: 100%;
   border-radius: 8px;
   margin: 1rem 0;
@@ -231,7 +231,7 @@
    HORIZONTAL RULE
 ========================= */
 
-.container hr {
+.resource-content hr {
   border: none;
   border-top: 1px solid var(--hr);
   margin: 2rem 0;
@@ -241,14 +241,14 @@
    DETAILS
 ========================= */
 
-.container details {
+.resource-content details {
   background: #f8f9fa;
   padding: 1rem;
   border-radius: 6px;
   margin: 1rem 0;
 }
 
-.container summary {
+.resource-content summary {
   cursor: pointer;
   font-weight: 600;
 }
@@ -257,7 +257,7 @@
    CUSTOM CLASSES
 ========================= */
 
-.container .toc {
+.resource-content .toc {
   background: #f8f9fa;
   border: 1px solid #dee2e6;
   padding: 1rem;
@@ -265,21 +265,21 @@
   margin-bottom: 2rem;
 }
 
-.container .toc h2 {
+.resource-content .toc h2 {
   margin-top: 0;
   border: none;
 }
 
-.container .toc ul {
+.resource-content .toc ul {
   list-style: none;
   padding-left: 0;
 }
 
-.container .toc li {
+.resource-content .toc li {
   margin: 0.5rem 0;
 }
 
-.container .exam-tip {
+.resource-content .exam-tip {
   background: #fff3cd;
   border-left: 5px solid #ffc107;
   padding: 1rem;
@@ -292,19 +292,19 @@
 ========================= */
 
 @media (max-width: 768px) {
-  .container h1 {
+  .resource-content h1 {
     font-size: 2rem;
   }
 
-  .container h2 {
+  .resource-content h2 {
     font-size: 1.7rem;
   }
 
-  .container h3 {
+  .resource-content h3 {
     font-size: 1.4rem;
   }
 
-  .container table {
+  .resource-content table {
     display: block;
     overflow-x: auto;
   }

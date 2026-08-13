@@ -26,7 +26,7 @@ export default async function Content({ slug }: { slug: string[] }) {
     <ReaderPageClient resourceId={resource.id}>
       <div className="max-w-5xl mx-auto px-4 py-6 lg:my-10 lg:p-8 lg:rounded-xl bg-white text-gray-800  shadow-lg leading-loose text-base break-words">
         <article
-          className="container"
+          className="resource-content"
           style={
             {
               "--h1": theme.h1,

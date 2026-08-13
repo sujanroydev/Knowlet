@@ -3,7 +3,7 @@ export default function ResourcePreview({ content }: { content: string }) {
     <div className="h-[650px] overflow-y-auto bg-slate-50 p-6">
       {content ? (
         <article
-          className="container"
+          className="resource-content"
           dangerouslySetInnerHTML={{
             __html: content || "",
           }}

@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
   ],
 
   outputFileTracingIncludes: {
-    "/api/resources/pdf/test-pdf": [
+    "/api/resources/pdf/*": [
       "node_modules/@sparticuz/chromium/bin/**/*",
     ],
   },
@@ -38,36 +38,41 @@ const nextConfig: NextConfig = {
       // developer
       {
         source: "/dev",
-        destination: "https://skrsportfolio.netlify.app",
+        destination: "https://sujanroy.in",
         permanent: true,
       },
       {
         source: "/dev/github",
-        destination: "https://github.com/skr0411",
+        destination: "https://github.com/sujanroydev",
         permanent: true,
       },
       {
         source: "/dev/linkedin",
-        destination: "https://linkedin.com/in/skr0411",
+        destination: "https://linkedin.com/in/sujanroydev",
         permanent: true,
       },
       {
         source: "/dev/facebook",
-        destination: "https://facebook.com/sujanroy0411",
+        destination: "https://facebook.com/sujanroydev",
         permanent: true,
       },
 
       // github issues
       {
         source: "/issue",
-        destination: "https://github.com/SKR0411/Knowlet/issues",
+        destination: "https://github.com/sujanroydev/Knowlet/issues",
         permanent: true,
       },
 
-      // old asset redirect
+      // other
       {
-        source: "/assets/knowlet_declaration",
-        destination: "/declaration",
+        source: "/youtube",
+        destination: "https://youtube.com/@knowletofficial",
+        permanent: true,
+      },
+      {
+        source: "/facebook",
+        destination: "https://facebook.com/@knowletofficial",
         permanent: true,
       },
     ];

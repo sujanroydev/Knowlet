@@ -99,5 +99,5 @@ function buildResourcePath({
 export function generateResourceTitle(path: string) {
   const { level, subject, paper, type, target } = parseResourcePath(path);
 
-  return `${target} | ${type} | ${paper ? `${paper} | ${subject}` : `${subject}`} | ${level} | Knowlet`;
+  return `${target} - ${paper ? `${paper} - ${subject}` : subject} - ${level} - ${type}`;
 }

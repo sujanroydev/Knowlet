@@ -44,6 +44,10 @@ export async function GET(
       preferCSSPageSize: true,
     });
 
+    void createDownload(id, payload.user_id).catch((error) => {
+      console.error("Faild to Record download", error);
+    });
+
     return new Response(
       new Uint8Array(pdf).buffer as ArrayBuffer,
       {
@@ -68,9 +72,5 @@ export async function GET(
     );
   } finally {
     await browser?.close();
-
-    void createDownload(id, payload.user_id).catch((error) => {
-      console.error("Faild to Record download", error);
-    });
   }
 }

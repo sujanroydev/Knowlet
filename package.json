@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
-    "@react-pdf/renderer": "^4.5.1",
     "@sparticuz/chromium": "^149.0.0",
     "@supabase/supabase-js": "^2.105.4",
     "@trigger.dev/sdk": "4.4.6",

@@ -121,13 +121,13 @@ export async function sendNotificationByEmailId({
   emailId: string | string[];
   options: Options;
 }) {
-  const userId = await getUserIdsByEmails(emailId);
+  const userIds = await getUserIdsByEmails(emailId);
 
-  if (!userId) throw new Error("User Doesn't Exist");
+  if (!userIds.length) throw new Error("User Doesn't Exist");
 
   const notificationStats = sendNotificationByUserId({
     title,
-    user_id: userId,
+    user_id: userIds,
     options,
   });
 

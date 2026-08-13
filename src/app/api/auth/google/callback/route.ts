@@ -1,10 +1,11 @@
-import { getUserIdByEmail, createUser } from "@/db/user";
+import connectDb from "@/lib/db";
 import { sendWelcomeEmail } from "@/services/email/send/welcome";
 import generateUsername from "@/utils/generateUsername";
 import { SignJWT } from "jose";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
+  try {
   const code = req.nextUrl.searchParams.get("code");
 
   if (!code) {
@@ -37,13 +38,22 @@ export async function GET(req: NextRequest) {
   });
 
   let user = await userRes.json();
+  const db = await connectDb();
 
   // Sync with Database
-  const userId = await getUserIdByEmail(user.email);
+  const { data, error } = await db
+    .from("users")
+    .select("id")
+    .eq("email", user.email)
+    .maybeSingle();
+
+  if (error) throw new Error(error.message);
 
   let isNewUser = false;
 
-  if (!userId) {
+  if (data) {
+    user = data;
+  } else {
     isNewUser = true;
     const newUser = {
       name: user.name,
@@ -53,7 +63,15 @@ export async function GET(req: NextRequest) {
     };
 
     // Create new user
-    user = await createUser(newUser);
+    const { data, error } = await db
+      .from("users")
+      .insert(newUser)
+      .select()
+      .single();
+
+    if (error) throw new Error(error.message);
+
+    user = data;
   }
 
   // Create JWT
@@ -86,4 +104,7 @@ export async function GET(req: NextRequest) {
   }
 
   return response;
+  } catch (error) {
+    console.error(error);
+  }
 }

@@ -6,6 +6,7 @@ import { createDownload } from "@/db/resource/download";
 import { authGate } from "@/lib/auth/authGate";
 import { getResourceById } from "@/db/resource";
 import { createResourcePdfHtml } from "@/lib/pdf/createResourcePdfHtml";
+import { generateResourceTitle } from "@/utils/resource";
 
 export const runtime = "nodejs";
 
@@ -53,7 +54,7 @@ export async function GET(
       {
         headers: {
           "Content-Type": "application/pdf",
-          "Content-Disposition": `inline; filename="${resource.title}.pdf"`,
+          "Content-Disposition": `inline; filename="${generateResourceTitle(resource.title)}.pdf"`,
         },
       },
     );

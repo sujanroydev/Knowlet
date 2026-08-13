@@ -95,9 +95,22 @@ export default function TopBar() {
       const blob = await response.blob();
       const url = URL.createObjectURL(blob);
 
+      const contentDisposition = response.headers.get("Content-Disposition");
+
+      let filename = "resource.pdf";
+
+      const match = contentDisposition?.match(
+        /filename="([^"]+)"/,
+      );
+
+      if (match?.[1]) {
+        filename = match[1];
+      }
+
       const a = document.createElement("a");
       a.href = url;
-      a.download = "";
+      a.download = filename;
+
       document.body.appendChild(a);
       a.click();
       a.remove();

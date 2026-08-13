@@ -2,6 +2,7 @@ import { NextRequest } from "next/server";
 import chromium from "@sparticuz/chromium";
 import puppeteer from "puppeteer-core";
 
+import { createDownload } from "@/db/resource/download";
 import { authGate } from "@/lib/auth/authGate";
 import { getResourceById } from "@/db/resource";
 import { createResourcePdfHtml } from "@/lib/pdf/createResourcePdfHtml";
@@ -67,5 +68,9 @@ export async function GET(
     );
   } finally {
     await browser?.close();
+
+    void createDownload(id, payload.user_id).catch((error) => {
+      console.error("Faild to Record download", error);
+    });
   }
 }

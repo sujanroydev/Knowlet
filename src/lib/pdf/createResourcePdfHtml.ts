@@ -1,23 +1,6 @@
-type Theme = {
-  h1: string;
-  h2: string;
-  h3: string;
-  h4: string;
-  h5: string;
-  h6: string;
-  accent: string;
-  link: string;
-  linkHover: string;
-  blockquote: string;
-  code: string;
-  hr: string;
-};
-
-type Resource = {
-  title: string;
-  description?: string | null;
-  content?: string | null;
-};
+import { resourceThemes, type ResourceTheme } from "@/config/resourceThemes";
+import { getPdfCss } from "@/lib/pdf/getPdfCss";
+import { Resource } from "@/types/resource";
 
 function escapeHtml(value: string) {
   return value
@@ -28,11 +11,21 @@ function escapeHtml(value: string) {
     .replaceAll("'", "&#039;");
 }
 
-export function createResourcePdfHtml(
-  resource: Resource,
-  theme: Theme,
-  css: string,
-) {
+function getThemeIndex(uuid: string) {
+  let hash = 0;
+
+  for (let i = 0; i < uuid.length; i++) {
+    hash = (hash * 31 + uuid.charCodeAt(i)) >>> 0;
+  }
+
+  return hash % resourceThemes.length;
+}
+
+export function createResourcePdfHtml(resource: Resource) {
+  const theme = resourceThemes[getThemeIndex(resource.id!)];
+
+  const css = getPdfCss();
+
   const variables = `
     --h1: ${theme.h1};
     --h2: ${theme.h2};

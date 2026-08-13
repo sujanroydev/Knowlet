@@ -3,7 +3,6 @@ import puppeteer from "puppeteer-core";
 
 import { supabase } from "@/lib/supabase";
 import { createResourcePdfHtml } from "@/lib/pdf/createResourcePdfHtml";
-import { getPdfCss } from "@/lib/pdf/getPdfCss";
 
 export const runtime = "nodejs";
 
@@ -29,29 +28,7 @@ export async function GET(
       );
     }
 
-    // Replace this with however you currently get the theme.
-    const theme = {
-      h1: "#111",
-      h2: "#222",
-      h3: "#333",
-      h4: "#444",
-      h5: "#555",
-      h6: "#666",
-      accent: "#000",
-      link: "#0066cc",
-      linkHover: "#004499",
-      blockquote: "#999",
-      code: "#555",
-      hr: "#ddd",
-    };
-
-    const css = getPdfCss();
-
-    const html = createResourcePdfHtml(
-      resource,
-      theme,
-      css,
-    );
+    const html = createResourcePdfHtml(resource);
 
     browser = await puppeteer.launch({
       args: chromium.args,

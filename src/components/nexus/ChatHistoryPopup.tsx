@@ -1,45 +1,23 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { History, MessageSquare, Plus, X } from "lucide-react";
+import { MessageSquare, Plus, X } from "lucide-react";
+
+import { useKnowva } from "@/context/KnowvaContext";
+import { useChatActions } from "@/hooks/knowva/useChatActions";
 
 interface ChatHistoryPopupProps {
   open: boolean;
   onClose: () => void;
 }
 
-const demoChats = [
-  {
-    id: "1",
-    title: "Explain recursion in simple terms",
-    date: "Today",
-  },
-  {
-    id: "2",
-    title: "Create notes for DBMS",
-    date: "Today",
-  },
-  {
-    id: "3",
-    title: "What is normalization?",
-    date: "Yesterday",
-  },
-  {
-    id: "4",
-    title: "Operating System important questions",
-    date: "Aug 12",
-  },
-  {
-    id: "5",
-    title: "Prepare me for the semester exam",
-    date: "Aug 10",
-  },
-];
-
 export default function ChatHistoryPopup({
   open,
   onClose,
 }: ChatHistoryPopupProps) {
+  const { chats } = useKnowva();
+  const { loadChat } = useChatActions();
+
   return (
     <AnimatePresence>
       {open && (
@@ -51,48 +29,43 @@ export default function ChatHistoryPopup({
           className="absolute inset-x-0 top-0 z-30 flex h-full flex-col bg-white"
         >
           {/* Header */}
-          <div className="flex items-center justify-between border-b border-gray-200 px-4 py-3">
-            <div className="flex items-center gap-2">
-              <History size={18} />
+          <header className="flex items-center justify-between border-b border-gray-200 px-4 py-3">
+            <h2 className="text-sm font-semibold text-gray-900">
+              Recent Chats
+            </h2>
 
-              <div>
-                <h3 className="text-sm font-semibold">
-                  Chat History
-                </h3>
+            <div className="flex items-center gap-1">
+              {/* New Chat */}
+              <button
+                type="button"
+                className="flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs font-medium text-blue-600 transition hover:bg-blue-50"
+              >
+                <Plus size={15} />
+                New Chat
+              </button>
 
-                <p className="text-xs text-gray-500">
-                  Your recent conversations
-                </p>
-              </div>
+              {/* Close */}
+              <button
+                type="button"
+                onClick={onClose}
+                aria-label="Close chat history"
+                className="rounded-md p-1.5 text-gray-500 transition hover:bg-gray-100 hover:text-gray-900"
+              >
+                <X size={17} />
+              </button>
             </div>
-
-            <button
-              type="button"
-              onClick={onClose}
-              className="rounded-md p-2 transition hover:bg-gray-100"
-              aria-label="Close chat history"
-            >
-              <X size={17} />
-            </button>
-          </div>
-
-          {/* New Chat */}
-          <div className="border-b border-gray-100 p-3">
-            <button
-              type="button"
-              className="flex w-full items-center justify-center gap-2 rounded-lg border border-blue-200 bg-blue-50 px-3 py-2 text-sm font-medium text-blue-600 transition hover:bg-blue-100"
-            >
-              <Plus size={16} />
-              New Chat
-            </button>
-          </div>
+          </header>
 
           {/* Chats */}
           <div className="flex-1 overflow-y-auto p-2">
-            {demoChats.map((chat) => (
+            {chats.map((chat) => (
               <button
                 key={chat.id}
                 type="button"
+                onClick={() => {
+                  loadChat(chat.id);
+                  onClose();
+                }}
                 className="group flex w-full items-start gap-3 rounded-lg px-3 py-3 text-left transition hover:bg-gray-100"
               >
                 <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gray-100 text-gray-500 group-hover:bg-white">
@@ -105,7 +78,7 @@ export default function ChatHistoryPopup({
                   </p>
 
                   <p className="mt-1 text-xs text-gray-400">
-                    {chat.date}
+                    {chat.last_message_at}
                   </p>
                 </div>
               </button>

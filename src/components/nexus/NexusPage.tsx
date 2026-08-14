@@ -8,25 +8,19 @@ import type { Message, Mode } from "@/types/knowva";
 import { useHeader } from "@/context/HeaderContext";
 import { useKnowva } from "@/context/KnowvaContext";
 import KnowvaDrawer from "@/components/nexus/KnowvaDrawer";
-import { fetchChats } from "@/actions/knowva";
+import { useChatActions } from "@/hooks/knowva/useChatActions";
 
 export default function NexusPage() {
   const [mode, setMode] = useState<Mode>("normal");
 
   const { setMode: setTopBarMode } = useHeader();
-
+  const { loadChats } = useChatActions();
   const {
     chats,
     messages,
-    setChats,
     setMessages,
     model
   } = useKnowva();
-
-  const loadChats = async () => {
-    const featcedChats = await fetchChats();
-    setChats(featcedChats || []);
-  }
 
   useEffect(() => {
     setTopBarMode("knowva");

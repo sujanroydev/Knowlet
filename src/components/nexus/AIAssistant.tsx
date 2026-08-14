@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Bot, Send, X } from "lucide-react";
+import { Bot, Send, X, History } from "lucide-react";
 import { useState } from "react";
 import NexusInput from "@/components/nexus/NexusInput";
 import NexusChat from "@/components/nexus/NexusChat";
@@ -9,11 +9,13 @@ import NexusToolbar from "@/components/nexus/NexusToolbar";
 import type { Message, Mode } from "@/types/knowva";
 import { ModelSelector } from "@/components/nexus/ModelSelector";
 import { useKnowva } from "@/context/KnowvaContext";
+import ChatHistoryPopup from "./ChatHistoryPopup";
 
 export default function AIAssistant() {
   const [open, setOpen] = useState(false);
   const [mode, setMode] = useState<Mode>("normal");
   const [messages, setMessages] = useState<Message[]>([]);
+  const [showHistory, setShowHistory] = useState(false);
 
   const { model, setModel } = useKnowva();
 
@@ -54,6 +56,15 @@ export default function AIAssistant() {
               </div>
 
               <button
+                type="button"
+                onClick={() => setShowHistory(true)}
+                className="rounded-md p-2 transition hover:bg-gray-100"
+                aria-label="Chat history"
+              >
+                <History size={18} />
+              </button>
+
+              <button
                 onClick={() => setOpen(false)}
                 className="rounded-md p-2 hover:bg-gray-100"
               >
@@ -61,16 +72,24 @@ export default function AIAssistant() {
               </button>
             </div>
 
-            <NexusChat messages={messages} />
+            <div className="relative">
+              <ChatHistoryPopup
+                open={showHistory}
+                onClose={() => setShowHistory(false)}
+              />
 
-            <NexusToolbar mode={mode} setMode={setMode} />
+              <NexusChat messages={messages} />
 
-            <NexusInput
-              mode={mode}
-              setMessages={setMessages}
-              messages={messages}
-              model={model}
-            />
+              <NexusToolbar mode={mode} setMode={setMode} />
+
+              <NexusInput
+                mode={mode}
+                setMessages={setMessages}
+                messages={messages}
+                model={model}
+              />
+              {/* Your existing AI popup content */}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

@@ -7,7 +7,7 @@ import NexusToolbar from "./NexusToolbar";
 import type { Message, Mode } from "@/types/knowva";
 import { useHeader } from "@/context/HeaderContext";
 import { useKnowva } from "@/context/KnowvaContext";
-import Drawer from "@/components/Drawer";
+import KnowvaDrawer from "@/components/nexus/KnowvaDrawer";
 import { fetchChats } from "@/actions/knowva";
 
 export default function NexusPage() {
@@ -51,7 +51,7 @@ export default function NexusPage() {
           messages={messages}
         />
 
-        <Drawer />
+        <KnowvaDrawer />
       </div>
     </div>
   );

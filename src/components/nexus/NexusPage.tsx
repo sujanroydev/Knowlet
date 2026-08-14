@@ -6,21 +6,12 @@ import NexusChat from "./NexusChat";
 import NexusToolbar from "./NexusToolbar";
 import type { Message, Mode } from "@/types/knowva";
 import { useHeader } from "@/context/HeaderContext";
-import { useKnowva } from "@/context/KnowvaContext";
 import KnowvaDrawer from "@/components/nexus/KnowvaDrawer";
 import { useChatActions } from "@/hooks/knowva/useChatActions";
 
 export default function NexusPage() {
-  const [mode, setMode] = useState<Mode>("normal");
-
   const { setMode: setTopBarMode } = useHeader();
   const { loadChats } = useChatActions();
-  const {
-    chats,
-    messages,
-    setMessages,
-    model
-  } = useKnowva();
 
   useEffect(() => {
     setTopBarMode("knowva");
@@ -34,16 +25,9 @@ export default function NexusPage() {
   return (
     <div className="h-full flex items-center justify-center bg-gray-100">
       <div className="w-full max-w-3xl h-full flex flex-col border border-gray-200 rounded-xl bg-white shadow-sm">
-        <NexusChat messages={messages} />
-
-        <NexusToolbar mode={mode} setMode={setMode} />
-
-        <NexusInput
-          mode={mode}
-          model={model}
-          setMessages={setMessages}
-          messages={messages}
-        />
+        <NexusChat />
+        <NexusToolbar />
+        <NexusInput />
 
         <KnowvaDrawer />
       </div>

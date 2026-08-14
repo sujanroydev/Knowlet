@@ -6,32 +6,28 @@ import type { Message, Mode } from "@/types/knowva";
 import { useKnowva } from "@/context/KnowvaContext";
 import { newChat, saveMessage, renameChat, generateChatTitle } from "@/actions/knowva";
 
-export default function NexusInput({
-  mode,
-  model = "auto",
-  messages,
-  setMessages,
-}: {
-  mode: Mode;
-  model: string;
-  messages: Message[];
-  setMessages: React.Dispatch<React.SetStateAction<Message[]>>;
-}) {
+export default function NexusInput() {
   const [text, setText] = useState("");
-  const [loading, setLoading] = useState(false);
 
   const {
     chatId,
     parentId,
+    mode,
+    model,
+    messages,
+    isResponding,
+
     setChatId,
     setParentId,
     setChats,
+    setMessages,
+    setIsResponding,
   } = useKnowva();
 
   const abortController = useRef<AbortController | null>(null);
 
   const send = async () => {
-    if (!text.trim() || loading) return;
+    if (!text.trim() || isResponding) return;
 
     let currentChatId = chatId;
     let currentParentId = parentId;
@@ -59,7 +55,7 @@ export default function NexusInput({
       setMessages((prev) => [...prev, userMessage]);
 
       setText("");
-      setLoading(true);
+      setIsResponding(true);
 
       const { id: userMessageId } = await saveMessage(
         userMessage,
@@ -129,7 +125,7 @@ export default function NexusInput({
       }
     } finally {
       abortController.current = null;
-      setLoading(false);
+      setIsResponding(false);
       if (isNewChat && currentChatId) {
         void updateChatTitle(currentChatId, currentText);
       }
@@ -139,7 +135,7 @@ export default function NexusInput({
   const stop = () => {
     abortController.current?.abort();
     abortController.current = null;
-    setLoading(false);
+    setIsResponding(false);
   };
 
   const updateChatTitle = async (chatId: string, message: string) => {
@@ -164,10 +160,10 @@ export default function NexusInput({
       />
 
       <button
-        onClick={loading ? stop : send}
+        onClick={isResponding ? stop : send}
         className="px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
       >
-        {loading
+        {isResponding
           ? <Square size={18} />
           : <ArrowUp size={18} />
         }

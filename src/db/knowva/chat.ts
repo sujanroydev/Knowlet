@@ -4,7 +4,6 @@ import { Chat } from "@/types/knowva";
 const chatSelect = `
   id,
   title,
-  mode,
   pinned,
   archived,
   created_at,

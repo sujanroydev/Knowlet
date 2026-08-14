@@ -8,21 +8,29 @@ import {
   type ReactNode,
   type SetStateAction,
 } from "react";
-import type { Message, Chat } from "@/types/knowva";
+
+import type {
+  Message,
+  Chat,
+  Mode,
+} from "@/types/knowva";
 
 type OnMessageClick = (message: Message) => void;
 
 interface KnowvaState {
+  isResponding: boolean;
   chatId: string;
   parentId: string;
   model: string;
+  mode: Mode;
   messages: Message[];
   chats: Chat[];
 
-
+  setIsResponding: Dispatch<SetStateAction<boolean>>;
   setChatId: Dispatch<SetStateAction<string>>;
   setParentId: Dispatch<SetStateAction<string>>;
   setModel: Dispatch<SetStateAction<string>>;
+  setMode: Dispatch<SetStateAction<Mode>>;
   setMessages: Dispatch<SetStateAction<Message[]>>;
   setChats: Dispatch<SetStateAction<Chat[]>>;
 
@@ -37,8 +45,11 @@ export function KnowvaProvider({
 }: {
   children: ReactNode;
 }) {
+  const [isResponding, setIsResponding] = useState(false);
+
   const [chatId, setChatId] = useState<string>("");
   const [parentId, setParentId] = useState<string>("");
+  const [mode, setMode] = useState<Mode>("chat");
   const [model, setModel] = useState<string>("auto");
 
   const [chats, setChats] = useState<Chat[]>([]);
@@ -49,15 +60,19 @@ export function KnowvaProvider({
   return (
     <KnowvaContext.Provider
       value={{
+        isResponding,
         chatId,
         parentId,
         model,
+        mode,
         messages,
         chats,
 
+        setIsResponding,
         setChatId,
         setParentId,
         setModel,
+        setMode,
         setMessages,
         setChats,
 

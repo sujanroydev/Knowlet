@@ -1,11 +1,14 @@
 "use client"
 
 import { useRef, useLayoutEffect } from "react";
+
 import NexusMessage from "./NexusMessage";
 import type { Message } from "@/types/knowva";
+import { useKnowva } from "@/context/KnowvaContext";
 
-export default function NexusChat({ messages }: { messages: Message[] }) {
+export default function NexusChat() {
   const messagesRef = useRef<HTMLDivElement>(null);
+  const { messages } = useKnowva();
 
   useLayoutEffect(() => {
     messagesRef.current?.scrollIntoView({

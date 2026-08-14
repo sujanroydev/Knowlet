@@ -9,7 +9,6 @@ import NexusChat from "@/components/nexus/NexusChat";
 import NexusToolbar from "@/components/nexus/NexusToolbar";
 import type { Message, Mode } from "@/types/knowva";
 import { ModelSelector } from "@/components/nexus/ModelSelector";
-import { useKnowva } from "@/context/KnowvaContext";
 import ChatHistoryPopup from "./ChatHistoryPopup";
 import { useChatActions } from "@/hooks/knowva/useChatActions";
 
@@ -17,9 +16,6 @@ export default function AIAssistant() {
   const [open, setOpen] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
 
-  const [mode, setMode] = useState<Mode>("normal");
-
-  const { model, setModel, messages, setMessages } = useKnowva();
   const { loadChats, createNewChat } = useChatActions()
 
   useEffect(() => {
@@ -59,7 +55,7 @@ export default function AIAssistant() {
                   <p className="text-xs text-green-600">Online</p>
                 </div>
 
-                <ModelSelector model={model} setModel={setModel} />
+                <ModelSelector />
               </div>
 
               {/* Right */}
@@ -87,16 +83,9 @@ export default function AIAssistant() {
               onClose={() => setShowHistory(false)}
             />
 
-            <NexusChat messages={messages} />
-
-            <NexusToolbar mode={mode} setMode={setMode} />
-
-            <NexusInput
-              mode={mode}
-              setMessages={setMessages}
-              messages={messages}
-              model={model}
-            />
+            <NexusChat />
+            <NexusToolbar />
+            <NexusInput />
           </motion.div>
         )}
       </AnimatePresence>

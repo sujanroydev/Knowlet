@@ -1,9 +1,10 @@
 import type { Ref } from "react";
 import { Edit2 } from "lucide-react";
-import { useKnowva } from "@/context/KnowvaContext";
-import type { Message } from "@/types/knowva";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+
+import { useKnowva } from "@/context/KnowvaContext";
+import type { Message } from "@/types/knowva";
 
 export default function NexusMessage({
   message,

@@ -1,16 +1,13 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import type { Mode } from "@/types/knowva";
 
-export default function NexusToolbar({
-  mode,
-  setMode
-}: {
-  mode: Mode;
-  setMode: (mode: Mode) => void;
-}) {
+import { Mode } from "@/types/knowva";
+import { useKnowva } from "@/context/KnowvaContext";
+
+export default function NexusToolbar() {
   const pathname = usePathname();
+  const { mode, setMode } = useKnowva();
 
   const modes: Mode[] = ["study", "short", "explain", ...(pathname.endsWith("create") ? (["create-resource"] as Mode[]) : []),];
 
@@ -19,7 +16,7 @@ export default function NexusToolbar({
       {modes.map((m) => (
         <button
           key={m}
-          onClick={() => setMode(mode === m ? "normal" : m)}
+          onClick={() => setMode(mode === m ? "chat" : m)}
           className={`px-3 rounded-lg text-sm border transition shrink-0 ${
             mode === m
               ? "bg-blue-100 border-blue-400"

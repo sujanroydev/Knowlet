@@ -3,13 +3,21 @@ const faqs = [
     q: "Is Knowlet free to use?",
     a: "Yes. All materials are free for students.",
   },
-  // {
-  //   q: "Can I download notes?",
-  //   a: "Yes, you can download or view directly.",
-  // },
   {
-    q: "Can I contribute?",
-    a: "Yes, contact us via email.",
+    q: "Can I download study resources?",
+    a: "Yes. Supported resources can be downloaded for offline study or viewed directly on Knowlet.",
+  },
+  {
+    q: "What kind of study materials are available?",
+    a: "Knowlet provides notes, previous year questions, important questions, and other study resources.",
+  },
+  {
+    q: "Can I access Knowlet anytime?",
+    a: "Yes. Knowlet is available online anytime, so you can study whenever you need.",
+  },
+  {
+    q: "Do I need an account to access resources?",
+    a: "You can browse and view resources without an account. Some features may require you to sign in.",
   },
 ];
 

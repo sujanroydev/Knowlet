@@ -57,10 +57,10 @@ export default function AboutPage() {
           </h2>
 
           <p className="leading-relaxed text-slate-700">
-            Knowlet is an independent web-based learning platform designed
-            primarily for students. It provides a structured place to discover,
-            organize, read, and work with academic resources such as notes,
-            previous-year questions, important questions, and study materials.
+            Knowlet is an independent web-based learning platform designed primarily
+            for students. It provides a structured place to discover, organize, read,
+            download, and work with academic resources such as notes, previous-year
+            questions, important questions, and study materials.
           </p>
 
           <p className="mt-4 leading-relaxed text-slate-700">
@@ -77,10 +77,10 @@ export default function AboutPage() {
           </h2>
 
           <p className="leading-relaxed text-slate-700">
-            Knowlet aims to make academic resources easier to access and
-            understand. Instead of forcing students to search through scattered
-            files, messages, websites, and folders, Knowlet organizes learning
-            resources into a structured academic system.
+            Knowlet aims to make academic resources easier to discover, access,
+            download, and understand. Instead of forcing students to search through
+            scattered files, messages, websites, and folders, Knowlet organizes
+            learning resources into a structured academic system.
           </p>
 
           <p className="mt-4 leading-relaxed text-slate-700">
@@ -120,6 +120,7 @@ export default function AboutPage() {
             <li>Access previous-year question papers and solutions.</li>
             <li>Find important questions for revision and preparation.</li>
             <li>Navigate resources through levels, subjects, papers, and units.</li>
+            <li>Download study resources for offline access.</li>
             <li>Bookmark useful resources for quick access later.</li>
             <li>Read learning content through a focused reading experience.</li>
             <li>Use AI-powered tools to study, explain, summarize, and work with content.</li>

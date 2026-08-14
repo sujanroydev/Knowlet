@@ -34,26 +34,14 @@ export default function ChatHistoryPopup({
               Recent Chats
             </h2>
 
-            <div className="flex items-center gap-1">
-              {/* New Chat */}
-              <button
-                type="button"
-                className="flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs font-medium text-blue-600 transition hover:bg-blue-50"
-              >
-                <Plus size={15} />
-                New Chat
-              </button>
-
-              {/* Close */}
-              <button
-                type="button"
-                onClick={onClose}
-                aria-label="Close chat history"
-                className="rounded-md p-1.5 text-gray-500 transition hover:bg-gray-100 hover:text-gray-900"
-              >
-                <X size={17} />
-              </button>
-            </div>
+            <button
+              type="button"
+              onClick={onClose}
+              aria-label="Close chat history"
+              className="rounded-md p-1.5 text-gray-500 transition hover:bg-gray-100 hover:text-gray-900"
+            >
+              <X size={17} />
+            </button>
           </header>
 
           {/* Chats */}

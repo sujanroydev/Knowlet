@@ -15,7 +15,7 @@ export default function NexusMessage({
 }) {
   const { onMessageClick } = useKnowva();
 
-  const isUser = message.sender === "user";
+  const isUser = message.role === "user";
 
   return (
     <div
@@ -27,7 +27,7 @@ export default function NexusMessage({
       }`}
     >
       <ReactMarkdown remarkPlugins={[remarkGfm]}>
-        {message.text}
+        {message.content}
       </ReactMarkdown>
 
       <div className="mt-2 flex items-center justify-end gap-2 text-[10px] opacity-70">
@@ -43,7 +43,7 @@ export default function NexusMessage({
           </button>
         )}
 
-        <span>{message.time}</span>
+        <span>{message.created_at}</span>
       </div>
     </div>
   );

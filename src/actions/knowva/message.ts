@@ -7,8 +7,8 @@ import {
   fetchMessages as _fetchMessages,
 } from "@/db/knowva/message";
 
-export async function saveMessage(message: Message, chatId: string, parentId: string, model: string) {
-  return await _saveMessage(message, chatId, parentId, model);
+export async function saveMessage(message: Message) {
+  return await _saveMessage(message);
 }
 
 export async function fetchMessages(chatId: string) {

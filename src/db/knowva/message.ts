@@ -3,23 +3,29 @@ import { supabase } from "@/lib/supabase";
 import type { Message, Mode } from "@/types/knowva";
 import { updateLastMessageTime } from "@/db/knowva/chat";
 
-export async function saveMessage(message: Message, chatId: string, parentId: string, model: string) {
+const messageSelect = `
+  id,
+  chat_id,
+  parent_id,
+  role,
+  content,
+  mode,
+  model,
+  created_at
+`;
+
+export async function saveMessage(message: Message) {
+  delete message.created_at;
   const { data, error } = await supabase
     .from("knowva_messages")
-    .insert({
-      chat_id: chatId,
-      parent_id: parentId || null,
-      role: message.sender,
-      content: message.text,
-      model: model
-    })
-    .select()
+    .insert(message)
+    .select(messageSelect)
     .maybeSingle();
 
   if (error) throw error;
   if (!data) throw new Error("no data returned");
 
-  void updateLastMessageTime(chatId).catch((error) => {
+  void updateLastMessageTime(message.chat_id).catch((error) => {
     console.error("Failed to update chat activity:", error);
   });
 
@@ -29,17 +35,11 @@ export async function saveMessage(message: Message, chatId: string, parentId: st
 export async function fetchMessages(chatId: string) {
   const { data, error } = await supabase
     .from("knowva_messages")
-    .select("id, parent_id, role, content, created_at")
+    .select(messageSelect)
     .eq("chat_id", chatId)
     .order("created_at", { ascending: true });
 
   if (error) throw error;
 
-  return data.map(d => ({
-    id: d.id,
-    sender: d.role,
-    text: d.content,
-    mode: "normal" as Mode,
-    time: d.created_at,
-  }));
+  return data;
 }

@@ -7,7 +7,6 @@ import { useState, useEffect } from "react";
 import NexusInput from "@/components/nexus/NexusInput";
 import NexusChat from "@/components/nexus/NexusChat";
 import NexusToolbar from "@/components/nexus/NexusToolbar";
-import type { Message, Mode } from "@/types/knowva";
 import { ModelSelector } from "@/components/nexus/ModelSelector";
 import ChatHistoryPopup from "./ChatHistoryPopup";
 import { useChatActions } from "@/hooks/knowva/useChatActions";

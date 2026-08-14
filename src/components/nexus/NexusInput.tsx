@@ -46,10 +46,13 @@ export default function NexusInput() {
       }
 
       const userMessage = {
-        sender: "user",
-        text,
+        chat_id: currentChatId,
+        parent_id: currentParentId,
+        role: "user",
+        content: text,
         mode,
-        time: new Date().toLocaleTimeString(),
+        model,
+        created_at: new Date().toLocaleTimeString(),
       };
 
       setMessages((prev) => [...prev, userMessage]);
@@ -57,12 +60,7 @@ export default function NexusInput() {
       setText("");
       setIsResponding(true);
 
-      const { id: userMessageId } = await saveMessage(
-        userMessage,
-        currentChatId,
-        currentParentId,
-        model
-      );
+      const { id: userMessageId } = await saveMessage(userMessage);
 
       currentParentId = userMessageId;
 
@@ -82,45 +80,41 @@ export default function NexusInput() {
       if (!success) throw new Error("Failed");
 
       const knowvaMessage = {
-        sender: "assistant",
-        text: data as string || "No response",
+        chat_id: currentChatId,
+        parent_id: currentParentId,
+        role: "assistant",
+        content: data as string || "No Response",
         mode,
-        time: new Date().toLocaleTimeString(),
+        model,
+        created_at: new Date().toLocaleTimeString(),
       };
 
       setMessages((prev) => [...prev, knowvaMessage]);
 
-      const { id: knowvaMessageId } = await saveMessage(
-        knowvaMessage,
-        currentChatId,
-        currentParentId,
-        model
-      );
+      const { id: knowvaMessageId } = await saveMessage(knowvaMessage);
 
       currentParentId = knowvaMessageId;
       setParentId(currentParentId);
     } catch (err) {
       let systemMessage = {
-        sender: "system",
-        text: "Request failed",
+        chat_id: currentChatId,
+        parent_id: currentParentId,
+        role: "system",
+        content: "Request failed",
         mode,
-        time: new Date().toLocaleTimeString(),
+        model,
+        created_at: new Date().toLocaleTimeString(),
       };
 
       if (err instanceof DOMException && err.name === "AbortError") {
-        systemMessage.text = "Stopped";
+        systemMessage.content = "Stopped";
       }
 
       setMessages(prev => [...prev, systemMessage]);
       setText(currentText);
 
       if (currentChatId && currentParentId) {
-        const { id: messageId } = await saveMessage(
-          systemMessage,
-          currentChatId,
-          currentParentId,
-          model
-        );
+        const { id: messageId } = await saveMessage(systemMessage);
         setParentId(messageId);
       }
     } finally {

@@ -1,20 +1,26 @@
 export type Mode = "chat" | "quiz" | "study" | "short" | "explain" | "create-resource";
-export type Sender = "user" | "knowva" | "system";
+export type Role = "user" | "knowva" | "system";
 
 export interface Message {
   id?: string;
-  sender: string;
-  text: string;
+  chat_id: string;
+  parent_id?: string;
+  role: string;
+  content: string;
   mode: Mode;
-  time: string;
+  model: string;
+  // tokens?: string;
+  created_at?: string;
 }
 
 export interface Chat {
   id: string;
+  // user_id: string;
   title: string;
-  mode?: string;
   pinned: boolean;
   archived: boolean;
   created_at: string;
-  last_message_at?: string;
+  // updated_at?: string;
+  // deleted_at?: string;
+  last_message_at: string;
 }

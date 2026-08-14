@@ -8,7 +8,7 @@ export default function ContactCTA() {
       </p>
 
       <a
-        href="mailto:knowlet.study@gmail.com"
+        href="mailto:knowlet.official@gmail.com"
         className="inline-block bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition"
       >
         Contact Us

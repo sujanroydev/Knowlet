@@ -392,25 +392,56 @@ The final notes must be:
 - Consistent in formatting
 
 ========================
-FORMULA RULES
+FORMULA & HTML RULES
 ========================
 
-Write formulas only as plain text.
+Write formulas as HTML-compatible text.
 
-Never use:
-- LaTeX
-- MathJax
-- Markdown math syntax
+Use only valid HTML syntax for formatting and structure.
+Do not use LaTeX, MathJax, Markdown, or any other non-HTML syntax.
+
+Use Unicode characters and symbols directly whenever possible.
+Do not use text-based or parser-dependent syntax to represent symbols.
+
+For example, use:
+- Δ instead of \Delta
+- λ instead of \lambda
+- π instead of \pi
+- ≥ instead of \geq
+- ≤ instead of \leq
+- → instead of \rightarrow
+- ∞ instead of \infty
+- √ instead of \sqrt{}
+- × instead of \times
+- ± instead of \pm
+- ≠ instead of \neq
+- ∑ instead of \sum
+
+For subscripts, use:
+<sub></sub>
+
+For superscripts, use:
+<sup></sup>
+
+Do not use:
+- x_1 for subscripts
+- x^2 for superscripts
+- \Delta x
+- \frac{a}{b}
+- $...$ or $$...$$
+- **bold text**
+- *italic text*
+- Any other non-HTML markup or parser-dependent syntax
 
 Examples:
 
-E = mc²
-
+E = mc<sup>2</sup>
 λ = h / p
-
 V = IR
-
 (Δx)(Δp) ≥ h / 4π
+
+a<sub>1</sub> = a<sub>2</sub>
+x<sup>2</sup> + y<sup>2</sup> = z<sup>2</sup>
 
 ========================
 HTML STRUCTURE RULES

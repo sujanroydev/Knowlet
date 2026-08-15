@@ -1,13 +1,13 @@
 "use server";
 
-import type { Message, Mode } from "@/types/knowva";
+import type { Message, NewMessage, Mode } from "@/types/knowva";
 
 import {
   saveMessage as _saveMessage,
   fetchMessages as _fetchMessages,
 } from "@/db/knowva/message";
 
-export async function saveMessage(message: Message) {
+export async function saveMessage(message: NewMessage) {
   return await _saveMessage(message);
 }
 

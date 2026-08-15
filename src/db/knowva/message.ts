@@ -1,6 +1,6 @@
 import { supabase } from "@/lib/supabase";
 
-import type { Message, Mode } from "@/types/knowva";
+import type { Message, NewMessage, Mode } from "@/types/knowva";
 import { updateLastMessageTime } from "@/db/knowva/chat";
 
 const messageSelect = `
@@ -14,8 +14,8 @@ const messageSelect = `
   created_at
 `;
 
-export async function saveMessage(message: Message) {
-  delete message.created_at;
+export async function saveMessage(message: NewMessage) {
+  console.log("New Message :", message)
   const { data, error } = await supabase
     .from("knowva_messages")
     .insert(message)

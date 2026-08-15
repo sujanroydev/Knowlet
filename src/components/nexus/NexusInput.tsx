@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import { ArrowUp, Square } from "lucide-react";
-import type { Message, Mode } from "@/types/knowva";
+import type { Message, NewMessage, Mode } from "@/types/knowva";
 import { useKnowva } from "@/context/KnowvaContext";
 import { newChat, saveMessage, renameChat, generateChatTitle } from "@/actions/knowva";
 
@@ -30,7 +30,7 @@ export default function NexusInput() {
     if (!text.trim() || isResponding) return;
 
     let currentChatId = chatId;
-    let currentParentId = parentId;
+    let currentParentId = parentId || null;
     const currentText = text;
     const isNewChat = !chatId;
 
@@ -45,24 +45,21 @@ export default function NexusInput() {
         setChatId(currentChatId);
       }
 
-      const userMessage = {
+      const userMessage = await saveMessage({
         chat_id: currentChatId,
         parent_id: currentParentId,
         role: "user",
         content: text,
         mode,
         model,
-        created_at: new Date().toISOString(),
-      };
+      });
 
       setMessages((prev) => [...prev, userMessage]);
 
       setText("");
       setIsResponding(true);
 
-      const { id: userMessageId } = await saveMessage(userMessage);
-
-      currentParentId = userMessageId;
+      currentParentId = userMessage.id;
 
       if (signal.aborted) {
         throw new DOMException("Aborted", "AbortError");
@@ -77,45 +74,51 @@ export default function NexusInput() {
 
       const { success, type, data, retryAfter } = await res.json();
 
-      if (!success) throw new Error("Failed");
+      if (!success && type === "rate_limit") throw new Error(data);
+      if (!success) throw new Error("Response Failed");
 
-      const knowvaMessage = {
+      const knowvaMessage = await saveMessage({
         chat_id: currentChatId,
         parent_id: currentParentId,
         role: "assistant",
         content: data as string || "No Response",
         mode,
         model,
-        created_at: new Date().toISOString(),
-      };
+      });
 
       setMessages((prev) => [...prev, knowvaMessage]);
 
-      const { id: knowvaMessageId } = await saveMessage(knowvaMessage);
-
-      currentParentId = knowvaMessageId;
+      currentParentId = knowvaMessage.id;
       setParentId(currentParentId);
     } catch (err) {
-      let systemMessage = {
-        chat_id: currentChatId,
-        parent_id: currentParentId,
-        role: "system",
-        content: "Request failed",
-        mode,
-        model,
-        created_at: new Date().toISOString(),
-      };
+      const isAbort =
+        err instanceof DOMException && err.name === "AbortError";
 
-      if (err instanceof DOMException && err.name === "AbortError") {
-        systemMessage.content = "Stopped";
+      const errorMessage = isAbort
+        ? "Stopped"
+        : err instanceof Error
+          ? err.message
+          : "Something went wrong";
+
+      if (!isAbort && currentChatId) {
+        const systemMessage = await saveMessage({
+          chat_id: currentChatId,
+          parent_id: currentParentId,
+          role: "system",
+          content: errorMessage,
+          mode,
+          model,
+        });
+
+        setMessages((prev) => [...prev, systemMessage]);
+
+        setParentId(systemMessage.id);
       }
 
-      setMessages(prev => [...prev, systemMessage]);
       setText(currentText);
 
-      if (currentChatId && currentParentId) {
-        const { id: messageId } = await saveMessage(systemMessage);
-        setParentId(messageId);
+      if (!isAbort) {
+        console.error("Nexus request failed:", err);
       }
     } finally {
       abortController.current = null;

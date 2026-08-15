@@ -52,7 +52,7 @@ export default function NexusInput() {
         content: text,
         mode,
         model,
-        created_at: new Date().toLocaleTimeString(),
+        created_at: new Date().toISOString(),
       };
 
       setMessages((prev) => [...prev, userMessage]);
@@ -86,7 +86,7 @@ export default function NexusInput() {
         content: data as string || "No Response",
         mode,
         model,
-        created_at: new Date().toLocaleTimeString(),
+        created_at: new Date().toISOString(),
       };
 
       setMessages((prev) => [...prev, knowvaMessage]);
@@ -103,7 +103,7 @@ export default function NexusInput() {
         content: "Request failed",
         mode,
         model,
-        created_at: new Date().toLocaleTimeString(),
+        created_at: new Date().toISOString(),
       };
 
       if (err instanceof DOMException && err.name === "AbortError") {

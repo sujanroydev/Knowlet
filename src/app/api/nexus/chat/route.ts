@@ -6,14 +6,12 @@ import { extractMemories } from "@/services/knowva";
 import { createMemories, getMemories } from "@/db/knowva/memory";
 import { fetchMessages } from "@/db/knowva/message";
 
-import { MODELS } from "@/config/ai";
-
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_AI_API_KEY!);
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { text, mode, model: userSelectedModel, difficulty = "medium", chatId } = body;
+    const { text, mode, model: selectedModel, chatId } = body;
 
     if (!text) {
       return new Response(
@@ -36,17 +34,12 @@ export async function POST(req: NextRequest) {
       }
     })();
 
-    const randomNumber = (n: number) => Math.floor(Math.random() * (n));
-    const selectedModel = userSelectedModel === "auto" || !userSelectedModel
-      ? MODELS[mode === "create-resource" ? 0 : 3].value // randomNumber(2) : 3 + randomNumber(2)].value;
-      : userSelectedModel;
-
     const model = genAI.getGenerativeModel({ model: selectedModel });
 
     let prompt = "";
 
     if (["quiz", "study", "short", "explain", "create-resource"].includes(mode)) {
-      prompt = generatePrompt(mode, difficulty, text);
+      prompt = generatePrompt(mode, text);
     } else {
       let userMemories = "";
       let recentConversation = "";
@@ -66,7 +59,7 @@ export async function POST(req: NextRequest) {
 
       messages.pop();
       recentConversation = messages
-        .map(message => `${message.sender}: ${message.text}`)
+        .map(message => `${message.role}: ${message.content}`)
         .join("\n");
 
       prompt = defaultPrompt(text, userMemories, recentConversation, conversationSummary);
@@ -194,14 +187,14 @@ ${userQuery}
 Respond to the current user message.
 `;
 }
-function generatePrompt(mode: string, difficulty: string, text: string): string {
+function generatePrompt(mode: string, text: string): string {
   let prompt = "";
   switch (mode) {
     case "quiz":
       prompt = `
 You are a quiz generator for Knowlet.
 
-Create 5 ${difficulty}-level multiple-choice questions (MCQs) from the given student notes.
+Create 5 multiple-choice questions (MCQs) from the given student notes.
 
 STRICT RULES:
 - Output MUST be valid JSON

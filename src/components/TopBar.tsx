@@ -21,7 +21,6 @@ import { useAuth } from "@/context/AuthContext";
 import { useHeader } from "@/context/HeaderContext";
 import ProfileMenu from "./profile/ProfileMenu";
 import { useReader } from "@/context/ReaderContext";
-import { useKnowva } from "@/context/KnowvaContext";
 import { useDrawer } from "@/context/DrawerContext";
 import { ParsedPath } from "@/types/resource";
 import { useChatActions } from "@/hooks/knowva/useChatActions";
@@ -45,7 +44,6 @@ export default function TopBar() {
     parsePath,
     resourceId,
   } = useReader();
-  const { model, setModel } = useKnowva();
   const { setOpen: setOpenDrawer } = useDrawer();
   const { createNewChat } = useChatActions();
 
@@ -230,7 +228,7 @@ export default function TopBar() {
         {mode === "knowva" && (
           <div className="flex w-full items-center">
             <div className="flex flex-1 justify-start">
-              <ModelSelector model={model} setModel={setModel} />
+              <ModelSelector />
             </div>
 
             <div className="flex flex-1 justify-center">

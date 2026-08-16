@@ -1,24 +1,46 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Bot, Send, X } from "lucide-react";
-import { useState } from "react";
+import { Bot, Send, X, History, SquarePen } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+
 import NexusInput from "@/components/nexus/NexusInput";
 import NexusChat from "@/components/nexus/NexusChat";
 import NexusToolbar from "@/components/nexus/NexusToolbar";
-import type { Message, Mode } from "@/types/knowva";
 import { ModelSelector } from "@/components/nexus/ModelSelector";
-import { useKnowva } from "@/context/KnowvaContext";
+import ChatHistoryPopup from "./ChatHistoryPopup";
+import { useChatActions } from "@/hooks/knowva/useChatActions";
 
 export default function AIAssistant() {
   const [open, setOpen] = useState(false);
-  const [mode, setMode] = useState<Mode>("normal");
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [showHistory, setShowHistory] = useState(false);
 
-  const { model, setModel } = useKnowva();
+  const { createNewChat } = useChatActions()
+
+  const assistantRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const handleOutsideClick = (event: PointerEvent) => {
+      if (
+        assistantRef.current &&
+        !assistantRef.current.contains(event.target as Node)
+      ) {
+        setOpen(false);
+        setShowHistory(false);
+      }
+    };
+
+    document.addEventListener("pointerdown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("pointerdown", handleOutsideClick);
+    };
+  }, [open]);
 
   return (
-    <>
+    <div ref={assistantRef}>
       {/* Floating Button */}
       <button
         onClick={() => setOpen((prev) => !prev)}
@@ -39,7 +61,7 @@ export default function AIAssistant() {
             className="fixed right-6 bottom-38 z-50 flex h-[400px] w-[350px] flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-2xl"
           >
             {/* Header */}
-            <div className="flex items-center justify-between border-b border-gray-200 px-4 py-3">
+            <header className="flex items-center justify-between border-b border-gray-200 px-4 py-3">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-white">
                   <Bot size={20} />
@@ -50,30 +72,40 @@ export default function AIAssistant() {
                   <p className="text-xs text-green-600">Online</p>
                 </div>
 
-                <ModelSelector model={model} setModel={setModel} />
+                <ModelSelector />
               </div>
 
-              <button
-                onClick={() => setOpen(false)}
-                className="rounded-md p-2 hover:bg-gray-100"
-              >
-                <X size={18} />
-              </button>
-            </div>
+              {/* Right */}
+              <div className="flex items-center gap-1">
+                <button
+                  onClick={() => createNewChat()}
+                  className="flex items-center gap-1 rounded-lg px-3 py-1.5 text-sm font-medium"
+                >
+                  <SquarePen className="w-4 h-4" />
+                </button>
 
-            <NexusChat messages={messages} />
+                <button
+                  type="button"
+                  onClick={() => setShowHistory((prev) => !prev)}
+                  className="rounded-md p-2 transition hover:bg-gray-100"
+                  aria-label="Chat history"
+                >
+                  <History size={18} />
+                </button>
+              </div>
+            </header>
 
-            <NexusToolbar mode={mode} setMode={setMode} />
-
-            <NexusInput
-              mode={mode}
-              setMessages={setMessages}
-              messages={messages}
-              model={model}
+            <ChatHistoryPopup
+              open={showHistory}
+              onClose={() => setShowHistory(false)}
             />
+
+            <NexusChat />
+            <NexusToolbar />
+            <NexusInput />
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </div>
   );
 }

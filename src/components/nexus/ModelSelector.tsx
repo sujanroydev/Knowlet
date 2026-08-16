@@ -2,19 +2,16 @@ import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Crown } from "lucide-react";
 import { toast } from "sonner";
 
-import { useAuth } from "@/context/AuthContext";
 import { MODELS } from "@/config/ai";
+import { useAuth } from "@/context/AuthContext";
+import { useKnowva } from "@/context/KnowvaContext";
 
-type Props = {
-  model: string;
-  setModel: React.Dispatch<React.SetStateAction<string>>;
-};
-
-export function ModelSelector({ model, setModel }: Props) {
+export function ModelSelector() {
   const [open, setOpen] = useState(false);
   const selectorRef = useRef<HTMLDivElement>(null);
 
   const { user } = useAuth();
+  const { model, setModel } = useKnowva();
 
   useEffect(() => {
     function handleOutsideClick(event: PointerEvent) {

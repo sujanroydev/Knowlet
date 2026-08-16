@@ -7,6 +7,7 @@ import Download from "@/components/home/Download";
 import ContactCTA from "@/components/home/ContactCTA";
 import Footer from "@/components/home/Footer";
 import OpenLibraryFull from "@/components/home/OpenLibraryFull";
+import AIAssistant from "@/components/nexus/AIAssistant";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <Download />
       <ContactCTA />
       <Footer />
+      <AIAssistant />
     </div>
   );
 }

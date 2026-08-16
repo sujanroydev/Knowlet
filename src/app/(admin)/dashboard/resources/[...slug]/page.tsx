@@ -41,6 +41,7 @@ export default async function Page({
     return (
       <ResourceEditorProvider action={action} resource={resource} >
         <ResourceEditor />
+        <AIAssistant />
       </ResourceEditorProvider>
     );
   }

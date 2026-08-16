@@ -4,7 +4,6 @@ import { Chat } from "@/types/knowva";
 const chatSelect = `
   id,
   title,
-  mode,
   pinned,
   archived,
   created_at,
@@ -12,15 +11,13 @@ const chatSelect = `
 `;
 
 export async function newChat(
-  userId: string,
-  mode = "chat"
+  userId: string
 ) {
   const { data, error } = await supabase
     .from("knowva_chats")
     .insert({
       user_id: userId,
       title: "Untitled Chat",
-      mode,
     })
     .select(chatSelect)
     .maybeSingle();

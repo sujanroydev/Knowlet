@@ -1,15 +1,16 @@
 "use client";
 
+import { useEffect, useMemo, useState } from "react";
+import { toast } from "sonner";
+
 import HtmlEditor from "./html-editor";
 import ResourcePreview from "./resource-preview";
 import ResourceActions from "./resource-actions";
 import ResourceDetails from "./resource-details";
-import { useEffect, useMemo, useState } from "react";
 import { Resource } from "@/types/resource";
 import { useResourceEditor } from "@/context/ResourceEditorContext";
 import { useKnowva } from "@/context/KnowvaContext";
 import type { Message } from "@/types/knowva";
-import { toast } from "sonner";
 
 export default function ResourceEditor() {
   const [newResource, setNewResource] = useState<Resource>();
@@ -21,9 +22,9 @@ export default function ResourceEditor() {
 
   useEffect(() => {
     setOnMessageClick(() => (message: Message) => {
-      if (message.sender !== "user" && message.mode === "create-resource") {
+      if (message.role !== "user" && message.mode === "create-resource") {
         try {
-          const parsed = JSON.parse(message.text);
+          const parsed = JSON.parse(message.content);
 
           setContent(parsed.resource);
           setDetails({

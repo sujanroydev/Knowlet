@@ -2,39 +2,35 @@
 
 import { useState, useRef } from "react";
 import { ArrowUp, Square } from "lucide-react";
-import type { Message, Mode } from "@/types/knowva";
+import type { Message, NewMessage, Mode } from "@/types/knowva";
 import { useKnowva } from "@/context/KnowvaContext";
 import { newChat, saveMessage, renameChat, generateChatTitle } from "@/actions/knowva";
 
-export default function NexusInput({
-  mode,
-  model = "auto",
-  messages,
-  setMessages,
-}: {
-  mode: Mode;
-  model: string;
-  messages: Message[];
-  setMessages: React.Dispatch<React.SetStateAction<Message[]>>;
-}) {
+export default function NexusInput() {
   const [text, setText] = useState("");
-  const [loading, setLoading] = useState(false);
 
   const {
     chatId,
     parentId,
+    mode,
+    model,
+    messages,
+    isResponding,
+
     setChatId,
     setParentId,
     setChats,
+    setMessages,
+    setIsResponding,
   } = useKnowva();
 
   const abortController = useRef<AbortController | null>(null);
 
   const send = async () => {
-    if (!text.trim() || loading) return;
+    if (!text.trim() || isResponding) return;
 
     let currentChatId = chatId;
-    let currentParentId = parentId;
+    let currentParentId = parentId || null;
     const currentText = text;
     const isNewChat = !chatId;
 
@@ -49,26 +45,21 @@ export default function NexusInput({
         setChatId(currentChatId);
       }
 
-      const userMessage = {
-        sender: "user",
-        text,
+      const userMessage = await saveMessage({
+        chat_id: currentChatId,
+        parent_id: currentParentId,
+        role: "user",
+        content: text,
         mode,
-        time: new Date().toLocaleTimeString(),
-      };
+        model,
+      });
 
       setMessages((prev) => [...prev, userMessage]);
 
       setText("");
-      setLoading(true);
+      setIsResponding(true);
 
-      const { id: userMessageId } = await saveMessage(
-        userMessage,
-        currentChatId,
-        currentParentId,
-        model
-      );
-
-      currentParentId = userMessageId;
+      currentParentId = userMessage.id;
 
       if (signal.aborted) {
         throw new DOMException("Aborted", "AbortError");
@@ -83,53 +74,55 @@ export default function NexusInput({
 
       const { success, type, data, retryAfter } = await res.json();
 
-      if (!success) throw new Error("Failed");
+      if (!success && type === "rate_limit") throw new Error(data);
+      if (!success) throw new Error("Response Failed");
 
-      const knowvaMessage = {
-        sender: "assistant",
-        text: data as string || "No response",
+      const knowvaMessage = await saveMessage({
+        chat_id: currentChatId,
+        parent_id: currentParentId,
+        role: "assistant",
+        content: data as string || "No Response",
         mode,
-        time: new Date().toLocaleTimeString(),
-      };
+        model,
+      });
 
       setMessages((prev) => [...prev, knowvaMessage]);
 
-      const { id: knowvaMessageId } = await saveMessage(
-        knowvaMessage,
-        currentChatId,
-        currentParentId,
-        model
-      );
-
-      currentParentId = knowvaMessageId;
+      currentParentId = knowvaMessage.id;
       setParentId(currentParentId);
     } catch (err) {
-      let systemMessage = {
-        sender: "system",
-        text: "Request failed",
-        mode,
-        time: new Date().toLocaleTimeString(),
-      };
+      const isAbort =
+        err instanceof DOMException && err.name === "AbortError";
 
-      if (err instanceof DOMException && err.name === "AbortError") {
-        systemMessage.text = "Stopped";
+      const errorMessage = isAbort
+        ? "Stopped"
+        : err instanceof Error
+          ? err.message
+          : "Something went wrong";
+
+      if (!isAbort && currentChatId) {
+        const systemMessage = await saveMessage({
+          chat_id: currentChatId,
+          parent_id: currentParentId,
+          role: "system",
+          content: errorMessage,
+          mode,
+          model,
+        });
+
+        setMessages((prev) => [...prev, systemMessage]);
+
+        setParentId(systemMessage.id);
       }
 
-      setMessages(prev => [...prev, systemMessage]);
       setText(currentText);
 
-      if (currentChatId && currentParentId) {
-        const { id: messageId } = await saveMessage(
-          systemMessage,
-          currentChatId,
-          currentParentId,
-          model
-        );
-        setParentId(messageId);
+      if (!isAbort) {
+        console.error("Nexus request failed:", err);
       }
     } finally {
       abortController.current = null;
-      setLoading(false);
+      setIsResponding(false);
       if (isNewChat && currentChatId) {
         void updateChatTitle(currentChatId, currentText);
       }
@@ -139,7 +132,7 @@ export default function NexusInput({
   const stop = () => {
     abortController.current?.abort();
     abortController.current = null;
-    setLoading(false);
+    setIsResponding(false);
   };
 
   const updateChatTitle = async (chatId: string, message: string) => {
@@ -164,10 +157,10 @@ export default function NexusInput({
       />
 
       <button
-        onClick={loading ? stop : send}
+        onClick={isResponding ? stop : send}
         className="px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
       >
-        {loading
+        {isResponding
           ? <Square size={18} />
           : <ArrowUp size={18} />
         }

@@ -3,6 +3,7 @@
 import { useDrawer } from "@/context/DrawerContext";
 import { useKnowva } from "@/context/KnowvaContext";
 import {
+  fetchChats,
   fetchMessages,
   pinChat,
   archiveChat,

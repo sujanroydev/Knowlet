@@ -99,16 +99,7 @@ export async function GET(
             text-align: center;
             white-space: nowrap;
           ">
-            Learn • Understand • Grow —
-            <a
-              href="${resource.path}"
-              style="
-                color: #64748b;
-                text-decoration: none;
-              "
-            >
-              View on Knowlet
-            </a>
+            Learn • Understand • Grow — Knowlet · knowlet.in
           </span>
 
           <!-- Right: Page number -->

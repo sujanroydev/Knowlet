@@ -53,20 +53,12 @@ export function createResourcePdfHtml(resource: Resource) {
       </head>
 
       <body>
-        <div class="pdf-header">
-          Knowledge grows when you keep learning.
-        </div>
-
         <article
           class="resource-content"
           style="${variables}"
         >
           ${resource.content || ""}
         </article>
-
-        <div class="pdf-footer">
-          Learn • Understand • Grow — Knowlet · knowlet.in
-        </div>
       </body>
     </html>
   `;

@@ -36,13 +36,48 @@ export async function GET(
     const page = await browser.newPage();
 
     await page.setContent(html, {
-      waitUntil: "load", // remove
+      waitUntil: "load",
     });
 
     const pdf = await page.pdf({
       format: "A4",
       printBackground: true,
       preferCSSPageSize: true,
+      displayHeaderFooter: true,
+
+      margin: {
+        top: "20mm",
+        bottom: "20mm",
+        left: "15mm",
+        right: "15mm",
+      },
+
+      headerTemplate: `
+        <div style="
+          width: 100%;
+          text-align: center;
+          font-size: 10px;
+          color: #64748b;
+          font-family: Arial, Helvetica, sans-serif;
+          font-style: italic;
+        ">
+          Knowledge grows when you keep learning.
+        </div>
+      `,
+
+      footerTemplate: `
+        <div style="
+          width: 100%;
+          text-align: center;
+          font-size: 9px;
+          color: #94a3b8;
+          font-family: Arial, Helvetica, sans-serif;
+        ">
+          Learn • Understand • Grow — Knowlet · knowlet.in
+          &nbsp; • &nbsp;
+          Page <span class="pageNumber"></span> of <span class="totalPages"></span>
+        </div>
+      `,
     });
 
     void createDownload(id, payload.user_id).catch((error) => {

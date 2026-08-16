@@ -74,23 +74,30 @@ export async function GET(
       footerTemplate: `
         <div style="
           width: 100%;
-          position: relative;
+          padding: 0 15mm;
+          box-sizing: border-box;
           font-size: 9px;
+          line-height: 1;
           color: #94a3b8;
           font-family: Arial, Helvetica, sans-serif;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
         ">
           <!-- Left: Download date -->
           <span style="
-            position: absolute;
-            left: 15mm;
+            flex: 1;
+            text-align: left;
+            white-space: nowrap;
           ">
             Downloaded: ${downloadDate}
           </span>
 
           <!-- Center -->
           <span style="
-            display: block;
+            flex: 1;
             text-align: center;
+            white-space: nowrap;
           ">
             Learn • Understand • Grow —
             <a
@@ -106,8 +113,9 @@ export async function GET(
 
           <!-- Right: Page number -->
           <span style="
-            position: absolute;
-            right: 15mm;
+            flex: 1;
+            text-align: right;
+            white-space: nowrap;
           ">
             Page <span class="pageNumber"></span> of <span class="totalPages"></span>
           </span>

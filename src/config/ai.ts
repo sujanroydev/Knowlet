@@ -10,10 +10,9 @@ export const AI_MODELS = {
 
 export type ModelId = (typeof AI_MODELS)[keyof typeof AI_MODELS];
 
-export type ModelOption = ModelId | "auto";
+export type ModelOption = ModelId;
 
 export const MODELS = [
-  { label: "Auto", value: "auto", premium: false },
   {
     label: "Gemini 3.6 Flash",
     value: AI_MODELS.GEMINI_3_6_FLASH,

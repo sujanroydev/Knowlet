@@ -15,6 +15,8 @@ import type {
   Mode,
 } from "@/types/knowva";
 
+import { DEFAULT_MODEL } from "@/config/ai";
+
 type OnMessageClick = (message: Message) => void;
 
 interface KnowvaState {
@@ -50,7 +52,7 @@ export function KnowvaProvider({
   const [chatId, setChatId] = useState<string | null>(null);
   const [parentId, setParentId] = useState<string | null>(null);
   const [mode, setMode] = useState<Mode>("chat");
-  const [model, setModel] = useState<string>("auto");
+  const [model, setModel] = useState<string>(DEFAULT_MODEL);
 
   const [chats, setChats] = useState<Chat[]>([]);
   const [messages, setMessages] = useState<Message[]>([]);

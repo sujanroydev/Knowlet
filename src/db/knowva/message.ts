@@ -15,7 +15,6 @@ const messageSelect = `
 `;
 
 export async function saveMessage(message: NewMessage) {
-  console.log("New Message :", message)
   const { data, error } = await supabase
     .from("knowva_messages")
     .insert(message)

@@ -6,14 +6,12 @@ import { extractMemories } from "@/services/knowva";
 import { createMemories, getMemories } from "@/db/knowva/memory";
 import { fetchMessages } from "@/db/knowva/message";
 
-import { MODELS } from "@/config/ai";
-
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_AI_API_KEY!);
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { text, mode, model: userSelectedModel, chatId } = body;
+    const { text, mode, model: selectedModel, chatId } = body;
 
     if (!text) {
       return new Response(
@@ -35,11 +33,6 @@ export async function POST(req: NextRequest) {
         console.error("Memory extraction failed:", error);
       }
     })();
-
-    const randomNumber = (n: number) => Math.floor(Math.random() * (n));
-    const selectedModel = userSelectedModel === "auto" || !userSelectedModel
-      ? MODELS[mode === "create-resource" ? 0 : 3].value // randomNumber(2) : 3 + randomNumber(2)].value;
-      : userSelectedModel;
 
     const model = genAI.getGenerativeModel({ model: selectedModel });
 

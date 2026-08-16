@@ -39,6 +39,12 @@ export async function GET(
       waitUntil: "load",
     });
 
+    const downloadDate = new Intl.DateTimeFormat("en-IN", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    }).format(new Date());
+
     const pdf = await page.pdf({
       format: "A4",
       printBackground: true,
@@ -72,19 +78,33 @@ export async function GET(
           font-size: 9px;
           color: #94a3b8;
           font-family: Arial, Helvetica, sans-serif;
-          text-align: center;
         ">
-          Learn • Understand • Grow —
-          <a
-            href="https://knowlet.in"
-            style="
-              color: #64748b;
-              text-decoration: none;
-            "
-          >
-            Knowlet
-          </a>
+          <!-- Left: Download date -->
+          <span style="
+            position: absolute;
+            left: 15mm;
+          ">
+            Downloaded: ${downloadDate}
+          </span>
 
+          <!-- Center -->
+          <span style="
+            display: block;
+            text-align: center;
+          ">
+            Learn • Understand • Grow —
+            <a
+              href="${resource.path}"
+              style="
+                color: #64748b;
+                text-decoration: none;
+              "
+            >
+              View on Knowlet
+            </a>
+          </span>
+
+          <!-- Right: Page number -->
           <span style="
             position: absolute;
             right: 15mm;

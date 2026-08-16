@@ -15,6 +15,31 @@ body {
   background: white;
 }
 
+/* PDF Header */
+.pdf-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  text-align: center;
+  font-size: 10px;
+  color: #64748b;
+  font-style: italic;
+}
+
+/* PDF Footer */
+.pdf-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  text-align: center;
+  font-size: 9px;
+  color: #94a3b8;
+}
+
 .resource-pdf {
   width: 100%;
 }

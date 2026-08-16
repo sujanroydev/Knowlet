@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { Bot, Send, X, History, SquarePen } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import NexusInput from "@/components/nexus/NexusInput";
 import NexusChat from "@/components/nexus/NexusChat";
@@ -17,8 +17,30 @@ export default function AIAssistant() {
 
   const { createNewChat } = useChatActions()
 
+  const assistantRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const handleOutsideClick = (event: PointerEvent) => {
+      if (
+        assistantRef.current &&
+        !assistantRef.current.contains(event.target as Node)
+      ) {
+        setOpen(false);
+        setShowHistory(false);
+      }
+    };
+
+    document.addEventListener("pointerdown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("pointerdown", handleOutsideClick);
+    };
+  }, [open]);
+
   return (
-    <>
+    <div ref={assistantRef}>
       {/* Floating Button */}
       <button
         onClick={() => setOpen((prev) => !prev)}
@@ -84,6 +106,6 @@ export default function AIAssistant() {
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </div>
   );
 }

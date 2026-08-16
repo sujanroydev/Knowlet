@@ -68,14 +68,29 @@ export async function GET(
       footerTemplate: `
         <div style="
           width: 100%;
-          text-align: center;
+          position: relative;
           font-size: 9px;
           color: #94a3b8;
           font-family: Arial, Helvetica, sans-serif;
+          text-align: center;
         ">
-          Learn • Understand • Grow — Knowlet · knowlet.in
-          &nbsp; • &nbsp;
-          Page <span class="pageNumber"></span> of <span class="totalPages"></span>
+          Learn • Understand • Grow —
+          <a
+            href="https://knowlet.in"
+            style="
+              color: #64748b;
+              text-decoration: none;
+            "
+          >
+            Knowlet
+          </a>
+
+          <span style="
+            position: absolute;
+            right: 15mm;
+          ">
+            Page <span class="pageNumber"></span> of <span class="totalPages"></span>
+          </span>
         </div>
       `,
     });

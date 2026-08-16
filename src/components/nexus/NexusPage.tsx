@@ -7,15 +7,12 @@ import NexusToolbar from "./NexusToolbar";
 import type { Message, Mode } from "@/types/knowva";
 import { useHeader } from "@/context/HeaderContext";
 import KnowvaDrawer from "@/components/nexus/KnowvaDrawer";
-import { useChatActions } from "@/hooks/knowva/useChatActions";
 
 export default function NexusPage() {
   const { setMode: setTopBarMode } = useHeader();
-  const { loadChats } = useChatActions();
 
   useEffect(() => {
     setTopBarMode("knowva");
-    loadChats();
 
     return () => {
       setTopBarMode("home");

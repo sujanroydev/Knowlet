@@ -15,11 +15,7 @@ export default function AIAssistant() {
   const [open, setOpen] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
 
-  const { loadChats, createNewChat } = useChatActions()
-
-  useEffect(() => {
-    loadChats();
-  }, []);
+  const { createNewChat } = useChatActions()
 
   return (
     <>

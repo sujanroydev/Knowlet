@@ -20,11 +20,6 @@ export function useChatActions() {
     setParentId,
   } = useKnowva();
 
-  async function loadChats() {
-    const featcedChats = await fetchChats();
-    setChats(featcedChats || []);
-  }
-
   async function loadChat(chatId: string) {
     const messages = await fetchMessages(chatId);
 
@@ -70,7 +65,6 @@ export function useChatActions() {
   };
 
   return {
-    loadChats,
     loadChat,
     createNewChat,
     pinChatAction,

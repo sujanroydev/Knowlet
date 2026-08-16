@@ -4,6 +4,7 @@ import {
   createContext,
   useContext,
   useState,
+  useEffect,
   type Dispatch,
   type ReactNode,
   type SetStateAction,
@@ -16,6 +17,7 @@ import type {
 } from "@/types/knowva";
 
 import { DEFAULT_MODEL } from "@/config/ai";
+import { fetchChats } from "@/actions/knowva";
 
 type OnMessageClick = (message: Message) => void;
 
@@ -58,6 +60,13 @@ export function KnowvaProvider({
   const [messages, setMessages] = useState<Message[]>([]);
 
   const [onMessageClick, setOnMessageClick] = useState<OnMessageClick>();
+
+  useEffect(() => {
+    void (async () => {
+      const featcedChats = await fetchChats();
+      setChats(featcedChats || []);
+    })();
+  }, []);
 
   return (
     <KnowvaContext.Provider

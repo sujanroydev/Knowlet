@@ -1,9 +1,11 @@
 "use client";
 
-import ListPageLayout from "@/components/layout/ListPageLayout";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { TailSpin } from "react-loader-spinner";
+import Link from "next/link";
+
+import ListPageLayout from "@/components/layout/ListPageLayout";
 
 type History = {
   id: string;
@@ -74,7 +76,7 @@ export default function HistoryPage() {
               key={item.id}
               className="p-4 border border-amber-200 rounded-xl hover:scale-[1.02] hover:shadow-md transition"
             >
-              <a href={"library/" + item.resource.path} className="block">
+              <Link href={"library/" + item.resource.path} className="block">
                 <h3 className="text-amber-700 font-semibold hover:text-amber-500">
                   {item.resource.title}
                 </h3>
@@ -82,7 +84,7 @@ export default function HistoryPage() {
                 <p className="mt-1 text-xs text-gray-500">
                   Viewed on {new Date(item.created_at).toLocaleString()}
                 </p>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

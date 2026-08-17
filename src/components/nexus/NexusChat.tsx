@@ -25,7 +25,7 @@ export default function NexusChat() {
         <p className="text-center text-gray-400 mt-10">
           {user
             ? `Hello, ${user.name}`
-            : "Login to use Knowlet Nexus"}
+            : "Login to use Knowlet Knowva"}
         </p>
       )}
 

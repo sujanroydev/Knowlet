@@ -18,6 +18,7 @@ import type {
 
 import { DEFAULT_MODEL } from "@/config/ai";
 import { fetchChats } from "@/actions/knowva";
+import { useAuth } from "@/context/AuthContext";
 
 type OnMessageClick = (message: Message) => void;
 
@@ -61,8 +62,11 @@ export function KnowvaProvider({
 
   const [onMessageClick, setOnMessageClick] = useState<OnMessageClick>();
 
+  const { user } = useAuth();
+
   useEffect(() => {
     void (async () => {
+      if (!user || !user.email) return;
       const featcedChats = await fetchChats();
       setChats(featcedChats || []);
     })();

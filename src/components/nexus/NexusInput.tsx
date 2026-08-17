@@ -2,8 +2,11 @@
 
 import { useState, useRef } from "react";
 import { ArrowUp, Square } from "lucide-react";
+import { toast } from "sonner";
+
 import type { Message, NewMessage, Mode } from "@/types/knowva";
 import { useKnowva } from "@/context/KnowvaContext";
+import { useAuth } from "@/context/AuthContext";
 import { newChat, saveMessage, renameChat, generateChatTitle } from "@/actions/knowva";
 
 export default function NexusInput() {
@@ -23,6 +26,7 @@ export default function NexusInput() {
     setMessages,
     setIsResponding,
   } = useKnowva();
+  const { user } = useAuth();
 
   const abortController = useRef<AbortController | null>(null);
 
@@ -38,6 +42,11 @@ export default function NexusInput() {
     const signal = abortController.current.signal;
 
     try {
+      if (!user || !user.email) {
+        toast.info("Signin is required to use AI Features");
+        return;
+      }
+
       if (!currentChatId) {
         const chat = await newChat();
         if (!chat) throw new Error("Failed to create chat");

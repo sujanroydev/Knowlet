@@ -15,6 +15,35 @@ export async function createUserNotifications(
   if (error) throw error;
 }
 
+export async function getUserNotifications(
+  userId: string,
+) {
+  const { data, error } = await supabase
+    .from("user_notifications")
+    .select(
+      `
+        id,
+        is_read,
+        read_at,
+        created_at,
+        notifications (
+          id,
+          title,
+          body,
+          icon,
+          action_url,
+          created_at
+        )
+      `,
+    )
+    .eq("user_id", userId)
+    .order("created_at", { ascending: false });
+
+  if (error) throw error;
+
+  return data;
+}
+
 export async function markNotificationAsRead(
   userId: string,
   notificationId: string,

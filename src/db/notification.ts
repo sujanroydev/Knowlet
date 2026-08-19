@@ -21,6 +21,17 @@ export async function createNotification(notification: {
   return data;
 }
 
+export async function getAllNotifications() {
+  const { data, error } = await supabase
+    .from("notifications")
+    .select("*")
+    .order("created_at", { ascending: false });
+
+  if (error) throw error;
+
+  return data;
+}
+
 export async function updateNotificationStats(
   notificationId: string,
   notificationStats: {

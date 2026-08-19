@@ -13,6 +13,17 @@ export async function getPushSubscriptionsByUserId(userIds:string | string[]) {
   return data;
 }
 
+export async function getAllPushSubscriptions() {
+  const { data, error } = await supabase
+    .from("push_subscriptions")
+    .select("id, user_id, endpoint, auth, p256dh")
+    .eq("is_active", true);
+
+  if (error) throw error;
+
+  return data;
+}
+
 export async function deactivatePushSubscription(subscriptionId: string) {
   const { error } = await supabase
     .from("push_subscriptions")

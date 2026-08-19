@@ -27,6 +27,16 @@ export async function createUser(newUser: {
   return data;
 }
 
+export async function getUserAllEmails() {
+  const { data, error } = await supabase
+    .from("users")
+    .select("email");
+
+  if (error) throw error;
+
+  return data.map((d) => d.email);
+}
+
 export async function uploadAvatar(
   filePath: string,
   image: File,

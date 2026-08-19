@@ -1,19 +1,16 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextRequest } from "next/server";
+
 import { authGate } from "@/lib/auth/authGate";
 import { generatePrompt } from "@/services/knowva/prompts";
 import { buildDefaultPrompt } from "@/services/knowva/prompts/default";
-
-import { extractMemories } from "@/services/knowva";
+import { generate, extractMemories } from "@/services/knowva";
 import { createMemories, getMemories } from "@/db/knowva/memory";
 import { fetchMessages } from "@/db/knowva/message";
-
-const genAI = new GoogleGenerativeAI(process.env.GOOGLE_AI_API_KEY!);
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { text, mode, model: selectedModel, chatId } = body;
+    const { text, mode, model, chatId } = body;
 
     if (!text) {
       return new Response(
@@ -35,8 +32,6 @@ export async function POST(req: NextRequest) {
         console.error("Memory extraction failed:", error);
       }
     })();
-
-    const model = genAI.getGenerativeModel({ model: selectedModel });
 
     let prompt = "";
 
@@ -67,32 +62,12 @@ export async function POST(req: NextRequest) {
       prompt = buildDefaultPrompt(text, userMemories, recentConversation, conversationSummary);
     }
 
-    let raw = "";
+    let raw = await generate({ prompt, model });
 
-    for (let attempt = 0; attempt < 3; attempt++) {
-      const result = await model.generateContent(prompt);
-      const response = await result.response;
-      raw = response.text();
-
-      if (mode === "quiz" || mode === "create-resource") {
-        try {
-          const cleaned = cleanJSON(raw);
-          const parsed = JSON.parse(cleaned);
-          raw = JSON.stringify(parsed);
-          break;
-        } catch (err) {
-          if (attempt === 2) {
-            return new Response(
-              JSON.stringify({
-                success: false,
-                error: "Invalid AI response after retries",
-                raw,
-              }),
-              { status: 500, headers: corsHeaders() },
-            );
-          }
-        }
-      } else break;
+    if (mode === "quiz" || mode === "create-resource") {
+      const cleaned = cleanJSON(raw);
+      const parsed = JSON.parse(cleaned);
+      raw = JSON.stringify(parsed);
     }
 
     return new Response(
@@ -122,7 +97,6 @@ export async function POST(req: NextRequest) {
     return new Response(
       JSON.stringify({
         success: false,
-        errObj: err,
         error: "Something went wrong. Please try again.",
       }),
       { status: 500, headers: corsHeaders() },

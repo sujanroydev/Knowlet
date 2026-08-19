@@ -1,4 +1,4 @@
-function buildDefaultPrompt(
+export function buildDefaultPrompt(
   userQuery: string,
   userMemories?: string,
   recentConversation?: string,

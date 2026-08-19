@@ -1,6 +1,8 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextRequest } from "next/server";
 import { authGate } from "@/lib/auth/authGate";
+import { generatePrompt } from "@/services/knowva/prompts";
+import { buildDefaultPrompt } from "@/services/knowva/prompts/default";
 
 import { extractMemories } from "@/services/knowva";
 import { createMemories, getMemories } from "@/db/knowva/memory";
@@ -38,7 +40,7 @@ export async function POST(req: NextRequest) {
 
     let prompt = "";
 
-    if (["quiz", "study", "short", "explain", "create-resource"].includes(mode)) {
+    if (["quiz", "short", "explain", "create-resource"].includes(mode)) {
       prompt = generatePrompt(mode, text);
     } else {
       let userMemories = "";
@@ -62,7 +64,7 @@ export async function POST(req: NextRequest) {
         .map(message => `${message.role}: ${message.content}`)
         .join("\n");
 
-      prompt = defaultPrompt(text, userMemories, recentConversation, conversationSummary);
+      prompt = buildDefaultPrompt(text, userMemories, recentConversation, conversationSummary);
     }
 
     let raw = "";

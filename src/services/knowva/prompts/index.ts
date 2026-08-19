@@ -6,9 +6,6 @@ import { buildCreateResourcePrompt } from "./create-resource";
 
 export function generatePrompt(mode: string, input: string): string {
   switch (mode) {
-    case "chat":
-      return buildDefaultPrompt(input);
-
     case "quiz":
       return buildQuizPrompt(input);
 

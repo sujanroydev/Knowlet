@@ -1,4 +1,4 @@
-import { supabase } from "@/lib/supabase";
+import { getSitemapResources } from "@/db/resource";
 import type { MetadataRoute } from "next";
 
 const baseUrl = "https://knowlet.in";
@@ -50,13 +50,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  const { data, error } = await supabase.rpc("get_sitemap_resources");
-  const resources = data as { path: string; updated_at: string }[];
-
-  if (error) {
+  const resources = await getSitemapResources().catch((error) => {
     console.error("Sitemap Error:", error.message);
-    return staticPages;
-  }
+    return [];
+  });
 
   const resourcePages: MetadataRoute.Sitemap =
     resources?.map((resource) => ({

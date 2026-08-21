@@ -1,6 +1,7 @@
-import { authGate } from "@/lib/auth/authGate";
-import { supabase } from "@/lib/supabase";
 import { NextRequest, NextResponse } from "next/server";
+
+import { authGate } from "@/lib/auth/authGate";
+import { getResourceCounts, getUserResourceState } from "@/db/resource";
 
 export async function POST(req: NextRequest) {
   try {
@@ -17,24 +18,12 @@ export async function POST(req: NextRequest) {
     if (!ok || !payload) return res;
 
     const [counts, userState] = await Promise.all([
-      supabase.rpc("get_resource_counts", { res_id: resource_id }),
-      payload?.user_id
-        ? supabase.rpc("get_user_states", {
-            res_id: resource_id,
-            uid: payload?.user_id,
-          })
-        : Promise.resolve({ data: null, error: null }),
+      getResourceCounts(resource_id),
+      getUserResourceState(resource_id, payload.user_id),
     ]);
 
-    if (counts.error || userState.error) {
-      return NextResponse.json(
-        { error: counts.error || userState.error },
-        { status: 500 },
-      );
-    }
-
     return NextResponse.json({
-      data: { ...(counts.data ?? {}), ...(userState.data ?? {}) },
+      data: { ...(counts ?? {}), ...(userState ?? {}) },
     });
   } catch (error) {
     return NextResponse.json({ error }, { status: 500 });

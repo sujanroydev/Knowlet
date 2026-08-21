@@ -109,6 +109,38 @@ export async function getRecentlyPublishedResources() {
   return data;
 }
 
+export async function getResourceCounts(resourceId: string) {
+  const { data, error } = await supabase.rpc("get_resource_counts", {
+    res_id: resourceId,
+  });
+
+  if (error) throw error;
+
+  return data;
+}
+
+export async function getUserResourceState(
+  resourceId: string,
+  userId: string,
+) {
+  const { data, error } = await supabase.rpc("get_user_states", {
+    res_id: resourceId,
+    uid: userId,
+  });
+
+  if (error) throw error;
+
+  return data;
+}
+
+export async function getSitemapResources() {
+  const { data, error } = await supabase.rpc("get_sitemap_resources");
+
+  if (error) throw error;
+
+  return data as { path: string; updated_at: string }[];
+}
+
 export async function searchResources(conditions: string) {
   const { data, error } = await supabase
     .from("resources")

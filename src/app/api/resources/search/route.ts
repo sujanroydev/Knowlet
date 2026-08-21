@@ -1,5 +1,6 @@
-import { supabase } from "@/lib/supabase";
 import { NextRequest, NextResponse } from "next/server";
+
+import { searchResources } from "@/db/resource";
 
 function tokenize(text: string) {
   return text
@@ -99,12 +100,7 @@ export async function GET(req: NextRequest) {
       ];
     });
 
-    const { data, error } = await supabase
-      .from("resources")
-      .select("id,title,description,path")
-      .or(conditions.join(","));
-
-    if (error) throw error;
+    const data = await searchResources(conditions.join(","));
 
     const ranked = (data ?? [])
       .map((resource) => ({

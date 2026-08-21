@@ -1,5 +1,7 @@
 import { supabase } from "@/lib/supabase";
 
+const resourceSelect = "id, title, description, slug, path";
+
 export async function insertResource(newResource: {
   level_id: string;
   subject_id: string;
@@ -26,7 +28,7 @@ export async function insertResource(newResource: {
 export async function getResources() {
   const { data, error } = await supabase
     .from("resources")
-    .select("id, title, description, slug, path");
+    .select(resourceSelect);
 
   if (error) throw error;
 
@@ -105,4 +107,15 @@ export async function getRecentlyPublishedResources() {
   if (error) throw error;
 
   return data;
+}
+
+export async function searchResources(conditions: string) {
+  const { data, error } = await supabase
+    .from("resources")
+    .select(resourceSelect)
+    .or(conditions);
+
+  if (error) throw error;
+
+  return data ?? [];
 }

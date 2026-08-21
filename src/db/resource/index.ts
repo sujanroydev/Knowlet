@@ -90,3 +90,19 @@ export async function updateResource(
 
   return data;
 }
+
+export async function getMostVisitedResources() {
+  const { data, error } = await supabase.rpc("get_most_visited_resources");
+
+  if (error) throw error;
+
+  return data;
+}
+
+export async function getRecentlyPublishedResources() {
+  const { data, error } = await supabase.rpc("get_recently_published_resources");
+
+  if (error) throw error;
+
+  return data;
+}

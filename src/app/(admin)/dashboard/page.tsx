@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Bell, BookOpen, Clock3, Eye, Mail, Plus } from "lucide-react";
 
-import { supabase } from "@/lib/supabase";
+import { getMostVisitedResources, getRecentlyPublishedResources } from "@/db/resource";
 import { Resource } from "@/schemas/resource";
 
 type ResourceCardProps = {
@@ -193,13 +193,30 @@ function ActionCard({ href, category, title, icon }: ActionCardProps) {
 }
 
 export default async function DashboardPage() {
-  const [
-    { data: mostVisitedResources, error: mostVisitedResourcesError },
-    { data: recentResources, error: recentResourcesError },
-  ] = await Promise.all([
-    supabase.rpc("get_most_visited_resources"),
-    supabase.rpc("get_recently_published_resources"),
+  const [mostVisitedResult, recentResult] = await Promise.allSettled([
+    getMostVisitedResources(),
+    getRecentlyPublishedResources(),
   ]);
+
+  const mostVisitedResources =
+    mostVisitedResult.status === "fulfilled"
+      ? mostVisitedResult.value
+      : [];
+
+  const mostVisitedResourcesError =
+    mostVisitedResult.status === "rejected"
+      ? mostVisitedResult.reason
+      : null;
+
+  const recentResources =
+    recentResult.status === "fulfilled"
+      ? recentResult.value
+      : [];
+
+  const recentResourcesError =
+    recentResult.status === "rejected"
+      ? recentResult.reason
+      : null;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 p-4 md:p-6">

@@ -1,26 +1,19 @@
-import { supabase } from "@/lib/supabase";
+import { getUserLikesCount } from "@/db/user/like";
+import { getUserBookmarksCount } from "@/db/user/bookmark";
+import { getUserViewHistoryCount } from "@/db/user/history";
 import StatsBlock from "./Block";
 
 export default async function ActivityBlock({ userId }: { userId: string }) {
-  const [likes, bookmarks, history] = await Promise.all([
-    supabase
-      .from("likes")
-      .select("*", { count: "exact", head: true })
-      .eq("user_id", userId),
-    supabase
-      .from("bookmarks")
-      .select("*", { count: "exact", head: true })
-      .eq("user_id", userId),
-    supabase
-      .from("view_history")
-      .select("*", { count: "exact", head: true })
-      .eq("user_id", userId),
+  const [likesCount, bookmarksCount, historyCount] = await Promise.all([
+    getUserLikesCount(userId),
+    getUserBookmarksCount(userId),
+    getUserViewHistoryCount(userId),
   ]);
 
   let stats = [
-    { label: "Likes", value: likes.count },
-    { label: "Bookmarks", value: bookmarks.count },
-    { label: "History", value: history.count },
+    { label: "Likes", value: likesCount },
+    { label: "Bookmarks", value: bookmarksCount },
+    { label: "History", value: historyCount },
   ];
 
   return (

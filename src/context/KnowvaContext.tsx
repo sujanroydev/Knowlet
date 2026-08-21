@@ -70,7 +70,7 @@ export function KnowvaProvider({
       const featcedChats = await fetchChats();
       setChats(featcedChats || []);
     })();
-  }, []);
+  }, [user]);
 
   return (
     <KnowvaContext.Provider

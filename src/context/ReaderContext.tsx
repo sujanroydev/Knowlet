@@ -106,6 +106,17 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
 
     const target = pathParts[pathParts.length - 1];
 
+    if (!target) {
+      return {
+        currentPath,
+        prevPath: null,
+        nextPath: null,
+        target: "",
+        prevTarget: null,
+        nextTarget: null,
+      };
+    }
+
     let prevTarget: string | null = target
       .split("-")
       .map((part, index) => (index === 1 ? Number(part) - 1 : part))

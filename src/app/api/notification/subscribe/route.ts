@@ -1,7 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 
 import { authGate } from "@/lib/auth/authGate";
-import { supabase } from "@/lib/supabase";
+
+import {
+  deactivatePushSubscriptionByEndpoint,
+  upsertPushSubscription
+} from "@/db/pushSubscription";
 
 export async function POST(req: NextRequest) {
   try {
@@ -17,19 +21,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { error } = await supabase.from("push_subscriptions").upsert(
-      {
-        user_id: payload?.user_id ?? null,
-        endpoint: subscription.endpoint,
-        p256dh: subscription.keys.p256dh,
-        auth: subscription.keys.auth,
-        is_active: true,
-        updated_at: new Date().toISOString(),
-      },
-      { onConflict: "endpoint" },
-    );
-
-    if (error) throw new Error("Database Error");
+    await upsertPushSubscription(subscription, payload.user_id);
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (err) {
@@ -54,15 +46,7 @@ export async function PATCH(req: NextRequest) {
       );
     }
 
-    const { error } = await supabase
-      .from("push_subscriptions")
-      .update({
-        is_active: false,
-        updated_at: new Date().toISOString(),
-      })
-      .eq("endpoint", subscription.endpoint);
-
-    if (error) throw new Error("Database Error");
+    await deactivatePushSubscriptionByEndpoint(subscription.endpoint);
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (err) {

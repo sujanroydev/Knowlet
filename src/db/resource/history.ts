@@ -21,3 +21,15 @@ export async function getRecentViewHistory(
 
   return data;
 }
+
+export async function addViewHistory(
+  userId: string,
+  resourceId: string,
+) {
+  const { error } = await supabase.rpc("add_view_history", {
+    p_user_id: userId,
+    p_resource_id: resourceId,
+  });
+
+  if (error) throw error;
+}

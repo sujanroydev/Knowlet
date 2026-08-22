@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
 
 import { apiError } from "@/lib/api-response";
-import { supabase } from "@/lib/supabase";
+import { getUserAllEmails } from "@/db/user";
 import { sendEmail } from "@/services/email/send";
 import { educationalDetailsUpdateReminderTemplate } from "@/services/email/templates/educational-details-update-reminder";
 
@@ -13,14 +13,7 @@ export async function POST(req: NextRequest) {
       return Response.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const { data, error } = await supabase.from("users").select("email");
-
-    if (error) throw error;
-
-    const userEmails =
-      process.env.NODE_ENV === "production"
-        ? (data.map((i) => i.email) as string[])
-        : ["mr.sujan.kumar.roy@gmail.com"];
+    const userEmails = await getUserAllEmails();
 
     const batches = [];
     for (let i = 0; i < userEmails.length; i += 50) {

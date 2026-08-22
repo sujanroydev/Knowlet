@@ -50,6 +50,19 @@ export async function getBookmark(userId: string, resourceId: string) {
   return data;
 }
 
+export async function getUserBookmarksCount(
+  userId: string
+) {
+  const { count, error } = await supabase
+    .from("bookmarks")
+    .select("*", { count: "exact", head: true })
+    .eq("user_id", userId);
+
+  if (error) throw error;
+
+  return count ?? 0;
+}
+
 export async function deleteBookmark(userId: string, resourceId: string) {
   const { data, error } = await supabase
     .from("bookmarks")

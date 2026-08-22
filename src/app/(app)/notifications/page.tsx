@@ -1,15 +1,17 @@
-import { supabase } from "@/lib/supabase";
 import { cookies } from "next/headers";
-import { verifyUser } from "@/lib/auth";
-import NotificationClient from "./notification-client";
 import { Lock, UserX } from "lucide-react";
+
+import { verifyUser } from "@/lib/auth";
+import { getUserNotifications } from "@/db/user/notification";
+import { getPushSubscriptionsByUserId } from "@/db/pushSubscription";
+import NotificationClient from "./notification-client";
 import AuthErrorScreen from "@/app/api/auth/AuthErrorScreen";
 
 export default async function NotificationsPage() {
   const token = (await cookies()).get("token")?.value;
   const { ok, payload, reason } = await verifyUser(token);
 
-  if (!ok) {
+  if (!ok || !payload) {
     switch (reason) {
       case "INACTIVE":
         return (
@@ -43,46 +45,15 @@ export default async function NotificationsPage() {
     }
   }
 
-  const [notificationsRes, subscriptionsRes] = await Promise.all([
-    supabase
-      .from("user_notifications")
-      .select(
-        `
-      id,
-      is_read,
-      read_at,
-      created_at,
-      notifications (
-        id,
-        title,
-        body,
-        icon,
-        action_url,
-        created_at
-      )
-    `,
-      )
-      .eq("user_id", payload?.user_id)
-      .order("created_at", { ascending: false }),
-
-    supabase.from("push_subscriptions").select().eq("user_id", payload?.user_id),
+  const [notifications, subscriptions] = await Promise.all([
+    getUserNotifications(payload.user_id),
+    getPushSubscriptionsByUserId(payload.user_id),
   ]);
-
-  if (notificationsRes.error) {
-    console.error("Notifications Error:", notificationsRes.error);
-  }
-
-  if (subscriptionsRes.error) {
-    console.error("Subscriptions Error:", subscriptionsRes.error);
-  }
-
-  const notifications = notificationsRes.data || [];
-  const userSubscriptions = subscriptionsRes.data || [];
 
   return (
     <NotificationClient
       notifications={notifications || []}
-      user_subscriptions={userSubscriptions || []}
+      user_subscriptions={subscriptions || []}
     />
   );
 }

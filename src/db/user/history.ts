@@ -24,6 +24,19 @@ export async function getHistory(userId: string) {
   return data;
 }
 
+export async function getUserViewHistoryCount(
+  userId: string
+) {
+  const { count, error } = await supabase
+    .from("view_history")
+    .select("*", { count: "exact", head: true })
+    .eq("user_id", userId);
+
+  if (error) throw error;
+
+  return count ?? 0;
+}
+
 export async function getHistoryPaths(userId: string) {
   const { data, error } = await supabase
     .from("view_history")

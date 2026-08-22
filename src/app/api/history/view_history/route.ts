@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { supabase } from "@/lib/supabase";
+import { addViewHistory } from "@/db/resource/history";
 import { getHistory } from "@/db/user/history";
 import { authGate } from "@/lib/auth/authGate";
 
@@ -18,16 +18,7 @@ export async function POST(req: NextRequest) {
     const { ok, res, payload } = await authGate(req, "jwt");
     if (!ok || !payload) return res;
 
-    const { error } = await supabase.rpc("add_view_history", {
-      p_user_id: payload.user_id,
-      p_resource_id: resource_id,
-    });
-
-    if (error)
-      return NextResponse.json(
-        { error: { message: error.message } },
-        { status: 500 },
-      );
+    await addViewHistory(payload.user_id, resource_id);
 
     return NextResponse.json({ success: true });
   } catch (error) {

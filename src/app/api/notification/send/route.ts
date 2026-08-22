@@ -1,8 +1,9 @@
+import { NextRequest, NextResponse } from "next/server";
+
 import { authGate } from "@/lib/auth/authGate";
-import { supabase } from "@/lib/supabase";
+import { getAllPushSubscriptions } from "@/db/pushSubscription";
 import { sendNotification } from "@/services/notification/send";
 import { Options, Subscription } from "@/services/notification/send/types";
-import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {
@@ -12,12 +13,7 @@ export async function POST(req: NextRequest) {
     const { ok, res, payload: admin } = await authGate(req, "admin");
     if (!ok || !admin) return res;
 
-    const { data, error } = await supabase
-      .from("push_subscriptions")
-      .select("id, user_id, endpoint, auth, p256dh")
-      .eq("is_active", true);
-
-    if (error) throw error;
+    const data = await getAllPushSubscriptions();
 
     const options: Options = {
       body: body || undefined,

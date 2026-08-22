@@ -1,16 +1,11 @@
 import { notFound } from "next/navigation";
 
-import { supabase } from "@/lib/supabase";
 import Header from "./Header";
 import Main from "./Main";
 import sortByPath from "@/utils/sortByPath";
+import { getLibraryData } from "@/db/library";
 
-type SelectQuery =
-  | "*, subjects(title, description, path)"
-  | "*, papers(title, description, path)"
-  | "*, resources(title, description, path)";
-
-type Table = "levels" | "subjects" | "papers" | "resources";
+const tables = ["levels", "subjects", "papers", "resources"];
 
 export default async function Navigator({
   slug,
@@ -19,52 +14,7 @@ export default async function Navigator({
   slug?: string[];
   variant?: "home" | "library";
 }) {
-  const tables = ["levels", "subjects", "papers", "resources"];
-  const depth = !slug ? 0 : slug.length - 1;
-
-  const currentTable = tables[depth] as Table;
-  const nextTable = tables[depth + 1] as Table;
-
-  let academicPattern: "semester" | "class" | null = slug
-    ? slug[0].startsWith("semester")
-      ? "semester"
-      : slug[0].startsWith("class")
-        ? "class"
-        : null
-    : null;
-
-  let query;
-  let special = false;
-
-  if (slug) {
-    if (academicPattern === "semester" && slug.length >= 3) {
-      // "/library/semester-1/physics/idc-101"
-      query = supabase
-        .from("resources")
-        .select("title, description, path, type, target")
-        .like("path", `${slug.join("/")}%`);
-      special = true;
-    } else if (academicPattern === "class" && slug.length >= 2) {
-      // "/library/class-11/physics"
-      query = supabase
-        .from("resources")
-        .select("title, description, path, type, target")
-        .like("path", `${slug.join("/")}%`);
-      special = true;
-    } else {
-      // "/library/semester-1/physics"
-      // "/library/semester-1"
-      query = supabase
-        .from(currentTable)
-        .select(`*, ${nextTable}(title, description, path)` as SelectQuery)
-        .eq("path", slug?.join("/"));
-    }
-  } else {
-    // "/library"
-    query = supabase
-      .from(currentTable)
-      .select(`*, ${nextTable}(title, description, path)` as SelectQuery);
-  }
+  const { query, nextTable, special } = getLibraryData(slug);
 
   const { data, error } = await query;
 
@@ -72,10 +22,14 @@ export default async function Navigator({
     if (variant === "home") {
       return (
         <div className="flex min-h-[300px] items-center justify-center">
-          <p className="text-2xl font-semibold text-red-500">Failed to load</p>
+          <p className="text-2xl font-semibold text-red-500">
+            Failed to load
+          </p>
         </div>
       );
-    } else return notFound();
+    }
+
+    return notFound();
   }
 
   const title = slug
@@ -83,13 +37,15 @@ export default async function Navigator({
       ? "Resources"
       : data[0].title || tables[slug.length - 1]
     : "Semesters";
+
   const subtitle = slug
     ? special
-      ? `Open any resource to start reading.`
+      ? "Open any resource to start reading."
       : data[0].description ||
         `Open any ${tables[slug.length].slice(0, -1)} to view more.`
     : "Open any semester to view more.";
-  const path = slug ? slug : [];
+
+  const path = slug ?? [];
 
   const items = !slug || special ? data : data[0]?.[nextTable];
 
@@ -98,7 +54,8 @@ export default async function Navigator({
       {variant !== "home" && (
         <Header title={title} subtitle={subtitle} path={path} />
       )}
-      <Main items={sortByPath(items)} special={!!special} />
+
+      <Main items={sortByPath(items)} special={special} />
     </>
   );
 }

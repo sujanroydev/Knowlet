@@ -203,7 +203,7 @@ Secure OTP reset flow support.
 ## 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/your-username/knowlet.git
+git clone https://github.com/sujanroydev/knowlet.git
 ```
 
 ---

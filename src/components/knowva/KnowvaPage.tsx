@@ -1,14 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import NexusInput from "./NexusInput";
-import NexusChat from "./NexusChat";
-import NexusToolbar from "./NexusToolbar";
+import KnowvaInput from "./KnowvaInput";
+import KnowvaChat from "./KnowvaChat";
+import KnowvaToolbar from "./KnowvaToolbar";
 import type { Message, Mode } from "@/types/knowva";
 import { useHeader } from "@/context/HeaderContext";
-import KnowvaDrawer from "@/components/nexus/KnowvaDrawer";
+import KnowvaDrawer from "@/components/knowva/KnowvaDrawer";
 
-export default function NexusPage() {
+export default function KnowvaPage() {
   const { setMode: setTopBarMode } = useHeader();
 
   useEffect(() => {
@@ -22,9 +22,9 @@ export default function NexusPage() {
   return (
     <div className="h-full flex items-center justify-center bg-gray-100">
       <div className="w-full max-w-3xl h-full flex flex-col border border-gray-200 rounded-xl bg-white shadow-sm">
-        <NexusChat />
-        <NexusToolbar />
-        <NexusInput />
+        <KnowvaChat />
+        <KnowvaToolbar />
+        <KnowvaInput />
 
         <KnowvaDrawer />
       </div>

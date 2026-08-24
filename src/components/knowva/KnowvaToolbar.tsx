@@ -5,11 +5,16 @@ import { usePathname } from "next/navigation";
 import { Mode } from "@/types/knowva";
 import { useKnowva } from "@/context/KnowvaContext";
 
-export default function NexusToolbar() {
+export default function KnowvaToolbar() {
   const pathname = usePathname();
   const { mode, setMode } = useKnowva();
 
-  const modes: Mode[] = ["study", "short", "explain", ...(pathname.endsWith("create") ? (["create-resource"] as Mode[]) : []),];
+  const modes: Mode[] = [
+    "study",
+    "short",
+    "explain",
+    ...(pathname.endsWith("create") ? (["create-resource"] as Mode[]) : []),
+  ];
 
   return (
     <div className="flex gap-2 px-2 py-2 overflow-x-auto whitespace-nowrap border-t border-gray-200 bg-white">

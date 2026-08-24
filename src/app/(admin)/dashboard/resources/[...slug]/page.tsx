@@ -1,5 +1,5 @@
 import ResourceEditor from "@/components/dashboard/resources/editor";
-import AIAssistant from "@/components/nexus/AIAssistant";
+import AIAssistant from "@/components/knowva/AIAssistant";
 import { getResourceById } from "@/db/resource";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -39,7 +39,7 @@ export default async function Page({
     if (!resource) notFound();
 
     return (
-      <ResourceEditorProvider action={action} resource={resource} >
+      <ResourceEditorProvider action={action} resource={resource}>
         <ResourceEditor />
         <AIAssistant />
       </ResourceEditorProvider>
@@ -47,7 +47,7 @@ export default async function Page({
   }
 
   return (
-    <ResourceEditorProvider action="create" >
+    <ResourceEditorProvider action="create">
       <ResourceEditor />
       <AIAssistant />
     </ResourceEditorProvider>

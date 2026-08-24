@@ -6,9 +6,9 @@ import remarkGfm from "remark-gfm";
 import { useKnowva } from "@/context/KnowvaContext";
 import type { Message } from "@/types/knowva";
 
-export default function NexusMessage({
+export default function KnowvaMessage({
   message,
-  messagesRef
+  messagesRef,
 }: {
   message: Message;
   messagesRef?: Ref<HTMLDivElement>;
@@ -29,7 +29,7 @@ export default function NexusMessage({
       </ReactMarkdown>
 
       <div className="mt-2 flex items-center justify-end gap-2 text-[10px] opacity-70">
-        {(message.mode === "create-resource" && message.role === "assistant") && (
+        {message.mode === "create-resource" && message.role === "assistant" && (
           <button
             type="button"
             onClick={() => onMessageClick?.(message)}

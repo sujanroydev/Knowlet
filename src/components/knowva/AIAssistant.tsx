@@ -4,10 +4,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Bot, Send, X, History, SquarePen } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 
-import NexusInput from "@/components/nexus/NexusInput";
-import NexusChat from "@/components/nexus/NexusChat";
-import NexusToolbar from "@/components/nexus/NexusToolbar";
-import { ModelSelector } from "@/components/nexus/ModelSelector";
+import KnowvaInput from "@/components/knowva/KnowvaInput";
+import KnowvaChat from "@/components/knowva/KnowvaChat";
+import KnowvaToolbar from "@/components/knowva/KnowvaToolbar";
+import { ModelSelector } from "@/components/knowva/ModelSelector";
 import ChatHistoryPopup from "./ChatHistoryPopup";
 import { useChatActions } from "@/hooks/knowva/useChatActions";
 
@@ -15,7 +15,7 @@ export default function AIAssistant() {
   const [open, setOpen] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
 
-  const { createNewChat } = useChatActions()
+  const { createNewChat } = useChatActions();
 
   const assistantRef = useRef<HTMLDivElement>(null);
 
@@ -100,9 +100,9 @@ export default function AIAssistant() {
               onClose={() => setShowHistory(false)}
             />
 
-            <NexusChat />
-            <NexusToolbar />
-            <NexusInput />
+            <KnowvaChat />
+            <KnowvaToolbar />
+            <KnowvaInput />
           </motion.div>
         )}
       </AnimatePresence>

@@ -29,19 +29,19 @@
 
   "shortcuts": [
     {
-      "name": "Nexus",
-      "short_name": "Nexus",
-      "description": "Open Nexus",
-      "url": "/nexus",
+      "name": "Knowva",
+      "short_name": "Knowva",
+      "description": "Open Knowva",
+      "url": "/knowva",
       "icons": [
         {
-          "src": "/icons/nexus/android-chrome-192x192.png",
+          "src": "/icons/knowva/android-chrome-192x192.png",
           "sizes": "192x192",
           "type": "image/png",
           "purpose": "any"
         },
         {
-          "src": "/icons/nexus/android-chrome-512x512.png",
+          "src": "/icons/knowva/android-chrome-512x512.png",
           "sizes": "512x512",
           "type": "image/png",
           "purpose": "any"

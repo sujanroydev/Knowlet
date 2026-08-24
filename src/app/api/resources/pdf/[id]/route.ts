@@ -25,14 +25,17 @@ export async function GET(
     const resource = await getResourceById(id);
     if (!resource) throw new Error("Resource not found");
 
-    const html = createResourcePdfHtml(resource);
+    const isLocal = process.env.NODE_ENV === "development";
 
     browser = await puppeteer.launch({
-      args: chromium.args,
-      executablePath: await chromium.executablePath(),
+      args: isLocal ? [] : chromium.args,
+      executablePath: isLocal
+        ? process.env.CHROME_EXECUTABLE_PATH
+        : await chromium.executablePath(),
       headless: true,
     });
 
+    const html = createResourcePdfHtml(resource);
     const page = await browser.newPage();
 
     await page.setContent(html, {
@@ -118,25 +121,19 @@ export async function GET(
       console.error("Faild to Record download", error);
     });
 
-    return new Response(
-      new Uint8Array(pdf).buffer as ArrayBuffer,
-      {
-        headers: {
-          "Content-Type": "application/pdf",
-          "Content-Disposition": `inline; filename="${generateResourceTitle(resource.path)}.pdf"`,
-        },
+    return new Response(new Uint8Array(pdf).buffer as ArrayBuffer, {
+      headers: {
+        "Content-Type": "application/pdf",
+        "Content-Disposition": `inline; filename="${generateResourceTitle(resource.path)}.pdf"`,
       },
-    );
+    });
   } catch (error) {
     console.error("PDF generation failed:", error);
 
     return Response.json(
       {
         error: "PDF generation failed",
-        message:
-          error instanceof Error
-            ? error.message
-            : String(error),
+        message: error instanceof Error ? error.message : String(error),
       },
       { status: 500 },
     );

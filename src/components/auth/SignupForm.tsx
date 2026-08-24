@@ -31,7 +31,7 @@ export default function SignupForm() {
       const res = await fetch("/api/auth/request-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, type: "signup" }),
+        body: JSON.stringify({ email: email.toLowerCase(), type: "signup" }),
       });
 
       const data = await res.json();
@@ -73,7 +73,12 @@ export default function SignupForm() {
       const res = await fetch("/api/auth/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, otp, password }),
+        body: JSON.stringify({
+          name,
+          email: email.toLowerCase(),
+          otp,
+          password,
+        }),
       });
 
       const { user, error } = await res.json();

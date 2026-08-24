@@ -7,8 +7,9 @@ import { resend } from "@/lib/resend";
 
 export async function POST(req: NextRequest) {
   try {
-    const { email, type }: { email: string; type: AuthOtpType } =
+    const { email: _email, type }: { email: string; type: AuthOtpType } =
       await req.json();
+    const email = (_email as string).toLowerCase();
 
     if (!email || !type) {
       return NextResponse.json(

@@ -7,9 +7,14 @@ import { toast } from "sonner";
 import type { Message, NewMessage, Mode } from "@/types/knowva";
 import { useKnowva } from "@/context/KnowvaContext";
 import { useAuth } from "@/context/AuthContext";
-import { newChat, saveMessage, renameChat, generateChatTitle } from "@/actions/knowva";
+import {
+  newChat,
+  saveMessage,
+  renameChat,
+  generateChatTitle,
+} from "@/actions/knowva";
 
-export default function NexusInput() {
+export default function KnowvaInput() {
   const [text, setText] = useState("");
 
   const {
@@ -74,7 +79,7 @@ export default function NexusInput() {
         throw new DOMException("Aborted", "AbortError");
       }
 
-      const res = await fetch("/api/nexus/chat", {
+      const res = await fetch("/api/knowva/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text, mode, model, chatId: currentChatId }),
@@ -90,7 +95,7 @@ export default function NexusInput() {
         chat_id: currentChatId,
         parent_id: currentParentId,
         role: "assistant",
-        content: data as string || "No Response",
+        content: (data as string) || "No Response",
         mode,
         model,
       });
@@ -100,8 +105,7 @@ export default function NexusInput() {
       currentParentId = knowvaMessage.id;
       setParentId(currentParentId);
     } catch (err) {
-      const isAbort =
-        err instanceof DOMException && err.name === "AbortError";
+      const isAbort = err instanceof DOMException && err.name === "AbortError";
 
       const errorMessage = isAbort
         ? "Stopped"
@@ -127,7 +131,7 @@ export default function NexusInput() {
       setText(currentText);
 
       if (!isAbort) {
-        console.error("Nexus request failed:", err);
+        console.error("Knowva request failed:", err);
       }
     } finally {
       abortController.current = null;
@@ -148,7 +152,7 @@ export default function NexusInput() {
     const generatedTitle = await generateChatTitle(message);
     const chat = await renameChat(chatId, generatedTitle);
     setChats((prev) => [...(chat ? [chat] : []), ...prev]);
-  }
+  };
 
   return (
     <div className="flex gap-2 p-3 border-t border-gray-200 bg-white">
@@ -162,17 +166,14 @@ export default function NexusInput() {
             send();
           }
         }}
-        placeholder="Ask Nexus..."
+        placeholder="Ask Knowva..."
       />
 
       <button
         onClick={isResponding ? stop : send}
         className="px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
       >
-        {isResponding
-          ? <Square size={18} />
-          : <ArrowUp size={18} />
-        }
+        {isResponding ? <Square size={18} /> : <ArrowUp size={18} />}
       </button>
     </div>
   );

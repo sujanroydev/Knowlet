@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
 import { useRef, useLayoutEffect } from "react";
 
-import NexusMessage from "./NexusMessage";
+import KnowvaMessage from "./KnowvaMessage";
 import type { Message } from "@/types/knowva";
 import { useKnowva } from "@/context/KnowvaContext";
 import { useAuth } from "@/context/AuthContext";
 
-export default function NexusChat() {
+export default function KnowvaChat() {
   const messagesRef = useRef<HTMLDivElement>(null);
   const { messages } = useKnowva();
   const { user } = useAuth();
@@ -23,14 +23,12 @@ export default function NexusChat() {
     <div className="h-full flex-1 p-4 space-y-3 overflow-y-auto bg-gray-50">
       {messages.length === 0 && (
         <p className="text-center text-gray-400 mt-10">
-          {user
-            ? `Hello, ${user.name}`
-            : "Login to use Knowlet Knowva"}
+          {user ? `Hello, ${user.name}` : "Login to use Knowlet Knowva"}
         </p>
       )}
 
       {messages.map((msg: Message, i: number) => (
-        <NexusMessage
+        <KnowvaMessage
           key={i}
           message={msg}
           messagesRef={i === messages.length - 1 ? messagesRef : undefined}

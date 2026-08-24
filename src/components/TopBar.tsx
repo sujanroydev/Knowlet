@@ -14,7 +14,7 @@ import {
   Download,
   Share2,
   Menu,
-  SquarePen
+  SquarePen,
 } from "lucide-react";
 
 import { useAuth } from "@/context/AuthContext";
@@ -24,7 +24,7 @@ import { useReader } from "@/context/ReaderContext";
 import { useDrawer } from "@/context/DrawerContext";
 import { ParsedPath } from "@/types/resource";
 import { useChatActions } from "@/hooks/knowva/useChatActions";
-import { ModelSelector } from "@/components/nexus/ModelSelector";
+import { ModelSelector } from "@/components/knowva/ModelSelector";
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
@@ -97,9 +97,7 @@ export default function TopBar() {
 
       let filename = "resource.pdf";
 
-      const match = contentDisposition?.match(
-        /filename="([^"]+)"/,
-      );
+      const match = contentDisposition?.match(/filename="([^"]+)"/);
 
       if (match?.[1]) {
         filename = match[1];
@@ -137,10 +135,7 @@ export default function TopBar() {
       {/* LEFT */}
       <div className="w-20">
         {mode === "knowva" ? (
-          <Btn
-            title="Menu"
-            onClick={() => setOpenDrawer(true)}
-          >
+          <Btn title="Menu" onClick={() => setOpenDrawer(true)}>
             <Menu className="w-5 h-5" />
           </Btn>
         ) : (

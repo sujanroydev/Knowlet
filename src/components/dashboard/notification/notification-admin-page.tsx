@@ -36,8 +36,8 @@ const defaultPreview = {
   body: "Important topics, quick notes & exam-focused questions ready for you.",
   image:
     "https://res.cloudinary.com/db975putk/image/upload/q_auto/f_auto/v1779595876/IMG_20260524_094028_cmlvb1.png",
-  icon: "https://knowlet.in/icons/web-app-manifest-192x192.png",
-  badge: "https://knowlet.in/icons/favicon-96x96.png",
+  icon: "https://knowlet.in/icons/android-chrome-192x192.png",
+  badge: "https://knowlet.in/icons/favicon-32x32.png",
   action_url: "https://knowlet.in",
 };
 
@@ -284,7 +284,7 @@ export default function NotificationAdminPage() {
               <div className="flex justify-between">
                 <div className="w-10 flex items-center">
                   <img
-                    src="/icons/web-app-manifest-192x192.png"
+                    src="/icons/android-chrome-192x192.png"
                     alt="icon"
                     className="h-10 w-10 rounded-full"
                   />

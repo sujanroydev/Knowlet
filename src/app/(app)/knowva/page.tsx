@@ -1,28 +1,32 @@
 import type { Metadata } from "next";
-import NexusPage from "@/components/nexus/NexusPage";
+import KnowvaPage from "@/components/knowva/KnowvaPage";
 
 export const metadata: Metadata = {
-  title: "Nexus AI | Knowlet",
+  title: "Knowva AI | Knowlet",
+
+  icons: {
+    icon: "/icons/knowva/favicon.ico",
+  },
 
   description:
-    "Ask questions, explore concepts, and get AI-powered academic assistance with Nexus AI on Knowlet.",
+    "Ask questions, explore concepts, and get AI-powered academic assistance with Knowva AI on Knowlet.",
 
   alternates: {
-    canonical: "https://knowlet.in/nexus",
+    canonical: "https://knowlet.in/knowva",
   },
 
   openGraph: {
-    title: "Nexus AI | Knowlet",
+    title: "Knowva AI | Knowlet",
     description:
       "AI-powered learning assistant for notes, concepts, and academic help on Knowlet.",
-    url: "https://knowlet.in/nexus",
+    url: "https://knowlet.in/knowva",
     siteName: "Knowlet",
     type: "website",
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Nexus AI | Knowlet",
+    title: "Knowva AI | Knowlet",
     description:
       "AI-powered learning assistant for notes, concepts, and academic help on Knowlet.",
   },
@@ -33,10 +37,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Nexus() {
+export default function Knowva() {
   return (
     <div className="h-[calc(100dvh-120px)]">
-      <NexusPage />
+      <KnowvaPage />
     </div>
   );
 }

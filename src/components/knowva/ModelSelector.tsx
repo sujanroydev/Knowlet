@@ -37,8 +37,7 @@ export function ModelSelector() {
         onClick={() => setOpen(!open)}
         className="flex items-center gap-1 rounded-md px-2 py-1 text-sm text-slate-700 hover:bg-slate-100"
       >
-          <span className="hidden sm:inline">{model}</span>
-          <span className="sm:hidden">Model</span>
+        <span>Model</span>
         <ChevronDown className="h-3.5 w-3.5" />
       </button>
 
@@ -65,16 +64,16 @@ export function ModelSelector() {
               }`}
             >
               <span>{m.label}</span>
-                {m.premium && (!user || (user && user.role !== "admin")) && (
-                  <Crown
-                    className="h-3.5 w-3.5 text-amber-500"
-                    aria-label="Pro model"
-                  />
-                )}
+              {m.premium && (!user || (user && user.role !== "admin")) && (
+                <Crown
+                  className="h-3.5 w-3.5 text-amber-500"
+                  aria-label="Pro model"
+                />
+              )}
             </button>
           ))}
         </div>
       )}
     </div>
-  )
+  );
 }

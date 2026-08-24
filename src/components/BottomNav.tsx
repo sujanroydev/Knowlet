@@ -25,8 +25,8 @@ export default function BottomNav() {
       icon: <Bookmark className="w-6 h-6" />,
     },
     {
-      href: "/nexus",
-      label: "Nexus",
+      href: "/knowva",
+      label: "Knowva",
       icon: <Bot className="w-6 h-6" />,
     },
     {

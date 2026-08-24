@@ -4,10 +4,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Bot, Send, X, History, SquarePen } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 
-import NexusInput from "@/components/nexus/NexusInput";
-import NexusChat from "@/components/nexus/NexusChat";
-import NexusToolbar from "@/components/nexus/NexusToolbar";
-import { ModelSelector } from "@/components/nexus/ModelSelector";
+import KnowvaInput from "@/components/knowva/KnowvaInput";
+import KnowvaChat from "@/components/knowva/KnowvaChat";
+import KnowvaToolbar from "@/components/knowva/KnowvaToolbar";
+import { ModelSelector } from "@/components/knowva/ModelSelector";
 import ChatHistoryPopup from "./ChatHistoryPopup";
 import { useChatActions } from "@/hooks/knowva/useChatActions";
 
@@ -15,7 +15,7 @@ export default function AIAssistant() {
   const [open, setOpen] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
 
-  const { createNewChat } = useChatActions()
+  const { createNewChat } = useChatActions();
 
   const assistantRef = useRef<HTMLDivElement>(null);
 
@@ -58,7 +58,7 @@ export default function AIAssistant() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed right-6 bottom-38 z-50 flex h-[400px] w-[350px] flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-2xl"
+            className="fixed right-6 bottom-38 z-50 flex h-100 w-87.5 flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-2xl"
           >
             {/* Header */}
             <header className="flex items-center justify-between border-b border-gray-200 px-4 py-3">
@@ -100,9 +100,9 @@ export default function AIAssistant() {
               onClose={() => setShowHistory(false)}
             />
 
-            <NexusChat />
-            <NexusToolbar />
-            <NexusInput />
+            <KnowvaChat />
+            <KnowvaToolbar />
+            <KnowvaInput />
           </motion.div>
         )}
       </AnimatePresence>

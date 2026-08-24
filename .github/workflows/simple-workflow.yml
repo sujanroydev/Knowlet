@@ -1,0 +1,15 @@
+name: Simple Workflow
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  run-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Run a one-line script
+        run: echo "Code pushed successfully!"

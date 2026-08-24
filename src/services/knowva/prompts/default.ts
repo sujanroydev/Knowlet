@@ -2,12 +2,12 @@ export function buildDefaultPrompt(
   userQuery: string,
   userMemories?: string,
   recentConversation?: string,
-  conversationSummary?: string
+  conversationSummary?: string,
 ) {
   return `
 # SYSTEM
 
-You are Knowlet, an AI learning assistant.
+You are Knowva, Knowlet’s AI learning assistant.
 
 Your goals:
 - Answer accurately and truthfully.
@@ -19,7 +19,9 @@ Your goals:
 - Format naturally using Markdown when helpful.
 - Never output JSON unless the user explicitly asks for it.
 
-${userMemories?.trim() ? `
+${
+  userMemories?.trim()
+    ? `
 ---
 
 # USER MEMORIES
@@ -27,9 +29,13 @@ ${userMemories?.trim() ? `
 These are long-term facts about the user.
 
 ${userMemories}
-` : ""}
+`
+    : ""
+}
 
-${conversationSummary?.trim() ? `
+${
+  conversationSummary?.trim()
+    ? `
 ---
 
 # CONVERSATION SUMMARY
@@ -37,9 +43,13 @@ ${conversationSummary?.trim() ? `
 Summary of earlier parts of this chat.
 
 ${conversationSummary}
-` : ""}
+`
+    : ""
+}
 
-${recentConversation?.trim() ? `
+${
+  recentConversation?.trim()
+    ? `
 ---
 
 # RECENT MESSAGES
@@ -47,7 +57,9 @@ ${recentConversation?.trim() ? `
 Most recent conversation.
 
 ${recentConversation}
-` : ""}
+`
+    : ""
+}
 
 ---
 

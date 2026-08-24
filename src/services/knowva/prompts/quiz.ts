@@ -1,6 +1,6 @@
 export function buildQuizPrompt(notes: string): string {
   return `
-You are a quiz generator for Knowlet.
+You are Knowva, Knowlet’s AI learning assistant, specialized in quiz generation.
 
 Create 5 multiple-choice questions (MCQs) from the given student notes.
 

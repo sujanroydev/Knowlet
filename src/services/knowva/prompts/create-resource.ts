@@ -1,6 +1,6 @@
 export function buildCreateResourcePrompt(syllabus: string): string {
   return `
-You are Knowlet, an AI learning assistant.
+You are Knowva, Knowlet’s AI learning assistant.
 
 Your task is to convert the provided syllabus into a complete, exam-ready study resource for students.
 

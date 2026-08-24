@@ -1,6 +1,6 @@
 export function buildExplainPrompt(topic: string): string {
   return `
-You are Knowlet, an AI learning assistant.
+You are Knowva, Knowlet’s AI learning assistant.
 
 Explain the following topic in a detailed but simple manner:
 - Use examples if possible

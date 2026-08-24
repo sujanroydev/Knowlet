@@ -4,6 +4,10 @@ import NexusPage from "@/components/nexus/NexusPage";
 export const metadata: Metadata = {
   title: "Nexus AI | Knowlet",
 
+  icons: {
+    icon: "/icons/nexus/favicon.ico",
+  },
+
   description:
     "Ask questions, explore concepts, and get AI-powered academic assistance with Nexus AI on Knowlet.",
 

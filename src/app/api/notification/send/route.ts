@@ -18,8 +18,8 @@ export async function POST(req: NextRequest) {
     const options: Options = {
       body: body || undefined,
       image: image || undefined,
-      icon: icon || "/icons/web-app-manifest-192x192.png",
-      badge: badge || "/icons/favicon-96x96.png",
+      icon: icon || "/icons/android-chrome-192x192.png",
+      badge: badge || "/icons/favicon-32x32.png",
       tag: tag || undefined,
       data: { action_url: action_url || "https://knowlet.in" },
     };

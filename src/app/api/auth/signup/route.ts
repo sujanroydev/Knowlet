@@ -9,7 +9,8 @@ import generateUsername from "@/utils/generateUsername";
 
 export async function POST(request: NextRequest) {
   try {
-    const { name, email, otp, password } = await request.json();
+    const { name, email: _email, otp, password } = await request.json();
+    const email = (_email as string).toLowerCase();
     const username = generateUsername(name);
 
     if (!name || !email || !otp || !password || !username) {

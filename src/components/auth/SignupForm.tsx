@@ -6,15 +6,12 @@ import Loader from "./Loader";
 import { toast } from "sonner";
 import { useAuth } from "@/context/AuthContext";
 import { subscribe } from "../SWRegister";
-import { Eye, EyeOff } from "lucide-react";
 import PasswordInput from "@/components/ui/PasswordInput";
 
 export default function SignupForm() {
   const [loading, setLoading] = useState(false);
   const [otpLoading, setOtpLoading] = useState(false);
   const [otpSent, setOtpSent] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setConfirmShowPassword] = useState(false);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -90,7 +87,7 @@ export default function SignupForm() {
       subscribe();
       localStorage.setItem("knowlet-user", JSON.stringify(user));
       toast.success("Successfully Signed Up", {
-        description: `Your username: ${user.id}`,
+        description: `Your username: ${user.username}`,
       });
       window.location.href = "/profile";
     } catch (error) {
@@ -147,11 +144,7 @@ export default function SignupForm() {
           </button>
         </div>
 
-        <PasswordInput
-          name="password"
-          placeholder="Password"
-          required
-        />
+        <PasswordInput name="password" placeholder="Password" required />
 
         <PasswordInput
           name="confirmPassword"

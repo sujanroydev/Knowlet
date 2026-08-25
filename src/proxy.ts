@@ -74,6 +74,26 @@ export async function proxy(req: NextRequest) {
     }
   }
 
+  if (pathname.startsWith("/signup")) {
+    const referralCode = req.nextUrl.searchParams.get("ref");
+
+    if (!referralCode) {
+      return NextResponse.next();
+    }
+
+    const response = NextResponse.next();
+
+    response.cookies.set("referral_code", referralCode, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      maxAge: 60 * 60 * 24 * 7,
+      path: "/",
+    });
+
+    return response;
+  }
+
   return NextResponse.next();
 }
 
@@ -88,5 +108,6 @@ export const config = {
     "/bookmarks/:path*",
     "/knowva/:path*",
     "/knowva/:path*",
+    "/signup/:path*",
   ],
 };

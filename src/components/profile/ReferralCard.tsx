@@ -5,16 +5,56 @@ import { Gift, Share2, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function ReferralCard() {
-  const [referralCode, setReferralCode] = useState("");
+  const [referralCode, setReferralCode] = useState<string | null>(null);
+
   useEffect(() => {
-    void (async () => {
-      setReferralCode(await getUserReferralCode());
-    })();
+    const loadReferralCode = async () => {
+      try {
+        const code = await getUserReferralCode();
+        setReferralCode(code);
+      } catch (error) {
+        console.error("Failed to load referral code:", error);
+      }
+    };
+
+    void loadReferralCode();
   }, []);
+
+  const handleRefer = async () => {
+    if (!referralCode) return;
+
+    const url = `${window.location.origin}/signup?ref=${encodeURIComponent(
+      referralCode,
+    )}`;
+
+    const shareData = {
+      title: "Join me on Knowlet",
+      text: "Learn better with Knowlet. Join using my referral link!",
+      url,
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+      } else {
+        await navigator.clipboard.writeText(url);
+        // Show your toast here
+        console.log("Referral link copied");
+      }
+    } catch (error) {
+      // User cancelling the share dialog is not an error we need to report
+      if (error instanceof Error && error.name !== "AbortError") {
+        console.error("Failed to share referral link:", error);
+      }
+    }
+  };
+
   return (
     <button
       type="button"
-      className="group w-full rounded-2xl border border-gray-200 bg-white p-5 text-left shadow-sm transition hover:shadow-md"
+      onClick={handleRefer}
+      disabled={!referralCode}
+      className="group w-full rounded-2xl border border-gray-200 bg-white p-5 text-left shadow-sm transition hover:shadow-md disabled:cursor-not-allowed disabled:opacity-60"
     >
       <div className="flex items-center gap-4">
         <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600">

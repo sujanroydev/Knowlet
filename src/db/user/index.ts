@@ -28,21 +28,15 @@ export async function createUser(newUser: {
 }
 
 export async function getUserAllEmails() {
-  const { data, error } = await supabase
-    .from("users")
-    .select("email");
+  const { data, error } = await supabase.from("users").select("email");
 
   if (error) throw error;
 
   return data.map((d) => d.email);
 }
 
-export async function uploadAvatar(
-  filePath: string,
-  image: File,
-) {
-  const { error } = await supabase
-    .storage
+export async function uploadAvatar(filePath: string, image: File) {
+  const { error } = await supabase.storage
     .from("avatars")
     .upload(filePath, image, {
       cacheControl: "3600",
@@ -110,7 +104,7 @@ export async function getEmailsByUserIds(userIds: string | string[]) {
 
   if (error) throw error;
 
-  return data.map(d => d.email) as string[];
+  return data.map((d) => d.email) as string[];
 }
 
 export async function getUserIdsByEmails(emails: string | string[]) {
@@ -123,7 +117,19 @@ export async function getUserIdsByEmails(emails: string | string[]) {
 
   if (error) throw error;
 
-  return data.map(d => d.id) as string[];
+  return data.map((d) => d.id) as string[];
+}
+
+export async function getUserReferralCode(userId: string): Promise<string> {
+  const { data, error } = await supabase
+    .from("users")
+    .select("referral_code")
+    .eq("id", userId)
+    .single();
+
+  if (error) throw error;
+
+  return data.referral_code;
 }
 
 export async function updatePassword(email: string, newPasswordHash: string) {
@@ -146,7 +152,7 @@ export async function updateUserInfo(
     stream: string;
     standard: string;
     fav_subject: string;
-  }
+  },
 ) {
   const { data, error } = await supabase
     .from("users")

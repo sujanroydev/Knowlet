@@ -1,11 +1,17 @@
 "use client";
 
-import { getUserReferralCode } from "@/actions/profile";
-import { Gift, Share2, ChevronRight } from "lucide-react";
+import { ChevronRight, Gift, Share2, X } from "lucide-react";
 import { useEffect, useState } from "react";
+
+import { getReferredUsers, getUserReferralCode } from "@/actions/profile";
+import type { ReferredUser } from "@/types/user";
 
 export default function ReferralCard() {
   const [referralCode, setReferralCode] = useState<string | null>(null);
+
+  const [showReferrals, setShowReferrals] = useState(false);
+  const [referredUsers, setReferredUsers] = useState<ReferredUser[]>([]);
+  const [loadingReferrals, setLoadingReferrals] = useState(false);
 
   useEffect(() => {
     const loadReferralCode = async () => {
@@ -38,51 +44,186 @@ export default function ReferralCard() {
         await navigator.share(shareData);
       } else {
         await navigator.clipboard.writeText(url);
-        // Show your toast here
+
+        // Replace with your toast
         console.log("Referral link copied");
       }
     } catch (error) {
-      // User cancelling the share dialog is not an error we need to report
+      // User cancelled native share dialog
       if (error instanceof Error && error.name !== "AbortError") {
         console.error("Failed to share referral link:", error);
       }
     }
   };
 
+  const handleViewReferrals = async () => {
+    setShowReferrals(true);
+    setLoadingReferrals(true);
+
+    try {
+      const users = await getReferredUsers();
+      setReferredUsers(users);
+    } catch (error) {
+      console.error("Failed to load referred users:", error);
+    } finally {
+      setLoadingReferrals(false);
+    }
+  };
+
+  const handleCloseReferrals = () => {
+    setShowReferrals(false);
+  };
+
   return (
-    <button
-      type="button"
-      onClick={handleRefer}
-      disabled={!referralCode}
-      className="group w-full rounded-2xl border border-gray-200 bg-white p-5 text-left shadow-sm transition hover:shadow-md disabled:cursor-not-allowed disabled:opacity-60"
-    >
-      <div className="flex items-center gap-4">
-        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
-          <Gift size={24} strokeWidth={2} />
-        </div>
+    <>
+      <div className="w-full">
+        {/* Refer & Earn */}
+        <button
+          type="button"
+          onClick={handleRefer}
+          disabled={!referralCode}
+          className="group w-full rounded-2xl border border-gray-200 bg-white p-5 text-left shadow-sm transition hover:shadow-md disabled:cursor-not-allowed disabled:opacity-60"
+        >
+          <div className="flex items-center gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+              <Gift size={24} strokeWidth={2} />
+            </div>
 
-        <div className="min-w-0 flex-1">
-          <h3 className="text-base font-semibold text-gray-900">
-            Refer & Earn
-          </h3>
+            <div className="min-w-0 flex-1">
+              <h3 className="text-base font-semibold text-gray-900">
+                Refer & Earn
+              </h3>
 
-          <p className="mt-1 text-sm text-gray-500">
-            Invite your friends to learn with Knowlet
-          </p>
+              <p className="mt-1 text-sm text-gray-500">
+                Invite your friends to learn with Knowlet
+              </p>
 
-          {referralCode && (
-            <p className="mt-2 text-xs text-gray-400">
-              Your code:{" "}
-              <span className="font-medium text-gray-600">{referralCode}</span>
-            </p>
-          )}
-        </div>
+              {referralCode && (
+                <p className="mt-2 text-xs text-gray-400">
+                  Your code:{" "}
+                  <span className="font-medium text-gray-600">
+                    {referralCode}
+                  </span>
+                </p>
+              )}
+            </div>
 
-        <div className="flex shrink-0 items-center gap-2 text-gray-400 transition group-hover:text-blue-600">
-          <Share2 size={18} />
-          <ChevronRight size={20} />
-        </div>
+            <div className="flex shrink-0 items-center gap-2 text-gray-400 transition group-hover:text-blue-600">
+              <Share2 size={18} />
+              <ChevronRight size={20} />
+            </div>
+          </div>
+        </button>
+
+        {/* View Referrals */}
+        <button
+          type="button"
+          onClick={handleViewReferrals}
+          className="mt-2 flex w-full items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium text-gray-600 transition hover:bg-gray-100 hover:text-gray-900"
+        >
+          View Referrals
+          <ChevronRight size={16} />
+        </button>
       </div>
-    </button>
+
+      {/* Referrals Popup */}
+      {showReferrals && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4"
+          onClick={handleCloseReferrals}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="referrals-title"
+            className="w-full max-w-md overflow-hidden rounded-2xl bg-white shadow-xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between border-b border-gray-100 px-5 py-4">
+              <div>
+                <h2
+                  id="referrals-title"
+                  className="text-lg font-semibold text-gray-900"
+                >
+                  Your Referrals
+                </h2>
+
+                <p className="mt-0.5 text-sm text-gray-500">
+                  People who joined Knowlet using your link
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={handleCloseReferrals}
+                className="flex h-9 w-9 items-center justify-center rounded-full text-gray-400 transition hover:bg-gray-100 hover:text-gray-700"
+                aria-label="Close"
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            {/* Content */}
+            <div className="max-h-[60vh] overflow-y-auto p-4">
+              {loadingReferrals ? (
+                <div className="flex items-center justify-center py-12">
+                  <div className="h-6 w-6 animate-spin rounded-full border-2 border-gray-200 border-t-blue-600" />
+                </div>
+              ) : referredUsers.length === 0 ? (
+                <div className="py-12 text-center">
+                  <Gift
+                    size={32}
+                    className="mx-auto text-gray-300"
+                    strokeWidth={1.5}
+                  />
+
+                  <h3 className="mt-3 text-sm font-medium text-gray-900">
+                    No referrals yet
+                  </h3>
+
+                  <p className="mt-1 text-sm text-gray-500">
+                    Share your referral link to invite friends.
+                  </p>
+                </div>
+              ) : (
+                <div className="space-y-2">
+                  {referredUsers.map((referredUser) => (
+                    <div
+                      key={referredUser.id}
+                      className="flex items-center gap-3 rounded-xl p-3 transition hover:bg-gray-50"
+                    >
+                      {/* Avatar */}
+                      {referredUser.picture ? (
+                        <img
+                          src={referredUser.picture}
+                          alt={referredUser.name}
+                          className="h-10 w-10 rounded-full object-cover"
+                        />
+                      ) : (
+                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-50 text-sm font-semibold text-blue-600">
+                          {referredUser.name?.charAt(0).toUpperCase() ?? "?"}
+                        </div>
+                      )}
+
+                      {/* User info */}
+                      <div className="min-w-0 flex-1">
+                        <p className="truncate text-sm font-medium text-gray-900">
+                          {referredUser.name}
+                        </p>
+
+                        <p className="truncate text-xs text-gray-500">
+                          @{referredUser.username}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }

@@ -15,6 +15,7 @@ export async function createUser(newUser: {
   username: string;
   password_hash?: string;
   picture?: string;
+  referrer_code?: string;
 }) {
   const { data, error } = await supabase
     .from("users")

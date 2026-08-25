@@ -9,6 +9,7 @@ import generateUsername from "@/utils/generateUsername";
 
 export async function POST(request: NextRequest) {
   try {
+    const referralCode = request.cookies.get("referral_code")?.value;
     const { name, email: _email, otp, password } = await request.json();
     const email = (_email as string).toLowerCase();
     const username = generateUsername(name);
@@ -70,6 +71,7 @@ export async function POST(request: NextRequest) {
       email,
       username,
       password_hash: hashedPassword,
+      referrer_code: referralCode ?? undefined,
     });
 
     delete user.password_hash;
@@ -82,6 +84,9 @@ export async function POST(request: NextRequest) {
       .sign(secret);
 
     const response = NextResponse.json({ user }, { status: 201 });
+
+    response.cookies.delete("referral_code");
+
     response.cookies.set("token", jwtToken, {
       httpOnly: true,
       sameSite: "lax",

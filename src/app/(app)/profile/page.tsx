@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ProfileCard from "@/components/profile/ProfileCard";
 import SettingsPanel from "@/components/profile/SettingsPanel";
 import StatsSection from "@/components/profile/StatsSection";
+import ReferralCard from "@/components/profile/ReferralCard";
 
 export const metadata: Metadata = {
   title: "Your Profile | Knowlet",
@@ -39,6 +40,7 @@ export default function Profile() {
   return (
     <div className="max-w-3xl mx-auto p-4 space-y-6">
       <ProfileCard />
+      <ReferralCard />
       <StatsSection />
       <SettingsPanel />
     </div>

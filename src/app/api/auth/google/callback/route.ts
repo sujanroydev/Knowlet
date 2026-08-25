@@ -6,6 +6,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
   try {
+    const referralCode = req.cookies.get("referral_code")?.value;
     const code = req.nextUrl.searchParams.get("code");
 
     if (!code) {
@@ -31,11 +32,14 @@ export async function GET(req: NextRequest) {
     const tokenData = await tokenRes.json();
 
     // Fetch user
-    const userRes = await fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
-      headers: {
-        Authorization: `Bearer ${tokenData.access_token}`,
+    const userRes = await fetch(
+      "https://www.googleapis.com/oauth2/v3/userinfo",
+      {
+        headers: {
+          Authorization: `Bearer ${tokenData.access_token}`,
+        },
       },
-    });
+    );
 
     let user = await userRes.json();
 
@@ -50,6 +54,7 @@ export async function GET(req: NextRequest) {
         email: user.email,
         username: generateUsername(user.name),
         picture: user.picture,
+        referrer_code: referralCode ?? undefined,
       });
     }
 
@@ -68,6 +73,8 @@ export async function GET(req: NextRequest) {
     // Set cookie
     const response = NextResponse.redirect(redirectUrl);
 
+    response.cookies.delete("referral_code");
+
     response.cookies.set("token", token, {
       httpOnly: true,
       sameSite: "lax",
@@ -77,9 +84,11 @@ export async function GET(req: NextRequest) {
     });
 
     if (!userId) {
-      void sendWelcomeEmail({ email: user.email, name: user.name }).catch((error) => {
-        console.error("Failed to send welcome email:", error);
-      });
+      void sendWelcomeEmail({ email: user.email, name: user.name }).catch(
+        (error) => {
+          console.error("Failed to send welcome email:", error);
+        },
+      );
     }
 
     return response;

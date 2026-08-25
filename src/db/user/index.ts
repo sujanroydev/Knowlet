@@ -133,16 +133,15 @@ export async function getUserReferralCode(userId: string): Promise<string> {
   return data.referral_code;
 }
 
-export async function getReferredUsers(userId: string) {
+export async function getReferredUsers(referralCode: string) {
   const { data, error } = await supabase
     .from("users")
-    .select("referral_code (id, name, email, username, picture)")
-    .eq("id", userId)
-    .single();
+    .select("id, name, email, username, picture")
+    .eq("referrer_code", referralCode);
 
   if (error) throw error;
 
-  return data.referral_code;
+  return data;
 }
 
 export async function updatePassword(email: string, newPasswordHash: string) {

@@ -57,11 +57,13 @@ export default function ReferralCard() {
   };
 
   const handleViewReferrals = async () => {
+    if (!referralCode) return;
+
     setShowReferrals(true);
     setLoadingReferrals(true);
 
     try {
-      const users = await getReferredUsers();
+      const users = await getReferredUsers(referralCode);
       setReferredUsers(users);
     } catch (error) {
       console.error("Failed to load referred users:", error);
@@ -213,7 +215,7 @@ export default function ReferralCard() {
                         </p>
 
                         <p className="truncate text-xs text-gray-500">
-                          @{referredUser.username}
+                          {referredUser.username}
                         </p>
                       </div>
                     </div>

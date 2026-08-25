@@ -19,13 +19,6 @@ export async function getUserReferralCode(): Promise<string> {
   return await _getUserReferralCode(payload.user_id);
 }
 
-export async function getReferredUsers() {
-  const cookieStore = await cookies();
-
-  const token = cookieStore.get("token")?.value;
-  const { ok, payload, reason } = await verifyJwt(token);
-
-  if (!ok || !payload) throw new Error(reason);
-
-  return await _getReferredUsers(payload.user_id);
+export async function getReferredUsers(referralCode: string) {
+  return await _getReferredUsers(referralCode);
 }

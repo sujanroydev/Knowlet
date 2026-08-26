@@ -83,28 +83,60 @@ export default function KnowvaInput() {
         throw new DOMException("Aborted", "AbortError");
       }
 
-      const res = await fetch("/api/knowva/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text, mode, model, chatId: currentChatId }),
-        signal: signal,
-      });
-
-      const { success, type, data, retryAfter } = await res.json();
-
-      if (!success && type === "rate_limit") throw new Error(data);
-      if (!success) throw new Error("Response Failed");
-
-      const knowvaNewMessage = {
+      let knowvaNewMessage = {
         chat_id: currentChatId,
         parent_id: currentParentId,
         role: "assistant",
-        content: (data as string) || "No Response",
+        content: "",
         mode,
         model,
       };
 
-      setCurrentMessage(knowvaNewMessage);
+      const res = await fetch("/api/knowva/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text, mode, model, chatId: currentChatId }),
+        signal,
+      });
+
+      if (!res.ok || !res.body) {
+        throw new Error("Response Failed");
+      }
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+
+      while (true) {
+        const { value, done } = await reader.read();
+
+        if (done) break;
+
+        const chunk = decoder.decode(value, {
+          stream: true,
+        });
+
+        knowvaNewMessage = {
+          ...knowvaNewMessage,
+          content: knowvaNewMessage.content + chunk,
+        };
+        setCurrentMessage({ ...knowvaNewMessage });
+      }
+
+      const remainingText = decoder.decode();
+      if (remainingText) {
+        knowvaNewMessage = {
+          ...knowvaNewMessage,
+          content: knowvaNewMessage.content + remainingText,
+        };
+        setCurrentMessage({ ...knowvaNewMessage });
+      }
+
+      // const { success, type, data, retryAfter } = await res.json();
+
+      // if (!success && type === "rate_limit") throw new Error(data);
+      // if (!success) throw new Error("Response Failed");
+
+      // setCurrentMessage(knowvaNewMessage);
 
       const knowvaMessage = await saveMessage(knowvaNewMessage);
 

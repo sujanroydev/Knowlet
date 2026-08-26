@@ -3,7 +3,7 @@ import { NextRequest } from "next/server";
 import { authGate } from "@/lib/auth/authGate";
 import { generatePrompt } from "@/services/knowva/prompts";
 import { buildDefaultPrompt } from "@/services/knowva/prompts/default";
-import { generate, extractMemories } from "@/services/knowva";
+import { generateStream, extractMemories } from "@/services/knowva";
 import { createMemories, getMemories } from "@/db/knowva/memory";
 import { fetchMessages } from "@/db/knowva/message";
 
@@ -21,8 +21,6 @@ export async function POST(req: NextRequest) {
 
     const { ok, res, payload } = await authGate(req, "jwt");
     if (!ok || !payload) return res;
-
-    const lowerText = text.toLowerCase();
 
     void (async () => {
       try {
@@ -43,37 +41,36 @@ export async function POST(req: NextRequest) {
       let conversationSummary = "";
 
       const result = await Promise.allSettled([
-        await getMemories(payload.user_id),
-        await fetchMessages(chatId),
+        getMemories(payload.user_id),
+        fetchMessages(chatId),
       ]);
 
       const memories = result[0].status === "fulfilled" ? result[0].value : [];
       const messages = result[1].status === "fulfilled" ? result[1].value : [];
 
-      userMemories = memories
-        .map(memory => `- ${memory.content}`)
-        .join("\n");
+      userMemories = memories.map((memory) => `- ${memory.content}`).join("\n");
 
       messages.pop();
       recentConversation = messages
-        .map(message => `${message.role}: ${message.content}`)
+        .map((message) => `${message.role}: ${message.content}`)
         .join("\n");
 
-      prompt = buildDefaultPrompt(text, userMemories, recentConversation, conversationSummary);
+      prompt = buildDefaultPrompt(
+        text,
+        userMemories,
+        recentConversation,
+        conversationSummary,
+      );
     }
 
-    let raw = await generate({ prompt, model });
+    const stream = await generateStream({ prompt, model });
 
-    if (mode === "quiz" || mode === "create-resource") {
-      const cleaned = cleanJSON(raw);
-      const parsed = JSON.parse(cleaned);
-      raw = JSON.stringify(parsed);
-    }
-
-    return new Response(
-      JSON.stringify({ success: true, data: raw }),
-      { status: 200, headers: corsHeaders() },
-    );
+    return new Response(stream, {
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Cache-Control": "no-cache",
+      },
+    });
   } catch (err) {
     const message = (err as any).message || "";
 

@@ -13,15 +13,18 @@ export async function generate({
   model = DEFAULT_MODEL,
   retries = 3,
 }: GenerateOptions): Promise<string> {
-  const ai = gemini.getGenerativeModel({ model });
-
   let lastError: unknown;
 
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
-      const result = await ai.generateContent(prompt);
+      const response = await gemini.models.generateContent({
+        model,
+        contents: prompt,
+      });
 
-      return result.response.text().trim();
+      if (!response.text) throw new Error("Failed to generate response");
+
+      return response.text.trim();
     } catch (error: any) {
       lastError = error;
 

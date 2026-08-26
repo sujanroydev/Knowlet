@@ -22,7 +22,7 @@ export default function HtmlEditor({
       .replaceAll(/\s*\[cite: \d+(, \d+)*\]/g, "");
 
     const beautifiedContent = beautifyHtml(cleanedContent, {
-      indent_size: 4,
+      indent_size: 2,
       wrap_line_length: 0,
       preserve_newlines: true,
       max_preserve_newlines: 1,

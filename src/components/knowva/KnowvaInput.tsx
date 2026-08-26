@@ -91,6 +91,8 @@ export default function KnowvaInput() {
         model,
       };
 
+      setCurrentMessage({ ...knowvaNewMessage });
+
       const res = await fetch("/api/knowva/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

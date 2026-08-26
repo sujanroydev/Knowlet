@@ -13,6 +13,16 @@ export default function KnowvaMessage({
 }) {
   const { onMessageClick } = useKnowva();
 
+  if (!message.content && message.role === "assistant") {
+    return (
+      <div className="mr-auto flex w-fit items-center gap-1.5 rounded-xl border border-gray-200 bg-white px-3 py-2.5 shadow-sm">
+        <span className="h-2 w-2 animate-bounce rounded-full bg-gray-400 [animation-delay:-0.3s]" />
+        <span className="h-2 w-2 animate-bounce rounded-full bg-gray-400 [animation-delay:-0.15s]" />
+        <span className="h-2 w-2 animate-bounce rounded-full bg-gray-400" />
+      </div>
+    );
+  }
+
   return (
     <div
       className={`max-w-[75%] px-3 py-2 rounded-xl text-sm whitespace-pre-wrap ${

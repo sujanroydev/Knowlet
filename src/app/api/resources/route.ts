@@ -29,6 +29,7 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
+  let path = "";
   try {
     const { title, description, content, level, subject, paper, target, type } =
       await req.json();
@@ -51,7 +52,7 @@ export async function POST(req: NextRequest) {
     const { ok, res, payload } = await authGate(req, "admin");
     if (!ok || !payload) return res;
 
-    const path = buildResourcePath({ level, subject, paper, target, type });
+    path = buildResourcePath({ level, subject, paper, target, type });
 
     const { levelSlug, subjectSlug, paperSlug, typeSlug, targetSlug } =
       parseResourcePath(path);
@@ -169,7 +170,10 @@ export async function POST(req: NextRequest) {
       "code" in error &&
       error.code === "23505"
     ) {
-      return apiError("Resource already exists.");
+      return NextResponse.json(
+        { error: { message: "Resource already exists" }, path },
+        { status: 500 },
+      );
     }
 
     return apiError(error instanceof Error ? error.message : "Unknown error");

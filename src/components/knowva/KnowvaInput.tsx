@@ -22,13 +22,13 @@ export default function KnowvaInput() {
     parentId,
     mode,
     model,
-    messages,
     isResponding,
 
     setChatId,
     setParentId,
-    setChats,
+    setCurrentMessage,
     setMessages,
+    setChats,
     setIsResponding,
   } = useKnowva();
   const { user } = useAuth();
@@ -59,15 +59,19 @@ export default function KnowvaInput() {
         setChatId(currentChatId);
       }
 
-      const userMessage = await saveMessage({
+      const userNewMessage = {
         chat_id: currentChatId,
         parent_id: currentParentId,
         role: "user",
         content: text,
         mode,
         model,
-      });
+      };
 
+      setCurrentMessage(userNewMessage);
+      const userMessage = await saveMessage(userNewMessage);
+
+      setCurrentMessage(null);
       setMessages((prev) => [...prev, userMessage]);
 
       setText("");
@@ -91,15 +95,20 @@ export default function KnowvaInput() {
       if (!success && type === "rate_limit") throw new Error(data);
       if (!success) throw new Error("Response Failed");
 
-      const knowvaMessage = await saveMessage({
+      const knowvaNewMessage = {
         chat_id: currentChatId,
         parent_id: currentParentId,
         role: "assistant",
         content: (data as string) || "No Response",
         mode,
         model,
-      });
+      };
 
+      setCurrentMessage(knowvaNewMessage);
+
+      const knowvaMessage = await saveMessage(knowvaNewMessage);
+
+      setCurrentMessage(null);
       setMessages((prev) => [...prev, knowvaMessage]);
 
       currentParentId = knowvaMessage.id;
@@ -114,15 +123,19 @@ export default function KnowvaInput() {
           : "Something went wrong";
 
       if (!isAbort && currentChatId) {
-        const systemMessage = await saveMessage({
+        const systemNewMessage = {
           chat_id: currentChatId,
           parent_id: currentParentId,
           role: "system",
           content: errorMessage,
           mode,
           model,
-        });
+        };
 
+        setCurrentMessage(systemNewMessage);
+        const systemMessage = await saveMessage(systemNewMessage);
+
+        setCurrentMessage(null);
         setMessages((prev) => [...prev, systemMessage]);
 
         setParentId(systemMessage.id);

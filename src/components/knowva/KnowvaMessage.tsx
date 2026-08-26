@@ -4,13 +4,13 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 import { useKnowva } from "@/context/KnowvaContext";
-import type { Message } from "@/types/knowva";
+import type { Message, NewMessage } from "@/types/knowva";
 
 export default function KnowvaMessage({
   message,
   messagesRef,
 }: {
-  message: Message;
+  message: Message | NewMessage;
   messagesRef?: Ref<HTMLDivElement>;
 }) {
   const { onMessageClick } = useKnowva();
@@ -28,21 +28,27 @@ export default function KnowvaMessage({
         {message.content}
       </ReactMarkdown>
 
-      <div className="mt-2 flex items-center justify-end gap-2 text-[10px] opacity-70">
-        {message.mode === "create-resource" && message.role === "assistant" && (
-          <button
-            type="button"
-            onClick={() => onMessageClick?.(message)}
-            className="rounded-md p-1 transition-colors hover:bg-black/10 dark:hover:bg-white/10"
-            aria-label="Edit message"
-            title="Edit"
-          >
-            <Edit2 className="h-3.5 w-3.5" />
-          </button>
-        )}
+      {!messagesRef && (
+        <div className="mt-2 flex items-center justify-end gap-2 text-[10px] opacity-70">
+          {message.mode === "create-resource" &&
+            message.role === "assistant" &&
+            "id" in message && (
+              <button
+                type="button"
+                onClick={() => onMessageClick?.(message)}
+                className="rounded-md p-1 transition-colors hover:bg-black/10 dark:hover:bg-white/10"
+                aria-label="Edit message"
+                title="Edit"
+              >
+                <Edit2 className="h-3.5 w-3.5" />
+              </button>
+            )}
 
-        <span>{new Date(message.created_at).toLocaleTimeString()}</span>
-      </div>
+          {"created_at" in message && (
+            <span>{new Date(message.created_at).toLocaleTimeString()}</span>
+          )}
+        </div>
+      )}
     </div>
   );
 }

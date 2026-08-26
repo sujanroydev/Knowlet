@@ -9,7 +9,7 @@ import { useAuth } from "@/context/AuthContext";
 
 export default function KnowvaChat() {
   const messagesRef = useRef<HTMLDivElement>(null);
-  const { messages } = useKnowva();
+  const { currentMessage, messages } = useKnowva();
   const { user } = useAuth();
 
   useLayoutEffect(() => {
@@ -31,9 +31,21 @@ export default function KnowvaChat() {
         <KnowvaMessage
           key={i}
           message={msg}
-          messagesRef={i === messages.length - 1 ? messagesRef : undefined}
+          messagesRef={
+            i === messages.length - 1 && !currentMessage
+              ? messagesRef
+              : undefined
+          }
         />
       ))}
+
+      {currentMessage && (
+        <KnowvaMessage
+          key="current-message"
+          message={currentMessage}
+          messagesRef={messagesRef}
+        />
+      )}
     </div>
   );
 }

@@ -46,3 +46,60 @@ export async function generate({
 
   throw new Error(message);
 }
+
+export async function generateStream({
+  prompt,
+  model = DEFAULT_MODEL,
+  retries = 3,
+}: GenerateOptions): Promise<ReadableStream<any>> {
+  let lastError: unknown;
+
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    try {
+      const stream = await gemini.models.generateContentStream({
+        model: model,
+        contents: prompt,
+      });
+
+      const encoder = new TextEncoder();
+
+      const responseStream = new ReadableStream({
+        async start(controller) {
+          try {
+            for await (const chunk of stream) {
+              const text = chunk.text ?? "";
+
+              if (text) {
+                controller.enqueue(encoder.encode(text));
+              }
+            }
+
+            controller.close();
+          } catch (error) {
+            controller.error(error);
+          }
+        },
+      });
+
+      return responseStream;
+    } catch (error: any) {
+      lastError = error;
+
+      const status = error?.status ?? error?.code;
+      const retryable = [429, 500, 503].includes(status);
+
+      if (!retryable || attempt === retries) {
+        break;
+      }
+
+      await sleep(1000 * 2 ** (attempt - 1));
+    }
+  }
+
+  const message =
+    lastError instanceof Error
+      ? lastError.message
+      : "Failed to generate AI response.";
+
+  throw new Error(message);
+}

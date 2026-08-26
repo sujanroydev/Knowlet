@@ -8,16 +8,13 @@ import type { Message, NewMessage } from "@/types/knowva";
 
 export default function KnowvaMessage({
   message,
-  messagesRef,
 }: {
   message: Message | NewMessage;
-  messagesRef?: Ref<HTMLDivElement>;
 }) {
   const { onMessageClick } = useKnowva();
 
   return (
     <div
-      ref={messagesRef}
       className={`max-w-[75%] px-3 py-2 rounded-xl text-sm whitespace-pre-wrap ${
         message.role === "user"
           ? "bg-blue-500 text-white ml-auto"
@@ -28,27 +25,25 @@ export default function KnowvaMessage({
         {message.content}
       </ReactMarkdown>
 
-      {!messagesRef && (
-        <div className="mt-2 flex items-center justify-end gap-2 text-[10px] opacity-70">
-          {message.mode === "create-resource" &&
-            message.role === "assistant" &&
-            "id" in message && (
-              <button
-                type="button"
-                onClick={() => onMessageClick?.(message)}
-                className="rounded-md p-1 transition-colors hover:bg-black/10 dark:hover:bg-white/10"
-                aria-label="Edit message"
-                title="Edit"
-              >
-                <Edit2 className="h-3.5 w-3.5" />
-              </button>
-            )}
-
-          {"created_at" in message && (
-            <span>{new Date(message.created_at).toLocaleTimeString()}</span>
+      <div className="mt-2 flex items-center justify-end gap-2 text-[10px] opacity-70">
+        {message.mode === "create-resource" &&
+          message.role === "assistant" &&
+          "id" in message && (
+            <button
+              type="button"
+              onClick={() => onMessageClick?.(message)}
+              className="rounded-md p-1 transition-colors hover:bg-black/10 dark:hover:bg-white/10"
+              aria-label="Edit message"
+              title="Edit"
+            >
+              <Edit2 className="h-3.5 w-3.5" />
+            </button>
           )}
-        </div>
-      )}
+
+        {"created_at" in message && (
+          <span>{new Date(message.created_at).toLocaleTimeString()}</span>
+        )}
+      </div>
     </div>
   );
 }

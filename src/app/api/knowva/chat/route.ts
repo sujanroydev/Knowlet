@@ -82,9 +82,8 @@ export async function POST(req: NextRequest) {
       const waitTime = extractRetryTime(message);
       return new Response(
         JSON.stringify({
-          success: false,
           type: "rate_limit",
-          data: `⏳ AI limit reached. Try again in ${waitTime} seconds.`,
+          error: `⏳ AI limit reached. Try again in ${waitTime} seconds.`,
           retryAfter: waitTime,
         }),
         { status: 429, headers: corsHeaders() },
@@ -93,7 +92,7 @@ export async function POST(req: NextRequest) {
 
     return new Response(
       JSON.stringify({
-        success: false,
+        type: "server_error",
         error: "Something went wrong. Please try again.",
       }),
       { status: 500, headers: corsHeaders() },

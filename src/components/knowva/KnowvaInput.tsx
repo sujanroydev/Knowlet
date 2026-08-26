@@ -68,13 +68,13 @@ export default function KnowvaInput() {
         model,
       };
 
+      setText("");
       setCurrentMessage(userNewMessage);
       const userMessage = await saveMessage(userNewMessage);
 
       setCurrentMessage(null);
       setMessages((prev) => [...prev, userMessage]);
 
-      setText("");
       setIsResponding(true);
 
       currentParentId = userMessage.id;
@@ -100,6 +100,10 @@ export default function KnowvaInput() {
       });
 
       if (!res.ok || !res.body) {
+        const { type, error } = await res.json();
+
+        if (type === "rate_limit") throw new Error(error);
+
         throw new Error("Response Failed");
       }
 
@@ -130,13 +134,6 @@ export default function KnowvaInput() {
         };
         setCurrentMessage({ ...knowvaNewMessage });
       }
-
-      // const { success, type, data, retryAfter } = await res.json();
-
-      // if (!success && type === "rate_limit") throw new Error(data);
-      // if (!success) throw new Error("Response Failed");
-
-      // setCurrentMessage(knowvaNewMessage);
 
       const knowvaMessage = await saveMessage(knowvaNewMessage);
 

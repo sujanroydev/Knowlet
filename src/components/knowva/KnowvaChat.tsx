@@ -29,7 +29,7 @@ export default function KnowvaChat() {
       ref={chatRef}
       className="h-full flex-1 p-4 space-y-3 overflow-y-auto bg-gray-50"
     >
-      {messages.length === 0 && (
+      {messages.length === 0 && !currentMessage && (
         <p className="text-center text-gray-400 mt-10">
           {user ? `Hello, ${user.name}` : "Login to use Knowlet Knowva"}
         </p>

@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
+import { html as beautifyHtml } from "js-beautify";
 
 import HtmlEditor from "./html-editor";
 import ResourcePreview from "./resource-preview";
@@ -17,7 +18,8 @@ export default function ResourceEditor() {
 
   const [preview, setPreview] = useState<boolean>(false);
 
-  const { action, resource, content, details, setContent, setDetails } = useResourceEditor();
+  const { action, resource, content, details, setContent, setDetails } =
+    useResourceEditor();
   const { setOnMessageClick } = useKnowva();
 
   useEffect(() => {
@@ -26,7 +28,14 @@ export default function ResourceEditor() {
         try {
           const parsed = JSON.parse(message.content);
 
-          setContent(parsed.resource);
+          const beautifiedContent = beautifyHtml(parsed.resource, {
+            indent_size: 2,
+            wrap_line_length: 0,
+            preserve_newlines: true,
+            max_preserve_newlines: 1,
+          });
+
+          setContent(beautifiedContent);
           setDetails({
             title: parsed.title,
             description: parsed.description,
@@ -36,14 +45,16 @@ export default function ResourceEditor() {
             path: "",
           });
 
-          toast.success("Imported Successfully");
-        } catch {}
+          toast.success("Imported successfully");
+        } catch {
+          toast.error("Failed to import.");
+        }
       }
     });
 
     return () => {
       setOnMessageClick(undefined);
-    }
+    };
   }, [setOnMessageClick]);
 
   useEffect(() => {

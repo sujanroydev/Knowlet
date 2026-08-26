@@ -4,7 +4,6 @@ import { useState, useRef } from "react";
 import { ArrowUp, Square } from "lucide-react";
 import { toast } from "sonner";
 
-import type { Message, NewMessage, Mode } from "@/types/knowva";
 import { useKnowva } from "@/context/KnowvaContext";
 import { useAuth } from "@/context/AuthContext";
 import {
@@ -22,13 +21,13 @@ export default function KnowvaInput() {
     parentId,
     mode,
     model,
-    messages,
     isResponding,
 
     setChatId,
     setParentId,
-    setChats,
+    setCurrentMessage,
     setMessages,
+    setChats,
     setIsResponding,
   } = useKnowva();
   const { user } = useAuth();
@@ -59,18 +58,22 @@ export default function KnowvaInput() {
         setChatId(currentChatId);
       }
 
-      const userMessage = await saveMessage({
+      const userNewMessage = {
         chat_id: currentChatId,
         parent_id: currentParentId,
         role: "user",
         content: text,
         mode,
         model,
-      });
-
-      setMessages((prev) => [...prev, userMessage]);
+      };
 
       setText("");
+      setCurrentMessage(userNewMessage);
+      const userMessage = await saveMessage(userNewMessage);
+
+      setCurrentMessage(null);
+      setMessages((prev) => [...prev, userMessage]);
+
       setIsResponding(true);
 
       currentParentId = userMessage.id;
@@ -79,27 +82,63 @@ export default function KnowvaInput() {
         throw new DOMException("Aborted", "AbortError");
       }
 
+      let knowvaNewMessage = {
+        chat_id: currentChatId,
+        parent_id: currentParentId,
+        role: "assistant",
+        content: "",
+        mode,
+        model,
+      };
+
+      setCurrentMessage({ ...knowvaNewMessage });
+
       const res = await fetch("/api/knowva/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text, mode, model, chatId: currentChatId }),
-        signal: signal,
+        signal,
       });
 
-      const { success, type, data, retryAfter } = await res.json();
+      if (!res.ok || !res.body) {
+        const { type, error } = await res.json();
 
-      if (!success && type === "rate_limit") throw new Error(data);
-      if (!success) throw new Error("Response Failed");
+        if (type === "rate_limit") throw new Error(error);
 
-      const knowvaMessage = await saveMessage({
-        chat_id: currentChatId,
-        parent_id: currentParentId,
-        role: "assistant",
-        content: (data as string) || "No Response",
-        mode,
-        model,
-      });
+        throw new Error("Response Failed");
+      }
 
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+
+      while (true) {
+        const { value, done } = await reader.read();
+
+        if (done) break;
+
+        const chunk = decoder.decode(value, {
+          stream: true,
+        });
+
+        knowvaNewMessage = {
+          ...knowvaNewMessage,
+          content: knowvaNewMessage.content + chunk,
+        };
+        setCurrentMessage({ ...knowvaNewMessage });
+      }
+
+      const remainingText = decoder.decode();
+      if (remainingText) {
+        knowvaNewMessage = {
+          ...knowvaNewMessage,
+          content: knowvaNewMessage.content + remainingText,
+        };
+        setCurrentMessage({ ...knowvaNewMessage });
+      }
+
+      const knowvaMessage = await saveMessage(knowvaNewMessage);
+
+      setCurrentMessage(null);
       setMessages((prev) => [...prev, knowvaMessage]);
 
       currentParentId = knowvaMessage.id;
@@ -114,15 +153,19 @@ export default function KnowvaInput() {
           : "Something went wrong";
 
       if (!isAbort && currentChatId) {
-        const systemMessage = await saveMessage({
+        const systemNewMessage = {
           chat_id: currentChatId,
           parent_id: currentParentId,
           role: "system",
           content: errorMessage,
           mode,
           model,
-        });
+        };
 
+        setCurrentMessage(systemNewMessage);
+        const systemMessage = await saveMessage(systemNewMessage);
+
+        setCurrentMessage(null);
         setMessages((prev) => [...prev, systemMessage]);
 
         setParentId(systemMessage.id);
@@ -171,9 +214,17 @@ export default function KnowvaInput() {
 
       <button
         onClick={isResponding ? stop : send}
-        className="px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+        className={`flex h-10 w-10 items-center justify-center rounded-xl border backdrop-blur-md transition-all active:scale-90 ${
+          isResponding
+            ? "border-red-200 bg-red-50/80 text-red-500 hover:bg-red-100"
+            : "border-blue-200 bg-blue-500 text-white shadow-lg shadow-blue-500/20 hover:bg-blue-600"
+        }`}
       >
-        {isResponding ? <Square size={18} /> : <ArrowUp size={18} />}
+        {isResponding ? (
+          <Square size={14} fill="currentColor" />
+        ) : (
+          <ArrowUp size={19} strokeWidth={2.5} />
+        )}
       </button>
     </div>
   );

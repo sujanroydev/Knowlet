@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { parseResourcePath, buildResourcePath } from "@/components/dashboard/resources/utils";
+import {
+  parseResourcePath,
+  buildResourcePath,
+} from "@/components/dashboard/resources/utils";
 import { sendNotificationByUserId } from "@/services/notification/send";
 import { authGate } from "@/lib/auth/authGate";
 
@@ -9,6 +12,8 @@ import { getLevelId, insertLevel } from "@/db/resource/level";
 import { getSubjectId, insertSubject } from "@/db/resource/subject";
 import { getPaperId, insertPaper } from "@/db/resource/paper";
 import { getRecentViewHistory } from "@/db/resource/history";
+import { apiError } from "@/lib/api-response";
+import { PostgrestError } from "@supabase/supabase-js";
 
 export async function GET(req: NextRequest) {
   try {
@@ -24,8 +29,10 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
+  let path = "";
   try {
-    const { title, description, content, level, subject, paper, target, type } = await req.json();
+    const { title, description, content, level, subject, paper, target, type } =
+      await req.json();
 
     if (
       !title ||
@@ -45,9 +52,10 @@ export async function POST(req: NextRequest) {
     const { ok, res, payload } = await authGate(req, "admin");
     if (!ok || !payload) return res;
 
-    const path = buildResourcePath({ level, subject, paper, target, type });
+    path = buildResourcePath({ level, subject, paper, target, type });
 
-    const { levelSlug, subjectSlug, paperSlug, typeSlug, targetSlug } = parseResourcePath(path);
+    const { levelSlug, subjectSlug, paperSlug, typeSlug, targetSlug } =
+      parseResourcePath(path);
 
     let levelId = await getLevelId(levelSlug);
     let subjectId: string;
@@ -129,7 +137,10 @@ export async function POST(req: NextRequest) {
       .slice(0, path.split("/")[0].startsWith("semester") ? 3 : 2)
       .join("/");
 
-    const history = await getRecentViewHistory(prefix, thirtyDaysAgo.toISOString());
+    const history = await getRecentViewHistory(
+      prefix,
+      thirtyDaysAgo.toISOString(),
+    );
 
     if (history && history.length) {
       const { subject, paper, type, target } = parseResourcePath(path);
@@ -152,9 +163,19 @@ export async function POST(req: NextRequest) {
     );
   } catch (error) {
     console.error("Failed to save resource", error);
-    return NextResponse.json(
-      { error: { message: (error as Error).message } },
-      { status: 500 },
-    );
+
+    if (
+      typeof error === "object" &&
+      error !== null &&
+      "code" in error &&
+      error.code === "23505"
+    ) {
+      return NextResponse.json(
+        { error: { message: "Resource already exists" }, path },
+        { status: 500 },
+      );
+    }
+
+    return apiError(error instanceof Error ? error.message : "Unknown error");
   }
 }

@@ -9,7 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@google/generative-ai": "^0.24.1",
+    "@google/genai": "^2.19.0",
     "@sparticuz/chromium": "^149.0.0",
     "@supabase/supabase-js": "^2.105.4",
     "@trigger.dev/sdk": "4.4.6",

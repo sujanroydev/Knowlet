@@ -10,11 +10,7 @@ import {
   type SetStateAction,
 } from "react";
 
-import type {
-  Message,
-  Chat,
-  Mode,
-} from "@/types/knowva";
+import type { Message, Chat, Mode, NewMessage } from "@/types/knowva";
 
 import { DEFAULT_MODEL } from "@/config/ai";
 import { fetchChats } from "@/actions/knowva";
@@ -28,6 +24,7 @@ interface KnowvaState {
   parentId: string | null;
   model: string;
   mode: Mode;
+  currentMessage: NewMessage | null;
   messages: Message[];
   chats: Chat[];
 
@@ -36,6 +33,7 @@ interface KnowvaState {
   setParentId: Dispatch<SetStateAction<string | null>>;
   setModel: Dispatch<SetStateAction<string>>;
   setMode: Dispatch<SetStateAction<Mode>>;
+  setCurrentMessage: Dispatch<SetStateAction<NewMessage | null>>;
   setMessages: Dispatch<SetStateAction<Message[]>>;
   setChats: Dispatch<SetStateAction<Chat[]>>;
 
@@ -45,11 +43,7 @@ interface KnowvaState {
 
 const KnowvaContext = createContext<KnowvaState | null>(null);
 
-export function KnowvaProvider({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export function KnowvaProvider({ children }: { children: ReactNode }) {
   const [isResponding, setIsResponding] = useState(false);
 
   const [chatId, setChatId] = useState<string | null>(null);
@@ -57,8 +51,9 @@ export function KnowvaProvider({
   const [mode, setMode] = useState<Mode>("chat");
   const [model, setModel] = useState<string>(DEFAULT_MODEL);
 
-  const [chats, setChats] = useState<Chat[]>([]);
+  const [currentMessage, setCurrentMessage] = useState<NewMessage | null>(null);
   const [messages, setMessages] = useState<Message[]>([]);
+  const [chats, setChats] = useState<Chat[]>([]);
 
   const [onMessageClick, setOnMessageClick] = useState<OnMessageClick>();
 
@@ -80,6 +75,7 @@ export function KnowvaProvider({
         parentId,
         model,
         mode,
+        currentMessage,
         messages,
         chats,
 
@@ -88,11 +84,13 @@ export function KnowvaProvider({
         setParentId,
         setModel,
         setMode,
+        setCurrentMessage,
         setMessages,
         setChats,
 
         onMessageClick,
-        setOnMessageClick }}
+        setOnMessageClick,
+      }}
     >
       {children}
     </KnowvaContext.Provider>

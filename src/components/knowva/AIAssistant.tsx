@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Bot, Send, X, History, SquarePen } from "lucide-react";
+import { X, History, SquarePen } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 
 import KnowvaInput from "@/components/knowva/KnowvaInput";
@@ -10,6 +10,7 @@ import KnowvaToolbar from "@/components/knowva/KnowvaToolbar";
 import { ModelSelector } from "@/components/knowva/ModelSelector";
 import ChatHistoryPopup from "./ChatHistoryPopup";
 import { useChatActions } from "@/hooks/knowva/useChatActions";
+import Image from "next/image";
 
 export default function AIAssistant() {
   const [open, setOpen] = useState(false);
@@ -44,10 +45,23 @@ export default function AIAssistant() {
       {/* Floating Button */}
       <button
         onClick={() => setOpen((prev) => !prev)}
-        className="fixed right-5 bottom-20 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-blue-600 text-white shadow-xl transition hover:scale-105 hover:bg-blue-700"
-        aria-label="Open AI Assistant"
+        className={
+          open
+            ? "fixed right-5 bottom-20 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-gray-800 text-white shadow-xl transition hover:scale-105 hover:bg-gray-900"
+            : "fixed right-5 bottom-20 z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-xl transition hover:scale-105"
+        }
+        aria-label={open ? "Close AI Assistant" : "Open AI Assistant"}
       >
-        {open ? <X size={24} /> : <Bot size={24} />}
+        {open ? (
+          <X size={24} />
+        ) : (
+          <Image
+            src="/icons/knowva/android-chrome-512x512.png"
+            alt="Knowva"
+            width={56}
+            height={56}
+          />
+        )}
       </button>
 
       {/* Chat Popup */}
@@ -63,9 +77,13 @@ export default function AIAssistant() {
             {/* Header */}
             <header className="flex items-center justify-between border-b border-gray-200 px-4 py-3">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-white">
-                  <Bot size={20} />
-                </div>
+                <Image
+                  src="/icons/knowva/android-chrome-512x512.png"
+                  alt="Knowva"
+                  width={72}
+                  height={72}
+                  className="mb-5 w-10 h-10"
+                />
 
                 <div>
                   <h2 className="font-semibold">Knowlet AI</h2>

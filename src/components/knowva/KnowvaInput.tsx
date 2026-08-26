@@ -4,7 +4,6 @@ import { useState, useRef } from "react";
 import { ArrowUp, Square } from "lucide-react";
 import { toast } from "sonner";
 
-import type { Message, NewMessage, Mode } from "@/types/knowva";
 import { useKnowva } from "@/context/KnowvaContext";
 import { useAuth } from "@/context/AuthContext";
 import {
@@ -213,9 +212,17 @@ export default function KnowvaInput() {
 
       <button
         onClick={isResponding ? stop : send}
-        className="px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+        className={`flex h-10 w-10 items-center justify-center rounded-xl border backdrop-blur-md transition-all active:scale-90 ${
+          isResponding
+            ? "border-red-200 bg-red-50/80 text-red-500 hover:bg-red-100"
+            : "border-blue-200 bg-blue-500 text-white shadow-lg shadow-blue-500/20 hover:bg-blue-600"
+        }`}
       >
-        {isResponding ? <Square size={18} /> : <ArrowUp size={18} />}
+        {isResponding ? (
+          <Square size={14} fill="currentColor" />
+        ) : (
+          <ArrowUp size={19} strokeWidth={2.5} />
+        )}
       </button>
     </div>
   );

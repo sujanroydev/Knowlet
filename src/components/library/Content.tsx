@@ -4,6 +4,7 @@ import { getResourceByPath } from "@/db/resource";
 import ReaderPageClient from "./ReaderPageClient";
 import ResourceFooterActions from "./resource-footer-actions";
 import { resourceThemes, type ResourceTheme } from "@/config/resourceThemes";
+import ContentAd from "../ads/ContentAd";
 
 function getThemeIndex(uuid: string) {
   let hash = 0;
@@ -47,6 +48,8 @@ export default async function Content({ slug }: { slug: string[] }) {
             __html: resource.content || "",
           }}
         />
+
+        <ContentAd />
 
         <div className="my-16 flex items-center gap-4">
           <hr className="flex-1 border-border" />

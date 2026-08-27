@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import "@/styles/resource-content.css";
 import "./globals.css";
 import BottomNav from "@/components/BottomNav";
@@ -7,6 +6,7 @@ import TopBar from "@/components/TopBar";
 import { AppProvider } from "@/context/AppContext";
 import AppToaster from "@/components/AppToaster";
 import SWRegister from "@/components/SWRegister";
+import AdSense from "@/components/AdSense";
 
 export const metadata: Metadata = {
   title: "Knowlet – Notes & Study Materials",
@@ -28,14 +28,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <AdSense />
+      </head>
       <body className="h-dvh py-15 box-border overflow-hidden bg-gray-100">
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8649110588500050"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
-
         <AppProvider>
           <SWRegister />
           <div className="h-full flex flex-col">

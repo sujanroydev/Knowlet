@@ -1,8 +1,36 @@
 "use server";
 
-import { deleteOtp, findOtpByEmail } from "@/db/auth/otp";
-import { getUserByEmail, updatePassword } from "@/db/user";
 import bcrypt from "bcryptjs";
+import { cookies } from "next/headers";
+
+import { deleteOtp, findOtpByEmail } from "@/db/auth/otp";
+import {
+  getUserByEmail,
+  getUserById,
+  updatePassword,
+  updateUserLastAccessedAt,
+} from "@/db/user";
+import { verifyJwt } from "@/lib/auth";
+
+export async function getCurrentUser() {
+  const cookieStore = await cookies();
+  const token = cookieStore.get("token")?.value;
+  const { ok, reason, payload } = await verifyJwt(token);
+
+  if (!ok) throw new Error(reason);
+
+  const user = await getUserById(payload.user_id);
+
+  if (!user) throw new Error("User not found");
+
+  const { id, password_hash, ...safeUser } = user;
+
+  void updateUserLastAccessedAt(payload.user_id).catch((error) => {
+    console.error("Failed to update last accessed time", error);
+  });
+
+  return safeUser;
+}
 
 export async function changeUserPassword({
   email,

@@ -7,6 +7,7 @@ import AuthCard from "@/components/auth/AuthCard";
 import PasswordInput from "@/components/ui/PasswordInput";
 import { sendPasswordResetOtp } from "@/actions/auth/password-reset";
 import { useRouter } from "next/navigation";
+import { resetUserPassword } from "@/actions/user";
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
@@ -23,15 +24,16 @@ export default function ForgotPasswordPage() {
 
     const formData = new FormData(e.currentTarget);
 
-    const otp = formData.get("otp");
-    const password = formData.get("password");
-    const confirmPassword = formData.get("confirmPassword");
+    const otp = formData.get("otp") as string;
+    const password = formData.get("password") as string;
+    const confirmPassword = formData.get("confirmPassword") as string;
 
-    if (!password) {
-      toast.warning("");
+    if (!email || !otp || !password) {
+      toast.warning("All fields are required");
+      return;
     }
 
-    if ((password as string).length < 6) {
+    if (password.length < 6) {
       toast.warning("Password must be at least 6 characters");
       return;
     }
@@ -44,18 +46,7 @@ export default function ForgotPasswordPage() {
     try {
       setLoading(true);
 
-      const res = await fetch("/api/auth/reset-password", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, otp, password }),
-      });
-
-      const data = await res.json();
-
-      if (data.error) {
-        toast.error(data.error.message);
-        return;
-      }
+      await resetUserPassword({ email, otp, password });
 
       toast.success("Password reset successful");
       router.push("/signin");

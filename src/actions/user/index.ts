@@ -1,5 +1,6 @@
 "use server";
 
+import { deleteOtp, findOtpByEmail } from "@/db/auth/otp";
 import { getUserByEmail, updatePassword } from "@/db/user";
 import bcrypt from "bcryptjs";
 
@@ -33,4 +34,47 @@ export async function changeUserPassword({
 
   // Update password
   await updatePassword(email, passwordHash);
+}
+
+export async function resetUserPassword({
+  email,
+  otp,
+  password,
+}: {
+  email: string;
+  otp: string;
+  password: string;
+}) {
+  if (!email || !otp || !password) {
+    throw new Error("All fields are required");
+  }
+
+  // Fetch User
+  const otpObj = await findOtpByEmail(email);
+
+  if (!otpObj) throw new Error("Invalid or expired OTP");
+
+  // Check expiry
+  const now = new Date();
+
+  if (now > new Date(otpObj.expires_at)) {
+    // Delete expired OTP
+    await deleteOtp(email);
+
+    throw new Error("OTP Expired");
+  }
+
+  // Verify OTP
+  const validOtp = await bcrypt.compare(otp, otpObj.otp_hash);
+
+  if (!validOtp) throw new Error("Invalid OTP");
+
+  // Hash new password
+  const passwordHash = await bcrypt.hash(password, 10);
+
+  // Update password
+  await updatePassword(email, passwordHash);
+
+  // Delete OTP after successful reset
+  await deleteOtp(email);
 }

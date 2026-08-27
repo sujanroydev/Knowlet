@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import { toast } from "sonner";
-import { Eye, EyeOff } from "lucide-react";
 import Loader from "@/components/auth/Loader";
 import AuthCard from "@/components/auth/AuthCard";
 import PasswordInput from "@/components/ui/PasswordInput";
+import { sendPasswordResetOtp } from "@/actions/auth/password-reset";
+import { useRouter } from "next/navigation";
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
@@ -14,8 +15,8 @@ export default function ForgotPasswordPage() {
   const [otpSent, setOtpSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [otpLoading, setOtpLoading] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setConfirmShowPassword] = useState(false);
+
+  const router = useRouter();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -24,6 +25,21 @@ export default function ForgotPasswordPage() {
 
     const otp = formData.get("otp");
     const password = formData.get("password");
+    const confirmPassword = formData.get("confirmPassword");
+
+    if (!password) {
+      toast.warning("");
+    }
+
+    if ((password as string).length < 6) {
+      toast.warning("Password must be at least 6 characters");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      toast.warning("Password not matched");
+      return;
+    }
 
     try {
       setLoading(true);
@@ -42,7 +58,7 @@ export default function ForgotPasswordPage() {
       }
 
       toast.success("Password reset successful");
-      window.location.href = "/signin";
+      router.push("/signin");
     } catch {
       toast.error("Something went wrong");
     } finally {
@@ -54,21 +70,11 @@ export default function ForgotPasswordPage() {
     try {
       setOtpLoading(true);
 
-      const res = await fetch("/api/auth/forgot-password", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+      await sendPasswordResetOtp(email);
+
+      toast.success("OTP sent (if account exists)", {
+        description: `Email: ${email}`,
       });
-      toast.info(`email: ${email}`)
-
-      const data = await res.json();
-
-      if (data.error) {
-        toast.error(data.error.message);
-        return;
-      }
-
-      toast.success("OTP sent (if account exists)");
       setOtpSent(true);
     } catch {
       toast.error("Something went wrong");
@@ -114,11 +120,7 @@ export default function ForgotPasswordPage() {
             </button>
           </div>
 
-          <PasswordInput
-            name="password"
-            placeholder="Password"
-            required
-          />
+          <PasswordInput name="password" placeholder="Password" required />
 
           <PasswordInput
             name="confirmPassword"

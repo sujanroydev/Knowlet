@@ -31,15 +31,15 @@ export default function RootLayout({
       <head>
         <AdSense />
       </head>
-      <body className="h-dvh py-15 box-border bg-gray-100">
+      <body className="h-dvh box-border bg-gray-100">
         <AppProvider>
-          <SWRegister />
           <div className="h-full flex flex-col">
             <TopBar />
-            <div className="flex-1 overflow-y-auto">{children}</div>
-            <AppToaster />
+            <main className="flex-1 py-15">{children}</main>
             <BottomNav />
           </div>
+          <SWRegister />
+          <AppToaster />
         </AppProvider>
       </body>
     </html>

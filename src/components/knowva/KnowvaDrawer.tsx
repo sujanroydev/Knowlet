@@ -28,19 +28,12 @@ export default function KnowvaDrawer() {
   const { open, setOpen } = useDrawer();
   const { chats, chatId } = useKnowva();
 
-  const {
-    loadChat,
-    deleteChatAction,
-    createNewChat,
-    pinChatAction,
-  } = useChatActions();
+  const { loadChat, deleteChatAction, createNewChat, pinChatAction } =
+    useChatActions();
 
   useEffect(() => {
     function handleOutsideClick(event: PointerEvent) {
-      if (
-        menuRef.current &&
-        !menuRef.current.contains(event.target as Node)
-      ) {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setOpenMenu(null);
       }
     }
@@ -73,9 +66,7 @@ export default function KnowvaDrawer() {
       {/* Header */}
       <header className="flex items-center justify-between border-b border-border/50 p-5">
         <div>
-          <h1 className="text-lg font-semibold tracking-tight">
-            Knowva
-          </h1>
+          <h1 className="text-lg font-semibold tracking-tight">Knowva</h1>
 
           <p className="text-xs text-muted-foreground">
             Your AI study companion
@@ -118,19 +109,12 @@ export default function KnowvaDrawer() {
               }
 
               return (
-                new Date(
-                  b.last_message_at ?? b.created_at,
-                ).getTime() -
-                new Date(
-                  a.last_message_at ?? a.created_at,
-                ).getTime()
+                new Date(b.last_message_at ?? b.created_at).getTime() -
+                new Date(a.last_message_at ?? a.created_at).getTime()
               );
             })
             .map((c) => (
-              <div
-                key={c.id}
-                className="relative mb-1"
-              >
+              <div key={c.id} className="relative mb-1">
                 {/* Chat */}
                 <button
                   type="button"
@@ -150,19 +134,12 @@ export default function KnowvaDrawer() {
                     }`}
                   />
 
-                  <span className="truncate">
-                    {c.title}
-                  </span>
+                  <span className="truncate">{c.title}</span>
                 </button>
 
                 {/* Chat Actions */}
                 <div className="absolute right-2 top-1/2 flex -translate-y-1/2 items-center gap-1">
-                  {c.pinned && (
-                    <Pin
-                      size={14}
-                      className="text-blue-600"
-                    />
-                  )}
+                  {c.pinned && <Pin size={14} className="text-blue-600" />}
 
                   <button
                     type="button"
@@ -170,11 +147,7 @@ export default function KnowvaDrawer() {
                     onClick={(event) => {
                       event.stopPropagation();
 
-                      setOpenMenu(
-                        openMenu === c.id
-                          ? null
-                          : c.id,
-                      );
+                      setOpenMenu(openMenu === c.id ? null : c.id);
                     }}
                     className="rounded p-1 hover:bg-accent"
                   >
@@ -194,18 +167,13 @@ export default function KnowvaDrawer() {
                       onClick={() => {
                         setOpenMenu(null);
 
-                        void pinChatAction(
-                          c.id,
-                          !c.pinned,
-                        );
+                        void pinChatAction(c.id, !c.pinned);
                       }}
                       className="flex w-full items-center gap-2 px-3 py-2 text-sm text-blue-600 hover:bg-blue-50"
                     >
                       <Pin size={16} />
 
-                      {c.pinned
-                        ? "Unpin"
-                        : "Pin"}
+                      {c.pinned ? "Unpin" : "Pin"}
                     </button>
 
                     {/* Delete */}
@@ -214,9 +182,7 @@ export default function KnowvaDrawer() {
                       onClick={() => {
                         setOpenMenu(null);
 
-                        void deleteChatAction(
-                          c.id,
-                        );
+                        void deleteChatAction(c.id);
                       }}
                       className="flex w-full items-center gap-2 px-3 py-2 text-sm text-red-600 hover:bg-red-50"
                     >
@@ -242,7 +208,7 @@ export default function KnowvaDrawer() {
         </Link>
 
         <Link
-          href="/dashboard/resource/create"
+          href="/dashboard/resources/create"
           onClick={() => setOpen(false)}
           className="mt-1 flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm transition hover:bg-accent"
         >

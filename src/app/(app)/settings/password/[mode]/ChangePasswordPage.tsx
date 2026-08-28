@@ -5,58 +5,51 @@ import { useState } from "react";
 import { toast } from "sonner";
 import AuthCard from "@/components/auth/AuthCard";
 import PasswordInput from "@/components/ui/PasswordInput";
-import maskEmail from "@/utils/maskEmail";
+import { changeUserPassword } from "@/actions/user";
+import { useRouter } from "next/navigation";
 
 export default function ChangePasswordPage() {
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setConfirmShowPassword] = useState(false);
-
   const [oldPassword, setOldPassword] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const [loading, setLoading] = useState(false);
 
+  const router = useRouter();
   const { user } = useAuth();
-  const email = user?.email;
 
   async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-
-    if (password.length < 6) {
-      toast.warning("Password must be at least 6 characters.");
-      return;
-    }
-
-    if (password !== confirmPassword) {
-      toast.warning("Passwords do not match.");
-      return;
-    }
-
-    if (oldPassword === password) {
-      toast.warning("Cann't use old password");
-      return;
-    }
-
     try {
+      e.preventDefault();
+
+      if (!user?.email) throw new Error("Email not found");
+
+      if (password.length < 6) {
+        toast.warning("Password must be at least 6 characters");
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        toast.warning("Passwords do not match");
+        return;
+      }
+
+      if (oldPassword === password) {
+        toast.warning("Cann't use old password");
+        return;
+      }
+
       setLoading(true);
 
-      const res = await fetch("/api/auth/change-password", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password, oldPassword }),
-      });
-
-      const { data, error } = await res.json();
-
-      if (error) toast.error(error.message);
-      if (!res.ok) return;
+      await changeUserPassword({ email: user?.email, password, oldPassword });
 
       toast.success("Password updated successfully.");
 
       setOldPassword("");
       setPassword("");
       setConfirmPassword("");
+
+      router.back();
     } catch (err: any) {
       toast.error(err.message);
     } finally {

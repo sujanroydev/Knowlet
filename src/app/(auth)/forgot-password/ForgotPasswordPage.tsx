@@ -1,11 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { Eye, EyeOff } from "lucide-react";
+
 import Loader from "@/components/auth/Loader";
 import AuthCard from "@/components/auth/AuthCard";
 import PasswordInput from "@/components/ui/PasswordInput";
+import { useRouter } from "next/navigation";
+import { resetUserPassword } from "@/actions/user";
+import { sendAuthOtp } from "@/actions/auth/otp";
+import { useAuth } from "@/context/AuthContext";
+import maskEmail from "@/utils/maskEmail";
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
@@ -14,35 +19,43 @@ export default function ForgotPasswordPage() {
   const [otpSent, setOtpSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [otpLoading, setOtpLoading] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setConfirmShowPassword] = useState(false);
+
+  const router = useRouter();
+  const { user } = useAuth();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
 
-    const otp = formData.get("otp");
-    const password = formData.get("password");
+    const otp = formData.get("otp") as string;
+    const password = formData.get("password") as string;
+    const confirmPassword = formData.get("confirmPassword") as string;
+
+    if (!email || !otp || !password) {
+      toast.warning("All fields are required");
+      return;
+    }
+
+    if (password.length < 6) {
+      toast.warning("Password must be at least 6 characters");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      toast.warning("Password not matched");
+      return;
+    }
 
     try {
       setLoading(true);
 
-      const res = await fetch("/api/auth/reset-password", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, otp, password }),
-      });
-
-      const data = await res.json();
-
-      if (data.error) {
-        toast.error(data.error.message);
-        return;
-      }
+      await resetUserPassword({ email, otp, password });
 
       toast.success("Password reset successful");
-      window.location.href = "/signin";
+
+      if (!user?.email) router.push("/signin");
+      if (user?.email) router.back();
     } catch {
       toast.error("Something went wrong");
     } finally {
@@ -54,21 +67,11 @@ export default function ForgotPasswordPage() {
     try {
       setOtpLoading(true);
 
-      const res = await fetch("/api/auth/forgot-password", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+      await sendAuthOtp({ email, type: "forgot_password" });
+
+      toast.success("OTP sent to your email", {
+        description: maskEmail(email),
       });
-      toast.info(`email: ${email}`)
-
-      const data = await res.json();
-
-      if (data.error) {
-        toast.error(data.error.message);
-        return;
-      }
-
-      toast.success("OTP sent (if account exists)");
       setOtpSent(true);
     } catch {
       toast.error("Something went wrong");
@@ -76,6 +79,11 @@ export default function ForgotPasswordPage() {
       setOtpLoading(false);
     }
   }
+
+  useEffect(() => {
+    if (!user?.email) return;
+    setEmail(user.email);
+  }, [user]);
 
   return (
     <main className="min-h-[calc(100dvh-120px)] flex items-center justify-center bg-gray-100 p-4">
@@ -91,6 +99,7 @@ export default function ForgotPasswordPage() {
             onChange={(e) => setEmail(e.target.value)}
             className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
             required
+            disabled={!!user?.email}
           />
 
           <div className="flex overflow-hidden rounded-lg border border-gray-300 focus-within:border-blue-500">
@@ -114,11 +123,7 @@ export default function ForgotPasswordPage() {
             </button>
           </div>
 
-          <PasswordInput
-            name="password"
-            placeholder="Password"
-            required
-          />
+          <PasswordInput name="password" placeholder="Password" required />
 
           <PasswordInput
             name="confirmPassword"

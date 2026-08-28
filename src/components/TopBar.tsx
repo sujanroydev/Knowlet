@@ -36,14 +36,8 @@ export default function TopBar() {
 
   const { mode } = useHeader();
   const { user } = useAuth();
-  const {
-    liked,
-    bookmarked,
-    toggleLike,
-    toggleBookmark,
-    parsePath,
-    resourceId,
-  } = useReader();
+  const { like, bookmark, toggleLike, toggleBookmark, parsePath, resourceId } =
+    useReader();
   const { setOpen: setOpenDrawer } = useDrawer();
   const { createNewChat } = useChatActions();
 
@@ -197,21 +191,39 @@ export default function TopBar() {
               <Share2 className={`w-5 h-5 transition`} />
             </Btn>
 
-            <Btn onClick={toggleLike} title={liked ? "Unlike" : "Like"}>
+            <Btn
+              onClick={toggleLike}
+              title={
+                like === "active"
+                  ? "Unlike"
+                  : like === "inactive"
+                    ? "Like"
+                    : "Updating..."
+              }
+            >
               <ThumbsUp
                 className={`w-5 h-5 transition ${
-                  liked ? "text-indigo-600 fill-indigo-100" : "text-slate-500"
+                  like === "active"
+                    ? "text-indigo-600 fill-indigo-100"
+                    : "text-slate-500"
                 }`}
               />
             </Btn>
 
             <Btn
               onClick={toggleBookmark}
-              title={bookmarked ? "Remove Bookmark" : "Bookmark"}
+              title={
+                bookmark === "active"
+                  ? "Remove Bookmark"
+                  : bookmark === "inactive"
+                    ? "Bookmark"
+                    : "Updating..."
+              }
+              disabled={bookmark === "loading"}
             >
               <Bookmark
                 className={`w-5 h-5 transition ${
-                  bookmarked
+                  bookmark === "active"
                     ? "text-indigo-600 fill-indigo-100"
                     : "text-slate-500"
                 }`}

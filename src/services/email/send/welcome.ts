@@ -1,4 +1,4 @@
-import { sendEmail } from "./index";
+import { sendEmail } from "@/services/email/send";
 
 export async function sendWelcomeEmail({
   email,

@@ -4,13 +4,17 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { useAuth } from "./AuthContext";
 import { toast } from "sonner";
 import { ParsedPath } from "@/types/resource";
+import { ActionState } from "@/types/main";
+import { bookmarkResource, unbookmarkResource } from "@/actions/user/bookmark";
+import { likeResource, unlikeResource } from "@/actions/user/like";
+import { addViewHistory } from "@/actions/user/history";
 
 type ReaderContextType = {
   resourceId: string | null;
   setResourceId: (resourceId: string | null) => void;
 
-  liked: boolean;
-  bookmarked: boolean;
+  like: ActionState;
+  bookmark: ActionState;
 
   toggleLike: () => void;
   toggleBookmark: () => void;
@@ -21,35 +25,10 @@ type ReaderContextType = {
 const ReaderContext = createContext<ReaderContextType | null>(null);
 
 export function ReaderProvider({ children }: { children: React.ReactNode }) {
-  const [liked, setLiked] = useState(false);
+  const [like, setLike] = useState<ActionState>("inactive");
   const [resourceId, setResourceId] = useState<string | null>(null);
-  const [bookmarked, setBookmarked] = useState(false);
+  const [bookmark, setBookmark] = useState<ActionState>("inactive");
   const { user } = useAuth();
-
-  useEffect(() => {
-    if (!resourceId) return;
-
-    const currentResourceId = resourceId;
-
-    loadResStats();
-
-    const timer = setTimeout(() => {
-      addHistory(currentResourceId);
-    }, 10000);
-
-    return () => clearTimeout(timer);
-  }, [resourceId]);
-
-  async function addHistory(resourceId: string) {
-    try {
-      await fetch("/api/history/view_history", {
-        method: "POST",
-        body: JSON.stringify({
-          resource_id: resourceId,
-        }),
-      });
-    } catch {}
-  }
 
   async function loadResStats() {
     try {
@@ -59,8 +38,8 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
       });
       const { data, error } = await res.json();
       if (error || !data) return;
-      setLiked(data.liked);
-      setBookmarked(data.bookmarked);
+      setLike(data.liked ? "active" : "inactive");
+      setBookmark(data.bookmarked ? "active" : "inactive");
     } catch {}
   }
 
@@ -69,14 +48,17 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
       toast.error("you are not signed in");
       return;
     }
-    setLiked((prev) => !prev);
+    if (!resourceId) return;
+    const currentLike = like;
+    setLike("loading");
     try {
-      const res = await fetch("/api/likes/toggle", {
-        method: "POST",
-        body: JSON.stringify({ resource_id: resourceId }),
-      });
-      const { data, error } = await res.json();
-      if (error) console.error("error", error);
+      if (currentLike === "active") {
+        unlikeResource(resourceId);
+        setLike("inactive");
+      } else if (currentLike === "inactive") {
+        likeResource(resourceId);
+        setLike("active");
+      }
     } catch (error) {
       console.error("error", error);
     }
@@ -87,14 +69,17 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
       toast.error("you are not signed in");
       return;
     }
-    setBookmarked((prev) => !prev);
+    if (!resourceId) return;
+    const currentBookmark = bookmark;
+    setBookmark("loading");
     try {
-      const res = await fetch("/api/bookmarks/toggle", {
-        method: "POST",
-        body: JSON.stringify({ resource_id: resourceId }),
-      });
-      const { data, error } = await res.json();
-      if (error) console.error("error", error);
+      if (currentBookmark === "active") {
+        unbookmarkResource(resourceId);
+        setBookmark("inactive");
+      } else if (currentBookmark === "inactive") {
+        bookmarkResource(resourceId);
+        setBookmark("active");
+      }
     } catch (error) {
       console.error("error", error);
     }
@@ -148,13 +133,27 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
     return { currentPath, prevPath, nextPath, target, prevTarget, nextTarget };
   }
 
+  useEffect(() => {
+    if (!resourceId) return;
+
+    const currentResourceId = resourceId;
+
+    loadResStats();
+
+    const timer = setTimeout(() => {
+      addViewHistory(currentResourceId);
+    }, 10000);
+
+    return () => clearTimeout(timer);
+  }, [resourceId]);
+
   return (
     <ReaderContext.Provider
       value={{
         resourceId,
         setResourceId,
-        liked,
-        bookmarked,
+        like,
+        bookmark,
         toggleLike,
         toggleBookmark,
         parsePath,

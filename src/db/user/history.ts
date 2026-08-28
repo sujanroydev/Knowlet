@@ -1,4 +1,5 @@
 import { supabase } from "@/lib/supabase";
+import { History } from "@/types/resource";
 
 export async function getHistory(userId: string) {
   const { data, error } = await supabase
@@ -21,12 +22,10 @@ export async function getHistory(userId: string) {
 
   if (error) throw error;
 
-  return data;
+  return data as unknown as History[];
 }
 
-export async function getUserViewHistoryCount(
-  userId: string
-) {
+export async function getUserViewHistoryCount(userId: string) {
   const { count, error } = await supabase
     .from("view_history")
     .select("*", { count: "exact", head: true })
@@ -50,14 +49,11 @@ export async function getHistoryPaths(userId: string) {
     created_at: string;
     resource: {
       path: string;
-    }
+    };
   }[];
 }
 
-export async function getRecentHistoryPaths(
-  userId: string,
-  from: string,
-) {
+export async function getRecentHistoryPaths(userId: string, from: string) {
   const { data, error } = await supabase
     .from("view_history")
     .select("created_at")
@@ -68,4 +64,13 @@ export async function getRecentHistoryPaths(
   if (error) throw error;
 
   return data as unknown as { created_at: string }[];
+}
+
+export async function addViewHistory(userId: string, resourceId: string) {
+  const { error } = await supabase.rpc("add_view_history", {
+    p_user_id: userId,
+    p_resource_id: resourceId,
+  });
+
+  if (error) throw error;
 }

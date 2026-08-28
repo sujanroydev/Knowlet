@@ -3,15 +3,14 @@
 import { useAuth } from "@/context/AuthContext";
 import { useState } from "react";
 import { toast } from "sonner";
-import { Eye, EyeOff } from "lucide-react";
 import AuthCard from "@/components/auth/AuthCard";
 import PasswordInput from "@/components/ui/PasswordInput";
 import maskEmail from "@/utils/maskEmail";
+import { setUserPassword } from "@/actions/user";
+import { sendAuthOtp } from "@/actions/auth/otp";
+import { useRouter } from "next/navigation";
 
 export default function SetPasswordPage() {
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setConfirmShowPassword] = useState(false);
-
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [otp, setOtp] = useState("");
@@ -20,6 +19,7 @@ export default function SetPasswordPage() {
   const [otpLoading, setOtpLoading] = useState(false);
   const [otpSent, setOtpSent] = useState(false);
 
+  const router = useRouter();
   const { user } = useAuth();
   const email = user?.email;
 
@@ -32,22 +32,13 @@ export default function SetPasswordPage() {
     try {
       setOtpLoading(true);
 
-      const res = await fetch("/api/auth/request-otp", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, type: "set_password" }),
-      });
-
-      const data = await res.json();
-
-      if (data.error) {
-        toast.error(data.error.message);
-        return;
-      }
+      await sendAuthOtp({ email, type: "set_password" });
 
       setOtpSent(true);
 
-      toast.success("OTP sent to your email", { description: maskEmail(email)});
+      toast.success("OTP sent to your email", {
+        description: maskEmail(email),
+      });
     } catch (error) {
       toast.error((error as Error).message);
     } finally {
@@ -70,23 +61,17 @@ export default function SetPasswordPage() {
 
     try {
       setLoading(true);
+      if (!email) throw new Error("Email not found");
 
-      const res = await fetch("/api/auth/set-password", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password, otp }),
-      });
-
-      const { data, error } = await res.json();
-
-      if (error) toast.error(error.message);
-      if (!res.ok) return;
+      await setUserPassword({ email, password, otp });
 
       toast.success("Password updated successfully.");
 
       setPassword("");
       setConfirmPassword("");
       setOtp("");
+
+      router.back();
     } catch (err: any) {
       toast.error(err.message);
     } finally {
@@ -106,7 +91,8 @@ export default function SetPasswordPage() {
               value={otp}
               onChange={(e) => setOtp(e.target.value)}
               className="flex-1 px-4 py-3 outline-none disabled:bg-gray-100"
-              required={!otpSent}
+              disabled={!otpSent}
+              required
             />
 
             <button
@@ -142,7 +128,7 @@ export default function SetPasswordPage() {
           >
             {loading ? "Updating Password..." : "Set Password"}
           </button>
-              </form>
+        </form>
       </AuthCard>
     </main>
   );

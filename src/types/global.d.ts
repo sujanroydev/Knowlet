@@ -19,5 +19,6 @@ type AuthOtpType =
   | "signin"
   | "set_password"
   | "reset_password"
+  | "forgot_password"
   | "change_password"
   | "verify_email";

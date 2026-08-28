@@ -3,15 +3,12 @@
 import { useAuth } from "@/context/AuthContext";
 import { useState } from "react";
 import { toast } from "sonner";
-import { Eye, EyeOff } from "lucide-react";
 import AuthCard from "@/components/auth/AuthCard";
 import PasswordInput from "@/components/ui/PasswordInput";
 import maskEmail from "@/utils/maskEmail";
+import { setUserPassword } from "@/actions/user";
 
 export default function SetPasswordPage() {
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setConfirmShowPassword] = useState(false);
-
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [otp, setOtp] = useState("");
@@ -47,7 +44,9 @@ export default function SetPasswordPage() {
 
       setOtpSent(true);
 
-      toast.success("OTP sent to your email", { description: maskEmail(email)});
+      toast.success("OTP sent to your email", {
+        description: maskEmail(email),
+      });
     } catch (error) {
       toast.error((error as Error).message);
     } finally {
@@ -70,17 +69,9 @@ export default function SetPasswordPage() {
 
     try {
       setLoading(true);
+      if (!email) throw new Error("Email not found");
 
-      const res = await fetch("/api/auth/set-password", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password, otp }),
-      });
-
-      const { data, error } = await res.json();
-
-      if (error) toast.error(error.message);
-      if (!res.ok) return;
+      await setUserPassword({ email, password, otp });
 
       toast.success("Password updated successfully.");
 
@@ -142,7 +133,7 @@ export default function SetPasswordPage() {
           >
             {loading ? "Updating Password..." : "Set Password"}
           </button>
-              </form>
+        </form>
       </AuthCard>
     </main>
   );

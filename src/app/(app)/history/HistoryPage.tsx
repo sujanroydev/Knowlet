@@ -6,18 +6,8 @@ import { TailSpin } from "react-loader-spinner";
 import Link from "next/link";
 
 import ListPageLayout from "@/components/layout/ListPageLayout";
-
-type History = {
-  id: string;
-  created_at: string;
-  resource: {
-    id: string;
-    title: string;
-    description: string;
-    path: string;
-    created_at: string;
-  };
-};
+import { getHistory } from "@/actions/user/history";
+import { History } from "@/types/resource";
 
 export default function HistoryPage() {
   const [loading, setLoading] = useState(true);
@@ -27,17 +17,9 @@ export default function HistoryPage() {
     try {
       setLoading(true);
 
-      const res = await fetch("/api/history/view_history");
+      const history = await getHistory();
 
-      if (!res.ok) {
-        throw new Error("Failed to fetch history");
-      }
-
-      const { data, error } = await res.json();
-
-      if (error) throw new Error(error.message);
-
-      setHistory(data || []);
+      setHistory(history || []);
     } catch (error) {
       toast.error((error as Error).message);
       setHistory([]);

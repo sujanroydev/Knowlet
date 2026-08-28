@@ -62,3 +62,15 @@ export interface Bookmark {
     created_at: string;
   };
 }
+
+export interface History {
+  id: string;
+  created_at: string;
+  resource: {
+    id: string;
+    title: string;
+    description: string;
+    path: string;
+    created_at: string;
+  };
+}

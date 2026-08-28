@@ -7,6 +7,7 @@ import AuthCard from "@/components/auth/AuthCard";
 import PasswordInput from "@/components/ui/PasswordInput";
 import maskEmail from "@/utils/maskEmail";
 import { setUserPassword } from "@/actions/user";
+import { sendAuthOtp } from "@/actions/auth/otp";
 
 export default function SetPasswordPage() {
   const [password, setPassword] = useState("");
@@ -29,18 +30,7 @@ export default function SetPasswordPage() {
     try {
       setOtpLoading(true);
 
-      const res = await fetch("/api/auth/request-otp", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, type: "set_password" }),
-      });
-
-      const data = await res.json();
-
-      if (data.error) {
-        toast.error(data.error.message);
-        return;
-      }
+      await sendAuthOtp({ email, type: "set_password" });
 
       setOtpSent(true);
 

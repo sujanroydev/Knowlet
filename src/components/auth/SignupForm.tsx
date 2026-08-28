@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import { useAuth } from "@/context/AuthContext";
 import { subscribe } from "../SWRegister";
 import PasswordInput from "@/components/ui/PasswordInput";
+import { sendAuthOtp } from "@/actions/auth/otp";
 
 export default function SignupForm() {
   const [loading, setLoading] = useState(false);
@@ -28,18 +29,7 @@ export default function SignupForm() {
     try {
       setOtpLoading(true);
 
-      const res = await fetch("/api/auth/request-otp", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email.toLowerCase(), type: "signup" }),
-      });
-
-      const data = await res.json();
-
-      if (data.error) {
-        toast.error(data.error.message);
-        return;
-      }
+      await sendAuthOtp({ email: email.toLowerCase(), type: "signup" });
 
       setOtpSent(true);
 

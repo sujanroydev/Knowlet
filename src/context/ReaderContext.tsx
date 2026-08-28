@@ -5,11 +5,8 @@ import { useAuth } from "./AuthContext";
 import { toast } from "sonner";
 import { ParsedPath } from "@/types/resource";
 import { ActionState } from "@/types/main";
-import {
-  bookmarkResource,
-  unbookmarkResource,
-} from "@/actions/resource/bookmark";
-import { likeResource, unlikeResource } from "@/actions/resource/like";
+import { bookmarkResource, unbookmarkResource } from "@/actions/user/bookmark";
+import { likeResource, unlikeResource } from "@/actions/user/like";
 
 type ReaderContextType = {
   resourceId: string | null;

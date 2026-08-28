@@ -6,7 +6,7 @@ import { TailSpin } from "react-loader-spinner";
 import Link from "next/link";
 
 import ListPageLayout from "@/components/layout/ListPageLayout";
-import { getBookmarks } from "@/actions/resource/bookmark";
+import { getBookmarks } from "@/actions/user/bookmark";
 import { Bookmark } from "@/types/resource";
 
 export default function BookmarksPage() {

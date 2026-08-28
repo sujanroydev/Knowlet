@@ -1,8 +1,5 @@
 "use server";
 
-import { cookies } from "next/headers";
-import { verifyJwt } from "@/lib/auth"
-
 import { generateChatTitle as _generateChatTitle } from "@/services/knowva";
 import {
   pinChat as _pinChat,
@@ -12,19 +9,16 @@ import {
   deleteChat as _deleteChat,
   renameChat as _renameChat,
 } from "@/db/knowva/chat";
+import { getAuthenticatedUserId } from "@/lib/auth/getAuthenticatedUserId";
 
 export async function generateChatTitle(message: string) {
   return await _generateChatTitle(message);
 }
 
 export async function newChat() {
-  const cookieStore = await cookies();
-  const token = cookieStore.get("token")?.value;
-  const { ok, payload } = await verifyJwt(token);
+  const userId = await getAuthenticatedUserId();
 
-  if (!ok) throw new Error("Unauthorized");
-
-  return await _newChat(payload.user_id);
+  return await _newChat(userId);
 }
 
 export async function renameChat(chatId: string, newName: string) {
@@ -32,29 +26,19 @@ export async function renameChat(chatId: string, newName: string) {
 }
 
 export async function fetchChats() {
-  const cookieStore = await cookies();
-  const token = cookieStore.get("token")?.value;
-  const { ok, payload } = await verifyJwt(token);
+  const userId = await getAuthenticatedUserId();
 
-  if (!ok) throw new Error("Unauthorized");
-
-  return await _fetchChats(payload.user_id);
+  return await _fetchChats(userId);
 }
 
 export async function deleteChat(chatId: string) {
   return await _deleteChat(chatId);
 }
 
-export async function pinChat(
-  chatId: string,
-  pinned: boolean
-) {
+export async function pinChat(chatId: string, pinned: boolean) {
   return await _pinChat(chatId, pinned);
 }
 
-export async function archiveChat(
-  chatId: string,
-  archived: boolean
-) {
+export async function archiveChat(chatId: string, archived: boolean) {
   return await _archiveChat(chatId, archived);
 }

@@ -1,7 +1,6 @@
 "use server";
 
 import bcrypt from "bcryptjs";
-import { cookies } from "next/headers";
 
 import { deleteOtp, findOtpByEmail } from "@/db/auth/otp";
 import {
@@ -10,22 +9,18 @@ import {
   updatePassword,
   updateUserLastAccessedAt,
 } from "@/db/user";
-import { verifyJwt } from "@/lib/auth";
+import { getAuthenticatedUserId } from "@/lib/auth/getAuthenticatedUserId";
 
 export async function getCurrentUser() {
-  const cookieStore = await cookies();
-  const token = cookieStore.get("token")?.value;
-  const { ok, reason, payload } = await verifyJwt(token);
+  const userId = await getAuthenticatedUserId();
 
-  if (!ok) throw new Error(reason);
-
-  const user = await getUserById(payload.user_id);
+  const user = await getUserById(userId);
 
   if (!user) throw new Error("User not found");
 
   const { id, password_hash, ...safeUser } = user;
 
-  void updateUserLastAccessedAt(payload.user_id).catch((error) => {
+  void updateUserLastAccessedAt(userId).catch((error) => {
     console.error("Failed to update last accessed time", error);
   });
 
@@ -41,6 +36,8 @@ export async function setUserPassword({
   otp: string;
   password: string;
 }) {
+  const userId = await getAuthenticatedUserId();
+
   if (!email || !otp || !password) throw new Error("All fields are required");
 
   const otpObj = await findOtpByEmail(email);
@@ -81,6 +78,8 @@ export async function changeUserPassword({
   password: string;
   oldPassword: string;
 }) {
+  const userId = await getAuthenticatedUserId();
+
   if (!email || !password || !oldPassword) {
     throw new Error("All fields are required");
   }
@@ -113,6 +112,8 @@ export async function resetUserPassword({
   otp: string;
   password: string;
 }) {
+  const userId = await getAuthenticatedUserId();
+
   if (!email || !otp || !password) {
     throw new Error("All fields are required");
   }

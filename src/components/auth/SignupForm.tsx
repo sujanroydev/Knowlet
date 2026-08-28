@@ -113,7 +113,17 @@ export default function SignupForm() {
           name="email"
           placeholder="Email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => {
+            const rawValue = e.target.value;
+
+            // Normalize: remove sub-addressing (the + part)
+            const [localPart, ...domainParts] = rawValue.split("@");
+            const normalizedEmail =
+              localPart.split("+")[0] +
+              (domainParts.length > 0 ? `@${domainParts.join("@")}` : "");
+
+            setEmail(normalizedEmail);
+          }}
           className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
           required
         />

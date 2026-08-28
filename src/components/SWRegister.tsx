@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { toast } from "sonner";
 
 export default function SWRegister() {
   useEffect(() => {
@@ -27,7 +28,8 @@ export default function SWRegister() {
           localStorage.setItem("subscribed", "true");
         }
       } catch (error) {
-        console.error("Failed to check subscription", error);
+        toast.error((error as any).message || "Failed to subscribe");
+        console.error(error);
       }
     }, 15000);
   }, []);
@@ -40,7 +42,7 @@ async function subscribe() {
 
   const permission = await Notification.requestPermission();
 
-  if (permission !== "granted") return;
+  if (permission !== "granted") throw new Error("Permission not granted");
 
   let subscription = await registration.pushManager.getSubscription();
 
@@ -56,10 +58,7 @@ async function subscribe() {
     }
   } catch (error) {
     // Recover from VAPID key mismatch
-    if (
-      error instanceof DOMException &&
-      error.name === "InvalidStateError"
-    ) {
+    if (error instanceof DOMException && error.name === "InvalidStateError") {
       console.log("Old subscription detected. Re-subscribing...");
 
       if (subscription) {

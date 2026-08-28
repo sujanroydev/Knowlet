@@ -3,6 +3,7 @@
 import { markNotificationAsRead } from "@/actions/notification";
 import { subscribe } from "@/components/SWRegister";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 export default function NotificationClient({
   notifications,
@@ -22,13 +23,17 @@ export default function NotificationClient({
 
       if (!subscription) {
         setSubscribed(false);
+        console.log("not subscribed");
         return;
       }
+
+      console.log("subscribed");
 
       const exists = user_subscriptions.find(
         (i) => i.endpoint === subscription.endpoint,
       );
-
+      console.log(user_subscriptions);
+      console.log(exists);
       setSubscribed(!!exists?.is_active);
       return subscription;
     } catch (error) {
@@ -38,17 +43,27 @@ export default function NotificationClient({
 
   async function toggleSubscription() {
     if (subscribed) {
-      await fetch("/api/notification/subscribe", {
-        method: "PATCH",
-        body: JSON.stringify(await checkSubscription()),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      try {
+        await fetch("/api/notification/subscribe", {
+          method: "PATCH",
+          body: JSON.stringify(await checkSubscription()),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+      } catch (error) {
+        toast.error((error as any).message);
+        return;
+      }
       setSubscribed(false);
     } else {
-      await subscribe();
-      setSubscribed(true);
+      try {
+        await subscribe();
+        setSubscribed(true);
+      } catch (error) {
+        toast.error((error as any).message || "Failed to subscribe");
+        console.error(error);
+      }
     }
   }
 
@@ -74,6 +89,32 @@ export default function NotificationClient({
 
   useEffect(() => {
     checkSubscription();
+  }, []);
+
+  useEffect(() => {
+    if (!("Notification" in window) || !("permissions" in navigator)) {
+      return;
+    }
+
+    let permissionStatus: PermissionStatus;
+
+    const setup = async () => {
+      permissionStatus = await navigator.permissions.query({
+        name: "notifications",
+      });
+
+      const handleChange = () => {
+        console.log("Notification permission:", permissionStatus.state);
+      };
+
+      permissionStatus.addEventListener("change", handleChange);
+
+      return () => {
+        permissionStatus.removeEventListener("change", handleChange);
+      };
+    };
+
+    setup();
   }, []);
 
   return (

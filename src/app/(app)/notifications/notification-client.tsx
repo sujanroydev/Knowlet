@@ -1,5 +1,6 @@
 "use client";
 
+import { markNotificationAsRead } from "@/actions/notification";
 import { subscribe } from "@/components/SWRegister";
 import { useEffect, useState } from "react";
 
@@ -65,13 +66,7 @@ export default function NotificationClient({
         ),
       );
 
-      await fetch(`/api/notification/read`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ notification_id: notificationId }),
-      });
+      await markNotificationAsRead(notificationId);
     } catch (error) {
       console.error("Failed to mark notification as read", error);
     }

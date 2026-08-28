@@ -1,6 +1,6 @@
 "use server";
 
-import type { Message, NewMessage, Mode } from "@/types/knowva";
+import type { NewMessage } from "@/types/knowva";
 
 import {
   saveMessage as _saveMessage,

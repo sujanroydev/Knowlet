@@ -1,22 +1,15 @@
 "use server";
 
-import { cookies } from "next/headers";
-
-import { verifyJwt } from "@/lib/auth";
 import {
   getUserReferralCode as _getUserReferralCode,
   getReferredUsers as _getReferredUsers,
 } from "@/db/user";
+import { getAuthenticatedUserId } from "@/lib/auth/getAuthenticatedUserId";
 
 export async function getUserReferralCode(): Promise<string> {
-  const cookieStore = await cookies();
+  const userId = await getAuthenticatedUserId();
 
-  const token = cookieStore.get("token")?.value;
-  const { ok, payload, reason } = await verifyJwt(token);
-
-  if (!ok || !payload) throw new Error(reason);
-
-  return await _getUserReferralCode(payload.user_id);
+  return await _getUserReferralCode(userId);
 }
 
 export async function getReferredUsers(referralCode: string) {

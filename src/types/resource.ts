@@ -1,6 +1,12 @@
 export type ResourceType = "note" | "pyq" | "important_question" | "pdf";
 
-export type Mode = "normal" | "quiz" | "study" | "short" | "explain" | "create_resource"
+export type Mode =
+  | "normal"
+  | "quiz"
+  | "study"
+  | "short"
+  | "explain"
+  | "create_resource";
 
 export type Action = "create" | "update";
 
@@ -43,4 +49,16 @@ export interface ParsedPath {
   target: string;
   prevTarget: string | null;
   nextTarget: string | null;
+}
+
+export interface Bookmark {
+  id: string;
+  created_at: string;
+  resource: {
+    id: string;
+    title: string;
+    description: string;
+    path: string;
+    created_at: string;
+  };
 }

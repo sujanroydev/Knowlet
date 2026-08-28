@@ -2,8 +2,21 @@
 
 import { cookies } from "next/headers";
 
-import { deleteBookmark, insertBookmark } from "@/db/user/bookmark";
+import {
+  getBookmarks as _getBookmarks,
+  deleteBookmark,
+  insertBookmark,
+} from "@/db/user/bookmark";
 import { verifyJwt } from "@/lib/auth";
+
+export async function getBookmarks() {
+  const token = (await cookies()).get("token")?.value;
+  const { ok, payload } = await verifyJwt(token);
+
+  if (!ok || !payload) throw new Error("Unauthorized");
+
+  return await _getBookmarks(payload.user_id);
+}
 
 export async function bookmarkResource(resourceId: string) {
   const token = (await cookies()).get("token")?.value;

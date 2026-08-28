@@ -1,12 +1,11 @@
 import { supabase } from "@/lib/supabase";
+import { Bookmark } from "@/types/resource";
 
 export async function insertBookmark(userId: string, resourceId: string) {
-  const { data, error } = await supabase
-    .from("bookmarks")
-    .insert({
-      user_id: userId,
-      resource_id: resourceId,
-    });
+  const { data, error } = await supabase.from("bookmarks").insert({
+    user_id: userId,
+    resource_id: resourceId,
+  });
 
   if (error) throw error;
 
@@ -34,7 +33,7 @@ export async function getBookmarks(userId: string) {
 
   if (error) throw error;
 
-  return data;
+  return data as unknown as Bookmark[];
 }
 
 export async function getBookmark(userId: string, resourceId: string) {
@@ -50,9 +49,7 @@ export async function getBookmark(userId: string, resourceId: string) {
   return data;
 }
 
-export async function getUserBookmarksCount(
-  userId: string
-) {
+export async function getUserBookmarksCount(userId: string) {
   const { count, error } = await supabase
     .from("bookmarks")
     .select("*", { count: "exact", head: true })

@@ -6,18 +6,8 @@ import { TailSpin } from "react-loader-spinner";
 import Link from "next/link";
 
 import ListPageLayout from "@/components/layout/ListPageLayout";
-
-type Bookmark = {
-  id: string;
-  created_at: string;
-  resource: {
-    id: string;
-    title: string;
-    description: string;
-    path: string;
-    created_at: string;
-  };
-};
+import { getBookmarks } from "@/actions/resource/bookmark";
+import { Bookmark } from "@/types/resource";
 
 export default function BookmarksPage() {
   const [loading, setLoading] = useState(true);
@@ -27,17 +17,9 @@ export default function BookmarksPage() {
     try {
       setLoading(true);
 
-      const res = await fetch("/api/bookmarks");
+      const bookmarks = await getBookmarks();
 
-      if (!res.ok) {
-        throw new Error("Failed to fetch bookmarks");
-      }
-
-      const { data, error } = await res.json();
-
-      if (error) throw new Error(error.message);
-
-      setBookmarks(data || []);
+      setBookmarks(bookmarks || []);
     } catch (error) {
       toast.error((error as Error).message);
       setBookmarks([]);

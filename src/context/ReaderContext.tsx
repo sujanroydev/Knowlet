@@ -9,12 +9,13 @@ import {
   bookmarkResource,
   unbookmarkResource,
 } from "@/actions/resource/bookmark";
+import { likeResource, unlikeResource } from "@/actions/resource/like";
 
 type ReaderContextType = {
   resourceId: string | null;
   setResourceId: (resourceId: string | null) => void;
 
-  liked: boolean;
+  like: ActionState;
   bookmark: ActionState;
 
   toggleLike: () => void;
@@ -26,7 +27,7 @@ type ReaderContextType = {
 const ReaderContext = createContext<ReaderContextType | null>(null);
 
 export function ReaderProvider({ children }: { children: React.ReactNode }) {
-  const [liked, setLiked] = useState(false);
+  const [like, setLike] = useState<ActionState>("inactive");
   const [resourceId, setResourceId] = useState<string | null>(null);
   const [bookmark, setBookmark] = useState<ActionState>("inactive");
   const { user } = useAuth();
@@ -64,7 +65,7 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
       });
       const { data, error } = await res.json();
       if (error || !data) return;
-      setLiked(data.liked);
+      setLike(data.liked ? "active" : "inactive");
       setBookmark(data.bookmarked ? "active" : "inactive");
     } catch {}
   }
@@ -74,14 +75,17 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
       toast.error("you are not signed in");
       return;
     }
-    setLiked((prev) => !prev);
+    if (!resourceId) return;
+    const currentLike = like;
+    setLike("loading");
     try {
-      const res = await fetch("/api/likes/toggle", {
-        method: "POST",
-        body: JSON.stringify({ resource_id: resourceId }),
-      });
-      const { data, error } = await res.json();
-      if (error) console.error("error", error);
+      if (currentLike === "active") {
+        unlikeResource(resourceId);
+        setLike("inactive");
+      } else if (currentLike === "inactive") {
+        likeResource(resourceId);
+        setLike("active");
+      }
     } catch (error) {
       console.error("error", error);
     }
@@ -161,7 +165,7 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
       value={{
         resourceId,
         setResourceId,
-        liked,
+        like,
         bookmark,
         toggleLike,
         toggleBookmark,

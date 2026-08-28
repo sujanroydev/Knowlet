@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { resetUserPassword } from "@/actions/user";
 import { sendAuthOtp } from "@/actions/auth/otp";
 import { useAuth } from "@/context/AuthContext";
+import maskEmail from "@/utils/maskEmail";
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
@@ -52,7 +53,9 @@ export default function ForgotPasswordPage() {
       await resetUserPassword({ email, otp, password });
 
       toast.success("Password reset successful");
-      router.push("/signin");
+
+      if (!user?.email) router.push("/signin");
+      if (user?.email) router.back();
     } catch {
       toast.error("Something went wrong");
     } finally {
@@ -66,8 +69,8 @@ export default function ForgotPasswordPage() {
 
       await sendAuthOtp({ email, type: "forgot_password" });
 
-      toast.success("OTP sent (if account exists)", {
-        description: `Email: ${email}`,
+      toast.success("OTP sent to your email", {
+        description: maskEmail(email),
       });
       setOtpSent(true);
     } catch {

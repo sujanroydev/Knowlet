@@ -8,6 +8,7 @@ import PasswordInput from "@/components/ui/PasswordInput";
 import maskEmail from "@/utils/maskEmail";
 import { setUserPassword } from "@/actions/user";
 import { sendAuthOtp } from "@/actions/auth/otp";
+import { useRouter } from "next/navigation";
 
 export default function SetPasswordPage() {
   const [password, setPassword] = useState("");
@@ -18,6 +19,7 @@ export default function SetPasswordPage() {
   const [otpLoading, setOtpLoading] = useState(false);
   const [otpSent, setOtpSent] = useState(false);
 
+  const router = useRouter();
   const { user } = useAuth();
   const email = user?.email;
 
@@ -68,6 +70,8 @@ export default function SetPasswordPage() {
       setPassword("");
       setConfirmPassword("");
       setOtp("");
+
+      router.back();
     } catch (err: any) {
       toast.error(err.message);
     } finally {
@@ -87,7 +91,8 @@ export default function SetPasswordPage() {
               value={otp}
               onChange={(e) => setOtp(e.target.value)}
               className="flex-1 px-4 py-3 outline-none disabled:bg-gray-100"
-              required={!otpSent}
+              disabled={!otpSent}
+              required
             />
 
             <button

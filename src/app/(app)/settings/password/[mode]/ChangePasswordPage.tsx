@@ -6,6 +6,7 @@ import { toast } from "sonner";
 import AuthCard from "@/components/auth/AuthCard";
 import PasswordInput from "@/components/ui/PasswordInput";
 import { changeUserPassword } from "@/actions/user";
+import { useRouter } from "next/navigation";
 
 export default function ChangePasswordPage() {
   const [oldPassword, setOldPassword] = useState("");
@@ -14,6 +15,7 @@ export default function ChangePasswordPage() {
 
   const [loading, setLoading] = useState(false);
 
+  const router = useRouter();
   const { user } = useAuth();
 
   async function handleSubmit(e: React.FormEvent) {
@@ -46,6 +48,8 @@ export default function ChangePasswordPage() {
       setOldPassword("");
       setPassword("");
       setConfirmPassword("");
+
+      router.back();
     } catch (err: any) {
       toast.error(err.message);
     } finally {

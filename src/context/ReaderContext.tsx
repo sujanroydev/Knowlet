@@ -7,6 +7,7 @@ import { ParsedPath } from "@/types/resource";
 import { ActionState } from "@/types/main";
 import { bookmarkResource, unbookmarkResource } from "@/actions/user/bookmark";
 import { likeResource, unlikeResource } from "@/actions/user/like";
+import { addViewHistory } from "@/actions/user/history";
 
 type ReaderContextType = {
   resourceId: string | null;
@@ -28,31 +29,6 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
   const [resourceId, setResourceId] = useState<string | null>(null);
   const [bookmark, setBookmark] = useState<ActionState>("inactive");
   const { user } = useAuth();
-
-  useEffect(() => {
-    if (!resourceId) return;
-
-    const currentResourceId = resourceId;
-
-    loadResStats();
-
-    const timer = setTimeout(() => {
-      addHistory(currentResourceId);
-    }, 10000);
-
-    return () => clearTimeout(timer);
-  }, [resourceId]);
-
-  async function addHistory(resourceId: string) {
-    try {
-      await fetch("/api/history/view_history", {
-        method: "POST",
-        body: JSON.stringify({
-          resource_id: resourceId,
-        }),
-      });
-    } catch {}
-  }
 
   async function loadResStats() {
     try {
@@ -156,6 +132,20 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
 
     return { currentPath, prevPath, nextPath, target, prevTarget, nextTarget };
   }
+
+  useEffect(() => {
+    if (!resourceId) return;
+
+    const currentResourceId = resourceId;
+
+    loadResStats();
+
+    const timer = setTimeout(() => {
+      addViewHistory(currentResourceId);
+    }, 10000);
+
+    return () => clearTimeout(timer);
+  }, [resourceId]);
 
   return (
     <ReaderContext.Provider

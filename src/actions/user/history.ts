@@ -1,7 +1,9 @@
 "use server";
 
-import { addViewHistory as _addViewHistory } from "@/db/resource/history";
-import { getHistory as _getHistory } from "@/db/user/history";
+import {
+  getHistory as _getHistory,
+  addViewHistory as _addViewHistory,
+} from "@/db/user/history";
 import { verifyJwt } from "@/lib/auth";
 import { cookies } from "next/headers";
 

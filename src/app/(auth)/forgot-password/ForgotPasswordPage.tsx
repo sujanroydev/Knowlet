@@ -1,13 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
+
 import Loader from "@/components/auth/Loader";
 import AuthCard from "@/components/auth/AuthCard";
 import PasswordInput from "@/components/ui/PasswordInput";
-import { sendPasswordResetOtp } from "@/actions/auth/password-reset";
 import { useRouter } from "next/navigation";
 import { resetUserPassword } from "@/actions/user";
+import { sendAuthOtp } from "@/actions/auth/otp";
+import { useAuth } from "@/context/AuthContext";
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
@@ -18,6 +20,7 @@ export default function ForgotPasswordPage() {
   const [otpLoading, setOtpLoading] = useState(false);
 
   const router = useRouter();
+  const { user } = useAuth();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -61,7 +64,7 @@ export default function ForgotPasswordPage() {
     try {
       setOtpLoading(true);
 
-      await sendPasswordResetOtp(email);
+      await sendAuthOtp({ email, type: "forgot_password" });
 
       toast.success("OTP sent (if account exists)", {
         description: `Email: ${email}`,
@@ -73,6 +76,11 @@ export default function ForgotPasswordPage() {
       setOtpLoading(false);
     }
   }
+
+  useEffect(() => {
+    if (!user?.email) return;
+    setEmail(user.email);
+  }, [user]);
 
   return (
     <main className="min-h-[calc(100dvh-120px)] flex items-center justify-center bg-gray-100 p-4">
@@ -88,6 +96,7 @@ export default function ForgotPasswordPage() {
             onChange={(e) => setEmail(e.target.value)}
             className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
             required
+            disabled={!!user?.email}
           />
 
           <div className="flex overflow-hidden rounded-lg border border-gray-300 focus-within:border-blue-500">

@@ -4,7 +4,7 @@ import bcrypt from "bcryptjs";
 
 import { getUserIdByEmail } from "@/db/user";
 import { upsertOtp } from "@/db/auth/otp";
-import { resend } from "@/lib/resend";
+import { sendOtpEmail } from "@/services/email/send";
 
 export async function sendAuthOtp({
   email: _email,
@@ -39,25 +39,5 @@ export async function sendAuthOtp({
 
   await upsertOtp(email, otpHash, expiresAt);
 
-  let emailHeader = "";
-  if (type === "signup") {
-    emailHeader = "<h2>Email Verification OTP</h2>";
-  } else if (type === "set_password") {
-    emailHeader = "<h2>Password Reset OTP</h2>";
-  }
-
-  await resend.emails.send({
-    from: "Knowlet Auth <auth@knowlet.in>",
-    to: email,
-    subject: "Verify Your Email",
-    html: `
-        <div style="font-family:sans-serif">
-          ${emailHeader}
-          <p>Your OTP is:</p>
-          <h1>${otp}</h1>
-          <p>This OTP expires in 10 minutes.</p>
-          <p>If you did not request this, ignore this email.</p>
-        </div>
-      `,
-  });
+  await sendOtpEmail({ email, otp, type });
 }

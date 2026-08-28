@@ -4,13 +4,18 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { useAuth } from "./AuthContext";
 import { toast } from "sonner";
 import { ParsedPath } from "@/types/resource";
+import { ActionState } from "@/types/main";
+import {
+  bookmarkResource,
+  unbookmarkResource,
+} from "@/actions/resource/bookmark";
 
 type ReaderContextType = {
   resourceId: string | null;
   setResourceId: (resourceId: string | null) => void;
 
   liked: boolean;
-  bookmarked: boolean;
+  bookmark: ActionState;
 
   toggleLike: () => void;
   toggleBookmark: () => void;
@@ -23,7 +28,7 @@ const ReaderContext = createContext<ReaderContextType | null>(null);
 export function ReaderProvider({ children }: { children: React.ReactNode }) {
   const [liked, setLiked] = useState(false);
   const [resourceId, setResourceId] = useState<string | null>(null);
-  const [bookmarked, setBookmarked] = useState(false);
+  const [bookmark, setBookmark] = useState<ActionState>("inactive");
   const { user } = useAuth();
 
   useEffect(() => {
@@ -60,7 +65,7 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
       const { data, error } = await res.json();
       if (error || !data) return;
       setLiked(data.liked);
-      setBookmarked(data.bookmarked);
+      setBookmark(data.bookmarked ? "active" : "inactive");
     } catch {}
   }
 
@@ -87,14 +92,17 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
       toast.error("you are not signed in");
       return;
     }
-    setBookmarked((prev) => !prev);
+    if (!resourceId) return;
+    const currentBookmark = bookmark;
+    setBookmark("loading");
     try {
-      const res = await fetch("/api/bookmarks/toggle", {
-        method: "POST",
-        body: JSON.stringify({ resource_id: resourceId }),
-      });
-      const { data, error } = await res.json();
-      if (error) console.error("error", error);
+      if (currentBookmark === "active") {
+        unbookmarkResource(resourceId);
+        setBookmark("inactive");
+      } else if (currentBookmark === "inactive") {
+        bookmarkResource(resourceId);
+        setBookmark("active");
+      }
     } catch (error) {
       console.error("error", error);
     }
@@ -154,7 +162,7 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
         resourceId,
         setResourceId,
         liked,
-        bookmarked,
+        bookmark,
         toggleLike,
         toggleBookmark,
         parsePath,

@@ -36,14 +36,8 @@ export default function TopBar() {
 
   const { mode } = useHeader();
   const { user } = useAuth();
-  const {
-    liked,
-    bookmarked,
-    toggleLike,
-    toggleBookmark,
-    parsePath,
-    resourceId,
-  } = useReader();
+  const { liked, bookmark, toggleLike, toggleBookmark, parsePath, resourceId } =
+    useReader();
   const { setOpen: setOpenDrawer } = useDrawer();
   const { createNewChat } = useChatActions();
 
@@ -207,11 +201,18 @@ export default function TopBar() {
 
             <Btn
               onClick={toggleBookmark}
-              title={bookmarked ? "Remove Bookmark" : "Bookmark"}
+              title={
+                bookmark === "active"
+                  ? "Remove Bookmark"
+                  : bookmark === "inactive"
+                    ? "Bookmark"
+                    : "Bookmarking..."
+              }
+              disabled={bookmark === "loading"}
             >
               <Bookmark
                 className={`w-5 h-5 transition ${
-                  bookmarked
+                  bookmark === "active"
                     ? "text-indigo-600 fill-indigo-100"
                     : "text-slate-500"
                 }`}

@@ -1,9 +1,65 @@
 "use client";
 
 import { markNotificationAsRead } from "@/actions/notification";
-import { subscribe } from "@/components/SWRegister";
+import { ActionState } from "@/types/main";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
+
+export async function subscribe() {
+  const registration = await navigator.serviceWorker.ready;
+
+  const permission = await Notification.requestPermission();
+
+  if (permission !== "granted") throw new Error("Permission not granted");
+
+  let subscription = await registration.pushManager.getSubscription();
+
+  try {
+    // Create subscription only if none exists
+    if (!subscription) {
+      subscription = await registration.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: urlBase64ToUint8Array(
+          process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY!,
+        ),
+      });
+    }
+  } catch (error) {
+    // Recover from VAPID key mismatch
+    if (error instanceof DOMException && error.name === "InvalidStateError") {
+      console.log("Old subscription detected. Re-subscribing...");
+
+      if (subscription) {
+        await subscription.unsubscribe();
+      }
+
+      subscription = await registration.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: urlBase64ToUint8Array(
+          process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY!,
+        ),
+      });
+    } else {
+      throw error;
+    }
+  }
+
+  await fetch("/api/notification/subscribe", {
+    method: "POST",
+    body: JSON.stringify(subscription),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+}
+
+function urlBase64ToUint8Array(base64String: string) {
+  const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
+  const base64 = (base64String + padding).replace(/-/g, "+").replace(/_/g, "/");
+  const rawData = window.atob(base64);
+
+  return Uint8Array.from([...rawData].map((char) => char.charCodeAt(0)));
+}
 
 export default function NotificationClient({
   notifications,
@@ -13,28 +69,27 @@ export default function NotificationClient({
   user_subscriptions: any[];
 }) {
   const [localNotifications, setLocalNotifications] = useState(notifications);
-  const [subscribed, setSubscribed] = useState(false);
+  const [subscribeState, setSubscribeState] = useState<ActionState>("inactive");
 
-  async function checkSubscription() {
+  async function updateSubscriptionState() {
     try {
+      setSubscribeState("loading");
+
       const registration = await navigator.serviceWorker.ready;
 
       const subscription = await registration.pushManager.getSubscription();
 
       if (!subscription) {
-        setSubscribed(false);
-        console.log("not subscribed");
+        setSubscribeState("inactive");
         return;
       }
-
-      console.log("subscribed");
 
       const exists = user_subscriptions.find(
         (i) => i.endpoint === subscription.endpoint,
       );
-      console.log(user_subscriptions);
-      console.log(exists);
-      setSubscribed(!!exists?.is_active);
+
+      setSubscribeState(!!exists?.is_active ? "active" : "inactive");
+
       return subscription;
     } catch (error) {
       console.error("Failed to check subscription", error);
@@ -42,25 +97,29 @@ export default function NotificationClient({
   }
 
   async function toggleSubscription() {
-    if (subscribed) {
+    if (subscribeState === "active") {
       try {
+        setSubscribeState("loading");
         await fetch("/api/notification/subscribe", {
           method: "PATCH",
-          body: JSON.stringify(await checkSubscription()),
+          body: JSON.stringify(await updateSubscriptionState()),
           headers: {
             "Content-Type": "application/json",
           },
         });
+        setSubscribeState("inactive");
       } catch (error) {
-        toast.error((error as any).message);
+        setSubscribeState("active");
+        toast.error((error as any).message || "Failed to unsubscribe");
         return;
       }
-      setSubscribed(false);
     } else {
       try {
+        setSubscribeState("loading");
         await subscribe();
-        setSubscribed(true);
+        setSubscribeState("active");
       } catch (error) {
+        setSubscribeState("inactive");
         toast.error((error as any).message || "Failed to subscribe");
         console.error(error);
       }
@@ -88,10 +147,8 @@ export default function NotificationClient({
   }
 
   useEffect(() => {
-    checkSubscription();
-  }, []);
+    updateSubscriptionState();
 
-  useEffect(() => {
     if (!("Notification" in window) || !("permissions" in navigator)) {
       return;
     }
@@ -105,6 +162,9 @@ export default function NotificationClient({
 
       const handleChange = () => {
         console.log("Notification permission:", permissionStatus.state);
+        if (permissionStatus.state === "granted") subscribe();
+        else if (permissionStatus.state === "denied")
+          console.log("unsubscribe");
       };
 
       permissionStatus.addEventListener("change", handleChange);
@@ -137,14 +197,21 @@ export default function NotificationClient({
             onClick={toggleSubscription}
             className={`relative overflow-hidden px-5 py-3 rounded-2xl text-white font-medium transition-all duration-300 shadow-lg hover:scale-[1.02] active:scale-[0.98]
               ${
-                subscribed
+                subscribeState === "active"
                   ? "bg-gradient-to-r from-red-500 to-rose-500 hover:shadow-red-200"
-                  : "bg-gradient-to-r from-emerald-500 to-green-500 hover:shadow-green-200"
+                  : subscribeState === "inactive"
+                    ? "bg-gradient-to-r from-emerald-500 to-green-500 hover:shadow-green-200"
+                    : "bg-gradient-to-r from-amber-500 to-emerald-500 hover:shadow-amber-200"
               }
             `}
+            disabled={subscribeState === "loading"}
           >
             <span className="relative z-10">
-              {subscribed ? "Unsubscribe" : "Subscribe"}
+              {subscribeState === "active"
+                ? "Unsubscribe"
+                : subscribeState === "inactive"
+                  ? "Subscribe"
+                  : "Updating..."}
             </span>
 
             <div className="absolute inset-0 bg-white/10 opacity-0 hover:opacity-100 transition-opacity" />

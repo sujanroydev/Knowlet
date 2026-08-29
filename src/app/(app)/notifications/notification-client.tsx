@@ -139,6 +139,8 @@ export default function NotificationClient({
   const [localNotifications, setLocalNotifications] = useState(notifications);
   const [subscribeState, setSubscribeState] = useState<ActionState>("inactive");
 
+  const [hydrated, setHydrated] = useState(false);
+
   async function updateSubscriptionState() {
     try {
       setSubscribeState("loading");
@@ -202,6 +204,7 @@ export default function NotificationClient({
   }
 
   useEffect(() => {
+    setHydrated(true);
     updateSubscriptionState();
 
     watchNotificationPermission(async () => {
@@ -304,10 +307,12 @@ export default function NotificationClient({
                   {/* Footer */}
                   <div className="mt-4 flex items-center justify-between">
                     <p className="text-xs text-slate-400">
-                      {new Date(n.created_at).toLocaleString("en-US", {
-                        dateStyle: "medium",
-                        timeStyle: "short",
-                      })}
+                      {hydrated
+                        ? new Date(n.created_at).toLocaleString("en-US", {
+                            dateStyle: "medium",
+                            timeStyle: "short",
+                          })
+                        : ""}
                     </p>
 
                     <span className="text-sm font-medium text-blue-500 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1">

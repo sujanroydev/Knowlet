@@ -5,12 +5,59 @@ import { ActionState } from "@/types/main";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
-export async function subscribe() {
-  const registration = await navigator.serviceWorker.ready;
+function urlBase64ToUint8Array(base64String: string) {
+  const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
+  const base64 = (base64String + padding).replace(/-/g, "+").replace(/_/g, "/");
+  const rawData = window.atob(base64);
+
+  return Uint8Array.from([...rawData].map((char) => char.charCodeAt(0)));
+}
+
+export async function requestNotificationPermission() {
+  if (!("Notification" in window) || !("permissions" in navigator)) {
+    throw new Error("Notification not supported");
+  }
 
   const permission = await Notification.requestPermission();
 
   if (permission !== "granted") throw new Error("Permission not granted");
+}
+
+export async function getNotificationPermissionStatus() {
+  if (!("Notification" in window) || !("permissions" in navigator)) {
+    throw new Error("Notification not supported");
+  }
+
+  const permissionStatus = await navigator.permissions.query({
+    name: "notifications",
+  });
+
+  return permissionStatus.state;
+}
+
+export async function getLocalSubscription() {
+  if (!("serviceWorker" in navigator)) {
+    throw new Error("Service worker not supported");
+  }
+
+  const registration = await navigator.serviceWorker.ready;
+
+  let subscription = await registration.pushManager.getSubscription();
+
+  return subscription;
+}
+
+export async function localSubscribe() {
+  const notificationPermissionStatus = await getNotificationPermissionStatus();
+
+  if (notificationPermissionStatus !== "granted")
+    throw new Error("Permission not granted");
+
+  if (!("serviceWorker" in navigator)) {
+    throw new Error("Service worker not supported");
+  }
+
+  const registration = await navigator.serviceWorker.ready;
 
   let subscription = await registration.pushManager.getSubscription();
 
@@ -44,6 +91,12 @@ export async function subscribe() {
     }
   }
 
+  return subscription;
+}
+
+export async function subscribe() {
+  const subscription = await localSubscribe();
+
   // TODO: subscribe this device using session token
   await fetch("/api/notification/subscribe", {
     method: "POST",
@@ -54,12 +107,17 @@ export async function subscribe() {
   });
 }
 
-function urlBase64ToUint8Array(base64String: string) {
-  const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
-  const base64 = (base64String + padding).replace(/-/g, "+").replace(/_/g, "/");
-  const rawData = window.atob(base64);
+export async function unsubscribe() {
+  const subscription = await getLocalSubscription();
 
-  return Uint8Array.from([...rawData].map((char) => char.charCodeAt(0)));
+  // TODO: unsubscribe this device using session token instaed of subscription
+  await fetch("/api/notification/subscribe", {
+    method: "PATCH",
+    body: JSON.stringify(subscription),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 }
 
 export default function NotificationClient({
@@ -76,9 +134,7 @@ export default function NotificationClient({
     try {
       setSubscribeState("loading");
 
-      const registration = await navigator.serviceWorker.ready;
-
-      const subscription = await registration.pushManager.getSubscription();
+      const subscription = await getLocalSubscription();
 
       if (!subscription) {
         setSubscribeState("inactive");
@@ -99,14 +155,7 @@ export default function NotificationClient({
     if (subscribeState === "active") {
       try {
         setSubscribeState("loading");
-        // TODO: unsubscribe this device using session token instaed of subscription
-        await fetch("/api/notification/subscribe", {
-          method: "PATCH",
-          body: JSON.stringify(await updateSubscriptionState()),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        await unsubscribe();
         setSubscribeState("inactive");
       } catch (error) {
         setSubscribeState("active");

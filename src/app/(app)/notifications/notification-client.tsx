@@ -203,6 +203,14 @@ export default function NotificationClient({
 
   useEffect(() => {
     updateSubscriptionState();
+
+    watchNotificationPermission(async () => {
+      const notificationPermissionStatus =
+        await getNotificationPermissionStatus();
+      setSubscribeState(
+        notificationPermissionStatus === "denied" ? "inactive" : "active",
+      );
+    });
   }, []);
 
   return (

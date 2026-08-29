@@ -98,26 +98,34 @@ export async function subscribe() {
   const subscription = await localSubscribe();
 
   // TODO: subscribe this device using session token
-  await fetch("/api/notification/subscribe", {
+  const response = await fetch("/api/notification/subscribe", {
     method: "POST",
     body: JSON.stringify(subscription),
     headers: {
       "Content-Type": "application/json",
     },
   });
+
+  if (!response.ok) {
+    throw new Error("Failed to update notification subscription");
+  }
 }
 
 export async function unsubscribe() {
   const subscription = await getLocalSubscription();
 
   // TODO: unsubscribe this device using session token instaed of subscription
-  await fetch("/api/notification/subscribe", {
+  const response = await fetch("/api/notification/subscribe", {
     method: "PATCH",
     body: JSON.stringify(subscription),
     headers: {
       "Content-Type": "application/json",
     },
   });
+
+  if (!response.ok) {
+    throw new Error("Failed to update notification subscription");
+  }
 }
 
 export default function NotificationClient({

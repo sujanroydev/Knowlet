@@ -7,15 +7,39 @@ export default function SWRegister() {
   useEffect(() => {
     if (!("serviceWorker" in navigator)) return;
 
-    const registerSW = async () => {
+    const setup = async () => {
       try {
         await navigator.serviceWorker.register("/sw.js");
       } catch (error) {
         console.error("SW registration failed:", error);
       }
+
+      if (!("Notification" in window) || !("permissions" in navigator)) {
+        return;
+      }
+
+      const permissionStatus = await navigator.permissions.query({
+        name: "notifications",
+      });
+
+      const handleChange = () => {
+        if (permissionStatus.state === "granted") {
+          try {
+            subscribe();
+          } catch {}
+        } else if (permissionStatus.state === "denied") {
+          // TODO: delete subscription of this device using session token
+        }
+      };
+
+      permissionStatus.addEventListener("change", handleChange);
+
+      return () => {
+        permissionStatus.removeEventListener("change", handleChange);
+      };
     };
 
-    registerSW();
+    setup();
 
     setTimeout(async () => {
       try {

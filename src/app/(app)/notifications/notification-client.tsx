@@ -44,6 +44,7 @@ export async function subscribe() {
     }
   }
 
+  // TODO: subscribe this device using session token
   await fetch("/api/notification/subscribe", {
     method: "POST",
     body: JSON.stringify(subscription),
@@ -91,15 +92,14 @@ export default function NotificationClient({
       setSubscribeState(!!exists?.is_active ? "active" : "inactive");
 
       return subscription;
-    } catch (error) {
-      console.error("Failed to check subscription", error);
-    }
+    } catch {}
   }
 
   async function toggleSubscription() {
     if (subscribeState === "active") {
       try {
         setSubscribeState("loading");
+        // TODO: unsubscribe this device using session token instaed of subscription
         await fetch("/api/notification/subscribe", {
           method: "PATCH",
           body: JSON.stringify(await updateSubscriptionState()),
@@ -121,7 +121,6 @@ export default function NotificationClient({
       } catch (error) {
         setSubscribeState("inactive");
         toast.error((error as any).message || "Failed to subscribe");
-        console.error(error);
       }
     }
   }
@@ -141,40 +140,11 @@ export default function NotificationClient({
       );
 
       await markNotificationAsRead(notificationId);
-    } catch (error) {
-      console.error("Failed to mark notification as read", error);
-    }
+    } catch {}
   }
 
   useEffect(() => {
     updateSubscriptionState();
-
-    if (!("Notification" in window) || !("permissions" in navigator)) {
-      return;
-    }
-
-    let permissionStatus: PermissionStatus;
-
-    const setup = async () => {
-      permissionStatus = await navigator.permissions.query({
-        name: "notifications",
-      });
-
-      const handleChange = () => {
-        console.log("Notification permission:", permissionStatus.state);
-        if (permissionStatus.state === "granted") subscribe();
-        else if (permissionStatus.state === "denied")
-          console.log("unsubscribe");
-      };
-
-      permissionStatus.addEventListener("change", handleChange);
-
-      return () => {
-        permissionStatus.removeEventListener("change", handleChange);
-      };
-    };
-
-    setup();
   }, []);
 
   return (

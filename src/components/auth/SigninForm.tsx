@@ -5,8 +5,7 @@ import { useState } from "react";
 import Loader from "./Loader";
 import { toast } from "sonner";
 import { useAuth } from "@/context/AuthContext";
-import { subscribe } from "../SWRegister";
-import { Eye, EyeOff } from "lucide-react";
+import { subscribe } from "@/app/(app)/notifications/notification-client";
 import PasswordInput from "@/components/ui/PasswordInput";
 
 export default function SigninForm() {
@@ -75,11 +74,7 @@ export default function SigninForm() {
           required
         />
 
-        <PasswordInput
-          name="password"
-          placeholder="Password"
-          required
-        />
+        <PasswordInput name="password" placeholder="Password" required />
 
         <div className="flex justify-end">
           <Link

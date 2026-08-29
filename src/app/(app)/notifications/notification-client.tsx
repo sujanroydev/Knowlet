@@ -1,8 +1,133 @@
 "use client";
 
-import { markNotificationAsRead } from "@/actions/notification";
-import { subscribe } from "@/components/SWRegister";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
+import { PushSubscription } from "web-push";
+
+import {
+  deactivatePushSubscriptionByEndpoint,
+  markNotificationAsRead,
+  upsertPushSubscription,
+} from "@/actions/notification";
+import { ActionState } from "@/types/main";
+
+function urlBase64ToUint8Array(base64String: string) {
+  const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
+  const base64 = (base64String + padding).replace(/-/g, "+").replace(/_/g, "/");
+  const rawData = window.atob(base64);
+
+  return Uint8Array.from([...rawData].map((char) => char.charCodeAt(0)));
+}
+
+export async function requestNotificationPermission() {
+  if (!("Notification" in window) || !("permissions" in navigator)) {
+    throw new Error("Notification not supported");
+  }
+
+  const permission = await Notification.requestPermission();
+
+  if (permission !== "granted") throw new Error("Permission not granted");
+}
+
+export async function getNotificationPermissionStatus() {
+  if (!("Notification" in window) || !("permissions" in navigator)) {
+    throw new Error("Notification not supported");
+  }
+
+  const permissionStatus = await navigator.permissions.query({
+    name: "notifications",
+  });
+
+  return permissionStatus.state;
+}
+
+export async function getLocalSubscription() {
+  if (!("serviceWorker" in navigator)) {
+    throw new Error("Service worker not supported");
+  }
+
+  const registration = await navigator.serviceWorker.ready;
+
+  let subscription = await registration.pushManager.getSubscription();
+
+  return subscription && (subscription.toJSON() as PushSubscription);
+}
+
+export async function localSubscribe() {
+  await requestNotificationPermission();
+
+  if (!("serviceWorker" in navigator)) {
+    throw new Error("Service worker not supported");
+  }
+
+  const registration = await navigator.serviceWorker.ready;
+
+  let subscription = await registration.pushManager.getSubscription();
+
+  try {
+    // Create subscription only if none exists
+    if (!subscription) {
+      subscription = await registration.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: urlBase64ToUint8Array(
+          process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY!,
+        ),
+      });
+    }
+  } catch (error) {
+    // Recover from VAPID key mismatch
+    if (error instanceof DOMException && error.name === "InvalidStateError") {
+      console.log("Old subscription detected. Re-subscribing...");
+
+      if (subscription) {
+        await subscription.unsubscribe();
+      }
+
+      subscription = await registration.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: urlBase64ToUint8Array(
+          process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY!,
+        ),
+      });
+    } else {
+      throw error;
+    }
+  }
+
+  return subscription && (subscription.toJSON() as PushSubscription);
+}
+
+export async function subscribe() {
+  const subscription = await localSubscribe();
+
+  // TODO: subscribe this device using session token
+  await upsertPushSubscription(subscription);
+}
+
+export async function unsubscribe() {
+  const subscription = await getLocalSubscription();
+
+  if (!subscription) return;
+
+  // TODO: unsubscribe this device using session token instaed of subscription
+  await deactivatePushSubscriptionByEndpoint(subscription.endpoint);
+}
+
+export async function watchNotificationPermission(handleChange: () => void) {
+  if (!("Notification" in window) || !("permissions" in navigator)) {
+    return;
+  }
+
+  const permissionStatus = await navigator.permissions.query({
+    name: "notifications",
+  });
+
+  permissionStatus.addEventListener("change", handleChange);
+
+  return () => {
+    permissionStatus.removeEventListener("change", handleChange);
+  };
+}
 
 export default function NotificationClient({
   notifications,
@@ -12,16 +137,16 @@ export default function NotificationClient({
   user_subscriptions: any[];
 }) {
   const [localNotifications, setLocalNotifications] = useState(notifications);
-  const [subscribed, setSubscribed] = useState(false);
+  const [subscribeState, setSubscribeState] = useState<ActionState>("inactive");
 
-  async function checkSubscription() {
+  async function updateSubscriptionState() {
     try {
-      const registration = await navigator.serviceWorker.ready;
+      setSubscribeState("loading");
 
-      const subscription = await registration.pushManager.getSubscription();
+      const subscription = await getLocalSubscription();
 
       if (!subscription) {
-        setSubscribed(false);
+        setSubscribeState("inactive");
         return;
       }
 
@@ -29,26 +154,32 @@ export default function NotificationClient({
         (i) => i.endpoint === subscription.endpoint,
       );
 
-      setSubscribed(!!exists?.is_active);
+      setSubscribeState(!!exists?.is_active ? "active" : "inactive");
+
       return subscription;
-    } catch (error) {
-      console.error("Failed to check subscription", error);
-    }
+    } catch {}
   }
 
   async function toggleSubscription() {
-    if (subscribed) {
-      await fetch("/api/notification/subscribe", {
-        method: "PATCH",
-        body: JSON.stringify(await checkSubscription()),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      setSubscribed(false);
+    if (subscribeState === "active") {
+      try {
+        setSubscribeState("loading");
+        await unsubscribe();
+        setSubscribeState("inactive");
+      } catch (error) {
+        setSubscribeState("active");
+        toast.error((error as any).message || "Failed to unsubscribe");
+        return;
+      }
     } else {
-      await subscribe();
-      setSubscribed(true);
+      try {
+        setSubscribeState("loading");
+        await subscribe();
+        setSubscribeState("active");
+      } catch (error) {
+        setSubscribeState("inactive");
+        toast.error((error as any).message || "Failed to subscribe");
+      }
     }
   }
 
@@ -67,13 +198,19 @@ export default function NotificationClient({
       );
 
       await markNotificationAsRead(notificationId);
-    } catch (error) {
-      console.error("Failed to mark notification as read", error);
-    }
+    } catch {}
   }
 
   useEffect(() => {
-    checkSubscription();
+    updateSubscriptionState();
+
+    watchNotificationPermission(async () => {
+      const notificationPermissionStatus =
+        await getNotificationPermissionStatus();
+      setSubscribeState(
+        notificationPermissionStatus === "denied" ? "inactive" : "active",
+      );
+    });
   }, []);
 
   return (
@@ -96,14 +233,21 @@ export default function NotificationClient({
             onClick={toggleSubscription}
             className={`relative overflow-hidden px-5 py-3 rounded-2xl text-white font-medium transition-all duration-300 shadow-lg hover:scale-[1.02] active:scale-[0.98]
               ${
-                subscribed
+                subscribeState === "active"
                   ? "bg-gradient-to-r from-red-500 to-rose-500 hover:shadow-red-200"
-                  : "bg-gradient-to-r from-emerald-500 to-green-500 hover:shadow-green-200"
+                  : subscribeState === "inactive"
+                    ? "bg-gradient-to-r from-emerald-500 to-green-500 hover:shadow-green-200"
+                    : "bg-gradient-to-r from-amber-500 to-emerald-500 hover:shadow-amber-200"
               }
             `}
+            disabled={subscribeState === "loading"}
           >
             <span className="relative z-10">
-              {subscribed ? "Unsubscribe" : "Subscribe"}
+              {subscribeState === "active"
+                ? "Unsubscribe"
+                : subscribeState === "inactive"
+                  ? "Subscribe"
+                  : "Updating..."}
             </span>
 
             <div className="absolute inset-0 bg-white/10 opacity-0 hover:opacity-100 transition-opacity" />

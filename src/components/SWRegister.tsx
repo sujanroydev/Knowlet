@@ -1,11 +1,14 @@
 "use client";
 
 import {
+  getLocalSubscription,
   getNotificationPermissionStatus,
+  requestNotificationPermission,
   subscribe,
   watchNotificationPermission,
 } from "@/app/(app)/notifications/notification-client";
 import { useEffect } from "react";
+import { toast } from "sonner";
 
 export default function SWRegister() {
   useEffect(() => {
@@ -36,19 +39,11 @@ export default function SWRegister() {
     setup();
 
     setTimeout(async () => {
-      try {
-        const registration = await navigator.serviceWorker.ready;
-        const subscription = await registration.pushManager.getSubscription();
-
-        if (!subscription) {
-          subscribe();
-        } else if (localStorage.getItem("subscribed") !== "true") {
-          subscribe(); //update subscription
-          localStorage.setItem("subscribed", "true");
-        }
-      } catch (error) {
-        console.error("Failed to supscribe", error);
-      }
+      const subscription = await getLocalSubscription().catch();
+      if (subscription) return;
+      requestNotificationPermission().catch((error) => {
+        toast.error("Could not enable notifications");
+      });
     }, 15000);
   }, []);
 

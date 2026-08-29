@@ -5,7 +5,7 @@ import { useState } from "react";
 import Loader from "./Loader";
 import { toast } from "sonner";
 import { useAuth } from "@/context/AuthContext";
-import { subscribe } from "../SWRegister";
+import { subscribe } from "@/app/(app)/notifications/notification-client";
 import PasswordInput from "@/components/ui/PasswordInput";
 import { sendAuthOtp } from "@/actions/auth/otp";
 

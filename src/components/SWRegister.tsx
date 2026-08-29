@@ -1,6 +1,10 @@
 "use client";
 
-import { subscribe } from "@/app/(app)/notifications/notification-client";
+import {
+  getNotificationPermissionStatus,
+  subscribe,
+  watchNotificationPermission,
+} from "@/app/(app)/notifications/notification-client";
 import { useEffect } from "react";
 
 export default function SWRegister() {
@@ -14,29 +18,19 @@ export default function SWRegister() {
         console.error("SW registration failed:", error);
       }
 
-      if (!("Notification" in window) || !("permissions" in navigator)) {
-        return;
-      }
-
-      const permissionStatus = await navigator.permissions.query({
-        name: "notifications",
-      });
-
-      const handleChange = () => {
-        if (permissionStatus.state === "granted") {
+      const handleChange = async () => {
+        const notificationPermissionStatus =
+          await getNotificationPermissionStatus();
+        if (notificationPermissionStatus === "granted") {
           try {
             subscribe();
           } catch {}
-        } else if (permissionStatus.state === "denied") {
+        } else if (notificationPermissionStatus === "denied") {
           // TODO: delete subscription of this device using session token
         }
       };
 
-      permissionStatus.addEventListener("change", handleChange);
-
-      return () => {
-        permissionStatus.removeEventListener("change", handleChange);
-      };
+      await watchNotificationPermission(handleChange);
     };
 
     setup();

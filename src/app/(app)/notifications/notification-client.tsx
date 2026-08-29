@@ -1,14 +1,15 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
+import { PushSubscription } from "web-push";
+
 import {
   deactivatePushSubscriptionByEndpoint,
   markNotificationAsRead,
   upsertPushSubscription,
 } from "@/actions/notification";
 import { ActionState } from "@/types/main";
-import { useEffect, useState } from "react";
-import { toast } from "sonner";
-import { PushSubscription } from "web-push";
 
 function urlBase64ToUint8Array(base64String: string) {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
@@ -110,6 +111,22 @@ export async function unsubscribe() {
 
   // TODO: unsubscribe this device using session token instaed of subscription
   await deactivatePushSubscriptionByEndpoint(subscription.endpoint);
+}
+
+export async function watchNotificationPermission(handleChange: () => void) {
+  if (!("Notification" in window) || !("permissions" in navigator)) {
+    return;
+  }
+
+  const permissionStatus = await navigator.permissions.query({
+    name: "notifications",
+  });
+
+  permissionStatus.addEventListener("change", handleChange);
+
+  return () => {
+    permissionStatus.removeEventListener("change", handleChange);
+  };
 }
 
 export default function NotificationClient({

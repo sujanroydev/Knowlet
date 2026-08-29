@@ -1,9 +1,14 @@
 "use client";
 
-import { markNotificationAsRead } from "@/actions/notification";
+import {
+  deactivatePushSubscriptionByEndpoint,
+  markNotificationAsRead,
+  upsertPushSubscription,
+} from "@/actions/notification";
 import { ActionState } from "@/types/main";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
+import { PushSubscription } from "web-push";
 
 function urlBase64ToUint8Array(base64String: string) {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
@@ -44,14 +49,11 @@ export async function getLocalSubscription() {
 
   let subscription = await registration.pushManager.getSubscription();
 
-  return subscription;
+  return subscription && (subscription.toJSON() as PushSubscription);
 }
 
 export async function localSubscribe() {
-  const notificationPermissionStatus = await getNotificationPermissionStatus();
-
-  if (notificationPermissionStatus !== "granted")
-    throw new Error("Permission not granted");
+  await requestNotificationPermission();
 
   if (!("serviceWorker" in navigator)) {
     throw new Error("Service worker not supported");
@@ -91,41 +93,23 @@ export async function localSubscribe() {
     }
   }
 
-  return subscription;
+  return subscription && (subscription.toJSON() as PushSubscription);
 }
 
 export async function subscribe() {
   const subscription = await localSubscribe();
 
   // TODO: subscribe this device using session token
-  const response = await fetch("/api/notification/subscribe", {
-    method: "POST",
-    body: JSON.stringify(subscription),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-
-  if (!response.ok) {
-    throw new Error("Failed to update notification subscription");
-  }
+  await upsertPushSubscription(subscription);
 }
 
 export async function unsubscribe() {
   const subscription = await getLocalSubscription();
 
-  // TODO: unsubscribe this device using session token instaed of subscription
-  const response = await fetch("/api/notification/subscribe", {
-    method: "PATCH",
-    body: JSON.stringify(subscription),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  if (!subscription) return;
 
-  if (!response.ok) {
-    throw new Error("Failed to update notification subscription");
-  }
+  // TODO: unsubscribe this device using session token instaed of subscription
+  await deactivatePushSubscriptionByEndpoint(subscription.endpoint);
 }
 
 export default function NotificationClient({

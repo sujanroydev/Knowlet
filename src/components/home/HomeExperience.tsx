@@ -281,7 +281,7 @@ export default function HomeExperience({
         <div className="surface-card overflow-hidden">{library}</div>
       </section>
 
-      {!installed && (
+      {!installed && installSupported && (
         <section className="border-y border-border bg-white py-12 sm:py-16">
           <div className="page-shell">
             <div className="mx-auto grid max-w-5xl gap-8 rounded-3xl border border-border bg-background p-6 sm:p-8 lg:grid-cols-[1.15fr_0.85fr] lg:p-10">
@@ -320,27 +320,16 @@ export default function HomeExperience({
                     you are
                   </div>
                   <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                    {installSupported
-                      ? "Install Knowlet in your browser for the fastest experience."
-                      : "Download the Android APK to add Knowlet to your device."}
+                    "Install Knowlet in your browser for the fastest
+                    experience."
                   </p>
                 </div>
-                {installSupported ? (
-                  <button
-                    onClick={installApp}
-                    className="button-primary mt-8 w-full"
-                  >
-                    <DownloadIcon size={17} /> Install Knowlet
-                  </button>
-                ) : (
-                  <a
-                    href="/assets/knowlet.apk"
-                    download
-                    className="button-primary mt-8 w-full"
-                  >
-                    <DownloadIcon size={17} /> Download APK
-                  </a>
-                )}
+                <button
+                  onClick={installApp}
+                  className="button-primary mt-8 w-full"
+                >
+                  <DownloadIcon size={17} /> Install Knowlet
+                </button>
               </div>
             </div>
           </div>

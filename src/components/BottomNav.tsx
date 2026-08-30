@@ -54,7 +54,7 @@ export default function BottomNav() {
   return (
     <nav
       aria-label="Primary navigation"
-      className="fixed bottom-0 left-0 w-full h-15 bg-white shadow-[0_-2px_5px_rgba(0,0,0,0.1)] flex justify-around items-center z-50 pb-[env(safe-area-inset-bottom)]"
+      className="fixed bottom-0 left-0 w-full h-15 bg-card shadow-[0_-2px_5px_rgba(0,0,0,0.1)] dark:shadow-[0_-2px_5px_rgba(0,0,0,0.3)] flex justify-around items-center z-50 pb-[env(safe-area-inset-bottom)]"
     >
       {navItems.map((item) => {
         const isActive = pathname === item.href;

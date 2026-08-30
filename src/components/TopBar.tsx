@@ -25,6 +25,7 @@ import { useDrawer } from "@/context/DrawerContext";
 import { ParsedPath } from "@/types/resource";
 import { useChatActions } from "@/hooks/knowva/useChatActions";
 import { ModelSelector } from "@/components/knowva/ModelSelector";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
@@ -128,7 +129,7 @@ export default function TopBar() {
   }, [mode, pathname, parsePath]);
 
   return (
-    <header className="fixed top-0 z-50 flex h-15 w-full items-center justify-center border-b border-border bg-white/90 px-4 backdrop-blur-md">
+    <header className="fixed top-0 z-50 flex h-15 w-full items-center justify-center border-b border-border bg-card/90 px-4 backdrop-blur-md">
       {/* LEFT */}
       <div className="w-24 sm:w-32">
         {mode === "knowva" ? (
@@ -150,7 +151,7 @@ export default function TopBar() {
       {/* CENTER */}
       <div className="flex flex-1 items-center justify-center">
         {mode === "reader" && (
-          <div className="flex items-center gap-1 rounded-xl border border-border bg-white px-2 py-1 shadow-sm">
+          <div className="flex items-center gap-1 rounded-xl border border-border bg-card px-2 py-1 shadow-sm">
             <IconButton
               onClick={() =>
                 parsedPath?.prevPath && router.push(parsedPath.prevPath)
@@ -272,7 +273,8 @@ export default function TopBar() {
       </div>
 
       {/* RIGHT */}
-      <div className="flex w-24 justify-end sm:w-32">
+      <div className="flex w-24 justify-end gap-2 sm:w-32">
+        <ThemeToggle />
         {user ? (
           <ProfileMenu />
         ) : (

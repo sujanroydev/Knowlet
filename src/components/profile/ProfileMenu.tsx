@@ -86,7 +86,7 @@ export default function ProfileMenu() {
       </button>
 
       {open && (
-        <div className="absolute right-0 top-14 w-72 rounded-2xl border border-slate-200 bg-white p-4 shadow-xl">
+        <div className="absolute right-0 top-14 w-72 rounded-2xl border border-border bg-card p-4 shadow-xl">
           {/* User Info */}
           <div className="flex items-center gap-3">
             <img

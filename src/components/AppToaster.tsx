@@ -24,13 +24,13 @@ export default function AppToaster() {
       richColors
       toastOptions={{
         classNames: {
-          toast: `${isMobile ? "mb-15" : "mt-15"} rounded-2xl border border-slate-200 bg-white shadow-lg sm:mx-0`,
-          title: "text-sm font-semibold text-slate-900",
-          description: "text-sm text-slate-500",
-          success: "border-green-200",
-          error: "border-red-200",
-          warning: "border-yellow-200",
-          info: "border-blue-200",
+          toast: `${isMobile ? "mb-15" : "mt-15"} rounded-2xl border border-border bg-card text-foreground shadow-lg sm:mx-0 dark:bg-card`,
+          title: "text-sm font-semibold",
+          description: "text-sm text-muted-foreground",
+          success: "border-green-600 dark:border-green-400",
+          error: "border-red-600 dark:border-red-400",
+          warning: "border-yellow-600 dark:border-yellow-400",
+          info: "border-blue-600 dark:border-blue-400",
         },
       }}
     />

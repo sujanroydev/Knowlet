@@ -44,7 +44,7 @@ export function ModelSelector() {
       {open && (
         <div
           ref={selectorRef}
-          className="absolute left-0 mt-1 w-48 rounded-md border bg-white shadow-lg"
+          className="absolute left-0 mt-1 w-48 rounded-md border border-border bg-card shadow-lg"
         >
           {MODELS.map((m) => (
             <button

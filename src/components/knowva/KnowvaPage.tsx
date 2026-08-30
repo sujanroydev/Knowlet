@@ -20,8 +20,8 @@ export default function KnowvaPage() {
   }, []);
 
   return (
-    <div className="h-full flex items-center justify-center bg-gray-100">
-      <div className="w-full max-w-3xl h-full flex flex-col border border-gray-200 rounded-xl bg-white shadow-sm">
+    <div className="h-full flex items-center justify-center bg-background">
+      <div className="w-full max-w-3xl h-full flex flex-col border border-border rounded-xl bg-card shadow-sm">
         <KnowvaChat />
         <KnowvaToolbar />
         <KnowvaInput />

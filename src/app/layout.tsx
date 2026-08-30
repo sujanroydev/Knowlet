@@ -35,7 +35,7 @@ export default function RootLayout({
         <AppProvider>
           <div className="flex min-h-dvh flex-col">
             <TopBar />
-            <main className="flex-1 pb-20 pt-15 md:pb-0">{children}</main>
+            <main className="flex-1 py-15">{children}</main>
             <BottomNav />
           </div>
           <SWRegister />

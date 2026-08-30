@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import {
   Trash2,
   Bell,
@@ -13,6 +13,8 @@ import {
   CheckCircle2,
   Users,
   Clock,
+  Upload,
+  Loader2,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -43,6 +45,9 @@ const defaultPreview = {
 
 export default function NotificationAdminPage() {
   const [sending, setSending] = useState(false);
+  const [imageUploading, setImageUploading] = useState(false);
+
+  const imageInputRef = useRef<HTMLInputElement>(null);
 
   const [title, setTitle] = useState(defaultPreview.title);
   const [body, setBody] = useState(defaultPreview.body);
@@ -87,6 +92,51 @@ export default function NotificationAdminPage() {
     setBadge(data.badge || "");
     setTag(data.tag || "");
     setActionUrl(data.action_url || "");
+  }
+
+  async function handleImageUpload(event: React.ChangeEvent<HTMLInputElement>) {
+    try {
+      const file = event.target.files?.[0];
+      if (!file) {
+        toast.info("Select an image first");
+        return;
+      }
+
+      setImageUploading(true);
+
+      const formData = new FormData();
+      formData.append("image", file);
+
+      const res = await fetch("/api/notification/upload-image", {
+        method: "POST",
+        body: formData,
+      });
+
+      const { data, error } = await res.json();
+      setImageUploading(false);
+
+      if (error) {
+        toast.error(error.message || "Failed to upload image");
+        return;
+      }
+
+      if (!res.ok) {
+        toast.error("Upload failed");
+        return;
+      }
+
+      setImage(data.imageUrl);
+      toast.success("Image uploaded successfully!");
+
+      // Reset file input
+      if (imageInputRef.current) {
+        imageInputRef.current.value = "";
+      }
+    } catch (error) {
+      console.error(error);
+      setImageUploading(false);
+      toast.error("Failed to upload image");
+    }
   }
 
   async function sendNow() {
@@ -201,10 +251,61 @@ export default function NotificationAdminPage() {
                 className="h-28 w-full resize-none rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
               />
 
+              <div className="space-y-2">
+                <label className="block text-sm font-medium text-gray-700">
+                  Notification Image
+                </label>
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    onClick={() => imageInputRef.current?.click()}
+                    disabled={imageUploading}
+                    className="flex items-center gap-2 rounded-xl border-2 border-dashed border-blue-300 bg-blue-50 px-4 py-3 text-blue-600 transition hover:bg-blue-100 disabled:opacity-50"
+                  >
+                    {imageUploading ? (
+                      <>
+                        <Loader2 size={18} className="animate-spin" />
+                        Uploading...
+                      </>
+                    ) : (
+                      <>
+                        <Upload size={18} />
+                        Choose Image
+                      </>
+                    )}
+                  </button>
+                  {image && image !== defaultPreview.image && (
+                    <button
+                      type="button"
+                      onClick={() => setImage(defaultPreview.image)}
+                      className="flex items-center gap-2 rounded-xl border border-gray-300 px-4 py-3 text-gray-600 transition hover:bg-gray-50"
+                    >
+                      Clear
+                    </button>
+                  )}
+                </div>
+                <input
+                  ref={imageInputRef}
+                  type="file"
+                  accept="image/jpeg,image/png"
+                  onChange={handleImageUpload}
+                  className="hidden"
+                />
+                {image && image !== defaultPreview.image && (
+                  <p className="text-xs text-green-600">✓ Image uploaded</p>
+                )}
+                {image === defaultPreview.image && (
+                  <p className="text-xs text-gray-500">
+                    Or paste image URL below
+                  </p>
+                )}
+              </div>
               <input
-                placeholder="Image URL"
-                value={image}
-                onChange={(e) => setImage(e.target.value)}
+                placeholder="Image URL (optional)"
+                value={image === defaultPreview.image ? "" : image}
+                onChange={(e) =>
+                  setImage(e.target.value || defaultPreview.image)
+                }
                 className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
               />
 

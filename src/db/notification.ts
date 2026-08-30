@@ -35,15 +35,26 @@ export async function getAllNotifications() {
 export async function updateNotificationStats(
   notificationId: string,
   notificationStats: {
-    total_users: number,
-    sent_count: number,
-    failed_count: number,
-  }
+    total_users: number;
+    sent_count: number;
+    failed_count: number;
+  },
 ) {
   const { error } = await supabase
     .from("notifications")
     .update(notificationStats)
     .eq("id", notificationId);
+
+  if (error) throw error;
+}
+
+export async function uploadNotificationImage(filePath: string, image: File) {
+  const { error } = await supabase.storage
+    .from("notification-images")
+    .upload(filePath, image, {
+      cacheControl: "3600",
+      upsert: true,
+    });
 
   if (error) throw error;
 }

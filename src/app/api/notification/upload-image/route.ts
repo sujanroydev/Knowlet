@@ -1,8 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import {
-  compressImageToTarget,
-  validateImageFile,
-} from "@/lib/image-compression";
+import { validateImageFile } from "@/lib/image-compression";
 import { uploadNotificationImage } from "@/db/notification";
 
 export async function POST(req: NextRequest) {
@@ -20,7 +17,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Validate image before compression
+    // Validate image (already compressed on client)
     const validation = validateImageFile(image);
     if (!validation.valid) {
       return NextResponse.json(
@@ -31,17 +28,15 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Compress image to target size (100 KB)
-    const compressedImage = await compressImageToTarget(image, 100);
-
     // Generate unique file path
     const timestamp = Date.now();
     const randomId = crypto.randomUUID().split("-")[0];
-    const fileExtension = image.type === "image/png" ? "png" : "jpg";
+    // All images are converted to WebP on the client
+    const fileExtension = "webp";
     const filePath = `notifications/${timestamp}-${randomId}.${fileExtension}`;
 
-    // Upload to Supabase storage
-    await uploadNotificationImage(filePath, compressedImage);
+    // Upload to Supabase storage (image already compressed and converted to WebP on client)
+    await uploadNotificationImage(filePath, image);
 
     // Get the base URL from environment or derive from Supabase config
     const supabaseUrl = process.env.SUPABASE_URL;

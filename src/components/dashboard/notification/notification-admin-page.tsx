@@ -104,8 +104,14 @@ export default function NotificationAdminPage() {
 
       setImageUploading(true);
 
+      // Import compression function dynamically (client-only)
+      const { compressImageToTarget } = await import("@/lib/image-compression");
+
+      // Compress image to target size (100 KB)
+      const compressedImage = await compressImageToTarget(file, 100);
+
       const formData = new FormData();
-      formData.append("image", file);
+      formData.append("image", compressedImage);
 
       const res = await fetch("/api/notification/upload-image", {
         method: "POST",
@@ -287,16 +293,18 @@ export default function NotificationAdminPage() {
                 <input
                   ref={imageInputRef}
                   type="file"
-                  accept="image/jpeg,image/png"
+                  accept="image/*"
                   onChange={handleImageUpload}
                   className="hidden"
                 />
                 {image && image !== defaultPreview.image && (
-                  <p className="text-xs text-green-600">✓ Image uploaded</p>
+                  <p className="text-xs text-green-600">
+                    ✓ Image uploaded (converted to WebP)
+                  </p>
                 )}
                 {image === defaultPreview.image && (
                   <p className="text-xs text-gray-500">
-                    Or paste image URL below
+                    Any image format (auto-converted to WebP)
                   </p>
                 )}
               </div>

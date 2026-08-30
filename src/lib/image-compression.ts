@@ -1,11 +1,11 @@
 /**
  * Compress image to target file size using canvas-based compression.
- * Iteratively reduces quality until target size is achieved.
+ * Converts all images to WebP format and iteratively reduces quality until target size is achieved.
  *
- * @param file - The image file to compress (JPEG or PNG)
+ * @param file - The image file to compress (any image format supported by browser)
  * @param targetSizeKB - Target size in KB (default: 100)
  * @param maxDimension - Max width/height in pixels (default: 1024)
- * @returns Promise<File> - Compressed image file
+ * @returns Promise<File> - Compressed image file in WebP format
  */
 export async function compressImageToTarget(
   file: File,
@@ -38,9 +38,9 @@ export async function compressImageToTarget(
 
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-      // Determine format and MIME type
-      const mimeType = file.type === "image/png" ? "image/png" : "image/jpeg";
-      const fileExtension = mimeType === "image/png" ? "png" : "jpg";
+      // Convert to WebP format for better compression
+      const mimeType = "image/webp";
+      const fileExtension = "webp";
 
       // Start with medium quality and iteratively reduce
       let quality = 0.8;
@@ -88,26 +88,34 @@ export async function compressImageToTarget(
 
 /**
  * Validate image file before compression.
- * Checks MIME type and file size.
+ * Checks if file is a valid image and file size.
  *
  * @param file - The file to validate
- * @param maxSizeMB - Maximum file size in MB (default: 5)
+ * @param maxSizeMB - Maximum file size in MB (default: 10)
  * @returns { valid: boolean, error?: string }
  */
 export function validateImageFile(
   file: File,
-  maxSizeMB: number = 5,
+  maxSizeMB: number = 10,
 ): { valid: boolean; error?: string } {
   if (!file) {
     return { valid: false, error: "No file selected" };
   }
 
-  // Check MIME type
-  const allowedTypes = ["image/jpeg", "image/png"];
+  // Check MIME type - accept common image formats
+  const allowedTypes = [
+    "image/jpeg",
+    "image/png",
+    "image/webp",
+    "image/gif",
+    "image/bmp",
+    "image/svg+xml",
+    "image/tiff",
+  ];
   if (!allowedTypes.includes(file.type)) {
     return {
       valid: false,
-      error: "Only JPEG and PNG files are allowed",
+      error: "File is not a valid image",
     };
   }
 

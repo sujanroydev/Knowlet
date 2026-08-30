@@ -1,26 +1,11 @@
-import Header from "@/components/home/Header";
-import SearchBar from "@/components/home/SearchBar";
-import About from "@/components/home/About";
-import Features from "@/components/home/Features";
-import FAQ from "@/components/home/FAQ";
-import Download from "@/components/home/Download";
-import ContactCTA from "@/components/home/ContactCTA";
-import Footer from "@/components/home/Footer";
-import OpenLibraryFull from "@/components/home/OpenLibraryFull";
+import Navigator from "@/components/library/Navigator";
+import HomeExperience from "@/components/home/HomeExperience";
 import AIAssistant from "@/components/knowva/AIAssistant";
 
 export default function Home() {
   return (
-    <div className="min-h-[calc(100dvh-120px)] w-full max-w-5xl mx-auto">
-      <Header />
-      <SearchBar />
-      <OpenLibraryFull />
-      <About />
-      <Features />
-      <FAQ />
-      <Download />
-      <ContactCTA />
-      <Footer />
+    <div className="min-h-[calc(100dvh-7.5rem)]">
+      <HomeExperience library={<Navigator variant="home" />} />
       <AIAssistant />
     </div>
   );

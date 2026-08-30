@@ -31,11 +31,11 @@ export default function RootLayout({
       <head>
         <AdSense />
       </head>
-      <body className="h-dvh box-border bg-gray-100">
+      <body className="min-h-dvh">
         <AppProvider>
-          <div className="h-full flex flex-col">
+          <div className="flex min-h-dvh flex-col">
             <TopBar />
-            <main className="flex-1 py-15">{children}</main>
+            <main className="flex-1 pb-20 pt-15 md:pb-0">{children}</main>
             <BottomNav />
           </div>
           <SWRegister />

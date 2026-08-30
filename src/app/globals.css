@@ -1,1 +1,67 @@
 @import "tailwindcss";
+
+@theme {
+  --color-background: #f7f8fc;
+  --color-foreground: #172033;
+  --color-card: #ffffff;
+  --color-border: #e4e8f0;
+  --color-muted: #f0f2f7;
+  --color-muted-foreground: #697386;
+  --color-primary: #4f46e5;
+  --color-primary-foreground: #ffffff;
+  --color-accent: #eef2ff;
+  --color-accent-foreground: #3730a3;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply bg-background;
+  }
+
+  body {
+    @apply min-h-dvh bg-background font-sans text-foreground antialiased;
+  }
+
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2;
+  }
+}
+
+@layer components {
+  .page-shell {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .surface-card {
+    @apply rounded-2xl border border-border bg-card shadow-[0_1px_2px_rgba(23,32,51,0.04),0_8px_24px_rgba(23,32,51,0.04)];
+  }
+
+  .section-heading {
+    @apply text-2xl font-semibold tracking-[-0.03em] text-foreground sm:text-3xl;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.14em] text-primary;
+  }
+
+  .button-primary {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition hover:bg-indigo-700 hover:shadow-md active:translate-y-px;
+  }
+
+  .button-secondary {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-border bg-card px-4 py-2.5 text-sm font-semibold text-foreground transition hover:border-indigo-200 hover:bg-accent active:translate-y-px;
+  }
+}

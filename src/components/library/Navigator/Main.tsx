@@ -18,7 +18,7 @@ export default function Main({
   special?: boolean;
 }) {
   let groupedItems: Record<string, Item[]>;
-  let orderedTypes = ["notes", "pyqs"];
+  const orderedTypes = ["notes", "pyqs"];
 
   if (special) {
     groupedItems = items.reduce(
@@ -34,7 +34,7 @@ export default function Main({
   }
 
   return special ? (
-    <div className="space-y-8 p-4">
+    <div className="mx-auto max-w-6xl space-y-10 px-4 py-6 sm:px-6 sm:py-8">
       {orderedTypes.map((type) => {
         const sectionItems = groupedItems[type];
 
@@ -42,11 +42,11 @@ export default function Main({
 
         return (
           <section key={type}>
-            <h2 className="mb-4 text-xl font-bold capitalize text-slate-800">
+            <h2 className="mb-4 text-xl font-semibold capitalize tracking-[-0.02em] text-foreground">
               {type === "pyq" ? "PYQ" : type}
             </h2>
 
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {sectionItems.map((item) => (
                 <NavigatorBtnCard
                   key={item.path}
@@ -68,7 +68,7 @@ export default function Main({
       })}
     </div>
   ) : (
-    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 p-4">
+    <div className="mx-auto grid max-w-6xl grid-cols-1 gap-3 px-4 py-6 sm:grid-cols-2 sm:px-6 sm:py-8 lg:grid-cols-3">
       {items.map((i, idx) => (
         <NavigatorBtnCard key={idx} item={i} />
       ))}

@@ -10,10 +10,11 @@ export default function ListPageLayout({
   children: ReactNode;
 }) {
   return (
-    <div className="min-h-full p-6">
-      <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-8">
-        <h1 className="text-2xl font-bold text-center mb-2">{title}</h1>
-        <h2 className="text-sm uppercase tracking-widest text-center text-gray-500 mb-8">
+    <div className="page-shell min-h-full py-8 sm:py-12">
+      <div className="surface-card mx-auto max-w-3xl p-5 sm:p-8">
+        <p className="eyebrow mb-2 text-center">Your learning space</p>
+        <h1 className="text-center text-3xl font-semibold tracking-[-0.04em] text-foreground">{title}</h1>
+        <h2 className="mb-8 mt-2 text-center text-sm text-muted-foreground">
           {subtitle}
         </h2>
 

@@ -25,9 +25,12 @@ export default async function Content({ slug }: { slug: string[] }) {
 
   return (
     <ReaderPageClient resourceId={resource.id}>
-      <div className="max-w-5xl mx-auto px-4 py-6 lg:my-10 lg:p-8 lg:rounded-xl bg-white text-gray-800  shadow-lg leading-loose text-base break-words">
-        <article
-          className="resource-content"
+      <div className="mx-auto max-w-4xl px-4 py-6 sm:px-6 lg:my-10 lg:rounded-2xl lg:border lg:border-border lg:bg-white lg:p-10 lg:shadow-[0_12px_40px_rgba(23,32,51,0.07)]">
+        <div className="mb-8 border-b border-border pb-6">
+          <p className="eyebrow">Study resource</p>
+          <p className="mt-2 text-sm text-muted-foreground">Read at your pace, then save it for later.</p>
+        </div>
+        <article className="resource-content break-words text-base leading-8 text-slate-800"
           style={
             {
               "--h1": theme.h1,

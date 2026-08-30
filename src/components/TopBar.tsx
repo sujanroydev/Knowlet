@@ -30,6 +30,17 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
 }
 
+function IconButton({ children, ...props }: Props) {
+  return (
+    <button
+      {...props}
+      className="flex h-9 w-9 items-center justify-center rounded-xl text-muted-foreground transition hover:bg-accent hover:text-primary active:scale-95 disabled:cursor-not-allowed disabled:opacity-40"
+    >
+      {children}
+    </button>
+  );
+}
+
 export default function TopBar() {
   const [parsedPath, setParsedPath] = useState<ParsedPath | null>(null);
   const [downloading, setDownloading] = useState(false);
@@ -43,17 +54,13 @@ export default function TopBar() {
 
   const router = useRouter();
   const pathname = usePathname();
-
-  const Btn = ({ children, ...props }: Props) => (
-    <button
-      {...props}
-      className="flex h-9 w-9 items-center justify-center rounded-full text-slate-600 transition
-      hover:bg-slate-100 hover:text-indigo-600
-      active:scale-95"
-    >
-      {children}
-    </button>
-  );
+  const isUtilityRoute = [
+    "/signin",
+    "/signup",
+    "/forgot-password",
+    "/forbidden",
+    "/dashboard",
+  ].some((path) => pathname.startsWith(path));
 
   const handleShare = async () => {
     try {
@@ -114,29 +121,25 @@ export default function TopBar() {
     }
   };
 
-  async function updateParsedPath() {
-    setParsedPath(await parsePath());
-  }
-
   useEffect(() => {
     if (mode === "reader") {
-      updateParsedPath();
+      void parsePath().then(setParsedPath);
     }
-  }, [mode, pathname]);
+  }, [mode, pathname, parsePath]);
 
   return (
-    <header className="fixed top-0 z-50 flex h-15 w-full items-center justify-center border-b bg-white/80 backdrop-blur-md px-4">
+    <header className="fixed top-0 z-50 flex h-15 w-full items-center justify-center border-b border-border bg-white/90 px-4 backdrop-blur-md">
       {/* LEFT */}
-      <div className="w-20">
+      <div className="w-24 sm:w-32">
         {mode === "knowva" ? (
-          <Btn title="Menu" onClick={() => setOpenDrawer(true)}>
+          <IconButton title="Menu" onClick={() => setOpenDrawer(true)}>
             <Menu className="w-5 h-5" />
-          </Btn>
+          </IconButton>
         ) : (
           pathname !== "/" && (
             <button
               onClick={() => router.back()}
-              className="flex h-9 w-9 items-center justify-center rounded-full text-slate-600 transition hover:bg-slate-100 active:scale-95"
+              className="flex h-10 w-10 items-center justify-center rounded-xl text-muted-foreground transition hover:bg-accent hover:text-primary active:scale-95"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
@@ -145,10 +148,10 @@ export default function TopBar() {
       </div>
 
       {/* CENTER */}
-      <div className="flex-1 flex items-center justify-center">
+      <div className="flex flex-1 items-center justify-center">
         {mode === "reader" && (
-          <div className="flex items-center gap-1 rounded-full border border-slate-200 bg-white/70 px-2 py-1 shadow-sm backdrop-blur-md">
-            <Btn
+          <div className="flex items-center gap-1 rounded-xl border border-border bg-white px-2 py-1 shadow-sm">
+            <IconButton
               onClick={() =>
                 parsedPath?.prevPath && router.push(parsedPath.prevPath)
               }
@@ -156,9 +159,9 @@ export default function TopBar() {
               disabled={!parsedPath?.prevPath}
             >
               <SkipBack className="w-5 h-5" />
-            </Btn>
+            </IconButton>
 
-            <Btn
+            <IconButton
               onClick={() =>
                 parsedPath?.nextPath && router.push(parsedPath.nextPath)
               }
@@ -166,32 +169,32 @@ export default function TopBar() {
               disabled={!parsedPath?.nextPath}
             >
               <SkipForward className="w-5 h-5" />
-            </Btn>
+            </IconButton>
 
             {user?.role === "admin" && resourceId && (
-              <Btn
+              <IconButton
                 onClick={() => {
                   router.push(`/dashboard/resources/update/${resourceId}`);
                 }}
                 title="update"
               >
                 <Edit className="w-5 h-5" />
-              </Btn>
+              </IconButton>
             )}
 
-            <Btn
+            <IconButton
               onClick={handleDownload}
               title={downloading ? "Downloading..." : "Download PDF"}
               disabled={downloading}
             >
               <Download className="w-5 h-5" />
-            </Btn>
+            </IconButton>
 
-            <Btn onClick={handleShare} title={"Share"}>
+            <IconButton onClick={handleShare} title={"Share"}>
               <Share2 className={`w-5 h-5 transition`} />
-            </Btn>
+            </IconButton>
 
-            <Btn
+            <IconButton
               onClick={toggleLike}
               title={
                 like === "active"
@@ -208,9 +211,9 @@ export default function TopBar() {
                     : "text-slate-500"
                 }`}
               />
-            </Btn>
+            </IconButton>
 
-            <Btn
+            <IconButton
               onClick={toggleBookmark}
               title={
                 bookmark === "active"
@@ -228,7 +231,7 @@ export default function TopBar() {
                     : "text-slate-500"
                 }`}
               />
-            </Btn>
+            </IconButton>
           </div>
         )}
 
@@ -239,9 +242,12 @@ export default function TopBar() {
             </div>
 
             <div className="flex flex-1 justify-center">
-              <h1 className="text-lg font-semibold tracking-tight text-slate-800">
-                Knowva
-              </h1>
+              <button
+                onClick={() => router.push("/")}
+                className="text-lg font-semibold tracking-[-0.04em] text-foreground"
+              >
+                Knowlet
+              </button>
             </div>
 
             <div className="flex flex-1 justify-end">
@@ -256,20 +262,23 @@ export default function TopBar() {
         )}
 
         {mode === "home" && (
-          <h1 className="text-lg font-semibold tracking-tight text-slate-800">
+          <button
+            onClick={() => router.push("/")}
+            className="text-lg font-semibold tracking-[-0.04em] text-foreground"
+          >
             Knowlet
-          </h1>
+          </button>
         )}
       </div>
 
       {/* RIGHT */}
-      <div className="flex w-20 justify-end">
+      <div className="flex w-24 justify-end sm:w-32">
         {user ? (
           <ProfileMenu />
         ) : (
           <button
             onClick={() => router.push("/signin")}
-            className="text-sm font-semibold text-indigo-600 transition hover:text-indigo-700 active:scale-95"
+            className="text-sm font-semibold text-primary transition hover:text-indigo-700 active:scale-95 sm:block"
           >
             Sign in
           </button>

@@ -61,9 +61,11 @@ export function KnowvaProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     void (async () => {
-      if (!user || !user.email) return;
-      const featcedChats = await fetchChats();
-      setChats(featcedChats || []);
+      try {
+        if (!user || !user.email) return;
+        const featcedChats = await fetchChats();
+        setChats(featcedChats || []);
+      } catch {}
     })();
   }, [user]);
 

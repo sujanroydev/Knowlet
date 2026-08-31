@@ -94,7 +94,7 @@ function ContinueStudying() {
             <Link
               key={item.id}
               href={`/library/${item.resource.path}`}
-              className="group flex items-center gap-4 p-5 transition hover:bg-indigo-50/50"
+              className="group flex items-center gap-4 p-5 transition hover:bg-muted"
             >
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent text-primary">
                 <Clock3 size={18} />
@@ -241,7 +241,7 @@ export default function HomeExperience({
         <ContinueStudying />
       </section>
 
-      <section className="border-y border-border bg-white py-12 sm:py-16">
+      <section className="border-y border-border py-12 sm:py-16">
         <div className="page-shell">
           <div className="mb-7 max-w-2xl">
             <p className="eyebrow mb-2">Everything in one place</p>
@@ -256,7 +256,7 @@ export default function HomeExperience({
               <Link
                 key={title}
                 href="/library"
-                className="group rounded-2xl border border-border bg-background p-5 transition hover:border-indigo-200 hover:bg-white hover:shadow-sm"
+                className="group rounded-2xl border border-border bg-background p-5 transition hover:boder hover:bg-muted hover:shadow-sm"
               >
                 <Icon className="text-primary" size={21} />
                 <h3 className="mt-5 font-semibold">{title}</h3>
@@ -282,7 +282,7 @@ export default function HomeExperience({
       </section>
 
       {!installed && installSupported && (
-        <section className="border-y border-border bg-white py-12 sm:py-16">
+        <section className="border-y border-border py-12 sm:py-16">
           <div className="page-shell">
             <div className="mx-auto grid max-w-5xl gap-8 rounded-3xl border border-border bg-background p-6 sm:p-8 lg:grid-cols-[1.15fr_0.85fr] lg:p-10">
               <div>
@@ -355,7 +355,7 @@ export default function HomeExperience({
         </div>
       </section>
 
-      <footer className="border-t border-border bg-white">
+      <footer className="border-t border-border bg-back">
         <div className="page-shell flex flex-col gap-6 py-8 text-sm sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-lg font-semibold tracking-[-0.04em] text-foreground">

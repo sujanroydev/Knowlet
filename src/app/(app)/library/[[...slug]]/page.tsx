@@ -4,6 +4,7 @@ import Content from "@/components/library/Content";
 import Navigator from "@/components/library/Navigator";
 import { parseLibraryPath } from "@/components/dashboard/resources/utils";
 import AIAssistant from "@/components/knowva/AIAssistant";
+import { getResourceByPath } from "@/db/resource";
 
 const BASE_URL = "https://knowlet.in";
 
@@ -103,9 +104,12 @@ export default async function Page({
   ) {
     return <Navigator slug={slug} />;
   }
+
+  const resource = await getResourceByPath(slug.join("/"));
+
   return (
     <>
-      <Content slug={slug} />
+      <Content resource={resource} />
       <AIAssistant />
     </>
   );

@@ -18,7 +18,6 @@ export default function BottomNav() {
     "/signup",
     "/forgot-password",
     "/forbidden",
-    "/dashboard",
   ].some((path) => pathname.startsWith(path));
 
   const navItems: NavItem[] = [

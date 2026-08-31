@@ -212,7 +212,7 @@ export default async function DashboardPage() {
     recentResult.status === "rejected" ? recentResult.reason : null;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 p-4 md:p-6">
+    <div className="min-h-screen bg-muted p-4 md:p-6">
       <div className="mx-auto max-w-7xl space-y-8">
         {/* Hero Header */}
         <div className="overflow-hidden rounded-3xl bg-black p-6 text-white shadow-2xl md:p-8">

@@ -6,13 +6,47 @@ import ResourceFooterActions from "./resource-footer-actions";
 import { getResourceTheme } from "@/config/resourceThemes";
 import ContentAd from "../ads/ContentAd";
 
+type ResolvedTheme = "light" | "dark";
+
+const resourceBackgroundThemes = {
+  light: {
+    text: "#212529",
+    muted: "#6C757D",
+    surface: "#F1F3F5",
+    surfaceAlt: "#F8F9FA",
+    border: "#DEE2E6",
+    codeBackground: "#F8F9FA",
+    markBackground: "#FFF3CD",
+    markText: "#664D03",
+    tipBackground: "#FFF3CD",
+    tipBorder: "#FFC107",
+  },
+
+  dark: {
+    text: "#E5E7EB",
+    muted: "#9CA3AF",
+    surface: "#1F2937",
+    surfaceAlt: "#18212F",
+    border: "#374151",
+    codeBackground: "#111827",
+    markBackground: "#4A3B12",
+    markText: "#FDE68A",
+    tipBackground: "#3F3210",
+    tipBorder: "#F59E0B",
+  },
+};
+
 export default async function Content({ slug }: { slug: string[] }) {
   const resource = await getResourceByPath(slug.join("/"));
 
   if (!resource) notFound();
 
-  const theme = getResourceTheme(resource.id);
+  let mode: ResolvedTheme = "light";
 
+  const foregroundTheme = getResourceTheme(resource.id, mode);
+  const backgroundTheme = resourceBackgroundThemes[mode];
+
+  const theme = { ...foregroundTheme, ...backgroundTheme };
   return (
     <ReaderPageClient resourceId={resource.id}>
       <div className="mx-auto max-w-4xl px-4 py-6 sm:px-6 lg:my-10 lg:rounded-2xl lg:border lg:border-border lg:bg-muted lg:p-10 lg:shadow-[0_12px_40px_rgba(23,32,51,0.07)]">
@@ -23,7 +57,7 @@ export default async function Content({ slug }: { slug: string[] }) {
           </p>
         </div>
         <article
-          className="resource-content break-words text-base leading-8 text-slate-800"
+          className="resource-content break-words text-base leading-8 text-foreground"
           style={
             {
               "--h1": theme.h1,
@@ -38,6 +72,17 @@ export default async function Content({ slug }: { slug: string[] }) {
               "--blockquote": theme.blockquote,
               "--code": theme.code,
               "--hr": theme.hr,
+
+              "--text": theme.text,
+              "--muted": theme.muted,
+              "--surface": theme.surface,
+              "--surface-alt": theme.surfaceAlt,
+              "--border": theme.border,
+              "--code-background": theme.codeBackground,
+              "--mark-background": theme.markBackground,
+              "--mark-text": theme.markText,
+              "--tip-background": theme.tipBackground,
+              "--tip-border": theme.tipBorder,
             } as React.CSSProperties
           }
           dangerouslySetInnerHTML={{

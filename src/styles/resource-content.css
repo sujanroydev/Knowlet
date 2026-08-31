@@ -12,6 +12,17 @@
   --blockquote: #0d6efd;
   --code: #d63384;
   --hr: #dee2e6;
+
+  --text: #212529;
+  --muted: #6c757d;
+  --surface: #f1f3f5;
+  --surface-alt: #f8f9fa;
+  --border: #dee2e6;
+  --code-background: #f8f9fa;
+  --mark-background: #fff3cd;
+  --mark-text: #664d03;
+  --tip-background: #fff3cd;
+  --tip-border: #ffc107;
 }
 
 /* =========================
@@ -87,13 +98,15 @@
 }
 
 .resource-content mark {
-  background: #fff3cd;
+  background: var(--mark-background);
+  color: var(--mark-text);
   padding: 2px 4px;
   border-radius: 4px;
 }
 
 .resource-content small {
   font-size: 0.85rem;
+  color: var(--muted);
 }
 
 .resource-content del {
@@ -146,13 +159,13 @@
 ========================= */
 
 .resource-content blockquote {
-  background: #f1f3f5;
+  background: var(--surface);
   border-left: 5px solid var(--blockquote);
   margin: 1.5rem 0;
   padding: 1rem 1.5rem;
   font-style: italic;
   border-radius: 6px;
-  color: #495057;
+  color: var(--muted);
 }
 
 /* =========================
@@ -160,7 +173,7 @@
 ========================= */
 
 .resource-content code {
-  background: #f8f9fa;
+  background: var(--code-background);
   color: var(--code);
   padding: 2px 6px;
   border-radius: 4px;
@@ -169,8 +182,8 @@
 }
 
 .resource-content pre {
-  background: #212529;
-  color: #f8f9fa;
+  background: var(--code-background);
+  color: var(--text);
   padding: 1rem;
   border-radius: 8px;
   overflow-x: auto;
@@ -195,18 +208,18 @@
 
 .resource-content th,
 .resource-content td {
-  border: 1px solid #dee2e6;
+  border: 1px solid var(--border);
   padding: 12px;
   text-align: left;
 }
 
 .resource-content th {
-  background: #f1f3f5;
+  background: var(--surface);
   font-weight: 700;
 }
 
 .resource-content tr:nth-child(even) {
-  background: #f8f9fa;
+  background: var(--surface-alt);
 }
 
 /* =========================
@@ -242,10 +255,11 @@
 ========================= */
 
 .resource-content details {
-  background: #f8f9fa;
+  background: var(--surface);
   padding: 1rem;
   border-radius: 6px;
   margin: 1rem 0;
+  border: 1px solid var(--border);
 }
 
 .resource-content summary {
@@ -258,8 +272,8 @@
 ========================= */
 
 .resource-content .toc {
-  background: #f8f9fa;
-  border: 1px solid #dee2e6;
+  background: var(--surface);
+  border: 1px solid var(--border);
   padding: 1rem;
   border-radius: 8px;
   margin-bottom: 2rem;
@@ -280,8 +294,8 @@
 }
 
 .resource-content .exam-tip {
-  background: #fff3cd;
-  border-left: 5px solid #ffc107;
+  background: var(--tip-background);
+  border-left: 5px solid var(--tip-border);
   padding: 1rem;
   margin: 1.5rem 0;
   border-radius: 6px;

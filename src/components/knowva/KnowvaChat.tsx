@@ -28,7 +28,7 @@ export default function KnowvaChat() {
   return (
     <div
       ref={chatRef}
-      className="h-full flex-1 overflow-y-auto bg-gray-50 p-4 space-y-3"
+      className="h-full flex-1 overflow-y-auto bg-card p-4 space-y-3"
     >
       {messages.length === 0 && !currentMessage ? (
         <div className="flex h-full flex-col items-center justify-center px-4 text-center">

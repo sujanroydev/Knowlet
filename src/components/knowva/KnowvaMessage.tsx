@@ -27,7 +27,7 @@ export default function KnowvaMessage({
       className={`max-w-[75%] px-3 py-2 rounded-xl text-sm whitespace-pre-wrap ${
         message.role === "user"
           ? "bg-primary text-primary-foreground ml-auto"
-          : "bg-card text-foreground mr-auto border border-border"
+          : "bg-muted text-foreground mr-auto border border-border"
       }`}
     >
       <ReactMarkdown remarkPlugins={[remarkGfm]}>

@@ -3,30 +3,15 @@ import { notFound } from "next/navigation";
 import { getResourceByPath } from "@/db/resource";
 import ReaderPageClient from "./ReaderPageClient";
 import ResourceFooterActions from "./resource-footer-actions";
-import { resourceThemes } from "@/config/resourceThemes";
+import { getResourceTheme } from "@/config/resourceThemes";
 import ContentAd from "../ads/ContentAd";
-
-function getThemeIndex(uuid: string) {
-  let hash = 0;
-
-  for (let i = 0; i < uuid.length; i++) {
-    hash = (hash * 31 + uuid.charCodeAt(i)) >>> 0;
-  }
-
-  return hash % 20;
-}
 
 export default async function Content({ slug }: { slug: string[] }) {
   const resource = await getResourceByPath(slug.join("/"));
 
   if (!resource) notFound();
 
-  const themes = resourceThemes("light");
-  console.log(themes.length);
-  const idNumber = getThemeIndex(resource.id);
-  console.log(idNumber);
-  const theme = themes[idNumber];
-  console.log(theme);
+  const theme = getResourceTheme(resource.id);
 
   return (
     <ReaderPageClient resourceId={resource.id}>

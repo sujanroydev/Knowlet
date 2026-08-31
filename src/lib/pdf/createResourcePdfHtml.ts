@@ -1,28 +1,9 @@
-import { resourceThemes } from "@/config/resourceThemes";
+import { getResourceTheme } from "@/config/resourceThemes";
 import { getPdfCss } from "@/lib/pdf/getPdfCss";
 import { Resource } from "@/types/resource";
 
-function escapeHtml(value: string) {
-  return value
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
-
-function getThemeIndex(uuid: string) {
-  let hash = 0;
-
-  for (let i = 0; i < uuid.length; i++) {
-    hash = (hash * 31 + uuid.charCodeAt(i)) >>> 0;
-  }
-
-  return hash % 20;
-}
-
 export function createResourcePdfHtml(resource: Resource) {
-  const theme = resourceThemes()[getThemeIndex(resource.id!)];
+  const theme = getResourceTheme(resource.id!);
 
   const css = getPdfCss();
 

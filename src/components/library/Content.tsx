@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getResourceByPath } from "@/db/resource";
 import ReaderPageClient from "./ReaderPageClient";
 import ResourceFooterActions from "./resource-footer-actions";
-import { resourceThemes, type ResourceTheme } from "@/config/resourceThemes";
+import { resourceThemes } from "@/config/resourceThemes";
 import ContentAd from "../ads/ContentAd";
 
 function getThemeIndex(uuid: string) {
@@ -13,7 +13,7 @@ function getThemeIndex(uuid: string) {
     hash = (hash * 31 + uuid.charCodeAt(i)) >>> 0;
   }
 
-  return hash % resourceThemes.length;
+  return hash % 20;
 }
 
 export default async function Content({ slug }: { slug: string[] }) {
@@ -21,16 +21,24 @@ export default async function Content({ slug }: { slug: string[] }) {
 
   if (!resource) notFound();
 
-  const theme = resourceThemes[getThemeIndex(resource.id)];
+  const themes = resourceThemes("light");
+  console.log(themes.length);
+  const idNumber = getThemeIndex(resource.id);
+  console.log(idNumber);
+  const theme = themes[idNumber];
+  console.log(theme);
 
   return (
     <ReaderPageClient resourceId={resource.id}>
-      <div className="mx-auto max-w-4xl px-4 py-6 sm:px-6 lg:my-10 lg:rounded-2xl lg:border lg:border-border lg:bg-white lg:p-10 lg:shadow-[0_12px_40px_rgba(23,32,51,0.07)]">
+      <div className="mx-auto max-w-4xl px-4 py-6 sm:px-6 lg:my-10 lg:rounded-2xl lg:border lg:border-border lg:bg-muted lg:p-10 lg:shadow-[0_12px_40px_rgba(23,32,51,0.07)]">
         <div className="mb-8 border-b border-border pb-6">
           <p className="eyebrow">Study resource</p>
-          <p className="mt-2 text-sm text-muted-foreground">Read at your pace, then save it for later.</p>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Read at your pace, then save it for later.
+          </p>
         </div>
-        <article className="resource-content break-words text-base leading-8 text-slate-800"
+        <article
+          className="resource-content break-words text-base leading-8 text-slate-800"
           style={
             {
               "--h1": theme.h1,

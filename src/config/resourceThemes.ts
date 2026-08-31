@@ -1,4 +1,4 @@
-export type ResourceTheme = {
+export interface ResourceTheme {
   h1: string;
   h2: string;
   h3: string;
@@ -11,9 +11,333 @@ export type ResourceTheme = {
   blockquote: string;
   code: string;
   hr: string;
-};
+}
 
-export const resourceThemes: ResourceTheme[] = [
+type ResolvedTheme = "light" | "dark";
+
+const resourceThemesDark: ResourceTheme[] = [
+  // 1. Ocean Blue
+  {
+    h1: "#93C5FD",
+    h2: "#60A5FA",
+    h3: "#3B82F6",
+    h4: "#2563EB",
+    h5: "#60A5FA",
+    h6: "#BFDBFE",
+    accent: "#60A5FA",
+    link: "#60A5FA",
+    linkHover: "#93C5FD",
+    blockquote: "#3B82F6",
+    code: "#93C5FD",
+    hr: "#1E3A5F",
+  },
+
+  // 2. Emerald
+  {
+    h1: "#6EE7B7",
+    h2: "#34D399",
+    h3: "#10B981",
+    h4: "#059669",
+    h5: "#34D399",
+    h6: "#A7F3D0",
+    accent: "#34D399",
+    link: "#34D399",
+    linkHover: "#6EE7B7",
+    blockquote: "#10B981",
+    code: "#6EE7B7",
+    hr: "#064E3B",
+  },
+
+  // 3. Ruby Red
+  {
+    h1: "#FCA5A5",
+    h2: "#F87171",
+    h3: "#EF4444",
+    h4: "#DC2626",
+    h5: "#F87171",
+    h6: "#FECACA",
+    accent: "#F87171",
+    link: "#F87171",
+    linkHover: "#FCA5A5",
+    blockquote: "#EF4444",
+    code: "#FCA5A5",
+    hr: "#5F1D1D",
+  },
+
+  // 4. Amber
+  {
+    h1: "#FCD34D",
+    h2: "#FBBF24",
+    h3: "#F59E0B",
+    h4: "#D97706",
+    h5: "#FBBF24",
+    h6: "#FDE68A",
+    accent: "#FBBF24",
+    link: "#FBBF24",
+    linkHover: "#FCD34D",
+    blockquote: "#F59E0B",
+    code: "#FCD34D",
+    hr: "#5C3A05",
+  },
+
+  // 5. Violet
+  {
+    h1: "#C4B5FD",
+    h2: "#A78BFA",
+    h3: "#8B5CF6",
+    h4: "#7C3AED",
+    h5: "#A78BFA",
+    h6: "#DDD6FE",
+    accent: "#A78BFA",
+    link: "#A78BFA",
+    linkHover: "#C4B5FD",
+    blockquote: "#8B5CF6",
+    code: "#C4B5FD",
+    hr: "#3B2468",
+  },
+
+  // 6. Rose
+  {
+    h1: "#F9A8D4",
+    h2: "#F472B6",
+    h3: "#EC4899",
+    h4: "#DB2777",
+    h5: "#F472B6",
+    h6: "#FBCFE8",
+    accent: "#F472B6",
+    link: "#F472B6",
+    linkHover: "#F9A8D4",
+    blockquote: "#EC4899",
+    code: "#F9A8D4",
+    hr: "#5B183B",
+  },
+
+  // 7. Cyan
+  {
+    h1: "#67E8F9",
+    h2: "#22D3EE",
+    h3: "#06B6D4",
+    h4: "#0891B2",
+    h5: "#22D3EE",
+    h6: "#A5F3FC",
+    accent: "#22D3EE",
+    link: "#22D3EE",
+    linkHover: "#67E8F9",
+    blockquote: "#06B6D4",
+    code: "#67E8F9",
+    hr: "#164E63",
+  },
+
+  // 8. Indigo
+  {
+    h1: "#A5B4FC",
+    h2: "#818CF8",
+    h3: "#6366F1",
+    h4: "#4F46E5",
+    h5: "#818CF8",
+    h6: "#C7D2FE",
+    accent: "#818CF8",
+    link: "#818CF8",
+    linkHover: "#A5B4FC",
+    blockquote: "#6366F1",
+    code: "#A5B4FC",
+    hr: "#252A63",
+  },
+
+  // 9. Lime
+  {
+    h1: "#BEF264",
+    h2: "#A3E635",
+    h3: "#84CC16",
+    h4: "#65A30D",
+    h5: "#A3E635",
+    h6: "#D9F99D",
+    accent: "#A3E635",
+    link: "#A3E635",
+    linkHover: "#BEF264",
+    blockquote: "#84CC16",
+    code: "#BEF264",
+    hr: "#365314",
+  },
+
+  // 10. Orange
+  {
+    h1: "#FDBA74",
+    h2: "#FB923C",
+    h3: "#F97316",
+    h4: "#EA580C",
+    h5: "#FB923C",
+    h6: "#FED7AA",
+    accent: "#FB923C",
+    link: "#FB923C",
+    linkHover: "#FDBA74",
+    blockquote: "#F97316",
+    code: "#FDBA74",
+    hr: "#5C2A0A",
+  },
+
+  // 11. Teal
+  {
+    h1: "#5EEAD4",
+    h2: "#2DD4BF",
+    h3: "#14B8A6",
+    h4: "#0F766E",
+    h5: "#2DD4BF",
+    h6: "#99F6E4",
+    accent: "#2DD4BF",
+    link: "#2DD4BF",
+    linkHover: "#5EEAD4",
+    blockquote: "#14B8A6",
+    code: "#5EEAD4",
+    hr: "#134E4A",
+  },
+
+  // 12. Sky
+  {
+    h1: "#7DD3FC",
+    h2: "#38BDF8",
+    h3: "#0EA5E9",
+    h4: "#0284C7",
+    h5: "#38BDF8",
+    h6: "#BAE6FD",
+    accent: "#38BDF8",
+    link: "#38BDF8",
+    linkHover: "#7DD3FC",
+    blockquote: "#0EA5E9",
+    code: "#7DD3FC",
+    hr: "#164E63",
+  },
+
+  // 13. Fuchsia
+  {
+    h1: "#F0ABFC",
+    h2: "#E879F9",
+    h3: "#D946EF",
+    h4: "#C026D3",
+    h5: "#E879F9",
+    h6: "#F5D0FE",
+    accent: "#E879F9",
+    link: "#E879F9",
+    linkHover: "#F0ABFC",
+    blockquote: "#D946EF",
+    code: "#F0ABFC",
+    hr: "#4A1458",
+  },
+
+  // 14. Slate
+  {
+    h1: "#E2E8F0",
+    h2: "#CBD5E1",
+    h3: "#94A3B8",
+    h4: "#64748B",
+    h5: "#94A3B8",
+    h6: "#E2E8F0",
+    accent: "#94A3B8",
+    link: "#CBD5E1",
+    linkHover: "#F1F5F9",
+    blockquote: "#94A3B8",
+    code: "#E2E8F0",
+    hr: "#334155",
+  },
+
+  // 15. Brown
+  {
+    h1: "#FBBF24",
+    h2: "#D97706",
+    h3: "#B45309",
+    h4: "#92400E",
+    h5: "#FBBF24",
+    h6: "#FDE68A",
+    accent: "#FBBF24",
+    link: "#FBBF24",
+    linkHover: "#FDE68A",
+    blockquote: "#D97706",
+    code: "#FBBF24",
+    hr: "#4A2C0A",
+  },
+
+  // 16. Mint
+  {
+    h1: "#6EE7B7",
+    h2: "#34D399",
+    h3: "#10B981",
+    h4: "#059669",
+    h5: "#34D399",
+    h6: "#D1FAE5",
+    accent: "#34D399",
+    link: "#34D399",
+    linkHover: "#6EE7B7",
+    blockquote: "#10B981",
+    code: "#6EE7B7",
+    hr: "#064E3B",
+  },
+
+  // 17. Coral
+  {
+    h1: "#FDA4AF",
+    h2: "#FB7185",
+    h3: "#F43F5E",
+    h4: "#E11D48",
+    h5: "#FB7185",
+    h6: "#FFE4E6",
+    accent: "#FB7185",
+    link: "#FB7185",
+    linkHover: "#FDA4AF",
+    blockquote: "#F43F5E",
+    code: "#FDA4AF",
+    hr: "#5F1726",
+  },
+
+  // 18. Plum
+  {
+    h1: "#D8B4FE",
+    h2: "#C084FC",
+    h3: "#A855F7",
+    h4: "#9333EA",
+    h5: "#C084FC",
+    h6: "#F3E8FF",
+    accent: "#C084FC",
+    link: "#C084FC",
+    linkHover: "#D8B4FE",
+    blockquote: "#A855F7",
+    code: "#D8B4FE",
+    hr: "#3B1760",
+  },
+
+  // 19. Forest
+  {
+    h1: "#86EFAC",
+    h2: "#4ADE80",
+    h3: "#22C55E",
+    h4: "#16A34A",
+    h5: "#4ADE80",
+    h6: "#BBF7D0",
+    accent: "#4ADE80",
+    link: "#4ADE80",
+    linkHover: "#86EFAC",
+    blockquote: "#22C55E",
+    code: "#86EFAC",
+    hr: "#14532D",
+  },
+
+  // 20. Sunset
+  {
+    h1: "#FDBA74",
+    h2: "#FB923C",
+    h3: "#F97316",
+    h4: "#EA580C",
+    h5: "#FB923C",
+    h6: "#FED7AA",
+    accent: "#FB923C",
+    link: "#FB923C",
+    linkHover: "#FDBA74",
+    blockquote: "#F97316",
+    code: "#FDBA74",
+    hr: "#5C2A0A",
+  },
+];
+
+const resourceThemesLight: ResourceTheme[] = [
   // 1. Ocean Blue
   {
     h1: "#1D4ED8",
@@ -334,3 +658,8 @@ export const resourceThemes: ResourceTheme[] = [
     hr: "#FFEDD5",
   },
 ];
+
+export const resourceThemes = (
+  mode: ResolvedTheme = "light",
+): ResourceTheme[] =>
+  mode === "light" ? resourceThemesLight : resourceThemesDark;

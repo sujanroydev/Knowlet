@@ -18,13 +18,15 @@ export default function ContentAd() {
   }, []);
 
   return (
-    <ins
-      className="adsbygoogle"
-      style={{ display: "block" }}
-      data-ad-client="ca-pub-8649110588500050"
-      data-ad-slot="3100440047"
-      data-ad-format="auto"
-      data-full-width-responsive="true"
-    />
+    <div className="bg-muted text-foreground rounded-lg">
+      <ins
+        className="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-client="ca-pub-8649110588500050"
+        data-ad-slot="3100440047"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      />
+    </div>
   );
 }

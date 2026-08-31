@@ -18,11 +18,11 @@ function getThemeIndex(uuid: string) {
     hash = (hash * 31 + uuid.charCodeAt(i)) >>> 0;
   }
 
-  return hash % resourceThemes.length;
+  return hash % 20;
 }
 
 export function createResourcePdfHtml(resource: Resource) {
-  const theme = resourceThemes[getThemeIndex(resource.id!)];
+  const theme = resourceThemes()[getThemeIndex(resource.id!)];
 
   const css = getPdfCss();
 

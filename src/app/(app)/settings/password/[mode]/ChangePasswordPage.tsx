@@ -58,7 +58,7 @@ export default function ChangePasswordPage() {
   }
 
   return (
-    <main className="min-h-[calc(100dvh-120px)] flex items-center justify-center bg-gray-100 p-4">
+    <main className="min-h-[calc(100dvh-120px)] flex items-center justify-center bg-background p-4">
       <AuthCard title="Change Password">
         <form onSubmit={handleSubmit} className="space-y-5">
           <PasswordInput

@@ -1,6 +1,6 @@
 export default function WelcomePage() {
   return (
-    <main className="min-h-screen bg-slate-100 px-6 py-10">
+    <main className="min-h-screen bg-background px-6 py-10">
       <div className="mx-auto flex max-w-5xl flex-col gap-8">
         {/* Hero */}
         <section className="overflow-hidden rounded-[32px] bg-gradient-to-br from-blue-600 to-indigo-700 p-8 text-white shadow-xl md:p-12">
@@ -23,7 +23,7 @@ export default function WelcomePage() {
             <div className="flex flex-wrap gap-4 pt-2">
               <a
                 href="/library"
-                className="rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:scale-[1.02]"
+                className="rounded-2xl bg-white text-black px-6 py-3 text-sm font-semibold transition hover:scale-[1.02]"
               >
                 Explore Library
               </a>
@@ -73,13 +73,15 @@ export default function WelcomePage() {
           ].map((item) => (
             <div
               key={item.title}
-              className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
+              className="rounded-3xl border border-border bg-card p-6 shadow-sm"
             >
               <div className="mb-4 text-4xl">{item.icon}</div>
 
-              <h2 className="text-lg font-bold text-slate-900">{item.title}</h2>
+              <h2 className="text-lg font-bold text-foreground">
+                {item.title}
+              </h2>
 
-              <p className="mt-3 text-sm leading-6 text-slate-600">
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">
                 {item.desc}
               </p>
             </div>
@@ -87,10 +89,10 @@ export default function WelcomePage() {
         </section>
 
         {/* Steps */}
-        <section className="rounded-[32px] border border-slate-200 bg-white p-8 shadow-sm">
+        <section className="rounded-[32px] border border-border bg-card p-8 shadow-sm">
           <div className="mb-8">
-            <h2 className="text-2xl font-bold text-slate-900">Get Started</h2>
-            <p className="mt-2 text-sm text-slate-500">
+            <h2 className="text-2xl font-bold text-foreground">Get Started</h2>
+            <p className="mt-2 text-sm text-muted-foreground">
               Complete these steps to personalize your experience.
             </p>
           </div>
@@ -113,16 +115,16 @@ export default function WelcomePage() {
                 desc: "Bookmark and continue your study journey.",
               },
             ].map((item) => (
-              <div key={item.step} className="rounded-3xl bg-slate-50 p-6">
-                <span className="text-sm font-bold text-blue-600">
+              <div key={item.step} className="rounded-3xl">
+                <span className="text-sm font-bold text-primary">
                   {item.step}
                 </span>
 
-                <h3 className="mt-3 text-lg font-semibold text-slate-900">
+                <h3 className="mt-3 text-lg font-semibold text-foreground">
                   {item.title}
                 </h3>
 
-                <p className="mt-2 text-sm leading-6 text-slate-600">
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
                   {item.desc}
                 </p>
               </div>

@@ -16,7 +16,7 @@ export default function PasswordInput({
       <input
         {...props}
         type={show ? "text" : "password"}
-        className={`w-full rounded-lg border border-gray-300 px-4 py-3 pr-12 outline-none focus:border-blue-500 ${className}`}
+        className={`w-full rounded-lg border border-border px-4 py-3 pr-12 outline-none focus:border-primary ${className}`}
       />
 
       <button
@@ -25,11 +25,7 @@ export default function PasswordInput({
         className="absolute inset-y-0 right-3 flex items-center"
         aria-label={show ? "Hide password" : "Show password"}
       >
-        {show ? (
-          <EyeOff className="h-5 w-5" />
-        ) : (
-          <Eye className="h-5 w-5" />
-        )}
+        {show ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
       </button>
     </div>
   );

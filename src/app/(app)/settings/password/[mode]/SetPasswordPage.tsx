@@ -80,17 +80,17 @@ export default function SetPasswordPage() {
   }
 
   return (
-    <main className="min-h-[calc(100dvh-120px)] flex items-center justify-center bg-gray-100 p-4">
+    <main className="min-h-[calc(100dvh-120px)] flex items-center justify-center bg-background p-4">
       <AuthCard title="Reset Password">
         <form onSubmit={handleSubmit} className="space-y-5">
-          <div className="flex overflow-hidden rounded-lg border border-gray-300 focus-within:border-blue-500">
+          <div className="flex overflow-hidden rounded-lg border border-border focus-within:border-primary">
             <input
               type="text"
               name="otp"
               placeholder="OTP"
               value={otp}
               onChange={(e) => setOtp(e.target.value)}
-              className="flex-1 px-4 py-3 outline-none disabled:bg-gray-100"
+              className="flex-1 px-4 py-3 outline-none disabled:bg-muted"
               disabled={!otpSent}
               required
             />
@@ -99,7 +99,7 @@ export default function SetPasswordPage() {
               type="button"
               onClick={handleRequestOtp}
               disabled={otpLoading}
-              className="border-l border-gray-300 px-4 text-sm font-medium text-blue-600 hover:bg-gray-50 disabled:opacity-50"
+              className="border-l border-border px-4 text-sm font-medium text-primary hover:bg-accent disabled:opacity-50"
             >
               {otpLoading ? "Sending..." : otpSent ? "Resend" : "Send OTP"}
             </button>
@@ -124,7 +124,7 @@ export default function SetPasswordPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-2xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-70"
+            className="w-full rounded-2xl bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-70"
           >
             {loading ? "Updating Password..." : "Set Password"}
           </button>

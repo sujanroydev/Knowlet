@@ -86,7 +86,7 @@ export default function ForgotPasswordPage() {
   }, [user]);
 
   return (
-    <main className="min-h-[calc(100dvh-120px)] flex items-center justify-center bg-gray-100 p-4">
+    <main className="min-h-[calc(100dvh-120px)] flex items-center justify-center bg-background p-4">
       <AuthCard title="Forgot Password">
         {loading && <Loader />}
 
@@ -97,27 +97,28 @@ export default function ForgotPasswordPage() {
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
+            className="w-full rounded-lg border border-border px-4 py-3 outline-none focus:primary"
             required
             disabled={!!user?.email}
           />
 
-          <div className="flex overflow-hidden rounded-lg border border-gray-300 focus-within:border-blue-500">
+          <div className="flex overflow-hidden rounded-lg border border-border focus-within:primary">
             <input
               type="text"
               name="otp"
               placeholder="OTP"
               value={otp}
               onChange={(e) => setOtp(e.target.value)}
-              className="flex-1 px-4 py-3 outline-none disabled:bg-gray-100"
+              className="flex-1 px-4 py-3 outline-none disabled:bg-muted"
               required={!otpSent}
+              disabled={otpLoading || !otpSent}
             />
 
             <button
               type="button"
               onClick={handleRequestOtp}
               disabled={otpLoading}
-              className="border-l border-gray-300 px-4 text-sm font-medium text-blue-600 hover:bg-gray-50 disabled:opacity-50"
+              className="border-l border-border px-4 text-sm font-medium text-primary hover:bg-muted disabled:opacity-50"
             >
               {otpLoading ? "Sending..." : otpSent ? "Resend" : "Send OTP"}
             </button>
@@ -131,7 +132,7 @@ export default function ForgotPasswordPage() {
             required
           />
 
-          <button className="w-full bg-blue-600 text-white py-3 rounded-lg">
+          <button className="w-full bg-primary text-primary-foreground py-3 rounded-lg">
             Reset Password
           </button>
         </form>

@@ -218,7 +218,58 @@ export default function HelpPage() {
           </div>
         </section>
 
-        {/* Section 5: Tips & Tricks */}
+        {/* Section 5: Troubleshooting */}
+        <section className="bg-card rounded-2xl shadow-md p-6 md:p-8 mb-8">
+          <h2 className="text-xl font-semibold mb-4">Troubleshooting</h2>
+
+          <div className="space-y-4">
+            <details className="border-b border-border pb-4 cursor-pointer">
+              <summary className="font-semibold text-foreground hover:text-primary transition">
+                The app is loading slowly
+              </summary>
+              <p className="text-muted-foreground text-sm mt-2 leading-relaxed">
+                Clear your browser cache and cookies. Check your internet
+                connection and try refreshing the page. Disable any browser
+                extensions that might interfere with loading.
+              </p>
+            </details>
+
+            <details className="border-b border-border pb-4 cursor-pointer">
+              <summary className="font-semibold text-foreground hover:text-primary transition">
+                Videos are not playing
+              </summary>
+              <p className="text-muted-foreground text-sm mt-2 leading-relaxed">
+                Ensure you have a stable internet connection. Check if
+                JavaScript is enabled in your browser. Try using a different
+                browser or device to isolate the issue.
+              </p>
+            </details>
+
+            <details className="border-b border-border pb-4 cursor-pointer">
+              <summary className="font-semibold text-foreground hover:text-primary transition">
+                I can't find a specific resource
+              </summary>
+              <p className="text-muted-foreground text-sm mt-2 leading-relaxed">
+                Try using different keywords in the search. Adjust filters like
+                subject and difficulty level. Check if the resource is in your
+                library or bookmarks.
+              </p>
+            </details>
+
+            <details className="border-b border-border pb-4 cursor-pointer">
+              <summary className="font-semibold text-foreground hover:text-primary transition">
+                App crashes or freezes
+              </summary>
+              <p className="text-muted-foreground text-sm mt-2 leading-relaxed">
+                Close and reopen the app. Ensure your device has sufficient
+                storage and memory. Uninstall and reinstall the app if the issue
+                persists.
+              </p>
+            </details>
+          </div>
+        </section>
+
+        {/* Section 6: Tips & Tricks */}
         <section className="bg-card rounded-2xl shadow-md p-6 md:p-8 mb-8">
           <h2 className="text-xl font-semibold mb-4">Tips & Tricks</h2>
 
@@ -243,7 +294,7 @@ export default function HelpPage() {
           </ul>
         </section>
 
-        {/* Section 6: Support */}
+        {/* Section 7: Support */}
         <section className="bg-card rounded-2xl shadow-md p-6 md:p-8">
           <h2 className="text-xl font-semibold mb-2">Need More Help?</h2>
 

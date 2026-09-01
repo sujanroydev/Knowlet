@@ -195,7 +195,32 @@ export default function TermsAndConditionsPage() {
 
         <section className="mb-6">
           <h2 className="text-lg font-semibold mb-2">
-            13. Changes to These Terms
+            13. Governing Law and Jurisdiction
+          </h2>
+          <p className="text-muted-foreground">
+            These Terms and Conditions and all matters relating to Knowlet are
+            governed by and construed in accordance with the laws of India,
+            without regard to its conflict of law principles. You agree to
+            submit to the exclusive jurisdiction of the courts located in India
+            for any disputes arising from these terms or your use of the
+            service.
+          </p>
+        </section>
+
+        <section className="mb-6">
+          <h2 className="text-lg font-semibold mb-2">14. Severability</h2>
+          <p className="text-muted-foreground">
+            If any provision of these Terms and Conditions is found to be
+            invalid, illegal, or unenforceable, such provision shall be modified
+            to the minimum extent necessary to make it enforceable, or if such
+            modification is not possible, the provision shall be severed. The
+            remaining provisions shall continue in full force and effect.
+          </p>
+        </section>
+
+        <section className="mb-6">
+          <h2 className="text-lg font-semibold mb-2">
+            15. Changes to These Terms
           </h2>
           <p className="text-muted-foreground">
             We may update these Terms and Conditions from time to time. When

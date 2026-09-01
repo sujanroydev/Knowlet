@@ -198,7 +198,22 @@ export default function DeclarationPage() {
 
         <section className="mb-6">
           <h2 className="text-lg font-semibold mb-2">
-            12. Changes to This Declaration
+            12. Exam and Academic Use
+          </h2>
+
+          <p className="text-foreground leading-relaxed">
+            Knowlet is designed for learning and preparation purposes. While the
+            content aims to align with educational standards, it is the
+            user&apos;s responsibility to verify that resources match their
+            specific exam board, curriculum, or academic institution&apos;s
+            requirements. Knowlet is not an official source for exam
+            specifications or official syllabus information.
+          </p>
+        </section>
+
+        <section className="mb-6">
+          <h2 className="text-lg font-semibold mb-2">
+            13. Changes to This Declaration
           </h2>
 
           <p className="text-foreground leading-relaxed">
@@ -210,7 +225,7 @@ export default function DeclarationPage() {
         </section>
 
         <section className="mt-10 p-6 bg-card rounded-2xl shadow-sm border border-border">
-          <h2 className="text-lg font-semibold mb-2">13. Contact</h2>
+          <h2 className="text-lg font-semibold mb-2">14. Contact</h2>
 
           <p className="text-foreground">
             Knowlet

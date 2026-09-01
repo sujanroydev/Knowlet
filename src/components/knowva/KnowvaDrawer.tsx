@@ -159,7 +159,7 @@ export default function KnowvaDrawer() {
                 {openMenu === c.id && (
                   <div
                     ref={menuRef}
-                    className="absolute right-2 top-full z-50 mt-1 w-40 overflow-hidden rounded-lg border bg-white shadow-lg"
+                    className="absolute right-2 top-full z-50 mt-1 w-40 overflow-hidden rounded-lg border border-border bg-card shadow-lg"
                   >
                     {/* Pin */}
                     <button

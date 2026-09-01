@@ -72,7 +72,7 @@ export default function AIAssistant() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed right-6 bottom-38 z-50 flex h-100 w-87.5 flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-2xl"
+            className="fixed right-6 bottom-38 z-50 flex h-100 w-87.5 flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-2xl"
           >
             {/* Header */}
             <header className="flex items-center justify-between border-b border-gray-200 px-4 py-3">
@@ -97,7 +97,7 @@ export default function AIAssistant() {
               <div className="flex items-center gap-1">
                 <button
                   onClick={() => createNewChat()}
-                  className="flex items-center gap-1 rounded-lg px-3 py-1.5 text-sm font-medium"
+                  className="rounded-md p-2 transition hover:bg-muted"
                 >
                   <SquarePen className="w-4 h-4" />
                 </button>
@@ -105,7 +105,7 @@ export default function AIAssistant() {
                 <button
                   type="button"
                   onClick={() => setShowHistory((prev) => !prev)}
-                  className="rounded-md p-2 transition hover:bg-gray-100"
+                  className="rounded-md p-2 transition hover:bg-muted"
                   aria-label="Chat history"
                 >
                   <History size={18} />

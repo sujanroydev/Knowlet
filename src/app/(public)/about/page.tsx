@@ -34,9 +34,9 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-100 to-blue-50 text-slate-800">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
-      <header className="relative overflow-hidden bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 px-6 text-center">
+      <header className="relative overflow-hidden bg-primary text-primary-foreground py-16 px-6 text-center">
         <h1 className="text-4xl md:text-5xl font-bold tracking-wide">
           About Knowlet
         </h1>
@@ -49,21 +49,21 @@ export default function AboutPage() {
 
       {/* Content */}
       <main className="max-w-4xl mx-auto px-5 py-14 space-y-8">
-
         {/* Introduction */}
-        <section className="bg-white rounded-2xl shadow-md border border-slate-100 p-6 md:p-8">
-          <h2 className="text-xl font-semibold text-blue-600 mb-3">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-xl font-semibold text-primary mb-3">
             What is Knowlet?
           </h2>
 
-          <p className="leading-relaxed text-slate-700">
-            Knowlet is an independent web-based learning platform designed primarily
-            for students. It provides a structured place to discover, organize, read,
-            download, and work with academic resources such as notes, previous-year
-            questions, important questions, and study materials.
+          <p className="leading-relaxed text-foreground">
+            Knowlet is an independent web-based learning platform designed
+            primarily for students. It provides a structured place to discover,
+            organize, read, download, and work with academic resources such as
+            notes, previous-year questions, important questions, and study
+            materials.
           </p>
 
-          <p className="mt-4 leading-relaxed text-slate-700">
+          <p className="mt-4 leading-relaxed text-foreground">
             The goal is simple: reduce the friction students face when looking
             for study material and provide a clean learning experience without
             unnecessary complexity.
@@ -71,139 +71,137 @@ export default function AboutPage() {
         </section>
 
         {/* Mission */}
-        <section className="bg-white rounded-2xl shadow-md border border-slate-100 p-6 md:p-8">
-          <h2 className="text-xl font-semibold text-blue-600 mb-3">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-xl font-semibold text-primary mb-3">
             Our Mission
           </h2>
 
-          <p className="leading-relaxed text-slate-700">
+          <p className="leading-relaxed text-foreground">
             Knowlet aims to make academic resources easier to discover, access,
-            download, and understand. Instead of forcing students to search through
-            scattered files, messages, websites, and folders, Knowlet organizes
-            learning resources into a structured academic system.
+            download, and understand. Instead of forcing students to search
+            through scattered files, messages, websites, and folders, Knowlet
+            organizes learning resources into a structured academic system.
           </p>
 
-          <p className="mt-4 leading-relaxed text-slate-700">
+          <p className="mt-4 leading-relaxed text-foreground">
             The platform is built around three principles:
           </p>
 
-          <ul className="mt-4 list-disc pl-5 space-y-2 text-slate-700">
+          <ul className="mt-4 list-disc pl-5 space-y-2 text-foreground">
             <li>
-              <strong>Simplicity</strong> — learning resources should be easy
-              to find and use.
+              <strong>Simplicity</strong> — learning resources should be easy to
+              find and use.
             </li>
             <li>
               <strong>Speed</strong> — the interface should remain responsive
               and lightweight.
             </li>
             <li>
-              <strong>Organization</strong> — academic content should follow
-              a clear structure instead of becoming a collection of random
-              files.
+              <strong>Organization</strong> — academic content should follow a
+              clear structure instead of becoming a collection of random files.
             </li>
           </ul>
         </section>
 
         {/* What Knowlet Provides */}
-        <section className="bg-white rounded-2xl shadow-md border border-slate-100 p-6 md:p-8">
-          <h2 className="text-xl font-semibold text-blue-600 mb-3">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-xl font-semibold text-primary mb-3">
             What Can You Do With Knowlet?
           </h2>
 
-          <p className="leading-relaxed text-slate-700 mb-5">
+          <p className="leading-relaxed text-foreground mb-5">
             Knowlet brings several parts of the student learning workflow
             together in one platform.
           </p>
 
-          <ul className="list-disc pl-5 space-y-2 text-slate-700">
+          <ul className="list-disc pl-5 space-y-2 text-foreground">
             <li>Browse organized academic notes and study materials.</li>
             <li>Access previous-year question papers and solutions.</li>
             <li>Find important questions for revision and preparation.</li>
-            <li>Navigate resources through levels, subjects, papers, and units.</li>
+            <li>
+              Navigate resources through levels, subjects, papers, and units.
+            </li>
             <li>Download study resources for offline access.</li>
             <li>Bookmark useful resources for quick access later.</li>
             <li>Read learning content through a focused reading experience.</li>
-            <li>Use AI-powered tools to study, explain, summarize, and work with content.</li>
+            <li>
+              Use AI-powered tools to study, explain, summarize, and work with
+              content.
+            </li>
           </ul>
         </section>
 
         {/* Knowva */}
-        <section className="bg-white rounded-2xl shadow-md border border-slate-100 p-6 md:p-8">
-          <h2 className="text-xl font-semibold text-blue-600 mb-3">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-xl font-semibold text-primary mb-3">
             Knowva — AI-Powered Learning
           </h2>
 
-          <p className="leading-relaxed text-slate-700">
+          <p className="leading-relaxed text-foreground">
             Knowlet is also being developed with an AI-powered learning
-            assistant called <strong>Knowva</strong>. Knowva is designed to
-            make AI useful within the learning workflow rather than treating
-            it as a separate chatbot.
+            assistant called <strong>Knowva</strong>. Knowva is designed to make
+            AI useful within the learning workflow rather than treating it as a
+            separate chatbot.
           </p>
 
-          <p className="mt-4 leading-relaxed text-slate-700">
+          <p className="mt-4 leading-relaxed text-foreground">
             Depending on the task, students can use AI-assisted features for
             studying, explaining concepts, generating shorter explanations,
-            creating learning resources, and interacting with academic
-            content.
+            creating learning resources, and interacting with academic content.
           </p>
 
-          <p className="mt-4 leading-relaxed text-slate-700">
-            The goal is not to replace learning, but to provide students with
-            an additional tool for understanding and working with information.
+          <p className="mt-4 leading-relaxed text-foreground">
+            The goal is not to replace learning, but to provide students with an
+            additional tool for understanding and working with information.
           </p>
         </section>
 
         {/* Why */}
-        <section className="bg-white rounded-2xl shadow-md border border-slate-100 p-6 md:p-8">
-          <h2 className="text-xl font-semibold text-blue-600 mb-3">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-xl font-semibold text-primary mb-3">
             Why Was Knowlet Created?
           </h2>
 
-          <p className="leading-relaxed text-slate-700">
-            Students often receive study materials from many different
-            sources: classroom groups, messaging apps, cloud storage,
-            websites, PDFs, and personal folders. Finding the right material
-            at the right time can become unnecessarily difficult.
+          <p className="leading-relaxed text-foreground">
+            Students often receive study materials from many different sources:
+            classroom groups, messaging apps, cloud storage, websites, PDFs, and
+            personal folders. Finding the right material at the right time can
+            become unnecessarily difficult.
           </p>
 
-          <p className="mt-4 leading-relaxed text-slate-700">
+          <p className="mt-4 leading-relaxed text-foreground">
             Knowlet was created to address that problem by building a more
             structured and focused environment for academic resources.
           </p>
         </section>
 
         {/* Development */}
-        <section className="bg-white rounded-2xl shadow-md border border-slate-100 p-6 md:p-8">
-          <h2 className="text-xl font-semibold text-blue-600 mb-3">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-xl font-semibold text-primary mb-3">
             When Was Knowlet Developed?
           </h2>
 
-          <p className="leading-relaxed text-slate-700">
+          <p className="leading-relaxed text-foreground">
             The initial development of Knowlet took place between{" "}
-            <span className="font-semibold">
-              September and October 2025
-            </span>
-            .
+            <span className="font-semibold">September and October 2025</span>.
           </p>
 
-          <p className="mt-4 leading-relaxed text-slate-700">
+          <p className="mt-4 leading-relaxed text-foreground">
             Knowlet was officially released on{" "}
-            <span className="font-semibold">
-              5 December 2025
-            </span>{" "}
-            under the domain{" "}
+            <span className="font-semibold">5 December 2025</span> under the
+            domain{" "}
             <a
               href="https://knowlet.in"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 font-semibold underline"
+              className="text-primary font-semibold underline hover:opacity-80"
             >
               knowlet.in
             </a>
             .
           </p>
 
-          <p className="mt-4 leading-relaxed text-slate-700">
+          <p className="mt-4 leading-relaxed text-foreground">
             Since its initial release, the platform has continued to evolve
             through new features, architectural improvements, and experiments
             with AI-assisted learning.
@@ -211,25 +209,25 @@ export default function AboutPage() {
         </section>
 
         {/* Developer */}
-        <section className="bg-white rounded-2xl shadow-md border border-slate-100 p-6 md:p-8">
-          <h2 className="text-xl font-semibold text-blue-600 mb-3">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-xl font-semibold text-primary mb-3">
             Who Developed Knowlet?
           </h2>
 
-          <p className="leading-relaxed text-slate-700">
+          <p className="leading-relaxed text-foreground">
             Knowlet is independently developed by{" "}
             <span className="font-semibold">Sujan Roy</span>, a student
-            developer interested in software development, web technologies,
-            and building practical digital products.
+            developer interested in software development, web technologies, and
+            building practical digital products.
           </p>
 
-          <p className="mt-4 leading-relaxed text-slate-700">
+          <p className="mt-4 leading-relaxed text-foreground">
             The project is developed independently, with the goal of learning
             through real-world software development while creating something
             useful for students.
           </p>
 
-          <div className="mt-5 flex flex-wrap gap-4 text-blue-600 font-medium">
+          <div className="mt-5 flex flex-wrap gap-4 text-primary font-medium">
             <a
               href="https://sujanroy.in"
               target="_blank"
@@ -260,17 +258,17 @@ export default function AboutPage() {
         </section>
 
         {/* Technology */}
-        <section className="bg-white rounded-2xl shadow-md border border-slate-100 p-6 md:p-8">
-          <h2 className="text-xl font-semibold text-blue-600 mb-3">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-xl font-semibold text-primary mb-3">
             Technology Behind Knowlet
           </h2>
 
-          <p className="leading-relaxed text-slate-700">
+          <p className="leading-relaxed text-foreground">
             Knowlet is built using modern web technologies with an emphasis on
             performance, maintainability, and a responsive user experience.
           </p>
 
-          <ul className="mt-5 list-disc pl-5 space-y-2 text-slate-700">
+          <ul className="mt-5 list-disc pl-5 space-y-2 text-foreground">
             <li>
               <strong>Next.js</strong> — application framework and routing.
             </li>
@@ -293,52 +291,49 @@ export default function AboutPage() {
         </section>
 
         {/* Design Philosophy */}
-        <section className="bg-white rounded-2xl shadow-md border border-slate-100 p-6 md:p-8">
-          <h2 className="text-xl font-semibold text-blue-600 mb-3">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-xl font-semibold text-primary mb-3">
             Our Approach
           </h2>
 
-          <p className="leading-relaxed text-slate-700">
+          <p className="leading-relaxed text-foreground">
             Knowlet is intentionally designed to avoid unnecessary complexity.
             The interface focuses on readable content, clear navigation, fast
             access to resources, and useful functionality.
           </p>
 
-          <p className="mt-4 leading-relaxed text-slate-700">
-            At the same time, the underlying architecture is designed to
-            support more advanced features as the platform grows.
+          <p className="mt-4 leading-relaxed text-foreground">
+            At the same time, the underlying architecture is designed to support
+            more advanced features as the platform grows.
           </p>
         </section>
 
         {/* Future */}
-        <section className="bg-white rounded-2xl shadow-md border border-slate-100 p-6 md:p-8">
-          <h2 className="text-xl font-semibold text-blue-600 mb-3">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-xl font-semibold text-primary mb-3">
             What's Next?
           </h2>
 
-          <p className="leading-relaxed text-slate-700">
+          <p className="leading-relaxed text-foreground">
             Knowlet is an ongoing project. Future development is focused on
             improving the learning experience, expanding academic resources,
             strengthening AI-assisted learning, and making the platform more
             useful across different study workflows.
           </p>
 
-          <p className="mt-4 leading-relaxed text-slate-700">
+          <p className="mt-4 leading-relaxed text-foreground">
             The long-term vision is to build more than a repository of notes:
             Knowlet aims to become a practical learning environment where
             students can discover resources, study them, organize their
-            learning, and use intelligent tools when they need additional
-            help.
+            learning, and use intelligent tools when they need additional help.
           </p>
         </section>
 
         {/* Closing */}
-        <section className="bg-blue-600 text-white rounded-2xl shadow-md p-6 md:p-8 text-center">
-          <h2 className="text-2xl font-bold mb-3">
-            Built for Learning
-          </h2>
+        <section className="bg-primary text-primary-foreground rounded-2xl shadow-md p-6 md:p-8 text-center">
+          <h2 className="text-2xl font-bold mb-3">Built for Learning</h2>
 
-          <p className="max-w-2xl mx-auto leading-relaxed text-blue-50">
+          <p className="max-w-2xl mx-auto leading-relaxed opacity-90">
             Knowlet started as an independent student project and continues to
             evolve with the goal of making learning resources more organized,
             accessible, and useful.
@@ -347,7 +342,7 @@ export default function AboutPage() {
       </main>
 
       {/* Footer */}
-      <footer className="text-center py-8 text-sm text-slate-500 border-t bg-slate-50">
+      <footer className="text-center py-8 text-sm text-muted-foreground border-t border-border bg-muted">
         © 2026 Knowlet. All rights reserved.
       </footer>
     </div>

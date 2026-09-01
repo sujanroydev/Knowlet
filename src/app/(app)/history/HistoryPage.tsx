@@ -48,7 +48,7 @@ export default function HistoryPage() {
           <p className="text-sm text-amber-600">Loading history...</p>
         </div>
       ) : history.length === 0 ? (
-        <div className="p-6 text-center bg-gray-50 border border-gray-200 rounded-xl text-gray-600 italic">
+        <div className="p-6 text-center bg-muted border border-border rounded-xl text-muted-foreground italic">
           No history found
         </div>
       ) : (
@@ -63,7 +63,7 @@ export default function HistoryPage() {
                   {item.resource.title}
                 </h3>
 
-                <p className="mt-1 text-xs text-gray-500">
+                <p className="mt-1 text-xs text-muted-foreground">
                   Viewed on {new Date(item.created_at).toLocaleString()}
                 </p>
               </Link>

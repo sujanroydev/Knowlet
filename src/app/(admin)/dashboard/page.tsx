@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { Bell, BookOpen, Clock3, Eye, Mail, Plus } from "lucide-react";
 
-import { getMostVisitedResources, getRecentlyPublishedResources } from "@/db/resource";
+import {
+  getMostVisitedResources,
+  getRecentlyPublishedResources,
+} from "@/db/resource";
 import { Resource } from "@/schemas/resource";
 
 type ResourceCardProps = {
@@ -10,18 +13,18 @@ type ResourceCardProps = {
 
 function ResourceCard({ resource }: ResourceCardProps) {
   return (
-    <div className="relative group block rounded-2xl border border-gray-200 bg-white p-4 transition-all duration-200 hover:-translate-y-1 hover:border-gray-300 hover:shadow-lg">
+    <div className="relative group block rounded-2xl border border-border bg-card p-4 transition-all duration-200 hover:-translate-y-1 hover:border-indigo-300 dark:hover:border-indigo-500 hover:shadow-lg">
       <div className="absolute top-4 right-4 flex gap-2">
         <Link
           href={`/library/${resource.path}`}
-          className="transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:bg-gray-100 inline-flex h-9 items-center justify-center rounded-xl border px-4 text-sm font-medium transition hover:bg-muted"
+          className="inline-flex h-9 items-center justify-center rounded-xl border border-border px-4 text-sm font-medium transition hover:bg-muted hover:shadow-md hover:-translate-y-0.5"
         >
           Open
         </Link>
 
         <Link
           href={`/dashboard/resources/update/${resource.id}`}
-          className="transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:bg-gray-100 inline-flex h-9 items-center justify-center rounded-xl border px-4 text-sm font-medium transition hover:bg-muted"
+          className="inline-flex h-9 items-center justify-center rounded-xl border border-border px-4 text-sm font-medium transition hover:bg-muted hover:shadow-md hover:-translate-y-0.5"
         >
           Update
         </Link>
@@ -30,22 +33,22 @@ function ResourceCard({ resource }: ResourceCardProps) {
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0 space-y-2">
           <div className="flex items-center gap-2">
-            <div className="rounded-lg bg-gray-100 p-2">
+            <div className="rounded-lg bg-muted p-2">
               <BookOpen size={16} />
             </div>
 
-            <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600">
+            <span className="rounded-full bg-muted px-2 py-1 text-xs font-medium text-muted-foreground">
               {resource.type}
             </span>
           </div>
 
-          <h3 className="line-clamp-2 text-sm font-semibold text-gray-900 transition-colors group-hover:text-black">
+          <h3 className="line-clamp-2 text-sm font-semibold text-foreground transition-colors group-hover:text-primary">
             {resource.title}
           </h3>
         </div>
       </div>
 
-      <div className="mt-4 flex flex-wrap items-center gap-3 border-t pt-3 text-xs text-gray-500">
+      <div className="mt-4 flex flex-wrap items-center gap-3 border-t border-border pt-3 text-xs text-muted-foreground">
         <div className="flex items-center gap-1">
           <Eye size={14} />
           <span>{resource.views}</span>
@@ -89,15 +92,15 @@ function ResourceSection({
   error,
 }: ResourceSectionProps) {
   return (
-    <div className="rounded-3xl border border-gray-200 bg-white/80 p-5 shadow-sm backdrop-blur">
+    <div className="rounded-3xl border border-border bg-card/80 p-5 shadow-sm backdrop-blur">
       <div className="mb-5 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="rounded-xl bg-black p-2 text-white">{icon}</div>
 
           <div>
-            <h2 className="text-lg font-semibold text-gray-900">{title}</h2>
+            <h2 className="text-lg font-semibold text-foreground">{title}</h2>
 
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-muted-foreground">
               {resources.length} resources
             </p>
           </div>
@@ -116,7 +119,7 @@ function ResourceSection({
           Failed to load resources
         </div>
       ) : resources.length === 0 ? (
-        <div className="rounded-2xl border border-dashed border-gray-300 py-12 text-center text-sm text-gray-500">
+        <div className="rounded-2xl border border-dashed border-border py-12 text-center text-sm text-muted-foreground">
           No resources found
         </div>
       ) : (
@@ -174,16 +177,14 @@ function ActionCard({ href, category, title, icon }: ActionCardProps) {
   return (
     <Link
       href={href}
-      className="
-        group rounded-3xl border border-gray-200
-        bg-white p-5 shadow-sm transition
-        hover:-translate-y-1 hover:shadow-lg
-      "
+      className="group rounded-3xl border border-border bg-card p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
     >
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-sm text-gray-500">{category}</p>
-          <h3 className="mt-1 text-lg font-semibold text-gray-900">{title}</h3>
+          <p className="text-sm text-muted-foreground">{category}</p>
+          <h3 className="mt-1 text-lg font-semibold text-foreground">
+            {title}
+          </h3>
         </div>
 
         <div className="rounded-2xl bg-black p-3 text-white">{icon}</div>
@@ -199,27 +200,19 @@ export default async function DashboardPage() {
   ]);
 
   const mostVisitedResources =
-    mostVisitedResult.status === "fulfilled"
-      ? mostVisitedResult.value
-      : [];
+    mostVisitedResult.status === "fulfilled" ? mostVisitedResult.value : [];
 
   const mostVisitedResourcesError =
-    mostVisitedResult.status === "rejected"
-      ? mostVisitedResult.reason
-      : null;
+    mostVisitedResult.status === "rejected" ? mostVisitedResult.reason : null;
 
   const recentResources =
-    recentResult.status === "fulfilled"
-      ? recentResult.value
-      : [];
+    recentResult.status === "fulfilled" ? recentResult.value : [];
 
   const recentResourcesError =
-    recentResult.status === "rejected"
-      ? recentResult.reason
-      : null;
+    recentResult.status === "rejected" ? recentResult.reason : null;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 p-4 md:p-6">
+    <div className="min-h-screen bg-muted p-4 md:p-6">
       <div className="mx-auto max-w-7xl space-y-8">
         {/* Hero Header */}
         <div className="overflow-hidden rounded-3xl bg-black p-6 text-white shadow-2xl md:p-8">

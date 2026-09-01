@@ -78,7 +78,13 @@ export default async function StreakBlock({ userId }: { userId: string }) {
   const thirtyDaysAgo = new Date();
   thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 90);
 
-  const history = await getRecentHistoryPaths(userId, thirtyDaysAgo.toISOString());
+  const history = await getRecentHistoryPaths(
+    userId,
+    thirtyDaysAgo.toISOString(),
+  ).catch((err) => {
+    console.log("catched error", err);
+    return [];
+  });
 
   const streakData = getStreakData(history as HistoryItem[]);
 

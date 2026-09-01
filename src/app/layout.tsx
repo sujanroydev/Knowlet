@@ -4,7 +4,6 @@ import "./globals.css";
 import BottomNav from "@/components/BottomNav";
 import TopBar from "@/components/TopBar";
 import { AppProvider } from "@/context/AppContext";
-import AppToaster from "@/components/AppToaster";
 import SWRegister from "@/components/SWRegister";
 import AdSense from "@/components/AdSense";
 
@@ -39,7 +38,6 @@ export default function RootLayout({
             <BottomNav />
           </div>
           <SWRegister />
-          <AppToaster />
         </AppProvider>
       </body>
     </html>

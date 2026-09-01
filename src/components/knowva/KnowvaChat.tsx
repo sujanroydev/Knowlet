@@ -28,7 +28,7 @@ export default function KnowvaChat() {
   return (
     <div
       ref={chatRef}
-      className="h-full flex-1 overflow-y-auto bg-gray-50 p-4 space-y-3"
+      className="h-full flex-1 overflow-y-auto bg-card p-4 space-y-3"
     >
       {messages.length === 0 && !currentMessage ? (
         <div className="flex h-full flex-col items-center justify-center px-4 text-center">
@@ -40,11 +40,11 @@ export default function KnowvaChat() {
             className="mb-5"
           />
 
-          <h2 className="text-xl font-semibold text-gray-900">
+          <h2 className="text-xl font-semibold text-foreground">
             {user ? `Hello, ${user.name}` : "Welcome to Knowva"}
           </h2>
 
-          <p className="mt-2 max-w-sm text-sm leading-6 text-gray-500">
+          <p className="mt-2 max-w-sm text-sm leading-6 text-muted-foreground">
             {user
               ? "What would you like to learn or explore today?"
               : "Login to use Knowlet Knowva and start learning with your AI assistant."}

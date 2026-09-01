@@ -198,9 +198,9 @@ export default function KnowvaInput() {
   };
 
   return (
-    <div className="flex gap-2 p-3 border-t border-gray-200 bg-white">
+    <div className="flex gap-2 p-3 border-t border-border bg-card">
       <textarea
-        className="flex-1 bg-gray-100 text-gray-900 p-2 rounded-lg resize-none h-10 outline-none focus:ring-2 focus:ring-blue-400"
+        className="flex-1 bg-muted text-foreground p-2 rounded-lg resize-none h-10 outline-none focus:ring-2 focus:ring-primary"
         value={text}
         onChange={(e) => setText(e.target.value)}
         onKeyDown={(e) => {

@@ -1,4 +1,3 @@
-import type { Ref } from "react";
 import { Edit2 } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -15,10 +14,10 @@ export default function KnowvaMessage({
 
   if (!message.content && message.role === "assistant") {
     return (
-      <div className="mr-auto flex w-fit items-center gap-1.5 rounded-xl border border-gray-200 bg-white px-3 py-2.5 shadow-sm">
-        <span className="h-2 w-2 animate-bounce rounded-full bg-gray-400 [animation-delay:-0.3s]" />
-        <span className="h-2 w-2 animate-bounce rounded-full bg-gray-400 [animation-delay:-0.15s]" />
-        <span className="h-2 w-2 animate-bounce rounded-full bg-gray-400" />
+      <div className="mr-auto flex w-fit items-center gap-1.5 rounded-xl border border-border bg-card px-3 py-2.5 shadow-sm">
+        <span className="h-2 w-2 animate-bounce rounded-full bg-muted-foreground [animation-delay:-0.3s]" />
+        <span className="h-2 w-2 animate-bounce rounded-full bg-muted-foreground [animation-delay:-0.15s]" />
+        <span className="h-2 w-2 animate-bounce rounded-full bg-muted-foreground" />
       </div>
     );
   }
@@ -27,8 +26,8 @@ export default function KnowvaMessage({
     <div
       className={`max-w-[75%] px-3 py-2 rounded-xl text-sm whitespace-pre-wrap ${
         message.role === "user"
-          ? "bg-blue-500 text-white ml-auto"
-          : "bg-white text-gray-800 mr-auto border border-gray-200"
+          ? "bg-primary text-primary-foreground ml-auto"
+          : "bg-muted text-foreground mr-auto border border-border"
       }`}
     >
       <ReactMarkdown remarkPlugins={[remarkGfm]}>

@@ -37,7 +37,7 @@ export default function Drawer({
       {/* Drawer */}
       <aside
         aria-hidden={!open}
-        className={`fixed top-0 z-60 flex h-full ${width} max-w-[90vw] flex-col bg-white/90 backdrop-blur-xl transition-transform duration-300 ease-out ${
+        className={`fixed top-0 z-60 flex h-full ${width} max-w-[90vw] flex-col bg-card/90 backdrop-blur-xl transition-transform duration-300 ease-out ${
           isLeft
             ? "left-0 border-r border-border/50"
             : "right-0 border-l border-border/50"

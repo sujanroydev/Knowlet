@@ -10,7 +10,7 @@ const links = [
 
 export default function SettingsPanel() {
   return (
-    <div className="bg-white p-5 rounded-xl shadow-md">
+    <div className="bg-card p-5 rounded-xl shadow-md">
       <h2 className="font-semibold mb-4">Account Settings</h2>
 
       <div className="space-y-2">

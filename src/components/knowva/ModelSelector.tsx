@@ -35,7 +35,7 @@ export function ModelSelector() {
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1 rounded-md px-2 py-1 text-sm text-slate-700 hover:bg-slate-100"
+        className="flex items-center gap-1 rounded-md px-2 py-1 text-sm text-accent-foreground hover:bg-muted"
       >
         <span>Model</span>
         <ChevronDown className="h-3.5 w-3.5" />
@@ -44,7 +44,7 @@ export function ModelSelector() {
       {open && (
         <div
           ref={selectorRef}
-          className="absolute left-0 mt-1 w-48 rounded-md border bg-white shadow-lg"
+          className="absolute left-0 mt-1 w-48 rounded-md border border-border bg-card shadow-lg"
         >
           {MODELS.map((m) => (
             <button
@@ -59,8 +59,8 @@ export function ModelSelector() {
               }}
               className={`flex w-full items-center justify-between px-3 py-2 text-left text-sm transition ${
                 model === m.value
-                  ? "bg-indigo-50 text-indigo-600 font-medium"
-                  : "text-slate-700 hover:bg-slate-100"
+                  ? "bg-primary-foreground text-primary font-medium"
+                  : "text-foreground hover:bg-muted"
               }`}
             >
               <span>{m.label}</span>

@@ -53,7 +53,7 @@ export default function SettingsPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-slate-100 px-4 py-6 md:px-6">
+    <main className="min-h-screen bg-background px-4 py-6 md:px-6">
       <div className="mx-auto max-w-5xl space-y-6">
         {/* Header */}
         <section className="rounded-[32px] bg-gradient-to-br from-blue-600 to-indigo-700 p-8 text-white shadow-xl">
@@ -74,13 +74,13 @@ export default function SettingsPage() {
           {sections.map((section) => (
             <div
               key={section.title}
-              className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm"
+              className="rounded-[28px] border border-border bg-card p-6 shadow-sm"
             >
-              <h2 className="text-xl font-bold text-slate-900">
+              <h2 className="text-xl font-bold text-foreground">
                 {section.title}
               </h2>
 
-              <p className="mt-3 text-sm leading-6 text-slate-500">
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">
                 {section.description}
               </p>
 
@@ -89,7 +89,7 @@ export default function SettingsPage() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="flex items-center justify-between rounded-2xl border border-slate-200 px-4 py-3 text-sm font-medium text-slate-700 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700"
+                    className="flex items-center justify-between rounded-2xl border border-border px-4 py-3 text-sm font-medium text-muted-foreground transition hover:border-border hover:bg-primary hover:text-primary-foreground"
                   >
                     <span>{link.label}</span>
 

@@ -35,22 +35,23 @@ export const metadata: Metadata = {
 export default function DeclarationPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <div className="max-w-4xl mx-auto px-5 py-10">
-        <header className="border-b border-border pb-6 mb-8">
-          <h1 className="text-3xl font-bold">Declaration</h1>
-
-          <p className="text-sm text-muted-foreground mt-1">
-            Last updated: August 7, 2026
+      {/* Header */}
+      <header className="border-b border-border pb-6 mb-8">
+        <div className="max-w-4xl mx-auto px-5 pt-10">
+          <h1 className="text-3xl md:text-4xl font-bold">Declaration</h1>
+          <p className="text-muted-foreground mt-2">
+            Our official declaration about Knowlet's purpose, content accuracy,
+            and responsible use.
           </p>
+        </div>
+      </header>
 
-          <p className="text-sm text-muted-foreground mt-2">
-            This declaration explains the purpose, limitations, and responsible
-            use of the educational resources and services provided by Knowlet.
-          </p>
-        </header>
-
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">1. Purpose of Knowlet</h2>
+      {/* Content */}
+      <main className="max-w-4xl mx-auto px-5 py-14 space-y-8">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
+            1. Purpose of Knowlet
+          </h2>
 
           <p className="text-foreground leading-relaxed">
             Knowlet is an educational and informational platform intended to
@@ -61,8 +62,8 @@ export default function DeclarationPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
             2. Educational Information
           </h2>
 
@@ -76,8 +77,8 @@ export default function DeclarationPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
             3. Accuracy and Completeness
           </h2>
 
@@ -91,8 +92,8 @@ export default function DeclarationPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
             4. AI-Generated Content
           </h2>
 
@@ -109,8 +110,10 @@ export default function DeclarationPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">5. User Responsibility</h2>
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
+            5. User Responsibility
+          </h2>
 
           <p className="text-foreground leading-relaxed">
             Users are responsible for how they use information and resources
@@ -120,8 +123,10 @@ export default function DeclarationPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">6. Responsible Use</h2>
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
+            6. Responsible Use
+          </h2>
 
           <p className="text-foreground leading-relaxed">
             Knowlet must not be used for unlawful, harmful, abusive, fraudulent,
@@ -131,8 +136,8 @@ export default function DeclarationPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
             7. Third-Party Content and Services
           </h2>
 
@@ -145,8 +150,8 @@ export default function DeclarationPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
             8. Availability and Technical Issues
           </h2>
 
@@ -158,8 +163,10 @@ export default function DeclarationPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">9. Data and Privacy</h2>
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
+            9. Data and Privacy
+          </h2>
 
           <p className="text-foreground leading-relaxed">
             Knowlet may collect and process information necessary to provide and
@@ -168,8 +175,8 @@ export default function DeclarationPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
             10. Intellectual Property
           </h2>
 
@@ -182,8 +189,8 @@ export default function DeclarationPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
             11. Limitation of Responsibility
           </h2>
 
@@ -196,8 +203,8 @@ export default function DeclarationPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
             12. Exam and Academic Use
           </h2>
 
@@ -211,8 +218,8 @@ export default function DeclarationPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
             13. Changes to This Declaration
           </h2>
 
@@ -223,9 +230,14 @@ export default function DeclarationPage() {
             material changes are made.
           </p>
         </section>
+      </main>
 
-        <section className="mt-10 p-6 bg-card rounded-2xl shadow-sm border border-border">
-          <h2 className="text-lg font-semibold mb-2">14. Contact</h2>
+      {/* Footer Contact Section */}
+      <div className="max-w-4xl mx-auto px-5 py-12">
+        <section className="p-6 bg-card rounded-2xl shadow-md border border-border">
+          <h2 className="text-lg font-semibold text-primary mb-3">
+            14. Contact
+          </h2>
 
           <p className="text-foreground">
             Knowlet

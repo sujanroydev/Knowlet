@@ -33,19 +33,21 @@ export const metadata: Metadata = {
 export default function HelpPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <div className="max-w-4xl mx-auto px-5 py-10">
-        {/* Header */}
-        <header className="text-center mb-10">
-          <h1 className="text-3xl md:text-4xl font-bold">
-            Knowlet Help Center
-          </h1>
+      {/* Header */}
+      <header className="border-b border-border pb-6 mb-8">
+        <div className="max-w-4xl mx-auto px-5 pt-10">
+          <h1 className="text-3xl md:text-4xl font-bold">Help Center</h1>
           <p className="text-muted-foreground mt-2">
-            Learn how to use Knowlet with short tutorials
+            Get help with using Knowlet, accessing resources, and navigating the
+            platform.
           </p>
-        </header>
+        </div>
+      </header>
 
+      {/* Content */}
+      <main className="max-w-4xl mx-auto px-5 py-14 space-y-8">
         {/* Section 1 */}
-        <section className="bg-card rounded-2xl shadow-md p-6 md:p-8 mb-8">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8 mb-8">
           <h2 className="text-xl font-semibold mb-2">
             Install the Knowlet Web App
           </h2>
@@ -72,7 +74,7 @@ export default function HelpPage() {
         </section>
 
         {/* Section 2 */}
-        <section className="bg-card rounded-2xl shadow-md p-6 md:p-8 mb-8">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8 mb-8\">
           <h2 className="text-xl font-semibold mb-2">
             Create a Knowlet Account
           </h2>
@@ -98,7 +100,7 @@ export default function HelpPage() {
         </section>
 
         {/* Section 3: Features Guide */}
-        <section className="bg-card rounded-2xl shadow-md p-6 md:p-8 mb-8">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8 mb-8">
           <h2 className="text-xl font-semibold mb-4">Key Features</h2>
 
           <div className="space-y-4">
@@ -155,7 +157,7 @@ export default function HelpPage() {
         </section>
 
         {/* Section 4: FAQ */}
-        <section className="bg-card rounded-2xl shadow-md p-6 md:p-8 mb-8">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8 mb-8">
           <h2 className="text-xl font-semibold mb-4">
             Frequently Asked Questions
           </h2>
@@ -219,7 +221,7 @@ export default function HelpPage() {
         </section>
 
         {/* Section 5: Troubleshooting */}
-        <section className="bg-card rounded-2xl shadow-md p-6 md:p-8 mb-8">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8 mb-8">
           <h2 className="text-xl font-semibold mb-4">Troubleshooting</h2>
 
           <div className="space-y-4">
@@ -270,7 +272,7 @@ export default function HelpPage() {
         </section>
 
         {/* Section 6: Tips & Tricks */}
-        <section className="bg-card rounded-2xl shadow-md p-6 md:p-8 mb-8">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8 mb-8">
           <h2 className="text-xl font-semibold mb-4">Tips & Tricks</h2>
 
           <ul className="space-y-3 list-disc pl-5 text-foreground">
@@ -295,7 +297,7 @@ export default function HelpPage() {
         </section>
 
         {/* Section 7: Support */}
-        <section className="bg-card rounded-2xl shadow-md p-6 md:p-8">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
           <h2 className="text-xl font-semibold mb-2">Need More Help?</h2>
 
           <p className="text-muted-foreground mb-6 leading-relaxed">
@@ -349,7 +351,7 @@ export default function HelpPage() {
             </div>
           </div>
         </section>
-      </div>
+      </main>
     </div>
   );
 }

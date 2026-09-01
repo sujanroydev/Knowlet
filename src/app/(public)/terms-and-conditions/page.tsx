@@ -35,23 +35,24 @@ export const metadata: Metadata = {
 export default function TermsAndConditionsPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <div className="max-w-4xl mx-auto px-5 py-10">
-        <header className="border-b border-border pb-6 mb-8">
-          <h1 className="text-3xl font-bold">Terms and Conditions</h1>
-
-          <p className="text-sm text-muted-foreground mt-1">
-            Last updated: August 7, 2026
+      {/* Header */}
+      <header className="border-b border-border pb-6 mb-8">
+        <div className="max-w-4xl mx-auto px-5 pt-10">
+          <h1 className="text-3xl md:text-4xl font-bold">
+            Terms and Conditions
+          </h1>
+          <p className="text-muted-foreground mt-2">
+            Please read these terms carefully before using Knowlet.
           </p>
+        </div>
+      </header>
 
-          <p className="text-sm text-foreground mt-2">
-            By accessing or using Knowlet, you agree to these Terms and
-            Conditions. If you do not agree with these terms, please do not use
-            the service.
-          </p>
-        </header>
-
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">1. Using Knowlet</h2>
+      {/* Content */}
+      <main className="max-w-4xl mx-auto px-5 py-14 space-y-8">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
+            1. Using Knowlet
+          </h2>
           <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
             <li>Use Knowlet only for lawful purposes.</li>
             <li>
@@ -66,8 +67,10 @@ export default function TermsAndConditionsPage() {
           </ul>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">2. Accounts</h2>
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
+            2. Accounts
+          </h2>
           <p className="text-muted-foreground mb-2">
             Some Knowlet features may require an account. You are responsible
             for maintaining the security of your account and for activities
@@ -86,8 +89,10 @@ export default function TermsAndConditionsPage() {
           </ul>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">3. User Content</h2>
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
+            3. User Content
+          </h2>
           <p className="text-muted-foreground">
             You retain ownership of content you create or upload to Knowlet. By
             using the service, you grant Knowlet the limited permission
@@ -96,8 +101,8 @@ export default function TermsAndConditionsPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
             4. Knowlet Content and Intellectual Property
           </h2>
           <p className="text-muted-foreground">
@@ -108,8 +113,10 @@ export default function TermsAndConditionsPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">5. Educational Content</h2>
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
+            5. Educational Content
+          </h2>
           <p className="text-muted-foreground">
             Knowlet provides educational materials for informational and
             learning purposes. We do not guarantee that all content is complete,
@@ -119,8 +126,8 @@ export default function TermsAndConditionsPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
             6. AI-Generated Content
           </h2>
           <p className="text-muted-foreground">
@@ -131,16 +138,18 @@ export default function TermsAndConditionsPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">7. Privacy</h2>
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
+            7. Privacy
+          </h2>
           <p className="text-muted-foreground">
             Your use of Knowlet is also governed by our Privacy Policy, which
             explains how we collect, use, store, and protect information.
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
             8. Third-Party Services
           </h2>
           <p className="text-muted-foreground">
@@ -152,8 +161,10 @@ export default function TermsAndConditionsPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">9. Availability</h2>
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
+            9. Availability
+          </h2>
           <p className="text-muted-foreground">
             We aim to keep Knowlet available and reliable, but we do not
             guarantee uninterrupted or error-free access. Features, content,
@@ -162,8 +173,10 @@ export default function TermsAndConditionsPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">10. Termination</h2>
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
+            10. Termination
+          </h2>
           <p className="text-muted-foreground">
             We may suspend or terminate access to Knowlet if you violate these
             terms, misuse the service, create security risks, or engage in
@@ -171,8 +184,10 @@ export default function TermsAndConditionsPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">11. Disclaimer</h2>
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
+            11. Disclaimer
+          </h2>
           <p className="text-muted-foreground">
             Knowlet is provided on an &quot;as is&quot; and &quot;as
             available&quot; basis to the extent permitted by applicable law. We
@@ -181,8 +196,8 @@ export default function TermsAndConditionsPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
             12. Limitation of Liability
           </h2>
           <p className="text-muted-foreground">
@@ -193,8 +208,8 @@ export default function TermsAndConditionsPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
             13. Governing Law and Jurisdiction
           </h2>
           <p className="text-muted-foreground">
@@ -207,8 +222,10 @@ export default function TermsAndConditionsPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">14. Severability</h2>
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
+            14. Severability
+          </h2>
           <p className="text-muted-foreground">
             If any provision of these Terms and Conditions is found to be
             invalid, illegal, or unenforceable, such provision shall be modified
@@ -218,8 +235,8 @@ export default function TermsAndConditionsPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
             15. Changes to These Terms
           </h2>
           <p className="text-muted-foreground">
@@ -229,9 +246,13 @@ export default function TermsAndConditionsPage() {
             effect constitutes acceptance of the updated terms.
           </p>
         </section>
+      </main>
 
-        <section className="mt-10 p-6 bg-card rounded-2xl shadow-sm border border-card">
-          <h2 className="text-lg font-semibold mb-2">Contact</h2>
+      {/* Footer Contact Section */}
+      <div className="max-w-4xl mx-auto px-5 py-12">
+        <section className="p-6 bg-card rounded-2xl shadow-md border border-border">
+          <h2 className="text-lg font-semibold text-primary mb-3">Contact</h2>
+
           <p className="text-muted-foreground">
             Email: knowlet.official@gmail.com
             <br />

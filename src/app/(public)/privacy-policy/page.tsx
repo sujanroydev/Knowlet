@@ -35,22 +35,21 @@ export const metadata: Metadata = {
 export default function PrivacyPolicyPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <div className="max-w-4xl mx-auto px-5 py-10">
-        <header className="border-b border-border pb-6 mb-8">
-          <h1 className="text-3xl font-bold">Privacy Policy</h1>
-
-          <p className="text-sm text-muted-foreground mt-1">
-            Last updated: August 7, 2026
+      {/* Header */}
+      <header className="border-b border-border pb-6 mb-8">
+        <div className="max-w-4xl mx-auto px-5 pt-10">
+          <h1 className="text-3xl md:text-4xl font-bold">Privacy Policy</h1>
+          <p className="text-muted-foreground mt-2">
+            Learn how Knowlet collects, uses, stores, and protects your
+            information.
           </p>
+        </div>
+      </header>
 
-          <p className="text-sm text-foreground mt-2">
-            This Privacy Policy explains how Knowlet collects, uses, stores, and
-            protects information when you use our services.
-          </p>
-        </header>
-
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">
+      {/* Content */}
+      <main className="max-w-4xl mx-auto px-5 py-14 space-y-8">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
             1. Information We Collect
           </h2>
 
@@ -82,8 +81,8 @@ export default function PrivacyPolicyPage() {
           </ul>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
             2. How We Use Your Information
           </h2>
 
@@ -108,8 +107,10 @@ export default function PrivacyPolicyPage() {
           </ul>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">3. AI Features</h2>
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
+            3. AI Features
+          </h2>
 
           <p className="text-muted-foreground">
             Knowlet may provide AI-powered features such as explanations,
@@ -126,8 +127,8 @@ export default function PrivacyPolicyPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
             4. Cookies and Similar Technologies
           </h2>
 
@@ -143,8 +144,8 @@ export default function PrivacyPolicyPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
             5. Sharing and Disclosure
           </h2>
 
@@ -168,8 +169,10 @@ export default function PrivacyPolicyPage() {
           </ul>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">6. Data Retention</h2>
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
+            6. Data Retention
+          </h2>
 
           <p className="text-muted-foreground">
             We retain information for as long as reasonably necessary to provide
@@ -183,8 +186,10 @@ export default function PrivacyPolicyPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">7. Data Security</h2>
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
+            7. Data Security
+          </h2>
 
           <p className="text-muted-foreground">
             We use reasonable technical and organizational measures to protect
@@ -198,8 +203,10 @@ export default function PrivacyPolicyPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">8. Your Rights</h2>
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
+            8. Your Rights
+          </h2>
 
           <p className="text-muted-foreground mb-2">
             Depending on applicable law, you may have rights including:
@@ -223,8 +230,8 @@ export default function PrivacyPolicyPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
             9. Account and Content Deletion
           </h2>
 
@@ -236,8 +243,8 @@ export default function PrivacyPolicyPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
             10. Third-Party Services
           </h2>
 
@@ -249,8 +256,8 @@ export default function PrivacyPolicyPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
             11. Children&apos;s Privacy
           </h2>
 
@@ -262,8 +269,8 @@ export default function PrivacyPolicyPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
             12. International Data Processing
           </h2>
 
@@ -275,8 +282,8 @@ export default function PrivacyPolicyPage() {
           </p>
         </section>
 
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">
+        <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
+          <h2 className="text-lg font-semibold text-primary mb-3">
             13. Changes to This Privacy Policy
           </h2>
 
@@ -287,9 +294,12 @@ export default function PrivacyPolicyPage() {
             effect means you acknowledge the updated policy.
           </p>
         </section>
+      </main>
 
-        <section className="mt-10 p-6 bg-card rounded-2xl shadow-sm border border-border">
-          <h2 className="text-lg font-semibold mb-2">Contact</h2>
+      {/* Footer Contact Section */}
+      <div className="max-w-4xl mx-auto px-5 py-12">
+        <section className="p-6 bg-card rounded-2xl shadow-md border border-border">
+          <h2 className="text-lg font-semibold text-primary mb-3">Contact</h2>
 
           <p className="text-muted-foreground">
             Email: knowlet.official@gmail.com

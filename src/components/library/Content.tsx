@@ -11,46 +11,13 @@ import { useTheme } from "@/context/ThemeContext";
 import { useHeader } from "@/context/HeaderContext";
 import { useReader } from "@/context/ReaderContext";
 
-type ResolvedTheme = "light" | "dark";
-
-const resourceBackgroundThemes = {
-  light: {
-    text: "#212529",
-    muted: "#6C757D",
-    surface: "#F1F3F5",
-    surfaceAlt: "#F8F9FA",
-    border: "#DEE2E6",
-    codeBackground: "#F8F9FA",
-    markBackground: "#FFF3CD",
-    markText: "#664D03",
-    tipBackground: "#FFF3CD",
-    tipBorder: "#FFC107",
-  },
-
-  dark: {
-    text: "#E5E7EB",
-    muted: "#9CA3AF",
-    surface: "#1F2937",
-    surfaceAlt: "#18212F",
-    border: "#374151",
-    codeBackground: "#111827",
-    markBackground: "#4A3B12",
-    markText: "#FDE68A",
-    tipBackground: "#3F3210",
-    tipBorder: "#F59E0B",
-  },
-};
-
 export default function Content({ resource }: { resource: any }) {
   if (!resource) notFound();
   const { setMode } = useHeader();
   const { setResourceId } = useReader();
   const { resolvedTheme } = useTheme();
 
-  const foregroundTheme = getResourceTheme(resource.id, resolvedTheme);
-  const backgroundTheme = resourceBackgroundThemes[resolvedTheme];
-
-  const theme = { ...foregroundTheme, ...backgroundTheme };
+  const theme = getResourceTheme(resource.id, resolvedTheme);
 
   useEffect(() => {
     setMode("reader");

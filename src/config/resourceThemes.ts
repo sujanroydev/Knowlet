@@ -672,11 +672,44 @@ const resourceThemes: ResourceTheme[] = [
   },
 ];
 
+const resourceBackgroundThemes = {
+  light: {
+    text: "#212529",
+    muted: "#6C757D",
+    surface: "#F1F3F5",
+    surfaceAlt: "#F8F9FA",
+    border: "#DEE2E6",
+    codeBackground: "#F8F9FA",
+    markBackground: "#FFF3CD",
+    markText: "#664D03",
+    tipBackground: "#FFF3CD",
+    tipBorder: "#FFC107",
+  },
+
+  dark: {
+    text: "#E5E7EB",
+    muted: "#9CA3AF",
+    surface: "#1F2937",
+    surfaceAlt: "#18212F",
+    border: "#374151",
+    codeBackground: "#111827",
+    markBackground: "#4A3B12",
+    markText: "#FDE68A",
+    tipBackground: "#3F3210",
+    tipBorder: "#F59E0B",
+  },
+};
+
 export const getResourceTheme = (
   uuid: string,
   mode: ResolvedTheme = "light",
-): ResourceThemeColors => {
+) => {
   const themeIndex = getThemeIndex(uuid);
-  const theme = resourceThemes[themeIndex][mode];
+
+  const foregroundTheme = resourceThemes[themeIndex][mode];
+  const backgroundTheme = resourceBackgroundThemes[mode];
+
+  const theme = { ...foregroundTheme, ...backgroundTheme };
+
   return theme;
 };

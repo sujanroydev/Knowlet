@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent } from "react";
 import { html as beautifyHtml } from "js-beautify";
 
 export default function HtmlEditor({
@@ -10,16 +10,14 @@ export default function HtmlEditor({
   content?: string;
   setContent: (rowContent: string) => void;
 }) {
-  function handleChange(
-    e: ChangeEvent<HTMLTextAreaElement, HTMLTextAreaElement>,
-  ): void {
+  function handleChange(e: ChangeEvent<HTMLTextAreaElement>): void {
     const rowContent = e.target.value;
 
     const cleanedContent = rowContent
       .replaceAll("```", "")
       .replaceAll(/\[cite_start\]\s*/g, "")
       .replaceAll(/\s*\[cite: \d+\]/g, "")
-      .replaceAll(/\s*\[cite: \d+(, \d+)*\]/g, "");
+      .replaceAll(/\s*\[cite: \d+(, \d+)\]/g, "");
 
     const beautifiedContent = beautifyHtml(cleanedContent, {
       indent_size: 2,
@@ -32,13 +30,11 @@ export default function HtmlEditor({
   }
 
   return (
-    <div className="p-5">
-      <textarea
-        value={content}
-        onChange={handleChange}
-        spellCheck={false}
-        className="h-[650px] w-full resize-none rounded-2xl border border-slate-300 bg-slate-950 p-5 font-mono text-sm text-slate-100 outline-none focus:border-blue-500"
-      />
-    </div>
+    <textarea
+      value={content}
+      onChange={handleChange}
+      spellCheck={false}
+      className="block box-border h-[650px] w-full resize-none appearance-none border-0 bg-muted p-6 font-mono text-sm leading-normal text-foreground shadow-none outline-none focus:border-0 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:shadow-none focus-visible:border-0 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
+    />
   );
 }

@@ -1,4 +1,4 @@
-type ResourceThemeColors = {
+interface ResourceThemeColors {
   h1: string;
   h2: string;
   h3: string;
@@ -11,12 +11,12 @@ type ResourceThemeColors = {
   blockquote: string;
   code: string;
   hr: string;
-};
+}
 
-type ResourceTheme = {
+interface ResourceTheme {
   light: ResourceThemeColors;
   dark: ResourceThemeColors;
-};
+}
 
 type ResolvedTheme = "light" | "dark";
 
@@ -700,16 +700,41 @@ const resourceBackgroundThemes = {
   },
 };
 
-export const getResourceTheme = (
-  uuid: string,
-  mode: ResolvedTheme = "light",
-) => {
-  const themeIndex = getThemeIndex(uuid);
+export function getResourceStyles({
+  uuid,
+  theme = "light",
+}: {
+  uuid?: string;
+  theme?: ResolvedTheme;
+}): React.CSSProperties {
+  const themeIndex = uuid ? getThemeIndex(uuid) : 0;
 
-  const foregroundTheme = resourceThemes[themeIndex][mode];
-  const backgroundTheme = resourceBackgroundThemes[mode];
+  const foregroundTheme = resourceThemes[themeIndex][theme];
+  const backgroundTheme = resourceBackgroundThemes[theme];
 
-  const theme = { ...foregroundTheme, ...backgroundTheme };
+  return {
+    "--h1": foregroundTheme.h1,
+    "--h2": foregroundTheme.h2,
+    "--h3": foregroundTheme.h3,
+    "--h4": foregroundTheme.h4,
+    "--h5": foregroundTheme.h5,
+    "--h6": foregroundTheme.h6,
+    "--accent": foregroundTheme.accent,
+    "--link": foregroundTheme.link,
+    "--link-hover": foregroundTheme.linkHover,
+    "--blockquote": foregroundTheme.blockquote,
+    "--code": foregroundTheme.code,
+    "--hr": foregroundTheme.hr,
 
-  return theme;
-};
+    "--text": backgroundTheme.text,
+    "--muted": backgroundTheme.muted,
+    "--surface": backgroundTheme.surface,
+    "--surface-alt": backgroundTheme.surfaceAlt,
+    "--border": backgroundTheme.border,
+    "--code-background": backgroundTheme.codeBackground,
+    "--mark-background": backgroundTheme.markBackground,
+    "--mark-text": backgroundTheme.markText,
+    "--tip-background": backgroundTheme.tipBackground,
+    "--tip-border": backgroundTheme.tipBorder,
+  } as React.CSSProperties;
+}

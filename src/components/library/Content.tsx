@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { useEffect } from "react";
 
 import ResourceFooterActions from "./resource-footer-actions";
-import { getResourceTheme } from "@/config/resourceThemes";
+import { getResourceStyles } from "@/config/resourceThemes";
 import ContentAd from "../ads/ContentAd";
 
 import { useTheme } from "@/context/ThemeContext";
@@ -17,7 +17,7 @@ export default function Content({ resource }: { resource: any }) {
   const { setResourceId } = useReader();
   const { resolvedTheme } = useTheme();
 
-  const theme = getResourceTheme(resource.id, resolvedTheme);
+  const style = getResourceStyles({ uuid: resource.id, theme: resolvedTheme });
 
   useEffect(() => {
     setMode("reader");
@@ -36,35 +36,10 @@ export default function Content({ resource }: { resource: any }) {
           Read at your pace, then save it for later.
         </p>
       </div>
+
       <article
         className="resource-content break-words text-base leading-8 text-foreground"
-        style={
-          {
-            "--h1": theme.h1,
-            "--h2": theme.h2,
-            "--h3": theme.h3,
-            "--h4": theme.h4,
-            "--h5": theme.h5,
-            "--h6": theme.h6,
-            "--accent": theme.accent,
-            "--link": theme.link,
-            "--link-hover": theme.linkHover,
-            "--blockquote": theme.blockquote,
-            "--code": theme.code,
-            "--hr": theme.hr,
-
-            "--text": theme.text,
-            "--muted": theme.muted,
-            "--surface": theme.surface,
-            "--surface-alt": theme.surfaceAlt,
-            "--border": theme.border,
-            "--code-background": theme.codeBackground,
-            "--mark-background": theme.markBackground,
-            "--mark-text": theme.markText,
-            "--tip-background": theme.tipBackground,
-            "--tip-border": theme.tipBorder,
-          } as React.CSSProperties
-        }
+        style={style}
         dangerouslySetInnerHTML={{
           __html: resource.content || "",
         }}

@@ -32,11 +32,11 @@ export default function ChatHistoryPopup({
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 8, scale: 0.98 }}
           transition={{ duration: 0.15 }}
-          className="absolute inset-x-0 top-0 z-30 flex h-full flex-col bg-white"
+          className="absolute inset-x-0 top-0 z-30 flex h-full flex-col bg-muted"
         >
           {/* Header */}
-          <header className="flex items-center justify-between border-b border-gray-200 px-4 py-3">
-            <h2 className="text-sm font-semibold text-gray-900">
+          <header className="flex items-center justify-between border-b border-border px-4 py-3">
+            <h2 className="text-sm font-semibold text-foreground">
               Recent Chats
             </h2>
 
@@ -44,7 +44,7 @@ export default function ChatHistoryPopup({
               type="button"
               onClick={onClose}
               aria-label="Close chat history"
-              className="rounded-md p-1.5 text-gray-500 transition hover:bg-gray-100 hover:text-gray-900"
+              className="rounded-md p-1.5 text-muted-foreground transition hover:bg-card hover:text-foreground"
             >
               <X size={17} />
             </button>
@@ -60,18 +60,18 @@ export default function ChatHistoryPopup({
                   loadChat(chat.id);
                   onClose();
                 }}
-                className="group flex w-full items-start gap-3 rounded-lg px-3 py-3 text-left transition hover:bg-gray-100"
+                className="group flex w-full items-start gap-3 rounded-lg px-3 py-3 text-left transition hover:bg-border"
               >
-                <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gray-100 text-gray-500 group-hover:bg-white">
+                <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-muted text-muted-foreground group-hover:bg-card">
                   <MessageSquare size={15} />
                 </div>
 
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-sm font-medium text-gray-800">
+                  <p className="truncate text-sm font-medium text-foreground">
                     {chat.title}
                   </p>
 
-                  <p className="mt-1 text-xs text-gray-400">
+                  <p className="mt-1 text-xs text-muted-foreground">
                     {chat.last_message_at}
                   </p>
                 </div>

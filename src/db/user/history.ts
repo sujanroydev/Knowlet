@@ -1,7 +1,7 @@
 import { supabase } from "@/lib/supabase";
 import { History } from "@/types/resource";
 
-export async function getHistory(userId: string) {
+export async function getHistory(userId: string, limit: number = 100) {
   const { data, error } = await supabase
     .from("view_history")
     .select(
@@ -18,7 +18,8 @@ export async function getHistory(userId: string) {
       `,
     )
     .eq("user_id", userId)
-    .order("created_at", { ascending: false });
+    .order("created_at", { ascending: false })
+    .limit(limit);
 
   if (error) throw error;
 

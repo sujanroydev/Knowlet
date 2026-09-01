@@ -14,8 +14,8 @@ export async function addViewHistory(resourceId: string) {
   return await _addViewHistory(userId, resourceId);
 }
 
-export async function getHistory() {
+export async function getHistory(limit: number = 100) {
   const userId = await getAuthenticatedUserId();
 
-  return await _getHistory(userId);
+  return await _getHistory(userId, limit);
 }

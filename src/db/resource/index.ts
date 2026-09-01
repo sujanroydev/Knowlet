@@ -129,7 +129,11 @@ export async function getResourceCounts(resourceId: string) {
 
   if (error) throw error;
 
-  return data;
+  return data as {
+    views_count: number;
+    likes_count: number;
+    bookmarks_count: number;
+  };
 }
 
 export async function getUserResourceState(resourceId: string, userId: string) {
@@ -140,7 +144,10 @@ export async function getUserResourceState(resourceId: string, userId: string) {
 
   if (error) throw error;
 
-  return data;
+  return data as {
+    liked: boolean;
+    bookmarked: boolean;
+  };
 }
 
 export async function getSitemapResources() {

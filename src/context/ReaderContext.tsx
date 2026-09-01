@@ -10,7 +10,7 @@ import { useAuth } from "./AuthContext";
 import { bookmarkResource, unbookmarkResource } from "@/actions/user/bookmark";
 import { likeResource, unlikeResource } from "@/actions/user/like";
 import { addViewHistory } from "@/actions/user/history";
-import { getNearByResources } from "@/actions/resource";
+import { getNearByResources, getResourceStats } from "@/actions/resource";
 
 type ReaderContextType = {
   resourceId: string | null;
@@ -39,14 +39,11 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
 
   async function loadResStats() {
     try {
-      const res = await fetch("/api/resources/stats", {
-        method: "POST",
-        body: JSON.stringify({ resource_id: resourceId }),
-      });
-      const { data, error } = await res.json();
-      if (error || !data) return;
-      setLike(data.liked ? "active" : "inactive");
-      setBookmark(data.bookmarked ? "active" : "inactive");
+      if (!resourceId) return;
+      const resourceStats = await getResourceStats(resourceId);
+
+      setLike(resourceStats.liked ? "active" : "inactive");
+      setBookmark(resourceStats.bookmarked ? "active" : "inactive");
     } catch {}
   }
 

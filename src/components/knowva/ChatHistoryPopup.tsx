@@ -1,7 +1,8 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { MessageSquare, Plus, X } from "lucide-react";
+import { MessageSquare, X } from "lucide-react";
+import { useEffect } from "react";
 
 import { useKnowva } from "@/context/KnowvaContext";
 import { useChatActions } from "@/hooks/knowva/useChatActions";
@@ -16,7 +17,12 @@ export default function ChatHistoryPopup({
   onClose,
 }: ChatHistoryPopupProps) {
   const { chats } = useKnowva();
-  const { loadChat } = useChatActions();
+  const { loadChat, loadChats } = useChatActions();
+
+  useEffect(() => {
+    if (chats.length) return;
+    loadChats();
+  }, []);
 
   return (
     <AnimatePresence>

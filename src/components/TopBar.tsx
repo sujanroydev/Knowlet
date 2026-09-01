@@ -22,10 +22,11 @@ import { useHeader } from "@/context/HeaderContext";
 import ProfileMenu from "./profile/ProfileMenu";
 import { useReader } from "@/context/ReaderContext";
 import { useDrawer } from "@/context/DrawerContext";
-import { ParsedPath } from "@/types/resource";
 import { useChatActions } from "@/hooks/knowva/useChatActions";
 import { ModelSelector } from "@/components/knowva/ModelSelector";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { BriefResourceInfo } from "@/types/resource";
+import { upperCase } from "@/utils/string";
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
@@ -43,13 +44,21 @@ function IconButton({ children, ...props }: Props) {
 }
 
 export default function TopBar() {
-  const [parsedPath, setParsedPath] = useState<ParsedPath | null>(null);
   const [downloading, setDownloading] = useState(false);
+
+  const [prevRes, setPrevRes] = useState<BriefResourceInfo>();
+  const [nextRes, setNextRes] = useState<BriefResourceInfo>();
 
   const { mode } = useHeader();
   const { user } = useAuth();
-  const { like, bookmark, toggleLike, toggleBookmark, parsePath, resourceId } =
-    useReader();
+  const {
+    like,
+    bookmark,
+    toggleLike,
+    toggleBookmark,
+    nearByResources,
+    resourceId,
+  } = useReader();
   const { setOpen: setOpenDrawer } = useDrawer();
   const { createNewChat } = useChatActions();
 
@@ -123,10 +132,17 @@ export default function TopBar() {
   };
 
   useEffect(() => {
-    if (mode === "reader") {
-      void parsePath().then(setParsedPath);
+    const index = nearByResources.findIndex((r) => r.id === resourceId);
+
+    if (index === -1) {
+      setPrevRes(undefined);
+      setNextRes(undefined);
+      return;
     }
-  }, [mode, pathname, parsePath]);
+
+    setPrevRes(nearByResources[index - 1]);
+    setNextRes(nearByResources[index + 1]);
+  }, [nearByResources, resourceId]);
 
   return (
     <header className="fixed top-0 z-50 flex h-15 w-full items-center justify-center border-b border-border bg-card/90 px-4 backdrop-blur-md">
@@ -153,21 +169,17 @@ export default function TopBar() {
         {mode === "reader" && (
           <div className="flex items-center gap-1 rounded-xl border border-border bg-card px-2 py-1 shadow-sm">
             <IconButton
-              onClick={() =>
-                parsedPath?.prevPath && router.push(parsedPath.prevPath)
-              }
-              title={parsedPath?.prevTarget || "none"}
-              disabled={!parsedPath?.prevPath}
+              onClick={() => prevRes && router.push(prevRes.path)}
+              title={(prevRes && upperCase(prevRes.target)) || "none"}
+              disabled={!prevRes}
             >
               <SkipBack className="w-5 h-5" />
             </IconButton>
 
             <IconButton
-              onClick={() =>
-                parsedPath?.nextPath && router.push(parsedPath.nextPath)
-              }
-              title={parsedPath?.nextTarget || "none"}
-              disabled={!parsedPath?.nextPath}
+              onClick={() => nextRes && router.push(nextRes.path)}
+              title={(nextRes && upperCase(nextRes.target)) || "none"}
+              disabled={!nextRes}
             >
               <SkipForward className="w-5 h-5" />
             </IconButton>

@@ -44,13 +44,7 @@ const options = {
     "Botany",
     "Biotechnology",
   ],
-  type: [
-    "Select",
-    "Notes",
-    "PYQs",
-    "Questions",
-    "PDF",
-  ],
+  type: ["Select", "Notes", "PYQs", "Questions", "PDF"],
   target: (type: string) => [
     "Select",
     ...(type === "pyq"
@@ -74,19 +68,21 @@ export default function ResourceDetails() {
   useEffect(() => {
     setTitle(details?.title ?? "");
     setDescription(details?.description ?? "");
-  }, [details.title, details.description])
+  }, [details.title, details.description]);
 
   useEffect(() => {
     setDetails({ title, description, level, subject, paper, target, type });
   }, [title, description, level, subject, paper, target, type]);
 
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-      <h2 className="text-xl font-semibold text-slate-900">Resource Details</h2>
+    <div className="rounded-3xl border border-border bg-card p-6 shadow-sm">
+      <h2 className="text-xl font-semibold text-foreground">
+        Resource Details
+      </h2>
 
       <div className="mt-6 space-y-8">
         <div>
-          <h3 className="mb-4 text-lg font-semibold text-slate-900">
+          <h3 className="mb-4 text-lg font-semibold text-foreground">
             Basic Information
           </h3>
 
@@ -107,7 +103,7 @@ export default function ResourceDetails() {
         </div>
 
         <div>
-          <h3 className="mb-4 text-lg font-semibold text-slate-900">
+          <h3 className="mb-4 text-lg font-semibold text-foreground">
             Categorization
           </h3>
 

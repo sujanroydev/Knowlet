@@ -134,19 +134,19 @@ export default function ResourceActions({
   }
 
   return (
-    <div className="flex flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+    <div className="flex flex-col gap-4 rounded-3xl border border-border bg-card p-6 shadow-sm sm:flex-row sm:items-center sm:justify-between">
       <div>
-        <h3 className="text-lg font-semibold text-slate-900">
+        <h3 className="text-lg font-semibold text-foreground">
           {action === "create" ? "Ready to publish?" : "Ready to update?"}
         </h3>
 
-        <p className="text-sm text-slate-500">
+        <p className="text-sm text-muted-foreground">
           Save as draft or publish directly to the library.
         </p>
       </div>
 
       <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-        <button className="w-full rounded-2xl border border-slate-300 px-5 py-3 font-medium text-slate-700 transition hover:bg-slate-100 sm:w-44">
+        <button className="w-full rounded-2xl border border-border px-5 py-3 font-medium text-muted-foreground transition hover:bg-muted sm:w-44">
           Save Draft
         </button>
 

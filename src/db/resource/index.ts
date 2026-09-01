@@ -70,13 +70,24 @@ export async function getResourceByPath(path: string) {
   return data;
 }
 
+export async function getNearByResources(pathPrefix: string) {
+  const { data, error } = await supabase
+    .from("resources")
+    .select("title, description, path")
+    .like("path", `${pathPrefix}%`);
+
+  if (error) throw error;
+
+  return data;
+}
+
 export async function updateResource(
   resourceId: string,
   resource: {
-    title: string,
-    description: string,
-    content: string,
-  }
+    title: string;
+    description: string;
+    content: string;
+  },
 ) {
   const { data, error } = await supabase
     .from("resources")
@@ -102,7 +113,9 @@ export async function getMostVisitedResources() {
 }
 
 export async function getRecentlyPublishedResources() {
-  const { data, error } = await supabase.rpc("get_recently_published_resources");
+  const { data, error } = await supabase.rpc(
+    "get_recently_published_resources",
+  );
 
   if (error) throw error;
 
@@ -119,10 +132,7 @@ export async function getResourceCounts(resourceId: string) {
   return data;
 }
 
-export async function getUserResourceState(
-  resourceId: string,
-  userId: string,
-) {
+export async function getUserResourceState(resourceId: string, userId: string) {
   const { data, error } = await supabase.rpc("get_user_states", {
     res_id: resourceId,
     uid: userId,

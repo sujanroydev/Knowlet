@@ -3,8 +3,8 @@
 import {
   getResourcesByPathPrefix as _getResourcesByPathPrefix,
   getResourceCounts,
-  getUserResourceState,
 } from "@/db/resource";
+import { getUserResourceState } from "@/db/user/resource";
 import { getAuthenticatedUserId } from "@/lib/auth/getAuthenticatedUserId";
 import sortByPath from "@/utils/sortByPath";
 

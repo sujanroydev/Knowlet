@@ -2,6 +2,7 @@ import { getHistoryPaths } from "@/db/user/history";
 import StatsBlock from "./Block";
 import { parseResourcePath } from "@/components/dashboard/resources/utils";
 import sortByPath from "@/utils/sortByPath";
+import { error } from "console";
 
 type HistoryItem = {
   path: string;
@@ -83,10 +84,17 @@ function calculateXp(history: HistoryItem[]) {
 }
 
 export default async function LevelBlock({ userId }: { userId: string }) {
-  const history = (await getHistoryPaths(userId))?.map((i) => ({
-    created_at: i.created_at,
-    path: i.resource.path,
-  }));
+  const history = await getHistoryPaths(userId)
+    .then((h) =>
+      h.map((i) => ({
+        created_at: i.created_at,
+        path: i.resource.path,
+      })),
+    )
+    .catch((error) => {
+      console.log(error);
+      return [];
+    });
 
   const levelData = getLevelData(history);
   const { level, levelName, xp, required, progressPercent } = levelData;

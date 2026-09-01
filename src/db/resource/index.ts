@@ -70,10 +70,10 @@ export async function getResourceByPath(path: string) {
   return data;
 }
 
-export async function getNearByResources(pathPrefix: string) {
+export async function getResourcesByPathPrefix(pathPrefix: string) {
   const { data, error } = await supabase
     .from("resources")
-    .select("title, description, path")
+    .select("id, target, path")
     .like("path", `${pathPrefix}%`);
 
   if (error) throw error;

@@ -70,13 +70,24 @@ export async function getResourceByPath(path: string) {
   return data;
 }
 
+export async function getResourcesByPathPrefix(pathPrefix: string) {
+  const { data, error } = await supabase
+    .from("resources")
+    .select("id, target, path")
+    .like("path", `${pathPrefix}%`);
+
+  if (error) throw error;
+
+  return data;
+}
+
 export async function updateResource(
   resourceId: string,
   resource: {
-    title: string,
-    description: string,
-    content: string,
-  }
+    title: string;
+    description: string;
+    content: string;
+  },
 ) {
   const { data, error } = await supabase
     .from("resources")
@@ -102,7 +113,9 @@ export async function getMostVisitedResources() {
 }
 
 export async function getRecentlyPublishedResources() {
-  const { data, error } = await supabase.rpc("get_recently_published_resources");
+  const { data, error } = await supabase.rpc(
+    "get_recently_published_resources",
+  );
 
   if (error) throw error;
 
@@ -116,21 +129,11 @@ export async function getResourceCounts(resourceId: string) {
 
   if (error) throw error;
 
-  return data;
-}
-
-export async function getUserResourceState(
-  resourceId: string,
-  userId: string,
-) {
-  const { data, error } = await supabase.rpc("get_user_states", {
-    res_id: resourceId,
-    uid: userId,
-  });
-
-  if (error) throw error;
-
-  return data;
+  return data as {
+    views_count: number;
+    likes_count: number;
+    bookmarks_count: number;
+  };
 }
 
 export async function getSitemapResources() {

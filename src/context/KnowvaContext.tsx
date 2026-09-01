@@ -59,16 +59,6 @@ export function KnowvaProvider({ children }: { children: ReactNode }) {
 
   const { user } = useAuth();
 
-  useEffect(() => {
-    void (async () => {
-      try {
-        if (!user || !user.email) return;
-        const featcedChats = await fetchChats();
-        setChats(featcedChats || []);
-      } catch {}
-    })();
-  }, [user]);
-
   return (
     <KnowvaContext.Provider
       value={{

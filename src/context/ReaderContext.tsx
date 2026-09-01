@@ -1,13 +1,17 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
-import { useAuth } from "./AuthContext";
 import { toast } from "sonner";
-import { ParsedPath } from "@/types/resource";
-import { ActionState } from "@/types/main";
+
+import type { BriefResourceInfo } from "@/types/resource";
+import type { ActionState } from "@/types/main";
+
+import { useAuth } from "./AuthContext";
 import { bookmarkResource, unbookmarkResource } from "@/actions/user/bookmark";
 import { likeResource, unlikeResource } from "@/actions/user/like";
 import { addViewHistory } from "@/actions/user/history";
+import { getNearByResources } from "@/actions/resource";
+import { getUserResourceStats } from "@/actions/user/resource";
 
 type ReaderContextType = {
   resourceId: string | null;
@@ -19,7 +23,7 @@ type ReaderContextType = {
   toggleLike: () => void;
   toggleBookmark: () => void;
 
-  parsePath: () => Promise<ParsedPath>;
+  nearByResources: BriefResourceInfo[];
 };
 
 const ReaderContext = createContext<ReaderContextType | null>(null);
@@ -28,18 +32,19 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
   const [like, setLike] = useState<ActionState>("inactive");
   const [resourceId, setResourceId] = useState<string | null>(null);
   const [bookmark, setBookmark] = useState<ActionState>("inactive");
+  const [nearByResources, setNearByResources] = useState<BriefResourceInfo[]>(
+    [],
+  );
+
   const { user } = useAuth();
 
   async function loadResStats() {
     try {
-      const res = await fetch("/api/resources/stats", {
-        method: "POST",
-        body: JSON.stringify({ resource_id: resourceId }),
-      });
-      const { data, error } = await res.json();
-      if (error || !data) return;
-      setLike(data.liked ? "active" : "inactive");
-      setBookmark(data.bookmarked ? "active" : "inactive");
+      if (!resourceId) return;
+      const resourceStats = await getUserResourceStats(resourceId);
+
+      setLike(resourceStats.liked ? "active" : "inactive");
+      setBookmark(resourceStats.bookmarked ? "active" : "inactive");
     } catch {}
   }
 
@@ -85,52 +90,18 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
     }
   }
 
-  async function parsePath(): Promise<ParsedPath> {
-    const currentPath = window.location.pathname;
-    const pathParts = currentPath.split("/").filter(Boolean);
+  async function loadNearByResources() {
+    if (nearByResources.some((r) => r.id === resourceId)) return;
 
-    const target = pathParts[pathParts.length - 1];
+    const path = window.location.pathname.replace("/library/", "");
 
-    if (!target) {
-      return {
-        currentPath,
-        prevPath: null,
-        nextPath: null,
-        target: "",
-        prevTarget: null,
-        nextTarget: null,
-      };
-    }
-
-    let prevTarget: string | null = target
-      .split("-")
-      .map((part, index) => (index === 1 ? Number(part) - 1 : part))
-      .join("-");
-
-    let nextTarget: string | null = target
-      .split("-")
-      .map((part, index) => (index === 1 ? Number(part) + 1 : part))
-      .join("-");
-
-    let prevPath: string | null = currentPath.replace(target, prevTarget);
-    let nextPath: string | null = currentPath.replace(target, nextTarget);
-
-    const [resPrev, resNext] = await Promise.allSettled([
-      prevPath ? fetch(prevPath) : Promise.resolve(null),
-      nextPath ? fetch(nextPath) : Promise.resolve(null),
-    ]);
-
-    if (resPrev.status !== "fulfilled" || !resPrev.value?.ok) {
-      prevPath = null;
-      prevTarget = null;
-    }
-
-    if (resNext.status !== "fulfilled" || !resNext.value?.ok) {
-      nextPath = null;
-      nextTarget = null;
-    }
-
-    return { currentPath, prevPath, nextPath, target, prevTarget, nextTarget };
+    await getNearByResources(path)
+      .then((value) =>
+        setNearByResources(
+          value.map((v) => ({ ...v, path: `/library/${v.path}` })),
+        ),
+      )
+      .catch(() => setNearByResources([]));
   }
 
   useEffect(() => {
@@ -139,6 +110,7 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
     const currentResourceId = resourceId;
 
     loadResStats();
+    loadNearByResources();
 
     const timer = setTimeout(() => {
       addViewHistory(currentResourceId);
@@ -156,7 +128,7 @@ export function ReaderProvider({ children }: { children: React.ReactNode }) {
         bookmark,
         toggleLike,
         toggleBookmark,
-        parsePath,
+        nearByResources,
       }}
     >
       {children}

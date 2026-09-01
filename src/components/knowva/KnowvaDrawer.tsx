@@ -28,8 +28,13 @@ export default function KnowvaDrawer() {
   const { open, setOpen } = useDrawer();
   const { chats, chatId } = useKnowva();
 
-  const { loadChat, deleteChatAction, createNewChat, pinChatAction } =
-    useChatActions();
+  const {
+    loadChat,
+    loadChats,
+    deleteChatAction,
+    createNewChat,
+    pinChatAction,
+  } = useChatActions();
 
   useEffect(() => {
     function handleOutsideClick(event: PointerEvent) {
@@ -54,6 +59,11 @@ export default function KnowvaDrawer() {
     loadChat(id);
     setOpen(false);
   }
+
+  useEffect(() => {
+    if (chats.length) return;
+    loadChats();
+  }, []);
 
   return (
     <Drawer

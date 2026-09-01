@@ -15,34 +15,30 @@ const AuthContext = createContext<AuthContextType | null>(null);
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
 
-  async function fetchMe() {
-    try {
-      const user = await getCurrentUser();
-
-      if (!user) {
-        console.log("Data Not Found");
-        return;
-      }
-
-      setUser(user);
-      localStorage.setItem("knowlet-user", JSON.stringify(user));
-    } catch {}
-  }
-
   useEffect(() => {
-    const stored = localStorage.getItem("knowlet-user");
+    void (async () => {
+      let user: User | null = null;
 
-    if (stored) {
       try {
-        setUser(JSON.parse(stored));
-      } catch (error) {
-        console.error(error);
-        toast.error((error as Error).message);
-        localStorage.removeItem("knowlet-user");
-      }
-    }
+        user = await getCurrentUser();
+        localStorage.setItem("knowlet-user", JSON.stringify(user));
+      } catch {
+        const stored = localStorage.getItem("knowlet-user");
+        if (!stored) {
+          user = null;
+          return;
+        }
 
-    fetchMe();
+        try {
+          user = JSON.parse(stored);
+        } catch (error) {
+          localStorage.removeItem("knowlet-user");
+          user = null;
+        }
+      } finally {
+        setUser(user);
+      }
+    })();
   }, []);
 
   return (

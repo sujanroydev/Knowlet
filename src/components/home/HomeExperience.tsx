@@ -63,8 +63,8 @@ function ContinueStudying() {
   useEffect(() => {
     if (!user) return;
 
-    getHistory()
-      .then((items) => setHistory((items || []).slice(0, 2)))
+    getHistory(2)
+      .then((items) => setHistory(items || []))
       .catch(() => setHistory([]));
   }, [user]);
 

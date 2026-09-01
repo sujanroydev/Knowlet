@@ -42,13 +42,10 @@ export interface Resource {
   updated_at?: string;
 }
 
-export interface ParsedPath {
-  currentPath: string;
-  prevPath: string | null;
-  nextPath: string | null;
+export interface BriefResourceInfo {
+  id: string;
   target: string;
-  prevTarget: string | null;
-  nextTarget: string | null;
+  path: string;
 }
 
 export interface Bookmark {

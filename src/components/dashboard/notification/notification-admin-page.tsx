@@ -220,7 +220,7 @@ export default function NotificationAdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 p-4 md:p-6">
+    <div className="min-h-screen bg-backgroud p-4 md:p-6">
       <div className="mx-auto max-w-7xl">
         <div className="mb-6 flex items-center gap-3">
           <div className="rounded-2xl bg-blue-600 p-3 text-white">
@@ -228,9 +228,11 @@ export default function NotificationAdminPage() {
           </div>
 
           <div>
-            <h1 className="text-3xl font-bold">Notification Dashboard</h1>
+            <h1 className="text-3xl font-bold text-foreground">
+              Notification Dashboard
+            </h1>
 
-            <p className="text-gray-500">
+            <p className="text-muted-foreground">
               Manage push notifications for Knowlet
             </p>
           </div>
@@ -239,7 +241,7 @@ export default function NotificationAdminPage() {
         {/* Top Grid */}
         <div className="mb-6 grid gap-6 lg:grid-cols-2">
           {/* Create Notification */}
-          <div className="rounded-2xl bg-white p-5 shadow-sm">
+          <div className="rounded-2xl bg-card p-5 shadow-sm">
             <h2 className="mb-5 text-xl font-semibold">Create Notification</h2>
 
             <div className="space-y-4">
@@ -247,14 +249,14 @@ export default function NotificationAdminPage() {
                 placeholder="Title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
+                className="w-full rounded-xl border border-muted-foreground px-4 py-3 outline-none focus:border-primary"
               />
 
               <textarea
                 placeholder="Message"
                 value={body}
                 onChange={(e) => setBody(e.target.value)}
-                className="h-28 w-full resize-none rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
+                className="h-28 w-full resize-none rounded-xl border border-muted-foreground px-4 py-3 outline-none focus:border-primary"
               />
 
               <div className="space-y-2">
@@ -266,7 +268,7 @@ export default function NotificationAdminPage() {
                     type="button"
                     onClick={() => imageInputRef.current?.click()}
                     disabled={imageUploading}
-                    className="flex items-center gap-2 rounded-xl border-2 border-dashed border-blue-300 bg-blue-50 px-4 py-3 text-blue-600 transition hover:bg-blue-100 disabled:opacity-50"
+                    className="flex items-center gap-2 rounded-xl border-2 border-dashed border-border bg-muted px-4 py-3 text-primary transition hover:bg-primary-foreground disabled:opacity-50"
                   >
                     {imageUploading ? (
                       <>
@@ -284,7 +286,7 @@ export default function NotificationAdminPage() {
                     <button
                       type="button"
                       onClick={() => setImage(defaultPreview.image)}
-                      className="flex items-center gap-2 rounded-xl border border-gray-300 px-4 py-3 text-gray-600 transition hover:bg-gray-50"
+                      className="flex items-center gap-2 rounded-xl border border-muted-foreground px-4 py-3 text-gray-600 transition hover:bg-muted"
                     >
                       Clear
                     </button>
@@ -314,14 +316,14 @@ export default function NotificationAdminPage() {
                 onChange={(e) =>
                   setImage(e.target.value || defaultPreview.image)
                 }
-                className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
+                className="w-full rounded-xl border border-muted-foreground px-4 py-3 outline-none focus:border-primary"
               />
 
               <input
                 placeholder="Click URL"
                 value={action_url}
                 onChange={(e) => setActionUrl(e.target.value)}
-                className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
+                className="w-full rounded-xl border border-muted-foreground px-4 py-3 outline-none focus:border-primary"
               />
 
               {advancedOptionsOpen && (
@@ -330,19 +332,19 @@ export default function NotificationAdminPage() {
                     placeholder="Icon URL"
                     value={icon}
                     onChange={(e) => setIcon(e.target.value)}
-                    className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
+                    className="w-full rounded-xl border border-muted-foreground px-4 py-3 outline-none focus:border-primary"
                   />
                   <input
                     placeholder="Badge URL"
                     value={badge}
                     onChange={(e) => setBadge(e.target.value)}
-                    className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
+                    className="w-full rounded-xl border border-muted-foreground px-4 py-3 outline-none focus:border-primary"
                   />
                   <input
                     placeholder="Tag"
                     value={tag}
                     onChange={(e) => setTag(e.target.value)}
-                    className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-blue-500"
+                    className="w-full rounded-xl border border-muted-foreground px-4 py-3 outline-none focus:border-primary"
                   />
                 </>
               )}
@@ -352,7 +354,7 @@ export default function NotificationAdminPage() {
               <div className="flex flex-wrap gap-3">
                 <button
                   onClick={() => sendNow()}
-                  className="flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-white transition hover:bg-blue-700"
+                  className="flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-primary-foreground transition hover:bg-accent-foreground"
                 >
                   <>
                     <Send size={18} />
@@ -362,7 +364,7 @@ export default function NotificationAdminPage() {
 
                 <button
                   onClick={saveDraft}
-                  className="flex items-center gap-2 rounded-xl bg-gray-800 px-5 py-3 text-white transition hover:bg-black"
+                  className="flex items-center gap-2 rounded-xl bg-muted-foreground px-5 py-3 text-muted transition"
                 >
                   <Save size={18} />
                   Save Draft
@@ -370,7 +372,7 @@ export default function NotificationAdminPage() {
               </div>
               <button
                 onClick={() => setAdvancedOptionsOpen((prev) => !prev)}
-                className="flex items-center gap-2 rounded-xl bg-gray-200 px-5 py-3 text-gray-700 transition hover:bg-gray-300"
+                className="flex items-center gap-2 rounded-xl bg-muted px-5 py-3 text-muted-foreground transition hover:bg-border"
               >
                 <Settings size={18} />
                 {advancedOptionsOpen
@@ -381,14 +383,14 @@ export default function NotificationAdminPage() {
           </div>
 
           {/* Preview */}
-          <div className="rounded-2xl bg-white p-5 shadow-sm">
+          <div className="rounded-2xl bg-card p-5 shadow-sm">
             <h2 className="mb-5 text-xl font-semibold">Preview</h2>
 
             <div
               onClick={() =>
                 window.open(action_url || defaultPreview.action_url, "_blank")
               }
-              className="p-3 overflow-hidden rounded-2xl border border-gray-200 bg-gray-50"
+              className="p-3 overflow-hidden rounded-2xl border border-border bg-muted"
             >
               <div className="flex justify-between">
                 <div className="w-10 flex items-center">
@@ -400,11 +402,11 @@ export default function NotificationAdminPage() {
                 </div>
 
                 <div className="flex-1 px-3">
-                  <h3 className="mb-2 text-2xl font-bold">
+                  <h3 className="mb-2 text-2xl text-foreground font-bold">
                     {title || defaultPreview.title}
                   </h3>
 
-                  {body && <p className="text-gray-600">{body}</p>}
+                  {body && <p className="text-muted-foreground">{body}</p>}
                 </div>
 
                 {icon && (
@@ -430,9 +432,9 @@ export default function NotificationAdminPage() {
         {/* Drafts + History */}
         <div className="mb-6 grid gap-6 lg:grid-cols-2">
           {/* Drafts */}
-          <div className="rounded-2xl bg-white p-5 shadow-sm">
+          <div className="rounded-2xl bg-card p-5 shadow-sm">
             <div className="mb-5 flex items-center gap-2">
-              <FileText className="text-blue-600" />
+              <FileText className="text-primary" />
               <h2 className="text-xl font-semibold">Drafts</h2>
             </div>
 
@@ -441,7 +443,7 @@ export default function NotificationAdminPage() {
                 drafts.map((draft) => (
                   <div
                     key={draft.id}
-                    className="flex items-center justify-between rounded-xl border border-gray-200 p-4 transition hover:bg-gray-50"
+                    className="flex items-center justify-between rounded-xl border border-border p-4 transition hover:bg-muted"
                   >
                     <div
                       className="flex-1 cursor-pointer"
@@ -471,7 +473,7 @@ export default function NotificationAdminPage() {
           </div>
 
           {/* History */}
-          <div className="rounded-2xl bg-white p-5 shadow-sm">
+          <div className="rounded-2xl bg-card p-5 shadow-sm">
             <div className="mb-5 flex items-center gap-2">
               <History className="text-green-600" />
               <h2 className="text-xl font-semibold">History</h2>
@@ -483,7 +485,7 @@ export default function NotificationAdminPage() {
                   <div
                     key={item.id}
                     onClick={() => loadInput(item)}
-                    className="flex flex-row cursor-pointer items-center justify-between rounded-xl border border-gray-200 p-4 transition hover:bg-gray-50"
+                    className="flex flex-row cursor-pointer items-center justify-between rounded-xl border border-border p-4 transition hover:bg-muted"
                   >
                     <div>
                       <p className="font-medium">{item.title || "Untitled"}</p>
@@ -524,7 +526,7 @@ export default function NotificationAdminPage() {
                   </div>
                 ))
               ) : (
-                <p className="py-8 text-center text-gray-400">
+                <p className="py-8 text-center text-muted-foreground">
                   No notification history
                 </p>
               )}

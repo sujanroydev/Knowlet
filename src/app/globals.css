@@ -20,10 +20,8 @@
   color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
-  }
+html.dark {
+  color-scheme: dark;
 }
 
 html {

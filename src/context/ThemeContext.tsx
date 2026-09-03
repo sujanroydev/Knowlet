@@ -67,6 +67,20 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     }
   }, [theme, mounted]);
 
+  useEffect(() => {
+    const color = theme === "dark" ? "#0f1419" : "#f7f8fc";
+
+    let meta = document.querySelector('meta[name="theme-color"]');
+
+    if (!meta) {
+      meta = document.createElement("meta");
+      meta.setAttribute("name", "theme-color");
+      document.head.appendChild(meta);
+    }
+
+    meta.setAttribute("content", color);
+  }, [theme]);
+
   const applyTheme = (themeToApply: "light" | "dark") => {
     if (typeof document !== "undefined") {
       const html = document.documentElement;

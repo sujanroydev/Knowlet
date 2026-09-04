@@ -6,6 +6,7 @@ import TopBar from "@/components/TopBar";
 import { AppProvider } from "@/context/AppContext";
 import SWRegister from "@/components/SWRegister";
 import AdSense from "@/components/AdSense";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Knowlet – Notes & Study Materials",
@@ -45,24 +46,26 @@ export default function RootLayout({
       </head>
 
       <body className="min-h-dvh">
-        <AppProvider>
-          <div className="flex min-h-dvh flex-col">
-            <TopBar />
-
-            <main className="flex-1 py-15">{children}</main>
-
-            <BottomNav />
-          </div>
-
-          <SWRegister />
-        </AppProvider>
-
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(schema),
           }}
         />
+
+        <AppProvider>
+          <div className="flex min-h-dvh flex-col">
+            <TopBar />
+
+            <main className="flex-1 py-15">{children}</main>
+
+            <Footer />
+
+            <BottomNav />
+          </div>
+
+          <SWRegister />
+        </AppProvider>
       </body>
     </html>
   );

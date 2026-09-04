@@ -77,12 +77,14 @@ export default function SearchPage() {
         </p>
 
         <form
+          role="search"
           onSubmit={(e) => {
             e.preventDefault();
             search();
           }}
         >
           <input
+            type="search"
             ref={inputRef}
             value={query}
             onChange={(e) => setQuery(e.target.value)}

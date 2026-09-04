@@ -65,6 +65,9 @@ export default function AboutPage() {
               A simple, modern learning platform built to make studying more
               organized, accessible, and productive.
             </p>
+            <p className="text-muted-foreground text-sm mt-2">
+              Last updated: September 4, 2026
+            </p>
           </div>
         </header>
 
@@ -367,11 +370,6 @@ export default function AboutPage() {
             </p>
           </section>
         </main>
-
-        {/* Footer */}
-        <footer className="text-center py-8 text-sm text-muted-foreground border-t border-border bg-muted">
-          © 2026 Knowlet. All rights reserved.
-        </footer>
       </div>
     </>
   );

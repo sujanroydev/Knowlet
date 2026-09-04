@@ -44,6 +44,9 @@ export default function TermsAndConditionsPage() {
           <p className="text-muted-foreground mt-2">
             Please read these terms carefully before using Knowlet.
           </p>
+          <p className="text-muted-foreground text-sm mt-2">
+            Last updated: September 4, 2026
+          </p>
         </div>
       </header>
 

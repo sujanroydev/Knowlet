@@ -87,7 +87,7 @@ export default function ResourceFooterActions() {
   };
 
   return (
-    <footer className="relative overflow-hidden rounded-2xl border bg-gradient-to-b from-muted/40 to-background p-6 shadow-sm">
+    <div className="relative overflow-hidden rounded-2xl border bg-gradient-to-b from-muted/40 to-background p-6 shadow-sm">
       <div className="pointer-events-none absolute -top-10 right-0 h-32 w-32 rounded-full bg-primary/10 blur-2xl" />
 
       <div className="mb-6">
@@ -168,6 +168,6 @@ export default function ResourceFooterActions() {
           </button>
         </div>
       )}
-    </footer>
+    </div>
   );
 }

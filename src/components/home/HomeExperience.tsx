@@ -354,34 +354,6 @@ export default function HomeExperience({
           </Link>
         </div>
       </section>
-
-      <footer className="border-t border-border bg-back">
-        <div className="page-shell flex flex-col gap-6 py-8 text-sm sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-lg font-semibold tracking-[-0.04em] text-foreground">
-              Knowlet
-            </p>
-            <p className="mt-1 max-w-sm leading-6 text-muted-foreground">
-              Free, organized study material for students who want to keep
-              moving forward.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-x-5 gap-y-2 font-medium text-muted-foreground">
-            <Link href="/about" className="hover:text-primary">
-              About
-            </Link>
-            <Link href="/help" className="hover:text-primary">
-              Help
-            </Link>
-            <Link href="/terms" className="hover:text-primary">
-              Terms
-            </Link>
-            <Link href="/privacy" className="hover:text-primary">
-              Privacy
-            </Link>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

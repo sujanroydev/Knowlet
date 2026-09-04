@@ -43,6 +43,9 @@ export default function PrivacyPage() {
             Learn how Knowlet collects, uses, stores, and protects your
             information.
           </p>
+          <p className="text-muted-foreground text-sm mt-2">
+            Last updated: September 4, 2026
+          </p>
         </div>
       </header>
 

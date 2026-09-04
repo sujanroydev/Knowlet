@@ -228,7 +228,7 @@ export default function KnowvaDrawer() {
       </nav>
 
       {/* Footer */}
-      <footer className="border-t border-border/50 p-3">
+      <div className="border-t border-border/50 p-3">
         <Link
           href="/profile"
           onClick={() => setOpen(false)}
@@ -237,7 +237,7 @@ export default function KnowvaDrawer() {
           <UserRound size={18} />
           <span>Profile</span>
         </Link>
-      </footer>
+      </div>
     </Drawer>
   );
 }

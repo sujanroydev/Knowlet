@@ -43,6 +43,9 @@ export default function DisclaimerPage() {
             Our official disclaimer about Knowlet's purpose, content accuracy,
             and responsible use.
           </p>
+          <p className="text-muted-foreground text-sm mt-2">
+            Last updated: September 4, 2026
+          </p>
         </div>
       </header>
 

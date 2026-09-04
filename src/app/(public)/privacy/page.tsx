@@ -7,14 +7,14 @@ export const metadata: Metadata = {
     "Read Knowlet's Privacy Policy to understand how we collect, use, store, and protect personal information and user content.",
 
   alternates: {
-    canonical: "https://knowlet.in/privacy-policy",
+    canonical: "https://knowlet.in/privacy",
   },
 
   openGraph: {
     title: "Privacy Policy | Knowlet",
     description:
       "Learn how Knowlet collects, uses, stores, and protects user information.",
-    url: "https://knowlet.in/privacy-policy",
+    url: "https://knowlet.in/privacy",
     siteName: "Knowlet",
     type: "website",
   },
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PrivacyPolicyPage() {
+export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Header */}

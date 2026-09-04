@@ -376,7 +376,7 @@ export default function HomeExperience({
             <Link href="/terms-and-conditions" className="hover:text-primary">
               Terms
             </Link>
-            <Link href="/privacy-policy" className="hover:text-primary">
+            <Link href="/privacy" className="hover:text-primary">
               Privacy
             </Link>
           </div>

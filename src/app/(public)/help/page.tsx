@@ -308,7 +308,7 @@ export default function HelpPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <a
-              href="/privacy-policy"
+              href="/privacy"
               className="block p-4 border border-border rounded-lg hover:bg-accent transition"
             >
               <h3 className="font-semibold text-foreground mb-1">

@@ -360,7 +360,7 @@ Knowlet includes:
 
 - About
 - Help
-- Declaration
+- Disclaimer
 - Privacy Policy
 - Terms & Conditions
 - Custom 404 Page

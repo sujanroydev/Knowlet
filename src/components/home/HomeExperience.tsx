@@ -373,10 +373,10 @@ export default function HomeExperience({
             <Link href="/help" className="hover:text-primary">
               Help
             </Link>
-            <Link href="/terms-and-conditions" className="hover:text-primary">
+            <Link href="/terms" className="hover:text-primary">
               Terms
             </Link>
-            <Link href="/privacy-policy" className="hover:text-primary">
+            <Link href="/privacy" className="hover:text-primary">
               Privacy
             </Link>
           </div>

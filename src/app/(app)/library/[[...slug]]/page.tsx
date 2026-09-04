@@ -107,8 +107,42 @@ export default async function Page({
 
   const resource = await getResourceByPath(slug.join("/"));
 
+  const { level, subject } = parseLibraryPath(slug.join("/"));
+  const url = `${BASE_URL}/library/${slug.join("/")}`;
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "LearningResource",
+    name: resource.title,
+    description:
+      resource.description ||
+      `${resource.title} study material for ${subject || level || "students"}.`,
+    url: url,
+    educationalLevel: level,
+    learningResourceType: "Study Material",
+    inLanguage: "en",
+    about: subject
+      ? {
+          "@type": "Thing",
+          name: subject,
+        }
+      : undefined,
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Knowlet",
+      url: BASE_URL,
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      />
+
       <Content resource={resource} />
       <AIAssistant />
     </>

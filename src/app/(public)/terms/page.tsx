@@ -7,14 +7,14 @@ export const metadata: Metadata = {
     "Read the terms and conditions governing your use of Knowlet, including accounts, content, acceptable use, and our services.",
 
   alternates: {
-    canonical: "https://knowlet.in/terms-and-conditions",
+    canonical: "https://knowlet.in/terms",
   },
 
   openGraph: {
     title: "Terms and Conditions | Knowlet",
     description:
       "Terms and conditions governing the use of Knowlet and its services.",
-    url: "https://knowlet.in/terms-and-conditions",
+    url: "https://knowlet.in/terms",
     siteName: "Knowlet",
     type: "website",
   },

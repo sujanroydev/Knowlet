@@ -1,29 +1,29 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Declaration | Knowlet",
+  title: "Disclaimer | Knowlet",
 
   description:
-    "Read Knowlet's official declaration regarding its educational purpose, content accuracy, AI-generated information, and responsible use.",
+    "Read Knowlet's official disclaimer regarding its educational purpose, content accuracy, AI-generated information, and responsible use.",
 
   alternates: {
-    canonical: "https://knowlet.in/declaration",
+    canonical: "https://knowlet.in/disclaimer",
   },
 
   openGraph: {
-    title: "Declaration | Knowlet",
+    title: "Disclaimer | Knowlet",
     description:
-      "Official declaration regarding the purpose, educational resources, and responsible use of Knowlet.",
-    url: "https://knowlet.in/declaration",
+      "Official disclaimer regarding the purpose, educational resources, and responsible use of Knowlet.",
+    url: "https://knowlet.in/disclaimer",
     siteName: "Knowlet",
     type: "website",
   },
 
   twitter: {
     card: "summary",
-    title: "Declaration | Knowlet",
+    title: "Disclaimer | Knowlet",
     description:
-      "Official declaration regarding the purpose, educational resources, and responsible use of Knowlet.",
+      "Official disclaimer regarding the purpose, educational resources, and responsible use of Knowlet.",
   },
 
   robots: {
@@ -32,15 +32,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function DeclarationPage() {
+export default function DisclaimerPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
       <header className="border-b border-border pb-6 mb-8">
         <div className="max-w-4xl mx-auto px-5 pt-10">
-          <h1 className="text-3xl md:text-4xl font-bold">Declaration</h1>
+          <h1 className="text-3xl md:text-4xl font-bold">Disclaimer</h1>
           <p className="text-muted-foreground mt-2">
-            Our official declaration about Knowlet's purpose, content accuracy,
+            Our official disclaimer about Knowlet's purpose, content accuracy,
             and responsible use.
           </p>
         </div>
@@ -220,11 +220,11 @@ export default function DeclarationPage() {
 
         <section className="bg-card rounded-2xl shadow-md border border-border p-6 md:p-8">
           <h2 className="text-lg font-semibold text-primary mb-3">
-            13. Changes to This Declaration
+            13. Changes to This Disclaimer
           </h2>
 
           <p className="text-foreground leading-relaxed">
-            This declaration may be updated when Knowlet&apos;s services,
+            This disclaimer may be updated when Knowlet&apos;s services,
             features, policies, or practices change. The &quot;Last
             updated&quot; date at the top of this page will be updated when
             material changes are made.

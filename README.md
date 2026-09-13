@@ -211,7 +211,7 @@ git clone https://github.com/sujanroydev/knowlet.git
 ## 2️⃣ Install Dependencies
 
 ```bash
-npm install
+pnpm install
 ```
 
 ---
@@ -236,7 +236,7 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ## 4️⃣ Run Development Server
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 ---
@@ -380,7 +380,7 @@ vercel
 ## Build Production
 
 ```bash
-npm run build
+pnpm run build
 ```
 
 ---
@@ -388,7 +388,7 @@ npm run build
 ## Start Production
 
 ```bash
-npm start
+pnpm start
 ```
 
 ---

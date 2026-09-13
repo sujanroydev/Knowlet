@@ -105,7 +105,7 @@ export async function GET(req: NextRequest) {
     });
 
     const secret = new TextEncoder().encode(process.env.JWT_SECRET);
-    const token = await new SignJWT({ user_id: userId })
+    const token = await new SignJWT({ user_id: user.id })
       .setProtectedHeader({ alg: "HS256" })
       .setIssuedAt()
       .setExpirationTime("30d")

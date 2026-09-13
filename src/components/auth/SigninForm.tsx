@@ -1,16 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Loader from "./Loader";
 import { toast } from "sonner";
 import { useAuth } from "@/context/AuthContext";
 import { subscribe } from "@/app/(app)/notifications/notification-client";
 import PasswordInput from "@/components/ui/PasswordInput";
+import { useSearchParams } from "next/navigation";
 
 export default function SigninForm() {
   const [loading, setLoading] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
 
   const { setUser } = useAuth();
 
@@ -60,6 +60,20 @@ export default function SigninForm() {
       setLoading(false);
     }
   }
+
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const error = searchParams.get("error");
+
+    if (error === "account_not_found") {
+      toast.error("No account found with this Google account.");
+    }
+
+    if (error === "account_exists") {
+      toast.error("An account already exists. Please sign in instead.");
+    }
+  }, [searchParams]);
 
   return (
     <>

@@ -93,7 +93,9 @@ export default function SigninForm() {
         </button>
 
         <button
-          onClick={() => (window.location.href = "/api/auth/google")}
+          onClick={() =>
+            (window.location.href = "/api/auth/google?mode=signin")
+          }
           type="button"
           className="w-full rounded-lg bg-green-600 py-3 font-medium text-white transition hover:bg-green-700"
         >

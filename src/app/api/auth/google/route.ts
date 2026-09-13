@@ -1,6 +1,17 @@
 import { NextResponse } from "next/server";
 
-export async function GET() {
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+
+  const mode = searchParams.get("mode");
+
+  if (mode !== "signin" && mode !== "signup") {
+    return NextResponse.json(
+      { error: "Invalid authentication mode" },
+      { status: 400 },
+    );
+  }
+
   const rootUrl = "https://accounts.google.com/o/oauth2/v2/auth";
 
   const options = {
@@ -9,6 +20,10 @@ export async function GET() {
     access_type: "offline",
     response_type: "code",
     prompt: "consent",
+
+    // Preserve signin/signup through the OAuth flow
+    state: mode,
+
     scope: [
       "https://www.googleapis.com/auth/userinfo.profile",
       "https://www.googleapis.com/auth/userinfo.email",

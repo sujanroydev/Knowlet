@@ -8,9 +8,17 @@ export async function GET(req: NextRequest) {
   try {
     const referralCode = req.cookies.get("referral_code")?.value;
     const code = req.nextUrl.searchParams.get("code");
+    const state = req.nextUrl.searchParams.get("state");
 
     if (!code) {
       return NextResponse.json({ error: "No code provided" }, { status: 400 });
+    }
+
+    if (state !== "signin" && state !== "signup") {
+      return NextResponse.json(
+        { error: "Invalid authentication mode" },
+        { status: 400 },
+      );
     }
 
     // Exchange code for token
@@ -19,7 +27,6 @@ export async function GET(req: NextRequest) {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
-
       body: new URLSearchParams({
         code,
         client_id: process.env.GOOGLE_CLIENT_ID!,
@@ -29,9 +36,13 @@ export async function GET(req: NextRequest) {
       }),
     });
 
+    if (!tokenRes.ok) {
+      throw new Error("Failed to exchange Google authorization code");
+    }
+
     const tokenData = await tokenRes.json();
 
-    // Fetch user
+    // Fetch Google user
     const userRes = await fetch(
       "https://www.googleapis.com/oauth2/v3/userinfo",
       {
@@ -41,37 +52,68 @@ export async function GET(req: NextRequest) {
       },
     );
 
-    let user = await userRes.json();
-
-    // Sync with Database
-    const userId = await getUserIdByEmail(user.email);
-
-    if (userId) {
-      user.id = userId;
-    } else {
-      user = await createUser({
-        name: user.name,
-        email: user.email,
-        username: generateUsername(user.name),
-        picture: user.picture,
-        referrer_code: referralCode ?? undefined,
-      });
+    if (!userRes.ok) {
+      throw new Error("Failed to fetch Google user");
     }
 
-    // Create JWT
-    const secret = new TextEncoder().encode(process.env.JWT_SECRET!);
-    const token = await new SignJWT({ user_id: user.id })
+    const googleUser = await userRes.json();
+
+    // Find existing user
+    const userId = await getUserIdByEmail(googleUser.email);
+
+    // SIGN IN
+    if (state === "signin") {
+      if (!userId) {
+        return NextResponse.redirect(
+          `${process.env.NEXT_PUBLIC_APP_URL}/signin?error=account_not_found`,
+        );
+      }
+
+      const secret = new TextEncoder().encode(process.env.JWT_SECRET);
+      const token = await new SignJWT({ user_id: userId })
+        .setProtectedHeader({ alg: "HS256" })
+        .setIssuedAt()
+        .setExpirationTime("30d")
+        .sign(secret);
+
+      const response = NextResponse.redirect(process.env.NEXT_PUBLIC_APP_URL!);
+
+      response.cookies.set("token", token, {
+        httpOnly: true,
+        sameSite: "lax",
+        secure: process.env.NODE_ENV === "production",
+        path: "/",
+        maxAge: 60 * 60 * 24 * 15,
+      });
+
+      return response;
+    }
+
+    // SIGN UP
+    if (userId) {
+      return NextResponse.redirect(
+        `${process.env.NEXT_PUBLIC_APP_URL}/signin?error=account_exists`,
+      );
+    }
+
+    const user = await createUser({
+      name: googleUser.name,
+      email: googleUser.email,
+      username: generateUsername(googleUser.name),
+      picture: googleUser.picture,
+      referrer_code: referralCode ?? undefined,
+    });
+
+    const secret = new TextEncoder().encode(process.env.JWT_SECRET);
+    const token = await new SignJWT({ user_id: userId })
       .setProtectedHeader({ alg: "HS256" })
       .setIssuedAt()
-      .setExpirationTime("15d")
+      .setExpirationTime("30d")
       .sign(secret);
 
-    const redirectUrl = userId
-      ? `${process.env.NEXT_PUBLIC_APP_URL}`
-      : `${process.env.NEXT_PUBLIC_APP_URL}/welcome`;
-
-    // Set cookie
-    const response = NextResponse.redirect(redirectUrl);
+    const response = NextResponse.redirect(
+      `${process.env.NEXT_PUBLIC_APP_URL}/welcome`,
+    );
 
     response.cookies.delete("referral_code");
 
@@ -83,16 +125,18 @@ export async function GET(req: NextRequest) {
       maxAge: 60 * 60 * 24 * 15,
     });
 
-    if (!userId) {
-      void sendWelcomeEmail({ email: user.email, name: user.name }).catch(
-        (error) => {
-          console.error("Failed to send welcome email:", error);
-        },
-      );
-    }
+    void sendWelcomeEmail({
+      email: googleUser.email,
+      name: googleUser.name,
+    }).catch(console.error);
 
     return response;
   } catch (error) {
     console.error(error);
+
+    return NextResponse.json(
+      { error: "Google authentication failed" },
+      { status: 500 },
+    );
   }
 }

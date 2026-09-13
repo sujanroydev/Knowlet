@@ -7,9 +7,8 @@ import { toast } from "sonner";
 import { useAuth } from "@/context/AuthContext";
 import { subscribe } from "@/app/(app)/notifications/notification-client";
 import PasswordInput from "@/components/ui/PasswordInput";
-import { useSearchParams } from "next/navigation";
 
-export default function SigninForm() {
+export default function SigninForm({ error }: { error?: string }) {
   const [loading, setLoading] = useState(false);
 
   const { setUser } = useAuth();
@@ -61,11 +60,7 @@ export default function SigninForm() {
     }
   }
 
-  const searchParams = useSearchParams();
-
   useEffect(() => {
-    const error = searchParams.get("error");
-
     if (error === "account_not_found") {
       toast.error("No account found with this Google account.");
     }
@@ -73,7 +68,7 @@ export default function SigninForm() {
     if (error === "account_exists") {
       toast.error("An account already exists. Please sign in instead.");
     }
-  }, [searchParams]);
+  }, []);
 
   return (
     <>

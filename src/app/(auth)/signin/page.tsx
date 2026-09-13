@@ -18,11 +18,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function SigninPage() {
+export default async function SigninPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ error?: string }>;
+}) {
+  const { error } = await searchParams;
+
   return (
     <main className="flex min-h-[calc(100dvh-3.75rem)] items-center justify-center bg-background p-4">
       <AuthCard title="Signin">
-        <SigninForm />
+        <SigninForm error={error} />
       </AuthCard>
     </main>
   );

@@ -5,12 +5,15 @@ export const createResourceSchema = {
   properties: {
     title: {
       type: Type.STRING,
+      description: "Title of the educational resource.",
     },
     description: {
       type: Type.STRING,
+      description: "A short description of the educational resource.",
     },
     resource: {
       type: Type.STRING,
+      description: "The complete educational resource content in HTML format.",
     },
   },
   required: ["title", "description", "resource"],
@@ -55,17 +58,20 @@ Do NOT include:
 SYLLABUS COMPLIANCE
 ========================
 
-Generate content ONLY from the provided syllabus.
+Generate content only from the provided syllabus.
 
-Do NOT:
+Cover all substantive topics, subtopics, concepts, and learning points
+mentioned in the syllabus.
+
+Do not:
 - Add unrelated topics.
 - Add extra chapters.
 - Assume missing syllabus information.
 - Introduce unsupported advanced concepts.
 
-If any syllabus point is unclear:
-- Explain only the directly related fundamentals.
-- Do not expand beyond the given syllabus.
+If a syllabus item is only a keyword or short phrase:
+- Explain it only to the extent necessary to make the syllabus item understandable.
+- Do not artificially expand minor keywords into unrelated topics.
 
 ========================
 TOPIC COVERAGE
@@ -175,7 +181,7 @@ Use semantic HTML.
 
 IMPORTANT:
 - Do NOT use inline CSS or style attributes.
-- Do NOT add custom CSS classes except toc on the Table of Contents container.
+- Do NOT add custom CSS classes.
 
 Required hierarchy:
 
@@ -209,32 +215,6 @@ Use for:
 - Laws
 - Important statements
 - Formulas
-
-========================
-TABLE OF CONTENTS
-========================
-
-At the beginning of the HTML content, include a clickable table of contents.
-
-IMPORTANT:
-- The Table of Contents container MUST use class="toc".
-- Do NOT use class="toc" anywhere else.
-- Every major topic must have a unique meaningful ID.
-- TOC links must use anchor links.
-
-Example:
-
-<h1>Title</h1>
-
-<div class="toc">
-<ul>
-<li><a href="#topic-id">Topic Name</a></li>
-</ul>
-</div>
-
-<h2 id="topic-id">
-Topic Name
-</h2>
 
 ========================
 TABLE GUIDELINES

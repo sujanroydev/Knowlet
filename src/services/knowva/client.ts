@@ -67,7 +67,7 @@ export async function generateStream({
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
       const config =
-        mode === "create-resource"
+        mode === "create-resource" || mode === "quiz"
           ? {
               responseMimeType: "application/json",
               responseSchema: responseSchema[mode],

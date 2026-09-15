@@ -6,19 +6,16 @@ import { useState } from "react";
 import { useKnowva } from "@/context/KnowvaContext";
 import type { Message, NewMessage } from "@/types/knowva";
 
-type QuizQuestion = {
+type Quiz = {
   question: string;
   options: string[];
+  answer: number;
 };
 
-type Quiz = {
-  title: string;
-  questions: QuizQuestion[];
-};
-
-function QuizMessage({ quiz }: { quiz: Quiz }) {
+function QuizMessage({ quizzes }: { quizzes: Quiz[] }) {
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [submitted, setSubmitted] = useState(false);
+  const [score, setScore] = useState<number | null>(null);
 
   const handleSelect = (questionIndex: number, optionIndex: number) => {
     if (submitted) return;
@@ -30,61 +27,87 @@ function QuizMessage({ quiz }: { quiz: Quiz }) {
   };
 
   const handleSubmit = () => {
-    if (Object.keys(answers).length !== quiz.questions.length) {
+    if (Object.keys(answers).length !== quizzes.length) {
       return;
     }
 
+    const correctAnswers = quizzes.reduce(
+      (total, quiz, questionIndex) =>
+        answers[questionIndex] === quiz.answer ? total + 1 : total,
+      0,
+    );
+
+    setScore(correctAnswers);
     setSubmitted(true);
   };
 
   return (
     <div className="space-y-5">
       <div>
-        <h3 className="font-semibold">{quiz.title}</h3>
-        <p className="mt-1 text-xs text-muted-foreground">
+        <p className="text-xs text-muted-foreground">
           Select one answer for each question.
         </p>
       </div>
 
-      {quiz.questions.map((question, questionIndex) => (
+      {quizzes.map((quiz, questionIndex) => (
         <div key={questionIndex} className="space-y-3">
           <p className="font-medium">
-            {questionIndex + 1}. {question.question}
+            {questionIndex + 1}. {quiz.question}
           </p>
 
           <div className="space-y-2">
-            {question.options.map((option, optionIndex) => (
-              <label
-                key={optionIndex}
-                className={`flex cursor-pointer items-center gap-3 rounded-lg border p-3 transition-colors ${
-                  answers[questionIndex] === optionIndex
-                    ? "border-primary bg-primary/10"
-                    : "border-border hover:bg-background/50"
-                }`}
-              >
-                <input
-                  type="radio"
-                  name={`question-${questionIndex}`}
-                  value={optionIndex}
-                  checked={answers[questionIndex] === optionIndex}
-                  onChange={() => handleSelect(questionIndex, optionIndex)}
-                  disabled={submitted}
-                  className="accent-primary"
-                />
+            {quiz.options.map((option, optionIndex) => {
+              const isSelected = answers[questionIndex] === optionIndex;
+              const isCorrect = quiz.answer === optionIndex;
+              const isWrong = submitted && isSelected && !isCorrect;
 
-                <span>{option}</span>
-              </label>
-            ))}
+              return (
+                <label
+                  key={optionIndex}
+                  className={`flex cursor-pointer items-center gap-3 rounded-lg border p-3 transition-colors ${
+                    submitted && isCorrect
+                      ? "border-green-500 bg-green-500/10"
+                      : isWrong
+                        ? "border-red-500 bg-red-500/10"
+                        : isSelected
+                          ? "border-primary bg-primary/10"
+                          : "border-border hover:bg-background/50"
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name={`question-${questionIndex}`}
+                    value={optionIndex}
+                    checked={isSelected}
+                    onChange={() => handleSelect(questionIndex, optionIndex)}
+                    disabled={submitted}
+                    className="accent-primary"
+                  />
+
+                  <span>{option}</span>
+                </label>
+              );
+            })}
           </div>
         </div>
       ))}
 
+      {submitted && score !== null && (
+        <div className="rounded-lg border border-border bg-background/50 p-3 text-center">
+          <p className="font-semibold">
+            Score: {score}/{quizzes.length}
+          </p>
+
+          <p className="mt-1 text-xs text-muted-foreground">
+            {score === quizzes.length ? "Perfect score!" : "Quiz completed."}
+          </p>
+        </div>
+      )}
+
       <button
         type="button"
         onClick={handleSubmit}
-        disabled={
-          submitted || Object.keys(answers).length !== quiz.questions.length
-        }
+        disabled={submitted || Object.keys(answers).length !== quizzes.length}
         className="w-full rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground disabled:cursor-not-allowed disabled:opacity-50"
       >
         {submitted ? "Submitted" : "Submit Quiz"}
@@ -111,6 +134,13 @@ export default function KnowvaMessage({
   }
 
   const isQuiz = message.role === "assistant" && message.mode === "quiz";
+  let quizzes: Quiz[] | null;
+  try {
+    quizzes = JSON.parse(message.content);
+  } catch {
+    quizzes = null;
+  }
+  console.log(message.mode, message.role);
 
   return (
     <div
@@ -120,8 +150,8 @@ export default function KnowvaMessage({
           : "mr-auto border border-border bg-muted text-foreground"
       }`}
     >
-      {isQuiz ? (
-        <QuizMessage quiz={JSON.parse(message.content)} />
+      {isQuiz && quizzes ? (
+        <QuizMessage quizzes={quizzes} />
       ) : (
         <ReactMarkdown remarkPlugins={[remarkGfm]}>
           {message.content}

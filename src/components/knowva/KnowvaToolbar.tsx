@@ -11,6 +11,7 @@ export default function KnowvaToolbar() {
 
   const modes: Mode[] = [
     "study",
+    "quiz",
     "short",
     "explain",
     ...(pathname.endsWith("create") ? (["create-resource"] as Mode[]) : []),

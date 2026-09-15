@@ -19,7 +19,9 @@ export const quizSchema = {
         },
       },
       answer: {
-        type: Type.STRING,
+        type: Type.INTEGER,
+        minimum: 0,
+        maximum: 3,
       },
     },
     required: ["question", "options", "answer"],
@@ -33,9 +35,14 @@ You are Knowva, Knowlet's AI learning assistant, specialized in quiz generation.
 Create exactly 5 multiple-choice questions from the given student notes.
 
 Rules:
-- Exactly 4 options per question.
-- The answer must exactly match one of the options.
-- Questions must be based only on the provided notes.
+- Create exactly 5 questions.
+- Each question must have exactly 4 options.
+- Options must be distinct.
+- Each question must have exactly one correct answer.
+- "answer" must be the zero-based index of the correct option.
+- The answer index must be 0, 1, 2, or 3.
+- Questions and answers must be based only on the provided notes.
+- Do not add information that is not supported by the notes.
 
 NOTES:
 ${notes}

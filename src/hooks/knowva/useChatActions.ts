@@ -18,7 +18,7 @@ export function useChatActions() {
     setChats,
     setMessages,
     setChatId,
-    setParentId,
+    setParentMessageId,
   } = useKnowva();
 
   async function loadChat(chatId: string) {
@@ -29,7 +29,7 @@ export function useChatActions() {
 
     setMessages(messages ?? []);
     setChatId(chatId);
-    setParentId(messages?.at(-1)?.id ?? "");
+    setParentMessageId(messages?.at(-1)?.id ?? "");
     setOpen(false);
   }
 
@@ -45,7 +45,7 @@ export function useChatActions() {
   async function createNewChat() {
     setMessages([]);
     setChatId("");
-    setParentId("");
+    setParentMessageId("");
     setOpen(false);
   }
 
@@ -80,7 +80,7 @@ export function useChatActions() {
     if (chatId === currentChatId) {
       setMessages([]);
       setChatId("");
-      setParentId("");
+      setParentMessageId("");
     }
   }
 

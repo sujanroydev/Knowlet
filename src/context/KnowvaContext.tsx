@@ -4,7 +4,6 @@ import {
   createContext,
   useContext,
   useState,
-  useEffect,
   type Dispatch,
   type ReactNode,
   type SetStateAction,
@@ -13,15 +12,14 @@ import {
 import type { Message, Chat, Mode, NewMessage } from "@/types/knowva";
 
 import { DEFAULT_MODEL } from "@/config/ai";
-import { fetchChats } from "@/actions/knowva";
-import { useAuth } from "@/context/AuthContext";
 
 type OnMessageClick = (message: Message) => void;
 
 interface KnowvaState {
   isResponding: boolean;
   chatId: string | null;
-  parentId: string | null;
+  messageId: string | null;
+  parentMessageId: string | null;
   model: string;
   mode: Mode;
   currentMessage: NewMessage | null;
@@ -30,7 +28,8 @@ interface KnowvaState {
 
   setIsResponding: Dispatch<SetStateAction<boolean>>;
   setChatId: Dispatch<SetStateAction<string | null>>;
-  setParentId: Dispatch<SetStateAction<string | null>>;
+  setMessageId: Dispatch<SetStateAction<string | null>>;
+  setParentMessageId: Dispatch<SetStateAction<string | null>>;
   setModel: Dispatch<SetStateAction<string>>;
   setMode: Dispatch<SetStateAction<Mode>>;
   setCurrentMessage: Dispatch<SetStateAction<NewMessage | null>>;
@@ -47,7 +46,8 @@ export function KnowvaProvider({ children }: { children: ReactNode }) {
   const [isResponding, setIsResponding] = useState(false);
 
   const [chatId, setChatId] = useState<string | null>(null);
-  const [parentId, setParentId] = useState<string | null>(null);
+  const [messageId, setMessageId] = useState<string | null>(null);
+  const [parentMessageId, setParentMessageId] = useState<string | null>(null);
   const [mode, setMode] = useState<Mode>("chat");
   const [model, setModel] = useState<string>(DEFAULT_MODEL);
 
@@ -57,14 +57,13 @@ export function KnowvaProvider({ children }: { children: ReactNode }) {
 
   const [onMessageClick, setOnMessageClick] = useState<OnMessageClick>();
 
-  const { user } = useAuth();
-
   return (
     <KnowvaContext.Provider
       value={{
         isResponding,
         chatId,
-        parentId,
+        messageId,
+        parentMessageId,
         model,
         mode,
         currentMessage,
@@ -73,7 +72,8 @@ export function KnowvaProvider({ children }: { children: ReactNode }) {
 
         setIsResponding,
         setChatId,
-        setParentId,
+        setMessageId,
+        setParentMessageId,
         setModel,
         setMode,
         setCurrentMessage,

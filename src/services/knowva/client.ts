@@ -2,7 +2,7 @@ import { gemini } from "@/lib/gemini";
 import { sleep } from "@/utils/sleep";
 import { DEFAULT_MODEL, ModelId } from "@/config/ai";
 import { quizSchema } from "./generation/quiz";
-import { createResourceSchema } from "./generation/create-resource";
+import { createResourceSchema } from "./generation/resource";
 import { Mode } from "@/types/knowva";
 
 type GenerateOptions = {

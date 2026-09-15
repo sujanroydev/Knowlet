@@ -1,10 +1,16 @@
 import { Edit2 } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useKnowva } from "@/context/KnowvaContext";
-import type { Message, NewMessage } from "@/types/knowva";
+import type {
+  Message,
+  NewMessage,
+  QuizSubmissionMetadata,
+} from "@/types/knowva";
+import { updateMetadata } from "@/actions/knowva";
+import { toast } from "sonner";
 
 type Quiz = {
   question: string;
@@ -12,7 +18,15 @@ type Quiz = {
   answer: number;
 };
 
-function QuizMessage({ quizzes }: { quizzes: Quiz[] }) {
+function QuizMessage({
+  messageId,
+  quizzes,
+  metadata,
+}: {
+  messageId: string;
+  quizzes: Quiz[];
+  metadata: QuizSubmissionMetadata | null;
+}) {
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [submitted, setSubmitted] = useState(false);
   const [score, setScore] = useState<number | null>(null);
@@ -26,7 +40,7 @@ function QuizMessage({ quizzes }: { quizzes: Quiz[] }) {
     }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (Object.keys(answers).length !== quizzes.length) {
       return;
     }
@@ -37,9 +51,32 @@ function QuizMessage({ quizzes }: { quizzes: Quiz[] }) {
       0,
     );
 
-    setScore(correctAnswers);
-    setSubmitted(true);
+    const submittedAnswers = quizzes.map(
+      (_, questionIndex) => answers[questionIndex],
+    );
+
+    try {
+      await updateMetadata(messageId, {
+        answers: submittedAnswers,
+        score: correctAnswers,
+        total: quizzes.length,
+        submitted_at: new Date().toISOString(),
+      });
+
+      setScore(correctAnswers);
+      setSubmitted(true);
+    } catch {
+      toast.error("Failed to submit.");
+    }
   };
+
+  useEffect(() => {
+    if (!metadata) return;
+
+    setAnswers(metadata.answers);
+    setSubmitted(true);
+    setScore(metadata.score);
+  }, []);
 
   return (
     <div className="space-y-5">
@@ -134,13 +171,13 @@ export default function KnowvaMessage({
   }
 
   const isQuiz = message.role === "assistant" && message.mode === "quiz";
+
   let quizzes: Quiz[] | null;
   try {
     quizzes = JSON.parse(message.content);
   } catch {
     quizzes = null;
   }
-  console.log(message.mode, message.role);
 
   return (
     <div
@@ -150,8 +187,12 @@ export default function KnowvaMessage({
           : "mr-auto border border-border bg-muted text-foreground"
       }`}
     >
-      {isQuiz && quizzes ? (
-        <QuizMessage quizzes={quizzes} />
+      {isQuiz && quizzes && "id" in message && "metadata" in message ? (
+        <QuizMessage
+          messageId={message.id}
+          quizzes={quizzes}
+          metadata={(message.metadata as QuizSubmissionMetadata) || null}
+        />
       ) : (
         <ReactMarkdown remarkPlugins={[remarkGfm]}>
           {message.content}

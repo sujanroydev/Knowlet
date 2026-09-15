@@ -18,13 +18,13 @@ export default function KnowvaInput() {
 
   const {
     chatId,
-    parentId,
+    parentMessageId,
     mode,
     model,
     isResponding,
 
     setChatId,
-    setParentId,
+    setParentMessageId,
     setCurrentMessage,
     setMessages,
     setChats,
@@ -38,7 +38,7 @@ export default function KnowvaInput() {
     if (!text.trim() || isResponding) return;
 
     let currentChatId = chatId;
-    let currentParentId = parentId || null;
+    let currentParentMessageId = parentMessageId || null;
     const currentText = text;
     const isNewChat = !chatId;
 
@@ -60,7 +60,7 @@ export default function KnowvaInput() {
 
       const userNewMessage = {
         chat_id: currentChatId,
-        parent_id: currentParentId,
+        parent_id: currentParentMessageId,
         role: "user",
         content: text,
         mode,
@@ -76,7 +76,7 @@ export default function KnowvaInput() {
 
       setIsResponding(true);
 
-      currentParentId = userMessage.id;
+      currentParentMessageId = userMessage.id;
 
       if (signal.aborted) {
         throw new DOMException("Aborted", "AbortError");
@@ -84,7 +84,7 @@ export default function KnowvaInput() {
 
       let knowvaNewMessage = {
         chat_id: currentChatId,
-        parent_id: currentParentId,
+        parent_id: currentParentMessageId,
         role: "assistant",
         content: "",
         mode,
@@ -141,8 +141,8 @@ export default function KnowvaInput() {
       setCurrentMessage(null);
       setMessages((prev) => [...prev, knowvaMessage]);
 
-      currentParentId = knowvaMessage.id;
-      setParentId(currentParentId);
+      currentParentMessageId = knowvaMessage.id;
+      setParentMessageId(currentParentMessageId);
     } catch (err) {
       const isAbort = err instanceof DOMException && err.name === "AbortError";
 
@@ -155,7 +155,7 @@ export default function KnowvaInput() {
       if (!isAbort && currentChatId) {
         const systemNewMessage = {
           chat_id: currentChatId,
-          parent_id: currentParentId,
+          parent_id: currentParentMessageId,
           role: "system",
           content: errorMessage,
           mode,
@@ -168,7 +168,7 @@ export default function KnowvaInput() {
         setCurrentMessage(null);
         setMessages((prev) => [...prev, systemMessage]);
 
-        setParentId(systemMessage.id);
+        setParentMessageId(systemMessage.id);
       }
 
       setText(currentText);

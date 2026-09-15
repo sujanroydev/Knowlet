@@ -1,9 +1,157 @@
 import { Edit2 } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { useEffect, useState } from "react";
 
 import { useKnowva } from "@/context/KnowvaContext";
-import type { Message, NewMessage } from "@/types/knowva";
+import type {
+  Message,
+  NewMessage,
+  QuizSubmissionMetadata,
+} from "@/types/knowva";
+import { updateMetadata } from "@/actions/knowva";
+import { toast } from "sonner";
+
+type Quiz = {
+  question: string;
+  options: string[];
+  answer: number;
+};
+
+function QuizMessage({
+  messageId,
+  quizzes,
+  metadata,
+}: {
+  messageId: string;
+  quizzes: Quiz[];
+  metadata: QuizSubmissionMetadata | null;
+}) {
+  const [answers, setAnswers] = useState<Record<number, number>>({});
+  const [submitted, setSubmitted] = useState(false);
+  const [score, setScore] = useState<number | null>(null);
+
+  const handleSelect = (questionIndex: number, optionIndex: number) => {
+    if (submitted) return;
+
+    setAnswers((current) => ({
+      ...current,
+      [questionIndex]: optionIndex,
+    }));
+  };
+
+  const handleSubmit = async () => {
+    if (Object.keys(answers).length !== quizzes.length) {
+      return;
+    }
+
+    const correctAnswers = quizzes.reduce(
+      (total, quiz, questionIndex) =>
+        answers[questionIndex] === quiz.answer ? total + 1 : total,
+      0,
+    );
+
+    const submittedAnswers = quizzes.map(
+      (_, questionIndex) => answers[questionIndex],
+    );
+
+    try {
+      await updateMetadata(messageId, {
+        answers: submittedAnswers,
+        score: correctAnswers,
+        total: quizzes.length,
+        submitted_at: new Date().toISOString(),
+      });
+
+      setScore(correctAnswers);
+      setSubmitted(true);
+    } catch {
+      toast.error("Failed to submit.");
+    }
+  };
+
+  useEffect(() => {
+    if (!metadata) return;
+
+    setAnswers(metadata.answers);
+    setSubmitted(true);
+    setScore(metadata.score);
+  }, []);
+
+  return (
+    <div className="space-y-5">
+      <div>
+        <p className="text-xs text-muted-foreground">
+          Select one answer for each question.
+        </p>
+      </div>
+
+      {quizzes.map((quiz, questionIndex) => (
+        <div key={questionIndex} className="space-y-3">
+          <p className="font-medium">
+            {questionIndex + 1}. {quiz.question}
+          </p>
+
+          <div className="space-y-2">
+            {quiz.options.map((option, optionIndex) => {
+              const isSelected = answers[questionIndex] === optionIndex;
+              const isCorrect = quiz.answer === optionIndex;
+              const isWrong = submitted && isSelected && !isCorrect;
+
+              return (
+                <label
+                  key={optionIndex}
+                  className={`flex cursor-pointer items-center gap-3 rounded-lg border p-3 transition-colors ${
+                    submitted && isCorrect
+                      ? "border-green-500 bg-green-500/10"
+                      : isWrong
+                        ? "border-red-500 bg-red-500/10"
+                        : isSelected
+                          ? "border-primary bg-primary/10"
+                          : "border-border hover:bg-background/50"
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name={`question-${questionIndex}`}
+                    value={optionIndex}
+                    checked={isSelected}
+                    onChange={() => handleSelect(questionIndex, optionIndex)}
+                    disabled={submitted}
+                    className="accent-primary"
+                  />
+
+                  <span>{option}</span>
+                </label>
+              );
+            })}
+          </div>
+        </div>
+      ))}
+
+      {submitted && score !== null && (
+        <div className="rounded-lg border border-border bg-background/50 p-3 text-center">
+          <p className="font-semibold">
+            Score: {score}/{quizzes.length}
+          </p>
+
+          <p className="mt-1 text-xs text-muted-foreground">
+            {score === quizzes.length ? "Perfect score!" : "Quiz completed."}
+          </p>
+        </div>
+      )}
+
+      <button
+        type="button"
+        onClick={handleSubmit}
+        disabled={submitted || Object.keys(answers).length !== quizzes.length}
+        className="w-full rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground disabled:cursor-not-allowed disabled:opacity-50"
+      >
+        {submitted ? "Submitted" : "Submit Quiz"}
+      </button>
+    </div>
+  );
+}
 
 export default function KnowvaMessage({
   message,
@@ -22,17 +170,34 @@ export default function KnowvaMessage({
     );
   }
 
+  const isQuiz = message.role === "assistant" && message.mode === "quiz";
+
+  let quizzes: Quiz[] | null;
+  try {
+    quizzes = JSON.parse(message.content);
+  } catch {
+    quizzes = null;
+  }
+
   return (
     <div
-      className={`max-w-[75%] px-3 py-2 rounded-xl text-sm whitespace-pre-wrap ${
+      className={`max-w-[75%] rounded-xl px-3 py-2 text-sm ${
         message.role === "user"
-          ? "bg-primary text-primary-foreground ml-auto"
-          : "bg-muted text-foreground mr-auto border border-border"
+          ? "ml-auto bg-primary text-primary-foreground"
+          : "mr-auto border border-border bg-muted text-foreground"
       }`}
     >
-      <ReactMarkdown remarkPlugins={[remarkGfm]}>
-        {message.content}
-      </ReactMarkdown>
+      {isQuiz && quizzes && "id" in message && "metadata" in message ? (
+        <QuizMessage
+          messageId={message.id}
+          quizzes={quizzes}
+          metadata={(message.metadata as QuizSubmissionMetadata) || null}
+        />
+      ) : (
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          {message.content}
+        </ReactMarkdown>
+      )}
 
       <div className="mt-2 flex items-center justify-end gap-2 text-[10px] opacity-70">
         {message.mode === "create-resource" &&

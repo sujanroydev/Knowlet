@@ -1,4 +1,10 @@
-export type Mode = "chat" | "quiz" | "study" | "short" | "explain" | "create-resource";
+export type Mode =
+  | "chat"
+  | "quiz"
+  | "study"
+  | "short"
+  | "explain"
+  | "create-resource";
 export type Role = "user" | "knowva" | "system";
 
 export interface Message {
@@ -19,6 +25,13 @@ export interface NewMessage {
   content: string;
   mode: Mode;
   model: string;
+}
+
+export interface QuizSubmissionMetadata {
+  answers: number[];
+  score: number;
+  total: number;
+  submitted_at: string;
 }
 
 export interface Chat {

@@ -1,6 +1,11 @@
 import { supabase } from "@/lib/supabase";
 
-import type { Message, NewMessage, Mode } from "@/types/knowva";
+import type {
+  Message,
+  NewMessage,
+  Mode,
+  QuizSubmissionMetadata,
+} from "@/types/knowva";
 import { updateLastMessageTime } from "@/db/knowva/chat";
 
 const messageSelect = `
@@ -11,6 +16,7 @@ const messageSelect = `
   content,
   mode,
   model,
+  metadata,
   created_at
 `;
 
@@ -41,4 +47,16 @@ export async function fetchMessages(chatId: string) {
   if (error) throw error;
 
   return data;
+}
+
+export async function updateMetadata(
+  messageId: string,
+  metadata: QuizSubmissionMetadata,
+) {
+  const { error } = await supabase
+    .from("knowva_messages")
+    .update({ metadata })
+    .eq("id", messageId);
+
+  if (error) throw error;
 }

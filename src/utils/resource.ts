@@ -118,7 +118,7 @@ export function generateResourceTitle(path: string) {
 export function processResourceHtml(html: string) {
   const root = parse(html);
 
-  const headings = root.querySelectorAll("h1, h2, h3");
+  const headings = root.querySelectorAll("h2, h3");
 
   const toc: TocItem[] = [];
   const stack: TocItem[] = [];
@@ -169,23 +169,26 @@ export function processResourceHtml(html: string) {
 }
 
 export function tableOfContentsToHtml(items: TocItem[]): string {
-  const renderItems = (items: TocItem[]): string => {
-    return `<ul>
+  const renderItems = (items: TocItem[], level = 0): string => {
+    const indent = " ".repeat(level * 2);
+
+    return `${indent}<ul>
 ${items
-  .map(
-    (item) => `  <li>
-    <a href="#${item.id}">${item.text}</a>${
-      item.children?.length ? `\n${renderItems(item.children)}` : ""
-    }
-  </li>`,
-  )
+  .map((item) => {
+    const children = item.children?.length
+      ? `\n${renderItems(item.children, level + 1)}\n${indent}`
+      : "";
+
+    return `${indent}    <li>
+${indent}        <a href="#${item.id}">${item.text}</a>${children}
+${indent}    </li>`;
+  })
   .join("\n")}
-</ul>`;
+${indent}</ul>`;
   };
 
   return `<div class="toc">
-  <nav aria-label="Table of contents">
-    ${renderItems(items)}
-  </nav>
+    <h2>Table of Contents</h2>
+${renderItems(items, 1)}
 </div>`;
 }

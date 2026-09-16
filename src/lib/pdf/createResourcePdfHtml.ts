@@ -32,7 +32,7 @@ export function createResourcePdfHtml(resource: Resource) {
             >${renderToc(toc, 1)}</nav>`
           }
 
-          <article>${resource.content}</article>
+          <article>${html}</article>
         </div>
       </body>
     </html>

@@ -118,10 +118,21 @@ export function generateResourceTitle(path: string) {
 export function processResourceHtml(html: string) {
   const root = parse(html);
 
+  // Remove existing/default TOC
+  root.querySelectorAll(".toc").forEach((toc) => {
+    toc.remove();
+  });
+
+  // Remove title H1
+  root.querySelectorAll("h1").forEach((h1) => {
+    h1.remove();
+  });
+
   const headings = root.querySelectorAll("h2, h3");
 
   const toc: TocItem[] = [];
   const stack: TocItem[] = [];
+  const usedIds = new Set<string>();
 
   for (const heading of headings) {
     const level = Number(heading.rawTagName.slice(1));
@@ -129,15 +140,25 @@ export function processResourceHtml(html: string) {
 
     if (!text) continue;
 
-    const id =
+    let id =
       heading.getAttribute("id") ||
       text
         .toLowerCase()
         .replace(/(\d+)\.(\d+)/g, "$1-$2")
         .replace(/[^a-z0-9\s-]/g, "")
         .replace(/\s+/g, "-")
-        .replace(/-+/g, "-");
+        .replace(/-+/g, "-")
+        .replace(/^-|-$/g, "");
 
+    const baseId = id;
+    let counter = 2;
+
+    while (usedIds.has(id)) {
+      id = `${baseId}-${counter}`;
+      counter++;
+    }
+
+    usedIds.add(id);
     heading.setAttribute("id", id);
 
     const item: TocItem = {
@@ -146,13 +167,13 @@ export function processResourceHtml(html: string) {
       level,
     };
 
+    // Find the correct parent
     while (stack.length && stack[stack.length - 1].level >= level) {
       stack.pop();
     }
 
     if (stack.length) {
       const parent = stack[stack.length - 1];
-
       parent.children ??= [];
       parent.children.push(item);
     } else {
@@ -168,15 +189,14 @@ export function processResourceHtml(html: string) {
   };
 }
 
-export function tableOfContentsToHtml(items: TocItem[]): string {
-  const renderItems = (items: TocItem[], level = 0): string => {
-    const indent = " ".repeat(level * 2);
+export function renderToc(items: TocItem[], level = 0): string {
+  const indent = " ".repeat(level * 2);
 
-    return `${indent}<ul>
+  return `${indent}<ul>
 ${items
   .map((item) => {
     const children = item.children?.length
-      ? `\n${renderItems(item.children, level + 1)}\n${indent}`
+      ? `\n${renderToc(item.children, level + 1)}\n${indent}`
       : "";
 
     return `${indent}    <li>
@@ -185,10 +205,4 @@ ${indent}    </li>`;
   })
   .join("\n")}
 ${indent}</ul>`;
-  };
-
-  return `<div class="toc">
-    <h2>Table of Contents</h2>
-${renderItems(items, 1)}
-</div>`;
 }

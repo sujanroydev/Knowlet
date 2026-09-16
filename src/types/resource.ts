@@ -62,6 +62,13 @@ export interface ActivityItem {
   resource: ResourceInfo;
 }
 
+export type TocItem = {
+  id: string;
+  text: string;
+  level: number;
+  children?: TocItem[];
+};
+
 export type Bookmark = ActivityItem;
 export type Like = ActivityItem;
 export type History = ActivityItem;

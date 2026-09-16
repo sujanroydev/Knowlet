@@ -1,4 +1,6 @@
+import { parse } from "node-html-parser";
 import { slugify, upperCase, titleCase } from "@/utils/string";
+import { TocItem } from "@/types/resource";
 
 function parseResourcePath(path: string) {
   const parts = path.split("/");
@@ -29,7 +31,12 @@ function parseResourcePath(path: string) {
         level: titleCase(levelSlug),
         subject: titleCase(subjectSlug),
         paper: upperCase(paperSlug),
-        type: typeSlug === "pyqs" ? "PYQs" : typeSlug === "pdf" ? "PDF" : titleCase(typeSlug),
+        type:
+          typeSlug === "pyqs"
+            ? "PYQs"
+            : typeSlug === "pdf"
+              ? "PDF"
+              : titleCase(typeSlug),
         target: titleCase(targetSlug),
 
         levelSlug,
@@ -50,7 +57,12 @@ function parseResourcePath(path: string) {
     return {
       level: titleCase(levelSlug),
       subject: titleCase(subjectSlug),
-      type: typeSlug === "pyqs" ? "PYQs" : typeSlug === "pdf" ? "PDF" : titleCase(typeSlug),
+      type:
+        typeSlug === "pyqs"
+          ? "PYQs"
+          : typeSlug === "pdf"
+            ? "PDF"
+            : titleCase(typeSlug),
       target: titleCase(targetSlug),
 
       levelSlug,
@@ -100,4 +112,56 @@ export function generateResourceTitle(path: string) {
   const { level, subject, paper, type, target } = parseResourcePath(path);
 
   return `${target} - ${paper ? `${paper} - ${subject}` : subject} - ${level} - ${type}`;
+}
+
+export function getTableOfContents(html: string): TocItem[] {
+  const root = parse(html);
+
+  const headings = root.querySelectorAll("h1, h2, h3");
+
+  const toc: TocItem[] = [];
+  const stack: TocItem[] = [];
+
+  for (const heading of headings) {
+    const level = Number(heading.rawTagName.slice(1));
+    const text = heading.text.trim();
+
+    if (!text) continue;
+
+    const id =
+      heading.getAttribute("id") ||
+      text
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, "")
+        .replace(/\s+/g, "-")
+        .replace(/-+/g, "-");
+
+    heading.setAttribute("id", id);
+
+    const item: TocItem = {
+      id,
+      text,
+      level,
+    };
+
+    while (stack.length && stack[stack.length - 1].level >= level) {
+      stack.pop();
+    }
+
+    if (stack.length) {
+      const parent = stack[stack.length - 1];
+
+      if (!parent.children) {
+        parent.children = [];
+      }
+
+      parent.children.push(item);
+    } else {
+      toc.push(item);
+    }
+
+    stack.push(item);
+  }
+
+  return toc;
 }

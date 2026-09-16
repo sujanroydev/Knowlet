@@ -37,7 +37,7 @@ export async function _generate({
   prompt,
   schema,
   model = DEFAULT_MODEL,
-  stream,
+  stream = false,
 }: {
   prompt: string;
   schema?: any;
@@ -63,7 +63,6 @@ export async function _generate({
 
       return response.text.trim();
     }
-
     const geminiStream = await gemini.models.generateContentStream(payload);
 
     return geminiStream;

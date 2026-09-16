@@ -1,4 +1,5 @@
 import { parse } from "node-html-parser";
+
 import { slugify, upperCase, titleCase } from "@/utils/string";
 import { TocItem } from "@/types/resource";
 
@@ -114,7 +115,7 @@ export function generateResourceTitle(path: string) {
   return `${target} - ${paper ? `${paper} - ${subject}` : subject} - ${level} - ${type}`;
 }
 
-export function getTableOfContents(html: string): TocItem[] {
+export function processResourceHtml(html: string) {
   const root = parse(html);
 
   const headings = root.querySelectorAll("h1, h2, h3");
@@ -132,6 +133,7 @@ export function getTableOfContents(html: string): TocItem[] {
       heading.getAttribute("id") ||
       text
         .toLowerCase()
+        .replace(/(\d+)\.(\d+)/g, "$1-$2")
         .replace(/[^a-z0-9\s-]/g, "")
         .replace(/\s+/g, "-")
         .replace(/-+/g, "-");
@@ -151,10 +153,7 @@ export function getTableOfContents(html: string): TocItem[] {
     if (stack.length) {
       const parent = stack[stack.length - 1];
 
-      if (!parent.children) {
-        parent.children = [];
-      }
-
+      parent.children ??= [];
       parent.children.push(item);
     } else {
       toc.push(item);
@@ -163,5 +162,30 @@ export function getTableOfContents(html: string): TocItem[] {
     stack.push(item);
   }
 
-  return toc;
+  return {
+    html: root.toString(),
+    toc,
+  };
+}
+
+export function tableOfContentsToHtml(items: TocItem[]): string {
+  const renderItems = (items: TocItem[]): string => {
+    return `<ul>
+${items
+  .map(
+    (item) => `  <li>
+    <a href="#${item.id}">${item.text}</a>${
+      item.children?.length ? `\n${renderItems(item.children)}` : ""
+    }
+  </li>`,
+  )
+  .join("\n")}
+</ul>`;
+  };
+
+  return `<div class="toc">
+  <nav aria-label="Table of contents">
+    ${renderItems(items)}
+  </nav>
+</div>`;
 }

@@ -1,8 +1,11 @@
 import { getResourceStyles } from "@/config/resourceThemes";
 import { useTheme } from "@/context/ThemeContext";
+import { processResourceHtml, tableOfContentsToHtml } from "@/utils/resource";
 
 export default function ResourcePreview({ content }: { content: string }) {
   const { resolvedTheme } = useTheme();
+
+  const { html, toc } = processResourceHtml(content);
 
   return (
     <div className="box-border h-[650px] overflow-y-auto bg-muted p-6">
@@ -11,7 +14,7 @@ export default function ResourcePreview({ content }: { content: string }) {
           className="resource-content"
           style={getResourceStyles({ theme: resolvedTheme })}
           dangerouslySetInnerHTML={{
-            __html: content,
+            __html: tableOfContentsToHtml(toc) + html,
           }}
         />
       ) : (

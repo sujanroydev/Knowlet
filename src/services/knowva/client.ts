@@ -33,6 +33,50 @@ export async function generate({
   }
 }
 
+export async function _generate({
+  prompt,
+  schema,
+  model = DEFAULT_MODEL,
+  stream,
+}: {
+  prompt: string;
+  schema?: any;
+  model?: ModelId;
+  stream?: boolean;
+}) {
+  try {
+    const payload = {
+      model,
+      contents: prompt,
+      config: schema
+        ? {
+            responseMimeType: "application/json",
+            responseSchema: schema,
+          }
+        : undefined,
+    };
+
+    if (!stream) {
+      const response = await gemini.models.generateContent(payload);
+
+      if (!response.text) throw new Error("Failed to generate response");
+
+      return response.text.trim();
+    }
+
+    const geminiStream = await gemini.models.generateContentStream(payload);
+
+    return geminiStream;
+  } catch (error: any) {
+    const message =
+      error instanceof Error
+        ? error.message
+        : "Failed to generate AI response.";
+
+    throw new Error(message);
+  }
+}
+
 export async function generateStream({
   prompt,
   mode = "chat",
@@ -48,20 +92,20 @@ export async function generateStream({
       ? responseSchema[mode]
       : undefined;
 
-  return generateStreamCCCCCCC({
+  return _generateStream({
     prompt,
     schema,
     model,
   });
 }
 
-export async function generateStreamCCCCCCC({
+export async function _generateStream({
   prompt,
   schema,
   model = DEFAULT_MODEL,
 }: {
   prompt: string;
-  schema?: unknown;
+  schema?: any;
   model?: ModelId;
 }): Promise<ReadableStream<any>> {
   try {

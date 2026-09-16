@@ -43,19 +43,37 @@ export async function generateStream({
     "create-resource": createResourceSchema,
   } as const;
 
-  try {
-    const config =
-      mode === "create-resource" || mode === "quiz"
-        ? {
-            responseMimeType: "application/json",
-            responseSchema: responseSchema[mode],
-          }
-        : undefined;
+  const schema =
+    mode === "create-resource" || mode === "quiz"
+      ? responseSchema[mode]
+      : undefined;
 
+  return generateStreamCCCCCCC({
+    prompt,
+    schema,
+    model,
+  });
+}
+
+export async function generateStreamCCCCCCC({
+  prompt,
+  schema,
+  model = DEFAULT_MODEL,
+}: {
+  prompt: string;
+  schema?: unknown;
+  model?: ModelId;
+}): Promise<ReadableStream<any>> {
+  try {
     const stream = await gemini.models.generateContentStream({
       model,
       contents: prompt,
-      config,
+      config: schema
+        ? {
+            responseMimeType: "application/json",
+            responseSchema: schema,
+          }
+        : undefined,
     });
 
     const encoder = new TextEncoder();

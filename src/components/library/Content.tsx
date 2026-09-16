@@ -5,11 +5,12 @@ import { useEffect } from "react";
 
 import ResourceFooterActions from "./resource-footer-actions";
 import { getResourceStyles } from "@/config/resourceThemes";
-import ContentAd from "../ads/ContentAd";
+// import ContentAd from "../ads/ContentAd";
 
 import { useTheme } from "@/context/ThemeContext";
 import { useHeader } from "@/context/HeaderContext";
 import { useReader } from "@/context/ReaderContext";
+import { processResourceHtml, renderToc } from "@/utils/resource";
 
 export default function Content({ resource }: { resource: any }) {
   if (!resource) notFound();
@@ -18,6 +19,8 @@ export default function Content({ resource }: { resource: any }) {
   const { resolvedTheme } = useTheme();
 
   const style = getResourceStyles({ uuid: resource.id, theme: resolvedTheme });
+
+  const { html, toc } = processResourceHtml(resource.content);
 
   useEffect(() => {
     setMode("reader");
@@ -37,15 +40,24 @@ export default function Content({ resource }: { resource: any }) {
         </p>
       </div>
 
-      <article
-        className="resource-content break-words text-base leading-8 text-foreground"
-        style={style}
-        dangerouslySetInnerHTML={{
-          __html: resource.content || "",
-        }}
-      />
+      <div className="resource-content" style={style}>
+        {resource.title && <h1>{resource.title}</h1>}
+        {toc && (
+          <nav
+            className="toc"
+            aria-label="Table of Contents"
+            dangerouslySetInnerHTML={{
+              __html: renderToc(toc, 1),
+            }}
+          />
+        )}
+        <article
+          className="break-words text-base leading-8 text-foreground"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+      </div>
 
-      <ContentAd />
+      {/* <ContentAd /> */}
 
       <div className="my-16 flex items-center gap-4">
         <hr className="flex-1 border-border" />

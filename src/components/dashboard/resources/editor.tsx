@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { html as beautifyHtml } from "js-beautify";
 
@@ -104,7 +104,11 @@ export default function ResourceEditor() {
           </div>
 
           {preview ? (
-            <ResourcePreview content={content} />
+            <ResourcePreview
+              content={content}
+              title={details.title}
+              description={details.description}
+            />
           ) : (
             <HtmlEditor content={content} setContent={setContent} />
           )}

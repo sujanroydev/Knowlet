@@ -20,102 +20,14 @@ type Unit = {
   error?: string;
 };
 
-const initialUnits: Unit[] = [
-  {
-    id: 1,
-    target: "Unit 1",
+const initialUnits: Unit[] = Array(5)
+  .fill(null)
+  .map((_, i) => ({
+    id: i + 1,
+    target: `Unit ${i + 1}`,
     syllabus: "",
     status: "pending",
-  },
-  {
-    id: 2,
-    target: "Unit 2",
-    syllabus: "",
-    status: "pending",
-  },
-  {
-    id: 3,
-    target: "Unit 3",
-    syllabus: "",
-    status: "pending",
-  },
-  {
-    id: 4,
-    target: "Unit 4",
-    syllabus: "",
-    status: "pending",
-  },
-  {
-    id: 5,
-    target: "Unit 5",
-    syllabus:
-      "Pointers and structures: main function, function prototyping, handling pointers, C structures and limitations",
-    status: "pending",
-  },
-  {
-    id: 6,
-    target: "Unit 6",
-    syllabus:
-      "Classes and objects: specifying class, a sample C++ program with class, access specifiers, defining member functions, nesting of member functions",
-    status: "pending",
-  },
-  {
-    id: 7,
-    target: "Unit 7",
-    syllabus:
-      "More on classes and objects: function definition inside the class and outside the class, private member functions, arrays within the class, memory allocation of objects",
-    status: "pending",
-  },
-  {
-    id: 8,
-    target: "Unit 8",
-    syllabus:
-      "Handling functions: function calling mechanisms: call by Value, call by address & call by reference, objects as function arguments",
-    status: "pending",
-  },
-  {
-    id: 9,
-    target: "Unit 9",
-    syllabus:
-      "More on functions: inline functions, making outside function inline, friend functions",
-    status: "pending",
-  },
-  {
-    id: 10,
-    target: "Unit 10",
-    syllabus:
-      "Static members and polymorphism: Static Data Members & Static Functions, Function Overloading",
-    status: "pending",
-  },
-  {
-    id: 11,
-    target: "Unit 11",
-    syllabus:
-      "Constructors and destructors: constructors, parameterized constructors, copy constructors and dynamic constructors, multiple constructors in a class",
-    status: "pending",
-  },
-  {
-    id: 12,
-    target: "Unit 12",
-    syllabus:
-      "More on constructors and destructors: constructors with default arguments, dynamic initialization of objects, destructors",
-    status: "pending",
-  },
-  {
-    id: 13,
-    target: "Unit 13",
-    syllabus:
-      "Inheritance: defining derived classes, single inheritance, making a private member inheritable, multilevel inheritance, hierarchical inheritance, multiple inheritances, hybrid inheritance",
-    status: "pending",
-  },
-  {
-    id: 14,
-    target: "Unit 14",
-    syllabus:
-      "File handling: file handling operations: open, close, read and write",
-    status: "pending",
-  },
-];
+  }));
 
 export default function ResourceGenerator() {
   const [level, setLevel] = useState("Semester 2");
@@ -391,7 +303,7 @@ export default function ResourceGenerator() {
         </section>
 
         {/* Actions */}
-        <div className="sticky bottom-4 mt-8 flex items-center justify-between rounded-xl border bg-card/95 p-3 shadow-lg backdrop-blur">
+        <div className="sticky bottom-20 mt-8 flex items-center justify-between rounded-xl border bg-card/95 p-3 shadow-lg backdrop-blur">
           <button
             onClick={reset}
             disabled={running}

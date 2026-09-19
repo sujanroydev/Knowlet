@@ -13,7 +13,6 @@ import { getSubjectId, insertSubject } from "@/db/resource/subject";
 import { getPaperId, insertPaper } from "@/db/resource/paper";
 import { getRecentViewHistory } from "@/db/resource/history";
 import { apiError } from "@/lib/api-response";
-import { PostgrestError } from "@supabase/supabase-js";
 
 export async function GET(req: NextRequest) {
   try {

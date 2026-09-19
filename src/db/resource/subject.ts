@@ -1,4 +1,5 @@
 import { supabase } from "@/lib/supabase";
+import { Subject } from "@/types/resource";
 
 const defaultColumns =
   "id, title, description, path, slug, code, created_at, updated_at";
@@ -12,12 +13,12 @@ export async function insertSubject(newSubject: {
   const { data, error } = await supabase
     .from("subjects")
     .insert(newSubject)
-    .select()
+    .select(defaultColumns)
     .single();
 
   if (error) throw error;
 
-  return data;
+  return data as Subject;
 }
 
 export async function getSubjects(levelId: string) {
@@ -28,7 +29,7 @@ export async function getSubjects(levelId: string) {
 
   if (error) throw error;
 
-  return data;
+  return data as Subject[];
 }
 
 export async function getSubjectId(slug: string, levelId: string) {

@@ -1,3 +1,7 @@
+export type { Level } from "./level";
+export type { Subject } from "./subject";
+export type { Paper } from "./paper";
+
 export type ResourceType = "note" | "pyq" | "important_question" | "pdf";
 
 export type Mode =

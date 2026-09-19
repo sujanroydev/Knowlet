@@ -3,55 +3,19 @@ import TextInput from "@/components/ui/text-input";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { useResourceEditor } from "@/context/ResourceEditorContext";
+import { getLevels } from "@/actions/resource/level";
+import { getSubjects } from "@/actions/resource/subject";
+import { getPapers } from "@/actions/resource/paper";
 
-interface Details {
-  title: string;
-  description: string;
-  target: string;
-  type: string;
-  slug: string;
-  path: string;
-}
+import type { Level, Paper, Subject } from "@/types/resource";
 
-const options = {
-  level: [
-    "Select",
-    ...[...Array(4)].map((_, i) => `Class ${i + 9}`),
-    ...[...Array(8)].map((_, i) => `Semester ${i + 1}`),
-  ],
-  subjects: [
-    "Select",
-    "Anthropology",
-    "Accountancy",
-    "Zoology",
-    "Biology",
-    "Statistics",
-    "Political Science",
-    "Physics",
-    "Philosophy",
-    "Psychology",
-    "Sociology",
-    "Mathematics",
-    "History",
-    "Geology",
-    "Education",
-    "Economics",
-    "Commerce",
-    "Ecology And Environmental Science",
-    "Computer Science",
-    "Computer Application",
-    "Chemistry",
-    "Botany",
-    "Biotechnology",
-  ],
-  type: ["Select", "Notes", "PYQs", "Questions", "PDF"],
-  target: (type: string) => [
-    "Select",
-    ...(type === "pyq"
-      ? [...Array(5)].map((_, i) => `Solved ${i + 2021}`)
-      : [...Array(15)].map((_, i) => `Unit ${i + 1}`)),
-  ],
-};
+const defaultTypes = ["Select", "Notes", "PYQs", "Questions", "PDF"];
+const defaultTargets = (type: string) => [
+  "Select",
+  ...(type === "PYQs"
+    ? [...Array(6)].map((_, i) => `Solved ${i + 2021}`)
+    : [...Array(15)].map((_, i) => `Unit ${i + 1}`)),
+];
 
 export default function ResourceDetails() {
   const { action, details, setDetails } = useResourceEditor();
@@ -65,6 +29,12 @@ export default function ResourceDetails() {
   const [type, setType] = useState(details?.type ?? "");
   const [target, setTarget] = useState(details?.target ?? "");
 
+  const [levels, setLevels] = useState<Level[]>();
+  const [subjects, setSubjects] = useState<Subject[]>();
+  const [papers, setPapers] = useState<Paper[]>();
+  const [types, setTypes] = useState(defaultTypes);
+  const [targets, setTargets] = useState(["Select"]);
+
   useEffect(() => {
     setTitle(details?.title ?? "");
     setDescription(details?.description ?? "");
@@ -73,6 +43,12 @@ export default function ResourceDetails() {
   useEffect(() => {
     setDetails({ title, description, level, subject, paper, target, type });
   }, [title, description, level, subject, paper, target, type]);
+
+  useEffect(() => {
+    getLevels()
+      .then(setLevels)
+      .catch(() => toast.error("Failed to load levels"));
+  }, []);
 
   return (
     <div className="rounded-3xl border border-border bg-card p-6 shadow-sm">
@@ -109,25 +85,65 @@ export default function ResourceDetails() {
 
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             <SelectInput
+              label="Resource Type"
+              options={types}
+              value={type}
+              onChange={(e) => {
+                const type = e.target.value;
+                setType(type);
+
+                setTargets(defaultTargets(type));
+              }}
+              disabled={action === "update" ? true : false}
+            />
+
+            <SelectInput
               label="Level"
-              options={options.level}
+              options={[
+                "Select",
+                ...(levels?.map((level) => level.title) || []),
+              ]}
               value={level}
-              onChange={(e) => setLevel(e.target.value)}
+              onChange={(e) => {
+                const level = e.target.value;
+                setLevel(level);
+
+                const id = levels?.find((l) => l.title === level)?.id;
+                id &&
+                  getSubjects(id)
+                    .then(setSubjects)
+                    .catch(() => toast.error("failed to load Subjects"));
+              }}
               disabled={action === "update" ? true : false}
             />
 
             <SelectInput
               label="Subject"
-              options={options.subjects}
+              options={[
+                "Select",
+                ...(subjects?.map((subject) => subject.title) || []),
+              ]}
               value={subject}
-              onChange={(e) => setSubject(e.target.value)}
+              onChange={(e) => {
+                const subject = e.target.value;
+                setSubject(subject);
+
+                const id = subjects?.find((s) => s.title === subject)?.id;
+                id &&
+                  getPapers(id)
+                    .then(setPapers)
+                    .catch(() => toast.error("failed to load Papers"));
+              }}
               disabled={action === "update" ? true : false}
             />
 
             {level.startsWith("Semester") && (
-              <TextInput
+              <SelectInput
                 label="Paper"
-                placeholder="eg. DSC 152"
+                options={[
+                  "Select",
+                  ...(papers?.map((subject) => subject.title) || []),
+                ]}
                 value={paper}
                 onChange={(e) => {
                   const value = e.target.value;
@@ -141,24 +157,25 @@ export default function ResourceDetails() {
                   }
                   const paper = `${match[1].toUpperCase()} ${match[3]}`;
                   setPaper(paper);
+
+                  const id = subjects?.find((s) => s.title === subject)?.id;
+                  id &&
+                    getPapers(id)
+                      .then(setPapers)
+                      .catch(() => toast.error("failed to load Papers"));
                 }}
                 disabled={action === "update" ? true : false}
               />
             )}
 
             <SelectInput
-              label="Resource Type"
-              options={options.type}
-              value={type}
-              onChange={(e) => setType(e.target.value)}
-              disabled={action === "update" ? true : false}
-            />
-
-            <SelectInput
               label="target"
-              options={options.target(type)}
+              options={targets}
               value={target}
-              onChange={(e) => setTarget(e.target.value)}
+              onChange={(e) => {
+                const target = e.target.value;
+                setTarget(target);
+              }}
               disabled={action === "update" ? true : false}
             />
           </div>

@@ -1,5 +1,8 @@
 import { supabase } from "@/lib/supabase";
 
+const defaultColumns =
+  "id, title, description, path, slug, code, created_at, updated_at";
+
 export async function insertPaper(newPaper: {
   subject_id: string;
   level_id: string;
@@ -19,10 +22,18 @@ export async function insertPaper(newPaper: {
   return data;
 }
 
-export async function getPaperId(
-  slug: string,
-  subjectId: string,
-) {
+export async function getPapers(subjectId: string) {
+  const { data, error } = await supabase
+    .from("papers")
+    .select(defaultColumns)
+    .eq("subject_id", subjectId);
+
+  if (error) throw error;
+
+  return data;
+}
+
+export async function getPaperId(slug: string, subjectId: string) {
   const { data, error } = await supabase
     .from("papers")
     .select("id")

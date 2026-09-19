@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import Content from "@/components/library/Content";
 import Navigator from "@/components/library/Navigator";
-import { parseLibraryPath } from "@/components/dashboard/resources/utils";
+import { parseLibraryPath } from "@/utils/resource";
 import AIAssistant from "@/components/knowva/AIAssistant";
 import { getResourceByPath } from "@/db/resource";
 

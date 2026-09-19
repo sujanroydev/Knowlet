@@ -3,7 +3,7 @@ import { parse } from "node-html-parser";
 import { slugify, upperCase, titleCase } from "@/utils/string";
 import { TocItem } from "@/types/resource";
 
-function parseResourcePath(path: string) {
+export function parseResourcePath(path: string) {
   const parts = path.split("/");
 
   if (parts.length < 4) throw new Error("Invalid Resource Path");
@@ -74,7 +74,48 @@ function parseResourcePath(path: string) {
   }
 }
 
-function buildResourcePath({
+export function parseLibraryPath(path: string) {
+  const parts = path.split("/");
+
+  const levelSlug = parts[0];
+  const subjectSlug = parts[1];
+
+  const i = parts[0]?.startsWith("semester") ? 1 : 0;
+  const paperSlug = i ? parts[2] : undefined;
+
+  const typeSlug = parts[2 + i];
+  const targetSlug = parts[3 + i];
+
+  return {
+    ...(levelSlug && {
+      level: titleCase(levelSlug),
+      levelSlug,
+    }),
+    ...(subjectSlug && {
+      subject: titleCase(subjectSlug),
+      subjectSlug,
+    }),
+    ...(paperSlug && {
+      paper: upperCase(paperSlug),
+      paperSlug,
+    }),
+    ...(typeSlug && {
+      type:
+        typeSlug === "pyqs"
+          ? "PYQs"
+          : typeSlug === "pdf"
+            ? "PDF"
+            : titleCase(typeSlug),
+      typeSlug,
+    }),
+    ...(targetSlug && {
+      target: titleCase(targetSlug),
+      targetSlug,
+    }),
+  };
+}
+
+export function buildResourcePath({
   level,
   subject,
   paper,

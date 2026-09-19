@@ -1,6 +1,6 @@
 import { getHistoryPaths } from "@/db/user/history";
 import StatsBlock from "./Block";
-import { parseResourcePath } from "@/components/dashboard/resources/utils";
+import { parseResourcePath } from "@/utils/resource";
 import sortByPath from "@/utils/sortByPath";
 import { USER_LEVELS } from "@/config/constants";
 

@@ -1,11 +1,11 @@
 "use client";
 
 import { createContext, useContext, useState } from "react";
-import type { Resource, Action, Details } from "@/types/resource"
-import { parseResourcePath } from "@/components/dashboard/resources/utils";
+import type { Resource, Action, Details } from "@/types/resource";
+import { parseResourcePath } from "@/utils/resource";
 
 type EditorState = {
-  action: Action
+  action: Action;
   resource?: Resource;
   content: string;
   details: Details;
@@ -31,15 +31,17 @@ export function ResourceEditorProvider({
     target: "",
     type: "",
   } as {
-    level: string,
-    subject: string,
-    paper?: string,
-    target: string,
-    type: string,
-  }
+    level: string;
+    subject: string;
+    paper?: string;
+    target: string;
+    type: string;
+  };
 
   try {
-    const { level, subject, paper, target, type } = parseResourcePath(resource?.path ?? "");
+    const { level, subject, paper, target, type } = parseResourcePath(
+      resource?.path ?? "",
+    );
     parsedResourcePath = { level, subject, paper, target, type };
   } catch {}
 
@@ -71,7 +73,9 @@ export function useResourceEditor() {
   const ctx = useContext(ResourceEditorContext);
 
   if (!ctx) {
-    throw new Error("useResourceEditor must be used inside ResourceEditorProvider");
+    throw new Error(
+      "useResourceEditor must be used inside ResourceEditorProvider",
+    );
   }
 
   return ctx;

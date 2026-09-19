@@ -1,9 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import {
-  parseResourcePath,
-  buildResourcePath,
-} from "@/components/dashboard/resources/utils";
+import { parseResourcePath, buildResourcePath } from "@/utils/resource";
 import { sendNotificationByUserId } from "@/services/notification/send";
 import { authGate } from "@/lib/auth/authGate";
 

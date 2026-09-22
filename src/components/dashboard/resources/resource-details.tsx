@@ -8,14 +8,19 @@ import { getSubjects } from "@/actions/resource/subject";
 import { getPapers } from "@/actions/resource/paper";
 
 import type { Level, Paper, Subject } from "@/types/resource";
+import { buildResourcePath } from "@/utils/resource";
+import { getNearByResources } from "@/actions/resource";
+import { slugify, titleCase } from "@/utils/string";
 
 const defaultTypes = ["Select", "Notes", "PYQs", "Questions", "PDF"];
-const defaultTargets = (type: string) => [
-  "Select",
-  ...(type === "PYQs"
-    ? [...Array(6)].map((_, i) => `Solved ${i + 2021}`)
-    : [...Array(15)].map((_, i) => `Unit ${i + 1}`)),
-];
+const defaultTargets = (type: string) =>
+  type === "PYQs"
+    ? Array(6)
+        .fill(undefined)
+        .map((_, i) => `Solved ${i + 2021}`)
+    : Array(15)
+        .fill(undefined)
+        .map((_, i) => `Unit ${i + 1}`);
 
 export default function ResourceDetails() {
   const { action, details, setDetails } = useResourceEditor();
@@ -29,11 +34,14 @@ export default function ResourceDetails() {
   const [type, setType] = useState(details?.type ?? "");
   const [target, setTarget] = useState(details?.target ?? "");
 
-  const [levels, setLevels] = useState<Level[]>();
-  const [subjects, setSubjects] = useState<Subject[]>();
-  const [papers, setPapers] = useState<Paper[]>();
-  const [types, setTypes] = useState(defaultTypes);
-  const [targets, setTargets] = useState(["Select"]);
+  const [levels, setLevels] =
+    useState<(Partial<Level> & { title: string })[]>();
+  const [subjects, setSubjects] =
+    useState<(Partial<Subject> & { title: string })[]>();
+  const [papers, setPapers] =
+    useState<(Partial<Paper> & { title: string })[]>();
+
+  const [targets, setTargets] = useState<{ title: string; exist: boolean }[]>();
 
   useEffect(() => {
     setTitle(details?.title ?? "");
@@ -43,6 +51,28 @@ export default function ResourceDetails() {
   useEffect(() => {
     setDetails({ title, description, level, subject, paper, target, type });
   }, [title, description, level, subject, paper, target, type]);
+
+  useEffect(() => {
+    const items = [level, subject, paper, type];
+    if (items.some((i) => !i)) return;
+
+    const path = buildResourcePath({
+      level,
+      subject,
+      paper,
+      type,
+      target: target || "Unit ",
+    });
+
+    getNearByResources(path).then((items) => {
+      const targets = defaultTargets(type).map((t) => ({
+        title: t,
+        exist: items.some((item) => item.target === slugify(t)),
+      }));
+
+      setTargets(targets);
+    });
+  }, [type, level, subject, paper]);
 
   useEffect(() => {
     getLevels()
@@ -86,13 +116,11 @@ export default function ResourceDetails() {
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             <SelectInput
               label="Resource Type"
-              options={types}
+              options={defaultTypes}
               value={type}
               onChange={(e) => {
                 const type = e.target.value;
                 setType(type);
-
-                setTargets(defaultTargets(type));
               }}
               disabled={action === "update" ? true : false}
             />
@@ -103,6 +131,7 @@ export default function ResourceDetails() {
                 "Select",
                 ...(levels?.map((level) => level.title) || []),
               ]}
+              addButton={true}
               value={level}
               onChange={(e) => {
                 const level = e.target.value;
@@ -114,6 +143,13 @@ export default function ResourceDetails() {
                     .then(setSubjects)
                     .catch(() => toast.error("failed to load Subjects"));
               }}
+              onInputEnd={(value) => {
+                const level = titleCase(value);
+                if (!level) return;
+
+                setLevels((levels) => [...(levels || []), { title: level }]);
+                setLevel(level);
+              }}
               disabled={action === "update" ? true : false}
             />
 
@@ -123,6 +159,7 @@ export default function ResourceDetails() {
                 "Select",
                 ...(subjects?.map((subject) => subject.title) || []),
               ]}
+              addButton={true}
               value={subject}
               onChange={(e) => {
                 const subject = e.target.value;
@@ -134,6 +171,16 @@ export default function ResourceDetails() {
                     .then(setPapers)
                     .catch(() => toast.error("failed to load Papers"));
               }}
+              onInputEnd={(value) => {
+                const subject = titleCase(value);
+                if (!subject) return;
+
+                setSubjects((subjects) => [
+                  ...(subjects || []),
+                  { title: subject },
+                ]);
+                setSubject(subject);
+              }}
               disabled={action === "update" ? true : false}
             />
 
@@ -144,18 +191,10 @@ export default function ResourceDetails() {
                   "Select",
                   ...(papers?.map((subject) => subject.title) || []),
                 ]}
+                addButton={true}
                 value={paper}
                 onChange={(e) => {
-                  const value = e.target.value;
-                  const match = value.match(
-                    /^[^a-zA-Z]*([a-zA-Z]+)([^a-zA-Z\d]*)(\d+)[^\d]*$/,
-                  );
-                  if (!match) {
-                    setPaper(value);
-                    toast.warning("paper must be like DSC-152 or DSC 152");
-                    return;
-                  }
-                  const paper = `${match[1].toUpperCase()} ${match[3]}`;
+                  const paper = e.target.value;
                   setPaper(paper);
 
                   const id = subjects?.find((s) => s.title === subject)?.id;
@@ -164,13 +203,30 @@ export default function ResourceDetails() {
                       .then(setPapers)
                       .catch(() => toast.error("failed to load Papers"));
                 }}
+                onInputEnd={(value) => {
+                  const match = value.match(
+                    /^[^a-zA-Z]*([a-zA-Z]+)([^a-zA-Z\d]*)(\d+)[^\d]*$/,
+                  );
+
+                  if (!match) {
+                    setPaper(value);
+                    toast.warning("paper must be like DSC-152 or DSC 152");
+                    return;
+                  }
+
+                  const paper = `${match[1].toUpperCase()} ${match[3]}`;
+
+                  setPapers((papers) => [...(papers || []), { title: paper }]);
+                  setPaper(paper);
+                }}
                 disabled={action === "update" ? true : false}
               />
             )}
 
             <SelectInput
               label="target"
-              options={targets}
+              options={["Select", ...(targets?.map((t) => t.title) || [])]}
+              mutedOptions={[false, ...(targets?.map((t) => t.exist) || [])]}
               value={target}
               onChange={(e) => {
                 const target = e.target.value;

@@ -60,6 +60,19 @@ export interface BriefResourceInfo {
   path: string;
 }
 
+export interface NewResource {
+  level_id: string;
+  subject_id: string;
+  paper_id?: string;
+  title: string;
+  description: string;
+  content: string;
+  target: string;
+  type: string;
+  slug: string;
+  path: string;
+}
+
 export interface ActivityItem {
   id: string;
   created_at: string;

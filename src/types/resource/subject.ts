@@ -8,3 +8,10 @@ export interface Subject {
   created_at: string;
   updated_at: string;
 }
+
+export interface NewSubject {
+  level_id: string;
+  title: string;
+  slug: string;
+  path: string;
+}

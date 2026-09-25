@@ -8,3 +8,10 @@ export interface Level {
   created_at: string;
   updated_at: string;
 }
+
+export interface NewLevel {
+  title: string;
+  number: number;
+  slug: string;
+  path: string;
+}

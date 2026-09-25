@@ -8,3 +8,12 @@ export interface Paper {
   created_at: string;
   updated_at: string;
 }
+
+export interface NewPaper {
+  subject_id: string;
+  level_id: string;
+  title: string;
+  code: string;
+  slug: string;
+  path: string;
+}

@@ -1,15 +1,11 @@
 import { supabase } from "@/lib/supabase";
 import { Level } from "@/types/resource";
+import { NewLevel } from "@/types/resource/level";
 
 const defaultColumns =
   "id, title, description, path, slug, number, created_at, updated_at";
 
-export async function insertLevel(newLevel: {
-  title: string;
-  number: number;
-  slug: string;
-  path: string;
-}) {
+export async function insertLevel(newLevel: NewLevel) {
   const { data, error } = await supabase
     .from("levels")
     .insert(newLevel)

@@ -23,7 +23,7 @@ const defaultTargets = (type: string) =>
         .map((_, i) => `Unit ${i + 1}`);
 
 export default function ResourceDetails() {
-  const { action, details, setDetails } = useResourceEditor();
+  const { action, setAction, details, setDetails } = useResourceEditor();
 
   const [title, setTitle] = useState(details?.title ?? "");
   const [description, setDescription] = useState(details?.description ?? "");
@@ -61,7 +61,7 @@ export default function ResourceDetails() {
       subject,
       paper,
       type,
-      target: target || "Unit ",
+      target: type.startsWith("Notes") ? "Unit " : "Solved ",
     });
 
     getNearByResources(path).then((items) => {
@@ -73,6 +73,21 @@ export default function ResourceDetails() {
       setTargets(targets);
     });
   }, [type, level, subject, paper]);
+
+  useEffect(() => {
+    const muted = targets?.some((t) => {
+      if (slugify(t.title) === slugify(target)) return t.exist;
+      return false;
+    });
+
+    if (muted) {
+      toast.warning(`${target} already exist`);
+      // console.log("change to update");
+      // setAction("update");
+    } else {
+      // setAction("create");
+    }
+  }, [target]);
 
   useEffect(() => {
     getLevels()

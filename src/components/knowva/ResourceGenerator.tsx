@@ -9,6 +9,7 @@ import {
   ensureResourceHierarchy,
   getNearByResources,
   insertResource,
+  updateResource,
 } from "@/actions/resource";
 import { NewResource } from "@/types/resource";
 import { ActionState } from "@/types/main";
@@ -26,6 +27,7 @@ type Status =
 
 type Unit = {
   id: number;
+  resourceId?: string;
   target: string;
   syllabus: string;
   status: Status;
@@ -128,7 +130,8 @@ export default function ResourceGenerator() {
 
     // ask user weather to over write;
     const overwrite: boolean =
-      units.some((u) => u.exist) && confirm("Overwrite the existing resources");
+      units.some((u) => u.exist && u.syllabus.trim()) &&
+      confirm("Overwrite the existing resources");
 
     setButtonState("ensureing_hierarchy");
 
@@ -226,12 +229,28 @@ export default function ResourceGenerator() {
       // insert resource
       try {
         if (unit.exist && overwrite) {
-          // await updateResource(resource);
-          console.log("updating resource");
+          unit.resourceId &&
+            (await updateResource(unit.resourceId, {
+              title: resource.title,
+              description: resource.description,
+              content: resource.content,
+            }));
         } else {
-          console.log("inserting resource");
-          await insertResource(resource);
+          const value = await insertResource(resource);
+
+          setUnits((units) =>
+            units.map((u) =>
+              u.id === unit.id
+                ? {
+                    ...u,
+                    exist: true,
+                    resourceId: value.id,
+                  }
+                : u,
+            ),
+          );
         }
+
         status = "success";
       } catch {
         status = "failed";
@@ -275,11 +294,18 @@ export default function ResourceGenerator() {
     });
 
     getNearByResources(path).then((items) => {
-      setUnits((targets) =>
-        targets.map((t) => ({
-          ...t,
-          exist: items.some((i) => slugify(i.target) === slugify(t.target)),
-        })),
+      setUnits((units) =>
+        units.map((unit) => {
+          const existing = items.find(
+            (item) => slugify(item.target) === slugify(unit.target),
+          );
+
+          return {
+            ...unit,
+            resourceId: existing?.id,
+            exist: !!existing,
+          };
+        }),
       );
       setExistingTargets(items);
     });
@@ -428,7 +454,7 @@ function UnitCard({
         <div className="flex items-center gap-3">
           <span className="font-medium">{unit.target}</span>
 
-          <StatusBadge status={unit.status} />
+          <StatusBadge status={unit.status} exist={exist} />
         </div>
 
         <button
@@ -474,7 +500,7 @@ function UnitCard({
   );
 }
 
-function StatusBadge({ status }: { status: Status }) {
+function StatusBadge({ status, exist }: { status: Status; exist?: boolean }) {
   const config: Record<Status, { label: string; className: string }> = {
     pending: {
       label: "Pending",
@@ -489,7 +515,7 @@ function StatusBadge({ status }: { status: Status }) {
       className: "bg-blue-500/10 text-blue-600 dark:text-blue-400",
     },
     publishing: {
-      label: "Publishing",
+      label: exist ? "Updating" : "Publishing",
       className: "bg-yellow-500/10 text-yellow-600 dark:text-yellow-400",
     },
     success: {

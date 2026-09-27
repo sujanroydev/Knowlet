@@ -1,5 +1,4 @@
 import { gemini } from "@/lib/gemini";
-import { sleep } from "@/utils/sleep";
 import { DEFAULT_MODEL, ModelId } from "@/config/ai";
 import { quizSchema } from "./generation/quiz";
 import { createResourceSchema } from "./generation/resource";
@@ -9,116 +8,144 @@ type GenerateOptions = {
   prompt: string;
   mode?: Mode;
   model?: ModelId;
-  retries?: number;
 };
 
 export async function generate({
   prompt,
   model = DEFAULT_MODEL,
-  retries = 3,
 }: GenerateOptions): Promise<string> {
-  let lastError: unknown;
+  try {
+    const response = await gemini.models.generateContent({
+      model,
+      contents: prompt,
+    });
 
-  for (let attempt = 1; attempt <= retries; attempt++) {
-    try {
-      const response = await gemini.models.generateContent({
-        model,
-        contents: prompt,
-      });
+    if (!response.text) throw new Error("Failed to generate response");
+
+    return response.text.trim();
+  } catch (error: any) {
+    const message =
+      error instanceof Error
+        ? error.message
+        : "Failed to generate AI response.";
+
+    throw new Error(message);
+  }
+}
+
+export async function _generate({
+  prompt,
+  schema,
+  model = DEFAULT_MODEL,
+  stream = false,
+}: {
+  prompt: string;
+  schema?: any;
+  model?: ModelId;
+  stream?: boolean;
+}) {
+  try {
+    const payload = {
+      model,
+      contents: prompt,
+      config: schema
+        ? {
+            responseMimeType: "application/json",
+            responseSchema: schema,
+          }
+        : undefined,
+    };
+
+    if (!stream) {
+      const response = await gemini.models.generateContent(payload);
 
       if (!response.text) throw new Error("Failed to generate response");
 
       return response.text.trim();
-    } catch (error: any) {
-      lastError = error;
-
-      const status = error?.status ?? error?.code;
-      const retryable = [429, 500, 503].includes(status);
-
-      if (!retryable || attempt === retries) {
-        break;
-      }
-
-      await sleep(1000 * 2 ** (attempt - 1));
     }
+    const geminiStream = await gemini.models.generateContentStream(payload);
+
+    return geminiStream;
+  } catch (error: any) {
+    const message =
+      error instanceof Error
+        ? error.message
+        : "Failed to generate AI response.";
+
+    throw new Error(message);
   }
-
-  const message =
-    lastError instanceof Error
-      ? lastError.message
-      : "Failed to generate AI response.";
-
-  throw new Error(message);
 }
 
 export async function generateStream({
   prompt,
   mode = "chat",
   model = DEFAULT_MODEL,
-  retries = 3,
 }: GenerateOptions): Promise<ReadableStream<any>> {
-  let lastError: unknown;
-
   const responseSchema = {
     quiz: quizSchema,
     "create-resource": createResourceSchema,
   } as const;
 
-  for (let attempt = 1; attempt <= retries; attempt++) {
-    try {
-      const config =
-        mode === "create-resource" || mode === "quiz"
-          ? {
-              responseMimeType: "application/json",
-              responseSchema: responseSchema[mode],
-            }
-          : undefined;
+  const schema =
+    mode === "create-resource" || mode === "quiz"
+      ? responseSchema[mode]
+      : undefined;
 
-      const stream = await gemini.models.generateContentStream({
-        model,
-        contents: prompt,
-        config,
-      });
+  return _generateStream({
+    prompt,
+    schema,
+    model,
+  });
+}
 
-      const encoder = new TextEncoder();
-
-      const responseStream = new ReadableStream({
-        async start(controller) {
-          try {
-            for await (const chunk of stream) {
-              const text = chunk.text ?? "";
-
-              if (text) {
-                controller.enqueue(encoder.encode(text));
-              }
-            }
-
-            controller.close();
-          } catch (error) {
-            controller.error(error);
+export async function _generateStream({
+  prompt,
+  schema,
+  model = DEFAULT_MODEL,
+}: {
+  prompt: string;
+  schema?: any;
+  model?: ModelId;
+}): Promise<ReadableStream<any>> {
+  try {
+    const stream = await gemini.models.generateContentStream({
+      model,
+      contents: prompt,
+      config: schema
+        ? {
+            responseMimeType: "application/json",
+            responseSchema: schema,
           }
-        },
-      });
+        : undefined,
+    });
 
-      return responseStream;
-    } catch (error: any) {
-      lastError = error;
+    const encoder = new TextEncoder();
 
-      const status = error?.status ?? error?.code;
-      const retryable = [429, 500, 503].includes(status);
+    const responseStream = new ReadableStream({
+      async start(controller) {
+        try {
+          for await (const chunk of stream) {
+            const text = chunk.text ?? "";
 
-      if (!retryable || attempt === retries) {
-        break;
-      }
+            if (text) {
+              controller.enqueue(encoder.encode(text));
+            }
+          }
 
-      await sleep(1000 * 2 ** (attempt - 1));
-    }
+          controller.close();
+        } catch (error) {
+          controller.error(error);
+        }
+      },
+    });
+
+    return responseStream;
+  } catch (error: any) {
+    const message =
+      error instanceof Error
+        ? error.message
+        : "Failed to generate AI response.";
+
+    throw new Error(message);
   }
-
-  const message =
-    lastError instanceof Error
-      ? lastError.message
-      : "Failed to generate AI response.";
-
-  throw new Error(message);
 }

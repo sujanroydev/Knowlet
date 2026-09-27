@@ -19,3 +19,15 @@ export function slugify(value: string): string {
     .replace(/\s+/g, "-")
     .replace(/-+/g, "-");
 }
+
+export async function streamToText(
+  stream: AsyncIterable<{ text?: string }>,
+): Promise<string> {
+  let text = "";
+
+  for await (const chunk of stream) {
+    text += chunk.text ?? "";
+  }
+
+  return text;
+}

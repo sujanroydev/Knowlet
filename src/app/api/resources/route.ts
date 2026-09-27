@@ -1,19 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import {
-  parseResourcePath,
-  buildResourcePath,
-} from "@/components/dashboard/resources/utils";
-import { sendNotificationByUserId } from "@/services/notification/send";
+import { parseResourcePath, buildResourcePath } from "@/utils/resource";
 import { authGate } from "@/lib/auth/authGate";
-
-import { getResources, insertResource } from "@/db/resource";
-import { getLevelId, insertLevel } from "@/db/resource/level";
-import { getSubjectId, insertSubject } from "@/db/resource/subject";
-import { getPaperId, insertPaper } from "@/db/resource/paper";
-import { getRecentViewHistory } from "@/db/resource/history";
 import { apiError } from "@/lib/api-response";
-import { PostgrestError } from "@supabase/supabase-js";
+
+import { sendNotificationByUserId } from "@/services/notification/send";
+import { getResources, insertResource } from "@/db/resource";
+import { getRecentViewHistory } from "@/db/resource/history";
+import { ensureResourceHierarchy } from "@/actions/resource";
 
 export async function GET(req: NextRequest) {
   try {
@@ -54,66 +48,15 @@ export async function POST(req: NextRequest) {
 
     path = buildResourcePath({ level, subject, paper, target, type });
 
-    const { levelSlug, subjectSlug, paperSlug, typeSlug, targetSlug } =
-      parseResourcePath(path);
+    const { typeSlug, targetSlug } = parseResourcePath(path);
 
-    let levelId = await getLevelId(levelSlug);
-    let subjectId: string;
-    let paperId: string | undefined;
-    let isSubjectNew = false;
-
-    if (!levelId) {
-      const levelData = await insertLevel({
-        title: level,
-        number: Number(levelSlug.split("-")[1]),
-        slug: levelSlug,
-        path: levelSlug,
-      });
-
-      levelId = levelData.id;
-
-      const subjectData = await insertSubject({
-        level_id: levelId,
-        title: subject,
-        slug: subjectSlug,
-        path: `${levelSlug}/${subjectSlug}`,
-      });
-
-      subjectId = subjectData.id;
-      isSubjectNew = true;
-    } else {
-      subjectId = await getSubjectId(subjectSlug, levelId);
-
-      if (!subjectId) {
-        const subjectData = await insertSubject({
-          level_id: levelId,
-          title: subject,
-          slug: subjectSlug,
-          path: `${levelSlug}/${subjectSlug}`,
-        });
-
-        subjectId = subjectData.id;
-        isSubjectNew = true;
-      }
-    }
-
-    if (paperSlug) {
-      if (!isSubjectNew) {
-        paperId = await getPaperId(paperSlug, subjectId);
-      }
-      if (!paperId) {
-        const paperData = await insertPaper({
-          subject_id: subjectId,
-          level_id: levelId,
-          title: paperSlug.split("-").join(" ").toUpperCase(),
-          code: paperSlug.split("-").join("").toUpperCase(),
-          slug: paperSlug,
-          path: `${levelSlug}/${subjectSlug}/${paperSlug}`,
-        });
-
-        paperId = paperData.id;
-      }
-    }
+    const { levelId, subjectId, paperId } = await ensureResourceHierarchy({
+      type,
+      level,
+      subject,
+      paper,
+      target,
+    });
 
     //insert
     const resource = await insertResource({

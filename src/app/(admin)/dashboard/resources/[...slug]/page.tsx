@@ -39,7 +39,7 @@ export default async function Page({
     if (!resource) notFound();
 
     return (
-      <ResourceEditorProvider action={action} resource={resource}>
+      <ResourceEditorProvider _action={action} resource={resource}>
         <ResourceEditor />
         <AIAssistant />
       </ResourceEditorProvider>
@@ -47,7 +47,7 @@ export default async function Page({
   }
 
   return (
-    <ResourceEditorProvider action="create">
+    <ResourceEditorProvider _action="create">
       <ResourceEditor />
       <AIAssistant />
     </ResourceEditorProvider>

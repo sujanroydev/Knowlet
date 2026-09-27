@@ -1,19 +1,9 @@
 import { supabase } from "@/lib/supabase";
+import { NewResource } from "@/types/resource";
 
 const resourceSelect = "id, title, description, slug, path";
 
-export async function insertResource(newResource: {
-  level_id: string;
-  subject_id: string;
-  paper_id?: string;
-  title: string;
-  description?: string;
-  content: string;
-  target: string;
-  type: string;
-  slug: string;
-  path: string;
-}) {
+export async function insertResource(newResource: NewResource) {
   const { data, error } = await supabase
     .from("resources")
     .insert(newResource)

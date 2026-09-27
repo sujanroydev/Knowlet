@@ -5,7 +5,7 @@ import { Resource } from "@/types/resource";
 import { updateResource } from "@/db/resource";
 import { getResourceReporterIds } from "@/db/resource/report";
 import { sendNotificationByUserId } from "@/services/notification/send";
-import { buildResourcePath } from "@/components/dashboard/resources/utils";
+import { buildResourcePath } from "@/utils/resource";
 
 export async function PUT(
   req: NextRequest,
@@ -13,7 +13,8 @@ export async function PUT(
 ) {
   try {
     let updatedResource: Resource = await req.json();
-    const { title, description, content, level, subject, paper, target, type } = updatedResource;
+    const { title, description, content, level, subject, paper, target, type } =
+      updatedResource;
     const { id: resourceId } = await params;
 
     if (!resourceId) {
@@ -73,7 +74,7 @@ export async function PUT(
 
     return NextResponse.json(
       { success: true, data: { resource }, path },
-      { status: 201 }
+      { status: 201 },
     );
   } catch (error) {
     return NextResponse.json(

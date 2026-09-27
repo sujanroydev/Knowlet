@@ -1,3 +1,7 @@
+export type { Level } from "./level";
+export type { Subject } from "./subject";
+export type { Paper } from "./paper";
+
 export type ResourceType = "note" | "pyq" | "important_question" | "pdf";
 
 export type Mode =
@@ -53,6 +57,19 @@ export interface ResourceInfo {
 export interface BriefResourceInfo {
   id: string;
   target: string;
+  path: string;
+}
+
+export interface NewResource {
+  level_id: string;
+  subject_id: string;
+  paper_id?: string;
+  title: string;
+  description: string;
+  content: string;
+  target: string;
+  type: string;
+  slug: string;
   path: string;
 }
 

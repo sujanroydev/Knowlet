@@ -3,58 +3,31 @@ import TextInput from "@/components/ui/text-input";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { useResourceEditor } from "@/context/ResourceEditorContext";
+import { getLevels } from "@/actions/resource/level";
+import { getSubjects } from "@/actions/resource/subject";
+import { getPapers } from "@/actions/resource/paper";
 
-interface Details {
-  title: string;
-  description: string;
-  target: string;
-  type: string;
-  slug: string;
-  path: string;
-}
+import type { Level, Paper, Subject } from "@/types/resource";
+import { buildResourcePath } from "@/utils/resource";
+import { getNearByResources } from "@/actions/resource";
+import { slugify, titleCase } from "@/utils/string";
 
-const options = {
-  level: [
-    "Select",
-    ...[...Array(4)].map((_, i) => `Class ${i + 9}`),
-    ...[...Array(8)].map((_, i) => `Semester ${i + 1}`),
-  ],
-  subjects: [
-    "Select",
-    "Anthropology",
-    "Accountancy",
-    "Zoology",
-    "Biology",
-    "Statistics",
-    "Political Science",
-    "Physics",
-    "Philosophy",
-    "Psychology",
-    "Sociology",
-    "Mathematics",
-    "History",
-    "Geology",
-    "Education",
-    "Economics",
-    "Commerce",
-    "Ecology And Environmental Science",
-    "Computer Science",
-    "Computer Application",
-    "Chemistry",
-    "Botany",
-    "Biotechnology",
-  ],
-  type: ["Select", "Notes", "PYQs", "Questions", "PDF"],
-  target: (type: string) => [
-    "Select",
-    ...(type === "pyq"
-      ? [...Array(5)].map((_, i) => `Solved ${i + 2021}`)
-      : [...Array(15)].map((_, i) => `Unit ${i + 1}`)),
-  ],
-};
+const defaultTypes = ["Select", "Notes", "PYQs", "Questions", "PDF"];
+const defaultTargets = (type: string) =>
+  type === "PYQs"
+    ? Array(6)
+        .fill(undefined)
+        .map((_, i) => `Solved ${i + 2021}`)
+    : Array(15)
+        .fill(undefined)
+        .map((_, i) => `Unit ${i + 1}`);
 
-export default function ResourceDetails() {
-  const { action, details, setDetails } = useResourceEditor();
+export default function ResourceDetails({
+  disableTarget = false,
+}: {
+  disableTarget?: boolean;
+}) {
+  const { action, setAction, details, setDetails } = useResourceEditor();
 
   const [title, setTitle] = useState(details?.title ?? "");
   const [description, setDescription] = useState(details?.description ?? "");
@@ -65,6 +38,15 @@ export default function ResourceDetails() {
   const [type, setType] = useState(details?.type ?? "");
   const [target, setTarget] = useState(details?.target ?? "");
 
+  const [levels, setLevels] =
+    useState<(Partial<Level> & { title: string })[]>();
+  const [subjects, setSubjects] =
+    useState<(Partial<Subject> & { title: string })[]>();
+  const [papers, setPapers] =
+    useState<(Partial<Paper> & { title: string })[]>();
+
+  const [targets, setTargets] = useState<{ title: string; exist: boolean }[]>();
+
   useEffect(() => {
     setTitle(details?.title ?? "");
     setDescription(details?.description ?? "");
@@ -74,6 +56,55 @@ export default function ResourceDetails() {
     setDetails({ title, description, level, subject, paper, target, type });
   }, [title, description, level, subject, paper, target, type]);
 
+  useEffect(() => {
+    const items = [level, subject, paper, type];
+    if (items.some((i) => !i)) return;
+
+    const path = buildResourcePath({
+      level,
+      subject,
+      paper,
+      type,
+      target: type.startsWith("Notes") ? "Unit " : "Solved ",
+    });
+
+    !disableTarget &&
+      getNearByResources(path).then((items) => {
+        const targets = defaultTargets(type).map((t) => ({
+          title: t,
+          exist: items.some((item) => item.target === slugify(t)),
+        }));
+
+        setTargets(targets);
+      });
+  }, [type, level, subject, paper]);
+
+  useEffect(() => {
+    if (!subjects?.some((s) => s.title === subject)) setSubject("");
+    if (!papers?.some((p) => p.title === paper)) setPaper("");
+  }, [levels, subjects, papers]);
+
+  useEffect(() => {
+    const muted = targets?.some((t) => {
+      if (slugify(t.title) === slugify(target)) return t.exist;
+      return false;
+    });
+
+    if (muted) {
+      toast.warning(`${target} already exist`);
+      // console.log("change to update");
+      // setAction("update");
+    } else {
+      // setAction("create");
+    }
+  }, [target]);
+
+  useEffect(() => {
+    getLevels()
+      .then(setLevels)
+      .catch(() => toast.error("Failed to load levels"));
+  }, []);
+
   return (
     <div className="rounded-3xl border border-border bg-card p-6 shadow-sm">
       <h2 className="text-xl font-semibold text-foreground">
@@ -81,86 +112,165 @@ export default function ResourceDetails() {
       </h2>
 
       <div className="mt-6 space-y-8">
-        <div>
-          <h3 className="mb-4 text-lg font-semibold text-foreground">
-            Basic Information
-          </h3>
+        {!disableTarget && (
+          <div>
+            <h3 className="mb-4 text-lg font-semibold text-foreground">
+              Basic Information
+            </h3>
 
-          <div className="grid gap-5 md:grid-cols-2">
-            <TextInput
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              label="Resource Title"
-              placeholder="Enter title"
-            />
-            <TextInput
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              label="Description"
-              placeholder="Resource Description"
-            />
+            <div className="grid gap-5 md:grid-cols-2">
+              <TextInput
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                label="Resource Title"
+                placeholder="Enter title"
+              />
+              <TextInput
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                label="Description"
+                placeholder="Resource Description"
+              />
+            </div>
           </div>
-        </div>
+        )}
 
         <div>
-          <h3 className="mb-4 text-lg font-semibold text-foreground">
-            Categorization
-          </h3>
+          {!disableTarget && (
+            <h3 className="mb-4 text-lg font-semibold text-foreground">
+              Categorization
+            </h3>
+          )}
 
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             <SelectInput
+              label="Resource Type"
+              options={defaultTypes}
+              value={type}
+              onChange={(e) => {
+                const type = e.target.value;
+                setType(type);
+              }}
+              disabled={action === "update" ? true : false}
+            />
+
+            <SelectInput
               label="Level"
-              options={options.level}
+              options={[
+                "Select",
+                ...(levels?.map((level) => level.title) || []),
+              ]}
+              addButton={true}
               value={level}
-              onChange={(e) => setLevel(e.target.value)}
+              onChange={(e) => {
+                const level = e.target.value;
+                setLevel(level);
+
+                const id = levels?.find((l) => l.title === level)?.id;
+                id &&
+                  getSubjects(id)
+                    .then((subjects) => {
+                      setSubjects(subjects);
+                      return subjects;
+                    })
+                    .then((subjects) => {
+                      const paperId = subjects?.find(
+                        (s) => s.title === subject,
+                      )?.id;
+                      paperId &&
+                        getPapers(paperId)
+                          .then(setPapers)
+                          .catch(() => toast.error("failed to load Papers"));
+                    })
+                    .catch(() => toast.error("failed to load Subjects"));
+              }}
+              onInputEnd={(value) => {
+                const level = titleCase(value);
+                if (!level) return;
+
+                setLevels((levels) => [...(levels || []), { title: level }]);
+                setLevel(level);
+              }}
               disabled={action === "update" ? true : false}
             />
 
             <SelectInput
               label="Subject"
-              options={options.subjects}
+              options={[
+                "Select",
+                ...(subjects?.map((subject) => subject.title) || []),
+              ]}
+              addButton={true}
               value={subject}
-              onChange={(e) => setSubject(e.target.value)}
+              onChange={(e) => {
+                const subject = e.target.value;
+                setSubject(subject);
+
+                const id = subjects?.find((s) => s.title === subject)?.id;
+                id &&
+                  getPapers(id)
+                    .then(setPapers)
+                    .catch(() => toast.error("failed to load Papers"));
+              }}
+              onInputEnd={(value) => {
+                const subject = titleCase(value);
+                if (!subject) return;
+
+                setSubjects((subjects) => [
+                  ...(subjects || []),
+                  { title: subject },
+                ]);
+                setSubject(subject);
+              }}
               disabled={action === "update" ? true : false}
             />
 
             {level.startsWith("Semester") && (
-              <TextInput
+              <SelectInput
                 label="Paper"
-                placeholder="eg. DSC 152"
+                options={[
+                  "Select",
+                  ...(papers?.map((subject) => subject.title) || []),
+                ]}
+                addButton={true}
                 value={paper}
                 onChange={(e) => {
-                  const value = e.target.value;
+                  const paper = e.target.value;
+                  setPaper(paper);
+                }}
+                onInputEnd={(value) => {
                   const match = value.match(
                     /^[^a-zA-Z]*([a-zA-Z]+)([^a-zA-Z\d]*)(\d+)[^\d]*$/,
                   );
+
                   if (!match) {
                     setPaper(value);
                     toast.warning("paper must be like DSC-152 or DSC 152");
                     return;
                   }
+
                   const paper = `${match[1].toUpperCase()} ${match[3]}`;
+
+                  setPapers((papers) => [...(papers || []), { title: paper }]);
                   setPaper(paper);
                 }}
                 disabled={action === "update" ? true : false}
               />
             )}
 
-            <SelectInput
-              label="Resource Type"
-              options={options.type}
-              value={type}
-              onChange={(e) => setType(e.target.value)}
-              disabled={action === "update" ? true : false}
-            />
-
-            <SelectInput
-              label="target"
-              options={options.target(type)}
-              value={target}
-              onChange={(e) => setTarget(e.target.value)}
-              disabled={action === "update" ? true : false}
-            />
+            {!disableTarget && (
+              <SelectInput
+                label="target"
+                options={["Select", ...(targets?.map((t) => t.title) || [])]}
+                mutedOptions={[false, ...(targets?.map((t) => t.exist) || [])]}
+                value={target}
+                onChange={(e) => {
+                  const target = e.target.value;
+                  setTarget(target);
+                }}
+                disabled={action === "update" ? true : false}
+              />
+            )}
           </div>
         </div>
       </div>

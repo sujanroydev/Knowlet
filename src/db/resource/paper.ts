@@ -1,28 +1,34 @@
 import { supabase } from "@/lib/supabase";
+import { Paper } from "@/types/resource";
+import { NewPaper } from "@/types/resource/paper";
 
-export async function insertPaper(newPaper: {
-  subject_id: string;
-  level_id: string;
-  title: string;
-  code: string;
-  slug: string;
-  path: string;
-}) {
+const defaultColumns =
+  "id, title, description, path, slug, code, created_at, updated_at";
+
+export async function insertPaper(newPaper: NewPaper) {
   const { data, error } = await supabase
     .from("papers")
     .insert(newPaper)
-    .select()
+    .select(defaultColumns)
     .single();
 
   if (error) throw error;
 
-  return data;
+  return data as Paper;
 }
 
-export async function getPaperId(
-  slug: string,
-  subjectId: string,
-) {
+export async function getPapers(subjectId: string) {
+  const { data, error } = await supabase
+    .from("papers")
+    .select(defaultColumns)
+    .eq("subject_id", subjectId);
+
+  if (error) throw error;
+
+  return data as Paper[];
+}
+
+export async function getPaperId(slug: string, subjectId: string) {
   const { data, error } = await supabase
     .from("papers")
     .select("id")

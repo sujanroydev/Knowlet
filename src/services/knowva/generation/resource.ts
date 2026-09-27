@@ -1,4 +1,6 @@
+import { DEFAULT_MODEL, ModelId } from "@/config/ai";
 import { Type } from "@google/genai";
+import { _generate } from "../client";
 
 export const createResourceSchema = {
   type: Type.OBJECT,
@@ -261,4 +263,23 @@ SYLLABUS:
 
 ${syllabus}
 `;
+}
+
+export async function generateResource({
+  model = DEFAULT_MODEL,
+  syllabus,
+  stream = false,
+}: {
+  model?: ModelId;
+  syllabus: string;
+  stream?: boolean;
+}) {
+  const prompt = buildCreateResourcePrompt(syllabus);
+
+  return await _generate({
+    prompt,
+    schema: createResourceSchema,
+    model,
+    stream,
+  });
 }

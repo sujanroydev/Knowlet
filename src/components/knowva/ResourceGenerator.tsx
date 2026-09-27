@@ -1,9 +1,18 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import ResourceDetails from "../dashboard/resources/resource-details";
+import { useResourceEditor } from "@/context/ResourceEditorContext";
+import { toast } from "sonner";
+import { buildResourcePath } from "@/utils/resource";
+import { ensureResourceHierarchy, insertResource } from "@/actions/resource";
+import { NewResource } from "@/types/resource";
+import { ActionState } from "@/types/main";
+import { generateResource } from "@/actions/knowva/resource";
 
 type Status =
   | "pending"
+  | "queue"
   | "generating"
   | "publishing"
   | "success"
@@ -30,13 +39,12 @@ const initialUnits: Unit[] = Array(5)
   }));
 
 export default function ResourceGenerator() {
-  const [level, setLevel] = useState("Semester 2");
-  const [subject, setSubject] = useState("Computer Application");
-  const [paper, setPaper] = useState("ECAP 202");
-  const [type, setType] = useState("Notes");
-
   const [units, setUnits] = useState<Unit[]>(initialUnits);
-  const [running, setRunning] = useState(false);
+  const [buttonState, setButtonState] = useState<
+    ActionState | "ensureing_hierarchy"
+  >("active");
+
+  const { details, setDetails } = useResourceEditor();
 
   const completed = useMemo(
     () =>
@@ -80,23 +88,95 @@ export default function ResourceGenerator() {
   }
 
   function removeUnit(id: number) {
-    if (running) return;
+    if (buttonState !== "active") return;
 
     setUnits((current) => current.filter((unit) => unit.id !== id));
   }
 
   async function generate() {
-    if (running) return;
+    if (buttonState !== "active") return;
 
-    setRunning(true);
+    const { level, subject, paper, type } = details;
+
+    if (!level || !subject || !type) {
+      toast.error("missing details");
+      return;
+    }
+
+    if (level.startsWith("Semester") && !paper) {
+      toast.error("Paper is missing");
+      return;
+    }
+
+    setButtonState("ensureing_hierarchy");
 
     setUnits((current) =>
       current.map((unit) => ({
         ...unit,
-        status: unit.syllabus.trim() ? "generating" : "skipped",
+        status: unit.syllabus.trim() ? "queue" : "skipped",
         error: undefined,
       })),
     );
+
+    // ensure hyrarcy
+    const { levelId, subjectId, paperId } = await ensureResourceHierarchy({
+      type,
+      level,
+      subject,
+      paper,
+      target: type.startsWith("PYQs") ? "Solved" : "Unit",
+    });
+
+    setButtonState("loading");
+
+    units.forEach(async (unit, index) => {
+      if (!unit.syllabus.trim()) return;
+
+      // update status
+      setUnits((units) =>
+        units.map((unit, i) =>
+          i === index ? { ...unit, status: "generating" } : unit,
+        ),
+      );
+
+      // generate
+      const generated = await generateResource({
+        syllabus: unit.syllabus,
+        model: "gemini-3.5-flash-lite",
+      });
+
+      if (typeof generated !== "string") {
+        throw new Error("Invalid generation response");
+      }
+
+      const parsed = JSON.parse(generated);
+
+      const path = buildResourcePath({
+        level,
+        subject,
+        paper,
+        target: unit.target,
+        type,
+      });
+
+      const resource: NewResource = {
+        level_id: levelId,
+        subject_id: subjectId,
+        paper_id: paperId,
+
+        title: parsed.title,
+        description: parsed.description,
+        content: parsed.resource,
+
+        type,
+        target: unit.target,
+        path,
+        slug: unit.target,
+      };
+
+      // insert resource
+      await insertResource(resource);
+    });
 
     try {
       const response = await fetch("/api/resources/generate", {
@@ -162,12 +242,12 @@ export default function ResourceGenerator() {
         ),
       );
     } finally {
-      setRunning(false);
+      setButtonState("active");
     }
   }
 
   function reset() {
-    if (running) return;
+    if (buttonState !== "active") return;
 
     setUnits(
       initialUnits.map((unit) => ({
@@ -194,56 +274,8 @@ export default function ResourceGenerator() {
           </p>
         </div>
 
-        {/* Metadata */}
-        <section className="rounded-xl border bg-card p-5">
-          <h2 className="mb-4 text-sm font-semibold">Resource details</h2>
-
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <Field label="Level">
-              <input
-                value={level}
-                onChange={(e) => setLevel(e.target.value)}
-                disabled={running}
-                className="input"
-                placeholder="Semester 2"
-              />
-            </Field>
-
-            <Field label="Subject">
-              <input
-                value={subject}
-                onChange={(e) => setSubject(e.target.value)}
-                disabled={running}
-                className="input"
-                placeholder="Computer Application"
-              />
-            </Field>
-
-            <Field label="Paper">
-              <input
-                value={paper}
-                onChange={(e) => setPaper(e.target.value)}
-                disabled={running}
-                className="input"
-                placeholder="ECAP 202"
-              />
-            </Field>
-
-            <Field label="Type">
-              <select
-                value={type}
-                onChange={(e) => setType(e.target.value)}
-                disabled={running}
-                className="input"
-              >
-                <option>Notes</option>
-                <option>PYQ</option>
-                <option>Important Questions</option>
-                <option>PDF</option>
-              </select>
-            </Field>
-          </div>
-        </section>
+        {/* Details */}
+        <ResourceDetails disableTarget={true} />
 
         {/* Progress */}
         <section className="mt-6 rounded-xl border bg-card p-5">
@@ -282,7 +314,7 @@ export default function ResourceGenerator() {
 
             <button
               onClick={addUnit}
-              disabled={running}
+              disabled={buttonState !== "active"}
               className="rounded-lg border px-3 py-2 text-sm font-medium hover:bg-muted disabled:cursor-not-allowed disabled:opacity-50"
             >
               + Add unit
@@ -294,7 +326,7 @@ export default function ResourceGenerator() {
               <UnitCard
                 key={unit.id}
                 unit={unit}
-                disabled={running}
+                disabled={buttonState !== "active"}
                 onChange={(value) => updateUnit(unit.id, value)}
                 onRemove={() => removeUnit(unit.id)}
               />
@@ -306,7 +338,7 @@ export default function ResourceGenerator() {
         <div className="sticky bottom-20 mt-8 flex items-center justify-between rounded-xl border bg-card/95 p-3 shadow-lg backdrop-blur">
           <button
             onClick={reset}
-            disabled={running}
+            disabled={buttonState !== "active"}
             className="rounded-lg px-4 py-2 text-sm hover:bg-muted disabled:opacity-50"
           >
             Reset
@@ -314,12 +346,14 @@ export default function ResourceGenerator() {
 
           <button
             onClick={generate}
-            disabled={running}
+            disabled={buttonState !== "active"}
             className="rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-sm disabled:cursor-not-allowed disabled:opacity-50"
           >
-            {running
+            {buttonState === "loading"
               ? "Generating..."
-              : `Generate ${units.filter((u) => u.syllabus.trim()).length} resources`}
+              : buttonState === "ensureing_hierarchy"
+                ? "Preparing..."
+                : `Generate ${units.filter((u) => u.syllabus.trim()).length} resources`}
           </button>
         </div>
       </div>
@@ -412,6 +446,10 @@ function StatusBadge({ status }: { status: Status }) {
   const config: Record<Status, { label: string; className: string }> = {
     pending: {
       label: "Pending",
+      className: "bg-muted text-muted-foreground",
+    },
+    queue: {
+      label: "In Queue",
       className: "bg-muted text-muted-foreground",
     },
     generating: {

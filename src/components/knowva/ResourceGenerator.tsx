@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import ResourceDetails from "../dashboard/resources/resource-details";
 import { useResourceEditor } from "@/context/ResourceEditorContext";
 import { toast } from "sonner";
@@ -51,6 +51,7 @@ const initialUnits: Unit[] = Array(5)
 
 export default function ResourceGenerator() {
   const [units, setUnits] = useState<Unit[]>(initialUnits);
+  const [stopping, setStopping] = useState(false);
   const [buttonState, setButtonState] = useState<
     ActionState | "ensureing_hierarchy"
   >("active");
@@ -65,6 +66,8 @@ export default function ResourceGenerator() {
 
   const { details } = useResourceEditor();
   const { model } = useKnowva();
+
+  const stopRequested = useRef(false);
 
   const completed = useMemo(
     () =>
@@ -96,18 +99,22 @@ export default function ResourceGenerator() {
   }
 
   function addUnit() {
-    setUnits((current) => [
-      ...current,
-      {
-        id: current.length > 0 ? Math.max(...current.map((u) => u.id)) + 1 : 1,
-        target: `Unit ${current.length + 1}`,
-        syllabus: "",
-        status: "pending",
-        exist: existingTargets.some(
-          (t) => slugify(t.target) === slugify(`Unit ${current.length + 1}`),
-        ),
-      },
-    ]);
+    setUnits((current) => {
+      const id =
+        current.length > 0 ? Math.max(...current.map((u) => u.id)) + 1 : 1;
+      return [
+        ...current,
+        {
+          id,
+          target: `Unit ${id}`,
+          syllabus: "",
+          status: "pending",
+          exist: existingTargets.some(
+            (t) => slugify(t.target) === slugify(`Unit ${id}`),
+          ),
+        },
+      ];
+    });
   }
 
   function removeUnit(id: number) {
@@ -118,6 +125,9 @@ export default function ResourceGenerator() {
 
   async function generate() {
     if (buttonState !== "active") return;
+
+    stopRequested.current = false;
+    setStopping(false);
 
     const { level, subject, paper, type } = details;
 
@@ -155,9 +165,17 @@ export default function ResourceGenerator() {
       target: type.startsWith("PYQs") ? "Solved" : "Unit",
     });
 
+    if (stopRequested.current) {
+      setButtonState("active");
+      setStopping(false);
+      return;
+    }
+
     setButtonState("loading");
 
     for (const [index, unit] of units.entries()) {
+      if (stopRequested.current) break;
+
       if (!unit.syllabus.trim()) continue;
 
       if (unit.exist && !overwrite) {
@@ -184,15 +202,24 @@ export default function ResourceGenerator() {
           model,
         });
 
+        if (stopRequested.current) {
+          break;
+        }
+
         if (typeof generated !== "string") {
           throw new Error("Invalid generation response");
         }
       } catch {
+        if (stopRequested.current) {
+          break;
+        }
+
         setUnits((units) =>
           units.map((unit, i) =>
             i === index ? { ...unit, status: "failed" } : unit,
           ),
         );
+
         continue;
       }
 
@@ -220,6 +247,10 @@ export default function ResourceGenerator() {
         slug: slugify(unit.target),
         path,
       };
+
+      if (stopRequested.current) {
+        break;
+      }
 
       setUnits((units) =>
         units.map((unit, i) =>
@@ -265,6 +296,14 @@ export default function ResourceGenerator() {
     }
 
     setButtonState("active");
+    setStopping(false);
+  }
+
+  function stopGeneration() {
+    if (buttonState === "active" || stopping) return;
+
+    stopRequested.current = true;
+    setStopping(true);
   }
 
   function reset() {
@@ -404,15 +443,17 @@ export default function ResourceGenerator() {
           </button>
 
           <button
-            onClick={generate}
-            disabled={buttonState !== "active"}
+            onClick={buttonState === "active" ? generate : stopGeneration}
+            disabled={stopping}
             className="rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-sm disabled:cursor-not-allowed disabled:opacity-50"
           >
-            {buttonState === "loading"
-              ? "Generating..."
-              : buttonState === "ensureing_hierarchy"
-                ? "Preparing..."
-                : `Generate ${units.filter((u) => u.syllabus.trim()).length} resources`}
+            {stopping
+              ? "Stopping..."
+              : buttonState === "loading"
+                ? "Stop"
+                : buttonState === "ensureing_hierarchy"
+                  ? "Stop"
+                  : `Generate ${units.filter((u) => u.syllabus.trim()).length} resources`}
           </button>
         </div>
       </div>

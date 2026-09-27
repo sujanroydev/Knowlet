@@ -4,6 +4,7 @@ import {
   getResourcesByPathPrefix as _getResourcesByPathPrefix,
   getResourceCounts as _getResourceCounts,
   insertResource as _insertResource,
+  updateResource as _updateResource,
 } from "@/db/resource";
 
 import { getSubjectId, insertSubject } from "@/db/resource/subject";
@@ -17,16 +18,28 @@ import sortByPath from "@/utils/sortByPath";
 
 export async function getNearByResources(path: string) {
   const pathPrefix = path.replace(/\d+$/, "");
-  return await _getResourcesByPathPrefix(pathPrefix).then(sortByPath);
+  return _getResourcesByPathPrefix(pathPrefix).then(sortByPath);
 }
 
 export async function getResourceCounts(resourceId: string) {
-  return await _getResourceCounts(resourceId);
+  return _getResourceCounts(resourceId);
 }
 
 export async function insertResource(newResource: NewResource) {
   await getAuthenticatedUserId();
   return _insertResource(newResource);
+}
+
+export async function updateResource(
+  resourceId: string,
+  resource: {
+    title: string;
+    description: string;
+    content: string;
+  },
+) {
+  await getAuthenticatedUserId();
+  return _updateResource(resourceId, resource);
 }
 
 export async function ensureResourceHierarchy({

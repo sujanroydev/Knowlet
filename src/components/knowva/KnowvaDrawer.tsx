@@ -218,12 +218,12 @@ export default function KnowvaDrawer() {
         </Link>
 
         <Link
-          href="/dashboard/resources/create"
+          href="/knowva/resource-generator"
           onClick={() => setOpen(false)}
           className="mt-1 flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm transition hover:bg-accent"
         >
           <FilePlus2 size={18} />
-          <span>Create Resource</span>
+          <span>Generate Resource</span>
         </Link>
       </nav>
 

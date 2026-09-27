@@ -68,14 +68,15 @@ export default function ResourceDetails({
       target: type.startsWith("Notes") ? "Unit " : "Solved ",
     });
 
-    getNearByResources(path).then((items) => {
-      const targets = defaultTargets(type).map((t) => ({
-        title: t,
-        exist: items.some((item) => item.target === slugify(t)),
-      }));
+    !disableTarget &&
+      getNearByResources(path).then((items) => {
+        const targets = defaultTargets(type).map((t) => ({
+          title: t,
+          exist: items.some((item) => item.target === slugify(t)),
+        }));
 
-      setTargets(targets);
-    });
+        setTargets(targets);
+      });
   }, [type, level, subject, paper]);
 
   useEffect(() => {
@@ -236,12 +237,6 @@ export default function ResourceDetails({
                 onChange={(e) => {
                   const paper = e.target.value;
                   setPaper(paper);
-
-                  const id = subjects?.find((s) => s.title === subject)?.id;
-                  id &&
-                    getPapers(id)
-                      .then(setPapers)
-                      .catch(() => toast.error("failed to load Papers"));
                 }}
                 onInputEnd={(value) => {
                   const match = value.match(

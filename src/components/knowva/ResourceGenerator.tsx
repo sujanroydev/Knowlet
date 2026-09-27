@@ -9,6 +9,7 @@ import { ensureResourceHierarchy, insertResource } from "@/actions/resource";
 import { NewResource } from "@/types/resource";
 import { ActionState } from "@/types/main";
 import { generateResource } from "@/actions/knowva/resource";
+import { slugify } from "@/utils/string";
 
 type Status =
   | "pending"
@@ -129,8 +130,8 @@ export default function ResourceGenerator() {
 
     setButtonState("loading");
 
-    units.forEach(async (unit, index) => {
-      if (!unit.syllabus.trim()) return;
+    for (const [index, unit] of units.entries()) {
+      if (!unit.syllabus.trim()) continue;
 
       // update status
       setUnits((units) =>
@@ -140,13 +141,23 @@ export default function ResourceGenerator() {
       );
 
       // generate
-      const generated = await generateResource({
-        syllabus: unit.syllabus,
-        model: "gemini-3.5-flash-lite",
-      });
+      let generated;
+      try {
+        generated = await generateResource({
+          syllabus: unit.syllabus,
+          model: "gemini-3.5-flash-lite",
+        });
 
-      if (typeof generated !== "string") {
-        throw new Error("Invalid generation response");
+        if (typeof generated !== "string") {
+          throw new Error("Invalid generation response");
+        }
+      } catch {
+        setUnits((units) =>
+          units.map((unit, i) =>
+            i === index ? { ...unit, status: "failed" } : unit,
+          ),
+        );
+        continue;
       }
 
       const parsed = JSON.parse(generated);
@@ -168,82 +179,35 @@ export default function ResourceGenerator() {
         description: parsed.description,
         content: parsed.resource,
 
-        type,
-        target: unit.target,
+        type: slugify(type),
+        target: slugify(unit.target),
+        slug: slugify(unit.target),
         path,
-        slug: unit.target,
       };
 
-      // insert resource
-      await insertResource(resource);
-    });
-
-    try {
-      const response = await fetch("/api/resources/generate", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          level,
-          subject,
-          paper,
-          type,
-          units: units.map(({ id, target, syllabus }) => ({
-            id,
-            target,
-            syllabus,
-          })),
-        }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || "Generation failed");
-      }
-
-      setUnits((current) =>
-        current.map((unit) => {
-          const result = data.results?.find(
-            (item: {
-              id: number;
-              status: Status;
-              title?: string;
-              description?: string;
-              error?: string;
-            }) => item.id === unit.id,
-          );
-
-          if (!result) return unit;
-
-          return {
-            ...unit,
-            status: result.status,
-            title: result.title,
-            description: result.description,
-            error: result.error,
-          };
-        }),
-      );
-    } catch (error) {
-      const message =
-        error instanceof Error ? error.message : "Something went wrong";
-
-      setUnits((current) =>
-        current.map((unit) =>
-          unit.status === "generating"
-            ? {
-                ...unit,
-                status: "failed",
-                error: message,
-              }
-            : unit,
+      setUnits((units) =>
+        units.map((unit, i) =>
+          i === index ? { ...unit, status: "publishing" } : unit,
         ),
       );
-    } finally {
-      setButtonState("active");
+
+      let status: Status;
+
+      // insert resource
+      try {
+        await insertResource(resource);
+        console.log(resource);
+        status = "success";
+      } catch {
+        status = "failed";
+      }
+
+      setUnits((units) =>
+        units.map((unit, i) => (i === index ? { ...unit, status } : unit)),
+      );
     }
+
+    setButtonState("active");
   }
 
   function reset() {

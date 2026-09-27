@@ -22,7 +22,11 @@ const defaultTargets = (type: string) =>
         .fill(undefined)
         .map((_, i) => `Unit ${i + 1}`);
 
-export default function ResourceDetails() {
+export default function ResourceDetails({
+  disableTarget = false,
+}: {
+  disableTarget?: boolean;
+}) {
   const { action, setAction, details, setDetails } = useResourceEditor();
 
   const [title, setTitle] = useState(details?.title ?? "");
@@ -102,31 +106,35 @@ export default function ResourceDetails() {
       </h2>
 
       <div className="mt-6 space-y-8">
-        <div>
-          <h3 className="mb-4 text-lg font-semibold text-foreground">
-            Basic Information
-          </h3>
+        {!disableTarget && (
+          <div>
+            <h3 className="mb-4 text-lg font-semibold text-foreground">
+              Basic Information
+            </h3>
 
-          <div className="grid gap-5 md:grid-cols-2">
-            <TextInput
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              label="Resource Title"
-              placeholder="Enter title"
-            />
-            <TextInput
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              label="Description"
-              placeholder="Resource Description"
-            />
+            <div className="grid gap-5 md:grid-cols-2">
+              <TextInput
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                label="Resource Title"
+                placeholder="Enter title"
+              />
+              <TextInput
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                label="Description"
+                placeholder="Resource Description"
+              />
+            </div>
           </div>
-        </div>
+        )}
 
         <div>
-          <h3 className="mb-4 text-lg font-semibold text-foreground">
-            Categorization
-          </h3>
+          {!disableTarget && (
+            <h3 className="mb-4 text-lg font-semibold text-foreground">
+              Categorization
+            </h3>
+          )}
 
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             <SelectInput
@@ -238,17 +246,19 @@ export default function ResourceDetails() {
               />
             )}
 
-            <SelectInput
-              label="target"
-              options={["Select", ...(targets?.map((t) => t.title) || [])]}
-              mutedOptions={[false, ...(targets?.map((t) => t.exist) || [])]}
-              value={target}
-              onChange={(e) => {
-                const target = e.target.value;
-                setTarget(target);
-              }}
-              disabled={action === "update" ? true : false}
-            />
+            {!disableTarget && (
+              <SelectInput
+                label="target"
+                options={["Select", ...(targets?.map((t) => t.title) || [])]}
+                mutedOptions={[false, ...(targets?.map((t) => t.exist) || [])]}
+                value={target}
+                onChange={(e) => {
+                  const target = e.target.value;
+                  setTarget(target);
+                }}
+                disabled={action === "update" ? true : false}
+              />
+            )}
           </div>
         </div>
       </div>

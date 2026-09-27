@@ -126,6 +126,10 @@ export default function ResourceGenerator() {
       return;
     }
 
+    // ask user weather to over write;
+    const overwrite: boolean =
+      units.some((u) => u.exist) && confirm("Overwrite the existing resources");
+
     setButtonState("ensureing_hierarchy");
 
     setUnits((current) =>
@@ -149,6 +153,15 @@ export default function ResourceGenerator() {
 
     for (const [index, unit] of units.entries()) {
       if (!unit.syllabus.trim()) continue;
+
+      if (unit.exist && !overwrite) {
+        setUnits((units) =>
+          units.map((unit, i) =>
+            i === index ? { ...unit, status: "skipped" } : unit,
+          ),
+        );
+        continue;
+      }
 
       // update status
       setUnits((units) =>
@@ -212,7 +225,13 @@ export default function ResourceGenerator() {
 
       // insert resource
       try {
-        await insertResource(resource);
+        if (unit.exist && overwrite) {
+          // await updateResource(resource);
+          console.log("updating resource");
+        } else {
+          console.log("inserting resource");
+          await insertResource(resource);
+        }
         status = "success";
       } catch {
         status = "failed";

@@ -79,6 +79,11 @@ export default function ResourceDetails({
   }, [type, level, subject, paper]);
 
   useEffect(() => {
+    if (!subjects?.some((s) => s.title === subject)) setSubject("");
+    if (!papers?.some((p) => p.title === paper)) setPaper("");
+  }, [levels, subjects, papers]);
+
+  useEffect(() => {
     const muted = targets?.some((t) => {
       if (slugify(t.title) === slugify(target)) return t.exist;
       return false;
@@ -163,7 +168,19 @@ export default function ResourceDetails({
                 const id = levels?.find((l) => l.title === level)?.id;
                 id &&
                   getSubjects(id)
-                    .then(setSubjects)
+                    .then((subjects) => {
+                      setSubjects(subjects);
+                      return subjects;
+                    })
+                    .then((subjects) => {
+                      const paperId = subjects?.find(
+                        (s) => s.title === subject,
+                      )?.id;
+                      paperId &&
+                        getPapers(paperId)
+                          .then(setPapers)
+                          .catch(() => toast.error("failed to load Papers"));
+                    })
                     .catch(() => toast.error("failed to load Subjects"));
               }}
               onInputEnd={(value) => {

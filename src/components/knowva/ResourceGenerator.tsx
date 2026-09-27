@@ -15,6 +15,8 @@ import { NewResource } from "@/types/resource";
 import { ActionState } from "@/types/main";
 import { generateResource } from "@/actions/knowva/resource";
 import { slugify } from "@/utils/string";
+import { ModelSelector } from "./ModelSelector";
+import { useKnowva } from "@/context/KnowvaContext";
 
 type Status =
   | "pending"
@@ -62,6 +64,7 @@ export default function ResourceGenerator() {
   >([]);
 
   const { details } = useResourceEditor();
+  const { model } = useKnowva();
 
   const completed = useMemo(
     () =>
@@ -178,7 +181,7 @@ export default function ResourceGenerator() {
       try {
         generated = await generateResource({
           syllabus: unit.syllabus,
-          model: "gemini-3.5-flash-lite",
+          model,
         });
 
         if (typeof generated !== "string") {
@@ -315,14 +318,18 @@ export default function ResourceGenerator() {
     <main className="min-h-screen bg-background">
       <div className="mx-auto max-w-5xl px-4 py-8">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-2xl font-semibold tracking-tight">
-            Resource Generator
-          </h1>
+        <div className="mb-8 flex items-start justify-between gap-4">
+          <div>
+            <h1 className="text-2xl font-semibold tracking-tight">
+              Resource Generator
+            </h1>
 
-          <p className="mt-1 text-sm text-muted-foreground">
-            Generate and publish Knowva learning resources from a syllabus.
-          </p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Generate and publish Knowva learning resources from a syllabus.
+            </p>
+          </div>
+
+          <ModelSelector />
         </div>
 
         {/* Details */}

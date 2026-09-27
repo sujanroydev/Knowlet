@@ -1,11 +1,15 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import ResourceDetails from "../dashboard/resources/resource-details";
 import { useResourceEditor } from "@/context/ResourceEditorContext";
 import { toast } from "sonner";
 import { buildResourcePath } from "@/utils/resource";
-import { ensureResourceHierarchy, insertResource } from "@/actions/resource";
+import {
+  ensureResourceHierarchy,
+  getNearByResources,
+  insertResource,
+} from "@/actions/resource";
 import { NewResource } from "@/types/resource";
 import { ActionState } from "@/types/main";
 import { generateResource } from "@/actions/knowva/resource";
@@ -25,6 +29,7 @@ type Unit = {
   target: string;
   syllabus: string;
   status: Status;
+  exist: boolean;
   title?: string;
   description?: string;
   error?: string;
@@ -37,6 +42,7 @@ const initialUnits: Unit[] = Array(5)
     target: `Unit ${i + 1}`,
     syllabus: "",
     status: "pending",
+    exist: false,
   }));
 
 export default function ResourceGenerator() {
@@ -45,7 +51,15 @@ export default function ResourceGenerator() {
     ActionState | "ensureing_hierarchy"
   >("active");
 
-  const { details, setDetails } = useResourceEditor();
+  const [existingTargets, setExistingTargets] = useState<
+    {
+      id: any;
+      target: any;
+      path: any;
+    }[]
+  >([]);
+
+  const { details } = useResourceEditor();
 
   const completed = useMemo(
     () =>
@@ -84,6 +98,9 @@ export default function ResourceGenerator() {
         target: `Unit ${current.length + 1}`,
         syllabus: "",
         status: "pending",
+        exist: existingTargets.some(
+          (t) => slugify(t.target) === slugify(`Unit ${current.length + 1}`),
+        ),
       },
     ]);
   }
@@ -196,7 +213,6 @@ export default function ResourceGenerator() {
       // insert resource
       try {
         await insertResource(resource);
-        console.log(resource);
         status = "success";
       } catch {
         status = "failed";
@@ -223,6 +239,32 @@ export default function ResourceGenerator() {
       })),
     );
   }
+
+  useEffect(() => {
+    const { type, level, subject, paper } = details;
+
+    if (!type || !level || !subject) return;
+
+    if (level.startsWith("Semester") && !paper) return;
+
+    const path = buildResourcePath({
+      level,
+      subject,
+      paper,
+      type,
+      target: type.startsWith("Notes") ? "Unit " : "Solved ",
+    });
+
+    getNearByResources(path).then((items) => {
+      setUnits((targets) =>
+        targets.map((t) => ({
+          ...t,
+          exist: items.some((i) => slugify(i.target) === slugify(t.target)),
+        })),
+      );
+      setExistingTargets(items);
+    });
+  }, [details]);
 
   return (
     <main className="min-h-screen bg-background">
@@ -291,6 +333,7 @@ export default function ResourceGenerator() {
                 key={unit.id}
                 unit={unit}
                 disabled={buttonState !== "active"}
+                exist={unit.exist}
                 onChange={(value) => updateUnit(unit.id, value)}
                 onRemove={() => removeUnit(unit.id)}
               />
@@ -346,16 +389,22 @@ function Field({
 function UnitCard({
   unit,
   disabled,
+  exist,
   onChange,
   onRemove,
 }: {
   unit: Unit;
   disabled: boolean;
+  exist: boolean;
   onChange: (value: string) => void;
   onRemove: () => void;
 }) {
   return (
-    <article className="rounded-xl border bg-card p-4">
+    <article
+      className={`rounded-xl border bg-card p-4 transition-opacity ${
+        exist ? "opacity-50" : ""
+      }`}
+    >
       <div className="mb-3 flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <span className="font-medium">{unit.target}</span>

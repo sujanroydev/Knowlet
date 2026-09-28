@@ -1,14 +1,14 @@
 import { cookies } from "next/headers";
 import LevelBlock from "./Stats/Level";
 import StreakBlock from "./Stats/Streak";
-import { verifyJwt } from "@/lib/auth";
+import { verifyAccessToken } from "@/lib/auth/tokens";
 
 export default async function StatsSection() {
   const cookieStore = await cookies();
-  const token = cookieStore.get("token")?.value;
+  const accessToken = cookieStore.get("access_token")?.value;
 
-  const { ok, payload } = await verifyJwt(token);
-  if (!ok) return;
+  const payload = await verifyAccessToken(accessToken);
+  if (!payload) return;
 
   const userId = payload.user_id;
 

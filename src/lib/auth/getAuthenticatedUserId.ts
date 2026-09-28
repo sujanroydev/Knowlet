@@ -1,15 +1,15 @@
 import { cookies } from "next/headers";
 import { NextRequest } from "next/server";
-import { verifyJwt } from "@/lib/auth";
+import { verifyAccessToken } from "./tokens";
 
 export async function getAuthenticatedUserId(req?: NextRequest) {
-  const token = req
-    ? req.cookies.get("token")?.value
-    : (await cookies()).get("token")?.value;
+  const accessToken = req
+    ? req.cookies.get("access_token")?.value
+    : (await cookies()).get("access_token")?.value;
 
-  const { ok, reason, payload } = await verifyJwt(token);
+  const payload = await verifyAccessToken(accessToken);
 
-  if (!ok) throw new Error(reason);
+  if (!payload) throw new Error("Unauthorized");
 
   return payload.user_id;
 }

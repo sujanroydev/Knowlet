@@ -17,7 +17,7 @@ function redirectToSignin(req: NextRequest) {
 
 export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
-  const token = req.cookies.get("token")?.value;
+  const accessToken = req.cookies.get("access_token")?.value;
 
   // OLD NOTES REDIRECTS
   if (pathname === "/notes") {
@@ -45,14 +45,14 @@ export async function proxy(req: NextRequest) {
 
   // AUTH
   if (PROTECTED_ROUTES.some((route) => pathname.startsWith(route))) {
-    const payload = verifyAccessToken(token!);
+    const payload = await verifyAccessToken(accessToken);
 
     if (!payload) return redirectToSignin(req);
   }
 
   // ADMIN
   if (pathname.startsWith("/dashboard")) {
-    const payload = await verifyAccessToken(token!);
+    const payload = await verifyAccessToken(accessToken);
 
     if (!payload) return redirectToSignin(req);
 

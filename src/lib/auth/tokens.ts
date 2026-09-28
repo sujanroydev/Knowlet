@@ -39,8 +39,10 @@ export async function createAccessToken({
 }
 
 export async function verifyAccessToken(
-  token: string,
+  token?: string,
 ): Promise<AccessTokenPayload | null> {
+  if (!token) return null;
+
   try {
     const { payload } = await jwtVerify<AccessTokenPayload>(
       token,

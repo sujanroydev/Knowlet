@@ -1,5 +1,5 @@
 import { supabase } from "@/lib/supabase";
-import { User } from "@/types/user";
+import { User, UserRole } from "@/types/user";
 
 export const USER_COLUMNS = {
   basic: "id, name, username",
@@ -86,7 +86,7 @@ export async function getUserPassword(userId: string): Promise<string | null> {
 
 export async function getActiveUserRole(
   userId: string,
-): Promise<string | null> {
+): Promise<UserRole | null> {
   const { data, error } = await supabase
     .from("users")
     .select("role")

@@ -1,7 +1,13 @@
-import { getUserIdByEmail, createUser } from "@/db/user";
+import { createAuthSession } from "@/db/auth/authSessions";
+import { getUserIdByEmail, createUser, getActiveUserRole } from "@/db/user";
+import { setAuthCookies } from "@/lib/auth/cookies";
+import {
+  createAccessToken,
+  createRefreshToken,
+  hashRefreshToken,
+} from "@/lib/auth/tokens";
 import { sendWelcomeEmail } from "@/services/email/send/welcome";
 import generateUsername from "@/utils/generateUsername";
-import { SignJWT } from "jose";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
@@ -69,22 +75,25 @@ export async function GET(req: NextRequest) {
         );
       }
 
-      const secret = new TextEncoder().encode(process.env.JWT_SECRET);
-      const token = await new SignJWT({ user_id: userId })
-        .setProtectedHeader({ alg: "HS256" })
-        .setIssuedAt()
-        .setExpirationTime("30d")
-        .sign(secret);
+      const role = await getActiveUserRole(userId);
+
+      const refreshToken = createRefreshToken();
+      const refreshTokenHash = hashRefreshToken(refreshToken);
+
+      const sessionId = await createAuthSession({
+        userId,
+        refreshTokenHash,
+      });
+
+      const accessToken = await createAccessToken({
+        userId,
+        sessionId,
+        role: role ?? undefined,
+      });
 
       const response = NextResponse.redirect(process.env.NEXT_PUBLIC_APP_URL!);
 
-      response.cookies.set("token", token, {
-        httpOnly: true,
-        sameSite: "lax",
-        secure: process.env.NODE_ENV === "production",
-        path: "/",
-        maxAge: 60 * 60 * 24 * 15,
-      });
+      setAuthCookies(response, accessToken, refreshToken);
 
       return response;
     }
@@ -104,12 +113,19 @@ export async function GET(req: NextRequest) {
       referrer_code: referralCode ?? undefined,
     });
 
-    const secret = new TextEncoder().encode(process.env.JWT_SECRET);
-    const token = await new SignJWT({ user_id: user.id })
-      .setProtectedHeader({ alg: "HS256" })
-      .setIssuedAt()
-      .setExpirationTime("30d")
-      .sign(secret);
+    const refreshToken = createRefreshToken();
+    const refreshTokenHash = hashRefreshToken(refreshToken);
+
+    const sessionId = await createAuthSession({
+      userId: user.id,
+      refreshTokenHash,
+    });
+
+    const accessToken = await createAccessToken({
+      userId: user.id,
+      sessionId,
+      role: user.role,
+    });
 
     const response = NextResponse.redirect(
       `${process.env.NEXT_PUBLIC_APP_URL}/welcome`,
@@ -117,13 +133,7 @@ export async function GET(req: NextRequest) {
 
     response.cookies.delete("referral_code");
 
-    response.cookies.set("token", token, {
-      httpOnly: true,
-      sameSite: "lax",
-      secure: process.env.NODE_ENV === "production",
-      path: "/",
-      maxAge: 60 * 60 * 24 * 15,
-    });
+    setAuthCookies(response, accessToken, refreshToken);
 
     void sendWelcomeEmail({
       email: googleUser.email,

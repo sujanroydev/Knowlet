@@ -17,7 +17,7 @@ export async function GET(
   let browser;
 
   try {
-    const { ok, res, payload } = await authGate(req, "jwt");
+    const { ok, res, payload } = await authGate(req);
     if (!ok || !payload) return res;
 
     const { id } = await params;

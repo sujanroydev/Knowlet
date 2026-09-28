@@ -6,7 +6,7 @@ import { insertFeedback } from "@/db/resource/feedback";
 export async function POST(req: NextRequest) {
   try {
     const { feedbackMsg, resourceId } = await req.json();
-    const { ok, res, payload } = await authGate(req, "jwt");
+    const { ok, res, payload } = await authGate(req);
 
     if (!ok || !payload) return res;
 

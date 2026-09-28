@@ -4,7 +4,7 @@ import { verifyAccessToken } from "./tokens";
 import { getActiveUserRole } from "@/db/user";
 import { clearAuthCookies } from "./cookies";
 
-export async function authGate(req: NextRequest, role: UserRole) {
+export async function authGate(req: NextRequest, role?: UserRole) {
   const accessToken = req.cookies.get("access_token")?.value;
   const payload = await verifyAccessToken(accessToken);
 

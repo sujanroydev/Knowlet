@@ -5,7 +5,7 @@ import { getAllNotifications } from "@/db/notification";
 
 export async function GET(req: NextRequest) {
   try {
-    const { ok, res, payload } = await authGate(req, "jwt");
+    const { ok, res, payload } = await authGate(req);
     if (!ok || !payload) return res;
 
     const notifications = await getAllNotifications();

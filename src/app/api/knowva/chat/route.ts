@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { ok, res, payload } = await authGate(req, "jwt");
+    const { ok, res, payload } = await authGate(req);
     if (!ok || !payload) return res;
 
     void (async () => {

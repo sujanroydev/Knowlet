@@ -9,11 +9,16 @@ import { newResourceReportTemplate } from "@/services/email/templates/resource-r
 export async function POST(req: NextRequest) {
   try {
     const { reportReason, reportDetails, resourceId } = await req.json();
-    const { ok, res, payload } = await authGate(req, "jwt");
+    const { ok, res, payload } = await authGate(req);
 
     if (!ok || !payload) return res;
 
-    await insertReport(payload.user_id, resourceId, reportReason, reportDetails);
+    await insertReport(
+      payload.user_id,
+      resourceId,
+      reportReason,
+      reportDetails,
+    );
 
     void sendEmailByUserId({
       user_id: payload.user_id,

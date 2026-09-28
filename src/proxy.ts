@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { verifyAdmin, verifyJwt } from "./lib/auth";
 import { PROTECTED_ROUTES } from "./config/app";
+import { clearAuthCookies } from "./lib/auth/cookies";
+import { verifyAccessToken } from "./lib/auth/tokens";
 
 function slugify(value: string) {
   return value.replace(/_/g, "-");
@@ -9,11 +10,7 @@ function slugify(value: string) {
 function redirectToSignin(req: NextRequest) {
   const res = NextResponse.redirect(new URL("/signin", req.url));
 
-  res.cookies.set("token", "", {
-    httpOnly: true,
-    path: "/",
-    maxAge: 0,
-  });
+  clearAuthCookies(res);
 
   return res;
 }
@@ -48,21 +45,19 @@ export async function proxy(req: NextRequest) {
 
   // AUTH
   if (PROTECTED_ROUTES.some((route) => pathname.startsWith(route))) {
-    const { ok } = await verifyJwt(token);
+    const payload = verifyAccessToken(token!);
 
-    if (!ok) return redirectToSignin(req);
+    if (!payload) return redirectToSignin(req);
   }
 
   // ADMIN
   if (pathname.startsWith("/dashboard")) {
-    const { ok, reason } = await verifyAdmin(token);
+    const payload = await verifyAccessToken(token!);
 
-    if (!ok) {
-      if (reason === "NOT_ADMIN") {
-        return NextResponse.redirect(new URL("/forbidden", req.url));
-      } else {
-        return redirectToSignin(req);
-      }
+    if (!payload) return redirectToSignin(req);
+
+    if (payload.role !== "admin") {
+      return NextResponse.redirect(new URL("/forbidden", req.url));
     }
   }
 

@@ -84,6 +84,21 @@ export async function getUserPassword(userId: string): Promise<string | null> {
   return data.password_hash as string | null;
 }
 
+export async function getActiveUserRole(
+  userId: string,
+): Promise<string | null> {
+  const { data, error } = await supabase
+    .from("users")
+    .select("role")
+    .eq("id", userId)
+    .eq("is_active", true)
+    .single();
+
+  if (error) throw error;
+
+  return data?.role ?? null;
+}
+
 export async function getPasswordHashByEmail(
   email: string,
 ): Promise<string | null> {

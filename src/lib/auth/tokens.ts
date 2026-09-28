@@ -1,9 +1,11 @@
+import { UserRole } from "@/types/user";
 import { createHash, randomBytes } from "crypto";
 import { jwtVerify, SignJWT, type JWTPayload } from "jose";
 
 export interface AccessTokenPayload extends JWTPayload {
   user_id: string;
   session_id: string;
+  role: UserRole;
 }
 
 function getJwtSecret() {
@@ -16,10 +18,19 @@ function getJwtSecret() {
   return new TextEncoder().encode(secret);
 }
 
-export async function createAccessToken(userId: string, sessionId: string) {
+export async function createAccessToken({
+  userId,
+  sessionId,
+  role = "user",
+}: {
+  userId: string;
+  sessionId: string;
+  role?: UserRole;
+}) {
   return new SignJWT({
     user_id: userId,
     session_id: sessionId,
+    role,
   })
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()

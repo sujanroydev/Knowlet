@@ -56,7 +56,11 @@ export async function POST(req: NextRequest) {
       refreshTokenHash,
     });
 
-    const accessToken = await createAccessToken(user.id, sessionId);
+    const accessToken = await createAccessToken({
+      userId: user.id,
+      sessionId,
+      role: user.role,
+    });
 
     const response = NextResponse.json({ user }, { status: 200 });
 

@@ -1,76 +1,36 @@
 import { NextResponse, NextRequest } from "next/server";
-import { verifyJwt, verifyUser, verifyAdmin } from ".";
+import { UserRole } from "@/types/user";
+import { verifyAccessToken } from "./tokens";
+import { getActiveUserRole } from "@/db/user";
+import { clearAuthCookies } from "./cookies";
 
-type Role = "jwt" | "user" | "admin";
+export async function authGate(req: NextRequest, role: UserRole) {
+  const accessToken = req.cookies.get("access_token")?.value;
+  const payload = await verifyAccessToken(accessToken);
 
-export async function authGate(req: NextRequest, role: Role = "jwt") {
-  const token = req.cookies.get("token")?.value;
+  if (!payload) {
+    const res = NextResponse.json(
+      { error: { message: "Unauthorized" } },
+      { status: 401 },
+    );
 
-  if (role === "user") {
-    const result = await verifyUser(token);
+    clearAuthCookies(res);
 
-    if (!result.ok) {
-      const res = NextResponse.json(
-        { error: { message: result.reason } },
-        { status: 401 },
-      );
-
-      res.cookies.set("token", "", {
-        httpOnly: true,
-        path: "/",
-        maxAge: 0,
-      });
-
-      return { ok: false, res };
-    }
-
-    return {
-      ok: true,
-      payload: result.payload,
-    };
-  } else if (role === "admin") {
-    const result = await verifyAdmin(token);
-
-    if (!result.ok) {
-      const res = NextResponse.json(
-        { error: { message: result.reason } },
-        { status: 401 },
-      );
-
-      res.cookies.set("token", "", {
-        httpOnly: true,
-        path: "/",
-        maxAge: 0,
-      });
-
-      return { ok: false, res };
-    }
-
-    return {
-      ok: true,
-      payload: result.payload,
-    };
-  } else {
-    const jwtResult = await verifyJwt(token);
-
-    if (!jwtResult.ok) {
-      const res = NextResponse.json(
-        { error: { message: jwtResult.reason } },
-        { status: 401 },
-      );
-
-      res.cookies.set("token", "", {
-        httpOnly: true,
-        path: "/",
-        maxAge: 0,
-      });
-
-      return { ok: false, res };
-    }
-
-    return {
-      ok: true,
-      payload: jwtResult.payload,
-    };
+    return { ok: false, res };
   }
+
+  if (role === "admin") {
+    const role = await getActiveUserRole(payload.user_id);
+
+    if (role !== "admin") {
+      const res = NextResponse.json(
+        { error: { message: "Unauthorized" } },
+        { status: 401 },
+      );
+
+      return { ok: false, res };
+    }
+  }
+
+  return { ok: true, payload };
 }

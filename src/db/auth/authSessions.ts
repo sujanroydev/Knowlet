@@ -26,5 +26,5 @@ export async function createAuthSession({
 
   if (error) throw error;
 
-  return session;
+  return session.id as string;
 }

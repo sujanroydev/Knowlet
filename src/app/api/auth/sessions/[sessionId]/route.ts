@@ -1,10 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { supabase } from "@/lib/supabase";
 import { verifyAccessToken } from "@/lib/auth/tokens";
 import {
   getActiveAuthSession,
-  revokeAllAuthSessions,
   revokeAuthSession,
 } from "@/db/auth/authSessions";
 

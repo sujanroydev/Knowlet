@@ -20,7 +20,7 @@ export default function SettingsPage() {
     },
     {
       title: "Security",
-      description: "Update your password and secure your account.",
+      description: "Manage your password, devices, and account security.",
       links: [
         {
           label: "Set Password",
@@ -33,6 +33,10 @@ export default function SettingsPage() {
         {
           label: "Change Password",
           href: "/settings/password/change",
+        },
+        {
+          label: "Devices & Sessions",
+          href: "/settings/sessions",
         },
       ],
     },
@@ -86,30 +90,6 @@ export default function SettingsPage() {
             </div>
           ))}
         </div>
-
-        {/* Danger Zone */}
-        {/* <section className="rounded-[28px] border border-red-200 bg-white p-6 shadow-sm">
-          <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-            <div>
-              <h2 className="text-xl font-bold text-red-600">Danger Zone</h2>
-
-              <p className="mt-2 text-sm leading-6 text-slate-500">
-                These actions are sensitive and may permanently affect your
-                account.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-3">
-              <button className="rounded-2xl border border-red-200 px-5 py-3 text-sm font-semibold text-red-600 transition hover:bg-red-50">
-                Sign Out All Devices
-              </button>
-
-              <button className="rounded-2xl bg-red-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-red-600">
-                Delete Account
-              </button>
-            </div>
-          </div>
-        </section> */}
       </div>
     </main>
   );

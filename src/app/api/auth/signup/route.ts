@@ -12,6 +12,7 @@ import {
 } from "@/lib/auth/tokens";
 import { createAuthSession } from "@/db/auth/authSessions";
 import { setAuthCookies } from "@/lib/auth/cookies";
+import { getClientInfo } from "@/lib/auth/client-info";
 
 export async function POST(request: NextRequest) {
   try {
@@ -83,9 +84,13 @@ export async function POST(request: NextRequest) {
     const refreshToken = createRefreshToken();
     const refreshTokenHash = hashRefreshToken(refreshToken);
 
+    const { userAgent, ipAddress } = getClientInfo(request);
+
     const sessionId = await createAuthSession({
       userId: user.id,
       refreshTokenHash,
+      userAgent,
+      ipAddress,
     });
 
     const accessToken = await createAccessToken({

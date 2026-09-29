@@ -1,5 +1,8 @@
+import { NextRequest, NextResponse } from "next/server";
+
 import { createAuthSession } from "@/db/auth/authSessions";
 import { getUserIdByEmail, createUser, getActiveUserRole } from "@/db/user";
+import { getClientInfo } from "@/lib/auth/client-info";
 import { setAuthCookies } from "@/lib/auth/cookies";
 import {
   createAccessToken,
@@ -8,7 +11,6 @@ import {
 } from "@/lib/auth/tokens";
 import { sendWelcomeEmail } from "@/services/email/send/welcome";
 import generateUsername from "@/utils/generateUsername";
-import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
   try {
@@ -67,6 +69,8 @@ export async function GET(req: NextRequest) {
     // Find existing user
     const userId = await getUserIdByEmail(googleUser.email);
 
+    const { userAgent, ipAddress } = getClientInfo(req);
+
     // SIGN IN
     if (state === "signin") {
       if (!userId) {
@@ -83,6 +87,8 @@ export async function GET(req: NextRequest) {
       const sessionId = await createAuthSession({
         userId,
         refreshTokenHash,
+        userAgent,
+        ipAddress,
       });
 
       const accessToken = await createAccessToken({
@@ -119,6 +125,8 @@ export async function GET(req: NextRequest) {
     const sessionId = await createAuthSession({
       userId: user.id,
       refreshTokenHash,
+      userAgent,
+      ipAddress,
     });
 
     const accessToken = await createAccessToken({

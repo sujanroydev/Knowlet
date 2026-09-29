@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Monitor, Smartphone, Tablet, LogOut, ShieldCheck } from "lucide-react";
 import { toast } from "sonner";
+import { authFetch } from "@/lib/auth/authFetch";
 
 type AuthSession = {
   id: string;
@@ -107,7 +108,7 @@ export default function Sessions() {
 
   async function loadSessions() {
     try {
-      const response = await fetch("/api/auth/sessions", {
+      const response = await authFetch("/api/auth/sessions", {
         credentials: "include",
       });
 
@@ -135,7 +136,7 @@ export default function Sessions() {
     setSigningOut(sessionId);
 
     try {
-      const response = await fetch(`/api/auth/sessions/${sessionId}`, {
+      const response = await authFetch(`/api/auth/sessions/${sessionId}`, {
         method: "DELETE",
         credentials: "include",
       });
@@ -166,7 +167,7 @@ export default function Sessions() {
     setSigningOutAll(true);
 
     try {
-      const response = await fetch("/api/auth/sessions", {
+      const response = await authFetch("/api/auth/sessions", {
         method: "DELETE",
         credentials: "include",
       });

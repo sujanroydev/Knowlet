@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import { authFetch } from "@/lib/auth/authFetch";
 
 const menuItems = [
   {
@@ -49,7 +50,7 @@ export default function ProfileMenu() {
 
   async function handleSignout() {
     try {
-      const res = await fetch("/api/auth/signout", {
+      const res = await authFetch("/api/auth/signout", {
         method: "POST",
       });
 

@@ -8,6 +8,7 @@ import AcademicInfoSection from "./AcademicInfoSection";
 import { toast } from "sonner";
 import { Loader2Icon } from "lucide-react";
 import { User } from "@/types/user";
+import { authFetch } from "@/lib/auth/authFetch";
 
 export default function CompleteProfileForm() {
   const [loading, setLoading] = useState(false);
@@ -44,7 +45,7 @@ export default function CompleteProfileForm() {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await fetch("api/user/update", {
+      const res = await authFetch("api/user/update", {
         method: "POST",
         body: JSON.stringify(form),
       });

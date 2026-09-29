@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { ArrowUpRight, Search } from "lucide-react";
+import { authFetch } from "@/lib/auth/authFetch";
 
 export default function SearchPage() {
   const router = useRouter();
@@ -45,7 +46,7 @@ export default function SearchPage() {
 
       setLoading(true);
 
-      const res = await fetch(
+      const res = await authFetch(
         `/api/resources/search?query=${encodeURIComponent(debouncedQuery)}`,
       );
 

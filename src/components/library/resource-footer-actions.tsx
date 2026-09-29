@@ -3,6 +3,7 @@
 import { useReader } from "@/context/ReaderContext";
 import { useState } from "react";
 import { toast } from "sonner";
+import { authFetch } from "@/lib/auth/authFetch";
 
 export default function ResourceFooterActions() {
   const { resourceId } = useReader();
@@ -25,7 +26,7 @@ export default function ResourceFooterActions() {
     try {
       setLoading(true);
 
-      const res = await fetch("/api/resources/feedback", {
+      const res = await authFetch("/api/resources/feedback", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ feedbackMsg, resourceId }),
@@ -59,7 +60,7 @@ export default function ResourceFooterActions() {
     try {
       setLoading(true);
 
-      const res = await fetch("/api/resources/report", {
+      const res = await authFetch("/api/resources/report", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ reportReason, reportDetails, resourceId }),

@@ -3,6 +3,7 @@
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
+import { authFetch } from "@/lib/auth/authFetch";
 
 import {
   ChevronLeft,
@@ -88,7 +89,7 @@ export default function TopBar() {
       setDownloading(true);
       toast.info("Generating PDF");
 
-      const response = await fetch(`/api/resources/pdf/${resourceId}`);
+      const response = await authFetch(`/api/resources/pdf/${resourceId}`);
 
       if (!response.ok) {
         throw new Error("Failed to generate PDF");

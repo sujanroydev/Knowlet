@@ -17,6 +17,7 @@ import {
   Loader2,
 } from "lucide-react";
 import { toast } from "sonner";
+import { authFetch } from "@/lib/auth/authFetch";
 
 type NotificationData = {
   id?: string;
@@ -73,7 +74,7 @@ export default function NotificationAdminPage() {
   }
 
   async function loadHistory() {
-    const res = await fetch("/api/notification");
+    const res = await authFetch("/api/notification");
     const { data, error } = await res.json();
 
     if (error) {
@@ -113,7 +114,7 @@ export default function NotificationAdminPage() {
       const formData = new FormData();
       formData.append("image", compressedImage);
 
-      const res = await fetch("/api/notification/upload-image", {
+      const res = await authFetch("/api/notification/upload-image", {
         method: "POST",
         body: formData,
       });
@@ -159,7 +160,7 @@ export default function NotificationAdminPage() {
 
       setSending(true);
 
-      const res = await fetch("/api/notification/send", {
+      const res = await authFetch("/api/notification/send", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

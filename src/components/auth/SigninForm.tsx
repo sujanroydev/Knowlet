@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import { useAuth } from "@/context/AuthContext";
 import { subscribe } from "@/app/(app)/notifications/notification-client";
 import PasswordInput from "@/components/ui/PasswordInput";
+import { authFetch } from "@/lib/auth/authFetch";
 
 export default function SigninForm({ error }: { error?: string }) {
   const [loading, setLoading] = useState(false);
@@ -29,7 +30,7 @@ export default function SigninForm({ error }: { error?: string }) {
     try {
       setLoading(true);
 
-      const res = await fetch("/api/auth/signin", {
+      const res = await authFetch("/api/auth/signin", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

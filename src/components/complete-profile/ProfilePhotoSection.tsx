@@ -1,6 +1,7 @@
 import { Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
+import { authFetch } from "@/lib/auth/authFetch";
 
 interface ProfilePhotoSectionProps {
   picture: string;
@@ -98,7 +99,7 @@ export default function ProfilePhotoSection({
       formData.append("image", compressedImage);
       formData.append("file-path", filePath);
 
-      const res = await fetch("api/user/upload-avatar", {
+      const res = await authFetch("api/user/upload-avatar", {
         method: "POST",
         body: formData,
       });

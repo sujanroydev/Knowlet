@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import { ArrowUp, Square } from "lucide-react";
 import { toast } from "sonner";
+import { authFetch } from "@/lib/auth/authFetch";
 
 import { useKnowva } from "@/context/KnowvaContext";
 import { useAuth } from "@/context/AuthContext";
@@ -93,7 +94,7 @@ export default function KnowvaInput() {
 
       setCurrentMessage({ ...knowvaNewMessage });
 
-      const res = await fetch("/api/knowva/chat", {
+      const res = await authFetch("/api/knowva/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text, mode, model, chatId: currentChatId }),

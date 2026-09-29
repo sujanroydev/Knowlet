@@ -11,6 +11,7 @@ import {
 } from "@/lib/auth/tokens";
 import { sendWelcomeEmail } from "@/services/email/send/welcome";
 import generateUsername from "@/utils/generateUsername";
+import { authFetch } from "@/lib/auth/authFetch";
 
 export async function GET(req: NextRequest) {
   try {
@@ -30,7 +31,7 @@ export async function GET(req: NextRequest) {
     }
 
     // Exchange code for token
-    const tokenRes = await fetch("https://oauth2.googleapis.com/token", {
+    const tokenRes = await authFetch("https://oauth2.googleapis.com/token", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -51,7 +52,7 @@ export async function GET(req: NextRequest) {
     const tokenData = await tokenRes.json();
 
     // Fetch Google user
-    const userRes = await fetch(
+    const userRes = await authFetch(
       "https://www.googleapis.com/oauth2/v3/userinfo",
       {
         headers: {

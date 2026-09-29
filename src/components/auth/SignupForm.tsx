@@ -8,6 +8,7 @@ import { useAuth } from "@/context/AuthContext";
 import { subscribe } from "@/app/(app)/notifications/notification-client";
 import PasswordInput from "@/components/ui/PasswordInput";
 import { sendAuthOtp } from "@/actions/auth/otp";
+import { authFetch } from "@/lib/auth/authFetch";
 
 export default function SignupForm() {
   const [loading, setLoading] = useState(false);
@@ -60,7 +61,7 @@ export default function SignupForm() {
     try {
       setLoading(true);
 
-      const res = await fetch("/api/auth/signup", {
+      const res = await authFetch("/api/auth/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

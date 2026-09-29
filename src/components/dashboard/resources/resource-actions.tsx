@@ -3,6 +3,7 @@
 import { Resource, Action } from "@/types/resource";
 import { useState } from "react";
 import { toast } from "sonner";
+import { authFetch } from "@/lib/auth/authFetch";
 
 export default function ResourceActions({
   resource,
@@ -17,7 +18,7 @@ export default function ResourceActions({
     if (!validateResource()) return;
 
     setLoading(true);
-    const res = await fetch("/api/resources", {
+    const res = await authFetch("/api/resources", {
       method: "POST",
       body: JSON.stringify(resource),
     });
@@ -75,7 +76,7 @@ export default function ResourceActions({
     }
 
     setLoading(true);
-    const res = await fetch(`/api/resources/${resource.id}`, {
+    const res = await authFetch(`/api/resources/${resource.id}`, {
       method: "PUT",
       body: JSON.stringify(resource),
     });

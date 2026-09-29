@@ -2,6 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 
 import { supabase } from "@/lib/supabase";
 import { verifyAccessToken } from "@/lib/auth/tokens";
+import {
+  getActiveAuthSession,
+  revokeAllAuthSessions,
+  revokeAuthSession,
+} from "@/db/auth/authSessions";
 
 type Params = {
   params: Promise<{
@@ -34,44 +39,13 @@ export async function DELETE(request: NextRequest, { params }: Params) {
       );
     }
 
-    const { data: session, error: findError } = await supabase
-      .from("auth_sessions")
-      .select("id")
-      .eq("id", sessionId)
-      .eq("user_id", userId)
-      .is("revoked_at", null)
-      .maybeSingle();
-
-    if (findError) {
-      console.error(findError);
-
-      return NextResponse.json(
-        { error: "Failed to find session" },
-        { status: 500 },
-      );
-    }
+    const session = await getActiveAuthSession(sessionId, userId);
 
     if (!session) {
       return NextResponse.json({ error: "Session not found" }, { status: 404 });
     }
 
-    const { error } = await supabase
-      .from("auth_sessions")
-      .update({
-        revoked_at: new Date().toISOString(),
-      })
-      .eq("id", sessionId)
-      .eq("user_id", userId)
-      .is("revoked_at", null);
-
-    if (error) {
-      console.error("Failed to revoke session:", error);
-
-      return NextResponse.json(
-        { error: "Failed to sign out device" },
-        { status: 500 },
-      );
-    }
+    await revokeAuthSession(sessionId);
 
     return NextResponse.json({
       success: true,

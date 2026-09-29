@@ -55,6 +55,37 @@ export async function getAuthSession(sessionId: string) {
   return session;
 }
 
+export async function getActiveAuthSessions(userId: string) {
+  const { data: sessions, error } = await supabase
+    .from("auth_sessions")
+    .select("id, user_agent, ip_address, created_at, last_used_at, expires_at")
+    .eq("user_id", userId)
+    .is("revoked_at", null)
+    .gt("expires_at", new Date().toISOString())
+    .order("last_used_at", {
+      ascending: false,
+      nullsFirst: false,
+    });
+
+  if (error) throw error;
+
+  return sessions;
+}
+
+export async function getActiveAuthSession(sessionId: string, userId: string) {
+  const { data: session, error } = await supabase
+    .from("auth_sessions")
+    .select("id")
+    .eq("id", sessionId)
+    .eq("user_id", userId)
+    .is("revoked_at", null)
+    .maybeSingle();
+
+  if (error) throw error;
+
+  return session;
+}
+
 export async function rotateAuthSession(
   sessionId: string,
   newRefreshTokenHash: string,

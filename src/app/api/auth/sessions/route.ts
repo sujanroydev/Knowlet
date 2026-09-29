@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { supabase } from "@/lib/supabase";
 import { verifyAccessToken } from "@/lib/auth/tokens";
+import { getActiveAuthSessions } from "@/db/auth/authSessions";
 
 export async function GET(request: NextRequest) {
   try {
@@ -15,34 +15,7 @@ export async function GET(request: NextRequest) {
     const userId = payload.user_id as string;
     const currentSessionId = payload.session_id as string;
 
-    const { data: sessions, error } = await supabase
-      .from("auth_sessions")
-      .select(
-        `
-          id,
-          user_agent,
-          ip_address,
-          created_at,
-          last_used_at,
-          expires_at
-        `,
-      )
-      .eq("user_id", userId)
-      .is("revoked_at", null)
-      .gt("expires_at", new Date().toISOString())
-      .order("last_used_at", {
-        ascending: false,
-        nullsFirst: false,
-      });
-
-    if (error) {
-      console.error("Failed to fetch auth sessions:", error);
-
-      return NextResponse.json(
-        { error: "Failed to fetch sessions" },
-        { status: 500 },
-      );
-    }
+    const sessions = await getActiveAuthSessions(userId);
 
     return NextResponse.json({
       sessions: (sessions ?? []).map((session) => ({

@@ -28,3 +28,35 @@ export async function createAuthSession({
 
   return session.id as string;
 }
+
+export async function getAuthSessionByRefreshTokenHash(
+  refreshTokenHash: string,
+) {
+  const { data: session, error } = await supabase
+    .from("auth_sessions")
+    .select("id, user_id, expires_at, revoked_at")
+    .eq("refresh_token_hash", refreshTokenHash)
+    .maybeSingle();
+
+  if (error) throw error;
+
+  return session;
+}
+
+export async function rotateAuthSession(
+  sessionId: string,
+  newRefreshTokenHash: string,
+  expiresAt: string,
+) {
+  const { error } = await supabase
+    .from("auth_sessions")
+    .update({
+      refresh_token_hash: newRefreshTokenHash,
+      expires_at: expiresAt,
+      last_used_at: new Date().toISOString(),
+    })
+    .eq("id", sessionId)
+    .is("revoked_at", null);
+
+  if (error) throw error;
+}

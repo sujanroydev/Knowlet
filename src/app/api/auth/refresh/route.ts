@@ -1,11 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { supabase } from "@/lib/supabase";
 import {
   createAccessToken,
   createRefreshToken,
   hashRefreshToken,
 } from "@/lib/auth/tokens";
+import {
+  getAuthSessionByRefreshTokenHash,
+  rotateAuthSession,
+} from "@/db/auth/authSessions";
+
+import { getUserById } from "@/db/user";
+import { setAuthCookies } from "@/lib/auth/cookies";
 
 const REFRESH_TOKEN_DAYS = 30;
 
@@ -18,20 +24,7 @@ export async function POST(req: NextRequest) {
 
   const refreshTokenHash = hashRefreshToken(refreshToken);
 
-  const { data: session, error: sessionError } = await supabase
-    .from("auth_sessions")
-    .select("id, user_id, expires_at, revoked_at")
-    .eq("refresh_token_hash", refreshTokenHash)
-    .maybeSingle();
-
-  if (sessionError) {
-    console.error("Failed to fetch auth session:", sessionError);
-
-    return NextResponse.json(
-      { error: "Internal server error" },
-      { status: 500 },
-    );
-  }
+  const session = await getAuthSessionByRefreshTokenHash(refreshTokenHash);
 
   if (!session) {
     return NextResponse.json(
@@ -54,20 +47,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const { data: user, error: userError } = await supabase
-    .from("users")
-    .select("id, is_active, role")
-    .eq("id", session.user_id)
-    .maybeSingle();
-
-  if (userError) {
-    console.error("Failed to fetch user:", userError);
-
-    return NextResponse.json(
-      { error: "Internal server error" },
-      { status: 500 },
-    );
-  }
+  const user = await getUserById(session.user_id);
 
   if (!user || !user.is_active) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -81,24 +61,7 @@ export async function POST(req: NextRequest) {
     Date.now() + REFRESH_TOKEN_DAYS * 24 * 60 * 60 * 1000,
   ).toISOString();
 
-  const { error: updateError } = await supabase
-    .from("auth_sessions")
-    .update({
-      refresh_token_hash: newRefreshTokenHash,
-      expires_at: expiresAt,
-      last_used_at: new Date().toISOString(),
-    })
-    .eq("id", session.id)
-    .is("revoked_at", null);
-
-  if (updateError) {
-    console.error("Failed to rotate refresh token:", updateError);
-
-    return NextResponse.json(
-      { error: "Internal server error" },
-      { status: 500 },
-    );
-  }
+  await rotateAuthSession(session.id, newRefreshTokenHash, expiresAt);
 
   const accessToken = await createAccessToken({
     userId: user.id,
@@ -106,25 +69,9 @@ export async function POST(req: NextRequest) {
     role: user.role,
   });
 
-  const response = NextResponse.json({
-    success: true,
-  });
+  const response = NextResponse.json({ success: true });
 
-  response.cookies.set("access_token", accessToken, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    path: "/",
-    maxAge: 60 * 15,
-  });
-
-  response.cookies.set("refresh_token", newRefreshToken, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    path: "/api/auth",
-    maxAge: REFRESH_TOKEN_DAYS * 24 * 60 * 60,
-  });
+  setAuthCookies(response, accessToken, newRefreshToken);
 
   return response;
 }

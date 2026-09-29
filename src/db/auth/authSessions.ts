@@ -86,3 +86,16 @@ export async function revokeAuthSession(sessionId: string) {
 
   if (error) throw error;
 }
+
+export async function revokeAllAuthSessions(userId: string) {
+  const { error } = await supabase
+    .from("auth_sessions")
+    .update({
+      last_used_at: new Date().toISOString(),
+      revoked_at: new Date().toISOString(),
+    })
+    .eq("user_id", userId)
+    .is("revoked_at", null);
+
+  if (error) throw error;
+}

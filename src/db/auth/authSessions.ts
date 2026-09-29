@@ -43,6 +43,18 @@ export async function getAuthSessionByRefreshTokenHash(
   return session;
 }
 
+export async function getAuthSession(sessionId: string) {
+  const { data: session, error } = await supabase
+    .from("auth_sessions")
+    .select("id, user_id, expires_at, revoked_at")
+    .eq("id", sessionId)
+    .maybeSingle();
+
+  if (error) throw error;
+
+  return session;
+}
+
 export async function rotateAuthSession(
   sessionId: string,
   newRefreshTokenHash: string,
@@ -54,6 +66,20 @@ export async function rotateAuthSession(
       refresh_token_hash: newRefreshTokenHash,
       expires_at: expiresAt,
       last_used_at: new Date().toISOString(),
+      rotated_at: new Date().toISOString(),
+    })
+    .eq("id", sessionId)
+    .is("revoked_at", null);
+
+  if (error) throw error;
+}
+
+export async function revokeAuthSession(sessionId: string) {
+  const { error } = await supabase
+    .from("auth_sessions")
+    .update({
+      last_used_at: new Date().toISOString(),
+      revoked_at: new Date().toISOString(),
     })
     .eq("id", sessionId)
     .is("revoked_at", null);

@@ -1,5 +1,3 @@
-export const DEFAULT_MODEL = "gemini-3.1-flash-lite" as const;
-
 export const AI_MODELS = {
   GEMINI_3_6_FLASH: "gemini-3.6-flash",
   GEMINI_3_5_FLASH: "gemini-3.5-flash",
@@ -11,6 +9,8 @@ export const AI_MODELS = {
 export type ModelId = (typeof AI_MODELS)[keyof typeof AI_MODELS];
 
 export type ModelOption = ModelId;
+
+export const DEFAULT_MODEL: ModelId = "gemini-3.1-flash-lite" as const;
 
 export const MODELS = [
   {

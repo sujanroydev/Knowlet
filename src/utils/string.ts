@@ -20,6 +20,11 @@ export function slugify(value: string): string {
     .replace(/-+/g, "-");
 }
 
+export function truncateText(text: string, numberOfChars: number = 50) {
+  if (text.length <= numberOfChars) return text;
+  return text.slice(0, numberOfChars) + " ...";
+}
+
 export async function streamToText(
   stream: AsyncIterable<{ text?: string }>,
 ): Promise<string> {

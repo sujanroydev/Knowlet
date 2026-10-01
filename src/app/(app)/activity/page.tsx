@@ -3,7 +3,7 @@ import { getDownloads } from "@/actions/user/download";
 import { getHistory } from "@/actions/user/history";
 import { getUserLikes } from "@/actions/user/like";
 import { ResourceInfo } from "@/types/resource";
-import { truncateText } from "@/utils/slugify";
+import { truncateText } from "@/utils/string";
 import {
   Bookmark,
   Clock3,

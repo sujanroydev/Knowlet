@@ -171,12 +171,12 @@ Each question must clearly show:
 
 Example structure:
 
-<p><strong>1. What is ...?</strong> <em>[1 Mark]</em></p>
+<p><strong>1.</strong> What is ...? <em>[1 Mark]</em></p>
 <p><strong>Answer:</strong> ...</p>
 
 For a 5-mark question:
 
-<p><strong>1. Explain ...</strong> <em>[5 Marks]</em></p>
+<p><strong>1.</strong> Explain ... <em>[5 Marks]</em></p>
 <p><strong>Answer:</strong></p>
 <p>...</p>
 <ul>

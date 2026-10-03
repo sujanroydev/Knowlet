@@ -18,7 +18,7 @@ export default function Main({
   special?: boolean;
 }) {
   let groupedItems: Record<string, Item[]>;
-  const orderedTypes = ["notes", "pyqs"];
+  const orderedTypes = ["notes", "questions", "pyqs"];
 
   if (special) {
     groupedItems = items.reduce(
@@ -43,7 +43,7 @@ export default function Main({
         return (
           <section key={type}>
             <h2 className="mb-4 text-xl font-semibold capitalize tracking-[-0.02em] text-foreground">
-              {type === "pyq" ? "PYQ" : type}
+              {type === "pyqs" ? "PYQs" : type}
             </h2>
 
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">

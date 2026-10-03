@@ -340,7 +340,7 @@ export default function ResourceGenerator() {
       subject,
       paper,
       type,
-      target: type.startsWith("Notes") ? "Unit " : "Solved ",
+      target: type.startsWith("PYQs") ? "Solved " : "Unit ",
     });
 
     getNearByResources(path).then((items) => {

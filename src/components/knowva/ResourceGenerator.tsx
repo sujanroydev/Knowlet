@@ -13,7 +13,7 @@ import {
 } from "@/actions/resource";
 import { NewResource } from "@/types/resource";
 import { ActionState } from "@/types/main";
-import { generateResource } from "@/actions/knowva/resource";
+import { generateResource, generateQuestions } from "@/actions/knowva/resource";
 import { slugify } from "@/utils/string";
 import { ModelSelector } from "./ModelSelector";
 import { useKnowva } from "@/context/KnowvaContext";
@@ -197,10 +197,18 @@ export default function ResourceGenerator() {
       // generate
       let generated;
       try {
-        generated = await generateResource({
+        const payload = {
           syllabus: unit.syllabus,
           model,
-        });
+        };
+
+        if (type === "Questions") {
+          generated = await generateQuestions(payload);
+        } else if (type === "Notes") {
+          generated = await generateResource(payload);
+        } else {
+          toast.info("This type of generation is not supported");
+        }
 
         if (stopRequested.current) {
           break;

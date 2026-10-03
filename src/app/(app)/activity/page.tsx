@@ -60,7 +60,7 @@ function ActivitySection<
           {items.map((item) => (
             <Link
               key={item.id}
-              href={`/resources/${item.resource.path}`}
+              href={`/library/${item.resource.path}`}
               className="group relative flex min-h-45 w-65 shrink-0 flex-col overflow-hidden rounded-2xl border border-border bg-card p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-foreground/20 hover:shadow-md"
             >
               <div className="mb-4 flex items-center justify-between">

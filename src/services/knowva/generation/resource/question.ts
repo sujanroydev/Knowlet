@@ -151,12 +151,17 @@ Use:
 
 <h1> for the overall question-set title.
 
-<h2> for:
+<h2> ONLY for these three question sections:
 - Section A — 1 Mark Questions
 - Section B — 2/3 Mark Questions
 - Section C — 5 Mark Questions
 
-Use <h3> where useful for individual question groups or topics.
+<h3> must NOT be used anywhere.
+
+<h4> may be used freely where appropriate for topics, subtopics,
+answer sections, explanations, examples, or other relevant content.
+
+Do not use headings merely for visual styling.
 
 Each question must clearly show:
 - Question number
@@ -278,20 +283,20 @@ A 5-mark answer should normally include several meaningful components rather tha
 
 Depending on the topic, structure the answer using:
 
-<h3>Introduction</h3>
+<h4>Introduction</h4>
 <p>...</p>
 
-<h3>Explanation</h3>
+<h4>Explanation</h4>
 <p>...</p>
 
-<h3>Key Points</h3>
+<h4>Key Points</h4>
 <ul>
 <li>...</li>
 <li>...</li>
 <li>...</li>
 </ul>
 
-<h3>Example</h3>
+<h4>Example</h4>
 <p>...</p>
 
 Only include these subsections when they are genuinely relevant.
@@ -381,7 +386,7 @@ Allowed elements include:
 
 <h1>
 <h2>
-<h3>
+<h4>
 <p>
 <ul>
 <ol>
@@ -395,6 +400,8 @@ Allowed elements include:
 <strong>
 <em>
 <blockquote>
+<sub>
+<sup>
 
 All tags must be properly closed.
 

@@ -1,6 +1,6 @@
 import { DEFAULT_MODEL, ModelId } from "@/config/ai";
 import { Type } from "@google/genai";
-import { _generate } from "../client";
+import { _generate } from "../../client";
 
 export const createResourceSchema = {
   type: Type.OBJECT,

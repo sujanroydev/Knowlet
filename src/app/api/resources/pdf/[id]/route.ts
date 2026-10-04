@@ -64,13 +64,42 @@ export async function GET(
       headerTemplate: `
         <div style="
           width: 100%;
-          text-align: center;
-          font-size: 10px;
-          color: #64748b;
+          padding: 0 15mm;
+          box-sizing: border-box;
+          font-size: 9px;
+          line-height: 1;
+          color: #94a3b8;
           font-family: Arial, Helvetica, sans-serif;
-          font-style: italic;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
         ">
-          Knowledge grows when you keep learning.
+          <!-- Left -->
+          <span style="
+            flex: 1;
+            text-align: left;
+            white-space: nowrap;
+          ">
+            Knowlet
+          </span>
+
+          <!-- Center -->
+          <span style="
+            flex: 1;
+            text-align: center;
+            white-space: nowrap;
+          ">
+            ${generateResourceTitle(resource.path)}
+          </span>
+
+          <!-- Right -->
+          <span style="
+            flex: 1;
+            text-align: right;
+            white-space: nowrap;
+          ">
+            knowlet.in
+          </span>
         </div>
       `,
 

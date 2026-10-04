@@ -4,7 +4,11 @@ import { Resource } from "@/types/resource";
 import { processResourceHtml, renderToc } from "@/utils/resource";
 
 export function createResourcePdfHtml(resource: Resource) {
-  const styles = getResourceStyles({ uuid: resource.id! });
+  const resourceStyles = getResourceStyles({ uuid: resource.id });
+
+  const style = Object.entries(resourceStyles)
+    .map(([key, value]) => `${key}: ${value};`)
+    .join(" ");
 
   const css = getPdfCss();
 
@@ -22,7 +26,7 @@ export function createResourcePdfHtml(resource: Resource) {
       </head>
 
       <body>
-        <div class="resource-content" style="${styles}">
+        <div class="resource-content" style="${style}">
           ${resource.title && `<h1>${resource.title}</h1>`}
           ${
             toc &&

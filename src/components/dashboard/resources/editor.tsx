@@ -12,6 +12,7 @@ import { Resource } from "@/types/resource";
 import { useResourceEditor } from "@/context/ResourceEditorContext";
 import { useKnowva } from "@/context/KnowvaContext";
 import type { Message } from "@/types/knowva";
+import { titleCase } from "@/utils/string";
 
 export default function ResourceEditor() {
   const [newResource, setNewResource] = useState<Resource>();
@@ -106,7 +107,7 @@ export default function ResourceEditor() {
           {preview ? (
             <ResourcePreview
               content={content}
-              title={details.title}
+              title={`${titleCase(details.target!)}: ${details.title}`}
               description={details.description}
             />
           ) : (

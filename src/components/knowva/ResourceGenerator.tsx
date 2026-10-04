@@ -326,9 +326,11 @@ export default function ResourceGenerator() {
         error: undefined,
       })),
     );
+
+    loadNearByResources();
   }
 
-  useEffect(() => {
+  function loadNearByResources() {
     const { type, level, subject, paper } = details;
 
     if (!type || !level || !subject) return;
@@ -359,6 +361,10 @@ export default function ResourceGenerator() {
       );
       setExistingTargets(items);
     });
+  }
+
+  useEffect(() => {
+    loadNearByResources();
   }, [details]);
 
   return (

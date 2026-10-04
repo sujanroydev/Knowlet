@@ -11,6 +11,7 @@ import { useTheme } from "@/context/ThemeContext";
 import { useHeader } from "@/context/HeaderContext";
 import { useReader } from "@/context/ReaderContext";
 import { processResourceHtml, renderToc } from "@/utils/resource";
+import { titleCase } from "@/utils/string";
 
 export default function Content({ resource }: { resource: any }) {
   if (!resource) notFound();
@@ -41,7 +42,11 @@ export default function Content({ resource }: { resource: any }) {
       </div>
 
       <div className="resource-content" style={style}>
-        {resource.title && <h1>{resource.title}</h1>}
+        {resource.title && (
+          <h1>
+            {titleCase(resource.target)}: {resource.title}
+          </h1>
+        )}
         {toc && (
           <nav
             className="toc"

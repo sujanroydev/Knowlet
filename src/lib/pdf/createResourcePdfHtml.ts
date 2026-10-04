@@ -2,6 +2,7 @@ import { getResourceStyles } from "@/config/resourceThemes";
 import { getPdfCss } from "@/lib/pdf/getPdfCss";
 import { Resource } from "@/types/resource";
 import { processResourceHtml, renderToc } from "@/utils/resource";
+import { titleCase } from "@/utils/string";
 
 export function createResourcePdfHtml(resource: Resource) {
   const resourceStyles = getResourceStyles({ uuid: resource.id });
@@ -27,7 +28,7 @@ export function createResourcePdfHtml(resource: Resource) {
 
       <body>
         <div class="resource-content" style="${style}">
-          ${resource.title && `<h1>${resource.title}</h1>`}
+          ${resource.title && `<h1>${titleCase(resource.target!)}: ${resource.title}</h1>`}
           ${
             toc &&
             `<nav

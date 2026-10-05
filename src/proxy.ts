@@ -107,11 +107,11 @@ export async function proxy(req: NextRequest) {
   if (pathname.startsWith("/dashboard")) {
     const { payload, response } = await authenticate(req);
 
-    if (!payload) return response;
-
-    if (payload.role !== "admin") {
+    if (payload && payload.role !== "admin") {
       return NextResponse.redirect(new URL("/forbidden", req.url));
     }
+
+    return response;
   }
 
   if (pathname.startsWith("/signup")) {

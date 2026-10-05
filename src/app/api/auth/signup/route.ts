@@ -103,7 +103,7 @@ export async function POST(request: NextRequest) {
 
     response.cookies.delete("referral_code");
 
-    setAuthCookies(response, accessToken, refreshToken);
+    setAuthCookies(response.cookies, accessToken, refreshToken);
 
     void sendWelcomeEmail({ email, name }).catch((error) => {
       console.error("Failed to send welcome email:", error);

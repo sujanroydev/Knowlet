@@ -68,7 +68,7 @@ export async function POST(req: NextRequest) {
 
     const response = NextResponse.json({ user }, { status: 200 });
 
-    setAuthCookies(response, accessToken, refreshToken);
+    setAuthCookies(response.cookies, accessToken, refreshToken);
 
     return response;
   } catch (error) {

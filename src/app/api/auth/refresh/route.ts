@@ -71,7 +71,7 @@ export async function POST(req: NextRequest) {
 
   const response = NextResponse.json({ success: true });
 
-  setAuthCookies(response, accessToken, newRefreshToken);
+  setAuthCookies(response.cookies, accessToken, newRefreshToken);
 
   return response;
 }

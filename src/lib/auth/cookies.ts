@@ -1,13 +1,16 @@
 import { NextResponse } from "next/server";
+import { type ResponseCookies } from "next/dist/compiled/@edge-runtime/cookies";
+
+type AuthCookies = NextResponse["cookies"] | ResponseCookies;
 
 export function setAuthCookies(
-  response: NextResponse,
+  cookies: AuthCookies,
   accessToken: string,
   refreshToken: string,
 ) {
   const secure = process.env.NODE_ENV === "production";
 
-  response.cookies.set("access_token", accessToken, {
+  cookies.set("access_token", accessToken, {
     httpOnly: true,
     sameSite: "lax",
     secure,
@@ -15,7 +18,7 @@ export function setAuthCookies(
     maxAge: 60 * 15,
   });
 
-  response.cookies.set("refresh_token", refreshToken, {
+  cookies.set("refresh_token", refreshToken, {
     httpOnly: true,
     sameSite: "lax",
     secure,
@@ -24,7 +27,7 @@ export function setAuthCookies(
   });
 }
 
-export function clearAuthCookies(response: NextResponse) {
-  response.cookies.delete("access_token");
-  response.cookies.delete("refresh_token");
+export function clearAuthCookies(cookies: AuthCookies) {
+  cookies.delete("access_token");
+  cookies.delete("refresh_token");
 }

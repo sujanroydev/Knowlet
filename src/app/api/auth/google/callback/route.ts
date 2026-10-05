@@ -100,7 +100,7 @@ export async function GET(req: NextRequest) {
 
       const response = NextResponse.redirect(process.env.NEXT_PUBLIC_APP_URL!);
 
-      setAuthCookies(response, accessToken, refreshToken);
+      setAuthCookies(response.cookies, accessToken, refreshToken);
 
       return response;
     }
@@ -142,7 +142,7 @@ export async function GET(req: NextRequest) {
 
     response.cookies.delete("referral_code");
 
-    setAuthCookies(response, accessToken, refreshToken);
+    setAuthCookies(response.cookies, accessToken, refreshToken);
 
     void sendWelcomeEmail({
       email: googleUser.email,

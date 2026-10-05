@@ -1,7 +1,3 @@
-"use server";
-
-import { cookies } from "next/headers";
-
 import {
   createAccessToken,
   createRefreshToken,
@@ -11,19 +7,15 @@ import {
   getAuthSessionByRefreshTokenHash,
   rotateAuthSession,
 } from "@/db/auth/authSessions";
-
 import { getUserById } from "@/db/user";
 import { setAuthCookies } from "@/lib/auth/cookies";
 
 const REFRESH_TOKEN_DAYS = 30;
 
-export async function refreshAccessToken(): Promise<boolean> {
-  const cookieStore = await cookies();
-
-  const refreshToken = cookieStore.get("refresh_token")?.value;
-
-  if (!refreshToken) return false;
-
+export async function refreshAccessToken(
+  refreshToken: string,
+  setCookies: Parameters<typeof setAuthCookies>[0],
+): Promise<boolean> {
   const refreshTokenHash = hashRefreshToken(refreshToken);
 
   const session = await getAuthSessionByRefreshTokenHash(refreshTokenHash);
@@ -38,7 +30,6 @@ export async function refreshAccessToken(): Promise<boolean> {
 
   if (!user || !user.is_active) return false;
 
-  // Rotate the refresh token.
   const newRefreshToken = createRefreshToken();
   const newRefreshTokenHash = hashRefreshToken(newRefreshToken);
 
@@ -54,7 +45,7 @@ export async function refreshAccessToken(): Promise<boolean> {
     role: user.role,
   });
 
-  setAuthCookies(cookieStore, accessToken, newRefreshToken);
+  setAuthCookies(setCookies, accessToken, newRefreshToken);
 
   return true;
 }

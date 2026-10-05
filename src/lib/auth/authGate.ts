@@ -14,7 +14,7 @@ export async function authGate(req: NextRequest, role?: UserRole) {
       { status: 401 },
     );
 
-    clearAuthCookies(res);
+    clearAuthCookies(res.cookies);
 
     return { ok: false, res };
   }

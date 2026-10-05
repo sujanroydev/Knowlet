@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
 
   const res = NextResponse.json({ success: true });
 
-  clearAuthCookies(res);
+  clearAuthCookies(res.cookies);
 
   return res;
 }

@@ -10,7 +10,7 @@ function slugify(value: string) {
 function redirectToSignin(req: NextRequest) {
   const res = NextResponse.redirect(new URL("/signin", req.url));
 
-  clearAuthCookies(res);
+  clearAuthCookies(res.cookies);
 
   return res;
 }
